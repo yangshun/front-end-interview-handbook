@@ -11,17 +11,19 @@
   </p>
 </div>
 
-# Front-end Job Interview Questions
+## What is this?
 
 Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Job Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
+While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
 ## Table of Contents
 
 1. [HTML Questions](#html-questions)
 1. [CSS Questions](#css-questions)
 1. [JS Questions](#js-questions)
+
+===
 
 ## HTML Questions
 
@@ -202,6 +204,8 @@ Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a f
 
 * https://neal.codes/blog/front-end-interview-questions-html/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+
+===
 
 ## CSS Questions
 
@@ -614,6 +618,8 @@ When using `translate()`, the element still takes up its original space (sort of
 * https://neal.codes/blog/front-end-interview-css-questions
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+
+===
 
 ## JS Questions
 
