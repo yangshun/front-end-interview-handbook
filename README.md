@@ -23,7 +23,7 @@ While there are some existing resources to help front end developers in preparin
 1. [CSS Questions](#css-questions)
 1. [JS Questions](#js-questions)
 
-===
+---
 
 ## HTML Questions
 
@@ -205,7 +205,7 @@ Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a f
 * https://neal.codes/blog/front-end-interview-questions-html/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
-===
+---
 
 ## CSS Questions
 
@@ -619,7 +619,7 @@ When using `translate()`, the element still takes up its original space (sort of
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
-===
+---
 
 ## JS Questions
 
