@@ -19,7 +19,7 @@ While there are some existing resources to help front end developers in preparin
 
 ## Table of Contents
 
-### [HTML Questions](#html-questions)
+**[HTML Questions](#html-questions)**
 
 * [What does a doctype do?](#what-does-a-doctype-do)
 * [How do you serve a page with content in multiple languages?](#are-there-any-problems-with-serving-pages-as-applicationxhtmlxml)
@@ -33,7 +33,7 @@ While there are some existing resources to help front end developers in preparin
 * Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 * [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
-### [CSS Questions](#css-questions)
+**[CSS Questions](#css-questions)**
 
 * [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
 * [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
@@ -66,7 +66,7 @@ While there are some existing resources to help front end developers in preparin
 * [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
 * [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
 
-### [JS Questions](#js-questions)
+**[JS Questions](#js-questions)**
 
 * Explain event delegation
 * Explain how this works in JavaScript
