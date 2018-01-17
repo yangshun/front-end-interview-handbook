@@ -19,7 +19,7 @@ While there are some existing resources to help front end developers in preparin
 
 ## Table of Contents
 
-1. [HTML Questions](#html-questions)
+### [HTML Questions](#html-questions)
 
 * [What does a doctype do?](#what-does-a-doctype-do)
 * [How do you serve a page with content in multiple languages?](#are-there-any-problems-with-serving-pages-as-applicationxhtmlxml)
@@ -30,16 +30,16 @@ While there are some existing resources to help front end developers in preparin
 * [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
 * [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
 * [What is progressive rendering?](#what-is-progressive-rendering)
-* Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+* Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 * [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
-1. [CSS Questions](#css-questions)
+### [CSS Questions](#css-questions)
 
 * [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
 * [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
 * [Describe `float`s and how they work.](#describe-floats-and-how-they-work)
 * [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
-* [Describe BFC(Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
+* [Describe BFC (Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
 * [What are the various clearing techniques and which is appropriate for what context?](#what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
 * [Explain CSS sprites, and how you would implement them on a page or site.](#explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site)
 * [How would you approach fixing browser-specific styling issues?](#how-would-you-approach-fixing-browser-specific-styling-issues)
@@ -66,7 +66,7 @@ While there are some existing resources to help front end developers in preparin
 * [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
 * [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
 
-1. [JS Questions](#js-questions)
+### [JS Questions](#js-questions)
 
 * Explain event delegation
 * Explain how this works in JavaScript
