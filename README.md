@@ -20,8 +20,99 @@ While there are some existing resources to help front end developers in preparin
 ## Table of Contents
 
 1. [HTML Questions](#html-questions)
+
+* [What does a doctype do?](#what-does-a-doctype-do)
+* [How do you serve a page with content in multiple languages?](#are-there-any-problems-with-serving-pages-as-applicationxhtmlxml)
+* [What kind of things must you be wary of when design or developing for multilingual sites?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+* [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
+* [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
+* [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
+* [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
+* [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
+* [What is progressive rendering?](#what-is-progressive-rendering)
+* Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+* [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+
 1. [CSS Questions](#css-questions)
+
+* [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
+* [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
+* [Describe `float`s and how they work.](#describe-floats-and-how-they-work)
+* [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
+* [Describe BFC(Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
+* [What are the various clearing techniques and which is appropriate for what context?](#what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
+* [Explain CSS sprites, and how you would implement them on a page or site.](#explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site)
+* [How would you approach fixing browser-specific styling issues?](#how-would-you-approach-fixing-browser-specific-styling-issues)
+* [How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?](#how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniquesprocesses-do-you-use)
+* [What are the different ways to visually hide content (and make it available only for screen readers)?](#what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers)
+* [Have you ever used a grid system, and if so, what do you prefer?](#have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer)
+* [Have you used or implemented media queries or mobile specific layouts/CSS?](#have-you-used-or-implemented-media-queries-or-mobile-specific-layoutscss)
+* [Are you familiar with styling SVG?](#are-you-familiar-with-styling-svg)
+* Can you give an example of an @media property other than screen? (TODO)
+* [What are some of the "gotchas" for writing efficient CSS?](#what-are-some-of-the-gotchas-for-writing-efficient-css)
+* [What are the advantages/disadvantages of using CSS preprocessors?](#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
+* [Describe what you like and dislike about the CSS preprocessors you have used.](#describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used)
+* [How would you implement a web design comp that uses non-standard fonts?](#how-would-you-implement-a-web-design-comp-that-uses-non-standard-fonts)
+* [Explain how a browser determines what elements match a CSS selector.](#explain-how-a-browser-determines-what-elements-match-a-css-selector)
+* [Describe pseudo-elements and discuss what they are used for.](#describe-pseudo-elements-and-discuss-what-they-are-used-for)
+* [Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.](#explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
+* [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
+* [What is the CSS `display` property and can you give a few examples of its use? (TODO)](#list-as-many-values-for-the-display-property-that-you-can-remember)
+* [What's the difference between `inline` and `inline-block`?](#whats-the-difference-between-inline-and-inline-block)
+* [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-static-ally-positioned-element)
+* [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
+* [Have you played around with the new CSS Flexbox or Grid specs?](#have-you-played-around-with-the-new-css-flexbox-or-grid-specs)
+* Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy? (TODO)
+* [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
+* [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
+
 1. [JS Questions](#js-questions)
+
+* Explain event delegation
+* Explain how this works in JavaScript
+* Explain how prototypal inheritance works
+* What do you think of AMD vs CommonJS?
+* Explain why the following doesn't work as an IIFE: function foo(){ }();. What needs to be changed to properly make it an IIFE?
+* What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+* What is a closure, and how/why would you use one?
+* Can you describe the main difference between a `forEach` loop and a `.map()` loop and why you would pick one versus the other?
+* What's a typical use case for anonymous functions?
+* How do you organize your code? (module pattern, classical inheritance?)
+* What's the difference between host objects and native objects?
+* Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?
+* What's the difference between `.call` and `.apply`?
+* Explain `Function.prototype.bind`.
+* When would you use `document.write()`?
+* What's the difference between feature detection, feature inference, and using the UA string?
+* Explain Ajax in as much detail as possible.
+* What are the advantages and disadvantages of using Ajax?
+* Explain how JSONP works (and how it's not really Ajax).
+* Have you ever used JavaScript templating? If so, what libraries have you used?
+* Explain "hoisting".
+* Describe event bubbling.
+* What's the difference between an "attribute" and a "property"?
+* Why is extending built-in JavaScript objects not a good idea?
+* Difference between document load event and document DOMContentLoaded event?
+* What is the difference between `==` and `===`?
+* Explain the same-origin policy with regards to JavaScript.
+* Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`
+* Why is it called a Ternary expression, what does the word "Ternary" indicate?
+* What is "use strict";? what are the advantages and disadvantages to using it?
+* Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5
+* Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+* Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+* Explain what a single page app is and how to make one SEO-friendly.
+* What is the extent of your experience with Promises and/or their polyfills?
+* What are the pros and cons of using Promises instead of callbacks?
+* What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+* What tools and techniques do you use debugging JavaScript code?
+* What language constructions do you use for iterating over object properties and array items?
+* Explain the difference between mutable and immutable objects.
+* Explain the difference between synchronous and asynchronous functions.
+* What is event loop? What is the difference between call stack and task queue?
+* Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
+* What are the differences between variables created using `let`, `var` or `const`?
+* What are the differences between ES6 class and ES5 function constructors?
 
 ---
 
@@ -39,43 +130,6 @@ Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
 
 * https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
 * https://www.w3.org/QA/Tips/Doctype
-
-### What's the difference between full standards mode, almost standards mode and quirks mode?
-
-* **Quirks mode** - Layout emulates non-standard behavior in Netscape Navigator 4 and Internet Explorer 5. This is essential in order to support websites that were built before the widespread adoption of web standards. The list of quirks can be found [here](https://developer.mozilla.org/en-US/docs/Mozilla/Mozilla_quirks_mode_behavior).
-* **Full standards mode** - The layout behavior is the one described by the HTML and CSS specifications.
-* **Almost standards mode** - There are only a very small number of quirks implemented. Differences can be found [here](https://developer.mozilla.org/en-US/docs/Gecko's_Almost_Standards_Mode).
-
-###### References
-
-* https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode
-
-### What's the difference between HTML and XHTML?
-
-XHTML belongs to the family of XML markups languages and is different from HTML. Some of differences are as follows:
-
-* XHTML documents have to be well-formed, unlike HTML, which is more forgiving.
-* XHTML is case-sensitive for element and attribute names, while HTML is not.
-* Raw `<` and `&` characters are not allowed except inside of `CDATA` Sections (`<![CDATA[ ... ]]>`). JavaScript typically contains characters which can not exist in XHTML outside of CDATA Sections, such as the `<` operator. Hence it is tricky to use inline `styles` or `script` tags in XHTML and should be avoided.
-* A fatal parse error in XML (such as an incorrect tag structure) causes document processing to be aborted.
-
-Full list of differences can be found on [Wikipedia](https://en.wikipedia.org/wiki/XHTML#Relationship_to_HTML).
-
-###### References
-
-* https://developer.mozilla.org/en-US/docs/Archive/Web/Properly_Using_CSS_and_JavaScript_in_XHTML_Documents_
-* https://en.wikipedia.org/wiki/XHTML
-
-### Are there any problems with serving pages as `application/xhtml+xml`?
-
-Basically the problems lie in the differences between parsing HTML and XML as mentioned above.
-
-* XHTML, or rather, XML syntax is less forgiving and if your page isn't fully XML-compliant, there will be parsing errors and users get unreadable content.
-* Serving your pages as `application/xhtml+xml` will cause Internet Explorer 8 to show a download dialog box for an unknown format instead of displaying your page, as the first version of Internet Explorer with support for XHTML is Internet Explorer 9.
-
-###### References
-
-* https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode#XHTML
 
 ### How do you serve a page with content in multiple languages?
 
@@ -211,6 +265,26 @@ Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a f
 
 Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions). Pull requests for suggestions and corrections are welcome!
 
+### What is CSS selector specificity and how does it work?
+
+The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
+
+1. `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
+2. `b` is the number of ID selectors.
+3. `c` is the number of classes, attributes and pseudo-classes selectors.
+4. `d` is the number of tags and pseudo-elements selectors.
+
+The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
+
+In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+
+I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
+
+###### References
+
+* https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
+* https://www.sitepoint.com/web-foundations/specificity/
+
 ### What is the difference between classes and IDs in CSS?
 
 * **IDs** - Meant to be unique within the document. Can be used to identify an element when linking using a fragment identifier. Elements can only have one `id` attribute.
@@ -318,16 +392,6 @@ CSS sprites combine multiple images into one single larger image. It is commonly
 ###### References
 
 * https://css-tricks.com/css-sprites/
-
-### What are your favorite image replacement techniques and which do you use when?
-
-CSS image replacement is a technique of replacing a text element (usually a header tag like an `<h1>`) with an image (often a logo). It has its origins in the time before web fonts and SVG. For years, web developers battled against browser inconsistencies to craft image replacement techniques that struck the right balance between design and accessibility.
-
-It's not really relevant these days. Check out the link below for all the available techniques.
-
-###### References
-
-* https://css-tricks.com/the-image-replacement-museum/
 
 ### How would you approach fixing browser-specific styling issues?
 
@@ -538,26 +602,6 @@ A positioned element is an element whose computed `position` property is either 
 ###### References
 
 * https://developer.mozilla.org/en/docs/Web/CSS/position
-
-### The 'C' in CSS stands for Cascading. How is priority determined in assigning styles (a few examples)? How can you use this system to your advantage?
-
-Browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
-
-1. `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
-2. `b` is the number of ID selectors.
-3. `c` is the number of classes, attributes and pseudo-classes selectors.
-4. `d` is the number of tags and pseudo-elements selectors.
-
-The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
-
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
-
-I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
-
-###### References
-
-* https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
-* https://www.sitepoint.com/web-foundations/specificity/
 
 ### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 
