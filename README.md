@@ -22,8 +22,8 @@ While there are some existing resources to help front end developers in preparin
 **[HTML Questions](#html-questions)**
 
 * [What does a doctype do?](#what-does-a-doctype-do)
-* [How do you serve a page with content in multiple languages?](#are-there-any-problems-with-serving-pages-as-applicationxhtmlxml)
-* [What kind of things must you be wary of when design or developing for multilingual sites?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+* [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+* [What kind of things must you be wary of when design or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
 * [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
 * [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
 * [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
