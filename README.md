@@ -57,7 +57,7 @@ While there are some existing resources to help front end developers in preparin
 * [Describe pseudo-elements and discuss what they are used for.](#describe-pseudo-elements-and-discuss-what-they-are-used-for)
 * [Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.](#explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
 * [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
-* [What is the CSS `display` property and can you give a few examples of its use? (TODO)](#list-as-many-values-for-the-display-property-that-you-can-remember)
+* [What is the CSS `display` property and can you give a few examples of its use?](#what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use)
 * [What's the difference between `inline` and `inline-block`?](#whats-the-difference-between-inline-and-inline-block)
 * [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-static-ally-positioned-element)
 * [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
@@ -295,16 +295,6 @@ I would write CSS rules with low specificity so that they can be easily overridd
 * https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 * https://www.sitepoint.com/web-foundations/specificity/
 
-### What is the difference between classes and IDs in CSS?
-
-* **IDs** - Meant to be unique within the document. Can be used to identify an element when linking using a fragment identifier. Elements can only have one `id` attribute.
-* **Classes** - Can be reused on multiple elements within the document. Mainly for styling and targeting elements.
-
-###### References
-
-* https://www.w3.org/TR/CSS1/#id-as-selector
-* https://www.w3.org/TR/CSS1/#class-as-selector
-
 ### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
 
 * **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
@@ -449,43 +439,9 @@ Yes. An example would be transforming a stacked pill navigation into a fixed-bot
 
 No... Sadly.
 
-### How do you optimize your webpages for print?
+### Can you give an example of an @media property other than screen?
 
-* Create a stylesheet for print or use media queries.
-
-```html
-<!-- Main stylesheet on top -->
-<link rel="stylesheet" href="/global.css" media="all" />
-<!-- Print only, on bottom -->
-<link rel="stylesheet" href="/print.css" media="print" />
-```
-
-Make sure to put non-print styles inside `@media screen { ... }`.
-
-```css
-@media print {
-  ...;
-}
-```
-
-* Deliberately add page breaks.
-
-```html
-<style>
-.page-break {
-  display: none;
-  page-break-before: always;
-}
-</style>
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce eu felis. Curabitur sit amet magna. Nullam aliquet. Aliquam ut diam...
-<div class="page-break"></div>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit....
-```
-
-###### References
-
-* https://davidwalsh.name/optimizing-structure-print-css
+TODO
 
 ### What are some of the "gotchas" for writing efficient CSS?
 
@@ -582,9 +538,11 @@ The box model has the following rules:
 * The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width.
 * The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
 
-### List as many values for the `display` property that you can remember.
+### What is the CSS `display` property and can you give a few examples of its use?
 
 * `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
+
+TODO
 
 ### What's the difference between `inline` and `inline-block`?
 
@@ -599,7 +557,7 @@ I shall throw in a comparison with `block` for good measure.
 | Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
 | Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
 
-### What's the difference between a `relative`, `fixed`, `absolute` and `static`-ally positioned element?\*\*
+### What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?
 
 A positioned element is an element whose computed `position` property is either `relative`, `absolute`, `fixed` or `sticky`.
 
@@ -630,6 +588,10 @@ Grid is by far the most intuitive approach for creating grid-based layouts (it b
 ###### References
 
 * https://philipwalton.github.io/solved-by-flexbox/
+
+### Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
+
+TODO
 
 ### How is responsive design different from adaptive design?
 
@@ -798,6 +760,10 @@ A closure is the combination of a function and the lexical environment within wh
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
+
+### Can you describe the main difference between a `forEach` loop and a `.map()` loop and why you would pick one versus the other?
+
+TODO
 
 ### What's a typical use case for anonymous functions?
 
@@ -1090,7 +1056,7 @@ The only time you may want to extend a native object is when you want to create 
 
 * http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-### Difference between document load event and document DOMContentLoaded event?
+### Difference between document `load` event and document `DOMContentLoaded` event?
 
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 
@@ -1373,6 +1339,50 @@ var foo = function() {
 ###### References
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+
+### What are the differences between variables created using `let`, `var` or `const`?
+
+TODO
+
+### What are the differences between ES6 class and ES5 function constructors?
+
+TODO
+
+### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
+
+TODO
+
+### What advantage is there for using the arrow syntax for a method in a constructor?
+
+TODO
+
+### What is the definition of a higher-order function?
+
+TODO
+
+### Can you give an example for destructuring an object or an array?
+
+TODO
+
+### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+
+TODO
+
+### Can you give an example of a curry function and why this syntax offers an advantage?
+
+TODO
+
+### What are the benefits of using spread syntax and how is it different from rest syntax?
+
+TODO
+
+### How can you share code between files?
+
+TODO
+
+### Why you might want to create static class members?
+
+TODO
 
 ### Other Answers
 
