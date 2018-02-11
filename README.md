@@ -129,9 +129,9 @@ While there are some existing resources to help front end developers in preparin
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions). Pull requests for suggestions and corrections are welcome!
 
-### What does a `doctype` do?
+### What does a `DOCTYPE` do?
 
-`doctype` is an abbreviation for document type. It is a declaration used in HTML5 to distinguish between a standards-compliant parsing mode and a quirks parsing mode. Hence its presence tells the browser to parse and render the webpage in standards mode.
+`DOCTYPE` is an abbreviation for “document type”. It is a declaration used in HTML to distinguish between standards mode and [quirks mode](https://quirks.spec.whatwg.org/#history). Its presence tells the browser to render the web page in standards mode.
 
 Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
 
@@ -139,6 +139,7 @@ Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
 
 * https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
 * https://www.w3.org/QA/Tips/Doctype
+* https://quirks.spec.whatwg.org/#history
 
 ### How do you serve a page with content in multiple languages?
 
