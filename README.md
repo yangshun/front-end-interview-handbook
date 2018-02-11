@@ -72,10 +72,10 @@ While there are some existing resources to help front end developers in preparin
 * [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript)
 * [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
 * [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
-* [Explain why the following doesn't work as an IIFE: function foo(){ }();. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
+* [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
 * [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 * [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
-* [Can you describe the main difference between a `forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
+* [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
 * [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
 * [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
 * [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
@@ -771,9 +771,9 @@ To understand the differences between the two, let's look at what each function 
 
 **`forEach`**
 
-- Iterates through the elements in an array.
-- Executes a callback for each element.
-- Does not return a value.
+* Iterates through the elements in an array.
+* Executes a callback for each element.
+* Does not return a value.
 
 ```js
 const a = [1, 2, 3];
@@ -786,8 +786,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
-- Iterates through the elements in an array.
-- "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+* Iterates through the elements in an array.
+* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
 
 ```js
 const a = [1, 2, 3];
