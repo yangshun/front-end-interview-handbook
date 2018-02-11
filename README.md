@@ -769,40 +769,36 @@ A closure is the combination of a function and the lexical environment within wh
 
 To understand the differences between the two, let's look at what each function does.
 
-#### forEach
+**`forEach`**
+
 - Iterates through the elements in an array.
 - Executes a callback for each element.
-- Returns `undefined`.
+- Does not return a value.
 
 ```js
-let a = [1, 2, 3];
-let doubled = a.forEach((num, index) => {
-    a[index] = num * 2;
+const a = [1, 2, 3];
+const doubled = a.forEach((num, index) => {
+  // Do something with num and/or index.
 });
-```
-```
-// a = [2, 4, 6]
+
 // doubled = undefined
 ```
-#### map
+
+**`map`**
+
 - Iterates through the elements in an array.
-- Creates a new array with the results of calling a provided function on every element in the calling array.
+- "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
 
 ```js
-let a = [1, 2, 3];
-
-let doubled = a.map(num => {
-    return num * 2;
+const a = [1, 2, 3];
+const doubled = a.map(num => {
+  return num * 2;
 });
-```
 
-```
-// a = [1, 2, 3]
 // doubled = [2, 4, 6]
-
 ```
 
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an Array, `forEach` is a fine choice.
+The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
 
 ###### References
 
