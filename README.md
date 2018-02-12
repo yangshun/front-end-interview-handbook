@@ -1524,7 +1524,37 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
-TODO
+ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature gets a lot of use in projects using Redux or RX.js.
+
+```js
+function putDookieInAnyArray(arr) {
+  return [...arr, "dookie"];
+}
+
+var result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+
+var person = {
+  name: "Todd",
+  age: 29
+};
+
+var copyOfTodd = {...person};
+```
+
+ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, but it only works in function arguments.
+
+```js
+function addFiveToABunchOfNumbers(...numbers) {
+  return numbers.map(x => x + 5);
+}
+
+var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+```
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 ### How can you share code between files?
 
