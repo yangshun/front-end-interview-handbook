@@ -1567,7 +1567,52 @@ Use **higher-order function** to make your code easy to reason about and improve
 
 ### Can you give an example for destructuring an object or an array?
 
-TODO
+Destructuring is an expression available in ES6 which enables a succint and convenient way to extract values of Objects or Arrays, 
+and place them into distinct variables.
+
+Basic Array destructuring:
+
+```js
+// Variable assignment
+var foo = ['one', 'two', 'three'];
+
+var [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+```
+```js
+// Swapping variables
+var a = 1;
+var b = 3;
+
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1
+
+```
+Basic Object destructuring:
+
+```js
+// Variable assignment
+var o = {p: 42, q: true};
+var {p, q} = o;
+
+console.log(p); // 42
+console.log(q); // true
+
+```
+```js
+// Assignment without declaration
+var a, b;
+
+({a, b} = {a: 1, b: 2});
+
+```
+
+###### References
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+* https://ponyfoo.com/articles/es6-destructuring-in-depth
 
 ### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
