@@ -1674,7 +1674,7 @@ var person = {
 var copyOfTodd = { ...person };
 ```
 
-ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, but it only works in function arguments.
+ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
@@ -1682,12 +1682,22 @@ function addFiveToABunchOfNumbers(...numbers) {
 }
 
 var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+
+var [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
+
+var {a, b, ...rest} = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4
+}; // a: 1, b:2, rest: { c: 3, d: 4 }
 ```
 
 ###### References
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
 ### How can you share code between files?
 
