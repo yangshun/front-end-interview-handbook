@@ -1397,7 +1397,90 @@ TODO
 
 ### What is the definition of a higher-order function?
 
-TODO
+A **higher order function** is a function that takes a function as an argument, or returns a function. Higher order function is in contrast to first order functions, which don’t take a function as an argument or return a function as output. Higher order function can help you to step up your JavaScript skills by making your code more declarative. The three most used higher-order function in javascript are `map, filter and reduce` of `Array` object.
+
+##### Map
+Let say we have an array of names which we need to transform each element to uppercase string.
+
+`const names = ['irish', 'daisy', 'anna']`;
+
+The imperative way will be like:
+
+```js
+const transformNamesToUppercase = names => {
+  const results = [];
+  for (let i=0; i<names.length; i++){
+    results.push(names[i].toUpperCase());
+  }
+  return results;
+};
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+```
+
+Use `.map(transformerFn)` to become more simplified, easy to reason about and declarative.
+
+```js
+const transformNamesToUppercase = names => names.map(name => name.toUpperCase());
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+```
+##### Filter
+We want to filter all names which their initial character starts with **i**.
+
+The imperative way will be like:
+
+```js
+const filterNames = names => {
+  const results = [];
+  for (let i=0; i<names.length; i++){
+    const name = names[i];
+    if(name.startsWith('i')){
+      results.push(name);
+    }
+  }
+  return results;
+};
+filterNames(names); // ['IRISH']
+```
+
+Instead using `for loop`, use `.filter(predicateFn)` to look more declarative.
+
+```js
+const filterNames = names => names.filter(name => name.startsWith('i'));
+filterNames(names); // ['IRISH']
+```
+
+##### Reduce
+Sum all the values of an array
+
+`const numbers = [1,2,3,4,5];`
+
+Imperative way:
+
+```js
+const sumOfNumbers = numbers => {
+  let sum = 0;
+  for (let i=0; i<numbers.length; i++){
+    sum+=numbers[i];
+  }
+  return sum;
+};
+sumOfNumbers(numbers) // 15
+```
+
+More declarative using `.reduce(reducerFn)`:
+
+```js
+const sumOfNumbers = numbers => numbers.reduce((total, number) => total+=number, 0);
+sumOfNumbers(numbers) // 15
+```
+
+Use **higher-order function** to make your code easy to reason about and improve the quality of your code. This became your code more **declarative** instead imperative, say **what you want done** not **how to do it**.
+
+###### References
+
+* https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
+* https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
+
 
 ### Can you give an example for destructuring an object or an array?
 
