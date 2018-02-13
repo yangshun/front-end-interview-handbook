@@ -10,7 +10,7 @@
     </em>
   </p>
   <p>
-    <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>
+    <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>
     </em>
   </p>
 </div>
@@ -133,29 +133,31 @@
 
 * * *
 
-## HTML Questions
+## HTML 질문 (HTML Questions)
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions). Pull requests for suggestions and corrections are welcome!
+[프런트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 답변.
+풀리퀘스트를 통한 제안 및 수정 요청을 환영합니다.
 
-### What does a `DOCTYPE` do?
+### `DOCTYPE`은 무엇을 합니까? (What does a DOCTYPE do?)
 
-`DOCTYPE` is an abbreviation for “document type”. It is a declaration used in HTML to distinguish between standards mode and [quirks mode](https://quirks.spec.whatwg.org/#history). Its presence tells the browser to render the web page in standards mode.
+`DOCTYPE`은 “document type”의 약어입니다. 이것은 HTML에서 표준모드와 [쿼크모드](https://quirks.spec.whatwg.org/#history)를 구별하기 위해  선언합니다. 이것이 존재하므로써 웹페이지에서 표준모드로 렌더링하도록 브라우저에 지시합니다.
 
-Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
+이야기의 교훈 - 당신의 페이지를 시작 부분에 `<!DOCTYPE html>` 추가하세요.
 
-###### References
+###### 참고문헌 (References)
 
 -   <https://stackoverflow.com/questions/7695044/what-does-doctype-html-do>
 -   <https://www.w3.org/QA/Tips/Doctype>
 -   <https://quirks.spec.whatwg.org/#history>
 
-### How do you serve a page with content in multiple languages?
+### 여러 언어되어 있는 콘텐츠의 페이지를 어떻게 제공합니까? (How do you serve a page with content in multiple languages?)
 
-The question is a little vague, I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page should be displayed only in one consistent language.
+이 질문은 다소 모호합니다. 여러 언어로 제공된 콘텐츠로 페이지를 게재하는 방법이 가장 일반적인 경우지만, 페이지의 콘텐츠는 하나의 일관된 언어로만 표시해야한다고 생각합니다.
 
-When an HTTP request is made to a server, the requesting user agent usually sends information about language preferences, such as in the `Accept-Language` header. The server can then use this information to return a version of the document in the appropriate language if such an alternative is available. The returned HTML document should also declare the `lang` attribute in the `<html>` tag, such as `<html lang="en">...</html>`.
+HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Accept-Language` 헤더와 같은 언어 기본 설정에 대한 정보를 보냅니다. 그런 다음 서버는이 정보를 사용하여 해당 언어가 사용 가능한 경우 해당 언어로 된 문서 버전을 반환 할 수 있습니다. 반환 된 HTML 문서는`<html lang = "en"> ... </ html>`과 같이`<html>`태그에`lang` 속성을 선언해야합니다.
 
-In the back end, the HTML markup will contain `i18n` placeholders and content for the specific language stored in YML or JSON formats. The server then dynamically generates the HTML page with content in that particular language, usually with the help of a back end framework.
+백엔드에서 HTML 마크 업에는 XML 또는 JSON 형식으로 저장된 특정 언어에 대한 `i18n` placeholder(빠져 있는 다른 것을 대신하는 기호나 텍스트의 일부) 및 내용이 포함됩니다. 그런 다음 서버는 일반적으로 백엔드 프레임 워크의 도움을 받아 특정 언어로 된 컨텐츠로 HTML 페이지를 동적으로 생성합니다.
 
 ###### References
 
