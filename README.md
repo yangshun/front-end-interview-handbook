@@ -1567,10 +1567,9 @@ Use **higher-order function** to make your code easy to reason about and improve
 
 ### Can you give an example for destructuring an object or an array?
 
-Destructuring is an expression available in ES6 which enables a succint and convenient way to extract values of Objects or Arrays, 
-and place them into distinct variables.
+Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays, and place them into distinct variables.
 
-Basic Array destructuring:
+**Array destructuring**
 
 ```js
 // Variable assignment
@@ -1583,20 +1582,21 @@ console.log(three); // "three"
 ```
 ```js
 // Swapping variables
-var a = 1;
-var b = 3;
+const a = 1;
+const b = 3;
 
 [a, b] = [b, a];
 console.log(a); // 3
 console.log(b); // 1
 
 ```
-Basic Object destructuring:
+
+**Object destructuring**
 
 ```js
 // Variable assignment
-var o = {p: 42, q: true};
-var {p, q} = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1604,13 +1604,14 @@ console.log(q); // true
 ```
 ```js
 // Assignment without declaration
-var a, b;
+let a, b;
 
 ({a, b} = {a: 1, b: 2});
 
 ```
 
 ###### References
+
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 * https://ponyfoo.com/articles/es6-destructuring-in-depth
 
