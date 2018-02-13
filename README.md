@@ -1381,7 +1381,80 @@ var foo = function() {
 
 ### What are the differences between variables created using `let`, `var` or `const`?
 
-TODO
+Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
+
+```js
+function foo() {
+  // All variables are accessible within functions
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
+
+  console.log(bar); // "bar"
+  console.log(baz); // "baz"
+  console.log(qux); // "qux"
+}
+
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+
+if(true) {
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
+}
+// var declared variables are accessible anywhere in the function scope
+console.log(bar); // "bar"
+// let and const defined variables are not accessible outside of the block they were defined in
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
+
+```js
+console.log(foo); // undefined
+
+var foo = "foo";
+
+console.log(baz); // ReferenceError: can't access lexical declaration `baz' before initialization
+
+let baz = "baz";
+
+console.log(bar); // ReferenceError: can't access lexical declaration `bar' before initialization
+
+const bar = "bar";
+```
+
+Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
+
+```js
+var foo = "foo";
+var foo = "bar";
+console.log(foo); // "bar"
+
+let baz = "baz";
+let baz = "qux"; // SyntaxError: redeclaration of let baz
+```
+
+`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
+
+```js
+  // this is fine
+  let foo = "foo";
+  foo = "bar";
+
+  // this causes an exception
+  const baz = "baz";
+  baz = "qux";
+```
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
@@ -1397,9 +1470,10 @@ TODO
 
 ### What is the definition of a higher-order function?
 
-A **higher order function** is a function that takes a function as an argument, or returns a function. Higher order function is in contrast to first order functions, which don’t take a function as an argument or return a function as output. Higher order function can help you to step up your JavaScript skills by making your code more declarative. The three most used higher-order function in javascript are `map, filter and reduce` of `Array` object.
+A higher-order function is any function that takes another function as a parameter, which it uses to operate on some data, or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Array.prototype.bind` is one such example in JavaScript.
 
 ##### Map
+
 Let say we have an array of names which we need to transform each element to uppercase string.
 
 `const names = ['irish', 'daisy', 'anna']`;
@@ -1424,6 +1498,7 @@ const transformNamesToUppercase = names => names.map(name => name.toUpperCase())
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 ##### Filter
+
 We want to filter all names which their initial character starts with **i**.
 
 The imperative way will be like:
@@ -1450,6 +1525,7 @@ filterNames(names); // ['IRISH']
 ```
 
 ##### Reduce
+
 Sum all the values of an array
 
 `const numbers = [1,2,3,4,5];`
@@ -1480,7 +1556,7 @@ Use **higher-order function** to make your code easy to reason about and improve
 
 * https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
 * https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
-
+* https://eloquentjavascript.net/05_higher_order.html
 
 ### Can you give an example for destructuring an object or an array?
 
@@ -1492,11 +1568,74 @@ TODO
 
 ### Can you give an example of a curry function and why this syntax offers an advantage?
 
-TODO
+Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each take one parameter.
+
+```js
+
+function curry(fn) {
+  if(fn.length === 0) {
+    return fn;
+  }
+
+  function _curried(depth, args) {
+    return function(newArgument) {
+      if(depth - 1 === 0) {
+        return fn(...args, newArgument);
+      }
+      return _curried(depth - 1, [...args, newArgument]);
+    }
+  }
+
+  return _curried(fn.length, []);
+}
+
+function add(a, b) {
+  return a + b;
+}
+
+var curriedAdd = curry(add);
+var addFive = curriedAdd(5);
+
+var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
+```
+
+###### References
+
+* https://hackernoon.com/currying-in-js-d9ddc64f162e
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
-TODO
+ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature gets a lot of use in projects using Redux or RX.js.
+
+```js
+function putDookieInAnyArray(arr) {
+  return [...arr, "dookie"];
+}
+
+var result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+
+var person = {
+  name: "Todd",
+  age: 29
+};
+
+var copyOfTodd = {...person};
+```
+
+ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, but it only works in function arguments.
+
+```js
+function addFiveToABunchOfNumbers(...numbers) {
+  return numbers.map(x => x + 5);
+}
+
+var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+```
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 ### How can you share code between files?
 
