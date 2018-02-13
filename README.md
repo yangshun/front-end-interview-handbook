@@ -304,7 +304,7 @@ I would write CSS rules with low specificity so that they can be easily overridd
 * **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
 * **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
 
-I would choose resetting when I have very a customized or unconventional site design such that I need to do a lot of my own styling do not need any default styling to be preserved.
+I would choose resetting when I have a very customized or unconventional site design such that I need to do a lot of my own styling and do not need any default styling to be preserved.
 
 ###### References
 
@@ -1472,10 +1472,91 @@ TODO
 
 A higher-order function is any function that takes another function as a parameter, which it uses to operate on some data, or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Array.prototype.bind` is one such example in JavaScript.
 
+##### Map
+
+Let say we have an array of names which we need to transform each element to uppercase string.
+
+`const names = ['irish', 'daisy', 'anna']`;
+
+The imperative way will be like:
+
+```js
+const transformNamesToUppercase = names => {
+  const results = [];
+  for (let i=0; i<names.length; i++){
+    results.push(names[i].toUpperCase());
+  }
+  return results;
+};
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+```
+
+Use `.map(transformerFn)` to become more simplified, easy to reason about and declarative.
+
+```js
+const transformNamesToUppercase = names => names.map(name => name.toUpperCase());
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+```
+##### Filter
+
+We want to filter all names which their initial character starts with **i**.
+
+The imperative way will be like:
+
+```js
+const filterNames = names => {
+  const results = [];
+  for (let i=0; i<names.length; i++){
+    const name = names[i];
+    if(name.startsWith('i')){
+      results.push(name);
+    }
+  }
+  return results;
+};
+filterNames(names); // ['IRISH']
+```
+
+Instead using `for loop`, use `.filter(predicateFn)` to look more declarative.
+
+```js
+const filterNames = names => names.filter(name => name.startsWith('i'));
+filterNames(names); // ['IRISH']
+```
+
+##### Reduce
+
+Sum all the values of an array
+
+`const numbers = [1,2,3,4,5];`
+
+Imperative way:
+
+```js
+const sumOfNumbers = numbers => {
+  let sum = 0;
+  for (let i=0; i<numbers.length; i++){
+    sum+=numbers[i];
+  }
+  return sum;
+};
+sumOfNumbers(numbers) // 15
+```
+
+More declarative using `.reduce(reducerFn)`:
+
+```js
+const sumOfNumbers = numbers => numbers.reduce((total, number) => total+=number, 0);
+sumOfNumbers(numbers) // 15
+```
+
+Use **higher-order function** to make your code easy to reason about and improve the quality of your code. This became your code more **declarative** instead imperative, say **what you want done** not **how to do it**.
+
 ###### References
 
+* https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
+* https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 * https://eloquentjavascript.net/05_higher_order.html
-
 
 ### Can you give an example for destructuring an object or an array?
 
