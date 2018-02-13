@@ -17,6 +17,10 @@ Unlike typical software engineer job interviews, front-end job interviews have l
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
+## Looking for Generic Interview Preparation?
+
+You might be interested in the [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+
 ## Table of Contents
 
 **[HTML Questions](#html-questions)**
@@ -1386,9 +1390,9 @@ Variables declared using the `var` keyword are scoped to the function in which t
 ```js
 function foo() {
   // All variables are accessible within functions
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // "bar"
   console.log(baz); // "baz"
@@ -1399,10 +1403,10 @@ console.log(bar); // ReferenceError: bar is not defined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 
-if(true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+if (true) {
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 // var declared variables are accessible anywhere in the function scope
 console.log(bar); // "bar"
@@ -1416,38 +1420,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration `baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration `bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // SyntaxError: redeclaration of let baz
+let baz = 'baz';
+let baz = 'qux'; // SyntaxError: redeclaration of let baz
 ```
 
 `let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
 ```js
-  // this is fine
-  let foo = "foo";
-  foo = "bar";
+// this is fine
+let foo = 'foo';
+foo = 'bar';
 
-  // this causes an exception
-  const baz = "baz";
-  baz = "qux";
+// this causes an exception
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### References
@@ -1483,7 +1487,7 @@ The imperative way will be like:
 ```js
 const transformNamesToUppercase = names => {
   const results = [];
-  for (let i=0; i<names.length; i++){
+  for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
   }
   return results;
@@ -1494,9 +1498,11 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 Use `.map(transformerFn)` to become more simplified, easy to reason about and declarative.
 
 ```js
-const transformNamesToUppercase = names => names.map(name => name.toUpperCase());
+const transformNamesToUppercase = names =>
+  names.map(name => name.toUpperCase());
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
+
 ##### Filter
 
 We want to filter all names which their initial character starts with **i**.
@@ -1506,9 +1512,9 @@ The imperative way will be like:
 ```js
 const filterNames = names => {
   const results = [];
-  for (let i=0; i<names.length; i++){
+  for (let i = 0; i < names.length; i++) {
     const name = names[i];
-    if(name.startsWith('i')){
+    if (name.startsWith('i')) {
       results.push(name);
     }
   }
@@ -1535,19 +1541,20 @@ Imperative way:
 ```js
 const sumOfNumbers = numbers => {
   let sum = 0;
-  for (let i=0; i<numbers.length; i++){
-    sum+=numbers[i];
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
   }
   return sum;
 };
-sumOfNumbers(numbers) // 15
+sumOfNumbers(numbers); // 15
 ```
 
 More declarative using `.reduce(reducerFn)`:
 
 ```js
-const sumOfNumbers = numbers => numbers.reduce((total, number) => total+=number, 0);
-sumOfNumbers(numbers) // 15
+const sumOfNumbers = numbers =>
+  numbers.reduce((total, number) => (total += number), 0);
+sumOfNumbers(numbers); // 15
 ```
 
 Use **higher-order function** to make your code easy to reason about and improve the quality of your code. This became your code more **declarative** instead imperative, say **what you want done** not **how to do it**.
@@ -1571,19 +1578,18 @@ TODO
 Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each take one parameter.
 
 ```js
-
 function curry(fn) {
-  if(fn.length === 0) {
+  if (fn.length === 0) {
     return fn;
   }
 
   function _curried(depth, args) {
     return function(newArgument) {
-      if(depth - 1 === 0) {
+      if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
       return _curried(depth - 1, [...args, newArgument]);
-    }
+    };
   }
 
   return _curried(fn.length, []);
@@ -1609,17 +1615,17 @@ ES6's spread syntax is very useful when coding in a functional paradigm as we ca
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-var result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+var result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 var person = {
-  name: "Todd",
-  age: 29
+  name: 'Todd',
+  age: 29,
 };
 
-var copyOfTodd = {...person};
+var copyOfTodd = { ...person };
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, but it only works in function arguments.
