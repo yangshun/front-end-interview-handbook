@@ -1,4 +1,4 @@
-<h1 align="center">프론트엔드 인터뷰 핸드북 (Front End Interview Handbook)</h1>
+<h1 align="center">프론트엔드 인터뷰 핸드북</h1>
 
 <div align="center">
   <a href="https://dribbble.com/shots/3831443-Tech-Interview-Handbook">
@@ -15,22 +15,22 @@
   </p>
 </div>
 
-## 이게 뭔가요? (What is this?)
+## 서론
 
 일반적인 소프트웨어 엔지니어 면접과 달리 프론트엔드 취업 면접은 알고리즘에 대한 강조가 적으며 프론트엔드 도메인에 대한 복잡한 지식과 전문 지식 (HTML, CSS, JavaScript)에 대해 더 많은 질문을 받습니다.
 
-프론트엔드 개발자가 인터뷰를 준비하는 데 도움이 되는 기존 리소스가 있지만 소프트웨어 엔지니어 인터뷰 자료만큼 풍부하지는 않습니다. 기존 리소스 중에서 가장 유용한 질문은 [프론트엔드 개발자 인터뷰 질문(Front-end Developer Interview Questions)](https://github.com/h5bp/Front-end-Developer-Interview-Questions) 일 것입니다. 안타깝게도, 저는 온라인에서 이 질문에 대한 완전하고 만족스러운 대답을 찾을 수 없었습니다. 그래서 여기에 이 질문에 대답하고자 합니다. 오픈 소스 저장소이기 때문에 이 프로젝트는 커뮤니티의 지원을 받아 커질 수 있을 것입니다.
+프론트엔드 개발자가 인터뷰를 준비하는 데 도움이 되는 기존 리소스가 있지만 소프트웨어 엔지니어 인터뷰 자료만큼 풍부하지는 않습니다. 기존 리소스 중에서 가장 유용한 질문은 [프론트엔드 개발자 인터뷰 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions) 일 것입니다. 안타깝게도, 저는 온라인에서 이 질문에 대한 완전하고 만족스러운 대답을 찾을 수 없었습니다. 그래서 여기에 이 질문에 대답하고자 합니다. 오픈 소스 저장소이기 때문에 이 프로젝트는 커뮤니티의 지원을 받아 커질 수 있을 것입니다.
 
-## 일반적인 면접 준비는? (Looking for Generic Interview Preparation?)
+## 일반적인 면접 준비
 
-[면접 치트시트(interview cheatsheet)](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)나 알고리즘과 같은 일반적인 코딩 면접에 대한 내용은 [기술 면접 핸드북(Tech Interview Handbook)](https://github.com/yangshun/tech-interview-handbook)이 도움이 될 것입니다.
+[면접 치트시트](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)나 알고리즘과 같은 일반적인 코딩 면접에 대한 내용은 [기술 면접 핸드북](https://github.com/yangshun/tech-interview-handbook)이 도움이 될 것입니다.
 
-## 목차 (Table of Contents)
+## 목차
 
-**[HTML Questions](#html-questions)**
+**[HTML 질문](#html-질문)**
 
--   [What does a doctype do?](#what-does-a-doctype-do)
--   [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+-   [`DOCTYPE`은 무엇을 합니까?](#doctype은-무엇을-합니까)
+-   [여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?](#여러-언어로-되어-있는-콘텐츠의-페이지를-어떻게-제공하나요)
 -   [What kind of things must you be wary of when design or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
 -   [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
 -   [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
@@ -133,25 +133,24 @@
 
 * * *
 
-## HTML 질문 (HTML Questions)
+## HTML 질문
 
-Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions). Pull requests for suggestions and corrections are welcome!
-[프런트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 답변.
-풀리퀘스트를 통한 제안 및 수정 요청을 환영합니다.
+[프런트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
-### `DOCTYPE`은 무엇을 합니까? (What does a DOCTYPE do?)
+### `DOCTYPE`은 무엇을 합니까?
 
 `DOCTYPE`은 “document type”의 약어입니다. 이것은 HTML에서 표준모드와 [쿼크모드](https://quirks.spec.whatwg.org/#history)를 구별하기 위해  선언합니다. 이것이 존재하므로써 웹페이지에서 표준모드로 렌더링하도록 브라우저에 지시합니다.
 
 이야기의 교훈 - 당신의 페이지를 시작 부분에 `<!DOCTYPE html>` 추가하세요.
 
-###### 참고문헌 (References)
+###### 참고자료
 
 -   <https://stackoverflow.com/questions/7695044/what-does-doctype-html-do>
 -   <https://www.w3.org/QA/Tips/Doctype>
 -   <https://quirks.spec.whatwg.org/#history>
 
-### 여러 언어되어 있는 콘텐츠의 페이지를 어떻게 제공합니까? (How do you serve a page with content in multiple languages?)
+### 여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?
 
 이 질문은 다소 모호합니다. 여러 언어로 제공된 콘텐츠로 페이지를 게재하는 방법이 가장 일반적인 경우지만, 페이지의 콘텐츠는 하나의 일관된 언어로만 표시해야한다고 생각합니다.
 
@@ -159,7 +158,7 @@ HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Ac
 
 백엔드에서 HTML 마크 업에는 XML 또는 JSON 형식으로 저장된 특정 언어에 대한 `i18n` placeholder(빠져 있는 다른 것을 대신하는 기호나 텍스트의 일부) 및 내용이 포함됩니다. 그런 다음 서버는 일반적으로 백엔드 프레임 워크의 도움을 받아 특정 언어로 된 컨텐츠로 HTML 페이지를 동적으로 생성합니다.
 
-###### References
+###### 참고자료
 
 -   <https://www.w3.org/International/getting-started/language>
 
