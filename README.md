@@ -1553,7 +1553,7 @@ More declarative using `.reduce(reducerFn)`:
 
 ```js
 const sumOfNumbers = numbers =>
-  numbers.reduce((total, number) => (total += number), 0);
+  numbers.reduce((total, number) => (total + number), 0);
 sumOfNumbers(numbers); // 15
 ```
 
