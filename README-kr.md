@@ -34,7 +34,7 @@
 -   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
 -   [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
 -   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#HTML5를-개방형-웹-플랫폼으로-간주합니다-HTML5의-구성-요소는-무엇입니까)
--   [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
+-   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
 -   [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
 -   [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
 -   [What is progressive rendering?](#what-is-progressive-rendering)
@@ -166,7 +166,7 @@ HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Ac
 
 -   HTML에서 `lang` 속성을 사용하세요.
 -   사용자를 모국어로 안내합니다 - 사용자가 번거롭지 않게 국가 / 언어를 쉽게 변경할 수 있도록 합니다.
--   이미지의 텍스트는 다국어를 위한 확장 방식이 아닙니다 - 이미지에 텍스트를 배치하는 것은 여전히 컴퓨터에서 보기 좋은 폰트(시스템 이외의)를 표시하는 인기 있는 방법입니다. 그러나 이미지 텍스트를 번역하려면 각 텍스트 문자열에 각 언어에 대해 만들어진 별도의 이미지가 있어야 합니다. 이와 같은 대체 방식이 늘어나면 재빠르게 제어할 수 없습니다
+-   텍스트를 포함한 이미지를 사용하는 것은 확장가능한 접근이 아닙니다 - 이미지에 텍스트를 배치하는 것은 여전히 컴퓨터에서 보기 좋은 폰트(시스템 이외의)를 표시하는 인기 있는 방법입니다. 그러나 이미지 텍스트를 번역하려면 각 텍스트 문자열에 각 언어에 대해 만들어진 별도의 이미지가 있어야 합니다. 이와 같은 대체 방식이 늘어나면 재빠르게 제어할 수 없습니다
 -   제한적 단어 / 문장 길이 - 일부 언어는 다른 언어로 작성될 때 더 길어질 수도 있습니다. 디자인에 레이아웃이나 오버 플로우 문제 발생에 주의하세요. 디자인에 필요한 텍스트의 양을 정하거나 디자인을 깰 수 있는 디자인은 하지 않도록 하는 것이 가장 좋습니다. 문자 수는 헤드라인, 레이블 및 버튼과 같은 항목에서 사용됩니다. 그것들은 본문의 텍스트나 코멘트와 같이 자유롭게 흐르는 텍스트에 대한 문제가 적습니다.
 -   색상을 이해하는 방법에 유의하세요 - 색상은 언어와 문화에 따라 다르게 인식됩니다. 적절한 색상을 사용하여 디자인해야 합니다.
 -   날짜 및 통화 서식 - 날짜는 때때로 다른 방식으로 제시됩니다. 예) 미국의 "May 31, 2012" vs 유럽의 "31 May 2012".
@@ -203,21 +203,21 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 
 -   <https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5>
 
-### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+### `cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.
 
-All the above mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
+세 가지 기술은 모두 클라이언트 측에서 중요한 값을 저장하는 매커니즘입니다. 모두 문자열로만 값을 저장할 수 있습니다.
 
-|                                        | `cookie`                                                 | `localStorage` | `sessionStorage` |
-| -------------------------------------- | -------------------------------------------------------- | -------------- | ---------------- |
-| Initiator                              | Client or server. Server can use `Set-Cookie` header     | Client         | Client           |
-| Expiry                                 | Manually set                                             | Forever        | On tab close     |
-| Persistent across browser sessions     | Depends on whether expiration is set                     | Yes            | No               |
-| Have domain associated                 | Yes                                                      | No             | No               |
-| Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No             | No               |
-| Capacity (per domain)                  | 4kb                                                      | 5MB            | 5MB              |
-| Accessibility                          | Any window                                               | Any window     | Same tab         |
+|                       | `cookie`                                   | `localStorage` | `sessionStorage` |
+| --------------------- | ------------------------------------------ | -------------- | ---------------- |
+| 생성자                   | 클라이언트나 서버. 서버는 `Set-Cookie` 헤더를 사용할 수 있습니다 | 클라이언트          | 클라이언트            |
+| 만료                    | 수동으로 설정                                    | 영구적            | 탭을 닫을 때          |
+| 브라우저 세션 전체에서 지속       | 만료 설정 여부에 따라 다름                            | O              | X                |
+| 도메인과 연관성              | O                                          | X              | X                |
+| 모든 HTTP 요청과 함께 서버로 보냄 | 쿠키는 `Cookie` 헤더를 통해 자동 전송됨                 | X              | X                |
+| 용량 (도메인당))            | 4kb                                        | 5MB            | 5MB              |
+| 접근성                   | 모든 윈도우                                     | 모든 윈도우         | 같은 탭             |
 
-###### References
+###### 참고자료
 
 -   <https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies>
 -   <http://tutorial.techaltum.com/local-and-session-storage.html>
