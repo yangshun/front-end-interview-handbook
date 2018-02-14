@@ -32,8 +32,8 @@
 -   [`DOCTYPE`은 무엇을 합니까?](#doctype은-무엇을-합니까)
 -   [여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?](#여러-언어로-되어-있는-콘텐츠의-페이지를-어떻게-제공하나요)
 -   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
--   [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
--   [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
+-   [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
+-   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#HTML5를-개방형-웹-플랫폼으로-간주합니다.-HTML5의-구성-요소는-무엇입니까)
 -   [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
 -   [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
 -   [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
@@ -156,7 +156,7 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Accept-Language` 헤더와 같은 언어 기본 설정에 대한 정보를 보냅니다. 그런 다음 서버는 이 정보를 사용하여 해당 언어가 사용 가능한 경우 해당 언어로 된 문서 버전을 반환할 수 있습니다. 반환된 HTML 문서는 `<html lang = "en"> ... </ html>`과 같이`<html>` 태그에 `lang` 속성을 선언해야 합니다.
 
-백엔드에서 HTML 마크업에는 XML 또는 JSON 형식으로 저장된 특정 언어에 대한 `i18n` placeholder(빠져 있는 다른 것을 대신하는 기호나 텍스트의 일부) 및 내용이 포함됩니다. 그런 다음 서버는 일반적으로 백엔드 프레임워크의 도움을 받아 특정 언어로 된 컨텐츠로 HTML 페이지를 동적으로 생성합니다.
+백엔드에서 HTML 마크업에는 XML 또는 JSON 형식으로 저장된 특정 언어에 대한 `i18n` placeholder(빠져 있는 다른 것을 대신하는 기호나 텍스트의 일부) 및 내용이 포함됩니다. 그런 다음 서버는 일반적으로 백엔드 프레임워크의 도움을 받아 특정 언어로 된 콘텐츠로 HTML 페이지를 동적으로 생성합니다.
 
 ###### 참고자료
 
@@ -173,33 +173,33 @@ HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Ac
 -   번역된 문자열을 연결하지 않습니다 - `"오늘의 날짜는 " + date + "입니다"` 와 같은 작업은 하지 마세요. 단어의 순서가 다른 언어로 인해 깨지게 됩니다. 대신 템플릿 매개 변수를 사용하세요.
 -   언어를 읽는 방향 - 영어는 왼쪽에서 오른쪽으로 그리고 위에서 아래로 읽지만 일본어는 오른쪽에서 왼쪽으로 읽습니다.
 
-###### References
+###### 참고자료
 
 -   <https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites>
 
-### What are `data-` attributes good for?
+### `data-` 속성은 무엇에 좋은가요?
 
-Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
+JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개발자는 비표준 속성, DOM의 추가 프로퍼티 등의 조작없이 DOM 자체 내에 추가 데이터를 저장하기 위해 `data-`속성을 사용했습니다. 이는 더 이상 적절한 속성이나 요소가 없는 페이지나 애플리케이션에 사용자 정의 데이터를 비공개로 저장하기 위한 것입니다.
 
-These days, using `data-` attributes is not encouraged. One reason is that users can modify the data attribute easily by using inspect element in the browser. The data model is better stored within JavaScript itself and stay updated with the DOM via data binding possibly through a library or a framework.
+요즘에는 `data-`속성을 사용하는 것을 권장하지 않습니다. 그 이유 중 하나는 사용자가 브라우저의 검사 요소를 사용하여 데이터 속성을 쉽게 수정할 수 있다는 것입니다. 데이터 모델은 JavaScript 자체에 더 잘 저장되며 라이브러리 또는 프레임워크의 데이터 바인딩을 통한 DOM으로 업데이트된 상태를 유지합니다.
 
-###### References
+###### 참고자료
 
 -   <http://html5doctor.com/html5-custom-data-attributes/>
 -   <https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes>
 
-### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+### HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?
 
--   Semantics - Allowing you to describe more precisely what your content is.
--   Connectivity - Allowing you to communicate with the server in new and innovative ways.
--   Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
--   Multimedia - Making video and audio first-class citizens in the Open Web.
--   2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
--   Performance and integration - Providing greater speed optimization and better usage of computer hardware.
--   Device access - Allowing for the usage of various input and output devices.
--   Styling - Letting authors write more sophisticated themes.
+-   의미론 - 콘텐츠를 보다 더 정확하게 설명할 수 있습니다.
+-   연결 - 새롭고 혁신적인 방법으로 서버와 통신할 수 있습니다.
+-   오프라인과 저장소(storage) - 웹 페이지가 데이터를 클라이언트 측에 로컬로 저장하여 오프라인에서보다 효율적으로 작동하도록 허용합니다.
+-   멀티미디어 - 개방형 웹에서 비디오와 오디오 분야를 최고급으로 만들기
+-   2D/3D 그래픽 및 효과 - 훨씬 다양한 프레젠테이션 옵션을 허용합니다.
+-   성능 및 통합 - 속도 최적화 및 컴퓨터 하드웨어 개선으로 더 나은 사용을 제공합니다.
+-   장치 접근 - 다양한 입출력 장치의 사용을 허용합니다.
+-   스타일링 - 더 정교한 테마를 사용하게 합니다.
 
-###### References
+###### 참고자료
 
 -   <https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5>
 
