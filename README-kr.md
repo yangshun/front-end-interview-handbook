@@ -34,8 +34,8 @@
 -   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
 -   [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
 -   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#HTML5를-개방형-웹-플랫폼으로-간주합니다-HTML5의-구성-요소는-무엇입니까)
--   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
--   [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
+-   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
+-   [`<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.](#script-script-async-script-defer-사이의-차이점을-설명하세요)
 -   [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
 -   [What is progressive rendering?](#what-is-progressive-rendering)
 -   [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
@@ -214,7 +214,7 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 | 브라우저 세션 전체에서 지속       | 만료 설정 여부에 따라 다름                            | O              | X                |
 | 도메인과 연관성              | O                                          | X              | X                |
 | 모든 HTTP 요청과 함께 서버로 보냄 | 쿠키는 `Cookie` 헤더를 통해 자동 전송됨                 | X              | X                |
-| 용량 (도메인당))            | 4kb                                        | 5MB            | 5MB              |
+| 용량 (도메인당)             | 4kb                                        | 5MB            | 5MB              |
 | 접근성                   | 모든 윈도우                                     | 모든 윈도우         | 같은 탭             |
 
 ###### 참고자료
@@ -222,15 +222,15 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 -   <https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies>
 -   <http://tutorial.techaltum.com/local-and-session-storage.html>
 
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+### `<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.
 
--   `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
--   `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example analytics.
--   `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference from putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+-   `<script>` - HTML 파싱이 중단되고 스크립트가 즉시 실행되며 스크립트 실행 후 HTML 파싱이 다시 시작됩니다.
+-   `<script async>` - 이 스크립트는 HTML 파싱과 병행되어 사용 가능한 즉시 (HTML 파싱이 완료되기 전에) 실행됩니다. 스크립트가 페이지의 다른 스크립트(예: 분석)와 독립적인 경우 `async`를 사용하세요.
+-   `<script defer>` - 이 스크립트는 HTML 파싱과 병행되지만 페이지 파싱이 끝나면 실행됩니다. 이 것이 여러개 있는 경우 각 스크립트는 페이지에 등장한 순서대로 실행됩니다. 스크립트가 완전히 파싱된 DOM에 의존하는 경우 `defer` 속성은 실행하기 전에 HTML 전부 파싱되도록 하는데 유용합니다. `<body>`의 끝부분에 평범한 `<script>`를 두는 것과 별 차이가 없습니다. `defer` 스크립트는 `document.write`를 포함하면 안됩니다.
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+주의: `src` 속성이 없는 스크립트에서는 `async` 와 `defer` 속성이 무시됩니다.
 
-###### References
+###### 참고자료
 
 -   <http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html>
 -   <https://stackoverflow.com/questions/10808109/script-tag-async-defer>
