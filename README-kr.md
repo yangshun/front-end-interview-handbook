@@ -34,10 +34,10 @@
 -   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
 -   [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
 -   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#HTML5를-개방형-웹-플랫폼으로-간주합니다-HTML5의-구성-요소는-무엇입니까)
--   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
--   [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
--   [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
--   [What is progressive rendering?](#what-is-progressive-rendering)
+-   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
+-   [`<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.](#script-script-async-script-defer-사이의-차이점을-설명하세요)
+-   [왜 일반적으로 CSS `<link>` 태그를 `<head></head>` 태그 사이에 위치시키고, JS `<script>` 태그를 `</body>` 직전에 위치시키는 것이 좋은 방법입니까? 다른 예외적인 상황을 알고있습니까?](#왜-일반적으로-CSS-link-태그를-head-head-태그-사이에-위치시키고-JS-script-태그를-body-직전에-위치시키는-것이-좋은-방법입니까-다른-예외적인-상황을-알고있습니까)
+-   [프로그레시브 렌더링이 무엇입니까?](#프로그레시브-렌더링이-무엇입니까)
 -   [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 -   [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
@@ -214,7 +214,7 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 | 브라우저 세션 전체에서 지속       | 만료 설정 여부에 따라 다름                            | O              | X                |
 | 도메인과 연관성              | O                                          | X              | X                |
 | 모든 HTTP 요청과 함께 서버로 보냄 | 쿠키는 `Cookie` 헤더를 통해 자동 전송됨                 | X              | X                |
-| 용량 (도메인당))            | 4kb                                        | 5MB            | 5MB              |
+| 용량 (도메인당)             | 4kb                                        | 5MB            | 5MB              |
 | 접근성                   | 모든 윈도우                                     | 모든 윈도우         | 같은 탭             |
 
 ###### 참고자료
@@ -222,47 +222,47 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 -   <https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies>
 -   <http://tutorial.techaltum.com/local-and-session-storage.html>
 
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+### `<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.
 
--   `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
--   `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example analytics.
--   `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference from putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+-   `<script>` - HTML 파싱이 중단되고 스크립트가 즉시 실행되며 스크립트 실행 후 HTML 파싱이 다시 시작됩니다.
+-   `<script async>` - 이 스크립트는 HTML 파싱과 병행되어 사용 가능한 즉시 (HTML 파싱이 완료되기 전에) 실행됩니다. 스크립트가 페이지의 다른 스크립트(예: 분석)와 독립적인 경우 `async`를 사용하세요.
+-   `<script defer>` - 이 스크립트는 HTML 파싱과 병행되지만 페이지 파싱이 끝나면 실행됩니다. 이 것이 여러개 있는 경우 각 스크립트는 페이지에 등장한 순서대로 실행됩니다. 스크립트가 완전히 파싱된 DOM에 의존하는 경우 `defer` 속성은 실행하기 전에 HTML 전부 파싱되도록 하는데 유용합니다. `<body>`의 끝부분에 평범한 `<script>`를 두는 것과 별 차이가 없습니다. `defer` 스크립트는 `document.write`를 포함하면 안됩니다.
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+주의: `src` 속성이 없는 스크립트에서는 `async` 와 `defer` 속성이 무시됩니다.
 
-###### References
+###### 참고자료
 
 -   <http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html>
 -   <https://stackoverflow.com/questions/10808109/script-tag-async-defer>
 -   <https://bitsofco.de/async-vs-defer/>
 
-### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+### 왜 일반적으로 CSS `<link>` 태그를 `<head></head>` 태그 사이에 위치시키고, JS `<script>` 태그를 `</body>` 직전에 위치시키는 것이 좋은 방법입니까? 다른 예외적인 상황을 알고있습니까?
 
-**Placing `<link>`s in the `<head>`**
+**`<head>` 안에 `<link>`를 넣는 이유**
 
-Putting `<link>`s in the head is part of the specification. Besides that, placing at the top allows the page to render progressively which improves user experience. The problem with putting stylesheets near the bottom of the document is that it prohibits progressive rendering in many browsers, including Internet Explorer. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is stuck viewing a blank white page. It prevents the flash of unstyled contents.
+`<link>`를 `<head>` 안에 넣는 것은 명세의 일부입니다. 그 외에도 상단에 배치하면 페이지가 점진적으로 렌더링되기 때문에 UX가 향상됩니다. 문서 맨 아래에 CSS를 두는 것은 Internet Explorer를 비롯한 많은 브라우저에서 점진적 렌더링을 금지시키는 것입니다. 몇몇 브라우저는 스타일이 변경되면 페이지의 요소를 다시 그리지 않아도 되도록 렌더링을 차단합니다. 사용자는 빈 하얀 페이지에서 멈추게 됩니다. 또한 스타일이 없는 내용이 잠깐 보이는 것을 방지합니다.
 
-**Placing `<script>`s just before `</body>`**
+**`</body>` 직전에 `<script>`를 넣는 이유**
 
-`<script>`s block HTML parsing while they are being downloaded and executed. Downloading the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+`<script>`는 다운로드되고 실행되는 동안 HTML 파싱을 차단합니다. 스크립트를 맨 아래에서 다운로드하면 HTML을 먼저 파싱하여 사용자에게 표시할 수 있습니다.
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. One possible workaround is to put `<script>` in the `<head>` and use the `defer` attribute.
+스크립트가 `document.write()` 를 포함할 때에는 `<script>` 를 아래쪽에 두는 것이 예외적일 수 있습니다만, 요즘은 `document.write()` 를 사용하지 않는 것이 좋습니다. 또한, `<script>`를 맨 아래에 두면 브라우저가 전체 문서가 파싱 될때까지 스크립트 다운로드를 시작할 수 없다는 것을 의미합니다. 유일한 해결책은 `<head>` 에 `<script>`를 넣고 `defer` 속성을 사용하는 것입니다.
 
-###### References
+###### 참고자료
 
 -   <https://developer.yahoo.com/performance/rules.html#css_top>
 
-### What is progressive rendering?
+### 프로그레시브 렌더링이 무엇입니까?
 
-Progressive rendering is the name given to techniques used to improve performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
+프로그레시브 렌더링이란 콘텐츠를 가능한 한 빨리 표시하기 위해 웹 페이지의 성능을 향상시키는 데 사용되는 기술입니다. (특히 인식되는 로딩 시간을 향상시킵니다)
 
-It used to be much more prevalent in the days before broadband internet but it is still useful in modern development as mobile data connections are becoming increasingly popular (and unreliable)!
+예전에는 광대역 인터넷을 사용하기도 했지만 불안정한 모바일 데이터 연결이 점점 인기를 끌면서 최근 개발에 있어서도 여전히 유용합니다.
 
-Examples of such techniques:
+관련 기술 예:
 
--   Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
--   Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
--   Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+- 이미지 레이지 로딩 - 페이지의 이미지를 한꺼번에 로딩하지 않습니다. JavaScript를 사용하면 사용자가 이미지를 표시하는 페이지 부분으로 스크롤 할 때 이미지를 로드 할 수 있습니다.
+- 보이는 콘텐츠의 우선순위 설정 (또는 스크롤 없이 볼 수 있는 렌더링) - 가능한 한 빨리 표시하기 위해 사용자 브라우저에서 렌더링 될 페이지의 양에 필요한 최소한의 CSS / 콘텐츠 / 스크립트 만 포함하면 `deferred` 스크립트를 사용하거나 `DOMContentLoaded` / `load` 이벤트를 수신하여 다른 리소스와 내용을 로드 할 수 있습니다.
+- 비동기 HTML 프래그먼트 - 페이지의 백엔드에서 HTML 페이지의 일부를 브라우저로 가져옵니다. 이 기술에 대한 자세한 내용은 [여기](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)에서 찾을 수 있습니다.
 
 ### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
