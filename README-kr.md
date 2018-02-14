@@ -31,7 +31,7 @@
 
 -   [`DOCTYPE`은 무엇을 합니까?](#doctype은-무엇을-합니까)
 -   [여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?](#여러-언어로-되어-있는-콘텐츠의-페이지를-어떻게-제공하나요)
--   [What kind of things must you be wary of when design or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
+-   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
 -   [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
 -   [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
 -   [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
@@ -135,7 +135,7 @@
 
 ## HTML 질문
 
-[프런트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+[프론트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
 Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### `DOCTYPE`은 무엇을 합니까?
@@ -152,9 +152,9 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### 여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?
 
-이 질문은 다소 모호합니다. 여러 언어로 제공된 콘텐츠로 페이지를 게재하는 방법이 가장 일반적인 경우지, 페이지의 콘텐츠는 하나의 일관된 언어로만 표시해야한다고 생각합니다.
+이 질문은 다소 모호합니다. 여러 언어로 제공된 콘텐츠로 페이지를 게재하는 방법이 가장 일반적인 경우이지만 페이지의 콘텐츠는 하나의 일관된 언어로만 표시해야 한다고 가정합니다.
 
-HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Accept-Language` 헤더와 같은 언어 기본 설정에 대한 정보를 보냅니다. 그런 다음 서버는 이 정보를 사용하여 해당 언어가 사용 가능한 경우 해당 언어로 된 문서 버전을 반환할 수 있습니다. 반환된 HTML 문서는 `<html lang = "en"> ... </ html>`과 같이`<html>` 태그에 `lang` 속성을 선언해야합니다.
+HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Accept-Language` 헤더와 같은 언어 기본 설정에 대한 정보를 보냅니다. 그런 다음 서버는 이 정보를 사용하여 해당 언어가 사용 가능한 경우 해당 언어로 된 문서 버전을 반환할 수 있습니다. 반환된 HTML 문서는 `<html lang = "en"> ... </ html>`과 같이`<html>` 태그에 `lang` 속성을 선언해야 합니다.
 
 백엔드에서 HTML 마크업에는 XML 또는 JSON 형식으로 저장된 특정 언어에 대한 `i18n` placeholder(빠져 있는 다른 것을 대신하는 기호나 텍스트의 일부) 및 내용이 포함됩니다. 그런 다음 서버는 일반적으로 백엔드 프레임워크의 도움을 받아 특정 언어로 된 컨텐츠로 HTML 페이지를 동적으로 생성합니다.
 
@@ -162,16 +162,16 @@ HTTP를 서버에 요청하면 대개 요청하는 사용자 에이전트가 `Ac
 
 -   <https://www.w3.org/International/getting-started/language>
 
-### What kind of things must you be wary of when designing or developing for multilingual sites?
+### 다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?
 
--   Use `lang` attribute in your HTML.
--   Directing users to their native language - Allow a user to change his country/language easily without hassle.
--   Text in images is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However to translate image text, each string of text will need to have it's a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
--   Restrictive words / sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free flowing text such as body text or comments.
--   Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
--   Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
--   Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Using template parameters instead.
--   Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
+-   HTML에서 `lang` 속성을 사용하세요.
+-   사용자를 모국어로 안내합니다 - 사용자가 번거롭지 않게 국가 / 언어를 쉽게 변경할 수 있도록 합니다.
+-   이미지의 텍스트는 다국어를 위한 확장 방식이 아닙니다 - 이미지에 텍스트를 배치하는 것은 여전히 컴퓨터에서 보기 좋은 폰트(시스템 이외의)를 표시하는 인기 있는 방법입니다. 그러나 이미지 텍스트를 번역하려면 각 텍스트 문자열에 각 언어에 대해 만들어진 별도의 이미지가 있어야 합니다. 이와 같은 대체 방식이 늘어나면 재빠르게 제어할 수 없습니다
+-   제한적 단어 / 문장 길이 - 일부 언어는 다른 언어로 작성될 때 더 길어질 수도 있습니다. 디자인에 레이아웃이나 오버 플로우 문제 발생에 주의하세요. 디자인에 필요한 텍스트의 양을 정하거나 디자인을 깰 수 있는 디자인은 하지 않도록 하는 것이 가장 좋습니다. 문자 수는 헤드라인, 레이블 및 버튼과 같은 항목에서 사용됩니다. 그것들은 본문의 텍스트나 코멘트와 같이 자유롭게 흐르는 텍스트에 대한 문제가 적습니다.
+-   색상을 이해하는 방법에 유의하세요 - 색상은 언어와 문화에 따라 다르게 인식됩니다. 적절한 색상을 사용하여 디자인해야 합니다.
+-   날짜 및 통화 서식 - 날짜는 때때로 다른 방식으로 제시됩니다. 예) 미국의 "May 31, 2012" vs 유럽의 "31 May 2012".
+-   번역된 문자열을 연결하지 않습니다 - `"오늘의 날짜는 " + date + "입니다"` 와 같은 작업은 하지 마세요. 단어의 순서가 다른 언어로 인해 깨지게 됩니다. 대신 템플릿 매개 변수를 사용하세요.
+-   언어를 읽는 방향 - 영어는 왼쪽에서 오른쪽으로 그리고 위에서 아래로 읽지만 일본어는 오른쪽에서 왼쪽으로 읽습니다.
 
 ###### References
 
