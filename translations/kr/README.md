@@ -10,7 +10,7 @@
     </em>
   </p>
   <p>
-    <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>
+    <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>
     </em>
   </p>
 </div>
@@ -74,10 +74,10 @@
 -   [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
 -   [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
 
-**[JS Questions](#js-questions)**
+**[JS 질문](#js-질문)**
 
--   [Explain event delegation](#explain-event-delegation)
--   [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript)
+-   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요.)
+-   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#`this`가-JavaScript에서-어떻게-작동하는지-설명하세요.)
 -   [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
 -   [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
 -   [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
@@ -650,36 +650,40 @@ When using `translate()`, the element still takes up its original space (sort of
 
 * * *
 
-## JS Questions
+## JS 질문
 
-Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#js-questions). Pull requests for suggestions and corrections are welcome!
+[프론트 엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
-### Explain event delegation
+### 이벤트 위임에 대해 설명하세요.
+
+이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생 될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
 
 Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
 
--   Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
--   There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+- 각 하위 항목에 이벤트 핸들러를 연결하지 않고, 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
+- 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩 할 필요가 없습니다.
 
-###### References
+###### 참고자료
 
 -   <https://davidwalsh.name/event-delegate>
 -   <https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation>
 
-### Explain how `this` works in JavaScript
+### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
+`this`에 대한 간단한 설명은 없습니다. 자바 스크립트에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 'this'의 값은 함수가 호출되는 방식에 따라 달라집니다.
+나는 온라인에서 많은 설명을 읽었는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s의 설명이 가장 명확했다.
+다음 규칙과 같다.
 
-There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript. A hand-wavey explanation is that the value of `this` depends on how the function is called. I have read many explanations on `this` online, and I found [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s explanation to be the clearest. The following rules are applied:
+1. 함수를 호출 할 때 `new` 키워드가 사용되면 함수 안에 있는 `this`는 아주 새로운 객체입니다.
+2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되면, 함수 내의`this`는 인수로 전달 된 객체입니다.
+3. `obj.method ()`와 같이 메소드가 메소드로 호출되면,`this`는 함수가 속성 인 객체입니다.
+4. 함수가 자유함수로 호출 된 경우, 즉 위의 조건없이 호출 된 경우 `this`는 전역 객체입니다. 브라우저에서는 `window`객체입니다. 엄격 모드(`'use strict'`) 일 경우, `this`는 전역 객체 대신 `undefined`가됩니다.
+5. 위의 규칙 중 다수가 적용되면, 더 높은 규칙이 승리하고 `this`값을 설정합니다.
+6. 함수가 ES2015 화살표 함수이면, 위의 모든 규칙을 무시하고 생성 된 시점에서 주변 범위의 `this`값을 받습니다.
 
-1.  If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
-2.  If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-3.  If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
-4.  If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
-5.  If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-6.  If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+상세한 설명은 그의 [Medium 기사](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하십시오.
 
-For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
-
-###### References
+###### 참고자료
 
 -   <https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3>
 -   <https://stackoverflow.com/a/3127440/1751946>
