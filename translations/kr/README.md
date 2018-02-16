@@ -78,7 +78,7 @@
 
 -   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
 -   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-JavaScript에서-어떻게-작동하는지-설명하세요)
--   [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
+-   [프로토 타입 상속이 어떻게 작동하는지 설명하십시오.](#프로토-타입-상속이-어떻게-작동하는지-설명하십시오)
 -   [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
 -   [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
@@ -687,11 +687,11 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 -   <https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3>
 -   <https://stackoverflow.com/a/3127440/1751946>
 
-### Explain how prototypal inheritance works
+### 프로토 타입 상속이 어떻게 작동하는지 설명하십시오.
 
-This is an extremely common JavaScript interview question. All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain. This behaviour simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 속성을 가지고 있습니다. 객체의 속성에 접근 할 때 해당 객체에 해당 속성이 없으면, JavaScript 엔진은 객체의 'prototype'과 'prototype`의'prototype '등을보고 속성이 정의 될 때까지 찾고, 만약 객체에서 속성에 액세스 할 때 해당 객체에 해당 속성이 없으면 프로토 타입 체인 중 하나에 있거나 프로토 타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내 내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)됩니다.
 
-###### References
+###### 참고자료
 
 -   <https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson>
 -   <https://davidwalsh.name/javascript-objects>
