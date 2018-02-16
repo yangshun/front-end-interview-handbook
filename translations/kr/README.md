@@ -689,7 +689,7 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### 프로토 타입 상속이 어떻게 작동하는지 설명하십시오.
 
-이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 속성을 가지고 있습니다. 객체의 속성에 접근 할 때 해당 객체에 해당 속성이 없으면, JavaScript 엔진은 객체의 'prototype'과 'prototype`의'prototype '등을보고 속성이 정의 될 때까지 찾고, 만약 객체에서 속성에 액세스 할 때 해당 객체에 해당 속성이 없으면 프로토 타입 체인 중 하나에 있거나 프로토 타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내 내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)됩니다.
+이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 속성을 가지고 있습니다. 객체의 속성에 접근 할 때 해당 객체에 해당 속성이 없으면, JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 속성이 정의 될 때까지 찾고, 만약 객체에서 속성에 액세스 할 때 해당 객체에 해당 속성이 없으면 프로토 타입 체인 중 하나에 있거나 프로토 타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내 내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)됩니다.
 
 ###### 참고자료
 
