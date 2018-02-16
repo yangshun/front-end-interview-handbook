@@ -76,8 +76,8 @@
 
 **[JS 질문](#js-질문)**
 
--   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요.)
--   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#`this`가-JavaScript에서-어떻게-작동하는지-설명하세요.)
+-   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
+-   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-JavaScript에서-어떻게-작동하는지-설명하세요)
 -   [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
 -   [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
 -   [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
@@ -659,8 +659,6 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생 될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
 
-Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
-
 - 각 하위 항목에 이벤트 핸들러를 연결하지 않고, 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
 - 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩 할 필요가 없습니다.
 
@@ -670,18 +668,19 @@ Event delegation is a technique involving adding event listeners to a parent ele
 -   <https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation>
 
 ### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
-`this`에 대한 간단한 설명은 없습니다. 자바 스크립트에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 'this'의 값은 함수가 호출되는 방식에 따라 달라집니다.
-나는 온라인에서 많은 설명을 읽었는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s의 설명이 가장 명확했다.
-다음 규칙과 같다.
+
+`this`는 간단하게 설명하기 어렵습니다. 자바 스크립트에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
+온라인에 많은 설명이 있는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
+다음 규칙과 같습니다.
 
 1. 함수를 호출 할 때 `new` 키워드가 사용되면 함수 안에 있는 `this`는 아주 새로운 객체입니다.
-2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되면, 함수 내의`this`는 인수로 전달 된 객체입니다.
-3. `obj.method ()`와 같이 메소드가 메소드로 호출되면,`this`는 함수가 속성 인 객체입니다.
-4. 함수가 자유함수로 호출 된 경우, 즉 위의 조건없이 호출 된 경우 `this`는 전역 객체입니다. 브라우저에서는 `window`객체입니다. 엄격 모드(`'use strict'`) 일 경우, `this`는 전역 객체 대신 `undefined`가됩니다.
+2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되면, 함수 내의 `this`는 인수로 전달 된 객체입니다.
+3. `obj.method()`와 같이 메소드가 메소드로 호출되면, `this`는 함수가 속성 인 객체입니다.
+4. 함수가 자유함수로 호출 된 경우, 즉 위의 조건없이 호출 된 경우 `this`는 전역 객체입니다. 브라우저에서는 `window`객체입니다. 엄격 모드(`'use strict'`) 일 경우, `this`는 전역 객체 대신 `undefined`가 됩니다.
 5. 위의 규칙 중 다수가 적용되면, 더 높은 규칙이 승리하고 `this`값을 설정합니다.
 6. 함수가 ES2015 화살표 함수이면, 위의 모든 규칙을 무시하고 생성 된 시점에서 주변 범위의 `this`값을 받습니다.
 
-상세한 설명은 그의 [Medium 기사](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하십시오.
+상세한 설명은 [Medium 기사](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
 ###### 참고자료
 
