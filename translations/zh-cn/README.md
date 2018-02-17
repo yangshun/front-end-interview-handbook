@@ -23,9 +23,9 @@
 
 ## 目录
 
-1. [HTML 问题](translations/zh-cn/questions/html-questions.md)
-1. [CSS 问题](translations/zh-cn/questions/css-questions.md)
-1. [JavaScript 问题](translations/zh-cn/questions/javascript-questions.md)
+1. [HTML 问题](questions/html-questions.md)
+1. [CSS 问题](questions/css-questions.md)
+1. [JavaScript 问题](questions/javascript-questions.md)
 
 ## 相关
 
