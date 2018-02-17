@@ -23,13 +23,9 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 
 ## Table of Contents
 
-1. **[HTML Questions](questions/html-question.md)**
-1. **[CSS Questions](questions/css-questions.md)**
-1. **[JavaScript Questions](questions/javascript-questions.md)**
-
-### Other Answers
-
-* http://flowerszhong.github.io/2013/11/20/javascript-questions.html
+1. [HTML Questions](questions/html-question.md)
+1. [CSS Questions](questions/css-questions.md)
+1. [JavaScript Questions](questions/javascript-questions.md)
 
 ## Related
 

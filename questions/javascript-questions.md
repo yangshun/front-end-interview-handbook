@@ -1053,3 +1053,7 @@ TODO
 ### Why you might want to create static class members?
 
 TODO
+
+### Other Answers
+
+* http://flowerszhong.github.io/2013/11/20/javascript-questions.html
