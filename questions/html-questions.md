@@ -14,7 +14,7 @@ Answers to [Front-end Job Interview Questions - HTML Questions](https://github.c
 * [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 * [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
-### [[↑]](#html-questions) What does a `DOCTYPE` do?
+### What does a `DOCTYPE` do?
 
 `DOCTYPE` is an abbreviation for “document type”. It is a declaration used in HTML to distinguish between standards mode and [quirks mode](https://quirks.spec.whatwg.org/#history). Its presence tells the browser to render the web page in standards mode.
 
@@ -26,7 +26,9 @@ Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
 * https://www.w3.org/QA/Tips/Doctype
 * https://quirks.spec.whatwg.org/#history
 
-### [[↑]](#html-questions) How do you serve a page with content in multiple languages?
+[[↑] Back to top](#html-questions)
+
+### How do you serve a page with content in multiple languages?
 
 The question is a little vague, I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page should be displayed only in one consistent language.
 
@@ -38,7 +40,9 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 * https://www.w3.org/International/getting-started/language
 
-### [[↑]](#html-questions) What kind of things must you be wary of when designing or developing for multilingual sites?
+[[↑] Back to top](#html-questions)
+
+### What kind of things must you be wary of when designing or developing for multilingual sites?
 
 * Use `lang` attribute in your HTML.
 * Directing users to their native language - Allow a user to change his country/language easily without hassle.
@@ -53,7 +57,9 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 * https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-### [[↑]](#html-questions) What are `data-` attributes good for?
+[[↑] Back to top](#html-questions)
+
+### What are `data-` attributes good for?
 
 Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
 
@@ -64,7 +70,9 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 * http://html5doctor.com/html5-custom-data-attributes/
 * https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-### [[↑]](#html-questions) Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+[[↑] Back to top](#html-questions)
+
+### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 
 * Semantics - Allowing you to describe more precisely what your content is.
 * Connectivity - Allowing you to communicate with the server in new and innovative ways.
@@ -79,7 +87,9 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 
 * https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-### [[↑]](#html-questions) Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+[[↑] Back to top](#html-questions)
+
+### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 
 All the above mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
 
@@ -98,7 +108,9 @@ All the above mentioned technologies are key-value storage mechanisms on the cli
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 * http://tutorial.techaltum.com/local-and-session-storage.html
 
-### [[↑]](#html-questions) Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+[[↑] Back to top](#html-questions)
+
+### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
 * `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
 * `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example analytics.
@@ -112,7 +124,9 @@ Note: The `async` and `defer` attrib­utes are ignored for scripts that have no 
 * https://stackoverflow.com/questions/10808109/script-tag-async-defer
 * https://bitsofco.de/async-vs-defer/
 
-### [[↑]](#html-questions) Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+[[↑] Back to top](#html-questions)
+
+### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 
 **Placing `<link>`s in the `<head>`**
 
@@ -128,7 +142,9 @@ An exception for positioning of `<script>`s at the bottom is when your script co
 
 * https://developer.yahoo.com/performance/rules.html#css_top
 
-### [[↑]](#html-questions) What is progressive rendering?
+[[↑] Back to top](#html-questions)
+
+### What is progressive rendering?
 
 Progressive rendering is the name given to techniques used to improve performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
 
@@ -140,7 +156,9 @@ Examples of such techniques:
 * Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
 * Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
-### [[↑]](#html-questions) Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+[[↑] Back to top](#html-questions)
+
+### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
 TODO
 
@@ -149,11 +167,15 @@ TODO
 * https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 * http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-### [[↑]](#html-questions) Have you used different HTML templating languages before?
+[[↑] Back to top](#html-questions)
+
+### Have you used different HTML templating languages before?
 
 Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
 
-### [[↑]](#html-questions) Other Answers
+[[↑] Back to top](#html-questions)
+
+### Other Answers
 
 * https://neal.codes/blog/front-end-interview-questions-html/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
