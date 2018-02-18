@@ -80,7 +80,7 @@
 -   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-JavaScript에서-어떻게-작동하는지-설명하세요)
 -   [프로토 타입 상속이 어떻게 작동하는지 설명하십시오.](#프로토-타입-상속이-어떻게-작동하는지-설명하십시오)
 -   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#AMD-대-CommonJS에-대해-어떻게-생각하십니까)
--   [다음이 IIFE로 작동하지 않는 이유를 설명하라: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음이-IIFE로-작동하지-않는 이유를-설명하라:-function-foo(){-}();-IIFE로-적절히-만들기-위해서는-무엇이-바뀌어야-할까요)
+-   [다음이 IIFE로 작동하지 않는 이유를 설명하라.: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음이-IIFE로-작동하지-않는 이유를-설명하라:-function-foo(){-}();-IIFE로-적절히-만들기-위해서는-무엇이-바뀌어야-할까요)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 -   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 -   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
