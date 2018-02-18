@@ -79,8 +79,8 @@
 -   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
 -   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-JavaScript에서-어떻게-작동하는지-설명하세요)
 -   [프로토 타입 상속이 어떻게 작동하는지 설명하십시오.](#프로토-타입-상속이-어떻게-작동하는지-설명하십시오)
--   [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
--   [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
+-   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#AMD-대-CommonJS에-대해-어떻게-생각하십니까)
+-   [다음이 IIFE로 작동하지 않는 이유를 설명하라: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음이-IIFE로-작동하지-않는 이유를-설명하라:-function-foo(){-}();-IIFE로-적절히-만들기-위해서는-무엇이-바뀌어야-할까요)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 -   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 -   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
@@ -696,26 +696,29 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 -   <https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson>
 -   <https://davidwalsh.name/javascript-objects>
 
-### What do you think of AMD vs CommonJS?
+### AMD 대 CommonJS에 대해 어떻게 생각하십니까?
 
-Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
+두 가지 모두 ES2015가 등장 할 때까지 JavaScript에 기본적으로 존재하지 않는 모듈 시스템을 구현하는 방법입니다. CommonJS는 동기식이지만 AMD (Asynchronous Module Definition - 비동기식 모듈 정의)는 분명히 비동기식입니다. CommonJS는 서버 측 개발을 염두에 두고 설계되었으며, AMD는 모듈의 비동기 로딩을 지원하므로 브라우저 용으로 더 많이 사용됩니다.
 
-I find AMD syntax to be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, I find AMD unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node style of writing modules and there is less context-switching overhead when switching between client side and server side JavaScript development.
+AMD은 구문이 매우 장황하고, CommonJS은 다른 언어로 된 import 문을 작성하는 스타일에 더 가깝습니다. 대부분의 경우 AMD를 필요로하지 않습니다. 모든 자바 스크립트를 하나의 연결된 번들 파일로 제공하면 비동기 로딩 속성의 이점을 누릴 수 없기 때문입니다. 또한 CommonJS 구문은 모듈 작성의 노드 스타일에 가깝고 클라이언트 측과 서버 측 JavaScript 개발 사이를 전환 할 때 문맥 전환 오버 헤드가 적습니다.
 
-I'm glad that with ES2015 modules, that has support for both synchronous and asynchronous loading, we can finally just stick to one approach. Although it hasn't been fully rolled out in browsers and in Node, we can always use transpilers to convert our code.
+반갑게도 동기식 및 비동기식 로딩을 모두 지원하는 ES2015 모듈을 사용하면 결국 한 가지 방법을 고수 할 수 있습니다. 브라우저와 노드에서 완전히 작동되지는 않았지만 언제나 변환기를 사용하여 코드를 변환 할 수 있습니다.
 
-###### References
+###### 참고자료
 
 -   <https://auth0.com/blog/javascript-module-systems-showdown/>
 -   <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
 
-### Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+### 다음이 IIFE로 작동하지 않는 이유를 설명하라: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?
+다음이 IIFE로 작동하지 않는 이유를 설명합니다. : `function foo(){ }();`. IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?
 
-IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a function declaration and the latter (a pair of brackets) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
+IIFE는 즉시 호출되는 기능 표현을 의미한다. 자바스크립트 파서는  `function foo(){ }();`을 `function foo(){ }` 그리고 `();`로 읽는다. 전자는 함수 선언이고 후자 ( 대괄호 )는 함수를 호출 할 때 이름이 지정되지 않았으므로 `Uncaught SyntaxError : Unexpected token '을 던집니다`).
 
-Here are two ways to fix it that involves adding more brackets: `(function foo(){ })()` and `(function foo(){ }())`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
+추가로 괄호를 추가하는 두 가지 방법이 있습니다.: `(function foo(){ })()` 그리고 `(function foo(){ }())`.
 
-###### References
+JavaScript 파서는`function foo () {} ();`를`function foo () {}`와`();`로 읽습니다. 이러한 함수는 전역 범위에서 노출되지 않으며 본문 내에서 자체를 참조 할 필요가 없는 경우 해당 함수의 이름을 생략 할 수도 있습니다.
+
+###### 참고자료
 
 -   <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
 
