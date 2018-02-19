@@ -25,6 +25,12 @@
 
 [면접 치트시트](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)나 알고리즘과 같은 일반적인 코딩 면접에 대한 내용은 [기술 면접 핸드북](https://github.com/yangshun/tech-interview-handbook)이 도움이 될 것입니다.
 
+---
+
+
+
+---
+
 ## 목차
 
 **[HTML 질문](#html-질문)**
@@ -33,7 +39,7 @@
 -   [여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?](#여러-언어로-되어-있는-콘텐츠의-페이지를-어떻게-제공하나요)
 -   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
 -   [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
--   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#HTML5를-개방형-웹-플랫폼으로-간주합니다-HTML5의-구성-요소는-무엇입니까)
+-   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#html5를-개방형-웹-플랫폼으로-간주합니다-html5의-구성-요소는-무엇입니까)
 -   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
 -   [`<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.](#script-script-async-script-defer-사이의-차이점을-설명하세요)
 -   [왜 일반적으로 CSS `<link>` 태그를 `<head></head>` 태그 사이에 위치시키고, JS `<script>` 태그를 `</body>` 직전에 위치시키는 것이 좋은 방법입니까? 다른 예외적인 상황을 알고있습니까?](#왜-일반적으로-css-link-태그를-headhead-태그-사이에-위치시키고-js-script-태그를-body-직전에-위치시키는-것이-좋은-방법입니까-다른-예외적인-상황을-알고있습니까)
@@ -77,10 +83,10 @@
 **[JS 질문](#js-질문)**
 
 -   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
--   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-JavaScript에서-어떻게-작동하는지-설명하세요)
--   [프로토 타입 상속이 어떻게 작동하는지 설명하십시오.](#프로토-타입-상속이-어떻게-작동하는지-설명하십시오)
--   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#AMD-대-CommonJS에-대해-어떻게-생각하십니까)
--   [다음이 IIFE로 작동하지 않는 이유를 설명하라.: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음이-IIFE로-작동하지-않는 이유를-설명하라)
+-   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
+-   [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
+-   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
+-   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo--iife로-제대로-만들기-위해서는-무엇이-바뀌어야-할까요)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 -   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 -   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
@@ -135,7 +141,7 @@
 
 ## HTML 질문
 
-[프론트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+[프론트엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
 Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### `DOCTYPE`은 무엇을 합니까?
@@ -226,7 +232,7 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 
 -   `<script>` - HTML 파싱이 중단되고 스크립트가 즉시 실행되며 스크립트 실행 후 HTML 파싱이 다시 시작됩니다.
 -   `<script async>` - 이 스크립트는 HTML 파싱과 병행되어 사용 가능한 즉시 (HTML 파싱이 완료되기 전에) 실행됩니다. 스크립트가 페이지의 다른 스크립트(예: 분석)와 독립적인 경우 `async`를 사용하세요.
--   `<script defer>` - 이 스크립트는 HTML 파싱과 병행되지만 페이지 파싱이 끝나면 실행됩니다. 이 것이 여러개 있는 경우 각 스크립트는 페이지에 등장한 순서대로 실행됩니다. 스크립트가 완전히 파싱된 DOM에 의존하는 경우 `defer` 속성은 실행하기 전에 HTML 전부 파싱되도록 하는데 유용합니다. `<body>`의 끝부분에 평범한 `<script>`를 두는 것과 별 차이가 없습니다. `defer` 스크립트는 `document.write`를 포함하면 안됩니다.
+-   `<script defer>` - 이 스크립트는 HTML 파싱과 병행되지만 페이지 파싱이 끝나면 실행됩니다. 이 것이 여러개 있는 경우 각 스크립트는 페이지에 등장한 순서대로 실행됩니다. 스크립트가 완전히 파싱된 DOM에 의존하는 경우 `defer` 속성은 실행하기 전에 HTML 전부 파싱되도록 하는데 유용합니다. `<body>`의 끝부분에 평위한 `<script>`를 두는 것과 별 차이가 없습니다. `defer` 스크립트는 `document.write`를 포함하면 안됩니다.
 
 주의: `src` 속성이 없는 스크립트에서는 `async` 와 `defer` 속성이 무시됩니다.
 
@@ -246,7 +252,7 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 
 `<script>`는 다운로드되고 실행되는 동안 HTML 파싱을 차단합니다. 스크립트를 맨 아래에서 다운로드하면 HTML을 먼저 파싱하여 사용자에게 표시할 수 있습니다.
 
-스크립트가 `document.write()` 를 포함할 때에는 `<script>` 를 아래쪽에 두는 것이 예외적일 수 있습니다만, 요즘은 `document.write()` 를 사용하지 않는 것이 좋습니다. 또한, `<script>`를 맨 아래에 두면 브라우저가 전체 문서가 파싱 될때까지 스크립트 다운로드를 시작할 수 없다는 것을 의미합니다. 유일한 해결책은 `<head>` 에 `<script>`를 넣고 `defer` 속성을 사용하는 것입니다.
+스크립트가 `document.write()` 를 포함할 때에는 `<script>` 를 아래쪽에 두는 것이 예외적일 수 있습니다만, 요즘은 `document.write()` 를 사용하지 않는 것이 좋습니다. 또한, `<script>`를 맨 아래에 두면 브라우저가 전체 문서가 파싱될 때까지 스크립트 다운로드를 시작할 수 없다는 것을 의미합니다. 유일한 해결책은 `<head>` 에 `<script>`를 넣고 `defer` 속성을 사용하는 것입니다.
 
 ###### 참고자료
 
@@ -652,15 +658,15 @@ When using `translate()`, the element still takes up its original space (sort of
 
 ## JS 질문
 
-[프론트 엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+[프론트엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
 Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### 이벤트 위임에 대해 설명하세요.
 
-이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생 될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
+이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
 
-- 각 하위 항목에 이벤트 핸들러를 연결하지 않고, 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
-- 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩 할 필요가 없습니다.
+- 각 하위 항목에 이벤트 핸들러를 연결하지 않고 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
+- 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩할 필요가 없습니다.
 
 ###### 참고자료
 
@@ -669,27 +675,27 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
 
-`this`는 간단하게 설명하기 어렵습니다. 자바 스크립트에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
-온라인에 많은 설명이 있는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
+`this`는 간단하게 설명하기 어렵습니다. JavaScript에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
+온라인에 많은 설명이 있는데 [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
 다음 규칙과 같습니다.
 
-1. 함수를 호출 할 때 `new` 키워드가 사용되면 함수 안에 있는 `this`는 아주 새로운 객체입니다.
-2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되면, 함수 내의 `this`는 인수로 전달 된 객체입니다.
-3. `obj.method()`와 같이 메소드가 메소드로 호출되면, `this`는 함수가 속성 인 객체입니다.
-4. 함수가 자유함수로 호출 된 경우, 즉 위의 조건없이 호출 된 경우 `this`는 전역 객체입니다. 브라우저에서는 `window`객체입니다. 엄격 모드(`'use strict'`) 일 경우, `this`는 전역 객체 대신 `undefined`가 됩니다.
-5. 위의 규칙 중 다수가 적용되면, 더 높은 규칙이 승리하고 `this`값을 설정합니다.
-6. 함수가 ES2015 화살표 함수이면, 위의 모든 규칙을 무시하고 생성 된 시점에서 주변 범위의 `this`값을 받습니다.
+1. 함수를 호출할 때 `new` 키워드가 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
+2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
+3. `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
+4. 함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
+5. 위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
+6. 함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
 
-상세한 설명은 [Medium 기사](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
+상세한 설명은 [Medium의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
 ###### 참고자료
 
 -   <https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3>
 -   <https://stackoverflow.com/a/3127440/1751946>
 
-### 프로토 타입 상속이 어떻게 작동하는지 설명하십시오.
+### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
-이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 속성을 가지고 있습니다. 객체의 속성에 접근 할 때 해당 객체에 해당 속성이 없으면, JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 속성이 정의 될 때까지 찾고, 만약 객체에서 속성에 액세스 할 때 해당 객체에 해당 속성이 없으면 프로토 타입 체인 중 하나에 있거나 프로토 타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내 내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)됩니다.
+이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 속성이 정의 될 때까지 찾고 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
 
 ###### 참고자료
 
@@ -698,25 +704,24 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### AMD 대 CommonJS에 대해 어떻게 생각하십니까?
 
-두 가지 모두 ES2015가 등장 할 때까지 JavaScript에 기본적으로 존재하지 않는 모듈 시스템을 구현하는 방법입니다. CommonJS는 동기식이지만 AMD (Asynchronous Module Definition - 비동기식 모듈 정의)는 분명히 비동기식입니다. CommonJS는 서버 측 개발을 염두에 두고 설계되었으며, AMD는 모듈의 비동기 로딩을 지원하므로 브라우저 용으로 더 많이 사용됩니다.
+두 가지 모두 ES2015가 등장할 때까지 JavaScript에 기본적으로 존재하지 않는 모듈 시스템을 구현하는 방법입니다. CommonJS는 동기식인 반면 AMD (Asynchronous Module Definition - 비동기식 모듈 정의)는 분명히 비동기식입니다. CommonJS는 서버-사이드 개발을 염두에 두고 설계되었으며 AMD는 모듈의 비동기 로딩을 지원하므로 브라우저용으로 더 많이 사용됩니다.
 
-AMD은 구문이 매우 장황하고, CommonJS은 다른 언어로 된 import 문을 작성하는 스타일에 더 가깝습니다. 대부분의 경우 AMD를 필요로하지 않습니다. 모든 자바 스크립트를 하나의 연결된 번들 파일로 제공하면 비동기 로딩 속성의 이점을 누릴 수 없기 때문입니다. 또한 CommonJS 구문은 모듈 작성의 노드 스타일에 가깝고 클라이언트 측과 서버 측 JavaScript 개발 사이를 전환 할 때 문맥 전환 오버 헤드가 적습니다.
+AMD은 구문이 매우 장황하고 CommonJS은 다른 언어로 된 import 문을 작성하는 스타일에 더 가깝습니다. 대부분의 경우 AMD를 필요로 하지 않습니다. 모든 JavaScript를 연결된 하나의 번들 파일로 제공하면 비동기 로딩 속성의 이점을 누릴 수 없기 때문입니다. 또한 CommonJS 구문은 모듈 작성의 노드 스타일에 가깝고 클라이언트-사이드과 서버-사이드 JavaScript 개발 사이를 전환할 때 문맥 전환 오버 헤드가 적습니다.
 
-반갑게도 동기식 및 비동기식 로딩을 모두 지원하는 ES2015 모듈을 사용하면 결국 한 가지 방법을 고수 할 수 있습니다. 브라우저와 노드에서 완전히 작동되지는 않았지만 언제나 변환기를 사용하여 코드를 변환 할 수 있습니다.
+ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이 반가운 것은 마침내 하나의 접근 방식만 고수할 수 있다는 점입니다. 브라우저와 노드에서 완전히 작동되지는 않았지만 언제나 트랜스파일러를 사용하여 코드를 변환할 수 있습니다.
 
 ###### 참고자료
 
 -   <https://auth0.com/blog/javascript-module-systems-showdown/>
 -   <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
 
-### 다음이 IIFE로 작동하지 않는 이유를 설명하라: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?
-다음이 IIFE로 작동하지 않는 이유를 설명합니다. : `function foo(){ }();`. IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?
+### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();` IIFE로 제대로 만들기 위해서는 무엇이 바뀌어야 할까요?
 
-IIFE는 즉시 호출되는 기능 표현을 의미한다. 자바스크립트 파서는  `function foo(){ }();`을 `function foo(){ }` 그리고 `();`로 읽는다. 전자는 함수 선언이고 후자 ( 대괄호 )는 함수를 호출 할 때 이름이 지정되지 않았으므로 `Uncaught SyntaxError : Unexpected token '을 던집니다`).
+IIFE는 즉시 함수 호출 표현식을 의미합니다. JavaScript 해석기는 `function foo(){ }();`을 `function foo(){ }`와 `();` 같이 읽습니다. 전자는 함수 선언이며 후자 ( 한 쌍의 괄호 )는 함수를 호출하려고 시도했지만 이름이 지정되지 않았기 때문에 `Uncaught SyntaxError : Unexpected token `)을 던집니다.
 
-추가로 괄호를 추가하는 두 가지 방법이 있습니다.: `(function foo(){ })()` 그리고 `(function foo(){ }())`.
+추가로 괄호를 추가하는 두 가지 방법이 있습니다: `(function foo(){ })()` 그리고 `(function foo(){ }())`.
 
-JavaScript 파서는`function foo () {} ();`를`function foo () {}`와`();`로 읽습니다. 이러한 함수는 전역 범위에서 노출되지 않으며 본문 내에서 자체를 참조 할 필요가 없는 경우 해당 함수의 이름을 생략 할 수도 있습니다.
+JavaScript 해석기는 `function foo () {} ();`를`function foo () {}`와 `();`로 읽습니다. 이러한 함수는 전역 스코프에서 노출되지 않으며 본문 내에서 자체를 참조할 필요가 없는 경우 해당 함수의 이름을 생략할 수도 있습니다.
 
 ###### 참고자료
 
