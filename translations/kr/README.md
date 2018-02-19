@@ -25,12 +25,6 @@
 
 [면접 치트시트](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)나 알고리즘과 같은 일반적인 코딩 면접에 대한 내용은 [기술 면접 핸드북](https://github.com/yangshun/tech-interview-handbook)이 도움이 될 것입니다.
 
----
-
-
-
----
-
 ## 목차
 
 **[HTML 질문](#html-질문)**
