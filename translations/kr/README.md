@@ -80,7 +80,7 @@
 -   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
 -   [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
 -   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
--   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();` IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo--iife로-제대로-만들기-위해서는-무엇이-바뀌어야-할까요)
+-   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo--를-iife로-제대로-만들기-위해서는-무엇이-바뀌어야-할까요)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 -   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 -   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
@@ -689,7 +689,7 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
-이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 속성이 정의 될 때까지 찾고 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
+이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 프로퍼티가 정의될 때까지 찾고 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
 
 ###### 참고자료
 
@@ -709,7 +709,7 @@ ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이
 -   <https://auth0.com/blog/javascript-module-systems-showdown/>
 -   <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
 
-### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();` IIFE로 제대로 만들기 위해서는 무엇이 바뀌어야 할까요?
+### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 제대로 만들기 위해서는 무엇이 바뀌어야 할까요?
 
 IIFE는 즉시 함수 호출 표현식을 의미합니다. JavaScript 해석기는 `function foo(){ }();`을 `function foo(){ }`와 `();` 같이 읽습니다. 전자는 함수 선언이며 후자 ( 한 쌍의 괄호 )는 함수를 호출하려고 시도했지만 이름이 지정되지 않았기 때문에 `Uncaught SyntaxError : Unexpected token `)을 던집니다.
 
