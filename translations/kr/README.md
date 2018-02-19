@@ -38,8 +38,8 @@
 -   [`<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.](#script-script-async-script-defer-사이의-차이점을-설명하세요)
 -   [왜 일반적으로 CSS `<link>` 태그를 `<head></head>` 태그 사이에 위치시키고, JS `<script>` 태그를 `</body>` 직전에 위치시키는 것이 좋은 방법입니까? 다른 예외적인 상황을 알고있습니까?](#왜-일반적으로-css-link-태그를-headhead-태그-사이에-위치시키고-js-script-태그를-body-직전에-위치시키는-것이-좋은-방법입니까-다른-예외적인-상황을-알고있습니까)
 -   [프로그레시브 렌더링이 무엇입니까?](#프로그레시브-렌더링이-무엇입니까)
--   [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
--   [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+-   [이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇입니까? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.](#이미지-태그에-srcset-속성을-사용하는-이유는-무엇입니까-이-속성의-컨텐츠를-평가할-때-브라우저가-사용하는-프로세스를-설명하세요)
+-   [다른 HTML 템플릿 언어를 사용해본 적이 있습니까?](#전에-다른-HTML-템플릿-언어를-사용해본-적이-있습니까)
 
 **[CSS Questions](#css-questions)**
 
@@ -264,20 +264,20 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 - 보이는 콘텐츠의 우선순위 설정 (또는 스크롤 없이 볼 수 있는 렌더링) - 가능한 한 빨리 표시하기 위해 사용자 브라우저에서 렌더링 될 페이지의 양에 필요한 최소한의 CSS / 콘텐츠 / 스크립트 만 포함하면 `deferred` 스크립트를 사용하거나 `DOMContentLoaded` / `load` 이벤트를 수신하여 다른 리소스와 내용을 로드 할 수 있습니다.
 - 비동기 HTML 프래그먼트 - 페이지의 백엔드에서 HTML 페이지의 일부를 브라우저로 가져옵니다. 이 기술에 대한 자세한 내용은 [여기](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)에서 찾을 수 있습니다.
 
-### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+### 이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇입니까? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.
 
 TODO
 
-###### References
+###### 참고자료
 
 -   <https://stackoverflow.com/questions/33651166/what-is-progressive-rendering>
 -   <http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/>
 
-### Have you used different HTML templating languages before?
+### 다른 HTML 템플릿 언어를 사용해본 적이 있습니까?
 
-Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
+네, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid 등이 있습니다. 필자의 견해로 그것들은 어느 정도 동일하고, 보여 줄 데이터를 조작하는 데 유용한 필터와 컨텐츠를 유출하는 유사한 기능을 제공한다. 대부분의 템플릿 엔진을 사용하면 표시 전에 맞춤 처리가 필요한 이벤트에 자신의 필터를 삽입 할 수도 있습니다.
 
-### Other Answers
+### 기타 답변
 
 -   <https://neal.codes/blog/front-end-interview-questions-html/>
 -   <http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/>
