@@ -41,9 +41,9 @@
 -   [이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇입니까? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.](#이미지-태그에-srcset-속성을-사용하는-이유는-무엇입니까-이-속성의-컨텐츠를-평가할-때-브라우저가-사용하는-프로세스를-설명하세요)
 -   [다른 HTML 템플릿 언어를 사용해본 적이 있습니까?](#다른-html-템플릿-언어를-사용해본-적이-있습니까)
 
-**[CSS Questions](#css-questions)**
+**[CSS 질문](#css-질문)**
 
--   [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
+-   [CSS 선택자 특이성은 무엇이며 어떻게 작동합니까?](#css-선택자-특이성은-무엇이며-어떻게-작동합니까)
 -   [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
 -   [Describe `float`s and how they work.](#describe-floats-and-how-they-work)
 -   [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
@@ -284,26 +284,27 @@ TODO
 
 * * *
 
-## CSS Questions
+## CSS 질문
 
-Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions). Pull requests for suggestions and corrections are welcome!
+[프론트엔드 면접 질문 - CSS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions)에 대한 해설입니다. 
+Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
-### What is CSS selector specificity and how does it work?
+### CSS 선택자 특이성은 무엇이며 어떻게 작동합니까?
 
-The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
+브라우저는 CSS 규칙의 특수성에 따라 요소에 표시할 스타일을 결정합니다. 브라우저는 이미 특정 요소와 일치하는 규칙을 결정했다고 가정합니다. 일치하는 규칙들 가운데, 다음에 기초하여 각 규칙에 대해 특수성, 네개의 쉼표로 구분된 값,`a, b, c, d`가 계산됩니다.
 
-1.  `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
-2.  `b` is the number of ID selectors.
-3.  `c` is the number of classes, attributes and pseudo-classes selectors.
-4.  `d` is the number of tags and pseudo-elements selectors.
+1. `a`는 인라인 스타일이 사용되고 있는지 여부입니다. 속성 선언이 요소에서 인라인 스타일이면 'a'는 1이고, 그렇지 않으면 0입니다.
+2. `b`는 ID 셀렉터의 수입니다.
+3. `c`는 클래스, 속성 및 가상 클래스 선택자의 수입니다.
+4. `d`는 태그 및 유사 요소 선택자의 수입니다.
 
-The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
+결과적인 특정성은 점수가 아니라, 컬럼마다 비교할 수 있는 가치들의 행렬입니다. 선택자를 비교하여 가장 높은 특이성을 갖는 항목을 결정할 때 왼쪽에서 오른쪽으로 보고 각 열의 가장 높은 값을 비교하세요. 따라서 `b`열의 값은 `c`와 `d`열에 있는 값을 무시합니다. 따라서 `0,1,0,0`의 특이성은 `0,0,10,10`중 하나보다 큽니다.
 
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+동등한 특이성의 경우: 최신 규칙은 중요한 규칙입니다. 스타일 시트에 동일한 규칙을 두 번 작성한 경우(내부나 외부에 관계 없이) 스타일 시트의 하위 규칙이 스타일 될 요소에 더 가까우므로 더 구체적으로 적용됩니다.
 
-I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
+필자는 필요하다면 쉽게 재정의할 수 있도록 낮은 특정성 규칙들을 작성할 것입니다. CSS UI 컴포넌트 라이브러리 코드를 작성할 때 특이성을 높이거나 `!important`를 사용하기 위해 라이브러리 사용자가 지나치게 복잡한 CSS 규칙을 사용하지 않고도 이를 무시할 수 있도록 특이성이 낮은 것이 중요합니다.
 
-###### References
+###### 참고자료
 
 -   <https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/>
 -   <https://www.sitepoint.com/web-foundations/specificity/>
