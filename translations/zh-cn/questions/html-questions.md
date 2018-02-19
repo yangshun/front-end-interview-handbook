@@ -7,12 +7,12 @@
 * [在设计开发多语言网站时，需要留心哪些事情？](#在设计开发多语言网站时需要留心哪些事情)
 * [什么是`data-`属性？](#什么是data-属性)
 * [将 HTML5 看作成开放的网络平台，什么是 HTML5 的基本构件（building block）？](#将-html5-看作成开放的网络平台什么是-html5-的基本构件building-block)
-* [请描述`cookie`、`sessionStorage`和`localStorage`的区别。](#请描述cookie-sessionstorage和localstorage的区别)
-* [请描述`<script>`、`<script async>`和`<script defer>`的区别。](#请描述script-script-async和script-defer的区别)
-* [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-* [What is progressive rendering?](#what-is-progressive-rendering)
-* [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-* [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+* [请描述`cookie`、`sessionStorage`和`localStorage`的区别。](#请描述cookiesessionstorage和localstorage的区别)
+* [请描述`<script>`、`<script async>`和`<script defer>`的区别。](#请描述scriptscript-async和script-defer的区别)
+* [为什么最好把CSS的`<link>`标签放在`<head></head>`之间？为什么最好把JS的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
+* [什么是渐进式渲染（progressive rendering）？](#什么是渐进式渲染progressive-rendering)
+* [为什么在`<img>`标签中使用`srcset`属性？请描述浏览器遇到该属性后的处理过程。](#为什么在img标签中使用srcset属性请描述浏览器遇到该属性后的处理过程)
+* [你有过使用不同模版语言的经历吗？](#你有过使用不同模版语言的经历吗)
 
 ### `DOCTYPE`有什么用？
 
