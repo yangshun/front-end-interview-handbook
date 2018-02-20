@@ -1,20 +1,20 @@
 # HTML に関する問題
 
-[Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md) に対する解答集です。提案や訂正のプルリクエストは歓迎します。
+[Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md) の解答集です。提案や訂正のプルリクエストは大歓迎です！
 
-* [`DOCTYPE` は何のためにあるものですか?](#what-does-a-doctype-do)
-* [どのようにすれば複数の言語のコンテンツを含むページを提供できますか？](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-* [多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-* [`data-` 属性は何のために使われるのですか？](#what-are-data--attributes-good-for)
-* [HTML5 をオープンウェブプラットフォームとして考え他ときに、HTML5 とはどんな要素から成るものですか？](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-* [`cookie`、` sessionStorage`、`localStorage` の違いを教えてください。](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-* [`<script>`、 `<script async>`、 `<script defer>` の違いを教えてください。](#describe-the-difference-between-script-script-async-and-script-defer)
-* [なぜ一般的に、CSSの `<link>` を `<head></head>` の間に、JS `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？あなたは例外を知っていますか？](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-* [プログレッシブレンダリングとは何ですか？](#what-is-progressive-rendering)
-* [img タグに `srcset` 属性を使用する理由は？ この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-* [HTMLテンプレート言語をいくつか使用した経験はありますか？](#have-you-used-different-html-templating-languages-before)
+* [`DOCTYPE` は何のためにあるものですか？](doctype-は何のためにあるものですか)
+* [どのようにすれば複数の言語のコンテンツを含むページを提供できますか？](#どのようにすれば複数の言語のコンテンツを含むページを提供できますか)
+* [多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？](#多言語サイトを設計開発する際にはどんなことに注意を払わなければならないですか)
+* [`data-` 属性は何のために使われるのですか？](#data--属性は何のために使われるのですか)
+* [HTML5 をオープンウェブプラットフォームとして考え他ときに、HTML5 とはどんな要素から成るものですか？](#html5-をオープンウェブプラットフォームとして考え他ときにhtml5-とはどんな要素から成るものですか)
+* [`cookie`、`sessionStorage`、`localStorage` の違いを教えてください。](#cookiesessionstoragelocalstorage-の違いを教えてください)
+* [`<script>`、 `<script async>`、 `<script defer>` の違いを教えてください。](#script-script-async-script-deferの違いを教えてください)
+* [なぜ一般的に、CSSの `<link>` を `<head></head>` の間に、JSの `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？](#なぜ一般的にcssの-link-を-headhead-の間にjsの-script-を-body-の直前に置くことが良いと言われているのでしょうかこうすべきでない例外を知っていますか)
+* [プログレッシブレンダリングとは何ですか？](#プログレッシブレンダリングとは何ですか)
+* [img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。](#img-タグに-srcset-属性を使用する理由はこの属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください)
+* [HTMLテンプレート言語をいくつか使用した経験はありますか？](#htmlテンプレート言語をいくつか使用した経験はありますか)
 
-### `DOCTYPE` は何のためにあるものですか?
+### `DOCTYPE` は何のためにあるものですか？
 
 `DOCTYPE` は "document type" の略です。 これは、標準モードと[後方互換(quirks)モード](https://quirks.spec.whatwg.org/#history)を区別するためにHTMLで使用される宣言です。これがあると、標準モードでWebページをレンダリングするようにブラウザに指示します。
 
@@ -59,7 +59,7 @@ HTTPリクエストがサーバに対して行われるとき、リクエスト�
 
 [[↑] 先頭に戻る](#html-questions)
 
-### `data-`属性は何のために使われるのですか？
+### `data-` 属性は何のために使われるのですか？
 
 JavaScript フレームワークが普及する前に、フロントエンドの開発者は、非標準属性、DOM の余分なプロパティなどの他のハッキングなしで、DOM 内に余分なデータを格納する `data-` 属性を使用しました。 適切な属性や要素が存在しないページやアプリケーション専用のカスタムデータを格納するためのものです。
 
@@ -89,7 +89,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 [[↑] 先頭に戻る](#html-questions)
 
-### `cookie`、` sessionStorage`、`localStorage` の違いを教えてください。
+### `cookie`、`sessionStorage`、`localStorage` の違いを教えてください。
 
 これらの技術は、クライアント側の key-value ストレージメカニズムです。彼らは文字列として値を格納することだけができます。
 
@@ -110,7 +110,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 [[↑] 先頭に戻る](#html-questions)
 
-### `<script>`、 `<script async>`、 `<script defer>`の違いを教えてください。
+### `<script>`、`<script async>`、`<script defer>` の違いを教えてください。
 
 * `<script>` - HTML解析がブロックされ、スクリプトがフェッチされてすぐに実行され、スクリプトの実行後にHTML解析が再開されます。
 * `<script async>` - スクリプトはHTML解析と並行して取得され、利用可能になるとすぐに（HTML解析が完了する前に）実行されます。スクリプトがページ上の他のスクリプト（アナリティックスなど）と独立している場合は、 `async` を使用します。
@@ -126,7 +126,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 [[↑] 先頭に戻る](#html-questions)
 
-### なぜ一般的に、CSSの `<link>`を `<head></head>`の間に、JS `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？あなたは例外を知っていますか？
+### なぜ一般的に、CSSの `<link>` を `<head></head>` の間に、JSの `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？
 
 **`<link>`を `<head>`に置く**
 
@@ -158,7 +158,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 [[↑] 先頭に戻る](#html-questions)
 
-### img タグに `srcset` 属性を使用する理由は？ この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。
+### img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。
 
 TODO
 
