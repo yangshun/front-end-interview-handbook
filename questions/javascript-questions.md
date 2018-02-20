@@ -1139,7 +1139,7 @@ const { e, f, ...others } = {
   f: 2,
   g: 3,
   h: 4,
-}; // e: 1, b: 2, others: { g: 3, h: 4 }
+}; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
 ###### References
