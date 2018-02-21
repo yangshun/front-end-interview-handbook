@@ -33,19 +33,19 @@
 -   [여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?](#여러-언어로-되어-있는-콘텐츠의-페이지를-어떻게-제공하나요)
 -   [다국어 사이트를 디자인하거나 개발할 때 주의해야 할 사항은 무엇입니까?](#다국어-사이트를-디자인하거나-개발할-때-주의해야-할-사항은-무엇입니까)
 -   [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
--   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#HTML5를-개방형-웹-플랫폼으로-간주합니다-HTML5의-구성-요소는-무엇입니까)
+-   [HTML5를 개방형 웹 플랫폼으로 간주합니다. HTML5의 구성 요소는 무엇입니까?](#html5를-개방형-웹-플랫폼으로-간주합니다-html5의-구성-요소는-무엇입니까)
 -   [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
 -   [`<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.](#script-script-async-script-defer-사이의-차이점을-설명하세요)
 -   [왜 일반적으로 CSS `<link>` 태그를 `<head></head>` 태그 사이에 위치시키고, JS `<script>` 태그를 `</body>` 직전에 위치시키는 것이 좋은 방법입니까? 다른 예외적인 상황을 알고있습니까?](#왜-일반적으로-css-link-태그를-headhead-태그-사이에-위치시키고-js-script-태그를-body-직전에-위치시키는-것이-좋은-방법입니까-다른-예외적인-상황을-알고있습니까)
 -   [프로그레시브 렌더링이 무엇입니까?](#프로그레시브-렌더링이-무엇입니까)
--   [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
--   [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+-   [이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇입니까? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.](#이미지-태그에-srcset-속성을-사용하는-이유는-무엇입니까-이-속성의-컨텐츠를-평가할-때-브라우저가-사용하는-프로세스를-설명하세요)
+- [다른 HTML 템플릿 언어를 사용해본 적이 있습니까?](#다른-html-템플릿-언어를-사용해본-적이-있습니까)
 
-**[CSS Questions](#css-questions)**
+**[CSS 질문](#css-질문)**
 
--   [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
--   [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
--   [Describe `float`s and how they work.](#describe-floats-and-how-they-work)
+-   [CSS 선택자 특이성은 무엇이며 어떻게 작동합니까?](#css-선택자-특이성은-무엇이며-어떻게-작동합니까)
+-   ["Resetting"과 "Normalizing" CSS의 차이점은 무엇입니까? 당신은 무엇을 선택할 것이며, 그 이유는 무엇입니까?](#resetting과-normalizing-css의-차이점은-무엇입니까-당신은-무엇을-선택할-것이며-그-이유는-무엇입니까)
+-   [`float`이 어떻게 작동하는지 설명하세요.](#float이-어떻게-작동하는지-설명하세요)
 -   [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
 -   [Describe BFC (Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
 -   [What are the various clearing techniques and which is appropriate for what context?](#what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
@@ -77,10 +77,10 @@
 **[JS 질문](#js-질문)**
 
 -   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
--   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-JavaScript에서-어떻게-작동하는지-설명하세요)
--   [프로토 타입 상속이 어떻게 작동하는지 설명하십시오.](#프로토-타입-상속이-어떻게-작동하는지-설명하십시오)
--   [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
--   [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
+-   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
+-   [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
+-   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
+-   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo--를-iife로-제대로-만들기-위해서는-무엇이-바뀌어야-할까요)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 -   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 -   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
@@ -135,7 +135,7 @@
 
 ## HTML 질문
 
-[프론트 엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+[프론트엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
 Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### `DOCTYPE`은 무엇을 합니까?
@@ -246,7 +246,7 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 
 `<script>`는 다운로드되고 실행되는 동안 HTML 파싱을 차단합니다. 스크립트를 맨 아래에서 다운로드하면 HTML을 먼저 파싱하여 사용자에게 표시할 수 있습니다.
 
-스크립트가 `document.write()` 를 포함할 때에는 `<script>` 를 아래쪽에 두는 것이 예외적일 수 있습니다만, 요즘은 `document.write()` 를 사용하지 않는 것이 좋습니다. 또한, `<script>`를 맨 아래에 두면 브라우저가 전체 문서가 파싱 될때까지 스크립트 다운로드를 시작할 수 없다는 것을 의미합니다. 유일한 해결책은 `<head>` 에 `<script>`를 넣고 `defer` 속성을 사용하는 것입니다.
+스크립트가 `document.write()` 를 포함할 때에는 `<script>` 를 아래쪽에 두는 것이 예외적일 수 있습니다만, 요즘은 `document.write()` 를 사용하지 않는 것이 좋습니다. 또한, `<script>`를 맨 아래에 두면 브라우저가 전체 문서가 파싱될 때까지 스크립트 다운로드를 시작할 수 없다는 것을 의미합니다. 유일한 해결책은 `<head>` 에 `<script>`를 넣고 `defer` 속성을 사용하는 것입니다.
 
 ###### 참고자료
 
@@ -264,70 +264,72 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 - 보이는 콘텐츠의 우선순위 설정 (또는 스크롤 없이 볼 수 있는 렌더링) - 가능한 한 빨리 표시하기 위해 사용자 브라우저에서 렌더링 될 페이지의 양에 필요한 최소한의 CSS / 콘텐츠 / 스크립트 만 포함하면 `deferred` 스크립트를 사용하거나 `DOMContentLoaded` / `load` 이벤트를 수신하여 다른 리소스와 내용을 로드 할 수 있습니다.
 - 비동기 HTML 프래그먼트 - 페이지의 백엔드에서 HTML 페이지의 일부를 브라우저로 가져옵니다. 이 기술에 대한 자세한 내용은 [여기](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)에서 찾을 수 있습니다.
 
-### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+### 이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇입니까? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.
 
 TODO
 
-###### References
+###### 참고자료
 
 -   <https://stackoverflow.com/questions/33651166/what-is-progressive-rendering>
 -   <http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/>
 
-### Have you used different HTML templating languages before?
+### 다른 HTML 템플릿 언어를 사용해본 적이 있습니까?
 
-Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
+네, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid 등이 있습니다. 필자의 견해로 그것들은 어느 정도 동일하고, 보여 줄 데이터를 조작하는 데 유용한 필터와 컨텐츠를 유출하는 유사한 기능을 제공한다. 대부분의 템플릿 엔진을 사용하면 표시 전에 맞춤 처리가 필요한 이벤트에 자신의 필터를 삽입 할 수도 있습니다.
 
-### Other Answers
+### 기타 답변
 
 -   <https://neal.codes/blog/front-end-interview-questions-html/>
 -   <http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/>
 
 * * *
 
-## CSS Questions
+## CSS 질문
 
-Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions). Pull requests for suggestions and corrections are welcome!
+[프론트엔드 면접 질문 - CSS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions)에 대한 해설입니다. 
+Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
-### What is CSS selector specificity and how does it work?
+### CSS 선택자 특이성은 무엇이며 어떻게 작동합니까?
 
-The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
+브라우저는 CSS 규칙의 특수성에 따라 요소에 표시할 스타일을 결정합니다. 브라우저는 이미 특정 요소와 일치하는 규칙을 결정했다고 가정합니다. 일치하는 규칙들 가운데, 다음에 기초하여 각 규칙에 대해 특수성, 네개의 쉼표로 구분된 값,`a, b, c, d`가 계산됩니다.
 
-1.  `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
-2.  `b` is the number of ID selectors.
-3.  `c` is the number of classes, attributes and pseudo-classes selectors.
-4.  `d` is the number of tags and pseudo-elements selectors.
+1. `a`는 인라인 스타일이 사용되고 있는지 여부입니다. 속성 선언이 요소에서 인라인 스타일이면 'a'는 1이고, 그렇지 않으면 0입니다.
+2. `b`는 ID 셀렉터의 수입니다.
+3. `c`는 클래스, 속성 및 가상 클래스 선택자의 수입니다.
+4. `d`는 태그 및 유사 요소 선택자의 수입니다.
 
-The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
+결과적인 특정성은 점수가 아니라, 컬럼마다 비교할 수 있는 가치들의 행렬입니다. 선택자를 비교하여 가장 높은 특이성을 갖는 항목을 결정할 때 왼쪽에서 오른쪽으로 보고 각 열의 가장 높은 값을 비교하세요. 따라서 `b`열의 값은 `c`와 `d`열에 있는 값을 무시합니다. 따라서 `0,1,0,0`의 특이성은 `0,0,10,10`중 하나보다 큽니다.
 
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+동등한 특이성의 경우: 최신 규칙은 중요한 규칙입니다. 스타일 시트에 동일한 규칙을 두 번 작성한 경우(내부나 외부에 관계 없이) 스타일 시트의 하위 규칙이 스타일 될 요소에 더 가까우므로 더 구체적으로 적용됩니다.
 
-I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
+필자는 필요하다면 쉽게 재정의할 수 있도록 낮은 특정성 규칙들을 작성할 것입니다. CSS UI 컴포넌트 라이브러리 코드를 작성할 때 특이성을 높이거나 `!important`를 사용하기 위해 라이브러리 사용자가 지나치게 복잡한 CSS 규칙을 사용하지 않고도 이를 무시할 수 있도록 특이성이 낮은 것이 중요합니다.
 
-###### References
+###### 참고자료
 
 -   <https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/>
 -   <https://www.sitepoint.com/web-foundations/specificity/>
 
-### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+### "Resetting"과 "Normalizing" CSS의 차이점은 무엇입니까? 당신은 무엇을 선택할 것이며, 그 이유는 무엇입니까?
 
--   **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
--   **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
+-   **Resetting** - Resetting은 요소의 모든 기본 브라우저 스타일을 제거하기 위한 것입니다. 예 : `margin`, `padding`s,`font-size`는 같은 값으로 재설정됩니다. 일반적인 타이포그래피 요소에 대한 스타일을 재 선언해야합니다.
 
-I would choose resetting when I have a very customized or unconventional site design such that I need to do a lot of my own styling and do not need any default styling to be preserved.
+-   **Normalizing** - Normalizing는 모든 것을 "정리"하는 것이 아니라 유용한 기본 스타일을 보존합니다. 또한 일반적인 브라우저 종속성에 대한 버그를 수정합니다.
 
-###### References
+필자는 나만의 스타일링을 많이 해야 하고 보존할 기본 스타일링이 필요하지 않도록 매우 맞춤화되었거나 자유로운 사이트 디자인을 가지고 있을 때 리셋을 선택합니다.
+
+###### 참고자료
 
 -   <https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css>
 
-### Describe `float`s and how they work.
+### `float`이 어떻게 작동하는지 설명하세요.
 
-Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
+Float은 CSS 위치 지정 속성입니다. Float 된 요소는 페이지의 흐름의 일부로 남아 있으며 페이지의 흐름에서 제거되는 'position : absolute'요소와 달리 다른 요소 (예 : 플로팅 요소 주위로 텍스트가 흐르게 됨)의 위치 지정에 영향을 줍니다.
 
-The CSS `clear` property can be used to be positioned below `left`/`right`/`both` floated elements.
+CSS `clear` 속성은`left`/`right`/`both` float 엘리먼트 아래에 위치하도록 사용될 수 있습니다.
 
-If a parent element contains nothing but floated elements, its height will be collapsed to nothing. It can be fixed by clearing the float after the floated elements in the container but before the close of the container.
+부모 요소에 float된 요소만 있으면 그 높이가 무효로 됩니다. 컨테이너의 플로팅 된 요소 다음에 있지만 컨테이너가 닫히기 전에 float를 clear 하면 해결할 수 있습니다.
 
-The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear floats. Rather than setting the overflow on the parent, you apply an additional class `clearfix` to it. Then apply this CSS:
+`.clearfix` 핵은 영리한 CSS 의사 선택자 (`: after`)를 사용하여 실수를 제거합니다. 상위 클래스에 overflow를 설정하는 대신 추가 클래스 `clearfix`를 적용합니다. 그런 다음이 CSS를 적용하십시오:
 
 ```css
 .clearfix:after {
@@ -338,10 +340,9 @@ The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear float
   clear: both;
 }
 ```
+양자택일로, 부모 요소에 `overflow : auto` 또는 `overflow : hidden` 속성을 주면 자식 요소 내부에 새로운 블록 형식화 문맥을 설정하고 자식을 포함하도록 확장합니다.
 
-Alternatively, give `overflow: auto` or `overflow: hidden` property to the parent element which will establish a new block formatting context inside the children and it will expand to contain its children.
-
-###### References
+###### 참고자료
 
 -   <https://css-tricks.com/all-about-floats/>
 
@@ -652,15 +653,15 @@ When using `translate()`, the element still takes up its original space (sort of
 
 ## JS 질문
 
-[프론트 엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
+[프론트엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
 Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### 이벤트 위임에 대해 설명하세요.
 
-이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생 될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
+이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
 
-- 각 하위 항목에 이벤트 핸들러를 연결하지 않고, 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
-- 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩 할 필요가 없습니다.
+- 각 하위 항목에 이벤트 핸들러를 연결하지 않고 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
+- 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩할 필요가 없습니다.
 
 ###### 참고자료
 
@@ -669,53 +670,55 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
 
-`this`는 간단하게 설명하기 어렵습니다. 자바 스크립트에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
-온라인에 많은 설명이 있는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
+`this`는 간단하게 설명하기 어렵습니다. JavaScript에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
+온라인에 많은 설명이 있는데 [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
 다음 규칙과 같습니다.
 
-1. 함수를 호출 할 때 `new` 키워드가 사용되면 함수 안에 있는 `this`는 아주 새로운 객체입니다.
-2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되면, 함수 내의 `this`는 인수로 전달 된 객체입니다.
-3. `obj.method()`와 같이 메소드가 메소드로 호출되면, `this`는 함수가 속성 인 객체입니다.
-4. 함수가 자유함수로 호출 된 경우, 즉 위의 조건없이 호출 된 경우 `this`는 전역 객체입니다. 브라우저에서는 `window`객체입니다. 엄격 모드(`'use strict'`) 일 경우, `this`는 전역 객체 대신 `undefined`가 됩니다.
-5. 위의 규칙 중 다수가 적용되면, 더 높은 규칙이 승리하고 `this`값을 설정합니다.
-6. 함수가 ES2015 화살표 함수이면, 위의 모든 규칙을 무시하고 생성 된 시점에서 주변 범위의 `this`값을 받습니다.
+1. 함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
+2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
+3. `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
+4. 함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
+5. 위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
+6. 함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
 
-상세한 설명은 [Medium 기사](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
+상세한 설명은 [Medium의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
 ###### 참고자료
 
 -   <https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3>
 -   <https://stackoverflow.com/a/3127440/1751946>
 
-### 프로토 타입 상속이 어떻게 작동하는지 설명하십시오.
+### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
-이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 속성을 가지고 있습니다. 객체의 속성에 접근 할 때 해당 객체에 해당 속성이 없으면, JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 속성이 정의 될 때까지 찾고, 만약 객체에서 속성에 액세스 할 때 해당 객체에 해당 속성이 없으면 프로토 타입 체인 중 하나에 있거나 프로토 타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내 내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)됩니다.
+이것은 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 프로퍼티가 정의될 때까지 찾고 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달 할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
 
 ###### 참고자료
 
 -   <https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson>
 -   <https://davidwalsh.name/javascript-objects>
 
-### What do you think of AMD vs CommonJS?
+### AMD 대 CommonJS에 대해 어떻게 생각하십니까?
 
-Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
+두 가지 모두 ES2015가 등장할 때까지 JavaScript에 기본적으로 존재하지 않는 모듈 시스템을 구현하는 방법입니다. CommonJS는 동기식인 반면 AMD (Asynchronous Module Definition - 비동기식 모듈 정의)는 분명히 비동기식입니다. CommonJS는 서버-사이드 개발을 염두에 두고 설계되었으며 AMD는 모듈의 비동기 로딩을 지원하므로 브라우저용으로 더 많이 사용됩니다.
 
-I find AMD syntax to be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, I find AMD unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node style of writing modules and there is less context-switching overhead when switching between client side and server side JavaScript development.
+AMD은 구문이 매우 장황하고 CommonJS은 다른 언어로 된 import 문을 작성하는 스타일에 더 가깝습니다. 대부분의 경우 AMD를 필요로 하지 않습니다. 모든 JavaScript를 연결된 하나의 번들 파일로 제공하면 비동기 로딩 속성의 이점을 누릴 수 없기 때문입니다. 또한 CommonJS 구문은 모듈 작성의 노드 스타일에 가깝고 클라이언트-사이드과 서버-사이드 JavaScript 개발 사이를 전환할 때 문맥 전환 오버 헤드가 적습니다.
 
-I'm glad that with ES2015 modules, that has support for both synchronous and asynchronous loading, we can finally just stick to one approach. Although it hasn't been fully rolled out in browsers and in Node, we can always use transpilers to convert our code.
+ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이 반가운 것은 마침내 하나의 접근 방식만 고수할 수 있다는 점입니다. 브라우저와 노드에서 완전히 작동되지는 않았지만 언제나 트랜스파일러를 사용하여 코드를 변환할 수 있습니다.
 
-###### References
+###### 참고자료
 
 -   <https://auth0.com/blog/javascript-module-systems-showdown/>
 -   <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
 
-### Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 제대로 만들기 위해서는 무엇이 바뀌어야 할까요?
 
-IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a function declaration and the latter (a pair of brackets) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
+IIFE는 즉시 함수 호출 표현식을 의미합니다. JavaScript 파서는 `function foo(){ }();`을 `function foo(){ }`와 `();` 같이 읽습니다. 전자는 함수 선언이며 후자 ( 한 쌍의 괄호 )는 함수를 호출하려고 시도했지만 이름이 지정되지 않았기 때문에 `Uncaught SyntaxError : Unexpected token `)을 던집니다.
 
-Here are two ways to fix it that involves adding more brackets: `(function foo(){ })()` and `(function foo(){ }())`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
+추가로 괄호를 추가하는 두 가지 방법이 있습니다: `(function foo(){ })()` 그리고 `(function foo(){ }())`.
 
-###### References
+JavaScript 파서는 `function foo () {} ();`를`function foo () {}`와 `();`로 읽습니다. 이러한 함수는 전역 스코프에서 노출되지 않으며 본문 내에서 자체를 참조할 필요가 없는 경우 해당 함수의 이름을 생략할 수도 있습니다.
+
+###### 참고자료
 
 -   <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
 

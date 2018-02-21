@@ -156,16 +156,16 @@ Examples of such techniques:
 * Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
 * Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
+###### References
+
+* https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
+* http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
+
 [[↑] Back to top](#html-questions)
 
 ### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
 TODO
-
-###### References
-
-* https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
-* http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
 [[↑] Back to top](#html-questions)
 
