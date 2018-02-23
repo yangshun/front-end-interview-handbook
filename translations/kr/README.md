@@ -46,8 +46,8 @@
 -   [CSS 선택자 특이성은 무엇이며 어떻게 작동합니까?](#css-선택자-특이성은-무엇이며-어떻게-작동합니까)
 -   ["Resetting"과 "Normalizing" CSS의 차이점은 무엇입니까? 당신은 무엇을 선택할 것이며, 그 이유는 무엇입니까?](#resetting과-normalizing-css의-차이점은-무엇입니까-당신은-무엇을-선택할-것이며-그-이유는-무엇입니까)
 -   [`float`이 어떻게 작동하는지 설명하세요.](#float이-어떻게-작동하는지-설명하세요)
--   [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
--   [Describe BFC (Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
+-   [`z-index`와 쌓임 맥락(stacking context)이 어떻게 형성되는지 설명하세요.](#z-index와-쌓임-맥락stacking-context이-어떻게-형성되는지-설명하세요)
+-   [블록 서식 문맥(BFC)과 작동 방식을 설명하세요.](#블록-서식-문맥bfc과-작동-방식을-설명하세요)
 -   [What are the various clearing techniques and which is appropriate for what context?](#what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
 -   [Explain CSS sprites, and how you would implement them on a page or site.](#explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site)
 -   [How would you approach fixing browser-specific styling issues?](#how-would-you-approach-fixing-browser-specific-styling-issues)
@@ -80,7 +80,7 @@
 -   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
 -   [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
 -   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
--   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 적절히 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo--를-iife로-제대로-만들기-위해서는-무엇이-바뀌어야-할까요)
+-   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
 -   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 -   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 -   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
@@ -346,38 +346,38 @@ CSS `clear` 속성은`left`/`right`/`both` float 엘리먼트 아래에 위치�
 
 -   <https://css-tricks.com/all-about-floats/>
 
-### Describe `z-index` and how stacking context is formed.
+### `z-index`와 쌓임 맥락(stacking context)이 어떻게 형성되는지 설명하세요.
 
-The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
+CSS의 `z-index`속성은 요소의 겹치는 요소의 순서를 제어합니다. `z-index`는 `static`이 아닌 `position` 값을 갖는 요소에만 영향을 줍니다.
 
-Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
+`z-index` 값이 없으면 DOM에 나타나는 순서대로 요소가 쌓이게 됩니다 (동일한 레이어에서 가장 낮은 레이어의 맨 위에 나타납니다). 정적이지 않은(non-static) 위치 지정 요소 (및 해당 하위 요소)는 HTML 레이어 구조와 상관없이 기본 정적 위치 지정을 사용하여 항상 요소 위에 나타납니다.
 
-A stacking context is an element that contains a set of layers. Within a local stacking context, the `z-index` values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher `z-index` than element B.
+쌓임 맥락(stacking context)은 레이어 집합을 포함하는 요소입니다. 쌓임 맥락(stacking context) 지역 내에서 자식의 `z-index` 값은 문서 루트가 아닌 해당 요소를 기준으로 설정됩니다. 해당 컨텍스트 외부의 레이어 — 즉 로컬 쌓임 맥락의 형제 요소 — 그 사이의 레이어에 어울릴 수 없습니다. 요소 B가 요소 A의 상단에 위치하는 경우, 요소 A의 하위 요소 C는 요소 C가 요소 B보다 `z-index`가 더 높은 경우에도 요소 B보다 높을 수 없습니다.
 
-Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
+각각의 쌓임 맥락은 자체적으로 포함되어 있습니다 - 요소의 내용이 쌓인 후에는 전체 요소를 쌓임 맥락의 쌓인 순서로 고려합니다. 소수의 CSS 속성이 `opacity`가 1보다 작고 `filter`가 `none`이 아니며 `transform`이 `none`이 아닌 새롭게 쌓임 맥락(stacking context)을 트리거합니다.
 
-###### References
+###### 참고 자료
 
 -   <https://css-tricks.com/almanac/properties/z/z-index/>
 -   <https://philipwalton.com/articles/what-no-one-told-you-about-z-index/>
 -   <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context>
 
-### Describe Block Formatting Context (BFC) and how it works.
+### 블록 서식 문맥(BFC)과 작동 방식을 설명하세요.
 
-A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
+BFC(블록 서식 문맥)는 블록 박스가 배치된 웹 페이지의 시각적 CSS 렌더링의 일부입니다.  Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (그 값이 viewport에 전파되었을 때는 제외) establish new block formatting contexts.
 
-A BFC is an HTML box that satisfies at least one of the following conditions:
+BFC는 다음 조건 중 하나 이상을 충족시키는 HTML박스입니다:
 
--   The value of `float` is not `none`.
--   The value of `position` is neither `static` nor `relative`.
--   The value of `display` is `table-cell`, `table-caption`, `inline-block`, `flex`, or `inline-flex`.
--   The value of `overflow` is not `visible`.
+-   `float`의 값은 `none`이 아닙니다.
+-   `position`의 값은 `static`도 아니고 `relative`도 아닙니다.
+-   `display`의 값은 `table-cell`, `table-caption`, `inline-block`, `flex` 또는 `inline-flex`입니다.
+-   `overflow`의 값은 `visible`이 아닙니다.
 
-In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
+BFC에서 각 박스의 왼쪽 바깥 가장자리는 포함하는 블록의 왼쪽 가장자리에 닿습니다 (오른쪽에서 왼쪽으로 포맷팅, 오른쪽 가장자리에서 터치).
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
+BFC 상쇄(collapse)시 인접한 블록 레벨 박스 사이의 Vertical 마진. [마진 collapsing](https://www.sitepoint.com/web-foundations/collapsing-margins/)에 대해 자세히 읽어보세요.
 
-###### References
+###### 참고 자료
 
 -   <https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context>
 -   <https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/>
@@ -710,7 +710,7 @@ ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이
 -   <https://auth0.com/blog/javascript-module-systems-showdown/>
 -   <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
 
-### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 제대로 만들기 위해서는 무엇이 바뀌어야 할까요?
+### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇이 바뀌어야 할까요?
 
 IIFE는 즉시 함수 호출 표현식을 의미합니다. JavaScript 파서는 `function foo(){ }();`을 `function foo(){ }`와 `();` 같이 읽습니다. 전자는 함수 선언이며 후자 ( 한 쌍의 괄호 )는 함수를 호출하려고 시도했지만 이름이 지정되지 않았기 때문에 `Uncaught SyntaxError : Unexpected token `)을 던집니다.
 
