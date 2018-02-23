@@ -1,43 +1,43 @@
+# Mga Katanungan sa CSS
 
-# CSS Questions
+Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga Katanungan sa CSS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md). Malugod na tatanggapin ang mga Pull request para sa mga suhestyon at mga koreksyon!
 
+* [Ano ang pagsisigurado ng CSS selector at kung paano ito gumagana?](#ano-ang-pagsisigurado-ng-css-selector-at-kung-paano-ito-gumagana)
+* [Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?](#ano-ang-pagkakaiba-sa-pagitan-ng-pag-reset-at-pag-normalize-ng-css-saan-sa-dalawa-ang-iyong-pipiliin-at-bakit)
+* [Ilarawan ang mga `float` at kung paano sila gumagana.](#ilarawan-ang-mga-float-at-kung-paano-sila-gumagana)
+* [Ilarawan ang z-index at kung papaano nabuo ang konteksto.](iIlarawan-ang-z-index-at-kung-papaano-nabuo-ang-konteksto)
+* [Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.](#ilarawan-ang-bfk-block-formatting-na-konteksto-at-papaaano-ito-gumagana)
+* [Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?](#ano-ang-ibat-ibang-teknik-ng-paglilinis-at-kung-ano-ang-nararapat-sa-kung-ano-ang-konteksto)
+* [Ipaliwanag ang mga CSS na sprite, at papaano mo ipapatupad ang mga ito sa isang pahina o site.](#ipaliwanag-ang-mga-css-na-sprite-at-papaano-mo-ipapatupad-ang-mga-ito-sa-isang-pahina-o-site)
+* [Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?](#papaano-mo-didiskartehan-ang-pag-aayos-ng-mga-ispisipik-sa-browser-na-pag-eestilo-na-isyu)
+* [Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?](#papaano-mo-inahahanda-ang-iyong-mga-pahina-para-sa-mga-browser-na-kulang-sa-tampok-ano-ano-ang-mga-teknik-or-proseso-ang-iyong-ginagamit)
+* [Ano-ano ang mga iba't ibang pamamaraan upang matago ang nakatagong nilalaman (at gawan ng paraan na ito ay magagamit lamang ng mga mambabasa ng iskrin)?](#ano-ano-ang-mga-ibat-ibang-pamamaraan-upang-matago-ang-nakatagong-nilalaman-at-gawan-ng-paraan-na-ito-ay-magagamit-lamang-ng-mga-mambabasa-ng-iskrin)
+* [Ikaw ba ay nakagamit kailanman ng sistemang grid?, at kung gayon, Ano ang iyong mas pipiliin?](#ikaw-ba-ay-nakagamit-kailanman-ng-sistemang-grid-at-kung-gayon-ano-ang-iyong-mas-pipiliin)
+* [Ikaw ba ay nakagamit oh nakapagpatupad na ng mga query sa mobile o mga layout na espisipik sa mobile/CSS?](#ikaw-ba-ay-nakagamit-oh-nakapagpatupad-na-ng-mga-query-sa-mobile-o-mga-layout-na-espisipik-sa-mobilecss)
+* [Ikaw ba ay pamilyar sa estilong SVG?](#ikaw-ba-ay-pamilyar-sa-estilong-svg)
+* [Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?](#makapagbibigay-kaba-ng-halimbawa-ng-klase-ng-media-maliban-sa-iskrin)
+* [Ano-ano ang ilan sa mga "pasabog" para sa epektibong pagsusulat ng CSS?](#ano-ano-ang-ilan-sa-mga-pasabog-para-sa-epektibong-pagsusulat-ng-css)
+* [Ano ang mga pakinabang o di-pakinabang ng paggamit ng mga preprocessors ng CSS?](#ano-ang-mga-pakinabang-o-di-pakinabang-ng-paggamit-ng-mga-preprocessors-ng-css)
+* [Ilarawan kung ano ang iyong gusto at di gusto tungkol sa CSS na mga preprocessor na iyong nagamit.](#ilarawan-kung-ano-ang-iyong-gusto-at-di-gusto-tungkol-sa-css-na-mga-preprocessor-na-iyong-nagamit)
+* [Papaano mo ipapatupad ang isang web design comp na gumagamit ng mga di pangkaraniwang font?](#papaano-mo-ipapatupad-ang-isang-web-design-comp-na-gumagamit-ng-mga-di-pangkaraniwang-font)
+* [Ipaliwanag kung paano tinutukoy ng isang browser kung anu-anong mga elemento ang tumutugma sa tagapili ng CSS.](#ipaliwanag-kung-paano-tinutukoy-ng-isang-browser-kung-anu-anong-mga-elemento-ang-tumutugma-sa-tagapili-ng-css)
+* [Ilarawan ang mga elementong pseudo at talakayin kung para saan ito gagamitin.](#ilarawan-ang-mga-elementong-pseudo-at-talakayin-kung-para-saan-ito-gagamitin)
+* [Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.](#ipaliwanag-ang-iyong-pagkakaintindi-sa-modelong-kahon-at-papaano-mo-pagsasabihan-ang-browser-sa-css-na-mag-render-ng-iyong-layout-sa-ibat-ibang-modelo-ng-kahon)
+* [Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?](#ano-ang-ginagawa-ng---box-sizing-border-box--anu-ano-ang-mga-pakinabang-nito)
+* [Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?](#ano-ang-katangian-ng-css-na-display-at-pwede-ka-bang-magbigay-ng-ilang-mga-halimbawa-ng-paggamit-nito)
+* [Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?](#ano-ang-pagkakaiba-sa-pagitan-ng-inline-at-inline-block)
+* [Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?](#ano-ang-pagkakaiba-sa-pagitan-ng-relative-fixed-absolute-at-elementong-nakaposisyong-panig-sa-static)
+* [Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?](#ano-ang-mga-umiiral-na-framework-ng-css-na-ginamit-mo-ng-lokal-o-kaya-naman-ay-sa-produksyon-papaano-mo-babaguhin-o-mapapabuti-ang-mga-ito)
+* [Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid specs?](#ikaw-ba-ay-nakapaglaro-na-sa-paligid-ng-bagong-css-flexbox-o-grid-specs)
+* [Maipapaliwanag mo ba ang kaibahan sa pagitan ng pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?](#maipapaliwanag-mo-ba-ang-kaibahan-sa-pagitan-ng-pag-code-ng-isang-web-site-na-tumutugon-kumpara-sa-paggamit-ng-diskarteng-mobile-ang-una)
+* [Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?](#sa-anong-paraan-naiiba-ang-disenyo-ng-tumutugon-mula-sa-disenyo-ng-umaangkop)
+* [Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?](#ikaw-ba-ay-nakagamit-na-ng-mga-grapikong-retina-kung-gayon-kelan-at-anu-anong-mga-teknik-ang-iyong-ginamit)
+* [May kadahilanan ba na nais mong gamitin ang `translate()` kesa sa `absolute` na pag-poposisyon, o kabaliktaran? at bakit?](#may-kadahilanan-ba-na-nais-mong-gamitin-ang-translate-kesa-sa-absolute-na-pag-poposisyon-o-kabaliktaran-at-bakit)
 
-Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!
+### Ano ang pagsisigurado ng CSS selector at kung paano ito gumagana?
 
-* [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
-* [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
-* [Describe `float`s and how they work.](#describe-floats-and-how-they-work)
-* [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
-* [Describe BFC (Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
-* [What are the various clearing techniques and which is appropriate for what context?](#what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
-* [Explain CSS sprites, and how you would implement them on a page or site.](#explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site)
-* [How would you approach fixing browser-specific styling issues?](#how-would-you-approach-fixing-browser-specific-styling-issues)
-* [How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?](#how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniquesprocesses-do-you-use)
-* [What are the different ways to visually hide content (and make it available only for screen readers)?](#what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers)
-* [Have you ever used a grid system, and if so, what do you prefer?](#have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer)
-* [Have you used or implemented media queries or mobile specific layouts/CSS?](#have-you-used-or-implemented-media-queries-or-mobile-specific-layoutscss)
-* [Are you familiar with styling SVG?](#are-you-familiar-with-styling-svg)
-* [Can you give an example of an @media property other than screen?](#can-you-give-an-example-of-an-media-property-other-than-screen)
-* [What are some of the "gotchas" for writing efficient CSS?](#what-are-some-of-the-gotchas-for-writing-efficient-css)
-* [What are the advantages/disadvantages of using CSS preprocessors?](#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
-* [Describe what you like and dislike about the CSS preprocessors you have used.](#describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used)
-* [How would you implement a web design comp that uses non-standard fonts?](#how-would-you-implement-a-web-design-comp-that-uses-non-standard-fonts)
-* [Explain how a browser determines what elements match a CSS selector.](#explain-how-a-browser-determines-what-elements-match-a-css-selector)
-* [Describe pseudo-elements and discuss what they are used for.](#describe-pseudo-elements-and-discuss-what-they-are-used-for)
-* [Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.](#explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
-* [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
-* [What is the CSS `display` property and can you give a few examples of its use?](#what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use)
-* [What's the difference between `inline` and `inline-block`?](#whats-the-difference-between-inline-and-inline-block)
-* [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-static-ally-positioned-element)
-* [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
-* [Have you played around with the new CSS Flexbox or Grid specs?](#have-you-played-around-with-the-new-css-flexbox-or-grid-specs)
-* [Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?](#can-you-explain-the-difference-between-coding-a-web-site-to-be-responsive-versus-using-a-mobile-first-strategy)
-* [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
-* [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
+Tinutukoy ng browser kung anong mga estilo ang ipapakita sa isang elemento na nakadepende sa antsa ng pagka-episipik nga mga panuntunan ng CSS. Ipagpalagay natin na ang browser ay nakapagtukoy na ng mga panuntunan na tumutugma sa isang partikular na elemento. Kabilang sa panuntunan sa pagtutugma, Ang pagtitiyak, apat na kuwit ng hiwalay na mga halaga, `a, b, c, d` ay kalkulado sa bawat isang panuntunan na batay sa mga sumusunod:
 
-### What is CSS selector specificity and how does it work?
-
-The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
 
 1. `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
 2. `b` is the number of ID selectors.
@@ -57,7 +57,7 @@ I would write CSS rules with low specificity so that they can be easily overridd
 
 [[↑] Back to top](#css-questions)
 
-### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+### Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?
 
 * **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
 * **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
@@ -70,7 +70,7 @@ I would choose resetting when I have a very customized or unconventional site de
 
 [[↑] Back to top](#css-questions)
 
-### Describe `float`s and how they work.
+### Ilarawan ang mga `float` at kung paano sila gumagana.
 
 Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
 
@@ -98,7 +98,7 @@ Alternatively, give `overflow: auto` or `overflow: hidden` property to the paren
 
 [[↑] Back to top](#css-questions)
 
-### Describe `z-index` and how stacking context is formed.
+### Ilarawan ang z-index at kung papaano nabuo ang konteksto.
 
 The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
 
@@ -116,7 +116,7 @@ Each stacking context is self-contained - after the element's contents are stack
 
 [[↑] Back to top](#css-questions)
 
-### Describe Block Formatting Context (BFC) and how it works.
+### Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.
 
 A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
 
@@ -138,7 +138,7 @@ Vertical margins between adjacent block-level boxes in a BFC collapse. Read more
 
 [[↑] Back to top](#css-questions)
 
-### What are the various clearing techniques and which is appropriate for what context?
+### Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?
 
 * Empty `div` method - `<div style="clear:both;"></div>`.
 * Clearfix method - Refer to the `.clearfix` class above.
@@ -148,7 +148,7 @@ In large projects, I would write a utility `.clearfix` class and use them in pla
 
 [[↑] Back to top](#css-questions)
 
-### Explain CSS sprites, and how you would implement them on a page or site.
+### Ipaliwanag ang mga CSS na sprite, at papaano mo ipapatupad ang mga ito sa isang pahina o site.
 
 CSS sprites combine multiple images into one single larger image. It is commonly used technique for icons (Gmail uses it). How to implement it:
 
@@ -167,7 +167,7 @@ CSS sprites combine multiple images into one single larger image. It is commonly
 
 [[↑] Back to top](#css-questions)
 
-### How would you approach fixing browser-specific styling issues?
+### Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?
 
 * After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
 * Use libraries like Bootstrap that already handles these styling issues for you.
@@ -176,7 +176,7 @@ CSS sprites combine multiple images into one single larger image. It is commonly
 
 [[↑] Back to top](#css-questions)
 
-### How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
+### Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?
 
 * Graceful degradation - The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
 * Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
@@ -186,7 +186,7 @@ CSS sprites combine multiple images into one single larger image. It is commonly
 
 [[↑] Back to top](#css-questions)
 
-### What are the different ways to visually hide content (and make it available only for screen readers)?
+### Ano-ano ang mga iba't ibang pamamaraan upang matago ang nakatagong nilalaman (at gawan ng paraan na ito ay magagamit lamang ng mga mambabasa ng iskrin)?
 
 These techniques are related to accessibility (a11y).
 
@@ -207,31 +207,31 @@ Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioni
 
 [[↑] Back to top](#css-questions)
 
-### Have you ever used a grid system, and if so, what do you prefer?
+### Ikaw ba ay nakagamit kailanman ng sistemang grid?, at kung gayon, Ano ang iyong mas pipiliin?
 
 I like the `float`-based grid system because it still has the most browser support among the alternative existing systems (flex, grid). It has been used in Bootstrap for years and has been proven to work.
 
 [[↑] Back to top](#css-questions)
 
-### Have you used or implemented media queries or mobile-specific layouts/CSS?
+### Ikaw ba ay nakagamit oh nakapagpatupad na ng mga query sa mobile o mga layout na espisipik sa mobile/CSS?
 
 Yes. An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.
 
 [[↑] Back to top](#css-questions)
 
-### Are you familiar with styling SVG?
+### Ikaw ba ay pamilyar sa estilong SVG?
 
 No... Sadly.
 
 [[↑] Back to top](#css-questions)
 
-### Can you give an example of an @media property other than screen?
+### Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?
 
 TODO
 
 [[↑] Back to top](#css-questions)
 
-### What are some of the "gotchas" for writing efficient CSS?
+### Ano-ano ang ilan sa mga "pasabog" para sa epektibong pagsusulat ng CSS?
 
 Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large numbers of elements and browsers will have to do more work in determining if the parents do match.
 
@@ -246,7 +246,7 @@ Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid 
 
 [[↑] Back to top](#css-questions)
 
-### What are the advantages/disadvantages of using CSS preprocessors?
+### Ano ang mga pakinabang o di-pakinabang ng paggamit ng mga preprocessors ng CSS?
 
 **Advantages:**
 
@@ -262,7 +262,7 @@ Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid 
 
 [[↑] Back to top](#css-questions)
 
-### Describe what you like and dislike about the CSS preprocessors you have used.
+### Ilarawan kung ano ang iyong gusto at di gusto tungkol sa CSS na mga preprocessor na iyong nagamit.
 
 **Likes:**
 
@@ -276,13 +276,13 @@ Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid 
 
 [[↑] Back to top](#css-questions)
 
-### How would you implement a web design comp that uses non-standard fonts?
+### Papaano mo ipapatupad ang isang web design comp na gumagamit ng mga di pangkaraniwang font?
 
 Use `@font-face` and define `font-family` for different `font-weight`s.
 
 [[↑] Back to top](#css-questions)
 
-### Explain how a browser determines what elements match a CSS selector.
+### Ipaliwanag kung paano tinutukoy ng isang browser kung anu-anong mga elemento ang tumutugma sa tagapili ng CSS.
 
 This part is related to the above about writing efficient CSS. Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
 
@@ -294,7 +294,7 @@ For example with this selector `p span`, browsers firstly find all the `<span>` 
 
 [[↑] Back to top](#css-questions)
 
-### Describe pseudo-elements and discuss what they are used for.
+### Ilarawan ang mga elementong pseudo at talakayin kung para saan ito gagamitin.
 
 A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`:first-line`, `:first-letter`) or adding elements to the markup (combined with `content: ...`) without having to modify the markup (`:before`, `:after`).
 
@@ -308,7 +308,7 @@ A CSS pseudo-element is a keyword added to a selector that lets you style a spec
 
 [[↑] Back to top](#css-questions)
 
-### Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
+### Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.
 
 The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
 
@@ -333,7 +333,7 @@ The box model has the following rules:
 
 [[↑] Back to top](#css-questions)
 
-### What does `* { box-sizing: border-box; }` do? What are its advantages?
+### Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?
 
 * By default, elements have `box-sizing: content-box` applied, and only the content size is being accounted for.
 * `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation.
@@ -342,7 +342,7 @@ The box model has the following rules:
 
 [[↑] Back to top](#css-questions)
 
-### What is the CSS `display` property and can you give a few examples of its use?
+### Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?
 
 * `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
@@ -350,7 +350,7 @@ TODO
 
 [[↑] Back to top](#css-questions)
 
-### What's the difference between `inline` and `inline-block`?
+### Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?
 
 I shall throw in a comparison with `block` for good measure.
 
@@ -365,7 +365,7 @@ I shall throw in a comparison with `block` for good measure.
 
 [[↑] Back to top](#css-questions)
 
-### What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?
+### Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?
 
 A positioned element is an element whose computed `position` property is either `relative`, `absolute`, `fixed` or `sticky`.
 
@@ -381,7 +381,7 @@ A positioned element is an element whose computed `position` property is either 
 
 [[↑] Back to top](#css-questions)
 
-### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+### Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?
 
 * **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely-used.
 * **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Painful to customize with unconventional theming system. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
@@ -389,7 +389,7 @@ A positioned element is an element whose computed `position` property is either 
 
 [[↑] Back to top](#css-questions)
 
-### Have you played around with the new CSS Flexbox or Grid specs?
+### Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid specs?
 
 Yes. Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.
 
@@ -403,13 +403,13 @@ Grid is by far the most intuitive approach for creating grid-based layouts (it b
 
 [[↑] Back to top](#css-questions)
 
-### Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
+### Maipapaliwanag mo ba ang kaibahan sa pagitan ng Pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?
 
 TODO
 
 [[↑] Back to top](#css-questions)
 
-### How is responsive design different from adaptive design?
+### Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?
 
 Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage contexts, control mechanisms, and so on.
 
@@ -425,7 +425,7 @@ Adaptive design is more like the modern definition of progressive enhancement. I
 
 [[↑] Back to top](#css-questions)
 
-### Have you ever worked with retina graphics? If so, when and what techniques did you use?
+### Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?
 
 I tend to use higher resolution graphics (twice the display size) to handle retina display. The better way would be to use a media query like `@media only screen and (min-device-pixel-ratio: 2) { ... }` and change the `background-image`.
 
@@ -439,7 +439,7 @@ Another method would be to use JavaScript to replace the `<img>` `src` attribute
 
 [[↑] Back to top](#css-questions)
 
-### Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
+### May kadahilanan ba na nais mong gamitin ang `translate()` kesa sa `absolute` na pag-poposisyon, o kabaliktaran? at bakit?
 
 `translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint, only compositions, whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
 
