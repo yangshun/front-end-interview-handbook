@@ -242,7 +242,7 @@ Here is an example of `print` media type's usage:
 
 ###### References
 
-* https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+* https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
 [[↑] Back to top](#css-questions)
 
