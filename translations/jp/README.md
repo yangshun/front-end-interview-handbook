@@ -1,12 +1,12 @@
 <h1 align="center">フロントエンド面接対策ハンドブック</h1>
 
 <div align="center">
-  <a href="https://dribbble.com/shots/3831443-Tech-Interview-Handbook">
-    <img src="https://cdn.rawgit.com/yangshun/front-end-interview-handbook/f4d3132f/assets/book.svg" alt="Front End Interview Handbook" width="400"/>
+  <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
+    <img src="https://cdn.rawgit.com/yangshun/front-end-interview-handbook/23d89c8/assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
     </a>
   <br>
   <p>
-    <em>クレジット: <a href="https://dribbble.com/shots/3831443-Tech-Interview-Handbook">イラスト</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
+    <em>クレジット: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">イラスト</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
     </em>
   </p>
 </div>
