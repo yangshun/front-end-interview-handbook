@@ -1,455 +1,458 @@
-# CSS Questions
+# CSS 问题
 
-Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!
+本章节是[前端开发者面试问题- CSS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
-* [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
-* [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
-* [Describe `float`s and how they work.](#describe-floats-and-how-they-work)
-* [Describe z-index and how stacking context is formed.](#describe-z-index-and-how-stacking-context-is-formed)
-* [Describe BFC (Block Formatting Context) and how it works.](#describe-block-formatting-context-bfc-and-how-it-works)
-* [What are the various clearing techniques and which is appropriate for what context?](#what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
-* [Explain CSS sprites, and how you would implement them on a page or site.](#explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site)
-* [How would you approach fixing browser-specific styling issues?](#how-would-you-approach-fixing-browser-specific-styling-issues)
-* [How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?](#how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniquesprocesses-do-you-use)
-* [What are the different ways to visually hide content (and make it available only for screen readers)?](#what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers)
-* [Have you ever used a grid system, and if so, what do you prefer?](#have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer)
-* [Have you used or implemented media queries or mobile specific layouts/CSS?](#have-you-used-or-implemented-media-queries-or-mobile-specific-layoutscss)
-* [Are you familiar with styling SVG?](#are-you-familiar-with-styling-svg)
-* [Can you give an example of an @media property other than screen?](#can-you-give-an-example-of-an-media-property-other-than-screen)
-* [What are some of the "gotchas" for writing efficient CSS?](#what-are-some-of-the-gotchas-for-writing-efficient-css)
-* [What are the advantages/disadvantages of using CSS preprocessors?](#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
-* [Describe what you like and dislike about the CSS preprocessors you have used.](#describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used)
-* [How would you implement a web design comp that uses non-standard fonts?](#how-would-you-implement-a-web-design-comp-that-uses-non-standard-fonts)
-* [Explain how a browser determines what elements match a CSS selector.](#explain-how-a-browser-determines-what-elements-match-a-css-selector)
-* [Describe pseudo-elements and discuss what they are used for.](#describe-pseudo-elements-and-discuss-what-they-are-used-for)
-* [Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.](#explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
-* [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
-* [What is the CSS `display` property and can you give a few examples of its use?](#what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use)
-* [What's the difference between `inline` and `inline-block`?](#whats-the-difference-between-inline-and-inline-block)
-* [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-static-ally-positioned-element)
-* [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
-* [Have you played around with the new CSS Flexbox or Grid specs?](#have-you-played-around-with-the-new-css-flexbox-or-grid-specs)
-* [Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?](#can-you-explain-the-difference-between-coding-a-web-site-to-be-responsive-versus-using-a-mobile-first-strategy)
-* [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
-* [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
+* [CSS 选择器的优先级是如何计算的？](#css-选择器的优先级是如何计算的)
+* [重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？](#重置resettingcss-和-标准化normalizingcss-的区别是什么你会选择哪种方式为什么)
+* [请阐述`Float`定位的工作原理。](#请阐述float定位的工作原理)
+* [请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。](#请阐述z-index属性并说明如何形成层叠上下文stacking-context)
+* [请阐述块格式化上下文（Block Formatting Context）及其工作原理。](#请阐述块格式化上下文block-formatting-context及其工作原理)
+* [有哪些清除浮动的技术，都适用哪些情况？](#有哪些清除浮动的技术都适用哪些情况)
+* [请解释什么是雪碧图（css sprites），以及如何实现？](#请解释什么是雪碧图css-sprites以及如何实现)
+* [如何解决不同浏览器的样式兼容性问题？](#如何解决不同浏览器的样式兼容性问题)
+* [如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？](#如何为功能受限的浏览器提供页面-使用什么样的技术和流程)
+* [有什么不同的方式可以隐藏内容（使其仅适用于屏幕阅读器）？](#有什么不同的方式可以隐藏内容使其仅适用于屏幕阅读器)
+* [你使用过栅格系统吗？偏爱哪一个？](#你使用过栅格系统吗偏爱哪一个)
+* [你是否使用过媒体查询或移动优先的布局？](#你是否使用过媒体查询或移动优先的布局)
+* [你熟悉制作 SVG 吗？](#你熟悉制作-svg-吗)
+* [除了`screen`，你还能说出一个 @media 属性的例子吗？](#除了screen你还能说出一个-media-属性的例子吗)
+* [编写高效的 CSS 应该注意什么？](#编写高效的-css-应该注意什么)
+* [使用 CSS 预处理的优缺点分别是什么？](#使用-css-预处理的优缺点分别是什么)
+* [对于你使用过的 CSS 预处理，说说喜欢和不喜欢的地方？](#对于你使用过的-css-预处理说说喜欢和不喜欢的地方)
+* [如何实现一个使用非标准字体的网页设计？](#如何实现一个使用非标准字体的网页设计)
+* [解释浏览器如何确定哪些元素与 CSS 选择器匹配。](#解释浏览器如何确定哪些元素与-css-选择器匹配)
+* [描述伪元素及其用途。](#描述伪元素及其用途)
+* [说说你对盒模型的理解，以及如何告知浏览器使用不同的盒模型渲染布局。](#说说你对盒模型的理解以及如何告知浏览器使用不同的盒模型渲染布局)
+* [`* { box-sizing: border-box; }`会产生怎样的效果？](#--box-sizing-border-box-会产生怎样的效果)
+* [`display`的属性值都有哪些？](#display的属性值都有哪些)
+* [`inline`和`inline-block`有什么区别？](#inline和inline-block有什么区别)
+* [`relative`、`fixed`、`absolute`和`static`四种定位有什么区别？](#relativefixedabsolute和static四种定位有什么区别)
+* [你使用过哪些现有的 CSS 框架？你是如何改进它们的？](#你使用过哪些现有的-css-框架你是如何改进它们的)
+* [你了解 CSS Flexbox 和 Grid 吗？](#你了解-css-flexbox-和-grid-吗)
+* [请解释在编写网站时，响应式与移动优先的区别。](#请解释在编写网站时响应式与移动优先的区别)
+* [响应式设计与自适应设计有何不同？](#响应式设计与自适应设计有何不同)
+* [你有没有使用过视网膜分辨率的图形？当中使用什么技术？](#你有没有使用过视网膜分辨率的图形当中使用什么技术)
+* [什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。](#什么情况下用translate而不用绝对定位什么时候情况相反)
 
-### What is CSS selector specificity and how does it work?
+### CSS 选择器的优先级是如何计算的？
 
-The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
+浏览器通过优先级规则，判断元素展示哪些样式。优先级通过 4 个维度指标确定，我们假定以`a、b、c、d`命名，分别代表以下含义：
 
-1. `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
-2. `b` is the number of ID selectors.
-3. `c` is the number of classes, attributes and pseudo-classes selectors.
-4. `d` is the number of tags and pseudo-elements selectors.
+1. `a`表示是否使用内联样式（inline style）。如果使用，`a`为 1，否则为 0。
+2. `b`表示 ID 选择器的数量。
+3. `c`表示类选择器、属性选择器和伪类选择器数量之和。
+4. `d`表示标签（类型）选择器和伪元素选择器之和。
 
-The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
+优先级的结果并非通过以上四个值生成一个得分，而是每个值分开比较。`a、b、c、d`权重从左到右，依次减小。判断优先级时，从左到右，一一比较，直到比较出最大值，即可停止。所以，如果`b`的值不同，那么`c`和`d`不管多大，都不会对结果产生影响。比如`0，1，0，0`的优先级高于`0，0，10，10`。
 
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+当出现优先级相等的情况时，最晚出现的样式规则会被采纳。如果你在样式表里写了相同的规则（无论是在该文件内部还是其它样式文件中），那么最后出现的（在文件底部的）样式优先级更高，因此会被采纳。
 
-I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
+在写样式时，我会使用较低的优先级，这样这些样式可以轻易地覆盖掉。尤其对写 UI 组件的时候更为重要，这样使用者就不需要通过非常复杂的优先级规则或使用`!important`的方式，去覆盖组件的样式了。
 
-###### References
+###### 参考
 
 * https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 * https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+### 重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？
 
-* **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
-* **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
+* **重置（Resetting）**： 重置意味着除去所有的浏览器默认样式。对于页面所有的元素，像`margin`、`padding`、`font-size`这些样式全部置成一样。你将必须重新定义各种元素的样式。
+* **标准化（Normalizing）**： 标准化没有去掉所有的默认样式，而是保留了有用的一部分，同时还纠正了一些常见错误。
 
-I would choose resetting when I have a very customized or unconventional site design such that I need to do a lot of my own styling and do not need any default styling to be preserved.
+当需要实现非常个性化的网页设计时，我会选择重置的方式，因为我要写很多自定义的样式以满足设计需求，这时候就不再需要标准化的默认样式了。
 
-###### References
+###### 参考
 
 * https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Describe `float`s and how they work.
+### 请阐述`Float`定位的工作原理。
 
-Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
+浮动（float）是 CSS 定位属性。浮动元素从网页的正常流动中移出，但是保持了部分的流动性，会影响其他元素的定位（比如文字会围绕着浮动元素）。这一点与绝对定位不同，绝对定位的元素完全从文档流中脱离。
 
-The CSS `clear` property can be used to be positioned below `left`/`right`/`both` floated elements.
+CSS 的`clear`属性通过使用`left`、`right`、`both`，让该元素向下移动（清除浮动）到浮动元素下面。
 
-If a parent element contains nothing but floated elements, its height will be collapsed to nothing. It can be fixed by clearing the float after the floated elements in the container but before the close of the container.
+如果父元素只包含浮动元素，那么该父元素的高度将塌缩为 0。我们可以通过清除（clear）从浮动元素后到父元素关闭前之间的浮动来修复这个问题。
 
-The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear floats. Rather than setting the overflow on the parent, you apply an additional class `clearfix` to it. Then apply this CSS:
+有一种 hack 的方法，是自定义一个`.clearfix`类，利用伪元素选择器`::after`清除浮动。[另外还有一些方法](https://css-tricks.com/all-about-floats/#article-header-id-4)，比如添加空的`<div></div>`和设置浮动元素父元素的`overflow`属性。与这些方法不同的是，`clearfix`方法，只需要给父元素添加一个类，定义如下：
 
 ```css
-.clearfix:after {
-  content: ' ';
-  visibility: hidden;
+.clearfix::after {
+  content: "";
   display: block;
-  height: 0;
   clear: both;
 }
 ```
 
-Alternatively, give `overflow: auto` or `overflow: hidden` property to the parent element which will establish a new block formatting context inside the children and it will expand to contain its children.
+值得一提的是，把父元素属性设置为`overflow: auto`或`overflow: hidden`，会使其内部的子元素形成块格式化上下文（Block Formatting Context），并且父元素会扩张自己，使其能够包围它的子元素。
 
-###### References
+###### 参考
 
 * https://css-tricks.com/all-about-floats/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Describe `z-index` and how stacking context is formed.
+### 请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。
 
-The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
+CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只能影响`position`值不是`static'的元素。
 
-Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
+没有定义`z-index`的值时，元素按照它们出现在 DOM 中的顺序堆叠（层级越低，出现位置越靠上）。非静态定位的元素（及其子元素）将始终覆盖静态定位（static）的元素，而不管 HTML 层次结构如何。
 
-A stacking context is an element that contains a set of layers. Within a local stacking context, the `z-index` values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher `z-index` than element B.
+层叠上下文是包含一组图层的元素。 在一组层叠上下文中，其子元素的`z-index`值是相对于该父元素而不是 document root 设置的。每个层叠上下文完全独立于它的兄弟元素。如果元素 B 位于元素 A 之上，则即使元素 A 的子元素 C 具有比元素 B 更高的`z-index`值，元素 C 也永远不会在元素 B 之上.
 
-Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
+每个层叠上下文是自包含的：当元素的内容发生层叠后，整个该元素将会在父层叠上下文中按顺序进行层叠。少数 CSS 属性会触发一个新的层叠上下文，例如`opacity`小于 1，`filter`不是`none`，`transform`不是`none`。
 
-###### References
+###### 参考
 
 * https://css-tricks.com/almanac/properties/z/z-index/
 * https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Describe Block Formatting Context (BFC) and how it works.
+### 请阐述块格式化上下文（Block Formatting Context）及其工作原理。
 
-A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
+块格式上下文（BFC）是 Web 页面的可视化 CSS 渲染的部分，是块级盒布局发生的区域，也是浮动元素与其他元素交互的区域。
 
-A BFC is an HTML box that satisfies at least one of the following conditions:
+一个 HTML 盒（Box）满足以下任意一条，会创建块格式化上下文：
 
-* The value of `float` is not `none`.
-* The value of `position` is neither `static` nor `relative`.
-* The value of `display` is `table-cell`, `table-caption`, `inline-block`, `flex`, or `inline-flex`.
-* The value of `overflow` is not `visible`.
+* `float`的值不是`none`.
+* `position`的值不是`static`或`relative`.
+* `display`的值是`table-cell`、`table-caption`、`inline-block`、`flex`、或`inline-flex`。
+* `overflow`的值不是`visible`。
 
-In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
+在 BFC 中，每个盒的左外边缘都与其包含的块的左边缘相接。
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
+两个相邻的块级盒在垂直方向上的边距会发生合并（collapse）。更多内容请参考[边距合并（margin collapsing）](https://www.sitepoint.com/web-foundations/collapsing-margins/)。
 
-###### References
+###### 参考
 
 * https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 * https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What are the various clearing techniques and which is appropriate for what context?
+### 有哪些清除浮动的技术，都适用哪些情况？
 
-* Empty `div` method - `<div style="clear:both;"></div>`.
-* Clearfix method - Refer to the `.clearfix` class above.
-* `overflow: auto` or `overflow: hidden` method - Parent will establish a new block formatting context and expand to contains its floated children.
+* 空`div`方法：`<div style="clear:both;"></div>`。
+* Clearfix 方法：上文使用`.clearfix`类已经提到。
+* `overflow: auto`或`overflow: hidden`方法：上文已经提到。
 
-In large projects, I would write a utility `.clearfix` class and use them in places where I need it. `overflow: hidden` might clip children if the children is taller than the parent and is not very ideal.
+在大型项目中，我会使用 Clearfix 方法，在需要的地方使用`.clearfix`。设置`overflow: hidden`的方法可能使其子元素显示不完整，当子元素的高度大于父元素时。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Explain CSS sprites, and how you would implement them on a page or site.
+### 请解释什么是雪碧图（css sprites），以及如何实现？
 
-CSS sprites combine multiple images into one single larger image. It is commonly used technique for icons (Gmail uses it). How to implement it:
+雪碧图是把多张图片整合到一张上的图片。它被运用在众多使用了很多小图标的网站上（Gmail 在使用）。实现方法：
 
-1. Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
-1. Each image would have a corresponding CSS class with `background-image`, `background-position` and `background-size` properties defined.
-1. To use that image, add the corresponding class to your element.
+1. 使用生成器将多张图片打包成一张雪碧图，并为其生成合适的 CSS。
+1. 每张图片都有相应的 CSS 类，该类定义了`background-image`、`background-position`和`background-size`属性。
+1. 使用图片时，将相应的类添加到你的元素中。
 
-**Advantages:**
+好处：
 
-* Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.
-* Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon `:hover` pseudo-states. Blinking wouldn't be seen.
+* 减少加载多张图片的 HTTP 请求数（一张雪碧图只需要一个请求）。但是对于 HTTP2 而言，加载多张图片不再是问题。
+* 提前加载资源，防止在需要时才在开始下载引发的问题，比如只出现在`:hover`伪类中的图片，不会出现闪烁。
 
-###### References
+###### 参考
 
 * https://css-tricks.com/css-sprites/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### How would you approach fixing browser-specific styling issues?
+### 如何解决不同浏览器的样式兼容性问题？
 
-* After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
-* Use libraries like Bootstrap that already handles these styling issues for you.
-* Use `autoprefixer` to automatically add vendor prefixes to your code.
-* Use Reset CSS or Normalize.css.
+* 在确定问题原因和有问题的浏览器后，使用单独的样式表，仅供出现问题的浏览器加载。这种方法需要使用服务器端渲染。
+* 使用已经处理好此类问题的库，比如 Bootstrap。
+* 使用 `autoprefixer` 自动生成 CSS 属性前缀。
+* 使用 Reset CSS 或 Normalize.css。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
+### 如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？
 
-* Graceful degradation - The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
+* 优雅的降级：为现代浏览器构建应用，同时确保它在旧版浏览器中正常运行。
 * Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
-* Use [caniuse.com](https://caniuse.com/) to check for feature support.
-* Autoprefixer for automatic vendor prefix insertion.
-* Feature detection using [Modernizr](https://modernizr.com/).
+* 渐进式增强：构建基于用户体验的应用，但在浏览器支持时添加新增功能。
+* 利用 [caniuse.com](https://caniuse.com/) 检查特性支持。
+* 使用 `autoprefixer` 自动生成 CSS 属性前缀。
+* 使用 [Modernizr](https://modernizr.com/)进行特性检测。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What are the different ways to visually hide content (and make it available only for screen readers)?
+### 有什么不同的方式可以隐藏内容（使其仅适用于屏幕阅读器）？
 
-These techniques are related to accessibility (a11y).
+这些方法与可访问性（a11y）有关。
 
-* `visibility: hidden`. However the element is still in the flow of the page, and still takes up space.
-* `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
-* `position: absolute; left: -99999px`. Position it outside of the screen.
-* `text-indent: -9999px`. This only works on text within the `block` elements.
-* Metadata. For example by using Schema.org, RDF and JSON-LD.
-* WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
+* `visibility: hidden`：元素仍然在页面流中，并占用空间。
+* `width: 0; height: 0`：使元素不占用屏幕上的任何空间，导致不显示它。
+* `position: absolute; left: -99999px`： 将它置于屏幕之外。
+* `text-indent: -9999px`：这只适用于`block`元素中的文本。
+* Metadata： 例如通过使用 Schema.org，RDF 和 JSON-LD。
+* WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
 
-Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioning approach, as it has the least caveats, works for most elements and it's an easy technique.
+即使 WAI-ARIA 是理想的解决方案，我也会采用绝对定位方法，因为它具有最少的注意事项，适用于大多数元素，而且使用起来非常简单。
 
-###### References
+###### 参考
 
 * https://www.w3.org/TR/wai-aria-1.1/
 * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 * http://a11yproject.com/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Have you ever used a grid system, and if so, what do you prefer?
+### 你使用过栅格系统吗？偏爱哪一个？
 
-I like the `float`-based grid system because it still has the most browser support among the alternative existing systems (flex, grid). It has been used in Bootstrap for years and has been proven to work.
+我使用 `float`-based 栅格系统，因为它相比 flex、grid 系统，拥有更多浏览器的支持。它已经在 Bootstrap 中使用多年，并且已经被证明是可行的。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Have you used or implemented media queries or mobile-specific layouts/CSS?
+### 你是否使用过媒体查询或移动优先的布局？
 
-Yes. An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.
+是的，一个例子就是根据窗口的尺寸改变导航的样式。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Are you familiar with styling SVG?
+### 你熟悉制作 SVG 吗？
 
-No... Sadly.
+不好意思，不熟悉。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Can you give an example of an @media property other than screen?
+### 除了`screen`，你还能说出一个 @media 属性的例子吗？
 
 TODO
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What are some of the "gotchas" for writing efficient CSS?
+### 编写高效的 CSS 应该注意什么？
 
-Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large numbers of elements and browsers will have to do more work in determining if the parents do match.
+首先，浏览器从最右边的选择器，即关键选择器（key selector），向左依次匹配。根据关键选择器，浏览器从 DOM 中筛选出元素，然后向上遍历被选元素的父元素，判断是否匹配。选择器匹配语句链越短，浏览器的匹配速度越快。避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作，去判断这些元素的父元素们是否匹配。
 
 [BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
+[BEM (Block Element Modifier)](https://bem.info/)原则上建议为独立的 CSS 类命名，并且在需要层级关系时，将关系也体现在命名中，这自然会使选择器高效且易于覆盖。
 
-Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
+搞清楚哪些 CSS 属性会触发重新布局（reflow）、重绘（repaint）和合成（compositing）。在写样式时，避免触发重新布局的可能。
 
-###### References
+###### 参考
 
 * https://developers.google.com/web/fundamentals/performance/rendering/
 * https://csstriggers.com/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What are the advantages/disadvantages of using CSS preprocessors?
+### 使用 CSS 预处理的优缺点分别是什么？
 
-**Advantages:**
+优点：
 
-* CSS is made more maintainable.
-* Easy to write nested selectors.
-* Variables for consistent theming. Can share theme files across different projects.
-* Mixins to generate repeated CSS.
+* 提高 CSS 可维护性。
+* 易于编写嵌套选择器。
+* 引入变量，增添主题功能。可以在不同的项目中共享主题文件。
+* 通过混合（Mixins）生成重复的 CSS。
 * Splitting your code into multiple files. CSS files can be split up too but doing so will require a HTTP request to download each CSS file.
+* 将代码分割成多个文件。不进行预处理的 CSS，虽然也可以分割成多个文件，但需要建立多个 HTTP 请求加载这些文件。
 
-**Disadvantages:**
+缺点：
 
-* Requires tools for preprocessing. Re-compilation time can be slow.
+* 需要预处理工具。
+* 重新编译的时间可能会很慢。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Describe what you like and dislike about the CSS preprocessors you have used.
+### 对于你使用过的 CSS 预处理，说说喜欢和不喜欢的地方？
 
-**Likes:**
+喜欢：
 
-* Mostly the advantages mentioned above.
-* Less is written in JavaScript, which plays well with Node.
+* 绝大部分优点上题以及提过。
+* Less 用 JavaScript 实现，与 NodeJS 高度结合。
 
 **Dislikes:**
 
-* I use Sass via `node-sass`, which is a binding for LibSass written in C++. I have to frequently recompile it when switching between node versions.
-* In Less, variable names are prefixed with `@`, which can be confused with native CSS keywords like `@media`, `@import` and `@font-face` rule.
+* 我通过`node-sass`使用 Sass，它用 C ++ 编写的 LibSass 绑定。在 Node 版本切换时，我必须经常重新编译。
+* Less 中，变量名称以`@`作为前缀，容易与 CSS 关键字混淆，如`@media`、`@import`和`@font-face`。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### How would you implement a web design comp that uses non-standard fonts?
+### 如何实现一个使用非标准字体的网页设计？
 
-Use `@font-face` and define `font-family` for different `font-weight`s.
+使用`@font-face`并为不同的`font-weight`定义`font-family`。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Explain how a browser determines what elements match a CSS selector.
+### 解释浏览器如何确定哪些元素与 CSS 选择器匹配。
 
-This part is related to the above about writing efficient CSS. Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
+这部分与上面关于编写高效的 CSS 有关。浏览器从最右边的选择器（关键选择器）根据关键选择器，浏览器从 DOM 中筛选出元素，然后向上遍历被选元素的父元素，判断是否匹配。选择器匹配语句链越短，浏览器的匹配速度越快。
 
-For example with this selector `p span`, browsers firstly find all the `<span>` elements, and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
+例如，对于形如`p span`的选择器，浏览器首先找到所有`<span>`元素，并遍历它的父元素直到根元素以找到`<p>`元素。对于特定的`<span>`，只要找到一个`<p>`，就知道'<span>`已经匹配并停止继续匹配。
 
-###### References
+###### 参考
 
 * https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Describe pseudo-elements and discuss what they are used for.
+### 描述伪元素及其用途。
 
-A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`:first-line`, `:first-letter`) or adding elements to the markup (combined with `content: ...`) without having to modify the markup (`:before`, `:after`).
+CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分。它们可以用于装饰（`:first-line`，`:first-letter`）或将元素添加到标记中（与 content:...组合），而不必修改标记（`:before`，`:after`）。
 
-* `:first-line` and `:first-letter` can be used to decorate text.
-* Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
-* Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM. It's not really possible to draw a triangle with just CSS styles without using an additional HTML element.
+* `:first-line`和`:first-letter`可以用来修饰文字。
+* 上面提到的`.clearfix`方法中，使用`clear: both`来添加不占空间的元素。
+* 使用`:before`和`after`展示提示中的三角箭头。鼓励关注点分离，因为三角被视为样式的一部分，而不是真正的 DOM。如果不使用额外的HTML元素，只用CSS样式绘制三角形是不太可能的。
 
-###### References
+###### 参考
 
 * https://css-tricks.com/almanac/selectors/a/after-and-before/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
+### 说说你对盒模型的理解，以及如何告知浏览器使用不同的盒模型渲染布局。
 
-The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
+CSS盒模型描述了以文档树中的元素而生成的矩形框，并根据排版模式进行布局。每个盒子都有一个内容区域（例如文本，图像等）以及周围可选的`padding`、`border`和`margin`区域。
 
-The CSS box model is responsible for calculating:
+CSS盒模型负责计算：
 
-* How much space a block element takes up.
-* Whether or not borders and/or margins overlap, or collapse.
-* A box's dimensions.
+* 块级元素占用多少空间。
+* 边框是否重叠，边距是否合并。
+* 盒子的尺寸。
 
-The box model has the following rules:
+盒模型有以下规则：
 
-* The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s, and `margin`s.
-* If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which see below).
-* If no `width` is specified, a non-floated block element will expand to fit the width of its parent minus `padding`.
-* The `height` of an element is calculated by the content's `height`.
-* The `width` of an element is calculated by the content's `width`.
-* By default, `padding`s and `border`s are not part of the `width` and `height` of an element.
+* 块级元素的大小由`width`、`height`、`padding`、`border`和`margin`决定。
+* 如果没有指定`height`，则块级元素的高度等于其包含子元素的内容高度加上`padding`（除非有浮动元素，请参阅下文）。
+* 如果没有指定`width`，则非浮动块级元素的宽度等于其父元素的宽度减去父元素的`padding`。
+* 元素的`height`是由内容的`height`来计算的。
+* 元素的`width`是由内容的`width`来计算的。
+* 默认情况下，`padding`和`border`不是元素`width`和`height`的组成部分。
 
-###### References
+###### 参考
 
 * https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What does `* { box-sizing: border-box; }` do? What are its advantages?
+### `* { box-sizing: border-box; }`会产生怎样的效果？
 
-* By default, elements have `box-sizing: content-box` applied, and only the content size is being accounted for.
-* `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation.
-* The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width.
-* The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
+* 元素默认应用了`box-sizing: content-box`，元素的宽高只会决定内容（content）的大小。
+* `box-sizing: border-box`改变计算元素`width`和`height`的方式，`border`和`padding`的大小也将计算在内。
+* 元素的`height` = 内容（content）的高度 + 垂直方向的`padding` + 垂直方向`border`的宽度
+* 元素的`width` = 内容（content）的宽度 + 水平方向的`padding` + 水平方向`border`的宽度
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What is the CSS `display` property and can you give a few examples of its use?
+### `display`的属性值都有哪些？
 
 * `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
 TODO
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What's the difference between `inline` and `inline-block`?
+### `inline`和`inline-block`有什么区别？
 
-I shall throw in a comparison with `block` for good measure.
+我把`block`也加入其中，为了获得更好的比较。
 
 |                                      | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                                                             |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                              | Depends on content.                                                                                                                                                                                                  |
-| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside. | Flows along with other content and allows other elements beside.                                                                                                                                                     |
-| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                              | No. Will ignore if being set.                                                                                                                                                                                        |
-| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                              | Yes                                                                                                                                                                                                                  |
-| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
-| Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
+| 大小                                 | 填充其父容器的宽度。                                                                        | 取决于内容。                                                     | 取决于内容。                                                                                                                                                                                                         |
+| 定位                                 | 从新的一行开始，并且不允许旁边有HTML元素（除非是`float`） | 与其他内容一起流动，并允许旁边有其他元素。 | 与其他内容一起流动，并允许旁边有其他元素。                                                                                                                                                     |
+| 能否设置`width`和`height`     | 能                                                                                         | 能                                                              | 不能。 设置会被忽略。                                                                                                                                                                                        |
+| 可以使用`vertical-align`对齐 | 不可以                                                                                         | 可以                                                              | 可以                                                                                                                                                                                                                  |
+| 边距（margin）和填充（padding）                 | 各个方向都存在                                                                      | 各个方向都存在                                             | 只有水平方向存在。垂直方向会被忽略。 尽管`border`和`padding`在`content`周围，但垂直方向上的空间取决于'line-height' |
+| 浮动（float）                                | -                                                                                           | -                                                                | 就像一个`block`元素，可以设置垂直边距和填充。                                                                                                                                      |
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?
+### `relative`、`fixed`、`absolute`和`static`四种定位有什么区别？
 
-A positioned element is an element whose computed `position` property is either `relative`, `absolute`, `fixed` or `sticky`.
+经过定位的元素，其`position`属性值必然是`relative`、`absolute`、`fixed`或`sticky`。
 
-* `static` - The default position; the element will flow into the page as it normally would. The `top`, `right`, `bottom`, `left` and `z-index` properties do not apply.
-* `relative` - The element's position is adjusted relative to itself, without changing layout (and thus leaving a gap for the element where it would have been had it not been positioned).
-* `absolute` - The element is removed from the flow of the page and positioned at a specified position relative to its closest positioned ancestor if any, or otherwise relative to the initial containing block. Absolutely positioned boxes can have margins, and they do not collapse with any other margins. These elements do not affect the position of other elements.
-* `fixed` - The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.
-* `sticky` - Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as `relative` positioned until it crosses a specified threshold, at which point it is treated as `fixed` positioned.
+* `static`：默认定位属性值。该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+* `relative`：该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。
+* `absolute`：不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+* `fixed`：不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform  属性非 none 时，容器由视口改为该祖先。
+* `sticky`：盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下（即便被定位元素为 `table` 时），该元素定位均不对后续元素造成影响。当元素 B 被粘性定位时，后续元素的位置仍按照 B 未定位时的位置来确定。`position: sticky` 对 `table` 元素的效果与 `position: relative` 相同。
 
-###### References
+###### 参考
 
 * https://developer.mozilla.org/en/docs/Web/CSS/position
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+### 你使用过哪些现有的 CSS 框架？你是如何改进它们的？
 
-* **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely-used.
-* **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Painful to customize with unconventional theming system. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
-* **Bulma** - A lot of non-semantic and superfluous classes and markup required. Not backward compatible. Upgrading versions breaks the app in subtle manners.
+* **Bootstrap**： 更新周期缓慢。Bootstrap 4 已经处于 alpha 版本将近两年了。添加了在页面中广泛使用的微调按钮组件。
+* **Semantic UI**：源代码结构使得自定义主题很难理解。非常规主题系统的使用体验很差。外部库的路径需要硬编码（hard code）配置。变量重新赋值没有 Bootstrap 设计得好。
+* **Bulma**： 需要很多非语义的类和标记，显得很多余。不向后兼容，以至于升级版本后，会破坏应用的正常运行。
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Have you played around with the new CSS Flexbox or Grid specs?
+### 你了解 CSS Flexbox 和 Grid 吗？
 
-Yes. Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.
+了解。Flexbox 主要用于一维布局，而 Grid 则用于二维布局。
 
-Flexbox solves many common problems in CSS, such as vertical centering of elements within a container, sticky footer, etc. Bootstrap and Bulma are based on Flexbox, and it is probably the recommended way to create layouts these days. Have tried Flexbox before but ran into some browser incompatibility issues (Safari) in using `flex-grow`, and I had to rewrite my code using `inline-blocks` and math to calculate the widths in percentages, it wasn't a nice experience.
+Flexbox 解决了 CSS 中的许多常见问题，例如容器中元素的垂直居中，粘性定位（sticky）的页脚等。Bootstrap 和 Bulma 基于 Flexbox，这是创建布局的推荐方式。我之前曾使用过 Flexbox，但在使用`flex-grow`时遇到了一些浏览器不兼容问题（Safari），我必须使用`inline-blocks`和手动计算百分比宽度，来重写我的代码，这种体验不是很好。
 
-Grid is by far the most intuitive approach for creating grid-based layouts (it better be!) but browser support is not wide at the moment.
+Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是！），但目前浏览器支持并不广泛。
 
-###### References
+###### 参考
 
 * https://philipwalton.github.io/solved-by-flexbox/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
+### 请解释在编写网站时，响应式与移动优先的区别。
 
 TODO
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### How is responsive design different from adaptive design?
+### 响应式设计与自适应设计有何不同？
 
-Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage contexts, control mechanisms, and so on.
+响应式设计和自适应设计都以提高不同设备间的用户体验为目标，根据视窗大小、分辨率、使用环境和控制方式等参数进行优化调整。
 
-Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Responsive websites use media queries, flexible grids, and responsive images to create a user experience that flexes and changes based on a multitude of factors. Like a single ball growing or shrinking to fit through several different hoops.
+响应式设计的适应性原则：网站应该凭借一份代码，在各种设备上都有良好的显示和使用效果。响应式网站通过使用媒体查询，自适应栅格和响应式图片，基于多种因素进行变化，创造出优良的用户体验。就像一个球通过膨胀和收缩，来适应不同大小的篮圈。
 
-Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features, and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used, and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
+自适应设计更像是渐进式增强的现代解释。与响应式设计单一地去适配不同，自适应设计通过检测设备和其他特征，从早已定义好的一系列视窗大小和其他特性中，选出最恰当的功能和布局。与使用一个球去穿过各种的篮筐不同，自适应设计允许使用多个球，然后根据不同的篮筐大小，去选择最合适的一个。
 
-###### References
+###### 参考
 
 * https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 * http://mediumwell.com/responsive-adaptive-mobile/
 * https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Have you ever worked with retina graphics? If so, when and what techniques did you use?
+### 你有没有使用过视网膜分辨率的图形？当中使用什么技术？
 
-I tend to use higher resolution graphics (twice the display size) to handle retina display. The better way would be to use a media query like `@media only screen and (min-device-pixel-ratio: 2) { ... }` and change the `background-image`.
+我倾向于使用更高分辨率的图形（显示尺寸的两倍）来处理视网膜显示。更好的方法是使用媒体查询，像`@media only screen and (min-device-pixel-ratio: 2) { ... }`，然后改变`background-image`。
 
-For icons, I would also opt to use svgs and icon fonts where possible, as they render very crisply regardless of resolution.
+对于图标类的图形，我会尽可能使用 svg 和图标字体，因为它们在任何分辨率下，都能被渲染得十分清晰。
 
-Another method would be to use JavaScript to replace the `<img>` `src` attribute with higher resolution versions after checking the `window.devicePixelRatio` value.
+还有一种方法是，在检查了`window.devicePixelRatio`的值后，利用 JavaScript 将`<img>`的`src`属性修改，用更高分辨率的版本进行替换。
 
-###### References
+###### 参考
 
 * https://www.sitepoint.com/css-techniques-for-retina-displays/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
+### 什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。
 
-`translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint, only compositions, whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
+`translate()`是`transform`的一个值。改变`transform`或`opacity`不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。`transform`使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此`translate()`更高效，可以缩短平滑动画的绘制时间。
 
-When using `translate()`, the element still takes up its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
+当使用`translate()`时，元素仍然占据其原始空间（有点像`position：relative`），这与改变绝对定位不同。
 
-###### References
+###### 参考
 
 * https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
-[[↑] Back to top](#css-questions)
+[[↑] 回到顶部](#css-问题)
 
-### Other Answers
+### 其他答案
 
 * https://neal.codes/blog/front-end-interview-css-questions
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
