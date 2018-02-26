@@ -1,7 +1,7 @@
-## Contributing
+## Sa Pag-aambag
 
-When contributing to this repository, if it is a non-trivial change, please first discuss the change you wish to make via creating an issue in this repository.
+Sa pag-aambag sa imbakang ito, kung ito ay isang di-maliit na pagbabago, pakiusap ay talakayin muna ang pagbabago na nais mong gawin Sa pamamagitan ng paggawa ng isyu sa imbakang ito.
 
-As much as possible, try to follow the existing format of markdown and code. JavaScript code should adopt [Standard style](https://standardjs.com/).
+Hangga't maari, subukan na sundin ang umiiral na format ng markdown at code. Ang JavaScript na code ay dapat pagtibayan ng [Standard style](https://standardjs.com/).
 
-Please note we have a Code of Conduct, please follow it in all your interactions with the project.
+Paalala lang na meron tayong Code of Conduct, mangyaring sundin ito sa lahat ng iyong mga pakikipag-ugnayan sa proyekto.
