@@ -1,4 +1,4 @@
-<h1 align="center">Front End Interview Handbook</h1>
+<h1 align="center">Manwal para sa pakikipanayan na pang front-end</h1>
 
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
@@ -6,31 +6,31 @@
     </a>
   <br>
   <p>
-    <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
+    <em>Pasasalamat: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Ilustrasyon</a> ni <a href="https://dribbble.com/yangheng">@yangheng</a>
     </em>
   </p>
 </div>
 
-## What is this?
+## Ano ito?
 
-Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
+Di kagaya sa mga tipikal na pakikipanayan na pangtrabaho para sa mga enhinyerong pangsoftware, Ang mga pakikinayam na pangfront-ent ay may mababang diin sa mga algoritmo at may maraming katanungan sa komplikadong kaalaman at kadalubhasaan tungkol sa domain — HTML, CSS, JavaScript, ilan lamang ito sa ibang mga lugar.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
+Habang may mga ilang umiiral na mapagkukunan upang makatulong sa mga front-end na developer sa paghahanda para sa mga pakikipanayam, di sila sagana sa materyales kagaya ng pakikipagpanayam ng isang enhinyerong pangsoftware . Kabilang sa mga umiiral na mapagkukunan, marahil ang pinaka-kapaki-pakinabang na imbakan ng mga tanong ay ang [Mga Katanungan para sa Pakikipagpanayam ng Developer na Pangfront-end](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Sa kasamaang palad, di ako makahanap ng \ kumpleto at kasiya-siya mga kasagutan para sa mga katanungan dito online, kaya ito ang aking pagtatangka para sagutan ang mga ito. Bilang isang open source na imbakan, ang proyektong ito ay patuloy na mabubuhay sa tulong ng suporta ng komyunidad sabay sa nagbabagong estado ng web
 
-## Looking for Generic Interview Preparation?
+## Ikaw ba ay naghahanap para sa paghahanda sa isang pangkalahatang pakikipanayam?
 
-You might be interested in the [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+Baka ikaw ay interesado sa [Manwal para sa Pakikipanayam na Pang-tech](https://github.com/yangshun/tech-interview-handbook) na may kapaki-pakinabang na nilalaman sa mga pangkalahatang panayam sa coding tulad ng mga algoritmo, Mga katanungan sa pag-uugali at isang [cheatsheet sa pakikipanayam](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
 
-## Table of Contents
+## Talaan ng mga Nilalaman
 
-1. [HTML Questions](questions/html-questions.md)
-1. [CSS Questions](questions/css-questions.md)
-1. [JavaScript Questions](questions/javascript-questions.md)
+1. [Mga Katanungang sa HTML](questions/html-questions.md)
+1. [Mga Katanungang sa CSS](questions/css-questions.md)
+1. [Mga Katanungan sa javascript](questions/javascript-questions.md)
 
-## Related
+## May Kaugnayan
 
-If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It is pretty much still WIP but I intend to make it into a library that is able to be used in production and also a reference resource for revising Data Structures and Algorithms.
+Kung ikaw ay interesado kung papaano pinpapatupad ang mga istraktura ng data, Maaari mong tingnan ang [Lago](https://github.com/yangshun/lago), isang librerya ng mga istraktura ng data at mga at algoritmo para sa JavaScript. Ito ay WIP parin pero balak kong gawing isang librerya na maaaring magamit sa produksyon at isang mapagkukunang sanggunian para sa mga pagbabago sa mga Istrakturang pang data at mga algoritmo.
 
-## Contributing
+## Para sa pag-aambag
 
-Feel free to make pull requests to correct any mistakes in the answers or suggest new questions.
+Ikaw ay malayang gumawa ng mga pull request at itama ang mga mali sa mga kasagutan o magbigay ng suhestyon sa mga bagong katanungan.
