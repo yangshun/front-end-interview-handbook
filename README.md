@@ -33,4 +33,14 @@ If you are interested in how data structures are implemented, check out [Lago](h
 
 ## Contributing
 
-Feel free to make pull requests to correct any mistakes in the answers or suggest new questions.
+### Code of Conduct
+
+We have adopted the same Code of Conduct as Facebook that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+
+### Contributing Guide
+
+Read our [contributing guide](CONTRIBUTING.md) to learn about how you can contribute, how to propose improvements or if you are interested in translating the content.
+
+## License
+
+All projects and packages in this repository are [MIT licensed](LICENSE).
