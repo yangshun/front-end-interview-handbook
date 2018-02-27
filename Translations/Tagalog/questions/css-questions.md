@@ -138,183 +138,199 @@ Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa is
 * https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 * https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?
 
-* Empty `div` method - `<div style="clear:both;"></div>`.
-* Clearfix method - Refer to the `.clearfix` class above.
-* `overflow: auto` or `overflow: hidden` method - Parent will establish a new block formatting context and expand to contains its floated children.
+* Walang laman na `div` na paraaan- `<div style="clear:both;"></div>`.
+* Clearfix na paraan - Sumangguni sa `.clearfix` na klase sa itaas.
+* `overflow: auto` o `overflow: hidden` na paraan - Magtatatag ang magulang ng isang bagong konteksto sa pag-format ng block at palawakin na naglalaman ng mga anak nito.
 
-In large projects, I would write a utility `.clearfix` class and use them in places where I need it. `overflow: hidden` might clip children if the children is taller than the parent and is not very ideal.
+Sa mga malaking proyekto, I would write a utility na `.clearfix` na klase at gamitin ang mga ito sa mga lugar na kung saan ko kailangan. Ang `overflow: hidden` maaaring i-clip ang mga bata kung ang mga bata ay mas mataas kaysa sa magulang at hindi masyadong mainam.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ipaliwanag ang mga CSS na sprite, at papaano mo ipapatupad ang mga ito sa isang pahina o site.
 
-CSS sprites combine multiple images into one single larger image. It is commonly used technique for icons (Gmail uses it). How to implement it:
+Ang mga CSS na sprite ay pinagsasama ang maramihang mga imahe sa isang solong mas malaking imahe. Karaniwang ginagamit itong pamamaraan para sa mga icon (Ang Gmail ay gumagamit nito). Ito ang mga pamamaraan kung papaano ito ipatutupad:
 
-1. Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
-1. Each image would have a corresponding CSS class with `background-image`, `background-position` and `background-size` properties defined.
-1. To use that image, add the corresponding class to your element.
+1. Gumamit ng isang spirte na generator na nagpapack ng maraming mga imahe upang gawing isa at bumuo ng angkop na CSS para dito.
+1. Ang bawat imahe ay magkakaroon ng kaukulang klase sa CSS na may `background-image`, `background-position` at `background-size` na mga katangian na tukoy na.
+1. Para gamitin ang imaheng iyon, idagdag ang kaukulang klase sa iyong elemento.
 
-**Advantages:**
+**Mga Bentahe:**
 
-* Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.
-* Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon `:hover` pseudo-states. Blinking wouldn't be seen.
+* Bawasan ang bilang ng mga kahilingan ng HTTP para sa maraming mga imahe (kailangan lamang ng isang solong kahilingan sa bawat spritesheet). Ngunit sa HTTP2, Ang paglo-load ng maramihang mga imahe ay kinalaunan hindi na isang isyu.
+* Pangunang pagdownload ng mga asset na hindi ma-download hangga't hindi pa kailangan, gaya ng mga imahe na makikita lang kung ang `:hover` ay nasa pseudo na estado. Ang pag-blink ay hindi makikita.
 
-###### References
+###### Mga Reperensiya
 
 * https://css-tricks.com/css-sprites/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?
 
-* After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
-* Use libraries like Bootstrap that already handles these styling issues for you.
-* Use `autoprefixer` to automatically add vendor prefixes to your code.
-* Use Reset CSS or Normalize.css.
+* Matapos malaman ang isyu at ang nakakasakit na browser, gumamit ng isang hiwalay na estilo ng sheet na naglo-load lamang kapag ginagamit ang partikular na browser na iyon. Bagaman ang pamamaraan na ito ay nangangailangan ng pagrender sa panig ng serber.
+* Gumamit ng mga librerya kagaya ng Bootstrap na humahawak na ng mga estilo ng mga isyu para sa iyo.
+* Gumamit ng `autoprefixer` upang awtomatikong magdagdag ng mga prefix ng vendor sa iyong code.
+* Gumamit ng pa-reset sa CSS o kaya naman ay Normalize.css.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?
 
-* Graceful degradation - The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
-* Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
-* Use [caniuse.com](https://caniuse.com/) to check for feature support.
-* Autoprefixer for automatic vendor prefix insertion.
-* Feature detection using [Modernizr](https://modernizr.com/).
+* Kaaya-ayang pag-degrade - Ang pagsasagawa ng pagbuo ng isang aplikasyon para sa mga modernong browser habang tinitiyak na ito ay nananatiling punksyonal sa mas lumang mga browser.
+* progresibong pagpapahusay - Ang pagsasagawa ng pagbuo ng isang aplikasyon para sa antas ng lebel ng karanasan ng gumagamit, ngunit nagdaragdag ng mga punksyonal na pagpapahusay kapag sinusuportahan ito ng isang browser.
+* Gumamit ng [caniuse.com](https://caniuse.com/)upang suriin ang suporta sa tampok.
+* Autoprefixer para sa pagpapasok ng prefix ng awtomatikong vendor.
+* Pag-detect ng mga tampok gamit ang [Modernizr](https://modernizr.com/).
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano-ano ang mga iba't ibang pamamaraan upang matago ang nakatagong nilalaman (at gawan ng paraan na ito ay magagamit lamang ng mga mambabasa ng iskrin)?
 
-These techniques are related to accessibility (a11y).
+Ang mga pamamaraan na ito ay may kaugnayan sa pagkakarating (a11y).
 
-* `visibility: hidden`. However the element is still in the flow of the page, and still takes up space.
-* `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
-* `position: absolute; left: -99999px`. Position it outside of the screen.
-* `text-indent: -9999px`. This only works on text within the `block` elements.
-* Metadata. For example by using Schema.org, RDF and JSON-LD.
-* WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
+* `visibility: hidden`. Gayunpaman ang elemento ay nasa daloy pa rin ng pahina, at umuupa pa rin ng espasyo.
+* `width: 0; height: 0`. Gawin ang elemento na hindi kukuha ng anumang espasyo sa iskrin ng lahat, na magreresulta sa hindi pagpapakita nito.
+* `position: absolute; left: -99999px`. Ilagay ito sa labas ng iskrin.
+* `text-indent: -9999px`. Ito ay gagana lamang sa mga teksto sa loob ng `block` na mga elemento.
+* Metadata. Halimbawa ay sa paggamit ng Schema.org, RDF at JSON-LD.
+* WAI-ARIA. Isang W3C na teknikal na ispisipikasyon na tinutukoy kung paano madagdagan ang ang abilidad ng pag-akses ng mga pahina ng web.
 
-Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioning approach, as it has the least caveats, works for most elements and it's an easy technique.
+Kahit na ang WAI-ARIA ay ang angkop na solusyon, Ako ay pupunta parin sa `absolute` na pagpoposisyon na paglapit, dahil mayroon itong maliit na mga problema, na gumagana para sa karamihan ng mga elemento at ito ay isang madaling pamamaraan.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.w3.org/TR/wai-aria-1.1/
 * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 * http://a11yproject.com/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ikaw ba ay nakagamit kailanman ng sistemang grid?, at kung gayon, Ano ang iyong mas pipiliin?
 
-I like the `float`-based grid system because it still has the most browser support among the alternative existing systems (flex, grid). It has been used in Bootstrap for years and has been proven to work.
+Gusto ko ang `float`na batay sa sistemang grid dahil mayroon pa rin itong pinakamaraming suportado ng browser sa mga alternatibong umiiral na mga sistema (flex, grid). Ginamit na ito sa Bootstrap nang maraming taon at napatunayan na ito ay gumagana.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ikaw ba ay nakagamit oh nakapagpatupad na ng mga query sa mobile o mga layout na espisipik sa mobile/CSS?
 
-Yes. An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.
+OO. Ang isang halimbawa ay ang pagbabago ng isang nakasalansan na pag-navigate ng pill sa isang fixed-bottom na tab na navigation na lampas sa isang tiyak yugto ng pagpatlang.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ikaw ba ay pamilyar sa estilong SVG?
 
-No... Sadly.
+Hindi... Sa kasamaang palad
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?
 
-TODO
+Oo, mayroong apat na uri ng @media na mga katangian (kabilang ang _screen_):
+ * `all` - para sa lahat ng mga aparatong uri ng media
+ * `print` - para sa mga printer
+ * `speech` - para sa mga nagbabasa ng iskrin na "binabasa" ang pahina ng malakas
+ * `screen` -para sa mga iskrin ng kompyuter, tablet, smart-phone atbp
+ 
+ Narito ang isang halimbawa ng paggamit ng `print` na uri ng media:
+ ```css
+ @media print {
+   body {
+     color: black; 
+   }
+ }
+ ```
+ 
+ ###### Mga Reperensiya
+ 
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano-ano ang ilan sa mga "pasabog" para sa epektibong pagsusulat ng CSS?
 
-Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large numbers of elements and browsers will have to do more work in determining if the parents do match.
+Una, unawain na ang mga browser ay tumutugma sa mga tagapili mula sa pinaka-kanang (tagapili ng key) papunta sa kaliwa. Sinasala ng mga browser ang mga elemento sa DOM ayon sa tagapili ng susi, at dumaan ang mga elemento ng magulang nito upang matukoy ang mga tugma. Sa pag-ikli chain ng tagapili, ay siyang pagbilis ng pagtukoy ng browser kung ang elementong iyon ay tumutugma sa tagapili. Kaya iwasan ang mga tagapili ng key na tag at mga pandaigdigang tagapili. Sila ay tugma sa isang malaking bilang ng mga elemento at ang mga browser ay kailangang gumawa ng mas maraming trabaho sa pagtukoy kung ang mga magulang ay tumutugma.
 
-[BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
+[BEM (Block Element Modifier)](https://bem.info/) na medolohiya ay nagrerekomenda na ang lahat ay may isang klase, at, kung saan kailangan mong herarkiya, na naluluto din sa pangalan ng klase, ito ay natural na ginagawang mahusay ang tagapili at madaling i-override.
 
-Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
+Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repaint at compositing. Iwasan ang pagsusulat ng mga estilo na nagbabago sa layout (trigger reflow) kung pwede man.
 
-###### References
+###### Mga Reperensiya
 
 * https://developers.google.com/web/fundamentals/performance/rendering/
 * https://csstriggers.com/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang mga pakinabang o di-pakinabang ng paggamit ng mga preprocessors ng CSS?
 
-**Advantages:**
+**Mga Bentahe:**
 
-* CSS is made more maintainable.
-* Easy to write nested selectors.
-* Variables for consistent theming. Can share theme files across different projects.
-* Mixins to generate repeated CSS.
-* Splitting your code into multiple files. CSS files can be split up too but doing so will require a HTTP request to download each CSS file.
+* CSS ay ginawang mas kapanati-panatili.
+* Madaling sumulat nga mga nested na tagapili.
+* Mga variable para sa pare-pareho na pag-theme. Maaaring magbahagi ng mga file ng tema sa iba't ibang mga proyekto.
+* Mga paghalo para maka-generate ng naulit na CSS.
+* Ang paghati sa iyong code sa maramihang mga file. Ang mga file ng CSS ay maaaring hatiin din ngunit ang paggawa nito ay mangangailangan pa ng isang HTTP na kahilingan upang i-download ang bawat CSS na file.
 
-**Disadvantages:**
+**Mga Kasahulan:**
 
-* Requires tools for preprocessing. Re-compilation time can be slow.
+* Nangangailangan ng mga gamit para sa pag-preprocess. Maaaring ang oras ng pag-compile ulit ay magiging.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ilarawan kung ano ang iyong gusto at di gusto tungkol sa CSS na mga preprocessor na iyong nagamit.
 
-**Likes:**
+**Mga Gusto:**
 
-* Mostly the advantages mentioned above.
-* Less is written in JavaScript, which plays well with Node.
+* Halos ang lahat ng bentahe ay nasabi na sa itaas.
+* Kaunti lang ang isinulat sa JavaScript, na gumaganap nang mahusay sa Node.
 
-**Dislikes:**
+**Mga Hindi Gusto:**
 
-* I use Sass via `node-sass`, which is a binding for LibSass written in C++. I have to frequently recompile it when switching between node versions.
-* In Less, variable names are prefixed with `@`, which can be confused with native CSS keywords like `@media`, `@import` and `@font-face` rule.
+* Gumagamit ako ng Sass sa pamamagitan ng `node-sass`, na kung saan ay naka-bisa para sa LibSass na nakasulat sa C++. Ako ay madalas na mag-recompile nito kapag ako ay lumilipat sa pagitan ng mga bersyon ng node.
+* Sa maliit, ang mga variable na pangalan ay naka-prefix sa `@`, na maaaring malito sa katutubong mga keyword sa CSS tulad ng `@ media`,` @ import` at `@ font-face` na panuntunan.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Papaano mo ipapatupad ang isang web design comp na gumagamit ng mga di pangkaraniwang font?
 
-Use `@font-face` and define `font-family` for different `font-weight`s.
+Gumamit ng `@font-face` at tukuyin ang `font-family` para sa ibang mga `font-weight`.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ipaliwanag kung paano tinutukoy ng isang browser kung anu-anong mga elemento ang tumutugma sa tagapili ng CSS.
 
-This part is related to the above about writing efficient CSS. Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
+Ang parteng ito ay may kaugnayan sa taas tungkol sa mahusay na pagsusulat ng CSS. Ang mga browser ay tumutugma sa mga tagapili mula sa pinaka-kanang bahagi (tagapili ng key) hanggang sa kaliwa. sinasala ng mga browser ang mga elemento sa DOM ayon sa tagapili ng, at tinatawid ang mga elemento ng magulang nito upang matukoy ang mga tugma. Kung mas maikli ang haba ng chain ng tagapili, mas mabilis na matutukoy ng browser kung tumutugma ang sangkap na ito sa tagapili.
 
-For example with this selector `p span`, browsers firstly find all the `<span>` elements, and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
+Halimbawa ay sa tagapiling `p span` na ito, unang hahanapin ng mga browser ang lahat ng `<span>` na mga elemento, at idadaam ang kanyang magulang hanggang sa ugat upang mahanap ang `<p>` na elemento. Para sa partikular na `<span>`, sa lalong madaling panahon na mahanap nito ang `<p>`, malalaman nito na ang `<span>` ay tugma at maaaring ihinto ang pagtutugma nito.
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ilarawan ang mga elementong pseudo at talakayin kung para saan ito gagamitin.
 
-A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`:first-line`, `:first-letter`) or adding elements to the markup (combined with `content: ...`) without having to modify the markup (`:before`, `:after`).
+Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-daan sa iyo ng pag-eestilo ng isang tiyak na bahagi ng piniling elemento(s). Maaari silang magamit para sa dekorasyon (`:first-line`, `:first-letter`) o pagdaragdag ng mga elemento sa markup (kasama ng `content: ...`) na hindi na kailangang baguhin pa ang markup (`:before`, `:after`).
 
-* `:first-line` and `:first-letter` can be used to decorate text.
-* Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
-* Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM. It's not really possible to draw a triangle with just CSS styles without using an additional HTML element.
-
-###### References
+* `:first-line` at `:first-letter` ay magagamit para lagyan ng dekorasyon ang teksto.
+*Ginamit sa `.clearfix` na hack na ipinakita sa itaas upang magdagdag ng zero-space na elemento kasabay ang `clear: both`.
+* Mala-tatsulok na mga arrow sa tooltips ay gumagamit ng `:before` at `:after`. Hinihikayat ang paghihiwalay ng mga alalahanin dahil ang tatsulok ay itinuturing na bahagi ng estilo at hindi talaga ang DOM. Hindi talaga posible na gumuhit ng isang tatsulok na may mga estilo lamang ng CSS nang hindi gumagamit ng karagdagang elemento ng HTML.
+###### RMga Reperensiya
 
 * https://css-tricks.com/almanac/selectors/a/after-and-before/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.
 
-The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
+Ang CSS na modelo ng kahon ay naglalarawan ng mga hugis-parihaba na kahon na binuo para sa mga elemento sa puno ng dokumento at inilatag ayon sa visual na format ng modelo. Ang bawat kahon ay may lugar ng nilalaman (e.g. teksto, isang imahe, atbp.) at opsyonal na nakapalgid na `padding`, `border`, at `margin` na mgaa lugar.
 
-The CSS box model is responsible for calculating:
+Ang CSS na modelong kahon ay responsable sa pagkalkula ng:
 
 * How much space a block element takes up.
 * Whether or not borders and/or margins overlap, or collapse.
