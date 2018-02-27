@@ -60,9 +60,9 @@ Mas gusto kong magsulat ng mga CSS na panuntunan na may mababang pagtitiyak ng s
 ### Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?
 
 * **Pag-reset** - Ang pag-reset ay sinadya upang i-strip ang lahat ng mga default na pag-istilo ng browser sa mga elemento. Halimbawa. mga `margin`,mga `padding`,mga `font-size` ng lahat ng mga elemento ay naka-set upang maging pareho. Kakailanganin mong ideklara ulit ang estilo para sa karaniwang mga elemento ng tipograpiya.
-* **Pag-normalize** - Ang pag-normalize ay pinapanatili ang kapaki-pakinabang na mga estilo ng default sa halip na i-unstyle ang lahat. Iniayos din nito ang mga bug para sa mga karaniwang dependency ng browser.
+* **Pag-normalize** - Ang pag-normalize ay pinapanatili ang kapaki-pakinabang na mga estilo ng default sa halip na i-unstyle ang lahat. Iniayos din nito ang mga bug para sa mga karaniwang dependensya ng browser.
 
-Mas pipiliin ko ang pagreset kungmeron man akong napaka-customize o hindi tipikal na disenyo ng site tulad na kailangan kong gawin ang karamihan ng aking sariling estilo at hindi kailangan ng anumang mga default na estilo para sa pag-aalaga.
+Mas pipiliin ko ang pagreset kung meron man akong mas pinasadya o hindi tipikal na disenyo ng site tulad ng kailangan kong gawin sa karamihan ng aking sariling estilo at hindi kailangan ng anumang mga default na estilo para sa pag-aalaga.
 
 ###### Mga Reperensiya
 
@@ -72,13 +72,13 @@ Mas pipiliin ko ang pagreset kungmeron man akong napaka-customize o hindi tipika
 
 ### Ilarawan ang mga `float` at kung paano sila gumagana.
 
-Ang Float ay isang katangian ng CSS sa pagpoposisyon. Ang mga floated  na elemento ay mananatili na isang bahagi ng daloy ng pahina, at makakaapekto sa pagpoposisyon ng mga elemento (e.g. ang teksto ay dadaloy sa palinbot ng mga floated na elemento), di kagaya ng mga `position: absolute` na elemento, na inalis mula sa daloy ng pahina.
+Ang Float ay isang katangian ng CSS sa pagpoposisyon. Ang mga floated  na elemento ay mananatili na isang bahagi ng daloy ng pahina, at makakaapekto sa pagpoposisyon ng mga elemento (e.g. ang teksto ay dadaloy sa palibot ng mga floated na elemento), di kagaya ng mga `position: absolute` na elemento, na inalis mula sa daloy ng pahina.
 
 Ang CSS na `clear` na katangian ay magagamit sa pagpoposisyon sa ilalim ng `left`/`right`/`both` na mga floated na elemento.
 
 Kung ang isang magulang na elemento ay naglalaman ng walang anuman kundi mga floated na elemento, ang taas nito ay babagsak hanggang sa walang matitira. Maaari itong maayos sa pamamagitan ng pag-clear ng float pagkatapos ng mga floated na elemento sa lalagyan ngunit bago muna ang pagsasara ng lalagyan.
 
-Ang `.clearfix` na hack gumagamit ng isang matalinong CSS pseudo na selector na (`:after`) para linisin ang mga float. Sa halip na itakda ang overflow sa magulang, Mag-aaply ka ng karagdagang klase ng `clearfix` dito. Pagkatapos ay ilapat ang CSS na ito:
+Ang `.clearfix` na hack ay gumagamit ng isang wais na CSS pseudo na selector na (`:after`) para linisin ang mga float. Sa halip na itakda ang overflow sa magulang, Mag-aaply ka ng karagdagang klase ng `clearfix` dito. Pagkatapos ay ilapat ang CSS na ito:
 
 ```css
 .clearfix:after {
@@ -100,13 +100,13 @@ Bilang alternatibo, Ibigay ang `overflow: auto` o `overflow: hidden` na katangia
 
 ### Ilarawan ang z-index at kung papaano nabuo ang konteksto.
 
-Ang `z-index` na katangian sa CSS ay kumokontrol sa bertikal na pagkaka-ayos pagkakasalansan ng mga elemento na sumasapaw.Ang `z-index` ay nakakaapekto lamang sa mga elemento na may `position` na may halaga na hindi `static`.
+Ang `z-index` na katangian sa CSS ay kumokontrol sa bertikal na pagkaka-ayos na pagkakasalansan ng mga elemento na sumasapaw. Ang `z-index` ay nakakaapekto lamang sa mga elemento na may `position` na may halagang hindi `static`.
 
-Kung walang kahit na anong `z-index` na halaga, ang mga elemento ay nakasalansan sa pagkakasunud-sunod na lumilitaw sa mga ito sa DOM (ang pinakamababang mababa sa parehong antas ng herakiya ay lilitaw sa itaas).Ang mga elemento na may non-static na pagpoposisyon (at ang kanilang mga anak) ay laging makikita sa itaas ng ga elementong may default na static na pagpoposisyon, hindi alintana ang HTML na herarkiya.
+Kung walang kahit na anong `z-index` na halaga, ang mga elemento ay nakasalansan sa pagkakasunud-sunod na lumilitaw sa mga DOM (ang pinakamababang mababa sa parehong antas ng herakiya ay lilitaw sa itaas).Ang mga elemento na may non-static na pagpoposisyon (at ang kanilang mga anak) ay laging makikita sa itaas ng mga elementong may default na static na pagpoposisyon, hindi alintana ang HTML na herarkiya.
 
-Ang isang konteksto ng pagsalansan ay isang elemento na naglalaman ng set ng mga layers. Sa loob ng isang lokal na kontekstong nakasalansan, ang `z-index` na mga halaga sa mga anak nito ay naka-set na kamag-anak sa elementong iyon kaysa sa ugat ng dokumento. Ang mga layers ng nasa labas ng kontekstong iyon — i.e. mga elemento ng kapatid sa isang lokal na kontekstong nakasalansan — ay hindi makakaupo sa pagitan ng mga layers sa loob nito. Kung ang elementong B ay uupo sa taas ng elementong A, ang isang anak na elemento ng elementong  A, elementong C, ay hindi kailanman mas mataas kesa sa elementong B kahit na ang elementong C ay may mas mataas na `z-index` kesa sa elementong B.
+Ang isang konteksto ng pagsalansan ay isang elemento na naglalaman ng set ng mga layer. Sa loob ng isang lokal na kontekstong nakasalansan, ang `z-index` na mga halaga sa mga anak nito ay naka-set na kamag-anak sa elementong iyon kaysa sa ugat ng dokumento. Ang mga layers ng nasa labas ng kontekstong iyon — i.e. mga elemento ng kapatid sa isang lokal na kontekstong nakasalansan — ay hindi makakaupo sa pagitan ng mga layer sa loob nito. Kung ang elementong B ay uupo sa itaas ng elementong A, ang isang anak na elemento ng elementong  A, elementong C, ay hindi kailanman mas mataas kesa sa elementong B kahit na ang elementong C ay may mas mataas na `z-index` kesa sa elementong B.
 
-Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng elemento ay nakasalansan, Ang buong elemento ay isinasaalang-alang sa pagkakasunud-sunod ng pagkakasalansan sa magulang na kontekstong nakasalansan. Ang isang maliit na bilang ng mga katangian ng CSS sumasanhi ng isang bagong kontekstong nakasalansan, kagaya ng `opacity` na mas mababa sa 1, `filter` na hindi `none`, at `transform` na hindi `none`.
+Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng elemento ay nakasalansan, Ang buong elemento ay isinasaalang-alang sa pagkakasunud-sunod ng pagkakasalansan sa magulang na kontekstong nakasalansan. Ang isang maliit na bilang ng mga katangian ng CSS ay sumasanhi ng isang bagong kontekstong nakasalansan, kagaya ng `opacity` na mas mababa sa 1, `filter` na hindi `none`, at `transform` na hindi `none`.
 
 ###### Mga Reperensiya
 
