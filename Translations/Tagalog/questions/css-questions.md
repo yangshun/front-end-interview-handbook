@@ -39,46 +39,46 @@ Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga K
 Tinutukoy ng browser kung anong mga estilo ang ipapakita sa isang elemento na nakadepende sa antsa ng pagka-episipik nga mga panuntunan ng CSS. Ipagpalagay natin na ang browser ay nakapagtukoy na ng mga panuntunan na tumutugma sa isang partikular na elemento. Kabilang sa panuntunan sa pagtutugma, Ang pagtitiyak, apat na kuwit ng hiwalay na mga halaga, `a, b, c, d` ay kalkulado sa bawat isang panuntunan na batay sa mga sumusunod:
 
 
-1. `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
-2. `b` is the number of ID selectors.
-3. `c` is the number of classes, attributes and pseudo-classes selectors.
-4. `d` is the number of tags and pseudo-elements selectors.
+1. Ang `a` ay kung ginagamit ang mga inline na estilo. Kung ang deklarasyon ng katangian ay isang estilo ng inline sa elemento,Ang `a` ay 1, ang iba ay 0.
+2. Ang `b` ay ang bilang ng mga tagapili ng ID.
+3. Ang `c` ay bilang ng mga klase, mga katangian at mga tagapili ng pseudo na klase.
+4. Ang `d` ang bilang ng mga tag at mga pseudo na elemento na mga tagapili.
 
-The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
+Ang resulta ng pagkakatukoy ay hindi isang marka, ngunit isang matrix ng mga halaga na maaaring ikumpara ng haligi sa haligi. Kapag tinutukoy ang mga tagapili upang matukoy kung alin ang may pinakamataas na pagtitiyak, hanapin mula sa kaliwa hanggang kanan, at ihambing ang pinakamataas na halaga sa bawat haligi. kaya ang halaga sa haligi ng `b` ay susubusin ang mga halaga sa mga haligi ng `c` at `d`, kahit na ano pa yan sila. Dahil dito, ang pagtitiyak ng `0,1,0,0` ay mas malaki kesa sa `0,0,10,10`.
 
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+Sa mga kaso ng pantay na pagtitiyak: ang pinakabagong tuntunin ay ang siyang binibilangin. Kung isinulat mo ang parehong patakaran sa iyong style sheetsheet na pang-estilo (kahit na anuman ang panloob o panlabas) ng dalawang beses, pagkatapos ay ang mas mababang panuntunan sa iyong estilo ng sheet ay mas malapit sa elemento na gagawan ng estilo, ito ay itinuturing na mas tiyak at samakatuwid ay ilalapat.
 
-I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
+Mas gusto kong magsulat ng mga CSS na panuntunan na may mababang pagtitiyak ng sa ganun ay madali silang i-override kung kinakailangan. Sa pagsusulat ng mga CSS UI na component library code, mahalaga na magkaroon sila ng mababang mga partikularidad ng sa ganun ay maaaring i-override sila ng mga gumagamit ng librerya nang hindi gumagamit ng masyadong komplikadong mga panuntunan sa CSS para lang sa kapakanan ng pagdaragdag ng pagtitiyak o humantong sa `!important`.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 * https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?
 
-* **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
-* **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
+* **Pag-reset** - Ang pag-reset ay sinadya upang i-strip ang lahat ng mga default na pag-istilo ng browser sa mga elemento. Halimbawa. mga `margin`,mga `padding`,mga `font-size` ng lahat ng mga elemento ay naka-set upang maging pareho. Kakailanganin mong ideklara ulit ang estilo para sa karaniwang mga elemento ng tipograpiya.
+* **Pag-normalize** - Ang pag-normalize ay pinapanatili ang kapaki-pakinabang na mga estilo ng default sa halip na i-unstyle ang lahat. Iniayos din nito ang mga bug para sa mga karaniwang dependensya ng browser.
 
-I would choose resetting when I have a very customized or unconventional site design such that I need to do a lot of my own styling and do not need any default styling to be preserved.
+Mas pipiliin ko ang pagreset kung meron man akong mas pinasadya o hindi tipikal na disenyo ng site tulad ng kailangan kong gawin sa karamihan ng aking sariling estilo at hindi kailangan ng anumang mga default na estilo para sa pag-aalaga.
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ilarawan ang mga `float` at kung paano sila gumagana.
 
-Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
+Ang Float ay isang katangian ng CSS sa pagpoposisyon. Ang mga floated  na elemento ay mananatili na isang bahagi ng daloy ng pahina, at makakaapekto sa pagpoposisyon ng mga elemento (e.g. ang teksto ay dadaloy sa palibot ng mga floated na elemento), di kagaya ng mga `position: absolute` na elemento, na inalis mula sa daloy ng pahina.
 
-The CSS `clear` property can be used to be positioned below `left`/`right`/`both` floated elements.
+Ang CSS na `clear` na katangian ay magagamit sa pagpoposisyon sa ilalim ng `left`/`right`/`both` na mga floated na elemento.
 
-If a parent element contains nothing but floated elements, its height will be collapsed to nothing. It can be fixed by clearing the float after the floated elements in the container but before the close of the container.
+Kung ang isang magulang na elemento ay naglalaman ng walang anuman kundi mga floated na elemento, ang taas nito ay babagsak hanggang sa walang matitira. Maaari itong maayos sa pamamagitan ng pag-clear ng float pagkatapos ng mga floated na elemento sa lalagyan ngunit bago muna ang pagsasara ng lalagyan.
 
-The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear floats. Rather than setting the overflow on the parent, you apply an additional class `clearfix` to it. Then apply this CSS:
+Ang `.clearfix` na hack ay gumagamit ng isang wais na CSS pseudo na selector na (`:after`) para linisin ang mga float. Sa halip na itakda ang overflow sa magulang, Mag-aaply ka ng karagdagang klase ng `clearfix` dito. Pagkatapos ay ilapat ang CSS na ito:
 
 ```css
 .clearfix:after {
@@ -90,48 +90,50 @@ The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear float
 }
 ```
 
-Alternatively, give `overflow: auto` or `overflow: hidden` property to the parent element which will establish a new block formatting context inside the children and it will expand to contain its children.
+Bilang alternatibo, Ibigay ang `overflow: auto` o `overflow: hidden` na katangian sa magulang na elemento na magtatatag ng isang bagong bloke sa pag-format ng konteksto sa loob ng mga bata at lalawak ito upang maglaman ng mga anak nito.
 
-###### References
+###### Mga Reperensiya
 
 * https://css-tricks.com/all-about-floats/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ilarawan ang z-index at kung papaano nabuo ang konteksto.
 
-The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
+Ang `z-index` na katangian sa CSS ay kumokontrol sa bertikal na pagkaka-ayos na pagkakasalansan ng mga elemento na sumasapaw. Ang `z-index` ay nakakaapekto lamang sa mga elemento na may `position` na may halagang hindi `static`.
 
-Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
+Kung walang kahit na anong `z-index` na halaga, ang mga elemento ay nakasalansan sa pagkakasunud-sunod na lumilitaw sa mga DOM (ang pinakamababang mababa sa parehong antas ng herakiya ay lilitaw sa itaas).Ang mga elemento na may non-static na pagpoposisyon (at ang kanilang mga anak) ay laging makikita sa itaas ng mga elementong may default na static na pagpoposisyon, hindi alintana ang HTML na herarkiya.
 
-A stacking context is an element that contains a set of layers. Within a local stacking context, the `z-index` values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher `z-index` than element B.
+Ang isang konteksto ng pagsalansan ay isang elemento na naglalaman ng set ng mga layer. Sa loob ng isang lokal na kontekstong nakasalansan, ang `z-index` na mga halaga sa mga anak nito ay naka-set na kamag-anak sa elementong iyon kaysa sa ugat ng dokumento. Ang mga layers ng nasa labas ng kontekstong iyon — i.e. mga elemento ng kapatid sa isang lokal na kontekstong nakasalansan — ay hindi makakaupo sa pagitan ng mga layer sa loob nito. Kung ang elementong B ay uupo sa itaas ng elementong A, ang isang anak na elemento ng elementong  A, elementong C, ay hindi kailanman mas mataas kesa sa elementong B kahit na ang elementong C ay may mas mataas na `z-index` kesa sa elementong B.
 
-Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
+Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng elemento ay nakasalansan, Ang buong elemento ay isinasaalang-alang sa pagkakasunud-sunod ng pagkakasalansan sa magulang na kontekstong nakasalansan. Ang isang maliit na bilang ng mga katangian ng CSS ay sumasanhi ng isang bagong kontekstong nakasalansan, kagaya ng `opacity` na mas mababa sa 1, `filter` na hindi `none`, at `transform` na hindi `none`.
 
-###### References
+###### Mga Reperensiya
 
 * https://css-tricks.com/almanac/properties/z/z-index/
 * https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.
 
-A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
+Ang Block Formatting na Konteksto (BFK) ay parte ng biswal na pagrender ng css ng isang pahina ng web na kung saan ang mga bloke na kahon ay inilatag. Ang mga floats, ganap na mga nakaposisyon na mga elemento, `inline-blocks`, `table-cells`, mga `table-caption`, at mga elemento na may `overflow` maliban sa `visible` (maliban kung ang halaga na ito ay pinalaganap sa viewport) na magtatag ng mga bagong konteksto sa pag-format ng bloke
+.
 
-A BFC is an HTML box that satisfies at least one of the following conditions:
+Ang BFK ay isang HTML na kahon na natutugunan ng hindi bababa sa isa sa mga sumusunod na kondisyon:
 
-* The value of `float` is not `none`.
-* The value of `position` is neither `static` nor `relative`.
-* The value of `display` is `table-cell`, `table-caption`, `inline-block`, `flex`, or `inline-flex`.
-* The value of `overflow` is not `visible`.
+* Ang halaga ng `float` ay hindi `none`.
+* Ang halaga ng `position` ay hindi `static` o `relative`.
+* Ang halaga ng `display` ay `table-cell`, `table-caption`, `inline-block`, `flex`, o `inline-flex`.
+* Ang halaga ng `overflow` ay hindi `visible`.
 
-In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
+Sa isang BFK, hinawakan ang kaliwang panlabas na gilid ng bawat kahon ang kaliwang gilid ng bloke na naglalaman
+ (for right-to-left formatting, right edges touch).
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
+Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa isang pagbagsak ng BFK. Magpasa pa sa [Mga margin na bumabagsak](https://www.sitepoint.com/web-foundations/collapsing-margins/).
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 * https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
