@@ -15,6 +15,7 @@ Answers to [Front-end Job Interview Questions - CSS Questions](https://github.co
 * [Have you ever used a grid system, and if so, what do you prefer?](#have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer)
 * [Have you used or implemented media queries or mobile specific layouts/CSS?](#have-you-used-or-implemented-media-queries-or-mobile-specific-layoutscss)
 * [Are you familiar with styling SVG?](#are-you-familiar-with-styling-svg)
+* [what is an example of an pseduo-element?](#what-is-an-example-of-an-pseduo-element)
 * [Can you give an example of an @media property other than screen?](#can-you-give-an-example-of-an-media-property-other-than-screen)
 * [What are some of the "gotchas" for writing efficient CSS?](#what-are-some-of-the-gotchas-for-writing-efficient-css)
 * [What are the advantages/disadvantages of using CSS preprocessors?](#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
@@ -223,13 +224,30 @@ No... Sadly.
 
 [[↑] Back to top](#css-questions)
 
+### What is an example of an pseduo-element?
+
+Pseduo elements are used to style a particular part of an element.
+
+The 5 CSS pseduo-elements are:
+* `::after` - appends content to an element
+* `::before` - prepends content to an element
+* `::first-letter` - targets the first letter of each tag
+* `::first-line` - targets the first line of each tag
+* `::selection`  - selects an element that has been highlighted by the user
+
+###### References
+
+* https://www.w3schools.com/css/css_pseudo_elements.asp
+
+[[↑] Back to top](#css-questions)
+
 ### Can you give an example of an @media property other than screen?
 
 Yes, there are four types of @media properties (including _screen_):
 * `all` - for all media type devices
 * `print` - for printers
 * `speech` - for screenreaders that "reads" the page out loud
-* `screen` - for computer screens, tablets, smart-phones etc.
+* `screen` - for computer screens, tablets, smart-phones etc
 
 Here is an example of `print` media type's usage:
 ```css
