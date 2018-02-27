@@ -3,26 +3,26 @@
 Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/javascript-questions.md). Pull requests for suggestions and corrections are welcome!
 
 * [Explain event delegation](#explain-event-delegation)
-* [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript)
+* [简述 `JavaScript` 中的 `this`](#explain-how-this-works-in-javascript)
 * [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
 * [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
 * [Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
-* [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
+* [`null`, `undefined` 和未定义的变量有什么区别? 如何区分?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 * [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
 * [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
-* [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
+* [匿名函数有哪些使用场景?](#whats-a-typical-use-case-for-anonymous-functions)
 * [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
-* [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
+* [宿主对象(host objects)和本地对象(native objects)有什么区别?](#whats-the-difference-between-host-objects-and-native-objects)
 * [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
 * [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
 * [Explain `Function.prototype.bind`.](#explain-functionprototypebind)
-* [When would you use `document.write()`?](#when-would-you-use-documentwrite)
+* [什么时候会用到 `document.write()`?](#when-would-you-use-documentwrite)
 * [What's the difference between feature detection, feature inference, and using the UA string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
 * [Explain Ajax in as much detail as possible.](#explain-ajax-in-as-much-detail-as-possible)
-* [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
+* [`ajax` 技术有哪些优点和缺点?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
 * [Explain how JSONP works (and how it's not really Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
 * [Have you ever used JavaScript templating? If so, what libraries have you used?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
-* [Explain "hoisting".](#explain-hoisting)
+* [解释下变量提升(`hoisting`)](#explain-hoisting)
 * [Describe event bubbling.](#describe-event-bubbling)
 * [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
 * [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
@@ -71,18 +71,19 @@ Event delegation is a technique involving adding event listeners to a parent ele
 
 [[↑] Back to top](#js-questions)
 
-### Explain how `this` works in JavaScript
+<a id="explain-how-this-works-in-javascript"></a>
 
-There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript. A hand-wavey explanation is that the value of `this` depends on how the function is called. I have read many explanations on `this` online, and I found [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s explanation to be the clearest. The following rules are applied:
+### 简述 `JavaScript` 中的 `this`
 
-1. If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
-2. If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-3. If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
-4. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
-5. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-6. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+JS 中的 `this` 是一个相对复杂的概念, 不是简单几句能解释清楚的。比较不负责任的说法是 `this` 的值取决于函数是如何调用的。我阅读了网上很多关于 `this` 的文章, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal) 写的比较清楚. `this` 取值符合以下规则:
 
-For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+1. 通过 `new` 关键字调用函数, `this` 会是一个全新的 `object`
+2. 使用 `apply`, `call` 或者 `bind` 来调用/创建函数, `this` 的值取决于传入的第一个参数
+3. 如果函数作为对象的方法被调用, 比如 `obj.method()`, `this` 的值为该函数所作为属性的 `object`, 比如 `obj`
+4. 如果函数调用时不满足上述条件, 也就是 `free function`, `this` 的值为全局对象. 浏览器环境下是 `window` 对象, 但是在严格模式下(`'use strict'`), `this` 的值为 `undefined`
+5. ES2015(ES6) 提出的箭头函数(Arrow function)不符合上述规则, 箭头函数 `this` 的值是该函数被 `创建时` 的作用域
+
+更深入的解释可以去查看[他在 Medium 上的文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)
 
 ###### References
 
@@ -129,9 +130,11 @@ Here are two ways to fix it that involves adding more brackets: `(function foo()
 
 [[↑] Back to top](#js-questions)
 
-### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+<a id="whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states"></a>
 
-**Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+### `null`, `undefined` 和未定义的变量有什么区别? 如何区分?
+
+当你先前没有使用 `var`, `let` 或 `const` 创建一个变量, 就直接给这个标识符(identifier, 或者说变量名?)赋值时, 你就会创建一个**未定义(Undeclared)**变量. 未定义变量不会存在于当前作用域, 而是默认定义在全局作用域(globally scope). 严格模式下, 你给一个未定义变量赋值时会抛出 `ReferenceError` 错误. 使用未定义变量不是好习惯, 这跟尽量不使用全局变量是一个道理, 应最大化的避免. 将代码包裹在 `try`/`catch` 中能帮你检查出未定义变量.
 
 ```js
 function foo() {
@@ -142,7 +145,7 @@ foo();
 console.log(x); // 1
 ```
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+`undefined` 指的是你定义了变量, 但没有赋值. 这个变量的类型就是 `undefined`。如果函数没写返回值, 默认也会是 `undefined`. 检查变量是不是 `undefined` 需要用到严格等于(`===`)操作符或 `typeof`(`foo === undefined` or `typeof foo === 'undefined'`)。需要注意的是你不能用抽象相等操作符(`==`)来判断, 因为 `null` 值也会返回 `true`(`null == undefined`)。
 
 ```js
 var foo;
@@ -157,7 +160,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+`null` 值只能是被显式赋值给变量。它代表`无意义`或是`空值`, 并且和被显式赋值 `undefined` 的变量意义不同。检查 `null` 值需要使用严格相等运算符。
 
 ```js
 var foo = null;
@@ -166,7 +169,9 @@ console.log(foo === null); // true
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring, if I don't intend to use it yet.
+作为一个好习惯, 你应该避免使用未定义或为未声明(undeclared or unassigned)的变量。如果定义了暂时没有用到的变量，我会在声明后明确地给它们赋值为 `null`。
+
+> 译者注: 这部分应借助一些工具比如代码检查 `eslint`, 静态类型检查: `flow`, `typescript`, 而不是刀耕火种
 
 ###### References
 
@@ -232,9 +237,11 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 [[↑] Back to top](#js-questions)
 
-### What's a typical use case for anonymous functions?
+<a id="whats-a-typical-use-case-for-anonymous-functions"></a>
 
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+### 匿名函数有哪些使用场景?
+
+它们可以用于立即执行函数(`IIFE`), 将代码密封到局部作用域, 使得其中声明的变量不会污染全局作用域。
 
 ```js
 (function() {
@@ -242,7 +249,8 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 })();
 ```
 
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+作为一次使用的回调，不需要在其他地方使用。当处理程序在调用它们的代码内部进行定义时，代码看起来更具自包含性和可读性，而不必在别处搜索以查找函数体。
+作为一次性回调函数使用, 并且没有其他地方引用时, 建议用匿名函数。这使得代码更具有自包含性和可读性(`self-contained and readable`)。
 
 ```js
 setTimeout(function() {
@@ -250,7 +258,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+匿名函数也可以用于函数式编程结构的参数, 或 Lodash 方法的参数(类似回调函数)。
 
 ```js
 const arr = [1, 2, 3];
@@ -259,6 +267,8 @@ const double = arr.map(function(el) {
 });
 console.log(double); // [2, 4, 6]
 ```
+
+> 译者注: 其实匿名函数还有更多可细分的用处, 一般作为工程优化和最佳实践部分出现。
 
 ###### References
 
@@ -277,11 +287,13 @@ I avoid using classical inheritance where possible. When and if I do, I stick to
 
 [[↑] Back to top](#js-questions)
 
-### What's the difference between host objects and native objects?
+<a id="whats-the-difference-between-host-objects-and-native-objects"></a>
 
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
+### 宿主对象(host objects)和本地对象(native objects)有什么区别?
 
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
+`ECMA-262` 把本地对象(native object)定义为 `独立于宿主环境的 ECMAScript 实现提供的对象`, 比如 `String`, `Math`, `RegExp`, `Object`, `Function` 等等。
+
+所有非本地对象都是宿主对象(host object)，即由 ECMAScript 实现的宿主环境(浏览器或者 nodejs)提供的对象, 比如 `window`, `XMLHTTPRequest` 等。
 
 ###### References
 
@@ -346,11 +358,13 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 [[↑] Back to top](#js-questions)
 
-### When would you use `document.write()`?
+<a id="when-would-you-use-documentwrite"></a>
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
+### 什么时候会用到 `document.write()`?
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
+`document.write()` 将一串文本写入由 `document.open()` 打开的文档流中。`document.write()` 在页面加载后执行, 清除整个 `dom` 树(包括 `<head>` 和 `<body>`), 并使用参数替换. 这是一个很危险也容易被误用的方法。
+
+网上有一些说法是将它用于代码分析, 或者是某些特殊情况(比如你希望[只有浏览器允许 JS 脚本执行时, 才显示样式](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html)), 也可以在 HTML5 中用于[并行加载脚本并保留执行顺序](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag). 但是我怀疑这些可能性都已经过时了, 现在我们不用 `document.write()` 也能实现目的。
 
 ###### References
 
@@ -412,21 +426,23 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 
 [[↑] Back to top](#js-questions)
 
-### What are the advantages and disadvantages of using Ajax?
+<a id="what-are-the-advantages-and-disadvantages-of-using-ajax"></a>
 
-**Advantages**
+### `ajax` 技术有哪些优点和缺点?
 
-* Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-* Reduce connections to the server since scripts and stylesheets only have to be requested once.
-* State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-* Basically most of the advantages of an SPA.
+**优点**
 
-**Disadvantages**
+* 交互性更好. 动态更改内容, 无需重新加载整个页面
+* 减少与服务器的连接, 因为 `scripts` 和 `stylesheets` 只需要被请求一次
+* Webapp 的状态可以维护在页面上, JavaScript 变量和 DOM 状态会一直保持
+* 基本上和 `SPA` 的优点一致
 
-* Dynamic webpages are harder to bookmark.
-* Does not work if JavaScript has been disabled in the browser.
-* Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-* Basically most of the disadvantages of an SPA.
+**缺点**
+
+* 动态网页不容易被收藏
+* 浏览器禁用 JavaScript 后, 页面不能正常访问
+* 有些网络爬虫不执行 `JavaScript`, 也不会看到动态加载的内容
+* 基本上和 `SPA` 的缺点一致
 
 [[↑] Back to top](#js-questions)
 
@@ -476,23 +492,25 @@ However, do be aware of a potential XSS in the above approach as the contents ar
 
 [[↑] Back to top](#js-questions)
 
-### Explain "hoisting".
+<a id="explain-hoisting"></a>
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+### 解释下变量提升(`hoisting`)
+
+使用 `var` 关键字声明或初始化的变量, 会将 `变量的声明` 提升到当前作用域的顶部, 但是赋值(如果有变量赋值)的位置不变. 下面用几个例子说明一下。
 
 ```js
-// var declarations are hoisted.
+// 用 var 声明变量会被提升
 console.log(foo); // undefined
 var foo = 1;
 console.log(foo); // 1
 
-// let/const declarations are NOT hoisted.
+// 使用 let/const 声明变量则不会被提升
 console.log(bar); // ReferenceError: bar is not defined
 let bar = 2;
 console.log(bar); // 2
 ```
 
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
+通过函数体声明的函数存在提升, 通过函数表达式(将函数声明为变量)声明的函数只有变量被提升。
 
 ```js
 // Function Declaration
@@ -789,6 +807,8 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 * React and Redux
   * [React Devtools](https://github.com/facebook/react-devtools)
   * [Redux Devtools](https://github.com/gaearon/redux-devtools)
+* Vue
+  * [Vue Devtools](https://github.com/vuejs/vue-devtools)
 * JavaScript
   * [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
   * `debugger` statement
@@ -1139,7 +1159,7 @@ const { e, f, ...others } = {
   f: 2,
   g: 3,
   h: 4,
-}; // e: 1, b: 2, others: { g: 3, h: 4 }
+}; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
 ###### References
@@ -1152,13 +1172,29 @@ const { e, f, ...others } = {
 
 ### How can you share code between files?
 
-TODO
+This depends on the JavaScript environment.
+
+On the client (browser environment), as long as the variables/functions are declared in the global scope (`window`), all scripts can refer to them. Alternatively, adopt the Asynchronous Module Definition (AMD) via RequireJS for a more modular approach.
+
+On the server (Node.js), the common way has been to use CommonJS. Each file is treated as a module and it can export variables and functions by attaching them to the `module.exports` object.
+
+ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This will eventually be supported in both browser and Node environments.
 
 [[↑] Back to top](#js-questions)
 
+###### References
+
+* http://requirejs.org/docs/whyamd.html
+* https://nodejs.org/docs/latest/api/modules.html
+* http://2ality.com/2014/09/es6-modules-final.html
+
 ### Why you might want to create static class members?
 
-TODO
+Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
+
+###### References
+
+* https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
 [[↑] Back to top](#js-questions)
 
