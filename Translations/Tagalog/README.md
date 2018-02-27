@@ -1,4 +1,4 @@
-<h1 align="center">Manwal para sa pakikipanayan na pang front-end</h1>
+<h1 align="center">Manwal para sa pakikipanayam na pang front-end</h1>
 
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
@@ -6,16 +6,16 @@
     </a>
   <br>
   <p>
-    <em>Pasasalamat: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Ilustrasyon</a> ni <a href="https://dribbble.com/yangheng">@yangheng</a>
+    <em>Kredito: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Ilustrasyon</a> ni <a href="https://dribbble.com/yangheng">@yangheng</a>
     </em>
   </p>
 </div>
 
 ## Ano ito?
 
-Di kagaya sa mga tipikal na pakikipanayan na pangtrabaho para sa mga enhinyerong pangsoftware, Ang mga pakikinayam na pangfront-ent ay may mababang diin sa mga algoritmo at may maraming katanungan sa komplikadong kaalaman at kadalubhasaan tungkol sa domain — HTML, CSS, JavaScript, ilan lamang ito sa ibang mga lugar.
+Di kagaya sa mga tipikal na pakikipanayam na pantrabaho para sa mga inhinyerong pangsoftware, Ang mga pakikipanayam na pangfront-ent ay may mababang diin sa mga algoritmo at may maraming katanungan sa komplikadong kaalaman at kadalubhasaan tungkol sa domain — HTML, CSS, JavaScript, ilan lamang ito sa ibang mga lugar.
 
-Habang may mga ilang umiiral na mapagkukunan upang makatulong sa mga front-end na developer sa paghahanda para sa mga pakikipanayam, di sila sagana sa materyales kagaya ng pakikipagpanayam ng isang enhinyerong pangsoftware . Kabilang sa mga umiiral na mapagkukunan, marahil ang pinaka-kapaki-pakinabang na imbakan ng mga tanong ay ang [Mga Katanungan para sa Pakikipagpanayam ng Developer na Pangfront-end](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Sa kasamaang palad, di ako makahanap ng \ kumpleto at kasiya-siya mga kasagutan para sa mga katanungan dito online, kaya ito ang aking pagtatangka para sagutan ang mga ito. Bilang isang open source na imbakan, ang proyektong ito ay patuloy na mabubuhay sa tulong ng suporta ng komyunidad sabay sa nagbabagong estado ng web
+Habang may mga ilang umiiral na mapagkukunan na makatutulong sa mga front-end na developer sa paghahanda para sa mga pakikipanayam, sila ay di sagana sa materyales kagaya ng pakikipagpanayam ng isang inhinyerong pangsoftware. Kabilang sa mga umiiral na mapagkukunan, marahil ang pinaka-kapakipakinabang na imbakan ng mga tanong ay ang [Mga Katanungan para sa Pakikipagpanayam ng Developer na Pangfront-end](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Sa kasamaang palad, di ako makahanap ng kumpleto at kasiya-siyang mga kasagutan para sa mga katanungan dito online, kaya ito ang aking pagtatangka para sagutan ang mga ito. Bilang isang open source na imbakan, ang proyektong ito ay patuloy na mabubuhay sa tulong ng suporta ng komyunidad kasabay sa nagbabagong estado ng web
 
 ## Ikaw ba ay naghahanap para sa paghahanda sa isang pangkalahatang pakikipanayam?
 
