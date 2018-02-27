@@ -1,11 +1,3 @@
-## Contributing
-
-When contributing to this repository, if it is a non-trivial change, please first discuss the change you wish to make via creating an issue in this repository.
-
 We do not typically accept new question submissions. We will use the [original questions repository](https://github.com/h5bp/Front-end-Developer-Interview-Questions) as ground truth and sync up our questions/answers with that repository as much as possible. If you are keen to add a question/answer, firstly try to submit an issue/pull request to that repository. This is because there is an awesome team of reviewers in that repository who will curate the original questions list and ensure that the question bank is of high quality. Once your question is merged, you can then make a pull request with your answers to this repository.
 
 You are welcome to make improvements to existing answers and/or answer unanswered questions. Try to add a list of references you used when arriving at the answers or any supplementary material that might be useful. This would be helpful for readers who would like to go further in-depth into the answer.
-
-As much as possible, try to follow the existing format of markdown and code. Any JavaScript code added should adopt [Standard style](https://standardjs.com/).
-
-Please note we have a Code of Conduct, please follow it in all your interactions with the project.
