@@ -1,78 +1,77 @@
-# HTML Questions
+# Mga Tanong sa HTML
+Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon 
 
-Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
+* [Ano ang ginagawa ng `DOCTYPE`?](#ano-ang-ginagawa-ng-doctype)
+* [Papaano mo ihahain ang pahinang may iba't-ibang lenggwaheng nilalaman?](#papaano-mo-ihahain-ang-pahinang-may-ibat-ibang-lenggwaheng-nilalaman)
+* [Anong uri ng mga bagay ang dapat mong ingatan ukol sa pagdidisenyo o pag-develop ng mga multilingual na site?](#anong-uri-ng-mga-bagay-ang-dapat-mong-ingatan-ukol-sa-pagdidisenyo-o-pag-develop-ng-mga-multilingual-na-site)
+* [Saan maganda ang mga `data-`na katangian?](#saan-maganda-ang-mga-data-na-katangian)
+* [Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?](#isaalang-alang-ang-html5-bilang-isang-bukas-na-web-platform-ano-ano-ang-mga-pangunahing-sangkap-ng-html5)
+* [Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,` sessionStorage` at `localStorage`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-isang-cookie-sessionstorage-at-localstorage)
+* [Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-script-script-async-at-script-defer)
+* [Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?](#bakit-karaniwang-magandang-ideya-na-ilagay-ang-mga-CSS-link-sa-pagitan-ng-head-head-at-js-script-s-bago-ang-body-may-alam-ka-bang-anumang-mga-pagbubukod)
+* [Ano ang progresibong pag-render?](#ano-ang-progresibong-pag-render)
+* [Bakit ka gagamit ng isang `srcset` na katangian sa isang tag ng imahe? Ipaliwanag ang proseso na ginagamit ng browser sa pagsuri ng nilalaman ng katangiang ito.](#bakit-ka-gagamit-ng-isang-srcset-na-katangian-sa-isang-tag-ng-imahe-ipaliwanag-ang-proseso-na-ginagamit-ng-browser-sa-pagsuri-ng-nilalaman-ng-katangiang-ito)
+* [Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?](#nakagamit-ka-na-ba-ng-ibang-lenggwahe-sa-pag-template-ng-html)
 
-* [What does a doctype do?](#what-does-a-doctype-do)
-* [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-* [What kind of things must you be wary of when design or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-* [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
-* [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-* [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-* [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-* [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-* [What is progressive rendering?](#what-is-progressive-rendering)
-* [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-* [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+### Ano ang ginagawa ng `DOCTYPE`?
 
-### What does a `DOCTYPE` do?
+Ang `DOCTYPE` ay isang pagdadaglat para sa "uri ng dokumento". Ito ay isang deklarasyon na ginagamit sa HTML upang makilala sa pagitan ng pamantayan na mode at [quirks na mode](https://quirks.spec.whatwg.org/#history). Ang presensya nito ay nagsasabi sa browser na i-render ang web page sa mga pamantayan na mode.
 
-`DOCTYPE` is an abbreviation for “document type”. It is a declaration used in HTML to distinguish between standards mode and [quirks mode](https://quirks.spec.whatwg.org/#history). Its presence tells the browser to render the web page in standards mode.
+Moral ng kuwento - idagdag lamang ang `<! DOCTYPE html>` sa simula ng iyong pahina.
 
-Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
-
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
 * https://www.w3.org/QA/Tips/Doctype
 * https://quirks.spec.whatwg.org/#history
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### How do you serve a page with content in multiple languages?
+### Papaano mo ihahain ang pahinang may iba't-ibang lenggwaheng nilalaman?
 
-The question is a little vague, I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page should be displayed only in one consistent language.
+Ang tanong ay medyo hindi malinaw, ipinapalagay ko na ito ay nagtatanong tungkol sa pinaka-karaniwang kaso, na kung paano maghain ng isang pahina na may nilalaman na magagamit sa maraming wika, ngunit ang nilalaman sa loob ng pahina ay dapat na ipakita lamang sa isang tuloy-tuloy na parehong wika.
 
-When an HTTP request is made to a server, the requesting user agent usually sends information about language preferences, such as in the `Accept-Language` header. The server can then use this information to return a version of the document in the appropriate language if such an alternative is available. The returned HTML document should also declare the `lang` attribute in the `<html>` tag, such as `<html lang="en">...</html>`.
+Kapag ang isang HTTP na kahilingan ay ginawa sa isang serber, karaniwang nagpapadala ang humiling na ahente ng gumagamit ng impormasyon tungkol sa mga kagustuhan sa wika, tulad ng sa header na `Tanggapin-Wika`. Pagkatapos ay maaring gamitin ng serber ang impormasyong ito upang ibalik ang isang bersyon ng dokumento sa naaangkop na wika kung may alternatibong pwede. Ang isang ibinalik na dokumentong HTML ay dapat ding ipahayag ang `lang` na katangian sa`<html>`na tag, tulad ng`html html = 'en"> ... </ html> `.
 
-In the back end, the HTML markup will contain `i18n` placeholders and content for the specific language stored in YML or JSON formats. The server then dynamically generates the HTML page with content in that particular language, usually with the help of a back end framework.
+Sa back end, ang HTML markup ay maglalaman ng mga `i18n` na placeholder at  para sa partikular na wika na naka-imbak sa mga format ng YML o JSON. Pagkatapos ay dynamikong bubuuin ng server ang pahina ng HTML na naglalaman sa partikular na wika, kadalasan sa tulong ng back end na balangkas.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.w3.org/International/getting-started/language
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### What kind of things must you be wary of when designing or developing for multilingual sites?
+### Anong uri ng mga bagay ang dapat mong ingatan ukol sa pagdidisenyo o pag-develop ng mga multilingual na site?
 
-* Use `lang` attribute in your HTML.
-* Directing users to their native language - Allow a user to change his country/language easily without hassle.
-* Text in images is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However to translate image text, each string of text will need to have it's a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
-* Restrictive words / sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free flowing text such as body text or comments.
-* Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
-* Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
-* Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
-* Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
+* Gumamit ng `lang` na katangian sa iyong HTML.
+* Pag-direkta sa mga gumagamit sa kanilang katutubong wika - Payagan ang isang gumagamit na baguhin ang kanyang bansa / wika nang walang abala.
+* Ang teksto sa mga imahe ay hindi isang nasusukat na diskarte - Ang paglalagay ng teksto sa isang imahe ay isang sikat pa rin na paraan upang makakuha ng mga kagandahan, di-systemang mga font na ipapakita sa anumang kompyuter. Gayunpaman upang i-translate ang teksto ng imahe, ang bawat string ng teksto ay kailangang magkaroon ng isang hiwalay na imahe na ililikha para sa bawat wika. Anumang bagay na higit pa sa isang dakot ng kapalit na tulad nito ay maaaring mabilis na mawalan ng kontrol.
+* Maging maingat sa mga isyu ng layout o overflow sa disenyo. Pinakamainam na iwasan ang pagdisenyo kung saan ang halaga ng teksto ay makakasira sa isang disenyo. Ang mga bilang ng mga character ay nakikipaglaro sa mga bagay na tulad ng mga headline, mga label, at mga pindutan. Mas mababa ang mga ito sa isang isyu sa libreng dumadaloy na teksto tulad ng teksto ng katawan o mga komento.
+* Pag-isipan kung paano nakikita ang mga kulay - Ang mga kulay ay itinuturing na isang paghatol din sa mga wika at kultura. Ang disenyo ay dapat gumamit ng kulay kung ano man ang naaangkop.
+* Mga petsa at pera sa pag-format - Ang mga petsa ng kalendaryo ay ipinapahayag minsan sa iba't ibang paraan. Halimbawa, "Mayo 31, 2012" sa U.S. kumpara sa "31 Mayo 2012" sa mga bahagi ng Europa.
+* Huwag pagsama-samahin ang mga isinalin na mga string - Huwag gumawa ng anumang bagay tulad ng `"Ang petsa ngayon ay "+ date`.Ito ay makasisira sa mga wika na may iba't ibang pagkasunod-sunod ng mga salita. Gumamit ng isang string ng template na may mga parameter na pagpapalit para sa bawat wika sa halip. Halimbawa, tingnan ang sumusunod na dalawang pangungusap sa wikang Ingles at Tsino: `Maglalakbay ako sa {% date%}` at `{% date%} 我 会 出发`. Tandaan na ang posisyon ng variable ay naiiba dahil sa mga tuntunin ng grammar ng wika.
+* Direksyon sa pagbabasa ng wika - Sa Ingles, binabasa namin mula sa kaliwa papuntang kanan, mula itaas papuntang pailalim, habang sa tradisyunal na Hapon naman, ang teksto ay binabasa nang pababa, mula kanan papuntang kaliwa.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### What are `data-` attributes good for?
+### Saan maganda ang mga `data-`na katangian?
 
-Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
+Bago pa man naging sikat ang mga balangkas ng JavaScript, ginagamit na ng mga front-end developer ang mga katangian ng `data-` upang mag-imbak ng sobrang data sa loob mismo ng DOM, nang walang iba pang mga hack gaya ng mga di-karaniwang mga katangian, mga dagdag na katangian sa DOM. Ito ay inilaan upang mag-imbak ng pribadong pasadyang data sa pahina o aplikasyon, na kung saan walang mas naaangkop na mga katangian o mga elemento.
 
 These days, using `data-` attributes is not encouraged. One reason is that users can modify the data attribute easily by using inspect element in the browser. The data model is better stored within JavaScript itself and stay updated with the DOM via data binding possibly through a library or a framework.
 
-###### References
+###### Mga Reperensiya
 
 * http://html5doctor.com/html5-custom-data-attributes/
 * https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+### Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?
 
 * Semantics - Allowing you to describe more precisely what your content is.
 * Connectivity - Allowing you to communicate with the server in new and innovative ways.
@@ -83,13 +82,13 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 * Device access - Allowing for the usage of various input and output devices.
 * Styling - Letting authors write more sophisticated themes.
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+### Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,` sessionStorage` at `localStorage`.
 
 All the above mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
 
@@ -103,14 +102,14 @@ All the above mentioned technologies are key-value storage mechanisms on the cli
 | Capacity (per domain)                  | 4kb                                                      | 5MB            | 5MB              |
 | Accessibility                          | Any window                                               | Any window     | Same tab         |
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 * http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+### Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.
 
 * `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
 * `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example analytics.
@@ -118,15 +117,15 @@ All the above mentioned technologies are key-value storage mechanisms on the cli
 
 Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
 
-###### References
+###### Mga Reperensiya
 
 * http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 * https://stackoverflow.com/questions/10808109/script-tag-async-defer
 * https://bitsofco.de/async-vs-defer/
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+### Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?
 
 **Placing `<link>`s in the `<head>`**
 
@@ -138,13 +137,13 @@ Putting `<link>`s in the head is part of the specification. Besides that, placin
 
 An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. One possible workaround is to put `<script>` in the `<head>` and use the `defer` attribute.
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.yahoo.com/performance/rules.html#css_top
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### What is progressive rendering?
+### Ano ang progresibong pag-render?
 
 Progressive rendering is the name given to techniques used to improve performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
 
@@ -156,26 +155,26 @@ Examples of such techniques:
 * Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
 * Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 * http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+### Bakit ka gagamit ng isang `srcset` na katangian sa isang tag ng imahe? Ipaliwanag ang proseso na ginagamit ng browser sa pagsuri ng nilalaman ng katangiang ito.
 
 TODO
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Have you used different HTML templating languages before?
+### Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?
 
 Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
 
-[[↑] Back to top](#html-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Other Answers
+### Mga Ibang Sagot
 
 * https://neal.codes/blog/front-end-interview-questions-html/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
