@@ -28,7 +28,7 @@ Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga K
 * [Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?](#ano-ang-pagkakaiba-sa-pagitan-ng-inline-at-inline-block)
 * [Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?](#ano-ang-pagkakaiba-sa-pagitan-ng-relative-fixed-absolute-at-elementong-nakaposisyong-panig-sa-static)
 * [Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?](#ano-ang-mga-umiiral-na-framework-ng-css-na-ginamit-mo-ng-lokal-o-kaya-naman-ay-sa-produksyon-papaano-mo-babaguhin-o-mapapabuti-ang-mga-ito)
-* [Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid specs?](#ikaw-ba-ay-nakapaglaro-na-sa-paligid-ng-bagong-css-flexbox-o-grid-specs)
+* [Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid na specs?](#ikaw-ba-ay-nakapaglaro-na-sa-paligid-ng-bagong-css-flexbox-o-grid-na-specs)
 * [Maipapaliwanag mo ba ang kaibahan sa pagitan ng pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?](#maipapaliwanag-mo-ba-ang-kaibahan-sa-pagitan-ng-pag-code-ng-isang-web-site-na-tumutugon-kumpara-sa-paggamit-ng-diskarteng-mobile-ang-una)
 * [Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?](#sa-anong-paraan-naiiba-ang-disenyo-ng-tumutugon-mula-sa-disenyo-ng-umaangkop)
 * [Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?](#ikaw-ba-ay-nakagamit-na-ng-mga-grapikong-retina-kung-gayon-kelan-at-anu-anong-mga-teknik-ang-iyong-ginamit)
@@ -146,7 +146,7 @@ Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa is
 * Clearfix na paraan - Sumangguni sa `.clearfix` na klase sa itaas.
 * `overflow: auto` o `overflow: hidden` na paraan - Magtatatag ang magulang ng isang bagong konteksto sa pag-format ng block at palawakin na naglalaman ng mga anak nito.
 
-Sa mga malaking proyekto, I would write a utility na `.clearfix` na klase at gamitin ang mga ito sa mga lugar na kung saan ko kailangan. Ang `overflow: hidden` maaaring i-clip ang mga bata kung ang mga bata ay mas mataas kaysa sa magulang at hindi masyadong mainam.
+Sa mga malaking proyekto, Gusto kong magsulat ng kagamitan na `.clearfix` na klase at gamitin ang mga ito sa mga lugar na kung saan ko kailangan. Ang `overflow: hidden` maaaring i-clip ang mga bata kung ang mga bata ay mas mataas kaysa sa magulang at hindi masyadong mainam.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -332,33 +332,33 @@ Ang CSS na modelo ng kahon ay naglalarawan ng mga hugis-parihaba na kahon na bin
 
 Ang CSS na modelong kahon ay responsable sa pagkalkula ng:
 
-* How much space a block element takes up.
-* Whether or not borders and/or margins overlap, or collapse.
-* A box's dimensions.
+* Ilang ang espasyong kinakain ng elemento ng block.
+* Kung ang mga borders at / o mga palugit ay magkakapatong, o bumagsak.
+* Mga sukat ng isang kahon.
 
-The box model has the following rules:
+Ang modelo ng kahon ay may mga sumusunod na panuntunan:
 
-* The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s, and `margin`s.
-* If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which see below).
-* If no `width` is specified, a non-floated block element will expand to fit the width of its parent minus `padding`.
-* The `height` of an element is calculated by the content's `height`.
-* The `width` of an element is calculated by the content's `width`.
-* By default, `padding`s and `border`s are not part of the `width` and `height` of an element.
+* Ang mga sukat ng isang elemento ng block ay kinakalkula gamit ang `lapad`,` taas`, `padding`, mga `border`, at mga `margin`.
+* Kung walang tinukoy na `taas`, ang isang elementong bloke ay magiging kasing taas ng nilalaman na naglalaman nito, kasama ang `padding` (maliban kung may mga float, na nakikita sa ibaba).
+* Kung walang tinukoy na `lapad`, ang isang hindi floated na elemento ng block ay lalawak upang magkasya ang lapad ng kanyang magulang na bawas ang `padding`.
+* Ang `taas` ng isang elemento ay kinakalkula sa pamamagitan ng` taas` ng nilalaman.
+* Ang `lapad` ng isang elemento ay kinakalkula ng `lapad` ng nilalaman.
+* Sa pamamagitan ng default, ang `padding` at mga `border`s ay hindi bahagi ng `lapad` at` taas` ng isang elemento.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?
 
-* By default, elements have `box-sizing: content-box` applied, and only the content size is being accounted for.
-* `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation.
-* The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width.
-* The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
+* Bilang default, ang mga elemento ay may `box-sizing: content-box` na naipapatupad, at tanging ang laki ng nilalaman lang ang siyang binibilang.
+* Ang `box-sizing: border-box` ay ang siyang nagpapabago kung papaano kinakalkula ang `lapad` at `taas` ng mga elemento, kasama ang `border` at `padding` sa pagkalkula.
+* Ang `taas` ng isang elemento ay kinalkula ngayon ng lapad ng` taas` + bertikal na `padding` + bertikal na ` border`.
+* Ang `lapad` ng isang elemento ay kinakalkula ngayon ng `lapad` ng nilalaman + pahalang na `padding` + pahalang na `border`.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?
 
@@ -366,110 +366,108 @@ The box model has the following rules:
 
 TODO
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?
 
-I shall throw in a comparison with `block` for good measure.
+Ako ay magbibigay ng isang paghahambing sa `block` para sa mahusay na panukalang.
 
 |                                      | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                                                             |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                              | Depends on content.                                                                                                                                                                                                  |
-| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside. | Flows along with other content and allows other elements beside.                                                                                                                                                     |
-| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                              | No. Will ignore if being set.                                                                                                                                                                                        |
-| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                              | Yes                                                                                                                                                                                                                  |
-| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
-| Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
+| Sukat                                 | Pinupunan ang lapad ng lalagyan ng magulang nito.                                                 | Nakadepende sa nilalaman.                                              | Depende sa nilalaman                                                                                                                                                                                                  |
+| Pagpoposisyon                          | Magsimula sa isang bagong linya at hindi papayagan ang mga elemento ng HTML sa tabi nito (maliban nalang kapag nagdadagdag ka ng `float`) | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito. | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito.                                                                                                                                                     |
+| Maaaring tukuyin ang `lapad` at` taas`     | Oo                                                                                         | Oo                                                              | Hindi. Huwag pansinin kung itinakda.                                                                                                                                                                                        |
+| Maaaring nakahanay sa `vertical-align` | Hindi                                                                                          | Oo                                                              | Oo                                                                                                                                                                                                                  |
+| Mga margin at paddings                 | Iginagalang ang lahat ng panig.                                                                        | Iginagalang ang lahat ng panig.                                             | Iginagalang lamang ang mga pahalang na panig. Ang mga bertikal na gilid, kung tinukoy, ito ay hindi nakakaapekto sa layout. Ang bertikal na puwang na kinukuha ay depende sa `line-height`, kahit na ang` border` at `padding` ay mukhang biswal na nakikita sa paligid ng nilalaman. |
+| Float                                | -                                                                                           | -                                                                | Nagiging katulad ng isang elemento ng 'block' kung saan maaari kang magtakda ng mga bertikal na margin at paddings.                                                                                                                                      |
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?
 
-A positioned element is an element whose computed `position` property is either `relative`, `absolute`, `fixed` or `sticky`.
+Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posisyon` ay alinman sa` kamag-anak`, `absolute`,` fixed` o `malagkit`.
 
-* `static` - The default position; the element will flow into the page as it normally would. The `top`, `right`, `bottom`, `left` and `z-index` properties do not apply.
-* `relative` - The element's position is adjusted relative to itself, without changing layout (and thus leaving a gap for the element where it would have been had it not been positioned).
-* `absolute` - The element is removed from the flow of the page and positioned at a specified position relative to its closest positioned ancestor if any, or otherwise relative to the initial containing block. Absolutely positioned boxes can have margins, and they do not collapse with any other margins. These elements do not affect the position of other elements.
-* `fixed` - The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.
-* `sticky` - Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as `relative` positioned until it crosses a specified threshold, at which point it is treated as `fixed` positioned.
+* `static` - Ang default na posisyon; ang elemento ay dumadaloy sa pahina gaya ng karaniwan. Ang mga `taas`,` kanan`, `ilalim`,`kaliwa` at `z-index` na katangian ay hindi nalalapat.
+* `kamag-anak` - Ang posisyon ng elemento ay nababagay sa sarili nito, nang hindi binabago ang layout (at sa gayo'y nag-iiwan ng puwang para sa elemento kung saan ay hindi ito nakaposisyon).
+* `absolute` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa pinakamalapit na nakaposisyon na ninuno kung mayroon man, o kung hindi man sa kamag-anak sa paunang nilalaman ng bloke. Ang mga nakaposisyon na mga kahon ay maaaring magkaroon ng mga gilid, at hindi sila bumagsak sa anumang iba pang mga margin. Ang mga elementong ito ay hindi nakakaapekto sa posisyon ng iba pang mga elemento.
+* `naayos` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa viewport na hindi gumagalaw kapag nag-scroll.
+* `malagkit` - Ang malagkit na pagpoposisyon ay isang hybrid ng kamag-anak at nakapirming pagpoposisyon. Ang elemento ay itinuturing bilang `kamag-anak` na nakaposisyon hanggang sa lumampas ito sa tinutukoy na limitasyon, na kung saan ang puntong ito ay itinuturing na `nakatakda` na nakaposisyon.
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en/docs/Web/CSS/position
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?
 
-* **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely-used.
-* **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Painful to customize with unconventional theming system. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
-* **Bulma** - A lot of non-semantic and superfluous classes and markup required. Not backward compatible. Upgrading versions breaks the app in subtle manners.
+* ** Bootstrap ** - Mabagal na ikot ng paglabas. Ang Bootstrap 4 ay nasa alpha sa halos dalawang taon. Magdagdag ng bahagi ng pindutan ng spinner, dahil malawak itong ginagamit.
+* ** Semantikong UI ** - Ang istraktura ng pinagmulang code ay gumagawa ng pagsadya ng tema na napakahirap maunawaan. Masakit na ipasadya sa hindi pangkaraniwang sistema ng paggawa ng tema. Hardcoded na config na landas sa loob ng librerya ng vendor. Hindi mahusay na pag-disenyo para pag-override ng mga variable na hindi katulad sa Bootstrap.
+* ** Bulma ** -  Isang pulutong ng mga di-semantiko at labis na mga klase at markup ang kinakailangan. Hindi tugma ang pabalik. Ang pag-upgrade ng mga bersyon sa sumisira sa app sa banayad na asal.
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
-### Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid specs?
+### Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid na specs?
 
-Yes. Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.
+Oo. Ang Flexbox ay higit sa lahat para sa 1-dimensional na layout habang ang Grid ay nakatalaga para sa 2-dimensional na mga layout.
 
-Flexbox solves many common problems in CSS, such as vertical centering of elements within a container, sticky footer, etc. Bootstrap and Bulma are based on Flexbox, and it is probably the recommended way to create layouts these days. Have tried Flexbox before but ran into some browser incompatibility issues (Safari) in using `flex-grow`, and I had to rewrite my code using `inline-blocks` and math to calculate the widths in percentages, it wasn't a nice experience.
+Sinosolusyunan ng Flexbox ang maraming pangkaraniwang problema sa CSS, tulad ng bertikal na pagsentro ng mga elemento sa loob ng isang lalagyan, malagkit na footer, atbp. Ang Bootstrap at Bulma ay batay sa Flexbox, at marahil ay ang inirerekumendang paraan upang lumikha ng mga layout sa mga araw na ito. Sinubukan ko ang Flexbox noon ngunit akoy dumaan sa ilang mga isyu ng hindi pagkakatugma ng browser (Safari) sa paggamit ng `flex-grow`, at kailangan kong isulat muli ang aking code gamit ang` inline-blocks` at matematika upang kalkulahin ang mga lapad sa mga porsyentong paraan, at hindi ito magandang karanasan.
 
-Grid is by far the most intuitive approach for creating grid-based layouts (it better be!) but browser support is not wide at the moment.
+Ang Grid sa ngayon ay ang pinaka-intuitive na diskarte para sa paglikha ng grid-based na mga layout (ito ay mas mahusay na!) Ngunit ang suporta sa browser ay hindi pa malawak sa sandaling ito.
 
-###### References
+###### Mga Reperensiya
 
 * https://philipwalton.github.io/solved-by-flexbox/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Maipapaliwanag mo ba ang kaibahan sa pagitan ng Pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?
 
 TODO
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?
 
-Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage contexts, control mechanisms, and so on.
+Sinusubukan ng parehong tumutugon at bumabagay na disenyo ang pag-optimize ng karanasan ng gumagamit sa iba't ibang mga device, pag-ayos para sa iba't ibang mga laki ng viewport, mga resolusyon, mga konteksto sa paggamit, mekanismo ng kontrol, at iba pa.
 
-Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Responsive websites use media queries, flexible grids, and responsive images to create a user experience that flexes and changes based on a multitude of factors. Like a single ball growing or shrinking to fit through several different hoops.
+Ang tumutugon na disenyo ay gumagana sa prinsipyo ng kakayahang umangkop - isang solong tuluy-tuloy na website na maaaring magmukhang mabuti sa anumang aparato. Ang mga tumutugon na mga website ay gumagamit ng mga query sa media, flexible na mga grid, at tumutugon na mga imahe upang makalikha ng isang karanasan ng gumagamit na ang mga flexes at mga pagbabago ay batay sa maraming mga kadahilanan. Tulad ng isang bola na lumalaki o lumiliit upang magkasya sa mga maraming iba't ibang hoop.
 
-Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features, and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used, and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
+Ang bumabagay na disenyo ay mas katulad ng modernong kahulugan ng progresibong pagpapahusay. Sa halip ng isang flexible na disenyo, nakikita ng bumabagay na disenyo ang aparato at iba pang mga tampok, at pagkatapos ay nagbibigay ng naaangkop na tampok at layout batay sa isang paunang natukoy na hanay ng mga laki ng viewport at iba pang mga katangian. Nakikita ng site ang uri ng aparato na ginamit, at naghahatid ng pre-set na layout para sa aparatong iyon. Sa halip ng isang solong bola sa pamamagitan ng maraming iba't ibang laki na mga hoop, magkakaroon ka ng maraming iba't ibang mga bola upang magamit depende sa laki ng hoop.
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 * http://mediumwell.com/responsive-adaptive-mobile/
 * https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?
 
-I tend to use higher resolution graphics (twice the display size) to handle retina display. The better way would be to use a media query like `@media only screen and (min-device-pixel-ratio: 2) { ... }` and change the `background-image`.
+May gusto kong gamitin ang mas mataas na resolusyon nga mga grapika (dalawang beses ang laki ng display) upang ma-handle ang retina display. Ang mas mahusay na paraan ay ang paggamit ng isang query sa media tulad ng `@media na iskrin  lamang at (min-device-pixel-ratio: 2) {...}` at baguhin ang `background-image`.
 
-For icons, I would also opt to use svgs and icon fonts where possible, as they render very crisply regardless of resolution.
+Para sa mga icon, mas pipiliin ko parin ang paggamit ng svgs at icon na mga font kung saan posible, habang nagreresulta sila ng preskong pagrender sa kahit na anong resolusyon.
 
-Another method would be to use JavaScript to replace the `<img>` `src` attribute with higher resolution versions after checking the `window.devicePixelRatio` value.
+Ang isa pang paraan ay ang paggamit ng JavaScript upang palitan ang mga attribute na `<img>` `src` na may mga bersyong mas mataas na resolution pagkatapos masuri ang halaga ng `window.devicePixelRatio`.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.sitepoint.com/css-techniques-for-retina-displays/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### May kadahilanan ba na nais mong gamitin ang `translate()` kesa sa `absolute` na pag-poposisyon, o kabaliktaran? at bakit?
 
-`translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint, only compositions, whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
+Ang `translate ()` ay isang halaga ng CSS `transform`. Ang pagpapalit ng `transform` o `opacity` ay hindi nag-trigger ng browser reflow o repaint, mga komposisyon lamang, samantalang ang pagpapalit ng tiyak na pagpoposisyon ay nagpapalit ng `reflow`. Ang `transform` ay nagiging sanhi ng browser na lumikha ng isang GPU na layer para sa elemento ngunit ang pagpapalit ng mga tiyak na katangian sa pagpoposisyon ay gumagamit ng CPU. Kaya ang `isalin ()` ay mas mahusay at magreresulta sa mas maikling oras ng pintura para sa mas malinaw na mga animasyon. Kapag gumagamit ng `translate ()`, ang elemento ay kumakain pa rin ng orihinal na espasyo nito (sabihin nalang nating `posisyon: kamag-anak`), hindi katulad sa pagbabago ng tiyak na pagpoposisyon.
 
-When using `translate()`, the element still takes up its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
-
-###### References
+###### Mga Reperensiya
 
 * https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
-[[↑] Back to top](#css-questions)
+[[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
-### Other Answers
+### Ang ibang mga Kasagutan
 
 * https://neal.codes/blog/front-end-interview-css-questions
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
