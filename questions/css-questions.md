@@ -181,6 +181,7 @@ CSS sprites combine multiple images into one single larger image. It is commonly
 * Use [caniuse.com](https://caniuse.com/) to check for feature support.
 * Autoprefixer for automatic vendor prefix insertion.
 * Feature detection using [Modernizr](https://modernizr.com/).
+* Use CSS Feature queries [@support](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 
 [[↑] Back to top](#css-questions)
 
