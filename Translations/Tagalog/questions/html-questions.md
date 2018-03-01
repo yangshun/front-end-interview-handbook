@@ -6,9 +6,9 @@ Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga 
 * [Anong uri ng mga bagay ang dapat mong ingatan ukol sa pagdidisenyo o pag-develop ng mga multilingual na site?](#anong-uri-ng-mga-bagay-ang-dapat-mong-ingatan-ukol-sa-pagdidisenyo-o-pag-develop-ng-mga-multilingual-na-site)
 * [Saan maganda ang mga `data-`na katangian?](#saan-maganda-ang-mga-data-na-katangian)
 * [Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?](#isaalang-alang-ang-html5-bilang-isang-bukas-na-web-platform-ano-ano-ang-mga-pangunahing-sangkap-ng-html5)
-* [Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,` sessionStorage` at `localStorage`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-isang-cookie-sessionstorage-at-localstorage)
+* [Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,`sessionStorage` at `localStorage`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-isang-cookie-sessionstorage-at-localstorage)
 * [Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-script-script-async-at-script-defer)
-* [Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?](#bakit-karaniwang-magandang-ideya-na-ilagay-ang-mga-CSS-link-sa-pagitan-ng-head-head-at-js-script-s-bago-ang-body-may-alam-ka-bang-anumang-mga-pagbubukod)
+* [Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?](#bakit-karaniwang-magandang-ideya-na-ilagay-ang-mga-css-link-sa-pagitan-ng-head-head-at-js-script-s-bago-ang-body-may-alam-ka-bang-anumang-mga-pagbubukod)
 * [Ano ang progresibong pag-render?](#ano-ang-progresibong-pag-render)
 * [Bakit ka gagamit ng isang `srcset` na katangian sa isang tag ng imahe? Ipaliwanag ang proseso na ginagamit ng browser sa pagsuri ng nilalaman ng katangiang ito.](#bakit-ka-gagamit-ng-isang-srcset-na-katangian-sa-isang-tag-ng-imahe-ipaliwanag-ang-proseso-na-ginagamit-ng-browser-sa-pagsuri-ng-nilalaman-ng-katangiang-ito)
 * [Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?](#nakagamit-ka-na-ba-ng-ibang-lenggwahe-sa-pag-template-ng-html)
@@ -73,14 +73,14 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 
 ### Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?
 
-* Semantics - Allowing you to describe more precisely what your content is.
-* Connectivity - Allowing you to communicate with the server in new and innovative ways.
-* Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
-* Multimedia - Making video and audio first-class citizens in the Open Web.
-* 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
-* Performance and integration - Providing greater speed optimization and better usage of computer hardware.
-* Device access - Allowing for the usage of various input and output devices.
-* Styling - Letting authors write more sophisticated themes.
+* Mga semantika - Nagpapahintulot sa iyo na ilarawan nang mas tiyak kung ano ang nilalaman.
+* Pagkakakonekta - Binibigyang-daan ka na makipag-ugnay sa serber sa mga bago at makabagong pamamaraan.
+* Offline at imbakan - Pinapayagan ang mga webpage na mag-imbak ng data sa lokal na client-side at mag-operate sa paraang offline nang mas mahusay.
+* Multimedia - Paggawa ng mga pangmamamayang de-kalidad na video at audio sa Open Web.
+* 2D / 3D na mga grapiks at mga effects - Pinapayagan ang mas malawak na hanay ng mga pagpipilian sa pagtatanghal.
+* Pagsasagawa at pagsasama - Pagbibigay ng mabilis na pag-optimize at mas mahusay na paggamit ng hardware sa kompyuter.
+* Akses ng device - Nagpapahintulot para sa paggamit ng iba't ibang mga input at output na aparato.
+* Pag-istilo - Pagpapaalam sa mga may-akda na magsulat ng mas sopistikadong mga tema.
 
 ###### Mga Reperensiya
 
@@ -88,19 +88,19 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,` sessionStorage` at `localStorage`.
+### Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,`sessionStorage` at `localStorage`.
 
-All the above mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
+Ang lahat ng nabanggit na mga teknolohiya ay ang mahahalagang mekanismo ng imbakan sa parte ng kliyente. Ang mga ito ay maaari lamang mag-imbak ng mga halaga bilang mga string.
 
 |                                        | `cookie`                                                 | `localStorage` | `sessionStorage` |
 | -------------------------------------- | -------------------------------------------------------- | -------------- | ---------------- |
-| Initiator                              | Client or server. Server can use `Set-Cookie` header     | Client         | Client           |
-| Expiry                                 | Manually set                                             | Forever        | On tab close     |
-| Persistent across browser sessions     | Depends on whether expiration is set                     | Yes            | No               |
-| Have domain associated                 | Yes                                                      | No             | No               |
-| Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No             | No               |
-| Capacity (per domain)                  | 4kb                                                      | 5MB            | 5MB              |
-| Accessibility                          | Any window                                               | Any window     | Same tab         |
+| Tagasimula                             | Kliyente o serber. Ang serber ay pwedeng gumamit ng `Set-Cookie` na header     | Kliyente         | Kliyente           |
+| Pag-expire                                 | Mano-manong pag-set                                             | Habang buhay        | Nasa tab malapit     |
+| Patuloy sa lahat ng mga sesyon ng browser     | Depende sa kung ang panahon nng pag-expire ay itinakda                     | Oo            | Hindi               |
+| May kaugnayan na domain                 | Oo                                                      | Hindi             | Hindi               |
+| Ipinadala sa server sa bawat kahilingan ng HTTP | Ang mga cookies ay awtomatikong ipinadala sa pamamagitan ng `Cookie`na header | Hindi             | Hindi               |
+| Kapasidad (kada domain)                  | 4kb                                                      | 5MB            | 5MB              |
+| kayang i-aakses                          | Kahit na anong bintana                                               | Kahit na anong bintana     | Parehong tab         |
 
 ###### Mga Reperensiya
 
@@ -111,11 +111,11 @@ All the above mentioned technologies are key-value storage mechanisms on the cli
 
 ### Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.
 
-* `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
-* `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example analytics.
-* `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference from putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+* `<script>` - Ang pag-parse ng HTML ay naka-block, ang script ay kinuha at agad na pinaandar, ang pag-parse ng HTML ay ipagpapatuloy pagkatapos na maisagawa ang script.
+* `<script async>` - Ang script ay kukunin na  kahilera sa pag-parse ng HTML at maisagawa sa lalong madaling panahon na ito ay magagamit (may potensyal bago makumpleto ang pag-parse ng HTML). Gumamit ng `async` kapag ang script ay malaya sa anumang iba pang mga script sa pahina, halimbawa ay mga analitika.
+* `<script defer>` - Ang script ay kukuha ng kahanay sa pag-parse ng HTML at isasagawa kapag natapos na ang pahina sa pag-parse. Kung maraming ganito, ang bawat ipinagpaliban na script ay ipapagana ayon sa pagkakasunud-sunod sa panahong itoy nasagupaan sa dokumento. Kung ang isang script ay umaasa sa isang ganap na nai-parse na DOM, ang `defer` na katangian ay magiging kapaki-pakinabang sa pagtitiyak na ang HTML ay ganap na ma-parse bago pa man isagawa. Hindi gaanong naiiba ang paglagay ng normal na `<script>` sa dulo ng `` body '`. Ang isang ipinagpaliban na script ay hindi dapat maglalaman ng `document.write`.
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+Tandaan: Ang mga katangian ng `async` at `defer` ay binabalewala para sa mga script na walang katangian na `src`.
 
 ###### Mga Reperensiya
 
@@ -127,15 +127,15 @@ Note: The `async` and `defer` attrib­utes are ignored for scripts that have no 
 
 ### Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?
 
-**Placing `<link>`s in the `<head>`**
+** Paglalagay ng  mga `<link>` sa `<head>` **
 
-Putting `<link>`s in the head is part of the specification. Besides that, placing at the top allows the page to render progressively which improves user experience. The problem with putting stylesheets near the bottom of the document is that it prohibits progressive rendering in many browsers, including Internet Explorer. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is stuck viewing a blank white page. It prevents the flash of unstyled contents.
+Ang paglagay ng mga `<link>` sa ulo ay bahagi ng ispisipikasyon. Bukod diyan, ang paglalagay sa itaas ay nagbibigay-daan sa pahina na mag-render sa paraang  progresibo na nagpapabuti sa karanasan ng gumagamit. Ang problema sa paglalagay ng mga stylesheet malapit sa ilalim ng dokumento ay ipinagbabawal nito ang progresibong pag-render sa maraming browser, kabilang dito ang Internet Explorer. Ang ilang mga browser ay nag-block ng pag-render upang maiwasan ang pag-repaint ng mga elemento ng pahina kung ang kanilang mga estilo ay mabago. Ang gumagamit ay stuck  sa pagtingin sa isang blangko na puting pahina. Pinipigilan nito ang flash ng mga walang istilong nilalaman.
 
-**Placing `<script>`s just before `</body>`**
+** Paglalagay ng mga `<script>` bago ang `</ body>` **
 
-`<script>`s block HTML parsing while they are being downloaded and executed. Downloading the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+Ang pag-parse ng mga `<script>` na block HTML habang ang mga ito ay nai-download at naisakatuparan. Ang pag-download ng mga script sa ibaba ay magbibigay-daan sa HTML na ma-parse at maipakita  muna sa gumagamit.
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. One possible workaround is to put `<script>` in the `<head>` and use the `defer` attribute.
+Ang isang pagbubukod para sa pagpoposisyon ng mga `<script>` sa baba ay kapag ang iyong script ay naglalaman ng `document.write ()`, ngunit sa panahon ngayon ay hindi  mahusay na kasanayan ang paggamit  ng `document.write ()`. Gayundin, ang paglalagay ng mga `<script>` sa ibaba ay nangangahulugan na ang browser ay hindi maaaring magsimulang mag-download ng mga script hanggang sa ma-parse muna ang buong dokumento. Ang isang posibleng paraan ay ilagay ang `<script>` sa `<head>` at gamitin ang `defer` na katangian.
 
 ###### Mga Reperensiya
 
@@ -145,15 +145,15 @@ An exception for positioning of `<script>`s at the bottom is when your script co
 
 ### Ano ang progresibong pag-render?
 
-Progressive rendering is the name given to techniques used to improve performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
+Ang progresibong pag-render ay ang pangalan na ibinigay sa mga teknik na ginagamit upang mapabuti ang pagganap ng isang webpage (lalo na, ipinagbubuti ang oras ng pag-load) upang mag-render ng nilalaman para ipakita nang mabilisan hangga't maaari.
 
-It used to be much more prevalent in the days before broadband internet but it is still useful in modern development as mobile data connections are becoming increasingly popular (and unreliable)!
+Ito ay ginagamit ng mas laganap noong mga araw na wala pang broadband internet ngunit pa rin ito ay kapaki-pakinabang sa modernong pag-unlad bilang mga mobile na koneksyon ng data lalo na't ang mga mobile data na koneksyon ay unti-unting popular (at hindi kapani-paniwala)!
 
-Examples of such techniques:
+Mga halimbawa ng naturang pamamaraan:
 
-* Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
-* Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
-* Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+* Mabagal na pag-load ng mga imahe - Ang lahat ng mga imahe sa pahina ay hindi nag-load ng sabay-sabay. Ang JavaScript ay gagamitin upang mag-load ng isang imahe kapag nag-scroll ang gumagamit sa bahagi ng pahina na nagpapakita ng imahe.
+* Pag-prioritize ng nakikitang nilalaman (o pag-render sa itaas ng tiklop) - Isama lamang ang pinakamaliit na CSS / nilalaman / script na kailangan para sa dami ng pahina na mai-render sa unang gumagamit ng browser upang ipakita nang mabilis hangga't maaari, maaari mong gamitin ang ipinagpaliban na script o makinig para sa kaganapan ng `DOMContentLoaded` /` load ' upang mag-load sa iba pang mga mapagkukunan at nilalaman.
+* Mga fragment ng Async HTML - Ang mga bahagi ng HTML sa pag-flush sa browser habang ginagawa ang pahina sa back end. Ang mga higit pang mga detalye sa pamamaraan ay matatagpuan [dito] (http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
 ###### Mga Reperensiya
 
@@ -170,8 +170,7 @@ TODO
 
 ### Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?
 
-Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
-
+Oo, Pug (dating Jade), ERB, Slim, Handlebars, Jinja, Liquid, upang pangalanan lamang ang ilan. Sa palagay ko, ang mga ito ay higit pa o mas mababa na parehong nagbibigay ng katulad na pag-andar ng nilalamang tumatakas at kapaki-pakinabang na mga pag-sala para sa pagmamanipula ng datos na ipapakita. Ang karamihan sa mga engine sa pag-template ay magpapahintulot din sa iyo na mag-inject ng iyong sariling mga pag-sala sa kaganapan na kailangan mo ng pasadyang pagproseso bago ipakita.
 [[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
 ### Mga Ibang Sagot
