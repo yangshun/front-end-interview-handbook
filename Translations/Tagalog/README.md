@@ -19,13 +19,13 @@ Habang may mga ilang umiiral na mapagkukunan na makatutulong sa mga front-end na
 
 ## Ikaw ba ay naghahanap para sa paghahanda sa isang pangkalahatang pakikipanayam?
 
-Baka ikaw ay interesado sa [Manwal para sa Pakikipanayam na Pang-tech](https://github.com/yangshun/tech-interview-handbook) na may kapaki-pakinabang na nilalaman sa mga pangkalahatang panayam sa coding tulad ng mga algoritmo, Mga katanungan sa pag-uugali at isang [cheatsheet sa pakikipanayam](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+Baka ikaw ay interesado sa [Manwal para sa Pang-tech na Pakikipanayam](https://github.com/yangshun/tech-interview-handbook) na may kapaki-pakinabang na nilalaman sa mga pangkalahatang panayam sa coding tulad ng mga algoritmo, Mga katanungan sa pag-uugali at isang [cheatsheet sa pakikipanayam](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
 
 ## Talaan ng mga Nilalaman
 
-1. [Mga Katanungang sa HTML](questions/html-questions.md)
-1. [Mga Katanungang sa CSS](questions/css-questions.md)
-1. [Mga Katanungan sa javascript](questions/javascript-questions.md)
+1. [Mga Tanong sa HTML](questions/html-questions.md)
+1. [Mga Tanong sa CSS](questions/css-questions.md)
+1. [Mga Tanong sa Javascript](questions/javascript-questions.md)
 
 ## May Kaugnayan
 
