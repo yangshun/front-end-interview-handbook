@@ -1,27 +1,27 @@
-Widgets
+Mga Widget
 ==
 
-Here are some commonly seen widgets/components and the considerations we should take into account when designing them.
+Narito ang ilang karaniwang nakikitang mga widget / sangkap at ang mga konsiderasyon na dapat nating isaalang-alang kapag iginuhit ang mga ito.
 
 ### Autocomplete
 
-Also known as typeahead box.
+Kilala sa tawag na typeahead box.
 
 #### UX
 
-- Type a minimum number of characters (typically two) for the results to be displayed. This is because short search terms can result in too many matches and irrelevant results may be returned.
-- Number of query suggestions should be kept short and scrollbars should be avoided. Shorter list of results are more manageable and reduces the cognitive load on the user. If you have scrollbars it probably means you are displaying too many results!
-- Highlight the non-search terms (suggested terms) in the results. This helps the user differentiate the autocomplete suggestions, make it easier to compare.
-- Support keyboard shortcuts: Up/down to navigate and enter to search.
-- Show a history of recent searches.
-- Use placeholder text in the input field to educate users, such as "Type to view suggestions".
+- Mag-type ng isang katamtamang bilang ng mga karakter (karaniwan ay dalawa) para maipakita ang mga resulta. Ito ay dahil ang mga maikling kataga sa paghahanap ay maaaring magresulta sa napakaraming mga tugma at ang mga walang kwenta na resulta ay maaaring ibalik.
+- Ang bilang ng mga suhestiyon sa tanong ay dapat panatilihing maikli at ang mga scrollbar ay dapat na iwasan. Ang mas maikling listahan ng mga resulta ay mas madaling pamahalaan at binabawasan nito ang kognitibong bigat sa gumagamit. Kung mayroon kang  mga scrollbar ito ay marahil  nangangahulugang nagpapakita ka ng napakaraming resulta!
+- I-highlight ang mga non-search na mga termino (iminungkahing mga termino) sa mga resulta. Ito ay tumutulong sa gumagamit na iibahin ang mga suhestiyon ng autocomplete, para gawing mas madali ang paghahambing.
+- Ang mga shortcut sa keyboard na pang-suporta: Pataas / pababa upang mag-navigate at enter upang maghanap.
+- Nagpapakita ng isang kasaysayan ng kama-kailan na paghahanap.
+- Gumamit ng teksto ng placeholder sapatlang ng input upang turuan ang mga gumagamit, tulad ng "Mag-type upang tingnan ang mga mungkahi".
 
-#### Performance
+#### Pagsasagawa
 
-- Use windowing/virtual lists when the search results is too long.
-- Debounce user input and only search when user stops typing for some time (usually 300ms).
+- Gumamit ng pag-window o virtual na listahan kapag masyadong mahaba ang mga resulta ng paghahanap.
+- I-debounce ang input ng gumagamit at maghanap lamang kapag huminto ang pag-type ng gumagamit ng ibang oras (karaniwang 300ms).
 
-###### References
+###### Mga Reperensiya
 
 - https://baymard.com/blog/autocomplete-design
 
@@ -29,28 +29,29 @@ Also known as typeahead box.
 
 #### UX
 
-- Consider preloading a few images to the left/right of the displayed image during idle time so that as the user navigates, he does not have to wait for the image to be downloaded.
-- Allow left/right keyboard navigation of the carousel.
+- Isaalang-alang ang pag-preload ng ilang mga larawan sa kaliwa o kanan ng ipinapakita na imahe sa panahon ng idle upang ang gumagamit ay magna-navigate, hindi niya na kailangang maghintay pa na ma-download ang imahe.
+- Payagan ang kaliwa o kanang pag-navigate ng keyboard ng carousel.
 
-#### Performance
+#### Pagsasagawa
 
-- Lazy load the images. Only load those that the user has a high likelihood of viewing - Current image and a few to the left and right.
+- mabagal na pag-load ng mga imahe. I-load lamang ang mga tipo ng gumagamit na may  na posibilidad ng na ito'y kanyang titingnan 
+- Kasalukuyang imahe at ilan sa kaliwa at kanan.
 
 ### Dropdown
 
-- Dropdowns that are displayed on hover are not mobile friendly as there is no hover event on mobile.
-- Dropdown positioning can differ based on position of element on screen. If the element is near the edge and the displayed dropdown will be obscured outside of the viewport, the position of the dropdown can and should be changed.
-- If the height of the dropdown is too long, it may extend outside of the screen. Be sure to make the dropdown contents scrollable by setting a `max-height`.
+- Ang mga dropdown na ipinapakita sa hover ay hindi kasiya-siya sa mobile na walang hover na kaganapan sa mobile.
+- Maaaring mag-iba ang pagpoposisyon ng dropdown batay sa posisyon ng elemento sa screen. Kung ang elemento ay malapit sa gilid at ang ipinapakita na dropdown ay matatakpan sa labas ng viewport, ang posisyon ng dropdown ay maaari at dapat mabago.
+- Kung ang taas ng dropdown ay masyadong mahaba, maaari itong pahabain sa labas ng screen. Siguraduhin na gawing pwede sa pag-scroll ang mga nilalaman ng dropdown sa pamamagitan ng pagtatakda ng `max-height`.
 
 ### Modal
 
-- Modals can usually be dismissed by clicking on the backdrop. If the user interacts with the modal content by clicking on it, the backdrop might also receive the click event and be dismissed as a result.
+- Ang mga Modal ay karaniwang maaaring ma-dismiss sa pamamagitan ng pag-click sa backdrop. Kung ang gumagamit ay nakikipag-ugnayan sa nilalaman ng modal sa pamamagitan ng pag-click dito, ang backdrop ay maaaring makatanggap din ng pag-click sa kaganapan at ma-dismiss bilang resulta nito.
 
-###### References
+###### Mga Reperensiya
 
 - https://css-tricks.com/dangers-stopping-event-propagation/
 
 ### Tooltip
 
-- Tooltips that are displayed on hover are not mobile friendly as there is no hover event on mobile.
-- Tooltip positioning can differ based on position of element on screen. If the element is near the edge and the displayed tooltip will be obscured outside of the viewport, the position of the tooltip can and should be changed.
+-Ang mga tool na ipinapakita sa hover ay hindi kasiya-siya sa mobile kung walang hover na kaganapan sa mobile.
+- Maaaring mag-iba ang pagpoposisyon ng tooltip batay sa posisyon ng elemento sa screen. Kung ang elemento ay malapit sa gilid at ang ipinapakita tooltip ay matatakpan sa labas ng viewport, ang posisyon ng tooltip ay maaari at dapat mabago.
