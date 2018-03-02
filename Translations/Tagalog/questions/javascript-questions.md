@@ -19,52 +19,52 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Kelan ka gagamit ng `document.write()`?](#when-would-you-use-documentwrite)
 * [Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
 * [Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.](#explain-ajax-in-as-much-detail-as-possible)
-* [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
-* [Explain how JSONP works (and how it's not really Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
-* [Have you ever used JavaScript templating? If so, what libraries have you used?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
-* [Explain "hoisting".](#explain-hoisting)
-* [Describe event bubbling.](#describe-event-bubbling)
-* [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
-* [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
-* [Difference between document `load` event and document `DOMContentLoaded` event?](#difference-between-document-load-event-and-document-domcontentloaded-event)
-* [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
-* [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
-* [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
-* [Why is it called a Ternary expression, what does the word "Ternary" indicate?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-* [What is "use strict";? what are the advantages and disadvantages to using it?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
-* [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
-* [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
-* [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
-* [Explain what a single page app is and how to make one SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
-* [What is the extent of your experience with Promises and/or their polyfills?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
-* [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
-* [What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
-* [What tools and techniques do you use debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
-* [What language constructions do you use for iterating over object properties and array items?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
-* [Explain the difference between mutable and immutable objects.](#explain-the-difference-between-mutable-and-immutable-objects)
-* [Explain the difference between synchronous and asynchronous functions.](#explain-the-difference-between-synchronous-and-asynchronous-functions)
-* [What is event loop? What is the difference between call stack and task queue?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
-* [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-)
-* [What are the differences between variables created using `let`, `var` or `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
-* [What are the differences between ES6 class and ES5 function constructors?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
-* [Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
-* [What advantage is there for using the arrow syntax for a method in a constructor?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
-* [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function)
-* [Can you give an example for destructuring an object or an array?](#can-you-give-an-example-for-destructuring-an-object-or-an-array)
-* [ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
-* [Can you give an example of a curry function and why this syntax offers an advantage?](#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
-* [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
-* [How can you share code between files?](#how-can-you-share-code-between-files)
-* [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
+* [Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
+* [Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
+* [Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
+* [Ipaliwanag ang "hoisting".](#explain-hoisting)
+* [Ilarawan ang kaganapan ng pagbubwak.](#describe-event-bubbling)
+* [Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?](#whats-the-difference-between-an-attribute-and-a-property)
+* [Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
+* [Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng ` DOMContentLoaded` na kaganapan?](#difference-between-document-load-event-and-document-domcontentloaded-event)
+* [Ano ang pagkakaiba sa pagitan ng `==` at `===`?](#what-is-the-difference-between--and-)
+* [Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
+* [Paganahin ito: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
+* [bakit tinatawag itong isang ekspresyon sa Ternary, ano ang ibig sabihin ng salitang "Ternary"?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
+* [Ano ang "gamitin ang mahigpit" ;? ano ang mga bentahe at di-bentahe sa paggamit nito?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
+* [Gumawa ng para sa loop na mag-iterate hanggang sa 100 habang mag-ouput ng "fizz" sa multiples ng 3, "buzz" sa pagmultiplika ng 5 at "fizzbuzz" sa pagmultiplika ng 3 at 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
+* [Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
+* [Bakit mo gagamitin ang isang bagay tulad ng `load` na kaganapan? Mayroon bang mga di-bentahe ang kaganapang ito? May alam ka bang anumang mga alternatibo, at bakit mo gagamitin ang mga ito?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
+* [Ipaliwanag kung ano ang isang solong pahina na app at kung paano gumawa ng isang SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
+* [Ano ang lawak ng iyong karanasan sa Mga Pangako at/o ang kanilang mga polyfill?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
+* [Ano ang mga kalamangan at kahinaan ng paggamit ng Mga Pangako sa halip ng mga callback?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
+* [Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
+* [Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
+* [Anong mga pagkonstruct ng wika ang ginagamit mo para sa pag-ulit sa mga bagay na bagay at mga item ng array?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
+* [Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.](#explain-the-difference-between-mutable-and-immutable-objects)
+* [Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.](#explain-the-difference-between-synchronous-and-asynchronous-functions)
+* [Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
+* [Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng` function foo () {} `at` var foo = function () {} `](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-)
+* [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
+* [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-contruct na punksyon?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
+* [May maaalok ka bang  isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
+* [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-coonstruct?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
+* [Ano ang kahulugan ng isang mas mataas na hanay na punksyon?](#what-is-the-definition-of-a-higher-order-function)
+* [Makapagbibigaay kaba ng isang halimbawa para sa pagdestruct ng isang bagay o isang array?](#can-you-give-an-example-for-destructuring-an-object-or-an-array)
+* [Ang Literal na ES6 na Template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa?](#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
+* [Makapagbibigay kaba ng isang halimbawa ng isang punksyon na curry at kung bakit ang sintaks na ito ay nag-aalok ng isang kalamangan?](#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
+* [Ano ang mga pakinabang ng paggamit ng spread na sintaks at kung paano ito naiiba mula sa rest na sintaks?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
+* [Paano ka makakabahagi ng code sa pagitan ng mga file?](#how-can-you-share-code-between-files)
+* [Bakit  gusto mong lumikha ng mga statik na miyembro ng klase?](#why-you-might-want-to-create-static-class-members)
 
 ### Explain event delegation
 
-Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
+Ang delegasyon ng kaganapan ay isang pamamaraan na kinasasangkutan ng pagdaragdag ng mga tagapakinig ng kaganapan sa isang elemento ng magulang sa halip na idagdag ang mga ito sa mga kaapu-apuhan na elemento. Ang tagapakinig ay titira kapag ang kaganapan ay na-trigger sa mga kaapu-apuhan na sangkap dahil sa kaganapang pagbulubok sa DOM. Ang mga pakinabang ng pamamaraang ito ay:
 
-* Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
-* There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+* Ang bakas ng memorya ay bababa dahil ang isang nag-iisang humahawak ay kailangan sa elemento ng magulang, sa halip na mag-attach sa mga humahawak ng kaganapan sa bawat inapo.
+* Hindi na kailangang buksan ang humahawak mula sa mga elemento na aalisin at itali ang kaganapan para sa mga bagong elemento.
 
-###### References
+###### Mga Reperensiya
 
 * https://davidwalsh.name/event-delegate
 * https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
@@ -73,18 +73,18 @@ Event delegation is a technique involving adding event listeners to a parent ele
 
 ### Explain how `this` works in JavaScript
 
-There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript. A hand-wavey explanation is that the value of `this` depends on how the function is called. I have read many explanations on `this` online, and I found [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s explanation to be the clearest. The following rules are applied:
+Walang simpleng paliwanag para sa `this`; ito ay isa sa mga pinaka-nakakalitong konsepto sa JavaScript. Ang isang paliwanag na hand-wavey na ang halaga ng `this` ay nakadepende sa kung paano tinawag ang punksyon. Nabasa ko ang maraming paliwanag sa `this` online, at natagpuan ko ang paliwanag ni [Arnav Aggrawal] (https://medium.com/@arnav_aggarwal) para sa kalinawan. Ang mga sumusunod na alituntunin ay inilalapat:
 
-1. If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
-2. If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-3. If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
-4. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
-5. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-6. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+1. Kung ang `new` na keyword ay ginagamit kapag tumatawag sa punksyon, ang ` this` sa loob ng punksyon ay isang bagong bagay.
+2. Kung ang `apply`,` call`, o `bind` ay ginamit upang tumawag o gumawa ng isang punksyon,ang ` this` sa loob ng punksyon ay ang bagay na ipinasa bilang isang argumento.
+3. Kung ang isang punksyon ay tinawag bilang isang paraan, tulad ng `obj.method ()` - ang `this` ay ang bagay na ang punksyon ay isang propyedad.
+4. Kung ang isang punksyon ay tinatawag na isang libreng punksyon ng pagsang-ayon, nangangahulugan na ito ay tinatawag na walang anumang mga kundisyon sa itaas, ang `this` ay ang pandaigdigang bagay. Sa isang browser, ito ay ang `window` na bagay. Kung sa isang mahigpit na mode (`'gamitin ang mahigpit'`), ang `this` ay magiging `undefined` sa halip na ang pandaigdigang bagay.
+5. Kung na-aplay ang karamihan sa  panuntunan sa itaas, ang panuntunan na  mas mataas ay ang siyang panalo at itatakda ang `this` na halaga.
+6. Kung ang punksyo ay isang punksyon na ES2015 na arrow, binabalewala nito ang lahat ng mga patakaran sa itaas at tinatanggap ang `this` na halaga ng nakapalibot sa saklaw nito sa oras na ito ay nalikha.
 
-For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
 
-###### References
+###### Mga Reperensiya
 
 * https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 * https://stackoverflow.com/a/3127440/1751946
@@ -93,9 +93,9 @@ For an in-depth explanation, do check out his [article on Medium](https://codebu
 
 ### Explain how prototypal inheritance works
 
-This is an extremely common JavaScript interview question. All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain. This behaviour simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `prototype` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `prototype` ng object, at ang` prototype` ng `prototype` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `prototype` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana] (https://davidwalsh.name/javascript-objects).
 
-###### References
+###### Mga Reperensiya
 
 * https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 * https://davidwalsh.name/javascript-objects
@@ -104,13 +104,13 @@ This is an extremely common JavaScript interview question. All JavaScript object
 
 ### What do you think of AMD vs CommonJS?
 
-Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
+Ang dalawa ay parehong mga paraan upang ipatupad ang isang sistema ng module, na hindi likas na nasa JavaScript hanggang sa dumating ang ES2015. Ang CommonJS ay sabay sa oras habang ang AMD (Di sabay sa oras na module na kahulugan) ay maliwanag na di sabay sa oras. Ang CommonJS ay dinisenyo sa pagpapaunlad ng server-side habang ang AMD, kasama ang suporta nito para sa di sabay sa oras na pagload ng modules, ay mas inilaan para sa mga browser.
 
-I find AMD syntax to be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, I find AMD unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node style of writing modules and there is less context-switching overhead when switching between client side and server side JavaScript development.
+Nakikita ko ang sintaks ng AMD na parang masyadong malubha at ang CommonJS ay mas malapit sa estilo na nais mong ng pagsulat ng mga pahayag ng pag-import sa iba pang mga wika. halos kada, nakikita kong hindi kailangang AMD, dahil kung napagsilbihan mo ang lahat ng iyong JavaScript sa isang pinagdugtong na bugkos na, hindi ka makikinabang mula sa mga propyedad ng pag-load sa paraang async. Gayundin, ang sintaks ng CommonJS ay mas malapit sa estilo ng Node ng pagsusulat ng mga module at mayroong mas kaunting konteksto na lumilipat sa itaas kapag lumipat sa pagitan ng panig sa kliyente at panig sa serber na pag-develop ng JavaScript.
 
-I'm glad that with ES2015 modules, that has support for both synchronous and asynchronous loading, we can finally just stick to one approach. Although it hasn't been fully rolled out in browsers and in Node, we can always use transpilers to convert our code.
-
-###### References
+Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasabay at di sabay sa oras na paglo-load, maaari na sa wakas na tayo ay mananatili lamang sa isang diskarte. Kahit na hindi ito ganap na pinagsama sa mga browser at sa Node, maaari tayong gumamit lagi ng mga transpiler upang i-convert ang ating code.
+.
+###### Mga Reperensiya
 
 * https://auth0.com/blog/javascript-module-systems-showdown/
 * https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
@@ -119,11 +119,11 @@ I'm glad that with ES2015 modules, that has support for both synchronous and asy
 
 ### Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
 
-IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a function declaration and the latter (a pair of brackets) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
+IAng IFE ay nangangahulugan ng Immediately Invoked Function Expressions. Ang parser ng JavaScript binabasa ang `function foo () {} ();` bilang `function foo () {}` at `();`, kung saan ang dati ay isang deklarasyon ng punksyon at ang huli (isang pares ng mga braket) ay isang pagtatangka sa pagtawag sa isang punksyon ngunit walang pangalan na tinukoy, kaya ito ay tumatapon ng `Uncaught SyntaxError: Hindi inaasahang token)`.
 
-Here are two ways to fix it that involves adding more brackets: `(function foo(){ })()` and `(function foo(){ }())`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
+Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng higit pang mga braket: `(function foo () {}) ()` at `(function foo () {} ())`. Ang mga punksyon ay hindi nakalantad sa pandaigdigang nasasakupan at maaari mo ring alisin ang pangalan nito kung hindi mo kailangang gawing reperensiya ang sarili nito sa loob ng katawan.
 
-###### References
+###### Mga Reperensiya
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 
