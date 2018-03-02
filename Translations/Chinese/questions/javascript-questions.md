@@ -2,7 +2,7 @@
 
 Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/javascript-questions.md). Pull requests for suggestions and corrections are welcome!
 
-* [Explain event delegation](#explain-event-delegation)
+* [简述事件委托](#explain-event-delegation)
 * [简述 `JavaScript` 中的 `this`](#explain-how-this-works-in-javascript)
 * [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
 * [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
@@ -57,14 +57,14 @@ Answers to [Front-end Job Interview Questions - JS Questions](https://github.com
 * [How can you share code between files?](#how-can-you-share-code-between-files)
 * [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
 
-### Explain event delegation
+### 简述事件委托
 
-Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
+事件委托是一种将事件监听器添加到父元素而不是添加到后代元素的技术。每当事件在后代元素触发时，由于事件冒泡机制，事件监听器将会触发。这项技术的好处：
 
-* Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
-* There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+* 内存占用降低，因为只需要在父节点绑定一个句柄，而不需要为每个后代元素绑定事件句柄。
+* 不需要解绑移除元素的句柄，也不需要为新后代元素绑定事件。
 
-###### References
+###### 参考资料
 
 * https://davidwalsh.name/event-delegate
 * https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
