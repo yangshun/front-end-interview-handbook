@@ -2,15 +2,15 @@
 
 Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanong sa JS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/javascript-questions.md). Ang mga pull request para sa mga suhestyon at koreksyon ay malugod na tatanggapin
 
-* [Ipaliwanag ang delegasyon ng kaganapan](#explain-event-delegation)
-* [Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript](#explain-how-this-works-in-javascript)
-* [Ipaliwanag kung paano gumagana ang prototypal na pagmamana](#explain-how-prototypal-inheritance-works)
-* [Ano ang iyong naiisip sa AMD laban sa CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
-* [Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo () {} ();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?](#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
-* [Ano ang kaibahan sa pagitan ng isang variable na: `null`,` undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
-* [Ano ang pagsasara, at paanoo bakit mo gagamitin ang isa sa mga ito?](#what-is-a-closure-and-howwhy-would-you-use-one)
-* [Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
-* [Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?](#whats-a-typical-use-case-for-anonymous-functions)
+* [Ipaliwanag ang delegasyon ng kaganapan](#ipaliwanag-ang-delegasyon-ng-kaganapan)
+* [Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript](#ipaliwanag-kung-paano-gumagana-ang-this-na-ito-sa-javascript)
+* [Ipaliwanag kung paano gumagana ang prototypal na pagmamana](#ipaliwanag-kung-paano-gumagana-ang-prototypal-na-pagmamana)
+* [Ano ang iyong naiisip sa AMD laban sa CommonJS?](#ano-ang-iyong-naiisip-sa-amd-laban-sa-commonjs)
+* [Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo () {} ();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?](#ipaliwanag-kung-bakit-ang-mga-sumusunod-ay-hindi-gumagana-bilang-isang-iife-function-foo-ano-ang-kailangang-baguhin-upang-gawing-maayos-itong-iife)
+* [Ano ang kaibahan sa pagitan ng isang variable na: `null`,` undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?](#ano-ang-kaibahan-sa-pagitan-ng-isang-variable-na-null-undefined-o-hindi-naipahayag-paano-mo-gagawin-ang-pag-check-para-sa-alinman-sa-mga-kalagayang-ito)
+* [Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?](#ano-ang-pagsasara-at-paano-mo-gagamitin-ang-isa-sa-mga-ito)
+* [Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?](#mailalarawan-mo-ba-ang-pangunahing-pagkakaiba-sa-pagitan-ng-isang-foreach-na-loop-at-isang-map-na-loop-at-kung-bakit-gusto-mong-pumili-ng-isa-kumpara-sa-iba-pa)
+* [Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?](#ano-ang-isang-tipikal-na-kaso-ng-paggamit-para-sa-mga-hindi-kilalang-punksyon)
 * [Paano mo inaayos ang iyong code? (modular na pattern, makalumang paagmamana?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
 * [Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?](#whats-the-difference-between-host-objects-and-native-objects)
 * [Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
@@ -57,7 +57,7 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Paano ka makakabahagi ng code sa pagitan ng mga file?](#how-can-you-share-code-between-files)
 * [Bakit  gusto mong lumikha ng mga statik na miyembro ng klase?](#why-you-might-want-to-create-static-class-members)
 
-### Explain event delegation
+### Ipaliwanag ang delegasyon ng kaganapan
 
 Ang delegasyon ng kaganapan ay isang pamamaraan na kinasasangkutan ng pagdaragdag ng mga tagapakinig ng kaganapan sa isang elemento ng magulang sa halip na idagdag ang mga ito sa mga kaapu-apuhan na elemento. Ang tagapakinig ay titira kapag ang kaganapan ay na-trigger sa mga kaapu-apuhan na sangkap dahil sa kaganapang pagbulubok sa DOM. Ang mga pakinabang ng pamamaraang ito ay:
 
@@ -69,9 +69,9 @@ Ang delegasyon ng kaganapan ay isang pamamaraan na kinasasangkutan ng pagdaragda
 * https://davidwalsh.name/event-delegate
 * https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain how `this` works in JavaScript
+### Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript
 
 Walang simpleng paliwanag para sa `this`; ito ay isa sa mga pinaka-nakakalitong konsepto sa JavaScript. Ang isang paliwanag na hand-wavey na ang halaga ng `this` ay nakadepende sa kung paano tinawag ang punksyon. Nabasa ko ang maraming paliwanag sa `this` online, at natagpuan ko ang paliwanag ni [Arnav Aggrawal] (https://medium.com/@arnav_aggarwal) para sa kalinawan. Ang mga sumusunod na alituntunin ay inilalapat:
 
@@ -89,9 +89,9 @@ Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](http
 * https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 * https://stackoverflow.com/a/3127440/1751946
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain how prototypal inheritance works
+### Ipaliwanag kung paano gumagana ang prototypal na pagmamana
 
 Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `prototype` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `prototype` ng object, at ang` prototype` ng `prototype` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `prototype` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana] (https://davidwalsh.name/javascript-objects).
 
@@ -100,9 +100,10 @@ Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang
 * https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 * https://davidwalsh.name/javascript-objects
 
-[[↑] Back to top](#js-questions)
 
-### What do you think of AMD vs CommonJS?
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+
+### Ano ang iyong naiisip sa AMD laban sa CommonJS??
 
 Ang dalawa ay parehong mga paraan upang ipatupad ang isang sistema ng module, na hindi likas na nasa JavaScript hanggang sa dumating ang ES2015. Ang CommonJS ay sabay sa oras habang ang AMD (Di sabay sa oras na module na kahulugan) ay maliwanag na di sabay sa oras. Ang CommonJS ay dinisenyo sa pagpapaunlad ng server-side habang ang AMD, kasama ang suporta nito para sa di sabay sa oras na pagload ng modules, ay mas inilaan para sa mga browser.
 
@@ -115,9 +116,10 @@ Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasaba
 * https://auth0.com/blog/javascript-module-systems-showdown/
 * https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-[[↑] Back to top](#js-questions)
 
-### Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+
+### Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo () {} ();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?
 
 IAng IFE ay nangangahulugan ng Immediately Invoked Function Expressions. Ang parser ng JavaScript binabasa ang `function foo () {} ();` bilang `function foo () {}` at `();`, kung saan ang dati ay isang deklarasyon ng punksyon at ang huli (isang pares ng mga braket) ay isang pagtatangka sa pagtawag sa isang punksyon ngunit walang pangalan na tinukoy, kaya ito ay tumatapon ng `Uncaught SyntaxError: Hindi inaasahang token)`.
 
@@ -127,9 +129,10 @@ Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 
-[[↑] Back to top](#js-questions)
 
-### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+
+### Ano ang kaibahan sa pagitan ng isang variable na: `null`,` undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
 
 **Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
 
@@ -173,9 +176,9 @@ As a personal habit, I never leave my variables undeclared or unassigned. I will
 * https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What is a closure, and how/why would you use one?
+### Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?
 
 A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
 
@@ -189,9 +192,10 @@ A closure is the combination of a function and the lexical environment within wh
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] Back to top](#js-questions)
 
-### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+
+### Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?
 
 To understand the differences between the two, let's look at what each function does.
 
@@ -230,9 +234,10 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 * https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-[[↑] Back to top](#js-questions)
 
-### What's a typical use case for anonymous functions?
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+
+### Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?
 
 They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
 
@@ -265,7 +270,8 @@ console.log(double); // [2, 4, 6]
 * https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 * https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-[[↑] Back to top](#js-questions)
+
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### How do you organize your code? (module pattern, classical inheritance?)
 
@@ -275,7 +281,7 @@ The module pattern is still great, but these days, I use the Flux architecture b
 
 I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What's the difference between host objects and native objects?
 
@@ -287,7 +293,8 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 * https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
-[[↑] Back to top](#js-questions)
+
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 
@@ -315,7 +322,7 @@ console.log(person.name); // "john"
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What's the difference between `.call` and `.apply`?
 
@@ -330,7 +337,8 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-[[↑] Back to top](#js-questions)
+
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain `Function.prototype.bind`.
 
@@ -344,7 +352,9 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-[[↑] Back to top](#js-questions)
+
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+
 
 ### When would you use `document.write()`?
 
@@ -357,7 +367,8 @@ There are some answers online that explain `document.write()` is being used in a
 * https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 * https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-[[↑] Back to top](#js-questions)
+
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What's the difference between feature detection, feature inference, and using the UA string?
 
@@ -397,7 +408,7 @@ This is a browser-reported string that allows the network protocol peers to iden
 * https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain Ajax in as much detail as possible.
 
@@ -410,7 +421,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 * https://en.wikipedia.org/wiki/Ajax_(programming)
 * https://developer.mozilla.org/en-US/docs/AJAX
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What are the advantages and disadvantages of using Ajax?
 
@@ -428,7 +439,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 * Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
 * Basically most of the disadvantages of an SPA.
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain how JSONP works (and how it's not really Ajax).
 
@@ -462,7 +473,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 * https://stackoverflow.com/a/2067584/1751946
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Have you ever used JavaScript templating? If so, what libraries have you used?
 
@@ -474,7 +485,7 @@ const template = `<div>My name is: ${name}</div>`;
 
 However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain "hoisting".
 
@@ -512,7 +523,7 @@ var bar = function() {
 console.log(bar); // [Function: bar]
 ```
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Describe event bubbling.
 
@@ -541,7 +552,7 @@ console.log(input.value); // Hello World!
 
 * https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Why is extending built-in JavaScript objects not a good idea?
 
@@ -553,7 +564,7 @@ The only time you may want to extend a native object is when you want to create 
 
 * http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Difference between document `load` event and document `DOMContentLoaded` event?
 
@@ -566,7 +577,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 * https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 * https://developer.mozilla.org/en-US/docs/Web/Events/load
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What is the difference between `==` and `===`?
 
@@ -593,7 +604,7 @@ console.log(a == undefined); // true
 
 * https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain the same-origin policy with regards to JavaScript.
 
@@ -603,7 +614,7 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 
 * https://en.wikipedia.org/wiki/Same-origin_policy
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Make this work:
 
@@ -619,7 +630,7 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Why is it called a Ternary expression, what does the word "Ternary" indicate?
 
@@ -629,7 +640,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What is `"use strict";`? What are the advantages and disadvantages to using it?
 
@@ -658,7 +669,7 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 * http://2ality.com/2011/10/strict-mode-hatred.html
 * http://lucybain.com/blog/2014/js-use-strict/
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
 
@@ -678,7 +689,7 @@ I would not advise you to write the above during interviews though. Just stick w
 
 * https://gist.github.com/jaysonrowe/1592432
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
@@ -698,7 +709,7 @@ TODO.
 
 * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain what a single page app is and how to make one SEO-friendly.
 
@@ -727,7 +738,7 @@ The downsides:
 * http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 * https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What is the extent of your experience with Promises and/or their polyfills?
 
@@ -739,7 +750,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What are the pros and cons of using Promises instead of callbacks?
 
@@ -754,7 +765,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 * Slightly more complex code (debatable).
 * In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
@@ -782,7 +793,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 * https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What tools and techniques do you use for debugging JavaScript code?
 
@@ -799,7 +810,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 * https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 * https://raygun.com/blog/javascript-debugging/
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What language constructions do you use for iterating over object properties and array items?
 
@@ -816,7 +827,7 @@ For arrays:
 
 Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. `for` loops allow more flexibility, such as prematurely terminate the loop using `break` or incrementing the iterator more than once per loop.
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain the difference between mutable and immutable objects.
 
@@ -826,7 +837,7 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain the difference between synchronous and asynchronous functions.
 
@@ -834,7 +845,7 @@ Synchronous functions are blocking while asynchronous functions are not. In sync
 
 Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What is event loop? What is the difference between call stack and task queue?
 
@@ -847,7 +858,7 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 * https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 * http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
@@ -875,7 +886,7 @@ var foo = function() {
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What are the differences between variables created using `let`, `var` or `const`?
 
@@ -954,25 +965,25 @@ baz = 'qux';
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What advantage is there for using the arrow syntax for a method in a constructor?
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What is the definition of a higher-order function?
 
@@ -1014,7 +1025,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 * https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 * https://eloquentjavascript.net/05_higher_order.html
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Can you give an example for destructuring an object or an array?
 
@@ -1058,13 +1069,13 @@ console.log(q); // true
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 * https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Can you give an example of a curry function and why this syntax offers an advantage?
 
@@ -1102,7 +1113,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 * https://hackernoon.com/currying-in-js-d9ddc64f162e
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
@@ -1148,19 +1159,19 @@ const { e, f, ...others } = {
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### How can you share code between files?
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Why you might want to create static class members?
 
 TODO
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Other Answers
 
