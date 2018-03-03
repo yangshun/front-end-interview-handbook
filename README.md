@@ -15,7 +15,7 @@
 
 Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
+While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
 ## Looking for Generic Interview Preparation?
 
