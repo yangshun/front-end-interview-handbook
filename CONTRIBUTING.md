@@ -14,7 +14,7 @@ As much as possible, try to follow the existing format of markdown and code. Any
 
 ### Translations
 
-Feel free to add translations for the questions and answers only. You might want to retrieve a translated copy of the questions from [the original repository] and start from there. Simply create an issue expressing interest in being a translator and you will be added to the repository. Translators have the responsibility of keeping the translated content up to date with the master copy. However, the `master` branch is protected from direct writes and translated work have to be go through the Pull Request and review process before it can be merged into the repository. This is more for organizational purposes as different translators tend to have individual collaboration approach (some prefer merging, some prefer rebasing). Going through a Pull Request process will make the commit history more organized and clean.
+Feel free to add translations for the questions and answers only. You might want to retrieve a translated copy of the questions from [the original repository] and start from there. Simply create an issue expressing interest in being a translator and you will be added to the repository. Translators have the responsibility of keeping the translated content up to date with the master copy. However, the `master` branch is protected from direct writes and translated work have to go through the Pull Request and review process before it can be merged into the repository. This is more for organizational purposes as different translators tend to have individual collaboration approach (some prefer merging, some prefer rebasing). Going through a Pull Request process will make the commit history more organized and clean.
 
 ### Code of Conduct
 
