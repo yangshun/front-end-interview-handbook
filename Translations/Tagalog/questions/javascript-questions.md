@@ -11,12 +11,12 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?](#ano-ang-pagsasara-at-paano-mo-gagamitin-ang-isa-sa-mga-ito)
 * [Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?](#mailalarawan-mo-ba-ang-pangunahing-pagkakaiba-sa-pagitan-ng-isang-foreach-na-loop-at-isang-map-na-loop-at-kung-bakit-gusto-mong-pumili-ng-isa-kumpara-sa-iba-pa)
 * [Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?](#ano-ang-isang-tipikal-na-kaso-ng-paggamit-para-sa-mga-hindi-kilalang-punksyon)
-* [Paano mo inaayos ang iyong code? (modular na pattern, makalumang paagmamana?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
-* [Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?](#whats-the-difference-between-host-objects-and-native-objects)
-* [Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
-* [Ano ang pagkakaiba sa pagitan ng `.call` at` .apply`?](#whats-the-difference-between-call-and-apply)
-* [Ipaliwanag ang `Function.prototype.bind`.](#explain-functionprototypebind)
-* [Kelan ka gagamit ng `document.write()`?](#when-would-you-use-documentwrite)
+* [Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)](#paano-mo-inaayos-ang-iyong-code-modular-na-pattern-makalumang-pagmamana)
+* [Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?](#ano-ang-pagkakaiba-sa-pagitan-ng-mga-host-na-bagay-at-mga-katutubong-bagay)
+* [Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?](#kaibahan-sa-pagitan-ng-punksyon-na-person-var-person--person-var-person--new-person)
+* [Ano ang pagkakaiba sa pagitan ng `.call` at` .apply`?](#ano-ang-pagkakaiba-sa-pagitan-ng-call-at-apply)
+* [Ipaliwanag ang `Function.prototype.bind`.](#ipaliwanag-ang-functionprototypebind)
+* [Kelan ka gagamit ng `document.write()`?](#kelan-ka-gagamit-ng-documentwrite)
 * [Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
 * [Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.](#explain-ajax-in-as-much-detail-as-possible)
 * [Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
@@ -29,9 +29,9 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng ` DOMContentLoaded` na kaganapan?](#difference-between-document-load-event-and-document-domcontentloaded-event)
 * [Ano ang pagkakaiba sa pagitan ng `==` at `===`?](#what-is-the-difference-between--and-)
 * [Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
-* [Paganahin ito: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
+* [Paganahin ito:](#make-this-work)
 * [bakit tinatawag itong isang ekspresyon sa Ternary, ano ang ibig sabihin ng salitang "Ternary"?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-* [Ano ang "gamitin ang mahigpit" ;? ano ang mga bentahe at di-bentahe sa paggamit nito?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
+* [Ano ang `"use strict";`? ano ang mga bentahe at di-bentahe sa paggamit nito?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
 * [Gumawa ng para sa loop na mag-iterate hanggang sa 100 habang mag-ouput ng "fizz" sa multiples ng 3, "buzz" sa pagmultiplika ng 5 at "fizzbuzz" sa pagmultiplika ng 3 at 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
 * [Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
 * [Bakit mo gagamitin ang isang bagay tulad ng `load` na kaganapan? Mayroon bang mga di-bentahe ang kaganapang ito? May alam ka bang anumang mga alternatibo, at bakit mo gagamitin ang mga ito?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
@@ -40,13 +40,13 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Ano ang mga kalamangan at kahinaan ng paggamit ng Mga Pangako sa halip ng mga callback?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
 * [Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
 * [Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
-* [Anong mga pagkonstruct ng wika ang ginagamit mo para sa pag-ulit sa mga bagay na bagay at mga item ng array?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
+* [Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga bagay na bagay at mga item ng array?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
 * [Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.](#explain-the-difference-between-mutable-and-immutable-objects)
 * [Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.](#explain-the-difference-between-synchronous-and-asynchronous-functions)
 * [Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
 * [Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng` function foo () {} `at` var foo = function () {} `](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-)
 * [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
-* [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-contruct na punksyon?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
+* [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
 * [May maaalok ka bang  isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
 * [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-coonstruct?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
 * [Ano ang kahulugan ng isang mas mataas na hanay na punksyon?](#what-is-the-definition-of-a-higher-order-function)
@@ -273,7 +273,7 @@ console.log(double); // [2, 4, 6]
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### How do you organize your code? (module pattern, classical inheritance?)
+### Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)
 
 Sa nakaraan, ginamit ko ang Backbone para sa aking mga modelo na naghihikayat sa higit pang pamamaraan sa OOP, ang paglikha ng mga modelo ng Backbone at paglakip ng mga pamamaraan sa kanila.
 
@@ -283,7 +283,7 @@ Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang a
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What's the difference between host objects and native objects?
+### Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?
 
 Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
 
@@ -296,7 +296,7 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+### Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?
 
 This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is use PascalCase for functions that are intended to be used as constructors.
 
@@ -324,7 +324,7 @@ console.log(person.name); // "john"
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What's the difference between `.call` and `.apply`?
+### Ano ang pagkakaiba sa pagitan ng `.call` at` .apply`?
 
 Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in a comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and array of arguments.
 
@@ -340,7 +340,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain `Function.prototype.bind`.
+### Ipaliwanag ang `Function.prototype.bind`.
 
 Taken word-for-word from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
 
@@ -356,7 +356,7 @@ In my experience, it is most useful for binding the value of `this` in methods o
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 
-### When would you use `document.write()`?
+### Kelan ka gagamit ng `document.write()`?
 
 `document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
 
@@ -370,7 +370,7 @@ There are some answers online that explain `document.write()` is being used in a
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What's the difference between feature detection, feature inference, and using the UA string?
+### Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?
 
 **Feature Detection**
 
@@ -410,7 +410,7 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain Ajax in as much detail as possible.
+### Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.
 
 Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute JSON for XML due to the advantages of being native to JavaScript.
 
@@ -423,7 +423,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What are the advantages and disadvantages of using Ajax?
+### Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?
 
 **Advantages**
 
@@ -441,8 +441,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain how JSONP works (and how it's not really Ajax).
-
+### Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).
 JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
 
 JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
@@ -475,7 +474,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Have you ever used JavaScript templating? If so, what libraries have you used?
+### Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?
 
 Yes. Handlebars, Underscore, Lodash, AngularJS and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favourite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
 
@@ -487,7 +486,7 @@ However, do be aware of a potential XSS in the above approach as the contents ar
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain "hoisting".
+### Ipaliwanag ang "hoisting".
 
 Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
 
@@ -525,13 +524,13 @@ console.log(bar); // [Function: bar]
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Describe event bubbling.
+### Ilarawan ang kaganapan ng pagbubwak.
 
 When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
 
 [[↑] Back to top](#js-questions)
 
-### What's the difference between an "attribute" and a "property"?
+### Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?
 
 Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
 
@@ -554,7 +553,7 @@ console.log(input.value); // Hello World!
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Why is extending built-in JavaScript objects not a good idea?
+### Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?
 
 Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods are not the same.
 
@@ -566,7 +565,7 @@ The only time you may want to extend a native object is when you want to create 
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Difference between document `load` event and document `DOMContentLoaded` event?
+### Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng ` DOMContentLoaded` na kaganapan?
 
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 
@@ -579,7 +578,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What is the difference between `==` and `===`?
+### Ano ang pagkakaiba sa pagitan ng `==` at `===`
 
 `==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
 
@@ -606,7 +605,7 @@ console.log(a == undefined); // true
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain the same-origin policy with regards to JavaScript.
+### Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.
 
 The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
 
@@ -616,7 +615,7 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Make this work:
+### Paganahin ito:
 
 ```js
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -632,7 +631,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Why is it called a Ternary expression, what does the word "Ternary" indicate?
+### Bakit tinatawag itong isang ekspresyon sa Ternary, ano ang ibig sabihin ng salitang "Ternary"?
 
 "Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
 
@@ -642,7 +641,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What is `"use strict";`? What are the advantages and disadvantages to using it?
+### Ano ang `"use strict";`? ano ang mga bentahe at di-bentahe sa paggamit nito?
 
 'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt in to a restricted variant of JavaScript.
 
@@ -671,7 +670,7 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
+### Gumawa ng para sa loop na mag-iterate hanggang sa `100` habang mag-ouput ng **"fizz"** sa multiples ng `3`, **"buzz"** sa pagmultiplika ng `5` at **"fizzbuzz"** sa pagmultiplika ng `3` at `5`
 
 Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
 
@@ -691,13 +690,13 @@ I would not advise you to write the above during interviews though. Just stick w
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+### Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?
 
 Every script has access to the global scope, and if everyone is using the global namespace to define their own variables, there will bound to be collisions. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
 
 [[↑] Back to top](#js-questions)
 
-### Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+### Bakit mo gagamitin ang isang bagay tulad ng `load` na kaganapan? Mayroon bang mga di-bentahe ang kaganapang ito? May alam ka bang anumang mga alternatibo, at bakit mo gagamitin ang mga ito?
 
 The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
 
@@ -711,7 +710,7 @@ TODO.
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain what a single page app is and how to make one SEO-friendly.
+### Ipaliwanag kung ano ang isang solong pahina na app at kung paano gumawa ng isang SEO-friendly.
 
 The below is taken from the awesome [Grab Front End Guide](https://github.com/grab/front-end-guide), which coincidentally, is written by me!
 
@@ -740,7 +739,7 @@ The downsides:
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What is the extent of your experience with Promises and/or their polyfills?
+### Ano ang lawak ng iyong karanasan sa Mga Pangako at/o ang kanilang mga polyfill?
 
 Possess working knowledge of it. A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
 
@@ -752,7 +751,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What are the pros and cons of using Promises instead of callbacks?
+### Ano ang mga kalamangan at kahinaan ng paggamit ng mga pangako sa halip ng mga callback?
 
 **Pros**
 
@@ -767,7 +766,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+### Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?
 
 Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript.
 
@@ -795,7 +794,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What tools and techniques do you use for debugging JavaScript code?
+### Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?
 
 * React and Redux
   * [React Devtools](https://github.com/facebook/react-devtools)
@@ -812,7 +811,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What language constructions do you use for iterating over object properties and array items?
+### Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga bagay na bagay at mga item ng array?
 
 For objects:
 
@@ -829,7 +828,7 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain the difference between mutable and immutable objects.
+### Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.
 
 * What is an example of an immutable object in JavaScript?
 * What are the pros and cons of immutability?
@@ -839,7 +838,7 @@ TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain the difference between synchronous and asynchronous functions.
+### Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
 
@@ -847,7 +846,7 @@ Asynchronous functions usually accept a callback as a parameter and execution co
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What is event loop? What is the difference between call stack and task queue?
+### Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?
 
 The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
@@ -860,7 +859,7 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
+### Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng` function foo () {} `at` var foo = function () {} `
 
 The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behaviour as variables). For more explanation on hoisting, refer to the question above on hoisting. If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
 
@@ -888,7 +887,7 @@ var foo = function() {
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What are the differences between variables created using `let`, `var` or `const`?
+### Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
@@ -967,7 +966,7 @@ baz = 'qux';
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What are the differences between ES6 class and ES5 function constructors?
+### Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?
 
 TODO
 
