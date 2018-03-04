@@ -134,7 +134,7 @@ Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng
 
 ### Ano ang kaibahan sa pagitan ng isang variable na: `null`,` undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
 
-**Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+Ang mga **di-deklarado ** na mga variable ay nalilikha kapag ikaw ay  nagtatalaga ng isang halaga sa isang identifier na hindi pa nilikha noong una gamit ang `var`,` let` o `const`. Ang mga di-deklaradong variable ay tinutukoy sa pangkaalahatan, sa labas ng kasalukuyang saklaw. Sa mahigpit na mode, ang isang `ReferenceError` ay itatapon kapag susubukan mong italaga sa isang di-ipinahayag na variable. Ang mga di-deklaradong variable ay masama tulad ng kung papaano naging masama ang mga pandaigdigan na variable. Iwasan ang mga ito sa abot ng iyong makakaya! Upang suriin ang mga ito, balutin ang paggamit nito sa isang block ng `try` /` catch`.
 
 ```js
 function foo() {
@@ -145,7 +145,7 @@ foo();
 console.log(x); // 1
 ```
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+Ang isang variable na `undefined` ay isang variable na ipinahayag na, ngunit hindi nakatalaga sa isang halaga. Ito ay uri ng `undefined`. Kung ang isang punksyon ay hindi nagbabalik ng anumang halaga bilang resulta ng pagpapatupad na itinalaga sa isang variable, ang variable ay magkakaroon din ng halaga na `undefined`. Upang suriin ito, ihambing ang paggamit ng mahigpit na pagkakapantay-pantay (`===`) na operator o `typeof` na magbibigay ng string na `'undefined'`. Tandaan na hindi mo dapat gamitin ang abstraktong operator ng pagkapantay-pantay upang sumuri, dahil ito ay babalik sa `true` kung ang halaga ay` null`.
 
 ```js
 var foo;
@@ -160,7 +160,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+Ang isang variable na `null` ay malinaw na itinalaga sa` null` na halaga. Ito ay kumakatawan ng walang anumang halaga at iba mula sa `undefined` sa paraang ito ay tahasang itinalaga. Upang suriin ang `null,` ihambing lang ang paggamit ng mahigpit na operator ng pagkakapantay-pantay. Tandaan na tulad ng sa itaas, hindi mo dapat gamitin ang abstraktong operator ng pagkakapantay-pantay (`==`) upang sumuri, dahil ito ay babalik sa `true` kung ang halaga ay `undefined`.
 
 ```js
 var foo = null;
@@ -169,9 +169,9 @@ console.log(foo === null); // true
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring, if I don't intend to use it yet.
+Bilang isang personal na nakaugalian, hindi ko kailanman iiwanan ang aking mga variable na hindi naipahayag o hindi ipinagkaloob. Ako ay tahasang magtatalaga ng `null` sa kanila pagkatapos ng deklarasyon, kung wala pa akong balak na gamitin ito.
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
@@ -180,14 +180,14 @@ As a personal habit, I never leave my variables undeclared or unassigned. I will
 
 ### Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?
 
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
+Ang pagsasara ay ang kumbinasyon ng isang punksyon at ang leksikong environment sa loob kung saan ang punksyon ay ipinahayag. Ang salitang "leksikal" ay tumutukoy sa katotohanang ang paggamit ng leksiko ay paggamit ng lokasyon kung saan ang isang variable ay ipinahayag sa loob ng source code upang matukoy kung saan pwede pa ang variable na iyon. Ang mga pagsasara ay mga punksyon na may akses sa mga panlabas na (kalakip) na mga variable ng punkyon na saklaw kahit na matapos na bumalik ang panlabas na punksyon.
 
-**Why would you use one?**
+**Bakit ka pipili ng isa?**
 
-* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+* Privacy sa datos / pag-emulate ng pribadong pamamaraan sa closures. Karaniwang ginagamit sa [pattern ng module](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
+* [Bahagyang mga aplikasyon o pagcurry] (https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
@@ -197,13 +197,13 @@ A closure is the combination of a function and the lexical environment within wh
 
 ### Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?
 
-To understand the differences between the two, let's look at what each function does.
+Upang maunawaan ang mga pagkakaiba sa pagitan ng dalawa, tingnan natin kung ano ang ginagawa ng bawat punksyon.
 
 **`forEach`**
 
-* Iterates through the elements in an array.
-* Executes a callback for each element.
-* Does not return a value.
+* nagbabago sa pamamagitan ng mga elemento sa isang array.
+* Nagpapatupad ng callback para sa bawat elemento.
+* Hindi nagbabalik ng isang halaga.
 
 ```js
 const a = [1, 2, 3];
@@ -216,8 +216,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
-* Iterates through the elements in an array.
-* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+* binabago sa pamamagitan ng mga elemento sa isang array.
+* Mina- "Map" ang bawat elemento sa isang bagong elemento sa pamamagitan ng pagtawag sa punksyon sa bawat elemento, na lumilikha ng isang bagong array bilang isang resulta.
 
 ```js
 const a = [1, 2, 3];
@@ -228,9 +228,9 @@ const doubled = a.map(num => {
 // doubled = [2, 4, 6]
 ```
 
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+Ang pangunahing pagkakaiba sa pagitan ng `.forEach` at `.map ()` ay ang `.map () `ay nagbabalik ng isang bagong array. Kung kailangan mo ang resulta, ngunit ayaw mong baguhin ang orihinal na array, ang `.map ()` ay ang malinaw na pagpipilian. Kung kailangan mo lang umulit sa isang array, ang `forEach` ay magandang piliin din.
 
-###### References
+###### Mga Reperensiya
 
 * https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
@@ -239,7 +239,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 ### Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?
 
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+Maaari silang gamitin sa mga IIFE upang ipaloob ang ilang mga code sa loob ng isang lokal na saklaw upang ang mga variable na ipinahayag dito ay hindi mag-leak sa pandaigdigang saklaw.
 
 ```js
 (function() {
@@ -247,7 +247,7 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 })();
 ```
 
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+Bilang isang callback na ginagamit minsan at hindi na kailangang magamit kahit saan pa. Ang code ay mukhang mas self-contained at nababasa kapag ang mga handler ay tinukoy sa loob ng code na tinatawag ang mga ito, sa halip na maghanap sa ibang lugar upang mahanap ang punksyon na katawan.
 
 ```js
 setTimeout(function() {
@@ -255,7 +255,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+Mga argumento sa mga punksyonal na mga konstruktura na pag-program o Lodash (katulad ng mga callbacks).
 
 ```js
 const arr = [1, 2, 3];
@@ -265,7 +265,7 @@ const double = arr.map(function(el) {
 console.log(double); // [2, 4, 6]
 ```
 
-###### References
+###### Mga Reperensiya
 
 * https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 * https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
@@ -275,11 +275,11 @@ console.log(double); // [2, 4, 6]
 
 ### How do you organize your code? (module pattern, classical inheritance?)
 
-In the past, I used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
+Sa nakaraan, ginamit ko ang Backbone para sa aking mga modelo na naghihikayat sa higit pang pamamaraan sa OOP, ang paglikha ng mga modelo ng Backbone at paglakip ng mga pamamaraan sa kanila.
 
-The module pattern is still great, but these days, I use the Flux architecture based on React/Redux which encourages a single-directional functional programming approach instead. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang arkitektura ng Flux batay sa React o Redux na naghihikayat sa isang direksyunal na punksyunal na pag-program na pamamaraan sa halip. Gusto kong kumatawan sa mga modelo ng aking app gamit ang mga plain na mga bagay at sumulat ng utility na purong mga punksyon upang manipulahin ang mga bagay na ito. Minamanipula ang estado gamit ang mga pagkilos at mga reducer tulad ng sa anumang iba pang aplikasyon ng Redux.
 
-I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+ Iniiwasan ko ang paggamit ng klasikal na pagmamana kung posible. Kapag at kung gagawin ko, mananatili ako sa [mga patakarang ito](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
