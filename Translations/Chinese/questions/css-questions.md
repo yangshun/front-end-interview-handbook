@@ -1,6 +1,6 @@
 # CSS 问题
 
-本章节是[前端开发者面试问题- CSS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
+本章节是[前端开发者面试问题 - CSS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
 * [CSS 选择器的优先级是如何计算的？](#css-选择器的优先级是如何计算的)
 * [重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？](#重置resettingcss-和-标准化normalizingcss-的区别是什么你会选择哪种方式为什么)

@@ -1,3 +1,5 @@
+*[简体中文](Translations/Chinese/README.md)*
+
 <h1 align="center">Front End Interview Handbook</h1>
 
 <div align="center">
