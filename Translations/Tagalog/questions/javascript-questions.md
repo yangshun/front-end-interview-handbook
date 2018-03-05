@@ -48,7 +48,7 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
 * [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
 * [May maaalok ka bang  isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
-* [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-coonstruct?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
+* [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
 * [Ano ang kahulugan ng isang mas mataas na hanay na punksyon?](#what-is-the-definition-of-a-higher-order-function)
 * [Makapagbibigaay kaba ng isang halimbawa para sa pagdestruct ng isang bagay o isang array?](#can-you-give-an-example-for-destructuring-an-object-or-an-array)
 * [Ang Literal na ES6 na Template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa?](#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
@@ -972,19 +972,19 @@ TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
+### May maaalok ka bang  isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?
 
 TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What advantage is there for using the arrow syntax for a method in a constructor?
+### Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?
 
 TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What is the definition of a higher-order function?
+### Ano ang kahulugan ng isang mas mataas na hanay na punksyon?
 
 A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Array.prototype.bind` is one such example in JavaScript.
 
@@ -1026,7 +1026,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Can you give an example for destructuring an object or an array?
+### Makapagbibigaay kaba ng isang halimbawa para sa pagdestruct ng isang bagay o isang array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays, and place them into distinct variables.
 
@@ -1070,13 +1070,13 @@ console.log(q); // true
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+### Ang literal na ES6 na template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa?
 
 TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Can you give an example of a curry function and why this syntax offers an advantage?
+### Makapagbibigay kaba ng isang halimbawa ng isang punksyon na curry at kung bakit ang sintaks na ito ay nag-aalok ng isang kalamangan?
 
 Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each take one parameter.
 
@@ -1114,7 +1114,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### What are the benefits of using spread syntax and how is it different from rest syntax?
+### Ano ang mga pakinabang ng paggamit ng spread na sintaks at kung paano ito naiiba mula sa rest na sintaks?
 
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and rx.js projects.
 
@@ -1160,18 +1160,18 @@ const { e, f, ...others } = {
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### How can you share code between files?
+### Paano ka makakabahagi ng code sa pagitan ng mga file?
 
 TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Why you might want to create static class members?
+### Bakit  gusto mong lumikha ng mga statik na miyembro ng klase?
 
 TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Other Answers
+### Mga Ibang Sagot
 
 * http://flowerszhong.github.io/2013/11/20/javascript-questions.html
