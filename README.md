@@ -1,5 +1,3 @@
-*[简体中文](Translations/Chinese/README.md)*
-
 <h1 align="center">Front End Interview Handbook</h1>
 
 <div align="center">
@@ -28,6 +26,16 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 1. [HTML Questions](questions/html-questions.md)
 1. [CSS Questions](questions/css-questions.md)
 1. [JavaScript Questions](questions/javascript-questions.md)
+
+## Translations
+
+* [Simplified Chinese (简体中文)](Translations/Chinese/README.md)
+* [Tagalog](Translations/Tagalog/README.md)
+
+**In Progress**
+
+* [Korean](Translations/Korean/README.md)
+* [Japanese (日本語)](Translations/Japanese/README.md)
 
 ## Related
 
