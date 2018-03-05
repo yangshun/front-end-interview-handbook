@@ -12,7 +12,7 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `.Map()` na loop at bakit kailangan mo lang pumili ng isa mula sa dalawa?](#mailalarawan-mo-ba-ang-pangunahing-pagkakaiba-sa-pagitan-ng-isang-foreach-na-loop-at-isang-map-na-loop-at-bakit-kailangan-mo-lang-pumili-ng-isa-mula-sa-dalawa?)
 * [Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?](#ano-ang-isang-tipikal-na-kaso-ng-paggamit-para-sa-mga-hindi-kilalang-punksyon)
 * [Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)](#paano-mo-inaayos-ang-iyong-code-modular-na-pattern-makalumang-pagmamana)
-* [Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?](#ano-ang-pagkakaiba-sa-pagitan-ng-mga-host-na-bagay-at-mga-katutubong-bagay)
+* [Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga likas na bagay?](#ano-ang-pagkakaiba-sa-pagitan-ng-mga-host-na-bagay-at-mga-likas-na-bagay)
 * [Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?](#kaibahan-sa-pagitan-ng-punksyon-na-person-var-person--person-var-person--new-person)
 * [Ano ang pagkakaiba sa pagitan ng `.call` at `.apply`?](#ano-ang-pagkakaiba-sa-pagitan-ng-call-at-apply)
 * [Ipaliwanag ang `Function.prototype.bind`.](#ipaliwanag-ang-functionprototypebind)
@@ -283,9 +283,9 @@ Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang a
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?
+### Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga likas na bagay?
 
-Ang mga katutubong bagay ay mga bagay na bahagi ng wika ng JavaScript na tinutukoy ECMAScript na ispisipikasyon, kagaya ng `String`, `Math`, `RegExp`, `Object`, `Function`, atbp.
+Ang mga likas na bagay ay mga bagay na bahagi ng wika ng JavaScript na tinutukoy ECMAScript na ispisipikasyon, kagaya ng `String`, `Math`, `RegExp`, `Object`, `Function`, atbp.
 
 Ang mga bagay na host ay ibinibigay ng runtime environment (browser o Node), kagaya ng `window`, `XMLHTTPRequest`, atbp.
 
@@ -342,13 +342,13 @@ console.log(add.apply(null, [1, 2])); // 3
 
 ### Ipaliwanag ang `Function.prototype.bind`.
 
-Taken word-for-word from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
+Kinuha mula sa bawat salita ng [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
 
-> The `bind()` method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+> Ang paraan ng `bind ()` ay lumilikha ng isang bagong punksyon na, kapag tinawag, ay may naka-set na ang keyword na ito sa binigay na halaga, na may isang ibinigay na pagkakasunod-sunod ng mga argumento bago ang anumang ibinigay kapag ang bagong punksyon ay tinawag na.
 
-In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+Sa aking karanasan, ito ay pinaka-kapaki-pakinabang para sa pag-bind ng halaga ng `this` sa mga pamamaraan ng mga klaseng gusto mong ipasa sa iba pang mga punksyon. Ito ay madalas na ginagawa sa mga bahagi ng Reacts.
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
@@ -358,11 +358,11 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 ### Kelan ka gagamit ng `document.write()`?
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
+Ang `document.write()` ay sumusulat ng isang string ng teksto sa isang stream ng dokumento na binuksan ng `document.open()`. Kapag ang `document.write ()` ay naisakatuparan pagkatapos na mai-load ang pahina, tatawag itong `document.open` na nililimas ang buong dokumento (` <head> `at` <body> `removed!) At pinapalitan ang mga nilalaman sa binigay na halaga ng parameter sa string. Kaya nga naman ito ay karaniwang itinuturing na mapanganib at madaling kapitan ng sakit sa maling paggamit.
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
+Mayroong ilang mga sagot na makikita online na nagpapaliwanag na ang `document.write()` ay ginagamit sa analitikang code o [kapag nais mong isama ang mga estilo na dapat gagana lamang kung pinagana ang JavaScript](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). Ginagamit pa rin ito sa boilerplate ng HTML5 sa [load script na kahanay at pinanatili ang pagkakasunud-sunod ng pagpapatupad](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! Gayunpaman, pinaghihinalaan ko na ang mga kadahilanan na maaaring pinaglumaan na sa panahon at sa modernong araw, maaari nilang makamit nang hindi gumagamit ng `document.write()`. Kung maaari ay itama mo ako kung mali ako tungkol dito.
 
-###### References
+###### Mga Reperensiya
 
 * https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 * https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
@@ -372,23 +372,24 @@ There are some answers online that explain `document.write()` is being used in a
 
 ### Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?
 
-**Feature Detection**
+**Pagtuklas ng Tampok**
 
-Feature detection involves working out whether a browser supports a certain block of code, and running different code dependent on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
+Ang pagtuklas ng tampok ay kinasasangkutan ng pagtatrabaho kung ang isang browser ay sumusuporta sa isang tiyak na bloke ng code, at nagpapatakbo ng ibang code na nakasalalay sa kung ito (o hindi), upang ang browser ay maaaring makapagbigay kahit kailan ng isang gumaganang karanasan sa halip na mag-crash o magka-error sa ilang mga browser. 
+Halimbawa:
 
 ```js
 if ('geolocation' in navigator) {
-  // Can use navigator.geolocation
+  // Pwedeng gamitin ang navigator.geolocation
 } else {
-  // Handle lack of feature
+  // Ang handle ay kulang sa tampok
 }
 ```
 
 [Modernizr](https://modernizr.com/) is a great library to handle feature detection.
 
-**Feature Inference**
+**Tampok na Kaganapan**
 
-Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
+Ang tampok na kaganapan as sumusuri ng tampok kagaya nalang din ng pangtuklas ng tampok, ngunit ito'y gumagamit ng ibang punksyon dahil hinihinilaan din na ito ay nag-eexist e.g.:
 
 ```js
 if (document.getElementsByTagName) {
@@ -396,13 +397,13 @@ if (document.getElementsByTagName) {
 }
 ```
 
-This is not really recommended. Feature detection is more foolproof.
+Hindi ito talagang inirerekomenda. Ang pagtuklas ng tampok ay mas walang palya.
 
 **UA String**
 
 This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
 * https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
@@ -412,11 +413,11 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 ### Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.
 
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute JSON for XML due to the advantages of being native to JavaScript.
+Ang Ajax ay (sinkronisadong JavaScript at XML) ay isang set ng mga diskarte sa pag-develop ng web gamit ang maraming mga teknolohiya ng web sa panig ng kliyente upang lumikha ng mga aplikasyon ng web na sinkronisado. Sa Ajax, ang mga web na aplikasyon ay maaaring magpadala ng datos sa at kunin mula sa isang serber na di-sinkronisado (sa background) nang hindi nakakasagabal sa displey at pag-uugali ng umiiral na pahina. Sa pamamagitan ng pag-decoupling ng layer ng pagpapalit ng datos mula sa layer ng pagtatanghal, ang Ajax ay nagbibigay-daan para sa mga web na pahina, at sa pamamagitan ng extension ng mga aplikasyon sa web, upang baguhin ang nilalaman na dynamic na walang kailangang i-reload ang buong pahina. Sa pagsasagawa, ang mga modernong pagpapatupad ay kadalasang kapalit ng JSON para sa XML dahil sa mga pakinabang ng pagiging likas sa JavaScript.
 
-The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
+Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong  komunikasyon o sa mga araw ngayon, ang` fetch` na API.
 
-###### References
+###### Mga Reperensiya
 
 * https://en.wikipedia.org/wiki/Ajax_(programming)
 * https://developer.mozilla.org/en-US/docs/AJAX
@@ -425,26 +426,26 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 
 ### Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?
 
-**Advantages**
+**Mga Kalamangan**
 
-* Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-* Reduce connections to the server since scripts and stylesheets only have to be requested once.
-* State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-* Basically most of the advantages of an SPA.
+* Mas mahusay na pakikipag-ugnayan. Maaaring mabago ang bagong nilalaman mula sa serber nang hindi kailangang i-reload ang buong pahina.
+* Binawasang mga koneksyon sa serber dahil ang mga script at mga stylesheet lamang ay kailangang hilingin ng isang beses lamang.
+* Maaaring mapanatili ang estado sa isang pahina. Ang mga JavaScript na variable at DOM na estado ay mananatili dahil ang pangunahing pahinang paglalagyan ay hindi na-reload.
+* Karaniwang karamihan sa mga pakinabang ng isang SPA.
 
-**Disadvantages**
+**Mga Di Kalamangan**
 
-* Dynamic webpages are harder to bookmark.
-* Does not work if JavaScript has been disabled in the browser.
-* Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-* Basically most of the disadvantages of an SPA.
+* Ang mga dynamic na webpage ay mas mahirap i-bookmark.
+* Hindi gagana kung hindi pinagana ang JavaScript sa browser.* Ang ilang mga webcrawlers ay hindi nagsasagawa ng JavaScript at hindi makikita ang nilalamang na-load ng JavaScript.
+* Karaniwang karamihan sa mga di kalamangan ng isang SPA.
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).
-JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
 
-JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
+Ang JSONP (JSON na may Padding) ay isang paraan na parating ginagamit para i-bypass ang mga cross-domain mga patakaran sa mga web browser dahil ang Ajax ay humihingi mula sa kasalukuyang pahina papunta sa isang cross-origin na domain ay hindi pinahihintulutan.
+
+Gumagana ang JSONP sa pamamagitan ng paggawa ng isang kahilingan sa isang cross-origin na domain sa pamamagitan ng isang tag na `<script>` at kadalasan ay may parameter na query ng `callback`, halimbawa:` https: //example.com? Callback = printData`. Pagkatapos ay bubuuin ng serber ang datos sa loob ng isang punksyon na tinatawag na `printData` at ibabalik ito sa kliyente.
 
 ```html
 <!-- https://mydomain.com -->
@@ -462,13 +463,13 @@ function printData(data) {
 printData({ name: 'Yang Shun' });
 ```
 
-The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
+Ang kliyente ay dapat magkaroon ng punksyon na `printData` sa pandaigdigang saklaw nito at ang punksyon ay isasagawa ng kliyente kapag ang tugon mula sa cross-origin na domain ay natanggap na.
 
 JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
 
 These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/a/2067584/1751946
 
