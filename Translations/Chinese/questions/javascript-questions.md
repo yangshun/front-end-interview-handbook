@@ -59,10 +59,10 @@
 
 ### 请解释事件委托（event delegation）。
 
-事件委托是将事件监听器添加到父元素，而不是每个子元素单独设置事件监听器。当触发子元素时，事件会冒泡到父元素，监听器就会触发。 这种技术的好处是：
+事件委托是将事件监听器添加到父元素，而不是每个子元素单独设置事件监听器。当触发子元素时，事件会冒泡到父元素，监听器就会触发。这种技术的好处是：
 
-* 内存占用减少，因为父元素只需要一个事件处理程序，而不必为每个后代都添加事件处理程序。
-* 无需从已删除的元素中解除绑定处理程序，也无需将处理程序绑定到新元素上。
+* 内存占用减少，因为只需要一个父元素的事件处理程序，而不必为每个后代都添加事件处理程序。
+* 无需从已删除的元素中解绑处理程序，也无需将处理程序绑定到新元素上。
 
 ###### 参考
 
@@ -76,13 +76,13 @@
 JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清楚的。粗略地讲，函数的调用方式决定了`this`的值。我阅读了网上很多关于`this`的文章，[Arnav Aggrawal](https://medium.com/@arnav_aggarwal) 写的比较清楚。`this`取值符合以下规则：
 
 1. 在调用函数时使用`new`关键字，函数内的`this`是一个全新的对象。
-1. 如果`apply`、`call`或`bind`方法用于调用、创建一个函数，函数内的this就是作为参数传入这些方法的对象。
+1. 如果`apply`、`call`或`bind`方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。
 1. 当函数作为对象里的方法被调用时，函数内的`this`是调用该函数的对象。比如当`obj.method()`被调用时，函数内的this将绑定到`obj`对象。
 1. 如果调用函数不符合上述规则，那么`this`的值指向全局对象（global object）。浏览器环境下`this`的值指向`window`对象，但是在严格模式下(`'use strict'`)，`this`的值为`undefined`。
 1. 如果符合上述多个规则，则较高的规则（1号最高，4号最低）将决定`this`的值。
 1. 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，`this`被设置为它被创建时的上下文。
 
-想获取更深入的解释，请查看[他在 Medium 上的文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
+想获得更深入的解释，请查看[他在 Medium 上的文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
 
 ###### 参考
 
@@ -104,11 +104,11 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 ### 说说你对 AMD 和 CommonJS 的了解。
 
-它们都是实现模块体系的方式，直到 ES2015 出现之前，JavaScript 一直没有模块体系。CommonJS 是同步的，而 AMD（Asynchronous Module Definition）明显从全称中可以看出是异步的。CommonJS 的设计是为服务器端开发考虑的，而 AMD 支持异步加载模块，更适合浏览器。
+它们都是实现模块体系的方式，直到 ES2015 出现之前，JavaScript 一直没有模块体系。CommonJS 是同步的，而 AMD（Asynchronous Module Definition）从全称中可以明显看出是异步的。CommonJS 的设计是为服务器端开发考虑的，而 AMD 支持异步加载模块，更适合浏览器。
 
 我发现 AMD 的语法非常冗长，CommonJS 更接近其他语言 import 声明语句的用法习惯。大多数情况下，我认为 AMD 没有使用的必要，因为如果把所有 JavaScript 都捆绑进一个文件中，将无法得到异步加载的好处。此外，CommonJS 语法上更接近 Node 编写模块的风格，在前后端都使用 JavaScript 开发之间进行切换时，语境的切换开销较小。
 
-我很高兴看到 ES2015 的模块加载方案同时支持同步和异步，我们终于可以只使用一种方案了。虽然它尚未在浏览器和 Node 中完全推出，但是我们可以使用代码转换器进行转换。
+我很高兴看到 ES2015 的模块加载方案同时支持同步和异步，我们终于可以只使用一种方案了。虽然它尚未在浏览器和 Node 中完全推出，但是我们可以使用代码转换工具进行转换。
 
 ###### 参考
 
@@ -117,11 +117,11 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 [[↑] 回到顶部](#js-问题)
 
-### 请解释下面代码为什么不能用作 IIFE：`function foo(){ }();` 需要作出哪些修改才能使其成为 IIFE？
+### 请解释下面代码为什么不能用作 IIFE：`function foo(){ }();`，需要作出哪些修改才能使其成为 IIFE？
 
-IIFE（Immediately Invoked Function Expressions）代表立即执行函数。 JavaScript 解析器将 `function foo(){ }();`解析成`function foo(){ }`和`();`。其中，前者是函数声明；后者（一对括号）是试图调用一个函数时，没有指定名称，因此它会抛出`Uncaught SyntaxError: Unexpected token )`的错误。
+IIFE（Immediately Invoked Function Expressions）代表立即执行函数。 JavaScript 解析器将 `function foo(){ }();`解析成`function foo(){ }`和`();`。其中，前者是函数声明；后者（一对括号）是试图调用一个函数，却没有指定名称，因此它会抛出`Uncaught SyntaxError: Unexpected token )`的错误。
 
-修改方法是再添加一对括号，形式上有两种：`(function foo(){ })()`和`(function foo(){ }())`。以上函数不会暴露到全局作用域，如果不需要在函数内部引用自身，可以省略函数的名称。
+修改方法是：再添加一对括号，形式上有两种：`(function foo(){ })()`和`(function foo(){ }())`。以上函数不会暴露到全局作用域，如果不需要在函数内部引用自身，可以省略函数的名称。
 
 ###### 参考
 
@@ -129,9 +129,9 @@ IIFE（Immediately Invoked Function Expressions）代表立即执行函数。 Ja
 
 [[↑] 回到顶部](#js-问题)
 
-### `null`、`undefined`和未声明变量之间有什么区别？如何检查这些状态值？
+### `null`、`undefined`和未声明变量之间有什么区别？如何检查判断这些状态值？
 
-当你先前没有使用`var`、`let`或`const`声明变量，就为一个变量赋值时，该变量是未声明变量（undeclared variables）。未声明变量会脱离当前作用域，成为全局作用域下定义的变量。在严格模式下，给未声明的变量赋值，会抛出`ReferenceError`错误。和使用全局变量一样，使用未声明变量也是非常不好的做法，应当尽可能避免。要检查它们，需要将用到它们的代码放在`try`/`catch`语句中。
+当你没有提前使用`var`、`let`或`const`声明变量，就为一个变量赋值时，该变量是未声明变量（undeclared variables）。未声明变量会脱离当前作用域，成为全局作用域下定义的变量。在严格模式下，给未声明的变量赋值，会抛出`ReferenceError`错误。和使用全局变量一样，使用未声明变量也是非常不好的做法，应当尽可能避免。要检查判断它们，需要将用到它们的代码放在`try`/`catch`语句中。
 
 ```js
 function foo() {
@@ -142,7 +142,7 @@ foo();
 console.log(x); // 1
 ```
 
-当一个变量已经声明，但没有赋值时，该变量的值及其类型是`undefined`。如果一个函数的执行结果被赋值给一个变量，但是这个函数却没有返回任何值，那么该变量的值是`undefined`。要检查它，需要使用严格相等（`===`）；或者使用`typeof`，它会返回`'undefined'`字符串。请注意，不能使用非严格相等（`==`）来检查，因为如果变量值为`null`，使用非严格相等也会返回`true`。
+当一个变量已经声明，但没有赋值时，该变量的值是`undefined`。如果一个函数的执行结果被赋值给一个变量，但是这个函数却没有返回任何值，那么该变量的值是`undefined`。要检查它，需要使用严格相等（`===`）；或者使用`typeof`，它会返回`'undefined'`字符串。请注意，不能使用非严格相等（`==`）来检查，因为如果变量值为`null`，使用非严格相等也会返回`true`。
 
 ```js
 var foo;
@@ -157,7 +157,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-`null`值只能是被显式赋值给变。它表示`空值`，与被显式赋值 `undefined` 的变量意义不同。要检查`null`，需要使用严格相等运算符进行比较。请注意，和上面一样，不能使用非严格相等（`==`）来检查，因为如果变量值为`undefined`，使用非严格相等也会返回`true`。
+`null`只能被显式赋值给变量。它表示`空值`，与被显式赋值 `undefined` 的意义不同。要检查判断`null`值，需要使用严格相等运算符。请注意，和前面一样，不能使用非严格相等（`==`）来检查，因为如果变量值为`undefined`，使用非严格相等也会返回`true`。
 
 ```js
 var foo = null;
@@ -179,7 +179,7 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 闭包是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。闭包是即使被外部函数返回，依然可以访问到外部（封闭）函数作用域的函数。
 
-为什么使用闭包？
+**为什么使用闭包？**
 
 * 利用闭包实现数据私有化或模拟私有方法。这个方式也称为[模块模式（module pattern）](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)。
 * [部分参数函数（partial applications）柯里化（currying）](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
@@ -242,7 +242,7 @@ const doubled = a.map(num => {
 })();
 ```
 
-匿名函数可以作为只使用一次，而不需要在其他地方使用的回调函数。当处理函数在调用它们的程序内部被定义时，代码具有更好地自闭性和可读性，可以省去寻找该处理函数的函数体位置的麻烦。
+匿名函数可以作为只用一次，不需要在其他地方使用的回调函数。当处理函数在调用它们的程序内部被定义时，代码具有更好地自闭性和可读性，可以省去寻找该处理函数的函数体位置的麻烦。
 
 ```js
 setTimeout(function() {
@@ -362,7 +362,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 ### 功能检测（feature detection）、功能推断（feature inference）和使用 UA 字符串之间有什么区别？
 
-功能检测（feature detection）
+**功能检测（feature detection）**
 
 功能检测包括确定浏览器是否支持某段代码，以及是否运行不同的代码（取决于它是否执行），以便浏览器始终能够正常运行代码功能，而不会在某些浏览器中出现崩溃和错误。例如：
 
@@ -376,7 +376,7 @@ if ('geolocation' in navigator) {
 
 [Modernizr](https://modernizr.com/)是处理功能检测的优秀工具。
 
-功能推断（feature inference）
+**功能推断（feature inference）**
 
 功能推断与功能检测一样，会对功能可用性进行检查，但是在判断通过后，还会使用其他功能，因为它假设其他功能也可用，例如：
 
@@ -388,7 +388,7 @@ if (document.getElementsByTagName) {
 
 非常不推荐这种方式。功能检测更能保证万无一失。
 
-UA 字符串
+**UA 字符串**
 
 这是一个浏览器报告的字符串，它允许网络协议对等方（network protocol peers）识别请求用户代理的应用类型、操作系统、应用供应商和应用版本。它可以通过`navigator.userAgent`访问。 然而，这个字符串很难解析并且很可能存在欺骗性。例如，Chrome 会同时作为 Chrome 和 Safari 进行报告。因此，要检测 Safari，除了检查 Safari 字符串，还要检查是否存在 Chrome 字符串。不要使用这种方式。
 
@@ -415,14 +415,14 @@ Ajax（asynchronous JavaScript and XML）是使用客户端上的许多Web技术
 
 ### 使用Ajax的优缺点分别是什么？
 
-优点
+**优点**
 
 * 交互性更好。来自服务器的新内容可以动态更改，无需重新加载整个页面。
 * 减少与服务器的连接，因为脚本和样式只需要被请求一次。
 * 状态可以维护在一个页面上。JavaScript 变量和 DOM 状态将得到保持，因为主容器页面未被重新加载。
 * 基本上包括大部分 SPA 的优点。
 
-缺点
+**缺点**
 
 * 动态网页很难收藏。
 * 如果 JavaScript 已在浏览器中被禁用，则不起作用。
@@ -636,7 +636,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 'use strict' 是用于对整个脚本或单个函数启用严格模式的语句。严格模式是可选择的一个限制 JavaScript 的变体一种方式 。
 
-优点：
+**优点：**
 
 * 无法再意外创建全局变量。
 * 会使引起静默失败（silently fail，即：不报错也没有任何效果）的赋值操抛出异常。
@@ -646,7 +646,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 * 捕获了一些常见的编码错误，并抛出异常。
 * 禁用令人困惑或欠佳的功能。
 
-缺点：
+**缺点：**
 
 * 缺失许多开发人员已经习惯的功能。
 * 无法访问`function.caller`和`function.arguments`。
@@ -709,13 +709,13 @@ TODO.
 
 然而，在现代的 SPA 中，客户端渲染取而代之。浏览器从服务器加载初始页面，以及整个应用程序所需的脚本（框架、库、应用代码）和样式表。当用户导航到其他页面时，不会触发页面刷新。该页面的URL通过 [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) 进行更新。浏览器通过 [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) 请求向服务器检索新页面所需的数据（通常采用JSON格式）。然后，SPA 通过 JavaScript 来动态更新页面，这些 JavaScript 在初始页面加载时已经下载。这种模式类似于原生移动应用的工作方式。
 
-好处：
+**好处：**
 
 * 用户感知响应更快，用户切换页面时，不再看到因页面刷新而导致的白屏。
 * 对服务器进行的 HTTP 请求减少，因为对于每个页面加载，不必再次下载相同的资源。
 * 客户端和服务器之间的关注点分离。可以为不同平台（例如手机、聊天机器人、智能手表）建立新的客户端，而无需修改服务器代码。只要 API 没有修改，可以单独修改客户端和服务器上的代码。
 
-缺点：
+**坏处：**
 
 * 由于加载了多个页面所需的框架、应用代码和资源，导致初始页面加载时间较长。
 * 服务器还需要进行额外的工作，需要将所有请求路由配置到单个入口点，然后由客户端接管路由。
@@ -744,13 +744,13 @@ TODO.
 
 ### `Promise`代替回调函数有什么优缺点？
 
-优点：
+**优点：**
 
 * 避免可读性极差的回调地狱。
 * 使用`.then()`编写的顺序异步代码，既简单又易读。
 * 使用`Promise.all()`编写并行异步代码变得很容易。
 
-缺点：
+**缺点：**
 
 * 轻微地增加了代码的复杂度（这点存在争议）。
 * 在不支持 ES2015 的旧版浏览器中，需要引入 polyfill 才能使用。
@@ -762,13 +762,13 @@ TODO.
 Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript.
 这些是转译成 JavaScript 的语言，包括 CoffeeScript、Elm、ClojureScript、PureScript 和 TypeScript。
 
-优点：
+**优点：**
 
 * 修复了 JavaScript 中的一些长期问题，并摒弃了 JavaScript 不好的做法。
 * 在 JavaScript 的基础上提供一些语法糖，使我们能够编写更短的代码，我认为 ES5 缺乏语法糖的支持，但 ES2015 非常好。
 * 对于需要长时间维护的大型项目，静态类型非常好用（针对 TypeScript）。
 
-缺点：
+**缺点：**
 
 * 由于浏览器只运行JavaScript，所以需要构建、编译过程，在将代码提供给浏览器之前，需要将代码转译为 JavaScript。
 * 如果 source map 不能很好地映射到预编译的源代码，调试会很痛苦。
@@ -807,13 +807,13 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 ### 你使用什么语句遍历对象的属性和数组的元素？
 
-对象：
+**对象：**
 
 * `for`循环：`for (var property in obj) { console.log(property); }`。但是，这还会遍历到它的继承属性，在使用之前，你需要加入`obj.hasOwnProperty(property)`检查。
 * `Object.keys()`：`Object.keys(obj).forEach(function (property) { ... })`。`Object.keys()`方法会返回一个由一个给定对象的自身可枚举属性组成的数组。
 * `Object.getOwnPropertyNames()`：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。`Object.getOwnPropertyNames()`方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。
 
-数组：
+**数组：**
 
 * `for` loops：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是`var`是函数作用域而不是块级作用域，大多数时候你想要迭代变量在块级作用域中。ES2015 引入了具有块级作用域的`let`，建议使用它。所以就变成了：`for (let i = 0; i < arr.length; i++)`。
 * `forEach`：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，因为如果你所需要的只是数组元素，你不必使用`index`。还有`every`和`some`方法可以让你提前终止遍历。
@@ -857,7 +857,7 @@ TODO
 
 前者是函数声明，后者是函数表达式。关键的区别在于函数声明会使函数体提升（具有与变量相同的提升行为），但函数表达式的函数体不能。有关变量提升的更多解释，请参阅上面关于变量提升的问题。如果你试图在定义函数表达式之前调用它，你会得到一个`Uncaught TypeError: XXX is not a function`的错误。
 
-函数声明
+**函数声明**
 
 ```js
 foo(); // 'FOOOOO'
@@ -866,7 +866,7 @@ function foo() {
 }
 ```
 
-函数表达式
+**函数表达式**
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
@@ -883,7 +883,6 @@ var foo = function() {
 
 ### 使用`let`、`var`和`const`创建变量有什么区别？
 
-Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 用`var`声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。`let`和`const`是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
 
 ```js
@@ -983,7 +982,7 @@ TODO
 
 高阶函数是将一个或多个函数作为参数的函数，它用于数据处理，也可能将函数作为返回结果。高阶函数是为了抽象一些重复执行的操作。一个典型的例子是`map`，它将一个数组和一个函数作为参数。`map`使用这个函数来转换数组中的每个元素，并返回一个包含转换后元素的新数组。JavaScript 中的其他常见示例是`forEach`、`filter`和`reduce`。高阶函数不仅需要操作数组的时候会用到，还有许多函数返回新函数的用例。`Array.prototype.bind`就是一个例子。
 
-Map 示例：
+**Map 示例：**
 
 假设我们有一个由名字组成的数组，我们需要将每个字符转换为大写字母。
 
@@ -1025,7 +1024,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 解构是 ES6 中新功能，它提供了一种简洁方便的方法来提取对象或数组的值，并将它们放入不同的变量中。
 
-数组解构
+**数组解构**
 
 ```js
 // 变量赋值
@@ -1047,7 +1046,7 @@ console.log(a); // 3
 console.log(b); // 1
 ```
 
-对象解构
+**对象解构**
 
 ```js
 // 变量赋值
