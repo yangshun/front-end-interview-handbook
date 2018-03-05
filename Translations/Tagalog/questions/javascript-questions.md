@@ -6,56 +6,56 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript](#ipaliwanag-kung-paano-gumagana-ang-this-na-ito-sa-javascript)
 * [Ipaliwanag kung paano gumagana ang prototypal na pagmamana](#ipaliwanag-kung-paano-gumagana-ang-prototypal-na-pagmamana)
 * [Ano ang iyong naiisip sa AMD laban sa CommonJS?](#ano-ang-iyong-naiisip-sa-amd-laban-sa-commonjs)
-* [Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo () {} ();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?](#ipaliwanag-kung-bakit-ang-mga-sumusunod-ay-hindi-gumagana-bilang-isang-iife-function-foo-ano-ang-kailangang-baguhin-upang-gawing-maayos-itong-iife)
-* [Ano ang kaibahan sa pagitan ng isang variable na: `null`,` undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?](#ano-ang-kaibahan-sa-pagitan-ng-isang-variable-na-null-undefined-o-hindi-naipahayag-paano-mo-gagawin-ang-pag-check-para-sa-alinman-sa-mga-kalagayang-ito)
+* [Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo(){ }();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?](#ipaliwanag-kung-bakit-ang-mga-sumusunod-ay-hindi-gumagana-bilang-isang-iife-function-foo--ano-ang-kailangang-baguhin-upang-gawing-maayos-itong-iife)
+* [Ano ang kaibahan sa pagitan ng isang variable na: `null`, `undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?](#ano-ang-kaibahan-sa-pagitan-ng-isang-variable-na-null-undefined-o-hindi-naipahayag-paano-mo-gagawin-ang-pag-check-para-sa-alinman-sa-mga-kalagayang-ito)
 * [Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?](#ano-ang-pagsasara-at-paano-mo-gagamitin-ang-isa-sa-mga-ito)
-* [Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?](#mailalarawan-mo-ba-ang-pangunahing-pagkakaiba-sa-pagitan-ng-isang-foreach-na-loop-at-isang-map-na-loop-at-kung-bakit-gusto-mong-pumili-ng-isa-kumpara-sa-iba-pa)
+* [Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `.Map()` na loop at bakit kailangan mo lang pumili ng isa mula sa dalawa?](#mailalarawan-mo-ba-ang-pangunahing-pagkakaiba-sa-pagitan-ng-isang-foreach-na-loop-at-isang-map-na-loop-at-bakit-kailangan-mo-lang-pumili-ng-isa-mula-sa-dalawa?)
 * [Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?](#ano-ang-isang-tipikal-na-kaso-ng-paggamit-para-sa-mga-hindi-kilalang-punksyon)
 * [Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)](#paano-mo-inaayos-ang-iyong-code-modular-na-pattern-makalumang-pagmamana)
 * [Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?](#ano-ang-pagkakaiba-sa-pagitan-ng-mga-host-na-bagay-at-mga-katutubong-bagay)
 * [Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?](#kaibahan-sa-pagitan-ng-punksyon-na-person-var-person--person-var-person--new-person)
-* [Ano ang pagkakaiba sa pagitan ng `.call` at` .apply`?](#ano-ang-pagkakaiba-sa-pagitan-ng-call-at-apply)
+* [Ano ang pagkakaiba sa pagitan ng `.call` at `.apply`?](#ano-ang-pagkakaiba-sa-pagitan-ng-call-at-apply)
 * [Ipaliwanag ang `Function.prototype.bind`.](#ipaliwanag-ang-functionprototypebind)
 * [Kelan ka gagamit ng `document.write()`?](#kelan-ka-gagamit-ng-documentwrite)
-* [Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
-* [Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.](#explain-ajax-in-as-much-detail-as-possible)
-* [Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
-* [Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
-* [Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
-* [Ipaliwanag ang "hoisting".](#explain-hoisting)
-* [Ilarawan ang kaganapan ng pagbubwak.](#describe-event-bubbling)
-* [Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?](#whats-the-difference-between-an-attribute-and-a-property)
-* [Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
-* [Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng ` DOMContentLoaded` na kaganapan?](#difference-between-document-load-event-and-document-domcontentloaded-event)
-* [Ano ang pagkakaiba sa pagitan ng `==` at `===`?](#what-is-the-difference-between--and-)
-* [Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
-* [Paganahin ito:](#make-this-work)
-* [bakit tinatawag itong isang ekspresyon sa Ternary, ano ang ibig sabihin ng salitang "Ternary"?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-* [Ano ang `"use strict";`? ano ang mga bentahe at di-bentahe sa paggamit nito?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
-* [Gumawa ng para sa loop na mag-iterate hanggang sa 100 habang mag-ouput ng "fizz" sa multiples ng 3, "buzz" sa pagmultiplika ng 5 at "fizzbuzz" sa pagmultiplika ng 3 at 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
-* [Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
-* [Bakit mo gagamitin ang isang bagay tulad ng `load` na kaganapan? Mayroon bang mga di-bentahe ang kaganapang ito? May alam ka bang anumang mga alternatibo, at bakit mo gagamitin ang mga ito?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
-* [Ipaliwanag kung ano ang isang solong pahina na app at kung paano gumawa ng isang SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
-* [Ano ang lawak ng iyong karanasan sa Mga Pangako at/o ang kanilang mga polyfill?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
-* [Ano ang mga kalamangan at kahinaan ng paggamit ng Mga Pangako sa halip ng mga callback?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
-* [Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
-* [Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
-* [Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga bagay na bagay at mga item ng array?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
-* [Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.](#explain-the-difference-between-mutable-and-immutable-objects)
-* [Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.](#explain-the-difference-between-synchronous-and-asynchronous-functions)
-* [Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
-* [Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng` function foo () {} `at` var foo = function () {} `](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-)
-* [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
-* [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
-* [May maaalok ka bang  isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
-* [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
-* [Ano ang kahulugan ng isang mas mataas na hanay na punksyon?](#what-is-the-definition-of-a-higher-order-function)
-* [Makapagbibigaay kaba ng isang halimbawa para sa pagdestruct ng isang bagay o isang array?](#can-you-give-an-example-for-destructuring-an-object-or-an-array)
-* [Ang Literal na ES6 na Template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa?](#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
-* [Makapagbibigay kaba ng isang halimbawa ng isang punksyon na curry at kung bakit ang sintaks na ito ay nag-aalok ng isang kalamangan?](#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
-* [Ano ang mga pakinabang ng paggamit ng spread na sintaks at kung paano ito naiiba mula sa rest na sintaks?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
-* [Paano ka makakabahagi ng code sa pagitan ng mga file?](#how-can-you-share-code-between-files)
-* [Bakit  gusto mong lumikha ng mga statik na miyembro ng klase?](#why-you-might-want-to-create-static-class-members)
+* [Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?](#ano-ang-kaibahan-sa-pagitan-ng-pagtukoy-na-tampok-tampok-na-pagkakilala-at-paggamit-ng-Uua-na-string)
+* [Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.](#ipaliwanag-ang-ajax-sa-mas-detalyadong-pamamaraan-hanggat-maaari)
+* [Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?](#ano-ang-mga-kalamangan-at-di-kalamangan-ng-paggamit-ng-ajax)
+* [Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).](#ipaliwanag-kung-papaano-gumagana-ang-jsonp-at-kung-bakit-hindi-talaga-ajax)
+* [Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?](#ikaw-ba-ay-nakagamit-na-ng-javascript-sa-pag-template-kung-gayon-anong-mga-librerya-ang-ginamit-mo)
+* [Ipaliwanag ang "hoisting".](#ipaliwanag-ang-hoisting)
+* [Ilarawan ang kaganapan ng pagbubwak.](#ilarawan-ang-kaganapan-ng-pagbubwak)
+* [Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?](#ano-ang-pagkakaiba-sa-pagitan-ng-isang-katangian-at-isang-propyedad)
+* [Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?](#bakit-ang-pagpapalawak-ng-mga-built-in-na-javascript-na-mga-bagay-ay-hindi-isang-magandang-ideya)
+* [Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng `DOMContentLoaded` na kaganapan?](#pagkakaiba-sa-pagitan-ng-kaganapan-ng-pag-load-ng-dokumento-at-dokumento-ng-domcontentloaded-na-kaganapan)
+* [Ano ang pagkakaiba sa pagitan ng `==` at `===`?](#ano-ang-pagkakaiba-sa-pagitan-ng--at-)
+* [Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.](#ipaliwanag-ang-patakaran-na-pareho-pareho-dapat-ang-pinanggalingan-tungkol-sa-javascript)
+* [Paganahin ito:](#paganahin-ito)
+* [Bakit tinatawag itong isang ternary na ekspresyon, ano ang ibig sabihin ng salitang "Ternary"?](#bakit-tinatawag-itong-isang-ternary-na-ekspresyon-ano-ang-ibig-sabihin-ng-salitang-ternary)
+* [Ano ang `"use strict";`? ano ang mga bentahe at di-bentahe sa paggamit nito?](#ano-ang-use-strict-ano-ang-mga-bentahe-at-di-bentahe-sa-paggamit-nito)
+* [Gumawa ng para sa loop na mag-iterate hanggang sa 100 habang mag-ouput ng "fizz" sa multiples ng 3, "buzz" sa pagmultiplika ng 5 at "fizzbuzz" sa pagmultiplika ng 3 at 5](#gumawa-ng-para-sa-loop-na-mag-iterate-hanggang-sa-100-habang-mag-ouput-ng-fizz-sa-multiples-ng-3-buzz-sa-pagmultiplika-ng-5-at-fizzbuzz-sa-pagmultiplika-ng-3-at-5)
+* [Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?](#bakit-sa-pangkalahatan-isang-magandang-ideya-na-iwanan-ang-pandaigdigang-saklaw-ng-isang-website-bilang-kung-ano-man-ito-at-hindi-kailanman-na-galawin-ito)
+* [Bakit mo gagamitin ang isang bagay tulad ng `load` na kaganapan? Mayroon bang mga di-bentahe ang kaganapang ito? May alam ka bang anumang mga alternatibo, at bakit mo gagamitin ang mga ito?](#bakit-mo-gagamitin-ang-isang-bagay-tulad-ng-load-na-kaganapan-mayroon-bang-mga-di-bentahe-ang-kaganapang-ito-may-alam-ka-bang-anumang-mga-alternatibo-at-bakit-mo-gagamitin-ang-mga-ito)
+* [Ipaliwanag kung ano ang isang solong pahina na app at kung paano gumawa ng isang SEO-friendly.](#ipaliwanag-kung-ano-ang-isang-solong-pahina-na-app-at-kung-paano-gumawa-ng-isang-seo-friendly)
+* [Ano ang lawak ng iyong karanasan sa mga Pangako at o ang kanilang mga polyfill?](#ano-ang-lawak-ng-iyong-karanasan-sa-mga-pangako-at-o-ang-kanilang-mga-polyfill)
+* [Ano ang mga kalamangan at kahinaan ng paggamit ng mga Pangako sa halip ng mga callback?](#ano-ang-mga-kalamangan-at-kahinaan-ng-paggamit-ng-mga-pangako-sa-halip-ng-mga-callback?)
+* [Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?](#ano-ang-ilan-sa-mga-pakinabang-o-di-pakinabang-ng-pagsulat-ng-javascript-code-sa-isang-wika-na-naka-compile-sa-javascript)
+* [Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?](#anong-mga-kagamitan-at-pamamaraan-ang-ginagamit-mo-sa-pag-debug-ng-javascript-na-code)
+* [Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga katangian ng bagay at mga item na array?](#anong-mga-pag-construct-ng-wika-ang-ginagamit-mo-para-sa-pag-ulit-sa-mga-katangian-ng-bagay-at-mga-item-na-array)
+* [Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.](#ipaliwanag-ang-pagkakaiba-sa-pagitan-ng-mga-bagay-na-nababago-at-hindi-nababago)
+* [Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.](#ipaliwanag-ang-pagkakaiba-sa-pagitan-ng-sabay-at-hindi-sabay-na-punksiyon)
+* [Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?](#ano-ang-loop-na-kaganapan-ano-ang-pagkakaiba-sa-pagitan-ng-call-na-stack-at-queue-ng-gawain)
+* [Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng `function foo() {}` at `var foo = function() {}`](#ipaliwanag-ang-mga-pagkakaiba-sa-paggamit-ng-foo-sa-pagitan-ng-function-foo--at-var-foo--function-)
+* [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?](#ano-ang-mga-pagkakaiba-sa-pagitan-ng-mga-variable-na-nilikha-sa-pamamagitan-ng-paggamit-ng-let-var-o-const)
+* [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?](#ano-ang-mga-pagkakaiba-sa-pagitan-ng-es6-na-class-at-mga-es5-na-taga-construct-na-punksyon)
+* [May maaalok ka bang isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?](#may-maaalok-ka-bang-isang-kaso-ng-paggamit-para-sa-bagong-arrow--sintaks-ng-punksyon-Paano-naiiba-ang-bagong-sintaks-na-ito-sa-iba-pang-mga-punksyon)
+* [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?](#ano-ang-bentahe-para-sa-paggamit-ng-sintaks-na-arrow-para-sa-isang-paraan-sa-isang-taga-construct)
+* [Ano ang kahulugan ng isang mas mataas na hanay na punksyon?](#ano-ang-kahulugan-ng-isang-mas-mataas-na-hanay-na-punksyon)
+* [Makapagbibigaay kaba ng isang halimbawa para sa pag-destructure ng isang bagay o isang array?](#makapagbibigaay-kaba-ng-isang-halimbawa-para-sa-pag-destructure-ng-isang-bagay-o-isang-array)
+* [Ang literal na ES6 na template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa?](#ang-literal-na-es6-na-template-ay-nag-aalok-ng-maraming-kakayahan-na-umangkop-sa-pagbuo-ng-mga-string-maaari-ka-bang-makapagbigay-ng-isang-halimbawa)
+* [Makapagbibigay kaba ng isang halimbawa ng isang punksyon na curry at kung bakit ang sintaks na ito ay nag-aalok ng isang kalamangan?](#makapagbibigay-kaba-ng-isang-halimbawa-ng-isang-punksyon-na-curry-at-kung-bakit-ang-sintaks-na-ito-ay-nag-aalok-ng-isang-kalamangan)
+* [Ano ang mga pakinabang ng paggamit ng spread na sintaks at kung paano ito naiiba mula sa rest na sintaks?](#ano-ang-mga-pakinabang-ng-paggamit-ng-spread-na-sintaks-at-kung-paano-ito-naiiba-mula-sa-rest-na-sintaks)
+* [Paano ka makakabahagi ng code sa pagitan ng mga file?](#paano-ka-makakabahagi-ng-code-sa-pagitan-ng-mga-file)
+* [Bakit gusto mong lumikha ng mga statik na miyembro ng klase?](#bakit-gusto-mong-lumikha-ng-mga-statik-na-miyembro-ng-klase)
 
 ### Ipaliwanag ang delegasyon ng kaganapan
 
@@ -119,7 +119,7 @@ Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasaba
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo () {} ();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?
+### Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo(){ }();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?
 
 IAng IFE ay nangangahulugan ng Immediately Invoked Function Expressions. Ang parser ng JavaScript binabasa ang `function foo () {} ();` bilang `function foo () {}` at `();`, kung saan ang dati ay isang deklarasyon ng punksyon at ang huli (isang pares ng mga braket) ay isang pagtatangka sa pagtawag sa isang punksyon ngunit walang pangalan na tinukoy, kaya ito ay tumatapon ng `Uncaught SyntaxError: Hindi inaasahang token)`.
 
@@ -132,7 +132,7 @@ Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ano ang kaibahan sa pagitan ng isang variable na: `null`,` undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
+### Ano ang kaibahan sa pagitan ng isang variable na: `null`, `undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
 
 Ang mga **di-deklarado ** na mga variable ay nalilikha kapag ikaw ay  nagtatalaga ng isang halaga sa isang identifier na hindi pa nilikha noong una gamit ang `var`,` let` o `const`. Ang mga di-deklaradong variable ay tinutukoy sa pangkaalahatan, sa labas ng kasalukuyang saklaw. Sa mahigpit na mode, ang isang `ReferenceError` ay itatapon kapag susubukan mong italaga sa isang di-ipinahayag na variable. Ang mga di-deklaradong variable ay masama tulad ng kung papaano naging masama ang mga pandaigdigan na variable. Iwasan ang mga ito sa abot ng iyong makakaya! Upang suriin ang mga ito, balutin ang paggamit nito sa isang block ng `try` /` catch`.
 
@@ -195,7 +195,7 @@ Ang pagsasara ay ang kumbinasyon ng isang punksyon at ang leksikong environment 
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `. Map () ` na loop at kung bakit gusto mong pumili ng isa kumpara sa iba pa?
+### Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `.Map()` na loop at bakit kailangan mo lang pumili ng isa mula sa dalawa?
 
 Upang maunawaan ang mga pagkakaiba sa pagitan ng dalawa, tingnan natin kung ano ang ginagawa ng bawat punksyon.
 
@@ -324,7 +324,7 @@ console.log(person.name); // "john"
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ano ang pagkakaiba sa pagitan ng `.call` at` .apply`?
+### Ano ang pagkakaiba sa pagitan ng `.call` at `.apply`?
 
 Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in a comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and array of arguments.
 
@@ -631,7 +631,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Bakit tinatawag itong isang ekspresyon sa Ternary, ano ang ibig sabihin ng salitang "Ternary"?
+### Bakit tinatawag itong isang ternary na ekspresyon, ano ang ibig sabihin ng salitang "Ternary"?
 
 "Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
 
@@ -811,7 +811,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga bagay na bagay at mga item ng array?
+### Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga katangian ng bagay at mga item na array?
 
 For objects:
 
@@ -859,7 +859,7 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng` function foo () {} `at` var foo = function () {} `
+### Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng `function foo() {}` at `var foo = function() {}`
 
 The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behaviour as variables). For more explanation on hoisting, refer to the question above on hoisting. If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
 
@@ -972,7 +972,7 @@ TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### May maaalok ka bang  isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?
+### May maaalok ka bang isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?
 
 TODO
 
@@ -1026,7 +1026,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Makapagbibigaay kaba ng isang halimbawa para sa pagdestruct ng isang bagay o isang array?
+### Makapagbibigaay kaba ng isang halimbawa para sa pag-destructure ng isang bagay o isang array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays, and place them into distinct variables.
 
@@ -1070,7 +1070,7 @@ console.log(q); // true
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ang literal na ES6 na template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa?
+### Ang literal na ES6 na template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa
 
 TODO
 
@@ -1166,7 +1166,7 @@ TODO
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Bakit  gusto mong lumikha ng mga statik na miyembro ng klase?
+### Bakit gusto mong lumikha ng mga statik na miyembro ng klase?
 
 TODO
 
