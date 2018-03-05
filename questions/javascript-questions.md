@@ -123,9 +123,18 @@ IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser 
 
 Here are two ways to fix it that involves adding more brackets: `(function foo(){ })()` and `(function foo(){ }())`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
 
+You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
+
+```js
+const foo = void function bar() { return 'foo'; }();
+
+console.log(foo); // undefined
+```
+
 ###### References
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
 [[↑] Back to top](#js-questions)
 
