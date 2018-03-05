@@ -27,10 +27,30 @@
 1. [CSS 问题](questions/css-questions.md)
 1. [JavaScript 问题](questions/javascript-questions.md)
 
+## 翻译
+
+* [English](../../README.md)
+* [Tagalog](../Tagalog/README.md)
+
+**进行中**
+
+* [Korean (한국어)](../Korean/README.md)
+* [Japanese (日本語)](../Japanese/README.md)
+
 ## 相关
 
 如果你对数据结构如何实现感兴趣的话，可以看看[Lago](https://github.com/yangshun/lago)，这是一个数据结构和算法由JavaScript实现的函数库。这个项目仍然在开发中，我计划把它打造成可用于实际生产的函数库，同时，也可以作为了解数据结构和算法的参考资料。
 
-## 贡献
+## 参与共建
 
-欢迎大家提出PR，针对答案中的错误进行指正，或者建议加入新的问题。
+### 行为准则
+
+我们采用 Facebook 的行为准则，希望项目参与者能够共同遵守。请阅读[全文](https://code.facebook.com/codeofconduct)，以便了解哪些行为是允许的，哪些是不可容忍的。
+
+### 贡献指南
+
+请阅读我们的[贡献指南](../../CONTRIBUTING.md)，了解可以如何贡献，如何提出改进建议，或者你对翻译感兴趣。
+
+## 许可协议
+
+本项目全部内容遵守 [MIT 许可协议](../../LICENSE).
