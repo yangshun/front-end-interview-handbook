@@ -105,11 +105,11 @@ Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang
 
 ### Ano ang iyong naiisip sa AMD laban sa CommonJS??
 
-Ang dalawa ay parehong mga paraan upang ipatupad ang isang sistema ng module, na hindi likas na nasa JavaScript hanggang sa dumating ang ES2015. Ang CommonJS ay sabay sa oras habang ang AMD (Di sabay sa oras na module na kahulugan) ay maliwanag na di sabay sa oras. Ang CommonJS ay dinisenyo sa pagpapaunlad ng server-side habang ang AMD, kasama ang suporta nito para sa di sabay sa oras na pagload ng modules, ay mas inilaan para sa mga browser.
+Ang dalawa ay parehong mga paraan upang ipatupad ang isang sistema ng module, na hindi likas na nasa JavaScript hanggang sa dumating ang ES2015. Ang CommonJS ay sinkronisado habang ang AMD (Di sinkronisado na module na kahulugan) ay maliwanag na di sinkronisado. Ang CommonJS ay dinisenyo sa pagpapaunlad ng server-side habang ang AMD, kasama ang suporta nito para sa di sinkronisado na pagload ng modules, ay mas inilaan para sa mga browser.
 
 Nakikita ko ang sintaks ng AMD na parang masyadong malubha at ang CommonJS ay mas malapit sa estilo na nais mong ng pagsulat ng mga pahayag ng pag-import sa iba pang mga wika. halos kada, nakikita kong hindi kailangang AMD, dahil kung napagsilbihan mo ang lahat ng iyong JavaScript sa isang pinagdugtong na bugkos na, hindi ka makikinabang mula sa mga propyedad ng pag-load sa paraang async. Gayundin, ang sintaks ng CommonJS ay mas malapit sa estilo ng Node ng pagsusulat ng mga module at mayroong mas kaunting konteksto na lumilipat sa itaas kapag lumipat sa pagitan ng panig sa kliyente at panig sa serber na pag-develop ng JavaScript.
 
-Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasabay at di sabay sa oras na paglo-load, maaari na sa wakas na tayo ay mananatili lamang sa isang diskarte. Kahit na hindi ito ganap na pinagsama sa mga browser at sa Node, maaari tayong gumamit lagi ng mga transpiler upang i-convert ang ating code.
+Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasabay at di sinkronisado na paglo-load, maaari na sa wakas na tayo ay mananatili lamang sa isang diskarte. Kahit na hindi ito ganap na pinagsama sa mga browser at sa Node, maaari tayong gumamit lagi ng mga transpiler upang i-convert ang ating code.
 .
 ###### Mga Reperensiya
 
