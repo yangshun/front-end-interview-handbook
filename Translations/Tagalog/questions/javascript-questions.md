@@ -138,7 +138,7 @@ Ang mga **di-deklarado ** na mga variable ay nalilikha kapag ikaw ay  nagtatalag
 
 ```js
 function foo() {
-  x = 1; // Throws a ReferenceError in strict mode
+  x = 1; // Magtatapon ng isang ReferenceError sa mahigpit na mode
 }
 
 foo();
@@ -153,7 +153,7 @@ console.log(foo); // undefined
 console.log(foo === undefined); // true
 console.log(typeof foo === 'undefined'); // true
 
-console.log(foo == null); // true. Wrong, don't use this to check!
+console.log(foo == null); // true. Mali, wag itong gamitin para sumuri!
 
 function bar() {}
 var baz = bar();
@@ -166,7 +166,7 @@ Ang isang variable na `null` ay malinaw na itinalaga sa` null` na halaga. Ito ay
 var foo = null;
 console.log(foo === null); // true
 
-console.log(foo == undefined); // true. Wrong, don't use this to check!
+console.log(foo == undefined); // true. Mali, wag itong gamitin para sumuri!
 ```
 
 Bilang isang personal na nakaugalian, hindi ko kailanman iiwanan ang aking mga variable na hindi naipahayag o hindi ipinagkaloob. Ako ay tahasang magtatalaga ng `null` sa kanila pagkatapos ng deklarasyon, kung wala pa akong balak na gamitin ito.
@@ -208,7 +208,7 @@ Upang maunawaan ang mga pagkakaiba sa pagitan ng dalawa, tingnan natin kung ano 
 ```js
 const a = [1, 2, 3];
 const doubled = a.forEach((num, index) => {
-  // Do something with num and/or index.
+  // Gumawa ng isang bagay na may num at / o indeks.
 });
 
 // doubled = undefined
@@ -243,7 +243,7 @@ Maaari silang gamitin sa mga IIFE upang ipaloob ang ilang mga code sa loob ng is
 
 ```js
 (function() {
-  // Some code here.
+  // Ibang mga code dito.
 })();
 ```
 
@@ -285,11 +285,11 @@ Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang a
 
 ### Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga katutubong bagay?
 
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
+Ang mga katutubong bagay ay mga bagay na bahagi ng wika ng JavaScript na tinutukoy ECMAScript na ispisipikasyon, kagaya ng `String`, `Math`, `RegExp`, `Object`, `Function`, atbp.
 
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
+Ang mga bagay na host ay ibinibigay ng runtime environment (browser o Node), kagaya ng `window`, `XMLHTTPRequest`, atbp.
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
@@ -298,11 +298,11 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 ### Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?
 
-This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is use PascalCase for functions that are intended to be used as constructors.
+Ang tanong na ito ay medyo hindi malinaw. Aking pinakamahusay na hula sa intensyon nito ay ito ay nagtatanong tungkol sa mga tagapagbuo sa JavaScript. Sa teknikal na pagkakasabi, ang `function Person () {}` ay isang normal na punksyon na deklarasyon. Ang kombensyon ay gumamit ng PascalCase para sa mga punksyon na nilalayon upang magamit bilang mga tagapagbuo.
 
-`var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if it the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
+Ang `var person = Person()` ay tinatawag ang `Person` bilang isang punksyon, At hindi bilang isang tagapagbuo. Ang pagtatawag tulad nito ay isang pangkaraniwang pagkakamali kung ang punksyon ay inilaan upang magamit bilang isang tagapagbuo. Kadalasan, ang tagapagbuo ay hindi nagbabalik ng anumang bagay, kaya ang pagtawag sa tagapagbuo tulad ng isang normal na punksyon ay magbabalik ng `undefined` at itatalaga sa variable na inilaan bilang halimbawa.
 
-`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
+Ang `var person = new Person()` ay lilikha ng isang halimbawa ng `Person` na gamit ang `new` na operator, na minana mula sa `Person.prototype`. Ang isang alternatibong gagawin ay gamitin ang `Object.create`, kagaya ng: `Object.create(Person.prototype)`.
 
 ```js
 function Person(name) {
@@ -318,7 +318,7 @@ console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
 
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
@@ -326,7 +326,7 @@ console.log(person.name); // "john"
 
 ### Ano ang pagkakaiba sa pagitan ng `.call` at `.apply`?
 
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in a comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and array of arguments.
+Ang parehong `.call` at `.apply` ay ginagamit upang tumawag ng mga punksyon at ang unang parameter ay gagamitin bilang halaga ng `ito` sa loob ng punksyon Gayunpaman, Ang `.call` ay tumatagal ng mga argumento na pinaghiwalay ng kuwit bilang mga susunod na argumento habang ang `.apply` tumatagal sa isang hanay ng mga argumento bilang susunod na argumento. Ang pinakamadaling paraaan upang matandaan ito ay ang C ay para sa `call` na pinaghihiwalay ng kuwit at A para sa `apply` at array ng mga argumento.
 
 ```js
 function add(a, b) {
