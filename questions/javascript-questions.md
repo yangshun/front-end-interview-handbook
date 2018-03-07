@@ -691,7 +691,7 @@ I would not advise you to write the above during interviews though. Just stick w
 
 ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
-Every script has access to the global scope, and if everyone is using the global namespace to define their own variables, there will bound to be collisions. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
 
 [[↑] Back to top](#js-questions)
 
