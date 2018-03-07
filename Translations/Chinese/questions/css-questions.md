@@ -97,7 +97,7 @@ CSS 的`clear`属性通过使用`left`、`right`、`both`，让该元素向下�
 
 ### 请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。
 
-CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只能影响`position`值不是`static'的元素。
+CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只能影响`position`值不是`static`的元素。
 
 没有定义`z-index`的值时，元素按照它们出现在 DOM 中的顺序堆叠（层级越低，出现位置越靠上）。非静态定位的元素（及其子元素）将始终覆盖静态定位（static）的元素，而不管 HTML 层次结构如何。
 
