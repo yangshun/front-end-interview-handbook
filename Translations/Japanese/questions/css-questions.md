@@ -1,6 +1,6 @@
-# CSS に関する問題
+# CSS に関する質問
 
-[Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md) の解答集です。提案や訂正のプルリクエストは大歓迎です！
+[Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
 * [CSSセレクターの詳細度とは何ですか？どのようにはたらきますか？](#cssセレクターの詳細度とは何ですかそれはどのようにはたらきますか)
 * ["リセット" と "ノーマライズ" CSSの違いは何ですか？あなたはどちらを使いますか？そしてそれはなぜですか？](#リセット-と-ノーマライズ-cssの違いは何ですかあなたはどちらを使いますかそしてそれはなぜですか)
@@ -450,7 +450,7 @@ TODO
 
 [[↑] 先頭に戻る](#css-questions)
 
-### 他の方の解答集
+### 他の方の回答集
 
 * https://neal.codes/blog/front-end-interview-css-questions
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/

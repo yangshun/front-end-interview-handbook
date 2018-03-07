@@ -27,6 +27,17 @@
 1. [CSS に関する質問](questions/css-questions.md)
 1. [JavaScript に関する質問](questions/javascript-questions.md)
 
+## 各国語版
+
+* [English](/README.md)
+* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+* [Tagalog](/Translations/Tagalog/README.md)
+* [Japanese (日本語)](/Translations/Japanese/README.md)
+
+**製作中**
+
+* [Korean](/Translations/Korean/README.md)
+
 ## 関連情報
 
 データ構造の実装方法に興味がある場合は、私が制作している JavaScript のデータ構造とアルゴリズムライブラリである [Lago](https://github.com/yangshun/lago) をチェックしてみてください。Lago はまだかなり制作途中のものですが、プロダクトに使用できるライブラリにし、データ構造とアルゴリズムの復習をする際の参照リソースにもできるようにするつもりです。

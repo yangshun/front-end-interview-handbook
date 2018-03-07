@@ -1,6 +1,6 @@
-# HTML に関する問題
+# HTML に関する質問
 
-[Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md) の解答集です。提案や訂正のプルリクエストは大歓迎です！
+[Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
 * [`DOCTYPE` は何のためにあるものですか？](doctype-は何のためにあるものですか)
 * [どのようにすれば複数の言語のコンテンツを含むページを提供できますか？](#どのようにすれば複数の言語のコンテンツを含むページを提供できますか)
@@ -160,7 +160,17 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ### img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。
 
-TODO
+デバイスの表示幅に応じて異なるイメージをユーザーに提供したい場合は、 `srcset`属性を使用します。網膜ディスプレイを使用してデバイスに高品質のイメージを表示し、低解像度のイメージをローエンドのデバイスに提供しながらパフォーマンスを向上させ、 （大きな画像には目に見える違いがないため）データの消耗を減らします。例： `<img srcset =" small.jpg 500w、medium.jpg 1000w、large.jpg 2000w "src =" ... "alt =" ">はブラウザに小、中、大のいずれかを表示するように指示します。クライアントの解像度に応じて「jpg」グラフィックを表示します。最初の値はイメージ名で、2番目の値はイメージのピクセル単位の幅です。 320pxのデバイス幅の場合、次の計算が行われます。
+
+* 500/320 = 1.5625
+* 1000/320 = 3.125
+* 2000/320 = 6.25
+
+クライアントの解像度が1xの場合、1.5625が最も近く、 `small.jpg 'に対応する` 500w`がブラウザによって選択されます。
+
+解像度が網膜（2倍）の場合、ブラウザは最小以上の最も近い解像度を使用します。それは1より大きく、画像が悪く見えるかもしれないので、500w（1.5625）を選択しないことを意味します。ブラウザは、得られた比率が2に近い1000w（3.125）の画像を選択します。
+
+`srcset`は、デスクトップディスプレイのような巨大な画像を必要としないため、小さな画像ファイルを画面の狭いデバイスに配信したいという問題を解決します。オプションで、異なる解像度の画像を高密度/高密度スクリーン。
 
 ###### 参考
 
@@ -175,7 +185,7 @@ TODO
 
 [[↑] 先頭に戻る](#html-questions)
 
-### 他の方の解答集
+### 他の方の回答集
 
 * https://neal.codes/blog/front-end-interview-questions-html/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
