@@ -401,7 +401,7 @@ Hindi ito talagang inirerekomenda. Ang pagtuklas ng tampok ay mas walang palya.
 
 **UA String**
 
-This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
+Ito ay isang string na iniulat ng browser na nagbibigay-daan sa mga network protocol na peer na kilalanin ang uri ng aplikasyon, operating system, software vendor o bersyon ng software ng humihiling ng user agent na software. Maa-akses ito sa pamamagitan ng `navigator.userAgent`. Gayunpaman, ang string ay nakakalito i-parse at pwedeng ma-spoofed. Halimbawa, ang Chrome ay nag-uulat pareho bilang Chrome at Safari. Kaya upang ma-detect ang Safari ay kailangan mong suriin ang mga string ng Safari at ang kawalan ng string ng Chrome. Iwasan ang pamamaraang ito.
 
 ###### Mga Reperensiya
 
@@ -459,15 +459,15 @@ function printData(data) {
 ```
 
 ```js
-// File loaded from https://example.com?callback=printData
+// Ang file ay naload galing sa https://example.com?callback=printData
 printData({ name: 'Yang Shun' });
 ```
 
 Ang kliyente ay dapat magkaroon ng punksyon na `printData` sa pandaigdigang saklaw nito at ang punksyon ay isasagawa ng kliyente kapag ang tugon mula sa cross-origin na domain ay natanggap na.
 
-JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
+Maaaring hindi ligtas ang JSONP at mayroong ilang implikasyon sa seguridad. Tulad ng JSONP na talagang JavaScript, maari nitong gawin ang lahat ng iba pang  magagawa ng JavaScript, kaya kailangan mong magtiwala sa tagabigay ng JSONP na datos.
 
-These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
+Sa panahon ngayon, Ang [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) ay ang nirerekomendang pamamaraan at ang  JSONP ay makikita bilang isang hack.
 
 ###### Mga Reperensiya
 
@@ -477,36 +477,35 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 ### Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?
 
-Yes. Handlebars, Underscore, Lodash, AngularJS and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favourite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
+Oo. mga Handlebar, Underscore, Lodash, AngularJS at JSX. Hindi ko nagustuhan ang pag-template sa AngularJS dahil sa mabigat na paggamit nito ng mga string sa mga direktiba at ang mga typo ay di agad nakikita. Ang JSX ay ang aking bagong paborito dahil ito ay mas malapit sa JavaScript at mayroong halos anumang sintaks na iyong matututunan. Sa mga araw na ito, maaari mo ring gamitin ang ES2015 na mga template string literal bilang isang mabilis na paraan para sa paglikha ng mga template nang hindi umaasa sa third-party na code.
 
 ```js
 const template = `<div>My name is: ${name}</div>`;
 ```
 
-However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
+Gayunpaman, maging maingat sa isang potensyal na XSS sa itaas na pamamaraan dahil ang mga nilalaman ay hindi ligtas para sa iyo, hindi katulad sa mga libreryang pang-template.
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Ipaliwanag ang "hoisting".
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
-
+Ang pag-hoist ay isang terminong ginamit upang ipaliwanag ang pag-uugali ng mga variable na deklarasyon sa iyong code. Ang mga variable na ipinahayag o nasimulan sa keyword na `var` ay magkakaroon ng kanilang deklarasyon na "hoisted" hanggang sa tuktok ng kasalukuyangnasasakupan. Gayunpaman, ang pagpapahayag lamang ang na-hoist na, ang pagtatalaga (kung mayroong isa), ay mananatili kung saan ito. Ipaliwanag natin ang ilang mga halimbawa.
 ```js
-// var declarations are hoisted.
+// var na mga deklarasyon ay na-hoist.
 console.log(foo); // undefined
 var foo = 1;
 console.log(foo); // 1
 
-// let/const declarations are NOT hoisted.
-console.log(bar); // ReferenceError: bar is not defined
+// let/const na mga deklarasyon ay hindi na-hoist.
+console.log(bar); // ReferenceError: ang bar ay hindi natukoy
 let bar = 2;
 console.log(bar); // 2
 ```
 
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
+Ang mga deklarasyon ng punksyon ay may na-hoist katawan habang ang mga ekspresyon ng punksyon (nakasulat sa anyo ng mga variable na deklarasyon) ay may variable na deklarasyon na na-hoist lamang.
 
 ```js
-// Function Declaration
+// Deklarasyon ng Punksyon
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
@@ -514,9 +513,9 @@ function foo() {
 }
 console.log(foo); // [Function: foo]
 
-// Function Expression
+// Ekspresyon ng Punksyon
 console.log(bar); // undefined
-bar(); // Uncaught TypeError: bar is not a function
+bar(); // Uncaught TypeError: ang bar ay hindi isang punksyon
 var bar = function() {
   console.log('BARRRR');
 };
@@ -527,13 +526,13 @@ console.log(bar); // [Function: bar]
 
 ### Ilarawan ang kaganapan ng pagbubwak.
 
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
+Kapag ang isang kaganapan ay nag-trigger sa isang elemento ng DOM, susubukan nito na pangasiwaan ang kaganapan kung may nakakabit na tagapakinig, pagkatapos ay ang kaganapan ay bubula hanggang sa kanyang magulang at ang parehong bagay ang mangyayari. Ang pag-bula na ito ay nangyayari sa mga ninuno ng elemento sa lahat ng mga paraan sa `dokumento`. Ang kaganapan ng pagbubwak ng bula ay ang mekanismo sa likod ng delegasyon ng kaganapan.
 
-[[↑] Back to top](#js-questions)
+[[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?
 
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
+Ang mga katangian ay tinukoy sa markup ng HTML ngunit ang mga propyedad ay tinukoy sa DOM. Upang ilarawan ang pagkakaiba, isipin na mayroon kaming field na ito sa aming HTML: `<input type ="text"value ="Hello">`.
 
 ```js
 const input = document.querySelector('input');
@@ -541,14 +540,14 @@ console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
-But after you change the value of the text field by adding "World!" to it, this becomes:
+Ngunit pagkatapos mong baguhin ang halaga ng patlang ng teksto sa pamamagitan ng pagdaragdag ng "World!" dito, ito ay nagiging:
 
 ```js
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
@@ -556,11 +555,11 @@ console.log(input.value); // Hello World!
 
 ### Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?
 
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods are not the same.
+Ang pagpapalawak ng isang built-in o likas na JavaScript na bagay ay nangangahulugan ng pagdaragdag ng mga katangian o mga punksyon sa `prototype` nito. Bagaman ito ay maaaring mukhang isang magandang ideya sa simula, ito ay mapanganib sa pagsasagawa. Isipin mo nalang na ang iyong code ay gumagamit ng ilang mga librerya na parehong nagpapahaba ng `Array.prototype` sa pamamagitan ng pagdaragdag ng parehong `contains` na paraan, ang mga pagpapatupad ay papatungan ang bawat isa at ang iyong code at masisira kung ang pag-uugali ng dalawang mga paraan ay hindi pareho.
 
-The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
+Ang tanging oras na maaari mong i-extend ang isang likas na bagay ay kung nais mong lumikha ng isang polyfill, mahalagang nagbibigay ng iyong sariling pagpapatupad para sa isang paraan na bahagi ng pagtutukoy ng JavaScript ngunit maaaring hindi umiiral sa browser ng gumagamit sa kadahilanang ito ay isang mas lumang browser .
 
-###### References
+###### Mga Reperensiya
 
 * http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
@@ -568,11 +567,9 @@ The only time you may want to extend a native object is when you want to create 
 
 ### Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng ` DOMContentLoaded` na kaganapan?
 
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokumento ay ganap na na-load at ma-parse, nang hindi naghihintay para sa mga stylesheet, mga larawan, at mga subframe upang tapusin ang paglo-load. Ang `window` ng `load` na kaganapan ay painapaputok pagkatapos lamang ng DOM at ang lahat ng mga mapagkukunang at asset na umaasa.
 
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
-
-###### References
+###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 * https://developer.mozilla.org/en-US/docs/Web/Events/load
@@ -581,7 +578,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 ### Ano ang pagkakaiba sa pagitan ng `==` at `===`
 
-`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
+Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `== operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga conversion na uri. Ang operator ng `===` ay hindi gagawin ang uri ng conversion, kaya kung ang dalawang halaga ay hindi magkatulad na uri `=== `ay babalik lamang` false`. Kapag gumagamit ng `==`, ang mga funky bagay ay maaaring mangyari, tulad ng: na operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga pagpapalit na uri. Ang operator ng `===` ay hindi gagawin ang uri ng pagpapalit, kaya kung ang dalawang halaga ay hindi magkatulad na uri` === `ay babalik lamang sa `false`. Kapag gumagamit ng `==`, ang mga kaiba-ibang mga bagay ay maaaring mangyari, tulad ng:
 
 ```js
 1 == '1'; // true
@@ -592,15 +589,14 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 0 == false; // true
 ```
 
-My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
-
+Ang aking payo ay hindi dapat gamitin ang operator na `==', maliban sa kaginhawaan kapag naghahambing laban sa `null` o `undefined`, kung saan ang `a == null` ay babalik sa `true` kung` ang `a` ay `null` o `undefined`.
 ```js
 var a = null;
 console.log(a == null); // true
 console.log(a == undefined); // true
 ```
 
-###### References
+###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
@@ -608,9 +604,9 @@ console.log(a == undefined); // true
 
 ### Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+Pinipigilan ng patakaran ng may parehong pinagmulan ang JavaScript mula sa paggawa ng mga kahilingan sa mga hangganan ng domain. Ang pinagmulan ay tinukoy bilang isang kumbinasyon ng scheme ng URI, hostname, at numero ng port. Pinipigilan ng patakarang ito ang isang nakakahamak na script sa isang pahina mula sa pagkuha ng akses sa mga sensitibong datos sa isa pang pahina ng web sa pamamagitan ng Document Object Model na pahina.
 
-###### References
+###### Mga reperensiya
 
 * https://en.wikipedia.org/wiki/Same-origin_policy
 
