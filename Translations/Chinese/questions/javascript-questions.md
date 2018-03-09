@@ -319,7 +319,7 @@ console.log(person.name); // "john"
 
 ### `.call`和`.apply`有什么区别？
 
-`.call`和`.apply`都用于调用函数，第一个参数将用作函数内this的值。然而，`.call`接受逗号分隔的参数作为后面的参数，而'.apply`接受一个参数数组作为后面的参数。一个简单的记忆方法是，从`call`中的 C 联想到逗号分隔（comma-separated），从`apply`中的 A 联想到数组（array）。
+`.call`和`.apply`都用于调用函数，第一个参数将用作函数内this的值。然而，`.call`接受逗号分隔的参数作为后面的参数，而`.apply`接受一个参数数组作为后面的参数。一个简单的记忆方法是，从`call`中的 C 联想到逗号分隔（comma-separated），从`apply`中的 A 联想到数组（array）。
 
 ```js
 function add(a, b) {
@@ -346,10 +346,10 @@ console.log(add.apply(null, [1, 2])); // 3
 
 [[↑] 回到顶部](#js-问题)
 
-### 什么时候会用到document.write()`？
+### 什么时候会用到`document.write()`？
 
 `document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
-`document.write()`用来将一串文本写入由`document.open()`打开的文档流中。当页面加载后执行`document.write()`时，它将调用'document.open`，会清除整个文档（`<head>`和`<body>`会被移除！），并将文档内容替换成给定的字符串参数。因此它通常被认为是危险的并且容易被误用。
+`document.write()`用来将一串文本写入由`document.open()`打开的文档流中。当页面加载后执行`document.write()`时，它将调用`document.open`，会清除整个文档（`<head>`和`<body>`会被移除！），并将文档内容替换成给定的字符串参数。因此它通常被认为是危险的并且容易被误用。
 
 网上有一些答案，解释了`document.write()`被用于分析代码中，或者[当你想包含只有在启用了 JavaScript 的情况下才能工作的样式](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html)。它甚至在HTML5样板代码中用于[并行加载脚本并保持执行顺序](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)！但是，我怀疑这些使用原因是过时的，现在可以在不使用`document.write()`的情况下实现。如果我的观点有错，请纠正我。
 
@@ -828,7 +828,42 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 * 不变性有什么优点和缺点？
 * 你如何在自己的代码中实现不变性？
 
-TODO
+***可变对象*** 在创建之后是可以被改变的。
+
+***不可变对象*** 在创建之后是不可以被改变的。
+
+1. 在 `JavaScript` 中，`string` 和 `number` 从设计之初就是不可变(Immutable)。
+2. ***不可变*** 其实是保持一个对象状态不变，这样做的好处是使得开发更加简单，可回溯，测试友好，减少了任何可能的副作用。但是，每当你想添加点东西到一个不可变(Immutable)对象里时，它一定是先拷贝已存在的值到新实例里，然后再给新实例添加内容，最后返回新实例。相比可变对象，这势必会有更多内存、计算量消耗。
+3. 比如：构造一个纯函数
+
+```js
+const student1 = {
+    school: "Baidu", 
+    name: 'HOU Ce',
+    birthdate: '1995-12-15',
+}
+
+const changeStudent = (student, newName, newBday) => {
+    return {
+        ...student, // 使用解构
+        name: newName, // 覆盖name属性
+        birthdate: newBday // 覆盖birthdate属性
+    }
+}
+
+const student2 = changeStudent(student1, 'YAN Haijing', '1990-11-10');
+
+// both students will have the name properties
+console.log(student1, student2);
+// Object {school: "Baidu", name: "HOU Ce", birthdate: "1995-12-15"} 
+// Object {school: "Baidu", name: "YAN Haijing", birthdate: "1990-11-10"}
+```
+
+###### 参考
+
+* https://juejin.im/post/58d0ff6f1b69e6006b8fd4e9
+* https://www.interviewcake.com/concept/java/mutable
+* https://www.sitepoint.com/immutability-javascript/
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1066,7 +1101,70 @@ console.log(q); // true
 
 ### ES6 的模板字符串为生成字符串提供了很大的灵活性，你可以举个例子吗？
 
-TODO
+
+***模板字面量***（Template literals） 是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能。
+
+**语法**
+
+```js
+`string text`
+
+`string text line 1
+ string text line 2`
+
+`string text ${expression} string text`
+
+tag `string text ${expression} string text`
+```
+
+**示例**
+
+```js
+console.log(`string text line 1
+string text line 2`);
+// "string text line 1
+// string text line 2"
+
+var a = 5;
+var b = 10;
+console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+// "Fifteen is 15 and
+// not 20."
+```
+
+```js
+//show函数采用rest参数的写法如下：
+
+let name = '张三',
+
+    age = 20,
+
+    message = show`我来给大家介绍:${name}的年龄是${age}.`;
+
+function show(stringArr,...values){
+
+let output ="";
+
+let index = 0
+
+    for(;index<values.length;index++){
+
+        output += stringArr [index]+values[index];
+
+    }
+
+    output += stringArr [index];
+
+    return output;
+
+}
+
+message;       //"我来给大家介绍:张三的年龄是20."
+```
+
+###### 参考
+
+* https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings
 
 [[↑] 回到顶部](#js-问题)
 
