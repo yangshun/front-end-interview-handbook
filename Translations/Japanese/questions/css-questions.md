@@ -54,7 +54,7 @@
 * https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 * https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### "リセット" と "ノーマライズ" CSSの違いは何ですか？あなたはどちらを使いますか？そしてそれはなぜですか？
 
@@ -67,7 +67,7 @@
 
 * https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `float` とは何ですか？どのようにはたらきますか？
 
@@ -95,7 +95,7 @@ CSSの `clear` プロパティは、`left`/`right`/`both` 浮動要素の下に�
 
 * https://css-tricks.com/all-about-floats/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `z-index` とは何かと、スタックコンテキスト(スタック文脈)がどのように作られるのかを教えてください。
 
@@ -113,7 +113,7 @@ CSSの `z-index` プロパティは、重なっている要素の垂直方向の
 * https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### ブロック整形文脈（Block Formatting Context、BFC）とその仕組みを教えてください。
 
@@ -135,7 +135,7 @@ BFCが崩壊したときに隣接するブロックレベルボックス間の�
 * https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 * https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### clear を行う手法にはどのようなものがあり、それぞれどのような状況に適していますか？
 
@@ -145,7 +145,7 @@ BFCが崩壊したときに隣接するブロックレベルボックス間の�
 
 大規模なプロジェクトでは、ユーティリティ `.clearfix` クラスを作成し、必要な場所で使用します。 子供が親よりも背が高く、それほど理想的でない場合、`overflow: hidden` は子供をクリップするかもしれません。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### CSSスプライトとは何ですか？ページやサイトに実装する方法も合わせて説明してください。
 
@@ -164,7 +164,7 @@ CSSスプライトは、複数のイメージを1つの大きなイメージに�
 
 * https://css-tricks.com/css-sprites/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか？
 
@@ -173,7 +173,7 @@ CSSスプライトは、複数のイメージを1つの大きなイメージに�
 * ベンダープレフィックスをコードに自動的に追加するには、`autoprefixer` を使用します。
 * Reset CSSまたはNormalize.cssを使用してください。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 機能の少ないブラウザに対しては、どのようにページを提供しますか？どのようなテクニック/プロセスを使用しますか？
 
@@ -183,7 +183,7 @@ CSSスプライトは、複数のイメージを1つの大きなイメージに�
 * 自動ベンダー接頭辞挿入のための*オートプレフィクサー。
 * [Modernizr](https://modernizr.com/) を使った機能の検出
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### コンテンツを視覚的に隠す（スクリーンリーダーのみ利用可能にする）方法にはどのようなものがありますか？いくつか教えてください。
 
@@ -204,31 +204,46 @@ WAI-ARIAが理想的な解決策であっても、私は絶対的なポジショ
 * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 * http://a11yproject.com/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### グリッドシステムを使用したことがありますか？使ったことがあるなら、あなたはどのグリッドシステムが好きですか？
 
 私は `float` ベースのグリッドシステムが好きです。なぜなら、既存の代替システム（フレックス、グリッド）の中でも最も多くのブラウザをサポートしているからです。 ブートストラップで長年使用されており、動作することが証明されています。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### メディアクエリやモバイル固有のレイアウト/CSSを使用したり実装したことはありますか？
 
 はい。 一例は、ピル型ナビゲーションを、特定のブレークポイントを越えた固定底のタブ型ナビゲーションに変換することである。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### SVGのスタイリングについては詳しいですか？
 
 いいえ...悲しいことに。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `screen` 以外の @media プロパティの例を挙げられますか？
 
-TODO
+はい、@media プロパティには `screen` も含めて４つの種類があります。:
 
-[[↑] 先頭に戻る](#css-questions)
+* `all` - for all media type devices
+* `print` - for printers
+* `speech` - for screenreaders that "reads" the page out loud
+* `screen` - for computer screens, tablets, smart-phones etc.
+
+`print` メディアタイプの使い方の例:
+
+```css
+@media print {
+  body {
+    color: black;
+  }
+}
+```
+
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 効率的なCSSを書くにために避けるべき "落とし穴" にはどんなものがありますか？
 
@@ -243,7 +258,7 @@ TODO
 * https://developers.google.com/web/fundamentals/performance/rendering/
 * https://csstriggers.com/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### CSSプリプロセッサを使用するメリットとデメリットには何がありますか？
 
@@ -259,7 +274,7 @@ TODO
 
 * 前処理のためのツールが必要です。 再コンパイル時間が遅くなることがあります。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 使用したことのあるCSSプリプロセッサについて好きなものと嫌いなものを教えてください。
 
@@ -273,13 +288,13 @@ TODO
 * Cassで書かれたLibSassのバインディングである `node-sass` を使ってSassを使用します。ノードのバージョンを切り替えるときに、頻繁に再コンパイルする必要があります。
 * Lessでは、変数名の先頭に `@` が付いています。これは `@media`、`@import`、`@font-face` ルールなどのネイティブCSSキーワードと混同することがあります。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 非標準フォントを使用するWebサイトを実装するにはどのようにしますか？
 
 `font-face` を使って `font-weight` の `font-family` を定義してください。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### CSSセレクタにマッチする要素がどれなのか、ブラウザがどのように決定しているかを説明してください。
 
@@ -291,7 +306,7 @@ TODO
 
 * https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 疑似要素について説明し、それらがなんのために使われているかを詳しく話してください。
 
@@ -305,7 +320,7 @@ CSS疑似要素はセレクタに追加されたキーワードで、選択し�
 
 * https://css-tricks.com/almanac/selectors/a/after-and-before/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### ボックスモデルがなんであるかのあなたの理解と、異なるボックスモデルでレイアウトをレンダリングするためにCSSでブラウザに指示する方法を説明してください。
 
@@ -330,7 +345,7 @@ CSSボックスモデルは、次の計算を行います。
 
 * https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `* { box-sizing: border-box; }` によって何が起きますか？その利点は何ですか？
 
@@ -339,7 +354,7 @@ CSSボックスモデルは、次の計算を行います。
 * 要素の `height` は、コンテンツの `height` +垂直 `padding` + 垂直 `border` 幅によって計算されます。
 * 要素の `width` は、コンテンツの `width` +水平 `padding` + 水平 `border` 幅によって計算されます。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### CSSの `display` プロパティとは何ですか？その使い方の例をいくつか挙げることができますか？
 
@@ -347,7 +362,7 @@ CSSボックスモデルは、次の計算を行います。
 
 TODO
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `inline` と `inline-block` の違いは何ですか？
 
@@ -362,7 +377,7 @@ TODO
 | Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
 | Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `position` が `relative`、`fixed`、`absolute`、`static` の要素の違いは何ですか？
 
@@ -378,7 +393,7 @@ TODO
 
 * https://developer.mozilla.org/en/docs/Web/CSS/position
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### ローカルや本番環境で、どの既存のCSSフレームワークを使用していますか？また、どのように変更/改善していますか？
 
@@ -386,7 +401,7 @@ TODO
 * **Semantic UI** - ソースコード構造により、テーマのカスタマイズが非常に難しくなります。慣習的でないテーマ設定システムでカスタマイズするのは面倒です。 ベンダライブラリ内のハードコードされた設定パス。BootStrap とは違って、変数をオーバーライドするためにうまく設計されていません。
 * **Bulma** - 非セマンティックで余計なクラスやマークアップが必要です。下位互換性がありません。バージョンをアップグレードすると、微妙な方法でアプリが壊れてしまいます。
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 新しいCSSの Flexbox や Grid の仕様で遊んだことはありますか？
 
@@ -400,13 +415,13 @@ Flexboxは、コンテナ内の要素の垂直方向のセンタリング、ス�
 
 * https://philipwalton.github.io/solved-by-flexbox/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### ウェブサイトをレスポンシブでコーディングすることとモバイルファーストでコーディングすることの違いを説明できますか？
 
 TODO
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### レスポンシブデザインはアダプティブデザインと何が違いますか？
 
@@ -422,7 +437,7 @@ TODO
 * http://mediumwell.com/responsive-adaptive-mobile/
 * https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### Retina 対応を行ったことはありますか？もしあるなら、いつどのようなテクニックを使いましたか？
 
@@ -436,7 +451,7 @@ TODO
 
 * https://www.sitepoint.com/css-techniques-for-retina-displays/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### `position: absolute` の代わりに `translate()` を使用するべき場合はありますか？その逆の場合もありますか？理由も合わせて教えてください。
 
@@ -448,7 +463,7 @@ TODO
 
 * https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
-[[↑] 先頭に戻る](#css-questions)
+[[↑] 先頭に戻る](#css-に関する質問)
 
 ### 他の方の回答集
 
