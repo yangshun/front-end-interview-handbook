@@ -19,7 +19,7 @@
 
 ## より一般的なエンジニア面接の準備がしたいですか？
 
-その場合には [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) が良いかもしれません。こちらのリポジトリはより一般的なエンジニア面接に役立つ内容になっています。含まれるものは例えば、アルゴリズム関連の問題や、行動面接（behavioral interview）対策、[面接対策チートシート](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)などです！
+その場合には [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) が良いかもしれません。こちらのリポジトリはより一般的なエンジニア面接に役立つ内容になっています。含まれるものには、アルゴリズム関連の問題や、行動面接（behavioral interview）対策、[面接対策チートシート](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)などがあります！
 
 ## 目次
 
@@ -46,12 +46,12 @@
 
 ### 行動規範
 
-私たちはプロジェクト参加者が遵守すべき行動規範として、Facebookと同じものを採択しました。[こちらの全文](https://code.facebook.com/codeofconduct)を読んで、どのような行為が容認されるかご確認ください。
+私たちはプロジェクト参加者が遵守すべき行動規範として、Facebookと同じものを採択しました。プロジェクトに参加する場合、[こちらの全文](https://code.facebook.com/codeofconduct)を読んでどのような行為が容認されるかをご確認ください。
 
 ### コントリビューションガイド
 
-コントリビューションの方法、改善の提案方法、コンテンツの翻訳方法に興味がある方は、[コントリビューションガイド](CONTRIBUTING.md)を参照してください。
+コントリビューションの方法、改善の提案方法、コンテンツの翻訳方法に興味がある方は、[コントリビューションガイド](/CONTRIBUTING.md)を参照してください。
 
 ## ライセンス
 
-このリポジトリ内のプロジェクトとパッケージはすべて [MIT ライセンス](LICENSE)です。
+このリポジトリ内のプロジェクトとパッケージはすべて [MIT ライセンス](/LICENSE)です。

@@ -22,7 +22,7 @@
 * [Ajax を利用する利点を欠点はなんですか？](#ajax-を利用する利点を欠点はなんですか)
 * [JSONP がどのように機能するか（またそれが Ajax とはどこが違うのか）を説明してください。](#jsonp-がどのように機能するかまたそれが-ajax-とはどこが違うのかを説明してください)
 * [JavaScript templating を使ったことがありますか？ もしあれば、どのライブラリを使ったことがありますか？](#javascript-templating-を使ったことがありますか-もしあればどのライブラリを使ったことがありますか)
-* ["hoisting" について説明してください。](#hoisting-について説明してください)
+* ["巻き上げ"について説明してください。](#巻き上げについて説明してください)
 * [event bubbling について教えてください。](#event-bubbling-について教えてください)
 * ["attribute" と "property" の違いを説明してください。](#attribute-と-property-の違いを説明してください)
 * [ビルトインオブジェクトを拡張することはなぜ良くないのでしょうか？](#ビルトインオブジェクトを拡張することはなぜ良くないのでしょうか)
@@ -59,7 +59,7 @@
 
 ### イベントデリゲーションについて説明してください。
 
-イベントデリゲーÏションは、イベントリスナーを子要素に追加するのではなく、親要素に追加する手法です。 リスナーは、DOMをバブリングするイベントのために、子孫要素でイベントがトリガーされるたびに発生します。 この手法の利点は次のとおりです。
+イベントデリゲーションは、イベントリスナーを子要素に追加するのではなく、親要素に追加する手法です。 リスナーは、DOM をバブリングするイベントのために、子孫要素でイベントがトリガーされるたびに発生します。 この手法の利点は次のとおりです。
 
 * 子孫ごとにイベントハンドラーをアタッチするのではなく、親要素に1つのハンドラーしか必要ないため、メモリの使用量が減少します。
 * 削除された要素からハンドラをアンバインドしたり、新しい要素のイベントをバインドする必要はありません。
@@ -69,18 +69,18 @@
 * https://davidwalsh.name/event-delegate
 * https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### JavaScriptの `this` はどう機能するものなのか説明してください。
 
-`this`の簡単な説明はありません。それはJavaScriptの最も混乱しやすい概念の1つです。手のひら波の説明は、 `this`の値が関数の呼び出し方法に依存するということです。私はこのオンラインで多くの説明を読んでおり、[Arnav Aggrawal]（https://medium.com/@arnav_aggarwal）の説明が最も明白であることがわかりました。次のルールが適用されます。
+`this`の簡単な説明はありません。それはJavaScriptの最も混乱しやすい概念の1つです。手のひら波の説明は、`this` の値が関数の呼び出し方法に依存するということです。私はこのオンラインで多くの説明を読んでおり、[Arnav Aggrawal]（https://medium.com/@arnav_aggarwal）の説明が最も明白であることがわかりました。次のルールが適用されます。
 
-1. 関数を呼び出すときに `new`キーワードが使用されている場合、関数内の` this`は全く新しいオブジェクトです。
-2. `apply`、` call`、 `bind`を使って関数を呼び出す/作成する場合、関数内の` this`は引数として渡されるオブジェクトです。
-3. メソッドが `obj.method()`のように呼び出された場合、 `this`はその関数がプロパティであるオブジェクトです。
-4. 関数が空の関数呼び出しとして呼び出された場合、つまり、上記の条件のいずれかがなくても呼び出された場合、 `this`はグローバルオブジェクトです。ブラウザでは、 `window`オブジェクトです。 strictモード（ `'use strict'`）の場合、` this`はグローバルオブジェクトではなく `undefined`になります。
-5. 上記のルールの複数が適用される場合、より高いルールが勝ち、 `this`値を設定します。
-6. 関数がES2015矢印関数の場合、上記のすべてのルールを無視し、作成時にその周囲のスコープの `this`値を受け取ります。
+1. 関数を呼び出すときに `new` キーワードが使用されている場合、関数内の `this` は全く新しいオブジェクトです。
+2. `apply`、`call`、 `bind` を使って関数を呼び出す/作成する場合、関数内の `this` は引数として渡されるオブジェクトです。
+3. メソッドが `obj.method()` のように呼び出された場合、 `this`はその関数がプロパティであるオブジェクトです。
+4. 関数が空の関数呼び出しとして呼び出された場合、つまり、上記の条件のいずれかがなくても呼び出された場合、`this` はグローバルオブジェクトです。ブラウザでは、`window` オブジェクトです。 strictモード（`'use strict'`）の場合、`this` はグローバルオブジェクトではなく `undefined` になります。
+5. 上記のルールの複数が適用される場合、より高いルールが勝ち、`this` 値を設定します。
+6. 関数がES2015矢印関数の場合、上記のすべてのルールを無視し、作成時にその周囲のスコープの `this` 値を受け取ります。
 
 詳細な説明は、彼の [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3) を参照してください。
 
@@ -89,37 +89,37 @@
 * https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 * https://stackoverflow.com/a/3127440/1751946
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### プロトタイプ継承はどのように機能するか説明してください。
 
-これは非常によくあるJavaScriptインタビューの質問です。 すべてのJavaScriptオブジェクトには、別のオブジェクトへの参照である `prototype`プロパティがあります。 プロパティがオブジェクト上でアクセスされ、プロパティがそのオブジェクトに見つからない場合、JavaScriptエンジンはオブジェクトの `prototype` と `prototype` の `prototype`などを調べて、プロパティが定義されるまで探します プロトタイプチェーンの最後に到達するまで、 この動作は古典的な継承をシミュレートしますが、実際は継承よりも委譲されています （[delegation than inheritance](https://davidwalsh.name/javascript-objects)）。
+これは非常によくあるJavaScriptインタビューの質問です。 すべてのJavaScriptオブジェクトには、別のオブジェクトへの参照である `prototype` プロパティがあります。 プロパティがオブジェクト上でアクセスされ、プロパティがそのオブジェクトに見つからない場合、JavaScriptエンジンはオブジェクトの `prototype` と `prototype` の `prototype` などを調べて、プロパティが定義されるまで探します プロトタイプチェーンの最後に到達するまで、 この動作は古典的な継承をシミュレートしますが、実際は継承よりも委譲されています （[delegation than inheritance](https://davidwalsh.name/javascript-objects)）。
 
 ###### 参考
 
 * https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 * https://davidwalsh.name/javascript-objects
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### AMDとCommonJS、何が違いますか？
 
-どちらも、ES2015が登場するまでJavaScriptにネイティブに存在しなかったモジュールシステムを実装する方法です。 CommonJSは同期ですが、AMD（Asynchronous Module Definition）は明らかに非同期です。 CommonJSはサーバー側の開発を念頭に置いて設計されていますが、AMDはモジュールの非同期ロードをサポートしているため、ブラウザ向けのものです。
+どちらも、ES2015 が登場するまで JavaScript にネイティブに存在しなかったモジュールシステムを実装する方法です。 CommonJS は同期ですが、AMD（Asynchronous Module Definition）は明らかに非同期です。 CommonJS はサーバー側の開発を念頭に置いて設計されていますが、AMDはモジュールの非同期ロードをサポートしているため、ブラウザ向けのものです。
 
-私はAMD構文が非常に冗長であり、CommonJSは他の言語のインポート文を書くスタイルに近いことがわかります。ほとんどの場合、すべてのJavaScriptを1つの連結されたバンドルファイルに提供した場合、非同期読み込みプロパティのメリットはないため、AMDは不要です。また、CommonJS構文は、モジュールを書くノードスタイルに近く、クライアント側とサーバー側のJavaScript開発を切り替える際のコンテキスト切り替えのオーバーヘッドが少なくなります。
+私はAMD構文が非常に冗長であり、CommonJS は他の言語のインポート文を書くスタイルに近いことがわかります。ほとんどの場合、すべてのJavaScriptを1つの連結されたバンドルファイルに提供した場合、非同期読み込みプロパティのメリットはないため、AMDは不要です。また、CommonJS構文は、モジュールを書くノードスタイルに近く、クライアント側とサーバー側の JavaScript 開発を切り替える際のコンテキスト切り替えのオーバーヘッドが少なくなります。
 
-同期と非同期の両方のロードをサポートするES2015モジュールでは、最終的には1つのアプローチに固執することができてうれしいです。ブラウザやNodeでは完全にロールアウトされていませんが、私たちはいつでもtranspilerを使用してコードを変換することができます。
+同期と非同期の両方のロードをサポートする ES2015 モジュールでは、最終的には1つのアプローチに固執することができてうれしいです。ブラウザや Node では完全にロールアウトされていませんが、私たちはいつでもトランスパイラを使用してコードを変換することができます。
 
 ###### 参考
 
 * https://auth0.com/blog/javascript-module-systems-showdown/
 * https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### なぜ次のコードは IIFE として機能しないのでしょうか？: `function foo(){ }();` IIFE として機能させるには何を変える必要がありますか？
 
-IIFEは、Immediately Invoked Function Expressionsの略です。 JavaScriptのパーサーは、`function foo(){ }();`を `function foo(){ }` と `();` として読み込みます。前者は関数宣言で、後者（括弧のペア）は試行です 関数を呼び出すときに名前が指定されていないので、 `Uncaught SyntaxError: Unexpected token )` をスローします）。
+IIFEは、Immediately Invoked Function Expressions の略です。 JavaScriptのパーサーは、`function foo(){ }();` を `function foo(){ }` と `();` として読み込みます。前者は関数宣言で、後者（括弧のペア）は試行です 関数を呼び出すときに名前が指定されていないので、 `Uncaught SyntaxError: Unexpected token )` をスローします）。
 
 `(function foo(){ })()` と `(function foo(){ }())` を追加するという2つの方法があります。 これらの関数はグローバルスコープで公開されておらず、本体内で自身を参照する必要がない場合は、その名前を省略することもできます。
 
@@ -127,7 +127,7 @@ IIFEは、Immediately Invoked Function Expressionsの略です。 JavaScriptの�
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### 変数が `null`、`undefined`、未定義だったときの違いはなんでしょう? どのようにして、これらの状態を調べますか？
 
@@ -173,7 +173,7 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 * https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### クロージャとはなんですか？また、なぜこれを使うのでしょうか？どのように使うのでしょうか？
 
@@ -189,7 +189,7 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `.forEach` と `.map()` の違いを説明できますか？これらをどのように使い分けますか？
 
@@ -224,13 +224,13 @@ const doubled = a.map(num => {
 // doubled = [2, 4, 6]
 ```
 
-`.forEach`と` .map() `の主な違いは、` .map() `が新しい配列を返すことです。 結果が必要だが元の配列を変更したくない場合は、 `.map()`がはっきりとした選択です。 単に配列を反復処理する必要がある場合、 `forEach`は良い選択です。
+`.forEach` と `.map()` の主な違いは、` .map()` が新しい配列を返すことです。 結果が必要だが元の配列を変更したくない場合は、`.map()` がはっきりとした選択です。 単に配列を反復処理する必要がある場合、`forEach` は良い選択です。
 
 ###### 参考
 
 * https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### 無名関数の典型的な使い方を教えてください。
 
@@ -250,7 +250,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-関数型プログラミング構造体またはLodashへの引数（コールバックと同様）。
+関数型プログラミング構造体または Lodash への引数（コールバックと同様）。
 
 ```js
 const arr = [1, 2, 3];
@@ -265,7 +265,7 @@ console.log(double); // [2, 4, 6]
 * https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 * https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### どのようなことを意識してコードを組み立てていますか？ (モジュールパターン, classical inheritance?)
 
@@ -275,7 +275,7 @@ console.log(double); // [2, 4, 6]
 
 私は可能な限り古典的な継承を避けます。 私がそうすると、[これらの規則](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)に固執します。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### host objects と native objects は何が違いますか？
 
@@ -287,7 +287,7 @@ console.log(double); // [2, 4, 6]
 
 * https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### 次のコードの違いはなんですか？: `function Person(){}` 後、 `var person = Person()` と `var person = new Person()`
 
@@ -315,7 +315,7 @@ console.log(person.name); // "john"
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `.call` と `.apply` の違いはなんですか？
 
@@ -330,7 +330,7 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `Function.prototype.bind` について説明してください。
 
@@ -344,20 +344,20 @@ console.log(add.apply(null, [1, 2])); // 3
 
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `document.write()` はいつ使いますか？
 
-`document.write()`は `document.open()`によってオープンされた文書ストリームに文字列を書き込みます。ページがロードされた後 `document.write()` が実行されると、`document.open` が呼び出され、ドキュメント全体が消去されます（`<head>` と `<body>` removed！）文字列に与えられたパラメータ値。したがって、通常は危険であり、誤用されやすいと考えられています。
+`document.write()` は `document.open()` によってオープンされた文書ストリームに文字列を書き込みます。ページがロードされた後 `document.write()` が実行されると、`document.open` が呼び出され、ドキュメント全体が消去されます（`<head>` と `<body>` removed！）文字列に与えられたパラメータ値。したがって、通常は危険であり、誤用されやすいと考えられています。
 
-`document.write()`が解析コードで使用されている、または[JavaScriptが有効になっている場合のみ動作するスタイルを含める場合](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html)。 HTML5の定型句で[スクリプトを並行してロードして実行順序を保持する](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)にも使用されています。しかし、私はそれらの理由が時代遅れかもしれないと思うし、現代では `document.write()` を使わなくても達成できます。私がこれについて間違っているなら、私に正しいことをしてください。
+`document.write()` が解析コードで使用されている、または[JavaScriptが有効になっている場合のみ動作するスタイルを含める場合](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html)。 HTML5の定型句で[スクリプトを並行してロードして実行順序を保持する](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)にも使用されています。しかし、私はそれらの理由が時代遅れかもしれないと思うし、現代では `document.write()` を使わなくても達成できます。私がこれについて間違っているなら、私に正しいことをしてください。
 
 ###### 参考
 
 * https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 * https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### feature detection, feature inference, and using the UA string の違いはなんですか？
 
@@ -397,7 +397,7 @@ This is not really recommended. Feature detection is more foolproof.
 * https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### Ajax をできるだけ詳しく説明してください。
 
@@ -410,7 +410,7 @@ Ajax（非同期JavaScriptとXML）は、クライアント側で多くのWebテ
 * https://en.wikipedia.org/wiki/Ajax_(programming)
 * https://developer.mozilla.org/en-US/docs/AJAX
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### Ajax を利用する利点を欠点はなんですか？
 
@@ -428,7 +428,7 @@ Ajax（非同期JavaScriptとXML）は、クライアント側で多くのWebテ
 * 一部のWebcrawlerはJavaScriptを実行しないため、JavaScriptによって読み込まれたコンテンツは表示されません。
 * SPAの基本的な欠点。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### JSONP がどのように機能するか（またそれが Ajax とはどこが違うのか）を説明してください。
 
@@ -462,7 +462,7 @@ JSONPは安全ではなく、セキュリティ上の問題もあります。 JS
 
 * https://stackoverflow.com/a/2067584/1751946
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### JavaScript templating を使ったことがありますか？ もしあれば、どのライブラリを使ったことがありますか？
 
@@ -474,11 +474,11 @@ const template = `<div>My name is: ${name}</div>`;
 
 ただし、上記のアプローチでは、テンプレートライブラリとは異なり、コンテンツがエスケープされない可能性があるため、潜在的なXSSに注意してください。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
-### "hoisting" について説明してください。
+### "巻き上げ"について説明してください。
 
-Hoistingは、コード内の変数宣言の動作を説明するために使用される用語です。 `var` キーワードで宣言または初期化された変数の宣言は、現在のスコープの先頭まで "hoisted" されます。 しかし、宣言だけが吊り上げられ、譲渡（存在する場合）がその場所にとどまります。 いくつかの例をあげて説明しましょう。
+巻き上げは、コード内の変数宣言の動作を説明するために使用される用語です。 `var` キーワードで宣言または初期化された変数の宣言は、現在のスコープの先頭まで "巻き上げ"されます。 しかし、宣言だけが吊り上げられ、譲渡（存在する場合）がその場所にとどまります。 いくつかの例をあげて説明しましょう。
 
 ```js
 // var declarations are hoisted.
@@ -512,13 +512,13 @@ var bar = function() {
 console.log(bar); // [Function: bar]
 ```
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### event bubbling について教えてください。
 
 DOMエレメントでイベントがトリガーされると、リスナーが接続されている場合にイベントを処理しようとすると、そのイベントは親にバブリングされ、同じことが起こります。 この泡立ちは、要素の先祖を `document` までずっと上げています。 イベントのバブリングは、イベントの委任の背後にあるメカニズムです。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### "attribute" と "property" の違いを説明してください。
 
@@ -541,19 +541,19 @@ console.log(input.value); // Hello World!
 
 * https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### ビルトインオブジェクトを拡張することはなぜ良くないのでしょうか？
 
-ビルトイン/ネイティブのJavaScriptオブジェクトを拡張することは、その `prototype` にプロパティ/関数を追加することを意味します。 これは最初は良いアイデアのように思えるかもしれませんが、実際には危険です。 あなたのコードが同じ `contains` メソッドを追加することによって `Array.prototype` を拡張し、実装がお互いを上書きし、これらの2つのメソッドの動作が同じでない場合、あなたのコードが壊れてしまういくつかのライブラリを使っているとしましょう。
+ビルトイン/ネイティブの JavaScript オブジェクトを拡張することは、その `prototype` にプロパティ/関数を追加することを意味します。 これは最初は良いアイデアのように思えるかもしれませんが、実際には危険です。 あなたのコードが同じ `contains` メソッドを追加することによって `Array.prototype` を拡張し、実装がお互いを上書きし、これらの2つのメソッドの動作が同じでない場合、あなたのコードが壊れてしまういくつかのライブラリを使っているとしましょう。
 
-ネイティブオブジェクトを拡張する唯一の方法は、ポリフィルを作成する場合です。これは、JavaScript仕様の一部であり、古いブラウザであるためにユーザーのブラウザには存在しないメソッドの独自の実装を提供することです 。
+ネイティブオブジェクトを拡張する唯一の方法は、ポリフィルを作成する場合です。これは、JavaScript 仕様の一部であり、古いブラウザであるためにユーザーのブラウザには存在しないメソッドの独自の実装を提供することです 。
 
 ###### 参考
 
 * http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### document `load` event と document `DOMContentLoaded` event の違いは？
 
@@ -566,7 +566,7 @@ console.log(input.value); // Hello World!
 * https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 * https://developer.mozilla.org/en-US/docs/Web/Events/load
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `==` と `===` の違いはなんですか？
 
@@ -593,17 +593,17 @@ console.log(a == undefined); // true
 
 * https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### JavaScript の同一オリジンポリシーについて説明してください。
 
-同じ起点ポリシーは、JavaScriptがドメインの境界を越えて要求を作成するのを防ぎます。 原点は、URIスキーム、ホスト名、およびポート番号の組み合わせとして定義されます。 このポリシーは、あるページの悪意のあるスクリプトが、そのページのドキュメントオブジェクトモデルを介して別のWebページの機密データにアクセスすることを防止します。
+同じ起点ポリシーは、JavaScriptがドメインの境界を越えて要求を作成するのを防ぎます。 原点は、URIスキーム、ホスト名、およびポート番号の組み合わせとして定義されます。 このポリシーは、あるページの悪意のあるスクリプトが、そのページのドキュメントオブジェクトモデルを介して別の Web ページの機密データにアクセスすることを防止します。
 
 ###### 参考
 
 * https://en.wikipedia.org/wiki/Same-origin_policy
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### 以下のコードを動くようにしてください:
 
@@ -619,7 +619,7 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### それが　Ternary expression と呼ばれるのはなぜですか？ "Ternary" はどういう意味で使われているのでしょうか？
 
@@ -629,7 +629,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `"use strict";` とはなんですか？これを使う利点と欠点を教えてください。
 
@@ -648,7 +648,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 欠点：
 
 * いくつかの開発者が慣れ親しかった欠けている機能がたくさんあります。
-* `function.caller` と ` function.arguments` へのアクセスはもうありません。
+* `function.caller` と `function.arguments` へのアクセスはもうありません。
 * 異なる厳密なモードで記述されたスクリプトを連結すると、問題が発生する可能性があります。
 
 全体的に、私は利点が欠点を上回っていると思うし、厳密なモードブロックという機能に頼る必要はなかった。私は厳密なモードを使用することをお勧めします。
@@ -658,7 +658,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 * http://2ality.com/2011/10/strict-mode-hatred.html
 * http://lucybain.com/blog/2014/js-use-strict/
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### **"fizz"** を`3`の倍数で、**"buzz"** を`5`の倍数で、**"fizzbuzz"**を`3`と`5`の倍数で出力する、 '100'まで反復するforループを作成してください。
 
@@ -672,25 +672,25 @@ for (let i = 1; i <= 100; i++) {
 }
 ```
 
-私はあなたにインタビューの中で上記を書くことを勧めません。 長くてはっきりしたアプローチに固執してください。 もっと不気味なバージョンのFizzBuzzについては、下記の参考リンクを参照してください。
+私はあなたにインタビューの中で上記を書くことを勧めません。 長くてはっきりしたアプローチに固執してください。もっと不気味なバージョンのFizzBuzzについては、下記の参考リンクを参照してください。
 
 ###### 参考
 
 * https://gist.github.com/jaysonrowe/1592432
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### Web サイトのグローバルスコープをそのままの状態を保ち、決して触らないことが、一般的に良いとされているのはなぜですか？
 
 すべてのスクリプトはグローバルスコープにアクセスできます。誰もが独自の変数を定義するためにグローバル名前空間を使用している場合、衝突が発生します。 モジュールパターン（IIFE）を使用して、変数をローカル名前空間内にカプセル化します。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### なぜあなたは `load` イベントのようなものを使うのですか？ このイベントには欠点がありますか？ あなたは何か選択肢を知っていますか、なぜそれらを使うのですか？
 
-`load`イベントは、ドキュメント読み込みプロセスの最後に発生します。 この時点で、ドキュメント内のすべてのオブジェクトがDOM内にあり、すべてのイメージ、スクリプト、リンク、およびサブフレームの読み込みが完了しています。
+`load`イベントは、ドキュメント読み込みプロセスの最後に発生します。この時点で、ドキュメント内のすべてのオブジェクトがDOM内にあり、すべてのイメージ、スクリプト、リンク、およびサブフレームの読み込みが完了しています。
 
-DOMイベント「DOMContentLoaded」は、ページのDOMが構築された後に起動しますが、他のリソースの読み込みが完了するまで待機しません。 これは、初期化する前に全ページをロードする必要がない場合に適しています。
+DOMイベント「DOMContentLoaded」は、ページのDOMが構築された後に起動しますが、他のリソースの読み込みが完了するまで待機しません。これは、初期化する前に全ページをロードする必要がない場合に適しています。
 
 TODO.
 
@@ -698,20 +698,20 @@ TODO.
 
 * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### シングルページアプリが何であるか、そしてSEOに優しいアプリを作る方法を説明してください。
 
-以下は素晴らしい[Grab Front End Guide](https://github.com/grab/front-end-guide)から取ったもので、偶然にも私によって書かれています！
+以下は素晴らしい [Grab Front End Guide](https://github.com/grab/front-end-guide) から取ったもので、偶然にも私によって書かれています！
 
-最近のWeb開発者は、Webアプリケーションではなく、Webアプリケーションとして構築する製品を指しています。この2つの用語の間には厳密な違いはありませんが、Webアプリケーションは高度にインタラクティブでダイナミックな傾向があり、ユーザはアクションを実行し、アクションのレスポンスを受け取ることができます。伝統的に、ブラウザはサーバからHTMLを受け取り、レンダリングします。ユーザーが別のURLに移動すると、フルページの更新が必要になり、サーバーは新しいページの新しいHTMLを新しく送信します。これをサーバサイドレンダリングといいます。
+最近の Web 開発者は、Web アプリケーションではなく、Web アプリケーションとして構築する製品を指しています。この2つの用語の間には厳密な違いはありませんが、Web アプリケーションは高度にインタラクティブでダイナミックな傾向があり、ユーザはアクションを実行し、アクションのレスポンスを受け取ることができます。伝統的に、ブラウザはサーバから HTML を受け取り、レンダリングします。ユーザーが別の URL に移動すると、フルページの更新が必要になり、サーバーは新しいページの新しい HTML を新しく送信します。これをサーバサイドレンダリングといいます。
 
-しかし、現代のSPAでは、代わりにクライアント側のレンダリングが使用されます。ブラウザは、アプリケーション全体に必要なスクリプト（フレームワーク、ライブラリ、アプリケーションコード）とスタイルシートとともに、サーバーから初期ページを読み込みます。ユーザーが他のページに移動すると、ページのリフレッシュは実行されません。ページのURLは[HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) で更新されます。通常はJSON形式の新しいページに必要な新しいデータは、[AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) リクエストを介してブラウザに取り込まれます。その後、SPAはJavaScriptを介してデータを動的に更新します。これは、初期ページのロード時にすでにダウンロードされています。このモデルは、ネイティブモバイルアプリの仕組みと似ています。
+しかし、現代の SPA では、代わりにクライアント側のレンダリングが使用されます。ブラウザは、アプリケーション全体に必要なスクリプト（フレームワーク、ライブラリ、アプリケーションコード）とスタイルシートとともに、サーバーから初期ページを読み込みます。ユーザーが他のページに移動すると、ページのリフレッシュは実行されません。ページの URL は [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) で更新されます。通常はJSON形式の新しいページに必要な新しいデータは、[AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) リクエストを介してブラウザに取り込まれます。その後、SPA は JavaScript を介してデータを動的に更新します。これは、初期ページのロード時にすでにダウンロードされています。このモデルは、ネイティブモバイルアプリの仕組みと似ています。
 
 利点：
 
 * アプリの応答性が向上し、フルページのリフレッシュのためにページの移動の間にフラッシュが表示されないという問題がありました。
-* ページロードごとに同じアセットを再度ダウンロードする必要がないため、サーバーへのHTTP要求が少なくなります。
+* ページロードごとに同じアセットを再度ダウンロードする必要がないため、サーバーへの HTTP 要求が少なくなります。
 * クライアントとサーバーの間の問題の明確な分離。サーバーコードを変更することなく、さまざまなプラットフォーム（モバイル、チャットボット、スマートウォッチなど）の新しいクライアントを簡単に構築できます。また、API契約が破られていない限り、クライアントとサーバーのテクノロジスタックを個別に変更することもできます。
 
 欠点：
@@ -727,7 +727,7 @@ TODO.
 * http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 * https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### プロミスおよび/またはそのポリフィルの経験はどの程度ですか？
 
@@ -739,7 +739,7 @@ TODO.
 
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### コールバックの代わりにプロミスを使用することの長所と短所は何ですか？
 
@@ -754,7 +754,7 @@ TODO.
 * やや複雑なコード（議論の余地がある）。
 * ES2015がサポートされていない古いブラウザでは、使用するためにポリフィルをロードする必要があります。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### JavaScript にコンパイルしてくれる言語で JavaScript を書く利点と欠点をいくつか教えてください。
 
@@ -762,13 +762,13 @@ JavaScriptをコンパイルする言語には、CoffeeScript、Elm、ClojureScr
 
 利点：
 
-* JavaScriptの長年にわたる問題のいくつかを修正し、JavaScriptのアンチパターンを廃止しました。
-* JavaScriptの上に文法的な砂糖を提供することで、短いコードを書くことができますが、ES5はそれがないと思っていますが、ES2015はすばらしいです。
+* JavaScript の長年にわたる問題のいくつかを修正し、JavaScript のアンチパターンを廃止しました。
+* JavaScript の上に文法的な砂糖を提供することで、短いコードを書くことができますが、ES5 はそれがないと思っていますが、ES2015 はすばらしいです。
 * 静的型は時間が経っても維持する必要のある大規模プロジェクトの場合は素晴らしいです（TypeScriptの場合）。
 
 欠点：
 
-* ブラウザはJavaScriptのみを実行するため、ビルド/コンパイルのプロセスを必要とし、ブラウザに提供する前にコードをJavaScriptにコンパイルする必要があります。
+* ブラウザは JavaScript のみを実行するため、ビルド/コンパイルのプロセスを必要とし、ブラウザに提供する前にコードをJavaScriptにコンパイルする必要があります。
 * ソースマップがあらかじめコンパイルされたソースにうまくマッピングされない場合、デバッグが苦しいことがあります。
 * ほとんどの開発者はこれらの言語に精通しておらず、それを学ぶ必要があります。プロジェクトに使用する場合、チームのコストが上昇します。
 * 小規模なコミュニティ（言語に依存します）。リソース、チュートリアル、図書館、ツールなどを見つけるのが難しくなります。
@@ -782,7 +782,7 @@ JavaScriptをコンパイルする言語には、CoffeeScript、Elm、ClojureScr
 
 * https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### JavaScript のコードをデバッグする際にはどんなツールや技術をを利用しますか？
 
@@ -799,7 +799,7 @@ JavaScriptをコンパイルする言語には、CoffeeScript、Elm、ClojureScr
 * https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 * https://raygun.com/blog/javascript-debugging/
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### オブジェクトのプロパティや、配列の要素をイテレートする際にどの構文を使いますか？
 
@@ -811,12 +811,12 @@ JavaScriptをコンパイルする言語には、CoffeeScript、Elm、ClojureScr
 
 配列の場合：
 
-* `for`ループ - `for (var i = 0; i < arr.length; i++)`。ここでの一般的な落とし穴は、`var` は関数スコープであり、ブロックスコープではなく、ブロックスコープのイテレータ変数を使用したいと思うことです。 ES2015では、ブロックスコープを持つ `let`が導入されています。代わりにそのブロックを使用することをお勧めします。したがって、これは `for (let i = 0; i < arr.length; i++)` となります。
+* `for`ループ - `for (var i = 0; i < arr.length; i++)`。ここでの一般的な落とし穴は、`var` は関数スコープであり、ブロックスコープではなく、ブロックスコープのイテレータ変数を使用したいと思うことです。 ES2015 では、ブロックスコープを持つ `let`が導入されています。代わりにそのブロックを使用することをお勧めします。したがって、これは `for (let i = 0; i < arr.length; i++)` となります。
 * `forEach` - `arr.forEach(function (el, index) { ... })`。必要なのが配列要素であれば `index` を使う必要がないので、このコンストラクトは時に便利です。また、`every` と `some` メソッドもあります。これにより、早期に反復処理を終了させることができます。
 
 ほとんどの場合、私は `.forEach` メソッドを好むでしょうが、本当にあなたがしようとしているものに依存します。`for` ループは、より柔軟性を持たせます。たとえば、`break` を使ってループを早期に終了するか、ループごとにイテレータを複数回インクリメントします。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### mutable と immutable オブジェクトの違いを説明してください
 
@@ -826,15 +826,15 @@ JavaScriptをコンパイルする言語には、CoffeeScript、Elm、ClojureScr
 
 TODO
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### synchronous と asynchronous functions の違いを説明してください。
 
 非同期関数が非同期関数ではなく、非同期関数がブロックされています。 同期関数では、次のステートメントが実行される前にステートメントが完了します。 この場合、プログラムはステートメントの順番で正確に評価され、ステートメントの1つが非常に長い場合、プログラムの実行は一時停止されます。
 
-非同期関数は、通常、パラメータとしてコールバックを受け入れ、非同期関数が呼び出された直後に次の行で実行を続けます。 コールバックは、非同期操作が完了し、呼び出しスタックが空の場合にのみ呼び出されます。 Webサーバーからのデータのロードやデータベースのクエリなどの大規模な操作は、非同期で実行する必要があります。これにより、メインスレッドは、完了するまでの長い操作がブロックされるのではなく、他の操作の実行を継続できます（ブラウザの場合、UIはフリーズします） 。
+非同期関数は、通常、パラメータとしてコールバックを受け入れ、非同期関数が呼び出された直後に次の行で実行を続けます。 コールバックは、非同期操作が完了し、呼び出しスタックが空の場合にのみ呼び出されます。 Web サーバーからのデータのロードやデータベースのクエリなどの大規模な操作は、非同期で実行する必要があります。これにより、メインスレッドは、完了するまでの長い操作がブロックされるのではなく、他の操作の実行を継続できます（ブラウザの場合、UI はフリーズします） 。
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### event loop とはなんですか？ call stack や task queue との違いはなんですか？
 
@@ -847,7 +847,7 @@ TODO
 * https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 * http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `function foo() {}` と `var foo = function() {}` をした場合の `foo` の使い方の違いを説明してください。
 
@@ -875,11 +875,11 @@ var foo = function() {
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### `let` と `var` と `const`で宣言した変数の違いはなんですか？
 
-`var`キーワードを使って宣言された変数は、それらが作成された関数、または関数の外で作成された場合はグローバルオブジェクトにスコープされます。`let` と `const` は _block scoped_ です。つまり、最も近い中括弧（関数、if-elseブロック、またはforループ）内でのみアクセス可能です。
+`var`キーワードを使って宣言された変数は、それらが作成された関数、または関数の外で作成された場合はグローバルオブジェクトにスコープされます。`let` と `const` は _block scoped_ です。つまり、最も近い中括弧（関数、if-else ブロック、または for ループ）内でのみアクセス可能です。
 
 ```js
 function foo() {
@@ -954,29 +954,29 @@ baz = 'qux';
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### ES6 のクラス定義と、ES5 のコンストラクタ関数との違いは何がありますか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### アロー構文の使い方を例示してください。この構文と他の方法による定義とは何が違いますか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### コンストラクタにおいて、メソッドをアロー構文で定義する方法の利点はなんですか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### 高階関数とはなんですか？
 
-高次関数とは、1つまたは複数の関数を引数としてとり、いくつかのデータを操作するために使用する関数および/または結果として関数を返す関数のことです。 高次関数は、繰り返し実行される操作を抽象化することを意図しています。 これの古典的な例は配列と関数を引数として取る `map`です。 `map`はこの関数を使って配列内の各項目を変換し、変換されたデータで新しい配列を返します。 JavaScriptの他のよく使われている例は `forEach`、`filter`、 `reduce`です。 高次関数は、配列を操作するだけでなく、別の関数から関数を返す多くのユースケースがあるためです。 `Array.prototype.bind`はJavaScriptのそのような例です。
+高次関数とは、1つまたは複数の関数を引数としてとり、いくつかのデータを操作するために使用する関数および/または結果として関数を返す関数のことです。 高次関数は、繰り返し実行される操作を抽象化することを意図しています。 これの古典的な例は配列と関数を引数として取る `map`です。 `map`はこの関数を使って配列内の各項目を変換し、変換されたデータで新しい配列を返します。 JavaScript の他のよく使われている例は `forEach`、`filter`、 `reduce`です。 高次関数は、配列を操作するだけでなく、別の関数から関数を返す多くのユースケースがあるためです。 `Array.prototype.bind`はJavaScriptのそのような例です。
 
 **Map**
 
@@ -1014,11 +1014,11 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 * https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 * https://eloquentjavascript.net/05_higher_order.html
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### オブジェクトと配列について、「分割代入」の例を教えてください。
 
-分割代入は、オブジェクトまたは配列の値を抽出して別の変数に配置する簡潔で便利な方法を可能にするES6で使用可能な式です。
+分割代入は、オブジェクトまたは配列の値を抽出して別の変数に配置する簡潔で便利な方法を可能にする ES6 で使用可能な式です。
 
 **配列の分割代入**
 
@@ -1058,13 +1058,13 @@ console.log(q); // true
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 * https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### ES6 のテンプレート文字列は文字列を作り出す上で様々な柔軟性をもたらしますが、例を示すことはできますか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### カリー化の例を説明してください。またカリー化がもたらす利点はどこにあるのでしょうか？
 
@@ -1102,11 +1102,11 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 * https://hackernoon.com/currying-in-js-d9ddc64f162e
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### spread syntax を利用する利点はなんですか？また、rest syntax とは何が違っていますか？
 
-ES6の普及構文は、 `Object.create`、` slice`、またはライブラリ関数に頼らずに配列やオブジェクトのコピーを簡単に作成できるので、機能的なパラダイムでコーディングするときに非常に便利です。 この言語機能は、Reduxおよびrx.jsプロジェクトで頻繁に使用されます。
+ES6 の普及構文は、 `Object.create`、`slice`、またはライブラリ関数に頼らずに配列やオブジェクトのコピーを簡単に作成できるので、機能的なパラダイムでコーディングするときに非常に便利です。 この言語機能は、Redux および rx.js プロジェクトで頻繁に使用されます。
 
 ```js
 function putDookieInAnyArray(arr) {
@@ -1123,7 +1123,7 @@ const person = {
 const copyOfTodd = { ...person };
 ```
 
-ES6のrest構文は、任意の数の引数を関数に渡すための省略表現です。 これは、データの配列をアンパックするのではなく、データを取り込んで配列に埋め込み、配列やオブジェクトの構造の割り当てと同様に、関数の引数でも機能する、普及した構文の逆です。
+ES6 の rest 構文は、任意の数の引数を関数に渡すための省略表現です。 これは、データの配列をアンパックするのではなく、データを取り込んで配列に埋め込み、配列やオブジェクトの構造の割り当てと同様に、関数の引数でも機能する、普及した構文の逆です。
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
@@ -1148,17 +1148,17 @@ const { e, f, ...others } = {
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### ファイル間でコードを共有するにはどうすれば良いですか？
 
 これはJavaScript環境に依存します。
 
-クライアント（ブラウザ環境）では、変数/関数がグローバルスコープ（ `window`）で宣言されている限り、すべてのスクリプトがそれらを参照することができます。 代わりに、よりモジュール化されたアプローチのためにRequireJSを介してAsynchronous Module Definition（AMD）を採用してください。
+クライアント（ブラウザ環境）では、変数/関数がグローバルスコープ（`window`）で宣言されている限り、すべてのスクリプトがそれらを参照することができます。代わりに、よりモジュール化されたアプローチのために RequireJS を介して Asynchronous Module Definition（AMD）を採用してください。
 
-サーバー（Node.js）では、CommonJSを使用するのが一般的な方法でした。 各ファイルはモジュールとして扱われ、変数や関数を `module.exports`オブジェクトに添付することでエクスポートすることができます。
+サーバー（Node.js）では、CommonJS を使用するのが一般的な方法でした。各ファイルはモジュールとして扱われ、変数や関数を `module.exports`オブジェクトに添付することでエクスポートすることができます。
 
-ES2015は、AMDとCommonJSの両方を置き換えることを目指すモジュール構文を定義しています。 これは最終的にブラウザ環境とノード環境の両方でサポートされます。
+ES2015は、AMD と CommonJS の両方を置き換えることを目指すモジュール構文を定義しています。これは最終的にブラウザ環境とノード環境の両方でサポートされます。
 
 ###### 参考
 
@@ -1166,7 +1166,7 @@ ES2015は、AMDとCommonJSの両方を置き換えることを目指すモジュ
 * https://nodejs.org/docs/latest/api/modules.html
 * http://2ality.com/2014/09/es6-modules-final.html
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### static なクラス変数はどんな場面で使いますか？
 
@@ -1177,7 +1177,7 @@ ES2015は、AMDとCommonJSの両方を置き換えることを目指すモジュ
 * https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
 
-[[↑] 先頭に戻る](#js-questions)
+[[↑] 先頭に戻る](#js-に関する質問)
 
 ### 他の方の回答集
 
