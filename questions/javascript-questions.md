@@ -969,9 +969,42 @@ baz = 'qux';
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
-TODO
+From a practical point of view, the main difference are how to instantiate new objects and what `this` refers to when creating them.
 
-[[↑] Back to top](#js-questions)
+Classes are a syntax sugar for Constructor functions, which basically define a new object and append functions to its prototype. This allows developers to instantiate objects using `new` and also ensure that `this` inside the class refers to the object being created (similar to other languages).
+
+```javascript
+class ClassCar {
+  drive () {
+    console.log('Vroom!');
+  }
+}
+
+const car1 = new ClassCar();
+console.log(car1.drive());
+```
+
+Factories are functions that return the new object, which gives developers a bit more freedom on how the object will be instantiated (if more than just creating the object is needed, like pooling). Since factories are just regular functions `this` won't refer to the object being created.
+
+```javascript
+const proto = {
+  drive () {
+    console.log('Vroom!');
+  }
+};
+
+function factoryCar () {
+  return Object.create(proto);
+}
+
+const car3 = factoryCar();
+console.log(car3.drive());
+```
+
+There are more differences, specially regarding the code design of the application which are explored deeper at [Eric Elliot's post](https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e), if you want to know more about the implications of using Classes or Factories, I recommend checking it out.
+
+###### References
+https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
