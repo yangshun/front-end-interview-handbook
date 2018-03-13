@@ -1006,6 +1006,8 @@ There are more differences, specially regarding the code design of the applicati
 ###### References
 https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
+[[↑] Back to top](#js-questions)
+
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
 TODO
