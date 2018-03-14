@@ -6,21 +6,21 @@
 * [请简述`JavaScript`中的`this`。](#请简述javascript中的this)
 * [请解释原型继承（prototypal inheritance）的工作原理。](#请解释原型继承prototypal-inheritance的工作原理)
 * [说说你对 AMD 和 CommonJS 的了解。](#说说你对-amd-和-commonjs-的了解)
-* [请解释下面代码为什么不能用作 IIFE：`function foo(){ }();` 需要作出哪些修改才能使其成为 IIFE？](#请解释下面代码为什么不能用作-iifefunction-foo--需要作出哪些修改才能使其成为-iife)
-* [`null`、`undefined`和未声明变量之间有什么区别？如何检查这些状态值？](#nullundefined和未声明变量之间有什么区别如何检查这些状态值)
-* [什么是闭包（closure），以及为什么使用闭包？](#什么是闭包closure以及为什么使用闭包)
-* [请说明`.forEach`循环和`.map()`循环的主要区别，以及分别何时使用？](#请说明foreach循环和map循环的主要区别以及分别何时使用)
+* [请解释下面代码为什么不能用作 IIFE：`function foo(){ }();`，需要作出哪些修改才能使其成为 IIFE？](#请解释下面代码为什么不能用作-iifefunction-foo-需要作出哪些修改才能使其成为-iife)
+* [`null`、`undefined`和未声明变量之间有什么区别？如何检查判断这些状态值？](#nullundefined和未声明变量之间有什么区别如何检查判断这些状态值)
+* [什么是闭包（closure），为什么使用闭包？](#什么是闭包closure为什么使用闭包)
+* [请说明`.forEach`循环和`.map()`循环的主要区别，它们分别在什么情况下使用？](#请说明foreach循环和map循环的主要区别它们分别在什么情况下使用)
 * [匿名函数的典型应用场景是什么？](#匿名函数的典型应用场景是什么)
 * [你如何组织自己的代码？（使用模块模式（module pattern）还是经典继承（classical inheritance）？）](#你如何组织自己的代码使用模块模式module-pattern还是经典继承classical-inheritance)
 * [宿主对象（host objects）和原生对象（native objects）的区别是什么？](#宿主对象host-objects和原生对象native-objects的区别是什么)
-* [下列语句有何区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？](#下列语句有何区别function-personvar-person--person和var-person--new-person)
+* [下列语句有什么区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？](#下列语句有什么区别function-personvar-person--person和var-person--new-person)
 * [`.call`和`.apply`有什么区别？](#call和apply有什么区别)
 * [请说明`Function.prototype.bind`的用法。](#请说明functionprototypebind的用法)
-* [什么时候会用到document.write()`？](#什么时候会用到documentwrite)
+* [什么时候会用到`document.write()`？](#什么时候会用到documentwrite)
 * [功能检测（feature detection）、功能推断（feature inference）和使用 UA 字符串之间有什么区别？](#功能检测feature-detection功能推断feature-inference和使用-ua-字符串之间有什么区别)
 * [请尽可能详细地解释 Ajax。](#请尽可能详细地解释-ajax)
 * [使用Ajax的优缺点分别是什么？](#使用ajax的优缺点分别是什么)
-* [请说明 JSONP 的工作原理，以及它为什么不是真正的 Ajax？](#请说明-jsonp-的工作原理以及它为什么不是真正的-ajax)
+* [请说明 JSONP 的工作原理，它为什么不是真正的 Ajax？](#请说明-jsonp-的工作原理它为什么不是真正的-ajax)
 * [你使用过 JavaScript 模板吗？用过什么相关的库？](#你使用过-javascript-模板吗用过什么相关的库)
 * [请解释变量提升（hosting）。](#请解释变量提升hosting)
 * [请描述事件冒泡。](#请描述事件冒泡)
@@ -28,14 +28,14 @@
 * [为什么扩展 JavaScript 内置对象是不好的做法？](#为什么扩展-javascript-内置对象是不好的做法)
 * [document 中的`load`事件和`DOMContentLoaded`事件之间的区别是什么？](#document-中的load事件和domcontentloaded事件之间的区别是什么)
 * [`==`和`===`的区别是什么？](#和的区别是什么)
-* [请解释关于JavaScript的同源策略。](#请解释关于javascript的同源策略)
+* [请解释关于 JavaScript 的同源策略。](#请解释关于-javascript-的同源策略)
 * [请使下面的语句生效：](#请使下面的语句生效)
 * [请说明三元表达式中“三元”这个词代表什么？](#请说明三元表达式中三元这个词代表什么)
 * [什么是`"use strict";`？使用它有什么优缺点？](#什么是use-strict使用它有什么优缺点)
 * [创建一个循环，从1迭代到100，`3`的倍数时输出 "fizz"，`5`的倍数时输出 "buzz"，同时为`3`和`5`的倍数时输出 "fizzbuzz"。](#创建一个循环从1迭代到1003的倍数时输出-fizz5的倍数时输出-buzz同时为3和5的倍数时输出-fizzbuzz)
 * [为什么不要使用全局作用域？](#为什么不要使用全局作用域)
 * [为什么要使用`load`事件？这个事件有什么缺点吗？你知道一些代替方案吗，为什么使用它们？](#为什么要使用load事件这个事件有什么缺点吗你知道一些代替方案吗为什么使用它们)
-* [请解释单页应用是什么以及如何使其对SEO友好。](#请解释单页应用是什么以及如何使其对seo友好)
+* [请解释单页应用是什么，如何使其对SEO友好。](#请解释单页应用是什么如何使其对seo友好)
 * [你对 Promises 及其 polyfill 的掌握程度如何？](#你对-promises-及其-polyfill-的掌握程度如何)
 * [`Promise`代替回调函数有什么优缺点？](#promise代替回调函数有什么优缺点)
 * [用转译成 JavaScript 的语言写 JavaScript 有什么优缺点？](#用转译成-javascript-的语言写-javascript-有什么优缺点)
@@ -55,7 +55,7 @@
 * [你能举出一个柯里化函数（curry function）的例子吗？它有哪些好处？](#你能举出一个柯里化函数curry-function的例子吗它有哪些好处)
 * [使用扩展运算符（spread）的好处是什么，它与使用剩余参数语句（rest）有什么区别？](#使用扩展运算符spread的好处是什么它与使用剩余参数语句rest有什么区别)
 * [如何在文件之间共用代码？](#如何在文件之间共用代码)
-* [为什么你可能想创建静态类成员？](#为什么你可能想创建静态类成员)
+* [什么情况下会用到静态类成员？](#什么情况下会用到静态类成员)
 
 ### 请解释事件委托（event delegation）。
 
@@ -123,9 +123,18 @@ IIFE（Immediately Invoked Function Expressions）代表立即执行函数。 Ja
 
 修改方法是：再添加一对括号，形式上有两种：`(function foo(){ })()`和`(function foo(){ }())`。以上函数不会暴露到全局作用域，如果不需要在函数内部引用自身，可以省略函数的名称。
 
+你可能会用到 `void` 操作符：`void function foo(){ }();`。但是，这种做法是有问题的。表达式的值是`undefined`，所以如果你的 IIFE 有返回值，不要用这种做法。例如：
+
+```js
+const foo = void function bar() { return 'foo'; }();
+
+console.log(foo); // undefined
+```
+
 ###### 参考
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
 [[↑] 回到顶部](#js-问题)
 
@@ -175,7 +184,7 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 [[↑] 回到顶部](#js-问题)
 
-### 什么是闭包（closure），以及为什么使用闭包？
+### 什么是闭包（closure），为什么使用闭包？
 
 闭包是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。闭包是即使被外部函数返回，依然可以访问到外部（封闭）函数作用域的函数。
 
@@ -191,7 +200,7 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 [[↑] 回到顶部](#js-问题)
 
-### 请说明`.forEach`循环和`.map()`循环的主要区别，以及分别何时使用？
+### 请说明`.forEach`循环和`.map()`循环的主要区别，它们分别在什么情况下使用？
 
 为了理解两者的区别，我们看看它们分别是做什么的。
 
@@ -289,7 +298,7 @@ console.log(double); // [2, 4, 6]
 
 [[↑] 回到顶部](#js-问题)
 
-### 下列语句有何区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？
+### 下列语句有什么区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？
 
 这个问题问得很含糊。我猜这是在考察 JavaScript 中的构造函数（constructor）。从技术上讲，`function Person(){}`只是一个普通的函数声明。使用 PascalCase 方式命名函数作为构造函数，是一个惯例。
 
@@ -348,7 +357,6 @@ console.log(add.apply(null, [1, 2])); // 3
 
 ### 什么时候会用到`document.write()`？
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
 `document.write()`用来将一串文本写入由`document.open()`打开的文档流中。当页面加载后执行`document.write()`时，它将调用`document.open`，会清除整个文档（`<head>`和`<body>`会被移除！），并将文档内容替换成给定的字符串参数。因此它通常被认为是危险的并且容易被误用。
 
 网上有一些答案，解释了`document.write()`被用于分析代码中，或者[当你想包含只有在启用了 JavaScript 的情况下才能工作的样式](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html)。它甚至在HTML5样板代码中用于[并行加载脚本并保持执行顺序](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)！但是，我怀疑这些使用原因是过时的，现在可以在不使用`document.write()`的情况下实现。如果我的观点有错，请纠正我。
@@ -431,7 +439,7 @@ Ajax（asynchronous JavaScript and XML）是使用客户端上的许多Web技术
 
 [[↑] 回到顶部](#js-问题)
 
-### 请说明 JSONP 的工作原理，以及它为什么不是真正的 Ajax？
+### 请说明 JSONP 的工作原理，它为什么不是真正的 Ajax？
 
 JSONP（带填充的JSON）是一种通常用于绕过Web浏览器中的跨域限制的方法，因为 Ajax 不允许跨域请求。
 
@@ -596,7 +604,7 @@ console.log(a == undefined); // true
 
 [[↑] 回到顶部](#js-问题)
 
-### 请解释关于JavaScript的同源策略。
+### 请解释关于 JavaScript 的同源策略。
 
 同源策略可防止 JavaScript 发起跨域请求。源被定义为URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
 
@@ -701,13 +709,13 @@ TODO.
 
 [[↑] 回到顶部](#js-问题)
 
-### 请解释单页应用是什么以及如何使其对SEO友好。
+### 请解释单页应用是什么，如何使其对SEO友好。
 
 以下摘自 [Grab Front End Guide](https://github.com/grab/front-end-guide)，碰巧的是，这正是我自己写的！
 
 现如今，Web开发人员将他们构建的产品称为Web应用，而不是网站。虽然这两个术语之间没有严格的区别，但网络应用往往具有高度的交互性和动态性，允许用户执行操作并接收他们的操作响应。在过去，浏览器从服务器接收 HTML 并渲染。当用户导航到其它 URL 时，需要整页刷新，服务器会为新页面发送新的 HTML。这被称为服务器端渲染。
 
-然而，在现代的 SPA 中，客户端渲染取而代之。浏览器从服务器加载初始页面，以及整个应用程序所需的脚本（框架、库、应用代码）和样式表。当用户导航到其他页面时，不会触发页面刷新。该页面的URL通过 [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) 进行更新。浏览器通过 [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) 请求向服务器检索新页面所需的数据（通常采用JSON格式）。然后，SPA 通过 JavaScript 来动态更新页面，这些 JavaScript 在初始页面加载时已经下载。这种模式类似于原生移动应用的工作方式。
+然而，在现代的 SPA 中，客户端渲染取而代之。浏览器从服务器加载初始页面、整个应用程序所需的脚本（框架、库、应用代码）和样式表。当用户导航到其他页面时，不会触发页面刷新。该页面的URL通过 [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) 进行更新。浏览器通过 [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) 请求向服务器检索新页面所需的数据（通常采用JSON格式）。然后，SPA 通过 JavaScript 来动态更新页面，这些 JavaScript 在初始页面加载时已经下载。这种模式类似于原生移动应用的工作方式。
 
 **好处：**
 
@@ -838,7 +846,7 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 ```js
 const student1 = {
-    school: "Baidu", 
+    school: "Baidu",
     name: 'HOU Ce',
     birthdate: '1995-12-15',
 }
@@ -855,7 +863,7 @@ const student2 = changeStudent(student1, 'YAN Haijing', '1990-11-10');
 
 // both students will have the name properties
 console.log(student1, student2);
-// Object {school: "Baidu", name: "HOU Ce", birthdate: "1995-12-15"} 
+// Object {school: "Baidu", name: "HOU Ce", birthdate: "1995-12-15"}
 // Object {school: "Baidu", name: "YAN Haijing", birthdate: "1990-11-10"}
 ```
 
@@ -1101,7 +1109,6 @@ console.log(q); // true
 
 ### ES6 的模板字符串为生成字符串提供了很大的灵活性，你可以举个例子吗？
 
-
 ***模板字面量***（Template literals） 是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能。
 
 **语法**
@@ -1270,7 +1277,7 @@ ES2015 定义了一个模块语法，旨在替换 AMD 和 CommonJS。 这最终�
 * https://nodejs.org/docs/latest/api/modules.html
 * http://2ality.com/2014/09/es6-modules-final.html
 
-### 为什么你可能想创建静态类成员？
+### 什么情况下会用到静态类成员？
 
 静态类成员（属性或方法）不绑定到某个类的特定实例，不管哪个实例引用它，都具有相同的值。静态属性通常是配置变量，而静态方法通常是纯粹的实用函数，不依赖于实例的状态。
 

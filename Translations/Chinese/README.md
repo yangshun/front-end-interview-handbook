@@ -31,11 +31,11 @@
 
 * [English](../../README.md)
 * [Tagalog](../Tagalog/README.md)
+* [Japanese (日本語)](../Japanese/README.md)
 
 **进行中**
 
 * [Korean (한국어)](../Korean/README.md)
-* [Japanese (日本語)](../Japanese/README.md)
 
 ## 相关
 
