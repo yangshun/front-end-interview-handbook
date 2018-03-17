@@ -24,3 +24,40 @@
 ## 일반적인 면접 준비
 
 [면접 치트시트](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)나 알고리즘과 같은 일반적인 코딩 면접에 대한 내용은 [기술 면접 핸드북](https://github.com/yangshun/tech-interview-handbook)이 도움이 될 것입니다.
+
+## 목차
+
+1. [HTML 질문](/questions/html-questions.md)
+1. [CSS 질문](/questions/css-questions.md)
+1. [JavaScript 질문](/questions/javascript-questions.md)
+
+## 번역
+
+* [영어](/README.md)
+* [중국어(간체)](/Translations/Chinese/README.md)
+* [타갈로그어](/Translations/Tagalog/README.md)
+* [일본어](/Translations/Japanese/README.md)
+
+**제작중**
+
+* [한국어](/Translations/Korean/README.md)
+
+## 관련 정보
+
+If you are interested in how data structures are implemented, check out , a Data Structures and Algorithms library for JavaScript. It is pretty much still WIP but I intend to make it into a library that is able to be used in production and also a reference resource for revising Data Structures and Algorithms.
+
+데이터 구조의 구현 방법에 관심이 있다면, 제가 제작하는 JavaScript 데이터 구조 및 알고리즘 라이브러리 인 [Lago](https://github.com/yangshun/lago) 를 체크해주세요. Lago은 아직 제작 중 이지만, 프로덕션에서 사용할 수있는 라이브러리와 데이터 구조 및 알고리즘을 수정하기위한 참조 리소스로 만들 계획입니다.
+
+## 기여
+
+### 행동강령
+
+우리는 프로젝트 참가자가 준수해야 할 행동 규범으로 Facebook과 같은 것을 채택했습니다. 프로젝트에 참여하는 경우 여기에 [전문](https://code.facebook.com/codeofconduct) 을 읽고 어떤 행위가 허용되는지를 확인하시기 바랍니다.
+
+### 기여가이드
+
+기여 방법 개선 제안 방법 및 콘텐츠 번역 방법에 관심이있는 분은 [기여가이드](/CONTRIBUTING.md)를 참조하십시오.
+
+## 라이센스
+
+이 저장소에서 프로젝트 및 패키지는 모든 [MIT licensed](/LICENSE) 입니다.
