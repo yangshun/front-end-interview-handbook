@@ -6,19 +6,19 @@
 -   [`z-index`와 쌓임 맥락(stacking context)이 어떻게 형성되는지 설명하세요.](#z-index와-쌓임-맥락stacking-context이-어떻게-형성되는지-설명하세요)
 -   [블록 서식 문맥(BFC)과 작동 방식을 설명하세요.](#블록-서식-문맥bfc과-작동-방식을-설명하세요)
 -   [clear하는 방법에는 어떤 것이 있으며, 각각 어떤상황에 적합합니까?](#clear하는-방법에는-어떤-것이-있으며-각각-어떤상황에-적합합니까)
--   [Explain CSS sprites, and how you would implement them on a page or site.](#explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site)
--   [How would you approach fixing browser-specific styling issues?](#how-would-you-approach-fixing-browser-specific-styling-issues)
--   [How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?](#how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniquesprocesses-do-you-use)
--   [What are the different ways to visually hide content (and make it available only for screen readers)?](#what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers)
--   [Have you ever used a grid system, and if so, what do you prefer?](#have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer)
--   [Have you used or implemented media queries or mobile specific layouts/CSS?](#have-you-used-or-implemented-media-queries-or-mobile-specific-layoutscss)
--   [Are you familiar with styling SVG?](#are-you-familiar-with-styling-svg)
--   [Can you give an example of an @media property other than screen?](#can-you-give-an-example-of-an-media-property-other-than-screen)
--   [What are some of the "gotchas" for writing efficient CSS?](#what-are-some-of-the-gotchas-for-writing-efficient-css)
--   [What are the advantages/disadvantages of using CSS preprocessors?](#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
--   [Describe what you like and dislike about the CSS preprocessors you have used.](#describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used)
--   [How would you implement a web design comp that uses non-standard fonts?](#how-would-you-implement-a-web-design-comp-that-uses-non-standard-fonts)
--   [Explain how a browser determines what elements match a CSS selector.](#explain-how-a-browser-determines-what-elements-match-a-css-selector)
+-   [CSS 스프라이트는 무엇입니까? 그리고 당신이 페이지 나 사이트에 구현하는 방법도 설명해주세요.](#CSS-스프라이트는-무엇입니까-그리고-당신이-페이지나-사이트에-구현하는-방법도-설명해주세요)
+-   [브라우저 별 스타일링 문제를 해결하는 방법에 대해 어떻게 생각하십니까?](#브라우저-별-스타일링-문제를-해결하는-방법에-대해-어떻게-생각하십니까)
+-   [기능이 제한된 브라우저의 페이지는 어떻게 처리합니까? 어떤 기술/프로세스를 사용하십니까?](#기능이-제한된-브라우저의-페이지는-어떻게-처리합니까-어떤-기술-프로세스를-사용하십니까)
+-   [콘텐츠를 시각적으로 숨기고(화면 판독기에서만 사용할 수 있게 만드는)다양한 방법은 무엇입니까?](#콘텐츠를-시각적으로-숨기고-화면-판독기에서만-사용할-수-있게-만드는-다양한-방법은-무엇입니까)
+-   [혹시 그리드 시스템을 사용하나요? 만약 그렇다면, 당신은 어떤것을 선호합니까?](#혹시-그리드-시스템을-사용하나요-만약-그렇다면-당신은-어떤것을-선호합니까)
+-   [미디어 쿼리 또는 모바일 관련 layouts/CSS를 사용하거나 구현해 보았습니까?](#미디어-쿼리-또는-모바일-관련-layouts-CSS를-사용하거나-구현해-보았습니까)
+-   [SVG-스타일링에-익숙하십니까?](#SVG-스타일링에-익숙하십니까)
+-   [screen이 아닌 @media 속성의 예를 들려 줄 수 있습니까?](#screen이-아닌-@media-속성의-예를-들려-줄-수-있습니까)
+-   [효율적인 CSS를 작성하는데 있어 "어려움"은 무엇입니까?](#효율적인-CSS를-작성하는데-있어-"어려움"은-무엇입니까)
+-   [CSS 전처리기를 사용하면 어떤 장단점이 있습니까?](#CSS-전처리기를-사용하면-어떤-장단점이-있습니까)
+-   [사용했던 CSS 전처리기에 대해 좋아하는 것과 싫어하는 것을 설명하십시오.](#사용했던-CSS-전처리기에-대해-좋아하는-것과-싫어하는-것을-설명하십시오)
+-   [비표준 글꼴을 사용하는 웹 디자인 디자인을 구현하는 방법은 무엇입니까?](#비표준-글꼴을-사용하는-웹-디자인-디자인을-구현하는-방법은-무엇입니까)
+-   [CSS 셀렉터에 일치하는 요소가 어떤 것인지 브라우저가 어떻게 결정되는지를 설명하시오.](#CSS-셀렉터에-일치하는-요소가-어떤-것인지-브라우저가-어떻게-결정되는지를-설명하시오)
 -   [Describe pseudo-elements and discuss what they are used for.](#describe-pseudo-elements-and-discuss-what-they-are-used-for)
 -   [Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.](#explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
 -   [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
@@ -133,129 +133,142 @@ BFC 상쇄(collapse)시 인접한 블록 레벨 박스 사이의 Vertical 마진
 
 ### clear하는 방법에는 어떤 것이 있으며, 각각 어떤상황에 적합합니까?
 
--   빈어있는 `div` 방법 - `<div style="clear:both;"></div>`.
+-   비어있는 `div` 방법 - `<div style="clear:both;"></div>`
 -   Clearfix 방법 - 이와 같은 `.clearfix` 클래스를 참조하세요.
 -   `overflow: auto` 또는 `overflow: hidden` 방법 - 부모는 새로운 블록 서식 지정 컨텍스트를 설정하고, 확장 된 자식을 포함하도록합니다.
 
 대규모의 프로젝트에서는 유용하게 `.clearfix` 클래스를 만들어 필요한 곳에서 사용합니다. 자식이 부모보다 크기가 경우 `overflow: hidden`은 자식의 모두 보여줄 수 없습니다.
 
-### Explain CSS sprites, and how you would implement them on a page or site.
+### CSS 스프라이트는 무엇입니까? 그리고 당신이 페이지 나 사이트에 구현하는 방법도 설명해주세요.
 
-CSS sprites combine multiple images into one single larger image. It is commonly used technique for icons (Gmail uses it). How to implement it:
+CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합니다. 일반적으로 아이콘에 사용되는 기술(Gmail에서 사용)입니다. 구현방법:
 
-1.  Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
-2.  Each image would have a corresponding CSS class with `background-image`, `background-position` and `background-size` properties defined.
-3.  To use that image, add the corresponding class to your element.
+1. 스프라이트 생성기를 사용하여 여러 이미지를 하나로 묶어 적절한 CSS를 생성합니다.
+2. 각 이미지는`background-image`,`background-position` 및`background-size` 속성이 정의 된 해당 CSS 클래스를 갖습니다.
+3. 해당 이미지를 사용하려면 요소에 해당 클래스를 추가하십시오.
 
-**Advantages:**
+**장점:**
+-   여러 이미지에 대한 HTTP 요청 수 줄이기(스프라이트 시트 당 하나의 단일 요청 만 필요합니다.) 그러나 HTTP2를 사용하면 여러 이미지를로드하는 것이 더 이상 중요하지 않습니다.
+-   `: hover`의 상태에서만 나타나는 이미지가 필요할 때 다운로드되지 않는 이미지를 미리 다운로드하여 깜박임이 보이지 않습니다.
 
--   Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.
--   Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon `:hover` pseudo-states. Blinking wouldn't be seen.
-
-###### References
+###### 참고 자료
 
 -   <https://css-tricks.com/css-sprites/>
 
-### How would you approach fixing browser-specific styling issues?
+### 브라우저 별 스타일링 문제를 해결하는 방법에 대해 어떻게 생각하십니까?
 
--   After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
--   Use libraries like Bootstrap that already handles these styling issues for you.
--   Use `autoprefixer` to automatically add vendor prefixes to your code.
--   Use Reset CSS or Normalize.css.
+-   문제 및 문제를 일으키는 브라우저를 식별한 후에는 해당 브라우저가 사용 중일 때만 로드되는 별도의 스타일 시트를 사용하십시오. 하지만 이 기술을 사용하려면 서버 측 렌더링이 필요합니다.
+-   이미 이러한 스타일링 문제를 처리하고 있는 Bootstrap과 같은 라이브러리를 사용하십시오.
+-   `autoprefixer`를 사용하여 벤더 프리픽스를 코드에 자동으로 추가하십시오.
+-   Reset CSS 또는 Normalize.css를 사용합니다.
 
-### How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
+### 기능이 제한된 브라우저의 페이지는 어떻게 처리합니까? 어떤 기술/프로세스를 사용하십니까?
 
--   Graceful degradation - The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
--   Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
--   Use [caniuse.com](https://caniuse.com/) to check for feature support.
--   Autoprefixer for automatic vendor prefix insertion.
--   Feature detection using [Modernizr](https://modernizr.com/).
+-   우아한 퇴화 - 최신 브라우저를 위한 응용 프로그램을 구축하는 동시에 그것이 구형 브라우저에서도 계속 작동하도록 하는 구축방법.
+-   점진적 향상 - 기본 수준의 사용자 환경에 대한 응용 프로그램을 구축하지만 브라우저가 이를 지원할 경우 기능을 강화하는 방법이 있습니다.
+-   [caniuse.com](https://caniuse.com/)을 사용하여 기능 지원을 확인하십시오.
+-   자동 공급 프리픽스인 Autoprefixer 삽입.
+-   [Modernizr](https://modernizr.com/)를 사용하여 미래 간파.
 
-### What are the different ways to visually hide content (and make it available only for screen readers)?
+### 콘텐츠를 시각적으로 숨기고(화면 판독기에서만 사용할 수 있게 만드는)다양한 방법은 무엇입니까?
 
-These techniques are related to accessibility (a11y).
+이러한 기술은 접근성 (a11y)에 관련이 있습니다.
 
--   `visibility: hidden`. However the element is still in the flow of the page, and still takes up space.
--   `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
--   `position: absolute; left: -99999px`. Position it outside of the screen.
--   `text-indent: -9999px`. This only works on text within the `block` elements.
--   Metadata. For example by using Schema.org, RDF and JSON-LD.
--   WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
+-   `visibility: hidden`. 그러나 요소는 아직 페이지의 흐름에 여전히 공간을 차지하고 있습니다.
+-   `width: 0; height: 0`. 요소가 화면의 어떤 공간도 차지하지 않도록하십시오. 결과적으로 보이지 않습니다.
+-   `position: absolute; left: -99999px`. 화면 외부에 배치합니다.
+-   `text-indent: -9999px`. 이것은 `block`인 엘리먼트 내의 텍스트에서만 작동합니다.
+-   메타 데이터. 예를 들어, Schema.org, RDF 및 JSON-LD를 사용합니다.
+-   WAI-ARIA. 웹 페이지의 액세스 가능성을 높이는 방법을 지정하는 W3C 기술 사양입니다.
 
-Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioning approach, as it has the least caveats, works for most elements and it's an easy technique.
+WAI-ARIA가 이상적인 해결책이라 하더라도, 저는 `absolute` 접근법을 택할 것입니다. 대부분요소에 적용되고, 쉽고 주의해야할 것이 가장 적습니다.
 
-###### References
+###### 참고자료
 
 -   <https://www.w3.org/TR/wai-aria-1.1/>
 -   <https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA>
 -   <http://a11yproject.com/>
 
-### Have you ever used a grid system, and if so, what do you prefer?
+### 혹시 그리드 시스템을 사용하나요? 만약 그렇다면, 당신은 어떤것을 선호합니까?
 
-I like the `float`-based grid system because it still has the most browser support among the alternative existing systems (flex, grid). It has been used in Bootstrap for years and has been proven to work.
+나는 `float` 기반 그리드 시스템을 좋아한다. 왜냐하면 여전히 기존의 다른 시스템들(flex, grid) 중에서도 가장 많은 브라우저를 지원하기 때문입니다. 이것은 부트 스트랩에서 수년 동안 사용되었으며, 효과가 있다는 것이 입증되었습니다.
 
-### Have you used or implemented media queries or mobile-specific layouts/CSS?
+### 미디어 쿼리 또는 모바일 관련 layouts/CSS를 사용하거나 구현해 보았습니까?
 
-Yes. An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.
+네. 한가지 예를 들면 여러 줄 형식의 네비게이션을 중간시점이 지나면 텝의 형태로 변환하였습니다.
 
-### Are you familiar with styling SVG?
+### SVG 스타일링에 익숙하십니까?
 
-No... Sadly.
+슬프게도 아니요...
 
-### Can you give an example of an @media property other than screen?
+### screen이 아닌 @media 속성의 예를 들려 줄 수 있습니까?
 
-TODO
+예, @ media 속성을 screen포함하여 4 가지 종류가 있습니다. :
 
-### What are some of the "gotchas" for writing efficient CSS?
+-   all - for all media type devices
+-   print - for printers
+-   speech - for screenreaders that "reads"the page out loud
+-   screen - for computer screens, tablets, smart-phones etc.
+-   print 미디어 유형의 사용 예제 :
 
-Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large numbers of elements and browsers will have to do more work in determining if the parents do match.
+```css
+@media  print {
+   body {
+     color : black ;
+  }
+}
+```
 
-[BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
+### 효율적인 CSS를 작성하는데 있어 "어려움"은 무엇입니까?
 
-Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
+먼저 브라우저는 오른쪽선택자에서 왼쪽으로 선택자가 일치하는지 확인합니다. 브라우저는 선택자에 따라 DOM의 요소를 필터링하고 해당 부모요소가 일치하는지 식별합니다. 선택자 체인의 길이가 짧을수록 브라우저는 해당 요소가 선택자와 일치하는지 여부를 빠르게 판별할 수 있습니다. 따라서 태그선택자와 보편적인 선택자자를 사용하지마세요. 그것들은 다수의 요소가 브라우저와 매치되기 때문에 부모가 일치하는지 여부를 판단하기 위해 많은 작업을 해야합니다.
 
-###### References
+[BEM (Block Element Modifier)](https://bem.info/)의 방법론에서는 모두 단일 클래스를 갖고, 계층구조가 필요한 곳에서는 클래스의 이름이 확장되기를 권장합니다. 따라서 선택자를 쉽고 효율적으로 재정의 할 수 있습니다.
+
+어떠한 CSS 속성이 리플로우또는 합성되는 것을 주의 하십시오. 가능하다면 레이아웃을 변경하는 스타일링(리플로우를 작동시키는 스타일)은 작성하지 마십시오.g styles that change the layout (trigger reflow) where possible.
+
+###### 참고 자료
 
 -   <https://developers.google.com/web/fundamentals/performance/rendering/>
 -   <https://csstriggers.com/>
 
-### What are the advantages/disadvantages of using CSS preprocessors?
+### CSS 전처리기를 사용하면 어떤 장단점이 있습니까?
 
-**Advantages:**
+**장점:**
 
--   CSS is made more maintainable.
--   Easy to write nested selectors.
--   Variables for consistent theming. Can share theme files across different projects.
--   Mixins to generate repeated CSS.
--   Splitting your code into multiple files. CSS files can be split up too but doing so will require a HTTP request to download each CSS file.
+-   CSS의 유지보수성 향상됩니다.
+-   중첩된 선택자를 작성하기 쉽습니다.
+-   일관된 스타일링 설정을 위한 변수사용. 여러 프로젝트에 걸쳐 테마 파일을 공유할 수 있습니다.
+-   반복되는 CSS를 위한 Mixins 생성.
+-   코드를 여러 파일로 나눕니다. CSS파일도 나눌 수 있지만, 그렇게 하기 위해서는 각 CSS파일을 다운로드하기 위한 HTTP요청이 필요합니다.
 
-**Disadvantages:**
+**단점:**
 
--   Requires tools for preprocessing. Re-compilation time can be slow.
+-   전처리기를 위한 도구가 필요합니다. 다시 컴파일하는 시간이 느릴 수 있습니다.
 
-### Describe what you like and dislike about the CSS preprocessors you have used.
+### 사용했던 CSS 전처리기에 대해 좋아하는 것과 싫어하는 것을 설명하십시오.
 
-**Likes:**
+**좋은것:**
 
--   Mostly the advantages mentioned above.
--   Less is written in JavaScript, which plays well with Node.
+-   대부분 위에서 언급 한 장점이 있습니다..
+-   Less는 자바 스크립트로 작성되었으며 Node와 잘 작동합니다.
 
-**Dislikes:**
+**싫은것:**
 
--   I use Sass via `node-sass`, which is a binding for LibSass written in C++. I have to frequently recompile it when switching between node versions.
--   In Less, variable names are prefixed with `@`, which can be confused with native CSS keywords like `@media`, `@import` and `@font-face` rule.
+-   나는 C++로 작성된 LibSass를 바인딩인 'node-sass'를 통해 Sass를 사용합니다. 노드 버전이 바뀔 때 자주 다시 컴파일해야합니다.
+-   Less에서는 변수 이름의 접두어가`@`로되어 있으며, `@media`, `@import` 및 `@font-face` 규칙과 같은 고유 CSS 키워드와 혼동 될 수 있습니다.
 
-### How would you implement a web design comp that uses non-standard fonts?
+### 비표준 글꼴을 사용하는 웹 디자인 디자인을 구현하는 방법은 무엇입니까?
 
-Use `@font-face` and define `font-family` for different `font-weight`s.
+`font-face`를 사용하고 `font-weight`가 다른 경우 `font-family`를 정의합니다.
 
-### Explain how a browser determines what elements match a CSS selector.
+### CSS 셀렉터에 일치하는 요소가 어떤 것인지 브라우저가 어떻게 결정되는지를 설명하시오.
 
-This part is related to the above about writing efficient CSS. Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
+이 부분은 위의 효율적인 CSS 작성에 대한 것입니다. 브라우저는 셀렉터를 오른쪽(선택자)에서 왼쪽으로 일치시킵니다. 브라우저는 선택자에 따라 DOM의 요소를 필터링하고 부모 요소를 검사하여 일치를 판정합니다. 선택자 체인의 길이가 짧을수록, 브라우저가 해당 요소가 선택기에 일치하는지 여부를 판단 할 수 있습니다.
 
-For example with this selector `p span`, browsers firstly find all the `<span>` elements, and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
+예를 들어,이 셀렉터 `p span`는 브라우저는 먼저 모든 `<span>`요소를 찾아 그 부모의 루트까지 모두 통과하여 `<p>`요소를 찾습니다. 특정한 `<span>`의 경우 `<p>`를 찾는 즉시 `<span>`이 일치하는 것을 알고 있으며, 그에 따라 매칭 중지합니다.
 
-###### References
+###### 참고자료
 
 -   <https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left>
 
