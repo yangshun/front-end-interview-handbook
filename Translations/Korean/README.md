@@ -44,8 +44,6 @@
 
 ## 관련 정보
 
-If you are interested in how data structures are implemented, check out , a Data Structures and Algorithms library for JavaScript. It is pretty much still WIP but I intend to make it into a library that is able to be used in production and also a reference resource for revising Data Structures and Algorithms.
-
 데이터 구조의 구현 방법에 관심이 있다면, 제가 제작하는 JavaScript 데이터 구조 및 알고리즘 라이브러리 인 [Lago](https://github.com/yangshun/lago) 를 체크해주세요. Lago은 아직 제작 중 이지만, 프로덕션에서 사용할 수있는 라이브러리와 데이터 구조 및 알고리즘을 수정하기위한 참조 리소스로 만들 계획입니다.
 
 ## 기여
