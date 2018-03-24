@@ -125,7 +125,8 @@ Here are two ways to fix it that involves adding more brackets: `(function foo()
 
 You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
 
-```js
+```
+// Don't add JS syntax to this code block to prevent Prettier from formatting it.
 const foo = void function bar() { return 'foo'; }();
 
 console.log(foo); // undefined
