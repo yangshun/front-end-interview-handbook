@@ -27,6 +27,17 @@ Baka ikaw ay interesado sa [Manwal para sa Pakikipanayam na Pang-tech](https://g
 1. [Mga Katanungang sa CSS](questions/css-questions.md)
 1. [Mga Katanungan sa javascript](questions/javascript-questions.md)
 
+## Translations
+
+* [English](/README.md)
+* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+* [Tagalog](/Translations/Tagalog/README.md)
+* [Japanese (日本語)](/Translations/Japanese/README.md)
+
+**In Progress**
+
+* [Korean (한국어)](/Translations/Korean/README.md)
+
 ## May Kaugnayan
 
 Kung ikaw ay interesado kung papaano pinpapatupad ang mga istraktura ng data, Maaari mong tingnan ang [Lago](https://github.com/yangshun/lago), isang librerya ng mga istraktura ng data at mga at algoritmo para sa JavaScript. Ito ay WIP parin pero balak kong gawing isang librerya na maaaring magamit sa produksyon at isang mapagkukunang sanggunian para sa mga pagbabago sa mga Istrakturang pang data at mga algoritmo.

@@ -33,14 +33,14 @@
 
 ## 번역
 
-* [영어](/README.md)
-* [중국어(간체)](/Translations/Chinese/README.md)
-* [타갈로그어](/Translations/Tagalog/README.md)
-* [일본어](/Translations/Japanese/README.md)
+* [English](/README.md)
+* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+* [Tagalog](/Translations/Tagalog/README.md)
+* [Japanese (日本語)](/Translations/Japanese/README.md)
 
 **제작중**
 
-* [한국어](/Translations/Korean/README.md)
+* [Korean (한국어)](/Translations/Korean/README.md)
 
 ## 관련 정보
 

@@ -36,7 +36,7 @@
 
 **製作中**
 
-* [Korean](/Translations/Korean/README.md)
+* [Korean (한국어)](/Translations/Korean/README.md)
 
 ## 関連情報
 
