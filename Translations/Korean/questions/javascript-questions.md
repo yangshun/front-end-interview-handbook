@@ -1,82 +1,82 @@
 # JS 질문
 
--   [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
--   [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
--   [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
--   [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
--   [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
--   [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
--   [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
--   [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
--   [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
--   [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
--   [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
--   [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
--   [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
--   [Explain `Function.prototype.bind`.](#explain-functionprototypebind)
--   [When would you use `document.write()`?](#when-would-you-use-documentwrite)
--   [What's the difference between feature detection, feature inference, and using the UA string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
--   [Explain Ajax in as much detail as possible.](#explain-ajax-in-as-much-detail-as-possible)
--   [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
--   [Explain how JSONP works (and how it's not really Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
--   [Have you ever used JavaScript templating? If so, what libraries have you used?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
--   [Explain "hoisting".](#explain-hoisting)
--   [Describe event bubbling.](#describe-event-bubbling)
--   [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
--   [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
--   [Difference between document `load` event and document `DOMContentLoaded` event?](#difference-between-document-load-event-and-document-domcontentloaded-event)
--   [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
--   [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
--   [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
--   [Why is it called a Ternary expression, what does the word "Ternary" indicate?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
--   [What is "use strict";? what are the advantages and disadvantages to using it?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
--   [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
--   [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
--   [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
--   [Explain what a single page app is and how to make one SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
--   [What is the extent of your experience with Promises and/or their polyfills?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
--   [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
--   [What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
--   [What tools and techniques do you use debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
--   [What language constructions do you use for iterating over object properties and array items?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
--   [Explain the difference between mutable and immutable objects.](#explain-the-difference-between-mutable-and-immutable-objects)
--   [Explain the difference between synchronous and asynchronous functions.](#explain-the-difference-between-synchronous-and-asynchronous-functions)
--   [What is event loop? What is the difference between call stack and task queue?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
--   [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-)
--   [What are the differences between variables created using `let`, `var` or `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
--   [What are the differences between ES6 class and ES5 function constructors?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
--   [Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
--   [What advantage is there for using the arrow syntax for a method in a constructor?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
--   [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function)
--   [Can you give an example for destructuring an object or an array?](#can-you-give-an-example-for-destructuring-an-object-or-an-array)
--   [ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
--   [Can you give an example of a curry function and why this syntax offers an advantage?](#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
--   [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
--   [How can you share code between files?](#how-can-you-share-code-between-files)
--   [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
+* [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
+* [`this`가 JavaScript 에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
+* [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
+* [AMD 대 CommonJS 에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
+* [다음 내용이 IIFE 로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE 로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
+* [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
+* [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
+* [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
+* [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
+* [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
+* [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
+* [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
+* [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
+* [Explain `Function.prototype.bind`.](#explain-functionprototypebind)
+* [When would you use `document.write()`?](#when-would-you-use-documentwrite)
+* [What's the difference between feature detection, feature inference, and using the UA string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
+* [Explain Ajax in as much detail as possible.](#explain-ajax-in-as-much-detail-as-possible)
+* [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
+* [Explain how JSONP works (and how it's not really Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
+* [Have you ever used JavaScript templating? If so, what libraries have you used?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
+* [Explain "hoisting".](#explain-hoisting)
+* [Describe event bubbling.](#describe-event-bubbling)
+* [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
+* [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
+* [Difference between document `load` event and document `DOMContentLoaded` event?](#difference-between-document-load-event-and-document-domcontentloaded-event)
+* [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
+* [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
+* [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
+* [Why is it called a Ternary expression, what does the word "Ternary" indicate?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
+* [What is "use strict";? what are the advantages and disadvantages to using it?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
+* [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
+* [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
+* [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
+* [Explain what a single page app is and how to make one SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
+* [What is the extent of your experience with Promises and/or their polyfills?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
+* [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
+* [What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
+* [What tools and techniques do you use debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
+* [What language constructions do you use for iterating over object properties and array items?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
+* [Explain the difference between mutable and immutable objects.](#explain-the-difference-between-mutable-and-immutable-objects)
+* [Explain the difference between synchronous and asynchronous functions.](#explain-the-difference-between-synchronous-and-asynchronous-functions)
+* [What is event loop? What is the difference between call stack and task queue?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
+* [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-)
+* [What are the differences between variables created using `let`, `var` or `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const)
+* [What are the differences between ES6 class and ES5 function constructors?](#what-are-the-differences-between-es6-class-and-es5-function-constructors)
+* [Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?](#can-you-offer-a-use-case-for-the-new-arrow--function-syntax-how-does-this-new-syntax-differ-from-other-functions)
+* [What advantage is there for using the arrow syntax for a method in a constructor?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
+* [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function)
+* [Can you give an example for destructuring an object or an array?](#can-you-give-an-example-for-destructuring-an-object-or-an-array)
+* [ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
+* [Can you give an example of a curry function and why this syntax offers an advantage?](#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
+* [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
+* [How can you share code between files?](#how-can-you-share-code-between-files)
+* [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
 
-* * *
+---
 
 ## JS 질문
 
 [프론트엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)에 대한 해설입니다.
-Pull Request를 통한 제안 및 수정 요청을 환영합니다.
+Pull Request 를 통한 제안 및 수정 요청을 환영합니다.
 
 ### 이벤트 위임에 대해 설명하세요.
 
-이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
+이벤트 위임은 이벤트 리스너를 하위 요소에 추가하는 대신 상위 요소에 추가하는 기법입니다. 리스너는 DOM 의 버블링된 이벤트로 인해 하위 요소에서 이벤트가 발생될 때마다 실행됩니다. 이 기술의 이점은 다음과 같습니다.
 
-- 각 하위 항목에 이벤트 핸들러를 연결하지 않고 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
-- 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩할 필요가 없습니다.
+* 각 하위 항목에 이벤트 핸들러를 연결하지 않고 상위 요소에 하나의 단일 핸들러만 필요하기 때문에 메모리 사용 공간이 줄어 듭니다.
+* 제거된 요소에서 핸들러를 해제하고 새 요소에 대해 이벤트를 바인딩할 필요가 없습니다.
 
 ###### 참고자료
 
--   <https://davidwalsh.name/event-delegate>
--   <https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation>
+* <https://davidwalsh.name/event-delegate>
+* <https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation>
 
-### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
+### `this`가 JavaScript 에서 어떻게 작동하는지 설명하세요.
 
-`this`는 간단하게 설명하기 어렵습니다. JavaScript에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
+`this`는 간단하게 설명하기 어렵습니다. JavaScript 에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다.
 온라인에 많은 설명이 있는데 [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
 다음 규칙과 같습니다.
 
@@ -87,12 +87,12 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 5. 위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
 6. 함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
 
-상세한 설명은 [Medium의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
+상세한 설명은 [Medium 의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
 ###### 참고자료
 
--   <https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3>
--   <https://stackoverflow.com/a/3127440/1751946>
+* <https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3>
+* <https://stackoverflow.com/a/3127440/1751946>
 
 ### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
@@ -100,25 +100,25 @@ Pull Request를 통한 제안 및 수정 요청을 환영합니다.
 
 ###### 참고자료
 
--   <https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson>
--   <https://davidwalsh.name/javascript-objects>
+* <https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson>
+* <https://davidwalsh.name/javascript-objects>
 
-### AMD 대 CommonJS에 대해 어떻게 생각하십니까?
+### AMD 대 CommonJS 에 대해 어떻게 생각하십니까?
 
-두 가지 모두 ES2015가 등장할 때까지 JavaScript에 기본적으로 존재하지 않는 모듈 시스템을 구현하는 방법입니다. CommonJS는 동기식인 반면 AMD (Asynchronous Module Definition - 비동기식 모듈 정의)는 분명히 비동기식입니다. CommonJS는 서버-사이드 개발을 염두에 두고 설계되었으며 AMD는 모듈의 비동기 로딩을 지원하므로 브라우저용으로 더 많이 사용됩니다.
+두 가지 모두 ES2015 가 등장할 때까지 JavaScript 에 기본적으로 존재하지 않는 모듈 시스템을 구현하는 방법입니다. CommonJS 는 동기식인 반면 AMD (Asynchronous Module Definition - 비동기식 모듈 정의)는 분명히 비동기식입니다. CommonJS 는 서버-사이드 개발을 염두에 두고 설계되었으며 AMD 는 모듈의 비동기 로딩을 지원하므로 브라우저용으로 더 많이 사용됩니다.
 
-AMD은 구문이 매우 장황하고 CommonJS은 다른 언어로 된 import 문을 작성하는 스타일에 더 가깝습니다. 대부분의 경우 AMD를 필요로 하지 않습니다. 모든 JavaScript를 연결된 하나의 번들 파일로 제공하면 비동기 로딩 속성의 이점을 누릴 수 없기 때문입니다. 또한 CommonJS 구문은 모듈 작성의 노드 스타일에 가깝고 클라이언트-사이드과 서버-사이드 JavaScript 개발 사이를 전환할 때 문맥 전환 오버 헤드가 적습니다.
+AMD 은 구문이 매우 장황하고 CommonJS 은 다른 언어로 된 import 문을 작성하는 스타일에 더 가깝습니다. 대부분의 경우 AMD 를 필요로 하지 않습니다. 모든 JavaScript 를 연결된 하나의 번들 파일로 제공하면 비동기 로딩 속성의 이점을 누릴 수 없기 때문입니다. 또한 CommonJS 구문은 모듈 작성의 노드 스타일에 가깝고 클라이언트-사이드과 서버-사이드 JavaScript 개발 사이를 전환할 때 문맥 전환 오버 헤드가 적습니다.
 
 ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이 반가운 것은 마침내 하나의 접근 방식만 고수할 수 있다는 점입니다. 브라우저와 노드에서 완전히 작동되지는 않았지만 언제나 트랜스파일러를 사용하여 코드를 변환할 수 있습니다.
 
 ###### 참고자료
 
--   <https://auth0.com/blog/javascript-module-systems-showdown/>
--   <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
+* <https://auth0.com/blog/javascript-module-systems-showdown/>
+* <https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs>
 
-### 다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇이 바뀌어야 할까요?
+### 다음 내용이 IIFE 로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE 로 만들기 위해서는 무엇이 바뀌어야 할까요?
 
-IIFE는 즉시 함수 호출 표현식을 의미합니다. JavaScript 파서는 `function foo(){ }();`을 `function foo(){ }`와 `();` 같이 읽습니다. 전자는 함수 선언이며 후자 ( 한 쌍의 괄호 )는 함수를 호출하려고 시도했지만 이름이 지정되지 않았기 때문에 `Uncaught SyntaxError : Unexpected token `)을 던집니다.
+IIFE 는 즉시 함수 호출 표현식을 의미합니다. JavaScript 파서는 `function foo(){ }();`을 `function foo(){ }`와 `();` 같이 읽습니다. 전자는 함수 선언이며 후자 ( 한 쌍의 괄호 )는 함수를 호출하려고 시도했지만 이름이 지정되지 않았기 때문에 `Uncaught SyntaxError : Unexpected token`)을 던집니다.
 
 추가로 괄호를 추가하는 두 가지 방법이 있습니다: `(function foo(){ })()` 그리고 `(function foo(){ }())`.
 
@@ -126,7 +126,7 @@ JavaScript 파서는 `function foo () {} ();`를`function foo () {}`와 `();`로
 
 ###### 참고자료
 
--   <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
+* <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
 
 ### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
 
@@ -169,8 +169,8 @@ As a personal habit, I never leave my variables undeclared or unassigned. I will
 
 ###### References
 
--   <https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables>
--   <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined>
+* <https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables>
+* <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined>
 
 ### What is a closure, and how/why would you use one?
 
@@ -178,13 +178,13 @@ A closure is the combination of a function and the lexical environment within wh
 
 **Why would you use one?**
 
--   Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
--   [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
+* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures>
--   <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures>
+* <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36>
 
 ### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
 
@@ -192,9 +192,9 @@ To understand the differences between the two, let's look at what each function 
 
 **`forEach`**
 
--   Iterates through the elements in an array.
--   Executes a callback for each element.
--   Does not return a value.
+* Iterates through the elements in an array.
+* Executes a callback for each element.
+* Does not return a value.
 
 ```js
 const a = [1, 2, 3];
@@ -207,8 +207,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
--   Iterates through the elements in an array.
--   "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+* Iterates through the elements in an array.
+* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
 
 ```js
 const a = [1, 2, 3];
@@ -223,7 +223,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 ###### References
 
--   <https://codeburst.io/javascript-map-vs-foreach-f38111822c0f>
+* <https://codeburst.io/javascript-map-vs-foreach-f38111822c0f>
 
 ### What's a typical use case for anonymous functions?
 
@@ -255,8 +255,8 @@ console.log(double); // [2, 4, 6]
 
 ###### References
 
--   <https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions>
--   <https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo>
+* <https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions>
+* <https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo>
 
 ### How do you organize your code? (module pattern, classical inheritance?)
 
@@ -274,7 +274,7 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 ###### References
 
--   <https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects>
+* <https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects>
 
 ### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 
@@ -300,7 +300,7 @@ console.log(person.name); // "john"
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new>
 
 ### What's the difference between `.call` and `.apply`?
 
@@ -325,7 +325,7 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 ###### References
 
--   <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind>
+* <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind>
 
 ### When would you use `document.write()`?
 
@@ -335,8 +335,8 @@ There are some answers online that explain `document.write()` is being used in a
 
 ###### References
 
--   <https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html>
--   <https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag>
+* <https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html>
+* <https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag>
 
 ### What's the difference between feature detection, feature inference, and using the UA string?
 
@@ -372,9 +372,9 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection>
--   <https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th>
--   <https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent>
+* <https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection>
+* <https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th>
+* <https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent>
 
 ### Explain Ajax in as much detail as possible.
 
@@ -384,24 +384,24 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 
 ###### References
 
--   <https://en.wikipedia.org/wiki/Ajax_(programming>)
--   <https://developer.mozilla.org/en-US/docs/AJAX>
+* <https://en.wikipedia.org/wiki/Ajax_(programming>)
+* <https://developer.mozilla.org/en-US/docs/AJAX>
 
 ### What are the advantages and disadvantages of using Ajax?
 
 **Advantages**
 
--   Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
--   Reduce connections to the server since scripts and stylesheets only have to be requested once.
--   State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
--   Basically most of the advantages of an SPA.
+* Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
+* Reduce connections to the server since scripts and stylesheets only have to be requested once.
+* State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
+* Basically most of the advantages of an SPA.
 
 **Disadvantages**
 
--   Dynamic webpages are harder to bookmark.
--   Does not work if JavaScript has been disabled in the browser.
--   Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
--   Basically most of the disadvantages of an SPA.
+* Dynamic webpages are harder to bookmark.
+* Does not work if JavaScript has been disabled in the browser.
+* Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
+* Basically most of the disadvantages of an SPA.
 
 ### Explain how JSONP works (and how it's not really Ajax).
 
@@ -433,7 +433,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 ###### References
 
--   <https://stackoverflow.com/a/2067584/1751946>
+* <https://stackoverflow.com/a/2067584/1751946>
 
 ### Have you ever used JavaScript templating? If so, what libraries have you used?
 
@@ -504,7 +504,7 @@ console.log(input.value); // Hello World!
 
 ###### References
 
--   <https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html>
+* <https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html>
 
 ### Why is extending built-in JavaScript objects not a good idea?
 
@@ -514,7 +514,7 @@ The only time you may want to extend a native object is when you want to create 
 
 ###### References
 
--   <http://lucybain.com/blog/2014/js-extending-built-in-objects/>
+* <http://lucybain.com/blog/2014/js-extending-built-in-objects/>
 
 ### Difference between document `load` event and document `DOMContentLoaded` event?
 
@@ -524,8 +524,8 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded>
--   <https://developer.mozilla.org/en-US/docs/Web/Events/load>
+* <https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded>
+* <https://developer.mozilla.org/en-US/docs/Web/Events/load>
 
 ### What is the difference between `==` and `===`?
 
@@ -550,7 +550,7 @@ console.log(a == undefined); // true
 
 ###### References
 
--   <https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons>
+* <https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons>
 
 ### Explain the same-origin policy with regards to JavaScript.
 
@@ -558,7 +558,7 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 
 ###### References
 
--   <https://en.wikipedia.org/wiki/Same-origin_policy>
+* <https://en.wikipedia.org/wiki/Same-origin_policy>
 
 ### Make this work:
 
@@ -580,7 +580,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 ###### References
 
--   <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator>
+* <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator>
 
 ### What is `"use strict";`? What are the advantages and disadvantages to using it?
 
@@ -588,26 +588,26 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 Advantages:
 
--   Makes it impossible to accidentally create global variables.
--   Makes assignments which would otherwise silently fail to throw an exception.
--   Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
--   Requires that function parameter names be unique.
--   `this` is undefined in the global context.
--   It catches some common coding bloopers, throwing exceptions.
--   It disables features that are confusing or poorly thought out.
+* Makes it impossible to accidentally create global variables.
+* Makes assignments which would otherwise silently fail to throw an exception.
+* Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
+* Requires that function parameter names be unique.
+* `this` is undefined in the global context.
+* It catches some common coding bloopers, throwing exceptions.
+* It disables features that are confusing or poorly thought out.
 
 Disadvantages:
 
--   Many missing features that some developers might be used to.
--   No more access to `function.caller` and `function.arguments`.
--   Concatenation of scripts written in different strict modes might cause issues.
+* Many missing features that some developers might be used to.
+* No more access to `function.caller` and `function.arguments`.
+* Concatenation of scripts written in different strict modes might cause issues.
 
 Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
 
 ###### References
 
--   <http://2ality.com/2011/10/strict-mode-hatred.html>
--   <http://lucybain.com/blog/2014/js-use-strict/>
+* <http://2ality.com/2011/10/strict-mode-hatred.html>
+* <http://lucybain.com/blog/2014/js-use-strict/>
 
 ### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
 
@@ -625,7 +625,7 @@ I would not advise you to write the above during interviews though. Just stick w
 
 ###### References
 
--   <https://gist.github.com/jaysonrowe/1592432>
+* <https://gist.github.com/jaysonrowe/1592432>
 
 ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
@@ -641,7 +641,7 @@ TODO.
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload>
+* <https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload>
 
 ### Explain what a single page app is and how to make one SEO-friendly.
 
@@ -653,22 +653,22 @@ However in modern SPAs, client-side rendering is used instead. The browser loads
 
 The benefits:
 
--   The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
--   Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
--   Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
+* The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
+* Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
+* Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
 
 The downsides:
 
--   Heavier initial page load due to loading of framework, app code, and assets required for multiple pages.
--   There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
--   SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
+* Heavier initial page load due to loading of framework, app code, and assets required for multiple pages.
+* There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
+* SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
 
 ###### References
 
--   <https://github.com/grab/front-end-guide#single-page-apps-spas>
--   <http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages>
--   <http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/>
--   <https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52>
+* <https://github.com/grab/front-end-guide#single-page-apps-spas>
+* <http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages>
+* <http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/>
+* <https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52>
 
 ### What is the extent of your experience with Promises and/or their polyfills?
 
@@ -678,20 +678,20 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 ###### References
 
--   <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261>
+* <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261>
 
 ### What are the pros and cons of using Promises instead of callbacks?
 
 **Pros**
 
--   Avoid callback hell which can be unreadable.
--   Makes it easy to write sequential asynchronous code that is readable with `.then()`.
--   Makes it easy to write parallel asynchronous code with `Promise.all()`.
+* Avoid callback hell which can be unreadable.
+* Makes it easy to write sequential asynchronous code that is readable with `.then()`.
+* Makes it easy to write parallel asynchronous code with `Promise.all()`.
 
 **Cons**
 
--   Slightly more complex code (debatable).
--   In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
+* Slightly more complex code (debatable).
+* In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
 ### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
@@ -699,61 +699,61 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 Advantages:
 
--   Fixes some of the longstanding problems in JavaScript and discourages JavaScript anti-patterns.
--   Enables you to write shorter code, by providing some syntactic sugar on top of JavaScript, which I think ES5 lacks, but ES2015 is awesome.
--   Static types are awesome (in the case of TypeScript) for large projects that need to be maintained over time.
+* Fixes some of the longstanding problems in JavaScript and discourages JavaScript anti-patterns.
+* Enables you to write shorter code, by providing some syntactic sugar on top of JavaScript, which I think ES5 lacks, but ES2015 is awesome.
+* Static types are awesome (in the case of TypeScript) for large projects that need to be maintained over time.
 
 Disadvantages:
 
--   Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
--   Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
--   Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
--   Smaller community (depends on the language), which means resources, tutorials, libraries and tooling would be harder to find.
--   IDE/editor support might be lacking.
--   These languages will always be behind the latest JavaScript standard.
--   Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
+* Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
+* Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
+* Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
+* Smaller community (depends on the language), which means resources, tutorials, libraries and tooling would be harder to find.
+* IDE/editor support might be lacking.
+* These languages will always be behind the latest JavaScript standard.
+* Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
 
 Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
 
 ###### References
 
--   <https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript>
+* <https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript>
 
 ### What tools and techniques do you use for debugging JavaScript code?
 
--   React and Redux
-    -   [React Devtools](https://github.com/facebook/react-devtools)
-    -   [Redux Devtools](https://github.com/gaearon/redux-devtools)
--   JavaScript
-    -   [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
-    -   `debugger` statement
-    -   Good old `console.log` debugging
+* React and Redux
+  * [React Devtools](https://github.com/facebook/react-devtools)
+  * [Redux Devtools](https://github.com/gaearon/redux-devtools)
+* JavaScript
+  * [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
+  * `debugger` statement
+  * Good old `console.log` debugging
 
 ###### References
 
--   <https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d>
--   <https://raygun.com/blog/javascript-debugging/>
+* <https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d>
+* <https://raygun.com/blog/javascript-debugging/>
 
 ### What language constructions do you use for iterating over object properties and array items?
 
 For objects:
 
--   `for` loops - `for (var property in obj) { console.log(property); }`. However, this will also iterate through its inherited properties, and you will add an `obj.hasOwnProperty(property)` check before using it.
--   `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` is a static method that will lists all enumerable properties of the object that you pass it.
--   `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it.
+* `for` loops - `for (var property in obj) { console.log(property); }`. However, this will also iterate through its inherited properties, and you will add an `obj.hasOwnProperty(property)` check before using it.
+* `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` is a static method that will lists all enumerable properties of the object that you pass it.
+* `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it.
 
 For arrays:
 
--   `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
--   `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
+* `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
+* `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
 
 Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. `for` loops allow more flexibility, such as prematurely terminate the loop using `break` or incrementing the iterator more than once per loop.
 
 ### Explain the difference between mutable and immutable objects.
 
--   What is an example of an immutable object in JavaScript?
--   What are the pros and cons of immutability?
--   How can you achieve immutability in your own code?
+* What is an example of an immutable object in JavaScript?
+* What are the pros and cons of immutability?
+* How can you achieve immutability in your own code?
 
 TODO
 
@@ -771,8 +771,8 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 
 ###### References
 
--   <https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html>
--   <http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/>
+* <https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html>
+* <http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/>
 
 ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
@@ -798,7 +798,7 @@ var foo = function() {
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function>
 
 ### What are the differences between variables created using `let`, `var` or `const`?
 
@@ -873,9 +873,9 @@ baz = 'qux';
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let>
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var>
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const>
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
@@ -978,9 +978,9 @@ Use **higher-order function** to make your code easy to reason about and improve
 
 ###### References
 
--   <https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99>
--   <https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a>
--   <https://eloquentjavascript.net/05_higher_order.html>
+* <https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99>
+* <https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a>
+* <https://eloquentjavascript.net/05_higher_order.html>
 
 ### Can you give an example for destructuring an object or an array?
 
@@ -1024,7 +1024,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ###### References
 
--   <https://hackernoon.com/currying-in-js-d9ddc64f162e>
+* <https://hackernoon.com/currying-in-js-d9ddc64f162e>
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
@@ -1057,8 +1057,8 @@ var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 
 
 ###### References
 
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>
--   <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters>
 
 ### How can you share code between files?
 
@@ -1070,7 +1070,7 @@ TODO
 
 ### Other Answers
 
--   <http://flowerszhong.github.io/2013/11/20/javascript-questions.html>
+* <http://flowerszhong.github.io/2013/11/20/javascript-questions.html>
 
 ## Related
 

@@ -35,7 +35,7 @@ Se estás interessado em saber como as estruturas de dados são implementadas, c
 
 ### Código de conduta
 
-Adotamos o mesmo Código de Conduta como o Facebook esperamos que os participantes do projeto adiram. Leia [o texto completo] (https://code.facebook.com/codeofconduct) para que possas perceber quais as ações que serão e não serão toleradas.
+Adotamos o mesmo Código de Conduta como o Facebook esperamos que os participantes do projeto adiram. Leia [o texto completo](https://code.facebook.com/codeofconduct) para que possas perceber quais as ações que serão e não serão toleradas.
 
 ### Guia de contribuição
 

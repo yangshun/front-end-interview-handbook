@@ -45,8 +45,8 @@ Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanon
 * [Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.](#ipaliwanag-ang-pagkakaiba-sa-pagitan-ng-sabay-at-hindi-sabay-na-punksiyon)
 * [Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?](#ano-ang-loop-na-kaganapan-ano-ang-pagkakaiba-sa-pagitan-ng-call-na-stack-at-queue-ng-gawain)
 * [Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng `function foo() {}` at `var foo = function() {}`](#ipaliwanag-ang-mga-pagkakaiba-sa-paggamit-ng-foo-sa-pagitan-ng-function-foo--at-var-foo--function-)
-* [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?](#ano-ang-mga-pagkakaiba-sa-pagitan-ng-mga-variable-na-nilikha-sa-pamamagitan-ng-paggamit-ng-let-var-o-const)
-* [Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?](#ano-ang-mga-pagkakaiba-sa-pagitan-ng-es6-na-class-at-mga-es5-na-taga-construct-na-punksyon)
+* [Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,`var` o `const`?](#ano-ang-mga-pagkakaiba-sa-pagitan-ng-mga-variable-na-nilikha-sa-pamamagitan-ng-paggamit-ng-let-var-o-const)
+* [Ano ang mga pagkakaiba sa pagitan ng ES6 na class at mga ES5 na taga-construct na punksyon?](#ano-ang-mga-pagkakaiba-sa-pagitan-ng-es6-na-class-at-mga-es5-na-taga-construct-na-punksyon)
 * [May maaalok ka bang isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?](#may-maaalok-ka-bang-isang-kaso-ng-paggamit-para-sa-bagong-arrow--sintaks-ng-punksyon-Paano-naiiba-ang-bagong-sintaks-na-ito-sa-iba-pang-mga-punksyon)
 * [Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?](#ano-ang-bentahe-para-sa-paggamit-ng-sintaks-na-arrow-para-sa-isang-paraan-sa-isang-taga-construct)
 * [Ano ang kahulugan ng isang mas mataas na hanay na punksyon?](#ano-ang-kahulugan-ng-isang-mas-mataas-na-hanay-na-punksyon)
@@ -73,13 +73,13 @@ Ang delegasyon ng kaganapan ay isang pamamaraan na kinasasangkutan ng pagdaragda
 
 ### Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript
 
-Walang simpleng paliwanag para sa `this`; ito ay isa sa mga pinaka-nakakalitong konsepto sa JavaScript. Ang isang paliwanag na hand-wavey na ang halaga ng `this` ay nakadepende sa kung paano tinawag ang punksyon. Nabasa ko ang maraming paliwanag sa `this` online, at natagpuan ko ang paliwanag ni [Arnav Aggrawal] (https://medium.com/@arnav_aggarwal) para sa kalinawan. Ang mga sumusunod na alituntunin ay inilalapat:
+Walang simpleng paliwanag para sa `this`; ito ay isa sa mga pinaka-nakakalitong konsepto sa JavaScript. Ang isang paliwanag na hand-wavey na ang halaga ng `this` ay nakadepende sa kung paano tinawag ang punksyon. Nabasa ko ang maraming paliwanag sa `this` online, at natagpuan ko ang paliwanag ni [Arnav Aggrawal](https://medium.com/@arnav_aggarwal) para sa kalinawan. Ang mga sumusunod na alituntunin ay inilalapat:
 
-1. Kung ang `new` na keyword ay ginagamit kapag tumatawag sa punksyon, ang ` this` sa loob ng punksyon ay isang bagong bagay.
-2. Kung ang `apply`,` call`, o `bind` ay ginamit upang tumawag o gumawa ng isang punksyon,ang ` this` sa loob ng punksyon ay ang bagay na ipinasa bilang isang argumento.
+1. Kung ang `new` na keyword ay ginagamit kapag tumatawag sa punksyon, ang `this` sa loob ng punksyon ay isang bagong bagay.
+2. Kung ang `apply`,`call`, o `bind` ay ginamit upang tumawag o gumawa ng isang punksyon,ang `this` sa loob ng punksyon ay ang bagay na ipinasa bilang isang argumento.
 3. Kung ang isang punksyon ay tinawag bilang isang paraan, tulad ng `obj.method ()` - ang `this` ay ang bagay na ang punksyon ay isang propyedad.
 4. Kung ang isang punksyon ay tinatawag na isang libreng punksyon ng pagsang-ayon, nangangahulugan na ito ay tinatawag na walang anumang mga kundisyon sa itaas, ang `this` ay ang pandaigdigang bagay. Sa isang browser, ito ay ang `window` na bagay. Kung sa isang mahigpit na mode (`'gamitin ang mahigpit'`), ang `this` ay magiging `undefined` sa halip na ang pandaigdigang bagay.
-5. Kung na-aplay ang karamihan sa  panuntunan sa itaas, ang panuntunan na  mas mataas ay ang siyang panalo at itatakda ang `this` na halaga.
+5. Kung na-aplay ang karamihan sa panuntunan sa itaas, ang panuntunan na mas mataas ay ang siyang panalo at itatakda ang `this` na halaga.
 6. Kung ang punksyo ay isang punksyon na ES2015 na arrow, binabalewala nito ang lahat ng mga patakaran sa itaas at tinatanggap ang `this` na halaga ng nakapalibot sa saklaw nito sa oras na ito ay nalikha.
 
 Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
@@ -93,13 +93,12 @@ Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](http
 
 ### Ipaliwanag kung paano gumagana ang prototypal na pagmamana
 
-Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `prototype` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `prototype` ng object, at ang` prototype` ng `prototype` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `prototype` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana] (https://davidwalsh.name/javascript-objects).
+Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `prototype` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `prototype` ng object, at ang`prototype` ng `prototype` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `prototype` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana](https://davidwalsh.name/javascript-objects).
 
 ###### Mga Reperensiya
 
 * https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 * https://davidwalsh.name/javascript-objects
-
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
@@ -111,11 +110,11 @@ Nakikita ko ang sintaks ng AMD na parang masyadong malubha at ang CommonJS ay ma
 
 Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasabay at di sinkronisado na paglo-load, maaari na sa wakas na tayo ay mananatili lamang sa isang diskarte. Kahit na hindi ito ganap na pinagsama sa mga browser at sa Node, maaari tayong gumamit lagi ng mga transpiler upang i-convert ang ating code.
 .
+
 ###### Mga Reperensiya
 
 * https://auth0.com/blog/javascript-module-systems-showdown/
 * https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
-
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
@@ -129,12 +128,11 @@ Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 
-
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Ano ang kaibahan sa pagitan ng isang variable na: `null`, `undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
 
-Ang mga **di-deklarado ** na mga variable ay nalilikha kapag ikaw ay  nagtatalaga ng isang halaga sa isang identifier na hindi pa nilikha noong una gamit ang `var`,` let` o `const`. Ang mga di-deklaradong variable ay tinutukoy sa pangkaalahatan, sa labas ng kasalukuyang saklaw. Sa mahigpit na mode, ang isang `ReferenceError` ay itatapon kapag susubukan mong italaga sa isang di-ipinahayag na variable. Ang mga di-deklaradong variable ay masama tulad ng kung papaano naging masama ang mga pandaigdigan na variable. Iwasan ang mga ito sa abot ng iyong makakaya! Upang suriin ang mga ito, balutin ang paggamit nito sa isang block ng `try` /` catch`.
+Ang mga **di-deklarado ** na mga variable ay nalilikha kapag ikaw ay nagtatalaga ng isang halaga sa isang identifier na hindi pa nilikha noong una gamit ang `var`,`let` o `const`. Ang mga di-deklaradong variable ay tinutukoy sa pangkaalahatan, sa labas ng kasalukuyang saklaw. Sa mahigpit na mode, ang isang `ReferenceError` ay itatapon kapag susubukan mong italaga sa isang di-ipinahayag na variable. Ang mga di-deklaradong variable ay masama tulad ng kung papaano naging masama ang mga pandaigdigan na variable. Iwasan ang mga ito sa abot ng iyong makakaya! Upang suriin ang mga ito, balutin ang paggamit nito sa isang block ng `try` /`catch`.
 
 ```js
 function foo() {
@@ -145,7 +143,7 @@ foo();
 console.log(x); // 1
 ```
 
-Ang isang variable na `undefined` ay isang variable na ipinahayag na, ngunit hindi nakatalaga sa isang halaga. Ito ay uri ng `undefined`. Kung ang isang punksyon ay hindi nagbabalik ng anumang halaga bilang resulta ng pagpapatupad na itinalaga sa isang variable, ang variable ay magkakaroon din ng halaga na `undefined`. Upang suriin ito, ihambing ang paggamit ng mahigpit na pagkakapantay-pantay (`===`) na operator o `typeof` na magbibigay ng string na `'undefined'`. Tandaan na hindi mo dapat gamitin ang abstraktong operator ng pagkapantay-pantay upang sumuri, dahil ito ay babalik sa `true` kung ang halaga ay` null`.
+Ang isang variable na `undefined` ay isang variable na ipinahayag na, ngunit hindi nakatalaga sa isang halaga. Ito ay uri ng `undefined`. Kung ang isang punksyon ay hindi nagbabalik ng anumang halaga bilang resulta ng pagpapatupad na itinalaga sa isang variable, ang variable ay magkakaroon din ng halaga na `undefined`. Upang suriin ito, ihambing ang paggamit ng mahigpit na pagkakapantay-pantay (`===`) na operator o `typeof` na magbibigay ng string na `'undefined'`. Tandaan na hindi mo dapat gamitin ang abstraktong operator ng pagkapantay-pantay upang sumuri, dahil ito ay babalik sa `true` kung ang halaga ay`null`.
 
 ```js
 var foo;
@@ -160,7 +158,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-Ang isang variable na `null` ay malinaw na itinalaga sa` null` na halaga. Ito ay kumakatawan ng walang anumang halaga at iba mula sa `undefined` sa paraang ito ay tahasang itinalaga. Upang suriin ang `null,` ihambing lang ang paggamit ng mahigpit na operator ng pagkakapantay-pantay. Tandaan na tulad ng sa itaas, hindi mo dapat gamitin ang abstraktong operator ng pagkakapantay-pantay (`==`) upang sumuri, dahil ito ay babalik sa `true` kung ang halaga ay `undefined`.
+Ang isang variable na `null` ay malinaw na itinalaga sa`null` na halaga. Ito ay kumakatawan ng walang anumang halaga at iba mula sa `undefined` sa paraang ito ay tahasang itinalaga. Upang suriin ang `null,` ihambing lang ang paggamit ng mahigpit na operator ng pagkakapantay-pantay. Tandaan na tulad ng sa itaas, hindi mo dapat gamitin ang abstraktong operator ng pagkakapantay-pantay (`==`) upang sumuri, dahil ito ay babalik sa `true` kung ang halaga ay `undefined`.
 
 ```js
 var foo = null;
@@ -185,13 +183,12 @@ Ang pagsasara ay ang kumbinasyon ng isang punksyon at ang leksikong environment 
 **Bakit ka pipili ng isa?**
 
 * Privacy sa datos / pag-emulate ng pribadong pamamaraan sa closures. Karaniwang ginagamit sa [pattern ng module](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Bahagyang mga aplikasyon o pagcurry] (https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+* [Bahagyang mga aplikasyon o pagcurry](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
 ###### Mga Reperensiya
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
@@ -228,12 +225,11 @@ const doubled = a.map(num => {
 // doubled = [2, 4, 6]
 ```
 
-Ang pangunahing pagkakaiba sa pagitan ng `.forEach` at `.map ()` ay ang `.map () `ay nagbabalik ng isang bagong array. Kung kailangan mo ang resulta, ngunit ayaw mong baguhin ang orihinal na array, ang `.map ()` ay ang malinaw na pagpipilian. Kung kailangan mo lang umulit sa isang array, ang `forEach` ay magandang piliin din.
+Ang pangunahing pagkakaiba sa pagitan ng `.forEach` at `.map ()` ay ang `.map ()`ay nagbabalik ng isang bagong array. Kung kailangan mo ang resulta, ngunit ayaw mong baguhin ang orihinal na array, ang `.map ()` ay ang malinaw na pagpipilian. Kung kailangan mo lang umulit sa isang array, ang `forEach` ay magandang piliin din.
 
 ###### Mga Reperensiya
 
 * https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
-
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
@@ -270,7 +266,6 @@ console.log(double); // [2, 4, 6]
 * https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 * https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)
@@ -279,7 +274,7 @@ Sa nakaraan, ginamit ko ang Backbone para sa aking mga modelo na naghihikayat sa
 
 Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang arkitektura ng Flux batay sa React o Redux na naghihikayat sa isang direksyunal na punksyunal na pag-program na pamamaraan sa halip. Gusto kong kumatawan sa mga modelo ng aking app gamit ang mga plain na mga bagay at sumulat ng utility na purong mga punksyon upang manipulahin ang mga bagay na ito. Minamanipula ang estado gamit ang mga pagkilos at mga reducer tulad ng sa anumang iba pang aplikasyon ng Redux.
 
- Iniiwasan ko ang paggamit ng klasikal na pagmamana kung posible. Kapag at kung gagawin ko, mananatili ako sa [mga patakarang ito](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+Iniiwasan ko ang paggamit ng klasikal na pagmamana kung posible. Kapag at kung gagawin ko, mananatili ako sa [mga patakarang ito](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
@@ -292,7 +287,6 @@ Ang mga bagay na host ay ibinibigay ng runtime environment (browser o Node), kag
 ###### Mga Reperensiya
 
 * https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
-
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
@@ -337,7 +331,6 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Ipaliwanag ang `Function.prototype.bind`.
@@ -352,13 +345,11 @@ Sa aking karanasan, ito ay pinaka-kapaki-pakinabang para sa pag-bind ng halaga n
 
 * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
-
 
 ### Kelan ka gagamit ng `document.write()`?
 
-Ang `document.write()` ay sumusulat ng isang string ng teksto sa isang stream ng dokumento na binuksan ng `document.open()`. Kapag ang `document.write ()` ay naisakatuparan pagkatapos na mai-load ang pahina, tatawag itong `document.open` na nililimas ang buong dokumento (` <head> `at` <body> `removed!) At pinapalitan ang mga nilalaman sa binigay na halaga ng parameter sa string. Kaya nga naman ito ay karaniwang itinuturing na mapanganib at madaling kapitan ng sakit sa maling paggamit.
+Ang `document.write()` ay sumusulat ng isang string ng teksto sa isang stream ng dokumento na binuksan ng `document.open()`. Kapag ang `document.write ()` ay naisakatuparan pagkatapos na mai-load ang pahina, tatawag itong `document.open` na nililimas ang buong dokumento (`<head>`at`<body>`removed!) At pinapalitan ang mga nilalaman sa binigay na halaga ng parameter sa string. Kaya nga naman ito ay karaniwang itinuturing na mapanganib at madaling kapitan ng sakit sa maling paggamit.
 
 Mayroong ilang mga sagot na makikita online na nagpapaliwanag na ang `document.write()` ay ginagamit sa analitikang code o [kapag nais mong isama ang mga estilo na dapat gagana lamang kung pinagana ang JavaScript](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). Ginagamit pa rin ito sa boilerplate ng HTML5 sa [load script na kahanay at pinanatili ang pagkakasunud-sunod ng pagpapatupad](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! Gayunpaman, pinaghihinalaan ko na ang mga kadahilanan na maaaring pinaglumaan na sa panahon at sa modernong araw, maaari nilang makamit nang hindi gumagamit ng `document.write()`. Kung maaari ay itama mo ako kung mali ako tungkol dito.
 
@@ -367,14 +358,13 @@ Mayroong ilang mga sagot na makikita online na nagpapaliwanag na ang `document.w
 * https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 * https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
 ### Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?
 
 **Pagtuklas ng Tampok**
 
-Ang pagtuklas ng tampok ay kinasasangkutan ng pagtatrabaho kung ang isang browser ay sumusuporta sa isang tiyak na bloke ng code, at nagpapatakbo ng ibang code na nakasalalay sa kung ito (o hindi), upang ang browser ay maaaring makapagbigay kahit kailan ng isang gumaganang karanasan sa halip na mag-crash o magka-error sa ilang mga browser. 
+Ang pagtuklas ng tampok ay kinasasangkutan ng pagtatrabaho kung ang isang browser ay sumusuporta sa isang tiyak na bloke ng code, at nagpapatakbo ng ibang code na nakasalalay sa kung ito (o hindi), upang ang browser ay maaaring makapagbigay kahit kailan ng isang gumaganang karanasan sa halip na mag-crash o magka-error sa ilang mga browser.
 Halimbawa:
 
 ```js
@@ -415,7 +405,7 @@ Ito ay isang string na iniulat ng browser na nagbibigay-daan sa mga network prot
 
 Ang Ajax ay (sinkronisadong JavaScript at XML) ay isang set ng mga diskarte sa pag-develop ng web gamit ang maraming mga teknolohiya ng web sa panig ng kliyente upang lumikha ng mga aplikasyon ng web na sinkronisado. Sa Ajax, ang mga web na aplikasyon ay maaaring magpadala ng datos sa at kunin mula sa isang serber na di-sinkronisado (sa background) nang hindi nakakasagabal sa displey at pag-uugali ng umiiral na pahina. Sa pamamagitan ng pag-decoupling ng layer ng pagpapalit ng datos mula sa layer ng pagtatanghal, ang Ajax ay nagbibigay-daan para sa mga web na pahina, at sa pamamagitan ng extension ng mga aplikasyon sa web, upang baguhin ang nilalaman na dynamic na walang kailangang i-reload ang buong pahina. Sa pagsasagawa, ang mga modernong pagpapatupad ay kadalasang kapalit ng JSON para sa XML dahil sa mga pakinabang ng pagiging likas sa JavaScript.
 
-Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong  komunikasyon o sa mga araw ngayon, ang` fetch` na API.
+Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong komunikasyon o sa mga araw ngayon, ang`fetch` na API.
 
 ###### Mga Reperensiya
 
@@ -436,7 +426,7 @@ Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong  k
 **Mga Di Kalamangan**
 
 * Ang mga dynamic na webpage ay mas mahirap i-bookmark.
-* Hindi gagana kung hindi pinagana ang JavaScript sa browser.* Ang ilang mga webcrawlers ay hindi nagsasagawa ng JavaScript at hindi makikita ang nilalamang na-load ng JavaScript.
+* Hindi gagana kung hindi pinagana ang JavaScript sa browser.\* Ang ilang mga webcrawlers ay hindi nagsasagawa ng JavaScript at hindi makikita ang nilalamang na-load ng JavaScript.
 * Karaniwang karamihan sa mga di kalamangan ng isang SPA.
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
@@ -445,7 +435,7 @@ Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong  k
 
 Ang JSONP (JSON na may Padding) ay isang paraan na parating ginagamit para i-bypass ang mga cross-domain mga patakaran sa mga web browser dahil ang Ajax ay humihingi mula sa kasalukuyang pahina papunta sa isang cross-origin na domain ay hindi pinahihintulutan.
 
-Gumagana ang JSONP sa pamamagitan ng paggawa ng isang kahilingan sa isang cross-origin na domain sa pamamagitan ng isang tag na `<script>` at kadalasan ay may parameter na query ng `callback`, halimbawa:` https: //example.com? Callback = printData`. Pagkatapos ay bubuuin ng serber ang datos sa loob ng isang punksyon na tinatawag na `printData` at ibabalik ito sa kliyente.
+Gumagana ang JSONP sa pamamagitan ng paggawa ng isang kahilingan sa isang cross-origin na domain sa pamamagitan ng isang tag na `<script>` at kadalasan ay may parameter na query ng `callback`, halimbawa:`https: //example.com? Callback = printData`. Pagkatapos ay bubuuin ng serber ang datos sa loob ng isang punksyon na tinatawag na `printData` at ibabalik ito sa kliyente.
 
 ```html
 <!-- https://mydomain.com -->
@@ -465,9 +455,9 @@ printData({ name: 'Yang Shun' });
 
 Ang kliyente ay dapat magkaroon ng punksyon na `printData` sa pandaigdigang saklaw nito at ang punksyon ay isasagawa ng kliyente kapag ang tugon mula sa cross-origin na domain ay natanggap na.
 
-Maaaring hindi ligtas ang JSONP at mayroong ilang implikasyon sa seguridad. Tulad ng JSONP na talagang JavaScript, maari nitong gawin ang lahat ng iba pang  magagawa ng JavaScript, kaya kailangan mong magtiwala sa tagabigay ng JSONP na datos.
+Maaaring hindi ligtas ang JSONP at mayroong ilang implikasyon sa seguridad. Tulad ng JSONP na talagang JavaScript, maari nitong gawin ang lahat ng iba pang magagawa ng JavaScript, kaya kailangan mong magtiwala sa tagabigay ng JSONP na datos.
 
-Sa panahon ngayon, Ang [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) ay ang nirerekomendang pamamaraan at ang  JSONP ay makikita bilang isang hack.
+Sa panahon ngayon, Ang [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) ay ang nirerekomendang pamamaraan at ang JSONP ay makikita bilang isang hack.
 
 ###### Mga Reperensiya
 
@@ -490,6 +480,7 @@ Gayunpaman, maging maingat sa isang potensyal na XSS sa itaas na pamamaraan dahi
 ### Ipaliwanag ang "hoisting".
 
 Ang pag-hoist ay isang terminong ginamit upang ipaliwanag ang pag-uugali ng mga variable na deklarasyon sa iyong code. Ang mga variable na ipinahayag o nasimulan sa keyword na `var` ay magkakaroon ng kanilang deklarasyon na "hoisted" hanggang sa tuktok ng kasalukuyangnasasakupan. Gayunpaman, ang pagpapahayag lamang ang na-hoist na, ang pagtatalaga (kung mayroong isa), ay mananatili kung saan ito. Ipaliwanag natin ang ilang mga halimbawa.
+
 ```js
 // var na mga deklarasyon ay na-hoist.
 console.log(foo); // undefined
@@ -565,7 +556,7 @@ Ang tanging oras na maaari mong i-extend ang isang likas na bagay ay kung nais m
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng ` DOMContentLoaded` na kaganapan?
+### Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng `DOMContentLoaded` na kaganapan?
 
 Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokumento ay ganap na na-load at ma-parse, nang hindi naghihintay para sa mga stylesheet, mga larawan, at mga subframe upang tapusin ang paglo-load. Ang `window` ng `load` na kaganapan ay painapaputok pagkatapos lamang ng DOM at ang lahat ng mga mapagkukunang at asset na umaasa.
 
@@ -578,7 +569,7 @@ Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokum
 
 ### Ano ang pagkakaiba sa pagitan ng `==` at `===`
 
-Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `== operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga conversion na uri. Ang operator ng `===` ay hindi gagawin ang uri ng conversion, kaya kung ang dalawang halaga ay hindi magkatulad na uri `=== `ay babalik lamang` false`. Kapag gumagamit ng `==`, ang mga funky bagay ay maaaring mangyari, tulad ng: na operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga pagpapalit na uri. Ang operator ng `===` ay hindi gagawin ang uri ng pagpapalit, kaya kung ang dalawang halaga ay hindi magkatulad na uri` === `ay babalik lamang sa `false`. Kapag gumagamit ng `==`, ang mga kaiba-ibang mga bagay ay maaaring mangyari, tulad ng:
+Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `== operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga conversion na uri. Ang operator ng`===`ay hindi gagawin ang uri ng conversion, kaya kung ang dalawang halaga ay hindi magkatulad na uri`=== `ay babalik lamang` false`. Kapag gumagamit ng`==`, ang mga funky bagay ay maaaring mangyari, tulad ng: na operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga pagpapalit na uri. Ang operator ng`===`ay hindi gagawin ang uri ng pagpapalit, kaya kung ang dalawang halaga ay hindi magkatulad na uri` === `ay babalik lamang sa`false`. Kapag gumagamit ng`==`, ang mga kaiba-ibang mga bagay ay maaaring mangyari, tulad ng:
 
 ```js
 1 == '1'; // true
@@ -589,7 +580,8 @@ Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay
 0 == false; // true
 ```
 
-Ang aking payo ay hindi dapat gamitin ang operator na `==', maliban sa kaginhawaan kapag naghahambing laban sa `null` o `undefined`, kung saan ang `a == null` ay babalik sa `true` kung` ang `a` ay `null` o `undefined`.
+Ang aking payo ay hindi dapat gamitin ang operator na `==', maliban sa kaginhawaan kapag naghahambing laban sa`null`o`undefined`, kung saan ang`a == null`ay babalik sa`true`kung` ang `a` ay `null` o `undefined`.
+
 ```js
 var a = null;
 console.log(a == null); // true
@@ -884,7 +876,7 @@ var foo = function() {
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,` var` o `const`?
+### Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,`var` o `const`?
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
@@ -963,7 +955,7 @@ baz = 'qux';
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-js)
 
-### Ano ang mga pagkakaiba sa pagitan ng ES6  na class at mga ES5 na taga-construct na punksyon?
+### Ano ang mga pagkakaiba sa pagitan ng ES6 na class at mga ES5 na taga-construct na punksyon?
 
 TODO
 

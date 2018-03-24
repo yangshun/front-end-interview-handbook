@@ -9,7 +9,7 @@
 * [将 HTML5 看作成开放的网络平台，什么是 HTML5 的基本构件（building block）？](#将-html5-看作成开放的网络平台什么是-html5-的基本构件building-block)
 * [请描述`cookie`、`sessionStorage`和`localStorage`的区别。](#请描述cookiesessionstorage和localstorage的区别)
 * [请描述`<script>`、`<script async>`和`<script defer>`的区别。](#请描述scriptscript-async和script-defer的区别)
-* [为什么最好把CSS的`<link>`标签放在`<head></head>`之间？为什么最好把JS的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
+* [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
 * [什么是渐进式渲染（progressive rendering）？](#什么是渐进式渲染progressive-rendering)
 * [为什么在`<img>`标签中使用`srcset`属性？请描述浏览器遇到该属性后的处理过程。](#为什么在img标签中使用srcset属性请描述浏览器遇到该属性后的处理过程)
 * [你有过使用不同模版语言的经历吗？](#你有过使用不同模版语言的经历吗)
@@ -113,8 +113,8 @@
 ### 请描述`<script>`、`<script async>`和`<script defer>`的区别。
 
 * `<script>` - HTML 解析中断，脚本被提取并立即执行。执行结束后，HTML 解析继续。
-* `<script async>` - 脚本的提取、执行的过程与HTML解析过程并行，脚本执行完毕可能在HTML解析完毕之前。当脚本与页面上其他脚本独立时，可以使用`async`，比如用作页面统计分析。
-* `<script defer>` - 脚本仅提取过程与HTML解析过程并行，脚本的执行将在HTML解析完毕后进行。如果有多个含`defer`的脚本，脚本的执行顺序将按照在 document 中出现的位置，从上到下顺序执行。
+* `<script async>` - 脚本的提取、执行的过程与 HTML 解析过程并行，脚本执行完毕可能在 HTML 解析完毕之前。当脚本与页面上其他脚本独立时，可以使用`async`，比如用作页面统计分析。
+* `<script defer>` - 脚本仅提取过程与 HTML 解析过程并行，脚本的执行将在 HTML 解析完毕后进行。如果有多个含`defer`的脚本，脚本的执行顺序将按照在 document 中出现的位置，从上到下顺序执行。
 
 注意：没有`src`属性的脚本，`async`和`defer`属性会被忽略。
 
@@ -126,15 +126,15 @@
 
 [[↑] 回到顶部](#html-问题)
 
-### 为什么最好把CSS的`<link>`标签放在`<head></head>`之间？为什么最好把JS的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
+### 为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
 
 **把`<link>`放在`<head>`中**
 
-把`<link>`标签放在`<head></head>`之间是规范要求的内容。此外，这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
+把`<link>`标签放在`<head></head>`之间是规范要求的内容。此外，这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
 
 **把`<script>`标签恰好放在`</body>`之前**
 
-脚本在下载和执行期间会阻止HTML解析。把`<script>`标签放在底部，保证HTML首先完成解析，将页面尽早呈现给用户。
+脚本在下载和执行期间会阻止 HTML 解析。把`<script>`标签放在底部，保证 HTML 首先完成解析，将页面尽早呈现给用户。
 
 例外情况是当你的脚本里包含`document.write()`时。但是现在，`document.write()`不推荐使用。同时，将`<script>`标签放在底部，意味着浏览器不能开始下载脚本，直到整个文档（document）被解析。也许，对此比较好的做法是，`<script>`使用`defer`属性，放在`<head>`中。
 
@@ -152,9 +152,9 @@
 
 一些举例：
 
-* 图片懒加载——页面上的图片不会一次性全部加载。当用户滚动页面到图片部分时，JavaScript将加载并显示图像。
-* 确定显示内容的优先级（分层次渲染）——为了尽快将页面呈现给用户，页面只包含基本的最少量的CSS、脚本和内容，然后可以使用延迟加载脚本或监听`DOMContentLoaded`/`load`事件加载其他资源和内容。
-* 异步加载HTML片段——当页面通过后台渲染时，把HTML拆分，通过异步请求，分块发送给浏览器。更多相关细节可以在[这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)找到。
+* 图片懒加载——页面上的图片不会一次性全部加载。当用户滚动页面到图片部分时，JavaScript 将加载并显示图像。
+* 确定显示内容的优先级（分层次渲染）——为了尽快将页面呈现给用户，页面只包含基本的最少量的 CSS、脚本和内容，然后可以使用延迟加载脚本或监听`DOMContentLoaded`/`load`事件加载其他资源和内容。
+* 异步加载 HTML 片段——当页面通过后台渲染时，把 HTML 拆分，通过异步请求，分块发送给浏览器。更多相关细节可以在[这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)找到。
 
 ###### 参考
 
@@ -173,14 +173,14 @@
 
 所以，有了这些属性，浏览器会：
 
- 1. 查看设备宽度
- 2. 检查sizes列表中哪个媒体条件是第一个为真
- 3. 查看给予该媒体查询的槽大小
- 4. 加载srcset列表中引用的最接近所选的槽大小的图像
- 
- ###### 参考
- 
- * https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+1. 查看设备宽度
+2. 检查 sizes 列表中哪个媒体条件是第一个为真
+3. 查看给予该媒体查询的槽大小
+4. 加载 srcset 列表中引用的最接近所选的槽大小的图像
+
+###### 参考
+
+* https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
 [[↑] 回到顶部](#html-问题)
 

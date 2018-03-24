@@ -1,6 +1,7 @@
 # Perguntas HTML
 
 Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Os pedidos de sugestões e correções são bem-vindos!
+
 * [O que faz um doctype?](#what-does-a-doctype-do)
 * [Como é que tu serves uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
 * [Que tipo de coisas tu deves desconfiar ao projetar ou desenvolver sites multilíngues?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
@@ -31,7 +32,7 @@ Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página
 
 A questão é um pouco vaga, eu vou assumir que está a perguntar sobre o caso mais comum, que é como servir uma página com conteúdo disponível em vários idiomas, mas o conteúdo dentro da página deve ser exibido somente num idioma consistente.
 
-Quando uma solicitação HTTP é feita para um servidor, o agente de utilizador pedido geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Aceitar-Idioma'. O servidor pode então usar estas informações para retornar uma versão do documento no idioma apropriado, caso tal alternativa esteja disponível. O documento HTML retornado também deve declarar o atributo `lang` na marca `<html> `, como `<html lang="en">...</html>`.
+Quando uma solicitação HTTP é feita para um servidor, o agente de utilizador pedido geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Aceitar-Idioma'. O servidor pode então usar estas informações para retornar uma versão do documento no idioma apropriado, caso tal alternativa esteja disponível. O documento HTML retornado também deve declarar o atributo`lang`na marca`<html> `, como`<html lang="en">...</html>`.
 
 Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e conteúdo para o idioma específico armazenado nos formatos YML ou JSON. O servidor, em seguida, gera dinamicamente a página HTML com conteúdo nesse idioma específico, geralmente com a ajuda de uma estrutura de back-end.
 
@@ -88,20 +89,20 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 [[↑] De volta ao topo](#html-questions)
 
-### Descreve a diferença entre uma `cookie`,` sessionStorage` e `localStorage`.
+### Descreve a diferença entre uma `cookie`,`sessionStorage` e `localStorage`.
 
 Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor-chave do lado do cliente. Eles só conseguem armazenar valores como strings.
 
-|                                        | `cookie`                                                 | `localStorage` | `sessionStorage` |
-| -------------------------------------- | -------------------------------------------------------- | -------------- | ---------------- |
-| Iniciador                              | Cliente ou servidor. Pode usar cabeçalho `Set-Cookie`    | Cliente        | Cliente          |
-| Expira                                 | Definir manualmente                                      | Para sempre    | Na aba fechar     |
-| Persiste em todas sessões do navegador | Depende de se o tempo de validade está configurado       | Sim            | Não               |
-| Tem um domínio associado               | Sim                                                      | Não            | Não               |
-| Enviado para servidor com cada         | Os cookies são automaticamente enviados através do       | Não            | Não              | solicitação HTTP                       | cabeçalho `Cookie`                                       |                |
+|                                        | `cookie`                                              | `localStorage` | `sessionStorage` |
+| -------------------------------------- | ----------------------------------------------------- | -------------- | ---------------- |
+| Iniciador                              | Cliente ou servidor. Pode usar cabeçalho `Set-Cookie` | Cliente        | Cliente          |
+| Expira                                 | Definir manualmente                                   | Para sempre    | Na aba fechar    |
+| Persiste em todas sessões do navegador | Depende de se o tempo de validade está configurado    | Sim            | Não              |
+| Tem um domínio associado               | Sim                                                   | Não            | Não              |
+| Enviado para servidor com cada         | Os cookies são automaticamente enviados através do    | Não            | Não              | solicitação HTTP | cabeçalho `Cookie` |  |
 
-| Capacidade (por domínio)               | 4kb                                                      | 5MB            | 5MB              |
-| Acessibilidade                         | Qualquer janela                                          | Qualquer janela| A mesma aba        |
+| Capacidade (por domínio) | 4kb | 5MB | 5MB |
+| Acessibilidade | Qualquer janela | Qualquer janela| A mesma aba |
 
 ###### Referências
 
@@ -115,8 +116,7 @@ Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor
 * `<script>` - A análise HTML é bloqueada, o script é executado e executado imediatamente, a análise HTML é retomada após o script ser executado.
 * `<script async>` - O script será procurado em paralelo com a análise HTML e executado assim que estiver disponível (potencialmente antes da análise HTML). Usa `async` quando o script for independente de qualquer outro script na página, por exemplo, analítica.
 
-
-* `<script defer>` - O script será procurado em paralelo com a análise de HTML e executado quando a página terminar de analisar. Se houver vários deles, cada script diferido é executado na ordem em que foram encontrados no documento. Se um script depende de um DOM totalmente analisado, o atributo `defer`` será útil para garantir que o HTML seja totalmente analisado antes de o executar. Não há muita diferença em colocar um `<script>` normal no final de `<body>`. Um script diferido não deve conter `document.write`.
+- `<script defer>` - O script será procurado em paralelo com a análise de HTML e executado quando a página terminar de analisar. Se houver vários deles, cada script diferido é executado na ordem em que foram encontrados no documento. Se um script depende de um DOM totalmente analisado, o atributo ` defer`` será útil para garantir que o HTML seja totalmente analisado antes de o executar. Não há muita diferença em colocar um `<script>`normal no final de`<body>`. Um script diferido não deve conter`document.write`.
 
 Nota: Os atributos `async` e` defer`` são ignorados para scripts que não possuem atributo `src`.
 
@@ -167,7 +167,7 @@ Exemplos de tais técnicas:
 
 ### Por que usarias um atributo `srcset` numa tag de imagem? Explica o processo que o navegador usa ao avaliar o conteúdo deste atributo.
 
-Tu usarias o atributo `srcset` quando quiseres exibir imagens diferentes para os utilizadores, dependendo da largura do ecrã do dispositivo - mostrar imagens de qualidade superior para dispositivos com display de retina aumenta a experiência do utilizador enquanto fornece imagens de baixa resolução para dispositivos de baixo custo aumentam o desempenho e diminuem o desperdício de dados (porque servir uma imagem maior não terá nenhuma diferença visível). Por exemplo:  `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para mostrar o pequeno, médio ou grande `.jpg` gráfico dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para uma largura de dispositivo de 320px, os seguintes cálculos são feitos:
+Tu usarias o atributo `srcset` quando quiseres exibir imagens diferentes para os utilizadores, dependendo da largura do ecrã do dispositivo - mostrar imagens de qualidade superior para dispositivos com display de retina aumenta a experiência do utilizador enquanto fornece imagens de baixa resolução para dispositivos de baixo custo aumentam o desempenho e diminuem o desperdício de dados (porque servir uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para mostrar o pequeno, médio ou grande `.jpg` gráfico dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para uma largura de dispositivo de 320px, os seguintes cálculos são feitos:
 
 * 500 / 320 = 1.5625
 * 1000 / 320 = 3.125

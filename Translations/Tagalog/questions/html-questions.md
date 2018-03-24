@@ -1,5 +1,6 @@
 # Mga Tanong sa HTML
-Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon 
+
+Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon
 
 * [Ano ang ginagawa ng `DOCTYPE`?](#ano-ang-ginagawa-ng-doctype)
 * [Papaano mo ihahain ang pahinang may iba't-ibang lenggwaheng nilalaman?](#papaano-mo-ihahain-ang-pahinang-may-ibat-ibang-lenggwaheng-nilalaman)
@@ -8,7 +9,7 @@ Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga 
 * [Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?](#isaalang-alang-ang-html5-bilang-isang-bukas-na-web-platform-ano-ano-ang-mga-pangunahing-sangkap-ng-html5)
 * [Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,`sessionStorage` at `localStorage`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-isang-cookie-sessionstorage-at-localstorage)
 * [Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-script-script-async-at-script-defer)
-* [Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?](#bakit-karaniwang-magandang-ideya-na-ilagay-ang-mga-css-link-sa-pagitan-ng-head-head-at-js-script-s-bago-ang-body-may-alam-ka-bang-anumang-mga-pagbubukod)
+* [Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>` sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang `/ <body>`? May alam ka bang anumang mga pagbubukod?](#bakit-karaniwang-magandang-ideya-na-ilagay-ang-mga-css-link-sa-pagitan-ng-head-head-at-js-script-s-bago-ang-body-may-alam-ka-bang-anumang-mga-pagbubukod)
 * [Ano ang progresibong pag-render?](#ano-ang-progresibong-pag-render)
 * [Bakit ka gagamit ng isang `srcset` na katangian sa isang tag ng imahe? Ipaliwanag ang proseso na ginagamit ng browser sa pagsuri ng nilalaman ng katangiang ito.](#bakit-ka-gagamit-ng-isang-srcset-na-katangian-sa-isang-tag-ng-imahe-ipaliwanag-ang-proseso-na-ginagamit-ng-browser-sa-pagsuri-ng-nilalaman-ng-katangiang-ito)
 * [Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?](#nakagamit-ka-na-ba-ng-ibang-lenggwahe-sa-pag-template-ng-html)
@@ -31,9 +32,9 @@ Moral ng kuwento - idagdag lamang ang `<! DOCTYPE html>` sa simula ng iyong pahi
 
 Ang tanong ay medyo hindi malinaw, ipinapalagay ko na ito ay nagtatanong tungkol sa pinaka-karaniwang kaso, na kung paano maghain ng isang pahina na may nilalaman na magagamit sa maraming wika, ngunit ang nilalaman sa loob ng pahina ay dapat na ipakita lamang sa isang tuloy-tuloy na parehong wika.
 
-Kapag ang isang HTTP na kahilingan ay ginawa sa isang serber, karaniwang nagpapadala ang humiling na ahente ng gumagamit ng impormasyon tungkol sa mga kagustuhan sa wika, tulad ng sa header na `Tanggapin-Wika`. Pagkatapos ay maaring gamitin ng serber ang impormasyong ito upang ibalik ang isang bersyon ng dokumento sa naaangkop na wika kung may alternatibong pwede. Ang isang ibinalik na dokumentong HTML ay dapat ding ipahayag ang `lang` na katangian sa`<html>`na tag, tulad ng`html html = 'en"> ... </ html> `.
+Kapag ang isang HTTP na kahilingan ay ginawa sa isang serber, karaniwang nagpapadala ang humiling na ahente ng gumagamit ng impormasyon tungkol sa mga kagustuhan sa wika, tulad ng sa header na `Tanggapin-Wika`. Pagkatapos ay maaring gamitin ng serber ang impormasyong ito upang ibalik ang isang bersyon ng dokumento sa naaangkop na wika kung may alternatibong pwede. Ang isang ibinalik na dokumentong HTML ay dapat ding ipahayag ang `lang` na katangian sa`<html>`na tag, tulad ng`html html = 'en"> ... </ html>`.
 
-Sa back end, ang HTML markup ay maglalaman ng mga `i18n` na placeholder at  para sa partikular na wika na naka-imbak sa mga format ng YML o JSON. Pagkatapos ay dynamikong bubuuin ng server ang pahina ng HTML na naglalaman sa partikular na wika, kadalasan sa tulong ng back end na balangkas.
+Sa back end, ang HTML markup ay maglalaman ng mga `i18n` na placeholder at para sa partikular na wika na naka-imbak sa mga format ng YML o JSON. Pagkatapos ay dynamikong bubuuin ng server ang pahina ng HTML na naglalaman sa partikular na wika, kadalasan sa tulong ng back end na balangkas.
 
 ###### Mga Reperensiya
 
@@ -92,15 +93,15 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 
 Ang lahat ng nabanggit na mga teknolohiya ay ang mahahalagang mekanismo ng imbakan sa parte ng kliyente. Ang mga ito ay maaari lamang mag-imbak ng mga halaga bilang mga string.
 
-|                                        | `cookie`                                                 | `localStorage` | `sessionStorage` |
-| -------------------------------------- | -------------------------------------------------------- | -------------- | ---------------- |
-| Tagasimula                             | Kliyente o serber. Ang serber ay pwedeng gumamit ng `Set-Cookie` na header     | Kliyente         | Kliyente           |
-| Pag-expire                                 | Mano-manong pag-set                                             | Habang buhay        | Nasa tab malapit     |
-| Patuloy sa lahat ng mga sesyon ng browser     | Depende sa kung ang panahon nng pag-expire ay itinakda                     | Oo            | Hindi               |
-| May kaugnayan na domain                 | Oo                                                      | Hindi             | Hindi               |
-| Ipinadala sa server sa bawat kahilingan ng HTTP | Ang mga cookies ay awtomatikong ipinadala sa pamamagitan ng `Cookie`na header | Hindi             | Hindi               |
-| Kapasidad (kada domain)                  | 4kb                                                      | 5MB            | 5MB              |
-| kayang i-aakses                          | Kahit na anong bintana                                               | Kahit na anong bintana     | Parehong tab         |
+|                                                 | `cookie`                                                                      | `localStorage`         | `sessionStorage` |
+| ----------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------- | ---------------- |
+| Tagasimula                                      | Kliyente o serber. Ang serber ay pwedeng gumamit ng `Set-Cookie` na header    | Kliyente               | Kliyente         |
+| Pag-expire                                      | Mano-manong pag-set                                                           | Habang buhay           | Nasa tab malapit |
+| Patuloy sa lahat ng mga sesyon ng browser       | Depende sa kung ang panahon nng pag-expire ay itinakda                        | Oo                     | Hindi            |
+| May kaugnayan na domain                         | Oo                                                                            | Hindi                  | Hindi            |
+| Ipinadala sa server sa bawat kahilingan ng HTTP | Ang mga cookies ay awtomatikong ipinadala sa pamamagitan ng `Cookie`na header | Hindi                  | Hindi            |
+| Kapasidad (kada domain)                         | 4kb                                                                           | 5MB                    | 5MB              |
+| kayang i-aakses                                 | Kahit na anong bintana                                                        | Kahit na anong bintana | Parehong tab     |
 
 ###### Mga Reperensiya
 
@@ -112,8 +113,8 @@ Ang lahat ng nabanggit na mga teknolohiya ay ang mahahalagang mekanismo ng imbak
 ### Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.
 
 * `<script>` - Ang pag-parse ng HTML ay naka-block, ang script ay kinuha at agad na pinaandar, ang pag-parse ng HTML ay ipagpapatuloy pagkatapos na maisagawa ang script.
-* `<script async>` - Ang script ay kukunin na  kahilera sa pag-parse ng HTML at maisagawa sa lalong madaling panahon na ito ay magagamit (may potensyal bago makumpleto ang pag-parse ng HTML). Gumamit ng `async` kapag ang script ay malaya sa anumang iba pang mga script sa pahina, halimbawa ay mga analitika.
-* `<script defer>` - Ang script ay kukuha ng kahanay sa pag-parse ng HTML at isasagawa kapag natapos na ang pahina sa pag-parse. Kung maraming ganito, ang bawat ipinagpaliban na script ay ipapagana ayon sa pagkakasunud-sunod sa panahong itoy nasagupaan sa dokumento. Kung ang isang script ay umaasa sa isang ganap na nai-parse na DOM, ang `defer` na katangian ay magiging kapaki-pakinabang sa pagtitiyak na ang HTML ay ganap na ma-parse bago pa man isagawa. Hindi gaanong naiiba ang paglagay ng normal na `<script>` sa dulo ng `` body '`. Ang isang ipinagpaliban na script ay hindi dapat maglalaman ng `document.write`.
+* `<script async>` - Ang script ay kukunin na kahilera sa pag-parse ng HTML at maisagawa sa lalong madaling panahon na ito ay magagamit (may potensyal bago makumpleto ang pag-parse ng HTML). Gumamit ng `async` kapag ang script ay malaya sa anumang iba pang mga script sa pahina, halimbawa ay mga analitika.
+* `<script defer>` - Ang script ay kukuha ng kahanay sa pag-parse ng HTML at isasagawa kapag natapos na ang pahina sa pag-parse. Kung maraming ganito, ang bawat ipinagpaliban na script ay ipapagana ayon sa pagkakasunud-sunod sa panahong itoy nasagupaan sa dokumento. Kung ang isang script ay umaasa sa isang ganap na nai-parse na DOM, ang `defer` na katangian ay magiging kapaki-pakinabang sa pagtitiyak na ang HTML ay ganap na ma-parse bago pa man isagawa. Hindi gaanong naiiba ang paglagay ng normal na `<script>` sa dulo ng `` body '`. Ang isang ipinagpaliban na script ay hindi dapat maglalaman ng`document.write`.
 
 Tandaan: Ang mga katangian ng `async` at `defer` ay binabalewala para sa mga script na walang katangian na `src`.
 
@@ -125,17 +126,17 @@ Tandaan: Ang mga katangian ng `async` at `defer` ay binabalewala para sa mga scr
 
 [[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
-### Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>`  sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang ` / <body>`? May alam ka bang anumang mga pagbubukod?
+### Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>` sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang `/ <body>`? May alam ka bang anumang mga pagbubukod?
 
-** Paglalagay ng  mga `<link>` sa `<head>` **
+** Paglalagay ng mga `<link>` sa `<head>` **
 
-Ang paglagay ng mga `<link>` sa ulo ay bahagi ng ispisipikasyon. Bukod diyan, ang paglalagay sa itaas ay nagbibigay-daan sa pahina na mag-render sa paraang  progresibo na nagpapabuti sa karanasan ng gumagamit. Ang problema sa paglalagay ng mga stylesheet malapit sa ilalim ng dokumento ay ipinagbabawal nito ang progresibong pag-render sa maraming browser, kabilang dito ang Internet Explorer. Ang ilang mga browser ay nag-block ng pag-render upang maiwasan ang pag-repaint ng mga elemento ng pahina kung ang kanilang mga estilo ay mabago. Ang gumagamit ay stuck  sa pagtingin sa isang blangko na puting pahina. Pinipigilan nito ang flash ng mga walang istilong nilalaman.
+Ang paglagay ng mga `<link>` sa ulo ay bahagi ng ispisipikasyon. Bukod diyan, ang paglalagay sa itaas ay nagbibigay-daan sa pahina na mag-render sa paraang progresibo na nagpapabuti sa karanasan ng gumagamit. Ang problema sa paglalagay ng mga stylesheet malapit sa ilalim ng dokumento ay ipinagbabawal nito ang progresibong pag-render sa maraming browser, kabilang dito ang Internet Explorer. Ang ilang mga browser ay nag-block ng pag-render upang maiwasan ang pag-repaint ng mga elemento ng pahina kung ang kanilang mga estilo ay mabago. Ang gumagamit ay stuck sa pagtingin sa isang blangko na puting pahina. Pinipigilan nito ang flash ng mga walang istilong nilalaman.
 
 ** Paglalagay ng mga `<script>` bago ang `</ body>` **
 
-Ang pag-parse ng mga `<script>` na block HTML habang ang mga ito ay nai-download at naisakatuparan. Ang pag-download ng mga script sa ibaba ay magbibigay-daan sa HTML na ma-parse at maipakita  muna sa gumagamit.
+Ang pag-parse ng mga `<script>` na block HTML habang ang mga ito ay nai-download at naisakatuparan. Ang pag-download ng mga script sa ibaba ay magbibigay-daan sa HTML na ma-parse at maipakita muna sa gumagamit.
 
-Ang isang pagbubukod para sa pagpoposisyon ng mga `<script>` sa baba ay kapag ang iyong script ay naglalaman ng `document.write ()`, ngunit sa panahon ngayon ay hindi  mahusay na kasanayan ang paggamit  ng `document.write ()`. Gayundin, ang paglalagay ng mga `<script>` sa ibaba ay nangangahulugan na ang browser ay hindi maaaring magsimulang mag-download ng mga script hanggang sa ma-parse muna ang buong dokumento. Ang isang posibleng paraan ay ilagay ang `<script>` sa `<head>` at gamitin ang `defer` na katangian.
+Ang isang pagbubukod para sa pagpoposisyon ng mga `<script>` sa baba ay kapag ang iyong script ay naglalaman ng `document.write ()`, ngunit sa panahon ngayon ay hindi mahusay na kasanayan ang paggamit ng `document.write ()`. Gayundin, ang paglalagay ng mga `<script>` sa ibaba ay nangangahulugan na ang browser ay hindi maaaring magsimulang mag-download ng mga script hanggang sa ma-parse muna ang buong dokumento. Ang isang posibleng paraan ay ilagay ang `<script>` sa `<head>` at gamitin ang `defer` na katangian.
 
 ###### Mga Reperensiya
 
@@ -153,7 +154,7 @@ Mga halimbawa ng naturang pamamaraan:
 
 * Mabagal na pag-load ng mga imahe - Ang lahat ng mga imahe sa pahina ay hindi nag-load ng sabay-sabay. Ang JavaScript ay gagamitin upang mag-load ng isang imahe kapag nag-scroll ang gumagamit sa bahagi ng pahina na nagpapakita ng imahe.
 * Pag-prioritize ng nakikitang nilalaman (o pag-render sa itaas ng tiklop) - Isama lamang ang pinakamaliit na CSS / nilalaman / script na kailangan para sa dami ng pahina na mai-render sa unang gumagamit ng browser upang ipakita nang mabilis hangga't maaari, maaari mong gamitin ang ipinagpaliban na script o makinig para sa kaganapan ng `DOMContentLoaded` /` load ' upang mag-load sa iba pang mga mapagkukunan at nilalaman.
-* Mga fragment ng Async HTML - Ang mga bahagi ng HTML sa pag-flush sa browser habang ginagawa ang pahina sa back end. Ang mga higit pang mga detalye sa pamamaraan ay matatagpuan [dito] (http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+* Mga fragment ng Async HTML - Ang mga bahagi ng HTML sa pag-flush sa browser habang ginagawa ang pahina sa back end. Ang mga higit pang mga detalye sa pamamaraan ay matatagpuan [dito](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
 ###### Mga Reperensiya
 
