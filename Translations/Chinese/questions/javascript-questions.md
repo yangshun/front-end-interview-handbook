@@ -944,12 +944,15 @@ function foo() {
 console.log(bar); // ReferenceError: bar is not defined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
+```
 
+```js
 if (true) {
   var bar = 'bar';
   let baz = 'baz';
   const qux = 'qux';
 }
+
 // 用 var 声明的变量在函数作用域上都可访问
 console.log(bar); // bar
 // let 和 const 定义的变量在它们被定义的语句块之外不可访问

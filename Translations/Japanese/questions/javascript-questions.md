@@ -907,12 +907,15 @@ function foo() {
 console.log(bar); // ReferenceError: bar is not defined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
+```
 
+```js
 if (true) {
   var bar = 'bar';
   let baz = 'baz';
   const qux = 'qux';
 }
+
 // var declared variables are accessible anywhere in the function scope.
 console.log(bar); // bar
 // let and const defined variables are not accessible outside of the block they were defined in.
