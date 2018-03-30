@@ -93,16 +93,15 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor-chave do lado do cliente. Eles só conseguem armazenar valores como strings.
 
-|                                        | `cookie`                                              | `localStorage` | `sessionStorage` |
-| -------------------------------------- | ----------------------------------------------------- | -------------- | ---------------- |
-| Iniciador                              | Cliente ou servidor. Pode usar cabeçalho `Set-Cookie` | Cliente        | Cliente          |
-| Expira                                 | Definir manualmente                                   | Para sempre    | Na aba fechar    |
-| Persiste em todas sessões do navegador | Depende de se o tempo de validade está configurado    | Sim            | Não              |
-| Tem um domínio associado               | Sim                                                   | Não            | Não              |
-| Enviado para servidor com cada         | Os cookies são automaticamente enviados através do    | Não            | Não              | solicitação HTTP | cabeçalho `Cookie` |  |
-
-| Capacidade (por domínio) | 4kb | 5MB | 5MB |
-| Acessibilidade | Qualquer janela | Qualquer janela| A mesma aba |
+|                                                 | `cookie`                                                              | `localStorage`  | `sessionStorage` |
+| ----------------------------------------------- | --------------------------------------------------------------------- | --------------- | ---------------- |
+| Iniciador                                       | Cliente ou servidor. Pode usar cabeçalho `Set-Cookie`                 | Cliente         | Cliente          |
+| Expira                                          | Definir manualmente                                                   | Para sempre     | Na aba fechar    |
+| Persiste em todas sessões do navegador          | Depende de se o tempo de validade está configurado                    | Sim             | Não              |
+| Tem um domínio associado                        | Sim                                                                   | Não             | Não              |
+| Enviado para servidor com cada solicitação HTTP | Os cookies são automaticamente enviados através do cabeçalho `Cookie` | Não             | Não              |
+| Capacidade (por domínio)                        | 4kb                                                                   | 5MB             | 5MB              |
+| Acessibilidade                                  | Qualquer janela                                                       | Qualquer janela | A mesma aba      |
 
 ###### Referências
 
