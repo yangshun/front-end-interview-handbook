@@ -98,7 +98,6 @@ All the above-mentioned technologies are key-value storage mechanisms on the cli
 | Initiator                              | Client or server. Server can use `Set-Cookie` header     | Client         | Client           |
 | Expiry                                 | Manually set                                             | Forever        | On tab close     |
 | Persistent across browser sessions     | Depends on whether expiration is set                     | Yes            | No               |
-| Have domain associated                 | Yes                                                      | No             | No               |
 | Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No             | No               |
 | Capacity (per domain)                  | 4kb                                                      | 5MB            | 5MB              |
 | Accessibility                          | Any window                                               | Any window     | Same tab         |

@@ -98,7 +98,6 @@ Ang lahat ng nabanggit na mga teknolohiya ay ang mahahalagang mekanismo ng imbak
 | Tagasimula                                      | Kliyente o serber. Ang serber ay pwedeng gumamit ng `Set-Cookie` na header    | Kliyente               | Kliyente         |
 | Pag-expire                                      | Mano-manong pag-set                                                           | Habang buhay           | Nasa tab malapit |
 | Patuloy sa lahat ng mga sesyon ng browser       | Depende sa kung ang panahon nng pag-expire ay itinakda                        | Oo                     | Hindi            |
-| May kaugnayan na domain                         | Oo                                                                            | Hindi                  | Hindi            |
 | Ipinadala sa server sa bawat kahilingan ng HTTP | Ang mga cookies ay awtomatikong ipinadala sa pamamagitan ng `Cookie`na header | Hindi                  | Hindi            |
 | Kapasidad (kada domain)                         | 4kb                                                                           | 5MB                    | 5MB              |
 | kayang i-aakses                                 | Kahit na anong bintana                                                        | Kahit na anong bintana | Parehong tab     |
