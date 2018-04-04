@@ -488,10 +488,13 @@ However, do be aware of a potential XSS in the above approach as the contents ar
 
 ### Explain "hoisting".
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration are put into memory during the compile phase. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+
+There are an misunderstanding that variable and function declarations are physically moved to the top of your code, but this is not in fact what happens. Instead, the variable and function declarations are put into memory during the compile phase, but stay exactly where you typed them in your coding.
+
 
 ```js
-// var declarations are hoisted.
+// var declarations are put in memory.
 console.log(foo); // undefined
 var foo = 1;
 console.log(foo); // 1
