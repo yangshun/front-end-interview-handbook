@@ -447,11 +447,12 @@ Adaptive design is more like the modern definition of progressive enhancement. I
 
 _Retina_ is just a marketing term to refer to high resolution screens with a pixel ratio bigger than 1. The key thing to know is that using a pixel ratio means these displays are emulating a lower resolution screen in order to show elements with the same size. Nowadays we consider all mobile devices _retina_ defacto displays.
 
-Browsers make sure everything is rendered properly by default, except images.
+Browsers by default render DOM elements according to the device resolution, except for images.
 
-In order to have crisp, good-looking graphics that make the best of _retina_ displays we need to use high resolution images whenever possible. However using always the highest resolution images will have an impact on performance.
+In order to have crisp, good-looking graphics that make the best of retina displays we need to use high resolution images whenever possible. However using always the highest resolution images will have an impact on performance as more bytes will need to be sent over the wire.
 
-To overcome this problem we should use responsive images, as specified in HTML5. It requires making available different resolution files of the same image to the browser and let it decide which image is best, using the html attribute `srcset` and optionally `sizes`, for instance:
+To overcome this problem, we can use responsive images, as specified in HTML5. It requires making available different resolution files of the same image to the browser and let it decide which image is best, using the html attribute `srcset` and optionally `sizes`, for instance:
+
 ```html
 <div responsive-background-image>  
   <img src="/images/test-1600.jpg"
@@ -462,11 +463,11 @@ To overcome this problem we should use responsive images, as specified in HTML5.
     srcset="
       /images/test-400.jpg 400w,
       /images/test-800.jpg 800w,
-      /images/test-1200.jpg 1200w" >
+      /images/test-1200.jpg 1200w">
 </div>
 ```
 
-It's important to note that browsers which don't support HTML5's `srcset` (i.e. IE11) will ignore it and use `src` instead. If we really need to support IE11 and we want to provide this feature for performance reasons, we can use a Javascript polyfill, e.g. Picturefill (link in the references).
+It is important to note that browsers which don't support HTML5's `srcset` (i.e. IE11) will ignore it and use `src` instead. If we really need to support IE11 and we want to provide this feature for performance reasons, we can use a JavaScript polyfill, e.g. Picturefill (link in the references).
 
 For icons, I would also opt to use SVGs and icon fonts where possible, as they render very crisply regardless of resolution.
 
