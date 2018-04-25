@@ -19,12 +19,12 @@
 * [사용했던 CSS 전처리기에 대해 좋아하는 것과 싫어하는 것을 설명하십시오.](#사용했던-CSS-전처리기에-대해-좋아하는-것과-싫어하는-것을-설명하십시오)
 * [비표준 글꼴을 사용하는 웹 디자인 디자인을 구현하는 방법은 무엇입니까?](#비표준-글꼴을-사용하는-웹-디자인-디자인을-구현하는-방법은-무엇입니까)
 * [CSS 셀렉터에 일치하는 요소가 어떤 것인지 브라우저가 어떻게 결정되는지를 설명하시오.](#CSS-셀렉터에-일치하는-요소가-어떤-것인지-브라우저가-어떻게-결정되는지를-설명하시오)
-* [Describe pseudo-elements and discuss what they are used for.](#describe-pseudo-elements-and-discuss-what-they-are-used-for)
-* [Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.](#explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
-* [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
-* [What is the CSS `display` property and can you give a few examples of its use?](#what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use)
-* [What's the difference between `inline` and `inline-block`?](#whats-the-difference-between-inline-and-inline-block)
-* [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-static-ally-positioned-element)
+* [Pseudo-elements 에 대해 설명하고 그 요소가 무엇을 위해 사용되는지 설명하시오.](#pseudo-elements에-대해-설명하고-그-요소가-무엇을-위해-사용되는지-설명하시오)
+* [박스 모델에 대한 이해와 CSS 에서 브라우저에 다른 박스 모델로 레이아웃을 렌더링하는 방법을 설명하십시오.](#박스-모델에-대한-이해와-CSS-에서-브라우저에-다른-박스-모델로-레이아웃을-렌더링하는-방법을-설명하십시오)
+* [`* { box-sizing: border-box; }` 는 무엇을 하나요? 장점은 무엇입니까?](#box-sizing-border-box-는-무엇을-하나요-장점은-무엇입니까)
+* [CSS 의 `display` 속성은 무엇이며 사용법에 대한 몇 가지 예를 들 수 있습니까?](#CSS의-display-속성은-무엇이며-사용법에-대한-몇-가지-예를-들-수-있습니까)
+* [`inline` 과 `inline-block` 의 차이점은 무엇입니까?](#inline-과-inline-block-의-차이점은-무엇입니까)
+* [`relative`, `fixed`, `absolute` 와 `static` 요소의 차이점은 무엇입니까?](#relative-fixed-absolute-와-static-요소의-차이점은-무엇입니까)
 * [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
 * [Have you played around with the new CSS Flexbox or Grid specs?](#have-you-played-around-with-the-new-css-flexbox-or-grid-specs)
 * [Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?](#can-you-explain-the-difference-between-coding-a-web-site-to-be-responsive-versus-using-a-mobile-first-strategy)
@@ -42,10 +42,10 @@ Pull Request 를 통한 제안 및 수정 요청을 환영합니다.
 
 브라우저는 CSS 규칙의 특수성에 따라 요소에 표시할 스타일을 결정합니다. 브라우저는 이미 특정 요소와 일치하는 규칙을 결정했다고 가정합니다. 일치하는 규칙들 가운데, 다음에 기초하여 각 규칙에 대해 특수성, 네개의 쉼표로 구분된 값,`a, b, c, d`가 계산됩니다.
 
-1. `a`는 인라인 스타일이 사용되고 있는지 여부입니다. 속성 선언이 요소에서 인라인 스타일이면 'a'는 1 이고, 그렇지 않으면 0 입니다.
-2. `b`는 ID 셀렉터의 수입니다.
-3. `c`는 클래스, 속성 및 가상 클래스 선택자의 수입니다.
-4. `d`는 태그 및 유사 요소 선택자의 수입니다.
+1.  `a`는 인라인 스타일이 사용되고 있는지 여부입니다. 속성 선언이 요소에서 인라인 스타일이면 'a'는 1 이고, 그렇지 않으면 0 입니다.
+2.  `b`는 ID 셀렉터의 수입니다.
+3.  `c`는 클래스, 속성 및 가상 클래스 선택자의 수입니다.
+4.  `d`는 태그 및 유사 요소 선택자의 수입니다.
 
 결과적인 특정성은 점수가 아니라, 컬럼마다 비교할 수 있는 가치들의 행렬입니다. 선택자를 비교하여 가장 높은 특이성을 갖는 항목을 결정할 때 왼쪽에서 오른쪽으로 보고 각 열의 가장 높은 값을 비교하세요. 따라서 `b`열의 값은 `c`와 `d`열에 있는 값을 무시합니다. 따라서 `0,1,0,0`의 특이성은 `0,0,10,10`중 하나보다 큽니다.
 
@@ -144,9 +144,9 @@ BFC 상쇄(collapse)시 인접한 블록 레벨 박스 사이의 Vertical 마진
 
 CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합니다. 일반적으로 아이콘에 사용되는 기술(Gmail 에서 사용)입니다. 구현방법:
 
-1. 스프라이트 생성기를 사용하여 여러 이미지를 하나로 묶어 적절한 CSS 를 생성합니다.
-2. 각 이미지는`background-image`,`background-position` 및`background-size` 속성이 정의 된 해당 CSS 클래스를 갖습니다.
-3. 해당 이미지를 사용하려면 요소에 해당 클래스를 추가하십시오.
+1.  스프라이트 생성기를 사용하여 여러 이미지를 하나로 묶어 적절한 CSS 를 생성합니다.
+2.  각 이미지는`background-image`,`background-position` 및`background-size` 속성이 정의 된 해당 CSS 클래스를 갖습니다.
+3.  해당 이미지를 사용하려면 요소에 해당 클래스를 추가하십시오.
 
 **장점:**
 
@@ -274,78 +274,80 @@ WAI-ARIA 가 이상적인 해결책이라 하더라도, 저는 `absolute` 접근
 
 * <https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left>
 
-### Describe pseudo-elements and discuss what they are used for.
+### Pseudo-elements 에 대해 설명하고 그 요소가 무엇을 위해 사용되는지 설명하시오.
 
-A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`:first-line`, `:first-letter`) or adding elements to the markup (combined with `content: ...`) without having to modify the markup (`:before`, `:after`).
+CSS Pseudo-element 는 Selector 에 추가 된 키워드로, 선택한 요소의 특정한 부분을 스타일링 할 수 있습니다. 마크업을 수정하지 않고 (`:before`, `:after`) 텍스트 데코레이션을 위해 사용하거나 (`:first-line`, `:first-letter`) 또는 마크 업에 요소를 추가할 수 있습니다. (`content: ...` 와 결합)
 
-* `:first-line` and `:first-letter` can be used to decorate text.
-* Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
-* Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM. It's not really possible to draw a triangle with just CSS styles without using an additional HTML element.
+* `:first-line` 과 `:first-letter` 는 텍스트를 데코레이션하는데 사용될 수 있습니다.
+* 위와 같이 `.clearfix` 에 사용되어 `clear: both` 로 영역을 차지하지 않는 요소를 추가합니다.
+* 툴팁의 삼각형 화살표는 `:before` 와 `:after` 를 사용합니다. 삼각형이 실제로 DOM 이 아닌 스타일의 일부로 간주되기 때문에 분리하는 것이 좋습니다. 추가적인 HTML 요소를 사용하지 않고 CSS 스타일만으로 삼각형을 그릴 수는 없습니다.
 
-###### References
+###### 참고자료
 
 * <https://css-tricks.com/almanac/selectors/a/after-and-before/>
 
-### Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
+### 박스 모델에 대한 이해와 CSS 에서 브라우저에 다른 박스 모델로 레이아웃을 렌더링하는 방법을 설명하십시오.
 
-The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
+CSS 박스 모델은 문서 트리의 요소에 대해 생성되고 시각적 서식 모델에 따라 배치된 사각형 상자를 나타냅니다. 각 박스에는 content 영역 (예: 텍스트, 이미지 등) 및 선택적 주변의 'padding', 'border' 및 'margin' 영역이 있습니다.
 
-The CSS box model is responsible for calculating:
+CSS 박스 모델은 다음을 계산합니다.
 
-* How much space a block element takes up.
-* Whether or not borders and/or margins overlap, or collapse.
-* A box's dimensions.
+* 블록 요소가 차지하는 공간.
+* 테두리 또는 여백이 겹치거나 붕괴되는지 여부.
+* 박스의 크기.
 
-The box model has the following rules:
+박스 모델에는 다음과 같은 규칙이 있습니다.
 
-* The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s, and `margin`s.
-* If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which see below).
-* If no `width` is specified, a non-floated block element will expand to fit the width of its parent minus `padding`.
-* The `height` of an element is calculated by the content's `height`.
-* The `width` of an element is calculated by the content's `width`.
-* By default, `padding`s and `border`s are not part of the `width` and `height` of an element.
+* 블록 요소의 크기는 `width`, `height`, `padding`, `border`, `margin`에 의해 계산됩니다.
+* `height` 가 지정되어 있지 않은 경우, 블럭 요소는 포함하고있는 내용만큼의 높이를 가질 것이고, `padding` 을 덧붙일 것입니다(아래에 float 가 없다면).
+* `width` 가 지정되지 않으면, float 가 아닌 블록 요소는 (부모의 너비 - `padding`) 에 맞게 확장됩니다.
+* 요소의 `height`는 내용의 `height`에 의해 계산됩니다.
+* 요소의 `width`는 내용의 `width`에 의해 계산됩니다.
+* 기본적으로 `padding`과 `border`는 요소의 `width`와 `height`의 일부가 아닙니다.
 
-###### References
+###### 참고자료
 
 * <https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model>
 
-### What does `* { box-sizing: border-box; }` do? What are its advantages?
+### `* { box-sizing: border-box; }` 는 무엇을 하나요? 장점은 무엇입니까?
 
-* By default, elements have `box-sizing: content-box` applied, and only the content size is being accounted for.
-* `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation.
-* The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width.
-* The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
+* 기본적으로, 요소들은 `box-sizing: content-box`가 적용되고, 내용의 크기 만 고려됩니다.
+* `box-sizing: border-box` 는 요소의 `width` 와 `height` 가 어떻게 계산되는지를 변경하여 `border` 와 `padding` 도 계산에 포함됩니다.
+* 요소의 `height` 는 내용의 `height` + 수직 `padding` + 수직 `border` 폭에 의해 계산됩니다.
+* 요소의 `width` 는 내용의 `width` + 수평 `padding` + 수평 `border` 폭에 의해 계산됩니다.
 
-### What is the CSS `display` property and can you give a few examples of its use?
+### CSS 의 `display` 속성은 무엇이며 사용법에 대한 몇 가지 예를 들 수 있습니까?
 
 * `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
 TODO
 
-### What's the difference between `inline` and `inline-block`?
+### `inline` 과 `inline-block` 의 차이점은 무엇입니까?
 
-I shall throw in a comparison with `block` for good measure.
+좋은 비교를 위해 `block` 과도 비교해 볼 것입니다.
 
-|                                      | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                              | Depends on content.                                                                                                                                                                                                  |
-| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside. | Flows along with other content and allows other elements beside.                                                                                                                                                     |
-| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                              | No. Will ignore if being set.                                                                                                                                                                                        |
-| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                              | Yes                                                                                                                                                                                                                  |
-| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
-| Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
+|                                  | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 크기                             | 부모 컨테이너의 너비를 채 웁니다.                                                           | 내용에 따라 달라집니다.                                          | 내용에 따라 달라집니다.                                                                                                                                                           |
+| 위치                             | 새 줄에서 시작하고 그 옆에 HTML 요소를 허용하지 않습니다 (`float`을 추가 할 때를 제외하고). | 다른 콘텐츠와 함께 흐르고 다른 요소는 옆에 있는 것을 허용합니다. | F 다른 콘텐츠와 함께 흐르고 다른 요소는 옆에 있는 것을 허용합니다.                                                                                                                |
+| `width`, `height` 지정 가능 여부 | 가능                                                                                        | 가능                                                             | 불가능. 설정되면 무시됩니다.                                                                                                                                                      |
+| `vertical-align` 정렬 가능 여부  | 불가능                                                                                      | 불가능                                                           | 불가능                                                                                                                                                                            |
+| margin 및 padding                | 모든방향에서 가능.                                                                          | 모든방향에서 가능.                                               | 수평방향만 가능. 세로방향을 지정하면 레이아웃에 영향을 주지 않습니다. `border` 와 `padding` 이 콘텐츠 주위에 시각적으로 나타나는 경우에도 수직영역은 `line-height` 에 의존합니다. |
 
-### What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?
+Becomes like a `block` element where you can set vertical margins and paddings.
+| Float | - | - | 수직 margin 과 padding 을 설정할 수 있는 `block` 엘리먼트와 같습니다. |
 
-A positioned element is an element whose computed `position` property is either `relative`, `absolute`, `fixed` or `sticky`.
+### `relative`, `fixed`, `absolute` 와 `static` 요소의 차이점은 무엇입니까?
 
-* `static` - The default position; the element will flow into the page as it normally would. The `top`, `right`, `bottom`, `left` and `z-index` properties do not apply.
-* `relative` - The element's position is adjusted relative to itself, without changing layout (and thus leaving a gap for the element where it would have been had it not been positioned).
-* `absolute` - The element is removed from the flow of the page and positioned at a specified position relative to its closest positioned ancestor if any, or otherwise relative to the initial containing block. Absolutely positioned boxes can have margins, and they do not collapse with any other margins. These elements do not affect the position of other elements.
-* `fixed` - The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.
-* `sticky` - Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as `relative` positioned until it crosses a specified threshold, at which point it is treated as `fixed` positioned.
+위치가 정해진 요소는 계산된 `position` 속성이 `relative`, `absolute`, `fixed` 또는 `sticky`인 요소입니다.
 
-###### References
+* `static` - 기본 위치. 요소는 평소와 같이 페이지에 위치합니다. `top`, `right`, `bottom`, `left` 및 `z-index` 속성은 적용되지 않습니다.
+* `relative` - 요소의 위치는 레이아웃을 변경하지 않고 자체에 상대적으로 조정됩니다. (따라서 배치되지 않은 요소의 간격을 남겨 둡니다.)
+* `absolute` - 요소는 페이지의 평소 위치에서 제거되고 가장 가까운 위치에 `relative` 부모 블록이 있는 경우 지정된 위치에 배치됩니다. 그렇지 않으면 최상위 블록과 관련됩니다. absolute 로 배치된 박스는 여백을 가질 수 있으며 다른 여백과 충돌하지 않습니다. 이 요소는 다른 요소의 위치에 영향을 주지 않습니다.
+* `fixed` - 요소는 페이지의 평소 위치에서 제거되고 뷰포트를 기준으로 지정된 위치에 배치되며 스크롤 할 때 이동하지 않습니다.
+* `sticky` - 스티키 포지셔닝은 `relative` 와 `fixed` 의 하이브리드입니다. 요소는 지정된 임계 값을 넘을 때까지 `상대적` 위치로 처리되며, 특정 지점에서 `고정된` 위치로 처리됩니다.
+
+###### 참고자료
 
 * <https://developer.mozilla.org/en/docs/Web/CSS/position>
 
