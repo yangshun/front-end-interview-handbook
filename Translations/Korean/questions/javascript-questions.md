@@ -5,11 +5,11 @@
 * [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
 * [AMD 대 CommonJS 에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
 * [다음 내용이 IIFE 로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE 로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
-* [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
-* [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
-* [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
-* [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
-* [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
+* [`null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?](#null-undefined-선언되지-않은-변수-의-차이점은-무엇입니까-당신은-어떻게-이-상태들에-대한-점검을-할-것입니까)
+* [클로저는 무엇이며, 어떻게/왜 사용합니까?](#클로저는-무엇이며-어떻게-왜-사용합니까)
+* [`.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?](#forEach-루프와-map-루프-사이의-주요-차이점을-설명할-수-있습니까-왜-둘중-하나를-선택하겠습니까)
+* [익명 함수의 일반적인 사용 사례는 무엇입니까?](#익명-함수의-일반적인-사용-사례는-무엇입니까)
+* [코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)](#코드를-어떻게-구성합니까-모듈-패턴-고전적인-상속)
 * [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
 * [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
 * [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
@@ -80,12 +80,12 @@ Pull Request 를 통한 제안 및 수정 요청을 환영합니다.
 온라인에 많은 설명이 있는데 [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
 다음 규칙과 같습니다.
 
-1. 함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
-2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
-3. `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
-4. 함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
-5. 위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
-6. 함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
+1.  함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
+2.  `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
+3.  `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
+4.  함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
+5.  위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
+6.  함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
 
 상세한 설명은 [Medium 의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
@@ -128,143 +128,143 @@ JavaScript 파서는 `function foo () {} ();`를`function foo () {}`와 `();`로
 
 * <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
 
-### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+### `null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?
 
-**Undeclared** variables are created when you assign to a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+**선언되지 않은 변수** 변수는 이전에 `var`, `let`, `const` 를 사용하여 생성되지 않은 식별자에 값을 할당 할 때 생성됩니다. `선언되지 않은 변수` 는 현재 범위 외부에서 전역으로 정의됩니다. strict 모드에서는 `선언되지 않은 변수` 에 할당하려고 할 때 `ReferenceError` 가 throw 됩니다. `선언되지 않은 변수` 는 전역 변수처럼 좋지 않은 것입니다. 그것들은 모두 피하세요! 이들을 검사하기 위해 사용할 때 `try` / `catch` 블록에 감싸십시오.
 
 ```js
 function foo() {
-  x = 1; // Throws a ReferenceError in strict mode
+  x = 1 // strict 모드에서 ReferenceError를 발생시킵니다.
 }
 
-foo();
-console.log(x); // 1
+foo()
+console.log(x) // 1
 ```
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+`undefined` 변수는 선언되었지만 값이 할당되지 않은 변수입니다. 이것은 `undefined` 타입입니다. 함수가 실행 결과에 따라 값을 반환하지 않으면 변수에 할당되며, 변수가 `undefined` 값을 갖습니다. 이것을 검사하기 위해, 엄격한 (`===`) 연산자 또는 `typeof` 에 `undefined` 문자열을 사용하여 비교하십시오. 확인을 위해 추상 평등 연산자(`==`)를 사용해서는 안되며, 이는 값이 `null` 이면 `true` 를 반환합니다.
 
 ```js
-var foo;
-console.log(foo); // undefined
-console.log(foo === undefined); // true
-console.log(typeof foo === 'undefined'); // true
+var foo
+console.log(foo) // undefined
+console.log(foo === undefined) // true
+console.log(typeof foo === 'undefined') // true
 
-console.log(foo == null); // true. Wrong, don't use this to check!
+console.log(foo == null) // true. Wrong, don't use this to check!
 
 function bar() {}
-var baz = bar();
-console.log(baz); // undefined
+var baz = bar()
+console.log(baz) // undefined
 ```
 
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+`null` 인 변수는 `null` 값에 명시적으로 할당될 것입니다. 그것은 값을 나타내지 않으며 명시적으로 할당된다는 점에서 `undefined`와 다릅니다. `null`을 체크하기 위해서 단순히 완전 항등 연산자(`===`)를 사용하여 비교하면 됩니다. 위와 같이, 추상 평등 연산자 (`==`)를 사용해서는 안되며, 값이 `undefined`이면 `true`를 반환합니다.
 
 ```js
-var foo = null;
-console.log(foo === null); // true
+var foo = null
+console.log(foo === null) // true
 
-console.log(foo == undefined); // true. Wrong, don't use this to check!
+console.log(foo == undefined) // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring, if I don't intend to use it yet.
+개인적 습관으로, 저는 변수를 선언하지 않거나 할당하지 않은 상태로 두지 않습니다. 아직 사용하지 않으려는 경우, 선언한 후에 명시적으로 `null` 을 할당할 것입니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables>
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined>
 
-### What is a closure, and how/why would you use one?
+### 클로저는 무엇이며, 어떻게/왜 사용합니까?
 
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
+클로저는 함수와 그 함수가 선언된 렉시컬 환경의 조합입니다. "렉시컬"은 렉시컬 범위 지정이 변수가 사용 가능한 위치를 결정하기 위해 소스 코드 내에서 변수가 선언된 위치를 사용한다는 사실을 나타냅니다. 클로저는 외부 함수가 반환된 후에도 외부 함수의 변수 범위 체인에 접근할 수 있는 함수입니다.
 
-**Why would you use one?**
+**왜 클로저를 사용합니까?**
 
-* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+* 데이터 프라이버시 / 클로저로 private method 를 모방. 일반적으로 [모듈 패턴](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)에 사용됩니다.
+* [부분적인 응용 프로그램 또는 currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures>
 * <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36>
 
-### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+### `.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?
 
-To understand the differences between the two, let's look at what each function does.
+이 두 함수의 차이점을 이해하기 위해 각 함수가 무엇을 하는지 살펴보겠습니다.
 
 **`forEach`**
 
-* Iterates through the elements in an array.
-* Executes a callback for each element.
-* Does not return a value.
+* 배열의 요소를 반복합니다.
+* 각 요소에 대한 콜백을 실행합니다.
+* 값을 반환하지 않습니다.
 
 ```js
-const a = [1, 2, 3];
+const a = [1, 2, 3]
 const doubled = a.forEach((num, index) => {
   // Do something with num and/or index.
-});
+})
 
 // doubled = undefined
 ```
 
 **`map`**
 
-* Iterates through the elements in an array.
-* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+* 배열의 요소를 반복합니다.
+* 각 요소에서 함수를 호출하여 결과로 새 배열을 작성하여 각 요소를 새 요소에 맵핑합니다.
 
 ```js
-const a = [1, 2, 3];
+const a = [1, 2, 3]
 const doubled = a.map(num => {
-  return num * 2;
-});
+  return num * 2
+})
 
 // doubled = [2, 4, 6]
 ```
 
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+`.forEach` 와 `.map()` 의 주된 차이점은 `.map()` 이 새로운 배열을 반환한다는 것입니다. 결과가 필요하지만 원본 배열을 변경하고 싶지 않으면 `.map()` 이 확실한 선택입니다. 단순히 배열을 반복할 필요가 있다면, forEach 가 좋은 선택입니다.
 
-###### References
+###### 참고자료
 
 * <https://codeburst.io/javascript-map-vs-foreach-f38111822c0f>
 
-### What's a typical use case for anonymous functions?
+### 익명 함수의 일반적인 사용 사례는 무엇입니까?
 
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+익명함수는 IIFE 로 사용되어 지역 범위 내에서 일부 코드를 캡슐화하므로 선언된 변수가 전역 범위로 누출되지 않습니다.
 
 ```js
-(function() {
+;(function() {
   // Some code here.
-})();
+})()
 ```
 
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+한 번 사용되며 다른 곳에서는 사용할 필요가 없는 콜백으로 사용됩니다. 함수 본체를 찾기 위해 다른 곳을 찾아볼 필요없이 코드를 호출하는 코드 바로 안에 핸들러가 정의되어 있으면 코드가 보다 독립적이고 읽기 쉽게 보일 것입니다.
 
 ```js
 setTimeout(function() {
-  console.log('Hello world!');
-}, 1000);
+  console.log('Hello world!')
+}, 1000)
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+함수형 프로그래밍 또는 Lodash 에 대한 인수(콜백과 유사).
 
 ```js
-const arr = [1, 2, 3];
+const arr = [1, 2, 3]
 const double = arr.map(function(el) {
-  return el * 2;
-});
-console.log(double); // [2, 4, 6]
+  return el * 2
+})
+console.log(double) // [2, 4, 6]
 ```
 
-###### References
+###### 참고자료
 
 * <https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions>
 * <https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo>
 
-### How do you organize your code? (module pattern, classical inheritance?)
+### 코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)
 
-In the past, I used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
+과거에는 Backbone 모델을 만들고 그 모델에 메소드를 연결하는 등 OOP 접근 방식을 장려하는 모델에 Backbone 을 사용했습니다.
 
-The module pattern is still great, but these days, I use the Flux architecture based on React/Redux which encourages a single-directional functional programming approach instead. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+모듈 패턴은 여전히 ​​ 훌륭하지만, 요즘에는 React/Redux 기반의 Flux 아키텍처를 사용합니다. 이 아키텍처는 단방향 프로그래밍 방식을 권장합니다. 저는 평범한 객체를 사용하여 응용 프로그램의 모델을 표현하고 이러한 객체를 조작하는 유틸리티 순수 함수를 작성합니다. 상태는 다른 Redux 응용 프로그램에서와 마찬가지로 action 및 reducer 를 사용하여 조작됩니다.
 
-I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+가능한 경우 고전적인 상속을 사용하지 않습니다. 저는 [이 규칙들](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)을 유지합니다.
 
 ### What's the difference between host objects and native objects?
 
@@ -286,16 +286,16 @@ This question is pretty vague. My best guess at its intention is that it is aski
 
 ```js
 function Person(name) {
-  this.name = name;
+  this.name = name
 }
 
-var person = Person('John');
-console.log(person); // undefined
-console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
+var person = Person('John')
+console.log(person) // undefined
+console.log(person.name) // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person('John');
-console.log(person); // Person { name: "John" }
-console.log(person.name); // "john"
+var person = new Person('John')
+console.log(person) // Person { name: "John" }
+console.log(person.name) // "john"
 ```
 
 ###### References
@@ -308,11 +308,11 @@ Both `.call` and `.apply` are used to invoke functions and the first parameter w
 
 ```js
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 
-console.log(add.call(null, 1, 2)); // 3
-console.log(add.apply(null, [1, 2])); // 3
+console.log(add.call(null, 1, 2)) // 3
+console.log(add.apply(null, [1, 2])) // 3
 ```
 
 ### Explain `Function.prototype.bind`.
@@ -360,7 +360,7 @@ Feature inference checks for a feature just like feature detection, but uses ano
 
 ```js
 if (document.getElementsByTagName) {
-  element = document.getElementById(id);
+  element = document.getElementById(id)
 }
 ```
 
@@ -422,7 +422,7 @@ function printData(data) {
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({ name: 'Yang Shun' });
+printData({ name: 'Yang Shun' })
 ```
 
 The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
@@ -440,7 +440,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 Yes. Handlebars, Underscore, Lodash, AngularJS and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favourite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
 
 ```js
-const template = `<div>My name is: ${name}</div>`;
+const template = `<div>My name is: ${name}</div>`
 ```
 
 However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
@@ -451,34 +451,34 @@ Hoisting is a term used to explain the behavior of variable declarations in your
 
 ```js
 // var declarations are hoisted.
-console.log(foo); // undefined
-var foo = 1;
-console.log(foo); // 1
+console.log(foo) // undefined
+var foo = 1
+console.log(foo) // 1
 
 // let/const declarations are NOT hoisted.
-console.log(bar); // ReferenceError: bar is not defined
-let bar = 2;
-console.log(bar); // 2
+console.log(bar) // ReferenceError: bar is not defined
+let bar = 2
+console.log(bar) // 2
 ```
 
 Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
 
 ```js
 // Function Declaration
-console.log(foo); // [Function: foo]
-foo(); // 'FOOOOO'
+console.log(foo) // [Function: foo]
+foo() // 'FOOOOO'
 function foo() {
-  console.log('FOOOOO');
+  console.log('FOOOOO')
 }
-console.log(foo); // [Function: foo]
+console.log(foo) // [Function: foo]
 
 // Function Expression
-console.log(bar); // undefined
-bar(); // Uncaught TypeError: bar is not a function
+console.log(bar) // undefined
+bar() // Uncaught TypeError: bar is not a function
 var bar = function() {
-  console.log('BARRRR');
-};
-console.log(bar); // [Function: bar]
+  console.log('BARRRR')
+}
+console.log(bar) // [Function: bar]
 ```
 
 ### Describe event bubbling.
@@ -490,16 +490,16 @@ When an event triggers on a DOM element, it will attempt to handle the event if 
 Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
 
 ```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello
+const input = document.querySelector('input')
+console.log(input.getAttribute('value')) // Hello
+console.log(input.value) // Hello
 ```
 
 But after you change the value of the text field by adding "World!" to it, this becomes:
 
 ```js
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello World!
+console.log(input.getAttribute('value')) // Hello
+console.log(input.value) // Hello World!
 ```
 
 ###### References
@@ -532,20 +532,20 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 `==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
 
 ```js
-1 == '1'; // true
-1 == [1]; // true
-1 == true; // true
-0 == ''; // true
-0 == '0'; // true
-0 == false; // true
+1 == '1' // true
+1 == [1] // true
+1 == true // true
+0 == '' // true
+0 == '0' // true
+0 == false // true
 ```
 
 My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
 
 ```js
-var a = null;
-console.log(a == null); // true
-console.log(a == undefined); // true
+var a = null
+console.log(a == null) // true
+console.log(a == undefined) // true
 ```
 
 ###### References
@@ -563,15 +563,15 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 ### Make this work:
 
 ```js
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
 ```
 
 ```js
 function duplicate(arr) {
-  return arr.concat(arr);
+  return arr.concat(arr)
 }
 
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
 ```
 
 ### Why is it called a Ternary expression, what does the word "Ternary" indicate?
@@ -616,8 +616,8 @@ Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jayso
 ```js
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
-    b = i % 5 == 0;
-  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
+    b = i % 5 == 0
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i)
 }
 ```
 
@@ -781,19 +781,19 @@ The former is a function declaration while the latter is a function expression. 
 **Function Declaration**
 
 ```js
-foo(); // 'FOOOOO'
+foo() // 'FOOOOO'
 function foo() {
-  console.log('FOOOOO');
+  console.log('FOOOOO')
 }
 ```
 
 **Function Expression**
 
 ```js
-foo(); // Uncaught TypeError: foo is not a function
+foo() // Uncaught TypeError: foo is not a function
 var foo = function() {
-  console.log('FOOOOO');
-};
+  console.log('FOOOOO')
+}
 ```
 
 ###### References
@@ -807,71 +807,71 @@ Variables declared using the `var` keyword are scoped to the function in which t
 ```js
 function foo() {
   // All variables are accessible within functions
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
+  var bar = 'bar'
+  let baz = 'baz'
+  const qux = 'qux'
 
-  console.log(bar); // "bar"
-  console.log(baz); // "baz"
-  console.log(qux); // "qux"
+  console.log(bar) // "bar"
+  console.log(baz) // "baz"
+  console.log(qux) // "qux"
 }
 
-console.log(bar); // ReferenceError: bar is not defined
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
+console.log(bar) // ReferenceError: bar is not defined
+console.log(baz) // ReferenceError: baz is not defined
+console.log(qux) // ReferenceError: qux is not defined
 ```
 
 ```js
 if (true) {
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
+  var bar = 'bar'
+  let baz = 'baz'
+  const qux = 'qux'
 }
 
 // var declared variables are accessible anywhere in the function scope
-console.log(bar); // "bar"
+console.log(bar) // "bar"
 // let and const defined variables are not accessible outside of the block they were defined in
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
+console.log(baz) // ReferenceError: baz is not defined
+console.log(qux) // ReferenceError: qux is not defined
 ```
 
 `var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
 
 ```js
-console.log(foo); // undefined
+console.log(foo) // undefined
 
-var foo = 'foo';
+var foo = 'foo'
 
-console.log(baz); // ReferenceError: can't access lexical declaration `baz' before initialization
+console.log(baz) // ReferenceError: can't access lexical declaration `baz' before initialization
 
-let baz = 'baz';
+let baz = 'baz'
 
-console.log(bar); // ReferenceError: can't access lexical declaration `bar' before initialization
+console.log(bar) // ReferenceError: can't access lexical declaration `bar' before initialization
 
-const bar = 'bar';
+const bar = 'bar'
 ```
 
 Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
 ```js
-var foo = 'foo';
-var foo = 'bar';
-console.log(foo); // "bar"
+var foo = 'foo'
+var foo = 'bar'
+console.log(foo) // "bar"
 
-let baz = 'baz';
-let baz = 'qux'; // SyntaxError: redeclaration of let baz
+let baz = 'baz'
+let baz = 'qux' // SyntaxError: redeclaration of let baz
 ```
 
 `let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
 ```js
 // this is fine
-let foo = 'foo';
-foo = 'bar';
+let foo = 'foo'
+foo = 'bar'
 
 // this causes an exception
-const baz = 'baz';
-baz = 'qux';
+const baz = 'baz'
+baz = 'qux'
 ```
 
 ###### References
@@ -906,21 +906,20 @@ The imperative way will be like:
 
 ```js
 const transformNamesToUppercase = names => {
-  const results = [];
+  const results = []
   for (let i = 0; i < names.length; i++) {
-    results.push(names[i].toUpperCase());
+    results.push(names[i].toUpperCase())
   }
-  return results;
-};
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+  return results
+}
+transformNamesToUppercase(names) // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 Use `.map(transformerFn)` to become more simplified, easy to reason about and declarative.
 
 ```js
-const transformNamesToUppercase = names =>
-  names.map(name => name.toUpperCase());
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+const transformNamesToUppercase = names => names.map(name => name.toUpperCase())
+transformNamesToUppercase(names) // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 ##### Filter
@@ -931,23 +930,23 @@ The imperative way will be like:
 
 ```js
 const filterNames = names => {
-  const results = [];
+  const results = []
   for (let i = 0; i < names.length; i++) {
-    const name = names[i];
+    const name = names[i]
     if (name.startsWith('i')) {
-      results.push(name);
+      results.push(name)
     }
   }
-  return results;
-};
-filterNames(names); // ['IRISH']
+  return results
+}
+filterNames(names) // ['IRISH']
 ```
 
 Instead using `for loop`, use `.filter(predicateFn)` to look more declarative.
 
 ```js
-const filterNames = names => names.filter(name => name.startsWith('i'));
-filterNames(names); // ['IRISH']
+const filterNames = names => names.filter(name => name.startsWith('i'))
+filterNames(names) // ['IRISH']
 ```
 
 ##### Reduce
@@ -960,21 +959,21 @@ Imperative way:
 
 ```js
 const sumOfNumbers = numbers => {
-  let sum = 0;
+  let sum = 0
   for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+    sum += numbers[i]
   }
-  return sum;
-};
-sumOfNumbers(numbers); // 15
+  return sum
+}
+sumOfNumbers(numbers) // 15
 ```
 
 More declarative using `.reduce(reducerFn)`:
 
 ```js
 const sumOfNumbers = numbers =>
-  numbers.reduce((total, number) => (total += number), 0);
-sumOfNumbers(numbers); // 15
+  numbers.reduce((total, number) => (total += number), 0)
+sumOfNumbers(numbers) // 15
 ```
 
 Use **higher-order function** to make your code easy to reason about and improve the quality of your code. This became your code more **declarative** instead imperative, say **what you want done** not **how to do it**.
@@ -1000,29 +999,29 @@ Currying is a pattern where a function with more than one parameter is broken in
 ```js
 function curry(fn) {
   if (fn.length === 0) {
-    return fn;
+    return fn
   }
 
   function _curried(depth, args) {
     return function(newArgument) {
       if (depth - 1 === 0) {
-        return fn(...args, newArgument);
+        return fn(...args, newArgument)
       }
-      return _curried(depth - 1, [...args, newArgument]);
-    };
+      return _curried(depth - 1, [...args, newArgument])
+    }
   }
 
-  return _curried(fn.length, []);
+  return _curried(fn.length, [])
 }
 
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 
-var curriedAdd = curry(add);
-var addFive = curriedAdd(5);
+var curriedAdd = curry(add)
+var addFive = curriedAdd(5)
 
-var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
+var result = [0, 1, 2, 3, 4, 5].map(addFive) // [5, 6, 7, 8, 9, 10]
 ```
 
 ###### References
@@ -1035,27 +1034,27 @@ ES6's spread syntax is very useful when coding in a functional paradigm as we ca
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, 'dookie'];
+  return [...arr, 'dookie']
 }
 
-var result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
+var result = putDookieInAnyArray(['I', 'really', "don't", 'like']) // ["I", "really", "don't", "like", "dookie"]
 
 var person = {
   name: 'Todd',
-  age: 29,
-};
+  age: 29
+}
 
-var copyOfTodd = { ...person };
+var copyOfTodd = { ...person }
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, but it only works in function arguments.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map(x => x + 5)
 }
 
-var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10) // [9, 10, 11, 12, 13, 14, 15]
 ```
 
 ###### References
