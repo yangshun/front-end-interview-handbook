@@ -5,11 +5,11 @@
 * [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
 * [AMD 대 CommonJS 에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
 * [다음 내용이 IIFE 로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE 로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
-* [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
-* [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
-* [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
-* [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
-* [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
+* [`null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?](#null-undefined-선언되지-않은-변수-의-차이점은-무엇입니까-당신은-어떻게-이-상태들에-대한-점검을-할-것입니까)
+* [클로저는 무엇이며, 어떻게/왜 사용합니까?](#클로저는-무엇이며-어떻게-왜-사용합니까)
+* [`.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?](#forEach-루프와-map-루프-사이의-주요-차이점을-설명할-수-있습니까-왜-둘중-하나를-선택하겠습니까)
+* [익명 함수의 일반적인 사용 사례는 무엇입니까?](#익명-함수의-일반적인-사용-사례는-무엇입니까)
+* [코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)](#코드를-어떻게-구성합니까-모듈-패턴-고전적인-상속)
 * [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
 * [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
 * [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
@@ -80,12 +80,12 @@ Pull Request 를 통한 제안 및 수정 요청을 환영합니다.
 온라인에 많은 설명이 있는데 [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
 다음 규칙과 같습니다.
 
-1. 함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
-2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
-3. `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
-4. 함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
-5. 위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
-6. 함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
+1.  함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
+2.  `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
+3.  `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
+4.  함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
+5.  위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
+6.  함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
 
 상세한 설명은 [Medium 의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
@@ -128,20 +128,20 @@ JavaScript 파서는 `function foo () {} ();`를`function foo () {}`와 `();`로
 
 * <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
 
-### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+### `null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?
 
-**Undeclared** variables are created when you assign to a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+**선언되지 않은 변수** 변수는 이전에 `var`, `let`, `const` 를 사용하여 생성되지 않은 식별자에 값을 할당 할 때 생성됩니다. `선언되지 않은 변수` 는 현재 범위 외부에서 전역으로 정의됩니다. strict 모드에서는 `선언되지 않은 변수` 에 할당하려고 할 때 `ReferenceError` 가 throw 됩니다. `선언되지 않은 변수` 는 전역 변수처럼 좋지 않은 것입니다. 그것들은 모두 피하세요! 이들을 검사하기 위해 사용할 때 `try` / `catch` 블록에 감싸십시오.
 
 ```js
 function foo() {
-  x = 1; // Throws a ReferenceError in strict mode
+  x = 1; // strict 모드에서 ReferenceError를 발생시킵니다.
 }
 
 foo();
 console.log(x); // 1
 ```
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+`undefined` 변수는 선언되었지만 값이 할당되지 않은 변수입니다. 이것은 `undefined` 타입입니다. 함수가 실행 결과에 따라 값을 반환하지 않으면 변수에 할당되며, 변수가 `undefined` 값을 갖습니다. 이것을 검사하기 위해, 엄격한 (`===`) 연산자 또는 `typeof` 에 `undefined` 문자열을 사용하여 비교하십시오. 확인을 위해 추상 평등 연산자(`==`)를 사용해서는 안되며, 이는 값이 `null` 이면 `true` 를 반환합니다.
 
 ```js
 var foo;
@@ -156,7 +156,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+`null` 인 변수는 `null` 값에 명시적으로 할당될 것입니다. 그것은 값을 나타내지 않으며 명시적으로 할당된다는 점에서 `undefined`와 다릅니다. `null`을 체크하기 위해서 단순히 완전 항등 연산자(`===`)를 사용하여 비교하면 됩니다. 위와 같이, 추상 평등 연산자 (`==`)를 사용해서는 안되며, 값이 `undefined`이면 `true`를 반환합니다.
 
 ```js
 var foo = null;
@@ -165,36 +165,36 @@ console.log(foo === null); // true
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring, if I don't intend to use it yet.
+개인적 습관으로, 저는 변수를 선언하지 않거나 할당하지 않은 상태로 두지 않습니다. 아직 사용하지 않으려는 경우, 선언한 후에 명시적으로 `null` 을 할당할 것입니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables>
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined>
 
-### What is a closure, and how/why would you use one?
+### 클로저는 무엇이며, 어떻게/왜 사용합니까?
 
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
+클로저는 함수와 그 함수가 선언된 렉시컬 환경의 조합입니다. "렉시컬"은 렉시컬 범위 지정이 변수가 사용 가능한 위치를 결정하기 위해 소스 코드 내에서 변수가 선언된 위치를 사용한다는 사실을 나타냅니다. 클로저는 외부 함수가 반환된 후에도 외부 함수의 변수 범위 체인에 접근할 수 있는 함수입니다.
 
-**Why would you use one?**
+**왜 클로저를 사용합니까?**
 
-* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+* 데이터 프라이버시 / 클로저로 private method 를 모방. 일반적으로 [모듈 패턴](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)에 사용됩니다.
+* [부분적인 응용 프로그램 또는 currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures>
 * <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36>
 
-### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+### `.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?
 
-To understand the differences between the two, let's look at what each function does.
+이 두 함수의 차이점을 이해하기 위해 각 함수가 무엇을 하는지 살펴보겠습니다.
 
 **`forEach`**
 
-* Iterates through the elements in an array.
-* Executes a callback for each element.
-* Does not return a value.
+* 배열의 요소를 반복합니다.
+* 각 요소에 대한 콜백을 실행합니다.
+* 값을 반환하지 않습니다.
 
 ```js
 const a = [1, 2, 3];
@@ -207,8 +207,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
-* Iterates through the elements in an array.
-* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+* 배열의 요소를 반복합니다.
+* 각 요소에서 함수를 호출하여 결과로 새 배열을 작성하여 각 요소를 새 요소에 맵핑합니다.
 
 ```js
 const a = [1, 2, 3];
@@ -219,15 +219,15 @@ const doubled = a.map(num => {
 // doubled = [2, 4, 6]
 ```
 
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+`.forEach` 와 `.map()` 의 주된 차이점은 `.map()` 이 새로운 배열을 반환한다는 것입니다. 결과가 필요하지만 원본 배열을 변경하고 싶지 않으면 `.map()` 이 확실한 선택입니다. 단순히 배열을 반복할 필요가 있다면, forEach 가 좋은 선택입니다.
 
-###### References
+###### 참고자료
 
 * <https://codeburst.io/javascript-map-vs-foreach-f38111822c0f>
 
-### What's a typical use case for anonymous functions?
+### 익명 함수의 일반적인 사용 사례는 무엇입니까?
 
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+익명함수는 IIFE 로 사용되어 지역 범위 내에서 일부 코드를 캡슐화하므로 선언된 변수가 전역 범위로 누출되지 않습니다.
 
 ```js
 (function() {
@@ -235,7 +235,7 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 })();
 ```
 
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+한 번 사용되며 다른 곳에서는 사용할 필요가 없는 콜백으로 사용됩니다. 함수 본체를 찾기 위해 다른 곳을 찾아볼 필요없이 코드를 호출하는 코드 바로 안에 핸들러가 정의되어 있으면 코드가 보다 독립적이고 읽기 쉽게 보일 것입니다.
 
 ```js
 setTimeout(function() {
@@ -243,7 +243,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+함수형 프로그래밍 또는 Lodash 에 대한 인수(콜백과 유사).
 
 ```js
 const arr = [1, 2, 3];
@@ -253,18 +253,18 @@ const double = arr.map(function(el) {
 console.log(double); // [2, 4, 6]
 ```
 
-###### References
+###### 참고자료
 
 * <https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions>
 * <https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo>
 
-### How do you organize your code? (module pattern, classical inheritance?)
+### 코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)
 
-In the past, I used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
+과거에는 Backbone 모델을 만들고 그 모델에 메소드를 연결하는 등 OOP 접근 방식을 장려하는 모델에 Backbone 을 사용했습니다.
 
-The module pattern is still great, but these days, I use the Flux architecture based on React/Redux which encourages a single-directional functional programming approach instead. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+모듈 패턴은 여전히 ​​ 훌륭하지만, 요즘에는 React/Redux 기반의 Flux 아키텍처를 사용합니다. 이 아키텍처는 단방향 프로그래밍 방식을 권장합니다. 저는 평범한 객체를 사용하여 응용 프로그램의 모델을 표현하고 이러한 객체를 조작하는 유틸리티 순수 함수를 작성합니다. 상태는 다른 Redux 응용 프로그램에서와 마찬가지로 action 및 reducer 를 사용하여 조작됩니다.
 
-I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+가능한 경우 고전적인 상속을 사용하지 않습니다. 저는 [이 규칙들](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)을 유지합니다.
 
 ### What's the difference between host objects and native objects?
 
@@ -1042,7 +1042,7 @@ var result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "re
 
 var person = {
   name: 'Todd',
-  age: 29,
+  age: 29
 };
 
 var copyOfTodd = { ...person };
