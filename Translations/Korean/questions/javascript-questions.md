@@ -10,11 +10,11 @@
 * [`.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?](#forEach-루프와-map-루프-사이의-주요-차이점을-설명할-수-있습니까-왜-둘중-하나를-선택하겠습니까)
 * [익명 함수의 일반적인 사용 사례는 무엇입니까?](#익명-함수의-일반적인-사용-사례는-무엇입니까)
 * [코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)](#코드를-어떻게-구성합니까-모듈-패턴-고전적인-상속)
-* [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
-* [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
-* [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
-* [Explain `Function.prototype.bind`.](#explain-functionprototypebind)
-* [When would you use `document.write()`?](#when-would-you-use-documentwrite)
+* [호스트 객체와 내장 객체의 차이점은 무엇입니까?](#호스트-객체와-내장-객체의-차이점은-무엇입니까)
+* [`Person(){}`, `var person = Person()`, `var person = new Person()` 의 차이점은 무엇입니까?](#Person-var-person-Person-var-person-new-Person-의-차이점은-무엇입니까)
+* [`.call`과 `.apply`의 차이점은 무엇입니까?](#call-과-apply-의-차이점은-무엇입니까)
+* [`Function.prototype.bind`에 대해 설명하세요.](#Function-prototype-bind-에-대해-설명하세요)
+* [언제 `document.write()`를 사용합니까?](#언제-document-write-를-사용합니까)
 * [What's the difference between feature detection, feature inference, and using the UA string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
 * [Explain Ajax in as much detail as possible.](#explain-ajax-in-as-much-detail-as-possible)
 * [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
@@ -266,23 +266,23 @@ console.log(double); // [2, 4, 6]
 
 가능한 경우 고전적인 상속을 사용하지 않습니다. 저는 [이 규칙들](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)을 유지합니다.
 
-### What's the difference between host objects and native objects?
+### 호스트 객체와 내장 객체의 차이점은 무엇입니까?
 
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
+내장 객체는 ECMAScript 사양에 정의된 JavaScript 언어의 일부인 객체입니다. (예: `String`, `Math`, `RegExp`, `Object`, `Function` 등)
 
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
+호스트 객체는 `window`, `XMLHTTPRequest` 등과 같이 런타임 환경 (브라우저 또는 노드)에 의해 제공됩니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects>
 
-### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+### `Person(){}`, `var person = Person()`, `var person = new Person()` 의 차이점은 무엇입니까?
 
-This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is use PascalCase for functions that are intended to be used as constructors.
+이 질문은 굉장해 애매합니다. 질문의 의도에 대한 저의 최선의 추측은 자바스크립트의 생성자에 대해 묻는 것입니다. 엄밀히 말하면, `function Person(){}`은 정상적인 함수 선언 일뿐입니다. 이 컨벤션은 생성자로 사용하기 위해 함수에 PascalCase 를 사용합니다.
 
-`var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if it the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
+`var person = Person()`은 생성자가 아니며 `Person`을 함수로 호출합니다. 함수를 생성자로 사용하려는 경우에 이렇게 호출하는 것이 일반적인 실수입니다. 일반적으로 생성자는 아무것도 반환하지 않으므로 일반 함수처럼 생성자를 호출하면 `undefined`가 반환되고 지정된 변수에 할당됩니다.
 
-`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
+`var person = new Person()`은 `Person.prototype`을 상속받은 `new` 연산자를 사용하여 `Person` 객체의 인스턴스를 생성합니다. 또다른 방법은 `Object.create`를 사용하는 것입니다: `Object.create(Person.prototype)`.
 
 ```js
 function Person(name) {
@@ -298,13 +298,13 @@ console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new>
 
-### What's the difference between `.call` and `.apply`?
+### `.call`과 `.apply`의 차이점은 무엇입니까?
 
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in a comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and array of arguments.
+`.call`과 `.apply`는 모두 함수를 호출하는데 사용되며 첫 번째 매개 변수는 함수 내에서 `this`의 값으로 사용됩니다. 그러나 `.call`은 쉼표로 구분된 인수를 두번째 인수로 취하고 `.apply`는 인수의 배열을 두번째 인수로 취합니다. `call`은 `C`: Comma 로 구분되며 `apply`는 인수 배열인 `A`: `arguments` 라고 기억하면 쉽습니다.
 
 ```js
 function add(a, b) {
@@ -315,25 +315,25 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-### Explain `Function.prototype.bind`.
+### `Function.prototype.bind`에 대해 설명하세요.
 
-Taken word-for-word from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
+[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)에서 인용.
 
-> The `bind()` method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+> `bind()` 메소드는 호출될 때 this 키워드가 제공된 값으로 설정되고 새로운 함수가 호출될 때 주어진 인자 앞에 주어진 시퀀스가 ​​ 선행되는 새로운 함수를 생성합니다.
 
-In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+내 경험상, 다른 함수로 전달하고자하는 클래스의 메소드에서 `this`의 값을 바인딩할 때 가장 유용합니다. 이것은 종종 React 컴포넌트에서 사용됩니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind>
 
-### When would you use `document.write()`?
+### 언제 `document.write()`를 사용합니까?
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
+`document.write()`는 `document.open()`에 의해 열린 문서 스트림에 텍스트 문자열을 씁니다. 페이지가 로드된 후에 `document.write()`가 실행되면 `document.open`을 호출하여 문서 전체를 지우고 (`<head>`와 `<body>`를 지웁니다!). 문자열로 주어진 매개 변수 값으로 대체합니다. 그러므로 일반적으로 위험하고 오용되기 쉽습니다.
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
+`document.write()`가 코드분석이나 [JavaScript 가 활성화된 경우에만 작동하는 스타일을 포함하고 싶을 때](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html) 사용되는 경우를 설명하는 온라인 답변이 몇 가지 있습니다. 심지어 HTML5 보일러 플레이트에서 [스크립트를 병렬로로드하고 실행 순서를 보존](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)할때도 사용됩니다! 그러나, 저는 그 이유가 시대에 뒤 떨어진 것으로 생각하고 있으며, 현재는 `document.write()`를 사용하지 않고도 할 수 있습니다. 이것이 틀렸다면 고쳐주세요.
 
-###### References
+###### 참고자료
 
 * <https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html>
 * <https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag>
