@@ -15,11 +15,11 @@
 * [`.call`과 `.apply`의 차이점은 무엇입니까?](#call-과-apply-의-차이점은-무엇입니까)
 * [`Function.prototype.bind`에 대해 설명하세요.](#Function-prototype-bind-에-대해-설명하세요)
 * [언제 `document.write()`를 사용합니까?](#언제-document-write-를-사용합니까)
-* [What's the difference between feature detection, feature inference, and using the UA string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
-* [Explain Ajax in as much detail as possible.](#explain-ajax-in-as-much-detail-as-possible)
-* [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
-* [Explain how JSONP works (and how it's not really Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
-* [Have you ever used JavaScript templating? If so, what libraries have you used?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
+* [Feature detection, Feature inference, UA String 의 차이점은 무엇입니까?](#Feature-detection-Feature-inference-UA-String-의-차이점은-무엇입니까)
+* [Ajax에 대해 가능한한 자세히 설명하십시오.](#Ajax에-대해-가능한한-자세히-설명하십시오)
+* [Ajax를 사용하는 것의 장단점은 무엇입니까?](#Ajax를-사용하는-것의-장단점은-무엇입니까)
+* [JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.](#JSONP의-작동-방식-Ajax가-아닌-방법-을-설명하십시오)
+* [자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?](#자바스크립트-템플릿을-사용한-적이-있습니까-사용해봤다면-어떤-라이브러리를-사용했습니까)
 * [Explain "hoisting".](#explain-hoisting)
 * [Describe event bubbling.](#describe-event-bubbling)
 * [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
@@ -338,11 +338,11 @@ console.log(add.apply(null, [1, 2])); // 3
 * <https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html>
 * <https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag>
 
-### What's the difference between feature detection, feature inference, and using the UA string?
+### Feature detection, Feature inference, UA String 의 차이점은 무엇입니까?
 
 **Feature Detection**
 
-Feature detection involves working out whether a browser supports a certain block of code, and running different code dependent on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
+Feature Detection은 브라우저가 특정 코드 블록을 지원하는지에 따라 다른 코드를 실행하도록 하여, 일부 브라우저에서 항상 오류가 발생하도록합니다. 예:
 
 ```js
 if ('geolocation' in navigator) {
@@ -352,11 +352,11 @@ if ('geolocation' in navigator) {
 }
 ```
 
-[Modernizr](https://modernizr.com/) is a great library to handle feature detection.
+[Modernizr](https://modernizr.com/)는 Feature detection을 처리 ​​할 수 있는 훌륭한 라이브러리입니다.
 
 **Feature Inference**
 
-Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
+Feature inference는 Feature detection과 마찬가지로 기능을 확인하지만 다른 함수도 존재한다고 가정하고 사용합니다. 예:
 
 ```js
 if (document.getElementsByTagName) {
@@ -364,50 +364,50 @@ if (document.getElementsByTagName) {
 }
 ```
 
-This is not really recommended. Feature detection is more foolproof.
+이것은 권장하지 않습니다. Feature detection이 더 확실합니다.
 
 **UA String**
 
-This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
+네트워크 프로토콜 피어가 요청하는 소프트웨어 사용자 에이전트의 응용 프로그램 유형, 운영 체제, 소프트웨어 공급 업체 또는 소프트웨어 버전을 식별 할 수 있도록 해주는 browser-reported String입니다. `navigator.userAgent` 를 통해 액세스 할 수 있습니다. 하지만 문자열은 구문 분석하기 까다로우며 스푸핑 될 수 있습니다. 예를 들어 Chrome은 Chrome과 Safari로 모두 보고됩니다. Safari를 감지하기 위해서는 Safari 문자열이 있는지와 Chrome 문자열이 없는지 확인해야합니다. 이 방법은 사용하지 마십시오.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection>
 * <https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th>
 * <https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent>
 
-### Explain Ajax in as much detail as possible.
+### Ajax에 대해 가능한한 자세히 설명하십시오.
 
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute JSON for XML due to the advantages of being native to JavaScript.
+Ajax (asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 만들기 위해 클라이언트 측에서 여러 웹 기술을 사용하는 웹 개발 기술의 집합입니다. Ajax를 사용하면 웹 애플리케이션은 기존 페이지의 화면 및 동작을 방해하지 않으면서 백그라운드에서 비동기적으로 서버로 데이터를 보내고 서버에서 데이터를 받아올 수 있습니다. Ajax는 프리젠테이션 레이어에서 데이터 교환 레이어를 분리함으로써 웹 페이지 및 확장 웹 애플리케이션이 전체 페이지를 다시로드 할 필요없이 동적으로 컨텐츠를 변경할 수 있도록 합니다. 실제로 최근에는 일반적으로 네이티브 자바스크립트의 장점 때문에 XML대신 JSON을 사용합니다.
 
-The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
+`XMLHttpRequest` API는 비동기 통신 또는 최근 `fetch` API에 자주 사용됩니다.
 
-###### References
+###### 참고자료
 
 * <https://en.wikipedia.org/wiki/Ajax_(programming>)
 * <https://developer.mozilla.org/en-US/docs/AJAX>
 
-### What are the advantages and disadvantages of using Ajax?
+### Ajax를 사용하는 것의 장단점은 무엇입니까?
 
-**Advantages**
+**장점**
 
-* Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-* Reduce connections to the server since scripts and stylesheets only have to be requested once.
-* State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-* Basically most of the advantages of an SPA.
+* 상호작용성이 좋아집니다. 서버의 새로운 컨텐츠를 전체 페이지를 다시로드 할 필요없이 동적으로 변경할 수 있습니다.
+* 스크립트 및 스타일 시트는 한 번만 요청하면되므로 서버에 대한 연결을 줄여줍니다.
+* 상태를 페이지에서 관리 할 수 ​​있습니다. 메인 컨테이너 페이지가 다시 로드되지 않기 때문에 JavaScript의 변수와 DOM의 상태가 유지됩니다.
+* 기본적으로 SPA의 장점 대부분입니다.
 
-**Disadvantages**
+**단점**
 
-* Dynamic webpages are harder to bookmark.
-* Does not work if JavaScript has been disabled in the browser.
-* Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-* Basically most of the disadvantages of an SPA.
+* 동적 웹 페이지는 북마크 하기 어렵습니다.
+* 브라우저에서 JavaScript가 비활성화 된 경우 작동하지 않습니다.
+* 일부 웹 크롤러는 자바 스크립트를 실행하지 않으며 JavaScript에 의해 로드된 콘텐츠를 볼 수 없습니다.
+* SPA의 대부분의 단점이 대부분입니다.
 
-### Explain how JSONP works (and how it's not really Ajax).
+### JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.
 
-JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
+JSONP (JSON with Padding)은 현재 페이지에서 cross-origin 도메인으로의 Ajax 요청이 허용되지 않기 때문에 웹 브라우저에서 cross-domain 정책을 우회하는 데 일반적으로 사용되는 방법입니다.
 
-JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
+JSONP는 `<script>`태그를 통해 cross-origin 도메인에 요청하고 보통 `callback`쿼리 매개 변수(예: `https://example.com?callback=printData`)로 요청합니다. 그러면 서버는 `printData`라는 함수 안에 데이터를 래핑하여 클라이언트로 반환합니다.
 
 ```html
 <!-- https://mydomain.com -->
@@ -425,25 +425,25 @@ function printData(data) {
 printData({ name: 'Yang Shun' });
 ```
 
-The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
+클라이언트는 전역 범위에 있는 `printData` 함수를 가져야만하고 cross-origin domain으로부터의 응답이 수신 될 때 함수가 클라이언트에 의해 실행됩니다.
 
-JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
+JSONP는 안전하지 않을 수 있으며 보안과 관련이 있습니다. JSONP은 실제로 JavaScript고, JavaScript가 할 수 있는 모든 작업을 수행 할 수 있으므로 JSONP 데이터 공급자를 신뢰해야만 합니다.
 
-These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
+요즘에는 [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)가 권장되는 접근 방식이며 JSONP는 해킹으로 간주됩니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/a/2067584/1751946>
 
-### Have you ever used JavaScript templating? If so, what libraries have you used?
+### 자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?
 
-Yes. Handlebars, Underscore, Lodash, AngularJS and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favourite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
+네. Handlebars, Underscore, Lodash, AngularJS 및 JSX. 저는 AngularJS에서 템플릿을 싫어했습니다. 지시자에서 문자열을 많이 사용하게 되며 오타가 발견되지 않기 때문입니다. JSX는 자바스크립트에 가깝고 배워야 하는 새로운 구문이 거의 없기 때문에 흥미롭습니다. 요즘 Third-party 코드에 의존하지 않고 템플릿을 만드는 빠른 방법으로 ES2015 템플릿 문자열 리터럴을 사용할 수도 있습니다.
 
 ```js
 const template = `<div>My name is: ${name}</div>`;
 ```
 
-However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
+그러나 템플릿 라이브러리와 달리 Contents가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야합니다.
 
 ### Explain "hoisting".
 
