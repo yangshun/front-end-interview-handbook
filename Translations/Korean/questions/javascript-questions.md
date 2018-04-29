@@ -20,11 +20,11 @@
 * [Ajax를 사용하는 것의 장단점은 무엇입니까?](#Ajax를-사용하는-것의-장단점은-무엇입니까)
 * [JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.](#JSONP의-작동-방식-Ajax가-아닌-방법-을-설명하십시오)
 * [자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?](#자바스크립트-템플릿을-사용한-적이-있습니까-사용해봤다면-어떤-라이브러리를-사용했습니까)
-* [Explain "hoisting".](#explain-hoisting)
-* [Describe event bubbling.](#describe-event-bubbling)
-* [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
-* [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
-* [Difference between document `load` event and document `DOMContentLoaded` event?](#difference-between-document-load-event-and-document-domcontentloaded-event)
+* [`hoisting`에 대해 설명하세요.](#hoisting-에-대해-설명하세요)
+* [event bubbling에 대해 설명하세요.](#event-bubbling에-대해-설명하세요)
+* ["attribute"와 "property"의 차이점은 무엇입니까?](#attribute-와-property-의-차이점은-무엇입니까)
+* [내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?](#내장 JavaScript-객체를-확장하는-것이-좋은-생각이-아닌-이유는-무엇입니까)
+* [document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?](#document-load-이벤트와-document-DOMContentLoaded-이벤트의-차이점은-무엇입니까)
 * [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
 * [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
 * [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
@@ -445,9 +445,9 @@ const template = `<div>My name is: ${name}</div>`;
 
 그러나 템플릿 라이브러리와 달리 Contents가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야합니다.
 
-### Explain "hoisting".
+### `hoisting`에 대해 설명하세요.
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+Hoisting은 코드에서 변수 선언의 동작을 설명하는데 사용되는 용어입니다. `var` 키워드로 선언 혹은 초기화된 변수는 현재 스코프의 최상위까지 `hoisted`됩니다. 그러나 선언문만 `hoisted`되며 할당(있는 경우)은 그대로입니다. 몇 가지 예를 들어 설명해 보겠습니다.
 
 ```js
 // var declarations are hoisted.
@@ -461,7 +461,7 @@ let bar = 2;
 console.log(bar); // 2
 ```
 
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
+함수 선언은 바디를 호이스팅되는 반면 변수 선언 형태로 작성된 함수 표헌식은 변수 선언만 호이스팅됩니다.
 
 ```js
 // Function Declaration
@@ -481,13 +481,13 @@ var bar = function() {
 console.log(bar); // [Function: bar]
 ```
 
-### Describe event bubbling.
+### event bubbling에 대해 설명하세요.
 
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
+DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 경우 이벤트 처리를 시도한 다음 해당 이벤트가 부모에게 버블링되고 같은 이벤트가 발생합니다. 이 버블링은 요소의 조상 `document` 까지 계속적으로 발생시킵니다. 이벤트 버블링은 이벤트 위임의 메커니즘입니다.
 
-### What's the difference between an "attribute" and a "property"?
+### "attribute"와 "property"의 차이점은 무엇입니까?
 
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
+속성은 HTML 마크업에 정의되지만 속성은 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에이 텍스트 필드가 있다고 생각해보새요. `<input type="text" value="Hello">`.
 
 ```js
 const input = document.querySelector('input');
@@ -495,34 +495,34 @@ console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
-But after you change the value of the text field by adding "World!" to it, this becomes:
+그러나 텍스트 필드에 "World!"를 추가하면 이렇게 될것입니다.
 
 ```js
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html>
 
-### Why is extending built-in JavaScript objects not a good idea?
+### 내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?
 
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods are not the same.
+빌트인/네이티브 JavaScript 객체를 확장한다는 것은 prototype에 속성/함수를 추가한다는 것을 의미합니다. 이것은 처음에는 좋은 생각처럼 보일 수 있지만 실제로는 위험합니다. 여러분의 코드가 동일한 `contains` 메소드를 추가함으로써 `Array.prototype`을 확장하는 여러가지 라이브러리를 사용한다고 상상해보십시오. 이러한 구현은 메소드를 서로 덮어쓰게 되며 이 두 메소드의 동작이 동일하지 않으면 코드가 망가질것입니다.
 
-The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
+네이티브 객체를 확장 할 수 있는 유일한 경우는 폴리필을 만들려고 할 때입니다. 자바스크립트 사양의 일부이지만 오래된 브라우저이기 때문에 사용자 브라우저에 없을 수도 있는 메서드에 대한 고유한 구현을 제공해야할 경우입니다.
 
-###### References
+###### 참고자료
 
 * <http://lucybain.com/blog/2014/js-extending-built-in-objects/>
 
-### Difference between document `load` event and document `DOMContentLoaded` event?
+### document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?
 
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+`DOMContentLoaded` 이벤트는 스타일시트, 이미지, 서브프레임이 로딩을 기다리지 않고 초기 HTML 문서가 완전히 로드되고 파싱될 때 발생합니다.
 
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+`window`의 `load`이벤트는 DOM과 모든 종속 리소스와 에셋들이 로드된 후에 만 ​​발생합니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded>
 * <https://developer.mozilla.org/en-US/docs/Web/Events/load>
