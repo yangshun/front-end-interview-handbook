@@ -23,13 +23,13 @@
 * [`hoisting`에 대해 설명하세요.](#hoisting-에-대해-설명하세요)
 * [event bubbling에 대해 설명하세요.](#event-bubbling에-대해-설명하세요)
 * ["attribute"와 "property"의 차이점은 무엇입니까?](#attribute-와-property-의-차이점은-무엇입니까)
-* [내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?](#내장 JavaScript-객체를-확장하는-것이-좋은-생각이-아닌-이유는-무엇입니까)
+* [내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?](#내장-javascript-객체를-확장하는-것이-좋은-생각이-아닌-이유는-무엇입니까)
 * [document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?](#document-load-이벤트와-document-DOMContentLoaded-이벤트의-차이점은-무엇입니까)
-* [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
-* [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
-* [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
-* [Why is it called a Ternary expression, what does the word "Ternary" indicate?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-* [What is "use strict";? what are the advantages and disadvantages to using it?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
+* [`==`와 `===`의 차이점은 무엇입니까?](#==-와-===-의-차이점은-무엇입니까)
+* [JavaScript와 관련하여 same-origin 정책을 설명하십시오.](#javascript와-관련하여-same-origin-정책을-설명하십시오)
+* [이것이 작동하게 만들어보세요: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#이것이-작동하게-만들어보세요)
+* [왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?](#왜-ternary-표현이라고-부르고-ternary-라는-단어는-무엇을-나타냅니까)
+* [`"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?](#use-strict-이-무엇입니까-사용시-장단점이-무엇인가요)
 * [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
 * [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
 * [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
@@ -527,9 +527,9 @@ console.log(input.value); // Hello World!
 * <https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded>
 * <https://developer.mozilla.org/en-US/docs/Web/Events/load>
 
-### What is the difference between `==` and `===`?
+### `==`와 `===`의 차이점은 무엇입니까?
 
-`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
+`==`는 추상 동등 연산자이고 `===`는 완전 동등 연산자입니다. `==`연산자는 타입 변환이 필요한 경우 타입 변환을 한 후에 동등한지 비교할 것입니다. `===`연산자는 타입 변환을 하지 않으므로 두 값이 같은 타입이 아닌 경우 `===`는 단순히 `false`를 반환합니다. `==`를 사용하면 다음과 같은 무서운 일이 발생할 수 있습니다.
 
 ```js
 1 == '1'; // true
@@ -540,7 +540,7 @@ console.log(input.value); // Hello World!
 0 == false; // true
 ```
 
-My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
+저의 조언은 편의상 `null`과 `undefined`를 비교할 때를 제외하고, `==`연산자를 절대 사용하지 않는 것입니다. `a == null`은 `a`가 `null` 또는 `undefined`이면 `true`를 반환합니다.
 
 ```js
 var a = null;
@@ -548,19 +548,19 @@ console.log(a == null); // true
 console.log(a == undefined); // true
 ```
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons>
 
-### Explain the same-origin policy with regards to JavaScript.
+### JavaScript와 관련하여 same-origin 정책을 설명하십시오.
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 것을 방지합니다. origin은 URI 체계, 호스트 이름 및 포트 번호의 조합으로 정의됩니다. 이 정책은 한 페이지의 악의적인 스크립트가 해당 페이지의 문서 객체 모델을 통해 다른 웹 페이지의 중요한 데이터에 액세스하는 것을 방지합니다.
 
-###### References
+###### 참고자료
 
 * <https://en.wikipedia.org/wiki/Same-origin_policy>
 
-### Make this work:
+### 이것이 작동하게 만들어보세요.
 
 ```js
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -574,37 +574,37 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-### Why is it called a Ternary expression, what does the word "Ternary" indicate?
+### 왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?
 
-"Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
+"Ternary"는 삼항을 나타내고 삼항 표현식은 세가지 피연산자, 테스트 조건문, "then"표현식, "else"표현식을 받습니다. 삼항 표현식은 자바 스크립트에만 해당되는 것이 아니며 왜 이 목록에 있는지 잘 모르겠습니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator>
 
-### What is `"use strict";`? What are the advantages and disadvantages to using it?
+### `"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?
 
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt in to a restricted variant of JavaScript.
+'use strict'는 전체 스크립트나 개별 함수에 엄격 모드를 사용하는데 사용되는 명령문입니다. Strict 모드는 JavaScript 제한된 변형에서 선택하는 방법입니다.
 
-Advantages:
+장점:
 
-* Makes it impossible to accidentally create global variables.
-* Makes assignments which would otherwise silently fail to throw an exception.
-* Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
-* Requires that function parameter names be unique.
-* `this` is undefined in the global context.
-* It catches some common coding bloopers, throwing exceptions.
-* It disables features that are confusing or poorly thought out.
+* 실수로 전역변수를 만드는 것이 불가능합니다.
+* 암묵적으로 실패한 예외를 throw하지 못하는 할당을 만듭니다.
+* 삭제할 수 없는 속성을 삭제하려고 시도합니다. (시도 효과가 없을 때까지)
+* 함수의 매개변수 이름은 고유해야합니다.
+* `this`는 전역 컨텍스트에서 undefined입니다.
+* 예외를 발생시키는 몇가지 일반적인 코딩을 잡아냅니다.
+* 헷갈리거나 잘 모르는 기능을 사용할수 없게 합니다.
 
-Disadvantages:
+단점 :
 
-* Many missing features that some developers might be used to.
-* No more access to `function.caller` and `function.arguments`.
-* Concatenation of scripts written in different strict modes might cause issues.
+* 일부 개발자는 익숙하지 않은 기능이 많습니다.
+* `function.caller`와 `function.arguments`에 더 이상 접근 할 수 없습니다.
+* 서로 다른 엄격한 모드로 작성된 스크립트를 병합하면 문제가 발생할 수 있습니다.
 
-Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
+전반적으로 장점이 단점보다 중요하다고 생각합니다. 엄격 모드가 차단하는 기능에 의존하지 않아도됩니다. 엄격한 모드를 사용하는 것을 추천합니다.
 
-###### References
+###### 참고자료
 
 * <http://2ality.com/2011/10/strict-mode-hatred.html>
 * <http://lucybain.com/blog/2014/js-use-strict/>
