@@ -25,13 +25,12 @@
 * [CSS 의 `display` 속성은 무엇이며 사용법에 대한 몇 가지 예를 들 수 있습니까?](#CSS의-display-속성은-무엇이며-사용법에-대한-몇-가지-예를-들-수-있습니까)
 * [`inline` 과 `inline-block` 의 차이점은 무엇입니까?](#inline-과-inline-block-의-차이점은-무엇입니까)
 * [`relative`, `fixed`, `absolute` 와 `static` 요소의 차이점은 무엇입니까?](#relative-fixed-absolute-와-static-요소의-차이점은-무엇입니까)
-* [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
-* [Have you played around with the new CSS Flexbox or Grid specs?](#have-you-played-around-with-the-new-css-flexbox-or-grid-specs)
-* [Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?](#can-you-explain-the-difference-between-coding-a-web-site-to-be-responsive-versus-using-a-mobile-first-strategy)
-* [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
-* [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
-
----
+* [로컬 또는 프로덕션 환경에서 사용했던 기존 CSS 프레임워크는 무엇입니까? 어떻게 그들을 바꾸거나 개선할 수 있을까요?](#로컬-또는-프로덕션-환경에서-사용했던-기존-css-프레임워크는-무엇입니까-어떻게-그들을-바꾸거나-개선할-수-있을까요)
+* [새로운 CSS Flexbox 또는 그리드 스펙을 사용해본적이 있나요?](#새로운-css-flexbox-또는-그리드-스펙을-사용해본적이-있나요)
+* [반응형 웹사이트를 코딩하는 것과 모바일 우선 전략을 사용하는 것 사이의 차이점을 설명하시오.](#반응형-웹사이트를-코딩하는-것과-모바일-우선-전략을-사용하는-것-사이의-차이점을-설명하시오)
+* [반응형 디자인은 적응형 디자인과 어떻게 다른가요?](#반응형-디자인은-적응형-디자인과-어떻게-다른가요)
+* [레티나 그래픽으로 작업 해본적이 있습니까? 그렇다면, 언제 그리고 어떤 기술을 사용하였습니까?](#레티나-그래픽으로-작업-해본적이-있습니까-그렇다면-언제-그리고-어떤-기술을-사용하였습니까)
+* [`absolute` 포지셔닝 대신 `translate()`를 사용하는 이유가 무엇입니까? 또는 그 반대의 경우에 대해서는 어떻게 생각하십니까?, 그 이유는 무엇입니까?](#absolute-포지셔닝-대신-translate를-사용하는-이유가-무엇입니까-또는-그-반대의-경우에-대해서는-어떻게-생각하십니까-그-이유는-무엇입니까)
 
 ## CSS 질문
 
@@ -351,65 +350,111 @@ Becomes like a `block` element where you can set vertical margins and paddings.
 
 * <https://developer.mozilla.org/en/docs/Web/CSS/position>
 
-### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+### 로컬 또는 프로덕션 환경에서 사용했던 기존 CSS 프레임워크는 무엇입니까? 어떻게 그들을 바꾸거나 개선할 수 있을까요?
 
-* **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely-used.
-* **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Painful to customize with unconventional theming system. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
-* **Bulma** - A lot of non-semantic and superfluous classes and markup required. Not backward compatible. Upgrading versions breaks the app in subtle manners.
+* **Bootstrap** - 느린 릴리스 주기. 부트스트랩 4 는 거의 2년동안 알파 상태였습니다. 널리 사용되는 것처럼 Spinner 버튼 컴포넌트를 추가하세요.
+* **Semantic UI** - 소스 코드 구조는 테마 사용자 정의를 이해하기 어렵게 만듭니다. 틀에 얽매이지 않는 테마 시스템으로 사용자 정의하기가 어렵습니다. 공급 업체 라이브러리 내의 하드 코드 된 구성 경로. 부트 스트랩과 달리 변수 오버라이드에 대해s 잘 설계되지 않았습니다.
+* **Bulma** - 많은 의미없고 불필요한 클래스와 마크업을 필요로 합니다. 이전 버전과 호환되지 않습니다. 버전을 업그레이드하면 미묘한 방식으로 앱이 손상됩니다.
 
-### Have you played around with the new CSS Flexbox or Grid specs?
+[[↑] 맨 위로](#css-questions)
 
-Yes. Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.
+### 새로운 CSS Flexbox 또는 그리드 스펙을 사용해본적이 있나요?
 
-Flexbox solves many common problems in CSS, such as vertical centering of elements within a container, sticky footer, etc. Bootstrap and Bulma are based on Flexbox, and it is probably the recommended way to create layouts these days. Have tried Flexbox before but ran into some browser incompatibility issues (Safari) in using `flex-grow`, and I had to rewrite my code using `inline-blocks` and math to calculate the widths in percentages, it wasn't a nice experience.
+예. Flexbox는 주로 1차원 레이아웃을 대상으로 하며 Grid는 2차원 레이아웃을 대상으로 합니다.
 
-Grid is by far the most intuitive approach for creating grid-based layouts (it better be!) but browser support is not wide at the moment.
+Flexbox는 CSS에서 컨테이너 안에 있는 요소의 수직 중심, sticky footer 등과 같은 많은 일반적인 문제들을 해결합니다. Bootstrap과 Bulma는 Flexbox를 기반으로 하고, 이것은 아마도 요즘 배치도를 만드는 데 권장되는 방법일 것입니다. 이전에 Flexbox를 사용해 보았지만 `flex-grow`를 사용할 때 일부 브라우저에서 비호환성 문제(Safari)가 발생했습니다. 그래서 백분율로 나타낸 폭을 계산하기 위해 `inline-blocks`과 수학을 사용한 코드로 다시 써야했는데, 이것은 좋은 경험이 아니었습니다.
 
-###### References
+Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 가장 직관적인 접근법이지만(더 좋을 것입니다!), 현재 브라우저 지원은 광범위 하지 않습니다.
+
+[[↑] 맨 위로](#css-questions)
+
+###### 참고자료
 
 * <https://philipwalton.github.io/solved-by-flexbox/>
 
-### Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
+### 반응형 웹사이트를 코딩하는 것과 모바일 우선 전략을 사용하는 것 사이의 차이점을 설명하시오.
 
-TODO
+이 두가지 접근법은 배타적이지 않습니다.
 
-### How is responsive design different from adaptive design?
+반응형 웹사이트를 만드는 것은 일부 요소가 미디어 쿼리를 통해 장치의 화면 크기(일반 적으로 뷰포트 너비)에 따라 크기나 기타 기능을 조정하도록 반응함을 의미합니다. (예: 작은 장치에서 글꼴 크기를 줄임)
 
-Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage contexts, control mechanisms, and so on.
+```css
+@media (min-width: 601px) { 
+  .my-class { 
+    font-size: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .my-class { 
+    font-size: 12px;
+  }
+}
+```
 
-Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Responsive websites use media queries, flexible grids, and responsive images to create a user experience that flexes and changes based on a multitude of factors. Like a single ball growing or shrinking to fit through several different hoops.
+모바일 우선 전략 또한 반응적이지만, 모바일 장치에 대한 모든 스타일을 정의해야하며 나중에 다른 장치에 대한 특정 규칙을 추가해야합니다. 이전 예를 따르면 다음과 같습니다.
 
-Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features, and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used, and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
+```css
+.my-class { 
+  font-size: 12px;
+}
 
-###### References
+@media (min-width: 600px) {
+  .my-class { 
+    font-size: 24px;
+  }
+}
+```
+
+모바일 우선 전략은 2가지 주요 장점을 가지고 있습니다.
+
+* 모바일 장치에서 적용되는 모든 규칙이 미디어 쿼리에 대해 유효성 검사를받을 필요가 없으므로 모바일 장치에서 더 뛰어난 성능을 발휘합니다.
+* 반응형 CSS 규칙과 관련하여 보다 명확한 코드를 작성해야합니다.
+
+[[↑] 맨 위로](#css-questions)
+
+### 반응형 디자인은 적응형 디자인과 어떻게 다른가요?
+
+반응형 및 적응형 디자인은 서로 다른 뷰포트 사이즈, 해상도, 사용 컨텍스트 그리고 제어 메커니즘 등을 조정하여 다양한 장치에서 사용자 경험을 최적화하려고 시도합니다.
+
+반은형 디자인은 유연성 원칙에 따라 작동합니다. 즉, 어떤 장치에서나 보기 좋은 단일 변하기 쉬운 웹 사이트입니다. 반응형 웹 사이트는 미디어 쿼리, 유연한 그리드 및 반응 형 이미지를 사용하여 다양한 요인에 따라 유연하고 변화하는 사용자 경험을 제공합니다. 마치 하나의 공이 여러개의 서로 다른 링을 통과하기 위해 커지거나 줄어드는 것과 유사합니다.
+
+적응형 디자인는 점진적 향상의 현대적 정의에 더 가깝습니다. 하나의 유연한 디자인 대신에, 적응형 설계는 장치 및 기타 기능을 감지 한 다음 사전 정의 된 뷰포트 크기 및 기타 특성 세트를 기반으로 적절한 기능 및 레이아웃을 제공합니다. 하나의 공이 여러개의 서로 다른 링을 통과하는 대신, 후프의 크기에 따라 여러개의 공을 사용할 수 있습니다. 
+
+[[↑] 맨 위로](#css-questions)
+
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design>
 * <http://mediumwell.com/responsive-adaptive-mobile/>
 * <https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/>
 
-### Have you ever worked with retina graphics? If so, when and what techniques did you use?
+### 레티나 그래픽으로 작업 해본적이 있습니까? 그렇다면, 언제 그리고 어떤 기술을 사용하였습니까?
 
-I tend to use higher resolution graphics (twice the display size) to handle retina display. The better way would be to use a media query like `@media only screen and (min-device-pixel-ratio: 2) { ... }` and change the `background-image`.
+저는 레티나 디스플레이를 다루기 위해 고해상도 그래픽을 사용하는 경향이 있습니다. 가장 좋은 방법은 `@media only screen and (min-device-pixel-ratio : 2) {...}`와 같은 미디어 쿼리를 사용하고 `background-image`를 변경하는 것입니다.
 
-For icons, I would also opt to use svgs and icon fonts where possible, as they render very crisply regardless of resolution.
+아이콘의 경우 해상도에 관계없이 매우 선명하게 렌더링하므로 가능하면 svg 및 아이콘 글꼴을 사용하도록 선택합니다.
 
-Another method would be to use JavaScript to replace the `<img>` `src` attribute with higher resolution versions after checking the `window.devicePixelRatio` value.
+또 다른 방법으로는 `windows.deviceFixeLaatio`값을 확인한 후에 `img` `src`특성을 더 높은 해상도 버전으로 대체하는 JavaScript를 사용하는 것이 있다.
 
-###### References
+[[↑] 맨 위로](#css-questions)
+
+###### 참고자료
 
 * <https://www.sitepoint.com/css-techniques-for-retina-displays/>
 
-### Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
+### `absolute` 포지셔닝 대신 `translate()`를 사용하는 이유가 무엇입니까? 또는 그 반대의 경우에 대해서는 어떻게 생각하십니까?, 그 이유는 무엇입니까?
 
-`translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint, only compositions, whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
+`translate()`은 CSS `transform`의 값입니다. `transform`이나 `opacity`를 변경해도 브라우저의 리플로우나 리페인트가 다시 시작되지 않고 컴포지션만 실행되는 반면 절대 위치를 변경하면 '리플로우'가 발생합니다. `transform`을 사용하면 브라우저에서 이 요소에 위한 GPU 레이어를 생성되지만 절대 위치 속성을 변경하는 것은 CPU를 사용합니다. 그러므로 `translate()`가 더 효율적이며 매끄러운 애니메이션을위한 페인트 시간이 짧아집니다.
 
-When using `translate()`, the element still takes up its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
+`translate()`을 사용할 때는 절대 위치를 변경할 때와 달리 원래 위치(일종의 `position: relative`)를 그대로 사용합니다.
 
-###### References
+[[↑] 맨 위로](#css-questions)
+
+###### 참고자료
 
 * <https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/>
 
-### Other Answers
+### 다른 답변들
 
 * <https://neal.codes/blog/front-end-interview-css-questions>
 * <https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/>
