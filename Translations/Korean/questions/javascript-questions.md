@@ -20,16 +20,16 @@
 * [Ajax를 사용하는 것의 장단점은 무엇입니까?](#Ajax를-사용하는-것의-장단점은-무엇입니까)
 * [JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.](#JSONP의-작동-방식-Ajax가-아닌-방법-을-설명하십시오)
 * [자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?](#자바스크립트-템플릿을-사용한-적이-있습니까-사용해봤다면-어떤-라이브러리를-사용했습니까)
-* [Explain "hoisting".](#explain-hoisting)
-* [Describe event bubbling.](#describe-event-bubbling)
-* [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
-* [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
-* [Difference between document `load` event and document `DOMContentLoaded` event?](#difference-between-document-load-event-and-document-domcontentloaded-event)
-* [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
-* [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
-* [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
-* [Why is it called a Ternary expression, what does the word "Ternary" indicate?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-* [What is "use strict";? what are the advantages and disadvantages to using it?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
+* [`hoisting`에 대해 설명하세요.](#hoisting-에-대해-설명하세요)
+* [event bubbling에 대해 설명하세요.](#event-bubbling에-대해-설명하세요)
+* ["attribute"와 "property"의 차이점은 무엇입니까?](#attribute-와-property-의-차이점은-무엇입니까)
+* [내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?](#내장-javascript-객체를-확장하는-것이-좋은-생각이-아닌-이유는-무엇입니까)
+* [document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?](#document-load-이벤트와-document-DOMContentLoaded-이벤트의-차이점은-무엇입니까)
+* [`==`와 `===`의 차이점은 무엇입니까?](#==-와-===-의-차이점은-무엇입니까)
+* [JavaScript와 관련하여 same-origin 정책을 설명하십시오.](#javascript와-관련하여-same-origin-정책을-설명하십시오)
+* [이것이 작동하게 만들어보세요: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#이것이-작동하게-만들어보세요)
+* [왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?](#왜-ternary-표현이라고-부르고-ternary-라는-단어는-무엇을-나타냅니까)
+* [`"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?](#use-strict-이-무엇입니까-사용시-장단점이-무엇인가요)
 * [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
 * [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
 * [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
@@ -445,9 +445,9 @@ const template = `<div>My name is: ${name}</div>`;
 
 그러나 템플릿 라이브러리와 달리 Contents가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야합니다.
 
-### Explain "hoisting".
+### `hoisting`에 대해 설명하세요.
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+Hoisting은 코드에서 변수 선언의 동작을 설명하는데 사용되는 용어입니다. `var` 키워드로 선언 혹은 초기화된 변수는 현재 스코프의 최상위까지 `hoisted`됩니다. 그러나 선언문만 `hoisted`되며 할당(있는 경우)은 그대로입니다. 몇 가지 예를 들어 설명해 보겠습니다.
 
 ```js
 // var declarations are hoisted.
@@ -461,7 +461,7 @@ let bar = 2;
 console.log(bar); // 2
 ```
 
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
+함수 선언은 바디를 호이스팅되는 반면 변수 선언 형태로 작성된 함수 표헌식은 변수 선언만 호이스팅됩니다.
 
 ```js
 // Function Declaration
@@ -481,13 +481,13 @@ var bar = function() {
 console.log(bar); // [Function: bar]
 ```
 
-### Describe event bubbling.
+### event bubbling에 대해 설명하세요.
 
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
+DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 경우 이벤트 처리를 시도한 다음 해당 이벤트가 부모에게 버블링되고 같은 이벤트가 발생합니다. 이 버블링은 요소의 조상 `document` 까지 계속적으로 발생시킵니다. 이벤트 버블링은 이벤트 위임의 메커니즘입니다.
 
-### What's the difference between an "attribute" and a "property"?
+### "attribute"와 "property"의 차이점은 무엇입니까?
 
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
+속성은 HTML 마크업에 정의되지만 속성은 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에이 텍스트 필드가 있다고 생각해보새요. `<input type="text" value="Hello">`.
 
 ```js
 const input = document.querySelector('input');
@@ -495,41 +495,41 @@ console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
-But after you change the value of the text field by adding "World!" to it, this becomes:
+그러나 텍스트 필드에 "World!"를 추가하면 이렇게 될것입니다.
 
 ```js
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html>
 
-### Why is extending built-in JavaScript objects not a good idea?
+### 내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?
 
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods are not the same.
+빌트인/네이티브 JavaScript 객체를 확장한다는 것은 prototype에 속성/함수를 추가한다는 것을 의미합니다. 이것은 처음에는 좋은 생각처럼 보일 수 있지만 실제로는 위험합니다. 여러분의 코드가 동일한 `contains` 메소드를 추가함으로써 `Array.prototype`을 확장하는 여러가지 라이브러리를 사용한다고 상상해보십시오. 이러한 구현은 메소드를 서로 덮어쓰게 되며 이 두 메소드의 동작이 동일하지 않으면 코드가 망가질것입니다.
 
-The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
+네이티브 객체를 확장 할 수 있는 유일한 경우는 폴리필을 만들려고 할 때입니다. 자바스크립트 사양의 일부이지만 오래된 브라우저이기 때문에 사용자 브라우저에 없을 수도 있는 메서드에 대한 고유한 구현을 제공해야할 경우입니다.
 
-###### References
+###### 참고자료
 
 * <http://lucybain.com/blog/2014/js-extending-built-in-objects/>
 
-### Difference between document `load` event and document `DOMContentLoaded` event?
+### document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?
 
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+`DOMContentLoaded` 이벤트는 스타일시트, 이미지, 서브프레임이 로딩을 기다리지 않고 초기 HTML 문서가 완전히 로드되고 파싱될 때 발생합니다.
 
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+`window`의 `load`이벤트는 DOM과 모든 종속 리소스와 에셋들이 로드된 후에 만 ​​발생합니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded>
 * <https://developer.mozilla.org/en-US/docs/Web/Events/load>
 
-### What is the difference between `==` and `===`?
+### `==`와 `===`의 차이점은 무엇입니까?
 
-`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
+`==`는 추상 동등 연산자이고 `===`는 완전 동등 연산자입니다. `==`연산자는 타입 변환이 필요한 경우 타입 변환을 한 후에 동등한지 비교할 것입니다. `===`연산자는 타입 변환을 하지 않으므로 두 값이 같은 타입이 아닌 경우 `===`는 단순히 `false`를 반환합니다. `==`를 사용하면 다음과 같은 무서운 일이 발생할 수 있습니다.
 
 ```js
 1 == '1'; // true
@@ -540,7 +540,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 0 == false; // true
 ```
 
-My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
+저의 조언은 편의상 `null`과 `undefined`를 비교할 때를 제외하고, `==`연산자를 절대 사용하지 않는 것입니다. `a == null`은 `a`가 `null` 또는 `undefined`이면 `true`를 반환합니다.
 
 ```js
 var a = null;
@@ -548,19 +548,19 @@ console.log(a == null); // true
 console.log(a == undefined); // true
 ```
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons>
 
-### Explain the same-origin policy with regards to JavaScript.
+### JavaScript와 관련하여 same-origin 정책을 설명하십시오.
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 것을 방지합니다. origin은 URI 체계, 호스트 이름 및 포트 번호의 조합으로 정의됩니다. 이 정책은 한 페이지의 악의적인 스크립트가 해당 페이지의 문서 객체 모델을 통해 다른 웹 페이지의 중요한 데이터에 액세스하는 것을 방지합니다.
 
-###### References
+###### 참고자료
 
 * <https://en.wikipedia.org/wiki/Same-origin_policy>
 
-### Make this work:
+### 이것이 작동하게 만들어보세요.
 
 ```js
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -574,37 +574,37 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-### Why is it called a Ternary expression, what does the word "Ternary" indicate?
+### 왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?
 
-"Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
+"Ternary"는 삼항을 나타내고 삼항 표현식은 세가지 피연산자, 테스트 조건문, "then"표현식, "else"표현식을 받습니다. 삼항 표현식은 자바 스크립트에만 해당되는 것이 아니며 왜 이 목록에 있는지 잘 모르겠습니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator>
 
-### What is `"use strict";`? What are the advantages and disadvantages to using it?
+### `"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?
 
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt in to a restricted variant of JavaScript.
+'use strict'는 전체 스크립트나 개별 함수에 엄격 모드를 사용하는데 사용되는 명령문입니다. Strict 모드는 JavaScript 제한된 변형에서 선택하는 방법입니다.
 
-Advantages:
+장점:
 
-* Makes it impossible to accidentally create global variables.
-* Makes assignments which would otherwise silently fail to throw an exception.
-* Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
-* Requires that function parameter names be unique.
-* `this` is undefined in the global context.
-* It catches some common coding bloopers, throwing exceptions.
-* It disables features that are confusing or poorly thought out.
+* 실수로 전역변수를 만드는 것이 불가능합니다.
+* 암묵적으로 실패한 예외를 throw하지 못하는 할당을 만듭니다.
+* 삭제할 수 없는 속성을 삭제하려고 시도합니다. (시도 효과가 없을 때까지)
+* 함수의 매개변수 이름은 고유해야합니다.
+* `this`는 전역 컨텍스트에서 undefined입니다.
+* 예외를 발생시키는 몇가지 일반적인 코딩을 잡아냅니다.
+* 헷갈리거나 잘 모르는 기능을 사용할수 없게 합니다.
 
-Disadvantages:
+단점 :
 
-* Many missing features that some developers might be used to.
-* No more access to `function.caller` and `function.arguments`.
-* Concatenation of scripts written in different strict modes might cause issues.
+* 일부 개발자는 익숙하지 않은 기능이 많습니다.
+* `function.caller`와 `function.arguments`에 더 이상 접근 할 수 없습니다.
+* 서로 다른 엄격한 모드로 작성된 스크립트를 병합하면 문제가 발생할 수 있습니다.
 
-Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
+전반적으로 장점이 단점보다 중요하다고 생각합니다. 엄격 모드가 차단하는 기능에 의존하지 않아도됩니다. 엄격한 모드를 사용하는 것을 추천합니다.
 
-###### References
+###### 참고자료
 
 * <http://2ality.com/2011/10/strict-mode-hatred.html>
 * <http://lucybain.com/blog/2014/js-use-strict/>
