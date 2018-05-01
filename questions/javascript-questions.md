@@ -652,7 +652,7 @@ Advantages:
 * Makes it impossible to accidentally create global variables.
 * Makes assignments which would otherwise silently fail to throw an exception.
 * Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
-* Requires that function parameter names be unique.a
+* Requires that function parameter names be unique.
 * `this` is undefined in the global context.
 * It catches some common coding bloopers, throwing exceptions.
 * It disables features that are confusing or poorly thought out.
