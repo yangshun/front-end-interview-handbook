@@ -30,11 +30,11 @@
 * [이것이 작동하게 만들어보세요: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#이것이-작동하게-만들어보세요)
 * [왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?](#왜-ternary-표현이라고-부르고-ternary-라는-단어는-무엇을-나타냅니까)
 * [`"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?](#use-strict-이-무엇입니까-사용시-장단점이-무엇인가요)
-* [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
-* [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
-* [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
-* [Explain what a single page app is and how to make one SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
-* [What is the extent of your experience with Promises and/or their polyfills?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
+* [100까지 증가하면서 `3`의 배수에는 **"fizz"**를 출력하고, `5`의 배수에는 **"buzz"**를 출력하고, `3`과 `5`의 배수에는 **"fizzbuzz"**를 출력하는 for loop를 만드세요.](#100까지-증가하면서-3-의-배수에는-fizz-를-출력하고-5-의-배수에는-buzz-를-출력하고-3-과-5-의-배수에는-fizzbuzz-를-출력하는-for-loop를-만드세요)
+* [일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇입니까?](#일반적으로-웹-사이트의-전역-스코프를-그대로-두고-건드리지-않는-것이-좋은-이유는-무엇입니까)
+* [왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고있나요? 알고있다면 왜 그것을 사용할건가요?](#왜-load-이벤트와-같은-것을-사용하나요-이 이벤트에는-단점이-있나요-다른-대안을-알고있나요-알고있다면-왜-그것을-사용할건가요)
+* [single page app이 무엇인지 설명하고 SEO-friendly한 앱을 만드는 방법을 설명하십시오.](#single-page-app이-무엇인지-설명하고-seo-friendly한-앱을-만드는-방법을-설명하십시오)
+* [Promises 와/또는 Polyfill에 대한 당신의 경험은 어느 정도입니까?](#promises-와-또는-polyfill에-대한-당신의-경험은-어느-정도입니까)
 * [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
 * [What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
 * [What tools and techniques do you use debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
@@ -609,9 +609,9 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 * <http://2ality.com/2011/10/strict-mode-hatred.html>
 * <http://lucybain.com/blog/2014/js-use-strict/>
 
-### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
+### 100까지 증가하면서 `3`의 배수에는 **"fizz"**를 출력하고, `5`의 배수에는 **"buzz"**를 출력하고, `3`과 `5`의 배수에는 **"fizzbuzz"**를 출력하는 for loop를 만드세요.
 
-Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
+[Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724)의 이 FizzBuzz를 확인해보세요.
 
 ```js
 for (let i = 1; i <= 100; i++) {
@@ -621,62 +621,68 @@ for (let i = 1; i <= 100; i++) {
 }
 ```
 
-I would not advise you to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.
+저는 인터뷰 중에 위와 같이 쓰라고 조언하지는 않습니다. 길지만 분명한 접근 방식을 고수하십시오. FizzBuzz의 더 다양한 버전을 보려면 아래의 참조 링크를 확인하십시오.
 
-###### References
+###### 참고자료
 
 * <https://gist.github.com/jaysonrowe/1592432>
 
-### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+### 일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇입니까?
 
-Every script has access to the global scope, and if everyone is using the global namespace to define their own variables, there will bound to be collisions. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+모든 스크립트는 전역 스코프에 액세스할 수 있으며 모든 사람이 전역 네임스페이스를 사용하여 변수를 정의하면 충돌이 발생할 수 있습니다. 모듈 패턴 (IIFEs)을 사용하여 변수를 로컬 네임스페이스 내에 캡슐화하십시오.
 
-### Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+### 왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고있나요? 알고있다면 왜 그것을 사용할건가요?
 
-The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
+`load` 이벤트는 문서로딩 프로세스가 끝날 때 발생됩니다. 이 시점에서 문서의 모든 객체가 DOM에 있고, 모든 이미지, 스크립트, 링크 및 하위 프레임로딩이 완료됩니다.
 
-The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
+DOM 이벤트 `DOMContentLoaded`는 페이지의 DOM이 생성 된 후에 발생하지만 다른 리소스가 로딩되기를 기다리지 않습니다. 이것은 초기화되기 전에 전체 페이지가 로드될 필요가없는 경우에 선호됩니다.
 
 TODO.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload>
 
-### Explain what a single page app is and how to make one SEO-friendly.
+### single page app이 무엇인지 설명하고 SEO-friendly한 앱을 만드는 방법을 설명하십시오.
 
-The below is taken from the awesome [Grab Front End Guide](https://github.com/grab/front-end-guide), which coincidentally, is written by me!
+아래는 [Grab Front End Guide](https://github.com/grab/front-end-guide)에서 가져온 것이며, 우연히도 저를 위해 쓰여졌습니다!
 
-Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response for their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML for the new page. This is called server-side rendering.
+웹 개발자는 요즘 웹 사이트가 아닌 웹 앱으로 제작한 제품을 언급합니다. 두 가지 용어 사이에는 엄격한 차이는 없지만 웹 앱은 대화형 및 동적인 경향이 있어 사용자가 작업을 수행하고 작업에 대한 응답을 받을 수 있습니다. 전통적으로, 브라우저는 서버에서 HTML을 받아 렌더링합니다. 사용자가 다른 URL로 이동하면 전체페이지 새로고침이 필요하며 서버는 새페이지에 대해 새 HTML을 보냅니다. 이를 server-side rendering이라고합니다.
 
-However in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+그러나 현대 SPA에서는 대신 클라이언트 측 렌더링이 사용됩니다. 브라우저는 전체 애플리케이션에 필요한 스크립트(프레임워크, 라이브러리, 앱 코드) 및 스타일시트와 함께 서버의 초기 페이지를 로드합니다. 사용자가 다른 페이지로 이동하면 페이지 새로고침이 발생하지 않습니다. 페이지의 URL은 [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)를 통해 업데이트됩니다. 일반적으로 JSON 형식의 새 페이지에 필요한 새 데이터는 브라우저에서 [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) 요청을 통해 서버로 전송됩니다. SPA는 초기 페이지 로딩에서 미리 다운로드된 자바스크립트를 통해 페이지를 동적으로 업데이트합니다. 이 모델은 네이티브 모바일 앱의 작동 방식과 유사합니다.
 
-The benefits:
+장점들:
 
-* The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
-* Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
-* Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
+* 전체페이지 새로고침으로 인해 페이지탐색 사이에 하얀화면이 보이지 않아 앱이 더 반응적으로 느껴지게 됩니다.
 
-The downsides:
+* 동일한 애셋을 페이지로드마다 다시 다운로드 할 필요가 없으므로 서버에 대한 HTTP 요청이 줄어 듭니다.
 
-* Heavier initial page load due to loading of framework, app code, and assets required for multiple pages.
-* There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
-* SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
+* 클라이언트와 서버 사이의 고려해야할 부분을 명확하게 구분합니다. 서버 코드를 수정하지 않고도 다양한 플랫폼(예: 모바일, 채팅 봇, 스마트워치)에 맞는 새로운 클라이언트를 쉽게 구축 할 수 있습니다. 또한 API 계약이 깨지지 않는한 내에서 클라이언트와 서버에서 기술 스택을 독립적으로 수정할 수 있습니다.
 
-###### References
+단점들:
+
+* 여러 페이지에 필요한 프레임워크, 앱 코드, 애셋로드로 인해 초기 페이지로드가 무거워집니다.
+
+* 모든 요청을 단일 진입점으로 라우트하고 클라이언트 측 라우팅이 그 한곳에서 인계받을 수 있도록 서버를 구성하는 추가 단계가 수행되어야합니다.
+
+* SPA는 콘텐츠를 렌더링하기 위해 JavaScript에 의존하지만 모든 검색 엔진이 크롤링 중에 JavaScript를 실행하지는 않으며 페이지에 빈 콘텐츠가 표시 될 수 있습니다. 이로 인해 의도치 않게 앱의 검색 엔진 최적화 (SEO)가 어려워집니다.
+
+그러나 대부분의 경우 앱을 제작할 때 검색 엔진에서 모든 콘텐츠 색인할 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이를 극복하기 위해, 앱을 서버 측 렌더링하거나 [Prerender](https://prerender.io/)와 같은 서비스를 사용하여 "브라우저에서 자바 스크립트를 렌더링하고, 정적 HTML을 저장한 다음, 크롤러에게 반환합니다".
+
+###### 참고자료
 
 * <https://github.com/grab/front-end-guide#single-page-apps-spas>
 * <http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages>
 * <http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/>
 * <https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52>
 
-### What is the extent of your experience with Promises and/or their polyfills?
+### Promises 와/또는 Polyfill에 대한 당신의 경험은 어느 정도입니까?
 
-Possess working knowledge of it. A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(예: 네트워크 오류가 발생) 중 하나의 값을 생성 할 수있는 객체입니다. promise는 fulfilled, rejected, pending 3가지 상태 중 하나일 수 있습니다. promise 사용자는 콜백을 붙여서 fulfill된 값이나 reject된 이유를 처리할 수 ​​있습니다.
 
-Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply to the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
+일반적인 polyfill은 `$.deferred`, Q 와 Bluebird 입니다만, 모두가 스펙을 따르는 것은 아닙니다. ES2015는 즉시 사용할 수 있는 Promise를 지원하며 일반적으로 요즘 polyfill은 필요하지 않습니다.
 
-###### References
+###### 참고자료
 
 * <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261>
 
