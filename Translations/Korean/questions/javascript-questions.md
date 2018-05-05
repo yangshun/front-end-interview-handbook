@@ -1,57 +1,57 @@
 # JS 질문
 
 * [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
-* [`this`가 JavaScript 에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
+* [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
 * [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
-* [AMD 대 CommonJS 에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
-* [다음 내용이 IIFE 로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE 로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
+* [AMD 대 CommonJS에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
+* [다음 내용이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
 * [`null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?](#null-undefined-선언되지-않은-변수-의-차이점은-무엇입니까-당신은-어떻게-이-상태들에-대한-점검을-할-것입니까)
-* [클로저는 무엇이며, 어떻게/왜 사용합니까?](#클로저는-무엇이며-어떻게-왜-사용합니까)
-* [`.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?](#forEach-루프와-map-루프-사이의-주요-차이점을-설명할-수-있습니까-왜-둘중-하나를-선택하겠습니까)
+* [클로저는 무엇이며, 어떻게/왜 사용합니까?](#클로저는-무엇이며-어떻게왜-사용합니까)
+* [`.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?](#foreach-루프와-map-루프-사이의-주요-차이점을-설명할-수-있습니까-왜-둘중-하나를-선택하겠습니까)
 * [익명 함수의 일반적인 사용 사례는 무엇입니까?](#익명-함수의-일반적인-사용-사례는-무엇입니까)
 * [코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)](#코드를-어떻게-구성합니까-모듈-패턴-고전적인-상속)
 * [호스트 객체와 내장 객체의 차이점은 무엇입니까?](#호스트-객체와-내장-객체의-차이점은-무엇입니까)
-* [`Person(){}`, `var person = Person()`, `var person = new Person()` 의 차이점은 무엇입니까?](#Person-var-person-Person-var-person-new-Person-의-차이점은-무엇입니까)
-* [`.call`과 `.apply`의 차이점은 무엇입니까?](#call-과-apply-의-차이점은-무엇입니까)
-* [`Function.prototype.bind`에 대해 설명하세요.](#Function-prototype-bind-에-대해-설명하세요)
-* [언제 `document.write()`를 사용합니까?](#언제-document-write-를-사용합니까)
-* [Feature detection, Feature inference, UA String 의 차이점은 무엇입니까?](#Feature-detection-Feature-inference-UA-String-의-차이점은-무엇입니까)
-* [Ajax에 대해 가능한한 자세히 설명하십시오.](#Ajax에-대해-가능한한-자세히-설명하십시오)
-* [Ajax를 사용하는 것의 장단점은 무엇입니까?](#Ajax를-사용하는-것의-장단점은-무엇입니까)
-* [JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.](#JSONP의-작동-방식-Ajax가-아닌-방법-을-설명하십시오)
+* [`Person(){}`, `var person = Person()`, `var person = new Person()` 의 차이점은 무엇입니까?](#person-var-person--person-var-person--new-person-의-차이점은-무엇입니까)
+* [`.call`과 `.apply`의 차이점은 무엇입니까?](#call과-apply의-차이점은-무엇입니까)
+* [`Function.prototype.bind`에 대해 설명하세요.](#functionprototypebind에-대해-설명하세요)
+* [언제 `document.write()`를 사용합니까?](#언제-documentwrite를-사용합니까)
+* [Feature detection, Feature inference, UA String 의 차이점은 무엇입니까?](#feature-detection-feature-inference-ua-string-의-차이점은-무엇입니까)
+* [Ajax에 대해 가능한한 자세히 설명하십시오.](#ajax에-대해-가능한한-자세히-설명하십시오)
+* [Ajax를 사용하는 것의 장단점은 무엇입니까?](#ajax를-사용하는-것의-장단점은-무엇입니까)
+* [JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.](#jsonp의-작동-방식ajax가-아닌-방법을-설명하십시오)
 * [자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?](#자바스크립트-템플릿을-사용한-적이-있습니까-사용해봤다면-어떤-라이브러리를-사용했습니까)
-* [`hoisting`에 대해 설명하세요.](#hoisting-에-대해-설명하세요)
+* [`hoisting`에 대해 설명하세요.](#hoisting에-대해-설명하세요)
 * [event bubbling에 대해 설명하세요.](#event-bubbling에-대해-설명하세요)
-* ["attribute"와 "property"의 차이점은 무엇입니까?](#attribute-와-property-의-차이점은-무엇입니까)
+* ["attribute"와 "property"의 차이점은 무엇입니까?](#attribute와-property의-차이점은-무엇입니까)
 * [내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?](#내장-javascript-객체를-확장하는-것이-좋은-생각이-아닌-이유는-무엇입니까)
-* [document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?](#document-load-이벤트와-document-DOMContentLoaded-이벤트의-차이점은-무엇입니까)
-* [`==`와 `===`의 차이점은 무엇입니까?](#==-와-===-의-차이점은-무엇입니까)
+* [document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?](#document-load-이벤트와-document-domcontentloaded-이벤트의-차이점은-무엇입니까)
+* [`==`와 `===`의 차이점은 무엇입니까?](#와-의-차이점은-무엇입니까)
 * [JavaScript와 관련하여 same-origin 정책을 설명하십시오.](#javascript와-관련하여-same-origin-정책을-설명하십시오)
 * [이것이 작동하게 만들어보세요: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#이것이-작동하게-만들어보세요)
-* [왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?](#왜-ternary-표현이라고-부르고-ternary-라는-단어는-무엇을-나타냅니까)
+* [왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?](#왜-ternary-표현이라고-부르고-ternary라는-단어는-무엇을-나타냅니까)
 * [`"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?](#use-strict-이-무엇입니까-사용시-장단점이-무엇인가요)
-* [100까지 증가하면서 `3`의 배수에는 **"fizz"**를 출력하고, `5`의 배수에는 **"buzz"**를 출력하고, `3`과 `5`의 배수에는 **"fizzbuzz"**를 출력하는 for loop를 만드세요.](#100까지-증가하면서-3-의-배수에는-fizz-를-출력하고-5-의-배수에는-buzz-를-출력하고-3-과-5-의-배수에는-fizzbuzz-를-출력하는-for-loop를-만드세요)
+* [100까지 증가하면서 `3`의 배수에는 `fizz`를 출력하고, `5`의 배수에는 `buzz`를 출력하고, `3`과 `5`의 배수에는 `fizzbuzz`를 출력하는 for loop를 만드세요.](#100까지-증가하면서-3의-배수에는-fizz를-출력하고-5의-배수에는-buzz를-출력하고-3과-5의-배수에는-fizzbuzz를-출력하는-for-loop를-만드세요)
 * [일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇입니까?](#일반적으로-웹-사이트의-전역-스코프를-그대로-두고-건드리지-않는-것이-좋은-이유는-무엇입니까)
-* [왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고있나요? 알고있다면 왜 그것을 사용할건가요?](#왜-load-이벤트와-같은-것을-사용하나요-이 이벤트에는-단점이-있나요-다른-대안을-알고있나요-알고있다면-왜-그것을-사용할건가요)
+* [왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고있나요? 알고있다면 왜 그것을 사용할건가요?](#왜-load-이벤트와-같은-것을-사용하나요-이-이벤트에는-단점이-있나요-다른-대안을-알고있나요-알고있다면-왜-그것을-사용할건가요)
 * [single page app이 무엇인지 설명하고 SEO-friendly한 앱을 만드는 방법을 설명하십시오.](#single-page-app이-무엇인지-설명하고-seo-friendly한-앱을-만드는-방법을-설명하십시오)
 * [Promises 와/또는 Polyfill에 대한 당신의 경험은 어느 정도입니까?](#promises-와-또는-polyfill에-대한-당신의-경험은-어느-정도입니까)
 * [Callback 대신에 Promise를 사용할 때의 장점과 단점은 무엇입니까?](#callback-대신에-promise를-사용할-때의-장점과-단점은-무엇입니까)
 * [JavaScript로 컴파일되는 언어로 JavaScript 코드를 작성하는 경우의 장단점은 무엇입니까?](#javascript로-컴파일되는-언어로-javascript-코드를-작성하는-경우의-장단점은-무엇입니까)
 * [JavaScript 코드를 디버깅하기 위해 어떤 도구와 기술을 사용하십니까?](#javascript-코드를-디버깅하기-위해-어떤-도구와-기술을-사용하십니까)
 * [오브젝트 속성 및 배열 항목을 반복할 때 사용하는 언어 구조는 무엇입니까?](#오브젝트-속성-및-배열-항목을-반복할-때-사용하는-언어-구조는-무엇입니까)
-* [변경 가능 객체와 변경 불가능 객체 간의 차이점을 설명하십시오.](#변경-가능-객체와-변경-불가능-객체-간의-차이점을-설명하시오)
+* [변경 가능 객체와 변경 불가능 객체 간의 차이점을 설명하십시오.](#변경-가능-객체와-변경-불가능-객체-간의-차이점을-설명하십시오)
 * [동기 및 비동기 함수의 차이점을 설명하십시오.](#동기-및-비동기-함수의-차이점을-설명하십시오)
-* [이벤트 루프란 무엇입니까? 콜 스택과 테스크 큐의 차이점은 무엇입니까?](#이벤트-루프란-무엇입니까-콜-스택과-테스크-큐의-차이점은-무엇입니까)
-* [`function foo() {}`와 `var foo = function() {}` 사이에서 `foo` 사용법의 차이에 대해 설명하시오.](#function-foo-와-var-foo-function-사이에서-foo-사용법의-차이에-대해-설명하시오)
+* [이벤트 루프란 무엇입니까? 콜 스택과 테스크 큐의 차이점은 무엇입니까?](#이벤트-루프란-무엇입니까-콜-스택과-태스크-큐의-차이점은-무엇입니까)
+* [`function foo() {}`와 `var foo = function() {}` 사이에서 `foo` 사용법의 차이에 대해 설명하시오.](#function-foo-와-var-foo--function--사이에서-foo-사용법의-차이에-대해-설명하시오)
 * [`let`, `var` 또는 `const`를 사용하여 생성된 변수들의 차이점은 무엇인가요?](#let-var-또는-const를-사용하여-생성된-변수들의-차이점은-무엇인가요)
-* [ES6 클래스와 ES5 함수 생성자의 차이점은 무엇입니까?](#ES6-클래스와-ES5-함수-생성자의-차이점은-무엇입니까)
+* [ES6 클래스와 ES5 함수 생성자의 차이점은 무엇입니까?](#es6-클래스와-es5-함수-생성자의-차이점은-무엇입니까)
 * [새 화살표 => 함수 구문에 대한 사용 예시를 들수 있습니까? 이 새로운 구문은 다른 함수와 어떻게 다릅니까?](#새-화살표--함수-구문에-대한-사용-예시를-들수-있습니까-이-새로운-구문은-다른-함수와-어떻게-다릅니까)
 * [생성자의 메서드에 화살표 구문을 사용하면 어떤 이점이 있습니까?](#생성자의-메서드에-화살표-구문을-사용하면-어떤-이점이-있습니까)
 * [고차 함수의 정의는 무엇입니까?](#고차-함수의-정의는-무엇입니까)
 * [객체나 배열에 대한 디스트럭쳐링 예시를 들수 있습니까?](#객체나-배열에-대한-디스트럭쳐링-예시를-들수-있습니까)
-* [ES6 템플릿 리터럴은 문자열을 생성하는 데 많은 유연성을 제공합니다. 이에 대한 예를 들수 있습니까?](#es6-템플릿-리터럴은-문자열을-생성하는-데-많은-유연성을-제공합니다-이에-대한-예를-들수-있습니까)
+* [ES6 템플릿 리터럴은 문자열을 생성하는 데 많은 유연성을 제공합니다. 이에 대한 예를 들수 있습니까?](#es6-템플릿-리터럴은-문자열을-생성하는-데-많은-유연성을-제공합니다-이에-대한-예를-들-수-있습니까)
 * [curry 함수의 예를 들어 줄 수 있습니까? 이 구문은 어떤 이점을 가지고 있나요?](#curry-함수의-예를-들어-줄-수-있습니까-이-구문은-어떤-이점을-가지고-있나요)
-* [스프레드 구문을 사용할 때의 이점은 무엇이며 나머지 구문과 다른 점은 무엇입니까?](#스프레드-구문을-사용할-때의-이점은-무엇이며-나머지-구문과-다른-점은-무엇입니까)
+* [스프레드 구문을 사용할 때의 이점은 무엇이며 나머지 구문과 다른 점은 무엇입니까?](#스프레드-구문을-사용할-때의-이점은-무엇이며-rest-구문과-다른-점은-무엇입니까)
 * [파일 간에 코드를 공유하려면 어떻게 해야합니까?](#파일-간에-코드를-공유하려면-어떻게-해야합니까)
 * [정적인 클래스 멤버를 만드는 것이 좋은 이유는 무엇입니까?](#정적인-클래스-멤버를-만드는-것이-좋은-이유는-무엇입니까)
 
@@ -609,7 +609,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 * <http://2ality.com/2011/10/strict-mode-hatred.html>
 * <http://lucybain.com/blog/2014/js-use-strict/>
 
-### 100까지 증가하면서 `3`의 배수에는 **"fizz"**를 출력하고, `5`의 배수에는 **"buzz"**를 출력하고, `3`과 `5`의 배수에는 **"fizzbuzz"**를 출력하는 for loop를 만드세요.
+### 100까지 증가하면서 `3`의 배수에는 `fizz`를 출력하고, `5`의 배수에는 `buzz`를 출력하고, `3`과 `5`의 배수에는 `fizzbuzz`를 출력하는 for loop를 만드세요.
 
 [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724)의 이 FizzBuzz를 확인해보세요.
 
@@ -686,46 +686,46 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 
 * <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261>
 
-### Callback 대신에 Promise를 사용할 때의 장점과 단점은 무엇입니까?
+### What are the pros and cons of using Promises instead of callbacks?
 
-**장점**
+**Pros**
 
-* 이해하기 어려운 콜백 지옥을 피할 수 있습니다.
-* 읽기 쉬운 `.then()`을 이용하여 연속적인 비동기 코드를 쉽게 작성할 수 있습니다.
-* `Promise.all()`을 사용하여 병렬 비동기 코드를 쉽게 작성할 수 있습니다.
+* Avoid callback hell which can be unreadable.
+* Makes it easy to write sequential asynchronous code that is readable with `.then()`.
+* Makes it easy to write parallel asynchronous code with `Promise.all()`.
 
-**단점**
+**Cons**
 
-* 약간 더 복잡한 소스코드(논쟁의 여지가 있음)
-* ES2015를 지원하지 않는 이전 브라우저에서 이를 사용하기 위해서는 polyfill을 로드해야합니다.
+* Slightly more complex code (debatable).
+* In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
-### JavaScript로 컴파일되는 언어로 JavaScript 코드를 작성하는 경우의 장단점은 무엇입니까?
+### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
-JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript, PureScript 및 TypeScript가 있습니다.
+Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript.
 
-장점:
+Advantages:
 
 * JavaScript의 오랜 문제점들을 수정하고 JavaScript 안티-패턴을 방지합니다.
 * JavaScript 위에 syntatic sugar를 제공함으로써 더 짧은 소스코드를 작성할 수 있도록 해줍니다. 제 생각에는 ES5는 부족하지만 ES2015는 굉장합니다.
-* 정적 유형은 시간 경과에 따라 유지 관리해야 하는 대규모 프로젝트에 대해 훌륭합니다(TypeScript의 경우).
+* 정적 타입은 시간 경과에 따라 유지 관리해야 하는 대규모 프로젝트에 대해 훌륭합니다(TypeScript의 경우).
 
-단점:
+Disadvantages:
 
-* 브라우저는 오직 JavaScript만 실행하기 때문에 빌드/컴파일 프로세스가 필요하며 브라우저에 제공되기 전에 자바 스크립트로 코드를 컴파일해야합니다.
-* 소스 맵이 미리 컴파일 된 소스에 잘 맵핑되지 않으면 디버깅이 어려울 수 있습니다.
-* 대부분의 개발자들은 이러한 언어에 익숙하지 않으므로 이를 배워야합니다. 프로젝트에 사용할 경우 팀의 비용이 증가합니다.
-* 소규모 커뮤니티 (언어에 따라 다름)는 리소스, 자습서, 라이브러리 및 툴링을 찾기가 어려울 수 있음을 의미합니다.
-* IDE / 편집기 지원이 부족할 수 있습니다.
-* 이러한 언어는 항상 최신 JavaScript 표준보다 뒤처집니다.
-* 개발자들은 자신들의 코드를 무엇으로 컴파일하고 있는지 알고 있어야 합니다. 왜냐하면 그것이 실제로 실행될 것이고 결국에는 중요한 것이기 때문입니다.
+* Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
+* Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
+* Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
+* Smaller community (depends on the language), which means resources, tutorials, libraries and tooling would be harder to find.
+* IDE/editor support might be lacking.
+* These languages will always be behind the latest JavaScript standard.
+* Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
 
-실질적으로 ES2015는 JavaScript를 크게 개선하여 작성하기가 훨씬 쉬워졌습니다. 요즘은 CoffeeScript가 필요하지 않습니다.
+Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
 
-###### 참고자료
+###### References
 
 * <https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript>
 
-### JavaScript 코드를 디버깅하기 위해 어떤 도구와 기술을 사용하십니까?
+### What tools and techniques do you use for debugging JavaScript code?
 
 * React and Redux
   * [React Devtools](https://github.com/facebook/react-devtools)
@@ -735,57 +735,56 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
   * `debugger` statement
   * Good old `console.log` debugging
 
-###### 참고자료
+###### References
 
 * <https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d>
 * <https://raygun.com/blog/javascript-debugging/>
 
-### 오브젝트 속성 및 배열 항목을 반복할 때 사용하는 언어 구조는 무엇입니까?
+### What language constructions do you use for iterating over object properties and array items?
 
-오브젝트의 경우:
+For objects:
 
-* `for` 반복문 - `for (var property in obj) { console.log(property); }`. 그러나 이것은 상속된 속성도 반복되며, 사용하기전에 `obj.hasOwnProperty(property)` 체크를 추가해야 합니다.
-* `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. 
-`Object.keys ()`는 전달하는 객체의 열거 가능한 모든 속성을 나열하는 정적 메서드입니다.
-* `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames ()`는 전달하는 객체의 열거 가능한 속성과 열거되지 않는 모든 속성을 나열하는 정적 메서드입니다.
+* `for` loops - `for (var property in obj) { console.log(property); }`. However, this will also iterate through its inherited properties, and you will add an `obj.hasOwnProperty(property)` check before using it.
+* `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` is a static method that will lists all enumerable properties of the object that you pass it.
+* `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it.
 
-배열의 경우:
+For arrays:
 
-* `for` 반복문 - `for (var i = 0; i < arr.length; i++)`. 여기에있는 일반적인 함정은 'var'이 함수 범위에 있고 블록 범위가 아니며 대부분 블록 범위의 반복자 변수를 원할 것이라는 점입니다. ES2015에는 블록 범위가 있는 `let`을 도입하고 대신 사용할 것을 권장합니다. 그래서 다음과 같이 됩니다. `for (let i = 0; i < arr.length; i++)`.
-* `forEach` - `arr.forEach(function (el, index) { ... })`. 필요한 모든 것이 배열 요소라면 `index`를 사용할 필요가 없기 때문에 이 구조가 더 편리 할 수 ​​있습니다. 또한 `every`과 `some` 메서드를 이용하여 반복을 일찍 끝낼 수 있습니다.
+* `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
+* `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
 
-대부분의 경우, `.forEach` 메서드를 선호하지만 무엇을 하느냐에 따라서 각 상황에 맞게 사용하는 것이 좋습니다. `for`루프는 `break`를 사용하여 루프를 조기에 종료하거나 루프 당 두 번 이상 반복자를 증가시키는 것과 같이 더 많은 유연성을 허용합니다.
+Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. `for` loops allow more flexibility, such as prematurely terminate the loop using `break` or incrementing the iterator more than once per loop.
 
-### 변경 가능 객체와 변경 불가능 객체 간의 차이점을 설명하십시오.
+### Explain the difference between mutable and immutable objects.
 
-* JavaScript에서 불변 객체의 예는 무엇입니까?
-* 불변성의 장점과 단점은 무엇입니까?
-* 자신의 코드에서 어떻게 불변성을 얻을 수 있습니까?
+* What is an example of an immutable object in JavaScript?
+* What are the pros and cons of immutability?
+* How can you achieve immutability in your own code?
 
 TODO
 
-### 동기 및 비동기 함수의 차이점을 설명하십시오.
+### Explain the difference between synchronous and asynchronous functions.
 
-동기 함수는 차단되는 반면 비동기 함수는 차단되지 않습니다. 동기 함수에서는 다음 명령문이 실행되기 전에 명령문이 완료됩니다. 이 경우 프로그램은 명령문의 순서대로 정확하게 평가되고 명령문 중 하나가 매우 오랜 시간이 걸리면 프로그램 실행이 일시 중지됩니다.
+Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
 
-비동기 함수는 일반적으로 파라미터를 통해서 콜백을 받아들이고 비동기 기능은 일반적으로 매개 변수로 콜백을 허용하며 비동기 기능이 호출된 후 즉시 다음 줄에서 실행이 계속됩니다. 콜백은 비동기 작업이 완료되고 호출 스택이 비어 있을 때만 호출됩니다. 웹 서버에서 데이터를 로드하거나 데이터베이스를 쿼리 하는 등의 엄격한 작업을 비동기식으로 수행하여 주 스레드가 긴 작업을 완료할 때까지 차단하지 않고 다른 작업을 계속해야 합니다(브라우저의 경우 UI가 중지됨).
+Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-### 이벤트 루프란 무엇입니까? 콜 스택과 태스크 큐의 차이점은 무엇입니까?
+### What is event loop? What is the difference between call stack and task queue?
 
-이벤트 루프는 콜 스택을 모니터하고 태스크 큐에서 수행 할 작업이 있는지 확인하는 단일 스레드 루프입니다. 콜 스택이 비어 있고 태스크 큐에 콜백 함수가있는 경우, 함수는 큐에서 제외되고 실행될 콜 스택으로 푸시됩니다.
+The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
-Philip Robert의 [talk on the Event Loop]를 아직 확인하지 않은 경우, (https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), 확인하세요. 자바 스크립트에서 가장 많이 본 동영상 중 하나입니다.
+Philip Robert의 [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html)를 아직 확인하지 않은 경우, , 확인하세요. 자바 스크립트에서 가장 많이 본 동영상 중 하나입니다.
 
-###### 참고자료
+###### References
 
 * <https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html>
 * <http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/>
 
-### `function foo() {}`와 `var foo = function() {}` 사이에서 `foo` 사용법의 차이에 대해 설명하시오.
+### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
-전자는 함수 선언인 반면 후자는 함수 표현입니다. 주요한 차이점은 함수 선언은 몸체가 올라가지만 함수 표현의 몸체는 존재하지 않습니다.(변수와 동이한 호이스팅 동작을 가짐) 호이스팅에 대한 자세한 설명은 위의 호이 스팅 질문을 참조하십시오. 함수 표현식을 정의하기 전에 호출하려고하면 `Uncaught TypeError : XXX is not function` 오류가 발생합니다.
+전자는 함수 선언인 반면 후자는 함수 표현입니다. 주요한 차이점은 함수 선언은 몸체가 호이스트되지만 함수 표현의 몸체는 호이스트되지 않습니다.(변수와 동일한 호이스팅 동작을 가짐) 호이스팅에 대한 자세한 설명은 위의 호이 스팅 질문을 참조하십시오. 함수 표현식을 정의하기 전에 호출하려고하면 `Uncaught TypeError : XXX is not function` 오류가 발생합니다.
 
-**함수 선언**
+**Function Declaration**
 
 ```js
 foo(); // 'FOOOOO'
@@ -794,7 +793,7 @@ function foo() {
 }
 ```
 
-**함수 표현**
+**Function Expression**
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
@@ -803,13 +802,13 @@ var foo = function() {
 };
 ```
 
-###### 참고자료
+###### References
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function>
 
-### `let`, `var` 또는 `const`를 사용하여 생성된 변수들의 차이점은 무엇인가요?
+### What are the differences between variables created using `let`, `var` or `const`?
 
-`var` 키워드를 사용하여 선언 된 변수는 함수가 생성 된 함수 나 함수 밖에서 생성 된 함수에 전역 오브젝트로 적용됩니다. `let`과 `const` 블록 범위입니다. 즉, 가장 가까운 중괄호(function, if-else 블록 또는 for-loop) 내에서만 접근할 수 있습니다.
+Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
 ```js
 function foo() {
@@ -842,7 +841,7 @@ console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
 
-`var`는 변수가 올라가도록 허용합니다. 즉, 변수가 선언되기 전에 코드에서 참조 될 수 있습니다. `let`과 `const`는 이것을 허락하지 않고 대신 에러를 던집니다.
+`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
 
 ```js
 console.log(foo); // undefined
@@ -858,7 +857,7 @@ console.log(bar); // ReferenceError: can't access lexical declaration `bar' befo
 const bar = 'bar';
 ```
 
-`var`을 사용하여 변수를 다시 선언해도 오류는 발생하지 않지만 'let'과 'const'는 오류를 발생시킵니다.
+Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
 ```js
 var foo = 'foo';
@@ -869,7 +868,7 @@ let baz = 'baz';
 let baz = 'qux'; // SyntaxError: redeclaration of let baz
 ```
 
-`let`은 변수의 값을 재할당 할 수 있지만 `const`는 재할당 할 수 없다는 점이 다릅니다.
+`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
 ```js
 // this is fine
@@ -881,82 +880,35 @@ const baz = 'baz';
 baz = 'qux';
 ```
 
-###### 참고자료
+###### References
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let>
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var>
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const>
 
-### ES6 클래스와 ES5 함수 생성자의 차이점은 무엇입니까?
-
-먼저 각각의 예를 살펴 보겠습니다.
-
-```js
-// ES5 Function Constructor
-function Person(name) {
-  this.name = name;
-}
-
-// ES6 Class
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-}
-```
-
-간단한 생성자의 경우에는 매우 유사합니다.
-
-생성자의 주요 차이점은 상속을 사용할 때 발생합니다. `Person`의 하위 클래스이면서 `studentId` 필드를 추가로 가지고 있는 `Student` 클래스를 만들고자 한다면, 이것이 우리가 위에 추가해서 해야 할 일입니다.
-
-```js
-// ES5 Function Constructor
-function Student(name, studentId) {
-  // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
-
-  // Initialize subclass's own members.
-  this.studentId = studentId;
-}
-
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
-
-// ES6 Class
-class Student extends Person {
-  constructor(name, studentId) {
-    super(name);
-    this.studentId = studentId;
-  }
-}
-```
-
-ES5에서 상속을 사용하는 것이 훨씬 더 상세하며 ES6 버전은 이해하고 기억하기가 더 쉽습니다.
-
-###### 참고자료
-
-* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
-* https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
-
-### 새 화살표 => 함수 구문에 대한 사용 예시를 들수 있습니까? 이 새로운 구문은 다른 함수와 어떻게 다릅니까?
+### What are the differences between ES6 class and ES5 function constructors?
 
 TODO
 
-### 생성자의 메서드에 화살표 구문을 사용하면 어떤 이점이 있습니까?
+### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
 TODO
 
-### 고차 함수의 정의는 무엇입니까?
+### What advantage is there for using the arrow syntax for a method in a constructor?
 
-고차 함수는 다른 함수를 매개 변수로 사용하여 일부 데이터에서 작동하거나 결과로 함수를 반환하는 함수입니다. 고차 함수는 반복적으로 수행되는 일부 연산을 추상화하기위한 것입니다. 전형적인 예는 배열과 함수를 인수로 취하는 `map`입니다. `map`은 고차 함수를 사용하여 배열의 각 항목을 변환하고 변환 된 데이터로 새로운 배열을 반환합니다. JavaScript에서 흔히 볼 수있는 다른 예로 `forEach`, `filter`, `reduce`가 있습니다. 다른 함수에서 함수를 반환하는 많은 사용 사례가 있기 때문에 고차 함수는 배열을 조작할 필요가 없습니다. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Array.prototype.bind`는 JavaScript에서 그러한 예시 중 하나입니다.
+TODO
+
+### What is the definition of a higher-order function?
+
+고차 함수는 다른 함수를 매개 변수로 사용하여 일부 데이터에서 작동하거나 결과로 함수를 반환하는 함수입니다. 고차 함수는 반복적으로 수행되는 일부 연산을 추상화하기위한 것입니다. 전형적인 예는 배열과 함수를 인수로 취하는 `map`입니다. `map`은 고차 함수를 사용하여 배열의 각 항목을 변환하고 변환 된 데이터로 새로운 배열을 반환합니다. JavaScript에서 흔히 볼 수있는 다른 예로 `forEach`, `filter`, `reduce`가 있습니다. 다른 함수에서 함수를 반환하는 많은 사용 사례가 있기 때문에 고차 함수는 배열을 조작할 필요가 없습니다. `Array.prototype.bind`는 JavaScript에서 그러한 예시 중 하나입니다.
 
 ##### Map
 
-각 요소를 대문자 문자열로 변환해야하는 이름 배열이 있다고 가정해 보겠습니다.
+Let say we have an array of names which we need to transform each element to uppercase string.
 
 `const names = ['irish', 'daisy', 'anna']`;
 
-즉흥적인 방법은 다음과 같습니다.
+The imperative way will be like:
 
 ```js
 const transformNamesToUppercase = names => {
@@ -969,7 +921,7 @@ const transformNamesToUppercase = names => {
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
-`.map(transformerFn)`을 사용하면 더 간단 해지고 추론하기 쉽고 선언적이됩니다.
+`.map(transformerFn)`을 사용하면 더 간단 해지고 추론하기 쉽고 읽기 쉬워집니다.
 
 ```js
 const transformNamesToUppercase = names =>
@@ -979,9 +931,9 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ##### Filter
 
-초기 문자가 **i**로 시작하는 모든 이름을 필터링하려고합니다.
+We want to filter all names which their initial character starts with **i**.
 
-즉흥적인 방법은 다음과 같습니다.
+The imperative way will be like:
 
 ```js
 const filterNames = names => {
@@ -997,7 +949,7 @@ const filterNames = names => {
 filterNames(names); // ['IRISH']
 ```
 
-`for loop`를 사용하는 것 대신에 `.filter(predicateFn)`를 사용하는 것이 더 선언적이다.
+`for loop`를 사용하는 것 대신에 `.filter(predicateFn)`를 사용하는 것이 더 읽기 쉬워집니다.
 
 ```js
 const filterNames = names => names.filter(name => name.startsWith('i'));
@@ -1006,11 +958,11 @@ filterNames(names); // ['IRISH']
 
 ##### Reduce
 
-배열의 모든 값을 더합니다.
+Sum all the values of an array
 
 `const numbers = [1,2,3,4,5];`
 
-즉흥적인 방법:
+Imperative way:
 
 ```js
 const sumOfNumbers = numbers => {
@@ -1023,7 +975,7 @@ const sumOfNumbers = numbers => {
 sumOfNumbers(numbers); // 15
 ```
 
-`.reduce(reducerFn)`을 사용하는 것이 더 선언적:
+More declarative using `.reduce(reducerFn)`:
 
 ```js
 const sumOfNumbers = numbers =>
@@ -1031,64 +983,25 @@ const sumOfNumbers = numbers =>
 sumOfNumbers(numbers); // 15
 ```
 
-**상위 순서 함수**를 사용하여 코드를 쉽게 추론하고 코드 품질을 향상시킬 수 있습니다. 이것은 당신의 코드가 증흥적이기 보다 더 선언적이도록 만들어줍니다. 
+**고차 함수**를 사용하여 코드를 쉽게 추론하고 코드 품질을 향상시킬 수 있습니다. 이것은 당신의 코드가 즉흥적이기 보다 더 읽기쉽도록 만들어줍니다. 
 
-###### 참고자료
+###### References
 
 * <https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99>
 * <https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a>
 * <https://eloquentjavascript.net/05_higher_order.html>
 
-### 객체나 배열에 대한 디스트럭쳐링 예시를 들수 있습니까?
-
-디스트럭쳐링은 ES6에서 사용할 수 있는 표현식으로 개체 또는 배열의 값을 추출하여 다른 변수에 배치하는 간결하고 편리한 방법을 제공합니다.
-
-**배열 디스트럭쳐링**
-
-```js
-// Variable assignment.
-const foo = ['one', 'two', 'three'];
-
-const [one, two, three] = foo;
-console.log(one); // "one"
-console.log(two); // "two"
-console.log(three); // "three"
-```
-
-```js
-// Swapping variables
-let a = 1;
-let b = 3;
-
-[a, b] = [b, a];
-console.log(a); // 3
-console.log(b); // 1
-```
-
-**객체 디스트럭쳐링**
-
-```js
-// Variable assignment.
-const o = { p: 42, q: true };
-const { p, q } = o;
-
-console.log(p); // 42
-console.log(q); // true
-```
-
-###### 참고자료
-
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-* https://ponyfoo.com/articles/es6-destructuring-in-depth
-
-
-### ES6 템플릿 리터럴은 문자열을 생성하는 데 많은 유연성을 제공합니다. 이에 대한 예를 들 수 있습니까?
+### Can you give an example for destructuring an object or an array?
 
 TODO
 
-### curry 함수의 예를 들어 줄 수 있습니까? 이 구문은 어떤 이점을 가지고 있나요? 
+### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
-currying은 둘 이상의 매개 변수가있는 함수가 여러 함수로 분리 된 패턴으로, 직렬로 호출하면 필요한 모든 매개 변수가 한 번에 하나씩 누적됩니다. 이 기술은 기능 스타일로 작성된 코드를 읽고 작성하기가 더 쉬워 진 경우 유용 할 수 있습니다. 함수를 카레 팅하려면 하나의 함수로 시작한 다음 하나의 매개 변수를 취하는 일련의 함수로 분리해야합니다.
+TODO
+
+### Can you give an example of a curry function and why this syntax offers an advantage?
+
+currying은 둘 이상의 매개 변수가있는 함수가 여러 함수로 분리 된 패턴으로, 직렬로 호출하면 필요한 모든 매개 변수가 한 번에 하나씩 누적됩니다. 이 기술은 기능 스타일로 작성된 코드를 읽고 작성하기가 더 쉬워 진 경우 유용 할 수 있습니다. 함수를 currying하려면 하나의 함수로 시작한 다음 하나의 매개 변수를 취하는 일련의 함수로 분리해야합니다.
 
 ```js
 function curry(fn) {
@@ -1118,13 +1031,13 @@ var addFive = curriedAdd(5);
 var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ```
 
-###### 참고자료
+###### References
 
 * <https://hackernoon.com/currying-in-js-d9ddc64f162e>
 
-### 스프레드 구문을 사용할 때의 이점은 무엇이며 rest 구문과 다른 점은 무엇입니까?
+### What are the benefits of using spread syntax and how is it different from rest syntax?
 
-ES6의 스프레드 구문은 함수적인 패러다임에서 코딩 할 때 매우 유용합니다. 왜냐하면 `Object.create`, `slice` 또는 라이브러리 함수를 사용하지 않고도 배열이나 객체의 복사본을 쉽게 만들 수 있기 때문입니다. 이 언어 기능은 Redux 또는 RX.js를 사용하는 프로젝트에서 많이 사용됩니다. 
+ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature gets a lot of use in projects using Redux or RX.js.
 
 ```js
 function putDookieInAnyArray(arr) {
@@ -1141,7 +1054,7 @@ var person = {
 var copyOfTodd = { ...person };
 ```
 
-ES6의 rest 구문은 함수에 전달할 임의의 수의 인수를 포함하는 약식을 제공합니다. 이는 데이터의 배열을 채우기보다는 데이터를 가져 와서 배열로 채우는 확산 구문의 역과 비슷하지만 함수 인수에서만 작동합니다. 
+ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than upacking an array of data, but it only works in function arguments.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
@@ -1151,26 +1064,26 @@ function addFiveToABunchOfNumbers(...numbers) {
 var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
 ```
 
-###### 참고자료
+###### References
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters>
 
-### 파일 간에 코드를 공유하려면 어떻게 해야합니까?
+### How can you share code between files?
 
-이것은 Javascript 환경에 따라 다릅니다. 
+TODO
 
-클라이언트(브라우저 환경)에서는 변수/함수가 전역 범위 (`window`)에 선언되어있는 한 모든 스크립트가 이를 참조 할 수 있습니다. 또는, 보다 모듈형 접근 방식을 위해 Require2S를 통해 비동기 모듈 정의(AMD)를 이용합니다. 
+### Why you might want to create static class members?
 
-서버(Node.js)에서 일반적인 방법은 CommanJS를 사용하는 것입니다. 각 파일은 모듈로 취급되며 변수와 함수를`module.exports` 객체에 첨부하여 내보낼 수 있습니다. 
- 
-ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 구문을 정의합니다. 이 기능은 브라우저 및 노드 환경 모두에서 지원됩니다 
+TODO
+
+###### 참고자료
+
+* http://requirejs.org/docs/whyamd.html
+* https://nodejs.org/docs/latest/api/modules.html
+* http://2ality.com/2014/09/es6-modules-final.html
 
 ### 정적인 클래스 멤버를 만드는 것이 좋은 이유는 무엇입니까?
-
-정적 클래스 멤버(속성/메서드)는 클래스의 특정 인스턴스에 연결되지 않으며 어떤 인스턴스가 이를 참조하는지에 관계 없이 동일한 값을 가집니다. 정적 속성은 일반적으로 구성 변수이며 정적 메서드는 일반적으로 인스턴스의 상태에 의존하지 않는 순수 유틸리티 함수입니다. 
-
-### 다른 답변들
 
 * <http://flowerszhong.github.io/2013/11/20/javascript-questions.html>
 
