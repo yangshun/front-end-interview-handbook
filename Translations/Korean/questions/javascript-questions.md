@@ -5,36 +5,36 @@
 * [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
 * [AMD 대 CommonJS 에 대해 어떻게 생각하십니까?](#amd-대-commonjs에-대해-어떻게-생각하십니까)
 * [다음 내용이 IIFE 로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE 로 만들기 위해서는 무엇이 바뀌어야 할까요?](#다음-내용이-iife로-작동하지-않는-이유를-설명하세요-function-foo-를-iife로-만들기-위해서는-무엇이-바뀌어야-할까요)
-* [What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
-* [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one)
-* [Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
-* [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
-* [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
-* [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
-* [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
-* [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
-* [Explain `Function.prototype.bind`.](#explain-functionprototypebind)
-* [When would you use `document.write()`?](#when-would-you-use-documentwrite)
-* [What's the difference between feature detection, feature inference, and using the UA string?](#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
-* [Explain Ajax in as much detail as possible.](#explain-ajax-in-as-much-detail-as-possible)
-* [What are the advantages and disadvantages of using Ajax?](#what-are-the-advantages-and-disadvantages-of-using-ajax)
-* [Explain how JSONP works (and how it's not really Ajax).](#explain-how-jsonp-works-and-how-its-not-really-ajax)
-* [Have you ever used JavaScript templating? If so, what libraries have you used?](#have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)
-* [Explain "hoisting".](#explain-hoisting)
-* [Describe event bubbling.](#describe-event-bubbling)
-* [What's the difference between an "attribute" and a "property"?](#whats-the-difference-between-an-attribute-and-a-property)
-* [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea)
-* [Difference between document `load` event and document `DOMContentLoaded` event?](#difference-between-document-load-event-and-document-domcontentloaded-event)
-* [What is the difference between `==` and `===`?](#what-is-the-difference-between--and-)
-* [Explain the same-origin policy with regards to JavaScript.](#explain-the-same-origin-policy-with-regards-to-javascript)
-* [Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#make-this-work)
-* [Why is it called a Ternary expression, what does the word "Ternary" indicate?](#why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-* [What is "use strict";? what are the advantages and disadvantages to using it?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
-* [Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5](#create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5)
-* [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
-* [Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
-* [Explain what a single page app is and how to make one SEO-friendly.](#explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly)
-* [What is the extent of your experience with Promises and/or their polyfills?](#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
+* [`null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?](#null-undefined-선언되지-않은-변수-의-차이점은-무엇입니까-당신은-어떻게-이-상태들에-대한-점검을-할-것입니까)
+* [클로저는 무엇이며, 어떻게/왜 사용합니까?](#클로저는-무엇이며-어떻게-왜-사용합니까)
+* [`.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?](#forEach-루프와-map-루프-사이의-주요-차이점을-설명할-수-있습니까-왜-둘중-하나를-선택하겠습니까)
+* [익명 함수의 일반적인 사용 사례는 무엇입니까?](#익명-함수의-일반적인-사용-사례는-무엇입니까)
+* [코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)](#코드를-어떻게-구성합니까-모듈-패턴-고전적인-상속)
+* [호스트 객체와 내장 객체의 차이점은 무엇입니까?](#호스트-객체와-내장-객체의-차이점은-무엇입니까)
+* [`Person(){}`, `var person = Person()`, `var person = new Person()` 의 차이점은 무엇입니까?](#Person-var-person-Person-var-person-new-Person-의-차이점은-무엇입니까)
+* [`.call`과 `.apply`의 차이점은 무엇입니까?](#call-과-apply-의-차이점은-무엇입니까)
+* [`Function.prototype.bind`에 대해 설명하세요.](#Function-prototype-bind-에-대해-설명하세요)
+* [언제 `document.write()`를 사용합니까?](#언제-document-write-를-사용합니까)
+* [Feature detection, Feature inference, UA String 의 차이점은 무엇입니까?](#Feature-detection-Feature-inference-UA-String-의-차이점은-무엇입니까)
+* [Ajax에 대해 가능한한 자세히 설명하십시오.](#Ajax에-대해-가능한한-자세히-설명하십시오)
+* [Ajax를 사용하는 것의 장단점은 무엇입니까?](#Ajax를-사용하는-것의-장단점은-무엇입니까)
+* [JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.](#JSONP의-작동-방식-Ajax가-아닌-방법-을-설명하십시오)
+* [자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?](#자바스크립트-템플릿을-사용한-적이-있습니까-사용해봤다면-어떤-라이브러리를-사용했습니까)
+* [`hoisting`에 대해 설명하세요.](#hoisting-에-대해-설명하세요)
+* [event bubbling에 대해 설명하세요.](#event-bubbling에-대해-설명하세요)
+* ["attribute"와 "property"의 차이점은 무엇입니까?](#attribute-와-property-의-차이점은-무엇입니까)
+* [내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?](#내장-javascript-객체를-확장하는-것이-좋은-생각이-아닌-이유는-무엇입니까)
+* [document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?](#document-load-이벤트와-document-DOMContentLoaded-이벤트의-차이점은-무엇입니까)
+* [`==`와 `===`의 차이점은 무엇입니까?](#==-와-===-의-차이점은-무엇입니까)
+* [JavaScript와 관련하여 same-origin 정책을 설명하십시오.](#javascript와-관련하여-same-origin-정책을-설명하십시오)
+* [이것이 작동하게 만들어보세요: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`](#이것이-작동하게-만들어보세요)
+* [왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?](#왜-ternary-표현이라고-부르고-ternary-라는-단어는-무엇을-나타냅니까)
+* [`"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?](#use-strict-이-무엇입니까-사용시-장단점이-무엇인가요)
+* [100까지 증가하면서 `3`의 배수에는 **"fizz"**를 출력하고, `5`의 배수에는 **"buzz"**를 출력하고, `3`과 `5`의 배수에는 **"fizzbuzz"**를 출력하는 for loop를 만드세요.](#100까지-증가하면서-3-의-배수에는-fizz-를-출력하고-5-의-배수에는-buzz-를-출력하고-3-과-5-의-배수에는-fizzbuzz-를-출력하는-for-loop를-만드세요)
+* [일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇입니까?](#일반적으로-웹-사이트의-전역-스코프를-그대로-두고-건드리지-않는-것이-좋은-이유는-무엇입니까)
+* [왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고있나요? 알고있다면 왜 그것을 사용할건가요?](#왜-load-이벤트와-같은-것을-사용하나요-이 이벤트에는-단점이-있나요-다른-대안을-알고있나요-알고있다면-왜-그것을-사용할건가요)
+* [single page app이 무엇인지 설명하고 SEO-friendly한 앱을 만드는 방법을 설명하십시오.](#single-page-app이-무엇인지-설명하고-seo-friendly한-앱을-만드는-방법을-설명하십시오)
+* [Promises 와/또는 Polyfill에 대한 당신의 경험은 어느 정도입니까?](#promises-와-또는-polyfill에-대한-당신의-경험은-어느-정도입니까)
 * [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
 * [What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?](#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
 * [What tools and techniques do you use debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code)
@@ -80,12 +80,12 @@ Pull Request 를 통한 제안 및 수정 요청을 환영합니다.
 온라인에 많은 설명이 있는데 [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
 다음 규칙과 같습니다.
 
-1. 함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
-2. `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
-3. `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
-4. 함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
-5. 위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
-6. 함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
+1.  함수를 호출할 때 `new` 키워드를 사용하는 경우 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
+2.  `apply`, `call`, `bind`가 함수의 호출 / 작성에 사용되는 경우 함수 내의 `this`는 인수로 전달된 객체입니다.
+3.  `obj.method()`와 같이 함수를 메서드로 호출하는 경우 `this`는 함수가 프로퍼티인 객체입니다.
+4.  함수가 자유함수로 호출되는 경우 즉 위의 조건없이 호출되는 경우 `this`는 전역 객체입니다. 브라우저에서는 `window` 객체입니다. 엄격 모드(`'use strict'`) 일 경우 `this`는 전역 객체 대신 `undefined`가 됩니다.
+5.  위의 규칙 중 다수가 적용되면 더 높은 규칙이 승리하고 `this`값을 설정합니다.
+6.  함수가 ES2015 화살표 함수인 경우 위의 모든 규칙을 무시하고 생성된 시점에서 주변 스코프의 `this`값을 받습니다.
 
 상세한 설명은 [Medium 의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)를 참조하세요.
 
@@ -128,20 +128,20 @@ JavaScript 파서는 `function foo () {} ();`를`function foo () {}`와 `();`로
 
 * <http://lucybain.com/blog/2014/immediately-invoked-function-expression/>
 
-### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+### `null`, `undefined`, `선언되지 않은 변수` 의 차이점은 무엇입니까? 당신은 어떻게 이 상태들에 대한 점검을 할 것입니까?
 
-**Undeclared** variables are created when you assign to a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+**선언되지 않은 변수** 변수는 이전에 `var`, `let`, `const` 를 사용하여 생성되지 않은 식별자에 값을 할당 할 때 생성됩니다. `선언되지 않은 변수` 는 현재 범위 외부에서 전역으로 정의됩니다. strict 모드에서는 `선언되지 않은 변수` 에 할당하려고 할 때 `ReferenceError` 가 throw 됩니다. `선언되지 않은 변수` 는 전역 변수처럼 좋지 않은 것입니다. 그것들은 모두 피하세요! 이들을 검사하기 위해 사용할 때 `try` / `catch` 블록에 감싸십시오.
 
 ```js
 function foo() {
-  x = 1; // Throws a ReferenceError in strict mode
+  x = 1; // strict 모드에서 ReferenceError를 발생시킵니다.
 }
 
 foo();
 console.log(x); // 1
 ```
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+`undefined` 변수는 선언되었지만 값이 할당되지 않은 변수입니다. 이것은 `undefined` 타입입니다. 함수가 실행 결과에 따라 값을 반환하지 않으면 변수에 할당되며, 변수가 `undefined` 값을 갖습니다. 이것을 검사하기 위해, 엄격한 (`===`) 연산자 또는 `typeof` 에 `undefined` 문자열을 사용하여 비교하십시오. 확인을 위해 추상 평등 연산자(`==`)를 사용해서는 안되며, 이는 값이 `null` 이면 `true` 를 반환합니다.
 
 ```js
 var foo;
@@ -156,7 +156,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+`null` 인 변수는 `null` 값에 명시적으로 할당될 것입니다. 그것은 값을 나타내지 않으며 명시적으로 할당된다는 점에서 `undefined`와 다릅니다. `null`을 체크하기 위해서 단순히 완전 항등 연산자(`===`)를 사용하여 비교하면 됩니다. 위와 같이, 추상 평등 연산자 (`==`)를 사용해서는 안되며, 값이 `undefined`이면 `true`를 반환합니다.
 
 ```js
 var foo = null;
@@ -165,36 +165,36 @@ console.log(foo === null); // true
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring, if I don't intend to use it yet.
+개인적 습관으로, 저는 변수를 선언하지 않거나 할당하지 않은 상태로 두지 않습니다. 아직 사용하지 않으려는 경우, 선언한 후에 명시적으로 `null` 을 할당할 것입니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables>
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined>
 
-### What is a closure, and how/why would you use one?
+### 클로저는 무엇이며, 어떻게/왜 사용합니까?
 
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
+클로저는 함수와 그 함수가 선언된 렉시컬 환경의 조합입니다. "렉시컬"은 렉시컬 범위 지정이 변수가 사용 가능한 위치를 결정하기 위해 소스 코드 내에서 변수가 선언된 위치를 사용한다는 사실을 나타냅니다. 클로저는 외부 함수가 반환된 후에도 외부 함수의 변수 범위 체인에 접근할 수 있는 함수입니다.
 
-**Why would you use one?**
+**왜 클로저를 사용합니까?**
 
-* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+* 데이터 프라이버시 / 클로저로 private method 를 모방. 일반적으로 [모듈 패턴](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)에 사용됩니다.
+* [부분적인 응용 프로그램 또는 currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures>
 * <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36>
 
-### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+### `.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있습니까? 왜 둘중 하나를 선택하겠습니까?
 
-To understand the differences between the two, let's look at what each function does.
+이 두 함수의 차이점을 이해하기 위해 각 함수가 무엇을 하는지 살펴보겠습니다.
 
 **`forEach`**
 
-* Iterates through the elements in an array.
-* Executes a callback for each element.
-* Does not return a value.
+* 배열의 요소를 반복합니다.
+* 각 요소에 대한 콜백을 실행합니다.
+* 값을 반환하지 않습니다.
 
 ```js
 const a = [1, 2, 3];
@@ -207,8 +207,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
-* Iterates through the elements in an array.
-* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+* 배열의 요소를 반복합니다.
+* 각 요소에서 함수를 호출하여 결과로 새 배열을 작성하여 각 요소를 새 요소에 맵핑합니다.
 
 ```js
 const a = [1, 2, 3];
@@ -219,15 +219,15 @@ const doubled = a.map(num => {
 // doubled = [2, 4, 6]
 ```
 
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+`.forEach` 와 `.map()` 의 주된 차이점은 `.map()` 이 새로운 배열을 반환한다는 것입니다. 결과가 필요하지만 원본 배열을 변경하고 싶지 않으면 `.map()` 이 확실한 선택입니다. 단순히 배열을 반복할 필요가 있다면, forEach 가 좋은 선택입니다.
 
-###### References
+###### 참고자료
 
 * <https://codeburst.io/javascript-map-vs-foreach-f38111822c0f>
 
-### What's a typical use case for anonymous functions?
+### 익명 함수의 일반적인 사용 사례는 무엇입니까?
 
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+익명함수는 IIFE 로 사용되어 지역 범위 내에서 일부 코드를 캡슐화하므로 선언된 변수가 전역 범위로 누출되지 않습니다.
 
 ```js
 (function() {
@@ -235,7 +235,7 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 })();
 ```
 
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+한 번 사용되며 다른 곳에서는 사용할 필요가 없는 콜백으로 사용됩니다. 함수 본체를 찾기 위해 다른 곳을 찾아볼 필요없이 코드를 호출하는 코드 바로 안에 핸들러가 정의되어 있으면 코드가 보다 독립적이고 읽기 쉽게 보일 것입니다.
 
 ```js
 setTimeout(function() {
@@ -243,7 +243,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+함수형 프로그래밍 또는 Lodash 에 대한 인수(콜백과 유사).
 
 ```js
 const arr = [1, 2, 3];
@@ -253,36 +253,36 @@ const double = arr.map(function(el) {
 console.log(double); // [2, 4, 6]
 ```
 
-###### References
+###### 참고자료
 
 * <https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions>
 * <https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo>
 
-### How do you organize your code? (module pattern, classical inheritance?)
+### 코드를 어떻게 구성합니까? (모듈 패턴, 고전적인 상속?)
 
-In the past, I used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
+과거에는 Backbone 모델을 만들고 그 모델에 메소드를 연결하는 등 OOP 접근 방식을 장려하는 모델에 Backbone 을 사용했습니다.
 
-The module pattern is still great, but these days, I use the Flux architecture based on React/Redux which encourages a single-directional functional programming approach instead. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+모듈 패턴은 여전히 ​​ 훌륭하지만, 요즘에는 React/Redux 기반의 Flux 아키텍처를 사용합니다. 이 아키텍처는 단방향 프로그래밍 방식을 권장합니다. 저는 평범한 객체를 사용하여 응용 프로그램의 모델을 표현하고 이러한 객체를 조작하는 유틸리티 순수 함수를 작성합니다. 상태는 다른 Redux 응용 프로그램에서와 마찬가지로 action 및 reducer 를 사용하여 조작됩니다.
 
-I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+가능한 경우 고전적인 상속을 사용하지 않습니다. 저는 [이 규칙들](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)을 유지합니다.
 
-### What's the difference between host objects and native objects?
+### 호스트 객체와 내장 객체의 차이점은 무엇입니까?
 
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
+내장 객체는 ECMAScript 사양에 정의된 JavaScript 언어의 일부인 객체입니다. (예: `String`, `Math`, `RegExp`, `Object`, `Function` 등)
 
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
+호스트 객체는 `window`, `XMLHTTPRequest` 등과 같이 런타임 환경 (브라우저 또는 노드)에 의해 제공됩니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects>
 
-### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+### `Person(){}`, `var person = Person()`, `var person = new Person()` 의 차이점은 무엇입니까?
 
-This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is use PascalCase for functions that are intended to be used as constructors.
+이 질문은 굉장해 애매합니다. 질문의 의도에 대한 저의 최선의 추측은 자바스크립트의 생성자에 대해 묻는 것입니다. 엄밀히 말하면, `function Person(){}`은 정상적인 함수 선언 일뿐입니다. 이 컨벤션은 생성자로 사용하기 위해 함수에 PascalCase 를 사용합니다.
 
-`var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if it the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
+`var person = Person()`은 생성자가 아니며 `Person`을 함수로 호출합니다. 함수를 생성자로 사용하려는 경우에 이렇게 호출하는 것이 일반적인 실수입니다. 일반적으로 생성자는 아무것도 반환하지 않으므로 일반 함수처럼 생성자를 호출하면 `undefined`가 반환되고 지정된 변수에 할당됩니다.
 
-`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
+`var person = new Person()`은 `Person.prototype`을 상속받은 `new` 연산자를 사용하여 `Person` 객체의 인스턴스를 생성합니다. 또다른 방법은 `Object.create`를 사용하는 것입니다: `Object.create(Person.prototype)`.
 
 ```js
 function Person(name) {
@@ -298,13 +298,13 @@ console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new>
 
-### What's the difference between `.call` and `.apply`?
+### `.call`과 `.apply`의 차이점은 무엇입니까?
 
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in a comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and array of arguments.
+`.call`과 `.apply`는 모두 함수를 호출하는데 사용되며 첫 번째 매개 변수는 함수 내에서 `this`의 값으로 사용됩니다. 그러나 `.call`은 쉼표로 구분된 인수를 두번째 인수로 취하고 `.apply`는 인수의 배열을 두번째 인수로 취합니다. `call`은 `C`: Comma 로 구분되며 `apply`는 인수 배열인 `A`: `arguments` 라고 기억하면 쉽습니다.
 
 ```js
 function add(a, b) {
@@ -315,34 +315,34 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-### Explain `Function.prototype.bind`.
+### `Function.prototype.bind`에 대해 설명하세요.
 
-Taken word-for-word from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
+[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)에서 인용.
 
-> The `bind()` method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+> `bind()` 메소드는 호출될 때 this 키워드가 제공된 값으로 설정되고 새로운 함수가 호출될 때 주어진 인자 앞에 주어진 시퀀스가 ​​ 선행되는 새로운 함수를 생성합니다.
 
-In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+내 경험상, 다른 함수로 전달하고자하는 클래스의 메소드에서 `this`의 값을 바인딩할 때 가장 유용합니다. 이것은 종종 React 컴포넌트에서 사용됩니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind>
 
-### When would you use `document.write()`?
+### 언제 `document.write()`를 사용합니까?
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
+`document.write()`는 `document.open()`에 의해 열린 문서 스트림에 텍스트 문자열을 씁니다. 페이지가 로드된 후에 `document.write()`가 실행되면 `document.open`을 호출하여 문서 전체를 지우고 (`<head>`와 `<body>`를 지웁니다!). 문자열로 주어진 매개 변수 값으로 대체합니다. 그러므로 일반적으로 위험하고 오용되기 쉽습니다.
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
+`document.write()`가 코드분석이나 [JavaScript 가 활성화된 경우에만 작동하는 스타일을 포함하고 싶을 때](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html) 사용되는 경우를 설명하는 온라인 답변이 몇 가지 있습니다. 심지어 HTML5 보일러 플레이트에서 [스크립트를 병렬로로드하고 실행 순서를 보존](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)할때도 사용됩니다! 그러나, 저는 그 이유가 시대에 뒤 떨어진 것으로 생각하고 있으며, 현재는 `document.write()`를 사용하지 않고도 할 수 있습니다. 이것이 틀렸다면 고쳐주세요.
 
-###### References
+###### 참고자료
 
 * <https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html>
 * <https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag>
 
-### What's the difference between feature detection, feature inference, and using the UA string?
+### Feature detection, Feature inference, UA String 의 차이점은 무엇입니까?
 
 **Feature Detection**
 
-Feature detection involves working out whether a browser supports a certain block of code, and running different code dependent on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
+Feature Detection은 브라우저가 특정 코드 블록을 지원하는지에 따라 다른 코드를 실행하도록 하여, 일부 브라우저에서 항상 오류가 발생하도록합니다. 예:
 
 ```js
 if ('geolocation' in navigator) {
@@ -352,11 +352,11 @@ if ('geolocation' in navigator) {
 }
 ```
 
-[Modernizr](https://modernizr.com/) is a great library to handle feature detection.
+[Modernizr](https://modernizr.com/)는 Feature detection을 처리 ​​할 수 있는 훌륭한 라이브러리입니다.
 
 **Feature Inference**
 
-Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
+Feature inference는 Feature detection과 마찬가지로 기능을 확인하지만 다른 함수도 존재한다고 가정하고 사용합니다. 예:
 
 ```js
 if (document.getElementsByTagName) {
@@ -364,50 +364,50 @@ if (document.getElementsByTagName) {
 }
 ```
 
-This is not really recommended. Feature detection is more foolproof.
+이것은 권장하지 않습니다. Feature detection이 더 확실합니다.
 
 **UA String**
 
-This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
+네트워크 프로토콜 피어가 요청하는 소프트웨어 사용자 에이전트의 응용 프로그램 유형, 운영 체제, 소프트웨어 공급 업체 또는 소프트웨어 버전을 식별 할 수 있도록 해주는 browser-reported String입니다. `navigator.userAgent` 를 통해 액세스 할 수 있습니다. 하지만 문자열은 구문 분석하기 까다로우며 스푸핑 될 수 있습니다. 예를 들어 Chrome은 Chrome과 Safari로 모두 보고됩니다. Safari를 감지하기 위해서는 Safari 문자열이 있는지와 Chrome 문자열이 없는지 확인해야합니다. 이 방법은 사용하지 마십시오.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection>
 * <https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th>
 * <https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent>
 
-### Explain Ajax in as much detail as possible.
+### Ajax에 대해 가능한한 자세히 설명하십시오.
 
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute JSON for XML due to the advantages of being native to JavaScript.
+Ajax (asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 만들기 위해 클라이언트 측에서 여러 웹 기술을 사용하는 웹 개발 기술의 집합입니다. Ajax를 사용하면 웹 애플리케이션은 기존 페이지의 화면 및 동작을 방해하지 않으면서 백그라운드에서 비동기적으로 서버로 데이터를 보내고 서버에서 데이터를 받아올 수 있습니다. Ajax는 프리젠테이션 레이어에서 데이터 교환 레이어를 분리함으로써 웹 페이지 및 확장 웹 애플리케이션이 전체 페이지를 다시로드 할 필요없이 동적으로 컨텐츠를 변경할 수 있도록 합니다. 실제로 최근에는 일반적으로 네이티브 자바스크립트의 장점 때문에 XML대신 JSON을 사용합니다.
 
-The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
+`XMLHttpRequest` API는 비동기 통신 또는 최근 `fetch` API에 자주 사용됩니다.
 
-###### References
+###### 참고자료
 
 * <https://en.wikipedia.org/wiki/Ajax_(programming>)
 * <https://developer.mozilla.org/en-US/docs/AJAX>
 
-### What are the advantages and disadvantages of using Ajax?
+### Ajax를 사용하는 것의 장단점은 무엇입니까?
 
-**Advantages**
+**장점**
 
-* Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-* Reduce connections to the server since scripts and stylesheets only have to be requested once.
-* State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-* Basically most of the advantages of an SPA.
+* 상호작용성이 좋아집니다. 서버의 새로운 컨텐츠를 전체 페이지를 다시로드 할 필요없이 동적으로 변경할 수 있습니다.
+* 스크립트 및 스타일 시트는 한 번만 요청하면되므로 서버에 대한 연결을 줄여줍니다.
+* 상태를 페이지에서 관리 할 수 ​​있습니다. 메인 컨테이너 페이지가 다시 로드되지 않기 때문에 JavaScript의 변수와 DOM의 상태가 유지됩니다.
+* 기본적으로 SPA의 장점 대부분입니다.
 
-**Disadvantages**
+**단점**
 
-* Dynamic webpages are harder to bookmark.
-* Does not work if JavaScript has been disabled in the browser.
-* Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-* Basically most of the disadvantages of an SPA.
+* 동적 웹 페이지는 북마크 하기 어렵습니다.
+* 브라우저에서 JavaScript가 비활성화 된 경우 작동하지 않습니다.
+* 일부 웹 크롤러는 자바 스크립트를 실행하지 않으며 JavaScript에 의해 로드된 콘텐츠를 볼 수 없습니다.
+* SPA의 대부분의 단점이 대부분입니다.
 
-### Explain how JSONP works (and how it's not really Ajax).
+### JSONP의 작동 방식(Ajax가 아닌 방법)을 설명하십시오.
 
-JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
+JSONP (JSON with Padding)은 현재 페이지에서 cross-origin 도메인으로의 Ajax 요청이 허용되지 않기 때문에 웹 브라우저에서 cross-domain 정책을 우회하는 데 일반적으로 사용되는 방법입니다.
 
-JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
+JSONP는 `<script>`태그를 통해 cross-origin 도메인에 요청하고 보통 `callback`쿼리 매개 변수(예: `https://example.com?callback=printData`)로 요청합니다. 그러면 서버는 `printData`라는 함수 안에 데이터를 래핑하여 클라이언트로 반환합니다.
 
 ```html
 <!-- https://mydomain.com -->
@@ -425,29 +425,29 @@ function printData(data) {
 printData({ name: 'Yang Shun' });
 ```
 
-The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
+클라이언트는 전역 범위에 있는 `printData` 함수를 가져야만하고 cross-origin domain으로부터의 응답이 수신 될 때 함수가 클라이언트에 의해 실행됩니다.
 
-JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
+JSONP는 안전하지 않을 수 있으며 보안과 관련이 있습니다. JSONP은 실제로 JavaScript고, JavaScript가 할 수 있는 모든 작업을 수행 할 수 있으므로 JSONP 데이터 공급자를 신뢰해야만 합니다.
 
-These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
+요즘에는 [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)가 권장되는 접근 방식이며 JSONP는 해킹으로 간주됩니다.
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/a/2067584/1751946>
 
-### Have you ever used JavaScript templating? If so, what libraries have you used?
+### 자바스크립트 템플릿을 사용한 적이 있습니까? 사용해봤다면, 어떤 라이브러리를 사용했습니까?
 
-Yes. Handlebars, Underscore, Lodash, AngularJS and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favourite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
+네. Handlebars, Underscore, Lodash, AngularJS 및 JSX. 저는 AngularJS에서 템플릿을 싫어했습니다. 지시자에서 문자열을 많이 사용하게 되며 오타가 발견되지 않기 때문입니다. JSX는 자바스크립트에 가깝고 배워야 하는 새로운 구문이 거의 없기 때문에 흥미롭습니다. 요즘 Third-party 코드에 의존하지 않고 템플릿을 만드는 빠른 방법으로 ES2015 템플릿 문자열 리터럴을 사용할 수도 있습니다.
 
 ```js
 const template = `<div>My name is: ${name}</div>`;
 ```
 
-However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
+그러나 템플릿 라이브러리와 달리 Contents가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야합니다.
 
-### Explain "hoisting".
+### `hoisting`에 대해 설명하세요.
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+Hoisting은 코드에서 변수 선언의 동작을 설명하는데 사용되는 용어입니다. `var` 키워드로 선언 혹은 초기화된 변수는 현재 스코프의 최상위까지 `hoisted`됩니다. 그러나 선언문만 `hoisted`되며 할당(있는 경우)은 그대로입니다. 몇 가지 예를 들어 설명해 보겠습니다.
 
 ```js
 // var declarations are hoisted.
@@ -461,7 +461,7 @@ let bar = 2;
 console.log(bar); // 2
 ```
 
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
+함수 선언은 바디를 호이스팅되는 반면 변수 선언 형태로 작성된 함수 표헌식은 변수 선언만 호이스팅됩니다.
 
 ```js
 // Function Declaration
@@ -481,13 +481,13 @@ var bar = function() {
 console.log(bar); // [Function: bar]
 ```
 
-### Describe event bubbling.
+### event bubbling에 대해 설명하세요.
 
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
+DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 경우 이벤트 처리를 시도한 다음 해당 이벤트가 부모에게 버블링되고 같은 이벤트가 발생합니다. 이 버블링은 요소의 조상 `document` 까지 계속적으로 발생시킵니다. 이벤트 버블링은 이벤트 위임의 메커니즘입니다.
 
-### What's the difference between an "attribute" and a "property"?
+### "attribute"와 "property"의 차이점은 무엇입니까?
 
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
+속성은 HTML 마크업에 정의되지만 속성은 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에이 텍스트 필드가 있다고 생각해보새요. `<input type="text" value="Hello">`.
 
 ```js
 const input = document.querySelector('input');
@@ -495,41 +495,41 @@ console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
-But after you change the value of the text field by adding "World!" to it, this becomes:
+그러나 텍스트 필드에 "World!"를 추가하면 이렇게 될것입니다.
 
 ```js
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html>
 
-### Why is extending built-in JavaScript objects not a good idea?
+### 내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇입니까?
 
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods are not the same.
+빌트인/네이티브 JavaScript 객체를 확장한다는 것은 prototype에 속성/함수를 추가한다는 것을 의미합니다. 이것은 처음에는 좋은 생각처럼 보일 수 있지만 실제로는 위험합니다. 여러분의 코드가 동일한 `contains` 메소드를 추가함으로써 `Array.prototype`을 확장하는 여러가지 라이브러리를 사용한다고 상상해보십시오. 이러한 구현은 메소드를 서로 덮어쓰게 되며 이 두 메소드의 동작이 동일하지 않으면 코드가 망가질것입니다.
 
-The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
+네이티브 객체를 확장 할 수 있는 유일한 경우는 폴리필을 만들려고 할 때입니다. 자바스크립트 사양의 일부이지만 오래된 브라우저이기 때문에 사용자 브라우저에 없을 수도 있는 메서드에 대한 고유한 구현을 제공해야할 경우입니다.
 
-###### References
+###### 참고자료
 
 * <http://lucybain.com/blog/2014/js-extending-built-in-objects/>
 
-### Difference between document `load` event and document `DOMContentLoaded` event?
+### document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇입니까?
 
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+`DOMContentLoaded` 이벤트는 스타일시트, 이미지, 서브프레임이 로딩을 기다리지 않고 초기 HTML 문서가 완전히 로드되고 파싱될 때 발생합니다.
 
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+`window`의 `load`이벤트는 DOM과 모든 종속 리소스와 에셋들이 로드된 후에 만 ​​발생합니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded>
 * <https://developer.mozilla.org/en-US/docs/Web/Events/load>
 
-### What is the difference between `==` and `===`?
+### `==`와 `===`의 차이점은 무엇입니까?
 
-`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
+`==`는 추상 동등 연산자이고 `===`는 완전 동등 연산자입니다. `==`연산자는 타입 변환이 필요한 경우 타입 변환을 한 후에 동등한지 비교할 것입니다. `===`연산자는 타입 변환을 하지 않으므로 두 값이 같은 타입이 아닌 경우 `===`는 단순히 `false`를 반환합니다. `==`를 사용하면 다음과 같은 무서운 일이 발생할 수 있습니다.
 
 ```js
 1 == '1'; // true
@@ -540,7 +540,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 0 == false; // true
 ```
 
-My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
+저의 조언은 편의상 `null`과 `undefined`를 비교할 때를 제외하고, `==`연산자를 절대 사용하지 않는 것입니다. `a == null`은 `a`가 `null` 또는 `undefined`이면 `true`를 반환합니다.
 
 ```js
 var a = null;
@@ -548,19 +548,19 @@ console.log(a == null); // true
 console.log(a == undefined); // true
 ```
 
-###### References
+###### 참고자료
 
 * <https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons>
 
-### Explain the same-origin policy with regards to JavaScript.
+### JavaScript와 관련하여 same-origin 정책을 설명하십시오.
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 것을 방지합니다. origin은 URI 체계, 호스트 이름 및 포트 번호의 조합으로 정의됩니다. 이 정책은 한 페이지의 악의적인 스크립트가 해당 페이지의 문서 객체 모델을 통해 다른 웹 페이지의 중요한 데이터에 액세스하는 것을 방지합니다.
 
-###### References
+###### 참고자료
 
 * <https://en.wikipedia.org/wiki/Same-origin_policy>
 
-### Make this work:
+### 이것이 작동하게 만들어보세요.
 
 ```js
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -574,44 +574,44 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-### Why is it called a Ternary expression, what does the word "Ternary" indicate?
+### 왜 Ternary 표현이라고 부르고, "Ternary"라는 단어는 무엇을 나타냅니까?
 
-"Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
+"Ternary"는 삼항을 나타내고 삼항 표현식은 세가지 피연산자, 테스트 조건문, "then"표현식, "else"표현식을 받습니다. 삼항 표현식은 자바 스크립트에만 해당되는 것이 아니며 왜 이 목록에 있는지 잘 모르겠습니다.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator>
 
-### What is `"use strict";`? What are the advantages and disadvantages to using it?
+### `"use strict";` 이 무엇입니까? 사용시 장단점이 무엇인가요?
 
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt in to a restricted variant of JavaScript.
+'use strict'는 전체 스크립트나 개별 함수에 엄격 모드를 사용하는데 사용되는 명령문입니다. Strict 모드는 JavaScript 제한된 변형에서 선택하는 방법입니다.
 
-Advantages:
+장점:
 
-* Makes it impossible to accidentally create global variables.
-* Makes assignments which would otherwise silently fail to throw an exception.
-* Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
-* Requires that function parameter names be unique.
-* `this` is undefined in the global context.
-* It catches some common coding bloopers, throwing exceptions.
-* It disables features that are confusing or poorly thought out.
+* 실수로 전역변수를 만드는 것이 불가능합니다.
+* 암묵적으로 실패한 예외를 throw하지 못하는 할당을 만듭니다.
+* 삭제할 수 없는 속성을 삭제하려고 시도합니다. (시도 효과가 없을 때까지)
+* 함수의 매개변수 이름은 고유해야합니다.
+* `this`는 전역 컨텍스트에서 undefined입니다.
+* 예외를 발생시키는 몇가지 일반적인 코딩을 잡아냅니다.
+* 헷갈리거나 잘 모르는 기능을 사용할수 없게 합니다.
 
-Disadvantages:
+단점 :
 
-* Many missing features that some developers might be used to.
-* No more access to `function.caller` and `function.arguments`.
-* Concatenation of scripts written in different strict modes might cause issues.
+* 일부 개발자는 익숙하지 않은 기능이 많습니다.
+* `function.caller`와 `function.arguments`에 더 이상 접근 할 수 없습니다.
+* 서로 다른 엄격한 모드로 작성된 스크립트를 병합하면 문제가 발생할 수 있습니다.
 
-Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
+전반적으로 장점이 단점보다 중요하다고 생각합니다. 엄격 모드가 차단하는 기능에 의존하지 않아도됩니다. 엄격한 모드를 사용하는 것을 추천합니다.
 
-###### References
+###### 참고자료
 
 * <http://2ality.com/2011/10/strict-mode-hatred.html>
 * <http://lucybain.com/blog/2014/js-use-strict/>
 
-### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
+### 100까지 증가하면서 `3`의 배수에는 **"fizz"**를 출력하고, `5`의 배수에는 **"buzz"**를 출력하고, `3`과 `5`의 배수에는 **"fizzbuzz"**를 출력하는 for loop를 만드세요.
 
-Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
+[Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724)의 이 FizzBuzz를 확인해보세요.
 
 ```js
 for (let i = 1; i <= 100; i++) {
@@ -621,62 +621,68 @@ for (let i = 1; i <= 100; i++) {
 }
 ```
 
-I would not advise you to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.
+저는 인터뷰 중에 위와 같이 쓰라고 조언하지는 않습니다. 길지만 분명한 접근 방식을 고수하십시오. FizzBuzz의 더 다양한 버전을 보려면 아래의 참조 링크를 확인하십시오.
 
-###### References
+###### 참고자료
 
 * <https://gist.github.com/jaysonrowe/1592432>
 
-### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+### 일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇입니까?
 
-Every script has access to the global scope, and if everyone is using the global namespace to define their own variables, there will bound to be collisions. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+모든 스크립트는 전역 스코프에 액세스할 수 있으며 모든 사람이 전역 네임스페이스를 사용하여 변수를 정의하면 충돌이 발생할 수 있습니다. 모듈 패턴 (IIFEs)을 사용하여 변수를 로컬 네임스페이스 내에 캡슐화하십시오.
 
-### Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+### 왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고있나요? 알고있다면 왜 그것을 사용할건가요?
 
-The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
+`load` 이벤트는 문서로딩 프로세스가 끝날 때 발생됩니다. 이 시점에서 문서의 모든 객체가 DOM에 있고, 모든 이미지, 스크립트, 링크 및 하위 프레임로딩이 완료됩니다.
 
-The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
+DOM 이벤트 `DOMContentLoaded`는 페이지의 DOM이 생성 된 후에 발생하지만 다른 리소스가 로딩되기를 기다리지 않습니다. 이것은 초기화되기 전에 전체 페이지가 로드될 필요가없는 경우에 선호됩니다.
 
 TODO.
 
-###### References
+###### 참고자료
 
 * <https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload>
 
-### Explain what a single page app is and how to make one SEO-friendly.
+### single page app이 무엇인지 설명하고 SEO-friendly한 앱을 만드는 방법을 설명하십시오.
 
-The below is taken from the awesome [Grab Front End Guide](https://github.com/grab/front-end-guide), which coincidentally, is written by me!
+아래는 [Grab Front End Guide](https://github.com/grab/front-end-guide)에서 가져온 것이며, 우연히도 저를 위해 쓰여졌습니다!
 
-Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response for their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML for the new page. This is called server-side rendering.
+웹 개발자는 요즘 웹 사이트가 아닌 웹 앱으로 제작한 제품을 언급합니다. 두 가지 용어 사이에는 엄격한 차이는 없지만 웹 앱은 대화형 및 동적인 경향이 있어 사용자가 작업을 수행하고 작업에 대한 응답을 받을 수 있습니다. 전통적으로, 브라우저는 서버에서 HTML을 받아 렌더링합니다. 사용자가 다른 URL로 이동하면 전체페이지 새로고침이 필요하며 서버는 새페이지에 대해 새 HTML을 보냅니다. 이를 server-side rendering이라고합니다.
 
-However in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+그러나 현대 SPA에서는 대신 클라이언트 측 렌더링이 사용됩니다. 브라우저는 전체 애플리케이션에 필요한 스크립트(프레임워크, 라이브러리, 앱 코드) 및 스타일시트와 함께 서버의 초기 페이지를 로드합니다. 사용자가 다른 페이지로 이동하면 페이지 새로고침이 발생하지 않습니다. 페이지의 URL은 [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)를 통해 업데이트됩니다. 일반적으로 JSON 형식의 새 페이지에 필요한 새 데이터는 브라우저에서 [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) 요청을 통해 서버로 전송됩니다. SPA는 초기 페이지 로딩에서 미리 다운로드된 자바스크립트를 통해 페이지를 동적으로 업데이트합니다. 이 모델은 네이티브 모바일 앱의 작동 방식과 유사합니다.
 
-The benefits:
+장점들:
 
-* The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
-* Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
-* Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
+* 전체페이지 새로고침으로 인해 페이지탐색 사이에 하얀화면이 보이지 않아 앱이 더 반응적으로 느껴지게 됩니다.
 
-The downsides:
+* 동일한 애셋을 페이지로드마다 다시 다운로드 할 필요가 없으므로 서버에 대한 HTTP 요청이 줄어 듭니다.
 
-* Heavier initial page load due to loading of framework, app code, and assets required for multiple pages.
-* There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
-* SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
+* 클라이언트와 서버 사이의 고려해야할 부분을 명확하게 구분합니다. 서버 코드를 수정하지 않고도 다양한 플랫폼(예: 모바일, 채팅 봇, 스마트워치)에 맞는 새로운 클라이언트를 쉽게 구축 할 수 있습니다. 또한 API 계약이 깨지지 않는한 내에서 클라이언트와 서버에서 기술 스택을 독립적으로 수정할 수 있습니다.
 
-###### References
+단점들:
+
+* 여러 페이지에 필요한 프레임워크, 앱 코드, 애셋로드로 인해 초기 페이지로드가 무거워집니다.
+
+* 모든 요청을 단일 진입점으로 라우트하고 클라이언트 측 라우팅이 그 한곳에서 인계받을 수 있도록 서버를 구성하는 추가 단계가 수행되어야합니다.
+
+* SPA는 콘텐츠를 렌더링하기 위해 JavaScript에 의존하지만 모든 검색 엔진이 크롤링 중에 JavaScript를 실행하지는 않으며 페이지에 빈 콘텐츠가 표시 될 수 있습니다. 이로 인해 의도치 않게 앱의 검색 엔진 최적화 (SEO)가 어려워집니다.
+
+그러나 대부분의 경우 앱을 제작할 때 검색 엔진에서 모든 콘텐츠 색인할 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이를 극복하기 위해, 앱을 서버 측 렌더링하거나 [Prerender](https://prerender.io/)와 같은 서비스를 사용하여 "브라우저에서 자바 스크립트를 렌더링하고, 정적 HTML을 저장한 다음, 크롤러에게 반환합니다".
+
+###### 참고자료
 
 * <https://github.com/grab/front-end-guide#single-page-apps-spas>
 * <http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages>
 * <http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/>
 * <https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52>
 
-### What is the extent of your experience with Promises and/or their polyfills?
+### Promises 와/또는 Polyfill에 대한 당신의 경험은 어느 정도입니까?
 
-Possess working knowledge of it. A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(예: 네트워크 오류가 발생) 중 하나의 값을 생성 할 수있는 객체입니다. promise는 fulfilled, rejected, pending 3가지 상태 중 하나일 수 있습니다. promise 사용자는 콜백을 붙여서 fulfill된 값이나 reject된 이유를 처리할 수 ​​있습니다.
 
-Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply to the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
+일반적인 polyfill은 `$.deferred`, Q 와 Bluebird 입니다만, 모두가 스펙을 따르는 것은 아닙니다. ES2015는 즉시 사용할 수 있는 Promise를 지원하며 일반적으로 요즘 polyfill은 필요하지 않습니다.
 
-###### References
+###### 참고자료
 
 * <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261>
 
@@ -1042,7 +1048,7 @@ var result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "re
 
 var person = {
   name: 'Todd',
-  age: 29,
+  age: 29
 };
 
 var copyOfTodd = { ...person };
