@@ -23,9 +23,9 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 
 ## Table of Contents
 
-1.  [HTML Questions](/questions/html-questions.md)
-1.  [CSS Questions](/questions/css-questions.md)
-1.  [JavaScript Questions](/questions/javascript-questions.md)
+1. [HTML Questions](/questions/html-questions.md)
+1. [CSS Questions](/questions/css-questions.md)
+1. [JavaScript Questions](/questions/javascript-questions.md)
 
 ## Translations
 

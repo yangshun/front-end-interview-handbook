@@ -146,12 +146,23 @@ JavaScript 프레임워크가 인기를 끌기 전에 전에 프런트엔드 개
 
 ### 이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇입니까? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.
 
-TODO
+기기의 디스플레이 너비에 따라 다른 이미지를 사용자에게 제공하려는 경우 `srcset` 속성을 사용합니다 - 레티나 디스플레이를 통해 장치에 고품질 이미지를 제공하여 사용자 경험을 향상시키고 저해상도 이미지를 저사양 기기에 제공하여 성능을 높이고 데이터 낭비를 줄입니다. (왜냐하면 더 큰 이미지를 제공하는 것은 눈에 보일 정도의 차이가 없기 때문). 예를 들면: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` 클라이언트의 해상도에 따라 브라우저에 small, medium 또는 large `.jpg` 그래픽을 표시하도록 지시합니다. 첫 번째 값은 이미지 이름이고 두 번째 값은 픽셀 단위의 이미지 너비입니다. 320px의 장치 너비의 경우 다음 계산이 수행됩니다:
+
+* 500 / 320 = 1.5625
+* 1000 / 320 = 3.125
+* 2000 / 320 = 6.25
+
+클라이언트의 해상도가 1x 일 경우, 1.5625가 가장 가깝고 `small.jpg`에 해당하는 `500w`가 브라우저에 의해 선택됩니다.
+
+해상도가 레티나 (2x)인 경우 브라우저는 최소 이상의 해상도를 사용합니다. 
+500w (1.5625)는 1보다 크고 이미지가 좋지 않을 수 있기 때문에 선택하지 않는다는 것을 의미합니다. 그러면 브라우저는 결과 비율이 2에 가까울 때 1000w (3.125)인 이미지를 선택합니다.
+
+`srcset`는 데스크탑 디스플레이처럼 큰 이미지가 필요하지 않기 때문에 작은 이미지 파일을 좁은 화면 장치에 제공하려는 문제를 해결합니다 — 또한 선택적으로 고해상도/저밀도 화면에 다른 해상도 이미지를 제공할 수도 있습니다.
 
 ###### 참고자료
 
-* <https://stackoverflow.com/questions/33651166/what-is-progressive-rendering>
-* <http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/>
+* <https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images>
+* <https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset>
 
 ### 다른 HTML 템플릿 언어를 사용해본 적이 있습니까?
 
