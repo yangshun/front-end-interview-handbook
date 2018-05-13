@@ -10,7 +10,7 @@
     </em>
   </p>
   <p>
-    <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>
+    <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>, <a href="https://github.com/octave08">@황규정</a>
     </em>
   </p>
 </div>
@@ -27,9 +27,9 @@
 
 ## 목차
 
-1. [HTML 질문](questions/html-questions.md)
-1. [CSS 질문](questions/css-questions.md)
-1. [JavaScript 질문](questions/javascript-questions.md)
+1.  [HTML 질문](questions/html-questions.md)
+1.  [CSS 질문](questions/css-questions.md)
+1.  [JavaScript 질문](questions/javascript-questions.md)
 
 ## 번역
 
@@ -37,9 +37,6 @@
 * [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
 * [Tagalog](/Translations/Tagalog/README.md)
 * [Japanese (日本語)](/Translations/Japanese/README.md)
-
-**제작중**
-
 * [Korean (한국어)](/Translations/Korean/README.md)
 
 ## 관련 정보

@@ -948,7 +948,7 @@ TODO
 
 ### 고차 함수의 정의는 무엇입니까?
 
-고차 함수는 다른 함수를 매개 변수로 사용하여 일부 데이터에서 작동하거나 결과로 함수를 반환하는 함수입니다. 고차 함수는 반복적으로 수행되는 일부 연산을 추상화하기위한 것입니다. 전형적인 예는 배열과 함수를 인수로 취하는 `map`입니다. `map`은 고차 함수를 사용하여 배열의 각 항목을 변환하고 변환 된 데이터로 새로운 배열을 반환합니다. JavaScript에서 흔히 볼 수있는 다른 예로 `forEach`, `filter`, `reduce`가 있습니다. 다른 함수에서 함수를 반환하는 많은 사용 사례가 있기 때문에 고차 함수는 배열을 조작할 필요가 없습니다. `Array.prototype.bind`는 JavaScript에서 그러한 예시 중 하나입니다.
+고차 함수는 다른 함수를 매개 변수로 사용하여 일부 데이터에서 작동하거나 결과로 함수를 반환하는 함수입니다. 고차 함수는 반복적으로 수행되는 일부 연산을 추상화하기위한 것입니다. 전형적인 예는 배열과 함수를 인수로 취하는 `map`입니다. `map`은 고차 함수를 사용하여 배열의 각 항목을 변환하고 변환 된 데이터로 새로운 배열을 반환합니다. JavaScript에서 흔히 볼 수 있는 다른 예로 `forEach`, `filter`, `reduce`가 있습니다. 다른 함수에서 함수를 반환하는 많은 사용 사례가 있기 때문에 고차 함수는 배열을 조작할 필요가 없습니다. `Array.prototype.bind`는 JavaScript에서 그러한 예시 중 하나입니다.
 
 ##### Map
 
@@ -969,7 +969,7 @@ const transformNamesToUppercase = names => {
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
-`.map(transformerFn)`을 사용하면 더 간단 해지고 추론하기 쉽고 읽기 쉬워집니다.
+`.map(transformerFn)`을 사용하면 더 간단해지고 추론하기 쉽고 읽기 쉬워집니다.
 
 ```js
 const transformNamesToUppercase = names =>
@@ -1088,7 +1088,7 @@ TODO
 
 ### curry 함수의 예를 들어 줄 수 있습니까? 이 구문은 어떤 이점을 가지고 있나요? 
 
-currying은 둘 이상의 매개 변수가있는 함수가 여러 함수로 분리 된 패턴으로, 직렬로 호출하면 필요한 모든 매개 변수가 한 번에 하나씩 누적됩니다. 이 기술은 기능 스타일로 작성된 코드를 읽고 작성하기가 더 쉬워 진 경우 유용 할 수 있습니다. 함수를 currying하려면 하나의 함수로 시작한 다음 하나의 매개 변수를 취하는 일련의 함수로 분리해야합니다.
+currying은 둘 이상의 매개 변수가있는 함수가 여러 함수로 분리된 패턴으로, 직렬로 호출하면 필요한 모든 매개 변수가 한 번에 하나씩 누적됩니다. 이 기술은 기능 스타일로 작성된 코드를 읽고 작성하기가 더 쉬워 진 경우 유용 할 수 있습니다. 함수를 currying하려면 하나의 함수로 시작한 다음 하나의 매개 변수를 취하는 일련의 함수로 분리해야합니다.
 
 ```js
 function curry(fn) {
@@ -1141,7 +1141,7 @@ var person = {
 var copyOfTodd = { ...person };
 ```
 
-ES6의 rest 구문은 함수에 전달할 임의의 수의 인수를 포함하는 약식을 제공합니다. 이는 데이터의 배열을 채우기보다는 데이터를 가져 와서 배열로 채우는 확산 구문의 역과 비슷하지만 함수 인수에서만 작동합니다. 
+ES6의 rest 구문은 함수에 전달할 임의의 수의 인수를 포함하는 약식을 제공합니다. 이는 데이터의 배열을 채우기보다는 데이터를 가져 와서 배열로 채우는 스프레드 구문의 역순과 같으며 배열 및 객체 디스트럭쳐링 할당뿐만 아니라 함수 인수에서도 작동합니다.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
@@ -1160,7 +1160,7 @@ var result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 
 
 이것은 Javascript 환경에 따라 다릅니다. 
 
-클라이언트(브라우저 환경)에서는 변수/함수가 전역 범위 (`window`)에 선언되어있는 한 모든 스크립트가 이를 참조 할 수 있습니다. 또는, 보다 모듈형 접근 방식을 위해 Require2S를 통해 비동기 모듈 정의(AMD)를 이용합니다. 
+클라이언트(브라우저 환경)에서는 변수/함수가 전역 범위 (`window`)에 선언되어있는 한 모든 스크립트가 이를 참조할 수 있습니다. 또는, 보다 모듈형 접근 방식을 위해 Require2S를 통해 비동기 모듈 정의(AMD)를 이용합니다. 
 
 서버(Node.js)에서 일반적인 방법은 CommanJS를 사용하는 것입니다. 각 파일은 모듈로 취급되며 변수와 함수를`module.exports` 객체에 첨부하여 내보낼 수 있습니다. 
  
@@ -1179,11 +1179,3 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 구문을 
 ### 다른 답변들
 
 * <http://flowerszhong.github.io/2013/11/20/javascript-questions.html>
-
-## Related
-
-If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It is pretty much still WIP but I intend to make it into a library that is able to be used in production and also a reference resource for revising Data Structures and Algorithms.
-
-## Contributing
-
-Feel free to make pull requests to correct any mistakes in the answers or suggest new questions.
