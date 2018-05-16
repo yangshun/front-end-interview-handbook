@@ -220,7 +220,18 @@ Yes. An example would be transforming a stacked pill navigation into a fixed-bot
 
 ### Are you familiar with styling SVG?
 
-No... Sadly.
+Yes, there are several ways to color shapes (including specifying attributes on the object) using inline CSS, an embedded CSS section, or an external CSS file. Most SVG you'll find around the web use inline CSS, but there are advantages and disadvantages associated with each type.
+
+Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`. `fill` sets the color inside the object and `stroke` sets the color of the line drawn around the object. You can use the same CSS color naming schemes that you use in HTML, whether that's color names (that is `red`), RGB values (that is `rgb(255,0,0)`), Hex values, RGBA values, etc.
+
+```html
+<rect x="10" y="10" width="100" height="100" stroke="blue" 
+  fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+```
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
 
 [[↑] Back to top](#css-questions)
 
@@ -433,13 +444,13 @@ Note that these two 2 approaches are not exclusive.
 Making a website responsive means the some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.
 
 ```css
-@media (min-width: 601px) { 
-  .my-class { 
+@media (min-width: 601px) {
+  .my-class {
     font-size: 24px;
   }
 }
 @media (max-width: 600px) {
-  .my-class { 
+  .my-class {
     font-size: 12px;
   }
 }
@@ -448,12 +459,12 @@ Making a website responsive means the some elements will respond by adapting its
 A mobile-first strategy is also responsive, however it agrees we should default and define all the styles for mobile devices, and only add specific responsive rules to other devices later. Following the previous example:
 
 ```css
-.my-class { 
+.my-class {
   font-size: 12px;
 }
 
 @media (min-width: 600px) {
-  .my-class { 
+  .my-class {
     font-size: 24px;
   }
 }
