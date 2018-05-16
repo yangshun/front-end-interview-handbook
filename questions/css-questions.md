@@ -225,7 +225,8 @@ Yes, there are several ways to color shapes (including specifying attributes on 
 Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`. `fill` sets the color inside the object and `stroke` sets the color of the line drawn around the object. You can use the same CSS color naming schemes that you use in HTML, whether that's color names (that is `red`), RGB values (that is `rgb(255,0,0)`), Hex values, RGBA values, etc.
 
 ```html
-<rect x="10" y="10" width="100" height="100" stroke="blue" fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+<rect x="10" y="10" width="100" height="100" stroke="blue" 
+  fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
 ```
 
 ###### References
