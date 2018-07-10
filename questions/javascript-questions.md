@@ -171,6 +171,7 @@ A variable that is `null` will have been explicitly assigned to the `null` value
 
 ```js
 var foo = null;
+console.log(typeof foo); //object
 console.log(foo === null); // true
 
 console.log(foo == undefined); // true. Wrong, don't use this to check!
