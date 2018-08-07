@@ -20,7 +20,7 @@
 
 Tipik yazılım mühendisi mülakatlarının aksine, front-end iş görüşmelerinde algoritmalar üzerinde daha az durulur. Bunun yerine daha çok; karmaşık, complex yapılarla ilgili bilgi ve tecrübelere yönelik sorular üzerinde durulur. HTML, CSS ve Javascript bu alanlardan sadece birkaçıdır.
 
-Frontend geliştiricilerin mülakatlara hazırlanmaları için mevcut bazı kaynaklar olsa da, bunlar bir yazılım mühendisi mülakatlarının ki kadar bol değildir. Mevcut kaynakların arasında muhtemelen en yararlı soru bankası olabilir: [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Ancak ne yazık ki, bu sorulara internette tam ve tatmin edici cevaplar bulamadım. Bundan dolayı burada bunlara cevap bulmayı amaçladım. Bu proje açık kaynaklı bir repo olarak, web'in gelişmesiyle birlikte topluluğun destekleriyle hayatta kalabilir.
+Frontend geliştiricilerin mülakatlara hazırlanmaları için mevcut bazı kaynaklar olsa da, bunlar bir yazılım mühendisi mülakatlarının ki kadar bol değildir. [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions), mevcut kaynaklar arasında muhtemelen en yararlı soru bankası olabilir. Ancak ne yazık ki, bu sorulara internette tam ve tatmin edici cevaplar bulamadım. Bundan dolayı burada bunlara cevap bulmayı amaçladım. Bu proje açık kaynaklı bir repo olarak, web'in gelişmesiyle birlikte topluluğun destekleriyle hayatta kalabilir.
 
 ## Genel Mülakat Hazırlığı mı Arıyorsunuz?
 
@@ -47,14 +47,16 @@ Veri yapılarının nasıl uygulandığıyla ilgileniyorsanız, JavaScript için
 
 ## Katkıda Bulun
 
-### Code of Conduct
+### Davranış Kuralları
+
+Projeye katkıda bulunan insanlardan beklediğimiz davranış kuralları olarak Facebook'u benimsemiş bulunmaktayız. Nelerin hoş görülüp görülmeyeceğini öğrenmek için lütfen buradaki [metni](https://code.facebook.com/codeofconduct) okuyun.
 
 We have adopted the same Code of Conduct as Facebook that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
 
 ### Katkıda Bulunma Kılavuzu
 
-Eğer iyileştirmeler önermek ve çeviri ile ilgileniyorsanız, [Katkıda Bulunma Kılavuzu](/CONTRIBUTING.md)'muzu okuyarak nasıl katkıda bulunabileceğini öğrenebilirsin.
+Eğer iyileştirmeler önermek ve çeviri ile ilgileniyorsanız, [Katkıda Bulunma Kılavuzu](CONTRIBUTING.md)'muzu okuyarak nasıl katkıda bulunabileceğini öğrenebilirsin.
 
 ## Lisans
 
-Bu repo içerisindeki bütün projeler ve paketler [MIT lisans](/LICENSE)lıdır.
+Bu repo içerisindeki bütün projeler ve paketler [MIT lisans](/LICENSE)'lıdır.
