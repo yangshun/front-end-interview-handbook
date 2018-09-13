@@ -176,7 +176,6 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 ### 如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？
 
 * 优雅的降级：为现代浏览器构建应用，同时确保它在旧版浏览器中正常运行。
-* Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
 * 渐进式增强：构建基于用户体验的应用，但在浏览器支持时添加新增功能。
 * 利用 [caniuse.com](https://caniuse.com/) 检查特性支持。
 * 使用 `autoprefixer` 自动生成 CSS 属性前缀。
