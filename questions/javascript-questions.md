@@ -56,6 +56,16 @@ Answers to [Front-end Job Interview Questions - JS Questions](https://github.com
 * [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
 * [How can you share code between files?](#how-can-you-share-code-between-files)
 * [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
+* [Return a variable `foo` which does the following](#return-a-variable-foo-which-does-the-following)
+  ```javascript
+    console.log(foo.value()); // 0
+    foo.inc(); 
+    console.log(foo.value()); // 1
+    foo.inc(); 
+    console.log(foo.value()); // 2
+    foo.dec(); 
+    console.log(foo.value()); // 1
+  ```
 
 ### Explain event delegation
 
@@ -1241,8 +1251,24 @@ Static class members (properties/methods) are not tied to a specific instance of
 
 * https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
+### Return a variable `foo` which does the following?
+```javascript
+  const bar = () => {
+    let count = 0;
+    return {
+      inc: () => count += 1,
+      dec: () => count -= 1,
+      value: () => console.log(count)
+    }
+  };
+  
+  const foo = bar();
+```
+
 [[↑] Back to top](#js-questions)
 
 ### Other Answers
 
 * http://flowerszhong.github.io/2013/11/20/javascript-questions.html
+
+
