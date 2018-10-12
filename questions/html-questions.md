@@ -14,17 +14,24 @@ Answers to [Front-end Job Interview Questions - HTML Questions](https://github.c
 * [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 * [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
-### What does a `DOCTYPE` do?
+### What does a DOCTYPE do?
 
-`DOCTYPE` is an abbreviation for “document type”. It is a declaration used in HTML to distinguish between standards mode and [quirks mode](https://quirks.spec.whatwg.org/#history). Its presence tells the browser to render the web page in standards mode.
+**DOCTYPE** is an abbreviation for **DOCument TYPE**.  
+A DOCTYPE is always associated to a **DTD** - for **Document Type Definition**.  
 
-Moral of the story - just add `<!DOCTYPE html>` at the start of your page.
+A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a DOCTYPE declares what DTD a document *supposedly* respects (i.e. this document respects the HTML DTD).  
+
+For webpages, the DOCTYPE declation is required. It is used to tell user agents what version of the HTML specifications your document respects.  
+Once a user agent has recognized a correct DOCTYPE, it will trigger the **no-quirks mode** matching this DOCTYPE for reading the document.  
+If a user agent doesn't recognize a correct DOCTYPE, it will trigger the **quirks mode**.
+
+The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
 
 ###### References
 
-* https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
-* https://www.w3.org/QA/Tips/Doctype
-* https://quirks.spec.whatwg.org/#history
+* https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
+* https://html.spec.whatwg.org/multipage/xhtml.html
+* https://quirks.spec.whatwg.org/
 
 [[↑] Back to top](#html-questions)
 
