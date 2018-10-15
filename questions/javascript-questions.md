@@ -1029,7 +1029,10 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
-TODO
+Arrow functions were created to simplyify scope, and solve the `this` keyword by making it more simple.
+With arrow functions `this` is bound to the enclosing scope at creation time and cannot be changed. The new operator, bind, call, and apply have no effect on this.
+
+One of the uses cases of arrow functions would be if you have lexical `this` and `arguments` (defined from the outer scope).
 
 [[↑] Back to top](#js-questions)
 
