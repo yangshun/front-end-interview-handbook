@@ -129,17 +129,19 @@ Note: The `async` and `defer` attrib­utes are ignored for scripts that have no 
 
 **Placing `<link>`s in the `<head>`**
 
-Putting `<link>`s in the head is part of the specification. Besides that, placing at the top allows the page to render progressively which improves the user experience. The problem with putting stylesheets near the bottom of the document is that it prohibits progressive rendering in many browsers, including Internet Explorer. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is stuck viewing a blank white page. It prevents the flash of unstyled contents.
+Putting `<link>`s in the head is part of proper specification in building an optimized website. When a page first loads, html and css begins building simultaneously; html creating the DOM and css creating the CSSOM. Both are needed to create the visuals in a website, allowing for a quick time in 'first meaningful paint'. This progressive rendering is a category optimization sites rank for in their performance scores. Putting stylesheets near the bottom of the document is what prohibits progressive rendering in many browsers. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is then stuck viewing a blank white page. Other times there can be FOUC, flashes of unstyled content, which can shows a webpage with zero css styling applied. 
 
 **Placing `<script>`s just before `</body>`**
 
-`<script>`s block HTML parsing while they are being downloaded and executed. Downloading the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+`<script>`s block HTML parsing while they are being downloaded and executed. Placing the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. One possible workaround is to put `<script>` in the `<head>` and use the `defer` attribute.
+An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. This ensures your code that needs to manipulate dom elements will not throw and error and halt the entire script. If you need to put `<script>` in the `<head>` the use of `defer` attribute will achieve the same effect of downloading and running the script only after the html dom is parsed.
 
 ###### References
 
 * https://developer.yahoo.com/performance/rules.html#css_top
+* https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
+* https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
 [[↑] Back to top](#html-questions)
 
