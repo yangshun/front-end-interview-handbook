@@ -218,7 +218,19 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 ### 你熟悉制作 SVG 吗？
 
-不好意思，不熟悉。
+是的，你可以使用内联CSS、嵌入式CSS部分或外部CSS文件对形状进行着色（包括指定对象上的属性）。在网上大部分SVG使用的是内联CSS，不过每个类型都有优点和缺点。
+
+通过设置`fill`和`stroke`属性，可以完成基本着色操作。`fill`可以设置内部的颜色，`stroke`可以设置周围绘制的线条的颜色。你可以使用与`HTML`中使用的CSS颜色命名方案相同的CSS颜色命名方案：颜色名称（即`red`）、RGB值（即`rgb(255,0,0)`）、十六进制值、RGBA值等等。
+
+```html
+<rect x="10" y="10" width="100" height="100" stroke="blue" 
+  fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+```
+
+###### 参考
+
+* https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
+
 
 [[↑] 回到顶部](#css-问题)
 
