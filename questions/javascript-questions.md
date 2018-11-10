@@ -768,9 +768,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
    - Call the callback too few or too many times
    - Fail to pass along any necessary environment/parameters
    - Swallow any errors/exceptions that may happen
-* Callbacks themselves represent an inversion of control. So inverting the callback pattern is
-actually an inversion of inversion, or an uninversion of control -- restoring control back to the calling code where we wanted
-it to be in the first place.
+* Callbacks themselves represent an inversion of control. So inverting the callback pattern is actually an inversion of inversion, or an uninversion of control -- restoring control back to the calling code where we wanted it to be in the first place.
 
 **Cons**
 
