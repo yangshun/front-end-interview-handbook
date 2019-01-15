@@ -751,7 +751,6 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 ###### References
 
 * https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
-* https://github.com/getify/You-Dont-Know-JS/tree/master/async%20%26%20performance
 
 [[↑] Back to top](#js-questions)
 
@@ -762,18 +761,21 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 * Avoid callback hell which can be unreadable.
 * Makes it easy to write sequential asynchronous code that is readable with `.then()`.
 * Makes it easy to write parallel asynchronous code with `Promise.all()`.
-* Promises are trustable. In case of callbacks-only coding it might:
-   - Call the callback too early
-   - Call the callback too late (or never)
-   - Call the callback too few or too many times
-   - Fail to pass along any necessary environment/parameters
-   - Swallow any errors/exceptions that may happen
-* Callbacks themselves represent an inversion of control. So inverting the callback pattern is actually an inversion of inversion, or an uninversion of control -- restoring control back to the calling code where we wanted it to be in the first place.
+* With promises, these scenarios which are present in callbacks-only coding, will not happen:
+  * Call the callback too early
+  * Call the callback too late (or never)
+  * Call the callback too few or too many times
+  * Fail to pass along any necessary environment/parameters
+  * Swallow any errors/exceptions that may happen
 
 **Cons**
 
 * Slightly more complex code (debatable).
 * In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
+
+###### References
+
+* https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
 
 [[↑] Back to top](#js-questions)
 
