@@ -1136,13 +1136,14 @@ console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' year
 ```
 
 With template literals, you can now create that same output like this instead:
+
 ```js
 const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
 
-Note that you use back ticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
+Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
 
 A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
 
@@ -1169,6 +1170,20 @@ This is line two.`);
 // This is line one.
 // This is line two.
 ```
+
+Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
+
+```js
+const person = { name: 'Tyler', age: 28 };
+document.body.innerHTML = `
+  <div>
+    <p>Name: ${person.name}</p>
+    <p>Name: ${person.age}</p>
+  </div>
+`
+```
+
+**Note that your code may be susceptible to XSS by using `.innerHTML`. Sanitize your data before displaying it if it came from a user!**
 
 ###### References
 
