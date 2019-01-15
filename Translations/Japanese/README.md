@@ -15,11 +15,11 @@
 
 フロントエンドの求人面接では典型的なソフトウェアエンジニアの面接とは異なりアルゴリズムの重要性が低く、特定の領域（HTML、CSS、JavaScript など）の入り組んだ知識や専門的な技術についてより多くの質問がなされます。
 
-フロントエンドエンジニアの面接の準備に役立つ既存のリソースはいくつかありますが、ソフトウェアエンジニアの面接のリソースほど豊富ではありません。既存のリソースの中で最も有益な質問集はおそらく [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) ですが、残念ながら私はこれらの問題の多くに対して完全かつ満足のいく回答をネット上に見つけることができませんでした。そう、このプロジェクトはそれらの質問に回答する試みなのです。また、このプロジェクトはオープンソースのリポジトリなので、Web の状況が進歩するのにあわせてコミュニティのサポートを受けながら生き続けることができます。
+フロントエンドエンジニアの面接の準備に役立つリソースは既にいくつかありますが、ソフトウェアエンジニアの面接のリソースほど豊富ではありません。既存のリソースの中で最も有益な質問集はおそらく [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) ですが、残念ながら私はこれらの問題の多くに対して完全かつ満足のいく回答をネット上に見つけることができませんでした。そう、このプロジェクトはそれらの質問に回答する試みなのです。また、このプロジェクトはオープンソースなので、Web の状況が進歩するのにあわせてコミュニティのサポートを受けながら生き続けることができます。
 
-## より広範囲の面接の準備がしたいですか？
+## より一般的なエンジニア面接の準備がしたいですか？
 
-その場合には [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) が良いかもしれません。こちらのリポジトリはより一般的なコーディング面接に役立つ内容になっています。含まれるものは例えば、アルゴリズム関連の問題や、行動面接（behavioral interview）対策、[面接対策チートシート](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)などです！
+その場合には [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) が良いかもしれません。こちらのリポジトリはより一般的なエンジニア面接に役立つ内容になっています。含まれるものには、アルゴリズム関連の問題や、行動面接（behavioral interview）対策、[面接対策チートシート](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)などがあります！
 
 ## 目次
 
@@ -27,13 +27,31 @@
 1. [CSS に関する質問](questions/css-questions.md)
 1. [JavaScript に関する質問](questions/javascript-questions.md)
 
+## 各国語版
+
+* [English](/README.md)
+* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+* [Tagalog](/Translations/Tagalog/README.md)
+* [Japanese (日本語)](/Translations/Japanese/README.md)
+
+**製作中**
+
+* [Korean (한국어)](/Translations/Korean/README.md)
+
 ## 関連情報
 
-データ構造の実装方法に興味がある場合は、JavaScript のデータ構造とアルゴリズムライブラリである [Lago](https://github.com/yangshun/lago) をチェックしてみてください。 Lago はまだかなり実装途中のものですが、私は Lago をプロダクトに使用できるライブラリにし、データ構造とアルゴリズムの復習をする際の参照リソースにもできるようにするつもりです。
+データ構造の実装方法に興味がある場合は、私が制作している JavaScript のデータ構造とアルゴリズムライブラリである [Lago](https://github.com/yangshun/lago) をチェックしてみてください。Lago はまだかなり制作途中のものですが、プロダクトに使用できるライブラリにし、データ構造とアルゴリズムの復習をする際の参照リソースにもできるようにするつもりです。
 
 ## コントリビューション
 
-解答の間違いを訂正したり、新たな問題を提案したい場合には、気軽にプルリクエストを送ってください。
+### 行動規範
 
-> *日本語版補足*  
-> 翻訳に関してもコミュニティのサポートによって作成されていますので、訂正等ありましたらプルリクエストをお願いします。
+私たちはプロジェクト参加者が遵守すべき行動規範として、Facebook と同じものを採択しました。プロジェクトに参加する場合、[こちらの全文](https://code.facebook.com/codeofconduct)を読んでどのような行為が容認されるかをご確認ください。
+
+### コントリビューションガイド
+
+コントリビューションの方法、改善の提案方法、コンテンツの翻訳方法に興味がある方は、[コントリビューションガイド](/CONTRIBUTING.md)を参照してください。
+
+## ライセンス
+
+このリポジトリ内のプロジェクトとパッケージはすべて [MIT ライセンス](/LICENSE)です。

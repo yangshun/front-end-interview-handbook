@@ -13,7 +13,7 @@ Answers to [Front-end Job Interview Questions - JS Questions](https://github.com
 * [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions)
 * [How do you organize your code? (module pattern, classical inheritance?)](#how-do-you-organize-your-code-module-pattern-classical-inheritance)
 * [What's the difference between host objects and native objects?](#whats-the-difference-between-host-objects-and-native-objects)
-* [Difference between: function `Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
+* [Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?](#difference-between-function-person-var-person--person-and-var-person--new-person)
 * [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply)
 * [Explain `Function.prototype.bind`.](#explain-functionprototypebind)
 * [When would you use `document.write()`?](#when-would-you-use-documentwrite)
@@ -93,7 +93,7 @@ For an in-depth explanation, do check out his [article on Medium](https://codebu
 
 ### Explain how prototypal inheritance works
 
-This is an extremely common JavaScript interview question. All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain. This behaviour simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+This is an extremely common JavaScript interview question. All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
 
 ###### References
 
@@ -123,9 +123,19 @@ IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser 
 
 Here are two ways to fix it that involves adding more brackets: `(function foo(){ })()` and `(function foo(){ }())`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
 
+You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
+
+```
+// Don't add JS syntax to this code block to prevent Prettier from formatting it.
+const foo = void function bar() { return 'foo'; }();
+
+console.log(foo); // undefined
+```
+
 ###### References
 
 * http://lucybain.com/blog/2014/immediately-invoked-function-expression/
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
 [[↑] Back to top](#js-questions)
 
@@ -162,11 +172,12 @@ A variable that is `null` will have been explicitly assigned to the `null` value
 ```js
 var foo = null;
 console.log(foo === null); // true
+console.log(typeof foo === 'object'); // true
 
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring, if I don't intend to use it yet.
+As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I don't intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
 
 ###### References
 
@@ -271,7 +282,7 @@ console.log(double); // [2, 4, 6]
 
 In the past, I used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
 
-The module pattern is still great, but these days, I use the Flux architecture based on React/Redux which encourages a single-directional functional programming approach instead. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
 
 I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
@@ -291,7 +302,7 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 ### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 
-This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is use PascalCase for functions that are intended to be used as constructors.
+This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
 
 `var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if it the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
 
@@ -319,7 +330,7 @@ console.log(person.name); // "john"
 
 ### What's the difference between `.call` and `.apply`?
 
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in a comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and array of arguments.
+Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
 
 ```js
 function add(a, b) {
@@ -348,7 +359,7 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 ### When would you use `document.write()`?
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value in string. Hence it is usually considered dangerous and prone to misuse.
+`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
 
 There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
 
@@ -363,7 +374,7 @@ There are some answers online that explain `document.write()` is being used in a
 
 **Feature Detection**
 
-Feature detection involves working out whether a browser supports a certain block of code, and running different code dependent on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
+Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
 
 ```js
 if ('geolocation' in navigator) {
@@ -401,7 +412,7 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 ### Explain Ajax in as much detail as possible.
 
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute JSON for XML due to the advantages of being native to JavaScript.
+Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
 
 The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
 
@@ -466,7 +477,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 ### Have you ever used JavaScript templating? If so, what libraries have you used?
 
-Yes. Handlebars, Underscore, Lodash, AngularJS and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favourite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
+Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
 
 ```js
 const template = `<div>My name is: ${name}</div>`;
@@ -478,7 +489,9 @@ However, do be aware of a potential XSS in the above approach as the contents ar
 
 ### Explain "hoisting".
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "hoisted" up to the top of the current scope. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is. Let's explain with a few examples.
+Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "moved" up to the top of the current scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
+
+Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.
 
 ```js
 // var declarations are hoisted.
@@ -545,7 +558,7 @@ console.log(input.value); // Hello World!
 
 ### Why is extending built-in JavaScript objects not a good idea?
 
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods are not the same.
+Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods is not the same.
 
 The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
 
@@ -633,7 +646,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 ### What is `"use strict";`? What are the advantages and disadvantages to using it?
 
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt in to a restricted variant of JavaScript.
+'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
 
 Advantages:
 
@@ -682,7 +695,7 @@ I would not advise you to write the above during interviews though. Just stick w
 
 ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
-Every script has access to the global scope, and if everyone is using the global namespace to define their own variables, there will bound to be collisions. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
 
 [[↑] Back to top](#js-questions)
 
@@ -704,9 +717,9 @@ TODO.
 
 The below is taken from the awesome [Grab Front End Guide](https://github.com/grab/front-end-guide), which coincidentally, is written by me!
 
-Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response for their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML for the new page. This is called server-side rendering.
+Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response to their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML to the new page. This is called server-side rendering.
 
-However in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+However, in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
 
 The benefits:
 
@@ -716,7 +729,7 @@ The benefits:
 
 The downsides:
 
-* Heavier initial page load due to loading of framework, app code, and assets required for multiple pages.
+* Heavier initial page load due to the loading of framework, app code, and assets required for multiple pages.
 * There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
 * SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
 
@@ -731,9 +744,9 @@ The downsides:
 
 ### What is the extent of your experience with Promises and/or their polyfills?
 
-Possess working knowledge of it. A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+Possess working knowledge of it. A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
 
-Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply to the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
+Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply with the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
 
 ###### References
 
@@ -748,17 +761,27 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 * Avoid callback hell which can be unreadable.
 * Makes it easy to write sequential asynchronous code that is readable with `.then()`.
 * Makes it easy to write parallel asynchronous code with `Promise.all()`.
+* With promises, these scenarios which are present in callbacks-only coding, will not happen:
+  * Call the callback too early
+  * Call the callback too late (or never)
+  * Call the callback too few or too many times
+  * Fail to pass along any necessary environment/parameters
+  * Swallow any errors/exceptions that may happen
 
 **Cons**
 
 * Slightly more complex code (debatable).
 * In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
+###### References
+
+* https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
+
 [[↑] Back to top](#js-questions)
 
 ### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
-Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript.
+Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.
 
 Advantages:
 
@@ -771,7 +794,7 @@ Disadvantages:
 * Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
 * Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
 * Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
-* Smaller community (depends on the language), which means resources, tutorials, libraries and tooling would be harder to find.
+* Smaller community (depends on the language), which means resources, tutorials, libraries, and tooling would be harder to find.
 * IDE/editor support might be lacking.
 * These languages will always be behind the latest JavaScript standard.
 * Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
@@ -815,8 +838,24 @@ For arrays:
 
 * `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
 * `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
+* `for-of` loops - `for (let elem of arr) { ... }`. ES6 introduces a new loop, the `for-of` loop, that allows you to loop over objects that conform to the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) such as `String`, `Array`, `Map`, `Set`, etc. It combines the advantages of the `for` loop and the `forEach()` method. The advantage of the `for-of` loop is that you can break from it, and the advantage of `forEach()` is that it is more concise than the `for` loop because you don't need a counter variable. With the `for-of` loop, you get both the ability to break from a loop and a more concise syntax. 
 
-Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. `for` loops allow more flexibility, such as prematurely terminate the loop using `break` or incrementing the iterator more than once per loop.
+Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. Before ES6, we used `for` loops when we needed to prematurely terminate the loop using `break`. But now with ES6, we can do that with `for-of` loops. I would use `for` loops when I need even more flexibility, such as incrementing the iterator more than once per loop. 
+
+Also, when using the `for-of` loop, if you need to access both the index and value of each array element, you can do so with the ES6 Array `entries()` method and destructuring:
+
+```
+const arr = ['a', 'b', 'c'];
+
+for (let [index, elem] of arr.entries()) { 
+  console.log(index, ': ', elem);
+}
+```
+
+###### References
+
+- http://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
 [[↑] Back to top](#js-questions)
 
@@ -832,9 +871,9 @@ TODO
 
 ### Explain the difference between synchronous and asynchronous functions.
 
-Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
+Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
 
-Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
+Asynchronous functions usually accept a callback as a parameter and execution continue on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
 [[↑] Back to top](#js-questions)
 
@@ -853,7 +892,7 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 
 ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
-The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behaviour as variables). For more explanation on hoisting, refer to the question above on hoisting. If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question above on hoisting. If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
 
 **Function Declaration**
 
@@ -898,12 +937,15 @@ function foo() {
 console.log(bar); // ReferenceError: bar is not defined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
+```
 
+```js
 if (true) {
   var bar = 'bar';
   let baz = 'baz';
   const qux = 'qux';
 }
+
 // var declared variables are accessible anywhere in the function scope.
 console.log(bar); // bar
 // let and const defined variables are not accessible outside of the block they were defined in.
@@ -960,13 +1002,60 @@ baz = 'qux';
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
-TODO
+Let's first look at example of each:
+
+```js
+// ES5 Function Constructor
+function Person(name) {
+  this.name = name;
+}
+
+// ES6 Class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
+
+For simple constructors, they look pretty similar.
+
+The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+
+```js
+// ES5 Function Constructor
+function Student(name, studentId) {
+  // Call constructor of superclass to initialize superclass-derived members.
+  Person.call(this, name);
+
+  // Initialize subclass's own members.
+  this.studentId = studentId;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+// ES6 Class
+class Student extends Person {
+  constructor(name, studentId) {
+    super(name);
+    this.studentId = studentId;
+  }
+}
+```
+
+It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
+* https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 [[↑] Back to top](#js-questions)
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
-TODO
+One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
 
 [[↑] Back to top](#js-questions)
 
@@ -978,7 +1067,7 @@ TODO
 
 ### What is the definition of a higher-order function?
 
-A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Array.prototype.bind` is one such example in JavaScript.
+A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
 
 **Map**
 
@@ -1020,7 +1109,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ### Can you give an example for destructuring an object or an array?
 
-Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays, and place them into distinct variables.
+Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
 **Array destructuring**
 
@@ -1064,13 +1153,73 @@ console.log(q); // true
 
 ### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
-TODO
+Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
+
+```js
+var person = { name: 'Tyler', age: 28 };
+console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
+// 'Hi, my name is Tyler and I am 28 years old!'
+```
+
+With template literals, you can now create that same output like this instead:
+
+```js
+const person = { name: 'Tyler', age: 28 };
+console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
+// 'Hi, my name is Tyler and I am 28 years old!'
+```
+
+Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
+
+A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
+
+```js
+console.log('This is line one.\nThis is line two.');
+// This is line one.
+// This is line two.
+```
+
+Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
+
+```js
+console.log('This is line one.\n' +
+	'This is line two.');
+// This is line one.
+// This is line two.
+```
+
+Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
+
+```js
+console.log(`This is line one.
+This is line two.`);
+// This is line one.
+// This is line two.
+```
+
+Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
+
+```js
+const person = { name: 'Tyler', age: 28 };
+document.body.innerHTML = `
+  <div>
+    <p>Name: ${person.name}</p>
+    <p>Name: ${person.age}</p>
+  </div>
+`
+```
+
+**Note that your code may be susceptible to XSS by using `.innerHTML`. Sanitize your data before displaying it if it came from a user!**
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
 [[↑] Back to top](#js-questions)
 
 ### Can you give an example of a curry function and why this syntax offers an advantage?
 
-Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each take one parameter.
+Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
 
 ```js
 function curry(fn) {

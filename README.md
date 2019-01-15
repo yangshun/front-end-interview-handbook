@@ -15,7 +15,7 @@
 
 Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
+While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
 ## Looking for Generic Interview Preparation?
 
@@ -23,9 +23,17 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 
 ## Table of Contents
 
-1. [HTML Questions](questions/html-questions.md)
-1. [CSS Questions](questions/css-questions.md)
-1. [JavaScript Questions](questions/javascript-questions.md)
+1. [HTML Questions](/questions/html-questions.md)
+1. [CSS Questions](/questions/css-questions.md)
+1. [JavaScript Questions](/questions/javascript-questions.md)
+
+## Translations
+
+* [English](/README.md)
+* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+* [Tagalog](/Translations/Tagalog/README.md)
+* [Japanese (日本語)](/Translations/Japanese/README.md)
+* [Korean](/Translations/Korean/README.md)
 
 ## Related
 
@@ -39,8 +47,8 @@ We have adopted the same Code of Conduct as Facebook that we expect project part
 
 ### Contributing Guide
 
-Read our [contributing guide](CONTRIBUTING.md) to learn about how you can contribute, how to propose improvements or if you are interested in translating the content.
+Read our [contributing guide](/CONTRIBUTING.md) to learn about how you can contribute, how to propose improvements or if you are interested in translating the content.
 
 ## License
 
-All projects and packages in this repository are [MIT licensed](LICENSE).
+All projects and packages in this repository are [MIT licensed](/LICENSE).

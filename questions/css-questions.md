@@ -26,10 +26,11 @@ Answers to [Front-end Job Interview Questions - CSS Questions](https://github.co
 * [What does `* { box-sizing: border-box; }` do? What are its advantages?](#what-does---box-sizing-border-box--do-what-are-its-advantages)
 * [What is the CSS `display` property and can you give a few examples of its use?](#what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use)
 * [What's the difference between `inline` and `inline-block`?](#whats-the-difference-between-inline-and-inline-block)
-* [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-static-ally-positioned-element)
+* [What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?](#whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element)
 * [What existing CSS frameworks have you used locally, or in production? How would you change/improve them?](#what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them)
 * [Have you played around with the new CSS Flexbox or Grid specs?](#have-you-played-around-with-the-new-css-flexbox-or-grid-specs)
-* [Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?](#can-you-explain-the-difference-between-coding-a-web-site-to-be-responsive-versus-using-a-mobile-first-strategy)
+* [Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?](#can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy)
+* [How is responsive design different from adaptive design?](#how-is-responsive-design-different-from-adaptive-design)
 * [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
 * [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
 
@@ -44,7 +45,7 @@ The browser determines what styles to show on an element depending on the specif
 
 The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
 
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your style sheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your stylesheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
 
 I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
 
@@ -148,7 +149,7 @@ In large projects, I would write a utility `.clearfix` class and use them in pla
 
 ### Explain CSS sprites, and how you would implement them on a page or site.
 
-CSS sprites combine multiple images into one single larger image. It is commonly used technique for icons (Gmail uses it). How to implement it:
+CSS sprites combine multiple images into one single larger image. It is a commonly-used technique for icons (Gmail uses it). How to implement it:
 
 1. Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
 1. Each image would have a corresponding CSS class with `background-image`, `background-position` and `background-size` properties defined.
@@ -189,11 +190,11 @@ CSS sprites combine multiple images into one single larger image. It is commonly
 
 These techniques are related to accessibility (a11y).
 
-* `visibility: hidden`. However the element is still in the flow of the page, and still takes up space.
+* `visibility: hidden`. However, the element is still in the flow of the page, and still takes up space.
 * `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
 * `position: absolute; left: -99999px`. Position it outside of the screen.
 * `text-indent: -9999px`. This only works on text within the `block` elements.
-* Metadata. For example by using Schema.org, RDF and JSON-LD.
+* Metadata. For example by using Schema.org, RDF, and JSON-LD.
 * WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
 
 Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioning approach, as it has the least caveats, works for most elements and it's an easy technique.
@@ -220,23 +221,36 @@ Yes. An example would be transforming a stacked pill navigation into a fixed-bot
 
 ### Are you familiar with styling SVG?
 
-No... Sadly.
+Yes, there are several ways to color shapes (including specifying attributes on the object) using inline CSS, an embedded CSS section, or an external CSS file. Most SVG you'll find around the web use inline CSS, but there are advantages and disadvantages associated with each type.
+
+Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`. `fill` sets the color inside the object and `stroke` sets the color of the line drawn around the object. You can use the same CSS color naming schemes that you use in HTML, whether that's color names (that is `red`), RGB values (that is `rgb(255,0,0)`), Hex values, RGBA values, etc.
+
+```html
+<rect x="10" y="10" width="100" height="100" stroke="blue" 
+  fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+```
+
+###### References
+
+* https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
 
 [[↑] Back to top](#css-questions)
 
 ### Can you give an example of an @media property other than screen?
 
 Yes, there are four types of @media properties (including _screen_):
+
 * `all` - for all media type devices
 * `print` - for printers
 * `speech` - for screenreaders that "reads" the page out loud
 * `screen` - for computer screens, tablets, smart-phones etc.
 
 Here is an example of `print` media type's usage:
+
 ```css
 @media print {
   body {
-    color: black; 
+    color: black;
   }
 }
 ```
@@ -249,11 +263,11 @@ Here is an example of `print` media type's usage:
 
 ### What are some of the "gotchas" for writing efficient CSS?
 
-Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large numbers of elements and browsers will have to do more work in determining if the parents do match.
+Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large number of elements and browsers will have to do more work in determining if the parents do match.
 
 [BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
 
-Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
+Be aware of which CSS properties trigger reflow, repaint, and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
 
 ###### References
 
@@ -270,7 +284,7 @@ Be aware of which CSS properties trigger reflow, repaint and compositing. Avoid 
 * Easy to write nested selectors.
 * Variables for consistent theming. Can share theme files across different projects.
 * Mixins to generate repeated CSS.
-* Splitting your code into multiple files. CSS files can be split up too but doing so will require a HTTP request to download each CSS file.
+* Splitting your code into multiple files. CSS files can be split up too but doing so will require an HTTP request to download each CSS file.
 
 **Disadvantages:**
 
@@ -300,9 +314,9 @@ Use `@font-face` and define `font-family` for different `font-weight`s.
 
 ### Explain how a browser determines what elements match a CSS selector.
 
-This part is related to the above about writing efficient CSS. Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector, and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
+This part is related to the above about writing efficient CSS. Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
 
-For example with this selector `p span`, browsers firstly find all the `<span>` elements, and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
+For example with this selector `p span`, browsers firstly find all the `<span>` elements and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
 
 ###### References
 
@@ -355,6 +369,11 @@ The box model has the following rules:
 * `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation.
 * The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width.
 * The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
+* Taking into account `padding`s and `border`s as part of our box model resonates better with how designers actually imagine content in grids.
+
+###### References
+
+* https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 
 [[↑] Back to top](#css-questions)
 
@@ -370,14 +389,14 @@ TODO
 
 I shall throw in a comparison with `block` for good measure.
 
-|                                      | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                              | Depends on content.                                                                                                                                                                                                  |
-| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside. | Flows along with other content and allows other elements beside.                                                                                                                                                     |
-| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                              | No. Will ignore if being set.                                                                                                                                                                                        |
-| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                              | Yes                                                                                                                                                                                                                  |
-| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
-| Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
+|                                      | `block`                                                                                     | `inline-block`                                                      | `inline`                                                                                                                                                                                                             |
+| ------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                                 | Depends on content.                                                                                                                                                                                                  |
+| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside it. | Flows along with other content and allows other elements beside it.                                                                                                                                                  |
+| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                                 | No. Will ignore if being set.                                                                                                                                                                                        |
+| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                                 | Yes                                                                                                                                                                                                                  |
+| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                                | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
+| Float                                | -                                                                                           | -                                                                   | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
 
 [[↑] Back to top](#css-questions)
 
@@ -399,8 +418,8 @@ A positioned element is an element whose computed `position` property is either 
 
 ### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 
-* **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely-used.
-* **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Painful to customize with unconventional theming system. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
+* **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely used.
+* **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Its unconventional theming system is a pain to customize. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
 * **Bulma** - A lot of non-semantic and superfluous classes and markup required. Not backward compatible. Upgrading versions breaks the app in subtle manners.
 
 [[↑] Back to top](#css-questions)
@@ -419,9 +438,43 @@ Grid is by far the most intuitive approach for creating grid-based layouts (it b
 
 [[↑] Back to top](#css-questions)
 
-### Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
+### Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?
 
-TODO
+Note that these two 2 approaches are not exclusive.
+
+Making a website responsive means the some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.
+
+```css
+@media (min-width: 601px) {
+  .my-class {
+    font-size: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .my-class {
+    font-size: 12px;
+  }
+}
+```
+
+A mobile-first strategy is also responsive, however it agrees we should default and define all the styles for mobile devices, and only add specific responsive rules to other devices later. Following the previous example:
+
+```css
+.my-class {
+  font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .my-class {
+    font-size: 24px;
+  }
+}
+```
+
+A mobile-first strategy has 2 main advantages:
+
+* It's more performant on mobile devices, since all the rules applied for them don't have to be validated against any media queries.
+* It forces to write cleaner code in respect to responsive CSS rules.
 
 [[↑] Back to top](#css-questions)
 
@@ -431,7 +484,7 @@ Both responsive and adaptive design attempt to optimize the user experience acro
 
 Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Responsive websites use media queries, flexible grids, and responsive images to create a user experience that flexes and changes based on a multitude of factors. Like a single ball growing or shrinking to fit through several different hoops.
 
-Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features, and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used, and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
+Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
 
 ###### References
 
@@ -443,23 +496,45 @@ Adaptive design is more like the modern definition of progressive enhancement. I
 
 ### Have you ever worked with retina graphics? If so, when and what techniques did you use?
 
-I tend to use higher resolution graphics (twice the display size) to handle retina display. The better way would be to use a media query like `@media only screen and (min-device-pixel-ratio: 2) { ... }` and change the `background-image`.
+_Retina_ is just a marketing term to refer to high resolution screens with a pixel ratio bigger than 1. The key thing to know is that using a pixel ratio means these displays are emulating a lower resolution screen in order to show elements with the same size. Nowadays we consider all mobile devices _retina_ defacto displays.
 
-For icons, I would also opt to use svgs and icon fonts where possible, as they render very crisply regardless of resolution.
+Browsers by default render DOM elements according to the device resolution, except for images.
 
-Another method would be to use JavaScript to replace the `<img>` `src` attribute with higher resolution versions after checking the `window.devicePixelRatio` value.
+In order to have crisp, good-looking graphics that make the best of retina displays we need to use high resolution images whenever possible. However using always the highest resolution images will have an impact on performance as more bytes will need to be sent over the wire.
+
+To overcome this problem, we can use responsive images, as specified in HTML5. It requires making available different resolution files of the same image to the browser and let it decide which image is best, using the html attribute `srcset` and optionally `sizes`, for instance:
+
+```html
+<div responsive-background-image>  
+  <img src="/images/test-1600.jpg"
+    sizes="
+      (min-width: 768px) 50vw,
+      (min-width: 1024px) 66vw,
+      100vw"
+    srcset="
+      /images/test-400.jpg 400w,
+      /images/test-800.jpg 800w,
+      /images/test-1200.jpg 1200w">
+</div>
+```
+
+It is important to note that browsers which don't support HTML5's `srcset` (i.e. IE11) will ignore it and use `src` instead. If we really need to support IE11 and we want to provide this feature for performance reasons, we can use a JavaScript polyfill, e.g. Picturefill (link in the references).
+
+For icons, I would also opt to use SVGs and icon fonts where possible, as they render very crisply regardless of resolution.
 
 ###### References
 
-* https://www.sitepoint.com/css-techniques-for-retina-displays/
+* https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
+* http://scottjehl.github.io/picturefill/
+* https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
 
 [[↑] Back to top](#css-questions)
 
 ### Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
 
-`translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint, only compositions, whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
+`translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint but does trigger compositions; whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
 
-When using `translate()`, the element still takes up its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
+When using `translate()`, the element still occupies its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
 
 ###### References
 

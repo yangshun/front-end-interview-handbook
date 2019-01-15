@@ -38,7 +38,6 @@ Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga K
 
 Tinutukoy ng browser kung anong mga estilo ang ipapakita sa isang elemento na nakadepende sa antsa ng pagka-episipik nga mga panuntunan ng CSS. Ipagpalagay natin na ang browser ay nakapagtukoy na ng mga panuntunan na tumutugma sa isang partikular na elemento. Kabilang sa panuntunan sa pagtutugma, Ang pagtitiyak, apat na kuwit ng hiwalay na mga halaga, `a, b, c, d` ay kalkulado sa bawat isang panuntunan na batay sa mga sumusunod:
 
-
 1. Ang `a` ay kung ginagamit ang mga inline na estilo. Kung ang deklarasyon ng katangian ay isang estilo ng inline sa elemento,Ang `a` ay 1, ang iba ay 0.
 2. Ang `b` ay ang bilang ng mga tagapili ng ID.
 3. Ang `c` ay bilang ng mga klase, mga katangian at mga tagapili ng pseudo na klase.
@@ -72,7 +71,7 @@ Mas pipiliin ko ang pagreset kung meron man akong mas pinasadya o hindi tipikal 
 
 ### Ilarawan ang mga `float` at kung paano sila gumagana.
 
-Ang Float ay isang katangian ng CSS sa pagpoposisyon. Ang mga floated  na elemento ay mananatili na isang bahagi ng daloy ng pahina, at makakaapekto sa pagpoposisyon ng mga elemento (e.g. ang teksto ay dadaloy sa palibot ng mga floated na elemento), di kagaya ng mga `position: absolute` na elemento, na inalis mula sa daloy ng pahina.
+Ang Float ay isang katangian ng CSS sa pagpoposisyon. Ang mga floated na elemento ay mananatili na isang bahagi ng daloy ng pahina, at makakaapekto sa pagpoposisyon ng mga elemento (e.g. ang teksto ay dadaloy sa palibot ng mga floated na elemento), di kagaya ng mga `position: absolute` na elemento, na inalis mula sa daloy ng pahina.
 
 Ang CSS na `clear` na katangian ay magagamit sa pagpoposisyon sa ilalim ng `left`/`right`/`both` na mga floated na elemento.
 
@@ -104,7 +103,7 @@ Ang `z-index` na katangian sa CSS ay kumokontrol sa bertikal na pagkaka-ayos na 
 
 Kung walang kahit na anong `z-index` na halaga, ang mga elemento ay nakasalansan sa pagkakasunud-sunod na lumilitaw sa mga DOM (ang pinakamababang mababa sa parehong antas ng herakiya ay lilitaw sa itaas).Ang mga elemento na may non-static na pagpoposisyon (at ang kanilang mga anak) ay laging makikita sa itaas ng mga elementong may default na static na pagpoposisyon, hindi alintana ang HTML na herarkiya.
 
-Ang isang konteksto ng pagsalansan ay isang elemento na naglalaman ng set ng mga layer. Sa loob ng isang lokal na kontekstong nakasalansan, ang `z-index` na mga halaga sa mga anak nito ay naka-set na kamag-anak sa elementong iyon kaysa sa ugat ng dokumento. Ang mga layers ng nasa labas ng kontekstong iyon — i.e. mga elemento ng kapatid sa isang lokal na kontekstong nakasalansan — ay hindi makakaupo sa pagitan ng mga layer sa loob nito. Kung ang elementong B ay uupo sa itaas ng elementong A, ang isang anak na elemento ng elementong  A, elementong C, ay hindi kailanman mas mataas kesa sa elementong B kahit na ang elementong C ay may mas mataas na `z-index` kesa sa elementong B.
+Ang isang konteksto ng pagsalansan ay isang elemento na naglalaman ng set ng mga layer. Sa loob ng isang lokal na kontekstong nakasalansan, ang `z-index` na mga halaga sa mga anak nito ay naka-set na kamag-anak sa elementong iyon kaysa sa ugat ng dokumento. Ang mga layers ng nasa labas ng kontekstong iyon — i.e. mga elemento ng kapatid sa isang lokal na kontekstong nakasalansan — ay hindi makakaupo sa pagitan ng mga layer sa loob nito. Kung ang elementong B ay uupo sa itaas ng elementong A, ang isang anak na elemento ng elementong A, elementong C, ay hindi kailanman mas mataas kesa sa elementong B kahit na ang elementong C ay may mas mataas na `z-index` kesa sa elementong B.
 
 Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng elemento ay nakasalansan, Ang buong elemento ay isinasaalang-alang sa pagkakasunud-sunod ng pagkakasalansan sa magulang na kontekstong nakasalansan. Ang isang maliit na bilang ng mga katangian ng CSS ay sumasanhi ng isang bagong kontekstong nakasalansan, kagaya ng `opacity` na mas mababa sa 1, `filter` na hindi `none`, at `transform` na hindi `none`.
 
@@ -129,7 +128,7 @@ Ang BFK ay isang HTML na kahon na natutugunan ng hindi bababa sa isa sa mga sumu
 * Ang halaga ng `overflow` ay hindi `visible`.
 
 Sa isang BFK, hinawakan ang kaliwang panlabas na gilid ng bawat kahon ang kaliwang gilid ng bloke na naglalaman
- (for right-to-left formatting, right edges touch).
+(for right-to-left formatting, right edges touch).
 
 Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa isang pagbagsak ng BFK. Magpasa pa sa [Mga margin na bumabagsak](https://www.sitepoint.com/web-foundations/collapsing-margins/).
 
@@ -230,23 +229,25 @@ Hindi... Sa kasamaang palad
 ### Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?
 
 Oo, mayroong apat na uri ng @media na mga katangian (kabilang ang _screen_):
- * `all` - para sa lahat ng mga aparatong uri ng media
- * `print` - para sa mga printer
- * `speech` - para sa mga nagbabasa ng iskrin na "binabasa" ang pahina ng malakas
- * `screen` -para sa mga iskrin ng kompyuter, tablet, smart-phone atbp
- 
- Narito ang isang halimbawa ng paggamit ng `print` na uri ng media:
- ```css
- @media print {
-   body {
-     color: black; 
-   }
- }
- ```
- 
- ###### Mga Reperensiya
- 
- * https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
+
+* `all` - para sa lahat ng mga aparatong uri ng media
+* `print` - para sa mga printer
+* `speech` - para sa mga nagbabasa ng iskrin na "binabasa" ang pahina ng malakas
+* `screen` -para sa mga iskrin ng kompyuter, tablet, smart-phone atbp
+
+Narito ang isang halimbawa ng paggamit ng `print` na uri ng media:
+
+```css
+@media print {
+  body {
+    color: black;
+  }
+}
+```
+
+###### Mga Reperensiya
+
+* https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -291,7 +292,7 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 **Mga Hindi Gusto:**
 
 * Gumagamit ako ng Sass sa pamamagitan ng `node-sass`, na kung saan ay naka-bisa para sa LibSass na nakasulat sa C++. Ako ay madalas na mag-recompile nito kapag ako ay lumilipat sa pagitan ng mga bersyon ng node.
-* Sa maliit, ang mga variable na pangalan ay naka-prefix sa `@`, na maaaring malito sa katutubong mga keyword sa CSS tulad ng `@ media`,` @ import` at `@ font-face` na panuntunan.
+* Sa maliit, ang mga variable na pangalan ay naka-prefix sa `@`, na maaaring malito sa katutubong mga keyword sa CSS tulad ng `@ media`,`@ import` at `@ font-face` na panuntunan.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -318,9 +319,10 @@ Halimbawa ay sa tagapiling `p span` na ito, unang hahanapin ng mga browser ang l
 Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-daan sa iyo ng pag-eestilo ng isang tiyak na bahagi ng piniling elemento(s). Maaari silang magamit para sa dekorasyon (`:first-line`, `:first-letter`) o pagdaragdag ng mga elemento sa markup (kasama ng `content: ...`) na hindi na kailangang baguhin pa ang markup (`:before`, `:after`).
 
 * `:first-line` at `:first-letter` ay magagamit para lagyan ng dekorasyon ang teksto.
-*Ginamit sa `.clearfix` na hack na ipinakita sa itaas upang magdagdag ng zero-space na elemento kasabay ang `clear: both`.
+  \*Ginamit sa `.clearfix` na hack na ipinakita sa itaas upang magdagdag ng zero-space na elemento kasabay ang `clear: both`.
 * Mala-tatsulok na mga arrow sa tooltips ay gumagamit ng `:before` at `:after`. Hinihikayat ang paghihiwalay ng mga alalahanin dahil ang tatsulok ay itinuturing na bahagi ng estilo at hindi talaga ang DOM. Hindi talaga posible na gumuhit ng isang tatsulok na may mga estilo lamang ng CSS nang hindi gumagamit ng karagdagang elemento ng HTML.
-###### RMga Reperensiya
+
+  ###### RMga Reperensiya
 
 * https://css-tricks.com/almanac/selectors/a/after-and-before/
 
@@ -338,12 +340,12 @@ Ang CSS na modelong kahon ay responsable sa pagkalkula ng:
 
 Ang modelo ng kahon ay may mga sumusunod na panuntunan:
 
-* Ang mga sukat ng isang elemento ng block ay kinakalkula gamit ang `lapad`,` taas`, `padding`, mga `border`, at mga `margin`.
+* Ang mga sukat ng isang elemento ng block ay kinakalkula gamit ang `lapad`,`taas`, `padding`, mga `border`, at mga `margin`.
 * Kung walang tinukoy na `taas`, ang isang elementong bloke ay magiging kasing taas ng nilalaman na naglalaman nito, kasama ang `padding` (maliban kung may mga float, na nakikita sa ibaba).
 * Kung walang tinukoy na `lapad`, ang isang hindi floated na elemento ng block ay lalawak upang magkasya ang lapad ng kanyang magulang na bawas ang `padding`.
-* Ang `taas` ng isang elemento ay kinakalkula sa pamamagitan ng` taas` ng nilalaman.
+* Ang `taas` ng isang elemento ay kinakalkula sa pamamagitan ng`taas` ng nilalaman.
 * Ang `lapad` ng isang elemento ay kinakalkula ng `lapad` ng nilalaman.
-* Sa pamamagitan ng default, ang `padding` at mga `border`s ay hindi bahagi ng `lapad` at` taas` ng isang elemento.
+* Sa pamamagitan ng default, ang `padding` at mga `border`s ay hindi bahagi ng `lapad` at`taas` ng isang elemento.
 
 ###### Mga Reperensiya
 
@@ -355,7 +357,7 @@ Ang modelo ng kahon ay may mga sumusunod na panuntunan:
 
 * Bilang default, ang mga elemento ay may `box-sizing: content-box` na naipapatupad, at tanging ang laki ng nilalaman lang ang siyang binibilang.
 * Ang `box-sizing: border-box` ay ang siyang nagpapabago kung papaano kinakalkula ang `lapad` at `taas` ng mga elemento, kasama ang `border` at `padding` sa pagkalkula.
-* Ang `taas` ng isang elemento ay kinalkula ngayon ng lapad ng` taas` + bertikal na `padding` + bertikal na ` border`.
+* Ang `taas` ng isang elemento ay kinalkula ngayon ng lapad ng`taas` + bertikal na `padding` + bertikal na `border`.
 * Ang `lapad` ng isang elemento ay kinakalkula ngayon ng `lapad` ng nilalaman + pahalang na `padding` + pahalang na `border`.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
@@ -372,22 +374,22 @@ TODO
 
 Ako ay magbibigay ng isang paghahambing sa `block` para sa mahusay na panukalang.
 
-|                                      | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sukat                                 | Pinupunan ang lapad ng lalagyan ng magulang nito.                                                 | Nakadepende sa nilalaman.                                              | Depende sa nilalaman                                                                                                                                                                                                  |
-| Pagpoposisyon                          | Magsimula sa isang bagong linya at hindi papayagan ang mga elemento ng HTML sa tabi nito (maliban nalang kapag nagdadagdag ka ng `float`) | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito. | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito.                                                                                                                                                     |
-| Maaaring tukuyin ang `lapad` at` taas`     | Oo                                                                                         | Oo                                                              | Hindi. Huwag pansinin kung itinakda.                                                                                                                                                                                        |
-| Maaaring nakahanay sa `vertical-align` | Hindi                                                                                          | Oo                                                              | Oo                                                                                                                                                                                                                  |
-| Mga margin at paddings                 | Iginagalang ang lahat ng panig.                                                                        | Iginagalang ang lahat ng panig.                                             | Iginagalang lamang ang mga pahalang na panig. Ang mga bertikal na gilid, kung tinukoy, ito ay hindi nakakaapekto sa layout. Ang bertikal na puwang na kinukuha ay depende sa `line-height`, kahit na ang` border` at `padding` ay mukhang biswal na nakikita sa paligid ng nilalaman. |
-| Float                                | -                                                                                           | -                                                                | Nagiging katulad ng isang elemento ng 'block' kung saan maaari kang magtakda ng mga bertikal na margin at paddings.                                                                                                                                      |
+|                                        | `block`                                                                                                                                   | `inline-block`                                                                                    | `inline`                                                                                                                                                                                                                                                                             |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Sukat                                  | Pinupunan ang lapad ng lalagyan ng magulang nito.                                                                                         | Nakadepende sa nilalaman.                                                                         | Depende sa nilalaman                                                                                                                                                                                                                                                                 |
+| Pagpoposisyon                          | Magsimula sa isang bagong linya at hindi papayagan ang mga elemento ng HTML sa tabi nito (maliban nalang kapag nagdadagdag ka ng `float`) | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito. | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito.                                                                                                                                                                                    |
+| Maaaring tukuyin ang `lapad` at`taas`  | Oo                                                                                                                                        | Oo                                                                                                | Hindi. Huwag pansinin kung itinakda.                                                                                                                                                                                                                                                 |
+| Maaaring nakahanay sa `vertical-align` | Hindi                                                                                                                                     | Oo                                                                                                | Oo                                                                                                                                                                                                                                                                                   |
+| Mga margin at paddings                 | Iginagalang ang lahat ng panig.                                                                                                           | Iginagalang ang lahat ng panig.                                                                   | Iginagalang lamang ang mga pahalang na panig. Ang mga bertikal na gilid, kung tinukoy, ito ay hindi nakakaapekto sa layout. Ang bertikal na puwang na kinukuha ay depende sa `line-height`, kahit na ang`border` at `padding` ay mukhang biswal na nakikita sa paligid ng nilalaman. |
+| Float                                  | -                                                                                                                                         | -                                                                                                 | Nagiging katulad ng isang elemento ng 'block' kung saan maaari kang magtakda ng mga bertikal na margin at paddings.                                                                                                                                                                  |
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?
 
-Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posisyon` ay alinman sa` kamag-anak`, `absolute`,` fixed` o `malagkit`.
+Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posisyon` ay alinman sa`kamag-anak`, `absolute`,`fixed` o `malagkit`.
 
-* `static` - Ang default na posisyon; ang elemento ay dumadaloy sa pahina gaya ng karaniwan. Ang mga `taas`,` kanan`, `ilalim`,`kaliwa` at `z-index` na katangian ay hindi nalalapat.
+* `static` - Ang default na posisyon; ang elemento ay dumadaloy sa pahina gaya ng karaniwan. Ang mga `taas`,`kanan`, `ilalim`,`kaliwa` at `z-index` na katangian ay hindi nalalapat.
 * `kamag-anak` - Ang posisyon ng elemento ay nababagay sa sarili nito, nang hindi binabago ang layout (at sa gayo'y nag-iiwan ng puwang para sa elemento kung saan ay hindi ito nakaposisyon).
 * `absolute` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa pinakamalapit na nakaposisyon na ninuno kung mayroon man, o kung hindi man sa kamag-anak sa paunang nilalaman ng bloke. Ang mga nakaposisyon na mga kahon ay maaaring magkaroon ng mga gilid, at hindi sila bumagsak sa anumang iba pang mga margin. Ang mga elementong ito ay hindi nakakaapekto sa posisyon ng iba pang mga elemento.
 * `naayos` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa viewport na hindi gumagalaw kapag nag-scroll.
@@ -403,7 +405,7 @@ Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posi
 
 * ** Bootstrap ** - Mabagal na ikot ng paglabas. Ang Bootstrap 4 ay nasa alpha sa halos dalawang taon. Magdagdag ng bahagi ng pindutan ng spinner, dahil malawak itong ginagamit.
 * ** Semantikong UI ** - Ang istraktura ng pinagmulang code ay gumagawa ng pagsadya ng tema na napakahirap maunawaan. Masakit na ipasadya sa hindi pangkaraniwang sistema ng paggawa ng tema. Hardcoded na config na landas sa loob ng librerya ng vendor. Hindi mahusay na pag-disenyo para pag-override ng mga variable na hindi katulad sa Bootstrap.
-* ** Bulma ** -  Isang pulutong ng mga di-semantiko at labis na mga klase at markup ang kinakailangan. Hindi tugma ang pabalik. Ang pag-upgrade ng mga bersyon sa sumisira sa app sa banayad na asal.
+* ** Bulma ** - Isang pulutong ng mga di-semantiko at labis na mga klase at markup ang kinakailangan. Hindi tugma ang pabalik. Ang pag-upgrade ng mga bersyon sa sumisira sa app sa banayad na asal.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -411,7 +413,7 @@ Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posi
 
 Oo. Ang Flexbox ay higit sa lahat para sa 1-dimensional na layout habang ang Grid ay nakatalaga para sa 2-dimensional na mga layout.
 
-Sinosolusyunan ng Flexbox ang maraming pangkaraniwang problema sa CSS, tulad ng bertikal na pagsentro ng mga elemento sa loob ng isang lalagyan, malagkit na footer, atbp. Ang Bootstrap at Bulma ay batay sa Flexbox, at marahil ay ang inirerekumendang paraan upang lumikha ng mga layout sa mga araw na ito. Sinubukan ko ang Flexbox noon ngunit akoy dumaan sa ilang mga isyu ng hindi pagkakatugma ng browser (Safari) sa paggamit ng `flex-grow`, at kailangan kong isulat muli ang aking code gamit ang` inline-blocks` at matematika upang kalkulahin ang mga lapad sa mga porsyentong paraan, at hindi ito magandang karanasan.
+Sinosolusyunan ng Flexbox ang maraming pangkaraniwang problema sa CSS, tulad ng bertikal na pagsentro ng mga elemento sa loob ng isang lalagyan, malagkit na footer, atbp. Ang Bootstrap at Bulma ay batay sa Flexbox, at marahil ay ang inirerekumendang paraan upang lumikha ng mga layout sa mga araw na ito. Sinubukan ko ang Flexbox noon ngunit akoy dumaan sa ilang mga isyu ng hindi pagkakatugma ng browser (Safari) sa paggamit ng `flex-grow`, at kailangan kong isulat muli ang aking code gamit ang`inline-blocks` at matematika upang kalkulahin ang mga lapad sa mga porsyentong paraan, at hindi ito magandang karanasan.
 
 Ang Grid sa ngayon ay ang pinaka-intuitive na diskarte para sa paglikha ng grid-based na mga layout (ito ay mas mahusay na!) Ngunit ang suporta sa browser ay hindi pa malawak sa sandaling ito.
 
@@ -445,7 +447,7 @@ Ang bumabagay na disenyo ay mas katulad ng modernong kahulugan ng progresibong p
 
 ### Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?
 
-May gusto kong gamitin ang mas mataas na resolusyon nga mga grapika (dalawang beses ang laki ng display) upang ma-handle ang retina display. Ang mas mahusay na paraan ay ang paggamit ng isang query sa media tulad ng `@media na iskrin  lamang at (min-device-pixel-ratio: 2) {...}` at baguhin ang `background-image`.
+May gusto kong gamitin ang mas mataas na resolusyon nga mga grapika (dalawang beses ang laki ng display) upang ma-handle ang retina display. Ang mas mahusay na paraan ay ang paggamit ng isang query sa media tulad ng `@media na iskrin lamang at (min-device-pixel-ratio: 2) {...}` at baguhin ang `background-image`.
 
 Para sa mga icon, mas pipiliin ko parin ang paggamit ng svgs at icon na mga font kung saan posible, habang nagreresulta sila ng preskong pagrender sa kahit na anong resolusyon.
 

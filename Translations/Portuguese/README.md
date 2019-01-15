@@ -27,6 +27,17 @@ Podes estar interessado no [Tech Interview Handbook](https://github.com/yangshun
 1. [CSS Questions](questions/css-questions.md)
 1. [Perguntas de JavaScript](questions/javascript-questions.md)
 
+## Traduções
+
+* [English](/README.md)
+* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+* [Tagalog](/Translations/Tagalog/README.md)
+* [Japanese (日本語)](/Translations/Japanese/README.md)
+
+**Em Progresso**
+
+* [Korean (한국어)](/Translations/Korean/README.md)
+
 ## Relacionados
 
 Se estás interessado em saber como as estruturas de dados são implementadas, consulta [Lago](https://github.com/yangshun/lago), uma biblioteca de Estruturas de Dados e Algoritmos para JavaScript. É ainda muito WIP, mas eu pretendo entrar numa biblioteca que poderá ser usada na produção e também um recurso de referência para conferir Estruturas de dados e Algoritmos.
@@ -35,7 +46,7 @@ Se estás interessado em saber como as estruturas de dados são implementadas, c
 
 ### Código de conduta
 
-Adotamos o mesmo Código de Conduta como o Facebook esperamos que os participantes do projeto adiram. Leia [o texto completo] (https://code.facebook.com/codeofconduct) para que possas perceber quais as ações que serão e não serão toleradas.
+Adotamos o mesmo Código de Conduta como o Facebook esperamos que os participantes do projeto adiram. Leia [o texto completo](https://code.facebook.com/codeofconduct) para que possas perceber quais as ações que serão e não serão toleradas.
 
 ### Guia de contribuição
 
