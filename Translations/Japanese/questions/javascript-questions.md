@@ -19,7 +19,7 @@
 * [`document.write()` はいつ使いますか？](#documentwrite-はいつ使いますか)
 * [feature detection, feature inference, and using the UA string の違いはなんですか？](#feature-detection-feature-inference-and-using-the-ua-string-の違いはなんですか)
 * [Ajax をできるだけ詳しく説明してください。](#ajax-をできるだけ詳しく説明してください)
-* [Ajax を利用する利点を欠点はなんですか？](#ajax-を利用する利点を欠点はなんですか)
+* [Ajax を利用する利点と欠点はなんですか？](#ajax-を利用する利点と欠点はなんですか)
 * [JSONP がどのように機能するか（またそれが Ajax とはどこが違うのか）を説明してください。](#jsonp-がどのように機能するかまたそれが-ajax-とはどこが違うのかを説明してください)
 * [JavaScript templating を使ったことがありますか？ もしあれば、どのライブラリを使ったことがありますか？](#javascript-templating-を使ったことがありますか-もしあればどのライブラリを使ったことがありますか)
 * ["巻き上げ"について説明してください。](#巻き上げについて説明してください)
@@ -73,7 +73,7 @@
 
 ### JavaScript の `this` はどう機能するものなのか説明してください。
 
-`this` の簡単な説明はありません。それは JavaScript の最も混乱しやすい概念の 1 つです。手のひら波の説明は、`this` の値が関数の呼び出し方法に依存するということです。私はこのオンラインで多くの説明を読んでおり、[Arnav Aggrawal]（https://medium.com/@arnav_aggarwal）の説明が最も明白であることがわかりました。次のルールが適用されます。
+`this` の簡単な説明はありません。それは JavaScript の最も混乱しやすい概念の 1 つです。手のひら波の説明は、`this` の値が関数の呼び出し方法に依存するということです。私はこのオンラインで多くの説明を読んでおり、[Arnav Aggrawal](https://medium.com/@arnav_aggarwal)の説明が最も明白であることがわかりました。次のルールが適用されます。
 
 1. 関数を呼び出すときに `new` キーワードが使用されている場合、関数内の `this` は全く新しいオブジェクトです。
 2. `apply`、`call`、`bind` を使って関数を呼び出す/作成する場合、関数内の `this` は引数として渡されるオブジェクトです。
@@ -388,7 +388,7 @@ if (document.getElementsByTagName) {
 }
 ```
 
-This is not really recommended. Feature detection is more foolproof.
+これはあまり推奨されません。フィーチャの検出の方がより確実です。
 
 **UA String**
 
@@ -418,7 +418,7 @@ Ajax（非同期 JavaScript と XML）は、クライアント側で多くの We
 
 [[↑] 先頭に戻る](#js-に関する質問)
 
-### Ajax を利用する利点を欠点はなんですか？
+### Ajax を利用する利点と欠点はなんですか？
 
 **利点**
 
@@ -671,7 +671,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 ### **"fizz"** を`3`の倍数で、**"buzz"** を`5`の倍数で、**"fizzbuzz"** を`3`と`5`の倍数で出力する`100`まで反復する for ループを作成してください。
 
-Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
+[Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724) による FizzBuzz のこのバージョンを確認してください。
 
 ```js
 for (let i = 1; i <= 100; i++) {
