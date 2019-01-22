@@ -68,6 +68,7 @@ Event delegation is a technique involving adding event listeners to a parent ele
 
 * https://davidwalsh.name/event-delegate
 * https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
+* https://www.youtube.com/watch?v=mXTEVCg60zM
 
 [[↑] Back to top](#js-questions)
 
