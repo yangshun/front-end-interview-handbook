@@ -231,10 +231,10 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 はい、@media プロパティには `screen` も含めて４つの種類があります。:
 
-* `all` - for all media type devices
-* `print` - for printers
-* `speech` - for screenreaders that "reads" the page out loud
-* `screen` - for computer screens, tablets, smart-phones etc.
+* `all` - 全てのデバイス
+* `print` - プリンター
+* `speech` - ページを読み上げるスクリーンリーダー
+* `screen` - コンピュータスクリーンやタブレット、スマートフォンなど
 
 `print` メディアタイプの使い方の例:
 
@@ -371,14 +371,14 @@ TODO
 
 比較のために `block` も並べます。
 
-|                                      | `block`                                                                                     | `inline-block`                                                   | `inline`                                                                                                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                              | Depends on content.                                                                                                                                                                                                  |
-| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside. | Flows along with other content and allows other elements beside.                                                                                                                                                     |
-| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                              | No. Will ignore if being set.                                                                                                                                                                                        |
-| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                              | Yes                                                                                                                                                                                                                  |
-| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                             | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
-| Float                                | -                                                                                           | -                                                                | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
+|                                   | `block`                                                     | `inline-block`                             | `inline`                                                                                                                                         |
+| ----------------------------------| ------------------------------------------------------------| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| サイズ                             | 親要素の幅と同じになる。                                        | 要素によって変わる。                          | 要素によって変わる。                                                                                                                                 |
+| ポジショニング                      | 新しい行から始まり、隣に要素を並べられない。(`float`を使う場合を除く) | 他の要素とフローし、隣に要素を並べることができる。 | 他の要素とフローし、隣に要素を並べることができる。                                                                                                        |
+| `width` と `height` の指定ができるか | はい                                                         | はい                                       | いいえ、設定をしても無視される。                                                                                                                       |
+| `vertical-align` を指定できるか     | いいえ                                                       | はい                                        | はい                                                                                                                                              |
+| マージンとパディング                 | 上下左右に指定できる。                                          | 上下左右に指定できる。                        | 左右のみ指定可能。上下に指定をしてもレイアウトに影響はない。 `border` と `padding` が要素の周りに視覚的に現れていても、上下のスペースは `line-height` によって決まる。 |
+| フロート                           | -                                                           | -                                          | 上下の `margins` と `paddings` を設定できる `block` 要素のようになる。                                                                                  |
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
