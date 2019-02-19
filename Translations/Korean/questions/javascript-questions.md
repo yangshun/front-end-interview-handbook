@@ -487,7 +487,7 @@ DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 �
 
 ### "attribute"와 "property"의 차이점은 무엇입니까?
 
-속성은 HTML 마크업에 정의되지만 속성은 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에 이 텍스트 필드가 있다고 세요. `<input type="text" value="Hello">`.
+attribute 속성은 HTML 마크업에 정의되지만 property 속성은 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에 이 텍스트 필드가 있다고 세요. `<input type="text" value="Hello">`.
 
 ```js
 const input = document.querySelector('input');
