@@ -489,7 +489,7 @@ However, do be aware of a potential XSS in the above approach as the contents ar
 
 ### Explain "hoisting".
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "moved" up to the top of the current scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
+Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var`, `let`, or `const` keywords will have their declarations "moved" up to the top of the current scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
 
 Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.
 
@@ -499,10 +499,16 @@ console.log(foo); // undefined
 var foo = 1;
 console.log(foo); // 1
 
-// let/const declarations are NOT hoisted.
+// let/const declarations are not hoisted to the top of the module, but only to the top of their scope.
 console.log(bar); // ReferenceError: bar is not defined
 let bar = 2;
 console.log(bar); // 2
+
+var baz = "baz";
+function proofOfScopedHoisting(){
+  console.log(baz); // ReferenceError: baz is not defined
+  let baz = "bar";
+}
 ```
 
 Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
@@ -524,6 +530,7 @@ var bar = function() {
 };
 console.log(bar); // [Function: bar]
 ```
+`const` and `let` declarations are hoisted up to the top of their scope, just like `var`s. This is demonstrated in the following snippet:
 
 [[↑] Back to top](#js-questions)
 
