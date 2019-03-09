@@ -13,6 +13,8 @@ Answers to [Front-end Job Interview Questions - HTML Questions](https://github.c
 * [What is progressive rendering?](#what-is-progressive-rendering)
 * [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 * [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+* [How is HTML rendered on the UI?](#how-is-html-rendered-on-the-ui)
+* [Explain the web browser's architecture.](#explain-the-web-browsers-architecture)
 
 ### What does a DOCTYPE do?
 
@@ -195,6 +197,44 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 ### Have you used different HTML templating languages before?
 
 Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
+
+[[↑] Back to top](#html-questions)
+
+### How is HTML rendered on the UI?
+
+This is the job of the HTML rendering engine (gecko, webkit, blink etc.).
+
+The rendering engine will start getting the contents of the requested document from the networking layer. This will usually be done in 8kB chunks.
+
+The rendering engine will start parsing the HTML document and convert elements to DOM nodes in a tree called the "content tree". The engine will parse the style data, both in external CSS files and in style elements. Styling information together with visual instructions in the HTML will be used to create another tree: the render tree.
+
+The render tree contains rectangles with visual attributes like color and dimensions. The rectangles are in the right order to be displayed on the screen.
+
+After the construction of the render tree it goes through a "layout" process. This means giving each node the exact coordinates where it should appear on the screen. The next stage is painting–the render tree will be traversed and each node will be painted using the UI backend layer.
+
+***Note:*** *It's important to understand that this is a gradual process. For better user experience, the rendering engine will try to display contents on the screen as soon as possible. It will not wait until all HTML is parsed before starting to build and layout the render tree. Parts of the content will be parsed and displayed, while the process continues with the rest of the contents that keeps coming from the network.*
+
+###### References
+
+* https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
+
+[[↑] Back to top](#html-questions)
+
+### Explain the web browser's architecture.
+
+At a high level, a browser has 7 architectural elements:
+
+1. **The user interface** - this includes the address bar, back/forward button, bookmarking menu, etc. Every part of the browser display except the window where you see the requested page.
+2. **The browser engine** - marshals actions between the UI and the rendering engine.
+3. **The rendering engine** - responsible for displaying requested content. For example if the requested content is HTML, the rendering engine parses HTML and CSS, and displays the parsed content on the screen.
+4. **Networking** - for network calls such as HTTP requests, using different implementations for different platform behind a platform-independent interface.
+5. **UI backend** - used for drawing basic widgets like combo boxes and windows. This backend exposes a generic interface that is not platform specific. Underneath it uses operating system user interface methods.
+6. **JavaScript interpreter**: Used to parse and execute JavaScript code.
+7. **Data storage** - This is a persistence layer. The browser may need to save all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexedDB, WebSQL and FileSystem.
+
+###### References
+
+* https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
 
 [[↑] Back to top](#html-questions)
 
