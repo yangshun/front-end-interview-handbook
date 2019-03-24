@@ -29,11 +29,11 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 
 ## Translations
 
-* [English](/README.md)
-* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
-* [Tagalog](/Translations/Tagalog/README.md)
-* [Japanese (日本語)](/Translations/Japanese/README.md)
-* [Korean](/Translations/Korean/README.md)
+- [English](/README.md)
+- [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+- [Tagalog](/Translations/Tagalog/README.md)
+- [Japanese (日本語)](/Translations/Japanese/README.md)
+- [Korean (한국어))](/Translations/Korean/README.md)
 
 ## Related
 
