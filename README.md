@@ -25,7 +25,7 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
   <br>
   <p>
-    <em>Credits: Illustration by <a href="https://undraw.co/">Undraw</a></em>
+    <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>
 </div>
 
