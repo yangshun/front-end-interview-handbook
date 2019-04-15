@@ -1,11 +1,11 @@
 # HTML 질문
 
-[프론트엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md)에 대한 해설입니다. Pull Request를 통한 제안, 수정 요청 환영합니다.
+[프론트엔드 면접 질문 - HTML 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md)에 대한 해설입니다. Pull Request를 통한 제안, 수정 요청 환영합니다.
 
 - [`DOCTYPE`은 무엇을 하나요?](#doctype은-무엇을-하나요)
 - [여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?](#여러-언어로-되어-있는-콘텐츠의-페이지를-어떻게-제공하나요)
 - [다국어 사이트를 디자인하거나 개발할 때 주의해야할 사항은 무엇인가요?](#다국어-사이트를-디자인하거나-개발할-때-주의해야할-사항은-무엇인가요)
-- [`data-`속성은 무엇에 좋은가요?](#data--속성은-무엇에-좋은가요)
+- [`data-`속성은 무엇에 좋은가요?](#data-속성은-무엇에-좋은가요)
 - [HTML5를 개방형 웹 플랫폼으로 간주할 때, HTML5의 구성 요소는 무엇인가요?](#html5를-개방형-웹-플랫폼으로-간주할-때-html5의-구성-요소는-무엇인가요)
 - [`cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.](#cookie-sessionstorage-localstorage-사이의-차이점을-설명하세요)
 - [`<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.](#script-script-async-script-defer-사이의-차이점을-설명하세요)
@@ -173,7 +173,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 
 [[↑] Back to top](#html-질문)
 
-### 이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇인가요? 이 속성의 컨텐츠를 평가할 때 브라우저가 사용하는 프로세스를 설명하세요.
+### 이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇인가요? 이 속성의 컨텐츠를 실행할 때 브라우저의 프로세스를 설명하세요.
 
 기기의 디스플레이 너비에 따라 다른 이미지를 사용자에게 제공하려는 경우 `srcset` 속성을 사용합니다 - 레티나 디스플레이를 통해 장치에 고품질 이미지를 제공하여 사용자 경험을 향상시키고, 저해상도 이미지를 저사양 기기에 제공하여 성능을 높이고 데이터 낭비를 줄입니다. (왜냐하면 더 큰 이미지를 제공하는 것은 눈에 보일 정도의 차이가 없기 때문). 예를 들면: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">`는 클라이언트의 해상도에 따라 브라우저에 small, medium, large `.jpg` 그래픽을 표시하도록 지시합니다. 첫 번째 값은 이미지 이름이고 두 번째 값은 픽셀 단위의 이미지 너비입니다. 320px 너비의 경우, 다음과 같은 계산을 따릅니다
 
