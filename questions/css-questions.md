@@ -1,6 +1,6 @@
 # CSS Questions
 
-Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!
+Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!
 
 * [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
 * [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
@@ -226,7 +226,7 @@ Yes, there are several ways to color shapes (including specifying attributes on 
 Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`. `fill` sets the color inside the object and `stroke` sets the color of the line drawn around the object. You can use the same CSS color naming schemes that you use in HTML, whether that's color names (that is `red`), RGB values (that is `rgb(255,0,0)`), Hex values, RGBA values, etc.
 
 ```html
-<rect x="10" y="10" width="100" height="100" stroke="blue" 
+<rect x="10" y="10" width="100" height="100" stroke="blue"
   fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
 ```
 
@@ -505,7 +505,7 @@ In order to have crisp, good-looking graphics that make the best of retina displ
 To overcome this problem, we can use responsive images, as specified in HTML5. It requires making available different resolution files of the same image to the browser and let it decide which image is best, using the html attribute `srcset` and optionally `sizes`, for instance:
 
 ```html
-<div responsive-background-image>  
+<div responsive-background-image>
   <img src="/images/test-1600.jpg"
     sizes="
       (min-width: 768px) 50vw,

@@ -1,6 +1,6 @@
 # Mga Tanong sa HTML
 
-Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon
+Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon
 
 * [Ano ang ginagawa ng `DOCTYPE`?](#ano-ang-ginagawa-ng-doctype)
 * [Papaano mo ihahain ang pahinang may iba't-ibang lenggwaheng nilalaman?](#papaano-mo-ihahain-ang-pahinang-may-ibat-ibang-lenggwaheng-nilalaman)

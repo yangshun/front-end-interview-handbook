@@ -1,6 +1,6 @@
 # HTML 问题
 
-本章节是[前端开发者面试问题 - HTML 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions)的参考答案。 欢迎提出 PR 进行建议和指正！
+本章节是[前端开发者面试问题 - HTML 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
 * [`DOCTYPE`有什么用？](#doctype有什么用)
 * [如何提供包含多种语言内容的页面？](#如何提供包含多种语言内容的页面)
