@@ -1,6 +1,6 @@
 # JS に関する質問
 
-[Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/javascript-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
+[Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
 * [イベントデリゲーションについて説明してください。](#イベントデリゲーションについて説明してください)
 * [JavaScript の `this` はどう機能するものなのか説明してください。](#javascript-の-this-はどう機能するものなのか説明してください)

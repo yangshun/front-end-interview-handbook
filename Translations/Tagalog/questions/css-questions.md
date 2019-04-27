@@ -1,6 +1,6 @@
 # Mga Katanungan sa CSS
 
-Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga Katanungan sa CSS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md). Malugod na tatanggapin ang mga Pull request para sa mga suhestyon at mga koreksyon!
+Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga Katanungan sa CSS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Malugod na tatanggapin ang mga Pull request para sa mga suhestyon at mga koreksyon!
 
 * [Ano ang pagsisigurado ng CSS selector at kung paano ito gumagana?](#ano-ang-pagsisigurado-ng-css-selector-at-kung-paano-ito-gumagana)
 * [Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?](#ano-ang-pagkakaiba-sa-pagitan-ng-pag-reset-at-pag-normalize-ng-css-saan-sa-dalawa-ang-iyong-pipiliin-at-bakit)

@@ -1,6 +1,6 @@
 # Perguntas HTML
 
-Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/html-questions.md). Os pedidos de sugestões e correções são bem-vindos!
+Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Os pedidos de sugestões e correções são bem-vindos!
 
 * [O que faz um doctype?](#what-does-a-doctype-do)
 * [Como é que tu serves uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
