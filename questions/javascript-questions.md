@@ -837,83 +837,93 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 Immutability is a core principle in functional programming, and has lots to offer to object-oriented programs as well. A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
 
-* What is an example of an immutable object in JavaScript?
+#### What is an example of an immutable object in JavaScript?
 
 In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable.
 
-Some built-in immutable JavaScript objects are `Math`, `Date`
+Some built-in immutable JavaScript objects are `Math`, `Date`.
 
-###Object Constant
+Here are a few ways to add/simulate immutability on plain JavaScript objects.
 
-By combining writable:false and configurable:false, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
+**Object Constant Properties**
 
-var myObject = {};
+By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
+
+```js
+let myObject = {};
+Object.defineProperty(myObject, 'number', {
+  value: 42,
+  writable: false,
+  configurable: false,
+});
+console.log(myObject.number); // 42
+myObject.number = 43;
+console.log(myObject.number); // 42
 ```
-Object.defineProperty( myObject, "FAVORITE_NUMBER", {
-	value: 42,
-	writable: false,
-	configurable: false
-} );
-```
 
-###Prevent Extensions
+**Prevent Extensions**
 
-If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call Object.preventExtensions(..):
+If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
+
 ```
 var myObject = {
-	a: 2
+  a: 2
 };
 
-Object.preventExtensions( myObject );
+Object.preventExtensions(myObject);
 
 myObject.b = 3;
 myObject.b; // undefined
 ```
-In non-strict mode, the creation of b fails silently. In strict mode, it throws a TypeError.
 
-###Seal
+In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
 
-Object.seal(..) creates a "sealed" object, which means it takes an existing object and essentially calls Object.preventExtensions(..) on it, but also marks all its existing properties as configurable:false.
+**Seal**
+
+`Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`.
 
 So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values).
 
+**Freeze**
 
-###Freeze
-
-Object.freeze(..) creates a frozen object, which means it takes an existing object and essentially calls Object.seal(..) on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
+`Object.freeze()` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal()` on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
 
 This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
+
+```js
+var immutable = Object.freeze({});
 ```
-var immutable = Object.freeze({})
+
+Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
+
+#### What are the pros and cons of immutability?
+
+**Pros**
+
+TODO
+
+**Cons**
+
+TODO
+
+#### How can you achieve immutability in your own code?
+
+One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
+
+The alternative is to use `const` declarations combined with the techniques mentioned above for creation. For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
+
+Examples:
+
+```js
+// Array Example
+const arr = [1, 2, 3];
+const newArr = [...arr, 4]; // [1, 2, 3, 4]
+
+// Object Example
+const human = Object.freeze({race: 'human'});
+const john = { ...human, name: 'John' }; // {race: "human", name: "John"}
+const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
 ```
-
-Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. Object.freeze() preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
-
-* What are the pros and cons of immutability?
-
-### Pros:
-
-Programs with immutable objects are less complicated to think about, since you don't need to worry about how an object may evolve over time.You don't need to make defensive copies of immutable objects when returning or passing to other functions, since there is no possibility an immutable object will be modified behind your back.
-One copy of an object is just as good as another, so you can cache objects or re-use the same object multiple times.
-Immutable objects are good for sharing information between threads in a multi-threaded environment since they don't need to be synchronized.
-Operations on immutable objects return new immutable objects while operations that cause side-effects on mutable objects usually return void. This means several operations can be chained together. For instance
-```
-("foo" + "bar" + "baz").length()
-```
-In languages where functions are first class values, operations like map, reduce, filter, etc. are basic operations on collections. These can be combined in many ways, and can replace most loops in a program.
-
-
-### Cons:
-
-Cyclic data structures such as graphs are difficult to build. If you have two objects which can't be modified after initialization, how can you get them to point to each other?
-Allocating lots and lots of small objects rather than modifying ones you already have can have a performance impact. Usually the complexity of either the allocator or the garbage collector depends on the number of objects on the heap.
-Naive implementations of immutable data structures can result in extremely poor performance. For instance,concatenating many immutable strings (like in Java) is O(n2) when the best algorithm is O(n). It is possible to write efficient immutable data structures, it just takes a little more thought.
-
-* How can you achieve immutability in your own code?
-
-One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/) or [mori](https://github.com/swannodette/mori).
-
-Second way is to use vanilla JavaScript and it's ES6 and ES.Next syntax contain some awesome features like `spread operator` and `Object.assign` that can help you achieve immutable behaviour without any hassle.
 
 ###### References
 
