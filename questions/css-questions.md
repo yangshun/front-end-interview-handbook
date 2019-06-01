@@ -107,6 +107,8 @@ A stacking context is an element that contains a set of layers. Within a local s
 
 Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
 
+_Note: What exactly qualifies an element to create a stacking context is listed in this long set of [rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context)._
+
 ###### References
 
 * https://css-tricks.com/almanac/properties/z/z-index/
