@@ -235,6 +235,8 @@ Basic coloring can be done by setting two attributes on the node: `fill` and `st
   fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
 ```
 
+The above `fill="purple"` is an example of a _presentational attribute_. Interestingly, and unlike inline styles like `style="fill: purple"` which also happens to be an attribute, presentational attributes can be [overriden by CSS](https://css-tricks.com/presentation-attributes-vs-inline-styles/) styles defined in a stylesheet. So, if you did something like `svg { fill: blue; }` it would override the purple fill we've defined.
+
 ###### References
 
 * https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
