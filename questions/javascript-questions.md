@@ -84,6 +84,10 @@ There's no simple explanation for `this`; it is one of the most confusing concep
 
 For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
 
+#### Can you give an example of one of the ways that working with this has changed in ES6?
+
+ES6 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+
 ###### References
 
 * https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
