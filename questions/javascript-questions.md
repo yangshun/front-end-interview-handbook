@@ -308,9 +308,16 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
 
+According to the [MDN docs], `new` keyword will do the following:
+
+> 1. Creates a blank, plain JavaScript object;
+> 2. Links (sets the constructor of) this object to another object;
+> 3. Passes the newly created object from Step 1 as the this context;
+> 4. Returns this if the function doesn't return its own object.
+
 `var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
 
-`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
+`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(new Person('Larry'))`.
 
 ```js
 function Person(name) {
@@ -324,6 +331,17 @@ console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of 
 var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
+```
+
+#### Extra Credit—`Object.create`:
+
+And here's how you'd achieve the same as above, but with `Object.create`:
+
+```js
+var joe = Object.create(Person.prototype); // Won't work doesn't set "own property" name
+joe.name; // Outputs: undefined
+var larry = Object.create(new Person('Larry'))
+larry.name; // Outputs: Larry
 ```
 
 ###### References
