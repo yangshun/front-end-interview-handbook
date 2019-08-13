@@ -21,7 +21,7 @@ While there are some existing resources to help front end developers in preparin
 ---
 
 <div align="center">
-  <strong>💰 Interested in Front End Developer jobs? Sign up with <a href="https://triplebyte.com/a/PJaJNpO/feihg">Triplebyte</a> to efficiently interview with top tech companies! 💰</strong>
+  <strong>💰 Interested in Front End Dev jobs? Sign up with <a href="https://triplebyte.com/a/PJaJNpO/feihg">Triplebyte</a> to efficiently interview with top tech companies! 💰</strong>
 </div>
 
 ---
