@@ -1014,19 +1014,102 @@ baz = 'qux';
 
 ### ES6 的类和 ES5 的构造函数有什么区别？
 
-TODO
+让我们来看一个例子：
+
+```js
+// ES5 构造函数
+function Person(name) {
+  this.name = name;
+}
+
+// ES6 类
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
+
+对于简单的构造函数而言，他们看起来很相似。
+
+他们的主要区别体现在类继承上。如果我们想要创建一个继承于 `Person` 父类的 `Student` 子类，并且添加一个 `studentId`  字段，我们需要做的修改如下：
+
+```js
+// ES5 构造函数
+function Student(name, studentId) {
+  // 调用父类的构造函数来初始化父类的成员变量
+  Person.call(this, name);
+
+  // 初始化子类自己的成员变量
+  this.studentId = studentId;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+// ES6 类
+class Student extends Person {
+  constructor(name, studentId) {
+    super(name);
+    this.studentId = studentId;
+  }
+}
+```
+
+从上面的例子我们可以看出来，使用 ES5 构造函数来实现继承特别麻烦，而使用 ES6 类的方式来实现就特别容易理解和记忆。
+
+###### 参考
+
+* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
+* https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 [[↑] 回到顶部](#js-问题)
 
 ### 你能给出一个使用箭头函数的例子吗，箭头函数与其他函数有什么不同？
 
-TODO
+一个很明显的优点就是箭头函数可以简化创建函数的语法，我们不需要在箭头函数前面加上 `function` 关键词。并且箭头函数的 `this` 会自动绑定到当前作用域的上下文中，这和普通的函数不一样。普通函数的 `this` 是在执行的时候才能确定的。箭头函数的这个特点对于回调函数来说特别有用，特别对于 React 组件而言。
 
 [[↑] 回到顶部](#js-问题)
 
 ### 在构造函数中使用箭头函数有什么好处？
 
-TODO
+在构造函数里使用箭头函数的主要优点是它的 `this` 只与箭头函数创建时的 `this` 保持一致，并且不会修改。所以，当用构造函数去创建一个新的对象的时候，箭头函数的 `this` 总是指向新创建的对象。比如，假设我们有一个 `Person` 构造函数，它接受一个 `firstName` 参数，并且它有两个方法去调用 `console.log` 这个 `firstName`，一个是正常的函数，而另一个则是箭头函数:
+
+```js
+const Person = function(firstName) {
+  this.firstName = firstName;
+  this.sayName1 = function() { console.log(this.firstName); };
+  this.sayName2 = () => { console.log(this.firstName); };
+};
+
+const john = new Person('John');
+const dave = new Person('Dave');
+
+john.sayName1(); // John
+john.sayName2(); // John
+
+// 普通函数的 this 可以被修改，而箭头函数则不会
+john.sayName1.call(dave); // Dave (因为 "this" 现在指向了 dave 对象)
+john.sayName2.call(dave); // John
+
+john.sayName1.apply(dave); // Dave (因为 "this" 现在指向了 dave 对象)
+john.sayName2.apply(dave); // John
+
+john.sayName1.bind(dave)(); // Dave (因为 "this" 现在指向了 dave 对象)
+john.sayName2.bind(dave)(); // John
+
+var sayNameFromWindow1 = john.sayName1;
+sayNameFromWindow1(); // undefined (因为 "this" 现在指向了 Window 对象)
+
+var sayNameFromWindow2 = john.sayName2;
+sayNameFromWindow2(); // John
+```
+
+这里主要的区别是，正常函数的 `this` 是可以在执行过程中被改变的，而箭头函数的 `this` 则会一直保持一致。所以在使用箭头函数的时候，你就不需要担心它的上下文被改变了。
+
+这在 React 的类组件里非常有用。如果你使用普通的函数来定义一个类方法，比如一个点击处理函数，然后你将这个点击处理函数通过 prop 的形式传递给子节点，你将必须在父组件的 `constroctor` 里使用 `fn.bind(this)` 的形式来确保该函数能正常工作。但是如果你使用箭头函数的话，你就不需要手动去绑定 `this` 了，因为箭头函数会自动绑定创建时的 `this`。
+
+(想看更好的演示以及示例代码，可以打开这篇文章: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
 
 [[↑] 回到顶部](#js-问题)
 
