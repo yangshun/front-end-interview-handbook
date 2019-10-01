@@ -1004,11 +1004,22 @@ Freezing an object does not allow new properties to be added to an object and pr
 
 **Pros**
 
-TODO
+* Programs with immutable objects are less complicated to think about, since you don't need to worry about how an object may evolve over time.
+* You don't need to make defensive copies of immutable objects when returning or passing to other functions, since there is no possibility an immutable object will be modified behind your back.
+* One copy of an object is just as good as another, so you can cache objects or re-use the same object multiple times.
+* Immutable objects are good for sharing information between threads in a multi-threaded environment since they don't need to be synchronized.
 
 **Cons**
 
-TODO
+* Cyclic data structures such as graphs are difficult to build. If you have two objects which can't be modified after initialization, how can you get them to point to each other?
+* Allocating lots and lots of small objects rather than modifying ones you already have can have a performance impact. Usually the complexity of either the allocator or the garbage collector depends on the number of objects on the heap.
+* Naive implementations of immutable data structures can result in extremely poor performance. For instance, concatenating many immutable strings (like in Java) is O(n2) when the best algorithm is O(n). It is possible to write efficient immutable data structures, it just takes a little more thought.
+
+###### References
+
+- https://stackoverflow.com/questions/1863515/pros-cons-of-immutability-vs-mutability
+
+[[↑] Back to top](#js-questions)
 
 #### How can you achieve immutability in your own code?
 
