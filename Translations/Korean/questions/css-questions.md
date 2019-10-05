@@ -144,7 +144,7 @@ BFC collapse시에 인접한 블록 레벨 박스 사이의 수직 마진. [coll
 - Clearfix 방법 - 위 `.clearfix` 클래스를 참조하세요.
 - `overflow: auto` 또는 `overflow: hidden` 방법 - 부모는 새로운 Block Formatting Context를 설정하고, 확장된 자식을 포함하도록합니다.
 
-대규모의 프로젝트에서는 유용하게 `.clearfix` 클래스를 만들어 필요한 곳에서 사용합니다. 자식이 부모보다 크기가 경우 `overflow: hidden`은 자식을 모두 보여줄 수 없습니다.
+대규모의 프로젝트에서는 유용하게 `.clearfix` 클래스를 만들어 필요한 곳에서 사용합니다. 자식이 부모보다 크기가 큰 경우 `overflow: hidden`은 자식을 모두 보여줄 수 없습니다.
 
 [[↑] Back to top](#css-질문)
 
