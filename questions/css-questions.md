@@ -99,7 +99,7 @@ Alternatively, give `overflow: auto` or `overflow: hidden` property to the paren
 
 ### Describe `z-index` and how stacking context is formed.
 
-The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
+The `z-index` property in CSS controls   the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
 
 Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
 
@@ -141,7 +141,7 @@ Vertical margins between adjacent block-level boxes in a BFC collapse. Read more
 
 [[↑] Back to top](#css-questions)
 
-### What are the various clearing techniques and which is appropriate for what context?
+### What are the various clearing techniques and which is appropriate  for what context?
 
 * Empty `div` method - `<div style="clear:both;"></div>`.
 * Clearfix method - Refer to the `.clearfix` class above.
