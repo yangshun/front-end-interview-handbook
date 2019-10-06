@@ -1307,7 +1307,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive) // [5, 6, 7, 8, 9, 10]
 
 ### spread 문법을 사용할 때의 이점은 무엇이며 rest 문법과 다른 점은 무엇인가요?
 
-ES6의 spread 문법은 함수형 패러다임에서 코딩할 때 매우 유용합니다. 왜냐하면 `Object.create`, `slice`나 라이브러리 함수를 사용하지 않고도 배열이나 객체의 복사본을 쉽게 만들 수 있기 때문입니다. 이 언어 기능은 Redux나 Rx.js를 사용하는 프로젝트에서 많이 사용됩니다.
+ES6의 spread 문법은 함수형 패러다임에서 코딩할 때 매우 유용합니다. 왜냐하면 `Object.create`, `slice`나 라이브러리 함수를 사용하지 않고도 배열이나 객체의 복사본을 쉽게 만들 수 있기 때문입니다. 이 언어 기능은 Redux나 RxJS를 사용하는 프로젝트에서 많이 사용됩니다.
 
 ```js
 function putDookieInAnyArray(arr) {
