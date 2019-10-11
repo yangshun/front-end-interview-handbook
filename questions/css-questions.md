@@ -390,7 +390,16 @@ The box model has the following rules:
 
 * `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
-TODO
+| `display` | Description |
+|:--- | :--- |
+| `none` | Turns off the display of an item (the item no longer affects the layout of the document). All child items are also no longer displayed. The document is rendered as if the element did not exist in the document tree. |
+| `block` | A `block` box will be generated. |
+| `inline` | One or more inline element boxes are generated. |
+| `inline-block` | A block box is generated, which flows around the surrounding content, as if it were a single inline box. |
+| `table` | Behaves like the `<table>` HTML element. A `block` box will be generated. |
+| `table-row` | Behaves like the `<tr>` HTML element. |
+| `table-cell` | Behaves like the `<td>` HTML element. |
+| `list-item` | It generates a `block` box for the content and a separate inline box for the list items. |
 
 [[↑] Back to top](#css-questions)
 
