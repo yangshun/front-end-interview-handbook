@@ -710,6 +710,14 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
+Or with ES6:
+
+```js
+const duplicate = (arr) => [...arr, ...arr];
+
+duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5] 
+```
+
 [[↑] Back to top](#js-questions)
 
 ### Why is it called a Ternary expression, what does the word "Ternary" indicate?
