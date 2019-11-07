@@ -563,6 +563,10 @@ const template = `<div>My name is: ${name}</div>`;
 
 However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
 
+###### References
+
+* https://www.google.com/about/appsecurity/learning/xss/#WhatIsIt
+
 [[↑] Back to top](#js-questions)
 
 ### Explain "hoisting".
