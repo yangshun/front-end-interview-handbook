@@ -388,9 +388,22 @@ The box model has the following rules:
 
 ### What is the CSS `display` property and can you give a few examples of its use?
 
-* `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
+* `none`, `block`, `inline`, `inline-block`, `flex`, `gird`, `table`, `table-row`, `table-cell`, `list-item`.
 
-TODO
+* none: Hides the element, the element is completely removed
+* block: Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width
+* inline: Displays an element as an inline element (like <span>). Any height and width properties will have no effect
+* inline-block: Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height and width values
+* flex: Displays an element as a block-level flex container
+* grid: Displays an element as a block-level grid container
+* table: Let the element behave like a <table> element
+* table-row: Let the element behave like a <tr> element
+* table-cell: Let the element behave like a <td> element
+* list-item: Let the element behave like a <li> element
+
+###### References
+
+* https://www.w3schools.com/cssref/pr_class_display.asp
 
 [[↑] Back to top](#css-questions)
 
