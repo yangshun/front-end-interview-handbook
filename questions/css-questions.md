@@ -390,20 +390,16 @@ The box model has the following rules:
 
 * `none`, `block`, `inline`, `inline-block`, `flex`, `gird`, `table`, `table-row`, `table-cell`, `list-item`.
 
-* none: Hides the element, the element is completely removed
-* block: Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width
-* inline: Displays an element as an inline element (like <span>). Any height and width properties will have no effect
-* inline-block: Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height and width values
-* flex: Displays an element as a block-level flex container
-* grid: Displays an element as a block-level grid container
-* table: Let the element behave like a <table> element
-* table-row: Let the element behave like a <tr> element
-* table-cell: Let the element behave like a <td> element
-* list-item: Let the element behave like a <li> element
-
-###### References
-
-* https://www.w3schools.com/cssref/pr_class_display.asp
+| `display` | Description |
+|:--- | :--- |
+| `none` | Does not display an element (the elementv no longer affects the layout of the document). All child element are also no longer displayed. The document is rendered as if the element did not exist in the document tree |
+| `block` | The element consumes the whole line in the block direction (which is usually horizontal) |
+| `inline` | Elements can be laid out beside each other |
+| `inline-block` | Similar to `inline`, but allows some `block` properties like setting `width` and `height` |
+| `table` | Behaves like the `<table>` element |
+| `table-row` | Behaves like the `<tr>` element |
+| `table-cell` | Behaves like the `<td>` element |
+| `list-item` | Behaves like a `<li>` element which allows it to define `list-style-type` and `list-style-position` |
 
 [[↑] Back to top](#css-questions)
 
