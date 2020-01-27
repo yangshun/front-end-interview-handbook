@@ -518,6 +518,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 - Dynamic webpages are harder to bookmark.
 - Does not work if JavaScript has been disabled in the browser.
 - Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
+- Webpages using Ajax to fetch data will likely have to combine the fetched remote data with client-side templates to update the DOM. For this to happen, JavaScript will have to be parsed and executed on the browser, and low-end mobile devices might struggle with this.
 - Basically most of the disadvantages of an SPA.
 
 [[↑] Back to top](#js-questions)
