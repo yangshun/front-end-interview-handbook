@@ -2,77 +2,77 @@
 
 本章节是[前端开发者面试问题 - JS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
-* [请解释事件委托（event delegation）。](#请解释事件委托event-delegation)
-* [请简述`JavaScript`中的`this`。](#请简述javascript中的this)
-* [请解释原型继承（prototypal inheritance）的工作原理。](#请解释原型继承prototypal-inheritance的工作原理)
-* [说说你对 AMD 和 CommonJS 的了解。](#说说你对-amd-和-commonjs-的了解)
-* [请解释下面代码为什么不能用作 IIFE：`function foo(){ }();`，需要作出哪些修改才能使其成为 IIFE？](#请解释下面代码为什么不能用作-iifefunction-foo-需要作出哪些修改才能使其成为-iife)
-* [`null`、`undefined`和未声明变量之间有什么区别？如何检查判断这些状态值？](#nullundefined和未声明变量之间有什么区别如何检查判断这些状态值)
-* [什么是闭包（closure），为什么使用闭包？](#什么是闭包closure为什么使用闭包)
-* [请说明`.forEach`循环和`.map()`循环的主要区别，它们分别在什么情况下使用？](#请说明foreach循环和map循环的主要区别它们分别在什么情况下使用)
-* [匿名函数的典型应用场景是什么？](#匿名函数的典型应用场景是什么)
-* [你如何组织自己的代码？（使用模块模式（module pattern）还是经典继承（classical inheritance）？）](#你如何组织自己的代码使用模块模式module-pattern还是经典继承classical-inheritance)
-* [宿主对象（host objects）和原生对象（native objects）的区别是什么？](#宿主对象host-objects和原生对象native-objects的区别是什么)
-* [下列语句有什么区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？](#下列语句有什么区别function-personvar-person--person和var-person--new-person)
-* [`.call`和`.apply`有什么区别？](#call和apply有什么区别)
-* [请说明`Function.prototype.bind`的用法。](#请说明functionprototypebind的用法)
-* [什么时候会用到`document.write()`？](#什么时候会用到documentwrite)
-* [功能检测（feature detection）、功能推断（feature inference）和使用 UA 字符串之间有什么区别？](#功能检测feature-detection功能推断feature-inference和使用-ua-字符串之间有什么区别)
-* [请尽可能详细地解释 Ajax。](#请尽可能详细地解释-ajax)
-* [使用 Ajax 的优缺点分别是什么？](#使用ajax的优缺点分别是什么)
-* [请说明 JSONP 的工作原理，它为什么不是真正的 Ajax？](#请说明-jsonp-的工作原理它为什么不是真正的-ajax)
-* [你使用过 JavaScript 模板吗？用过什么相关的库？](#你使用过-javascript-模板吗用过什么相关的库)
-* [请解释变量提升（hoisting）。](#请解释变量提升hoisting)
-* [请描述事件冒泡。](#请描述事件冒泡)
-* [“attribute” 和 “property” 之间有什么区别？](#attribute-和-property-之间有什么区别)
-* [为什么扩展 JavaScript 内置对象是不好的做法？](#为什么扩展-javascript-内置对象是不好的做法)
-* [document 中的`load`事件和`DOMContentLoaded`事件之间的区别是什么？](#document-中的load事件和domcontentloaded事件之间的区别是什么)
-* [`==`和`===`的区别是什么？](#和的区别是什么)
-* [请解释关于 JavaScript 的同源策略。](#请解释关于-javascript-的同源策略)
-* [请使下面的语句生效：](#请使下面的语句生效)
+- [请解释事件委托（event delegation）。](#请解释事件委托event-delegation)
+- [请简述`JavaScript`中的`this`。](#请简述javascript中的this)
+- [请解释原型继承（prototypal inheritance）的工作原理。](#请解释原型继承prototypal-inheritance的工作原理)
+- [说说你对 AMD 和 CommonJS 的了解。](#说说你对-amd-和-commonjs-的了解)
+- [请解释下面代码为什么不能用作 IIFE：`function foo(){ }();`，需要作出哪些修改才能使其成为 IIFE？](#请解释下面代码为什么不能用作-iifefunction-foo-需要作出哪些修改才能使其成为-iife)
+- [`null`、`undefined`和未声明变量之间有什么区别？如何检查判断这些状态值？](#nullundefined和未声明变量之间有什么区别如何检查判断这些状态值)
+- [什么是闭包（closure），为什么使用闭包？](#什么是闭包closure为什么使用闭包)
+- [请说明`.forEach`循环和`.map()`循环的主要区别，它们分别在什么情况下使用？](#请说明foreach循环和map循环的主要区别它们分别在什么情况下使用)
+- [匿名函数的典型应用场景是什么？](#匿名函数的典型应用场景是什么)
+- [你如何组织自己的代码？（使用模块模式（module pattern）还是经典继承（classical inheritance）？）](#你如何组织自己的代码使用模块模式module-pattern还是经典继承classical-inheritance)
+- [宿主对象（host objects）和原生对象（native objects）的区别是什么？](#宿主对象host-objects和原生对象native-objects的区别是什么)
+- [下列语句有什么区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？](#下列语句有什么区别function-personvar-person--person和var-person--new-person)
+- [`.call`和`.apply`有什么区别？](#call和apply有什么区别)
+- [请说明`Function.prototype.bind`的用法。](#请说明functionprototypebind的用法)
+- [什么时候会用到`document.write()`？](#什么时候会用到documentwrite)
+- [功能检测（feature detection）、功能推断（feature inference）和使用 UA 字符串之间有什么区别？](#功能检测feature-detection功能推断feature-inference和使用-ua-字符串之间有什么区别)
+- [请尽可能详细地解释 Ajax。](#请尽可能详细地解释-ajax)
+- [使用 Ajax 的优缺点分别是什么？](#使用ajax的优缺点分别是什么)
+- [请说明 JSONP 的工作原理，它为什么不是真正的 Ajax？](#请说明-jsonp-的工作原理它为什么不是真正的-ajax)
+- [你使用过 JavaScript 模板吗？用过什么相关的库？](#你使用过-javascript-模板吗用过什么相关的库)
+- [请解释变量提升（hoisting）。](#请解释变量提升hoisting)
+- [请描述事件冒泡。](#请描述事件冒泡)
+- [“attribute” 和 “property” 之间有什么区别？](#attribute-和-property-之间有什么区别)
+- [为什么扩展 JavaScript 内置对象是不好的做法？](#为什么扩展-javascript-内置对象是不好的做法)
+- [document 中的`load`事件和`DOMContentLoaded`事件之间的区别是什么？](#document-中的load事件和domcontentloaded事件之间的区别是什么)
+- [`==`和`===`的区别是什么？](#和的区别是什么)
+- [请解释关于 JavaScript 的同源策略。](#请解释关于-javascript-的同源策略)
+- [请使下面的语句生效：](#请使下面的语句生效)
 
 ```js
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-* [请说明三元表达式中“三元”这个词代表什么？](#请说明三元表达式中三元这个词代表什么)
-* [什么是`"use strict";`？使用它有什么优缺点？](#什么是use-strict使用它有什么优缺点)
-* [创建一个循环，从 1 迭代到 100，`3`的倍数时输出 "fizz"，`5`的倍数时输出 "buzz"，同时为`3`和`5`的倍数时输出 "fizzbuzz"。](#创建一个循环从1迭代到1003的倍数时输出-fizz5的倍数时输出-buzz同时为3和5的倍数时输出-fizzbuzz)
-* [为什么不要使用全局作用域？](#为什么不要使用全局作用域)
-* [为什么要使用`load`事件？这个事件有什么缺点吗？你知道一些代替方案吗，为什么使用它们？](#为什么要使用load事件这个事件有什么缺点吗你知道一些代替方案吗为什么使用它们)
-* [请解释单页应用是什么，如何使其对 SEO 友好。](#请解释单页应用是什么如何使其对seo友好)
-* [你对 Promises 及其 polyfill 的掌握程度如何？](#你对-promises-及其-polyfill-的掌握程度如何)
-* [`Promise`代替回调函数有什么优缺点？](#promise代替回调函数有什么优缺点)
-* [用转译成 JavaScript 的语言写 JavaScript 有什么优缺点？](#用转译成-javascript-的语言写-javascript-有什么优缺点)
-* [你使用什么工具和技巧调试 JavaScript 代码？](#你使用什么工具和技巧调试-javascript-代码)
-* [你使用什么语句遍历对象的属性和数组的元素？](#你使用什么语句遍历对象的属性和数组的元素)
-* [请解释可变对象和不可变对象之间的区别。](#请解释可变对象和不可变对象之间的区别)
-* [请解释同步和异步函数之间的区别。](#请解释同步和异步函数之间的区别)
-* [什么是事件循环？调用堆栈和任务队列之间有什么区别？](#什么是事件循环调用堆栈和任务队列之间有什么区别)
-* [请解释`function foo() {}`和`var foo = function() {}`之间`foo`的用法上的区别。](#请解释function-foo-和var-foo--function-之间foo的用法上的区别)
-* [使用`let`、`var`和`const`创建变量有什么区别？](#使用letvar和const创建变量有什么区别)
-* [ES6 的类和 ES5 的构造函数有什么区别？](#es6-的类和-es5-的构造函数有什么区别)
-* [你能给出一个使用箭头函数的例子吗，箭头函数与其他函数有什么不同？](#你能给出一个使用箭头函数的例子吗箭头函数与其他函数有什么不同)
-* [在构造函数中使用箭头函数有什么好处？](#在构造函数中使用箭头函数有什么好处)
-* [高阶函数（higher-order）的定义是什么？](#高阶函数higher-order的定义是什么)
-* [请给出一个解构（destructuring）对象或数组的例子。](#请给出一个解构destructuring对象或数组的例子)
-* [ES6 的模板字符串为生成字符串提供了很大的灵活性，你可以举个例子吗？](#es6-的模板字符串为生成字符串提供了很大的灵活性你可以举个例子吗)
-* [你能举出一个柯里化函数（curry function）的例子吗？它有哪些好处？](#你能举出一个柯里化函数curry-function的例子吗它有哪些好处)
-* [使用扩展运算符（spread）的好处是什么，它与使用剩余参数语句（rest）有什么区别？](#使用扩展运算符spread的好处是什么它与使用剩余参数语句rest有什么区别)
-* [如何在文件之间共用代码？](#如何在文件之间共用代码)
-* [什么情况下会用到静态类成员？](#什么情况下会用到静态类成员)
+- [请说明三元表达式中“三元”这个词代表什么？](#请说明三元表达式中三元这个词代表什么)
+- [什么是`"use strict";`？使用它有什么优缺点？](#什么是use-strict使用它有什么优缺点)
+- [创建一个循环，从 1 迭代到 100，`3`的倍数时输出 "fizz"，`5`的倍数时输出 "buzz"，同时为`3`和`5`的倍数时输出 "fizzbuzz"。](#创建一个循环从1迭代到1003的倍数时输出-fizz5的倍数时输出-buzz同时为3和5的倍数时输出-fizzbuzz)
+- [为什么不要使用全局作用域？](#为什么不要使用全局作用域)
+- [为什么要使用`load`事件？这个事件有什么缺点吗？你知道一些代替方案吗，为什么使用它们？](#为什么要使用load事件这个事件有什么缺点吗你知道一些代替方案吗为什么使用它们)
+- [请解释单页应用是什么，如何使其对 SEO 友好。](#请解释单页应用是什么如何使其对seo友好)
+- [你对 Promises 及其 polyfill 的掌握程度如何？](#你对-promises-及其-polyfill-的掌握程度如何)
+- [`Promise`代替回调函数有什么优缺点？](#promise代替回调函数有什么优缺点)
+- [用转译成 JavaScript 的语言写 JavaScript 有什么优缺点？](#用转译成-javascript-的语言写-javascript-有什么优缺点)
+- [你使用什么工具和技巧调试 JavaScript 代码？](#你使用什么工具和技巧调试-javascript-代码)
+- [你使用什么语句遍历对象的属性和数组的元素？](#你使用什么语句遍历对象的属性和数组的元素)
+- [请解释可变对象和不可变对象之间的区别。](#请解释可变对象和不可变对象之间的区别)
+- [请解释同步和异步函数之间的区别。](#请解释同步和异步函数之间的区别)
+- [什么是事件循环？调用堆栈和任务队列之间有什么区别？](#什么是事件循环调用堆栈和任务队列之间有什么区别)
+- [请解释`function foo() {}`和`var foo = function() {}`之间`foo`的用法上的区别。](#请解释function-foo-和var-foo--function-之间foo的用法上的区别)
+- [使用`let`、`var`和`const`创建变量有什么区别？](#使用letvar和const创建变量有什么区别)
+- [ES6 的类和 ES5 的构造函数有什么区别？](#es6-的类和-es5-的构造函数有什么区别)
+- [你能给出一个使用箭头函数的例子吗，箭头函数与其他函数有什么不同？](#你能给出一个使用箭头函数的例子吗箭头函数与其他函数有什么不同)
+- [在构造函数中使用箭头函数有什么好处？](#在构造函数中使用箭头函数有什么好处)
+- [高阶函数（higher-order）的定义是什么？](#高阶函数higher-order的定义是什么)
+- [请给出一个解构（destructuring）对象或数组的例子。](#请给出一个解构destructuring对象或数组的例子)
+- [ES6 的模板字符串为生成字符串提供了很大的灵活性，你可以举个例子吗？](#es6-的模板字符串为生成字符串提供了很大的灵活性你可以举个例子吗)
+- [你能举出一个柯里化函数（curry function）的例子吗？它有哪些好处？](#你能举出一个柯里化函数curry-function的例子吗它有哪些好处)
+- [使用扩展运算符（spread）的好处是什么，它与使用剩余参数语句（rest）有什么区别？](#使用扩展运算符spread的好处是什么它与使用剩余参数语句rest有什么区别)
+- [如何在文件之间共用代码？](#如何在文件之间共用代码)
+- [什么情况下会用到静态类成员？](#什么情况下会用到静态类成员)
 
 ### 请解释事件委托（event delegation）。
 
 事件委托是将事件监听器添加到父元素，而不是每个子元素单独设置事件监听器。当触发子元素时，事件会冒泡到父元素，监听器就会触发。这种技术的好处是：
 
-* 内存占用减少，因为只需要一个父元素的事件处理程序，而不必为每个后代都添加事件处理程序。
-* 无需从已删除的元素中解绑处理程序，也无需将处理程序绑定到新元素上。
+- 内存占用减少，因为只需要一个父元素的事件处理程序，而不必为每个后代都添加事件处理程序。
+- 无需从已删除的元素中解绑处理程序，也无需将处理程序绑定到新元素上。
 
 ###### 参考
 
-* https://davidwalsh.name/event-delegate
-* https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
+- https://davidwalsh.name/event-delegate
+- https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
 [[↑] 回到顶部](#js-问题)
 
@@ -91,8 +91,8 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 ###### 参考
 
-* https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
-* https://stackoverflow.com/a/3127440/1751946
+- https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
+- https://stackoverflow.com/a/3127440/1751946
 
 [[↑] 回到顶部](#js-问题)
 
@@ -102,8 +102,8 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 ###### 参考
 
-* https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
-* https://davidwalsh.name/javascript-objects
+- https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
+- https://davidwalsh.name/javascript-objects
 
 [[↑] 回到顶部](#js-问题)
 
@@ -117,8 +117,8 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 ###### 参考
 
-* https://auth0.com/blog/javascript-module-systems-showdown/
-* https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
+- https://auth0.com/blog/javascript-module-systems-showdown/
+- https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
 [[↑] 回到顶部](#js-问题)
 
@@ -139,8 +139,8 @@ console.log(foo); // undefined
 
 ###### 参考
 
-* http://lucybain.com/blog/2014/immediately-invoked-function-expression/
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
+- http://lucybain.com/blog/2014/immediately-invoked-function-expression/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
 [[↑] 回到顶部](#js-问题)
 
@@ -163,7 +163,7 @@ console.log(x); // 1
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === 'undefined'); // true
+console.log(typeof foo === "undefined"); // true
 
 console.log(foo == null); // true. 错误，不要使用非严格相等！
 
@@ -185,8 +185,8 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 ###### 参考
 
-* https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
+- https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
 [[↑] 回到顶部](#js-问题)
 
@@ -196,13 +196,13 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 **为什么使用闭包？**
 
-* 利用闭包实现数据私有化或模拟私有方法。这个方式也称为[模块模式（module pattern）](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)。
-* [部分参数函数（partial applications）柯里化（currying）](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+- 利用闭包实现数据私有化或模拟私有方法。这个方式也称为[模块模式（module pattern）](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)。
+- [部分参数函数（partial applications）柯里化（currying）](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
-* https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+- https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
 [[↑] 回到顶部](#js-问题)
 
@@ -212,9 +212,9 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 **`forEach`**
 
-* 遍历数组中的元素。
-* 为每个元素执行回调。
-* 无返回值。
+- 遍历数组中的元素。
+- 为每个元素执行回调。
+- 无返回值。
 
 ```js
 const a = [1, 2, 3];
@@ -227,8 +227,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
-* 遍历数组中的元素
-* 通过对每个元素调用函数，将每个元素“映射（map）”到一个新元素，从而创建一个新数组。
+- 遍历数组中的元素
+- 通过对每个元素调用函数，将每个元素“映射（map）”到一个新元素，从而创建一个新数组。
 
 ```js
 const a = [1, 2, 3];
@@ -243,7 +243,7 @@ const doubled = a.map(num => {
 
 ###### 参考
 
-* https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+- https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
 [[↑] 回到顶部](#js-问题)
 
@@ -261,7 +261,7 @@ const doubled = a.map(num => {
 
 ```js
 setTimeout(function() {
-  console.log('Hello world!');
+  console.log("Hello world!");
 }, 1000);
 ```
 
@@ -277,8 +277,8 @@ console.log(double); // [2, 4, 6]
 
 ###### 参考
 
-* https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
-* https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
+- https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
+- https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
 [[↑] 回到顶部](#js-问题)
 
@@ -300,7 +300,7 @@ console.log(double); // [2, 4, 6]
 
 ###### 参考
 
-* https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
+- https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
 [[↑] 回到顶部](#js-问题)
 
@@ -317,18 +317,18 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person('John');
+var person = Person("John");
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person('John');
+var person = new Person("John");
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
 [[↑] 回到顶部](#js-问题)
 
@@ -357,7 +357,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 ###### 参考
 
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
 [[↑] 回到顶部](#js-问题)
 
@@ -369,8 +369,8 @@ console.log(add.apply(null, [1, 2])); // 3
 
 ###### 参考
 
-* https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
-* https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
+- https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
+- https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
 [[↑] 回到顶部](#js-问题)
 
@@ -381,7 +381,7 @@ console.log(add.apply(null, [1, 2])); // 3
 功能检测包括确定浏览器是否支持某段代码，以及是否运行不同的代码（取决于它是否执行），以便浏览器始终能够正常运行代码功能，而不会在某些浏览器中出现崩溃和错误。例如：
 
 ```js
-if ('geolocation' in navigator) {
+if ("geolocation" in navigator) {
   // 可以使用 navigator.geolocation
 } else {
   // 处理 navigator.geolocation 功能缺失
@@ -408,9 +408,9 @@ if (document.getElementsByTagName) {
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
-* https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
+- https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
+- https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
 [[↑] 回到顶部](#js-问题)
 
@@ -422,8 +422,8 @@ Ajax（asynchronous JavaScript and XML）是使用客户端上的许多 Web 技�
 
 ###### 参考
 
-* https://en.wikipedia.org/wiki/Ajax_(programming)
-* https://developer.mozilla.org/en-US/docs/AJAX
+- https://en.wikipedia.org/wiki/Ajax_(programming)
+- https://developer.mozilla.org/en-US/docs/AJAX
 
 [[↑] 回到顶部](#js-问题)
 
@@ -431,17 +431,17 @@ Ajax（asynchronous JavaScript and XML）是使用客户端上的许多 Web 技�
 
 **优点**
 
-* 交互性更好。来自服务器的新内容可以动态更改，无需重新加载整个页面。
-* 减少与服务器的连接，因为脚本和样式只需要被请求一次。
-* 状态可以维护在一个页面上。JavaScript 变量和 DOM 状态将得到保持，因为主容器页面未被重新加载。
-* 基本上包括大部分 SPA 的优点。
+- 交互性更好。来自服务器的新内容可以动态更改，无需重新加载整个页面。
+- 减少与服务器的连接，因为脚本和样式只需要被请求一次。
+- 状态可以维护在一个页面上。JavaScript 变量和 DOM 状态将得到保持，因为主容器页面未被重新加载。
+- 基本上包括大部分 SPA 的优点。
 
 **缺点**
 
-* 动态网页很难收藏。
-* 如果 JavaScript 已在浏览器中被禁用，则不起作用。
-* 有些网络爬虫不执行 JavaScript，也不会看到 JavaScript 加载的内容。
-* 基本上包括大部分 SPA 的缺点。
+- 动态网页很难收藏。
+- 如果 JavaScript 已在浏览器中被禁用，则不起作用。
+- 有些网络爬虫不执行 JavaScript，也不会看到 JavaScript 加载的内容。
+- 基本上包括大部分 SPA 的缺点。
 
 [[↑] 回到顶部](#js-问题)
 
@@ -454,9 +454,9 @@ JSONP 通过`<script>`标签发送跨域请求，通常使用`callback`查询参
 ```html
 <!-- https://mydomain.com -->
 <script>
-function printData(data) {
-  console.log(`My name is ${data.name}!`);
-}
+  function printData(data) {
+    console.log(`My name is ${data.name}!`);
+  }
 </script>
 
 <script src="https://example.com?callback=printData"></script>
@@ -464,7 +464,7 @@ function printData(data) {
 
 ```js
 // 文件加载自 https://example.com?callback=printData
-printData({ name: 'Yang Shun' });
+printData({ name: "Yang Shun" });
 ```
 
 客户端必须在其全局范围内具有`printData`函数，并且在收到来自跨域的响应时，该函数将由客户端执行。
@@ -475,7 +475,7 @@ JSONP 可能具有一些安全隐患。由于 JSONP 是纯 JavaScript 实现，�
 
 ###### 参考
 
-* https://stackoverflow.com/a/2067584/1751946
+- https://stackoverflow.com/a/2067584/1751946
 
 [[↑] 回到顶部](#js-问题)
 
@@ -514,7 +514,7 @@ console.log(bar); // 2
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log('FOOOOO');
+  console.log("FOOOOO");
 }
 console.log(foo); // [Function: foo]
 
@@ -522,7 +522,7 @@ console.log(foo); // [Function: foo]
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
 var bar = function() {
-  console.log('BARRRR');
+  console.log("BARRRR");
 };
 console.log(bar); // [Function: bar]
 ```
@@ -540,21 +540,21 @@ console.log(bar); // [Function: bar]
 “Attribute” 是在 HTML 中定义的，而 “property” 是在 DOM 上定义的。为了说明区别，假设我们在 HTML 中有一个文本框：`<input type="text" value="Hello">`。
 
 ```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Hello
+const input = document.querySelector("input");
+console.log(input.getAttribute("value")); // Hello
 console.log(input.value); // Hello
 ```
 
 但是在文本框中键入“ World!”后:
 
 ```js
-console.log(input.getAttribute('value')); // Hello
+console.log(input.getAttribute("value")); // Hello
 console.log(input.value); // Hello World!
 ```
 
 ###### 参考
 
-* https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
+- https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
 [[↑] 回到顶部](#js-问题)
 
@@ -566,7 +566,7 @@ console.log(input.value); // Hello World!
 
 ###### 参考
 
-* http://lucybain.com/blog/2014/js-extending-built-in-objects/
+- http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
 [[↑] 回到顶部](#js-问题)
 
@@ -578,8 +578,8 @@ console.log(input.value); // Hello World!
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
-* https://developer.mozilla.org/en-US/docs/Web/Events/load
+- https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
+- https://developer.mozilla.org/en-US/docs/Web/Events/load
 
 [[↑] 回到顶部](#js-问题)
 
@@ -588,11 +588,11 @@ console.log(input.value); // Hello World!
 `==`是抽象相等运算符，而`===`是严格相等运算符。`==`运算符是在进行必要的类型转换后，再比较。`===`运算符不会进行类型转换，所以如果两个值不是相同的类型，会直接返回`false`。使用`==`时，可能发生一些特别的事情，例如：
 
 ```js
-1 == '1'; // true
+1 == "1"; // true
 1 == [1]; // true
 1 == true; // true
-0 == ''; // true
-0 == '0'; // true
+0 == ""; // true
+0 == "0"; // true
 0 == false; // true
 ```
 
@@ -606,7 +606,7 @@ console.log(a == undefined); // true
 
 ###### 参考
 
-* https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
+- https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
 [[↑] 回到顶部](#js-问题)
 
@@ -616,7 +616,7 @@ console.log(a == undefined); // true
 
 ###### 参考
 
-* https://en.wikipedia.org/wiki/Same-origin_policy
+- https://en.wikipedia.org/wiki/Same-origin_policy
 
 [[↑] 回到顶部](#js-问题)
 
@@ -642,7 +642,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 ###### 参考
 
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
 [[↑] 回到顶部](#js-问题)
 
@@ -652,26 +652,26 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 **优点：**
 
-* 无法再意外创建全局变量。
-* 会使引起静默失败（silently fail，即：不报错也没有任何效果）的赋值操抛出异常。
-* 试图删除不可删除的属性时会抛出异常（之前这种操作不会产生任何效果）。
-* 要求函数的参数名唯一。
-* 全局作用域下，`this`的值为`undefined`。
-* 捕获了一些常见的编码错误，并抛出异常。
-* 禁用令人困惑或欠佳的功能。
+- 无法再意外创建全局变量。
+- 会使引起静默失败（silently fail，即：不报错也没有任何效果）的赋值操抛出异常。
+- 试图删除不可删除的属性时会抛出异常（之前这种操作不会产生任何效果）。
+- 要求函数的参数名唯一。
+- 全局作用域下，`this`的值为`undefined`。
+- 捕获了一些常见的编码错误，并抛出异常。
+- 禁用令人困惑或欠佳的功能。
 
 **缺点：**
 
-* 缺失许多开发人员已经习惯的功能。
-* 无法访问`function.caller`和`function.arguments`。
-* 以不同严格模式编写的脚本合并后可能导致问题。
+- 缺失许多开发人员已经习惯的功能。
+- 无法访问`function.caller`和`function.arguments`。
+- 以不同严格模式编写的脚本合并后可能导致问题。
 
 总的来说，我认为利大于弊，我从来不使用严格模式禁用的功能，因此我推荐使用严格模式。
 
 ###### 参考
 
-* http://2ality.com/2011/10/strict-mode-hatred.html
-* http://lucybain.com/blog/2014/js-use-strict/
+- http://2ality.com/2011/10/strict-mode-hatred.html
+- http://lucybain.com/blog/2014/js-use-strict/
 
 [[↑] 回到顶部](#js-问题)
 
@@ -683,7 +683,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
+  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
 }
 ```
 
@@ -691,7 +691,7 @@ for (let i = 1; i <= 100; i++) {
 
 ###### 参考
 
-* https://gist.github.com/jaysonrowe/1592432
+- https://gist.github.com/jaysonrowe/1592432
 
 [[↑] 回到顶部](#js-问题)
 
@@ -711,7 +711,7 @@ TODO.
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
+- https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
 [[↑] 回到顶部](#js-问题)
 
@@ -725,22 +725,22 @@ TODO.
 
 **好处：**
 
-* 用户感知响应更快，用户切换页面时，不再看到因页面刷新而导致的白屏。
-* 对服务器进行的 HTTP 请求减少，因为对于每个页面加载，不必再次下载相同的资源。
-* 客户端和服务器之间的关注点分离。可以为不同平台（例如手机、聊天机器人、智能手表）建立新的客户端，而无需修改服务器代码。只要 API 没有修改，可以单独修改客户端和服务器上的代码。
+- 用户感知响应更快，用户切换页面时，不再看到因页面刷新而导致的白屏。
+- 对服务器进行的 HTTP 请求减少，因为对于每个页面加载，不必再次下载相同的资源。
+- 客户端和服务器之间的关注点分离。可以为不同平台（例如手机、聊天机器人、智能手表）建立新的客户端，而无需修改服务器代码。只要 API 没有修改，可以单独修改客户端和服务器上的代码。
 
 **坏处：**
 
-* 由于加载了多个页面所需的框架、应用代码和资源，导致初始页面加载时间较长。
-* 服务器还需要进行额外的工作，需要将所有请求路由配置到单个入口点，然后由客户端接管路由。
-* SPA 依赖于 JavaScript 来呈现内容，但并非所有搜索引擎都在抓取过程中执行 JavaScript，他们可能会在你的页面上看到空的内容。这无意中损害了应用的搜索引擎优化（SEO）。然而，当你构建应用时，大多数情况下，搜索引擎优化并不是最重要的因素，因为并非所有内容都需要通过搜索引擎进行索引。为了解决这个问题，可以在服务器端渲染你的应用，或者使用诸如 [Prerender](https://prerender.io/) 的服务来“在浏览器中呈现你的 javascript，保存静态 HTML，并将其返回给爬虫”。
+- 由于加载了多个页面所需的框架、应用代码和资源，导致初始页面加载时间较长。
+- 服务器还需要进行额外的工作，需要将所有请求路由配置到单个入口点，然后由客户端接管路由。
+- SPA 依赖于 JavaScript 来呈现内容，但并非所有搜索引擎都在抓取过程中执行 JavaScript，他们可能会在你的页面上看到空的内容。这无意中损害了应用的搜索引擎优化（SEO）。然而，当你构建应用时，大多数情况下，搜索引擎优化并不是最重要的因素，因为并非所有内容都需要通过搜索引擎进行索引。为了解决这个问题，可以在服务器端渲染你的应用，或者使用诸如 [Prerender](https://prerender.io/) 的服务来“在浏览器中呈现你的 javascript，保存静态 HTML，并将其返回给爬虫”。
 
 ###### 参考
 
-* https://github.com/grab/front-end-guide#single-page-apps-spas
-* http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
-* http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
-* https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
+- https://github.com/grab/front-end-guide#single-page-apps-spas
+- http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
+- http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
+- https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
 [[↑] 回到顶部](#js-问题)
 
@@ -752,7 +752,7 @@ TODO.
 
 ###### 参考
 
-* https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+- https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
 [[↑] 回到顶部](#js-问题)
 
@@ -760,14 +760,14 @@ TODO.
 
 **优点：**
 
-* 避免可读性极差的回调地狱。
-* 使用`.then()`编写的顺序异步代码，既简单又易读。
-* 使用`Promise.all()`编写并行异步代码变得很容易。
+- 避免可读性极差的回调地狱。
+- 使用`.then()`编写的顺序异步代码，既简单又易读。
+- 使用`Promise.all()`编写并行异步代码变得很容易。
 
 **缺点：**
 
-* 轻微地增加了代码的复杂度（这点存在争议）。
-* 在不支持 ES2015 的旧版浏览器中，需要引入 polyfill 才能使用。
+- 轻微地增加了代码的复杂度（这点存在争议）。
+- 在不支持 ES2015 的旧版浏览器中，需要引入 polyfill 才能使用。
 
 [[↑] 回到顶部](#js-问题)
 
@@ -778,44 +778,44 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 **优点：**
 
-* 修复了 JavaScript 中的一些长期问题，并摒弃了 JavaScript 不好的做法。
-* 在 JavaScript 的基础上提供一些语法糖，使我们能够编写更短的代码，我认为 ES5 缺乏语法糖的支持，但 ES2015 非常好。
-* 对于需要长时间维护的大型项目，静态类型非常好用（针对 TypeScript）。
+- 修复了 JavaScript 中的一些长期问题，并摒弃了 JavaScript 不好的做法。
+- 在 JavaScript 的基础上提供一些语法糖，使我们能够编写更短的代码，我认为 ES5 缺乏语法糖的支持，但 ES2015 非常好。
+- 对于需要长时间维护的大型项目，静态类型非常好用（针对 TypeScript）。
 
 **缺点：**
 
-* 由于浏览器只运行 JavaScript，所以需要构建、编译过程，在将代码提供给浏览器之前，需要将代码转译为 JavaScript。
-* 如果 source map 不能很好地映射到预编译的源代码，调试会很痛苦。
-* 大多数开发人员不熟悉这些语言，需要学习它。如果将其用于项目，会增加团队成本。
-* 社区比较小（取决于语言），这意味着资源、教程、图书和工具难以找到。
-* 可能缺乏 IDE（编辑器）的支持。
-* 这些语言将始终落后于最新的 JavaScript 标准。
-* 开发人员应该清楚代码正在被编译到什么地方——因为这是实际运行的内容，是最重要的。
+- 由于浏览器只运行 JavaScript，所以需要构建、编译过程，在将代码提供给浏览器之前，需要将代码转译为 JavaScript。
+- 如果 source map 不能很好地映射到预编译的源代码，调试会很痛苦。
+- 大多数开发人员不熟悉这些语言，需要学习它。如果将其用于项目，会增加团队成本。
+- 社区比较小（取决于语言），这意味着资源、教程、图书和工具难以找到。
+- 可能缺乏 IDE（编辑器）的支持。
+- 这些语言将始终落后于最新的 JavaScript 标准。
+- 开发人员应该清楚代码正在被编译到什么地方——因为这是实际运行的内容，是最重要的。
 
 实际上，ES2015 已经大大改进了 JavaScript，编写体验很好。我现在还没有真正看到对 CoffeeScript 的需求。
 
 ###### 参考
 
-* https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
+- https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
 [[↑] 回到顶部](#js-问题)
 
 ### 你使用什么工具和技巧调试 JavaScript 代码？
 
-* React 和 Redux
-  * [React Devtools](https://github.com/facebook/react-devtools)
-  * [Redux Devtools](https://github.com/gaearon/redux-devtools)
-* Vue
-  * [Vue Devtools](https://github.com/vuejs/vue-devtools)
-* JavaScript
-  * [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
-  * `debugger`声明
-  * 使用万金油`console.log`进行调试
+- React 和 Redux
+  - [React Devtools](https://github.com/facebook/react-devtools)
+  - [Redux Devtools](https://github.com/gaearon/redux-devtools)
+- Vue
+  - [Vue Devtools](https://github.com/vuejs/vue-devtools)
+- JavaScript
+  - [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
+  - `debugger`声明
+  - 使用万金油`console.log`进行调试
 
 ###### 参考
 
-* https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
-* https://raygun.com/blog/javascript-debugging/
+- https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
+- https://raygun.com/blog/javascript-debugging/
 
 [[↑] 回到顶部](#js-问题)
 
@@ -823,14 +823,14 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 **对象：**
 
-* `for`循环：`for (var property in obj) { console.log(property); }`。但是，这还会遍历到它的继承属性，在使用之前，你需要加入`obj.hasOwnProperty(property)`检查。
-* `Object.keys()`：`Object.keys(obj).forEach(function (property) { ... })`。`Object.keys()`方法会返回一个由一个给定对象的自身可枚举属性组成的数组。
-* `Object.getOwnPropertyNames()`：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。`Object.getOwnPropertyNames()`方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括 Symbol 值作为名称的属性）组成的数组。
+- `for`循环：`for (var property in obj) { console.log(property); }`。但是，这还会遍历到它的继承属性，在使用之前，你需要加入`obj.hasOwnProperty(property)`检查。
+- `Object.keys()`：`Object.keys(obj).forEach(function (property) { ... })`。`Object.keys()`方法会返回一个由一个给定对象的自身可枚举属性组成的数组。
+- `Object.getOwnPropertyNames()`：`Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`。`Object.getOwnPropertyNames()`方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括 Symbol 值作为名称的属性）组成的数组。
 
 **数组：**
 
-* `for` loops：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是`var`是函数作用域而不是块级作用域，大多数时候你想要迭代变量在块级作用域中。ES2015 引入了具有块级作用域的`let`，建议使用它。所以就变成了：`for (let i = 0; i < arr.length; i++)`。
-* `forEach`：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，因为如果你所需要的只是数组元素，你不必使用`index`。还有`every`和`some`方法可以让你提前终止遍历。
+- `for` loops：`for (var i = 0; i < arr.length; i++)`。这里的常见错误是`var`是函数作用域而不是块级作用域，大多数时候你想要迭代变量在块级作用域中。ES2015 引入了具有块级作用域的`let`，建议使用它。所以就变成了：`for (let i = 0; i < arr.length; i++)`。
+- `forEach`：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，因为如果你所需要的只是数组元素，你不必使用`index`。还有`every`和`some`方法可以让你提前终止遍历。
 
 大多数情况下，我更喜欢`.forEach`方法，但这取决于你想要做什么。`for`循环有更强的灵活性，比如使用`break`提前终止循环，或者递增步数大于一。
 
@@ -838,9 +838,9 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 ### 请解释可变对象和不可变对象之间的区别。
 
-* 什么是 JavaScript 中的不可变对象的例子？
-* 不变性有什么优点和缺点？
-* 你如何在自己的代码中实现不变性？
+- 什么是 JavaScript 中的不可变对象的例子？
+- 不变性有什么优点和缺点？
+- 你如何在自己的代码中实现不变性？
 
 **_可变对象_** 在创建之后是可以被改变的。
 
@@ -852,20 +852,20 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 ```js
 const student1 = {
-  school: 'Baidu',
-  name: 'HOU Ce',
-  birthdate: '1995-12-15',
+  school: "Baidu",
+  name: "HOU Ce",
+  birthdate: "1995-12-15"
 };
 
 const changeStudent = (student, newName, newBday) => {
   return {
     ...student, // 使用解构
     name: newName, // 覆盖name属性
-    birthdate: newBday, // 覆盖birthdate属性
+    birthdate: newBday // 覆盖birthdate属性
   };
 };
 
-const student2 = changeStudent(student1, 'YAN Haijing', '1990-11-10');
+const student2 = changeStudent(student1, "YAN Haijing", "1990-11-10");
 
 // both students will have the name properties
 console.log(student1, student2);
@@ -875,9 +875,9 @@ console.log(student1, student2);
 
 ###### 参考
 
-* https://juejin.im/post/58d0ff6f1b69e6006b8fd4e9
-* https://www.interviewcake.com/concept/java/mutable
-* https://www.sitepoint.com/immutability-javascript/
+- https://juejin.im/post/58d0ff6f1b69e6006b8fd4e9
+- https://www.interviewcake.com/concept/java/mutable
+- https://www.sitepoint.com/immutability-javascript/
 
 [[↑] 回到顶部](#js-问题)
 
@@ -897,8 +897,8 @@ console.log(student1, student2);
 
 ###### 参考
 
-* https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
-* http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
+- https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
+- http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
 [[↑] 回到顶部](#js-问题)
 
@@ -911,7 +911,7 @@ console.log(student1, student2);
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log('FOOOOO');
+  console.log("FOOOOO");
 }
 ```
 
@@ -920,13 +920,13 @@ function foo() {
 ```js
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function() {
-  console.log('FOOOOO');
+  console.log("FOOOOO");
 };
 ```
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
 [[↑] 回到顶部](#js-问题)
 
@@ -937,9 +937,9 @@ var foo = function() {
 ```js
 function foo() {
   // 所有变量在函数中都可访问
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
 
   console.log(bar); // bar
   console.log(baz); // baz
@@ -953,9 +953,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
 }
 
 // 用 var 声明的变量在函数作用域上都可访问
@@ -970,45 +970,45 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = 'foo';
+var foo = "foo";
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = 'baz';
+let baz = "baz";
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = 'bar';
+const bar = "bar";
 ```
 
 用`var`重复声明不会报错，但`let`和`const`会。
 
 ```js
-var foo = 'foo';
-var foo = 'bar';
+var foo = "foo";
+var foo = "bar";
 console.log(foo); // "bar"
 
-let baz = 'baz';
-let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = "baz";
+let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let`和`const`的区别在于：`let`允许多次赋值，而`const`只允许一次。
 
 ```js
 // 这样不会报错。
-let foo = 'foo';
-foo = 'bar';
+let foo = "foo";
+foo = "bar";
 
 // 这样会报错。
-const baz = 'baz';
-baz = 'qux';
+const baz = "baz";
+baz = "qux";
 ```
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1032,7 +1032,7 @@ class Person {
 
 对于简单的构造函数而言，他们看起来很相似。
 
-他们的主要区别体现在类继承上。如果我们想要创建一个继承于 `Person` 父类的 `Student` 子类，并且添加一个 `studentId`  字段，我们需要做的修改如下：
+他们的主要区别体现在类继承上。如果我们想要创建一个继承于 `Person` 父类的 `Student` 子类，并且添加一个 `studentId` 字段，我们需要做的修改如下：
 
 ```js
 // ES5 构造函数
@@ -1060,8 +1060,8 @@ class Student extends Person {
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
-* https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
+- https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1078,12 +1078,16 @@ class Student extends Person {
 ```js
 const Person = function(firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() { console.log(this.firstName); };
-  this.sayName2 = () => { console.log(this.firstName); };
+  this.sayName1 = function() {
+    console.log(this.firstName);
+  };
+  this.sayName2 = () => {
+    console.log(this.firstName);
+  };
 };
 
-const john = new Person('John');
-const dave = new Person('Dave');
+const john = new Person("John");
+const dave = new Person("Dave");
 
 john.sayName1(); // John
 john.sayName2(); // John
@@ -1122,7 +1126,7 @@ sayNameFromWindow2(); // John
 假设我们有一个由名字组成的数组，我们需要将每个字符转换为大写字母。
 
 ```js
-const names = ['irish', 'daisy', 'anna'];
+const names = ["irish", "daisy", "anna"];
 ```
 
 不使用高阶函数的方法是这样：
@@ -1149,9 +1153,9 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ###### 参考
 
-* https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
-* https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
-* https://eloquentjavascript.net/05_higher_order.html
+- https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
+- https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
+- https://eloquentjavascript.net/05_higher_order.html
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1163,7 +1167,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ```js
 // 变量赋值
-const foo = ['one', 'two', 'three'];
+const foo = ["one", "two", "three"];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1194,8 +1198,8 @@ console.log(q); // true
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-* https://ponyfoo.com/articles/es6-destructuring-in-depth
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://ponyfoo.com/articles/es6-destructuring-in-depth
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1230,12 +1234,12 @@ console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 ```js
 //show函数采用rest参数的写法如下：
 
-let name = '张三',
+let name = "张三",
   age = 20,
   message = show`我来给大家介绍:${name}的年龄是${age}.`;
 
 function show(stringArr, ...values) {
-  let output = '';
+  let output = "";
 
   let index = 0;
 
@@ -1253,7 +1257,7 @@ message; //"我来给大家介绍:张三的年龄是20."
 
 ###### 参考
 
-* https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1291,7 +1295,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ###### 参考
 
-* https://hackernoon.com/currying-in-js-d9ddc64f162e
+- https://hackernoon.com/currying-in-js-d9ddc64f162e
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1301,14 +1305,14 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, 'dookie'];
+  return [...arr, "dookie"];
 }
 
-const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
+const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
 
 const person = {
-  name: 'Todd',
-  age: 29,
+  name: "Todd",
+  age: 29
 };
 
 const copyOfTodd = { ...person };
@@ -1329,15 +1333,15 @@ const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4,
+  h: 4
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
 [[↑] 回到顶部](#js-问题)
 
@@ -1355,9 +1359,9 @@ ES2015 定义了一个模块语法，旨在替换 AMD 和 CommonJS。 这最终�
 
 ###### 参考
 
-* http://requirejs.org/docs/whyamd.html
-* https://nodejs.org/docs/latest/api/modules.html
-* http://2ality.com/2014/09/es6-modules-final.html
+- http://requirejs.org/docs/whyamd.html
+- https://nodejs.org/docs/latest/api/modules.html
+- http://2ality.com/2014/09/es6-modules-final.html
 
 ### 什么情况下会用到静态类成员？
 
@@ -1365,10 +1369,10 @@ ES2015 定义了一个模块语法，旨在替换 AMD 和 CommonJS。 这最终�
 
 ###### 参考
 
-* https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
+- https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
 [[↑] 回到顶部](#js-问题)
 
 ### 其他答案
 
-* http://flowerszhong.github.io/2013/11/20/javascript-questions.html
+- http://flowerszhong.github.io/2013/11/20/javascript-questions.html

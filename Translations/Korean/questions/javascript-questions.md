@@ -2,6 +2,7 @@
 
 [프론트엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md)에 대한 해설입니다. Pull Request를 통한 제안, 수정 요청 환영합니다.
 
+
 - [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
 - [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
 - [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
@@ -846,7 +847,7 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 ```js
 const arr = ['a', 'b', 'c'];
 
-for (let [index, elem] of arr.entries()) { 
+for (let [index, elem] of arr.entries()) {
   console.log(index, ': ', elem);
 }
 ```
@@ -1054,7 +1055,7 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 
 ### 새 화살표 => 함수 문법에 대한 사용 예시를 들 수 있나요? 이 새로운 문법은 다른 함수와 어떻게 다른가요?
 
-화살표 함수의 한 가지 분명한 이점은 `function` 키워드를 사용하지 않고도 함수를 생성하는데 필요한 문법을 단순화하는 것입니다. 
+화살표 함수의 한 가지 분명한 이점은 `function` 키워드를 사용하지 않고도 함수를 생성하는데 필요한 문법을 단순화하는 것입니다.
 
 또한, 화살표 함수 내의 `this`는, `this`가 함수를 호출하는 객체에 의해 결정되는 일반 함수와 다르게, 주변 스코프에에 묶입니다.
 
@@ -1105,7 +1106,7 @@ sayNameFromWindow2(); // John
 이는 특히 React 클래스 컴포넌트에서 유용할 수 있습니다. 일반 함수를 사용하는 클릭 핸들러와 같은 클래스 메소드를 정의한 다음, 해당 클릭 핸들러를 하위 컴포넌트의 prop으로 전달하면 상위 컴포넌트의 생성자에서 `this`도 바인드해야합니다.
 
 대신 화살표 함수를 사용하면, 메소드가 `this`값을 주위 렉시컬 컨텍스트에서 자동으로 가져오기 때문에 `this`를 바인딩할 필요가 없습니다.
- 
+
 (좋은 데모, 샘플 코드는 [이 기사](https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)를 참조하세요.)
 
 ###### 참고자료

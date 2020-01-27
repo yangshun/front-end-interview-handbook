@@ -29,14 +29,14 @@
 
 ## 各国語版
 
-* [English](/README.md)
-* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
-* [Tagalog](/Translations/Tagalog/README.md)
-* [Japanese (日本語)](/Translations/Japanese/README.md)
+- [English](/README.md)
+- [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+- [Tagalog](/Translations/Tagalog/README.md)
+- [Japanese (日本語)](/Translations/Japanese/README.md)
 
 **製作中**
 
-* [Korean (한국어)](/Translations/Korean/README.md)
+- [Korean (한국어)](/Translations/Korean/README.md)
 
 ## 関連情報
 

@@ -2,37 +2,37 @@
 
 Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga Katanungan sa CSS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Malugod na tatanggapin ang mga Pull request para sa mga suhestyon at mga koreksyon!
 
-* [Ano ang pagsisigurado ng CSS selector at kung paano ito gumagana?](#ano-ang-pagsisigurado-ng-css-selector-at-kung-paano-ito-gumagana)
-* [Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?](#ano-ang-pagkakaiba-sa-pagitan-ng-pag-reset-at-pag-normalize-ng-css-saan-sa-dalawa-ang-iyong-pipiliin-at-bakit)
-* [Ilarawan ang mga `float` at kung paano sila gumagana.](#ilarawan-ang-mga-float-at-kung-paano-sila-gumagana)
-* [Ilarawan ang z-index at kung papaano nabuo ang konteksto.](iIlarawan-ang-z-index-at-kung-papaano-nabuo-ang-konteksto)
-* [Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.](#ilarawan-ang-bfk-block-formatting-na-konteksto-at-papaaano-ito-gumagana)
-* [Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?](#ano-ang-ibat-ibang-teknik-ng-paglilinis-at-kung-ano-ang-nararapat-sa-kung-ano-ang-konteksto)
-* [Ipaliwanag ang mga CSS na sprite, at papaano mo ipapatupad ang mga ito sa isang pahina o site.](#ipaliwanag-ang-mga-css-na-sprite-at-papaano-mo-ipapatupad-ang-mga-ito-sa-isang-pahina-o-site)
-* [Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?](#papaano-mo-didiskartehan-ang-pag-aayos-ng-mga-ispisipik-sa-browser-na-pag-eestilo-na-isyu)
-* [Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?](#papaano-mo-inahahanda-ang-iyong-mga-pahina-para-sa-mga-browser-na-kulang-sa-tampok-ano-ano-ang-mga-teknik-or-proseso-ang-iyong-ginagamit)
-* [Ano-ano ang mga iba't ibang pamamaraan upang matago ang nakatagong nilalaman (at gawan ng paraan na ito ay magagamit lamang ng mga mambabasa ng iskrin)?](#ano-ano-ang-mga-ibat-ibang-pamamaraan-upang-matago-ang-nakatagong-nilalaman-at-gawan-ng-paraan-na-ito-ay-magagamit-lamang-ng-mga-mambabasa-ng-iskrin)
-* [Ikaw ba ay nakagamit kailanman ng sistemang grid?, at kung gayon, Ano ang iyong mas pipiliin?](#ikaw-ba-ay-nakagamit-kailanman-ng-sistemang-grid-at-kung-gayon-ano-ang-iyong-mas-pipiliin)
-* [Ikaw ba ay nakagamit oh nakapagpatupad na ng mga query sa mobile o mga layout na espisipik sa mobile/CSS?](#ikaw-ba-ay-nakagamit-oh-nakapagpatupad-na-ng-mga-query-sa-mobile-o-mga-layout-na-espisipik-sa-mobilecss)
-* [Ikaw ba ay pamilyar sa estilong SVG?](#ikaw-ba-ay-pamilyar-sa-estilong-svg)
-* [Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?](#makapagbibigay-kaba-ng-halimbawa-ng-klase-ng-media-maliban-sa-iskrin)
-* [Ano-ano ang ilan sa mga "pasabog" para sa epektibong pagsusulat ng CSS?](#ano-ano-ang-ilan-sa-mga-pasabog-para-sa-epektibong-pagsusulat-ng-css)
-* [Ano ang mga pakinabang o di-pakinabang ng paggamit ng mga preprocessors ng CSS?](#ano-ang-mga-pakinabang-o-di-pakinabang-ng-paggamit-ng-mga-preprocessors-ng-css)
-* [Ilarawan kung ano ang iyong gusto at di gusto tungkol sa CSS na mga preprocessor na iyong nagamit.](#ilarawan-kung-ano-ang-iyong-gusto-at-di-gusto-tungkol-sa-css-na-mga-preprocessor-na-iyong-nagamit)
-* [Papaano mo ipapatupad ang isang web design comp na gumagamit ng mga di pangkaraniwang font?](#papaano-mo-ipapatupad-ang-isang-web-design-comp-na-gumagamit-ng-mga-di-pangkaraniwang-font)
-* [Ipaliwanag kung paano tinutukoy ng isang browser kung anu-anong mga elemento ang tumutugma sa tagapili ng CSS.](#ipaliwanag-kung-paano-tinutukoy-ng-isang-browser-kung-anu-anong-mga-elemento-ang-tumutugma-sa-tagapili-ng-css)
-* [Ilarawan ang mga elementong pseudo at talakayin kung para saan ito gagamitin.](#ilarawan-ang-mga-elementong-pseudo-at-talakayin-kung-para-saan-ito-gagamitin)
-* [Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.](#ipaliwanag-ang-iyong-pagkakaintindi-sa-modelong-kahon-at-papaano-mo-pagsasabihan-ang-browser-sa-css-na-mag-render-ng-iyong-layout-sa-ibat-ibang-modelo-ng-kahon)
-* [Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?](#ano-ang-ginagawa-ng---box-sizing-border-box--anu-ano-ang-mga-pakinabang-nito)
-* [Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?](#ano-ang-katangian-ng-css-na-display-at-pwede-ka-bang-magbigay-ng-ilang-mga-halimbawa-ng-paggamit-nito)
-* [Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?](#ano-ang-pagkakaiba-sa-pagitan-ng-inline-at-inline-block)
-* [Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?](#ano-ang-pagkakaiba-sa-pagitan-ng-relative-fixed-absolute-at-elementong-nakaposisyong-panig-sa-static)
-* [Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?](#ano-ang-mga-umiiral-na-framework-ng-css-na-ginamit-mo-ng-lokal-o-kaya-naman-ay-sa-produksyon-papaano-mo-babaguhin-o-mapapabuti-ang-mga-ito)
-* [Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid na specs?](#ikaw-ba-ay-nakapaglaro-na-sa-paligid-ng-bagong-css-flexbox-o-grid-na-specs)
-* [Maipapaliwanag mo ba ang kaibahan sa pagitan ng pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?](#maipapaliwanag-mo-ba-ang-kaibahan-sa-pagitan-ng-pag-code-ng-isang-web-site-na-tumutugon-kumpara-sa-paggamit-ng-diskarteng-mobile-ang-una)
-* [Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?](#sa-anong-paraan-naiiba-ang-disenyo-ng-tumutugon-mula-sa-disenyo-ng-umaangkop)
-* [Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?](#ikaw-ba-ay-nakagamit-na-ng-mga-grapikong-retina-kung-gayon-kelan-at-anu-anong-mga-teknik-ang-iyong-ginamit)
-* [May kadahilanan ba na nais mong gamitin ang `translate()` kesa sa `absolute` na pag-poposisyon, o kabaliktaran? at bakit?](#may-kadahilanan-ba-na-nais-mong-gamitin-ang-translate-kesa-sa-absolute-na-pag-poposisyon-o-kabaliktaran-at-bakit)
+- [Ano ang pagsisigurado ng CSS selector at kung paano ito gumagana?](#ano-ang-pagsisigurado-ng-css-selector-at-kung-paano-ito-gumagana)
+- [Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?](#ano-ang-pagkakaiba-sa-pagitan-ng-pag-reset-at-pag-normalize-ng-css-saan-sa-dalawa-ang-iyong-pipiliin-at-bakit)
+- [Ilarawan ang mga `float` at kung paano sila gumagana.](#ilarawan-ang-mga-float-at-kung-paano-sila-gumagana)
+- [Ilarawan ang z-index at kung papaano nabuo ang konteksto.](iIlarawan-ang-z-index-at-kung-papaano-nabuo-ang-konteksto)
+- [Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.](#ilarawan-ang-bfk-block-formatting-na-konteksto-at-papaaano-ito-gumagana)
+- [Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?](#ano-ang-ibat-ibang-teknik-ng-paglilinis-at-kung-ano-ang-nararapat-sa-kung-ano-ang-konteksto)
+- [Ipaliwanag ang mga CSS na sprite, at papaano mo ipapatupad ang mga ito sa isang pahina o site.](#ipaliwanag-ang-mga-css-na-sprite-at-papaano-mo-ipapatupad-ang-mga-ito-sa-isang-pahina-o-site)
+- [Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?](#papaano-mo-didiskartehan-ang-pag-aayos-ng-mga-ispisipik-sa-browser-na-pag-eestilo-na-isyu)
+- [Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?](#papaano-mo-inahahanda-ang-iyong-mga-pahina-para-sa-mga-browser-na-kulang-sa-tampok-ano-ano-ang-mga-teknik-or-proseso-ang-iyong-ginagamit)
+- [Ano-ano ang mga iba't ibang pamamaraan upang matago ang nakatagong nilalaman (at gawan ng paraan na ito ay magagamit lamang ng mga mambabasa ng iskrin)?](#ano-ano-ang-mga-ibat-ibang-pamamaraan-upang-matago-ang-nakatagong-nilalaman-at-gawan-ng-paraan-na-ito-ay-magagamit-lamang-ng-mga-mambabasa-ng-iskrin)
+- [Ikaw ba ay nakagamit kailanman ng sistemang grid?, at kung gayon, Ano ang iyong mas pipiliin?](#ikaw-ba-ay-nakagamit-kailanman-ng-sistemang-grid-at-kung-gayon-ano-ang-iyong-mas-pipiliin)
+- [Ikaw ba ay nakagamit oh nakapagpatupad na ng mga query sa mobile o mga layout na espisipik sa mobile/CSS?](#ikaw-ba-ay-nakagamit-oh-nakapagpatupad-na-ng-mga-query-sa-mobile-o-mga-layout-na-espisipik-sa-mobilecss)
+- [Ikaw ba ay pamilyar sa estilong SVG?](#ikaw-ba-ay-pamilyar-sa-estilong-svg)
+- [Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?](#makapagbibigay-kaba-ng-halimbawa-ng-klase-ng-media-maliban-sa-iskrin)
+- [Ano-ano ang ilan sa mga "pasabog" para sa epektibong pagsusulat ng CSS?](#ano-ano-ang-ilan-sa-mga-pasabog-para-sa-epektibong-pagsusulat-ng-css)
+- [Ano ang mga pakinabang o di-pakinabang ng paggamit ng mga preprocessors ng CSS?](#ano-ang-mga-pakinabang-o-di-pakinabang-ng-paggamit-ng-mga-preprocessors-ng-css)
+- [Ilarawan kung ano ang iyong gusto at di gusto tungkol sa CSS na mga preprocessor na iyong nagamit.](#ilarawan-kung-ano-ang-iyong-gusto-at-di-gusto-tungkol-sa-css-na-mga-preprocessor-na-iyong-nagamit)
+- [Papaano mo ipapatupad ang isang web design comp na gumagamit ng mga di pangkaraniwang font?](#papaano-mo-ipapatupad-ang-isang-web-design-comp-na-gumagamit-ng-mga-di-pangkaraniwang-font)
+- [Ipaliwanag kung paano tinutukoy ng isang browser kung anu-anong mga elemento ang tumutugma sa tagapili ng CSS.](#ipaliwanag-kung-paano-tinutukoy-ng-isang-browser-kung-anu-anong-mga-elemento-ang-tumutugma-sa-tagapili-ng-css)
+- [Ilarawan ang mga elementong pseudo at talakayin kung para saan ito gagamitin.](#ilarawan-ang-mga-elementong-pseudo-at-talakayin-kung-para-saan-ito-gagamitin)
+- [Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.](#ipaliwanag-ang-iyong-pagkakaintindi-sa-modelong-kahon-at-papaano-mo-pagsasabihan-ang-browser-sa-css-na-mag-render-ng-iyong-layout-sa-ibat-ibang-modelo-ng-kahon)
+- [Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?](#ano-ang-ginagawa-ng---box-sizing-border-box--anu-ano-ang-mga-pakinabang-nito)
+- [Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?](#ano-ang-katangian-ng-css-na-display-at-pwede-ka-bang-magbigay-ng-ilang-mga-halimbawa-ng-paggamit-nito)
+- [Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?](#ano-ang-pagkakaiba-sa-pagitan-ng-inline-at-inline-block)
+- [Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?](#ano-ang-pagkakaiba-sa-pagitan-ng-relative-fixed-absolute-at-elementong-nakaposisyong-panig-sa-static)
+- [Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?](#ano-ang-mga-umiiral-na-framework-ng-css-na-ginamit-mo-ng-lokal-o-kaya-naman-ay-sa-produksyon-papaano-mo-babaguhin-o-mapapabuti-ang-mga-ito)
+- [Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid na specs?](#ikaw-ba-ay-nakapaglaro-na-sa-paligid-ng-bagong-css-flexbox-o-grid-na-specs)
+- [Maipapaliwanag mo ba ang kaibahan sa pagitan ng pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?](#maipapaliwanag-mo-ba-ang-kaibahan-sa-pagitan-ng-pag-code-ng-isang-web-site-na-tumutugon-kumpara-sa-paggamit-ng-diskarteng-mobile-ang-una)
+- [Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?](#sa-anong-paraan-naiiba-ang-disenyo-ng-tumutugon-mula-sa-disenyo-ng-umaangkop)
+- [Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?](#ikaw-ba-ay-nakagamit-na-ng-mga-grapikong-retina-kung-gayon-kelan-at-anu-anong-mga-teknik-ang-iyong-ginamit)
+- [May kadahilanan ba na nais mong gamitin ang `translate()` kesa sa `absolute` na pag-poposisyon, o kabaliktaran? at bakit?](#may-kadahilanan-ba-na-nais-mong-gamitin-ang-translate-kesa-sa-absolute-na-pag-poposisyon-o-kabaliktaran-at-bakit)
 
 ### Ano ang pagsisigurado ng CSS selector at kung paano ito gumagana?
 
@@ -51,21 +51,21 @@ Mas gusto kong magsulat ng mga CSS na panuntunan na may mababang pagtitiyak ng s
 
 ###### Mga Reperensiya
 
-* https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
-* https://www.sitepoint.com/web-foundations/specificity/
+- https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
+- https://www.sitepoint.com/web-foundations/specificity/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?
 
-* **Pag-reset** - Ang pag-reset ay sinadya upang i-strip ang lahat ng mga default na pag-istilo ng browser sa mga elemento. Halimbawa. mga `margin`,mga `padding`,mga `font-size` ng lahat ng mga elemento ay naka-set upang maging pareho. Kakailanganin mong ideklara ulit ang estilo para sa karaniwang mga elemento ng tipograpiya.
-* **Pag-normalize** - Ang pag-normalize ay pinapanatili ang kapaki-pakinabang na mga estilo ng default sa halip na i-unstyle ang lahat. Iniayos din nito ang mga bug para sa mga karaniwang dependensya ng browser.
+- **Pag-reset** - Ang pag-reset ay sinadya upang i-strip ang lahat ng mga default na pag-istilo ng browser sa mga elemento. Halimbawa. mga `margin`,mga `padding`,mga `font-size` ng lahat ng mga elemento ay naka-set upang maging pareho. Kakailanganin mong ideklara ulit ang estilo para sa karaniwang mga elemento ng tipograpiya.
+- **Pag-normalize** - Ang pag-normalize ay pinapanatili ang kapaki-pakinabang na mga estilo ng default sa halip na i-unstyle ang lahat. Iniayos din nito ang mga bug para sa mga karaniwang dependensya ng browser.
 
 Mas pipiliin ko ang pagreset kung meron man akong mas pinasadya o hindi tipikal na disenyo ng site tulad ng kailangan kong gawin sa karamihan ng aking sariling estilo at hindi kailangan ng anumang mga default na estilo para sa pag-aalaga.
 
 ###### Mga Reperensiya
 
-* https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
+- https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -81,7 +81,7 @@ Ang `.clearfix` na hack ay gumagamit ng isang wais na CSS pseudo na selector na 
 
 ```css
 .clearfix:after {
-  content: ' ';
+  content: " ";
   visibility: hidden;
   display: block;
   height: 0;
@@ -93,7 +93,7 @@ Bilang alternatibo, Ibigay ang `overflow: auto` o `overflow: hidden` na katangia
 
 ###### Mga Reperensiya
 
-* https://css-tricks.com/all-about-floats/
+- https://css-tricks.com/all-about-floats/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -109,9 +109,9 @@ Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng e
 
 ###### Mga Reperensiya
 
-* https://css-tricks.com/almanac/properties/z/z-index/
-* https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
-* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+- https://css-tricks.com/almanac/properties/z/z-index/
+- https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -122,10 +122,10 @@ Ang Block Formatting na Konteksto (BFK) ay parte ng biswal na pagrender ng css n
 
 Ang BFK ay isang HTML na kahon na natutugunan ng hindi bababa sa isa sa mga sumusunod na kondisyon:
 
-* Ang halaga ng `float` ay hindi `none`.
-* Ang halaga ng `position` ay hindi `static` o `relative`.
-* Ang halaga ng `display` ay `table-cell`, `table-caption`, `inline-block`, `flex`, o `inline-flex`.
-* Ang halaga ng `overflow` ay hindi `visible`.
+- Ang halaga ng `float` ay hindi `none`.
+- Ang halaga ng `position` ay hindi `static` o `relative`.
+- Ang halaga ng `display` ay `table-cell`, `table-caption`, `inline-block`, `flex`, o `inline-flex`.
+- Ang halaga ng `overflow` ay hindi `visible`.
 
 Sa isang BFK, hinawakan ang kaliwang panlabas na gilid ng bawat kahon ang kaliwang gilid ng bloke na naglalaman
 (for right-to-left formatting, right edges touch).
@@ -134,16 +134,16 @@ Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa is
 
 ###### Mga Reperensiya
 
-* https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
-* https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
+- https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
+- https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?
 
-* Walang laman na `div` na paraaan- `<div style="clear:both;"></div>`.
-* Clearfix na paraan - Sumangguni sa `.clearfix` na klase sa itaas.
-* `overflow: auto` o `overflow: hidden` na paraan - Magtatatag ang magulang ng isang bagong konteksto sa pag-format ng block at palawakin na naglalaman ng mga anak nito.
+- Walang laman na `div` na paraaan- `<div style="clear:both;"></div>`.
+- Clearfix na paraan - Sumangguni sa `.clearfix` na klase sa itaas.
+- `overflow: auto` o `overflow: hidden` na paraan - Magtatatag ang magulang ng isang bagong konteksto sa pag-format ng block at palawakin na naglalaman ng mga anak nito.
 
 Sa mga malaking proyekto, Gusto kong magsulat ng kagamitan na `.clearfix` na klase at gamitin ang mga ito sa mga lugar na kung saan ko kailangan. Ang `overflow: hidden` maaaring i-clip ang mga bata kung ang mga bata ay mas mataas kaysa sa magulang at hindi masyadong mainam.
 
@@ -159,31 +159,31 @@ Ang mga CSS na sprite ay pinagsasama ang maramihang mga imahe sa isang solong ma
 
 **Mga Bentahe:**
 
-* Bawasan ang bilang ng mga kahilingan ng HTTP para sa maraming mga imahe (kailangan lamang ng isang solong kahilingan sa bawat spritesheet). Ngunit sa HTTP2, Ang paglo-load ng maramihang mga imahe ay kinalaunan hindi na isang isyu.
-* Pangunang pagdownload ng mga asset na hindi ma-download hangga't hindi pa kailangan, gaya ng mga imahe na makikita lang kung ang `:hover` ay nasa pseudo na estado. Ang pag-blink ay hindi makikita.
+- Bawasan ang bilang ng mga kahilingan ng HTTP para sa maraming mga imahe (kailangan lamang ng isang solong kahilingan sa bawat spritesheet). Ngunit sa HTTP2, Ang paglo-load ng maramihang mga imahe ay kinalaunan hindi na isang isyu.
+- Pangunang pagdownload ng mga asset na hindi ma-download hangga't hindi pa kailangan, gaya ng mga imahe na makikita lang kung ang `:hover` ay nasa pseudo na estado. Ang pag-blink ay hindi makikita.
 
 ###### Mga Reperensiya
 
-* https://css-tricks.com/css-sprites/
+- https://css-tricks.com/css-sprites/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?
 
-* Matapos malaman ang isyu at ang nakakasakit na browser, gumamit ng isang hiwalay na estilo ng sheet na naglo-load lamang kapag ginagamit ang partikular na browser na iyon. Bagaman ang pamamaraan na ito ay nangangailangan ng pagrender sa panig ng serber.
-* Gumamit ng mga librerya kagaya ng Bootstrap na humahawak na ng mga estilo ng mga isyu para sa iyo.
-* Gumamit ng `autoprefixer` upang awtomatikong magdagdag ng mga prefix ng vendor sa iyong code.
-* Gumamit ng pa-reset sa CSS o kaya naman ay Normalize.css.
+- Matapos malaman ang isyu at ang nakakasakit na browser, gumamit ng isang hiwalay na estilo ng sheet na naglo-load lamang kapag ginagamit ang partikular na browser na iyon. Bagaman ang pamamaraan na ito ay nangangailangan ng pagrender sa panig ng serber.
+- Gumamit ng mga librerya kagaya ng Bootstrap na humahawak na ng mga estilo ng mga isyu para sa iyo.
+- Gumamit ng `autoprefixer` upang awtomatikong magdagdag ng mga prefix ng vendor sa iyong code.
+- Gumamit ng pa-reset sa CSS o kaya naman ay Normalize.css.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?
 
-* Kaaya-ayang pag-degrade - Ang pagsasagawa ng pagbuo ng isang aplikasyon para sa mga modernong browser habang tinitiyak na ito ay nananatiling punksyonal sa mas lumang mga browser.
-* progresibong pagpapahusay - Ang pagsasagawa ng pagbuo ng isang aplikasyon para sa antas ng lebel ng karanasan ng gumagamit, ngunit nagdaragdag ng mga punksyonal na pagpapahusay kapag sinusuportahan ito ng isang browser.
-* Gumamit ng [caniuse.com](https://caniuse.com/)upang suriin ang suporta sa tampok.
-* Autoprefixer para sa pagpapasok ng prefix ng awtomatikong vendor.
-* Pag-detect ng mga tampok gamit ang [Modernizr](https://modernizr.com/).
+- Kaaya-ayang pag-degrade - Ang pagsasagawa ng pagbuo ng isang aplikasyon para sa mga modernong browser habang tinitiyak na ito ay nananatiling punksyonal sa mas lumang mga browser.
+- progresibong pagpapahusay - Ang pagsasagawa ng pagbuo ng isang aplikasyon para sa antas ng lebel ng karanasan ng gumagamit, ngunit nagdaragdag ng mga punksyonal na pagpapahusay kapag sinusuportahan ito ng isang browser.
+- Gumamit ng [caniuse.com](https://caniuse.com/)upang suriin ang suporta sa tampok.
+- Autoprefixer para sa pagpapasok ng prefix ng awtomatikong vendor.
+- Pag-detect ng mga tampok gamit ang [Modernizr](https://modernizr.com/).
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -191,20 +191,20 @@ Ang mga CSS na sprite ay pinagsasama ang maramihang mga imahe sa isang solong ma
 
 Ang mga pamamaraan na ito ay may kaugnayan sa pagkakarating (a11y).
 
-* `visibility: hidden`. Gayunpaman ang elemento ay nasa daloy pa rin ng pahina, at umuupa pa rin ng espasyo.
-* `width: 0; height: 0`. Gawin ang elemento na hindi kukuha ng anumang espasyo sa iskrin ng lahat, na magreresulta sa hindi pagpapakita nito.
-* `position: absolute; left: -99999px`. Ilagay ito sa labas ng iskrin.
-* `text-indent: -9999px`. Ito ay gagana lamang sa mga teksto sa loob ng `block` na mga elemento.
-* Metadata. Halimbawa ay sa paggamit ng Schema.org, RDF at JSON-LD.
-* WAI-ARIA. Isang W3C na teknikal na ispisipikasyon na tinutukoy kung paano madagdagan ang ang abilidad ng pag-akses ng mga pahina ng web.
+- `visibility: hidden`. Gayunpaman ang elemento ay nasa daloy pa rin ng pahina, at umuupa pa rin ng espasyo.
+- `width: 0; height: 0`. Gawin ang elemento na hindi kukuha ng anumang espasyo sa iskrin ng lahat, na magreresulta sa hindi pagpapakita nito.
+- `position: absolute; left: -99999px`. Ilagay ito sa labas ng iskrin.
+- `text-indent: -9999px`. Ito ay gagana lamang sa mga teksto sa loob ng `block` na mga elemento.
+- Metadata. Halimbawa ay sa paggamit ng Schema.org, RDF at JSON-LD.
+- WAI-ARIA. Isang W3C na teknikal na ispisipikasyon na tinutukoy kung paano madagdagan ang ang abilidad ng pag-akses ng mga pahina ng web.
 
 Kahit na ang WAI-ARIA ay ang angkop na solusyon, Ako ay pupunta parin sa `absolute` na pagpoposisyon na paglapit, dahil mayroon itong maliit na mga problema, na gumagana para sa karamihan ng mga elemento at ito ay isang madaling pamamaraan.
 
 ###### Mga Reperensiya
 
-* https://www.w3.org/TR/wai-aria-1.1/
-* https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
-* http://a11yproject.com/
+- https://www.w3.org/TR/wai-aria-1.1/
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+- http://a11yproject.com/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -230,10 +230,10 @@ Hindi... Sa kasamaang palad
 
 Oo, mayroong apat na uri ng @media na mga katangian (kabilang ang _screen_):
 
-* `all` - para sa lahat ng mga aparatong uri ng media
-* `print` - para sa mga printer
-* `speech` - para sa mga nagbabasa ng iskrin na "binabasa" ang pahina ng malakas
-* `screen` -para sa mga iskrin ng kompyuter, tablet, smart-phone atbp
+- `all` - para sa lahat ng mga aparatong uri ng media
+- `print` - para sa mga printer
+- `speech` - para sa mga nagbabasa ng iskrin na "binabasa" ang pahina ng malakas
+- `screen` -para sa mga iskrin ng kompyuter, tablet, smart-phone atbp
 
 Narito ang isang halimbawa ng paggamit ng `print` na uri ng media:
 
@@ -247,7 +247,7 @@ Narito ang isang halimbawa ng paggamit ng `print` na uri ng media:
 
 ###### Mga Reperensiya
 
-* https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -261,8 +261,8 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 
 ###### Mga Reperensiya
 
-* https://developers.google.com/web/fundamentals/performance/rendering/
-* https://csstriggers.com/
+- https://developers.google.com/web/fundamentals/performance/rendering/
+- https://csstriggers.com/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -270,15 +270,15 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 
 **Mga Bentahe:**
 
-* CSS ay ginawang mas kapanati-panatili.
-* Madaling sumulat nga mga nested na tagapili.
-* Mga variable para sa pare-pareho na pag-theme. Maaaring magbahagi ng mga file ng tema sa iba't ibang mga proyekto.
-* Mga paghalo para maka-generate ng naulit na CSS.
-* Ang paghati sa iyong code sa maramihang mga file. Ang mga file ng CSS ay maaaring hatiin din ngunit ang paggawa nito ay mangangailangan pa ng isang HTTP na kahilingan upang i-download ang bawat CSS na file.
+- CSS ay ginawang mas kapanati-panatili.
+- Madaling sumulat nga mga nested na tagapili.
+- Mga variable para sa pare-pareho na pag-theme. Maaaring magbahagi ng mga file ng tema sa iba't ibang mga proyekto.
+- Mga paghalo para maka-generate ng naulit na CSS.
+- Ang paghati sa iyong code sa maramihang mga file. Ang mga file ng CSS ay maaaring hatiin din ngunit ang paggawa nito ay mangangailangan pa ng isang HTTP na kahilingan upang i-download ang bawat CSS na file.
 
 **Mga Kasahulan:**
 
-* Nangangailangan ng mga gamit para sa pag-preprocess. Maaaring ang oras ng pag-compile ulit ay magiging.
+- Nangangailangan ng mga gamit para sa pag-preprocess. Maaaring ang oras ng pag-compile ulit ay magiging.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -286,13 +286,13 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 
 **Mga Gusto:**
 
-* Halos ang lahat ng bentahe ay nasabi na sa itaas.
-* Kaunti lang ang isinulat sa JavaScript, na gumaganap nang mahusay sa Node.
+- Halos ang lahat ng bentahe ay nasabi na sa itaas.
+- Kaunti lang ang isinulat sa JavaScript, na gumaganap nang mahusay sa Node.
 
 **Mga Hindi Gusto:**
 
-* Gumagamit ako ng Sass sa pamamagitan ng `node-sass`, na kung saan ay naka-bisa para sa LibSass na nakasulat sa C++. Ako ay madalas na mag-recompile nito kapag ako ay lumilipat sa pagitan ng mga bersyon ng node.
-* Sa maliit, ang mga variable na pangalan ay naka-prefix sa `@`, na maaaring malito sa katutubong mga keyword sa CSS tulad ng `@ media`,`@ import` at `@ font-face` na panuntunan.
+- Gumagamit ako ng Sass sa pamamagitan ng `node-sass`, na kung saan ay naka-bisa para sa LibSass na nakasulat sa C++. Ako ay madalas na mag-recompile nito kapag ako ay lumilipat sa pagitan ng mga bersyon ng node.
+- Sa maliit, ang mga variable na pangalan ay naka-prefix sa `@`, na maaaring malito sa katutubong mga keyword sa CSS tulad ng `@ media`,`@ import` at `@ font-face` na panuntunan.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -310,7 +310,7 @@ Halimbawa ay sa tagapiling `p span` na ito, unang hahanapin ng mga browser ang l
 
 ###### Mga Reperensiya
 
-* https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
+- https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -318,13 +318,13 @@ Halimbawa ay sa tagapiling `p span` na ito, unang hahanapin ng mga browser ang l
 
 Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-daan sa iyo ng pag-eestilo ng isang tiyak na bahagi ng piniling elemento(s). Maaari silang magamit para sa dekorasyon (`:first-line`, `:first-letter`) o pagdaragdag ng mga elemento sa markup (kasama ng `content: ...`) na hindi na kailangang baguhin pa ang markup (`:before`, `:after`).
 
-* `:first-line` at `:first-letter` ay magagamit para lagyan ng dekorasyon ang teksto.
+- `:first-line` at `:first-letter` ay magagamit para lagyan ng dekorasyon ang teksto.
   \*Ginamit sa `.clearfix` na hack na ipinakita sa itaas upang magdagdag ng zero-space na elemento kasabay ang `clear: both`.
-* Mala-tatsulok na mga arrow sa tooltips ay gumagamit ng `:before` at `:after`. Hinihikayat ang paghihiwalay ng mga alalahanin dahil ang tatsulok ay itinuturing na bahagi ng estilo at hindi talaga ang DOM. Hindi talaga posible na gumuhit ng isang tatsulok na may mga estilo lamang ng CSS nang hindi gumagamit ng karagdagang elemento ng HTML.
+- Mala-tatsulok na mga arrow sa tooltips ay gumagamit ng `:before` at `:after`. Hinihikayat ang paghihiwalay ng mga alalahanin dahil ang tatsulok ay itinuturing na bahagi ng estilo at hindi talaga ang DOM. Hindi talaga posible na gumuhit ng isang tatsulok na may mga estilo lamang ng CSS nang hindi gumagamit ng karagdagang elemento ng HTML.
 
   ###### RMga Reperensiya
 
-* https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/selectors/a/after-and-before/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -334,37 +334,37 @@ Ang CSS na modelo ng kahon ay naglalarawan ng mga hugis-parihaba na kahon na bin
 
 Ang CSS na modelong kahon ay responsable sa pagkalkula ng:
 
-* Ilang ang espasyong kinakain ng elemento ng block.
-* Kung ang mga borders at / o mga palugit ay magkakapatong, o bumagsak.
-* Mga sukat ng isang kahon.
+- Ilang ang espasyong kinakain ng elemento ng block.
+- Kung ang mga borders at / o mga palugit ay magkakapatong, o bumagsak.
+- Mga sukat ng isang kahon.
 
 Ang modelo ng kahon ay may mga sumusunod na panuntunan:
 
-* Ang mga sukat ng isang elemento ng block ay kinakalkula gamit ang `lapad`,`taas`, `padding`, mga `border`, at mga `margin`.
-* Kung walang tinukoy na `taas`, ang isang elementong bloke ay magiging kasing taas ng nilalaman na naglalaman nito, kasama ang `padding` (maliban kung may mga float, na nakikita sa ibaba).
-* Kung walang tinukoy na `lapad`, ang isang hindi floated na elemento ng block ay lalawak upang magkasya ang lapad ng kanyang magulang na bawas ang `padding`.
-* Ang `taas` ng isang elemento ay kinakalkula sa pamamagitan ng`taas` ng nilalaman.
-* Ang `lapad` ng isang elemento ay kinakalkula ng `lapad` ng nilalaman.
-* Sa pamamagitan ng default, ang `padding` at mga `border`s ay hindi bahagi ng `lapad` at`taas` ng isang elemento.
+- Ang mga sukat ng isang elemento ng block ay kinakalkula gamit ang `lapad`,`taas`, `padding`, mga `border`, at mga `margin`.
+- Kung walang tinukoy na `taas`, ang isang elementong bloke ay magiging kasing taas ng nilalaman na naglalaman nito, kasama ang `padding` (maliban kung may mga float, na nakikita sa ibaba).
+- Kung walang tinukoy na `lapad`, ang isang hindi floated na elemento ng block ay lalawak upang magkasya ang lapad ng kanyang magulang na bawas ang `padding`.
+- Ang `taas` ng isang elemento ay kinakalkula sa pamamagitan ng`taas` ng nilalaman.
+- Ang `lapad` ng isang elemento ay kinakalkula ng `lapad` ng nilalaman.
+- Sa pamamagitan ng default, ang `padding` at mga `border`s ay hindi bahagi ng `lapad` at`taas` ng isang elemento.
 
 ###### Mga Reperensiya
 
-* https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
+- https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?
 
-* Bilang default, ang mga elemento ay may `box-sizing: content-box` na naipapatupad, at tanging ang laki ng nilalaman lang ang siyang binibilang.
-* Ang `box-sizing: border-box` ay ang siyang nagpapabago kung papaano kinakalkula ang `lapad` at `taas` ng mga elemento, kasama ang `border` at `padding` sa pagkalkula.
-* Ang `taas` ng isang elemento ay kinalkula ngayon ng lapad ng`taas` + bertikal na `padding` + bertikal na `border`.
-* Ang `lapad` ng isang elemento ay kinakalkula ngayon ng `lapad` ng nilalaman + pahalang na `padding` + pahalang na `border`.
+- Bilang default, ang mga elemento ay may `box-sizing: content-box` na naipapatupad, at tanging ang laki ng nilalaman lang ang siyang binibilang.
+- Ang `box-sizing: border-box` ay ang siyang nagpapabago kung papaano kinakalkula ang `lapad` at `taas` ng mga elemento, kasama ang `border` at `padding` sa pagkalkula.
+- Ang `taas` ng isang elemento ay kinalkula ngayon ng lapad ng`taas` + bertikal na `padding` + bertikal na `border`.
+- Ang `lapad` ng isang elemento ay kinakalkula ngayon ng `lapad` ng nilalaman + pahalang na `padding` + pahalang na `border`.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?
 
-* `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
+- `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
 TODO
 
@@ -389,23 +389,23 @@ Ako ay magbibigay ng isang paghahambing sa `block` para sa mahusay na panukalang
 
 Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posisyon` ay alinman sa`kamag-anak`, `absolute`,`fixed` o `malagkit`.
 
-* `static` - Ang default na posisyon; ang elemento ay dumadaloy sa pahina gaya ng karaniwan. Ang mga `taas`,`kanan`, `ilalim`,`kaliwa` at `z-index` na katangian ay hindi nalalapat.
-* `kamag-anak` - Ang posisyon ng elemento ay nababagay sa sarili nito, nang hindi binabago ang layout (at sa gayo'y nag-iiwan ng puwang para sa elemento kung saan ay hindi ito nakaposisyon).
-* `absolute` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa pinakamalapit na nakaposisyon na ninuno kung mayroon man, o kung hindi man sa kamag-anak sa paunang nilalaman ng bloke. Ang mga nakaposisyon na mga kahon ay maaaring magkaroon ng mga gilid, at hindi sila bumagsak sa anumang iba pang mga margin. Ang mga elementong ito ay hindi nakakaapekto sa posisyon ng iba pang mga elemento.
-* `naayos` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa viewport na hindi gumagalaw kapag nag-scroll.
-* `malagkit` - Ang malagkit na pagpoposisyon ay isang hybrid ng kamag-anak at nakapirming pagpoposisyon. Ang elemento ay itinuturing bilang `kamag-anak` na nakaposisyon hanggang sa lumampas ito sa tinutukoy na limitasyon, na kung saan ang puntong ito ay itinuturing na `nakatakda` na nakaposisyon.
+- `static` - Ang default na posisyon; ang elemento ay dumadaloy sa pahina gaya ng karaniwan. Ang mga `taas`,`kanan`, `ilalim`,`kaliwa` at `z-index` na katangian ay hindi nalalapat.
+- `kamag-anak` - Ang posisyon ng elemento ay nababagay sa sarili nito, nang hindi binabago ang layout (at sa gayo'y nag-iiwan ng puwang para sa elemento kung saan ay hindi ito nakaposisyon).
+- `absolute` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa pinakamalapit na nakaposisyon na ninuno kung mayroon man, o kung hindi man sa kamag-anak sa paunang nilalaman ng bloke. Ang mga nakaposisyon na mga kahon ay maaaring magkaroon ng mga gilid, at hindi sila bumagsak sa anumang iba pang mga margin. Ang mga elementong ito ay hindi nakakaapekto sa posisyon ng iba pang mga elemento.
+- `naayos` - Ang elemento ay inalis mula sa daloy ng pahina at nakaposisyon sa isang tinukoy na posisyon na may kaugnayan sa viewport na hindi gumagalaw kapag nag-scroll.
+- `malagkit` - Ang malagkit na pagpoposisyon ay isang hybrid ng kamag-anak at nakapirming pagpoposisyon. Ang elemento ay itinuturing bilang `kamag-anak` na nakaposisyon hanggang sa lumampas ito sa tinutukoy na limitasyon, na kung saan ang puntong ito ay itinuturing na `nakatakda` na nakaposisyon.
 
 ###### Mga Reperensiya
 
-* https://developer.mozilla.org/en/docs/Web/CSS/position
+- https://developer.mozilla.org/en/docs/Web/CSS/position
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?
 
-* ** Bootstrap ** - Mabagal na ikot ng paglabas. Ang Bootstrap 4 ay nasa alpha sa halos dalawang taon. Magdagdag ng bahagi ng pindutan ng spinner, dahil malawak itong ginagamit.
-* ** Semantikong UI ** - Ang istraktura ng pinagmulang code ay gumagawa ng pagsadya ng tema na napakahirap maunawaan. Masakit na ipasadya sa hindi pangkaraniwang sistema ng paggawa ng tema. Hardcoded na config na landas sa loob ng librerya ng vendor. Hindi mahusay na pag-disenyo para pag-override ng mga variable na hindi katulad sa Bootstrap.
-* ** Bulma ** - Isang pulutong ng mga di-semantiko at labis na mga klase at markup ang kinakailangan. Hindi tugma ang pabalik. Ang pag-upgrade ng mga bersyon sa sumisira sa app sa banayad na asal.
+- ** Bootstrap ** - Mabagal na ikot ng paglabas. Ang Bootstrap 4 ay nasa alpha sa halos dalawang taon. Magdagdag ng bahagi ng pindutan ng spinner, dahil malawak itong ginagamit.
+- ** Semantikong UI ** - Ang istraktura ng pinagmulang code ay gumagawa ng pagsadya ng tema na napakahirap maunawaan. Masakit na ipasadya sa hindi pangkaraniwang sistema ng paggawa ng tema. Hardcoded na config na landas sa loob ng librerya ng vendor. Hindi mahusay na pag-disenyo para pag-override ng mga variable na hindi katulad sa Bootstrap.
+- ** Bulma ** - Isang pulutong ng mga di-semantiko at labis na mga klase at markup ang kinakailangan. Hindi tugma ang pabalik. Ang pag-upgrade ng mga bersyon sa sumisira sa app sa banayad na asal.
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -419,7 +419,7 @@ Ang Grid sa ngayon ay ang pinaka-intuitive na diskarte para sa paglikha ng grid-
 
 ###### Mga Reperensiya
 
-* https://philipwalton.github.io/solved-by-flexbox/
+- https://philipwalton.github.io/solved-by-flexbox/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -439,9 +439,9 @@ Ang bumabagay na disenyo ay mas katulad ng modernong kahulugan ng progresibong p
 
 ###### Mga Reperensiya
 
-* https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
-* http://mediumwell.com/responsive-adaptive-mobile/
-* https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
+- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
+- http://mediumwell.com/responsive-adaptive-mobile/
+- https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -455,7 +455,7 @@ Ang isa pang paraan ay ang paggamit ng JavaScript upang palitan ang mga attribut
 
 ###### Mga Reperensiya
 
-* https://www.sitepoint.com/css-techniques-for-retina-displays/
+- https://www.sitepoint.com/css-techniques-for-retina-displays/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
@@ -465,12 +465,12 @@ Ang `translate ()` ay isang halaga ng CSS `transform`. Ang pagpapalit ng `transf
 
 ###### Mga Reperensiya
 
-* https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
+- https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 
 ### Ang ibang mga Kasagutan
 
-* https://neal.codes/blog/front-end-interview-css-questions
-* https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
-* http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+- https://neal.codes/blog/front-end-interview-css-questions
+- https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
+- http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/

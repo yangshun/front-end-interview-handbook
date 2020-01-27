@@ -2,37 +2,37 @@
 
 [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
-* [CSS セレクターの詳細度とは何ですか？どのようにはたらきますか？](#css-セレクターの詳細度とは何ですかそれはどのようにはたらきますか)
-* ["リセット" と "ノーマライズ" CSS の違いは何ですか？あなたはどちらを使いますか？そしてそれはなぜですか？](#リセット-と-ノーマライズ-css-の違いは何ですかあなたはどちらを使いますかそしてそれはなぜですか)
-* [`float` とは何ですか？どのようにはたらきますか？](#float-とは何ですかどのようにはたらきますか)
-* [`z-index` とは何かと、スタックコンテキスト(スタック文脈)がどのように作られるのかを教えてください。](#z-index-とは何かとスタックコンテキストスタック文脈がどのように作られるのかを教えてください)
-* [ブロック整形文脈（Block Formatting Context: BFC）とその仕組みを教えてください。](#ブロック整形文脈block-formatting-context-bfcとその仕組みを教えてください)
-* [clear を行う手法にはどのようなものがあり、それぞれどのような状況に適していますか？](#clear-を行う手法にはどのようなものがありそれぞれどのような状況に適していますか)
-* [CSS スプライトとは何ですか？ページやサイトに実装する方法も合わせて説明してください。](#css-スプライトとは何ですかページやサイトに実装する方法も合わせて説明してください)
-* [ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか？](#ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか)
-* [機能の少ないブラウザに対しては、どのようにページを提供しますか？どのようなテクニック/プロセスを使用しますか？](#機能の少ないブラウザに対してはどのようにページを提供しますかどのようなテクニックプロセスを使用しますか)
-* [コンテンツを視覚的に隠す（スクリーンリーダーのみ利用可能にする）方法にはどのようなものがありますか？いくつか教えてください。](#コンテンツを視覚的に隠すスクリーンリーダーのみ利用可能にする方法にはどのようなものがありますかいくつか教えてください)
-* [グリッドシステムを使用したことがありますか？使ったことがあるなら、あなたはどのグリッドシステムが好きですか？](#グリッドシステムを使用したことがありますか使ったことがあるならあなたはどのグリッドシステムが好きですか)
-* [メディアクエリやモバイル固有のレイアウト/CSS を使用したり実装したことはありますか？](#メディアクエリやモバイル固有のレイアウトcss-を使用したり実装したことはありますか)
-* [SVG のスタイリングについては詳しいですか？](#svg-のスタイリングについては詳しいですか)
-* [`screen` 以外の `@media` プロパティの例を挙げられますか？](#screen-以外の-media-プロパティの例を挙げられますか)
-* [効率的な CSS を書くにために避けるべき "落とし穴" にはどんなものがありますか？](#効率的な-css-を書くにために避けるべき-落とし穴-にはどんなものがありますか)
-* [CSS プリプロセッサを使用するメリットとデメリットを教えてください。](#css-プリプロセッサを使用するメリットとデメリットには何がありますか)
-* [使用したことのある CSS プリプロセッサについて好きなものと嫌いなものを教えてください。](#使用したことのある-css-プリプロセッサについて好きなものと嫌いなものを教えてください)
-* [非標準フォントを使用する Web サイトを実装するにはどのようにしますか？](#非標準フォントを使用する-web-サイトを実装するにはどのようにしますか)
-* [CSS セレクタにマッチする要素がどれなのか、ブラウザがどのように決定しているかを説明してください。](#css-セレクタにマッチする要素がどれなのかブラウザがどのように決定しているかを説明してください)
-* [疑似要素について説明し、それらがなんのために使われているかを詳しく話してください。](#疑似要素について説明しそれらがなんのために使われているかを詳しく話してください)
-* [ボックスモデルがなんであるかのあなたの理解と、ボックスモデルでレイアウトをレンダリングするために CSS でブラウザに指示する複数の方法を説明してください。](#ボックスモデルがなんであるかのあなたの理解と異なるボックスモデルでレイアウトをレンダリングするために-css-でブラウザに指示する方法を説明してください)
-* [`* { box-sizing: border-box; }` によって何が起きますか？その利点は何ですか？](#--box-sizing-border-box--によって何が起きますかその利点は何ですか)
-* [CSS の `display` プロパティとは何ですか？その使い方の例をいくつか挙げることができますか？](#css-の-display-プロパティとは何ですかその使い方の例をいくつか挙げることができますか)
-* [`inline` と `inline-block` の違いは何ですか？](#inline-と-inline-block-の違いは何ですか)
-* [`position` が `relative`、`fixed`、`absolute`、`static` の要素の違いは何ですか？](#position-が-relativefixedabsolutestatic-の要素の違いは何ですか)
-* [ローカルや本番環境で、どの既存の CSS フレームワークを使用していますか？また、どのように変更/改善していますか？](#ローカルや本番環境でどの既存の-css-フレームワークを使用していますかまたどのように変更改善していますか)
-* [CSS の Flexbox や Grid の仕様で遊んだことはありますか？](#css-の-flexbox-や-grid-の仕様で遊んだことはありますか)
-* [ウェブサイトをレスポンシブでコーディングすることとモバイルファーストでコーディングすることの違いを説明できますか？](#ウェブサイトをレスポンシブでコーディングすることとモバイルファーストでコーディングすることの違いを説明できますか)
-* [レスポンシブデザインはアダプティブデザインと何が違いますか？](#レスポンシブデザインはアダプティブデザインと何が違いますか)
-* [Retina 対応を行ったことはありますか？もしあるなら、いつどのようなテクニックを使いましたか？](#retina-対応を行ったことはありますかもしあるならいつどのようなテクニックを使いましたか)
-* [`position: absolute` の代わりに `translate()` を使用するべき場合はありますか？その逆の場合もありますか？理由も合わせて教えてください。](#position-absolute-の代わりに-translate-を使用するべき場合はありますかその逆の場合もありますか理由も合わせて教えてください)
+- [CSS セレクターの詳細度とは何ですか？どのようにはたらきますか？](#css-セレクターの詳細度とは何ですかそれはどのようにはたらきますか)
+- ["リセット" と "ノーマライズ" CSS の違いは何ですか？あなたはどちらを使いますか？そしてそれはなぜですか？](#リセット-と-ノーマライズ-css-の違いは何ですかあなたはどちらを使いますかそしてそれはなぜですか)
+- [`float` とは何ですか？どのようにはたらきますか？](#float-とは何ですかどのようにはたらきますか)
+- [`z-index` とは何かと、スタックコンテキスト(スタック文脈)がどのように作られるのかを教えてください。](#z-index-とは何かとスタックコンテキストスタック文脈がどのように作られるのかを教えてください)
+- [ブロック整形文脈（Block Formatting Context: BFC）とその仕組みを教えてください。](#ブロック整形文脈block-formatting-context-bfcとその仕組みを教えてください)
+- [clear を行う手法にはどのようなものがあり、それぞれどのような状況に適していますか？](#clear-を行う手法にはどのようなものがありそれぞれどのような状況に適していますか)
+- [CSS スプライトとは何ですか？ページやサイトに実装する方法も合わせて説明してください。](#css-スプライトとは何ですかページやサイトに実装する方法も合わせて説明してください)
+- [ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか？](#ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか)
+- [機能の少ないブラウザに対しては、どのようにページを提供しますか？どのようなテクニック/プロセスを使用しますか？](#機能の少ないブラウザに対してはどのようにページを提供しますかどのようなテクニックプロセスを使用しますか)
+- [コンテンツを視覚的に隠す（スクリーンリーダーのみ利用可能にする）方法にはどのようなものがありますか？いくつか教えてください。](#コンテンツを視覚的に隠すスクリーンリーダーのみ利用可能にする方法にはどのようなものがありますかいくつか教えてください)
+- [グリッドシステムを使用したことがありますか？使ったことがあるなら、あなたはどのグリッドシステムが好きですか？](#グリッドシステムを使用したことがありますか使ったことがあるならあなたはどのグリッドシステムが好きですか)
+- [メディアクエリやモバイル固有のレイアウト/CSS を使用したり実装したことはありますか？](#メディアクエリやモバイル固有のレイアウトcss-を使用したり実装したことはありますか)
+- [SVG のスタイリングについては詳しいですか？](#svg-のスタイリングについては詳しいですか)
+- [`screen` 以外の `@media` プロパティの例を挙げられますか？](#screen-以外の-media-プロパティの例を挙げられますか)
+- [効率的な CSS を書くにために避けるべき "落とし穴" にはどんなものがありますか？](#効率的な-css-を書くにために避けるべき-落とし穴-にはどんなものがありますか)
+- [CSS プリプロセッサを使用するメリットとデメリットを教えてください。](#css-プリプロセッサを使用するメリットとデメリットには何がありますか)
+- [使用したことのある CSS プリプロセッサについて好きなものと嫌いなものを教えてください。](#使用したことのある-css-プリプロセッサについて好きなものと嫌いなものを教えてください)
+- [非標準フォントを使用する Web サイトを実装するにはどのようにしますか？](#非標準フォントを使用する-web-サイトを実装するにはどのようにしますか)
+- [CSS セレクタにマッチする要素がどれなのか、ブラウザがどのように決定しているかを説明してください。](#css-セレクタにマッチする要素がどれなのかブラウザがどのように決定しているかを説明してください)
+- [疑似要素について説明し、それらがなんのために使われているかを詳しく話してください。](#疑似要素について説明しそれらがなんのために使われているかを詳しく話してください)
+- [ボックスモデルがなんであるかのあなたの理解と、ボックスモデルでレイアウトをレンダリングするために CSS でブラウザに指示する複数の方法を説明してください。](#ボックスモデルがなんであるかのあなたの理解と異なるボックスモデルでレイアウトをレンダリングするために-css-でブラウザに指示する方法を説明してください)
+- [`* { box-sizing: border-box; }` によって何が起きますか？その利点は何ですか？](#--box-sizing-border-box--によって何が起きますかその利点は何ですか)
+- [CSS の `display` プロパティとは何ですか？その使い方の例をいくつか挙げることができますか？](#css-の-display-プロパティとは何ですかその使い方の例をいくつか挙げることができますか)
+- [`inline` と `inline-block` の違いは何ですか？](#inline-と-inline-block-の違いは何ですか)
+- [`position` が `relative`、`fixed`、`absolute`、`static` の要素の違いは何ですか？](#position-が-relativefixedabsolutestatic-の要素の違いは何ですか)
+- [ローカルや本番環境で、どの既存の CSS フレームワークを使用していますか？また、どのように変更/改善していますか？](#ローカルや本番環境でどの既存の-css-フレームワークを使用していますかまたどのように変更改善していますか)
+- [CSS の Flexbox や Grid の仕様で遊んだことはありますか？](#css-の-flexbox-や-grid-の仕様で遊んだことはありますか)
+- [ウェブサイトをレスポンシブでコーディングすることとモバイルファーストでコーディングすることの違いを説明できますか？](#ウェブサイトをレスポンシブでコーディングすることとモバイルファーストでコーディングすることの違いを説明できますか)
+- [レスポンシブデザインはアダプティブデザインと何が違いますか？](#レスポンシブデザインはアダプティブデザインと何が違いますか)
+- [Retina 対応を行ったことはありますか？もしあるなら、いつどのようなテクニックを使いましたか？](#retina-対応を行ったことはありますかもしあるならいつどのようなテクニックを使いましたか)
+- [`position: absolute` の代わりに `translate()` を使用するべき場合はありますか？その逆の場合もありますか？理由も合わせて教えてください。](#position-absolute-の代わりに-translate-を使用するべき場合はありますかその逆の場合もありますか理由も合わせて教えてください)
 
 ### CSS セレクターの詳細度とは何ですか？それはどのようにはたらきますか？
 
@@ -51,21 +51,21 @@
 
 ###### 参考
 
-* https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
-* https://www.sitepoint.com/web-foundations/specificity/
+- https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
+- https://www.sitepoint.com/web-foundations/specificity/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### "リセット" と "ノーマライズ" CSS の違いは何ですか？あなたはどちらを使いますか？そしてそれはなぜですか？
 
-* **リセット** - リセットとは、要素のすべてのデフォルトブラウザスタイルを削除することを意味します。例えば、`margin`、`padding`、`font-size` は全て同じ要素にリセットされます。一般的なタイポグラフィー要素のためにスタイリングを再宣言しなければなりません。
-* **ノーマライズ** - ノーマライズでは、すべてのスタイルを削除するのではなく、有用なデフォルトスタイルは保持します。合わせて、一般的なブラウザの依存関係のバグを修正します。
+- **リセット** - リセットとは、要素のすべてのデフォルトブラウザスタイルを削除することを意味します。例えば、`margin`、`padding`、`font-size` は全て同じ要素にリセットされます。一般的なタイポグラフィー要素のためにスタイリングを再宣言しなければなりません。
+- **ノーマライズ** - ノーマライズでは、すべてのスタイルを削除するのではなく、有用なデフォルトスタイルは保持します。合わせて、一般的なブラウザの依存関係のバグを修正します。
 
 私は非常にカスタマイズされた、または一般的ではないデザインのサイトを作成する際にはリセットを選択します。これらの場合、自分のスタイリングをたくさん行う必要があり、デフォルトのスタイリングを保存する必要がないためです。
 
 ###### 参考
 
-* https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
+- https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -81,7 +81,7 @@ CSS の `clear` プロパティは、`left`/`right`/`both` フロート要素の
 
 ```css
 .clearfix:after {
-  content: ' ';
+  content: " ";
   visibility: hidden;
   display: block;
   height: 0;
@@ -93,7 +93,7 @@ CSS の `clear` プロパティは、`left`/`right`/`both` フロート要素の
 
 ###### 参考
 
-* https://css-tricks.com/all-about-floats/
+- https://css-tricks.com/all-about-floats/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -109,10 +109,10 @@ CSS の `z-index` プロパティは、重なっている要素の垂直方向�
 
 ###### 参考
 
-* https://css-tricks.com/almanac/properties/z/z-index/
-* https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
-* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context (英語)
-* https://developer.mozilla.org/ja/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context (日本語)
+- https://css-tricks.com/almanac/properties/z/z-index/
+- https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context (英語)
+- https://developer.mozilla.org/ja/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context (日本語)
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -122,10 +122,10 @@ CSS の `z-index` プロパティは、重なっている要素の垂直方向�
 
 BFC は、以下の条件の少なくとも 1 つを満たす HTML ボックスです。
 
-* `float` の値は `none` ではありません。
-* `position` の値は `static` でも `relative` でもありません。
-* `display` の値は `table-cell`、`table-caption`、`inline-block`、`flex`、`inline-flex` です。
-* `overflow` の値は `visible` ではありません。
+- `float` の値は `none` ではありません。
+- `position` の値は `static` でも `relative` でもありません。
+- `display` の値は `table-cell`、`table-caption`、`inline-block`、`flex`、`inline-flex` です。
+- `overflow` の値は `visible` ではありません。
 
 BFC では、各ボックスの左端が包含ブロックの左端に接します（右から左への書式設定、右端からのタッチ）。
 
@@ -133,17 +133,17 @@ BFC が崩壊したときに隣接するブロックレベルボックス間の�
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context (英語)
-* https://developer.mozilla.org/ja/docs/Web/CSS/Block_formatting_context (日本語)
-* https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
+- https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context (英語)
+- https://developer.mozilla.org/ja/docs/Web/CSS/Block_formatting_context (日本語)
+- https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### clear を行う手法にはどのようなものがあり、それぞれどのような状況に適していますか？
 
-* 空の `div` メソッド - `<div style="clear:both;"></div>`
-* Clearfix メソッド - 上記の `.clearfix` クラスを参照してください。
-* `overflow: auto` または `overflow: hidden` メソッド - 親は新しいブロック書式設定コンテキストを確立し、float された子を含むように展開します。
+- 空の `div` メソッド - `<div style="clear:both;"></div>`
+- Clearfix メソッド - 上記の `.clearfix` クラスを参照してください。
+- `overflow: auto` または `overflow: hidden` メソッド - 親は新しいブロック書式設定コンテキストを確立し、float された子を含むように展開します。
 
 大規模なプロジェクトでは、ユーティリティ `.clearfix` クラスを作成し、必要な場所で使用します。子供が親よりも背が高く、それほど理想的でない場合、`overflow: hidden` は子供をクリップするかもしれません。
 
@@ -159,31 +159,31 @@ CSS スプライトは、複数のイメージを 1 つの大きなイメージ�
 
 **利点:**
 
-* 複数のイメージに対する HTTP リクエストの数を減らす（スプライトシートごとに 1 回のリクエストが 1 回だけ必要）。しかし、HTTP2 では複数のイメージを読み込むことはもはや大きな問題にはなりません。
-* 必要なまでダウンロードされないアセットの事前ダウンロード。例えば、`:hover` 疑似ステートにのみ現れるイメージ。点滅は見られない。
+- 複数のイメージに対する HTTP リクエストの数を減らす（スプライトシートごとに 1 回のリクエストが 1 回だけ必要）。しかし、HTTP2 では複数のイメージを読み込むことはもはや大きな問題にはなりません。
+- 必要なまでダウンロードされないアセットの事前ダウンロード。例えば、`:hover` 疑似ステートにのみ現れるイメージ。点滅は見られない。
 
 ###### 参考
 
-* https://css-tricks.com/css-sprites/
+- https://css-tricks.com/css-sprites/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか？
 
-* 問題を特定して問題のブラウザを特定したら、その特定のブラウザが使用されているときにのみロードする別のスタイルシートを使用します。この手法では、サーバー側のレンダリングが必要です。
-* これらのスタイリングの問題を既に処理している Bootstrap のようなライブラリを使用してください。
-* ベンダープレフィックスをコードに自動的に追加するには、`autoprefixer` を使用します。
-* Reset CSS または Normalize.css を使用してください。
+- 問題を特定して問題のブラウザを特定したら、その特定のブラウザが使用されているときにのみロードする別のスタイルシートを使用します。この手法では、サーバー側のレンダリングが必要です。
+- これらのスタイリングの問題を既に処理している Bootstrap のようなライブラリを使用してください。
+- ベンダープレフィックスをコードに自動的に追加するには、`autoprefixer` を使用します。
+- Reset CSS または Normalize.css を使用してください。
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### 機能の少ないブラウザに対しては、どのようにページを提供しますか？どのようなテクニック/プロセスを使用しますか？
 
-* グレースフル・デグラデーション（Graceful degradation） - 最新のブラウザー用のアプリケーションを構築し、古いブラウザーでは機能し続けることを保証する習慣。
-* プログレッシブ・エンハンス（Progressive Enhancement） - 基本レベルのユーザーエクスペリエンスのためのアプリケーションを構築するが、ブラウザーがそれをサポートするときに機能拡張を追加するプラクティス。
-* 機能のサポートを確認するには、[caniuse.com](https://caniuse.com/) を使用してください。
-* 自動ベンダー接頭辞挿入のための\*オートプレフィクサー。
-* [Modernizr](https://modernizr.com/) を使った機能の検出
+- グレースフル・デグラデーション（Graceful degradation） - 最新のブラウザー用のアプリケーションを構築し、古いブラウザーでは機能し続けることを保証する習慣。
+- プログレッシブ・エンハンス（Progressive Enhancement） - 基本レベルのユーザーエクスペリエンスのためのアプリケーションを構築するが、ブラウザーがそれをサポートするときに機能拡張を追加するプラクティス。
+- 機能のサポートを確認するには、[caniuse.com](https://caniuse.com/) を使用してください。
+- 自動ベンダー接頭辞挿入のための\*オートプレフィクサー。
+- [Modernizr](https://modernizr.com/) を使った機能の検出
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -191,21 +191,21 @@ CSS スプライトは、複数のイメージを 1 つの大きなイメージ�
 
 これらの技術はアクセシビリティ（a11y）に関連しています。
 
-* `visibility: hidden`： しかし、要素はまだページの流れにあり、まだ空間を占めています。
-* `width: 0; height: 0`： 要素が画面上のスペースを全く占めないようにして、それを表示しないようにします。
-* `position: absolute; left: -99999px`： 画面の外側に配置します。
-* `text-indent: -9999px`： これは `block` 要素内のテキストに対してのみ機能します。
-* メタデータ： たとえば、Schema.org、RDF、JSON-LD を使用します。
-* WAI-ARIA： Web ページのアクセシビリティを向上させる方法を指定する W3C の技術仕様。
+- `visibility: hidden`： しかし、要素はまだページの流れにあり、まだ空間を占めています。
+- `width: 0; height: 0`： 要素が画面上のスペースを全く占めないようにして、それを表示しないようにします。
+- `position: absolute; left: -99999px`： 画面の外側に配置します。
+- `text-indent: -9999px`： これは `block` 要素内のテキストに対してのみ機能します。
+- メタデータ： たとえば、Schema.org、RDF、JSON-LD を使用します。
+- WAI-ARIA： Web ページのアクセシビリティを向上させる方法を指定する W3C の技術仕様。
 
 WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` による位置決定手法を採用しています。注意すべきことが少なく、ほとんどの要素に対応している簡単な手法だからです。
 
 ###### 参考
 
-* https://www.w3.org/TR/wai-aria-1.1/
-* https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA (英語)
-* https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA (日本語)
-* http://a11yproject.com/
+- https://www.w3.org/TR/wai-aria-1.1/
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA (英語)
+- https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA (日本語)
+- http://a11yproject.com/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -231,10 +231,10 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 はい、@media プロパティには `screen` も含めて４つの種類があります。:
 
-* `all` - 全てのデバイス
-* `print` - プリンター
-* `speech` - ページを読み上げるスクリーンリーダー
-* `screen` - コンピュータスクリーンやタブレット、スマートフォンなど
+- `all` - 全てのデバイス
+- `print` - プリンター
+- `speech` - ページを読み上げるスクリーンリーダー
+- `screen` - コンピュータスクリーンやタブレット、スマートフォンなど
 
 `print` メディアタイプの使い方の例:
 
@@ -258,8 +258,8 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 ###### 参考
 
-* https://developers.google.com/web/fundamentals/performance/rendering/
-* https://csstriggers.com/
+- https://developers.google.com/web/fundamentals/performance/rendering/
+- https://csstriggers.com/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -267,15 +267,15 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 **メリット:**
 
-* CSS のメンテナンス性が向上しました。
-* ネストされたセレクタを書きやすい。
-* 一貫したテーマ設定のための変数。異なるプロジェクト間でテーマファイルを共有できます。
-* ミックスインは繰り返し CSS を生成します。
-* あなたのコードを複数のファイルに分割する。CSS ファイルも分割することができますが、そのためには各 CSS ファイルをダウンロードするための HTTP リクエストが必要です。
+- CSS のメンテナンス性が向上しました。
+- ネストされたセレクタを書きやすい。
+- 一貫したテーマ設定のための変数。異なるプロジェクト間でテーマファイルを共有できます。
+- ミックスインは繰り返し CSS を生成します。
+- あなたのコードを複数のファイルに分割する。CSS ファイルも分割することができますが、そのためには各 CSS ファイルをダウンロードするための HTTP リクエストが必要です。
 
 **デメリット:**
 
-* 前処理のためのツールが必要です。再コンパイル時間が遅くなることがあります。
+- 前処理のためのツールが必要です。再コンパイル時間が遅くなることがあります。
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -283,13 +283,13 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 **好きなもの:**
 
-* 主に上記の利点。
-* Less は JavaScript で書かれており、Node でうまくいきます。
+- 主に上記の利点。
+- Less は JavaScript で書かれており、Node でうまくいきます。
 
 **嫌いなもの:**
 
-* C++ で書かれた LibSass のバインディングである `node-sass` を使って Sass を使用します。ノードのバージョンを切り替えるときに、頻繁に再コンパイルする必要があります。
-* Less では、変数名の先頭に `@` が付いています。これは `@media`、`@import`、`@font-face` ルールなどのネイティブ CSS キーワードと混同することがあります。
+- C++ で書かれた LibSass のバインディングである `node-sass` を使って Sass を使用します。ノードのバージョンを切り替えるときに、頻繁に再コンパイルする必要があります。
+- Less では、変数名の先頭に `@` が付いています。これは `@media`、`@import`、`@font-face` ルールなどのネイティブ CSS キーワードと混同することがあります。
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -307,7 +307,7 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 ###### 参考
 
-* https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
+- https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -315,13 +315,13 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 CSS 疑似要素はセレクタに追加されたキーワードで、選択した要素の特定の部分をスタイルすることができます。マークアップ(`:before`, `:after`)を変更しなくても、マークアップ(combined with `content: ...`)への要素の追加やデコレーション(`:first-line`, `:first-letter`) に使用できます。
 
-* `:first-line` と `:first-letter` を使ってテキストを装飾することができます。
-* 上記の `.clearfix` ハックで、`clear:both` でゼロスペースの要素を追加するために使用されます。
-* ツールチップの三角形の矢印は `:before` と `:after` を使います。三角形は実際には DOM ではなくスタイリングの一部とみなされるため、懸念の分離を促します。追加の HTML 要素を使用せずに CSS スタイルだけで三角形を描画することは、実際には不可能です。
+- `:first-line` と `:first-letter` を使ってテキストを装飾することができます。
+- 上記の `.clearfix` ハックで、`clear:both` でゼロスペースの要素を追加するために使用されます。
+- ツールチップの三角形の矢印は `:before` と `:after` を使います。三角形は実際には DOM ではなくスタイリングの一部とみなされるため、懸念の分離を促します。追加の HTML 要素を使用せずに CSS スタイルだけで三角形を描画することは、実際には不可能です。
 
 ###### 参考
 
-* https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/selectors/a/after-and-before/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -331,37 +331,37 @@ CSS ボックスモデルは、ドキュメントツリー内の要素に対し�
 
 CSS ボックスモデルは、次の計算を行います。
 
-* ブロック要素がどれくらいのスペースを占めるか。
-* 枠線や余白が重なるかどうか、または折りたたむかどうか。
-* ボックスの寸法。
+- ブロック要素がどれくらいのスペースを占めるか。
+- 枠線や余白が重なるかどうか、または折りたたむかどうか。
+- ボックスの寸法。
 
 ボックスモデルには次の規則があります。
 
-* ブロック要素の大きさは、`width`、`height`、`padding`、`border` および `margin` によって計算されます。
-* `height` が指定されていない場合、ブロック要素は含まれている内容と同じくらい高くなります（フロートがない限り、以下参照）。
-* `width` が指定されていない場合、フロートのブロック要素は、その親の幅から `padding` の幅に収まるように展開されます。
-* 要素の `height` は内容の `height` によって計算されます。
-* 要素の `width` は内容の `width` によって計算されます。
-* デフォルトでは、`padding` と `border` は要素の `width` と `height` の一部ではありません。
+- ブロック要素の大きさは、`width`、`height`、`padding`、`border` および `margin` によって計算されます。
+- `height` が指定されていない場合、ブロック要素は含まれている内容と同じくらい高くなります（フロートがない限り、以下参照）。
+- `width` が指定されていない場合、フロートのブロック要素は、その親の幅から `padding` の幅に収まるように展開されます。
+- 要素の `height` は内容の `height` によって計算されます。
+- 要素の `width` は内容の `width` によって計算されます。
+- デフォルトでは、`padding` と `border` は要素の `width` と `height` の一部ではありません。
 
 ###### 参考
 
-* https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
+- https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### `* { box-sizing: border-box; }` によって何が起きますか？その利点は何ですか？
 
-* デフォルトでは、要素には `box-sizing: content-box` が適用され、コンテンツサイズのみが考慮されます。
-* `box-sizing：border-box` は、要素の `width` と `height` がどのように計算されるかを変更し、`border` と `padding` も計算に含めます。
-* 要素の `height` は、コンテンツの `height` + 垂直 `padding` + 垂直 `border` 幅によって計算されます。
-* 要素の `width` は、コンテンツの `width` + 水平 `padding` + 水平 `border` 幅によって計算されます。
+- デフォルトでは、要素には `box-sizing: content-box` が適用され、コンテンツサイズのみが考慮されます。
+- `box-sizing：border-box` は、要素の `width` と `height` がどのように計算されるかを変更し、`border` と `padding` も計算に含めます。
+- 要素の `height` は、コンテンツの `height` + 垂直 `padding` + 垂直 `border` 幅によって計算されます。
+- 要素の `width` は、コンテンツの `width` + 水平 `padding` + 水平 `border` 幅によって計算されます。
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### CSS の `display` プロパティとは何ですか？その使い方の例をいくつか挙げることができますか？
 
-* `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`
+- `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`
 
 TODO
 
@@ -371,14 +371,14 @@ TODO
 
 比較のために `block` も並べます。
 
-|                                   | `block`                                                     | `inline-block`                             | `inline`                                                                                                                                         |
-| ----------------------------------| ------------------------------------------------------------| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| サイズ                             | 親要素の幅と同じになる。                                        | 要素によって変わる。                          | 要素によって変わる。                                                                                                                                 |
-| ポジショニング                      | 新しい行から始まり、隣に要素を並べられない。(`float`を使う場合を除く) | 他の要素とフローし、隣に要素を並べることができる。 | 他の要素とフローし、隣に要素を並べることができる。                                                                                                        |
-| `width` と `height` の指定ができるか | はい                                                         | はい                                       | いいえ、設定をしても無視される。                                                                                                                       |
-| `vertical-align` を指定できるか     | いいえ                                                       | はい                                        | はい                                                                                                                                              |
-| マージンとパディング                 | 上下左右に指定できる。                                          | 上下左右に指定できる。                        | 左右のみ指定可能。上下に指定をしてもレイアウトに影響はない。 `border` と `padding` が要素の周りに視覚的に現れていても、上下のスペースは `line-height` によって決まる。 |
-| フロート                           | -                                                           | -                                          | 上下の `margins` と `paddings` を設定できる `block` 要素のようになる。                                                                                  |
+|                                      | `block`                                                               | `inline-block`                                     | `inline`                                                                                                                                                               |
+| ------------------------------------ | --------------------------------------------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| サイズ                               | 親要素の幅と同じになる。                                              | 要素によって変わる。                               | 要素によって変わる。                                                                                                                                                   |
+| ポジショニング                       | 新しい行から始まり、隣に要素を並べられない。(`float`を使う場合を除く) | 他の要素とフローし、隣に要素を並べることができる。 | 他の要素とフローし、隣に要素を並べることができる。                                                                                                                     |
+| `width` と `height` の指定ができるか | はい                                                                  | はい                                               | いいえ、設定をしても無視される。                                                                                                                                       |
+| `vertical-align` を指定できるか      | いいえ                                                                | はい                                               | はい                                                                                                                                                                   |
+| マージンとパディング                 | 上下左右に指定できる。                                                | 上下左右に指定できる。                             | 左右のみ指定可能。上下に指定をしてもレイアウトに影響はない。 `border` と `padding` が要素の周りに視覚的に現れていても、上下のスペースは `line-height` によって決まる。 |
+| フロート                             | -                                                                     | -                                                  | 上下の `margins` と `paddings` を設定できる `block` 要素のようになる。                                                                                                 |
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -386,24 +386,24 @@ TODO
 
 配置された要素は、計算された `position` プロパティが `relative`、`absolute`、`fixed` または `sticky` のいずれかである要素です。
 
-* `static` - デフォルトの位置です。要素は通常どおりページに流れます。`top`、`right`、`bottom`、`left`、`z-index` プロパティは適用されません。
-* `relative` - 要素の位置は、レイアウトを変更することなく、それ自体に対して相対的に調整されます（したがって、配置されていなかった要素の隙間を残します）。
-* `absolute` - 要素は、ページのフローから削除され、もしあれば、最も近い位置にある祖先に対して指定された位置に置かれます。絶対配置されたボックスは余白を持つことができ、他の余白と一緒に折り畳まれることはありません。これらの要素は他の要素の位置に影響しません。
-* `fixed` - 要素は、ページのフローから削除され、ビューポートに対して指定された位置に配置され、スクロールすると移動しません。
-* `sticky` - スティッキーポジショニングは、相対位置と固定位置のハイブリッドです。要素は、指定されたしきい値を超えるまで、相対的な位置として扱われます。その時点で、`fixed` の位置として扱われます。
+- `static` - デフォルトの位置です。要素は通常どおりページに流れます。`top`、`right`、`bottom`、`left`、`z-index` プロパティは適用されません。
+- `relative` - 要素の位置は、レイアウトを変更することなく、それ自体に対して相対的に調整されます（したがって、配置されていなかった要素の隙間を残します）。
+- `absolute` - 要素は、ページのフローから削除され、もしあれば、最も近い位置にある祖先に対して指定された位置に置かれます。絶対配置されたボックスは余白を持つことができ、他の余白と一緒に折り畳まれることはありません。これらの要素は他の要素の位置に影響しません。
+- `fixed` - 要素は、ページのフローから削除され、ビューポートに対して指定された位置に配置され、スクロールすると移動しません。
+- `sticky` - スティッキーポジショニングは、相対位置と固定位置のハイブリッドです。要素は、指定されたしきい値を超えるまで、相対的な位置として扱われます。その時点で、`fixed` の位置として扱われます。
 
 ###### 参考
 
-* https://developer.mozilla.org/en/docs/Web/CSS/position (英語)
-* https://developer.mozilla.org/ja/docs/Web/CSS/position (日本語)
+- https://developer.mozilla.org/en/docs/Web/CSS/position (英語)
+- https://developer.mozilla.org/ja/docs/Web/CSS/position (日本語)
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### ローカルや本番環境で、どの既存の CSS フレームワークを使用していますか？また、どのように変更/改善していますか？
 
-* **BootStrap** - 緩やかなリリースサイクル。BootStrap4 は、ほぼ 2 年間アルファになっています。広く使用されているように、スピナーボタンコンポーネントを追加します。
-* **Semantic UI** - ソースコード構造により、テーマのカスタマイズが非常に難しくなります。慣習的でないテーマ設定システムでカスタマイズするのは面倒です。ベンダライブラリ内のハードコードされた設定パス。BootStrap とは違って、変数をオーバーライドするためにうまく設計されていません。
-* **Bulma** - 非セマンティックで余計なクラスやマークアップが必要です。下位互換性がありません。バージョンをアップグレードすると、微妙な方法でアプリが壊れてしまいます。
+- **BootStrap** - 緩やかなリリースサイクル。BootStrap4 は、ほぼ 2 年間アルファになっています。広く使用されているように、スピナーボタンコンポーネントを追加します。
+- **Semantic UI** - ソースコード構造により、テーマのカスタマイズが非常に難しくなります。慣習的でないテーマ設定システムでカスタマイズするのは面倒です。ベンダライブラリ内のハードコードされた設定パス。BootStrap とは違って、変数をオーバーライドするためにうまく設計されていません。
+- **Bulma** - 非セマンティックで余計なクラスやマークアップが必要です。下位互換性がありません。バージョンをアップグレードすると、微妙な方法でアプリが壊れてしまいます。
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -417,7 +417,7 @@ Flexbox は、コンテナ内の要素の垂直方向のセンタリング、ス
 
 ###### 参考
 
-* https://philipwalton.github.io/solved-by-flexbox/
+- https://philipwalton.github.io/solved-by-flexbox/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -437,10 +437,10 @@ TODO
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design (英語)
-* https://developer.mozilla.org/ja/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design (日本語)
-* http://mediumwell.com/responsive-adaptive-mobile/
-* https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
+- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design (英語)
+- https://developer.mozilla.org/ja/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design (日本語)
+- http://mediumwell.com/responsive-adaptive-mobile/
+- https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -454,7 +454,7 @@ TODO
 
 ###### 参考
 
-* https://www.sitepoint.com/css-techniques-for-retina-displays/
+- https://www.sitepoint.com/css-techniques-for-retina-displays/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
@@ -466,12 +466,12 @@ TODO
 
 ###### 参考
 
-* https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
+- https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
 [[↑] 先頭に戻る](#css-に関する質問)
 
 ### 他の方の回答集
 
-* https://neal.codes/blog/front-end-interview-css-questions
-* https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
-* http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+- https://neal.codes/blog/front-end-interview-css-questions
+- https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
+- http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/

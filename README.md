@@ -17,7 +17,6 @@ Unlike typical software engineer job interviews, front-end job interviews have l
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
-
 ---
 
 <div align="center">
@@ -25,7 +24,6 @@ While there are some existing resources to help front end developers in preparin
 </div>
 
 ---
-
 
 ## Looking for Generic Interview Preparation?
 

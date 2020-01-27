@@ -2,24 +2,24 @@
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
 
-* [What does a doctype do?](#what-does-a-doctype-do)
-* [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-* [What kind of things must you be wary of when designing or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-* [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
-* [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-* [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-* [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-* [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-* [What is progressive rendering?](#what-is-progressive-rendering)
-* [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-* [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+- [What does a doctype do?](#what-does-a-doctype-do)
+- [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+- [What kind of things must you be wary of when designing or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
+- [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
+- [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
+- [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
+- [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
+- [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
+- [What is progressive rendering?](#what-is-progressive-rendering)
+- [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
+- [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
 ### What does a DOCTYPE do?
 
 **DOCTYPE** is an abbreviation for **DOCument TYPE**.
 A DOCTYPE is always associated to a **DTD** - for **Document Type Definition**.
 
-A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a DOCTYPE declares what DTD a document *supposedly* respects (i.e. this document respects the HTML DTD).
+A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a DOCTYPE declares what DTD a document _supposedly_ respects (i.e. this document respects the HTML DTD).
 
 For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects.
 Once a user agent has recognized a correct DOCTYPE, it will trigger the **no-quirks mode** matching this DOCTYPE for reading the document.
@@ -29,9 +29,9 @@ The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
 
 ###### References
 
-* https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
-* https://html.spec.whatwg.org/multipage/xhtml.html
-* https://quirks.spec.whatwg.org/
+- https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
+- https://html.spec.whatwg.org/multipage/xhtml.html
+- https://quirks.spec.whatwg.org/
 
 [[↑] Back to top](#html-questions)
 
@@ -45,24 +45,24 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 ###### References
 
-* https://www.w3.org/International/getting-started/language
+- https://www.w3.org/International/getting-started/language
 
 [[↑] Back to top](#html-questions)
 
 ### What kind of things must you be wary of when designing or developing for multilingual sites?
 
-* Use `lang` attribute in your HTML.
-* Directing users to their native language - Allow a user to change his country/language easily without hassle.
-* Text in raster-based images (e.g. png, gif, jpg, etc.), is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to translate image text, each string of text will need to have a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
-* Restrictive words/sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments.
-* Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
-* Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
-* Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
-* Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
+- Use `lang` attribute in your HTML.
+- Directing users to their native language - Allow a user to change his country/language easily without hassle.
+- Text in raster-based images (e.g. png, gif, jpg, etc.), is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to translate image text, each string of text will need to have a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
+- Restrictive words/sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments.
+- Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
+- Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
+- Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
+- Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
 
 ###### References
 
-* https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
+- https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
 [[↑] Back to top](#html-questions)
 
@@ -76,25 +76,25 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 
 ###### References
 
-* http://html5doctor.com/html5-custom-data-attributes/
-* https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
+- http://html5doctor.com/html5-custom-data-attributes/
+- https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
 [[↑] Back to top](#html-questions)
 
 ### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 
-* Semantics - Allowing you to describe more precisely what your content is.
-* Connectivity - Allowing you to communicate with the server in new and innovative ways.
-* Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
-* Multimedia - Making video and audio first-class citizens in the Open Web.
-* 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
-* Performance and integration - Providing greater speed optimization and better usage of computer hardware.
-* Device access - Allowing for the usage of various input and output devices.
-* Styling - Letting authors write more sophisticated themes.
+- Semantics - Allowing you to describe more precisely what your content is.
+- Connectivity - Allowing you to communicate with the server in new and innovative ways.
+- Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
+- Multimedia - Making video and audio first-class citizens in the Open Web.
+- 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
+- Performance and integration - Providing greater speed optimization and better usage of computer hardware.
+- Device access - Allowing for the usage of various input and output devices.
+- Styling - Letting authors write more sophisticated themes.
 
 ###### References
 
-* https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
 [[↑] Back to top](#html-questions)
 
@@ -115,24 +115,24 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 
 ###### References
 
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
-* http://tutorial.techaltum.com/local-and-session-storage.html
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- http://tutorial.techaltum.com/local-and-session-storage.html
 
 [[↑] Back to top](#html-questions)
 
 ### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
-* `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
-* `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example, analytics.
-* `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference in putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+- `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
+- `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example, analytics.
+- `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference in putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
 
 Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
 
 ###### References
 
-* http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
-* https://stackoverflow.com/questions/10808109/script-tag-async-defer
-* https://bitsofco.de/async-vs-defer/
+- http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+- https://stackoverflow.com/questions/10808109/script-tag-async-defer
+- https://bitsofco.de/async-vs-defer/
 
 [[↑] Back to top](#html-questions)
 
@@ -150,9 +150,9 @@ An exception for positioning of `<script>`s at the bottom is when your script co
 
 ###### References
 
-* https://developer.yahoo.com/performance/rules.html#css_top
-* https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
-* https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
+- https://developer.yahoo.com/performance/rules.html#css_top
+- https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
+- https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
 [[↑] Back to top](#html-questions)
 
@@ -164,14 +164,14 @@ It used to be much more prevalent in the days before broadband internet but it i
 
 Examples of such techniques:
 
-* Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
-* Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
-* Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+- Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
+- Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
+- Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
 ###### References
 
-* https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
-* http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
+- https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
+- http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
 [[↑] Back to top](#html-questions)
 
@@ -179,9 +179,9 @@ Examples of such techniques:
 
 You would use the `srcset` attribute when you want to serve different images to users depending on their device display width - serve higher quality images to devices with retina display enhances the user experience while serving lower resolution images to low-end devices increase performance and decrease data wastage (because serving a larger image will not have any visible difference). For example: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` tells the browser to display the small, medium or large `.jpg` graphic depending on the client's resolution. The first value is the image name and the second is the width of the image in pixels. For a device width of 320px, the following calculations are made:
 
-* 500 / 320 = 1.5625
-* 1000 / 320 = 3.125
-* 2000 / 320 = 6.25
+- 500 / 320 = 1.5625
+- 1000 / 320 = 3.125
+- 2000 / 320 = 6.25
 
 If the client's resolution is 1x, 1.5625 is the closest, and `500w` corresponding to `small.jpg` will be selected by the browser.
 
@@ -191,8 +191,8 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 
 ###### References
 
-* https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
-* https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
+- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+- https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
 [[↑] Back to top](#html-questions)
 
@@ -204,7 +204,7 @@ Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a f
 
 ### Other Answers
 
-* https://neal.codes/blog/front-end-interview-questions-html/
-* http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+- https://neal.codes/blog/front-end-interview-questions-html/
+- http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
 ---

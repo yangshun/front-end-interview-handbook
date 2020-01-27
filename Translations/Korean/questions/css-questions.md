@@ -82,7 +82,7 @@ CSS `clear` 속성은 float 요소에 `left`/`right`/`both`에 위치하도록 �
 
 ```css
 .clearfix:after {
-  content: ' ';
+  content: " ";
   visibility: hidden;
   display: block;
   height: 0;
@@ -497,9 +497,9 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
-* http://mediumwell.com/responsive-adaptive-mobile/
-* https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
+- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
+- http://mediumwell.com/responsive-adaptive-mobile/
+- https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
 [[↑] Back to top](#css-질문)
 
@@ -515,16 +515,19 @@ _레티나_ 는 픽셀 비율이 1보다 큰 고해상도 화면을 나타내는
 이 문제를 극복하기 위해, HTML5에 스펙인 반응형 이미지를 사용할 수 있습니다. 이는 동일한 이미지의 다른 해상도 파일을 브라우저에 제공하고 html 속성 `srcset`과 `sizes`를 사용하여 어떤 이미지가 가장 적합한지 결정하도록합니다.
 
 ```html
-<div responsive-background-image>  
-  <img src="/images/test-1600.jpg"
+<div responsive-background-image>
+  <img
+    src="/images/test-1600.jpg"
     sizes="
       (min-width: 768px) 50vw,
       (min-width: 1024px) 66vw,
       100vw"
     srcset="
-      /images/test-400.jpg 400w,
-      /images/test-800.jpg 800w,
-      /images/test-1200.jpg 1200w">
+      /images/test-400.jpg   400w,
+      /images/test-800.jpg   800w,
+      /images/test-1200.jpg 1200w
+    "
+  />
 </div>
 ```
 
@@ -532,12 +535,11 @@ HTML5의 `srcset`를 지원하지 않는 브라우저(예: IE11)는 이를 무�
 
 아이콘의 경우, SVG나 아이콘폰트를 사용하면 해상도에 관계없이 매우 선명하게 렌더링되므로 가능하면 이를 사용합니다.
 
-
 ###### 참고자료
 
-* https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
-* http://scottjehl.github.io/picturefill/
-* https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
+- https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
+- http://scottjehl.github.io/picturefill/
+- https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
 
 [[↑] Back to top](#css-질문)
 
@@ -549,12 +551,12 @@ HTML5의 `srcset`를 지원하지 않는 브라우저(예: IE11)는 이를 무�
 
 ###### 참고자료
 
-* https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
+- https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
 [[↑] Back to top](#css-질문)
 
 ### 다른 답변들
 
-* https://neal.codes/blog/front-end-interview-css-questions
-* https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
-* http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+- https://neal.codes/blog/front-end-interview-css-questions
+- https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
+- http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/

@@ -2,17 +2,17 @@
 
 [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
-* [`DOCTYPE` は何のためにあるものですか？](#doctype-は何のためにあるものですか)
-* [どのようにすれば複数の言語のコンテンツを含むページを提供できますか？](#どのようにすれば複数の言語のコンテンツを含むページを提供できますか)
-* [多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？](#多言語サイトを設計開発する際にはどんなことに注意を払わなければならないですか)
-* [`data-` 属性は何のために使われるのですか？](#data--属性は何のために使われるのですか)
-* [HTML5 をオープンウェブプラットフォームとして考えたときに、HTML5 とはどんな要素から成るものですか？](#html5-をオープンウェブプラットフォームとして考えたときにhtml5-とはどんな要素から成るものですか)
-* [`cookie`、`sessionStorage`、`localStorage` の違いを教えてください。](#cookiesessionstoragelocalstorage-の違いを教えてください)
-* [`<script>`、`<script async>`、`<script defer>` の違いを教えてください。](#scriptscript-asyncscript-defer-の違いを教えてください)
-* [なぜ一般的に、CSS の `<link>` を `<head></head>` の間に、JS の `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？](#なぜ一般的にcss-の-link-を-headhead-の間にjs-の-script-を-body-の直前に置くことが良いと言われているのでしょうかこうすべきでない例外を知っていますか)
-* [プログレッシブレンダリングとは何ですか？](#プログレッシブレンダリングとは何ですか)
-* [img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。](#img-タグに-srcset-属性を使用する理由はこの属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください)
-* [HTML テンプレート言語をいくつか使用した経験はありますか？](#html-テンプレート言語をいくつか使用した経験はありますか)
+- [`DOCTYPE` は何のためにあるものですか？](#doctype-は何のためにあるものですか)
+- [どのようにすれば複数の言語のコンテンツを含むページを提供できますか？](#どのようにすれば複数の言語のコンテンツを含むページを提供できますか)
+- [多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？](#多言語サイトを設計開発する際にはどんなことに注意を払わなければならないですか)
+- [`data-` 属性は何のために使われるのですか？](#data--属性は何のために使われるのですか)
+- [HTML5 をオープンウェブプラットフォームとして考えたときに、HTML5 とはどんな要素から成るものですか？](#html5-をオープンウェブプラットフォームとして考えたときにhtml5-とはどんな要素から成るものですか)
+- [`cookie`、`sessionStorage`、`localStorage` の違いを教えてください。](#cookiesessionstoragelocalstorage-の違いを教えてください)
+- [`<script>`、`<script async>`、`<script defer>` の違いを教えてください。](#scriptscript-asyncscript-defer-の違いを教えてください)
+- [なぜ一般的に、CSS の `<link>` を `<head></head>` の間に、JS の `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？](#なぜ一般的にcss-の-link-を-headhead-の間にjs-の-script-を-body-の直前に置くことが良いと言われているのでしょうかこうすべきでない例外を知っていますか)
+- [プログレッシブレンダリングとは何ですか？](#プログレッシブレンダリングとは何ですか)
+- [img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。](#img-タグに-srcset-属性を使用する理由はこの属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください)
+- [HTML テンプレート言語をいくつか使用した経験はありますか？](#html-テンプレート言語をいくつか使用した経験はありますか)
 
 ### `DOCTYPE` は何のためにあるものですか？
 
@@ -22,9 +22,9 @@
 
 ###### 参考
 
-* https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
-* https://www.w3.org/QA/Tips/Doctype
-* https://quirks.spec.whatwg.org/#history
+- https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
+- https://www.w3.org/QA/Tips/Doctype
+- https://quirks.spec.whatwg.org/#history
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -38,24 +38,24 @@ HTTP リクエストがサーバに対して行われるとき、リクエスト
 
 ###### 参考
 
-* https://www.w3.org/International/getting-started/language
+- https://www.w3.org/International/getting-started/language
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
 ### 多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？
 
-* HTML に `lang` 属性を使います。
-* ユーザーを母国語に誘導する - ユーザーが困難なく、国/言語を簡単に変更できるようにします。
-* 画像によるテキストを使用することはスケーラブルな方法ではない - 確かに画像にテキストを配置することは、システムに無い見栄えの良いフォントをあらゆるコンピュータに表示させるための一般的な方法です。しかし、画像によるテキストを翻訳するにはテキストごとに各言語用の別々の画像が必要になります。このような画像の変換はほんの少しならいいものの、増えてくるとすぐに管理できなくなってしまいます。
-* 制限的な言葉/文章の長さ - 別の言語で書くとコンテンツの長さが変わるので、デザインのレイアウトやオーバーフローの問題に注意します。テキスト量でデザインを決めるのは避けるべきです。文字数は、見出し、ラベル、ボタンなどのものがあります。それらは、本文やコメントなど自由に流れるテキストの問題ではありません。
-* 色がどのように認識されているかに注意します。色は言語や文化によって違って見えます。デザインは適切に色を使用する必要があります。
-* 日付と通貨の書式設定 - カレンダーの日付が異なる方法で表示されることがあります。例えば。米国の "May 31, 2012" とヨーロッパの "31 May 2012" です。
-* 翻訳された文字列を連結しない - `"今日の日付は" + date` のことです。異なる言語で単語の順序は変化するのです。かわりに各言語のパラメータ置換を伴うテンプレート文字列を使用します。たとえば、次の 2 つの文章をそれぞれ日本語と英語で見てみましょう： `私は{% date %}に旅行します` と `I will travel on {% date %}` です。変数の位置は、言語の文法規則によって異なることに注意する必要があります。
-* 言語の読む方向 - 英語では、左から右、上から下へ向かって読みますが、日本語では伝統的に、上から下へ、右から左へ向かって読みます。
+- HTML に `lang` 属性を使います。
+- ユーザーを母国語に誘導する - ユーザーが困難なく、国/言語を簡単に変更できるようにします。
+- 画像によるテキストを使用することはスケーラブルな方法ではない - 確かに画像にテキストを配置することは、システムに無い見栄えの良いフォントをあらゆるコンピュータに表示させるための一般的な方法です。しかし、画像によるテキストを翻訳するにはテキストごとに各言語用の別々の画像が必要になります。このような画像の変換はほんの少しならいいものの、増えてくるとすぐに管理できなくなってしまいます。
+- 制限的な言葉/文章の長さ - 別の言語で書くとコンテンツの長さが変わるので、デザインのレイアウトやオーバーフローの問題に注意します。テキスト量でデザインを決めるのは避けるべきです。文字数は、見出し、ラベル、ボタンなどのものがあります。それらは、本文やコメントなど自由に流れるテキストの問題ではありません。
+- 色がどのように認識されているかに注意します。色は言語や文化によって違って見えます。デザインは適切に色を使用する必要があります。
+- 日付と通貨の書式設定 - カレンダーの日付が異なる方法で表示されることがあります。例えば。米国の "May 31, 2012" とヨーロッパの "31 May 2012" です。
+- 翻訳された文字列を連結しない - `"今日の日付は" + date` のことです。異なる言語で単語の順序は変化するのです。かわりに各言語のパラメータ置換を伴うテンプレート文字列を使用します。たとえば、次の 2 つの文章をそれぞれ日本語と英語で見てみましょう： `私は{% date %}に旅行します` と `I will travel on {% date %}` です。変数の位置は、言語の文法規則によって異なることに注意する必要があります。
+- 言語の読む方向 - 英語では、左から右、上から下へ向かって読みますが、日本語では伝統的に、上から下へ、右から左へ向かって読みます。
 
 ###### 参考
 
-* https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
+- https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -67,26 +67,26 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ###### 参考
 
-* http://html5doctor.com/html5-custom-data-attributes/
-* https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
+- http://html5doctor.com/html5-custom-data-attributes/
+- https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
 ### HTML5 をオープンウェブプラットフォームとして考えたときに、HTML5 とはどんな要素から成るものですか？
 
-* セマンティクス - コンテンツを正確に記述できるようにします。
-* 接続性 - 新しく革新的な方法でサーバーと通信することができます。
-* オフラインとストレージ - ウェブページにクライアント側のデータをローカルに格納し、オフラインでより効率的に操作できるようにします。
-* マルチメディア - オープンウェブでビデオとオーディオを第一級オブジェクトにする。
-* 2D/3D グラフィックスとエフェクト - より多様なプレゼンテーションオプションを可能にします。
-* パフォーマンスと統合 - より高速な最適化とコンピュータハードウェアの使い方を提供します。
-* デバイスアクセス - さまざまな入出力デバイスの使用を許可します。
-* スタイリング - 製作者はより洗練されたテーマを書くことができます。
+- セマンティクス - コンテンツを正確に記述できるようにします。
+- 接続性 - 新しく革新的な方法でサーバーと通信することができます。
+- オフラインとストレージ - ウェブページにクライアント側のデータをローカルに格納し、オフラインでより効率的に操作できるようにします。
+- マルチメディア - オープンウェブでビデオとオーディオを第一級オブジェクトにする。
+- 2D/3D グラフィックスとエフェクト - より多様なプレゼンテーションオプションを可能にします。
+- パフォーマンスと統合 - より高速な最適化とコンピュータハードウェアの使い方を提供します。
+- デバイスアクセス - さまざまな入出力デバイスの使用を許可します。
+- スタイリング - 製作者はより洗練されたテーマを書くことができます。
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5 (英語)
-* https://developer.mozilla.org/ja/docs/Web/HTML/HTML5 (日本語)
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5 (英語)
+- https://developer.mozilla.org/ja/docs/Web/HTML/HTML5 (日本語)
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -105,25 +105,25 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ###### 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies (英語)
-* https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies (日本語)
-* http://tutorial.techaltum.com/local-and-session-storage.html
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies (英語)
+- https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies (日本語)
+- http://tutorial.techaltum.com/local-and-session-storage.html
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
 ### `<script>`、`<script async>`、`<script defer>` の違いを教えてください。
 
-* `<script>` - HTML 解析がブロックされ、スクリプトがフェッチされてすぐに実行され、スクリプトの実行後に HTML 解析が再開されます。
-* `<script async>` - スクリプトは HTML 解析と並行して取得され、利用可能になるとすぐに（HTML 解析が完了する前に）実行されます。スクリプトがページ上の他のスクリプト（アナリティックスなど）と独立している場合は、`async` を使用します。
-* `<script defer>` - スクリプトは HTML 解析と並行して取得され、ページの解析が完了すると実行されます。複数のスクリプトがある場合、各遅延スクリプトはドキュメント内で遭遇した順序で実行されます。スクリプトが完全に解析された DOM に依存している場合、`defer` 属性は HTML が実行前に完全に解析されることを保証するのに役立ちます。`<body>` の最後に通常の `<script>` を置くことと大した違いはありません。遅延されたスクリプトは `document.write` を含んではいけません。
+- `<script>` - HTML 解析がブロックされ、スクリプトがフェッチされてすぐに実行され、スクリプトの実行後に HTML 解析が再開されます。
+- `<script async>` - スクリプトは HTML 解析と並行して取得され、利用可能になるとすぐに（HTML 解析が完了する前に）実行されます。スクリプトがページ上の他のスクリプト（アナリティックスなど）と独立している場合は、`async` を使用します。
+- `<script defer>` - スクリプトは HTML 解析と並行して取得され、ページの解析が完了すると実行されます。複数のスクリプトがある場合、各遅延スクリプトはドキュメント内で遭遇した順序で実行されます。スクリプトが完全に解析された DOM に依存している場合、`defer` 属性は HTML が実行前に完全に解析されることを保証するのに役立ちます。`<body>` の最後に通常の `<script>` を置くことと大した違いはありません。遅延されたスクリプトは `document.write` を含んではいけません。
 
 注意： `src` 属性を持たないスクリプトでは `async` と `defer` 属性は無視されます。
 
 ###### 参考
 
-* http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
-* https://stackoverflow.com/questions/10808109/script-tag-async-defer
-* https://bitsofco.de/async-vs-defer/
+- http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+- https://stackoverflow.com/questions/10808109/script-tag-async-defer
+- https://bitsofco.de/async-vs-defer/
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -141,7 +141,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ###### 参考
 
-* https://developer.yahoo.com/performance/rules.html#css_top
+- https://developer.yahoo.com/performance/rules.html#css_top
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -153,14 +153,14 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 このような技術の例：
 
-* 画像の遅延読み込み - ページ上の画像が一度に読み込まれないようにします。ユーザーが画像を表示するページの部分にスクロールすると、JavaScript が使用されて画像がロードされます。
-* 目に見えるコンテンツの優先順位付け（または折り畳みの上のレンダリング） - できるだけ早く表示するためにユーザーのブラウザでレンダリングされるページの量に必要な最小の CSS/コンテンツ/スクリプトのみを含める。スクリプトを呼び出すか、`DOMContentLoaded`/`load` イベントが他のリソースやコンテンツを読み込むのを待ちます。
-* 非同期 HTML フラグメント - HTML の一部をブラウザにフラッシュし、ページがバックエンド上に構築されます。この技術の詳細は[こちら](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)にあります。
+- 画像の遅延読み込み - ページ上の画像が一度に読み込まれないようにします。ユーザーが画像を表示するページの部分にスクロールすると、JavaScript が使用されて画像がロードされます。
+- 目に見えるコンテンツの優先順位付け（または折り畳みの上のレンダリング） - できるだけ早く表示するためにユーザーのブラウザでレンダリングされるページの量に必要な最小の CSS/コンテンツ/スクリプトのみを含める。スクリプトを呼び出すか、`DOMContentLoaded`/`load` イベントが他のリソースやコンテンツを読み込むのを待ちます。
+- 非同期 HTML フラグメント - HTML の一部をブラウザにフラッシュし、ページがバックエンド上に構築されます。この技術の詳細は[こちら](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)にあります。
 
 ###### References
 
-* https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
-* http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
+- https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
+- http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -168,9 +168,9 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 デバイスの表示幅に応じて異なるイメージをユーザーに提供したい場合は、`srcset` 属性を使用します。Retina ディスプレイに高品質のイメージを表示することでユーザー体験を向上させ、ローエンドのデバイスに低解像度のイメージを提供することでパフォーマンスとデータ量削減に貢献します（ローエンドでは高品質イメージを提供しても綺麗になりません）。例：`<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` はブラウザに小、中、大のいずれかを表示するように指示します。クライアントの解像度に応じて「jpg」グラフィックを表示します。最初の値はイメージ名で、2 番目の値はイメージのピクセル単位の幅です。320px のデバイス幅の場合、次の計算が行われます。
 
-* 500/320 = 1.5625
-* 1000/320 = 3.125
-* 2000/320 = 6.25
+- 500/320 = 1.5625
+- 1000/320 = 3.125
+- 2000/320 = 6.25
 
 クライアントの解像度が 1x の場合、1.5625 が最も近く、`small.jpg` に対応する `500w` がブラウザによって選択されます。
 
@@ -180,8 +180,8 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ###### 参考
 
-* https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
-* http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
+- https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
+- http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
 [[↑] 先頭に戻る](#html-に関する質問)
 
@@ -193,7 +193,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ### 他の方の回答集
 
-* https://neal.codes/blog/front-end-interview-questions-html/
-* http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+- https://neal.codes/blog/front-end-interview-questions-html/
+- http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
 ---

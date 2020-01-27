@@ -29,14 +29,14 @@ Podes estar interessado no [Tech Interview Handbook](https://github.com/yangshun
 
 ## Traduções
 
-* [English](/README.md)
-* [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
-* [Tagalog](/Translations/Tagalog/README.md)
-* [Japanese (日本語)](/Translations/Japanese/README.md)
+- [English](/README.md)
+- [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
+- [Tagalog](/Translations/Tagalog/README.md)
+- [Japanese (日本語)](/Translations/Japanese/README.md)
 
 **Em Progresso**
 
-* [Korean (한국어)](/Translations/Korean/README.md)
+- [Korean (한국어)](/Translations/Korean/README.md)
 
 ## Relacionados
 
