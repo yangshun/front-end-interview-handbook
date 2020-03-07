@@ -348,7 +348,7 @@ A CSS pseudo-element is a keyword added to a selector that lets you style a spec
 
 - `:first-line` and `:first-letter` can be used to decorate text.
 - Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
-- Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM. It's not really possible to draw a triangle with just CSS styles without using an additional HTML element.
+- Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM.
 
 ###### References
 
