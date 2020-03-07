@@ -2,7 +2,6 @@
 
 [프론트엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md)에 대한 해설입니다. Pull Request를 통한 제안, 수정 요청 환영합니다.
 
-
 - [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
 - [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
 - [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
@@ -88,19 +87,19 @@
 
 ###### References
 
-* https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
-* https://stackoverflow.com/a/3127440/1751946
+- https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
+- https://stackoverflow.com/a/3127440/1751946
 
 [[↑] Back to top](#js-질문)
 
 ### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
-이는 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `prototype` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때, 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `prototype`과 `prototype`의 `prototype`등을 보고 프로퍼티 정의가 있을 때까지 찾고, 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
+이는 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `__proto__` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때, 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `__proto__`과 `__proto__`의 `__proto__`등을 보고 프로퍼티 정의가 있을 때까지 찾고, 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
 
 ###### 참고자료
 
-* https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
-* https://davidwalsh.name/javascript-objects
+- https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
+- https://davidwalsh.name/javascript-objects
 
 [[↑] Back to top](#js-질문)
 
@@ -114,8 +113,8 @@ ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이
 
 ###### 참고자료
 
-* https://auth0.com/blog/javascript-module-systems-showdown/
-* https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
+- https://auth0.com/blog/javascript-module-systems-showdown/
+- https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
 [[↑] Back to top](#js-질문)
 
@@ -129,15 +128,17 @@ IIFE는 즉시 함수 호출 표현식(Immediately Invoked Function Expressions)
 
 ```js
 // Don't add JS syntax to this code block to prevent Prettier from formatting it.
-const foo = void function bar() { return 'foo'; }();
+const foo = void (function bar() {
+  return "foo";
+})();
 
 console.log(foo); // undefined
 ```
 
 ###### 참고자료
 
-* http://lucybain.com/blog/2014/immediately-invoked-function-expression/
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
+- http://lucybain.com/blog/2014/immediately-invoked-function-expression/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
 [[↑] Back to top](#js-질문)
 
@@ -147,43 +148,43 @@ console.log(foo); // undefined
 
 ```js
 function foo() {
-  x = 1 // strict 모드에서 ReferenceError를 발생시킵니다.
+  x = 1; // strict 모드에서 ReferenceError를 발생시킵니다.
 }
 
-foo()
-console.log(x) // 1
+foo();
+console.log(x); // 1
 ```
 
 `undefined` 변수는 선언되었지만, 값이 할당되지 않은 변수입니다. 이는 `undefined` 타입입니다. 함수가 실행 결과에 따라 아무값도 반환하지 않으면, 변수에 할당되며, 그 변수가 `undefined` 값을 갖습니다. 이를 검사하기 위해, 엄격한 (`===`) 연산자 또는 `typeof`에 `undefined` 문자열을 사용하여 비교하세요. 확인을 위해 추상 평등 연산자(`==`)를 사용해서는 안되며, 이는 값이 `null`이면 `true`를 반환합니다.
 
 ```js
-var foo
-console.log(foo) // undefined
-console.log(foo === undefined) // true
-console.log(typeof foo === 'undefined') // true
+var foo;
+console.log(foo); // undefined
+console.log(foo === undefined); // true
+console.log(typeof foo === "undefined"); // true
 
-console.log(foo == null) // true. 옳지않습니다. 이렇게 사용하지 마세요.
+console.log(foo == null); // true. 옳지않습니다. 이렇게 사용하지 마세요.
 
 function bar() {}
-var baz = bar()
-console.log(baz) // undefined
+var baz = bar();
+console.log(baz); // undefined
 ```
 
 `null`인 변수는 `null` 값이 명시적으로 할당된 것입니다. 그것은 값을 나타내지 않으며, 명시적으로 할당됐다는 점에서 `undefined`와 다릅니다. `null`을 체크하기 위해서 단순히 완전 항등 연산자(`===`)를 사용하여 비교하면 됩니다. 위와 같이, 추상 평등 연산자 (`==`)를 사용해서는 안되며, 값이 `undefined`이면 `true`를 반환합니다.
 
 ```js
-var foo = null
-console.log(foo === null) // true
+var foo = null;
+console.log(foo === null); // true
 
-console.log(foo == undefined) // true. 옳지않습니다. 이렇게 사용하지 마세요.
+console.log(foo == undefined); // true. 옳지않습니다. 이렇게 사용하지 마세요.
 ```
 
 개인적 습관으로, 저는 변수를 선언하지 않거나(undeclared) 할당하지 않은 상태(unassigned)로 두지 않습니다. 아직 사용하지 않으려는 경우, 선언한 후에 명시적으로 `null`을 할당할 것입니다. 작업시 linter를 사용하면, 일반적으로 Undeclared 변수를 참조하지는 않는지 확인할 수 있습니다.
 
 ###### 참고자료
 
-* https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
+- https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
 [[↑] Back to top](#js-질문)
 
@@ -198,8 +199,8 @@ console.log(foo == undefined) // true. 옳지않습니다. 이렇게 사용하�
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
-* https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+- https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
 [[↑] Back to top](#js-질문)
 
@@ -214,10 +215,10 @@ console.log(foo == undefined) // true. 옳지않습니다. 이렇게 사용하�
 - 값을 반환하지 않습니다.
 
 ```js
-const a = [1, 2, 3]
+const a = [1, 2, 3];
 const doubled = a.forEach((num, index) => {
   // num나 index로 무언가 합니다.
-})
+});
 
 // doubled = undefined
 ```
@@ -228,10 +229,10 @@ const doubled = a.forEach((num, index) => {
 - 각 요소에서 함수를 호출하여 결과로 새 배열을 작성하여 각 요소를 새 요소에 매핑합니다.
 
 ```js
-const a = [1, 2, 3]
+const a = [1, 2, 3];
 const doubled = a.map(num => {
-  return num * 2
-})
+  return num * 2;
+});
 
 // doubled = [2, 4, 6]
 ```
@@ -240,7 +241,7 @@ const doubled = a.map(num => {
 
 ###### 참고자료
 
-* https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+- https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
 [[↑] Back to top](#js-질문)
 
@@ -251,31 +252,31 @@ const doubled = a.map(num => {
 ```js
 (function() {
   // 코드
-})()
+})();
 ```
 
 한 번 사용되고 다른 곳에서는 사용할 필요가 없는 콜백으로 사용됩니다. 함수 본체를 찾기 위해 다른 곳을 찾아볼 필요 없이 코드를 호출하는 코드 바로 안에 핸들러가 정의되어 있으면 코드가 보다 독립적이고 읽기 쉽게 보일 것입니다.
 
 ```js
 setTimeout(function() {
-  console.log('Hello world!')
-}, 1000)
+  console.log("Hello world!");
+}, 1000);
 ```
 
 함수형 프로그래밍 또는 Lodash에 대한 인수(콜백과 유사)로 사용.
 
 ```js
-const arr = [1, 2, 3]
+const arr = [1, 2, 3];
 const double = arr.map(function(el) {
-  return el * 2
-})
-console.log(double) // [2, 4, 6]
+  return el * 2;
+});
+console.log(double); // [2, 4, 6]
 ```
 
 ###### 참고자료
 
-* https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
-* https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
+- https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
+- https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
 [[↑] Back to top](#js-질문)
 
@@ -297,7 +298,7 @@ console.log(double) // [2, 4, 6]
 
 ###### 참고자료
 
-* https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
+- https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
 [[↑] Back to top](#js-질문)
 
@@ -311,21 +312,21 @@ console.log(double) // [2, 4, 6]
 
 ```js
 function Person(name) {
-  this.name = name
+  this.name = name;
 }
 
-var person = Person('John')
-console.log(person) // undefined
-console.log(person.name) // Uncaught TypeError: Cannot read property 'name' of undefined
+var person = Person("John");
+console.log(person); // undefined
+console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person('John')
-console.log(person) // Person { name: "John" }
-console.log(person.name) // "john"
+var person = new Person("John");
+console.log(person); // Person { name: "John" }
+console.log(person.name); // "john"
 ```
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
 [[↑] Back to top](#js-질문)
 
@@ -335,11 +336,11 @@ console.log(person.name) // "john"
 
 ```js
 function add(a, b) {
-  return a + b
+  return a + b;
 }
 
-console.log(add.call(null, 1, 2)) // 3
-console.log(add.apply(null, [1, 2])) // 3
+console.log(add.call(null, 1, 2)); // 3
+console.log(add.apply(null, [1, 2])); // 3
 ```
 
 [[↑] Back to top](#js-질문)
@@ -354,7 +355,7 @@ console.log(add.apply(null, [1, 2])) // 3
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
 [[↑] Back to top](#js-질문)
 
@@ -366,8 +367,8 @@ console.log(add.apply(null, [1, 2])) // 3
 
 ###### 참고자료
 
-* https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
-* https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
+- https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
+- https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
 [[↑] Back to top](#js-질문)
 
@@ -378,7 +379,7 @@ console.log(add.apply(null, [1, 2])) // 3
 Feature Detection은 브라우저가 특정 코드 블록을 지원하는지에 따라 다른 코드를 실행하도록 하여, 일부 브라우저에서 항상 오류 대신 무언가 작동하도록 합니다. 예:
 
 ```js
-if ('geolocation' in navigator) {
+if ("geolocation" in navigator) {
   // navigator.geolocation를 사용할 수 있습니다
 } else {
   // 부족한 기능 핸들링
@@ -393,7 +394,7 @@ Feature inference는 Feature detection과 마찬가지로 기능을 확인하지
 
 ```js
 if (document.getElementsByTagName) {
-  element = document.getElementById(id)
+  element = document.getElementById(id);
 }
 ```
 
@@ -405,9 +406,9 @@ if (document.getElementsByTagName) {
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
-* https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
+- https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
+- https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
 [[↑] Back to top](#js-질문)
 
@@ -419,8 +420,8 @@ Ajax(asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 �
 
 ###### 참고자료
 
-* https://en.wikipedia.org/wiki/Ajax_(programming)
-* https://developer.mozilla.org/en-US/docs/AJAX
+- https://en.wikipedia.org/wiki/Ajax_(programming)
+- https://developer.mozilla.org/en-US/docs/AJAX
 
 [[↑] Back to top](#js-질문)
 
@@ -451,9 +452,9 @@ JSONP는 `<script>`태그를 통해 cross-origin 도메인에 요청하고 보�
 ```html
 <!-- https://mydomain.com -->
 <script>
-function printData(data) {
-  console.log(`My name is ${data.name}!`)
-}
+  function printData(data) {
+    console.log(`My name is ${data.name}!`);
+  }
 </script>
 
 <script src="https://example.com?callback=printData"></script>
@@ -461,7 +462,7 @@ function printData(data) {
 
 ```js
 // https://example.com?callback=printData 에서 로드된 파일
-printData({ name: 'Yang Shun' })
+printData({ name: "Yang Shun" });
 ```
 
 클라이언트는 전역 범위에 있는 `printData` 함수를 가져야만 하고, cross-origin domain으로부터의 응답이 수신될 때 함수가 클라이언트에 의해 실행됩니다.
@@ -472,7 +473,7 @@ JSONP는 안전하지 않을 수 있으며, 보안 관련 이슈가 있습니다
 
 ###### 참고자료
 
-* https://stackoverflow.com/a/2067584/1751946
+- https://stackoverflow.com/a/2067584/1751946
 
 [[↑] Back to top](#js-질문)
 
@@ -481,7 +482,7 @@ JSONP는 안전하지 않을 수 있으며, 보안 관련 이슈가 있습니다
 네. Handlebars, Underscore, Lodash, AngularJS, JSX. 저는 AngularJS에서의 템플릿을 좋아하지 않았습니다. 지시자에서 문자열을 많이 사용하게 되며 오타가 감지되지 않기 때문입니다. JSX는 JavaScript에 가깝고 배워야 하는 새로운 문법이 거의 없기 때문에 더 좋아합니다. 요즘에는, Third-party 라이브러리에 의존하지 않고 템플릿을 만드는 빠른 방법으로 ES2015 템플릿 문자열 리터럴을 사용할 수도 있습니다.
 
 ```js
-const template = `<div>My name is: ${name}</div>`
+const template = `<div>My name is: ${name}</div>`;
 ```
 
 그러나 템플릿 라이브러리와 달리 컨텐츠가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야 합니다.
@@ -496,34 +497,34 @@ const template = `<div>My name is: ${name}</div>`
 
 ```js
 // var 선언이 호이스팅됩니다
-console.log(foo) // undefined
-var foo = 1
-console.log(foo) // 1
+console.log(foo); // undefined
+var foo = 1;
+console.log(foo); // 1
 
 // let/const 선언은 호이스팅되지 않습니다.
-console.log(bar) // ReferenceError: bar is not defined
-let bar = 2
-console.log(bar) // 2
+console.log(bar); // ReferenceError: bar is not defined
+let bar = 2;
+console.log(bar); // 2
 ```
 
 함수 선언은 함수몸체가 호이스팅되는 반면, 변수 선언 형태로 작성된 함수 표현식은 변수 선언만 호이스팅됩니다.
 
 ```js
 // 함수 선언
-console.log(foo) // [Function: foo]
-foo() // 'FOOOOO'
+console.log(foo); // [Function: foo]
+foo(); // 'FOOOOO'
 function foo() {
-  console.log('FOOOOO')
+  console.log("FOOOOO");
 }
-console.log(foo) // [Function: foo]
+console.log(foo); // [Function: foo]
 
 // 함수 표현식
-console.log(bar) // undefined
-bar() // Uncaught TypeError: bar is not a function
+console.log(bar); // undefined
+bar(); // Uncaught TypeError: bar is not a function
 var bar = function() {
-  console.log('BARRRR')
-}
-console.log(bar) // [Function: bar]
+  console.log("BARRRR");
+};
+console.log(bar); // [Function: bar]
 ```
 
 [[↑] Back to top](#js-질문)
@@ -539,21 +540,21 @@ DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 �
 attribute는 HTML 마크업에 정의되지만 property는 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에 다음 텍스트 필드가 있다고 가정해 봅시다: `<input type="text" value="Hello">`.
 
 ```js
-const input = document.querySelector('input')
-console.log(input.getAttribute('value')) // Hello
-console.log(input.value) // Hello
+const input = document.querySelector("input");
+console.log(input.getAttribute("value")); // Hello
+console.log(input.value); // Hello
 ```
 
 그러나 텍스트 필드에 "World!"를 추가하면 이렇게 될것입니다.
 
 ```js
-console.log(input.getAttribute('value')) // Hello
-console.log(input.value) // Hello World!
+console.log(input.getAttribute("value")); // Hello
+console.log(input.value); // Hello World!
 ```
 
 ###### 참고자료
 
-* https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
+- https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
 [[↑] Back to top](#js-질문)
 
@@ -565,7 +566,7 @@ console.log(input.value) // Hello World!
 
 ###### 참고자료
 
-* http://lucybain.com/blog/2014/js-extending-built-in-objects/
+- http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
 [[↑] Back to top](#js-질문)
 
@@ -577,8 +578,8 @@ console.log(input.value) // Hello World!
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
-* https://developer.mozilla.org/en-US/docs/Web/Events/load
+- https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
+- https://developer.mozilla.org/en-US/docs/Web/Events/load
 
 [[↑] Back to top](#js-질문)
 
@@ -587,25 +588,25 @@ console.log(input.value) // Hello World!
 `==`는 추상 동등 연산자이고 `===`는 완전 동등 연산자입니다. `==`연산자는 타입 변환이 필요한 경우 타입 변환을 한 후에 동등한지 비교할 것입니다. `===`연산자는 타입 변환을 하지 않으므로 두 값이 같은 타입이 아닌 경우 `===`는 `false`를 반환합니다. `==`를 사용하면 다음과 같은 무서운 일이 발생할 수 있습니다.
 
 ```js
-1 == '1' // true
-1 == [1] // true
-1 == true // true
-0 == '' // true
-0 == '0' // true
-0 == false // true
+1 == "1"; // true
+1 == [1]; // true
+1 == true; // true
+0 == ""; // true
+0 == "0"; // true
+0 == false; // true
 ```
 
 저의 조언은 편의상 `null`과 `undefined`를 비교할 때를 제외하고, `==`연산자를 절대 사용하지 않는 것입니다. `a == null`은 `a`가 `null` 또는 `undefined`이면 `true`를 반환합니다.
 
 ```js
-var a = null
-console.log(a == null) // true
-console.log(a == undefined) // true
+var a = null;
+console.log(a == null); // true
+console.log(a == undefined); // true
 ```
 
 ###### 참고자료
 
-* https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
+- https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
 [[↑] Back to top](#js-질문)
 
@@ -615,22 +616,22 @@ same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 �
 
 ###### 참고자료
 
-* https://en.wikipedia.org/wiki/Same-origin_policy
+- https://en.wikipedia.org/wiki/Same-origin_policy
 
 [[↑] Back to top](#js-질문)
 
 ### 다음이 작동하게 만들어보세요.
 
 ```js
-duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
+duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
 ```js
 function duplicate(arr) {
-  return arr.concat(arr)
+  return arr.concat(arr);
 }
 
-duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
+duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
 [[↑] Back to top](#js-질문)
@@ -641,7 +642,7 @@ duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
 [[↑] Back to top](#js-질문)
 
@@ -669,8 +670,8 @@ duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
 
 ###### 참고자료
 
-* http://2ality.com/2011/10/strict-mode-hatred.html
-* http://lucybain.com/blog/2014/js-use-strict/
+- http://2ality.com/2011/10/strict-mode-hatred.html
+- http://lucybain.com/blog/2014/js-use-strict/
 
 [[↑] Back to top](#js-질문)
 
@@ -681,8 +682,8 @@ duplicate([1, 2, 3, 4, 5]) // [1,2,3,4,5,1,2,3,4,5]
 ```js
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
-    b = i % 5 == 0
-  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i)
+    b = i % 5 == 0;
+  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
 }
 ```
 
@@ -690,7 +691,7 @@ for (let i = 1; i <= 100; i++) {
 
 ###### 참고자료
 
-* https://gist.github.com/jaysonrowe/1592432
+- https://gist.github.com/jaysonrowe/1592432
 
 [[↑] Back to top](#js-질문)
 
@@ -710,7 +711,7 @@ TODO.
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
+- https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
 [[↑] Back to top](#js-질문)
 
@@ -733,14 +734,14 @@ TODO.
 - 여러 페이지에 필요한 프레임워크, 앱 코드, 애셋로드로 인해 초기 페이지로드가 무거워집니다.
 - 모든 요청을 단일 진입점으로 라우트하고 클라이언트 측 라우팅이 그 한곳에서 인계받을 수 있도록 서버를 구성하는 추가 단계가 필요합니다.
 - SPA는 콘텐츠를 렌더링하기 위해 JavaScript에 의존하지만 모든 검색 엔진이 크롤링 중에 JavaScript를 실행하지는 않으며 페이지에 빈 콘텐츠가 표시될 수 있습니다. 이로 인해 의도치 않게 앱의 검색 엔진 최적화(SEO)가 어려워집니다.
-그러나 대부분의 경우 앱을 제작할 때 검색 엔진에서 모든 콘텐츠 색인할 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이를 극복하기 위해, 앱을 서버 측 렌더링하거나 [Prerender](https://prerender.io/)와 같은 서비스를 사용하여 "브라우저에서 JavaScript를 렌더링하고, 정적 HTML을 저장한 다음, 크롤러에게 반환합니다".
+  그러나 대부분의 경우 앱을 제작할 때 검색 엔진에서 모든 콘텐츠 색인할 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이를 극복하기 위해, 앱을 서버 측 렌더링하거나 [Prerender](https://prerender.io/)와 같은 서비스를 사용하여 "브라우저에서 JavaScript를 렌더링하고, 정적 HTML을 저장한 다음, 크롤러에게 반환합니다".
 
 ###### 참고자료
 
-* https://github.com/grab/front-end-guide#single-page-apps-spas
-* http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
-* http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
-* https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
+- https://github.com/grab/front-end-guide#single-page-apps-spas
+- http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
+- http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
+- https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
 [[↑] Back to top](#js-질문)
 
@@ -752,7 +753,7 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 
 ###### 참고자료
 
-* https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+- https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
 [[↑] Back to top](#js-질문)
 
@@ -777,7 +778,7 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 
 ###### 참고자료
 
-* https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
+- https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
 
 [[↑] Back to top](#js-질문)
 
@@ -805,7 +806,7 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 
 ###### 참고자료
 
-* https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
+- https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
 [[↑] Back to top](#js-질문)
 
@@ -821,8 +822,8 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 
 ###### 참고자료
 
-* https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
-* https://raygun.com/blog/javascript-debugging/
+- https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
+- https://raygun.com/blog/javascript-debugging/
 
 [[↑] Back to top](#js-질문)
 
@@ -845,10 +846,10 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 또한, `for-of` 루프를 사용할 때 각 배열 요소의 인덱스와 값에 모두 접근해야하는 경우 ES6 Array의 `entries()` 메소드와 destructuring을 사용하면됩니다.
 
 ```js
-const arr = ['a', 'b', 'c'];
+const arr = ["a", "b", "c"];
 
 for (let [index, elem] of arr.entries()) {
-  console.log(index, ': ', elem);
+  console.log(index, ": ", elem);
 }
 ```
 
@@ -885,8 +886,8 @@ Philip Robert의 [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip
 
 ###### 참고자료
 
-* https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
-* http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
+- https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
+- http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
 [[↑] Back to top](#js-질문)
 
@@ -897,24 +898,24 @@ Philip Robert의 [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip
 **함수 선언**
 
 ```js
-foo() // 'FOOOOO'
+foo(); // 'FOOOOO'
 function foo() {
-  console.log('FOOOOO')
+  console.log("FOOOOO");
 }
 ```
 
 **함수 표현식**
 
 ```js
-foo() // Uncaught TypeError: foo는 함수가 아닙니다
+foo(); // Uncaught TypeError: foo는 함수가 아닙니다
 var foo = function() {
-  console.log('FOOOOO')
-}
+  console.log("FOOOOO");
+};
 ```
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
 [[↑] Back to top](#js-질문)
 
@@ -925,29 +926,29 @@ var foo = function() {
 ```js
 function foo() {
   // 함수 내에서 모든 변수에 접근할 수 있습니다.
-  var bar = 'bar'
-  let baz = 'baz'
-  const qux = 'qux'
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
 
-  console.log(bar) // "bar"
-  console.log(baz) // "baz"
-  console.log(qux) // "qux"
+  console.log(bar); // "bar"
+  console.log(baz); // "baz"
+  console.log(qux); // "qux"
 }
 
-console.log(bar) // ReferenceError: bar is not defined
-console.log(baz) // ReferenceError: baz is not defined
-console.log(qux) // ReferenceError: qux is not defined
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
 ```
 
 ```js
 if (true) {
-  var bar = 'bar'
-  let baz = 'baz'
-  const qux = 'qux'
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
 }
 
 // var로 선언된 변수는 함수 스코프의 어디에서나 접근할 수 있습니다.
-console.log(bar) // "bar"
+console.log(bar); // "bar"
 // let과 const로 정의된 변수는 정의된 블록 외부에서 접근할 수 없습니다.
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
@@ -956,47 +957,47 @@ console.log(qux); // ReferenceError: qux is not defined
 `var`는 변수가 호이스트되도록 허용합니다. 즉, 변수가 선언되기 전에 코드에서 참조될 수 있습니다. `let`과 `const`는 이를 허용하지 않고 대신 에러를 던집니다.
 
 ```js
-console.log(foo) // undefined
+console.log(foo); // undefined
 
-var foo = 'foo'
+var foo = "foo";
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = 'baz';
+let baz = "baz";
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = 'bar'
+const bar = "bar";
 ```
 
 `var`을 사용하여 변수를 다시 선언해도 에러가 발생하지 않지만, `let`과 `const`는 에러를 발생시킵니다.
 
 ```js
-var foo = 'foo'
-var foo = 'bar'
-console.log(foo) // "bar"
+var foo = "foo";
+var foo = "bar";
+console.log(foo); // "bar"
 
-let baz = 'baz'
-let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = "baz";
+let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let`은 변수의 값을 재할당할 수 있지만, `const`는 재할당할 수 없다는 점이 다릅니다.
 
 ```js
 // 괜찮습니다
-let foo = 'foo'
-foo = 'bar'
+let foo = "foo";
+foo = "bar";
 
 // 예외가 발생합니다
-const baz = 'baz'
-baz = 'qux'
+const baz = "baz";
+baz = "qux";
 ```
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
 [[↑] Back to top](#js-질문)
 
@@ -1007,13 +1008,13 @@ baz = 'qux'
 ```js
 // ES5 함수 생성자
 function Person(name) {
-  this.name = name
+  this.name = name;
 }
 
 // ES6 클래스
 class Person {
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 }
 ```
@@ -1026,20 +1027,20 @@ class Person {
 // ES5 함수 생성자
 function Student(name, studentId) {
   // 수퍼 클래스의 생성자를 호출하여 수퍼 클래스에서 상속된 멤버를 초기화합니다.
-  Person.call(this, name)
+  Person.call(this, name);
 
   // 서브 클래스의 멤버를 초기화합니다.
-  this.studentId = studentId
+  this.studentId = studentId;
 }
 
-Student.prototype = Object.create(Person.prototype)
-Student.prototype.constructor = Student
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
 
 // ES6 클래스
 class Student extends Person {
   constructor(name, studentId) {
-    super(name)
-    this.studentId = studentId
+    super(name);
+    this.studentId = studentId;
   }
 }
 ```
@@ -1048,8 +1049,8 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
-* https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
+- https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 [[↑] Back to top](#js-질문)
 
@@ -1074,12 +1075,16 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 ```js
 const Person = function(firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() { console.log(this.firstName); };
-  this.sayName2 = () => { console.log(this.firstName); };
+  this.sayName1 = function() {
+    console.log(this.firstName);
+  };
+  this.sayName2 = () => {
+    console.log(this.firstName);
+  };
 };
 
-const john = new Person('John');
-const dave = new Person('Dave');
+const john = new Person("John");
+const dave = new Person("Dave");
 
 john.sayName1(); // John
 john.sayName2(); // John
@@ -1111,8 +1116,8 @@ sayNameFromWindow2(); // John
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-* https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+- https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
 [[↑] Back to top](#js-질문)
 
@@ -1125,7 +1130,7 @@ sayNameFromWindow2(); // John
 각 요소를 대문자 문자열로 변환해야하는 이름들을 가진 배열이 있다고 가정해 보겠습니다.
 
 ```js
-const names = ['irish', 'daisy', 'anna']
+const names = ["irish", "daisy", "anna"];
 ```
 
 일반적인 방법은 다음과 같습니다.
@@ -1152,9 +1157,9 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ###### 참고자료
 
-* https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
-* https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
-* https://eloquentjavascript.net/05_higher_order.html
+- https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
+- https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
+- https://eloquentjavascript.net/05_higher_order.html
 
 [[↑] Back to top](#js-질문)
 
@@ -1166,39 +1171,39 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ```js
 // 변수 할당.
-const foo = ['one', 'two', 'three']
+const foo = ["one", "two", "three"];
 
-const [one, two, three] = foo
-console.log(one) // "one"
-console.log(two) // "two"
-console.log(three) // "three"
+const [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
 ```
 
 ```js
 // 변수 교환
-let a = 1
-let b = 3
+let a = 1;
+let b = 3;
 
-;[a, b] = [b, a]
-console.log(a) // 3
-console.log(b) // 1
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1
 ```
 
 **객체 디스트럭쳐링**
 
 ```js
 // 변수 할당.
-const o = { p: 42, q: true }
-const { p, q } = o
+const o = { p: 42, q: true };
+const { p, q } = o;
 
-console.log(p) // 42
-console.log(q) // true
+console.log(p); // 42
+console.log(q); // true
 ```
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-* https://ponyfoo.com/articles/es6-destructuring-in-depth
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://ponyfoo.com/articles/es6-destructuring-in-depth
 
 [[↑] Back to top](#js-질문)
 
@@ -1207,15 +1212,17 @@ console.log(q) // true
 템플릿 리터럴을 사용하면 문자열 보간을 하거나 문자열에 변수를 포함하는 작업을 간단하게 수행할 수 있습니다. ES2015 이전에는 아래와 같이하는 것이 일반적이었습니다.
 
 ```js
-var person = { name: 'Tyler', age: 28 };
-console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
+var person = { name: "Tyler", age: 28 };
+console.log(
+  "Hi, my name is " + person.name + " and I am " + person.age + " years old!"
+);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
 
 템플릿 리터럴을 사용하면, 대신 이렇게해도 같은 출력을 만들 수 있습니다.
 
 ```js
-const person = { name: 'Tyler', age: 28 };
+const person = { name: "Tyler", age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1225,7 +1232,7 @@ console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 두번째 유용한 사용사례는 다중행 문자열을 만드는 것입니다. ES2015 이전에는 아래와 같이 다행의 문자열을 만들 수 있었습니다.
 
 ```js
-console.log('This is line one.\nThis is line two.');
+console.log("This is line one.\nThis is line two.");
 // This is line one.
 // This is line two.
 ```
@@ -1233,8 +1240,7 @@ console.log('This is line one.\nThis is line two.');
 또는 코드에서 여러 줄로 나눠진 긴 문자열을 읽기 위해 텍스트 편집기에서 오른쪽으로 스크롤 할 필요가 없도록하려면 다음과 같이 작성할 수 있습니다.
 
 ```js
-console.log('This is line one.\n' +
-	'This is line two.');
+console.log("This is line one.\n" + "This is line two.");
 // This is line one.
 // This is line two.
 ```
@@ -1251,20 +1257,20 @@ This is line two.`);
 템플릿 리터럴의 또 다른 사용사례는 간단한 변수 보간을 위한 템플릿 라이브러리의 대체품으로 사용하는 것입니다.
 
 ```js
-const person = { name: 'Tyler', age: 28 };
+const person = { name: "Tyler", age: 28 };
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
     <p>Name: ${person.age}</p>
   </div>
-`
+`;
 ```
 
 **`.innerHTML`을 사용하면 코드가 XSS의 영향을 받을 수 있습니다. 사용자로부터 입력받은 데이터인 경우 표시하기 전에 데이터를 안전하게 만드세요!**
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
 [[↑] Back to top](#js-질문)
 
@@ -1275,34 +1281,34 @@ currying은 둘 이상의 매개 변수가 있는 함수가 여러 함수로 분
 ```js
 function curry(fn) {
   if (fn.length === 0) {
-    return fn
+    return fn;
   }
 
   function _curried(depth, args) {
     return function(newArgument) {
       if (depth - 1 === 0) {
-        return fn(...args, newArgument)
+        return fn(...args, newArgument);
       }
-      return _curried(depth - 1, [...args, newArgument])
-    }
+      return _curried(depth - 1, [...args, newArgument]);
+    };
   }
 
-  return _curried(fn.length, [])
+  return _curried(fn.length, []);
 }
 
 function add(a, b) {
-  return a + b
+  return a + b;
 }
 
-var curriedAdd = curry(add)
-var addFive = curriedAdd(5)
+var curriedAdd = curry(add);
+var addFive = curriedAdd(5);
 
-var result = [0, 1, 2, 3, 4, 5].map(addFive) // [5, 6, 7, 8, 9, 10]
+var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ```
 
 ###### 참고자료
 
-* https://hackernoon.com/currying-in-js-d9ddc64f162e
+- https://hackernoon.com/currying-in-js-d9ddc64f162e
 
 [[↑] Back to top](#js-질문)
 
@@ -1312,17 +1318,17 @@ ES6의 spread 문법은 함수형 패러다임에서 코딩할 때 매우 유용
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, 'dookie']
+  return [...arr, "dookie"];
 }
 
-var result = putDookieInAnyArray(['I', 'really', "don't", 'like']) // ["I", "really", "don't", "like", "dookie"]
+var result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
 
 var person = {
-  name: 'Todd',
+  name: "Todd",
   age: 29
-}
+};
 
-var copyOfTodd = { ...person }
+var copyOfTodd = { ...person };
 ```
 
 ES6의 rest 구문은 함수에 전달할 임의의 수의 인수를 포함하는 약식을 제공합니다. 이는 데이터의 배열을 채우기보다는 데이터를 가져와서 배열로 채우는 spread 구문의 반대와 비슷하며, 배열이나 객체 디스트럭쳐링 할당뿐만 아니라 함수 인수에서도 작동합니다.
@@ -1340,15 +1346,15 @@ const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4,
+  h: 4
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
 ###### 참고자료
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
 [[↑] Back to top](#js-질문)
 
@@ -1364,9 +1370,9 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 
 ###### 참고자료
 
-* http://requirejs.org/docs/whyamd.html
-* https://nodejs.org/docs/latest/api/modules.html
-* http://2ality.com/2014/09/es6-modules-final.html
+- http://requirejs.org/docs/whyamd.html
+- https://nodejs.org/docs/latest/api/modules.html
+- http://2ality.com/2014/09/es6-modules-final.html
 
 [[↑] Back to top](#js-질문)
 
@@ -1376,7 +1382,7 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 
 ###### 참고자료
 
-* https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
+- https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
 [[↑] Back to top](#js-질문)
 

@@ -93,7 +93,7 @@
 
 ### プロトタイプ継承はどのように機能するか説明してください。
 
-これは非常によくある JavaScript インタビューの質問です。すべての JavaScript オブジェクトには、別のオブジェクトへの参照である `prototype` プロパティがあります。プロパティがオブジェクト上でアクセスされ、プロパティがそのオブジェクトに見つからない場合、JavaScript エンジンはオブジェクトの `prototype` と `prototype` の `prototype` などを調べて、プロパティが定義されるまで探します。プロトタイプチェーンの最後に到達するまで、この動作は古典的な継承をシミュレートしますが、実際は継承よりも委譲されています （[delegation than inheritance](https://davidwalsh.name/javascript-objects)）。
+これは非常によくある JavaScript インタビューの質問です。すべての JavaScript オブジェクトには、別のオブジェクトへの参照である `__proto__` プロパティがあります。プロパティがオブジェクト上でアクセスされ、プロパティがそのオブジェクトに見つからない場合、JavaScript エンジンはオブジェクトの `__proto__` と `__proto__` の `__proto__` などを調べて、プロパティが定義されるまで探します。プロトタイプチェーンの最後に到達するまで、この動作は古典的な継承をシミュレートしますが、実際は継承よりも委譲されています （[delegation than inheritance](https://davidwalsh.name/javascript-objects)）。
 
 ###### 参考
 

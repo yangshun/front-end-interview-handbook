@@ -93,7 +93,7 @@ Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](http
 
 ### Ipaliwanag kung paano gumagana ang prototypal na pagmamana
 
-Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `prototype` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `prototype` ng object, at ang`prototype` ng `prototype` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `prototype` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana](https://davidwalsh.name/javascript-objects).
+Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `__proto__` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `__proto__` ng object, at ang`__proto__` ng `__proto__` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `__proto__` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana](https://davidwalsh.name/javascript-objects).
 
 ###### Mga Reperensiya
 
