@@ -397,7 +397,7 @@ The box model has the following rules:
 
 ### What is the CSS `display` property and can you give a few examples of its use?
 
-- `none`, `block`, `inline`, `inline-block`, `flex`, `gird`, `table`, `table-row`, `table-cell`, `list-item`.
+- `none`, `block`, `inline`, `inline-block`, `flex`, `grid`, `table`, `table-row`, `table-cell`, `list-item`.
 
 | `display`      | Description                                                                                                                                                                                                            |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
