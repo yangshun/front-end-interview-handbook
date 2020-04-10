@@ -395,7 +395,7 @@ Model pudełkowy ma następujące zasady:
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What is the CSS `display` property and can you give a few examples of its use?
+### Czym jest właściwość `display` w CSS i czy możesz podać kilka przykładów jej użycia?
 
 - `none`, `block`, `inline`, `inline-block`, `flex`, `grid`, `table`, `table-row`, `table-cell`, `list-item`.
 
@@ -412,9 +412,9 @@ Model pudełkowy ma następujące zasady:
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What's the difference between `inline` and `inline-block`?
+### Jaka jest różnica pomiędzy `inline`, a `inline-block`?
 
-I shall throw in a comparison with `block` for good measure.
+Dla dobrego porównania wrzucę porównanie z `block`.
 
 |                                      | `block`                                                                                     | `inline-block`                                                      | `inline`                                                                                                                                                                                                             |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -427,15 +427,15 @@ I shall throw in a comparison with `block` for good measure.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What's the difference between a `relative`, `fixed`, `absolute` and `static`ally positioned element?
+### Jaka jest różnica między pozycjonowaniem `relative`, `fixed`, `absolute` i `static` elementu?
 
-A positioned element is an element whose computed `position` property is either `relative`, `absolute`, `fixed` or `sticky`.
+Element pozycjonowany to element, którego obliczona właściwość `position` jest albo `relative`, `absolute`, `fixed` lub `sticky`.
 
-- `static` - The default position; the element will flow into the page as it normally would. The `top`, `right`, `bottom`, `left` and `z-index` properties do not apply.
-- `relative` - The element's position is adjusted relative to itself, without changing layout (and thus leaving a gap for the element where it would have been had it not been positioned).
-- `absolute` - The element is removed from the flow of the page and positioned at a specified position relative to its closest positioned ancestor if any, or otherwise relative to the initial containing block. Absolutely positioned boxes can have margins, and they do not collapse with any other margins. These elements do not affect the position of other elements.
-- `fixed` - The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.
-- `sticky` - Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as `relative` positioned until it crosses a specified threshold, at which point it is treated as `fixed` positioned.
+- `static` - Pozycja domyślna; element wpłynie na stronę w normalny sposób. Właściwości `top`, `right`, `bottom`, `left` i `z-index` nie mają zastosowania.
+- `relative` - Pozycja elementu jest dopasowywana względem siebie, bez zmiany układu (i tym samym pozostawiając odstęp dla elementu, w którym byłby, gdyby nie został ustawiony).
+- `absolute` - Element jest usuwany z przepływu strony i ustawiany w określonej pozycji względem najbliższego umieszczonego przodka, jeśli taki istnieje, lub w inny sposób względem początkowego bloku zawierającego. Pola absolutnie pozycjonowane mogą mieć marginesy i nie zwijają się z żadnymi innymi marginesami. Te elementy nie wpływają na pozycję innych elementów.
+- `fixed` - Element jest usuwany z przepływu strony i ustawiany w określonej pozycji względem viewport i nie porusza się podczas przewijania.
+- `sticky` - Pozycjonowanie sticky to hybryda pozycjonowania względnego i ustalonego. Element jest traktowany jako pozycja `relative`, dopóki nie przekroczy określonego progu, w którym to momencie jest traktowany jako pozycja `fixed`.
 
 ###### Bibliografia
 
@@ -443,21 +443,21 @@ A positioned element is an element whose computed `position` property is either 
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+### Z jakich istniejących frameworków CSS korzystałeś lokalnie lub na produkcji? Jak byś je zmienił/ulepszył?
 
-- **Bootstrap** - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely used.
-- **Semantic UI** - Source code structure makes theme customization extremely hard to understand. Its unconventional theming system is a pain to customize. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.
-- **Bulma** - A lot of non-semantic and superfluous classes and markup required. Not backward compatible. Upgrading versions breaks the app in subtle manners.
+- **Bootstrap** - Cykl wolnego wydania. Bootstrap 4 jest w wersji alfa od prawie 2 lat. Dodać spinner button component, ponieważ jest on powszechnie używany.
+- **Semantic UI** - Struktura kodu źródłowego sprawia, że dostosowanie motywu jest niezwykle trudne do zrozumienia. Niekonwencjonalny system tematyczny jest trudny do dostosowania. Zahardkodowana ścieżka konfiguracji w bibliotece dostawcy. Niezbyt dobrze zaprojektowany do nadpisywania zmiennych w przeciwieństwie do Bootstrap.
+- **Bulma** - Wymaganych jest wiele niesemantycznych i zbędnych klas i znaczników. Niekompatybilny wstecz. Uaktualnianie wersji psuje aplikację w subtelny sposób.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Have you played around with the new CSS Flexbox or Grid specs?
+### Czy robiłeś coś w nowej specyfikacji CSS Flexbox lub Grid?
 
-Yes. Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.
+Tak. Flexbox jest przeznaczony głównie do układów 1-wymiarowych, a Grid do układów 2-wymiarowych.
 
-Flexbox solves many common problems in CSS, such as vertical centering of elements within a container, sticky footer, etc. Bootstrap and Bulma are based on Flexbox, and it is probably the recommended way to create layouts these days. Have tried Flexbox before but ran into some browser incompatibility issues (Safari) in using `flex-grow`, and I had to rewrite my code using `inline-blocks` and math to calculate the widths in percentages, it wasn't a nice experience.
+Flexbox rozwiązuje wiele typowych problemów w CSS, takich jak pionowe centrowanie elementów w kontenerze, sticky footer itp. Bootstrap i Bulma są oparte na Flexbox i jest to prawdopodobnie zalecany sposób tworzenia układów w dzisiejszych czasach. Próbowałem już Flexboksa wcześniej, ale napotkałem pewne problemy z niekompatybilnością przeglądarki (Safari) przy użyciu `flex-grow`, i musiałem przepisać mój kod przy użyciu `inline-block` i matematyki, aby obliczyć szerokości w procentach, to nie było miłe doświadczenie.
 
-Grid is by far the most intuitive approach for creating grid-based layouts (it better be!) but browser support is not wide at the moment.
+Grid jest zdecydowanie najbardziej intuicyjnym podejściem do tworzenia układów opartych na grid'zie (lepiej!), ale obsługa przeglądarki nie jest w tej chwili szeroka.
 
 ###### Bibliografia
 
@@ -465,11 +465,11 @@ Grid is by far the most intuitive approach for creating grid-based layouts (it b
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?
+### Czy potrafisz wyjaśnić różnicę między kodowaniem strony internetowej, aby była responsywna, a używaniem mobile-first strategy?
 
-Note that these two 2 approaches are not exclusive.
+Pamiętaj, że te dwa podejścia nie są wykluczające.
 
-Making a website responsive means the some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.
+Uaktywnienie strony internetowej oznacza, że niektóre elementy zareagują, dostosowując jej rozmiar lub inne funkcje zgodnie z rozmiarem ekranu urządzenia, zwykle szerokością viewport, poprzez CSS media queries, na przykład zmniejszając rozmiar czcionki na mniejszych urządzeniach.
 
 ```css
 @media (min-width: 601px) {
@@ -484,7 +484,7 @@ Making a website responsive means the some elements will respond by adapting its
 }
 ```
 
-A mobile-first strategy is also responsive, however it agrees we should default and define all the styles for mobile devices, and only add specific responsive rules to other devices later. Following the previous example:
+Mobile-first strategy również jest responsywna, jednak zgadza się, że powinniśmy domyślnie zdefiniować wszystkie style dla urządzeń mobilnych, a później dopiero dodać konkretne reguły responsywne do innych urządzeń. Zgodnie z poprzednim przykładem:
 
 ```css
 .my-class {
@@ -498,25 +498,25 @@ A mobile-first strategy is also responsive, however it agrees we should default 
 }
 ```
 
-A mobile-first strategy has 2 main advantages:
+Mobile-first strategy ma 2 główne zalety:
 
-- It's more performant on mobile devices, since all the rules applied for them don't have to be validated against any media queries.
-- It forces to write cleaner code in respect to responsive CSS rules.
+- Jest bardziej wydajna na urządzeniach mobilnych, ponieważ wszystkie zastosowane reguły nie muszą być sprawdzane pod kątem media queries.
+- Wymusza pisanie czystszego kodu w odniesieniu do responsywnych reguł CSS.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### How is responsive design different from adaptive design?
+### Czym różni się projektowanie responsywne od projektowania adaptacyjnego?
 
-Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage contexts, control mechanisms, and so on.
+Zarówno responsywne, jak i adaptacyjne próbują zoptymalizować wrażenia użytkownika na różnych urządzeniach, dostosowując się do różnych rozmiarów viewport, rozdzielczości, kontekstów użytkowania, mechanizmów kontrolnych i tak dalej.
 
-Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Responsive websites use media queries, flexible grids, and responsive images to create a user experience that flexes and changes based on a multitude of factors. Like a single ball growing or shrinking to fit through several different hoops.
+Responsywne projektowanie działa na zasadzie elastyczności - jedna płynna strona internetowa, która może dobrze wyglądać na dowolnym urządzeniu. Responsywne strony internetowe używają media queries, elastycznych gridów i responsywnych obrazów, aby stworzyć wrażenia użytkownika, które zmieniają w zależności od wielu czynników. Jak pojedyncza piłka rosnąca lub kurcząca się, aby zmieścić się w kilku różnych obręczach.
 
-Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
+Projektowanie adaptacyjne bardziej przypomina nowoczesną definicję stopniowego ulepszania. Zamiast jednego elastycznego projektu, projekt adaptacyjny wykrywa urządzenie i inne funkcje, a następnie zapewnia odpowiednią funkcję i układ na podstawie predefiniowanego zestawu rozmiarów viewport i innych cech. Witryna wykrywa typ używanego urządzenia i zapewnia wstępnie ustawiony układ tego urządzenia. Zamiast jednej piłki przechodzącej przez kilka różnej wielkości obręczy, będziesz mieć kilka różnych piłek do użycia w zależności od rozmiaru obręczy.
 
-Both have these methods have some issues that need to be weighed:
+Obie z tych metod mają pewne problemy, które warto ocenić:
 
-- Responsive design can be quite challenging, as you're essentially using a single albeit responsive layout to fit all situations. How to set the media query breakpoints is one such challenge. Do you use standardized breakpoint values? Or, do you use breakpoints that make sense to your particular layout? What if that layout changes?
-- Adaptive design generally requires user agent sniffing, or DPI detection, etc., all of which can prove unreliable.
+- Elastyczne projektowanie może być dość trudne, ponieważ zasadniczo używasz jednego, choć responsywnego układu, pasującego do wszystkich sytuacji. Jak ustawić punkty przerwania media query to jedno z takich wyzwań. Czy używasz standardowych wartości progowych? A może używasz punktów przerwania, które mają sens dla twojego konkretnego układu? Co jeśli ten układ się zmieni?
+- Projektowanie adaptacyjne zazwyczaj wymaga user agent sniffing lub wykrywania DPI itp., co może okazać się zawodne.
 
 ###### Bibliografia
 
