@@ -27,7 +27,7 @@ Chociaż istnieją pewne materiały, które mogą pomóc programistom frontend w
 
 ## Szukasz ogólnego przygotowania do rekrutacji?
 
-Możesz być zainteresowany [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook), który zawiera przydatne treści na temat ogólnych rozmów rekrutacyjnych dla programistów, takie jak algorytmy, studium przypadku i [interview cheatsheet]](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+Możesz być zainteresowany [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook), który zawiera przydatne treści na temat ogólnych rozmów rekrutacyjnych dla programistów, takie jak algorytmy, studium przypadku i [interview cheatsheet](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
 
 <div align="center">
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
@@ -76,3 +76,5 @@ Wiele godzin ciężkiej pracy poświęcono temu projektowi. Wasze wsparcie będz
 ## Licencja
 
 Wszystkie projekty i pakiety w tym repozytorium są objęte [licencją MIT](/LICENSE).
+
+Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)
