@@ -86,7 +86,7 @@ Aby uzyskać szczegółowe wyjaśnienie, sprawdź jego [artykuł na Medium](http
 
 #### Czy możesz podać przykład jednego ze sposobów, w jaki praca z tym zmieniła się w ES6?
 
-ES6 umożliwia korzystanie z [funkcji strzałkowych (arrow functions)](http://2ality.com/2017/12/alternate-this.html#arrow-functions) które wykorzystują [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+ES6 umożliwia korzystanie z [funkcji strzałkowych (arrow functions)](http://2ality.com/2017/12/alternate-this.html#arrow-functions) które wykorzystują [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). Jest to zwykle wygodne, ale nie zabezpiecza caller przed kontrolowaniem kontekstu przez `.call` lub `.apply`— konsekwencją jest to, że biblioteka taka jak `jQuery` nie będzie poprawnie bindować `this` w funkcjach obsługi zdarzeń. Dlatego ważne jest, aby o tym pamiętać przy refaktoryzacji dużych aplikacji.
 
 ###### Bibliografia
 
@@ -95,13 +95,13 @@ ES6 umożliwia korzystanie z [funkcji strzałkowych (arrow functions)](http://2a
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain how prototypal inheritance works
+### Wyjaśnij, jak działa dziedziczenie prototypowe
 
-This is an extremely common JavaScript interview question. All JavaScript objects have a `__proto__` property, that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+To jest bardzo częste pytanie dotyczące rozmowy rekrutacyjnej w JavaScript. Wszystkie obiekty JavaScript mają właściwość `__proto__`, jest to odniesienie do innego obiektu, który nazywa się "prototypem" obiektu. Gdy właściwość jest udostępniana na obiekt i jeśli właściwość nie została znaleziona na tym obiekcie, silnik JavaScript sprawdza `__proto__` obiektu oraz `__proto__` z `__proto__` i tak dalej, dopóki nie znajdzie właściwości zdefiniowanej w jednym z `__proto__` lub dopóki nie osiągnie końca łańcucha prototypów. To zachowanie symuluje klasyczne dziedziczenie, ale tak naprawdę jest bardziej [delegowaniem niż dziedziczeniem](https://davidwalsh.name/javascript-objects).
 
-#### Example of Prototypal Inheritance
+#### Przykład dziedziczenia prototypowego
 
-We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
+Mamy już wbudowane `Object.create`, ale gdybyś dostarczył dla niego polyfill, mogłoby to wyglądać:
 
 ```javascript
 if (typeof Object.create !== "function") {
@@ -133,14 +133,14 @@ child.greet();
 // Outputs: hello from Parent
 ```
 
-Things to note are:
+Warto zwrócić uwagę na:
 
-- `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
-- We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
+- `.greet` nie jest zdefiniowane w _child_, więc silnik idzie w górę łańcucha prototypów i znajduje `.greet` odziedziczone z _Parent_.
+- Musimy wywołać `Object.create` na jeden z następujących sposobów dziedziczenia prototypowych metod:
   - Object.create(Parent.prototype);
   - Object.create(new Parent(null));
   - Object.create(objLiteral);
-  - Currently, `child.constructor` is pointing to the `Parent`:
+  - W tej chwili, `child.constructor` wskazuje na `Parent`:
 
 ```javascript
 child.constructor
@@ -151,7 +151,7 @@ child.constructor.name
 "Parent"
 ```
 
-- If we'd like to correct this, one option would be to do:
+- Jeśli chcielibyśmy to naprawić, jedną z opcji byłoby:
 
 ```javascript
 function Child() {
@@ -184,13 +184,13 @@ c.constructor.name;
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What do you think of AMD vs CommonJS?
+### Co sądzisz o AMD vs CommonJS?
 
-Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
+Oba sposoby implementacji systemu modułowego, który nie pojawił się natywnie w JavaScript przed pojawieniem się ES2015. CommonJS jest synchroniczny, podczas gdy AMD (definicja modułu asynchronicznego) jest oczywiście asynchroniczny. CommonJS został zaprojektowany z myślą o rozwoju po stronie serwera, podczas gdy AMD, ze wsparciem dla asynchronicznego ładowania modułów, jest bardziej przeznaczone dla przeglądarek.
 
-I find AMD syntax to be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, I find AMD unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node style of writing modules and there is less context-switching overhead when switching between client side and server side JavaScript development.
+Uważam, że składnia AMD jest dość wymowna, a CommonJS jest bliższy stylowi, w którym pisałbyś instrukcje importu w innych językach. Przez większość czasu uważam, że AMD jest niepotrzebne, ponieważ jeśli podałeś cały JavaScript w jednym połączonym pliku pakietu, nie skorzystałbyś z właściwości ładowania asynchronicznego. Ponadto składnia CommonJS jest bliższa stylowi pisania modułów w Node, a przełączanie między tworzeniem JavaScript po stronie klienta i serwera jest mniejsze.
 
-I'm glad that with ES2015 modules, that has support for both synchronous and asynchronous loading, we can finally just stick to one approach. Although it hasn't been fully rolled out in browsers and in Node, we can always use transpilers to convert our code.
+Cieszę się, że dzięki modułom ES2015, które obsługują zarówno ładowanie synchroniczne, jak i asynchroniczne, możemy w końcu zastosować jedno podejście. Chociaż nie został w pełni wdrożony w przeglądarkach i w Node, zawsze możemy użyć transpilatorów do konwersji naszego kodu.
 
 ###### Bibliografia
 
@@ -199,13 +199,13 @@ I'm glad that with ES2015 modules, that has support for both synchronous and asy
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+### Wyjaśnij, dlaczego następujące elementy nie działają jako IIFE: `function foo(){ }();`. Co należy zmienić, aby poprawnie uczynić to IIFE?
 
-IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a _function declaration_ and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
+IIFE oznacza Immediately Invoked Function Expressions. Parser JavaScript czyta `function foo(){ }();` jako `function foo(){ }` i `();`, gdzie ten pierwszy to _deklaracja funkcji_ i ten drugi (para nawiasów) jest próbą wywołania funkcji, ale nie ma określonej nazwy, dlatego rzuca `Uncaught SyntaxError: Unexpected token )`.
 
-Here are two ways to fix it that involves adding more parentheses: `(function foo(){ })()` and `(function foo(){ }())`. Statements that begin with `function` are considered to be _function declarations_; by wrapping this function within `()`, it becomes a _function expression_ which can then be executed with the subsequent `()`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
+Oto dwa sposoby rozwiązania tego problemu, polegające na dodaniu większej liczby nawiasów: `(function foo(){ })()` oraz `(function foo(){ }())`. Deklaracje zaczynające się od `function` są uważane za _deklaracji funkcji_; poprzez zawinięcie tej funkcji wewnątrz `()`, staje się _wyrażeniem funkcji_ które mogą być następnie wykonane z kolejnym `()`. Funkcje te nie są ujawniane w zakresie globalnym i można nawet pominąć jego nazwę, jeśli nie trzeba odwoływać się do ciała.
 
-You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
+Możesz także użyć operatora `void`: `void function foo(){ }();`. Niestety istnieje jeden problem związany z takim podejściem. Ocena danego wyrażenia jest zawsze  `undefined`, więc jeśli funkcja IIFE zwraca cokolwiek, nie możesz jej użyć. Przykład:
 
 ```
 // Don't add JS syntax to this code block to prevent Prettier from formatting it.
@@ -221,9 +221,9 @@ console.log(foo); // undefined
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+### Jaka jest różnica między zmienną: `null`, `undefined` lub niezadeklarowaną? Jak sprawdziłbyś którykolwiek z tych stanów?
 
-**Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+**Niezadeklarowane** zmienne są tworzone, gdy przypisujesz wartość do identyfikatora, który nie był wcześniej tworzony przy użyciu `var`, `let` lub `const`. Niezadeklarowane zmienne zostaną zdefiniowane globalnie, poza bieżącym zakresem. W trybie strict mode, `ReferenceError` zostanie rzucony, gdy spróbujesz przypisać do niezadeklarowanej zmiennej. Niezadeklarowane zmienne są złe, tak jak zmienne globalne są złe. Unikaj ich za wszelką cenę! Aby je sprawdzić, zawiń jego użycie w bloku `try`/`catch`.
 
 ```js
 function foo() {
@@ -234,7 +234,7 @@ foo();
 console.log(x); // 1
 ```
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+Zmienna `undefined` jest zmienną, która została zadeklarowana, ale nie ma przypisanej wartości. Jest to typu `undefined`. Jeśli funkcja nie zwraca żadnej wartości, ponieważ w wyniku jej wykonania jest przypisana do zmiennej, zmienna ma również wartość `undefined`. Aby to sprawdzić, porównaj, stosując operatora ścisłej równości (`===`) lub `typeof` który da string `'undefined'`. Zauważ, że nie powinieneś używać operatora abstrakcyjnej równości do sprawdzania, ponieważ zwróci on również wartość `true`, jeśli wartość wynosi `null`.
 
 ```js
 var foo;
@@ -249,7 +249,7 @@ var baz = bar();
 console.log(baz); // undefined
 ```
 
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+Zmienna która jest `null` zostanie wyraźnie przypisana do wartości `null`. Nie reprezentuje żadnej wartości i różni się od `undefined` w tym sensie, że zostało to wyraźnie przypisane. Aby sprawdzić `null,` po prostu porównaj, używając operatora ścisłej równości. Pamiętaj, że podobnie jak powyżej, nie powinieneś używać abstrakcyjnego operatora równości (`==`) do sprawdzenia, to również zwróci `true` jeśli wartość jest `undefined`.
 
 ```js
 var foo = null;
@@ -259,7 +259,7 @@ console.log(typeof foo === "object"); // true
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I don't intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
+Jako osobisty nawyk nigdy nie pozostawiam moich zmiennych niezadeklarowanych ani nieprzypisanych. Wyraźnie przypiszę im `null` po zadeklarowaniu, jeśli nie zamierzam jej jeszcze używać. Jeśli użyjesz lintera w swoim przepływie pracy, zwykle będzie on również w stanie sprawdzić, czy nie odwołujesz się do niezadeklarowanych zmiennych.
 
 ###### Bibliografia
 
