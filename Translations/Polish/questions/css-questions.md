@@ -34,20 +34,20 @@ Odpowiedzi do [Front-end Job Interview Questions - CSS Questions](https://github
 - [Have you ever worked with retina graphics? If so, when and what techniques did you use?](#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
 - [Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?](#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
 
-### What is CSS selector specificity and how does it work?
+### Czym jest specyficzność selektora CSS i jak działa?
 
-The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, `a, b, c, d` are calculated for each rule based on the following:
+Przeglądarka określa, jakie style mają być wyświetlane w elemencie, w zależności od specyfiki reguł CSS. Zakładamy, że przeglądarka już określiła reguły, które pasują do określonego elementu. Wśród reguł dopasowania, specyfika, cztery wartości oddzielone przecinkami, `a, b, c, d` są obliczane dla każdej reguły na podstawie:
 
-1. `a` is whether inline styles are being used. If the property declaration is an inline style on the element, `a` is 1, else 0.
-2. `b` is the number of ID selectors.
-3. `c` is the number of classes, attributes and pseudo-classes selectors.
-4. `d` is the number of tags and pseudo-elements selectors.
+1. `a` określa, czy stosowane są style wbudowane. Jeśli deklaracja właściwości jest stylem wbudowanym w elemencie, `a` jest 1, w przeciwnym razie 0.
+2. `b` jest numerem ID selektorów.
+3. `c` to liczba selektorów klas, atrybutów i pseudoklas.
+4. `d` to liczba znaczników i selektorów pseudoelementów.
 
-The resulting specificity is not a score, but a matrix of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column `b` will override values in columns `c` and `d`, no matter what they might be. As such, specificity of `0,1,0,0` would be greater than one of `0,0,10,10`.
+Wynikająca z tego specyficzność nie jest wynikiem, ale macierzą wartości, które można porównać kolumna po kolumnie. Porównując selektory w celu ustalenia, która ma najwyższą swoistość, spójrz od lewej do prawej i porównaj najwyższą wartość w każdej kolumnie. Tak więc wartość w kolumnie `b` zastąpi wartości w kolumnach `c` i `d`, bez względu na to, jakie mogą być. Jako taka, specyfika `0,1,0,0` byłaby większa niż jedno z `0,0,10,10`.
 
-In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your stylesheet (regardless of internal or external) twice, then the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+W przypadkach o jednakowej specyficzności: najnowsza reguła się liczy. Jeśli dwukrotnie zapisałeś tę samą regułę w arkuszu stylów (niezależnie od wewnętrznego lub zewnętrznego), wówczas dolna reguła w arkuszu stylów jest bliżej elementu, który ma być stylizowany, jest uważana za bardziej szczegółową i dlatego zostanie zastosowana.
 
-I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
+Pisałbym reguły CSS o niskiej specyficzności, aby w razie potrzeby można je było łatwo zastąpić. Pisząc kod biblioteki komponentu interfejsu użytkownika CSS, ważne jest, aby miały niską specyficzność, aby użytkownicy biblioteki mogli je zastąpić bez stosowania zbyt skomplikowanych reguł CSS tylko ze względu na zwiększenie specyficzności lub uciekanie się do `!important`.
 
 ###### Bibliografia
 
@@ -56,12 +56,12 @@ I would write CSS rules with low specificity so that they can be easily overridd
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+### Jaka jest różnica pomiędzy CSS "resetting" oraz "normalizing"? Które wybrałbyś, i dlaczego?
 
-- **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
-- **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
+- **Resetting** - Resetowanie ma na celu usunięcie wszystkich domyślnych stylów przeglądarki z elementów. Na przykład `margin`, `padding`, `font-size` wszystkich elementów są resetowane, aby były takie same. Będziesz musiał zmienić styl dla wspólnych elementów typograficznych.
+- **Normalizing** - Normalizacja zachowuje użyteczne style domyślne zamiast "unstyling" wszystkiego. Poprawia również błędy w typowych zależnościach przeglądarki.
 
-I would choose resetting when I have a very customized or unconventional site design such that I need to do a lot of my own styling and do not need any default styling to be preserved.
+Zdecydowałbym się zresetować, gdy mam bardzo niestandardowy lub niekonwencjonalny projekt strony, tak że muszę zrobić dużo własnej stylizacji i nie muszę zachowywać żadnej domyślnej stylizacji.
 
 ###### Bibliografia
 
@@ -69,15 +69,15 @@ I would choose resetting when I have a very customized or unconventional site de
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Describe `float`s and how they work.
+### Opisz `float`y i jak one działają.
 
-Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
+Float to właściwość pozycjonowania CSS. Elementy pływające (floated elements) pozostają częścią przepływu strony i będą wpływać na położenie innych elementów (np. tekst będzie płynął wokół elementów pływających), w przeciwieństwie do elementów `position: absolute`, które są usuwane z przepływu strony.
 
-The CSS `clear` property can be used to be positioned below `left`/`right`/`both` floated elements.
+Właściwość `clear` CSS może być użyta do pozycjonowania poniżej elementów pływających `left`/`right`/`both`.
 
-If a parent element contains nothing but floated elements, its height will be collapsed to nothing. It can be fixed by clearing the float after the floated elements in the container but before the close of the container.
+Jeśli element nadrzędny zawiera wyłącznie elementy pływające, jego wysokość zostanie zwinięta do zera. Można to naprawić, usuwając float za pływającymi elementami w kontenerze, ale przed zamknięciem kontenera.
 
-The `.clearfix` hack uses a clever CSS [pseudo selector](#describe-pseudo-elements-and-discuss-what-they-are-used-for) (`:after`) to clear floats. Rather than setting the overflow on the parent, you apply an additional class `clearfix` to it. Then apply this CSS:
+Hack `.clearfix` używa sprytnego CSS [pseudo selektora](#describe-pseudo-elements-and-discuss-what-they-are-used-for) (`:after`) do czyszczenia float'ów. Zamiast ustawiać przepełnienie dla elementu nadrzędnego, stosuje się do niego dodatkową klasę `clearfix`. Następnie stosuje ten CSS:
 
 ```css
 .clearfix:after {
@@ -89,7 +89,7 @@ The `.clearfix` hack uses a clever CSS [pseudo selector](#describe-pseudo-elemen
 }
 ```
 
-Alternatively, give `overflow: auto` or `overflow: hidden` property to the parent element which will establish a new block formatting context inside the children and it will expand to contain its children.
+Alternatywnie, nadaj właściwość `overflow: auto` lub `overflow: hidden` elementowi nadrzędnemu, który ustanowi nowy kontekst formatowania bloku wewnątrz elementów podrzędnych i rozszerzy się, aby objąć jego elementy podrzędne.
 
 ###### Bibliografia
 
@@ -97,17 +97,17 @@ Alternatively, give `overflow: auto` or `overflow: hidden` property to the paren
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Describe `z-index` and how stacking context is formed.
+### Opisz `z-index` i jak powstaje stacking context.
 
-The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only affects elements that have a `position` value which is not `static`.
+Właściwość `z-index` w CSS kontroluje pionową kolejność układania elementów, które się nakładają. `z-index` wpływa tylko na elementy, które mają wartość `position`, która nie jest `static`.
 
-Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
+Bez żadnej wartości `z-index`, elementy układają się w kolejności, w jakiej występują w DOM (najniższy na dole na tym samym poziomie hierarchii pojawia się na górze). Elementy z pozycjonowaniem niestatycznym (i ich potomnymi) zawsze będą pojawiać się na elementach z domyślnym pozycjonowaniem statycznym, niezależnie od hierarchii HTML.
 
-A stacking context is an element that contains a set of layers. Within a local stacking context, the `z-index` values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher `z-index` than element B.
+Kontekst stosu to element zawierający zestaw warstw. W lokalnym kontekście stosowym wartości `z-index` jego elementów podrzędnych są ustawione względem tego elementu, a nie do katalogu głównego dokumentu. Warstwy poza tym kontekstem - np. sibling elements lokalnego kontekstu stosu - nie mogą znajdować się między warstwami w tym kontekście. Jeśli element B znajduje się na szczycie elementu A, element potomny elementu A, elementu C, nigdy nie może być wyższy niż element B, nawet jeśli element C ma wyższy `z-index`, niż element B.
 
-Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
+Każdy kontekst stosu jest samowystarczalny - po ułożeniu zawartości elementu cały element jest rozpatrywany w kolejności stosu nadrzędnego kontekstu stosu. Kilka właściwości CSS wyzwala nowy kontekst stosu, taki jak `opacity` mniejszy niż 1, `filter` który nie jest `none`, oraz `transform` który nie jest `none`.
 
-_Note: What exactly qualifies an element to create a stacking context is listed in this long set of [rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context)._
+_Uwaga: To, co dokładnie kwalifikuje element do utworzenia kontekstu stosu, znajduje się w tym długim zestawie [reguł](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context)._
 
 ###### Bibliografia
 
@@ -117,22 +117,22 @@ _Note: What exactly qualifies an element to create a stacking context is listed 
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Describe Block Formatting Context (BFC) and how it works.
+### Opisz Block Formatting Context (BFC) i jak działa.
 
-A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
+Block Formatting Context (BFC) jest częścią wizualnego renderowania CSS strony internetowej, na której układane są pola bloków. Float'y, elementy absolutnie pozycjonowane, `inline-blocks`, `table-cells`, `table-caption`, i elementy z `overflow` inne niż `visible` (z wyjątkiem sytuacji, gdy ta wartość została propagowana do viewport), ustal nowe konteksty formatowania bloków.
 
-Knowing how to establish a block formatting context is important, because without doing so, the containing box will not [contain floated children](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). This is similar to collapsing margins, but more insidious as you will find entire boxes collapsing in odd ways.
+Umiejętność ustanowienia kontekstu formatowania bloku jest ważna, ponieważ bez tego pole zawierające nie będzie [zawierało floated children](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). Jest to podobne do zwijających się marginesów, ale bardziej podstępne, ponieważ całe boxes zapadają się w dziwny sposób.
 
-A BFC is an HTML box that satisfies at least one of the following conditions:
+BFC to box HTML, który spełnia co najmniej jeden z następujących warunków:
 
-- The value of `float` is not `none`.
-- The value of `position` is neither `static` nor `relative`.
-- The value of `display` is `table-cell`, `table-caption`, `inline-block`, `flex`, or `inline-flex`.
-- The value of `overflow` is not `visible`.
+- Wartość `float` nie jest `none`.
+- Wartość `position` nie jest `static` ani `relative`.
+- Wartość `display` jest `table-cell`, `table-caption`, `inline-block`, `flex`, lub `inline-flex`.
+- Wartość `overflow` nie jest `visible`.
 
-In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
+W BFC lewa zewnętrzna krawędź każdego box'a dotyka lewej krawędzi bloku zawierającego (w przypadku formatowania od prawej do lewej dotykają się prawej krawędzi).
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
+Pionowe marginesy między sąsiadującymi polami na poziomie bloku w zwinięciu BFC. Przeczytaj więcej na temat [zawijanych marginesów](https://www.sitepoint.com/web-foundations/collapsing-margins/).
 
 ###### Bibliografia
 
