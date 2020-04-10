@@ -526,15 +526,15 @@ Obie z tych metod mają pewne problemy, które warto ocenić:
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Have you ever worked with retina graphics? If so, when and what techniques did you use?
+### Czy kiedykolwiek pracowałeś z grafiką Retina? Jeśli tak, kiedy i jakich technik użyłeś?
 
-_Retina_ is just a marketing term to refer to high resolution screens with a pixel ratio bigger than 1. The key thing to know is that using a pixel ratio means these displays are emulating a lower resolution screen in order to show elements with the same size. Nowadays we consider all mobile devices _retina_ defacto displays.
+_Retina_ jest po prostu marketingowym terminem odnoszącym się do ekranów o wysokiej rozdzielczości ze współczynnikiem pikseli większym niż 1. Kluczową rzeczą, o której należy wiedzieć, jest to, że użycie współczynnika pikseli oznacza, że wyświetlacze emulują ekran o niższej rozdzielczości w celu wyświetlenia elementów o tym samym rozmiarze. Obecnie rozważamy defacto wszystkie wyświetlacze urządzeń mobilnych _retina_.
 
-Browsers by default render DOM elements according to the device resolution, except for images.
+Przeglądarki domyślnie renderują elementy DOM zgodnie z rozdzielczością urządzenia, z wyjątkiem obrazów.
 
-In order to have crisp, good-looking graphics that make the best of retina displays we need to use high resolution images whenever possible. However using always the highest resolution images will have an impact on performance as more bytes will need to be sent over the wire.
+Aby mieć wyraźną, ładną grafikę, która najlepiej wykorzystuje wyświetlacze retina, musimy w miarę możliwości używać obrazów o wysokiej rozdzielczości. Jednak używanie zawsze obrazów o najwyższej rozdzielczości będzie miało wpływ na wydajność, ponieważ więcej bajtów będzie trzeba przesłać przewodowo.
 
-To overcome this problem, we can use responsive images, as specified in HTML5. It requires making available different resolution files of the same image to the browser and let it decide which image is best, using the html attribute `srcset` and optionally `sizes`, for instance:
+Aby rozwiązać ten problem, możemy użyć responsywnych obrazów, jak określono w HTML5. Wymaga udostępnienia przeglądarki różnych plików o tym samym obrazie w różnych rozdzielczościach i pozwala zdecydować, który obraz jest najlepszy, używając atrybutu HTML `srcset` i opcjonalnie `sizes`, na przykład:
 
 ```html
 <div responsive-background-image>
@@ -553,9 +553,9 @@ To overcome this problem, we can use responsive images, as specified in HTML5. I
 </div>
 ```
 
-It is important to note that browsers which don't support HTML5's `srcset` (i.e. IE11) will ignore it and use `src` instead. If we really need to support IE11 and we want to provide this feature for performance reasons, we can use a JavaScript polyfill, e.g. Picturefill (link w bibliografii).
+Ważne jest, aby pamiętać, że przeglądarki, które nie obsługują `srcset` HTML5 (np. IE11), zignorują go i zamiast tego użyją `src`. Jeśli naprawdę musimy obsługiwać IE11 i chcemy udostępnić tę funkcję ze względu na wydajność, możemy użyć polyfill JavaScript, np. Picturefill (link w bibliografii).
 
-For icons, I would also opt to use SVGs and icon fonts where possible, as they render very crisply regardless of resolution.
+W przypadku ikon wolałbym również używać plików SVG i czcionek ikon, jeśli to możliwe, ponieważ renderują one bardzo ostro, niezależnie od rozdzielczości.
 
 ###### Bibliografia
 
@@ -565,11 +565,11 @@ For icons, I would also opt to use SVGs and icon fonts where possible, as they r
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
+### Czy jest jakiś powód, dla którego chciałbyś użyć `translate ()` zamiast pozycjonowania `absolute` lub odwrotnie? I dlaczego?
 
-`translate()` is a value of CSS `transform`. Changing `transform` or `opacity` does not trigger browser reflow or repaint but does trigger compositions; whereas changing the absolute positioning triggers `reflow`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence `translate()` is more efficient and will result in shorter paint times for smoother animations.
+`translate()` jest wartością CSS `transform`. Zmieniając `transform` lub `opacity` nie powoduje ponownego wczytywania przeglądarki ani odmalowywania, ale powoduje kompozycje; podczas gdy zmiana bezwzględnych wyzwalaczy pozycjonowania `reflow`. `transform` powoduje, że przeglądarka tworzy warstwę GPU dla elementu, ale zmiana bezwzględnych właściwości pozycjonowania wykorzystuje procesor. W związku z tym `translate()` jest bardziej wydajny i spowoduje krótszy czas malowania dla płynniejszych animacji.
 
-When using `translate()`, the element still occupies its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
+Kiedy używasz `translate ()`, element nadal zajmuje swoją pierwotną przestrzeń (coś w rodzaju `position: relative`), w przeciwieństwie do zmiany absolutnego pozycjonowania.
 
 ###### Bibliografia
 
@@ -577,7 +577,7 @@ When using `translate()`, the element still occupies its original space (sort of
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Other Answers
+### Inne odpowiedzi
 
 - https://neal.codes/blog/front-end-interview-css-questions
 - https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
