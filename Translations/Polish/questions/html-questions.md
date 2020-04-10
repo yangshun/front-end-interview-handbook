@@ -207,4 +207,5 @@ Tak, Pug (formalnie Jade), ERB, Slim, Handlebars, Jinja, Liquid, żeby wymienić
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
----
+___________________________
+Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)
