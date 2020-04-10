@@ -660,11 +660,11 @@ Jedynym momentem, w którym możesz chcieć rozszerzyć obiekt macierzysty, jest
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Difference between document `load` event and document `DOMContentLoaded` event?
+### Różnica między document `load` event, a document `DOMContentLoaded` event?
 
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+Zdarzenie `DOMContentLoaded` jest uruchamiane, gdy początkowy dokument HTML został całkowicie załadowany i przeanalizowany, bez oczekiwania na zakończenie ładowania arkuszy stylów, obrazów i podramek.
 
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+`window`sowe zdarzenie `load` jest uruchamiane dopiero po załadowaniu DOM i wszystkich zależnych zasobów i assetów.
 
 ###### Bibliografia
 
@@ -673,9 +673,9 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What is the difference between `==` and `===`?
+### Jaka jest różnica pomiędzy `==` i `===`?
 
-`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
+`==` jest abstrakcyjnym operatorem równości, podczas gdy `===` jest operatorem ścisłej równości. Operator `==` porówna pod kątem równości po wykonaniu niezbędnych konwersji typu. Operator `===` nie dokona konwersji typu, więc jeśli dwie wartości nie są tego samego typu, `===` po prostu zwróci `false`. Gdy używasz `==`, mogą się zdarzyć dziwne rzeczy, takie jak:
 
 ```js
 1 == "1"; // true
@@ -686,7 +686,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 0 == false; // true
 ```
 
-My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
+Radzę nigdy nie korzystać z operatora `==`, z wyjątkiem wygody przy porównywaniu z `null` lub `undefined`, gdzie `a == null` zwróci `true`, jeśli `a` jest `null` lub `undefined`.
 
 ```js
 var a = null;
@@ -700,9 +700,9 @@ console.log(a == undefined); // true
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain the same-origin policy with regards to JavaScript.
+### Wyjaśnij same-origin policy w odniesieniu do JavaScript.
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+Same-origin policy zapobiega przesyłaniu żądań JavaScript przez granice domen. Źródło jest zdefiniowane jako kombinacja schematu URI, nazwy hosta i numeru portu. Ta zasada uniemożliwia złośliwemu skryptowi na jednej stronie uzyskanie dostępu do poufnych danych na innej stronie internetowej za pomocą modelu obiektowego dokumentu (DOM) tej strony.
 
 ###### Bibliografia
 
@@ -710,7 +710,7 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Make this work:
+### Spraw aby działało:
 
 ```js
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -724,7 +724,7 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-Or with ES6:
+Lub z ES6:
 
 ```js
 const duplicate = arr => [...arr, ...arr];
@@ -734,9 +734,9 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Why is it called a Ternary expression, what does the word "Ternary" indicate?
+### Dlaczego nazywa się to wyrażeniem trójargumentowym, co oznacza słowo "trójargumentowe"?
 
-"Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
+"Ternary" wskazuje trzy, a wyrażenie potrójne akceptuje trzy operandy, warunek testu, wyrażenie "then" i wyrażenie "else". Wyrażenia trójskładnikowe nie są specyficzne dla JavaScript i nie jestem pewien, dlaczego znajduje się nawet na tej liście.
 
 ###### Bibliografia
 
@@ -744,27 +744,27 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What is `"use strict";`? What are the advantages and disadvantages to using it?
+### Czym jest `"use strict";`? Jakie są zalety i wady korzystania z tego?
 
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
+'use strict' to instrukcja używana do włączenia trybu strict mode do całych skryptów lub poszczególnych funkcji. Tryb strict mode to sposób na włączenie ograniczonej wersji JavaScript.
 
-Advantages:
+Zalety:
 
-- Makes it impossible to accidentally create global variables.
-- Makes assignments which would otherwise silently fail to throw an exception.
-- Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
-- Requires that function parameter names be unique.
-- `this` is undefined in the global context.
-- It catches some common coding bloopers, throwing exceptions.
-- It disables features that are confusing or poorly thought out.
+- Uniemożliwia przypadkowe utworzenie zmiennych globalnych.
+- Wykonuje zadania, które w przeciwnym razie cicho nie rzucałyby wyjątku.
+- Podejmuje próby usunięcia właściwości nieusuwalnych (gdzie przed próbą po prostu nie miałby żadnego efektu).
+- Wymaga, aby nazwy parametrów funkcji były unikalne.
+- `this` jest niezdefiniowane w kontekście globalnym.
+- Łapie niektóre popularne coding bloopers, rzucając wyjątki.
+- Wyłącza funkcje, które są mylące lub źle przemyślane.
 
-Disadvantages:
+Wady:
 
-- Many missing features that some developers might be used to.
-- No more access to `function.caller` and `function.arguments`.
-- Concatenation of scripts written in different strict modes might cause issues.
+- Wiele brakujących funkcji, do których niektórzy programiści mogą być przyzwyczajeni.
+- Nie ma już dostępu do `function.caller` i `function.arguments`.
+- Łączenie skryptów napisanych w różnych trybach strict mode może powodować problemy.
 
-Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
+Ogólnie rzecz biorąc, uważam, że korzyści przeważają nad wadami i nigdy nie musiałem polegać na funkcjach blokujących tryb strict mode. Poleciłbym użycie trybu strict mode.
 
 ###### Bibliografia
 
@@ -773,9 +773,9 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
+### Utwórz pętlę for, która będzie się powtarzać do `100` podczas wysyłania **"fizz"** w wielokrotnościach `3`, **"buzz"** w wielokrotnościach `5` i **"fizzbuzz"** w wielokrotnościach `3` oraz `5`.
 
-Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
+Sprawdź tę wersję FizzBuzz od [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
 
 ```js
 for (let i = 1; i <= 100; i++) {
@@ -785,7 +785,7 @@ for (let i = 1; i <= 100; i++) {
 }
 ```
 
-I would not advise you to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.
+Nie radzę jednak pisać wyżej podczas wywiadów. Trzymaj się długiego, ale wyraźnego podejścia. Aby uzyskać bardziej zwariowane wersje FizzBuzz, sprawdź odnośnik poniżej.
 
 ###### Bibliografia
 
@@ -793,17 +793,17 @@ I would not advise you to write the above during interviews though. Just stick w
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+### Dlaczego generalnie dobrym pomysłem jest pozostawienie globalnego zasięgu witryny takim, jakim jest, i nigdy go nie dotykać?
 
-Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+Każdy skrypt ma dostęp do zakresu globalnego, a jeśli wszyscy użyją globalnej przestrzeni nazw do zdefiniowania swoich zmiennych, prawdopodobnie dojdzie do kolizji. Wzorzec modułu (IIFE) służy do enkapsulacji zmiennych w lokalnej przestrzeni nazw.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+### Dlaczego miałbyś używać czegoś takiego jak zdarzenie `load`? Czy to wydarzenie ma wady? Czy znasz jakieś alternatywy i dlaczego miałbyś je wykorzystać?
 
-The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
+Zdarzenie `load` odpala po zakończeniu ładowania dokumentu. W tym momencie wszystkie obiekty w dokumencie znajdują się w DOM, a wszystkie obrazy, skrypty, łącza i podramki zostały załadowane.
 
-The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
+Zdarzenie DOM `DOMContentLoaded` uruchomi się po zbudowaniu DOM dla strony, ale nie czekaj na zakończenie ładowania innych zasobów. Jest to preferowane w niektórych przypadkach, gdy nie trzeba ładować całej strony przed inicjalizacją.
 
 TODO.
 
@@ -813,25 +813,25 @@ TODO.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain what a single page app is and how to make one SEO-friendly.
+### Wyjaśnij, czym jest SAP i jak uczynić ją przyjazną SEO.
 
-The below is taken from the awesome [Grab Front End Guide](https://github.com/grab/front-end-guide), which coincidentally, is written by me!
+Poniżej zaczerpnięto z niesamowitego [Grab Front End Guide](https://github.com/grab/front-end-guide), który przypadkiem jest napisany przeze mnie!
 
-Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response to their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML to the new page. This is called server-side rendering.
+Obecnie twórcy stron internetowych odnoszą się do produktów, które budują, jako aplikacji internetowych, a nie stron internetowych. Chociaż nie ma ścisłej różnicy między tymi dwoma terminami, aplikacje internetowe wydają się być wysoce interaktywne i dynamiczne, umożliwiając użytkownikowi wykonywanie działań i otrzymywanie odpowiedzi na ich działanie. Tradycyjnie przeglądarka odbiera HTML z serwera i renderuje go. Gdy użytkownik przechodzi do innego adresu URL, wymagane jest odświeżenie całej strony, a serwer wysyła nowy kod HTML na nową stronę. Nazywa się to renderowaniem po stronie serwera.
 
-However, in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+Jednak w nowoczesnych SPA stosuje się zamiast tego renderowanie po stronie klienta. Przeglądarka ładuje stronę początkową z serwera wraz ze skryptami (frameworki, biblioteki, kod aplikacji) i arkuszami stylów wymaganymi dla całej aplikacji. Gdy użytkownik przechodzi do innych stron, odświeżanie strony nie jest uruchamiane. Adres URL strony jest aktualizowany za pośrednictwem [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). Nowe dane wymagane dla nowej strony, zwykle w formacie JSON, są pobierane przez przeglądarkę za pośrednictwem żądań [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) do serwera. SPA następnie dynamicznie aktualizuje stronę danymi za pomocą JavaScript, który został już pobrany podczas ładowania strony. Ten model jest podobny do działania natywnych aplikacji mobilnych.
 
-The benefits:
+Korzyści:
 
-- The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
-- Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
-- Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
+- Aplikacja jest bardziej responsywna, a użytkownicy nie widzą flashowania między nawigacjami po stronach z powodu odświeżania całej strony.
+- Na serwer przesyłanych jest mniej żądań HTTP, ponieważ te same zasoby nie muszą być pobierane ponownie przy każdym ładowaniu strony.
+- Jasne rozdzielenie spraw między klientem a serwerem; możesz łatwo budować nowych klientów dla różnych platform (np. mobilnych, chatbotów, inteligentnych zegarków) bez konieczności modyfikowania kodu serwera. Możesz także modyfikować stos technologii na kliencie i serwerze niezależnie, o ile umowa API nie zostanie zerwana.
 
-The downsides:
+Wady:
 
-- Heavier initial page load due to the loading of framework, app code, and assets required for multiple pages.
-- There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
-- SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
+- Cięższe początkowe ładowanie strony ze względu na ładowanie frameworka, kodu aplikacji i zasobów wymaganych na wielu stronach.
+- Na serwerze należy wykonać dodatkowy krok, aby skonfigurować go tak, aby kierował wszystkie żądania do jednego punktu wejścia i pozwalał na przejęcie od niego routingu po stronie klienta.
+- Usługi SPA są zależne od JavaScript do renderowania treści, ale nie wszystkie wyszukiwarki wykonują JavaScript podczas przeszukiwania i mogą widzieć pustą treść na twojej stronie. To mimowolnie szkodzi optymalizacji silnika wyszukiwarki (Search Engine Optimization - SEO) twojej aplikacji. Jednak przez większość czasu, gdy tworzysz aplikacje, SEO nie jest najważniejszym czynnikiem, ponieważ nie wszystkie treści muszą być indeksowane przez wyszukiwarki. Aby temu zaradzić, możesz renderować aplikację po stronie serwera lub korzystać z usług takich jak [Prerender](https://prerender.io/) aby "wyrenderuj javascript w przeglądarce, zapisz statyczny kod HTML i zwróć go do pliku crawlers".
 
 ###### Bibliografia
 
