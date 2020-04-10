@@ -2,17 +2,17 @@
 
 Odpowiedzi do [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull request mile widziany, jeśli masz jakieś sugestie lub poprawki!
 
-- [What does a doctype do?](#what-does-a-doctype-do)
-- [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-- [What kind of things must you be wary of when designing or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-- [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
-- [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-- [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-- [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-- [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-- [What is progressive rendering?](#what-is-progressive-rendering)
-- [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-- [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
+- [Co robi DOCTYPE?](#co-robi-doctype)
+- [W jaki sposób wyświetlasz stronę z treścią w wielu językach?](#w-jaki-sposób-wyświetlasz-stronę-z-treścią-w-wielu-językach)
+- [Jakich rzeczy należy się wystrzegać podczas projektowania lub tworzenia witryn wielojęzycznych?](#jakich-rzeczy-należy-się-wystrzegać-podczas-projektowania-lub-tworzenia-witryn-wielojęzycznych)
+- [Do czego są dobre atrybuty `data-`?](#do-czego-są-dobre-atrybuty-data)
+- [Rozważ HTML5 jako Open Web Platform. Jakie są elementy składowe HTML5?](#rozważ-html5-jako-open-web-platform-jakie-są-elementy-składowe-html5)
+- [Opisz różnicę pomiędzy `cookie`, `sessionStorage` oraz `localStorage`.](#opisz-różnicę-pomiędzy-cookie-sessionStorage-oraz-localstorage)
+- [Opisz różnicę pomiędzy `<script>`, `<script async>` oraz `<script defer>`.](#opisz-różnicę-pomiędzy-script-script-async-oraz-script-defer)
+- [Dlaczego ogólnie dobrym pomysłem jest pozycjonowanie CSS `<link>` pomiędzy `<head></head>` oraz JS `<script>` tuż przed `</body>`? Czy znasz jakieś wyjątki?](#dlaczego-ogólnie-dobrym-pomysłem-jest-pozycjonowanie-css-link-pomiędzy-headhead-oraz-js-script-tuż-przed-body-czy-znasz-jakieś-wyjątki)
+- [Co to jest rendering progresywny?](#co-to-jest-rendering-progresywny)
+- [Dlaczego warto użyć atrybutu `srcset` w tagu obrazu? Wyjaśnij proces wykorzystywany przez przeglądarkę podczas oceny zawartości tego atrybutu.](#dlaczego-warto-użyć-atrybutu-srcset-w-tagu-obrazu-wyjaśnij-proces-wykorzystywany-przez-przeglądarkę-podczas-oceny-zawartości-tego-atrybutu)
+- [Czy używałeś wcześniej różnych języków szablonów HTML?](#czy-używałeś-wcześniej-różnych-języków-szablonów-html)
 
 ### Co robi DOCTYPE?
 
