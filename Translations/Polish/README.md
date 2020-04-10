@@ -13,37 +13,37 @@
 
 ## Co to jest?
 
-W przeciwieństwie do typowych rozmów kwalifikacyjnych do pracy dla inżynierów oprogramowania, w rozmowach front-end mniej kładziony jest nacisk na algorytmy i mają więcej pytań na temat skomplikowanej wiedzy i wiedzy na temat domeny - HTML, CSS, JavaScript, żeby wymienić tylko kilka obszarów.
+W przeciwieństwie do typowych rozmów kwalifikacyjnych do pracy dla inżynierów oprogramowania, w rozmowach dotyczących frontend mniej kładziony jest nacisk na algorytmy i pojawia się więcej pytań na temat skomplikowanej wiedzy oraz doświadczenia z dziedziny - HTML, CSS, JavaScript, aby tylko wymienić tutaj kilka obszarów.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
+Chociaż istnieją pewne materiały, które mogą pomóc programistom frontend w przygotowaniu się do rozmów kwalifikacyjnych, nie są one tak bogate, jak materiały dla software engineer. Wśród istniejących materiałów prawdopodobnie najbardziej pomocny byłby bank pytań [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Niestety nie udało mi się znaleźć w Internecie wielu pełnych i satysfakcjonujących odpowiedzi na te pytania, dlatego oto moja próba odpowiedzi na nie. Repozytorium będące typu Open Source, projekt może przetrwać przy wsparciu społeczności w miarę ewolucji stanu sieci.
 
 ---
 
 <div align="center">
-  <strong>💰 Interested in Front End Dev jobs? Sign up with <a href="https://triplebyte.com/a/PJaJNpO/feihg">Triplebyte</a> to efficiently interview with top tech companies! 💰</strong>
+  <strong>💰 Zainteresowany pracą Frontend Dev? Zarejestruj się na <a href="https://triplebyte.com/a/PJaJNpO/feihg">Triplebyte</a> aby skutecznie przeprowadzać rekrutacje z najlepszymi firmami technologicznymi! 💰</strong>
 </div>
 
 ---
 
-## Looking for Generic Interview Preparation?
+## Szukasz ogólnego przygotowania do rekrutacji?
 
-You might be interested in the [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+Możesz być zainteresowany [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook), który zawiera przydatne treści na temat ogólnych rozmów rekrutacyjnych dla programistów, takie jak algorytmy, studium przypadku i [interview cheatsheet]](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
 
 <div align="center">
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
   <br>
   <p>
-    <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
+    <em>Credits: Rysunek od <a href="https://undraw.co/">unDraw</a></em>
   </p>
 </div>
 
-## Table of Contents
+## Spis treści
 
-1. [HTML Questions](/questions/html-questions.md)
-1. [CSS Questions](/questions/css-questions.md)
-1. [JavaScript Questions](/questions/javascript-questions.md)
+1. [Pytania HTML](/questions/html-questions.md)
+1. [Pytania CSS](/questions/css-questions.md)
+1. [Pytania JavaScript](/questions/javascript-questions.md)
 
-## Translations
+## Tłumaczenia
 
 - [English](/README.md)
 - [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
@@ -51,27 +51,28 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 - [Japanese (日本語)](/Translations/Japanese/README.md)
 - [Korean (한국어)](/Translations/Korean/README.md)
 - [Russian (Русский)](/Translations/Russian/README.md)
+- [Polish (Polski)](/Translations/Polish/README.md)
 
-## Related
+## Powiązane
 
-If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It is pretty much still WIP but I intend to make it into a library that is able to be used in production and also a reference resource for revising Data Structures and Algorithms.
+Jeśli interesuje ciebie sposób implementacji struktur danych, sprawdź [Lago](https://github.com/yangshun/lago), bibliotekę struktur danych i algorytmów dla JavaScript. Wciąż jest to w rozbudowie (WIP), ale zamierzam przekształcić go w bibliotekę, która może być używana na produkcji, a także jako źródło odniesienia do przeglądu struktur danych i algorytmów.
 
-## Contributing
+## Współtworzenie
 
-### Code of Conduct
+### Kodeks postępowania
 
-We have adopted the same Code of Conduct as Facebook that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+Przyjęliśmy ten sam Kodeks postępowania, co Facebook, którego oczekujemy od uczestników projektu. Proszę przeczytać [pełny tekst](https://code.facebook.com/codeofconduct) abyście mogli zrozumieć, jakie działania będą i nie będą tolerowane.
 
-### Contributing Guide
+### Przewodnik współtworzenia
 
-Read our [contributing guide](/CONTRIBUTING.md) to learn about how you can contribute, how to propose improvements or if you are interested in translating the content.
+Przeczytaj nasz [contributing guide](/CONTRIBUTING.md), aby dowiedzieć się, jak możesz wnieść swój wkład, jak zaproponować ulepszenia lub czy jesteś zainteresowany tłumaczeniem treści.
 
-### Supporting
+### Wspieranie
 
-Many hours of hard work have gone into this project. Your support will be very appreciated!
+Wiele godzin ciężkiej pracy poświęcono temu projektowi. Wasze wsparcie będzie bardzo mile widziane!
 
 <a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-## License
+## Licencja
 
-All projects and packages in this repository are [MIT licensed](/LICENSE).
+Wszystkie projekty i pakiety w tym repozytorium są objęte [licencją MIT](/LICENSE).
