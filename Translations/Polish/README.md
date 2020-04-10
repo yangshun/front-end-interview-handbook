@@ -77,4 +77,5 @@ Wiele godzin ciężkiej pracy poświęcono temu projektowi. Wasze wsparcie będz
 
 Wszystkie projekty i pakiety w tym repozytorium są objęte [licencją MIT](/LICENSE).
 
+___________________________
 Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)
