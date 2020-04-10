@@ -1,4 +1,4 @@
-<h1 align="center">Front End Interview Handbook</h1>
+<h1 align="center">Podręcznik Frontend przygotowujący do rekrutacji - Frontend Interview Handbook</h1>
 
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
@@ -6,14 +6,14 @@
     </a>
   <br>
   <p>
-    <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
+    <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Rysunek</a> od <a href="https://dribbble.com/yangheng">@yangheng</a>
     </em>
   </p>
 </div>
 
-## What is this?
+## Co to jest?
 
-Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
+W przeciwieństwie do typowych rozmów kwalifikacyjnych do pracy dla inżynierów oprogramowania, w rozmowach front-end mniej kładziony jest nacisk na algorytmy i mają więcej pytań na temat skomplikowanej wiedzy i wiedzy na temat domeny - HTML, CSS, JavaScript, żeby wymienić tylko kilka obszarów.
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
