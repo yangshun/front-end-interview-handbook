@@ -842,11 +842,11 @@ Wady:
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What is the extent of your experience with Promises and/or their polyfills?
+### Jaki jest zakres twojego doświadczenia z Promises i/lub ich polyfills?
 
-Possess working knowledge of it. A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+Posiadanie praktycznej wiedzy na ten temat. Obietnica (promise) to obiekt, który może kiedyś wygenerować jedną wartość: wartość rozwiązaną lub przyczynę, dla której nie została ona rozwiązana (np. wystąpił błąd sieci). Obietnica może być w jednym z 3 możliwych stanów: spełniona, odrzucona lub oczekująca (fulfilled, rejected, pending). Użytkownicy promise mogą dołączać callbacks, aby obsłużyć spełnioną wartość lub przyczynę odrzucenia.
 
-Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply with the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
+Niektóre wspólne polyfills są `$.deferred`, Q oraz Bluebird ale nie wszystkie z nich są zgodne ze specyfikacją. ES2015 obsługuje obietnice od razu po wyjęciu z pudełka, a obecnie polifilly zwykle nie są potrzebne.
 
 ###### Bibliografia
 
@@ -854,24 +854,24 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What are the pros and cons of using Promises instead of callbacks?
+### Jakie są zalety i wady korzystania z obietnic zamiast callbacks?
 
-**Pros**
+**Zalety**
 
-- Avoid callback hell which can be unreadable.
-- Makes it easy to write sequential asynchronous code that is readable with `.then()`.
-- Makes it easy to write parallel asynchronous code with `Promise.all()`.
-- With promises, these scenarios which are present in callbacks-only coding, will not happen:
-  - Call the callback too early
-  - Call the callback too late (or never)
-  - Call the callback too few or too many times
-  - Fail to pass along any necessary environment/parameters
-  - Swallow any errors/exceptions that may happen
+- Unikanie callback hell, które może być nieczytelne.
+- Ułatwia pisanie sekwencyjnego kodu asynchronicznego, który można odczytać za pomocą `.then()`.
+- Ułatwia pisanie równoległego kodu asynchronicznego za pomocą `Promise.all()`.
+- W przypadku obietnic te scenariusze występujące w kodowaniu callbacks-only nie wystąpią:
+   - wywołanie callback za wcześnie
+   - wywołanie callback za późno (lub nigdy)
+   - wywołanie callback za mało lub zbyt wiele razy
+   - nieprzekazanie niezbędnego środowiska/parametrów
+   - Połknięcie ewentualnych błędów/wyjątków
 
-**Cons**
+**Wady**
 
-- Slightly more complex code (debatable).
-- In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
+- Nieco bardziej złożony kod (dyskusyjny).
+- W starszych przeglądarkach, w których ES2015 nie jest obsługiwany, w celu korzystania z niego należy załadować polyfill.
 
 ###### Bibliografia
 
@@ -879,7 +879,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+### Jakie są zalety/wady pisania kodu JavaScript w języku kompilującym się w JavaScript?
 
 Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.
 
