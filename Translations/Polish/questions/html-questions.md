@@ -1,6 +1,6 @@
-# HTML Questions
+# Pytania z HTML
 
-Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
+Odpowiedzi do [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull request mile widziany, jeśli masz jakieś sugestie lub poprawki!
 
 - [What does a doctype do?](#what-does-a-doctype-do)
 - [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
@@ -14,93 +14,93 @@ Answers to [Front-end Job Interview Questions - HTML Questions](https://github.c
 - [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 - [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
-### What does a DOCTYPE do?
+### Co robi DOCTYPE?
 
-**DOCTYPE** is an abbreviation for **DOCument TYPE**.
-A DOCTYPE is always associated to a **DTD** - for **Document Type Definition**.
+**DOCTYPE** to skrót od **DOCument TYPE**.
+DOCTYPE jest zawsze powiązany z **DTD** - tzn z **Document Type Definition**.
 
-A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a DOCTYPE declares what DTD a document _supposedly_ respects (i.e. this document respects the HTML DTD).
+DTD określa, w jaki sposób powinny być uporządkowane dokumenty określonego rodzaju (np. `button` może zawierać `span` ale nie `div`), podczas gdy DOCTYPE deklaruje to, co DTD _jakoby_ respektuje (np. ten dokument jest zgodny z DTD HTML).
 
-For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects.
-Once a user agent has recognized a correct DOCTYPE, it will trigger the **no-quirks mode** matching this DOCTYPE for reading the document.
-If a user agent doesn't recognize a correct DOCTYPE, it will trigger the **quirks mode**.
+W przypadku stron internetowych wymagana jest deklaracja DOCTYPE. Służy do informowania agentów użytkownika (user agents), jakiej wersji specyfikacji HTML dotyczy twój dokument.
+Gdy user agent rozpozna prawidłowy DOCTYPE, uruchomi **tryb no-quirks** pasujący do tego DOCTYPE do odczytu dokumentu.
+Jeśli user agent nie rozpozna prawidłowego DOCTYPE, uruchomi **tryb quirks**.
 
-The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
+Deklaracja DOCTYPE dla standardów HTML5 to `<!DOCTYPE html>`.
 
-###### References
+###### Bibliografia
 
 - https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### How do you serve a page with content in multiple languages?
+### W jaki sposób wyświetlasz stronę z treścią w wielu językach?
 
-The question is a little vague, I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page should be displayed only in one consistent language.
+Pytanie jest trochę niejasne, założę się, że chodzi o najczęstszy przypadek, czyli sposób obsługi strony z treścią dostępną w wielu językach, ale treść na stronie powinna być wyświetlana tylko w jednym spójnym języku.
 
-When an HTTP request is made to a server, the requesting user agent usually sends information about language preferences, such as in the `Accept-Language` header. The server can then use this information to return a version of the document in the appropriate language if such an alternative is available. The returned HTML document should also declare the `lang` attribute in the `<html>` tag, such as `<html lang="en">...</html>`.
+Po wysłaniu żądania HTTP do serwera requestujący user agent zwykle wysyła informacje o preferencjach językowych, na przykład w nagłówku `Accept-Language`. Serwer może następnie użyć tych informacji, aby zwrócić wersję dokumentu w odpowiednim języku, jeśli taka alternatywa jest dostępna. Zwrócony dokument HTML powinien również zadeklarować atrybut `lang` w tagu `<html>`, tak jak `<html lang="en">...</html>`.
 
-In the back end, the HTML markup will contain `i18n` placeholders and content for the specific language stored in YML or JSON formats. The server then dynamically generates the HTML page with content in that particular language, usually with the help of a back end framework.
+W backendzie, HTML będzie zawierać symbole zastępcze `i18n` oraz treść dla określonego języka przechowywaną w formatach YML lub JSON. Serwer następnie dynamicznie generuje stronę HTML z zawartością w tym konkretnym języku, zwykle za pomocą frameworka backend.
 
-###### References
+###### Bibliografia
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### What kind of things must you be wary of when designing or developing for multilingual sites?
+### Jakich rzeczy należy się wystrzegać podczas projektowania lub tworzenia witryn wielojęzycznych?
 
-- Use `lang` attribute in your HTML.
-- Directing users to their native language - Allow a user to change his country/language easily without hassle.
-- Text in raster-based images (e.g. png, gif, jpg, etc.), is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to translate image text, each string of text will need to have a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
-- Restrictive words/sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments.
-- Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
-- Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
-- Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
-- Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
+- Używanie atrybutu `lang` w swoim HTML.
+- Przekierowanie użytkowników na ich język ojczysty - pozwól użytkownikowi na łatwą zmianę kraju/języka bez żadnych problemów.
+- Tekst na obrazach rastrowych (np. png, gif, jpg, itp.) nie jest skalowalnym podejściem - umieszczanie tekstu na obrazie jest nadal popularnym sposobem na uzyskanie ładnych, niesystemowych czcionek do wyświetlania na dowolnym komputerze. Jednak, aby przetłumaczyć tekst obrazu, każdy ciąg tekstu musi mieć osobny obraz utworzony dla każdego języka. Coś więcej niż kilka takich zamienników, może szybko wymknąć się spod kontroli.
+- Ograniczająca długość słów/zdań - niektóre treści mogą być dłuższe, gdy są napisane w innym języku. Uważaj na problemy z układem lub przepełnieniem w projekcie. Najlepiej unikać projektowania miejsca, w którym ilość tekstu mogłaby stworzyć lub zepsuć projekt. Liczby znaków wchodzą w grę z takimi nagłówkami, etykietami i przyciskami. Są mniej problematyczne z płynnym tekstem, takim jak treść lub komentarze.
+- Pamiętaj o tym, jak postrzegane są kolory - kolory są postrzegane inaczej w różnych językach i kulturach. Projekt powinien odpowiednio używać koloru.
+- Formatowanie dat i walut - Daty kalendarza są czasami przedstawiane na różne sposoby. Na przykład. "May 31, 2012" w Stanach Zjednoczonych, a "31 May 2012" w niektórych częściach Europy.
+- Nie łącz przetłumaczonych ciągów - nie rób niczego podobnego jak `"The date today is " + date`. Będzie psuł się w językach o różnej kolejności słów. Zamiast tego użyj ciągu szablonu z podstawieniem parametrów dla każdego języka. Na przykład spójrz na następujące dwa zdania odpowiednio w języku angielskim i chińskim: `I will travel on {% date %}` oraz `{% date %} 我会出发`. Zauważ, że pozycja zmiennej jest inna ze względu na reguły gramatyczne języka.
+- Kierunek czytania języka - w języku angielskim czytamy od lewej do prawej, od góry do dołu, w tradycyjnym japońskim tekst jest czytany od góry do dołu, od prawej do lewej.
 
-###### References
+###### Bibliografia
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### What are `data-` attributes good for?
+### Do czego są dobre atrybuty `data-`?
 
-Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
+Zanim frameworki JavaScript stały się popularne, programiści używali atrybutów `data-` do przechowywania dodatkowych danych w samym DOM, bez innych sztuczek, takich jak niestandardowe atrybuty, dodatkowe właściwości w DOM. Jest przeznaczony do przechowywania niestandardowych danych prywatnych na stronie lub w aplikacji, dla których nie ma już odpowiednich atrybutów ani elementów.
 
-These days, using `data-` attributes is generally not encouraged. One reason is that users can modify the data attribute easily by using inspect element in the browser. The data model is better stored within JavaScript itself and stay updated with the DOM via data binding possibly through a library or a framework.
+Obecnie używanie atrybutów `data-` ogólnie nie jest popierane. Jednym z powodów jest to, że użytkownicy mogą łatwo modyfikować atrybut danych za pomocą elementu inspekcji w przeglądarce. Model danych jest lepiej przechowywany w samym JavaScript i jest na bieżąco aktualizowany za pomocą DOM poprzez powiązanie danych, ewentualnie za pośrednictwem biblioteki lub frameworka.
 
-However, one perfectly valid use of data attributes, is to add a hook for _end to end_ testing frameworks such as Selenium and Capybara without having to create a meaningless classes or ID attributes. The element needs a way to be found by a particular Selenium spec and something like `data-selector='the-thing'` is a valid way to do so without convoluting the semantic markup otherwise.
+Jednakże, jednym całkowicie poprawnym zastosowaniem atrybutów danych jest dodanie hook dla _end to end_ testujących frameworków takich jak Selenium i Capybara bez konieczności tworzenia bezsensownych atrybutów klas lub identyfikatorów. Element musi być znaleziony przez konkretną specyfikację Selenium i coś jak `data-selector='the-thing'` jest prawidłowym sposobem, aby to zrobić bez zwijania znaczników semantycznych.
 
-###### References
+###### Bibliografia
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+### Rozważ HTML5 jako Open Web Platform. Jakie są elementy składowe HTML5?
 
-- Semantics - Allowing you to describe more precisely what your content is.
-- Connectivity - Allowing you to communicate with the server in new and innovative ways.
-- Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
-- Multimedia - Making video and audio first-class citizens in the Open Web.
-- 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
-- Performance and integration - Providing greater speed optimization and better usage of computer hardware.
-- Device access - Allowing for the usage of various input and output devices.
-- Styling - Letting authors write more sophisticated themes.
+- Semantyka - pozwala precyzyjniej opisać treść.
+- Łączność - umożliwiając komunikację z serwerem w nowy i innowacyjny sposób.
+- Offline i przechowywanie - Umożliwienie stronom lokalnym przechowywanie danych po stronie klienta i wydajniejszą pracę offline.
+- Multimedia - Tworzenie wysokiej jakości materiałów wideo i audio w Open Web.
+- Grafika i efekty 2D/3D - Umożliwiając znacznie bardziej zróżnicowany zakres opcji prezentacji.
+- Wydajność i integracja - Zapewnienie większej optymalizacji prędkości i lepszego wykorzystania sprzętu komputerowego.
+- Dostęp do urządzenia - Umożliwia korzystanie z różnych urządzeń wejściowych i wyjściowych.
+- Stylizacja - Pozwalanie autorom na pisanie bardziej wyrafinowanych motywów.
 
-###### References
+###### Bibliografia
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+### Opisz różnicę pomiędzy `cookie`, `sessionStorage` oraz `localStorage`.
 
-All the above-mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
+Wszystkie wyżej wymienione technologie są kluczowymi mechanizmami przechowywania po stronie klienta. Są w stanie przechowywać wartości tylko jako ciągi znaków (strings).
 
 |                                        | `cookie`                                                 | `localStorage` | `sessionStorage` |
 | -------------------------------------- | -------------------------------------------------------- | -------------- | ---------------- |
@@ -111,98 +111,98 @@ All the above-mentioned technologies are key-value storage mechanisms on the cli
 | Capacity (per domain)                  | 4kb                                                      | 5MB            | 5MB              |
 | Accessibility                          | Any window                                               | Any window     | Same tab         |
 
-_Note: If the user decides to clear browsing data via whatever mechanism provided by the browser, this will clear out any `cookie`, `localStorage`, or `sessionStorage` stored. It's important to keep this in mind when designing for local persistance, especially when comparing to alternatives such as server side storing in a database or similar (which of course will persist despite user actions)._
+_Uwaga: Jeśli użytkownik zdecyduje się wyczyścić dane przeglądania za pomocą dowolnego mechanizmu zapewnianego przez przeglądarkę, spowoduje to usunięcie dowolnego zebranego `cookie`, `localStorage`, czy `sessionStorage`. Należy o tym pamiętać przy projektowaniu pod kątem trwałości lokalnej, zwłaszcza w porównaniu z alternatywami, takimi jak przechowywanie po stronie serwera w bazie danych lub podobnym (które oczywiście będzie się utrzymywać pomimo działań użytkownika)._
 
-###### References
+###### Bibliografia
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+### Opisz różnicę pomiędzy `<script>`, `<script async>` oraz `<script defer>`.
 
-- `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
-- `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example, analytics.
-- `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference in putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+- `<script>` - Parsowanie HTML jest zablokowane, skrypt jest pobierany i wykonywany natychmiast, parsowanie HTML jest wznawiane po wykonaniu skryptu.
+- `<script async>` - Skrypt zostanie pobrany równolegle do parsowania HTML i wykonany, gdy tylko będzie dostępny (potencjalnie przed zakończeniem parsowania HTML). Użyj `async` gdy skrypt jest niezależny od innych skryptów na stronie, na przykład analityki.
+- `<script defer>` - Skrypt zostanie pobrany równolegle do parsowania HTML i wykonany, gdy strona zakończy parsowanie. Jeśli jest ich wiele, każdy odroczony skrypt jest wykonywany w kolejności, w jakiej napotkano w dokumencie. Jeśli skrypt opiera się na w pełni przeanalizowanym modelu DOM, atrybut `defer` przyda się do pełnego przeanalizowania kodu HTML przed jego wykonaniem. Nie ma dużej różnicy we wprowadzaniu normalnego `<script>` na końcu `<body>`. Odroczony skrypt nie może zawierać `document.write`.
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+Uwaga: Atrybuty `async` oraz `defer` są ignorowane przez skrypty, które nie zawierają atrybutu `src`.
 
-###### References
+###### Bibliografia
 
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+### Dlaczego ogólnie dobrym pomysłem jest pozycjonowanie CSS `<link>` pomiędzy `<head></head>` oraz JS `<script>` tuż przed `</body>`? Czy znasz jakieś wyjątki?
 
-**Placing `<link>`s in the `<head>`**
+**Umieszczanie `<link>` w `<head>`**
 
-Putting `<link>`s in the head is part of proper specification in building an optimized website. When a page first loads, HTML and CSS are being parsed simultaneously; HTML creates the DOM (Document Object Model) and CSS creates the CSSOM (CSS Object Model). Both are needed to create the visuals in a website, allowing for a quick "first meaningful paint" timing. This progressive rendering is a category optimization sites are measured in their performance scores. Putting stylesheets near the bottom of the document is what prohibits progressive rendering in many browsers. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is then stuck viewing a blank white page. Other times there can be flashes of unstyled content (FOUC), which can shows a webpage with no styling applied.
+Umieszczanie `<link>` w nagłówku jest częścią właściwej specyfikacji w budowaniu zoptymalizowanej strony internetowej. Gdy strona ładuje się po raz pierwszy, HTML i CSS są analizowane jednocześnie; HTML tworzy DOM (Document Object Model), a CSS tworzy CSSOM (CSS Object Model). Oba są potrzebne do stworzenia wizualizacji na stronie internetowej, pozwalając na szybkie "pierwsze znaczące malowanie". To progresywne renderowanie jest kategorią optymalizacji witryn ocenianych na podstawie ich wyników. Umieszczenie arkuszy stylów u dołu dokumentu uniemożliwia progresywne renderowanie w wielu przeglądarkach. Niektóre przeglądarki blokują renderowanie, aby uniknąć konieczności przemalowywania elementów strony, jeśli ich style się zmienią. Użytkownik utknął wtedy, oglądając pustą białą stronę. Innym razem mogą pojawiać się błyski niestylizowanej treści (FOUC), które pokazują stronę bez zastosowania stylizacji.
 
-**Placing `<script>`s just before `</body>`**
+**Umieszczanie `<script>` tuż przed `</body>`**
 
-`<script>`s block HTML parsing while they are being downloaded and executed. Placing the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+`<script>` blokuje parsowanie HTML podczas ich pobierania i wykonywania. Umieszczenie skryptów na dole umożliwi parsowanie HTML i wyświetlenie go najpierw użytkownikowi.
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. This ensures your code that needs to manipulate DOM elements will not throw and error and halt the entire script. If you need to put `<script>` in the `<head>`, use the `defer` attribute, which will achieve the same effect of downloading and running the script only after the HTML is parsed.
+Wyjątkiem dla pozycjonowania `<script>` na dole jest gdy twój skrypt zawiera `document.write()`, ale obecnie nie jest to dobra praktyka, aby używać `document.write()`. Również, umieszczanie `<script>` na dole oznacza, że przeglądarka nie może rozpocząć pobierania skryptów, dopóki cały dokument nie zostanie przeanalizowany. Zapewnia to, że kod, który musi manipulować elementami DOM, nie będzie generował błędów i nie zatrzyma całego skryptu. Jeśli musisz umieścić `<script>` w `<head>`, użyj atrybutu `defer`, który osiągnie ten sam efekt pobierania i uruchamiania skryptu dopiero po przeanalizowaniu HTML.
 
-###### References
+###### Bibliografia
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### What is progressive rendering?
+### Co to jest rendering progresywny?
 
-Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
+Renderowanie progresywne to nazwa nadana technikom stosowanym w celu poprawy wydajności strony internetowej (w szczególności w celu poprawy postrzeganego czasu ładowania) w celu renderowania treści do wyświetlenia tak szybko, jak to możliwe.
 
-It used to be much more prevalent in the days before broadband internet but it is still used in modern development as mobile data connections are becoming increasingly popular (and unreliable)!
+Kiedyś był znacznie bardziej rozpowszechniony w czasach przed internetem szerokopasmowym, ale nadal jest wykorzystywany w nowoczesnym rozwoju, ponieważ mobilne połączenia danych stają się coraz bardziej popularne (i zawodne)!
 
-Examples of such techniques:
+Przykłady takich technik:
 
-- Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
-- Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
-- Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+- Leniwe ładowanie obrazów - obrazy na stronie nie są ładowane jednocześnie. JavaScript zostanie użyty do załadowania obrazu, gdy użytkownik przewinie do części strony, która wyświetla obraz.
+- Określanie priorytetu widocznej treści (lub renderowania ponad zakładką) - Uwzględnij tylko minimalną ilość CSS/treści/skryptów niezbędnych do tego, aby ilość stron, które byłyby najpierw renderowane w przeglądarce użytkownika, były wyświetlane tak szybko, jak to możliwe, a następnie możesz użyć odroczonych skryptów lub nasłuchiwać zdarzenia `DOMContentLoaded`/`load`, aby załadować inne zasoby i zawartość.
+- Asynchroniczne fragmenty HTML - opróżnianie części HTML do przeglądarki, gdy strona jest konstruowana na zapleczu. Więcej szczegółów na temat techniki można znaleźć [tutaj](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
-###### References
+###### Bibliografia
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+### Dlaczego warto użyć atrybutu `srcset` w tagu obrazu? Wyjaśnij proces wykorzystywany przez przeglądarkę podczas oceny zawartości tego atrybutu.
 
-You would use the `srcset` attribute when you want to serve different images to users depending on their device display width - serve higher quality images to devices with retina display enhances the user experience while serving lower resolution images to low-end devices increase performance and decrease data wastage (because serving a larger image will not have any visible difference). For example: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` tells the browser to display the small, medium or large `.jpg` graphic depending on the client's resolution. The first value is the image name and the second is the width of the image in pixels. For a device width of 320px, the following calculations are made:
+Możesz użyć atrybutu `srcset` gdy chcesz wyświetlać użytkownikom różne obrazy w zależności od szerokości ekranu ich urządzenia - wyświetlaj obrazy o wyższej jakości na urządzeniach z wyświetlaczem Retina, które poprawiają wrażenia użytkownika, a wyświetlanie obrazów o niższej rozdzielczości na mniejszych urządzeniach zwiększa wydajność i zmniejsza marnotrawstwo danych (ponieważ służy to większemu, obraz nie będzie miał widocznej różnicy). Na przykład: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` informuje przeglądarkę, aby wyświetlała małą, średnią lub dużą grafikę `.jpg` w zależności od rozdzielczości klienta. Pierwsza wartość to nazwa obrazu, a druga to szerokość obrazu w pikselach. W przypadku urządzenia o szerokości 320 pikseli wykonywane są następujące obliczenia:
 
 - 500 / 320 = 1.5625
 - 1000 / 320 = 3.125
 - 2000 / 320 = 6.25
 
-If the client's resolution is 1x, 1.5625 is the closest, and `500w` corresponding to `small.jpg` will be selected by the browser.
+Jeśli rozdzielczość klienta wynosi 1x, 1.5625 jest najbliższa, a '500w' odpowiadające „small.jpg” zostanie wybrane przez przeglądarkę.
 
-If the resolution is retina (2x), the browser will use the closest resolution above the minimum. Meaning it will not choose the 500w (1.5625) because it is greater than 1 and the image might look bad. The browser would then choose the image with a resulting ratio closer to 2 which is 1000w (3.125).
+Jeśli rozdzielczość to retina (2x), przeglądarka użyje najbliższej rozdzielczości powyżej minimum. Oznacza to, że nie wybierze 500w (1,5625), ponieważ jest większa niż 1 i obraz może wyglądać źle. Przeglądarka wybrałaby wówczas obraz o współczynniku wynikowym bliższym 2, czyli 1000w (3,125).
 
-`srcset`s solve the problem whereby you want to serve smaller image files to narrow screen devices, as they don't need huge images like desktop displays do — and also optionally that you want to serve different resolution images to high density/low-density screens.
+`srcset` rozwiązuje problem polegający na tym, że chcesz wyświetlać mniejsze pliki obrazów na urządzeniach z wąskim ekranem, ponieważ nie potrzebują one dużych obrazów, takich jak wyświetlacze stacjonarne - a także opcjonalnie, że chcesz wyświetlać obrazy o różnej rozdzielczości na ekranach o wysokiej / niskiej gęstości.
 
-###### References
+###### Bibliografia
 
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Have you used different HTML templating languages before?
+### Czy używałeś wcześniej różnych języków szablonów HTML?
 
-Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
+Tak, Pug (formalnie Jade), ERB, Slim, Handlebars, Jinja, Liquid, żeby wymienić tylko kilka. Moim zdaniem są one mniej więcej takie same i zapewniają podobną funkcjonalność ucieczki treści oraz pomocne filtry do manipulowania wyświetlanymi danymi. Większość silników szablonów pozwala również wstrzykiwać własne filtry na wypadek, gdybyś potrzebował niestandardowego przetwarzania przed wyświetleniem.
 
-[[↑] Back to top](#html-questions)
+[[↑] Powrót do góry](#pytania-z-html)
 
-### Other Answers
+### Inne odpowiedzi
 
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
