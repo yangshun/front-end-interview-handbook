@@ -57,12 +57,12 @@ Odpowiedzi do [Front-end Job Interview Questions - JS Questions](https://github.
 - [How can you share code between files?](#how-can-you-share-code-between-files)
 - [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
 
-### Explain event delegation
+### Wyjaśnij delegowanie zdarzeń
 
-Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
+Delegowanie zdarzeń to technika polegająca na dodawaniu event listenerów do elementu nadrzędnego zamiast dodawania ich do elementów potomnych. Listener będzie wyzwalany za każdym razem, gdy zdarzenie zostanie wyzwolone na elementach potomnych z powodu wystąpienia zdarzenia propagującego DOM. Korzyści z tej techniki to:
 
-- Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
-- There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+- Memory footprint zmniejsza się, ponieważ do elementu nadrzędnego potrzebny jest tylko jeden moduł obsługi, zamiast konieczności dołączania modułów obsługi zdarzeń do każdego elementu potomnego.
+- Nie ma potrzeby odłączania modułu obsługi od usuwanych elementów i wiązania zdarzenia dla nowych elementów.
 
 ###### Bibliografia
 
@@ -71,22 +71,22 @@ Event delegation is a technique involving adding event listeners to a parent ele
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain how `this` works in JavaScript
+### Wyjaśnij jak `this` działa w JavaScript
 
-There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript. A hand-wavey explanation is that the value of `this` depends on how the function is called. I have read many explanations on `this` online, and I found [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s explanation to be the clearest. The following rules are applied:
+Nie ma prostego wyjaśnienia dla `this`; jest to jedna z najbardziej mylących koncepcji w JavaScript. Wytłumaczeniem na szybko jest to, że wartość `this` zależy od tego, jak wywoływana jest funkcja. Przeczytałem wiele wyjaśnień na temat `this` w Internecie i znalazłem wytłumaczenie od [Arnav Aggrawal](https://medium.com/@arnav_aggarwal), jako najbardziej klarowne. Stosuje się następujące zasady:
 
-1. If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
-2. If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-3. If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
-4. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
-5. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-6. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+1. Jeśli słowo kluczowe `new` jest używane podczas wywoływania funkcji, `this` wewnątrz funkcji jest nowym obiektem.
+2. Jeśli `apply`, `call`, lub `bind` służą do wywoływania/tworzenia funkcji, `this` wewnątrz funkcji jest obiektem przekazywanym jako argument.
+3. Jeśli funkcja jest wywoływana jako metoda, na przykład `obj.method()` — `this` jest obiektem, którego funkcja jest własnością.
+4. Jeśli funkcja jest wywoływana jako wywołanie wolnej funkcji, co oznacza, że została wywołana bez żadnego z powyższych warunków, `this` jest globalnym obiektem. W przeglądarce, jest obiektem `window`. Jeśli jest w trybie strict mode (`'use strict'`), `this` będzie `undefined` zamiast globalnego obiektu.
+5. Jeśli stosuje się wiele powyższych zasad, reguła, która jest wyższa, wygrywa i ustawi wartość `this`.
+6. Jeśli funkcja jest funkcją strzałkową (arrow function) ES2015, ignoruje wszystkie powyższe reguły i otrzymuje wartość `this` swojego otaczającego zakresu w momencie jej tworzenia.
 
-For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+Aby uzyskać szczegółowe wyjaśnienie, sprawdź jego [artykuł na Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
 
-#### Can you give an example of one of the ways that working with this has changed in ES6?
+#### Czy możesz podać przykład jednego ze sposobów, w jaki praca z tym zmieniła się w ES6?
 
-ES6 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+ES6 umożliwia korzystanie z [funkcji strzałkowych (arrow functions)](http://2ality.com/2017/12/alternate-this.html#arrow-functions) które wykorzystują [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
 
 ###### Bibliografia
 
