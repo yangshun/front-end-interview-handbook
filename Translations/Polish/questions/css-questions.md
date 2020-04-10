@@ -141,28 +141,28 @@ Pionowe marginesy między sąsiadującymi polami na poziomie bloku w zwinięciu 
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What are the various clearing techniques and which is appropriate for what context?
+### Jakie są różne techniki czyszczenia i które są odpowiednie w jakim kontekście?
 
-- Empty `div` method - `<div style="clear:both;"></div>`.
-- Clearfix method - Refer to the `.clearfix` class above.
-- `overflow: auto` or `overflow: hidden` method - Parent will establish a new block formatting context and expand to contains its floated children.
+- Pusta metoda `div` - `<div style="clear:both;"></div>`.
+- Metoda clearfix - nawiązując do klasy powyżej `.clearfix`.
+- `overflow: auto` lub metoda `overflow: hidden` - Rodzic ustanowi nowy kontekst formatowania bloku i rozszerzy się, aby zawierał elementy podrzędne.
 
-In large projects, I would write a utility `.clearfix` class and use them in places where I need it. `overflow: hidden` might clip children if the children is taller than the parent and is not very ideal.
+W dużych projektach napisałbym klasę użyteczności `.clearfix` i używał ich w miejscach, w których tego potrzebuję. `overflow: hidden` może podcinać children, jeśli children jest wyższy od parent i nie jest zbyt idealny.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Explain CSS sprites, and how you would implement them on a page or site.
+### Wyjaśnij CSS sprites, i jak zaimplementujesz je na stronie lub witrynie.
 
-CSS sprites combine multiple images into one single larger image. It is a commonly-used technique for icons (Gmail uses it). How to implement it:
+CSS sprites łączy wiele obrazów w jeden większy obraz. Jest to powszechnie stosowana technika ikon (Gmail ją używa). Jak ją zaimplementować:
 
-1. Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
-1. Each image would have a corresponding CSS class with `background-image`, `background-position` and `background-size` properties defined.
-1. To use that image, add the corresponding class to your element.
+1. Użyj generatora sprite, który pakuje wiele obrazów w jeden i generuje odpowiedni CSS do tego.
+1. Każdy obraz miałby odpowiednią klasę CSS `background-image`, `background-position` i `background-size` - zdefiniowane właściwości.
+1. Aby użyć tego obrazu, dodaj odpowiednią klasę do swojego elementu.
 
-**Advantages:**
+**Korzyści:**
 
-- Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.
-- Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon `:hover` pseudo-states. Blinking wouldn't be seen.
+- Zmniejszy liczbę żądań HTTP dla wielu obrazów (wymagane jest tylko jedno pojedyncze żądanie na spritesheet). Jednak w przypadku HTTP2 ładowanie wielu obrazów nie stanowi już większego problemu.
+- Pobieraj z wyprzedzeniem zasoby, które nie zostaną pobrane, dopóki nie będą potrzebne, takie jak obrazy, które pojawiają się tylko w pseudo-states `: hover`. Nie widać migania.
 
 ###### Bibliografia
 
@@ -170,38 +170,38 @@ CSS sprites combine multiple images into one single larger image. It is a common
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### How would you approach fixing browser-specific styling issues?
+### Jak podchodziłbyś do rozwiązywania problemów związanych ze stylem specyficznym dla przeglądarki?
 
-- After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
-- Use libraries like Bootstrap that already handles these styling issues for you.
-- Use `autoprefixer` to automatically add vendor prefixes to your code.
-- Use Reset CSS or Normalize.css.
-- If you're using Postcss (or a similar transpiling library), there may be plugins which allow you to opt in for using modern CSS syntax (and even W3C proposals) that will transform those sections of your code into corresponding safe code that will work in the targets you've used.
-
-[[↑] Powrót na górę](#pytania-z-css)
-
-### How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
-
-- Graceful degradation - The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
-- Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
-- Use [caniuse.com](https://caniuse.com/) to check for feature support.
-- Autoprefixer for automatic vendor prefix insertion.
-- Feature detection using [Modernizr](https://modernizr.com/).
-- Use CSS Feature queries [@support](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
+- Po zidentyfikowaniu problemu i sprawiającej kłopoty przeglądarki użyj osobnego arkusza stylów, który ładuje się tylko wtedy, gdy używana jest konkretna przeglądarka. Ta technika wymaga jednak renderowania po stronie serwera.
+- Używaj bibliotek takich jak Bootstrap, które już obsługują te problemy ze stylem.
+- Użyj `autoprefixer`, aby automatycznie dodać prefiksy dostawcy do swojego kodu.
+- Użyj Reset CSS lub Normalize.css.
+- Jeśli korzystasz z Postcss (lub podobnej biblioteki do transpilowania), mogą istnieć wtyczki, które pozwolą ci wybrać nowoczesną składnię CSS (a nawet propozycje W3C), które przekształcą te sekcje twojego kodu w odpowiedni bezpieczny kod, który będzie pracować w celach, dla których korzystałeś.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What are the different ways to visually hide content (and make it available only for screen readers)?
+### Jak wyświetlasz swoje strony w przeglądarkach z ograniczeniami funkcji? Jakich technik/procesów używasz?
 
-These techniques are related to accessibility (a11y).
+- Wdzięczna degradacja (graceful degradation) - praktyka polegająca na tworzeniu aplikacji dla nowoczesnych przeglądarek przy jednoczesnym zapewnieniu jej funkcjonalności w starszych przeglądarkach.
+- Progresywne ulepszenie (progressive enhancement) - Praktyka budowania aplikacji dla podstawowego poziomu doświadczenia użytkownika, ale dodawanie ulepszeń funkcjonalnych, gdy przeglądarka ją obsługuje.
+- Używanie [caniuse.com](https://caniuse.com/) aby sprawdzić obsługę funkcji.
+- Autoprefixer do automatycznego wstawiania prefiksu dostawcy.
+- Wykrywanie funkcji za pomocą [Modernizr](https://modernizr.com/).
+- Używanie zapytań CSS Feature [@support](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 
-- `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
-- `position: absolute; left: -99999px`. Position it outside of the screen.
-- `text-indent: -9999px`. This only works on text within the `block` elements.
-- Metadata. For example by using Schema.org, RDF, and JSON-LD.
-- WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
+[[↑] Powrót na górę](#pytania-z-css)
 
-Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioning approach, as it has the least caveats, works for most elements and it's an easy technique.
+### Jakie są różne sposoby wizualnego ukrywania treści (i udostępniania jej tylko dla czytników ekranu)?
+
+Te techniki są związane z dostępnością (a11y).
+
+- `width: 0; height: 0`. Spraw, aby element nie zajmował w ogóle miejsca na ekranie, co powoduje, że nie jest pokazywany.
+- `position: absolute; left: -99999px`. Ustaw go poza ekranem.
+- `text-indent: -9999px`. Działa to tylko w przypadku tekstu w elementach `block`.
+- Metadane. Na przykład za pomocą Schema.org, RDF i JSON-LD.
+- WAI-ARIA. Specyfikacja techniczna W3C określająca sposób zwiększenia dostępności stron internetowych.
+
+Nawet jeśli WAI-ARIA jest idealnym rozwiązaniem, wybrałbym podejście pozycjonowania `absolute`, ponieważ ma najmniej zastrzeżeń, działa na większość elementów i jest łatwą techniką.
 
 ###### Bibliografia
 
@@ -211,11 +211,11 @@ Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioni
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Have you ever used a grid system, and if so, what do you prefer?
+### Czy kiedykolwiek korzystałeś z systemu siatki (grid system), a jeśli tak, to co preferujesz?
 
-Before Flex became popular (around 2014), the `float`-based grid system was the most reliable because it still has the most browser support among the alternative existing systems (flex, grid). Bootstrap was using the `float` approach until Bootstrap 4 which switched to the `flex`-based approach. As of writing (2020), `flex` is the recommended approach for building grid systems and has [decent browser support](https://caniuse.com/#search=flex).
+Przed tym jak Flex stał się popularny (około roku 2014), oparty na `float` grid system był najbardziej niezawodny, ponieważ nadal ma największą obsługę przeglądarek wśród alternatywnych istniejących systemów (flex, grid). Bootstrap korzystał z podejścia `float` do chwili, gdy Bootstrap 4, przełączył się na podejście oparte na `flex`. W chwili pisania (2020r.), `flex` jest zalecanym podejściem do budowania systemów gridowych i ma [przyzwoitą obsługę przeglądarki](https://caniuse.com/#search=flex).
 
-For the adventurous, they can look into [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/), which uses the shiny new `grid` property; it is even better than `flex` for building grid layouts and will be the de facto way to do so in the future.
+Dla odważnych, mogą zajrzeć w [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/), który używa nowej błyszczącej właściwości `grid`; jest nawet lepszy niż `flex` do budowania układów siatki i będzie de facto sposobem na zrobienie tego w przyszłości.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
