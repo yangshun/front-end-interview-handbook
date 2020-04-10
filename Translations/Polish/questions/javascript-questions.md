@@ -268,14 +268,14 @@ Jako osobisty nawyk nigdy nie pozostawiam moich zmiennych niezadeklarowanych ani
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What is a closure, and how/why would you use one?
+### Czym jest domknięcie i jak/dlaczego miałbyś je zastosować?
 
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
+Domknięcie (closure) jest kombinacją funkcji i środowiska leksykalnego, w którym zadeklarowano tę funkcję. Słowo "leksykalny" odnosi się do faktu, że zakres leksykalny wykorzystuje lokalizację, w której zmienna jest zadeklarowana w kodzie źródłowym, w celu ustalenia, gdzie ta zmienna jest dostępna. Domknięcia to funkcje, które mają dostęp do zmiennych funkcji zewnętrznej (obejmującej) - łańcuch zasięgu nawet po zwróceniu funkcji zewnętrznej.
 
-**Why would you use one?**
+**Dlaczego miałbyś skorzystać z tego?**
 
-- Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-- [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
+- Prywatność danych/emulacja prywatnych metod przy domknięciach. Powszechnie stosowane we [wzorcu modułu](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
+- [Partial applications lub currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
 
 ###### Bibliografia
 
@@ -284,15 +284,15 @@ A closure is the combination of a function and the lexical environment within wh
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+### Czy możesz opisać główną różnicę pomiędzy pętlą `.forEach`, a pętlą `.map()` i dlaczego wybrałbyś jeden albo drugi?
 
-To understand the differences between the two, let's look at what each function does.
+Aby zrozumieć różnice między nimi, spójrzmy na to, co robi każda funkcja.
 
 **`forEach`**
 
-- Iterates through the elements in an array.
-- Executes a callback for each element.
-- Does not return a value.
+- Iteruje przez elementy w tablicy.
+- Wykonuje callback dla każdego elementu.
+- Nie zwraca wartości.
 
 ```js
 const a = [1, 2, 3];
@@ -305,8 +305,8 @@ const doubled = a.forEach((num, index) => {
 
 **`map`**
 
-- Iterates through the elements in an array.
-- "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+- Iteruje przez elementy w tablicy.
+- "Mapuje" każdy element do nowego elementu, wywołując funkcję na każdym elemencie, tworząc w rezultacie nową tablicę.
 
 ```js
 const a = [1, 2, 3];
@@ -317,7 +317,7 @@ const doubled = a.map(num => {
 // doubled = [2, 4, 6]
 ```
 
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+Główna różnica między `.forEach` i `.map()` to to, że `.map()` zwraca nową tablicę. Jeśli potrzebujesz wyniku, ale nie chcesz mutować oryginalnej tablicy, `.map()` jest jasnym wyborem. Jeśli potrzebujesz po prostu iterować tablicę, `forEach` jest dobrym wyborem.
 
 ###### Bibliografia
 
@@ -325,9 +325,9 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What's a typical use case for anonymous functions?
+### Jaki jest typowy przypadek użycia funkcji anonimowych?
 
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+Można ich użyć w IIFE do enkapsulacji części kodu w zakresie lokalnym, tak aby zmienne zadeklarowane w nim nie przenikały do zakresu globalnego.
 
 ```js
 (function() {
@@ -335,7 +335,7 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 })();
 ```
 
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+Jako callback, które jest używane raz i nie musi być używane nigdzie indziej. Kod będzie wydawał się bardziej samodzielny i czytelny, gdy procedury obsługi zostaną zdefiniowane bezpośrednio w kodzie wywołującym je, zamiast konieczności szukania gdzie indziej w celu znalezienia w ciele funkcji.
 
 ```js
 setTimeout(function() {
@@ -343,7 +343,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+Argumenty do konstrukcji funkcjonalnego programowania lub Lodasha (podobne do callbacków).
 
 ```js
 const arr = [1, 2, 3];
@@ -360,21 +360,21 @@ console.log(double); // [2, 4, 6]
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### How do you organize your code? (module pattern, classical inheritance?)
+### Jak organizujesz swój kod? (wzorzec modułu, klasyczne dziedziczenie?)
 
-In the past, I've used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
+W przeszłości używałem Backbone do moich modeli, co zachęca do bardziej otwartego podejścia, tworzenia modeli Backbone i dołączania do nich metod.
 
-The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+Wzorzec modułu jest nadal świetny, ale obecnie używam React/Redux, które wykorzystują jednokierunkowy przepływ danych oparty na architekturze Flux. Reprezentowałbym modele mojej aplikacji przy użyciu prostych obiektów i pisał funkcje czysto użytkowe do manipulowania tymi obiektami. Stan jest manipulowany za pomocą akcji i reduktorów, jak w każdej innej aplikacji Redux.
 
-I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+W miarę możliwości unikam dziedziczenia klasycznego. Kiedy już i jeśli to zrobię, trzymam się [tych reguł](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What's the difference between host objects and native objects?
+### Jaka jest różnica między obiektami hosta a obiektami macierzystymi?
 
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
+Obiekty macierzyste to obiekty, które są częścią języka JavaScript zdefiniowanego w specyfikacji ECMAScript, takie jak `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
 
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
+Obiekty hosta są dostarczane przez środowisko wykonawcze (przeglądarkę lub Node), takie jak `window`, `XMLHTTPRequest`, etc.
 
 ###### Bibliografia
 
@@ -382,13 +382,13 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+### Różnica pomiędzy: `function Person(){}`, `var person = Person()`, i `var person = new Person()`?
 
-This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
+To pytanie jest dość niejasne. Myślę, że jego intencją jest to, że pyta o konstruktory w JavaScript. Z technicznego punktu widzenia, `function Person(){}` jest zwykłą deklaracją funkcji. Konwencja polega na wykorzystaniu PascalCase do funkcji, które mają być używane jako konstruktory.
 
-`var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
+`var person = Person()` wywołuje `Person` jako funkcję, i nie jako konstruktor. Wywołanie jako takie jest częstym błędem, jeśli funkcja ma być używana jako konstruktor. Zazwyczaj konstruktor niczego nie zwraca, dlatego wywołanie konstruktora jak normalnej funkcji zwróci `undefined`, a to zostanie przypisane do zmiennej przeznaczonej jako instancja.
 
-`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
+`var person = new Person()` tworzy instancję obiektu `Person` za pomocą operatora `new`, który dziedziczy po `Person.prototype`. Alternatywą byłoby użycie `Object.create`, tak jak: `Object.create(Person.prototype)`.
 
 ```js
 function Person(name) {
@@ -410,9 +410,9 @@ console.log(person.name); // "john"
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What's the difference between `.call` and `.apply`?
+### Jaka jest różnica pomiędzy `.call` i `.apply`?
 
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
+Zarówno `.call`, jak i `.apply` są używane do wywoływania funkcji, a pierwszy parametr zostanie użyty jako wartość `this` w funkcji. Jednak `.call` przyjmuje argumenty oddzielone przecinkami jako kolejne argumenty, podczas gdy `.apply` przyjmuje tablicę argumentów jako następny argument. Łatwym sposobem na zapamiętanie tego jest C dla `call` i oddzielone przecinkami, i A dla `apply` oraz tablica argumentów.
 
 ```js
 function add(a, b) {
@@ -425,13 +425,13 @@ console.log(add.apply(null, [1, 2])); // 3
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain `Function.prototype.bind`.
+### Wytłumacz `Function.prototype.bind`.
 
-Taken word-for-word from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
+Wzięte słowo w słowo z[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
 
-> The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+> Metoda `bind()` tworzy nową funkcję, która po wywołaniu ma ustawione słowo kluczowe `this` na podaną wartość, z podaną sekwencją argumentów poprzedzającą dowolną podaną podczas wywoływania nowej funkcji.
 
-In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+Z mojego doświadczenia wynika, że jest to najbardziej przydatne do bindowania wartości `this` w metodach klas, które chcesz przekazać innym funkcjom. Często odbywa się to w komponentach React.
 
 ###### Bibliografia
 
@@ -439,11 +439,11 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### When would you use `document.write()`?
+### Kiedy użyłbyś `document.write()`?
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
+`document.write()` zapisuje ciąg tekstu do strumienia dokumentów otwartego przez `document.open()`. Kiedy `document.write()` jest wykonywane po załadowaniu strony, wywoła `document.open`, który usuwa cały dokument (`<head>`i `<body>` usunięto!) i zamienia zawartość na podaną wartość parametru. Dlatego jest zwykle uważany za niebezpieczny i podatny na niewłaściwe użycie.
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
+Istnieje kilka odpowiedzi online, które wyjaśniają, że w kodzie analitycznym używany jest `document.write()` lub [gdy chcesz dołączyć style, które powinny działać tylko wtedy, gdy JavaScript jest włączony](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). Jest nawet używany w HTML5 boilerplate do [równoległego ładowania skryptów i zachowania kolejności wykonywania](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! Podejrzewam jednak, że przyczyny te mogą być nieaktualne i we współczesnych czasach można je osiągnąć bez użycia `document.write()`. Proszę, popraw mnie, jeśli się mylę.
 
 ###### Bibliografia
 
@@ -452,11 +452,11 @@ There are some answers online that explain `document.write()` is being used in a
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What's the difference between feature detection, feature inference, and using the UA string?
+### Jaka jest różnica między wykrywaniem funkcji, feature inference i używaniem UA string?
 
 **Feature Detection**
 
-Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
+Wykrywanie funkcji polega na sprawdzeniu, czy przeglądarka obsługuje określony blok kodu, i uruchomieniu innego kodu w zależności od tego, czy to robi (czy nie), tak aby przeglądarka zawsze zapewniała działanie w przypadku awarii/błędów w niektórych przeglądarkach. Na przykład:
 
 ```js
 if ("geolocation" in navigator) {
@@ -466,11 +466,11 @@ if ("geolocation" in navigator) {
 }
 ```
 
-[Modernizr](https://modernizr.com/) is a great library to handle feature detection.
+[Modernizr](https://modernizr.com/) to świetna biblioteka do obsługi feature detection.
 
 **Feature Inference**
 
-Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
+Feature inference sprawdza funkcję podobnie jak wykrywanie funkcji, ale używa innej funkcji, ponieważ zakłada, że ona również będzie istnieć, np .:
 
 ```js
 if (document.getElementsByTagName) {
@@ -478,11 +478,11 @@ if (document.getElementsByTagName) {
 }
 ```
 
-This is not really recommended. Feature detection is more foolproof.
+To nie jest naprawdę zalecane. Wykrywanie funkcji jest bardziej niezawodne.
 
 **UA String**
 
-This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
+Jest to string zgłaszany przez przeglądarkę, który umożliwia elementom protokołu sieciowego identyfikowanie typu aplikacji, systemu operacyjnego, dostawcy oprogramowania lub wersji oprogramowania żądającego agenta użytkownika oprogramowania. Można uzyskać do niego dostęp za pośrednictwem `navigator.userAgent`. Jednak string jest trudny do przeanalizowania i może zostać sfałszowany. Na przykład Chrome zgłasza zarówno Chrome, jak i Safari. Aby wykryć Safari, musisz sprawdzić string Safari i nieobecność Chrome string. Unikaj tej metody.
 
 ###### Bibliografia
 
@@ -492,11 +492,11 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain Ajax in as much detail as possible.
+### Wyjaśnij Ajax tak szczegółowo, jak to możliwe.
 
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
+Ajax (asynchronous JavaScript and XML - asynchroniczny JavaScript i XML) to zestaw technik tworzenia stron internetowych wykorzystujących wiele technologii sieciowych po stronie klienta do tworzenia asynchronicznych aplikacji internetowych. Dzięki Ajax aplikacje internetowe mogą wysyłać dane i pobierać je z serwera asynchronicznie (w tle) bez ingerencji w wyświetlanie i zachowanie istniejącej strony. Oddzielając warstwę wymiany danych od warstwy prezentacji, Ajax pozwala stronom internetowym, a poprzez rozszerzenia aplikacji internetowych, dynamicznie zmieniać treść bez konieczności ponownego ładowania całej strony. W praktyce nowoczesne implementacje często zastępują użycie JSON zamiast XML, ze względu na zalety natywnej obsługi JSON w JavaScript.
 
-The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
+API `XMLHttpRequest` jest często używany do komunikacji asynchronicznej lub w dzisiejszych czasach, `fetch` API.
 
 ###### Bibliografia
 
@@ -505,30 +505,30 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What are the advantages and disadvantages of using Ajax?
+### Jakie są zalety i wady korzystania z Ajax?
 
-**Advantages**
+**Zalety**
 
-- Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-- Reduce connections to the server since scripts and stylesheets only have to be requested once.
-- State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-- Basically most of the advantages of an SPA.
+- Lepsza interaktywność. Nowa zawartość z serwera może być zmieniana dynamicznie bez potrzeby przeładowywania całej strony.
+- Zmniejsza liczbę połączeń z serwerem, ponieważ skrypty i arkusze stylów muszą być wymagane tylko raz.
+- Stan można utrzymać na stronie. Zmienne JavaScript i stan DOM zostaną zachowane, ponieważ główna strona kontenera nie została ponownie załadowana.
+- Zasadniczo większość zalet SPA.
 
-**Disadvantages**
+**Wady**
 
-- Dynamic webpages are harder to bookmark.
-- Does not work if JavaScript has been disabled in the browser.
-- Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-- Webpages using Ajax to fetch data will likely have to combine the fetched remote data with client-side templates to update the DOM. For this to happen, JavaScript will have to be parsed and executed on the browser, and low-end mobile devices might struggle with this.
-- Basically most of the disadvantages of an SPA.
+- Dynamiczne strony internetowe są trudniejsze do dodania do zakładek.
+- Nie działa, jeśli JavaScript jest wyłączony w przeglądarce.
+- Niektóre przeglądarki internetowe nie wykonują JavaScript i nie widzą treści załadowanych przez JavaScript.
+- Strony internetowe wykorzystujące Ajax do pobierania danych prawdopodobnie będą musiały połączyć pobrane dane zdalne z szablonami po stronie klienta, aby zaktualizować DOM. Aby tak się stało, JavaScript musi zostać przeanalizowany i wykonany w przeglądarce, a urządzenia mobilne z niższej półki mogą mieć z tym problem.
+- Zasadniczo większość wad SPA.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain how JSONP works (and how it's not really Ajax).
+### Wyjaśnij, jak działa JSONP (i jak to naprawdę nie jest Ajax).
 
-JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
+JSONP (JSON with Padding) jest metodą powszechnie używaną do omijania zasad międzydomenowych w przeglądarkach internetowych, ponieważ żądania Ajax z bieżącej strony do domeny międzydomenowej są niedozwolone.
 
-JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
+JSONP działa poprzez wysłanie żądania do domeny cross-origin za pomocą znacznika `<script>` i zwykle za pomocą parametru zapytania `callback`, na przykład: `https://example.com?callback=printData`. Serwer następnie opakowuje dane w funkcję o nazwie `printData` i zwraca je klientowi.
 
 ```html
 <!-- https://mydomain.com -->
@@ -546,11 +546,11 @@ JSONP works by making a request to a cross-origin domain via a `<script>` tag an
 printData({ name: "Yang Shun" });
 ```
 
-The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
+Klient musi mieć funkcję `printData` w swoim globalnym zasięgu, a funkcja zostanie wykonana przez klienta po otrzymaniu odpowiedzi z domeny cross-origin.
 
-JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
+JSONP może być niebezpieczny i ma pewne implikacje dla bezpieczeństwa. Ponieważ JSONP to tak naprawdę JavaScript, może robić wszystko, co potrafi JavaScript, więc musisz zaufać dostawcy danych JSONP.
 
-These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
+Obecnie, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) jest zalecanym podejściem, a JSONP jest postrzegany jako hack.
 
 ###### Bibliografia
 
@@ -558,23 +558,23 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Have you ever used JavaScript templating? If so, what libraries have you used?
+### Czy kiedykolwiek używałeś szablonów JavaScript? Jeśli tak, z jakich bibliotek korzystałeś?
 
-Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
+Tak. Handlebars, Underscore, Lodash, AngularJS, i JSX. Nie podobało mi się tworzenie szablonów w AngularJS, ponieważ często używało łańcuchów w dyrektywach, a literówki nie zostały złapane. JSX jest moim nowym ulubionym, ponieważ jest bliżej JavaScript i nie ma prawie żadnej składni do nauki. W dzisiejszych czasach możesz nawet używać literałów ciągów szablonów ES2015 jako szybkiego sposobu tworzenia szablonów bez konieczności korzystania z kodu innej firmy.
 
 ```js
 const template = `<div>My name is: ${name}</div>`;
 ```
 
-However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
+Należy jednak pamiętać o potencjalnym XSS w powyższym podejściu, ponieważ zawartość nie jest dla ciebie umykająca, w przeciwieństwie do bibliotek szablonów.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain "hoisting".
+### Wytłumacz "hoisting".
 
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "moved" up to the top of their module/function-level scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
+Hoisting to termin używany do wyjaśnienia zachowania deklaracji zmiennych w kodzie. Zmienne zadeklarowane lub zainicjowane słowem kluczowym `var` będą miały swoją deklarację "przeniesioną" na górę zakresu na poziomie modułu/funkcji, który nazywamy windowaniem. Jednak tylko deklaracja jest windowana, przydział (jeśli taki istnieje) pozostanie tam, gdzie jest.
 
-Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.
+Zauważ, że deklaracja nie została faktycznie przeniesiona - silnik JavaScript analizuje deklaracje podczas kompilacji i dowiaduje się o deklaracjach i ich zakresach. Po prostu łatwiej jest zrozumieć to zachowanie, wizualizując deklaracje jako podnoszone na szczyt ich zakresu. Wyjaśnijmy kilka przykładów.
 
 ```js
 console.log(foo); // undefined
@@ -582,7 +582,7 @@ var foo = 1;
 console.log(foo); // 1
 ```
 
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
+W deklaracjach funkcji podnoszone jest ciało, podczas gdy w wyrażeniach funkcji (zapisanych w formie deklaracji zmiennych) windowanana jest tylko deklaracja zmiennej.
 
 ```js
 // Function Declaration
@@ -602,7 +602,7 @@ var bar = function() {
 console.log(bar); // [Function: bar]
 ```
 
-Variables declared via `let` and `const` are hoisted as well. However, unlike `var` and `function`, they are not initialized and accessing them before the declaration will result in a `ReferenceError` exception. The variable is in a "temporal dead zone" from the start of the block until the declaration is processed.
+Windowane są również zmienne zadeklarowane za pomocą `let` i `const`. Jednak w przeciwieństwie do `var` i `function`, nie są one inicjowane i dostęp do nich przed deklaracją spowoduje wyjątek `ReferenceError`. Zmienna znajduje się w "czasowej martwej strefie" od początku bloku do momentu przetworzenia deklaracji.
 
 ```js
 x; // undefined
@@ -619,7 +619,7 @@ let y = "local";
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Describe event bubbling.
+### Opisz event bubbling.
 
 When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
 
