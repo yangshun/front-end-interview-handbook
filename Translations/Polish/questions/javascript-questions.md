@@ -621,13 +621,13 @@ let y = "local";
 
 ### Opisz event bubbling.
 
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
+Kiedy zdarzenie zostanie wyzwolone na elemencie DOM, spróbuje obsłużyć to zdarzenie, jeśli dołączony jest detektor, a następnie zdarzenie zostanie przekazane do jego obiektu nadrzędnego i nastąpi to samo. To 'bubbling' występuje u przodków elementu aż do `document`. Event bubbling jest mechanizmem delegowania zdarzeń.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What's the difference between an "attribute" and a "property"?
+### Jaka jest różnica pomiędzy "attribute", a "property"?
 
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
+Atrybuty są zdefiniowane w znacznikach HTML, ale właściwości są zdefiniowane w DOM. Aby zilustrować różnicę, wyobraź sobie, że mamy to pole tekstowe w naszym HTML: `<input type="text" value="Hello">`.
 
 ```js
 const input = document.querySelector("input");
@@ -635,7 +635,7 @@ console.log(input.getAttribute("value")); // Hello
 console.log(input.value); // Hello
 ```
 
-But after you change the value of the text field by adding "World!" to it, this becomes:
+Ale po zmianie wartości pola tekstowego przez dodanie "World!" staje się to:
 
 ```js
 console.log(input.getAttribute("value")); // Hello
@@ -648,11 +648,11 @@ console.log(input.value); // Hello World!
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Why is extending built-in JavaScript objects not a good idea?
+### Dlaczego rozszerzenie wbudowanych obiektów JavaScript nie jest dobrym pomysłem?
 
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods is not the same.
+Rozszerzenie wbudowanego/natywnego obiektu JavaScript oznacza dodanie właściwości/funkcji do jego `prototype`. Choć na początku może się to wydawać dobrym pomysłem, w praktyce jest niebezpieczne. Wyobraź sobie, że twój kod używa kilku bibliotek, które rozszerzają `Array.prototype` poprzez dodanie tej samej metody `contains`, implementacje się nadpisują, a twój kod się zepsuje, jeśli zachowanie tych dwóch metod nie będzie takie samo.
 
-The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
+Jedynym momentem, w którym możesz chcieć rozszerzyć obiekt macierzysty, jest utworzenie polyfill, zasadniczo zapewniające własną implementację metody, która jest częścią specyfikacji JavaScript, ale może nie istnieć w przeglądarce użytkownika, jeśli jest to starsza przeglądarka.
 
 ###### Bibliografia
 
