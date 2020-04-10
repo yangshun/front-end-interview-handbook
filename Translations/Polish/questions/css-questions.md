@@ -219,17 +219,17 @@ Dla odważnych, mogą zajrzeć w [CSS Grid Layout](https://css-tricks.com/snippe
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Have you used or implemented media queries or mobile-specific layouts/CSS?
+### Czy używałeś lub implementowałeś media queries lub mobile-specific layouts/CSS?
 
-Yes. An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.
+Tak. Przykładem może być przekształcenie nawigacji stacked pill w nawigację fixed-bottom tab poza pewnym breakpointem.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Are you familiar with styling SVG?
+### Czy znasz stylizację SVG?
 
-Yes, there are several ways to color shapes (including specifying attributes on the object) using inline CSS, an embedded CSS section, or an external CSS file. Most SVG you'll find around the web use inline CSS, but there are advantages and disadvantages associated with each type.
+Tak, istnieje kilka sposobów pokolorowania kształtów (w tym określenie atrybutów obiektu) za pomocą wbudowanego CSS, osadzonej sekcji CSS lub zewnętrznego pliku CSS. Większość plików SVG, które można znaleźć w Internecie, wykorzystuje wbudowany CSS, ale z każdym typem wiążą się wady i zalety.
 
-Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`. `fill` sets the color inside the object and `stroke` sets the color of the line drawn around the object. You can use the same CSS color naming schemes that you use in HTML, whether that's color names (that is `red`), RGB values (that is `rgb(255,0,0)`), Hex values, RGBA values, etc.
+Podstawowe kolorowanie można wykonać, ustawiając dwa atrybuty w węźle: `fill` i `stroke`. `fill` ustawia kolor wewnątrz obiektu i `stroke` ustawia kolor linii rysowanej wokół obiektu. Możesz używać tych samych schematów nazewnictwa kolorów CSS, których używasz w HTML, niezależnie od tego, czy są to nazwy kolorów (to znaczy `red`), wartości RGB (tzn. `rgb(255,0,0)`), wartości Hex, wartości RGBA, etc.
 
 ```html
 <rect
@@ -244,7 +244,7 @@ Basic coloring can be done by setting two attributes on the node: `fill` and `st
 />
 ```
 
-The above `fill="purple"` is an example of a _presentational attribute_. Interestingly, and unlike inline styles like `style="fill: purple"` which also happens to be an attribute, presentational attributes can be [overriden by CSS](https://css-tricks.com/presentation-attributes-vs-inline-styles/) styles defined in a stylesheet. So, if you did something like `svg { fill: blue; }` it would override the purple fill we've defined.
+Powyższe `fill="purple"` to przykład _presentational attribute_. Co ciekawe, w przeciwieństwie do stylów wbudowanych, takich jak `style="fill: purple"`, który również jest atrybutem, atrybuty prezentacji można [zastąpić stylami CSS](https://css-tricks.com/presentation-attributes-vs-inline-styles/) zdefiniowanymi w arkuszu stylów. Więc, jeśli zrobić coś takiego jak `svg { fill: blue; }` zastąpiłoby to zdefiniowane przez nas fioletowe wypełnienie.
 
 ###### Bibliografia
 
@@ -252,16 +252,16 @@ The above `fill="purple"` is an example of a _presentational attribute_. Interes
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Can you give an example of an @media property other than screen?
+### Czy możesz podać przykład właściwości @media innej niż screen?
 
-Yes, there are four types of @media properties (including _screen_):
+Tak, są cztery typy właściwości @media (włączając w to _screen_):
 
-- `all` - for all media type devices
-- `print` - for printers
-- `speech` - for screenreaders that "reads" the page out loud
-- `screen` - for computer screens, tablets, smart-phones etc.
+- `all` - dla wszystkich typu media
+- `print` - dla drukarek
+- `speech` - lub czytników ekranu, które "czytają" stronę na głos
+- `screen` - do ekranów komputerowych, tabletów, smartfonów itp.
 
-Here is an example of `print` media type's usage:
+Tu jest przykład użycia typu `print` media:
 
 ```css
 @media print {
@@ -277,13 +277,13 @@ Here is an example of `print` media type's usage:
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What are some of the "gotchas" for writing efficient CSS?
+### Jakie są "tricki" do pisania wydajnego CSS?
 
-Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large number of elements and browsers will have to do more work in determining if the parents do match.
+Po pierwsze, zrozum, że przeglądarki dopasowują selektory od skrajnie prawej (key selector) do lewej. Przeglądarki odfiltrowują elementy w DOM zgodnie z key selector'em i przesuwają w górę jego elementy nadrzędne, aby ustalić dopasowania. Im krótsza długość łańcucha selektora, tym szybciej przeglądarka może ustalić, czy ten element pasuje do selektora. Dlatego unikaj key selectorów, które są selektorami tagów i uniwersalnymi. Pasują do dużej liczby elementów, a przeglądarki będą musiały wykonać więcej pracy, aby ustalić, czy rodzice pasują.
 
-[BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
+Metodologia [BEM (Block Element Modifier)](https://bem.info/) zaleca, aby wszystko miało jedną klasę, a tam, gdzie potrzebna jest hierarchia, która wpisuje się również w nazwę klasy, w naturalny sposób sprawia to, że selektor jest wydajny i łatwy do zastąpienia.
 
-Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, repaint, and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
+Należy pamiętać, które właściwości CSS wyzwalają [trigger](https://csstriggers.com/) reflow, repaint, i compositing. Unikaj pisania stylów, które zmieniają układ (wyzwalanie przepływu) tam, gdzie to możliwe.
 
 ###### Bibliografia
 
@@ -292,49 +292,49 @@ Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, rep
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What are the advantages/disadvantages of using CSS preprocessors?
+### Jakie są zalety/wady korzystania z preprocesorów CSS?
 
-**Advantages:**
+**Zalety:**
 
-- CSS is made more maintainable.
-- Easy to write nested selectors.
-- Variables for consistent theming. Can share theme files across different projects.
-- Mixins to generate repeated CSS.
-- Sass features like loops, lists, and maps can make configuration easier and less verbose.
-- Splitting your code into multiple files. CSS files can be split up too but doing so will require an HTTP request to download each CSS file.
+- CSS jest łatwiejszy w utrzymaniu.
+- Łatwe do pisania zagnieżdżone selektory.
+- Zmienne dla spójnego motywu. Może udostępniać pliki motywów w różnych projektach.
+- Mixins do generowania powtarzanego CSS.
+- Funkcje Sass, takie jak pętle, listy i mapy, mogą ułatwić konfigurację i zmniejszyć poziom szczegółowości.
+- Dzielenie kodu na wiele plików. Pliki CSS można również podzielić, ale będzie to wymagało żądania HTTP pobrania każdego pliku CSS.
 
-**Disadvantages:**
+**Wady:**
 
-- Requires tools for preprocessing. Re-compilation time can be slow.
-- Not writing currently and potentially usable CSS. For example, by using something like [postcss-loader](https://github.com/postcss/postcss-loader) with [webpack](https://webpack.js.org/), you can write potentially future-compatible CSS, allowing you to use things like CSS variables instead of Sass variables. Thus, you're learning new skills that could pay off if/when they become standardized.
-
-[[↑] Powrót na górę](#pytania-z-css)
-
-### Describe what you like and dislike about the CSS preprocessors you have used.
-
-**Likes:**
-
-- Mostly the advantages mentioned above.
-- Less is written in JavaScript, which plays well with Node.
-
-**Dislikes:**
-
-- I use Sass via `node-sass`, which is a binding for LibSass written in C++. I have to frequently recompile it when switching between node versions.
-- In Less, variable names are prefixed with `@`, which can be confused with native CSS keywords like `@media`, `@import` and `@font-face` rule.
+- Wymaga narzędzi do wstępnego przetwarzania. Czas ponownej kompilacji może być długi.
+- Brak pisania obecnego i potencjalnie użytecznego CSS. Na przykład, używając czegoś podobnego do [postcss-loader](https://github.com/postcss/postcss-loader) z [webpack](https://webpack.js.org/), możesz napisać potencjalnie kompatybilny CSS, pozwalając na używanie takich zmiennych jak CSS zamiast zmiennych Sass. W ten sposób uczysz się nowych umiejętności, które mogą się opłacić, jeśli/gdy zostaną ujednolicone.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### How would you implement a web design comp that uses non-standard fonts?
+### Opisz, co lubisz, a czego nie w preprocesorach CSS, z których korzystałeś.
 
-Use `@font-face` and define `font-family` for different `font-weight`s.
+**Polubione:**
+
+- Głównie zalety wymienione powyżej.
+- Less jest napisany w JavaScript, który dobrze współpracuje z Node.
+
+**Niepolubione:**
+
+- Używam Sass przez `node-sass`, który jest powiązaniem dla LibSass napisanego w C++. Muszę często go przekompilować podczas przełączania między wersjami węzłów.
+- W Less, nazwy zmiennych są poprzedzone znakiem `@`, które można pomylić z natywnymi słowami kluczowymi CSS, takimi jak `@media`, `@import` i reguła `@font-face`.
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Explain how a browser determines what elements match a CSS selector.
+### Jak zaimplementowałbyś kompozycję do projektowania stron internetowych, która wykorzystuje niestandardowe czcionki?
 
-This part is related to the above about [writing efficient CSS](#what-are-some-of-the-gotchas-for-writing-efficient-css). Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
+Użycie `@font-face` i zdefiniowanie `font-family` dla różnych `font-weight`.
 
-For example with this selector `p span`, browsers firstly find all the `<span>` elements and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
+[[↑] Powrót na górę](#pytania-z-css)
+
+### Wyjaśnij, w jaki sposób przeglądarka określa, które elementy pasują do selektora CSS.
+
+Ta część jest związana z powyższą na temat [pisania wydajnego CSS](#what-are-some-of-the-gotchas-for-writing-efficient-css). Przeglądarki dopasowują selektory od skrajnie prawej (key selector) do lewej. Przeglądarki odfiltrowują elementy w DOM zgodnie z key selector i przesuwają w górę jego elementy nadrzędne, aby ustalić dopasowania. Im krótsza długość łańcucha selektora, tym szybciej przeglądarka może ustalić, czy ten element pasuje do selektora.
+
+Na przykład ten selektor `p span`, przeglądarka najpierw znajduje wszystkie elementy `<span>` i przemierza jego rodzica aż do roota, aby znaleźć element `<p>`. Dla konkretnego `<span>`, jak tylko znajdzie `<p>`, wie że `<span>` dopasowane i może zatrzymać dopasowanie.
 
 ###### Bibliografia
 
@@ -342,13 +342,13 @@ For example with this selector `p span`, browsers firstly find all the `<span>` 
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Describe pseudo-elements and discuss what they are used for.
+### Opisz pseudoelementy i omów, do czego służą.
 
-A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`:first-line`, `:first-letter`) or adding elements to the markup (combined with `content: ...`) without having to modify the markup (`:before`, `:after`).
+Pseudoelement CSS jest słowem kluczowym dodawanym do selektora, który pozwala stylizować określoną część wybranych elementów. Mogą być używane do dekoracji (`:first-line`, `:first-letter`) lub dodawać elementy do znaczników (w połączeniu z `content: ...`) bez konieczności modyfikowania znaczników (`:before`, `:after`).
 
-- `:first-line` and `:first-letter` can be used to decorate text.
-- Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
-- Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM.
+- `:first-line` i `:first-letter` może służyć do ozdabiania tekstu.
+- Użycie `.clearfix` jak pokazano powyżej, aby dodać element zero-space z `clear: both`.
+- Trójkątne strzałki w tooltips używają `:before` i `:after`. Zachęca do rozdzielenia rzeczy, ponieważ trójkąt jest uważany za część stylizacji, a nie DOM.
 
 ###### Bibliografia
 
@@ -356,24 +356,24 @@ A CSS pseudo-element is a keyword added to a selector that lets you style a spec
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
+### Wyjaśnij swoje zrozumienie box model i sposób, w jaki chcesz, aby przeglądarka w CSS renderowała układ w różnych modelach pudełkowych.
 
-The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
+Model pola CSS opisuje prostokątne pola, które są generowane dla elementów w drzewie dokumentu i rozmieszczone zgodnie z wizualnym modelem formatowania. Każdy box ma pole zawartości (np. text, an image, etc.) i opcjonalne otoczenie polami `padding`, `border`, i `margin`.
 
-The CSS box model is responsible for calculating:
+Model pudełkowy CSS odpowiada za obliczenie:
 
-- How much space a block element takes up.
-- Whether or not borders and/or margins overlap, or collapse.
-- A box's dimensions.
+- Ile miejsca zajmuje element bloku.
+- Niezależnie od tego, czy granice i/lub marginesy nachodzą na siebie, czy się zawalają.
+- Wymiary pudełka.
 
-The box model has the following rules:
+Model pudełkowy ma następujące zasady:
 
-- The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s, and `margin`s.
-- If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which see below).
-- If no `width` is specified, a non-floated block element will expand to fit the width of its parent minus `padding`.
-- The `height` of an element is calculated by the content's `height`.
-- The `width` of an element is calculated by the content's `width`.
-- By default, `padding`s and `border`s are not part of the `width` and `height` of an element.
+- Wymiary elementu bloku są obliczane przez `width`, `height`, `padding`, `border` i `margin`.
+- Jeśli `height` nie jest określona, element blokowy będzie tak samo wysoki, jak zawarta w nim zawartość, plus `padding` (chyba że są to floaty, dla których patrz poniżej).
+- Jeśli `width` nie jest określona, element blokowy non-floated rozszerzy się, aby dopasować się do szerokości jego rodzica minus `padding`.
+- `height` elementu jest obliczany na podstawie zawartości `height`.
+- `width` elementu jest obliczany na podstawie zawartości `width`.
+- Domyślnie, `padding` i `border` nie są częścią `width` oraz `height` elementu.
 
 ###### Bibliografia
 
@@ -381,13 +381,13 @@ The box model has the following rules:
 
 [[↑] Powrót na górę](#pytania-z-css)
 
-### What does `* { box-sizing: border-box; }` do? What are its advantages?
+### Co robi `* { box-sizing: border-box; }`? Jakie są tego zalety?
 
-- By default, elements have `box-sizing: content-box` applied, and only the content size is being accounted for.
-- `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation.
-- The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width.
-- The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
-- Taking into account `padding`s and `border`s as part of our box model resonates better with how designers actually imagine content in grids.
+- Domyślnie, elementy mają `box-sizing: content-box` zastosowane, i uwzględniany jest tylko rozmiar contentu.
+- `box-sizing: border-box` zmienia jak `width` i `height` elementów są liczone, `border` i `padding` są również uwzględniane w obliczeniach.
+- `height` elementu jest teraz obliczany na podstawie zawartości `height` + pionowy `padding` + pionowa szerokość `border`.
+- `width` elementu jest teraz obliczany na podstawie zawartości `width` + poziomy `padding` + pozioma szerokość `border`.
+- Biorąc pod uwagę `padding` oraz `border` jako część naszego modelu pudełkowego lepiej współgra z tym, jak projektanci wyobrażają sobie treść w gridach.
 
 ###### Bibliografia
 
