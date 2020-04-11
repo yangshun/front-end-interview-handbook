@@ -39,9 +39,9 @@ Możesz być zainteresowany [Tech Interview Handbook](https://github.com/yangshu
 
 ## Spis treści
 
-1. [Pytania HTML](/questions/html-questions.md)
-1. [Pytania CSS](/questions/css-questions.md)
-1. [Pytania JavaScript](/questions/javascript-questions.md)
+1. [Pytania HTML](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/questions/html-questions.md)
+2. [Pytania CSS](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/questions/css-questions.md)
+3. [Pytania JavaScript](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/questions/javascript-questions.md)
 
 ## Tłumaczenia
 
