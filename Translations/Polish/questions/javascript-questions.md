@@ -1074,17 +1074,17 @@ const alienJohn = { ...john, race: "alien" }; // {race: "alien", name: "John"}
 
 ### Wyjaśnij różnicę między funkcjami synchronicznymi i asynchronicznymi.
 
-Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
+Funkcje synchroniczne blokują, a funkcje asynchroniczne nie. W funkcjach synchronicznych instrukcje kończą się przed uruchomieniem następnej instrukcji. W takim przypadku program jest oceniany dokładnie w kolejności instrukcji, a wykonywanie programu jest wstrzymywane, jeśli jedna z instrukcji zajmuje bardzo dużo czasu.
 
-Asynchronous functions usually accept a callback as a parameter and execution continue on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
+Funkcje asynchroniczne zwykle akceptują wywołanie zwrotne (callback) jako parametr i wykonywanie jest kontynuowane w następnym wierszu natychmiast po wywołaniu funkcji asynchronicznej. Wywołanie zwrotne jest wywoływane tylko wtedy, gdy operacja asynchroniczna jest zakończona, a stos wywołań jest pusty. Intensywne operacje, takie jak ładowanie danych z serwera WWW lub wyszukiwanie w bazie danych, powinny być wykonywane asynchronicznie, aby główny wątek mógł kontynuować wykonywanie innych operacji zamiast blokować do czasu zakończenia tej długiej operacji (w przypadku przeglądarek interfejs użytkownika (UI) zawiesza się).
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What is event loop? What is the difference between call stack and task queue?
+### Co to jest pętla zdarzeń? Jaka jest różnica między stosem wywołań (call stack) a kolejką zadań (task queue)?
 
-The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
+Pętla zdarzeń jest pętlą jednowątkową, która monitoruje stos wywołań i sprawdza, czy w kolejce zadań jest jakaś praca do wykonania. Jeśli stos wywołań jest pusty, a w kolejce zadań znajdują się funkcje wywołania zwrotnego, funkcja jest usuwana z kolejki i przekazywana na stos wywołań, który ma zostać wykonany.
 
-If you haven't already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
+Jeśli jeszcze nie sprawdziłeś Philipa Roberta i jego [talk odnośnie Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), powinieneś. Jest to jeden z najczęściej oglądanych filmów w JavaScript.
 
 ###### Bibliografia
 
@@ -1093,11 +1093,11 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
+### Wyjaśnij różnice w korzystaniu z `foo` pomiędzy `function foo() {}` i `var foo = function() {}`
 
-The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question above [on hoisting](#explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+Pierwsza jest deklaracją funkcji, a druga jest wyrażeniem funkcji. Kluczową różnicą jest to, że deklaracje funkcji mają swoje ciała windowane, ale ciała wyrażeń funkcji nie są (mają takie samo zachowanie podczas windowania jak zmienne). Więcej informacji na temat windowania znajduje się w powyższym pytaniu [na temat windowania](#wytłumacz-hoisting). Jeśli spróbujesz wywołać wyrażenie funkcyjne przed jego zdefiniowaniem, otrzymasz błąd `Uncaught TypeError: XXX is not a function`.
 
-**Function Declaration**
+**Deklaracja funkcji**
 
 ```js
 foo(); // 'FOOOOO'
@@ -1106,7 +1106,7 @@ function foo() {
 }
 ```
 
-**Function Expression**
+**Wyrażenie funkcji**
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
@@ -1121,9 +1121,9 @@ var foo = function() {
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What are the differences between variables created using `let`, `var` or `const`?
+### Jakie są różnice między zmiennymi utworzonymi za pomocą `let`, `var` lub `const`?
 
-Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
+Zmienne zadeklarowane przy użyciu słowa kluczowego `var` mają zasięg do funkcji, w której zostały utworzone, lub jeśli zostały utworzone poza jakąkolwiek funkcją, do obiektu globalnego. Parametry `let` i `const` są _block scoped_, co oznacza, że są dostępne tylko w najbliższym zestawie nawiasów klamrowych (funkcja, blok if-else lub pętla for).
 
 ```js
 function foo() {
@@ -1156,7 +1156,7 @@ console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
 
-`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
+`var` umożliwia windowanie zmiennych, co oznacza, że można do nich odwoływać się w kodzie przed ich zadeklarowaniem. `let` oraz `const` nie pozwolą na to, zamiast tego zgłoszą błąd.
 
 ```js
 console.log(foo); // undefined
@@ -1172,7 +1172,7 @@ console.log(bar); // ReferenceError: can't access lexical declaration 'bar' befo
 const bar = "bar";
 ```
 
-Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
+Ponowne zadeklarowanie zmiennej za pomocą `var` nie spowoduje błędu, ale 'let' oraz 'const', tak.
 
 ```js
 var foo = "foo";
@@ -1183,7 +1183,7 @@ let baz = "baz";
 let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
-`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
+`let` i `const` różnią się tym, że `let` pozwala na ponowne przypisanie wartości zmiennej, podczas gdy `const` nie.
 
 ```js
 // This is fine.
@@ -1203,9 +1203,9 @@ baz = "qux";
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What are the differences between ES6 class and ES5 function constructors?
+### Jakie są różnice między konstruktorami funkcji ES6 i ES5?
 
-Let's first look at example of each:
+Najpierw spójrzmy na przykład każdego:
 
 ```js
 // ES5 Function Constructor
@@ -1221,9 +1221,9 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar.
+W przypadku prostych konstruktorów wyglądają bardzo podobnie.
 
-The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+Główna różnica w konstruktorze występuje podczas korzystania z dziedziczenia. Jeśli chcemy stworzyć klasę `Student`, która jest podklasą `Person` i dodać pole `studentId`, musimy to zrobić dodatkowo do powyższego.
 
 ```js
 // ES5 Function Constructor
@@ -1247,7 +1247,7 @@ class Student extends Person {
 }
 ```
 
-It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+Używanie dziedziczenia w ES5 jest znacznie bardziej szczegółowe, a wersja ES6 jest łatwiejsza do zrozumienia i zapamiętania.
 
 ###### Bibliografia
 
@@ -1256,13 +1256,13 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
+### Czy możesz podać przypadek użycia nowej składni funkcji arrow =>? Czym ta nowa składnia różni się od innych funkcji?
 
-One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
+Jedną oczywistą zaletą funkcji strzałek jest uproszczenie składni potrzebnej do tworzenia funkcji, bez potrzeby stosowania słowa kluczowego `function`. Funkcja `this` w funkcjach strzałek jest również związana z otaczającym zakresem, który jest inny w porównaniu do zwykłych funkcji, w których `this` jest określane przez obiekt wywołujący go. Leksykonowalne `this` jest przydatne, gdy wywołuje się callbacki, szczególnie w komponentach React.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What advantage is there for using the arrow syntax for a method in a constructor?
+### Jaka jest zaleta korzystania ze składni arrow syntax dla metody w konstruktorze?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
 
