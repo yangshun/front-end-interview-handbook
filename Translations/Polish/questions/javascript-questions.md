@@ -881,25 +881,25 @@ Niektóre wspólne polyfills są `$.deferred`, Q oraz Bluebird ale nie wszystkie
 
 ### Jakie są zalety/wady pisania kodu JavaScript w języku kompilującym się w JavaScript?
 
-Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.
+Niektóre przykłady języków, które kompilują się do JavaScript włączając CoffeeScript, Elm, ClojureScript, PureScript i TypeScript.
 
-Advantages:
+Zalety:
 
-- Fixes some of the longstanding problems in JavaScript and discourages JavaScript anti-patterns.
-- Enables you to write shorter code, by providing some syntactic sugar on top of JavaScript, which I think ES5 lacks, but ES2015 is awesome.
-- Static types are awesome (in the case of TypeScript) for large projects that need to be maintained over time.
+- Naprawia niektóre długotrwałe problemy z JavaScriptem i odradza antywzorce JavaScript.
+- Umożliwia pisanie krótszego kodu, poprzez dodanie cukru syntaktycznego do JavaScript, którego moim zdaniem ES5 brakuje, ale ES2015 jest niesamowity.
+- Typy statyczne są niesamowite (w przypadku TypeScript) dla dużych projektów, które muszą być utrzymywane z czasem.
 
-Disadvantages:
+Wady:
 
-- Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
-- Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
-- Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
-- Smaller community (depends on the language), which means resources, tutorials, libraries, and tooling would be harder to find.
-- IDE/editor support might be lacking.
-- These languages will always be behind the latest JavaScript standard.
-- Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
+- Wymaga procesu builda/kompilacji, ponieważ przeglądarki obsługują tylko JavaScript, a twój kod będzie musiał zostać skompilowany w JavaScript przed podaniem do przeglądarki.
+- Debugowanie może być uciążliwe, jeśli mapy źródłowe nie są ładnie odwzorowane na wstępnie skompilowanym źródle.
+- Większość programistów nie zna tych języków i będzie musiała się ich nauczyć. Jeśli używasz go do swoich projektów, wiąże się to z dodatkowymi kosztami.
+- Mniejsza społeczność (zależy od języka), co oznacza, że trudniej będzie znaleźć zasoby, samouczki, biblioteki i narzędzia.
+- Może brakować obsługi IDE / edytora.
+- Te języki zawsze będą w tyle za najnowszym standardem JavaScript.
+- Programiści powinni być świadomi, do czego ich kod jest kompilowany - ponieważ tak właśnie by się działało, i to w końcu ma znaczenie.
 
-Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
+W praktyce, ES2015 znacznie poprawił JavaScript i znacznie ułatwił pisanie. Obecnie nie widzę potrzeby używania CoffeeScript.
 
 ###### Bibliografia
 
@@ -907,17 +907,17 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What tools and techniques do you use for debugging JavaScript code?
+### Jakich narzędzi i technik używasz do debugowania kodu JavaScript?
 
-- React and Redux
+- React i Redux
   - [React Devtools](https://github.com/facebook/react-devtools)
   - [Redux Devtools](https://github.com/gaearon/redux-devtools)
 - Vue
   - [Vue Devtools](https://github.com/vuejs/vue-devtools)
 - JavaScript
   - [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
-  - `debugger` statement
-  - Good old `console.log` debugging
+  - instrukcja `debugger`
+  - stary dobry `console.log` debugging
 
 ###### Bibliografia
 
@@ -926,23 +926,23 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What language constructions do you use for iterating over object properties and array items?
+### Jakich konstrukcji językowych używasz do iteracji właściwości obiektów i elementów tablicy?
 
-For objects:
+Dla obiektów:
 
-- `for-in` loops - `for (var property in obj) { console.log(property); }`. However, this will also iterate through its inherited properties, and you will add an `obj.hasOwnProperty(property)` check before using it.
-- `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` is a static method that will lists all enumerable properties of the object that you pass it.
-- `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it.
+- pętle `for-in` - `for (var property in obj) { console.log(property); }`. Spowoduje to jednak również iterację po jej odziedziczonych właściwościach, a przed użyciem dodanie sprawdzenia `obj.hasOwnProperty (właściwość)`.
+- `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` jest statyczną metodą, która wyświetli wszystkie wyliczalne właściwości obiektu, który przekazujesz.
+- `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` jest statyczną metodą, która wyświetli wszystkie wyliczalne i niepoliczalne właściwości przekazywanego obiektu.
 
-For arrays:
+Dla tablic:
 
-- `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
-- `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
-- `for-of` loops - `for (let elem of arr) { ... }`. ES6 introduces a new loop, the `for-of` loop, that allows you to loop over objects that conform to the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) such as `String`, `Array`, `Map`, `Set`, etc. It combines the advantages of the `for` loop and the `forEach()` method. The advantage of the `for` loop is that you can break from it, and the advantage of `forEach()` is that it is more concise than the `for` loop because you don't need a counter variable. With the `for-of` loop, you get both the ability to break from a loop and a more concise syntax.
+- pętle `for` - `for (var i = 0; i < arr.length; i++)`. Częstą pułapką jest to, że `var` jest w zakresie funkcji, a nie w zakresie bloku, i przez większość czasu chciałbyś mieć zmienną iteratora o zasięgu blokowym. ES2015 wprowadza `let`, który ma zakres blokowy i zaleca się jego użycie zamiast tego. To staje się: `for (let i = 0; i < arr.length; i++)`.
+- `forEach` - `arr.forEach(function (el, index) { ... })`. Ta konstrukcja może być czasem wygodniejsza, ponieważ nie musisz używać `index`, jeśli wszystko, czego potrzebujesz, to elementy tablicy. Istnieją również metody `every` i `some`, które pozwalają na wcześniejsze zakończenie iteracji.
+- pętle `for-of` - `for (let elem of arr) { ... }`. ES6 wprowadza nową pętlę, pętlę `for-of`, która pozwala zapętlać obiekty zgodne z [iterowalnym protokołem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) takie jak `String`, `Array`, `Map`, `Set`, etc. Łączy zalety pętli `for` i metody `forEach()`. Zaletą pętli `for` jest to, że można się od niej oderwać, a zaletą `forEach()` jest to, że jest ona bardziej zwięzła niż pętla `for`, ponieważ nie jest potrzebna zmienna licznika. Pętla `for-of` daje zarówno możliwość zerwania z pętli, jak i bardziej zwięzłą składnię.
 
-Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. Before ES6, we used `for` loops when we needed to prematurely terminate the loop using `break`. But now with ES6, we can do that with `for-of` loops. I would use `for` loops when I need even more flexibility, such as incrementing the iterator more than once per loop.
+Przez większość czasu wolałbym metodę `.forEach`, ale tak naprawdę zależy to od tego, co próbujesz zrobić. Przed ES6 używaliśmy pętli `for`, gdy potrzebowaliśmy przedwcześnie zakończyć pętlę za pomocą `break`. Ale teraz dzięki ES6 możemy to zrobić za pomocą pętli `for-of`. Używałbym pętli `for`, gdy potrzebuję jeszcze większej elastyczności, takiej jak zwiększanie iteratora więcej niż raz na pętlę.
 
-Also, when using the `for-of` loop, if you need to access both the index and value of each array element, you can do so with the ES6 Array `entries()` method and destructuring:
+Ponadto, gdy korzystasz z pętli `for-of`, jeśli potrzebujesz dostępu zarówno do indeksu, jak i wartości każdego elementu tablicy, możesz to zrobić za pomocą metody ESR Array `entry()` i destrukcji:
 
 ```
 const arr = ['a', 'b', 'c'];
@@ -959,21 +959,21 @@ for (let [index, elem] of arr.entries()) {
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain the difference between mutable and immutable objects.
+### Wyjaśnij różnicę między obiektami mutable, a immutable.
 
-Immutability is a core principle in functional programming, and has lots to offer to object-oriented programs as well. A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
+Niezmienność jest podstawową zasadą programowania funkcjonalnego i ma wiele do zaoferowania także programom obiektowym. Zmienny obiekt to obiekt, którego stan można zmodyfikować po utworzeniu. Niezmienny obiekt to obiekt, którego stanu nie można zmienić po jego utworzeniu.
 
-#### What is an example of an immutable object in JavaScript?
+#### Jaki jest przykład niezmiennego obiektu w JavaScript?
 
-In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable.
+W JavaScript niektóre wbudowane typy (liczby, stringi) są niezmienne, ale obiekty niestandardowe są na ogół modyfikowalne.
 
-Some built-in immutable JavaScript objects are `Math`, `Date`.
+Niektóre wbudowane niezmienne obiekty JavaScript są `Math`, `Date`.
 
-Here are a few ways to add/simulate immutability on plain JavaScript objects.
+Oto kilka sposobów dodania / symulacji niezmienności prostych obiektów JavaScript.
 
 **Object Constant Properties**
 
-By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
+Łącząc `writable: false` i `configurable: false`, możesz zasadniczo stworzyć stałą (nie można jej zmienić, przedefiniować ani usunąć) jako właściwość obiektu, na przykład:
 
 ```js
 let myObject = {};
@@ -989,7 +989,7 @@ console.log(myObject.number); // 42
 
 **Prevent Extensions**
 
-If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
+Jeśli chcesz uniemożliwić dodawanie do obiektu nowych właściwości, ale w przeciwnym razie pozostaw resztę właściwości obiektu w spokoju, wywołaj `Object.preventExtensions(...)`:
 
 ```
 var myObject = {
@@ -1002,42 +1002,42 @@ myObject.b = 3;
 myObject.b; // undefined
 ```
 
-In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
+W trybie innym niż strict tworzenie `b` kończy się bezgłośnie. W trybie strict mode rzuca `TypeError`.
 
 **Seal**
 
-`Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`.
+`Object.seal()` tworzy "zapieczętowany" obiekt, co oznacza, że bierze istniejący obiekt i zasadniczo wywołuje `Object.preventExtensions()` zaznacza na nim wszystkie istniejące właściwości jako `configurable: false`.
 
-So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values).
+Dlatego nie tylko nie możesz dodawać żadnych dodatkowych właściwości, ale także nie możesz rekonfigurować ani usuwać żadnych istniejących właściwości (chociaż nadal możesz modyfikować ich wartości).
 
 **Freeze**
 
-`Object.freeze()` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal()` on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
+`Object.freeze()` tworzy zamrożony obiekt, co oznacza, że pobiera istniejący obiekt i zasadniczo wywołuje na nim `Object.seal()`, ale oznacza również wszystkie właściwości "data accessor" jako writable:false, dzięki czemu ich wartości nie można zmienić.
 
-This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
+To podejście jest najwyższym poziomem niezmienności, jaki można osiągnąć dla samego obiektu, ponieważ zapobiega wszelkim zmianom w tym obiekcie lub jakichkolwiek jego bezpośrednich właściwościach (chociaż, jak wspomniano powyżej, zawartość jakichkolwiek innych obiektów, do których istnieją odniesienia, pozostaje nienaruszona).
 
 ```js
 var immutable = Object.freeze({});
 ```
 
-Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
+Zamrożenie obiektu nie pozwala na dodanie nowych właściwości do obiektu i uniemożliwia usunięcie lub zmianę istniejących właściwości. `Object.freeze()` zachowuje wyliczalność, konfigurowalność, zapisywalność i prototyp obiektu. Zwraca przekazany obiekt i nie tworzy zamrożonej kopii.
 
-#### What are the pros and cons of immutability?
+#### Jakie są zalety i wady immutability?
 
-**Pros**
+**Zalety**
 
-- Easier change detection - Object equality can be determined in a performant and easy manner through referential equality. This is useful for comparing object differences in React and Redux.
-- Programs with immutable objects are less complicated to think about, since you don't need to worry about how an object may evolve over time.
-- Defensive copies are no longer necessary when immutable objects are returning from or passed to functions, since there is no possibility an immutable object will be modified by it.
-- Easy sharing via references - One copy of an object is just as good as another, so you can cache objects or reuse the same object multiple times.
-- Thread-safe - Immutable objects can be safely used between threads in a multi-threaded environment since there is no risk of them being modified in other concurrently running threads.
-- Using libraries like ImmmutableJS, objects are modified using structural sharing and less memory is needed for having multiple objects with similar structures.
+- Łatwiejsze wykrywanie zmian - Równość obiektów można ustalić w wydajny i łatwy sposób dzięki równości referencyjnej. Jest to przydatne do porównywania różnic obiektów w React i Redux.
+- Programy z niezmiennymi obiektami są mniej skomplikowane do przemyślenia, ponieważ nie musisz martwić się o to, jak obiekt może ewoluować w czasie.
+- Kopie obronne nie są już potrzebne, gdy niezmienne obiekty wracają z funkcji lub są przekazywane do nich, ponieważ nie ma możliwości, aby niezmienny obiekt został przez nią zmodyfikowany.
+- Łatwe udostępnianie za pośrednictwem referencji - Jedna kopia obiektu jest tak samo dobra jak inna, dzięki czemu można buforować obiekty lub wielokrotnie używać tego samego obiektu.
+- Bezpieczne dla wątków - Niezmienne obiekty mogą być bezpiecznie używane między wątkami w środowisku wielowątkowym, ponieważ nie ma ryzyka ich modyfikacji w innych równolegle działających wątkach.
+- Korzystając z bibliotek takich jak ImmmutableJS, obiekty są modyfikowane przy użyciu współdzielenia strukturalnego i potrzeba mniej pamięci do posiadania wielu obiektów o podobnych strukturach.
 
-**Cons**
+**Wady**
 
-- Naive implementations of immutable data structures and its operations can result in extremely poor performance because new objects are created each time. It is recommended to use libraries for efficient immutable data structures and operations that leverage on structural sharing.
-- Allocation (and deallocation) of many small objects rather than modifying existing ones can cause a performance impact. The complexity of either the allocator or the garbage collector usually depends on the number of objects on the heap.
-- Cyclic data structures such as graphs are difficult to build. If you have two objects which can't be modified after initialization, how can you get them to point to each other?
+- Naiwne implementacje niezmiennych struktur danych i ich operacje mogą powodować wyjątkowo niską wydajność, ponieważ za każdym razem tworzone są nowe obiekty. Zaleca się stosowanie bibliotek do wydajnych niezmiennych struktur danych i operacji wykorzystujących współużytkowanie strukturalne.
+- Alokacja (i dezalokacja) wielu małych obiektów zamiast modyfikowania istniejących może mieć wpływ na wydajność. Złożoność alokatora lub modułu wyrzucania elementów bezużytecznych zwykle zależy od liczby obiektów na stercie.
+- Trudno jest zbudować cykliczne struktury danych, takie jak wykresy. Jeśli masz dwa obiekty, których nie można zmodyfikować po inicjalizacji, w jaki sposób można je skierować na siebie?
 
 ###### Bibliografia
 
@@ -1045,13 +1045,13 @@ Freezing an object does not allow new properties to be added to an object and pr
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-#### How can you achieve immutability in your own code?
+#### Jak osiągnąć niezmienność we własnym kodzie?
 
-One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
+Jednym ze sposobów osiągnięcia niezmienności jest użycie bibliotek takich jak [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) lub [immer](https://github.com/immerjs/immer).
 
-The alternative is to use `const` declarations combined with the techniques mentioned above for creation. For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
+Alternatywą jest użycie deklaracji `const` w połączeniu ze wspomnianymi wyżej technikami tworzenia. Aby "mutować" obiekty, użyj operatora rozkładania, `Object.assign`, `Array.concat()` itp., Aby utworzyć nowe obiekty zamiast mutować obiekt oryginalny.
 
-Examples:
+Przykłady:
 
 ```js
 // Array Example
@@ -1072,7 +1072,7 @@ const alienJohn = { ...john, race: "alien" }; // {race: "alien", name: "John"}
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Explain the difference between synchronous and asynchronous functions.
+### Wyjaśnij różnicę między funkcjami synchronicznymi i asynchronicznymi.
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
 
