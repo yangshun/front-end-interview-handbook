@@ -1264,7 +1264,7 @@ Jedną oczywistą zaletą funkcji strzałek jest uproszczenie składni potrzebne
 
 ### Jaka jest zaleta korzystania ze składni arrow syntax dla metody w konstruktorze?
 
-The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
+Główną zaletą używania funkcji strzałkowej jako metody w konstruktorze jest to, że wartość `this` jest ustawiana w momencie tworzenia funkcji i nie może się później zmienić. Tak więc, gdy konstruktor jest używany do utworzenia nowego obiektu, `this` zawsze będzie odnosić się do tego obiektu. Na przykład, powiedzmy, że mamy konstruktor `Person`, który bierze imię jako argument i ma dwie metody `console.log` o tej nazwie, jedną jako funkcję zwykłą, a drugą jako funkcję strzałkową:
 
 ```js
 const Person = function(firstName) {
@@ -1300,9 +1300,9 @@ var sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
 
-The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
+Najważniejsze jest to, że `this` można zmienić dla normalnej funkcji, ale kontekst zawsze pozostaje taki sam dla funkcji strzałkowej. Więc nawet jeśli przekazujesz funkcję strzałkową do różnych części aplikacji, nie musisz się martwić o zmianę kontekstu.
 
-This can be particularly helpful in React class components. If you define a class method for something such as a click handler using a normal function, and then you pass that click handler down into a child component as a prop, you will need to also bind `this` in the constructor of the parent component. If you instead use an arrow function, there is no need to also bind "this", as the method will automatically get its "this" value from its enclosing lexical context. (See this article for an excellent demonstration and sample code: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+Może to być szczególnie pomocne w komponentach klasy React. Jeśli zdefiniujesz metodę klasy dla czegoś takiego jak moduł obsługi kliknięć za pomocą normalnej funkcji, a następnie przekażesz ten moduł obsługi kliknięć w dół do komponentu podrzędnego jako rekwizytu, musisz również powiązać `this` w konstruktorze komponentu nadrzędnego. Jeśli zamiast tego użyjesz funkcji strzałkowej, nie ma również potrzeby wiązania "this", ponieważ metoda automatycznie uzyska wartość "this" z otaczającego kontekstu leksykalnego. (Zobacz ten artykuł dla doskonałej demonstracji i przykładowego kodu: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
 
 ###### Bibliografia
 
@@ -1311,19 +1311,19 @@ This can be particularly helpful in React class components. If you define a clas
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What is the definition of a higher-order function?
+### Jaka jest definicja funkcji wyższego rzędu?
 
-A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
+Funkcja wyższego rzędu to dowolna funkcja, która przyjmuje jedną lub więcej funkcji jako argumenty, których używa do działania na niektórych danych i / lub zwraca w rezultacie funkcję. Funkcje wyższego rzędu mają na celu wyodrębnienie niektórych operacji, które są wykonywane wielokrotnie. Klasycznym przykładem tego jest `map`, który przyjmuje tablicę i funkcję jako argumenty. `map` następnie używa tej funkcji do transformacji każdego elementu w tablicy, zwracając nową tablicę z transformowanymi danymi. Inne popularne przykłady w JavaScript to `forEach`, `filter` i `reduce`. Funkcja wyższego rzędu nie musi tylko manipulować tablicami, ponieważ istnieje wiele przypadków użycia do zwrócenia funkcji z innej funkcji. `Function.prototype.bind` jest jednym z takich przykładów w JavaScript.
 
 **Map**
 
-Let say we have an array of names which we need to transform each string to uppercase.
+Powiedzmy, że mamy tablicę nazw, których potrzebujemy do przekształcenia każdego stringa na wielkie litery.
 
 ```js
 const names = ["irish", "daisy", "anna"];
 ```
 
-The imperative way will be as such:
+Imperatywnym sposobem będzie tak:
 
 ```js
 const transformNamesToUppercase = function(names) {
@@ -1336,7 +1336,7 @@ const transformNamesToUppercase = function(names) {
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
-Use `.map(transformerFn)` makes the code shorter and more declarative.
+Użycie `.map(transformerFn)`sprawia, że kod jest krótszy i bardziej deklaratywny.
 
 ```js
 const transformNamesToUppercase = function(names) {
@@ -1353,11 +1353,11 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Can you give an example for destructuring an object or an array?
+### Czy możesz podać przykład destrukturyzacji obiektu lub tablicy?
 
-Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
+Destrukturyzacja to wyrażenie dostępne w ES6, które umożliwia zwięzły i wygodny sposób na wydobycie wartości Obiektów (Objects) lub Tablic (Arrays) i umieszczenie ich w odrębnych zmiennych.
 
-**Array destructuring**
+**Destrukturyzacja Array**
 
 ```js
 // Variable assignment.
@@ -1379,7 +1379,7 @@ console.log(a); // 3
 console.log(b); // 1
 ```
 
-**Object destructuring**
+**Destrukturyzacja Object**
 
 ```js
 // Variable assignment.
@@ -1397,9 +1397,9 @@ console.log(q); // true
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+### ES6 Template Literals oferują dużą elastyczność w generowaniu ciągów, czy możesz podać przykład?
 
-Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
+Literały szablonów ułatwiają interpolację stringów lub uwzględnianie zmiennych w stringach. Przed ES2015 było coś takiego:
 
 ```js
 var person = { name: "Tyler", age: 28 };
@@ -1417,9 +1417,9 @@ console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
 
-Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
+Zauważ, że używasz odwrotnych znaków, a nie cudzysłowów, aby wskazać, że używasz literału szablonu i że możesz wstawiać wyrażenia wewnątrz symboli zastępczych `${}`.
 
-A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
+Drugim pomocnym przypadkiem użycia jest tworzenie ciągów wieloliniowych. Przed ES2015 można było utworzyć ciąg wielu wierszy, taki jak ten:
 
 ```js
 console.log("This is line one.\nThis is line two.");
@@ -1427,7 +1427,7 @@ console.log("This is line one.\nThis is line two.");
 // This is line two.
 ```
 
-Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
+Lub jeśli chcesz podzielić go na wiele wierszy w kodzie, abyś nie musiał przewijać w edytorze tekstu w prawo, aby odczytać długi ciąg, możesz również napisać w następujący sposób:
 
 ```js
 console.log("This is line one.\n" + "This is line two.");
@@ -1435,7 +1435,7 @@ console.log("This is line one.\n" + "This is line two.");
 // This is line two.
 ```
 
-Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
+Literały szablonów zachowują jednak wszelkie dodane do nich odstępy. Na przykład, aby utworzyć to samo wyjście wieloliniowe, które stworzyliśmy powyżej, możesz po prostu zrobić:
 
 ```js
 console.log(`This is line one.
@@ -1444,7 +1444,7 @@ This is line two.`);
 // This is line two.
 ```
 
-Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
+Innym przykładem użycia literałów szablonów byłoby użycie jako zamiennika bibliotek szablonów dla prostych interpolacji zmiennych:
 
 ```js
 const person = { name: "Tyler", age: 28 };
@@ -1456,7 +1456,7 @@ document.body.innerHTML = `
 `;
 ```
 
-**Note that your code may be susceptible to XSS by using `.innerHTML`. Sanitize your data before displaying it if it came from a user!**
+**Zauważ, że twój kod może być podatny na XSS przy użyciu `.innerHTML`. Wyczyść swoje dane przed wyświetleniem, jeśli pochodzą one od użytkownika!**
 
 ###### Bibliografia
 
@@ -1464,9 +1464,9 @@ document.body.innerHTML = `
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### Can you give an example of a curry function and why this syntax offers an advantage?
+### Czy możesz podać przykład curry function i dlaczego ta składnia ma tę zaletę?
 
-Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
+Currying to wzorzec, w którym funkcja z więcej niż jednym parametrem jest podzielona na wiele funkcji, które po wywołaniu szeregowym będą gromadzić wszystkie wymagane parametry pojedynczo. Ta technika może być użyteczna do ułatwienia czytania i komponowania kodu napisanego w funkcjonalnym stylu. Ważne jest, aby pamiętać, że aby funkcja była curry, musi zacząć od jednej funkcji, a następnie podzielić ją na sekwencję funkcji, z których każda akceptuje jeden parametr.
 
 ```js
 function curry(fn) {
@@ -1502,9 +1502,9 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### What are the benefits of using spread syntax and how is it different from rest syntax?
+### Jakie są zalety korzystania ze składni spread syntax i czym różni się od rest syntax?
 
-ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and RxJS projects.
+Spread syntax z ES6 jest bardzo przydatna podczas kodowania w funkcjonalnym paradygmacie, ponieważ możemy łatwo tworzyć kopie tablic lub obiektów bez uciekania się do `Object.create`, `slice` lub funkcji bibliotecznej. Ta funkcja języka jest często używana w projektach Redux i RxJS.
 
 ```js
 function putDookieInAnyArray(arr) {
@@ -1521,7 +1521,7 @@ const person = {
 const copyOfTodd = { ...person };
 ```
 
-ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
+Rest syntax z ES6 oferuje skrót do włączenia dowolnej liczby argumentów, które należy przekazać do funkcji. To jest jak odwrotność spread syntax, biorąc dane i upychając je do tablicy, zamiast rozpakowywać tablicę danych, i działa w argumentach funkcyjnych, a także w przypisaniach destrukturyzacji tablicy i obiektów.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
@@ -1548,15 +1548,15 @@ const { e, f, ...others } = {
 
 [[↑] Powrót na górę](#pytania-z-js)
 
-### How can you share code between files?
+### Jak współdzielić kod między plikami?
 
-This depends on the JavaScript environment.
+To zależy od środowiska JavaScript.
 
-On the client (browser environment), as long as the variables/functions are declared in the global scope (`window`), all scripts can refer to them. Alternatively, adopt the Asynchronous Module Definition (AMD) via RequireJS for a more modular approach.
+Na kliencie (środowisko przeglądarki), o ile zmienne / funkcje są zadeklarowane w zasięgu globalnym (`window`), wszystkie skrypty mogą się do nich odnosić. Ewentualnie zastosuj Asynchronous Module Definition (AMD) za pośrednictwem RequireJS, aby uzyskać bardziej modułowe podejście.
 
-On the server (Node.js), the common way has been to use CommonJS. Each file is treated as a module and it can export variables and functions by attaching them to the `module.exports` object.
+Na serwerze (Node.js) powszechnym sposobem było użycie CommonJS. Każdy plik jest traktowany jako moduł i może eksportować zmienne i funkcje, dołączając je do obiektu `module.exports`.
 
-ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This will eventually be supported in both browser and Node environments.
+ES2015 definiuje składnię modułu, która ma zastąpić zarówno AMD, jak i CommonJS. To będzie ostatecznie obsługiwane zarówno w przeglądarce, jak i w środowisku Node.
 
 [[↑] Powrót na górę](#pytania-z-js)
 
@@ -1566,9 +1566,9 @@ ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This
 - https://nodejs.org/docs/latest/api/modules.html
 - http://2ality.com/2014/09/es6-modules-final.html
 
-### Why you might want to create static class members?
+### Dlaczego warto tworzyć członków klasy statycznej?
 
-Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
+Statyczne elementy klasy (właściwości / metody) nie są powiązane z konkretnym wystąpieniem klasy i mają tę samą wartość niezależnie od tego, do którego wystąpienia się odnosi. Właściwości statyczne są zwykle zmiennymi konfiguracyjnymi, a metody statyczne są zwykle czystymi funkcjami narzędziowymi, które nie zależą od stanu instancji.
 
 ###### Bibliografia
 
