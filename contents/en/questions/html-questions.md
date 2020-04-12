@@ -1,4 +1,6 @@
-# HTML Questions
+---
+title: HTML Questions
+---
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
 
@@ -203,5 +205,3 @@ Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a f
 
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
-
----

@@ -195,5 +195,3 @@ Sim, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, apenas para
 
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
-
----

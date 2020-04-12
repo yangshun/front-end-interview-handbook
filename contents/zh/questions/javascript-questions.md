@@ -1,4 +1,6 @@
-## JS 问题
+---
+title: JavaScript 问题
+---
 
 本章节是[前端开发者面试问题 - JS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
@@ -163,7 +165,7 @@ console.log(x); // 1
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === "undefined"); // true
+console.log(typeof foo === 'undefined'); // true
 
 console.log(foo == null); // true. 错误，不要使用非严格相等！
 
@@ -232,7 +234,7 @@ const doubled = a.forEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a.map(num => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 
@@ -252,7 +254,7 @@ const doubled = a.map(num => {
 匿名函数可以在 IIFE 中使用，来封装局部作用域内的代码，以便其声明的变量不会暴露到全局作用域。
 
 ```js
-(function() {
+(function () {
   // 一些代码。
 })();
 ```
@@ -260,8 +262,8 @@ const doubled = a.map(num => {
 匿名函数可以作为只用一次，不需要在其他地方使用的回调函数。当处理函数在调用它们的程序内部被定义时，代码具有更好地自闭性和可读性，可以省去寻找该处理函数的函数体位置的麻烦。
 
 ```js
-setTimeout(function() {
-  console.log("Hello world!");
+setTimeout(function () {
+  console.log('Hello world!');
 }, 1000);
 ```
 
@@ -269,7 +271,7 @@ setTimeout(function() {
 
 ```js
 const arr = [1, 2, 3];
-const double = arr.map(function(el) {
+const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
@@ -317,11 +319,11 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person("John");
+var person = Person('John');
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person("John");
+var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
@@ -381,7 +383,7 @@ console.log(add.apply(null, [1, 2])); // 3
 功能检测包括确定浏览器是否支持某段代码，以及是否运行不同的代码（取决于它是否执行），以便浏览器始终能够正常运行代码功能，而不会在某些浏览器中出现崩溃和错误。例如：
 
 ```js
-if ("geolocation" in navigator) {
+if ('geolocation' in navigator) {
   // 可以使用 navigator.geolocation
 } else {
   // 处理 navigator.geolocation 功能缺失
@@ -464,7 +466,7 @@ JSONP 通过`<script>`标签发送跨域请求，通常使用`callback`查询参
 
 ```js
 // 文件加载自 https://example.com?callback=printData
-printData({ name: "Yang Shun" });
+printData({name: 'Yang Shun'});
 ```
 
 客户端必须在其全局范围内具有`printData`函数，并且在收到来自跨域的响应时，该函数将由客户端执行。
@@ -514,15 +516,15 @@ console.log(bar); // 2
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 console.log(foo); // [Function: foo]
 
 // 函数表达式
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
-  console.log("BARRRR");
+var bar = function () {
+  console.log('BARRRR');
 };
 console.log(bar); // [Function: bar]
 ```
@@ -540,15 +542,15 @@ console.log(bar); // [Function: bar]
 “Attribute” 是在 HTML 中定义的，而 “property” 是在 DOM 上定义的。为了说明区别，假设我们在 HTML 中有一个文本框：`<input type="text" value="Hello">`。
 
 ```js
-const input = document.querySelector("input");
-console.log(input.getAttribute("value")); // Hello
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
 但是在文本框中键入“ World!”后:
 
 ```js
-console.log(input.getAttribute("value")); // Hello
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
@@ -588,11 +590,11 @@ console.log(input.value); // Hello World!
 `==`是抽象相等运算符，而`===`是严格相等运算符。`==`运算符是在进行必要的类型转换后，再比较。`===`运算符不会进行类型转换，所以如果两个值不是相同的类型，会直接返回`false`。使用`==`时，可能发生一些特别的事情，例如：
 
 ```js
-1 == "1"; // true
+1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
-0 == ""; // true
-0 == "0"; // true
+0 == ''; // true
+0 == '0'; // true
 0 == false; // true
 ```
 
@@ -683,7 +685,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
 ```
 
@@ -773,8 +775,7 @@ TODO.
 
 ### 用转译成 JavaScript 的语言写 JavaScript 有什么优缺点？
 
-Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript.
-这些是转译成 JavaScript 的语言，包括 CoffeeScript、Elm、ClojureScript、PureScript 和 TypeScript。
+Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript. 这些是转译成 JavaScript 的语言，包括 CoffeeScript、Elm、ClojureScript、PureScript 和 TypeScript。
 
 **优点：**
 
@@ -852,20 +853,20 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 ```js
 const student1 = {
-  school: "Baidu",
-  name: "HOU Ce",
-  birthdate: "1995-12-15"
+  school: 'Baidu',
+  name: 'HOU Ce',
+  birthdate: '1995-12-15',
 };
 
 const changeStudent = (student, newName, newBday) => {
   return {
     ...student, // 使用解构
     name: newName, // 覆盖name属性
-    birthdate: newBday // 覆盖birthdate属性
+    birthdate: newBday, // 覆盖birthdate属性
   };
 };
 
-const student2 = changeStudent(student1, "YAN Haijing", "1990-11-10");
+const student2 = changeStudent(student1, 'YAN Haijing', '1990-11-10');
 
 // both students will have the name properties
 console.log(student1, student2);
@@ -911,7 +912,7 @@ console.log(student1, student2);
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 ```
 
@@ -919,8 +920,8 @@ function foo() {
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
-var foo = function() {
-  console.log("FOOOOO");
+var foo = function () {
+  console.log('FOOOOO');
 };
 ```
 
@@ -937,9 +938,9 @@ var foo = function() {
 ```js
 function foo() {
   // 所有变量在函数中都可访问
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // bar
   console.log(baz); // baz
@@ -953,9 +954,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 
 // 用 var 声明的变量在函数作用域上都可访问
@@ -970,38 +971,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 用`var`重复声明不会报错，但`let`和`const`会。
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let`和`const`的区别在于：`let`允许多次赋值，而`const`只允许一次。
 
 ```js
 // 这样不会报错。
-let foo = "foo";
-foo = "bar";
+let foo = 'foo';
+foo = 'bar';
 
 // 这样会报错。
-const baz = "baz";
-baz = "qux";
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### 参考
@@ -1076,9 +1077,9 @@ class Student extends Person {
 在构造函数里使用箭头函数的主要优点是它的 `this` 只与箭头函数创建时的 `this` 保持一致，并且不会修改。所以，当用构造函数去创建一个新的对象的时候，箭头函数的 `this` 总是指向新创建的对象。比如，假设我们有一个 `Person` 构造函数，它接受一个 `firstName` 参数，并且它有两个方法去调用 `console.log` 这个 `firstName`，一个是正常的函数，而另一个则是箭头函数:
 
 ```js
-const Person = function(firstName) {
+const Person = function (firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() {
+  this.sayName1 = function () {
     console.log(this.firstName);
   };
   this.sayName2 = () => {
@@ -1086,8 +1087,8 @@ const Person = function(firstName) {
   };
 };
 
-const john = new Person("John");
-const dave = new Person("Dave");
+const john = new Person('John');
+const dave = new Person('Dave');
 
 john.sayName1(); // John
 john.sayName2(); // John
@@ -1126,13 +1127,13 @@ sayNameFromWindow2(); // John
 假设我们有一个由名字组成的数组，我们需要将每个字符转换为大写字母。
 
 ```js
-const names = ["irish", "daisy", "anna"];
+const names = ['irish', 'daisy', 'anna'];
 ```
 
 不使用高阶函数的方法是这样：
 
 ```js
-const transformNamesToUppercase = function(names) {
+const transformNamesToUppercase = function (names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
@@ -1145,8 +1146,8 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 使用`.map(transformerFn)`使代码更简明
 
 ```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
+const transformNamesToUppercase = function (names) {
+  return names.map((name) => name.toUpperCase());
 };
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
@@ -1167,7 +1168,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ```js
 // 变量赋值
-const foo = ["one", "two", "three"];
+const foo = ['one', 'two', 'three'];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1189,8 +1190,8 @@ console.log(b); // 1
 
 ```js
 // 变量赋值
-const o = { p: 42, q: true };
-const { p, q } = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1234,12 +1235,12 @@ console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 ```js
 //show函数采用rest参数的写法如下：
 
-let name = "张三",
+let name = '张三',
   age = 20,
   message = show`我来给大家介绍:${name}的年龄是${age}.`;
 
 function show(stringArr, ...values) {
-  let output = "";
+  let output = '';
 
   let index = 0;
 
@@ -1272,7 +1273,7 @@ function curry(fn) {
   }
 
   function _curried(depth, args) {
-    return function(newArgument) {
+    return function (newArgument) {
       if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
@@ -1305,35 +1306,35 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 const person = {
-  name: "Todd",
-  age: 29
+  name: 'Todd',
+  age: 29,
 };
 
-const copyOfTodd = { ...person };
+const copyOfTodd = {...person};
 ```
 
 ES6 的剩余参数语句提供了一个简写，允许我们将不定数量的参数表示为一个数组。它就像是扩展运算符语法的反面，将数据收集到数组中，而不是解构数组。剩余参数语句在函数参数、数组和对象的解构赋值中有很大作用。
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map((x) => x + 5);
 }
 
 const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const { e, f, ...others } = {
+const {e, f, ...others} = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4
+  h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 

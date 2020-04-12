@@ -1,4 +1,6 @@
-## JS Questions
+---
+title: JavaScript Questions
+---
 
 Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md). Pull requests for suggestions and corrections are welcome!
 
@@ -1172,7 +1174,7 @@ console.log(bar); // ReferenceError: can't access lexical declaration 'bar' befo
 const bar = 'bar';
 ```
 
-Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
+Redeclaring a variable with `var` will not throw an error, but `let` and `const` will.
 
 ```js
 var foo = 'foo';
