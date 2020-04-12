@@ -3,12 +3,7 @@
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
     <img src="https://cdn.rawgit.com/yangshun/front-end-interview-handbook/23d89c8/assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
-    </a>
-  <br>
-  <p>
-    <em>Creditos: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Ilustração</a> por <a href="https://dribbble.com/yangheng">@yangheng</a>
-    </em>
-  </p>
+  </a>
 </div>
 
 ## O que é isto?

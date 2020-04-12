@@ -93,14 +93,14 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 
 Ang lahat ng nabanggit na mga teknolohiya ay ang mahahalagang mekanismo ng imbakan sa parte ng kliyente. Ang mga ito ay maaari lamang mag-imbak ng mga halaga bilang mga string.
 
-|                                                 | `cookie`                                                                      | `localStorage`         | `sessionStorage` |
-| ----------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------- | ---------------- |
-| Tagasimula                                      | Kliyente o serber. Ang serber ay pwedeng gumamit ng `Set-Cookie` na header    | Kliyente               | Kliyente         |
-| Pag-expire                                      | Mano-manong pag-set                                                           | Habang buhay           | Nasa tab malapit |
-| Patuloy sa lahat ng mga sesyon ng browser       | Depende sa kung ang panahon nng pag-expire ay itinakda                        | Oo                     | Hindi            |
-| Ipinadala sa server sa bawat kahilingan ng HTTP | Ang mga cookies ay awtomatikong ipinadala sa pamamagitan ng `Cookie`na header | Hindi                  | Hindi            |
-| Kapasidad (kada domain)                         | 4kb                                                                           | 5MB                    | 5MB              |
-| kayang i-aakses                                 | Kahit na anong bintana                                                        | Kahit na anong bintana | Parehong tab     |
+|  | `cookie` | `localStorage` | `sessionStorage` |
+| --- | --- | --- | --- |
+| Tagasimula | Kliyente o serber. Ang serber ay pwedeng gumamit ng `Set-Cookie` na header | Kliyente | Kliyente |
+| Pag-expire | Mano-manong pag-set | Habang buhay | Nasa tab malapit |
+| Patuloy sa lahat ng mga sesyon ng browser | Depende sa kung ang panahon nng pag-expire ay itinakda | Oo | Hindi |
+| Ipinadala sa server sa bawat kahilingan ng HTTP | Ang mga cookies ay awtomatikong ipinadala sa pamamagitan ng `Cookie`na header | Hindi | Hindi |
+| Kapasidad (kada domain) | 4kb | 5MB | 5MB |
+| kayang i-aakses | Kahit na anong bintana | Kahit na anong bintana | Parehong tab |
 
 ###### Mga Reperensiya
 
@@ -170,8 +170,7 @@ TODO
 
 ### Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?
 
-Oo, Pug (dating Jade), ERB, Slim, Handlebars, Jinja, Liquid, upang pangalanan lamang ang ilan. Sa palagay ko, ang mga ito ay higit pa o mas mababa na parehong nagbibigay ng katulad na pag-andar ng nilalamang tumatakas at kapaki-pakinabang na mga pag-sala para sa pagmamanipula ng datos na ipapakita. Ang karamihan sa mga engine sa pag-template ay magpapahintulot din sa iyo na mag-inject ng iyong sariling mga pag-sala sa kaganapan na kailangan mo ng pasadyang pagproseso bago ipakita.
-[[↑] Bumalik sa taas](#mga-tanong-sa-html)
+Oo, Pug (dating Jade), ERB, Slim, Handlebars, Jinja, Liquid, upang pangalanan lamang ang ilan. Sa palagay ko, ang mga ito ay higit pa o mas mababa na parehong nagbibigay ng katulad na pag-andar ng nilalamang tumatakas at kapaki-pakinabang na mga pag-sala para sa pagmamanipula ng datos na ipapakita. Ang karamihan sa mga engine sa pag-template ay magpapahintulot din sa iyo na mag-inject ng iyong sariling mga pag-sala sa kaganapan na kailangan mo ng pasadyang pagproseso bago ipakita. [[↑] Bumalik sa taas](#mga-tanong-sa-html)
 
 ### Mga Ibang Sagot
 

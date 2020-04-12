@@ -108,8 +108,7 @@ Ang dalawa ay parehong mga paraan upang ipatupad ang isang sistema ng module, na
 
 Nakikita ko ang sintaks ng AMD na parang masyadong malubha at ang CommonJS ay mas malapit sa estilo na nais mong ng pagsulat ng mga pahayag ng pag-import sa iba pang mga wika. halos kada, nakikita kong hindi kailangang AMD, dahil kung napagsilbihan mo ang lahat ng iyong JavaScript sa isang pinagdugtong na bugkos na, hindi ka makikinabang mula sa mga propyedad ng pag-load sa paraang async. Gayundin, ang sintaks ng CommonJS ay mas malapit sa estilo ng Node ng pagsusulat ng mga module at mayroong mas kaunting konteksto na lumilipat sa itaas kapag lumipat sa pagitan ng panig sa kliyente at panig sa serber na pag-develop ng JavaScript.
 
-Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasabay at di sinkronisado na paglo-load, maaari na sa wakas na tayo ay mananatili lamang sa isang diskarte. Kahit na hindi ito ganap na pinagsama sa mga browser at sa Node, maaari tayong gumamit lagi ng mga transpiler upang i-convert ang ating code.
-.
+Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasabay at di sinkronisado na paglo-load, maaari na sa wakas na tayo ay mananatili lamang sa isang diskarte. Kahit na hindi ito ganap na pinagsama sa mga browser at sa Node, maaari tayong gumamit lagi ng mga transpiler upang i-convert ang ating code. .
 
 ###### Mga Reperensiya
 
@@ -149,7 +148,7 @@ Ang isang variable na `undefined` ay isang variable na ipinahayag na, ngunit hin
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === "undefined"); // true
+console.log(typeof foo === 'undefined'); // true
 
 console.log(foo == null); // true. Mali, wag itong gamitin para sumuri!
 
@@ -218,7 +217,7 @@ const doubled = a.forEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a.map(num => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 
@@ -238,7 +237,7 @@ Ang pangunahing pagkakaiba sa pagitan ng `.forEach` at `.map ()` ay ang `.map ()
 Maaari silang gamitin sa mga IIFE upang ipaloob ang ilang mga code sa loob ng isang lokal na saklaw upang ang mga variable na ipinahayag dito ay hindi mag-leak sa pandaigdigang saklaw.
 
 ```js
-(function() {
+(function () {
   // Ibang mga code dito.
 })();
 ```
@@ -246,8 +245,8 @@ Maaari silang gamitin sa mga IIFE upang ipaloob ang ilang mga code sa loob ng is
 Bilang isang callback na ginagamit minsan at hindi na kailangang magamit kahit saan pa. Ang code ay mukhang mas self-contained at nababasa kapag ang mga handler ay tinukoy sa loob ng code na tinatawag ang mga ito, sa halip na maghanap sa ibang lugar upang mahanap ang punksyon na katawan.
 
 ```js
-setTimeout(function() {
-  console.log("Hello world!");
+setTimeout(function () {
+  console.log('Hello world!');
 }, 1000);
 ```
 
@@ -255,7 +254,7 @@ Mga argumento sa mga punksyonal na mga konstruktura na pag-program o Lodash (kat
 
 ```js
 const arr = [1, 2, 3];
-const double = arr.map(function(el) {
+const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
@@ -303,11 +302,11 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person("John");
+var person = Person('John');
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person("John");
+var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
@@ -364,11 +363,10 @@ Mayroong ilang mga sagot na makikita online na nagpapaliwanag na ang `document.w
 
 **Pagtuklas ng Tampok**
 
-Ang pagtuklas ng tampok ay kinasasangkutan ng pagtatrabaho kung ang isang browser ay sumusuporta sa isang tiyak na bloke ng code, at nagpapatakbo ng ibang code na nakasalalay sa kung ito (o hindi), upang ang browser ay maaaring makapagbigay kahit kailan ng isang gumaganang karanasan sa halip na mag-crash o magka-error sa ilang mga browser.
-Halimbawa:
+Ang pagtuklas ng tampok ay kinasasangkutan ng pagtatrabaho kung ang isang browser ay sumusuporta sa isang tiyak na bloke ng code, at nagpapatakbo ng ibang code na nakasalalay sa kung ito (o hindi), upang ang browser ay maaaring makapagbigay kahit kailan ng isang gumaganang karanasan sa halip na mag-crash o magka-error sa ilang mga browser. Halimbawa:
 
 ```js
-if ("geolocation" in navigator) {
+if ('geolocation' in navigator) {
   // Pwedeng gamitin ang navigator.geolocation
 } else {
   // Ang handle ay kulang sa tampok
@@ -450,7 +448,7 @@ Gumagana ang JSONP sa pamamagitan ng paggawa ng isang kahilingan sa isang cross-
 
 ```js
 // Ang file ay naload galing sa https://example.com?callback=printData
-printData({ name: "Yang Shun" });
+printData({name: 'Yang Shun'});
 ```
 
 Ang kliyente ay dapat magkaroon ng punksyon na `printData` sa pandaigdigang saklaw nito at ang punksyon ay isasagawa ng kliyente kapag ang tugon mula sa cross-origin na domain ay natanggap na.
@@ -500,15 +498,15 @@ Ang mga deklarasyon ng punksyon ay may na-hoist katawan habang ang mga ekspresyo
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 console.log(foo); // [Function: foo]
 
 // Ekspresyon ng Punksyon
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: ang bar ay hindi isang punksyon
-var bar = function() {
-  console.log("BARRRR");
+var bar = function () {
+  console.log('BARRRR');
 };
 console.log(bar); // [Function: bar]
 ```
@@ -526,15 +524,15 @@ Kapag ang isang kaganapan ay nag-trigger sa isang elemento ng DOM, susubukan nit
 Ang mga katangian ay tinukoy sa markup ng HTML ngunit ang mga propyedad ay tinukoy sa DOM. Upang ilarawan ang pagkakaiba, isipin na mayroon kaming field na ito sa aming HTML: `<input type ="text"value ="Hello">`.
 
 ```js
-const input = document.querySelector("input");
-console.log(input.getAttribute("value")); // Hello
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
 Ngunit pagkatapos mong baguhin ang halaga ng patlang ng teksto sa pamamagitan ng pagdaragdag ng "World!" dito, ito ay nagiging:
 
 ```js
-console.log(input.getAttribute("value")); // Hello
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
@@ -572,11 +570,11 @@ Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokum
 Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `==` ay ang abstraktong pagkakapantay-pantay na operator habang ang `===` ay ang mahigpit na pagkakapantay-pantay na operator. Ang `== operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga conversion na uri. Ang operator ng`===`ay hindi gagawin ang uri ng conversion, kaya kung ang dalawang halaga ay hindi magkatulad na uri`=== `ay babalik lamang` false`. Kapag gumagamit ng`==`, ang mga funky bagay ay maaaring mangyari, tulad ng: na operator ay maghahambing para sa pagkakapantay-pantay matapos gawin ang anumang kinakailangang mga pagpapalit na uri. Ang operator ng`===`ay hindi gagawin ang uri ng pagpapalit, kaya kung ang dalawang halaga ay hindi magkatulad na uri` === `ay babalik lamang sa`false`. Kapag gumagamit ng`==`, ang mga kaiba-ibang mga bagay ay maaaring mangyari, tulad ng:
 
 ```js
-1 == "1"; // true
+1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
-0 == ""; // true
-0 == "0"; // true
+0 == ''; // true
+0 == '0'; // true
 0 == false; // true
 ```
 
@@ -667,7 +665,7 @@ Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jayso
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
 ```
 
@@ -857,7 +855,7 @@ The former is a function declaration while the latter is a function expression. 
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 ```
 
@@ -865,8 +863,8 @@ function foo() {
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
-var foo = function() {
-  console.log("FOOOOO");
+var foo = function () {
+  console.log('FOOOOO');
 };
 ```
 
@@ -883,9 +881,9 @@ Variables declared using the `var` keyword are scoped to the function in which t
 ```js
 function foo() {
   // All variables are accessible within functions.
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // bar
   console.log(baz); // baz
@@ -899,9 +897,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 
 // var declared variables are accessible anywhere in the function scope.
@@ -916,38 +914,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
 ```js
 // This is fine.
-let foo = "foo";
-foo = "bar";
+let foo = 'foo';
+foo = 'bar';
 
 // This causes an exception.
-const baz = "baz";
-baz = "qux";
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### References
@@ -985,13 +983,13 @@ A higher-order function is any function that takes one or more functions as argu
 Let say we have an array of names which we need to transform each string to uppercase.
 
 ```js
-const names = ["irish", "daisy", "anna"];
+const names = ['irish', 'daisy', 'anna'];
 ```
 
 The imperative way will be as such:
 
 ```js
-const transformNamesToUppercase = function(names) {
+const transformNamesToUppercase = function (names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
@@ -1004,8 +1002,8 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 Use `.map(transformerFn)` makes the code shorter and more declarative.
 
 ```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
+const transformNamesToUppercase = function (names) {
+  return names.map((name) => name.toUpperCase());
 };
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
@@ -1026,7 +1024,7 @@ Destructuring is an expression available in ES6 which enables a succinct and con
 
 ```js
 // Variable assignment.
-const foo = ["one", "two", "three"];
+const foo = ['one', 'two', 'three'];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1048,8 +1046,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = { p: 42, q: true };
-const { p, q } = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1079,7 +1077,7 @@ function curry(fn) {
   }
 
   function _curried(depth, args) {
-    return function(newArgument) {
+    return function (newArgument) {
       if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
@@ -1112,35 +1110,35 @@ ES6's spread syntax is very useful when coding in a functional paradigm as we ca
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 const person = {
-  name: "Todd",
-  age: 29
+  name: 'Todd',
+  age: 29,
 };
 
-const copyOfTodd = { ...person };
+const copyOfTodd = {...person};
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map((x) => x + 5);
 }
 
 const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const { e, f, ...others } = {
+const {e, f, ...others} = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4
+  h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 

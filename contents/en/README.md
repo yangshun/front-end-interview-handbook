@@ -3,12 +3,7 @@
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
     <img src="assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
-    </a>
-  <br>
-  <p>
-    <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
-    </em>
-  </p>
+  </a>
 </div>
 
 ## What is this?
@@ -31,7 +26,7 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 
 <div align="center">
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
-  <br>
+  <br/>
   <p>
     <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>
@@ -72,7 +67,7 @@ Read our [contributing guide](/CONTRIBUTING.md) to learn about how you can contr
 
 Many hours of hard work have gone into this project. Your support will be very appreciated!
 
-<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"/></a>
 
 ## License
 

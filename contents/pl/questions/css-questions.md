@@ -81,7 +81,7 @@ Hack `.clearfix` używa sprytnego CSS [pseudo selektora](#describe-pseudo-elemen
 
 ```css
 .clearfix:after {
-  content: " ";
+  content: ' ';
   visibility: hidden;
   display: block;
   height: 0;
@@ -399,16 +399,16 @@ Model pudełkowy ma następujące zasady:
 
 - `none`, `block`, `inline`, `inline-block`, `flex`, `grid`, `table`, `table-row`, `table-cell`, `list-item`.
 
-| `display`      | Description                                                                                                                                                                                                            |
-| :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `none`         | Does not display an element (the elementv no longer affects the layout of the document). All child element are also no longer displayed. The document is rendered as if the element did not exist in the document tree |
-| `block`        | The element consumes the whole line in the block direction (which is usually horizontal)                                                                                                                               |
-| `inline`       | Elements can be laid out beside each other                                                                                                                                                                             |
-| `inline-block` | Similar to `inline`, but allows some `block` properties like setting `width` and `height`                                                                                                                              |
-| `table`        | Behaves like the `<table>` element                                                                                                                                                                                     |
-| `table-row`    | Behaves like the `<tr>` element                                                                                                                                                                                        |
-| `table-cell`   | Behaves like the `<td>` element                                                                                                                                                                                        |
-| `list-item`    | Behaves like a `<li>` element which allows it to define `list-style-type` and `list-style-position`                                                                                                                    |
+| `display` | Description |
+| :-- | :-- |
+| `none` | Does not display an element (the elementv no longer affects the layout of the document). All child element are also no longer displayed. The document is rendered as if the element did not exist in the document tree |
+| `block` | The element consumes the whole line in the block direction (which is usually horizontal) |
+| `inline` | Elements can be laid out beside each other |
+| `inline-block` | Similar to `inline`, but allows some `block` properties like setting `width` and `height` |
+| `table` | Behaves like the `<table>` element |
+| `table-row` | Behaves like the `<tr>` element |
+| `table-cell` | Behaves like the `<td>` element |
+| `list-item` | Behaves like a `<li>` element which allows it to define `list-style-type` and `list-style-position` |
 
 [[↑] Powrót na górę](#pytania-z-css)
 
@@ -416,14 +416,14 @@ Model pudełkowy ma następujące zasady:
 
 Dla dobrego porównania wrzucę porównanie z `block`.
 
-|                                      | `block`                                                                                     | `inline-block`                                                      | `inline`                                                                                                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size                                 | Fills up the width of its parent container.                                                 | Depends on content.                                                 | Depends on content.                                                                                                                                                                                                  |
-| Positioning                          | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside it. | Flows along with other content and allows other elements beside it.                                                                                                                                                  |
-| Can specify `width` and `height`     | Yes                                                                                         | Yes                                                                 | No. Will ignore if being set.                                                                                                                                                                                        |
-| Can be aligned with `vertical-align` | No                                                                                          | Yes                                                                 | Yes                                                                                                                                                                                                                  |
-| Margins and paddings                 | All sides respected.                                                                        | All sides respected.                                                | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
-| Float                                | -                                                                                           | -                                                                   | Becomes like a `block` element where you can set vertical margins and paddings.                                                                                                                                      |
+|  | `block` | `inline-block` | `inline` |
+| --- | --- | --- | --- |
+| Size | Fills up the width of its parent container. | Depends on content. | Depends on content. |
+| Positioning | Start on a new line and tolerates no HTML elements next to it (except when you add `float`) | Flows along with other content and allows other elements beside it. | Flows along with other content and allows other elements beside it. |
+| Can specify `width` and `height` | Yes | Yes | No. Will ignore if being set. |
+| Can be aligned with `vertical-align` | No | Yes | Yes |
+| Margins and paddings | All sides respected. | All sides respected. | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
+| Float | - | - | Becomes like a `block` element where you can set vertical margins and paddings. |
 
 [[↑] Powrót na górę](#pytania-z-css)
 
@@ -583,5 +583,6 @@ Kiedy używasz `translate ()`, element nadal zajmuje swoją pierwotną przestrze
 - https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
-___________________________
+---
+
 Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)

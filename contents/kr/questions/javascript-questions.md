@@ -73,8 +73,7 @@
 
 ### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
 
-`this`는 간단하게 설명하기 어렵습니다. JavaScript에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다. 온라인에 많은 설명을 읽었는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다.
-다음 규칙과 같습니다.
+`this`는 간단하게 설명하기 어렵습니다. JavaScript에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다. 온라인에 많은 설명을 읽었는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다. 다음 규칙과 같습니다.
 
 1.  함수를 호출할 때 `new` 키워드를 사용하는 경우, 함수 내부에 있는 `this`는 완전히 새로운 객체입니다.
 2.  `apply`, `call`, `bind`가 함수의 호출/생성에 사용되는 경우, 함수 내의 `this`는 인수로 전달된 객체입니다.
@@ -129,7 +128,7 @@ IIFE는 즉시 함수 호출 표현식(Immediately Invoked Function Expressions)
 ```js
 // Don't add JS syntax to this code block to prevent Prettier from formatting it.
 const foo = void (function bar() {
-  return "foo";
+  return 'foo';
 })();
 
 console.log(foo); // undefined
@@ -161,7 +160,7 @@ console.log(x); // 1
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === "undefined"); // true
+console.log(typeof foo === 'undefined'); // true
 
 console.log(foo == null); // true. 옳지않습니다. 이렇게 사용하지 마세요.
 
@@ -230,7 +229,7 @@ const doubled = a.forEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a.map(num => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 
@@ -250,7 +249,7 @@ const doubled = a.map(num => {
 익명함수는 IIFE로 사용되어 지역 범위 내에서 일부 코드를 캡슐화하므로 선언된 변수가 전역 범위로 누출되지 않습니다.
 
 ```js
-(function() {
+(function () {
   // 코드
 })();
 ```
@@ -258,8 +257,8 @@ const doubled = a.map(num => {
 한 번 사용되고 다른 곳에서는 사용할 필요가 없는 콜백으로 사용됩니다. 함수 본체를 찾기 위해 다른 곳을 찾아볼 필요 없이 코드를 호출하는 코드 바로 안에 핸들러가 정의되어 있으면 코드가 보다 독립적이고 읽기 쉽게 보일 것입니다.
 
 ```js
-setTimeout(function() {
-  console.log("Hello world!");
+setTimeout(function () {
+  console.log('Hello world!');
 }, 1000);
 ```
 
@@ -267,7 +266,7 @@ setTimeout(function() {
 
 ```js
 const arr = [1, 2, 3];
-const double = arr.map(function(el) {
+const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
@@ -315,11 +314,11 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person("John");
+var person = Person('John');
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person("John");
+var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
@@ -379,7 +378,7 @@ console.log(add.apply(null, [1, 2])); // 3
 Feature Detection은 브라우저가 특정 코드 블록을 지원하는지에 따라 다른 코드를 실행하도록 하여, 일부 브라우저에서 항상 오류 대신 무언가 작동하도록 합니다. 예:
 
 ```js
-if ("geolocation" in navigator) {
+if ('geolocation' in navigator) {
   // navigator.geolocation를 사용할 수 있습니다
 } else {
   // 부족한 기능 핸들링
@@ -462,7 +461,7 @@ JSONP는 `<script>`태그를 통해 cross-origin 도메인에 요청하고 보�
 
 ```js
 // https://example.com?callback=printData 에서 로드된 파일
-printData({ name: "Yang Shun" });
+printData({name: 'Yang Shun'});
 ```
 
 클라이언트는 전역 범위에 있는 `printData` 함수를 가져야만 하고, cross-origin domain으로부터의 응답이 수신될 때 함수가 클라이언트에 의해 실행됩니다.
@@ -514,15 +513,15 @@ console.log(bar); // 2
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 console.log(foo); // [Function: foo]
 
 // 함수 표현식
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
-  console.log("BARRRR");
+var bar = function () {
+  console.log('BARRRR');
 };
 console.log(bar); // [Function: bar]
 ```
@@ -540,15 +539,15 @@ DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 �
 attribute는 HTML 마크업에 정의되지만 property는 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에 다음 텍스트 필드가 있다고 가정해 봅시다: `<input type="text" value="Hello">`.
 
 ```js
-const input = document.querySelector("input");
-console.log(input.getAttribute("value")); // Hello
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
 그러나 텍스트 필드에 "World!"를 추가하면 이렇게 될것입니다.
 
 ```js
-console.log(input.getAttribute("value")); // Hello
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
@@ -588,11 +587,11 @@ console.log(input.value); // Hello World!
 `==`는 추상 동등 연산자이고 `===`는 완전 동등 연산자입니다. `==`연산자는 타입 변환이 필요한 경우 타입 변환을 한 후에 동등한지 비교할 것입니다. `===`연산자는 타입 변환을 하지 않으므로 두 값이 같은 타입이 아닌 경우 `===`는 `false`를 반환합니다. `==`를 사용하면 다음과 같은 무서운 일이 발생할 수 있습니다.
 
 ```js
-1 == "1"; // true
+1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
-0 == ""; // true
-0 == "0"; // true
+0 == ''; // true
+0 == '0'; // true
 0 == false; // true
 ```
 
@@ -683,7 +682,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
 ```
 
@@ -733,8 +732,7 @@ TODO.
 
 - 여러 페이지에 필요한 프레임워크, 앱 코드, 애셋로드로 인해 초기 페이지로드가 무거워집니다.
 - 모든 요청을 단일 진입점으로 라우트하고 클라이언트 측 라우팅이 그 한곳에서 인계받을 수 있도록 서버를 구성하는 추가 단계가 필요합니다.
-- SPA는 콘텐츠를 렌더링하기 위해 JavaScript에 의존하지만 모든 검색 엔진이 크롤링 중에 JavaScript를 실행하지는 않으며 페이지에 빈 콘텐츠가 표시될 수 있습니다. 이로 인해 의도치 않게 앱의 검색 엔진 최적화(SEO)가 어려워집니다.
-  그러나 대부분의 경우 앱을 제작할 때 검색 엔진에서 모든 콘텐츠 색인할 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이를 극복하기 위해, 앱을 서버 측 렌더링하거나 [Prerender](https://prerender.io/)와 같은 서비스를 사용하여 "브라우저에서 JavaScript를 렌더링하고, 정적 HTML을 저장한 다음, 크롤러에게 반환합니다".
+- SPA는 콘텐츠를 렌더링하기 위해 JavaScript에 의존하지만 모든 검색 엔진이 크롤링 중에 JavaScript를 실행하지는 않으며 페이지에 빈 콘텐츠가 표시될 수 있습니다. 이로 인해 의도치 않게 앱의 검색 엔진 최적화(SEO)가 어려워집니다. 그러나 대부분의 경우 앱을 제작할 때 검색 엔진에서 모든 콘텐츠 색인할 필요는 없으므로 SEO가 가장 중요한 요소는 아닙니다. 이를 극복하기 위해, 앱을 서버 측 렌더링하거나 [Prerender](https://prerender.io/)와 같은 서비스를 사용하여 "브라우저에서 JavaScript를 렌더링하고, 정적 HTML을 저장한 다음, 크롤러에게 반환합니다".
 
 ###### 참고자료
 
@@ -846,10 +844,10 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 또한, `for-of` 루프를 사용할 때 각 배열 요소의 인덱스와 값에 모두 접근해야하는 경우 ES6 Array의 `entries()` 메소드와 destructuring을 사용하면됩니다.
 
 ```js
-const arr = ["a", "b", "c"];
+const arr = ['a', 'b', 'c'];
 
 for (let [index, elem] of arr.entries()) {
-  console.log(index, ": ", elem);
+  console.log(index, ': ', elem);
 }
 ```
 
@@ -900,7 +898,7 @@ Philip Robert의 [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 ```
 
@@ -908,8 +906,8 @@ function foo() {
 
 ```js
 foo(); // Uncaught TypeError: foo는 함수가 아닙니다
-var foo = function() {
-  console.log("FOOOOO");
+var foo = function () {
+  console.log('FOOOOO');
 };
 ```
 
@@ -926,9 +924,9 @@ var foo = function() {
 ```js
 function foo() {
   // 함수 내에서 모든 변수에 접근할 수 있습니다.
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // "bar"
   console.log(baz); // "baz"
@@ -942,9 +940,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 
 // var로 선언된 변수는 함수 스코프의 어디에서나 접근할 수 있습니다.
@@ -959,38 +957,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 `var`을 사용하여 변수를 다시 선언해도 에러가 발생하지 않지만, `let`과 `const`는 에러를 발생시킵니다.
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let`은 변수의 값을 재할당할 수 있지만, `const`는 재할당할 수 없다는 점이 다릅니다.
 
 ```js
 // 괜찮습니다
-let foo = "foo";
-foo = "bar";
+let foo = 'foo';
+foo = 'bar';
 
 // 예외가 발생합니다
-const baz = "baz";
-baz = "qux";
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### 참고자료
@@ -1073,9 +1071,9 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 예를 들어, 우리가 인수로 first name을 받고, 그 이름을 `console.log`로 출력하는 `Person` 생성자가 있다고 해봅시다. 하나는 일반 함수이고, 다른 하나는 화살표 함수일 때,
 
 ```js
-const Person = function(firstName) {
+const Person = function (firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() {
+  this.sayName1 = function () {
     console.log(this.firstName);
   };
   this.sayName2 = () => {
@@ -1083,8 +1081,8 @@ const Person = function(firstName) {
   };
 };
 
-const john = new Person("John");
-const dave = new Person("Dave");
+const john = new Person('John');
+const dave = new Person('Dave');
 
 john.sayName1(); // John
 john.sayName2(); // John
@@ -1130,13 +1128,13 @@ sayNameFromWindow2(); // John
 각 요소를 대문자 문자열로 변환해야하는 이름들을 가진 배열이 있다고 가정해 보겠습니다.
 
 ```js
-const names = ["irish", "daisy", "anna"];
+const names = ['irish', 'daisy', 'anna'];
 ```
 
 일반적인 방법은 다음과 같습니다.
 
 ```js
-const transformNamesToUppercase = function(names) {
+const transformNamesToUppercase = function (names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
@@ -1149,8 +1147,8 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 `.map(transformerFn)`을 사용하면 코드가 더 짧아지고 선언적이어집니다.
 
 ```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
+const transformNamesToUppercase = function (names) {
+  return names.map((name) => name.toUpperCase());
 };
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
@@ -1171,7 +1169,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ```js
 // 변수 할당.
-const foo = ["one", "two", "three"];
+const foo = ['one', 'two', 'three'];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1193,8 +1191,8 @@ console.log(b); // 1
 
 ```js
 // 변수 할당.
-const o = { p: 42, q: true };
-const { p, q } = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1212,9 +1210,9 @@ console.log(q); // true
 템플릿 리터럴을 사용하면 문자열 보간을 하거나 문자열에 변수를 포함하는 작업을 간단하게 수행할 수 있습니다. ES2015 이전에는 아래와 같이하는 것이 일반적이었습니다.
 
 ```js
-var person = { name: "Tyler", age: 28 };
+var person = {name: 'Tyler', age: 28};
 console.log(
-  "Hi, my name is " + person.name + " and I am " + person.age + " years old!"
+  'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1222,7 +1220,7 @@ console.log(
 템플릿 리터럴을 사용하면, 대신 이렇게해도 같은 출력을 만들 수 있습니다.
 
 ```js
-const person = { name: "Tyler", age: 28 };
+const person = {name: 'Tyler', age: 28};
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1232,7 +1230,7 @@ console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 두번째 유용한 사용사례는 다중행 문자열을 만드는 것입니다. ES2015 이전에는 아래와 같이 다행의 문자열을 만들 수 있었습니다.
 
 ```js
-console.log("This is line one.\nThis is line two.");
+console.log('This is line one.\nThis is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -1240,7 +1238,7 @@ console.log("This is line one.\nThis is line two.");
 또는 코드에서 여러 줄로 나눠진 긴 문자열을 읽기 위해 텍스트 편집기에서 오른쪽으로 스크롤 할 필요가 없도록하려면 다음과 같이 작성할 수 있습니다.
 
 ```js
-console.log("This is line one.\n" + "This is line two.");
+console.log('This is line one.\n' + 'This is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -1257,7 +1255,7 @@ This is line two.`);
 템플릿 리터럴의 또 다른 사용사례는 간단한 변수 보간을 위한 템플릿 라이브러리의 대체품으로 사용하는 것입니다.
 
 ```js
-const person = { name: "Tyler", age: 28 };
+const person = {name: 'Tyler', age: 28};
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1285,7 +1283,7 @@ function curry(fn) {
   }
 
   function _curried(depth, args) {
-    return function(newArgument) {
+    return function (newArgument) {
       if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
@@ -1318,35 +1316,35 @@ ES6의 spread 문법은 함수형 패러다임에서 코딩할 때 매우 유용
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-var result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+var result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 var person = {
-  name: "Todd",
-  age: 29
+  name: 'Todd',
+  age: 29,
 };
 
-var copyOfTodd = { ...person };
+var copyOfTodd = {...person};
 ```
 
 ES6의 rest 구문은 함수에 전달할 임의의 수의 인수를 포함하는 약식을 제공합니다. 이는 데이터의 배열을 채우기보다는 데이터를 가져와서 배열로 채우는 spread 구문의 반대와 비슷하며, 배열이나 객체 디스트럭쳐링 할당뿐만 아니라 함수 인수에서도 작동합니다.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map((x) => x + 5);
 }
 
 const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const { e, f, ...others } = {
+const {e, f, ...others} = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4
+  h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 

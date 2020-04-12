@@ -157,7 +157,7 @@ console.log(x); // 1
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === "undefined"); // true
+console.log(typeof foo === 'undefined'); // true
 
 console.log(foo == null); // true. Неправильно, не используйте это для проверки!
 
@@ -171,7 +171,7 @@ console.log(baz); // undefined
 ```js
 var foo = null;
 console.log(foo === null); // true
-console.log(typeof foo === "object"); // true
+console.log(typeof foo === 'object'); // true
 
 console.log(foo == undefined); // true. Неправильно, не используйте это для проверки!
 ```
@@ -256,7 +256,7 @@ const doubled = a.map((num) => {
 
 ```js
 setTimeout(function () {
-  console.log("Hello world!");
+  console.log('Hello world!');
 }, 1000);
 ```
 
@@ -312,11 +312,11 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person("John");
+var person = Person('John');
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person("John");
+var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
@@ -376,7 +376,7 @@ console.log(add.apply(null, [1, 2])); // 3
 Определение возможностей браузера заключается в определении, поддерживает ли браузер определенный блок кода - и если нет, то будет выполняться другой код, так что браузер всегда сможет обеспечить работоспособность и предотвратить сбои/ошибки в некоторых браузерах. Например:
 
 ```js
-if ("geolocation" in navigator) {
+if ('geolocation' in navigator) {
   // Можно использовать navigator.geolocation
 } else {
   // Обработка отсутствия возможности
@@ -459,7 +459,7 @@ JSONP работает, отправляя запрос к серверу в д�
 
 ```js
 // Файл загружен с https://example.com?callback=printData
-printData({ name: "Yang Shun" });
+printData({name: 'Yang Shun'});
 ```
 
 У клиента должна быть функция `printData` в своей глобальной области видимости, и эта функция будет выполнена клиентом, когда будет получен ответ с сервера из другого домена.
@@ -511,7 +511,7 @@ console.log(bar); // 2
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 console.log(foo); // [Function: foo]
 
@@ -519,7 +519,7 @@ console.log(foo); // [Function: foo]
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
 var bar = function () {
-  console.log("BARRRR");
+  console.log('BARRRR');
 };
 console.log(bar); // [Function: bar]
 ```
@@ -537,15 +537,15 @@ console.log(bar); // [Function: bar]
 Атрибуты определены в разметке HTML, а свойства определены в DOM. Чтобы проиллюстрировать разницу, представьте, что у нас есть это текстовое поле в HTML: `<input type="text" value="Hello">`.
 
 ```js
-const input = document.querySelector("input");
-console.log(input.getAttribute("value")); // Hello
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
 Но после того, как вы измените значение текстового поля, добавив к нему "World!", будет:
 
 ```js
-console.log(input.getAttribute("value")); // Hello
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
@@ -585,11 +585,11 @@ console.log(input.value); // Hello World!
 `==` - это оператор абстрактного сравнения, а `===` - оператор строгого сравнения. Оператор `==` будет сравнивать на равенство после выполнения любых необходимых преобразований типов. Оператор `===` не будет выполнять преобразование типов, поэтому, если два значения не одного типа, `===` просто вернет `false`. При использовании `==` могут происходить такие странные вещи, как:
 
 ```js
-1 == "1"; // true
+1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
-0 == ""; // true
-0 == "0"; // true
+0 == ''; // true
+0 == '0'; // true
 0 == false; // true
 ```
 
@@ -680,7 +680,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
 ```
 
@@ -894,7 +894,7 @@ for (let [index, elem] of arr.entries()) {
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 ```
 
@@ -903,7 +903,7 @@ function foo() {
 ```js
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 };
 ```
 
@@ -920,9 +920,9 @@ var foo = function () {
 ```js
 function foo() {
   // Все переменные доступны внутри функции.
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // bar
   console.log(baz); // baz
@@ -936,9 +936,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 
 // переменные, объявленные при помощи var, доступны в любом месте функции.
@@ -953,38 +953,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 Переопределение переменной с помощью `var` не вызовет ошибку, в отличие от `let` и `const`.
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let` отличается от `const` тем, что изменять значение `const` нельзя.
 
 ```js
 // Это нормально.
-let foo = "foo";
-foo = "bar";
+let foo = 'foo';
+foo = 'bar';
 
 // Это вызывает исключение.
-const baz = "baz";
-baz = "qux";
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### Ссылки
@@ -1069,8 +1069,8 @@ const Person = function (firstName) {
   };
 };
 
-const john = new Person("John");
-const dave = new Person("Dave");
+const john = new Person('John');
+const dave = new Person('Dave');
 
 john.sayName1(); // John
 john.sayName2(); // John
@@ -1112,7 +1112,7 @@ sayNameFromWindow2(); // John
 Допустим, у нас есть массив с именами, которые нам нужны о преобразовать в верхний регистр.
 
 ```js
-const names = ["irish", "daisy", "anna"];
+const names = ['irish', 'daisy', 'anna'];
 ```
 
 Императивное решение будет выглядеть так:
@@ -1153,7 +1153,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ```js
 // Присваивание переменной
-const foo = ["one", "two", "three"];
+const foo = ['one', 'two', 'three'];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1175,8 +1175,8 @@ console.log(b); // 1
 
 ```js
 // Присваивание переменной
-const o = { p: 42, q: true };
-const { p, q } = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1194,9 +1194,9 @@ console.log(q); // true
 Шаблонные строки помогают упростить строковую строк или включение переменных в строку. До ES2015 писали так:
 
 ```js
-var person = { name: "Tyler", age: 28 };
+var person = {name: 'Tyler', age: 28};
 console.log(
-  "Hi, my name is " + person.name + " and I am " + person.age + " years old!"
+  'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1204,7 +1204,7 @@ console.log(
 С приходом шаблонных строк в ES6 стало намного проще:
 
 ```js
-const person = { name: "Tyler", age: 28 };
+const person = {name: 'Tyler', age: 28};
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1214,7 +1214,7 @@ console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 Второй пример использования заключается в создании многострочных литералов. До ES2015 перенос осуществлялся следующим образом:
 
 ```js
-console.log("This is line one.\nThis is line two.");
+console.log('This is line one.\nThis is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -1222,7 +1222,7 @@ console.log("This is line one.\nThis is line two.");
 Или же, чтобы не приходилось прокручивать длинную строку в текстовом редакторе, можно было разбить код на несколько строк в коде, таким образом:
 
 ```js
-console.log("This is line one.\n" + "This is line two.");
+console.log('This is line one.\n' + 'This is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -1239,7 +1239,7 @@ This is line two.`);
 Еще одним вариантом использования шаблонных строк будет использование в качестве замены библиотек шаблонизации для интерполяции переменных:
 
 ```js
-const person = { name: "Tyler", age: 28 };
+const person = {name: 'Tyler', age: 28};
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1300,17 +1300,17 @@ Spread оператор синтаксиса ES6 очень полезен пр�
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 const person = {
-  name: "Todd",
+  name: 'Todd',
   age: 29,
 };
 
-const copyOfTodd = { ...person };
+const copyOfTodd = {...person};
 ```
 
 В свою очередь, rest оператор синтаксиса ES6 позволяет в сокращенном виде указывать неопределенное количество аргументов, передаваемых в функцию. Можно сказать, что он противоположен spread оператору: собирает данные и добавляет их в массив, вместо разделения массива данных. Он используется в аргументах функций, а также при деструктуризации массивов и объектов.
@@ -1324,7 +1324,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const { e, f, ...others } = {
+const {e, f, ...others} = {
   e: 1,
   f: 2,
   g: 3,

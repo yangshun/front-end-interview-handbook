@@ -104,26 +104,26 @@ To jest bardzo częste pytanie dotyczące rozmowy rekrutacyjnej w JavaScript. Ws
 Mamy już wbudowane `Object.create`, ale gdybyś dostarczył dla niego polyfill, mogłoby to wyglądać:
 
 ```javascript
-if (typeof Object.create !== "function") {
-  Object.create = function(parent) {
+if (typeof Object.create !== 'function') {
+  Object.create = function (parent) {
     function Tmp() {}
     Tmp.prototype = parent;
     return new Tmp();
   };
 }
 
-const Parent = function() {
-  this.name = "Parent";
+const Parent = function () {
+  this.name = 'Parent';
 };
 
-Parent.prototype.greet = function() {
-  console.log("hello from Parent");
+Parent.prototype.greet = function () {
+  console.log('hello from Parent');
 };
 
 const child = Object.create(Parent.prototype);
 
-child.cry = function() {
-  console.log("waaaaaahhhh!");
+child.cry = function () {
+  console.log('waaaaaahhhh!');
 };
 
 child.cry();
@@ -156,7 +156,7 @@ child.constructor.name
 ```javascript
 function Child() {
   Parent.call(this);
-  this.name = "child";
+  this.name = 'child';
 }
 
 Child.prototype = Parent.prototype;
@@ -205,7 +205,7 @@ IIFE oznacza Immediately Invoked Function Expressions. Parser JavaScript czyta `
 
 Oto dwa sposoby rozwiązania tego problemu, polegające na dodaniu większej liczby nawiasów: `(function foo(){ })()` oraz `(function foo(){ }())`. Deklaracje zaczynające się od `function` są uważane za _deklaracji funkcji_; poprzez zawinięcie tej funkcji wewnątrz `()`, staje się _wyrażeniem funkcji_ które mogą być następnie wykonane z kolejnym `()`. Funkcje te nie są ujawniane w zakresie globalnym i można nawet pominąć jego nazwę, jeśli nie trzeba odwoływać się do ciała.
 
-Możesz także użyć operatora `void`: `void function foo(){ }();`. Niestety istnieje jeden problem związany z takim podejściem. Ocena danego wyrażenia jest zawsze  `undefined`, więc jeśli funkcja IIFE zwraca cokolwiek, nie możesz jej użyć. Przykład:
+Możesz także użyć operatora `void`: `void function foo(){ }();`. Niestety istnieje jeden problem związany z takim podejściem. Ocena danego wyrażenia jest zawsze `undefined`, więc jeśli funkcja IIFE zwraca cokolwiek, nie możesz jej użyć. Przykład:
 
 ```
 // Don't add JS syntax to this code block to prevent Prettier from formatting it.
@@ -240,7 +240,7 @@ Zmienna `undefined` jest zmienną, która została zadeklarowana, ale nie ma prz
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === "undefined"); // true
+console.log(typeof foo === 'undefined'); // true
 
 console.log(foo == null); // true. Wrong, don't use this to check!
 
@@ -254,7 +254,7 @@ Zmienna która jest `null` zostanie wyraźnie przypisana do wartości `null`. Ni
 ```js
 var foo = null;
 console.log(foo === null); // true
-console.log(typeof foo === "object"); // true
+console.log(typeof foo === 'object'); // true
 
 console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
@@ -310,7 +310,7 @@ const doubled = a.forEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a.map(num => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 
@@ -330,7 +330,7 @@ Główna różnica między `.forEach` i `.map()` to to, że `.map()` zwraca now�
 Można ich użyć w IIFE do enkapsulacji części kodu w zakresie lokalnym, tak aby zmienne zadeklarowane w nim nie przenikały do zakresu globalnego.
 
 ```js
-(function() {
+(function () {
   // Some code here.
 })();
 ```
@@ -338,8 +338,8 @@ Można ich użyć w IIFE do enkapsulacji części kodu w zakresie lokalnym, tak 
 Jako callback, które jest używane raz i nie musi być używane nigdzie indziej. Kod będzie wydawał się bardziej samodzielny i czytelny, gdy procedury obsługi zostaną zdefiniowane bezpośrednio w kodzie wywołującym je, zamiast konieczności szukania gdzie indziej w celu znalezienia w ciele funkcji.
 
 ```js
-setTimeout(function() {
-  console.log("Hello world!");
+setTimeout(function () {
+  console.log('Hello world!');
 }, 1000);
 ```
 
@@ -347,7 +347,7 @@ Argumenty do konstrukcji funkcjonalnego programowania lub Lodasha (podobne do ca
 
 ```js
 const arr = [1, 2, 3];
-const double = arr.map(function(el) {
+const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
@@ -395,11 +395,11 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person("John");
+var person = Person('John');
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person("John");
+var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
@@ -459,7 +459,7 @@ Istnieje kilka odpowiedzi online, które wyjaśniają, że w kodzie analitycznym
 Wykrywanie funkcji polega na sprawdzeniu, czy przeglądarka obsługuje określony blok kodu, i uruchomieniu innego kodu w zależności od tego, czy to robi (czy nie), tak aby przeglądarka zawsze zapewniała działanie w przypadku awarii/błędów w niektórych przeglądarkach. Na przykład:
 
 ```js
-if ("geolocation" in navigator) {
+if ('geolocation' in navigator) {
   // Can use navigator.geolocation
 } else {
   // Handle lack of feature
@@ -543,7 +543,7 @@ JSONP działa poprzez wysłanie żądania do domeny cross-origin za pomocą znac
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({ name: "Yang Shun" });
+printData({name: 'Yang Shun'});
 ```
 
 Klient musi mieć funkcję `printData` w swoim globalnym zasięgu, a funkcja zostanie wykonana przez klienta po otrzymaniu odpowiedzi z domeny cross-origin.
@@ -589,15 +589,15 @@ W deklaracjach funkcji podnoszone jest ciało, podczas gdy w wyrażeniach funkcj
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 console.log(foo); // [Function: foo]
 
 // Function Expression
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
-  console.log("BARRRR");
+var bar = function () {
+  console.log('BARRRR');
 };
 console.log(bar); // [Function: bar]
 ```
@@ -608,8 +608,8 @@ Windowane są również zmienne zadeklarowane za pomocą `let` i `const`. Jednak
 x; // undefined
 y; // Reference error: y is not defined
 
-var x = "local";
-let y = "local";
+var x = 'local';
+let y = 'local';
 ```
 
 ###### Bibliografia
@@ -630,15 +630,15 @@ Kiedy zdarzenie zostanie wyzwolone na elemencie DOM, spróbuje obsłużyć to zd
 Atrybuty są zdefiniowane w znacznikach HTML, ale właściwości są zdefiniowane w DOM. Aby zilustrować różnicę, wyobraź sobie, że mamy to pole tekstowe w naszym HTML: `<input type="text" value="Hello">`.
 
 ```js
-const input = document.querySelector("input");
-console.log(input.getAttribute("value")); // Hello
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
 Ale po zmianie wartości pola tekstowego przez dodanie "World!" staje się to:
 
 ```js
-console.log(input.getAttribute("value")); // Hello
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
@@ -678,11 +678,11 @@ Zdarzenie `DOMContentLoaded` jest uruchamiane, gdy początkowy dokument HTML zos
 `==` jest abstrakcyjnym operatorem równości, podczas gdy `===` jest operatorem ścisłej równości. Operator `==` porówna pod kątem równości po wykonaniu niezbędnych konwersji typu. Operator `===` nie dokona konwersji typu, więc jeśli dwie wartości nie są tego samego typu, `===` po prostu zwróci `false`. Gdy używasz `==`, mogą się zdarzyć dziwne rzeczy, takie jak:
 
 ```js
-1 == "1"; // true
+1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
-0 == ""; // true
-0 == "0"; // true
+0 == ''; // true
+0 == '0'; // true
 0 == false; // true
 ```
 
@@ -727,7 +727,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 Lub z ES6:
 
 ```js
-const duplicate = arr => [...arr, ...arr];
+const duplicate = (arr) => [...arr, ...arr];
 
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
@@ -781,7 +781,7 @@ Sprawdź tę wersję FizzBuzz od [Paul Irish](https://gist.github.com/jaysonrowe
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
 ```
 
@@ -862,11 +862,11 @@ Niektóre wspólne polyfills są `$.deferred`, Q oraz Bluebird ale nie wszystkie
 - Ułatwia pisanie sekwencyjnego kodu asynchronicznego, który można odczytać za pomocą `.then()`.
 - Ułatwia pisanie równoległego kodu asynchronicznego za pomocą `Promise.all()`.
 - W przypadku obietnic te scenariusze występujące w kodowaniu callbacks-only nie wystąpią:
-   - wywołanie callback za wcześnie
-   - wywołanie callback za późno (lub nigdy)
-   - wywołanie callback za mało lub zbyt wiele razy
-   - nieprzekazanie niezbędnego środowiska/parametrów
-   - Połknięcie ewentualnych błędów/wyjątków
+  - wywołanie callback za wcześnie
+  - wywołanie callback za późno (lub nigdy)
+  - wywołanie callback za mało lub zbyt wiele razy
+  - nieprzekazanie niezbędnego środowiska/parametrów
+  - Połknięcie ewentualnych błędów/wyjątków
 
 **Wady**
 
@@ -977,10 +977,10 @@ Oto kilka sposobów dodania / symulacji niezmienności prostych obiektów JavaSc
 
 ```js
 let myObject = {};
-Object.defineProperty(myObject, "number", {
+Object.defineProperty(myObject, 'number', {
   value: 42,
   writable: false,
-  configurable: false
+  configurable: false,
 });
 console.log(myObject.number); // 42
 myObject.number = 43;
@@ -1059,9 +1059,9 @@ const arr = [1, 2, 3];
 const newArr = [...arr, 4]; // [1, 2, 3, 4]
 
 // Object Example
-const human = Object.freeze({ race: "human" });
-const john = { ...human, name: "John" }; // {race: "human", name: "John"}
-const alienJohn = { ...john, race: "alien" }; // {race: "alien", name: "John"}
+const human = Object.freeze({race: 'human'});
+const john = {...human, name: 'John'}; // {race: "human", name: "John"}
+const alienJohn = {...john, race: 'alien'}; // {race: "alien", name: "John"}
 ```
 
 ###### Bibliografia
@@ -1102,7 +1102,7 @@ Pierwsza jest deklaracją funkcji, a druga jest wyrażeniem funkcji. Kluczową r
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 ```
 
@@ -1110,8 +1110,8 @@ function foo() {
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
-var foo = function() {
-  console.log("FOOOOO");
+var foo = function () {
+  console.log('FOOOOO');
 };
 ```
 
@@ -1128,9 +1128,9 @@ Zmienne zadeklarowane przy użyciu słowa kluczowego `var` mają zasięg do funk
 ```js
 function foo() {
   // All variables are accessible within functions.
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // bar
   console.log(baz); // baz
@@ -1144,9 +1144,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 
 // var declared variables are accessible anywhere in the function scope.
@@ -1161,38 +1161,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 Ponowne zadeklarowanie zmiennej za pomocą `var` nie spowoduje błędu, ale 'let' oraz 'const', tak.
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let` i `const` różnią się tym, że `let` pozwala na ponowne przypisanie wartości zmiennej, podczas gdy `const` nie.
 
 ```js
 // This is fine.
-let foo = "foo";
-foo = "bar";
+let foo = 'foo';
+foo = 'bar';
 
 // This causes an exception.
-const baz = "baz";
-baz = "qux";
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### Bibliografia
@@ -1267,9 +1267,9 @@ Jedną oczywistą zaletą funkcji strzałek jest uproszczenie składni potrzebne
 Główną zaletą używania funkcji strzałkowej jako metody w konstruktorze jest to, że wartość `this` jest ustawiana w momencie tworzenia funkcji i nie może się później zmienić. Tak więc, gdy konstruktor jest używany do utworzenia nowego obiektu, `this` zawsze będzie odnosić się do tego obiektu. Na przykład, powiedzmy, że mamy konstruktor `Person`, który bierze imię jako argument i ma dwie metody `console.log` o tej nazwie, jedną jako funkcję zwykłą, a drugą jako funkcję strzałkową:
 
 ```js
-const Person = function(firstName) {
+const Person = function (firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() {
+  this.sayName1 = function () {
     console.log(this.firstName);
   };
   this.sayName2 = () => {
@@ -1277,8 +1277,8 @@ const Person = function(firstName) {
   };
 };
 
-const john = new Person("John");
-const dave = new Person("Dave");
+const john = new Person('John');
+const dave = new Person('Dave');
 
 john.sayName1(); // John
 john.sayName2(); // John
@@ -1320,13 +1320,13 @@ Funkcja wyższego rzędu to dowolna funkcja, która przyjmuje jedną lub więcej
 Powiedzmy, że mamy tablicę nazw, których potrzebujemy do przekształcenia każdego stringa na wielkie litery.
 
 ```js
-const names = ["irish", "daisy", "anna"];
+const names = ['irish', 'daisy', 'anna'];
 ```
 
 Imperatywnym sposobem będzie tak:
 
 ```js
-const transformNamesToUppercase = function(names) {
+const transformNamesToUppercase = function (names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
@@ -1339,8 +1339,8 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 Użycie `.map(transformerFn)`sprawia, że kod jest krótszy i bardziej deklaratywny.
 
 ```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
+const transformNamesToUppercase = function (names) {
+  return names.map((name) => name.toUpperCase());
 };
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
@@ -1361,7 +1361,7 @@ Destrukturyzacja to wyrażenie dostępne w ES6, które umożliwia zwięzły i wy
 
 ```js
 // Variable assignment.
-const foo = ["one", "two", "three"];
+const foo = ['one', 'two', 'three'];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1383,8 +1383,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = { p: 42, q: true };
-const { p, q } = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1402,9 +1402,9 @@ console.log(q); // true
 Literały szablonów ułatwiają interpolację stringów lub uwzględnianie zmiennych w stringach. Przed ES2015 było coś takiego:
 
 ```js
-var person = { name: "Tyler", age: 28 };
+var person = {name: 'Tyler', age: 28};
 console.log(
-  "Hi, my name is " + person.name + " and I am " + person.age + " years old!"
+  'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1412,7 +1412,7 @@ console.log(
 With template literals, you can now create that same output like this instead:
 
 ```js
-const person = { name: "Tyler", age: 28 };
+const person = {name: 'Tyler', age: 28};
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1422,7 +1422,7 @@ Zauważ, że używasz odwrotnych znaków, a nie cudzysłowów, aby wskazać, że
 Drugim pomocnym przypadkiem użycia jest tworzenie ciągów wieloliniowych. Przed ES2015 można było utworzyć ciąg wielu wierszy, taki jak ten:
 
 ```js
-console.log("This is line one.\nThis is line two.");
+console.log('This is line one.\nThis is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -1430,7 +1430,7 @@ console.log("This is line one.\nThis is line two.");
 Lub jeśli chcesz podzielić go na wiele wierszy w kodzie, abyś nie musiał przewijać w edytorze tekstu w prawo, aby odczytać długi ciąg, możesz również napisać w następujący sposób:
 
 ```js
-console.log("This is line one.\n" + "This is line two.");
+console.log('This is line one.\n' + 'This is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -1447,7 +1447,7 @@ This is line two.`);
 Innym przykładem użycia literałów szablonów byłoby użycie jako zamiennika bibliotek szablonów dla prostych interpolacji zmiennych:
 
 ```js
-const person = { name: "Tyler", age: 28 };
+const person = {name: 'Tyler', age: 28};
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1475,7 +1475,7 @@ function curry(fn) {
   }
 
   function _curried(depth, args) {
-    return function(newArgument) {
+    return function (newArgument) {
       if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
@@ -1508,35 +1508,35 @@ Spread syntax z ES6 jest bardzo przydatna podczas kodowania w funkcjonalnym para
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 const person = {
-  name: "Todd",
-  age: 29
+  name: 'Todd',
+  age: 29,
 };
 
-const copyOfTodd = { ...person };
+const copyOfTodd = {...person};
 ```
 
 Rest syntax z ES6 oferuje skrót do włączenia dowolnej liczby argumentów, które należy przekazać do funkcji. To jest jak odwrotność spread syntax, biorąc dane i upychając je do tablicy, zamiast rozpakowywać tablicę danych, i działa w argumentach funkcyjnych, a także w przypisaniach destrukturyzacji tablicy i obiektów.
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map((x) => x + 5);
 }
 
 const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const { e, f, ...others } = {
+const {e, f, ...others} = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4
+  h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
@@ -1580,5 +1580,6 @@ Statyczne elementy klasy (właściwości / metody) nie są powiązane z konkretn
 
 - http://flowerszhong.github.io/2013/11/20/javascript-questions.html
 
-___________________________
+---
+
 Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)

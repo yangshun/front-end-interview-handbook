@@ -4,7 +4,7 @@
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
     <img src="assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
     </a>
-  <br>
+  <br/>
   <p>
     <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
     </em>
@@ -31,7 +31,7 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 
 <div align="center">
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
-  <br>
+  <br/>
   <p>
     <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>

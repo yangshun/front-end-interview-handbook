@@ -3,12 +3,7 @@
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
     <img src="https://cdn.rawgit.com/yangshun/front-end-interview-handbook/23d89c8/assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
-    </a>
-  <br>
-  <p>
-    <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
-    </em>
-  </p>
+  </a>
   <p>
     <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>, <a href="https://github.com/octave08">@황규정</a>
     </em>
@@ -57,7 +52,7 @@
 
 이 프로젝트에 많은 시간과 노력을 들였습니다. 지원 부탁드립니다!
 
-<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"/></a>
 
 ## 라이센스
 

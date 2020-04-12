@@ -81,7 +81,7 @@ Ang `.clearfix` na hack ay gumagamit ng isang wais na CSS pseudo na selector na 
 
 ```css
 .clearfix:after {
-  content: " ";
+  content: ' ';
   visibility: hidden;
   display: block;
   height: 0;
@@ -117,8 +117,7 @@ Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng e
 
 ### Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.
 
-Ang Block Formatting na Konteksto (BFK) ay parte ng biswal na pagrender ng css ng isang pahina ng web na kung saan ang mga bloke na kahon ay inilatag. Ang mga floats, ganap na mga nakaposisyon na mga elemento, `inline-blocks`, `table-cells`, mga `table-caption`, at mga elemento na may `overflow` maliban sa `visible` (maliban kung ang halaga na ito ay pinalaganap sa viewport) na magtatag ng mga bagong konteksto sa pag-format ng bloke
-.
+Ang Block Formatting na Konteksto (BFK) ay parte ng biswal na pagrender ng css ng isang pahina ng web na kung saan ang mga bloke na kahon ay inilatag. Ang mga floats, ganap na mga nakaposisyon na mga elemento, `inline-blocks`, `table-cells`, mga `table-caption`, at mga elemento na may `overflow` maliban sa `visible` (maliban kung ang halaga na ito ay pinalaganap sa viewport) na magtatag ng mga bagong konteksto sa pag-format ng bloke .
 
 Ang BFK ay isang HTML na kahon na natutugunan ng hindi bababa sa isa sa mga sumusunod na kondisyon:
 
@@ -127,8 +126,7 @@ Ang BFK ay isang HTML na kahon na natutugunan ng hindi bababa sa isa sa mga sumu
 - Ang halaga ng `display` ay `table-cell`, `table-caption`, `inline-block`, `flex`, o `inline-flex`.
 - Ang halaga ng `overflow` ay hindi `visible`.
 
-Sa isang BFK, hinawakan ang kaliwang panlabas na gilid ng bawat kahon ang kaliwang gilid ng bloke na naglalaman
-(for right-to-left formatting, right edges touch).
+Sa isang BFK, hinawakan ang kaliwang panlabas na gilid ng bawat kahon ang kaliwang gilid ng bloke na naglalaman (for right-to-left formatting, right edges touch).
 
 Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa isang pagbagsak ng BFK. Magpasa pa sa [Mga margin na bumabagsak](https://www.sitepoint.com/web-foundations/collapsing-margins/).
 
@@ -318,8 +316,7 @@ Halimbawa ay sa tagapiling `p span` na ito, unang hahanapin ng mga browser ang l
 
 Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-daan sa iyo ng pag-eestilo ng isang tiyak na bahagi ng piniling elemento(s). Maaari silang magamit para sa dekorasyon (`:first-line`, `:first-letter`) o pagdaragdag ng mga elemento sa markup (kasama ng `content: ...`) na hindi na kailangang baguhin pa ang markup (`:before`, `:after`).
 
-- `:first-line` at `:first-letter` ay magagamit para lagyan ng dekorasyon ang teksto.
-  \*Ginamit sa `.clearfix` na hack na ipinakita sa itaas upang magdagdag ng zero-space na elemento kasabay ang `clear: both`.
+- `:first-line` at `:first-letter` ay magagamit para lagyan ng dekorasyon ang teksto. \*Ginamit sa `.clearfix` na hack na ipinakita sa itaas upang magdagdag ng zero-space na elemento kasabay ang `clear: both`.
 - Mala-tatsulok na mga arrow sa tooltips ay gumagamit ng `:before` at `:after`. Hinihikayat ang paghihiwalay ng mga alalahanin dahil ang tatsulok ay itinuturing na bahagi ng estilo at hindi talaga ang DOM. Hindi talaga posible na gumuhit ng isang tatsulok na may mga estilo lamang ng CSS nang hindi gumagamit ng karagdagang elemento ng HTML.
 
   ###### RMga Reperensiya
@@ -374,14 +371,14 @@ TODO
 
 Ako ay magbibigay ng isang paghahambing sa `block` para sa mahusay na panukalang.
 
-|                                        | `block`                                                                                                                                   | `inline-block`                                                                                    | `inline`                                                                                                                                                                                                                                                                             |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Sukat                                  | Pinupunan ang lapad ng lalagyan ng magulang nito.                                                                                         | Nakadepende sa nilalaman.                                                                         | Depende sa nilalaman                                                                                                                                                                                                                                                                 |
-| Pagpoposisyon                          | Magsimula sa isang bagong linya at hindi papayagan ang mga elemento ng HTML sa tabi nito (maliban nalang kapag nagdadagdag ka ng `float`) | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito. | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito.                                                                                                                                                                                    |
-| Maaaring tukuyin ang `lapad` at`taas`  | Oo                                                                                                                                        | Oo                                                                                                | Hindi. Huwag pansinin kung itinakda.                                                                                                                                                                                                                                                 |
-| Maaaring nakahanay sa `vertical-align` | Hindi                                                                                                                                     | Oo                                                                                                | Oo                                                                                                                                                                                                                                                                                   |
-| Mga margin at paddings                 | Iginagalang ang lahat ng panig.                                                                                                           | Iginagalang ang lahat ng panig.                                                                   | Iginagalang lamang ang mga pahalang na panig. Ang mga bertikal na gilid, kung tinukoy, ito ay hindi nakakaapekto sa layout. Ang bertikal na puwang na kinukuha ay depende sa `line-height`, kahit na ang`border` at `padding` ay mukhang biswal na nakikita sa paligid ng nilalaman. |
-| Float                                  | -                                                                                                                                         | -                                                                                                 | Nagiging katulad ng isang elemento ng 'block' kung saan maaari kang magtakda ng mga bertikal na margin at paddings.                                                                                                                                                                  |
+|  | `block` | `inline-block` | `inline` |
+| --- | --- | --- | --- |
+| Sukat | Pinupunan ang lapad ng lalagyan ng magulang nito. | Nakadepende sa nilalaman. | Depende sa nilalaman |
+| Pagpoposisyon | Magsimula sa isang bagong linya at hindi papayagan ang mga elemento ng HTML sa tabi nito (maliban nalang kapag nagdadagdag ka ng `float`) | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito. | Sumasabay kasama ang iba pang nilalaman at nagbibigay-daan sa iba pang mga elemento sa tabi nito. |
+| Maaaring tukuyin ang `lapad` at`taas` | Oo | Oo | Hindi. Huwag pansinin kung itinakda. |
+| Maaaring nakahanay sa `vertical-align` | Hindi | Oo | Oo |
+| Mga margin at paddings | Iginagalang ang lahat ng panig. | Iginagalang ang lahat ng panig. | Iginagalang lamang ang mga pahalang na panig. Ang mga bertikal na gilid, kung tinukoy, ito ay hindi nakakaapekto sa layout. Ang bertikal na puwang na kinukuha ay depende sa `line-height`, kahit na ang`border` at `padding` ay mukhang biswal na nakikita sa paligid ng nilalaman. |
+| Float | - | - | Nagiging katulad ng isang elemento ng 'block' kung saan maaari kang magtakda ng mga bertikal na margin at paddings. |
 
 [[↑] Bumalik sa taas](#mga-katanungan-sa-css)
 

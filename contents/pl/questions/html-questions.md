@@ -16,14 +16,11 @@ Odpowiedzi do [Front-end Job Interview Questions - HTML Questions](https://githu
 
 ### Co robi DOCTYPE?
 
-**DOCTYPE** to skrót od **DOCument TYPE**.
-DOCTYPE jest zawsze powiązany z **DTD** - tzn z **Document Type Definition**.
+**DOCTYPE** to skrót od **DOCument TYPE**. DOCTYPE jest zawsze powiązany z **DTD** - tzn z **Document Type Definition**.
 
 DTD określa, w jaki sposób powinny być uporządkowane dokumenty określonego rodzaju (np. `button` może zawierać `span` ale nie `div`), podczas gdy DOCTYPE deklaruje to, co DTD _jakoby_ respektuje (np. ten dokument jest zgodny z DTD HTML).
 
-W przypadku stron internetowych wymagana jest deklaracja DOCTYPE. Służy do informowania agentów użytkownika (user agents), jakiej wersji specyfikacji HTML dotyczy twój dokument.
-Gdy user agent rozpozna prawidłowy DOCTYPE, uruchomi **tryb no-quirks** pasujący do tego DOCTYPE do odczytu dokumentu.
-Jeśli user agent nie rozpozna prawidłowego DOCTYPE, uruchomi **tryb quirks**.
+W przypadku stron internetowych wymagana jest deklaracja DOCTYPE. Służy do informowania agentów użytkownika (user agents), jakiej wersji specyfikacji HTML dotyczy twój dokument. Gdy user agent rozpozna prawidłowy DOCTYPE, uruchomi **tryb no-quirks** pasujący do tego DOCTYPE do odczytu dokumentu. Jeśli user agent nie rozpozna prawidłowego DOCTYPE, uruchomi **tryb quirks**.
 
 Deklaracja DOCTYPE dla standardów HTML5 to `<!DOCTYPE html>`.
 
@@ -102,14 +99,14 @@ Jednakże, jednym całkowicie poprawnym zastosowaniem atrybutów danych jest dod
 
 Wszystkie wyżej wymienione technologie są kluczowymi mechanizmami przechowywania po stronie klienta. Są w stanie przechowywać wartości tylko jako ciągi znaków (strings).
 
-|                                        | `cookie`                                                 | `localStorage` | `sessionStorage` |
-| -------------------------------------- | -------------------------------------------------------- | -------------- | ---------------- |
-| Initiator                              | Client or server. Server can use `Set-Cookie` header     | Client         | Client           |
-| Expiry                                 | Manually set                                             | Forever        | On tab close     |
-| Persistent across browser sessions     | Depends on whether expiration is set                     | Yes            | No               |
-| Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No             | No               |
-| Capacity (per domain)                  | 4kb                                                      | 5MB            | 5MB              |
-| Accessibility                          | Any window                                               | Any window     | Same tab         |
+|  | `cookie` | `localStorage` | `sessionStorage` |
+| --- | --- | --- | --- |
+| Initiator | Client or server. Server can use `Set-Cookie` header | Client | Client |
+| Expiry | Manually set | Forever | On tab close |
+| Persistent across browser sessions | Depends on whether expiration is set | Yes | No |
+| Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No | No |
+| Capacity (per domain) | 4kb | 5MB | 5MB |
+| Accessibility | Any window | Any window | Same tab |
 
 _Uwaga: Jeśli użytkownik zdecyduje się wyczyścić dane przeglądania za pomocą dowolnego mechanizmu zapewnianego przez przeglądarkę, spowoduje to usunięcie dowolnego zebranego `cookie`, `localStorage`, czy `sessionStorage`. Należy o tym pamiętać przy projektowaniu pod kątem trwałości lokalnej, zwłaszcza w porównaniu z alternatywami, takimi jak przechowywanie po stronie serwera w bazie danych lub podobnym (które oczywiście będzie się utrzymywać pomimo działań użytkownika)._
 
@@ -207,5 +204,6 @@ Tak, Pug (formalnie Jade), ERB, Slim, Handlebars, Jinja, Liquid, żeby wymienić
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
-___________________________
+---
+
 Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)

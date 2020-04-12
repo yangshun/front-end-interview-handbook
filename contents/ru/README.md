@@ -3,12 +3,7 @@
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
     <img src="../../assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
-    </a>
-  <br>
-  <p>
-    <em>Автор иллюстрации:</a> <a href="https://dribbble.com/yangheng">@yangheng</a>
-    </em>
-  </p>
+  </a>
 </div>
 
 ## Что это такое?
@@ -23,7 +18,7 @@
 
 <div align="center">
   <img src="../../assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
-  <br>
+  <br/>
   <p>
     <em>Автор иллюстрации: <a href="https://undraw.co/">unDraw</a></em>
   </p>
@@ -62,7 +57,7 @@
 
 Много часов упорной работы было потрачено на этот проект. Буду признателен за вашу поддержку!
 
-<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"/>></a>
 
 ## Лицензия
 
