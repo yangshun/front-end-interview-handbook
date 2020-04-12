@@ -1,4 +1,6 @@
-# Mga Tanong sa HTML
+---
+title: Mga Tanong sa HTML
+---
 
 Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon
 

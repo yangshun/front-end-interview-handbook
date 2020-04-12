@@ -46,13 +46,13 @@ You might be interested in the [Tech Interview Handbook](https://yangshun.github
 ## Contents
 
 - [English](/contents/en/README.md)
-- [Simplified Chinese (简体中文)](/contents/zh/README.md)
 - [Japanese (日本語)](/contents/jp/README.md)
 - [Korean (한국어)](/contents/kr/README.md)
+- [Polish (Polski)](contents/pl/README.md)
+- [Portuguese (Português)](contents/pr/README.md)
 - [Russian (Русский)](/contents/ru/README.md)
 - [Tagalog](/contents/tl/README.md)
-- [Polish (Polski)](contents/pl/README.md)
-- [Portugese](contents/pr/README.md)
+- [Simplified Chinese (简体中文)](/contents/zh/README.md)
 
 ## Related
 

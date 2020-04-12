@@ -1,4 +1,6 @@
-# Вопросы по HTML
+---
+title: Вопросы по HTML
+---
 
 Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/contents/ru#html).
 

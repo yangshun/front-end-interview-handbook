@@ -1,4 +1,6 @@
-# HTML に関する質問
+---
+title: HTML に関する質問
+---
 
 [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 

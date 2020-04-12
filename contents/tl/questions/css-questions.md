@@ -1,4 +1,6 @@
-# Mga Katanungan sa CSS
+---
+title: Mga Katanungan sa CSS
+---
 
 Mga kasagutan sa [Mga Kasagutan sa Pakikipanayam sa Front-end na Trabaho - Mga Katanungan sa CSS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Malugod na tatanggapin ang mga Pull request para sa mga suhestyon at mga koreksyon!
 

@@ -1,4 +1,6 @@
-# Вопросы по JavaScript
+---
+title: Вопросы по JavaScript
+---
 
 Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по Javascript](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/contents/ru#js).
 

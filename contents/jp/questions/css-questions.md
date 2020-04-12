@@ -1,4 +1,6 @@
-# CSS に関する質問
+---
+title: CSS に関する質問
+---
 
 [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 

@@ -1,4 +1,6 @@
-# JS に関する質問
+---
+title: JavaScript に関する質問
+---
 
 [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
@@ -148,7 +150,7 @@ console.log(x); // 1
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
-console.log(typeof foo === "undefined"); // true
+console.log(typeof foo === 'undefined'); // true
 
 console.log(foo == null); // true. Wrong, don't use this to check!
 
@@ -218,7 +220,7 @@ const doubled = a.forEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a.map(num => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 
@@ -238,7 +240,7 @@ const doubled = a.map(num => {
 IIFE では、ローカルスコープ内でコードをカプセル化して、その中で宣言された変数がグローバルスコープに漏れないようにすることができます。
 
 ```js
-(function() {
+(function () {
   // Some code here.
 })();
 ```
@@ -246,8 +248,8 @@ IIFE では、ローカルスコープ内でコードをカプセル化して、
 一度使用され、他の場所で使用する必要がないコールバックです。関数本体を見つけるために他の場所を検索する必要がなく、コードを呼び出すコードの中でハンドラが定義されていると、コードはより自蔵的で読みやすいように見えます。
 
 ```js
-setTimeout(function() {
-  console.log("Hello world!");
+setTimeout(function () {
+  console.log('Hello world!');
 }, 1000);
 ```
 
@@ -255,7 +257,7 @@ setTimeout(function() {
 
 ```js
 const arr = [1, 2, 3];
-const double = arr.map(function(el) {
+const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
@@ -303,11 +305,11 @@ function Person(name) {
   this.name = name;
 }
 
-var person = Person("John");
+var person = Person('John');
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 
-var person = new Person("John");
+var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
@@ -369,7 +371,7 @@ console.log(add.apply(null, [1, 2])); // 3
 機能の検出には、ブラウザが特定のコードブロックをサポートしているかどうか、またそのコードが実行されているかどうかに応じて異なるコードが実行されているかどうかが決まります。例えば:
 
 ```js
-if ("geolocation" in navigator) {
+if ('geolocation' in navigator) {
   // Can use navigator.geolocation
 } else {
   // Handle lack of feature
@@ -455,7 +457,7 @@ JSONP は、`<script>` タグを介してクロスオリジンドメインにリ
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({ name: "Yang Shun" });
+printData({name: 'Yang Shun'});
 ```
 
 クライアントは、そのグローバルスコープ内に `printData` 関数を持たなければならず、関数はクロスオリジンドメインからの応答を受け取ったときにクライアントによって実行されます。
@@ -505,15 +507,15 @@ console.log(bar); // 2
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 console.log(foo); // [Function: foo]
 
 // Function Expression
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
-  console.log("BARRRR");
+var bar = function () {
+  console.log('BARRRR');
 };
 console.log(bar); // [Function: bar]
 ```
@@ -531,15 +533,15 @@ DOM エレメントでイベントがトリガーされると、リスナーが�
 属性は HTML マークアップで定義されますが、プロパティは DOM で定義されます。違いを説明するために、HTML にこのテキストフィールドがあるとします：`<input type="text" value="Hello">`
 
 ```js
-const input = document.querySelector("input");
-console.log(input.getAttribute("value")); // Hello
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
 ```
 
 しかし、"World！"を追加してテキストフィールドの値を変更した後、それは、以下になります:
 
 ```js
-console.log(input.getAttribute("value")); // Hello
+console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
@@ -581,11 +583,11 @@ console.log(input.value); // Hello World!
 `==` は抽象的な等価演算子であり、`===` は厳密な等価演算子です。`==` 演算子は、必要な型変換を行った後、等しいかどうかを比較します。`===` 演算子は型変換を行いません。したがって、2 つの値が同じ型でない場合、`===` は単に `false` を返します。`==` を使用すると、次のような厄介なことが起こる可能性があります:
 
 ```js
-1 == "1"; // true
+1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
-0 == ""; // true
-0 == "0"; // true
+0 == ''; // true
+0 == '0'; // true
 0 == false; // true
 ```
 
@@ -677,7 +679,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 for (let i = 1; i <= 100; i++) {
   let f = i % 3 == 0,
     b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
 ```
 
@@ -868,7 +870,7 @@ TODO
 ```js
 foo(); // 'FOOOOO'
 function foo() {
-  console.log("FOOOOO");
+  console.log('FOOOOO');
 }
 ```
 
@@ -876,8 +878,8 @@ function foo() {
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
-var foo = function() {
-  console.log("FOOOOO");
+var foo = function () {
+  console.log('FOOOOO');
 };
 ```
 
@@ -895,9 +897,9 @@ var foo = function() {
 ```js
 function foo() {
   // All variables are accessible within functions.
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 
   console.log(bar); // bar
   console.log(baz); // baz
@@ -911,9 +913,9 @@ console.log(qux); // ReferenceError: qux is not defined
 
 ```js
 if (true) {
-  var bar = "bar";
-  let baz = "baz";
-  const qux = "qux";
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
 }
 
 // var declared variables are accessible anywhere in the function scope.
@@ -928,38 +930,38 @@ console.log(qux); // ReferenceError: qux is not defined
 ```js
 console.log(foo); // undefined
 
-var foo = "foo";
+var foo = 'foo';
 
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
-let baz = "baz";
+let baz = 'baz';
 
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
-const bar = "bar";
+const bar = 'bar';
 ```
 
 `var` で変数を再宣言してもエラーは発生しませんが、`let` と `const` はエラーになります。
 
 ```js
-var foo = "foo";
-var foo = "bar";
+var foo = 'foo';
+var foo = 'bar';
 console.log(foo); // "bar"
 
-let baz = "baz";
-let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
 
 `let` と `const` は `let` が変数の値を再割り当てすることができるという点で `let` と `const` は異なります。
 
 ```js
 // This is fine.
-let foo = "foo";
-foo = "bar";
+let foo = 'foo';
+foo = 'bar';
 
 // This causes an exception.
-const baz = "baz";
-baz = "qux";
+const baz = 'baz';
+baz = 'qux';
 ```
 
 ###### 参考
@@ -1000,13 +1002,13 @@ TODO
 文字列を大文字に変換するために必要な名前の配列があるとしましょう。
 
 ```js
-const names = ["irish", "daisy", "anna"];
+const names = ['irish', 'daisy', 'anna'];
 ```
 
 命令的な方法はこのようになります：
 
 ```js
-const transformNamesToUppercase = function(names) {
+const transformNamesToUppercase = function (names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
@@ -1019,8 +1021,8 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 `.map(transformerFn)` を使うと、コードが短くて宣言的になります。
 
 ```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
+const transformNamesToUppercase = function (names) {
+  return names.map((name) => name.toUpperCase());
 };
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
@@ -1041,7 +1043,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 ```js
 // Variable assignment.
-const foo = ["one", "two", "three"];
+const foo = ['one', 'two', 'three'];
 
 const [one, two, three] = foo;
 console.log(one); // "one"
@@ -1063,8 +1065,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = { p: 42, q: true };
-const { p, q } = o;
+const o = {p: 42, q: true};
+const {p, q} = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1095,7 +1097,7 @@ function curry(fn) {
   }
 
   function _curried(depth, args) {
-    return function(newArgument) {
+    return function (newArgument) {
       if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
@@ -1128,35 +1130,35 @@ ES6 の普及構文は、`Object.create`、`slice`、またはライブラリ関
 
 ```js
 function putDookieInAnyArray(arr) {
-  return [...arr, "dookie"];
+  return [...arr, 'dookie'];
 }
 
-const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "really", "don't", "like", "dookie"]
+const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
 
 const person = {
-  name: "Todd",
-  age: 29
+  name: 'Todd',
+  age: 29,
 };
 
-const copyOfTodd = { ...person };
+const copyOfTodd = {...person};
 ```
 
 ES6 の rest 構文は、任意の数の引数を関数に渡すための省略表現です。これは、データの配列をアンパックするのではなく、データを取り込んで配列に埋め込み、配列やオブジェクトの構造の割り当てと同様に、関数の引数でも機能する、普及した構文の逆です。
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map((x) => x + 5);
 }
 
 const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const { e, f, ...others } = {
+const {e, f, ...others} = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4
+  h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 

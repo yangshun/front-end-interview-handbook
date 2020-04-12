@@ -1,4 +1,6 @@
-## Pytania z JS
+---
+title: Pytania z JavaScript
+---
 
 Odpowiedzi do [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md). Pull requesty mile widziane, jeśli masz sugestie i poprawki!
 
