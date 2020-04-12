@@ -51,6 +51,7 @@ You might be interested in the [Tech Interview Handbook](https://github.com/yang
 - [Japanese (日本語)](/Translations/Japanese/README.md)
 - [Korean (한국어)](/Translations/Korean/README.md)
 - [Russian (Русский)](/Translations/Russian/README.md)
+- [Polish (Polski)](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/README.md)
 
 ## Related
 
