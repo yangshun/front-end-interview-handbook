@@ -77,9 +77,9 @@ module.exports = {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Yangshun Tay. Built with Docusaurus.`,
     },
-    // gtag: {
-    //   trackingID: "UA-44622716-2",
-    // },
+    gtag: {
+      trackingID: 'UA-44622716-3',
+    },
     // algolia: {
     //   apiKey: "bd359779d1c4c71ade6062e8f13f5a83",
     //   indexName: "yangshun-tech-interview",
