@@ -27,34 +27,42 @@ module.exports = {
             {
               label: 'English',
               to: 'en/questions/html-questions',
+              activeBasePath: 'en/questions/',
             },
             {
               label: '日本語',
               to: 'jp/questions/html-questions',
+              activeBasePath: 'jp/questions/',
             },
             {
               label: '한국어',
               to: 'kr/questions/html-questions',
+              activeBasePath: 'kr/questions/',
             },
             {
               label: 'Polski',
               to: 'pl/questions/html-questions',
+              activeBasePath: 'pl/questions/',
             },
             {
               label: 'Português',
               to: 'pr/questions/html-questions',
+              activeBasePath: 'pr/questions/',
             },
             {
               label: 'Русский',
               to: 'ru/questions/html-questions',
+              activeBasePath: 'ru/questions/',
             },
             {
               label: 'Tagalog',
               to: 'tl/questions/html-questions',
+              activeBasePath: 'tl/questions/',
             },
             {
               label: '简体中文',
               to: 'zh/questions/html-questions',
+              activeBasePath: 'zh/questions/',
             },
           ],
         },
