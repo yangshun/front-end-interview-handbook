@@ -67,7 +67,7 @@ Read our [contributing guide](/CONTRIBUTING.md) to learn about how you can contr
 
 Many hours of hard work have gone into this project. Your support will be very appreciated!
 
-<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"/></a>
+<a href="https://www.buymeacoffee.com/yangshun" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee"/></a>
 
 ## License
 
