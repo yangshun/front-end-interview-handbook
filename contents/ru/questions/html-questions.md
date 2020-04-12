@@ -1,6 +1,6 @@
 # Вопросы по HTML
 
-Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/translations/russian#html).
+Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/contents/ru#html).
 
 - [Для чего нужен DOCTYPE?](#для-чего-нужен-doctype)
 - [Как следует оформлять страницу, содержимое которой может быть на разных языках?](#как-следует-оформлять-страницу-содержимое-которой-может-быть-на-разных-языках)

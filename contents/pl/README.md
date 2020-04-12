@@ -39,19 +39,19 @@ Możesz być zainteresowany [Tech Interview Handbook](https://github.com/yangshu
 
 ## Spis treści
 
-1. [Pytania HTML](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/questions/html-questions.md)
-2. [Pytania CSS](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/questions/css-questions.md)
-3. [Pytania JavaScript](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/Translations/Polish/questions/javascript-questions.md)
+1. [Pytania HTML](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/contents/pl/questions/html-questions.md)
+2. [Pytania CSS](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/contents/pl/questions/css-questions.md)
+3. [Pytania JavaScript](https://github.com/mbiesiad/front-end-interview-handbook/blob/master/contents/pl/questions/javascript-questions.md)
 
 ## Tłumaczenia
 
 - [English](/README.md)
-- [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
-- [Tagalog](/Translations/Tagalog/README.md)
-- [Japanese (日本語)](/Translations/Japanese/README.md)
-- [Korean (한국어)](/Translations/Korean/README.md)
-- [Russian (Русский)](/Translations/Russian/README.md)
-- [Polish (Polski)](/Translations/Polish/README.md)
+- [Simplified Chinese (简体中文)](/contents/zh/README.md)
+- [Tagalog](/contents/tl/README.md)
+- [Japanese (日本語)](/contents/jp/README.md)
+- [Korean (한국어)](/contents/kr/README.md)
+- [Russian (Русский)](/contents/ru/README.md)
+- [Polish (Polski)](/contents/pl/README.md)
 
 ## Powiązane
 
@@ -77,5 +77,6 @@ Wiele godzin ciężkiej pracy poświęcono temu projektowi. Wasze wsparcie będz
 
 Wszystkie projekty i pakiety w tym repozytorium są objęte [licencją MIT](/LICENSE).
 
-___________________________
+---
+
 Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)

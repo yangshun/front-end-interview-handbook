@@ -30,13 +30,13 @@
 ## 翻译
 
 - [English](/README.md)
-- [Simplified Chinese (简体中文)](/Translations/Chinese/README.md)
-- [Tagalog](/Translations/Tagalog/README.md)
-- [Japanese (日本語)](/Translations/Japanese/README.md)
+- [Simplified Chinese (简体中文)](/contents/zh/README.md)
+- [Tagalog](/contents/tl/README.md)
+- [Japanese (日本語)](/contents/jp/README.md)
 
 **进行中**
 
-- [Korean (한국어)](/Translations/Korean/README.md)
+- [Korean (한국어)](/contents/kr/README.md)
 
 ## 相关
 

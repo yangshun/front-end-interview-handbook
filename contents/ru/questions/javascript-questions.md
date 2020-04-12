@@ -1,6 +1,6 @@
 # Вопросы по JavaScript
 
-Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по Javascript](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/translations/russian#js).
+Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по Javascript](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/contents/ru#js).
 
 - [Объясните делегирование событий](#объясните-делегирование-событий)
 - [Объясните, как `this` работает в JavaScript](#объясните-как-this-работает-в-javascript)
@@ -227,7 +227,7 @@ const doubled = a.forEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a.map(num => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 
@@ -247,7 +247,7 @@ const doubled = a.map(num => {
 Они могут использоваться в IIFE для инкапсуляции кода в локальную область видимости, чтобы объявленные в ней переменные не попадали в глобальную область видимости.
 
 ```js
-(function() {
+(function () {
   // Здесь код функции.
 })();
 ```
@@ -255,7 +255,7 @@ const doubled = a.map(num => {
 Как callback-функция, которая используется один раз и не должна использоваться где-либо еще. Код будет казаться более автономным и читаемым, когда обработчики будут определены прямо внутри вызывающего их кода, а не искать в другом месте, чтобы найти тело функции.
 
 ```js
-setTimeout(function() {
+setTimeout(function () {
   console.log("Hello world!");
 }, 1000);
 ```
@@ -264,7 +264,7 @@ setTimeout(function() {
 
 ```js
 const arr = [1, 2, 3];
-const double = arr.map(function(el) {
+const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
@@ -518,7 +518,7 @@ console.log(foo); // [Function: foo]
 // Функциональное выражение
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
+var bar = function () {
   console.log("BARRRR");
 };
 console.log(bar); // [Function: bar]
@@ -902,7 +902,7 @@ function foo() {
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
-var foo = function() {
+var foo = function () {
   console.log("FOOOOO");
 };
 ```
@@ -1059,9 +1059,9 @@ class Student extends Person {
 Основным преимуществом использования стрелочной функции в качестве метода внутри конструктора является то, что значение `this` устанавливается во время создания функции и не может измениться после этого. Таким образом, когда конструктор используется для создания нового объекта, `this` всегда будет ссылаться на этот объект. Например, допустим, у нас есть конструктор Person, который принимает имя в качестве аргумента, имеет два метода для вывода в консоль этого имени, один в качестве обычной функции, а другой в качестве стрелочной:
 
 ```js
-const Person = function(firstName) {
+const Person = function (firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() {
+  this.sayName1 = function () {
     console.log(this.firstName);
   };
   this.sayName2 = () => {
@@ -1118,7 +1118,7 @@ const names = ["irish", "daisy", "anna"];
 Императивное решение будет выглядеть так:
 
 ```js
-const transformNamesToUppercase = function(names) {
+const transformNamesToUppercase = function (names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
@@ -1131,8 +1131,8 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 Воспользууемся `.map(transformerFn)`, чтобы сделать код декларативным и более коротким:
 
 ```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
+const transformNamesToUppercase = function (names) {
+  return names.map((name) => name.toUpperCase());
 };
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
@@ -1267,7 +1267,7 @@ function curry(fn) {
   }
 
   function _curried(depth, args) {
-    return function(newArgument) {
+    return function (newArgument) {
       if (depth - 1 === 0) {
         return fn(...args, newArgument);
       }
@@ -1307,7 +1307,7 @@ const result = putDookieInAnyArray(["I", "really", "don't", "like"]); // ["I", "
 
 const person = {
   name: "Todd",
-  age: 29
+  age: 29,
 };
 
 const copyOfTodd = { ...person };
@@ -1317,7 +1317,7 @@ const copyOfTodd = { ...person };
 
 ```js
 function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
+  return numbers.map((x) => x + 5);
 }
 
 const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
@@ -1328,7 +1328,7 @@ const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,
-  h: 4
+  h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
