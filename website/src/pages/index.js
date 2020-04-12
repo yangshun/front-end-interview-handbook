@@ -62,7 +62,7 @@ function Home() {
                   <div className="margin-vert--lg">
                     <a
                       className="button button--secondary button--lg"
-                      href="https://triplebyte.com/a/PJaJNpO/tihw"
+                      href="https://triplebyte.com/a/PJaJNpO/feihw"
                       rel="noreferrer noopener"
                       target="_blank">
                       Sign up for free!

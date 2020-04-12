@@ -8,6 +8,10 @@ module.exports = {
   organizationName: 'yangshun',
   projectName: 'front-end-interview-handbook',
   themeConfig: {
+    prism: {
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+    },
     navbar: {
       title: 'Front End Interview Handbook',
       logo: {
@@ -18,8 +22,7 @@ module.exports = {
         {
           label: 'Contents',
           to: '', // "fake" link
-          position: 'left',
-          activeBasePath: 'docs',
+          position: 'right',
           items: [
             {
               label: 'English',
@@ -30,11 +33,6 @@ module.exports = {
               to: 'zh/questions/html-questions',
             },
           ],
-        },
-        {
-          to: 'introduction',
-          label: 'Getting Started',
-          position: 'right',
         },
         {
           href: 'https://github.com/yangshun/front-end-interview-handbook',

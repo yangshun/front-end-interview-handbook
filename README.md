@@ -27,7 +27,7 @@ While there are some existing resources to help front end developers in preparin
 
 ## Looking for Generic Interview Preparation?
 
-You might be interested in the [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+You might be interested in the [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://yangshun.github.io/tech-interview-handbook/cheatsheet)!
 
 <div align="center">
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
