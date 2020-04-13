@@ -24,10 +24,18 @@ module.exports = {
     ],
   },
   pr: {
-    Perguntas: ['pr/html-questions'],
+    Perguntas: [
+      'pr/html-questions',
+      'pr/css-questions',
+      'pr/javascript-questions',
+    ],
   },
   ru: {
-    Вопросы: ['ru/html-questions', 'ru/javascript-questions'],
+    Вопросы: [
+      'ru/html-questions',
+      'ru/css-questions',
+      'ru/javascript-questions',
+    ],
   },
   tl: {
     'Mga Tanong': [

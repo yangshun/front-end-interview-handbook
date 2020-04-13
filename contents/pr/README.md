@@ -18,8 +18,8 @@ Podes estar interessado no [Tech Interview Handbook](https://github.com/yangshun
 
 ## Índice
 
-1. [Perguntas HTML](html-questions.md)
-1. [CSS Questions](css-questions.md)
+1. [Perguntas de HTML](html-questions.md)
+1. [Perguntas de CSS](css-questions.md)
 1. [Perguntas de JavaScript](javascript-questions.md)
 
 ## Traduções
