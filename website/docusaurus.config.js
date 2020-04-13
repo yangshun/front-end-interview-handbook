@@ -20,7 +20,7 @@ module.exports = {
       },
       links: [
         {
-          label: 'Contents',
+          label: 'Translations',
           to: '', // "fake" link
           position: 'right',
           items: [
