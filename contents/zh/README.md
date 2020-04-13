@@ -24,14 +24,14 @@
 
 ## 翻译
 
-- [English](/README.md)
-- [Simplified Chinese (简体中文)](/contents/zh/README.md)
-- [Tagalog](/contents/tl/README.md)
+- [English](/contents/en/README.md)
+- [Chinese (Simplified) (简体中文)](/contents/zh/README.md)
 - [Japanese (日本語)](/contents/jp/README.md)
-
-**进行中**
-
 - [Korean (한국어)](/contents/kr/README.md)
+- [Polish (Polski)](contents/pl/README.md)
+- [Portuguese (Português)](contents/pr/README.md)
+- [Russian (Русский)](/contents/ru/README.md)
+- [Tagalog](/contents/tl/README.md)
 
 ## 相关
 
