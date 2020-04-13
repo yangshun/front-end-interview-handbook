@@ -22,9 +22,9 @@
 
 ## 목차
 
-1. [HTML 질문](questions/html-questions.md)
-1. [CSS 질문](questions/css-questions.md)
-1. [JavaScript 질문](questions/javascript-questions.md)
+1. [HTML 질문](html-questions.md)
+1. [CSS 질문](css-questions.md)
+1. [JavaScript 질문](javascript-questions.md)
 
 ## 번역
 

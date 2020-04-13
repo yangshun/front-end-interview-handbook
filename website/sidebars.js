@@ -1,53 +1,42 @@
 module.exports = {
   en: {
     Questions: [
-      'en/questions/html-questions',
-      'en/questions/css-questions',
-      'en/questions/javascript-questions',
+      'en/html-questions',
+      'en/css-questions',
+      'en/javascript-questions',
     ],
   },
   jp: {
     に関する質問: [
-      'jp/questions/html-questions',
-      'jp/questions/css-questions',
-      'jp/questions/javascript-questions',
+      'jp/html-questions',
+      'jp/css-questions',
+      'jp/javascript-questions',
     ],
   },
   kr: {
-    질문: [
-      'kr/questions/html-questions',
-      'kr/questions/css-questions',
-      'kr/questions/javascript-questions',
-    ],
+    질문: ['kr/html-questions', 'kr/css-questions', 'kr/javascript-questions'],
   },
   pl: {
     Pytania: [
-      'pl/questions/html-questions',
-      'pl/questions/css-questions',
-      'pl/questions/javascript-questions',
+      'pl/html-questions',
+      'pl/css-questions',
+      'pl/javascript-questions',
     ],
   },
   pr: {
-    Perguntas: ['pr/questions/html-questions'],
+    Perguntas: ['pr/html-questions'],
   },
   ru: {
-    Вопросы: [
-      'ru/questions/html-questions',
-      'ru/questions/javascript-questions',
-    ],
+    Вопросы: ['ru/html-questions', 'ru/javascript-questions'],
   },
   tl: {
     'Mga Tanong': [
-      'tl/questions/html-questions',
-      'tl/questions/css-questions',
-      'tl/questions/javascript-questions',
+      'tl/html-questions',
+      'tl/css-questions',
+      'tl/javascript-questions',
     ],
   },
   zh: {
-    问题: [
-      'zh/questions/html-questions',
-      'zh/questions/css-questions',
-      'zh/questions/javascript-questions',
-    ],
+    问题: ['zh/html-questions', 'zh/css-questions', 'zh/javascript-questions'],
   },
 };

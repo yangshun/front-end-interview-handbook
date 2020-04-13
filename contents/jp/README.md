@@ -18,9 +18,9 @@
 
 ## 目次
 
-1. [HTML に関する質問](questions/html-questions.md)
-1. [CSS に関する質問](questions/css-questions.md)
-1. [JavaScript に関する質問](questions/javascript-questions.md)
+1. [HTML に関する質問](html-questions.md)
+1. [CSS に関する質問](css-questions.md)
+1. [JavaScript に関する質問](javascript-questions.md)
 
 ## 各国語版
 

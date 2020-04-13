@@ -18,9 +18,9 @@ Podes estar interessado no [Tech Interview Handbook](https://github.com/yangshun
 
 ## Índice
 
-1. [Perguntas HTML](questions/html-questions.md)
-1. [CSS Questions](questions/css-questions.md)
-1. [Perguntas de JavaScript](questions/javascript-questions.md)
+1. [Perguntas HTML](html-questions.md)
+1. [CSS Questions](css-questions.md)
+1. [Perguntas de JavaScript](javascript-questions.md)
 
 ## Traduções
 
@@ -49,8 +49,8 @@ Adotamos o mesmo Código de Conduta como o Facebook esperamos que os participant
 
 ### Guia de contribuição
 
-Leia o nosso [guia de contribuição](CONTRIBUTING.md) para saber como podes contribuir, como propor melhorias ou se estiveres interessado na tradução do conteúdo.
+Leia o nosso [guia de contribuição](/CONTRIBUTING.md) para saber como podes contribuir, como propor melhorias ou se estiveres interessado na tradução do conteúdo.
 
 ## Licença
 
-Todos os projetos e pacotes neste repositório são [licenciados MIT](LICENÇA).
+Todos os projetos e pacotes neste repositório são [licenciados MIT](/LICENSE).

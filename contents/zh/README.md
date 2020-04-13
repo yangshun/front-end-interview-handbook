@@ -18,9 +18,9 @@
 
 ## 目录
 
-1. [HTML 问题](questions/html-questions.md)
-1. [CSS 问题](questions/css-questions.md)
-1. [JavaScript 问题](questions/javascript-questions.md)
+1. [HTML 问题](html-questions.md)
+1. [CSS 问题](css-questions.md)
+1. [JavaScript 问题](javascript-questions.md)
 
 ## 翻译
 
@@ -45,8 +45,8 @@
 
 ### 贡献指南
 
-请阅读我们的[贡献指南](../../CONTRIBUTING.md)，了解可以如何贡献，如何提出改进建议，或者你对翻译感兴趣。
+请阅读我们的[贡献指南](/CONTRIBUTING.md)，了解可以如何贡献，如何提出改进建议，或者你对翻译感兴趣。
 
 ## 许可协议
 
-本项目全部内容遵守 [MIT 许可协议](../../LICENSE).
+本项目全部内容遵守 [MIT 许可协议](/LICENSE).

@@ -26,9 +26,9 @@
 
 ## Содержание
 
-1. [Вопросы по HTML](questions/html-questions.md)
-1. [Вопросы по CSS](questions/css-questions.md)
-1. [Вопросы по JavaScript](questions/javascript-questions.md)
+1. [Вопросы по HTML](html-questions.md)
+1. [Вопросы по CSS](css-questions.md)
+1. [Вопросы по JavaScript](javascript-questions.md)
 
 ## Переводы
 

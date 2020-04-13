@@ -18,9 +18,9 @@ Baka ikaw ay interesado sa [Manwal para sa Pang-tech na Pakikipanayam](https://g
 
 ## Talaan ng mga Nilalaman
 
-1. [Mga Tanong sa HTML](questions/html-questions.md)
-1. [Mga Tanong sa CSS](questions/css-questions.md)
-1. [Mga Tanong sa Javascript](questions/javascript-questions.md)
+1. [Mga Tanong sa HTML](html-questions.md)
+1. [Mga Tanong sa CSS](css-questions.md)
+1. [Mga Tanong sa Javascript](javascript-questions.md)
 
 ## Nilalaman
 

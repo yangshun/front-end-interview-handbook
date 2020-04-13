@@ -27,7 +27,7 @@ function Home() {
                 'button button--primary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('en/questions/html-questions')}>
+              to={useBaseUrl('en/html-questions')}>
               Get Started&nbsp;&nbsp;→
             </Link>
           </div>
