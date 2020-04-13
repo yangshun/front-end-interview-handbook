@@ -4,6 +4,8 @@ title: JavaScript に関する質問
 
 [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
+## 目次
+
 - [イベントデリゲーションについて説明してください。](#イベントデリゲーションについて説明してください)
 - [JavaScript の `this` はどう機能するものなのか説明してください。](#javascript-の-this-はどう機能するものなのか説明してください)
 - [プロトタイプ継承はどのように機能するか説明してください。](#プロトタイプ継承はどのように機能するか説明してください)
@@ -71,7 +73,7 @@ title: JavaScript に関する質問
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### JavaScript の `this` はどう機能するものなのか説明してください。
 
@@ -91,7 +93,7 @@ title: JavaScript に関する質問
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### プロトタイプ継承はどのように機能するか説明してください。
 
@@ -102,7 +104,7 @@ title: JavaScript に関する質問
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### AMD と CommonJS は何が違いますか？
 
@@ -117,7 +119,7 @@ title: JavaScript に関する質問
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### なぜ次のコードは IIFE として機能しないのでしょうか？:`function foo(){ }();` IIFE として機能させるには何を変える必要がありますか？
 
@@ -129,7 +131,7 @@ IIFE は、Immediately Invoked Function Expressions の略です。JavaScript �
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 変数が `null`、`undefined`、未定義だったときの違いはなんでしょう？どのようにして、これらの状態を調べますか？
 
@@ -176,7 +178,7 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined (英語)
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/undefined (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### クロージャとはなんですか？また、なぜこれを使うのでしょうか？どのように使うのでしょうか？
 
@@ -192,7 +194,7 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `.forEach` と `.map()` の違いを説明できますか？これらをどのように使い分けますか？
 
@@ -233,7 +235,7 @@ const doubled = a.map((num) => {
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 無名関数の典型的な使い方を教えてください。
 
@@ -268,7 +270,7 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### どのようなことを意識してコードを組み立てていますか？ (モジュールパターン, classical inheritance？)
 
@@ -278,7 +280,7 @@ console.log(double); // [2, 4, 6]
 
 私は可能な限り古典的な継承を避けます。私がそうすると、[これらの規則](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)に固執します。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### host objects と native objects は何が違いますか？
 
@@ -290,7 +292,7 @@ console.log(double); // [2, 4, 6]
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 次のコードの違いはなんですか？: `function Person(){}` 後、`var person = Person()` と `var person = new Person()`
 
@@ -319,7 +321,7 @@ console.log(person.name); // "john"
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new (英語)
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/new (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `.call` と `.apply` の違いはなんですか？
 
@@ -334,7 +336,7 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `Function.prototype.bind` について説明してください。
 
@@ -349,7 +351,7 @@ console.log(add.apply(null, [1, 2])); // 3
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind (英語)
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/bind (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `document.write()` はいつ使いますか？
 
@@ -362,7 +364,7 @@ console.log(add.apply(null, [1, 2])); // 3
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### feature detection, feature inference, and using the UA string の違いはなんですか？
 
@@ -404,7 +406,7 @@ if (document.getElementsByTagName) {
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent (英語)
 - https://developer.mozilla.org/ja/docs/Web/HTTP/Browser_detection_using_the_user_agent (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### Ajax をできるだけ詳しく説明してください。
 
@@ -418,7 +420,7 @@ Ajax（非同期 JavaScript と XML）は、クライアント側で多くの We
 - https://developer.mozilla.org/en-US/docs/AJAX (英語)
 - https://developer.mozilla.org/ja/docs/AJAX (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### Ajax を利用する利点と欠点はなんですか？
 
@@ -436,7 +438,7 @@ Ajax（非同期 JavaScript と XML）は、クライアント側で多くの We
 - 一部の Webcrawler は JavaScript を実行しないため、JavaScript によって読み込まれたコンテンツは表示されません。
 - SPA の基本的な欠点。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### JSONP がどのように機能するか（またそれが Ajax とはどこが違うのか）を説明してください。
 
@@ -470,7 +472,7 @@ JSONP は安全ではなく、セキュリティ上の問題もあります。JS
 
 - https://stackoverflow.com/a/2067584/1751946
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### JavaScript templating を使ったことがありますか？ もしあれば、どのライブラリを使ったことがありますか？
 
@@ -482,7 +484,7 @@ const template = `<div>My name is: ${name}</div>`;
 
 ただし、上記のアプローチでは、テンプレートライブラリとは異なり、コンテンツがエスケープされない可能性があるため、潜在的な XSS に注意してください。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### "巻き上げ"について説明してください。
 
@@ -520,13 +522,13 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### event bubbling について教えてください。
 
 DOM エレメントでイベントがトリガーされると、リスナーが接続されている場合にイベントを処理しようとすると、そのイベントは親に浮上(bubble up)され、同じことが起こります。この泡立ちは、要素の先祖を `document` までずっと上げています。イベントの浮上(bubble up)は、イベントの委任の背後にあるメカニズムです。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### "attribute" と "property" の違いを説明してください。
 
@@ -549,7 +551,7 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### ビルトインオブジェクトを拡張することはなぜ良くないのでしょうか？
 
@@ -561,7 +563,7 @@ console.log(input.value); // Hello World!
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### document `load` event と document `DOMContentLoaded` event の違いは？
 
@@ -576,7 +578,7 @@ console.log(input.value); // Hello World!
 - https://developer.mozilla.org/en-US/docs/Web/Events/load (英語)
 - https://developer.mozilla.org/en-US/docs/Web/Events/load (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `==` と `===` の違いはなんですか？
 
@@ -603,7 +605,7 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### JavaScript の同一オリジンポリシーについて説明してください。
 
@@ -613,7 +615,7 @@ console.log(a == undefined); // true
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 以下のコードを動くようにしてください:
 
@@ -629,7 +631,7 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### それが　 Ternary expression と呼ばれるのはなぜですか？ "Ternary" はどういう意味で使われているのでしょうか？
 
@@ -640,7 +642,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator (英語)
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `"use strict";` とはなんですか？これを使う利点と欠点を教えてください。
 
@@ -669,7 +671,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### **"fizz"** を`3`の倍数で、**"buzz"** を`5`の倍数で、**"fizzbuzz"** を`3`と`5`の倍数で出力する`100`まで反復する for ループを作成してください。
 
@@ -689,13 +691,13 @@ for (let i = 1; i <= 100; i++) {
 
 - https://gist.github.com/jaysonrowe/1592432
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### Web サイトのグローバルスコープをそのままの状態を保ち、決して触らないことが、一般的に良いとされているのはなぜですか？
 
 すべてのスクリプトはグローバルスコープにアクセスできます。誰もが独自の変数を定義するためにグローバル名前空間を使用している場合、衝突が発生します。モジュールパターン（IIFE）を使用して、変数をローカル名前空間内にカプセル化します。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### なぜあなたは `load` イベントのようなものを使うのですか？このイベントには欠点がありますか？あなたは何か選択肢を知っていますか、なぜそれらを使うのですか？
 
@@ -710,7 +712,7 @@ TODO.
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload (英語)
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### シングルページアプリが何であるか、そして SEO に優しいアプリを作る方法を説明してください。
 
@@ -739,7 +741,7 @@ TODO.
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### プロミスおよび/またはそのポリフィルの経験はどの程度ですか？
 
@@ -751,7 +753,7 @@ TODO.
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### コールバックの代わりにプロミスを使用することの長所と短所は何ですか？
 
@@ -766,7 +768,7 @@ TODO.
 - やや複雑なコード（議論の余地がある）。
 - ES2015 がサポートされていない古いブラウザでは、使用するためにポリフィルをロードする必要があります。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### JavaScript にコンパイルしてくれる言語で JavaScript を書く利点と欠点をいくつか教えてください。
 
@@ -794,7 +796,7 @@ JavaScript へコンパイルする言語には、CoffeeScript、Elm、ClojureSc
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### JavaScript のコードをデバッグする際にはどんなツールや技術をを利用しますか？
 
@@ -811,7 +813,7 @@ JavaScript へコンパイルする言語には、CoffeeScript、Elm、ClojureSc
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### オブジェクトのプロパティや、配列の要素をイテレートする際にどの構文を使いますか？
 
@@ -828,7 +830,7 @@ JavaScript へコンパイルする言語には、CoffeeScript、Elm、ClojureSc
 
 ほとんどの場合、私は `.forEach` メソッドを好むでしょうが、本当にあなたがしようとしているものに依存します。`for` ループは、より柔軟性を持たせます。たとえば、`break` を使ってループを早期に終了するか、ループごとにイテレータを複数回インクリメントします。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### mutable と immutable オブジェクトの違いを説明してください
 
@@ -838,7 +840,7 @@ JavaScript へコンパイルする言語には、CoffeeScript、Elm、ClojureSc
 
 TODO
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### synchronous と asynchronous functions の違いを説明してください。
 
@@ -846,7 +848,7 @@ TODO
 
 非同期関数は、通常、パラメータとしてコールバックを受け入れ、非同期関数が呼び出された直後に次の行で実行を続けます。コールバックは、非同期操作が完了し、呼び出しスタックが空の場合にのみ呼び出されます。Web サーバーからのデータのロードやデータベースのクエリなどの大規模な操作は、非同期で実行する必要があります。これにより、メインスレッドは、完了するまでの長い操作がブロックされるのではなく、他の操作の実行を継続できます（ブラウザの場合、UI はフリーズします）。
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### event loop とはなんですか？call stack や task queue との違いはなんですか？
 
@@ -859,7 +861,7 @@ TODO
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `function foo() {}` と `var foo = function() {}` をした場合の `foo` の使い方の違いを説明してください。
 
@@ -888,7 +890,7 @@ var foo = function () {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function (英語)
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/function (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### `let` と `var` と `const` で宣言した変数の違いはなんですか？
 
@@ -973,25 +975,25 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const (英語)
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### ES6 のクラス定義と、ES5 のコンストラクタ関数との違いには何がありますか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### アロー構文の使い方を例示してください。この構文と他の方法による定義とは何が違いますか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### コンストラクタにおいて、メソッドをアロー構文で定義する方法の利点はなんですか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 高階関数とはなんですか？
 
@@ -1033,7 +1035,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### オブジェクトと配列について、「分割代入」の例を教えてください。
 
@@ -1078,13 +1080,13 @@ console.log(q); // true
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment (日本語)
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### ES6 のテンプレート文字列は文字列を作り出す上で様々な柔軟性をもたらしますが、例を示すことはできますか？
 
 TODO
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### カリー化の例を説明してください。またカリー化がもたらす利点はどこにあるのでしょうか？
 
@@ -1122,7 +1124,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### spread syntax を利用する利点はなんですか？また、rest syntax とは何が違っていますか？
 
@@ -1171,7 +1173,7 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment (英語)
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment (日本語)
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### ファイル間でコードを共有するにはどうすれば良いですか？
 
@@ -1189,7 +1191,7 @@ ES2015 は、AMD と CommonJS の両方を置き換えることを目指すモ�
 - https://nodejs.org/docs/latest/api/modules.html
 - http://2ality.com/2014/09/es6-modules-final.html
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 静的クラスメンバーはどんな場面で使いますか？
 
@@ -1199,7 +1201,7 @@ ES2015 は、AMD と CommonJS の両方を置き換えることを目指すモ�
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
-[[↑] 先頭に戻る](#js-に関する質問)
+[[↑] 先頭に戻る](#目次)
 
 ### 他の方の回答集
 

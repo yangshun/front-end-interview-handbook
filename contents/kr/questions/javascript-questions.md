@@ -4,6 +4,8 @@ title: JavaScript 질문
 
 [프론트엔드 면접 질문 - JS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md)에 대한 해설입니다. Pull Request를 통한 제안, 수정 요청 환영합니다.
 
+## 목차
+
 - [이벤트 위임에 대해 설명하세요.](#이벤트-위임에-대해-설명하세요)
 - [`this`가 JavaScript에서 어떻게 작동하는지 설명하세요.](#this가-javascript에서-어떻게-작동하는지-설명하세요)
 - [프로토타입 상속이 어떻게 작동하는지 설명하세요.](#프로토타입-상속이-어떻게-작동하는지-설명하세요)
@@ -71,7 +73,7 @@ title: JavaScript 질문
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
 
@@ -91,7 +93,7 @@ title: JavaScript 질문
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
@@ -102,7 +104,7 @@ title: JavaScript 질문
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### AMD vs CommonJS에 대해 어떻게 생각하나요?
 
@@ -117,7 +119,7 @@ ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 다음이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇을 바꿔야하나요?
 
@@ -141,7 +143,7 @@ console.log(foo); // undefined
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `null`, `undefined`, `undeclared`의 차이점은 무엇인가요? 어떻게 이 상태들에 대한 확인을 할 것인가요?
 
@@ -187,7 +189,7 @@ console.log(foo == undefined); // true. 옳지않습니다. 이렇게 사용하�
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 클로저는 무엇이며, 어떻게/왜 사용하나요?
 
@@ -203,7 +205,7 @@ console.log(foo == undefined); // true. 옳지않습니다. 이렇게 사용하�
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있나요? 왜 둘 중 하나를 선택할 것인가요?
 
@@ -244,7 +246,7 @@ const doubled = a.map((num) => {
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 익명 함수의 일반적인 사용 사례는 무엇인가요?
 
@@ -279,7 +281,7 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 코드를 어떻게 구성하나요? (모듈 패턴, 고전적인 상속?)
 
@@ -289,7 +291,7 @@ console.log(double); // [2, 4, 6]
 
 가능한 경우 고전적인 상속을 사용하지 않습니다. 저는 [이 규칙들](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)을 유지합니다.
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 호스트 객체와 내장 객체의 차이점은 무엇인가요?
 
@@ -301,7 +303,7 @@ console.log(double); // [2, 4, 6]
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `function Person(){}`, `var person = Person()`, `var person = new Person()`의 차이점은 무엇인가요?
 
@@ -329,7 +331,7 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `.call`과 `.apply`의 차이점은 무엇인가요?
 
@@ -344,7 +346,7 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `Function.prototype.bind`에 대해 설명하세요.
 
@@ -358,7 +360,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 언제 `document.write()`를 사용하나요?
 
@@ -371,7 +373,7 @@ console.log(add.apply(null, [1, 2])); // 3
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### Feature detection, Feature inference, UA String의 차이점은 무엇인가요?
 
@@ -411,7 +413,7 @@ if (document.getElementsByTagName) {
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### Ajax에 대해 가능한 한 자세히 설명하세요.
 
@@ -424,7 +426,7 @@ Ajax(asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 �
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### Ajax를 사용하는 것의 장단점은 무엇인가요?
 
@@ -442,7 +444,7 @@ Ajax(asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 �
 - 일부 웹 크롤러는 JavaScript를 실행하지 않으며 JavaScript에 의해 로드된 콘텐츠를 볼 수 없습니다.
 - SPA의 대부분의 단점과 같습니다.
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### JSONP가 어떻게 동작하는지(그리고 Ajax와 어떻게 다른지)를 설명하세요.
 
@@ -476,7 +478,7 @@ JSONP는 안전하지 않을 수 있으며, 보안 관련 이슈가 있습니다
 
 - https://stackoverflow.com/a/2067584/1751946
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### JavaScript 템플릿을 사용한 적이 있나요? 사용해봤다면, 어떤 라이브러리를 사용했나요?
 
@@ -488,7 +490,7 @@ const template = `<div>My name is: ${name}</div>`;
 
 그러나 템플릿 라이브러리와 달리 컨텐츠가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야 합니다.
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `호이스팅`에 대해 설명하세요.
 
@@ -528,13 +530,13 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### event bubbling에 대해 설명하세요.
 
 DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 경우 이벤트 처리를 시도한 다음, 해당 이벤트가 부모에게 bubbling되고 부모에서 같은 이벤트가 발생합니다. 이 bubbling은 요소의 최상단 부모요소인 `document`까지 계속적으로 발생시킵니다. 이벤트 bubbling은 이벤트 위임의 작동 메커니즘입니다.
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### "attribute"와 "property"의 차이점은 무엇인가요?
 
@@ -557,7 +559,7 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇인가요?
 
@@ -569,7 +571,7 @@ console.log(input.value); // Hello World!
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇인가요?
 
@@ -582,7 +584,7 @@ console.log(input.value); // Hello World!
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `==`와 `===`의 차이점은 무엇인가요?
 
@@ -609,7 +611,7 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### JavaScript와 관련하여 same-origin 정책을 설명하세요.
 
@@ -619,7 +621,7 @@ same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 �
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 다음이 작동하게 만들어보세요.
 
@@ -635,7 +637,7 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 왜 Ternary expression이라고 부르고, "Ternary"라는 단어는 무엇을 나타내나요?
 
@@ -645,7 +647,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `"use strict";` 이 무엇인가요? 사용시 장단점이 무엇인가요?
 
@@ -674,7 +676,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 100까지 증가하면서 `3`의 배수에는 `fizz`를 출력하고, `5`의 배수에는 `buzz`를 출력하고, `3`과 `5`의 배수에는 `fizzbuzz`를 출력하는 for loop를 만드세요.
 
@@ -694,13 +696,13 @@ for (let i = 1; i <= 100; i++) {
 
 - https://gist.github.com/jaysonrowe/1592432
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇인가요?
 
 모든 스크립트는 전역 스코프에 접근할 수 있으며, 모든 사람이 전역 네임스페이스를 사용하여 변수를 정의하면 충돌이 발생할 수 있습니다. 모듈 패턴 (IIFEs)을 사용하여 변수를 로컬 네임스페이스 내에 캡슐화하세요.
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고 있나요? 알고 있다면 왜 그것을 사용할 건가요?
 
@@ -714,7 +716,7 @@ TODO.
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### single page app이 무엇인지 설명하고 SEO-friendly하게 만드는 방법을 설명하세요.
 
@@ -743,7 +745,7 @@ TODO.
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### Promises와 그 Polyfill에 대한 당신의 경험은 어느 정도인가요?
 
@@ -755,7 +757,7 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### Callback 대신에 Promise를 사용할 때의 장점과 단점은 무엇인가요?
 
@@ -780,7 +782,7 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 
 - https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### JavaScript로 컴파일되는 언어로 JavaScript 코드를 작성하는 경우의 장단점은 무엇인가요?
 
@@ -808,7 +810,7 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### JavaScript 코드를 디버깅하기 위해 어떤 도구와 기술을 사용하나요?
 
@@ -825,7 +827,7 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 오브젝트 속성이나 배열 항목을 반복할 때 사용하는 언어 구문은 무엇인가요?
 
@@ -858,7 +860,7 @@ for (let [index, elem] of arr.entries()) {
 - http://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### mutable 객체와 immutable 객체 사이의 차이점을 설명하세요.
 
@@ -868,7 +870,7 @@ for (let [index, elem] of arr.entries()) {
 
 TODO
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 동기, 비동기 함수의 차이점을 설명하세요.
 
@@ -876,7 +878,7 @@ TODO
 
 비동기 함수는 일반적으로 파라미터를 통해서 콜백을 받고, 비동기 함수가 호출된 후 즉시 다음 줄 실행이 계속됩니다. 콜백은 비동기 작업이 완료되고 호출 스택이 비어 있을 때만 호출됩니다. 웹 서버에서 데이터를 로드하거나 데이터베이스를 쿼리하는 등의 무거운 작업을 비동기식으로 수행하여, 메인 스레드가 긴 작업을 완료할 때까지 블로킹하지 않고 다른 작업을 계속할 수 있습니다(브라우저의 경우 UI가 중지됨).
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 이벤트 루프란 무엇인가요? 콜 스택과 태스크 큐의 차이점은 무엇인가요?
 
@@ -889,7 +891,7 @@ Philip Robert의 [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `function foo() {}`와 `var foo = function() {}` 사이에서 `foo` 사용의 차이에 대해 설명하세요.
 
@@ -917,7 +919,7 @@ var foo = function () {
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### `let`, `var`, `const`를 사용하여 생성된 변수들의 차이점은 무엇인가요?
 
@@ -999,7 +1001,7 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### ES6 클래스와 ES5 함수 생성자의 차이점은 무엇인가요?
 
@@ -1052,7 +1054,7 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 새 화살표 => 함수 문법에 대한 사용 예시를 들 수 있나요? 이 새로운 문법은 다른 함수와 어떻게 다른가요?
 
@@ -1062,7 +1064,7 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 
 렉시컬스코프 `this`는 특히 React 컴포넌트에서 콜백을 호출할 때 유용합니다.
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 생성자의 메서드에 화살표 문법을 사용하면 어떤 이점이 있나요?
 
@@ -1119,7 +1121,7 @@ sayNameFromWindow2(); // John
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 - https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 고차 함수(higher-order function)의 정의는 무엇인가요?
 
@@ -1161,7 +1163,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 객체나 배열에 대한 디스트럭쳐링 예시를 들 수 있나요?
 
@@ -1205,7 +1207,7 @@ console.log(q); // true
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### ES6 템플릿 리터럴은 문자열을 생성하는데 많은 유연성을 제공합니다. 이에 대한 예를 들 수 있나요?
 
@@ -1272,7 +1274,7 @@ document.body.innerHTML = `
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### curry 함수의 예를 들어 줄 수 있나요? 그리고 이 문법은 어떤 이점을 가지고 있나요?
 
@@ -1310,7 +1312,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### spread 문법을 사용할 때의 이점은 무엇이며 rest 문법과 다른 점은 무엇인가요?
 
@@ -1356,7 +1358,7 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 파일 간에 코드를 공유하려면 어떻게 해야하나요?
 
@@ -1374,7 +1376,7 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 - https://nodejs.org/docs/latest/api/modules.html
 - http://2ality.com/2014/09/es6-modules-final.html
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 정적 클래스 멤버를 만드는 이유는 무엇인가요?
 
@@ -1384,7 +1386,7 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
-[[↑] Back to top](#js-질문)
+[[↑] Back to top](#목차)
 
 ### 다른 답변들
 

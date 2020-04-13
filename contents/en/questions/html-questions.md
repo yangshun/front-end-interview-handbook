@@ -4,6 +4,8 @@ title: HTML Questions
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
 
+## Table of Contents
+
 - [What does a doctype do?](#what-does-a-doctype-do)
 - [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
 - [What kind of things must you be wary of when designing or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
@@ -32,7 +34,7 @@ The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### How do you serve a page with content in multiple languages?
 
@@ -46,7 +48,7 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What kind of things must you be wary of when designing or developing for multilingual sites?
 
@@ -63,7 +65,7 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are `data-` attributes good for?
 
@@ -78,7 +80,7 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 
@@ -95,7 +97,7 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 
@@ -117,7 +119,7 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
@@ -133,7 +135,7 @@ Note: The `async` and `defer` attrib­utes are ignored for scripts that have no 
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 
@@ -153,7 +155,7 @@ An exception for positioning of `<script>`s at the bottom is when your script co
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is progressive rendering?
 
@@ -172,7 +174,7 @@ Examples of such techniques:
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
@@ -193,13 +195,13 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Have you used different HTML templating languages before?
 
 Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
 
-[[↑] Back to top](#html-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Other Answers
 

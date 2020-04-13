@@ -4,6 +4,8 @@ title: Mga Tanong sa JS
 
 Mga Sagot sa [Mga Tanong sa Pakikipanayam sa Trabahong Pangfront-end - Mga Tanong sa JS](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md). Ang mga pull request para sa mga suhestyon at koreksyon ay malugod na tatanggapin
 
+## Talaan ng nilalaman
+
 - [Ipaliwanag ang delegasyon ng kaganapan](#ipaliwanag-ang-delegasyon-ng-kaganapan)
 - [Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript](#ipaliwanag-kung-paano-gumagana-ang-this-na-ito-sa-javascript)
 - [Ipaliwanag kung paano gumagana ang prototypal na pagmamana](#ipaliwanag-kung-paano-gumagana-ang-prototypal-na-pagmamana)
@@ -71,7 +73,7 @@ Ang delegasyon ng kaganapan ay isang pamamaraan na kinasasangkutan ng pagdaragda
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript
 
@@ -91,7 +93,7 @@ Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](http
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag kung paano gumagana ang prototypal na pagmamana
 
@@ -102,7 +104,7 @@ Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang iyong naiisip sa AMD laban sa CommonJS??
 
@@ -117,7 +119,7 @@ Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasaba
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo(){ }();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?
 
@@ -129,7 +131,7 @@ Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang kaibahan sa pagitan ng isang variable na: `null`, `undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
 
@@ -175,7 +177,7 @@ Bilang isang personal na nakaugalian, hindi ko kailanman iiwanan ang aking mga v
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?
 
@@ -191,7 +193,7 @@ Ang pagsasara ay ang kumbinasyon ng isang punksyon at ang leksikong environment 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `.Map()` na loop at bakit kailangan mo lang pumili ng isa mula sa dalawa?
 
@@ -232,7 +234,7 @@ Ang pangunahing pagkakaiba sa pagitan ng `.forEach` at `.map ()` ay ang `.map ()
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?
 
@@ -267,7 +269,7 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)
 
@@ -277,7 +279,7 @@ Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang a
 
 Iniiwasan ko ang paggamit ng klasikal na pagmamana kung posible. Kapag at kung gagawin ko, mananatili ako sa [mga patakarang ito](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga likas na bagay?
 
@@ -289,7 +291,7 @@ Ang mga bagay na host ay ibinibigay ng runtime environment (browser o Node), kag
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?
 
@@ -317,7 +319,7 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang pagkakaiba sa pagitan ng `.call` at `.apply`?
 
@@ -332,7 +334,7 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang `Function.prototype.bind`.
 
@@ -346,7 +348,7 @@ Sa aking karanasan, ito ay pinaka-kapaki-pakinabang para sa pag-bind ng halaga n
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Kelan ka gagamit ng `document.write()`?
 
@@ -359,7 +361,7 @@ Mayroong ilang mga sagot na makikita online na nagpapaliwanag na ang `document.w
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?
 
@@ -399,7 +401,7 @@ Ito ay isang string na iniulat ng browser na nagbibigay-daan sa mga network prot
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.
 
@@ -412,7 +414,7 @@ Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong ko
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?
 
@@ -429,7 +431,7 @@ Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong ko
 - Hindi gagana kung hindi pinagana ang JavaScript sa browser.\* Ang ilang mga webcrawlers ay hindi nagsasagawa ng JavaScript at hindi makikita ang nilalamang na-load ng JavaScript.
 - Karaniwang karamihan sa mga di kalamangan ng isang SPA.
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).
 
@@ -463,7 +465,7 @@ Sa panahon ngayon, Ang [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource
 
 - https://stackoverflow.com/a/2067584/1751946
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?
 
@@ -475,7 +477,7 @@ const template = `<div>My name is: ${name}</div>`;
 
 Gayunpaman, maging maingat sa isang potensyal na XSS sa itaas na pamamaraan dahil ang mga nilalaman ay hindi ligtas para sa iyo, hindi katulad sa mga libreryang pang-template.
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang "hoisting".
 
@@ -513,13 +515,13 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ilarawan ang kaganapan ng pagbubwak.
 
 Kapag ang isang kaganapan ay nag-trigger sa isang elemento ng DOM, susubukan nito na pangasiwaan ang kaganapan kung may nakakabit na tagapakinig, pagkatapos ay ang kaganapan ay bubula hanggang sa kanyang magulang at ang parehong bagay ang mangyayari. Ang pag-bula na ito ay nangyayari sa mga ninuno ng elemento sa lahat ng mga paraan sa `dokumento`. Ang kaganapan ng pagbubwak ng bula ay ang mekanismo sa likod ng delegasyon ng kaganapan.
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?
 
@@ -542,7 +544,7 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?
 
@@ -554,7 +556,7 @@ Ang tanging oras na maaari mong i-extend ang isang likas na bagay ay kung nais m
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng `DOMContentLoaded` na kaganapan?
 
@@ -565,7 +567,7 @@ Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokum
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang pagkakaiba sa pagitan ng `==` at `===`
 
@@ -592,7 +594,7 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.
 
@@ -602,7 +604,7 @@ Pinipigilan ng patakaran ng may parehong pinagmulan ang JavaScript mula sa pagga
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Paganahin ito:
 
@@ -618,7 +620,7 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Bakit tinatawag itong isang ternary na ekspresyon, ano ang ibig sabihin ng salitang "Ternary"?
 
@@ -628,7 +630,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang `"use strict";`? ano ang mga bentahe at di-bentahe sa paggamit nito?
 
@@ -657,7 +659,7 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Gumawa ng para sa loop na mag-iterate hanggang sa `100` habang mag-ouput ng **"fizz"** sa multiples ng `3`, **"buzz"** sa pagmultiplika ng `5` at **"fizzbuzz"** sa pagmultiplika ng `3` at `5`
 
@@ -677,7 +679,7 @@ I would not advise you to write the above during interviews though. Just stick w
 
 - https://gist.github.com/jaysonrowe/1592432
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?
 
@@ -697,7 +699,7 @@ TODO.
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag kung ano ang isang solong pahina na app at kung paano gumawa ng isang SEO-friendly.
 
@@ -726,7 +728,7 @@ The downsides:
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang lawak ng iyong karanasan sa Mga Pangako at/o ang kanilang mga polyfill?
 
@@ -738,7 +740,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang mga kalamangan at kahinaan ng paggamit ng mga pangako sa halip ng mga callback?
 
@@ -753,7 +755,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 - Slightly more complex code (debatable).
 - In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?
 
@@ -781,7 +783,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?
 
@@ -798,7 +800,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga katangian ng bagay at mga item na array?
 
@@ -815,7 +817,7 @@ For arrays:
 
 Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. `for` loops allow more flexibility, such as prematurely terminate the loop using `break` or incrementing the iterator more than once per loop.
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.
 
@@ -825,7 +827,7 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.
 
@@ -833,7 +835,7 @@ Synchronous functions are blocking while asynchronous functions are not. In sync
 
 Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?
 
@@ -846,7 +848,7 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng `function foo() {}` at `var foo = function() {}`
 
@@ -874,7 +876,7 @@ var foo = function () {
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,`var` o `const`?
 
@@ -956,25 +958,25 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang mga pagkakaiba sa pagitan ng ES6 na class at mga ES5 na taga-construct na punksyon?
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### May maaalok ka bang isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang kahulugan ng isang mas mataas na hanay na punksyon?
 
@@ -1016,7 +1018,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Makapagbibigaay kaba ng isang halimbawa para sa pag-destructure ng isang bagay o isang array?
 
@@ -1060,13 +1062,13 @@ console.log(q); // true
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ang literal na ES6 na template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Makapagbibigay kaba ng isang halimbawa ng isang punksyon na curry at kung bakit ang sintaks na ito ay nag-aalok ng isang kalamangan?
 
@@ -1104,7 +1106,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Ano ang mga pakinabang ng paggamit ng spread na sintaks at kung paano ito naiiba mula sa rest na sintaks?
 
@@ -1150,19 +1152,19 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Paano ka makakabahagi ng code sa pagitan ng mga file?
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Bakit gusto mong lumikha ng mga statik na miyembro ng klase?
 
 TODO
 
-[[↑] Bumalik sa taas](#mga-tanong-sa-js)
+[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
 
 ### Mga Ibang Sagot
 

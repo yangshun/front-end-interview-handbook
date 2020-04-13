@@ -4,6 +4,8 @@ title: HTML 问题
 
 本章节是[前端开发者面试问题 - HTML 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
+## 目录
+
 - [`DOCTYPE`有什么用？](#doctype有什么用)
 - [如何提供包含多种语言内容的页面？](#如何提供包含多种语言内容的页面)
 - [在设计开发多语言网站时，需要留心哪些事情？](#在设计开发多语言网站时需要留心哪些事情)
@@ -28,7 +30,7 @@ title: HTML 问题
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 如何提供包含多种语言内容的页面？
 
@@ -42,7 +44,7 @@ title: HTML 问题
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 在设计开发多语言网站时，需要留心哪些事情？
 
@@ -59,7 +61,7 @@ title: HTML 问题
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 什么是`data-`属性？
 
@@ -72,7 +74,7 @@ title: HTML 问题
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 将 HTML5 看作成开放的网络平台，什么是 HTML5 的基本构件（building block）？
 
@@ -89,7 +91,7 @@ title: HTML 问题
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 请描述`cookie`、`sessionStorage`和`localStorage`的区别。
 
@@ -109,7 +111,7 @@ title: HTML 问题
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 请描述`<script>`、`<script async>`和`<script defer>`的区别。
 
@@ -125,7 +127,7 @@ title: HTML 问题
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
 
@@ -143,7 +145,7 @@ title: HTML 问题
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 什么是渐进式渲染（progressive rendering）？
 
@@ -162,7 +164,7 @@ title: HTML 问题
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 为什么在`<img>`标签中使用`srcset`属性？请描述浏览器遇到该属性后的处理过程。
 
@@ -183,13 +185,13 @@ title: HTML 问题
 
 - https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 你有过使用不同模版语言的经历吗？
 
 有过，比如 Pug （以前叫 Jade）、 ERB、 Slim、 Handlebars、 Jinja、 Liquid 等等。在我看来，这些模版语言大多是相似的，都提供了用于展示数据的内容替换和过滤器的功能。大部分模版引擎都支持自定义过滤器，以展示自定义格式的内容。
 
-[[↑] 回到顶部](#html-问题)
+[[↑] 回到顶部](#目录)
 
 ### 其它答案
 

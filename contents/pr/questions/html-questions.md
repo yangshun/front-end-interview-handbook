@@ -2,7 +2,9 @@
 title: Perguntas HTML
 ---
 
-Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Os pedidos de sugestões e correções são bem-vindos!
+Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/Índice.md). Os pedidos de sugestões e correções são bem-vindos!
+
+## Índice
 
 - [O que faz um doctype?](#what-does-a-doctype-do)
 - [Como é que tu serves uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
@@ -28,7 +30,7 @@ Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Como é que tu serves uma página com conteúdo em vários idiomas?
 
@@ -42,7 +44,7 @@ Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e co
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Que tipo de coisas tuvocê deves desconfiar ao projetar ou desenvolver sites multilíngues?
 
@@ -59,7 +61,7 @@ Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e co
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Para que são bons os atributos `data-`?
 
@@ -72,7 +74,7 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Considera HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?
 
@@ -89,7 +91,7 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Descreve a diferença entre uma `cookie`,`sessionStorage` e `localStorage`.
 
@@ -110,7 +112,7 @@ Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Descreve a diferença entre `<script>`, `<script async>` e `<script defer>`.
 
@@ -127,7 +129,7 @@ Nota: Os atributos `async` e` defer`` são ignorados para scripts que não possu
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Por que é geralmente uma boa ideia posicionar o CSS `<link>`s entre `<head></head>` e JS `<script>`s antes de `</body>`? Tu conheces alguma exceção?
 
@@ -145,7 +147,7 @@ Uma exceção para o posicionamento de `<script>`s na parte inferior é quando o
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### O que é a renderização progressiva?
 
@@ -164,7 +166,7 @@ Exemplos de tais técnicas:
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Por que usarias um atributo `srcset` numa tag de imagem? Explica o processo que o navegador usa ao avaliar o conteúdo deste atributo.
 
@@ -185,13 +187,13 @@ Se a resolução for retina (2x), o navegador usará a resolução mais próxima
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Tu já usaste antes diferentes linguagens de modelos de HTML?
 
 Sim, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, apenas para citar alguns. Na minha opinião, eles são mais ou menos o mesmo e oferecem funcionalidades semelhantes de conteúdo de escape e filtros úteis para manipular os dados a serem exibidos. A maioria dos modelos de modelos também permitirá que injetes teus próprios filtros no caso de precisares de processamento personalizado antes da exibição.
 
-[[↑] De volta ao topo](#html-questions)
+[[↑] De volta ao topo](#Índice)
 
 ### Outras respostas
 

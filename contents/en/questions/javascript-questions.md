@@ -4,6 +4,8 @@ title: JavaScript Questions
 
 Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md). Pull requests for suggestions and corrections are welcome!
 
+## Table of Contents
+
 - [Explain event delegation](#explain-event-delegation)
 - [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript)
 - [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works)
@@ -71,7 +73,7 @@ Event delegation is a technique involving adding event listeners to a parent ele
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain how `this` works in JavaScript
 
@@ -95,7 +97,7 @@ ES6 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain how prototypal inheritance works
 
@@ -184,7 +186,7 @@ c.constructor.name;
 - https://crockford.com/javascript/prototypal.html
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What do you think of AMD vs CommonJS?
 
@@ -199,7 +201,7 @@ I'm glad that with ES2015 modules, that has support for both synchronous and asy
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
 
@@ -221,7 +223,7 @@ console.log(foo); // undefined
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
 
@@ -268,7 +270,7 @@ As a personal habit, I never leave my variables undeclared or unassigned. I will
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is a closure, and how/why would you use one?
 
@@ -284,7 +286,7 @@ A closure is the combination of a function and the lexical environment within wh
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
 
@@ -325,7 +327,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What's a typical use case for anonymous functions?
 
@@ -360,7 +362,7 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### How do you organize your code? (module pattern, classical inheritance?)
 
@@ -370,7 +372,7 @@ The module pattern is still great, but these days, I use React/Redux which utili
 
 I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What's the difference between host objects and native objects?
 
@@ -382,7 +384,7 @@ Host objects are provided by the runtime environment (browser or Node), such as 
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 
@@ -410,7 +412,7 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What's the difference between `.call` and `.apply`?
 
@@ -425,7 +427,7 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain `Function.prototype.bind`.
 
@@ -439,7 +441,7 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### When would you use `document.write()`?
 
@@ -452,7 +454,7 @@ There are some answers online that explain `document.write()` is being used in a
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What's the difference between feature detection, feature inference, and using the UA string?
 
@@ -492,7 +494,7 @@ This is a browser-reported string that allows the network protocol peers to iden
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain Ajax in as much detail as possible.
 
@@ -505,7 +507,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are the advantages and disadvantages of using Ajax?
 
@@ -524,7 +526,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 - Webpages using Ajax to fetch data will likely have to combine the fetched remote data with client-side templates to update the DOM. For this to happen, JavaScript will have to be parsed and executed on the browser, and low-end mobile devices might struggle with this.
 - Basically most of the disadvantages of an SPA.
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain how JSONP works (and how it's not really Ajax).
 
@@ -558,7 +560,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 - https://stackoverflow.com/a/2067584/1751946
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Have you ever used JavaScript templating? If so, what libraries have you used?
 
@@ -570,7 +572,7 @@ const template = `<div>My name is: ${name}</div>`;
 
 However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain "hoisting".
 
@@ -619,13 +621,13 @@ let y = 'local';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Variable_hoisting
 - https://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6/31222689#31222689
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Describe event bubbling.
 
 When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What's the difference between an "attribute" and a "property"?
 
@@ -648,7 +650,7 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Why is extending built-in JavaScript objects not a good idea?
 
@@ -660,7 +662,7 @@ The only time you may want to extend a native object is when you want to create 
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Difference between document `load` event and document `DOMContentLoaded` event?
 
@@ -673,7 +675,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is the difference between `==` and `===`?
 
@@ -700,7 +702,7 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain the same-origin policy with regards to JavaScript.
 
@@ -710,7 +712,7 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Make this work:
 
@@ -734,7 +736,7 @@ const duplicate = (arr) => [...arr, ...arr];
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Why is it called a Ternary expression, what does the word "Ternary" indicate?
 
@@ -744,7 +746,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is `"use strict";`? What are the advantages and disadvantages to using it?
 
@@ -773,7 +775,7 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
 
@@ -793,13 +795,13 @@ I would not advise you to write the above during interviews though. Just stick w
 
 - https://gist.github.com/jaysonrowe/1592432
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
 Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 
@@ -813,7 +815,7 @@ TODO.
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain what a single page app is and how to make one SEO-friendly.
 
@@ -842,7 +844,7 @@ The downsides:
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is the extent of your experience with Promises and/or their polyfills?
 
@@ -854,7 +856,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are the pros and cons of using Promises instead of callbacks?
 
@@ -879,7 +881,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 - https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
@@ -907,7 +909,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What tools and techniques do you use for debugging JavaScript code?
 
@@ -926,7 +928,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What language constructions do you use for iterating over object properties and array items?
 
@@ -959,7 +961,7 @@ for (let [index, elem] of arr.entries()) {
 - http://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain the difference between mutable and immutable objects.
 
@@ -1045,7 +1047,7 @@ Freezing an object does not allow new properties to be added to an object and pr
 
 - https://stackoverflow.com/questions/1863515/pros-cons-of-immutability-vs-mutability
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 #### How can you achieve immutability in your own code?
 
@@ -1072,7 +1074,7 @@ const alienJohn = {...john, race: 'alien'}; // {race: "alien", name: "John"}
 - https://www.sitepoint.com/immutability-javascript/
 - https://wecodetheweb.com/2016/02/12/immutable-javascript-using-es6-and-beyond/
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain the difference between synchronous and asynchronous functions.
 
@@ -1080,7 +1082,7 @@ Synchronous functions are blocking while asynchronous functions are not. In sync
 
 Asynchronous functions usually accept a callback as a parameter and execution continue on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is event loop? What is the difference between call stack and task queue?
 
@@ -1093,7 +1095,7 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
@@ -1121,7 +1123,7 @@ var foo = function () {
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are the differences between variables created using `let`, `var` or `const`?
 
@@ -1203,7 +1205,7 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
@@ -1256,13 +1258,13 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
 One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What advantage is there for using the arrow syntax for a method in a constructor?
 
@@ -1311,7 +1313,7 @@ This can be particularly helpful in React class components. If you define a clas
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 - https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What is the definition of a higher-order function?
 
@@ -1353,7 +1355,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Can you give an example for destructuring an object or an array?
 
@@ -1397,7 +1399,7 @@ console.log(q); // true
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
@@ -1464,7 +1466,7 @@ document.body.innerHTML = `
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Can you give an example of a curry function and why this syntax offers an advantage?
 
@@ -1502,7 +1504,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
@@ -1548,7 +1550,7 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### How can you share code between files?
 
@@ -1560,7 +1562,7 @@ On the server (Node.js), the common way has been to use CommonJS. Each file is t
 
 ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This will eventually be supported in both browser and Node environments.
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ###### References
 
@@ -1576,7 +1578,7 @@ Static class members (properties/methods) are not tied to a specific instance of
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
 
-[[↑] Back to top](#js-questions)
+[[↑] Back to top](#table-of-contents)
 
 ### Other Answers
 

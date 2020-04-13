@@ -4,6 +4,8 @@ title: Pytania z HTML
 
 Odpowiedzi do [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull request mile widziany, jeśli masz jakieś sugestie lub poprawki!
 
+## Spis treści
+
 - [Co robi DOCTYPE?](#co-robi-doctype)
 - [W jaki sposób wyświetlasz stronę z treścią w wielu językach?](#w-jaki-sposób-wyświetlasz-stronę-z-treścią-w-wielu-językach)
 - [Jakich rzeczy należy się wystrzegać podczas projektowania lub tworzenia witryn wielojęzycznych?](#jakich-rzeczy-należy-się-wystrzegać-podczas-projektowania-lub-tworzenia-witryn-wielojęzycznych)
@@ -32,7 +34,7 @@ Deklaracja DOCTYPE dla standardów HTML5 to `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### W jaki sposób wyświetlasz stronę z treścią w wielu językach?
 
@@ -46,7 +48,7 @@ W backendzie, HTML będzie zawierać symbole zastępcze `i18n` oraz treść dla 
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Jakich rzeczy należy się wystrzegać podczas projektowania lub tworzenia witryn wielojęzycznych?
 
@@ -63,7 +65,7 @@ W backendzie, HTML będzie zawierać symbole zastępcze `i18n` oraz treść dla 
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Do czego są dobre atrybuty `data-`?
 
@@ -78,7 +80,7 @@ Jednakże, jednym całkowicie poprawnym zastosowaniem atrybutów danych jest dod
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Rozważ HTML5 jako Open Web Platform. Jakie są elementy składowe HTML5?
 
@@ -95,7 +97,7 @@ Jednakże, jednym całkowicie poprawnym zastosowaniem atrybutów danych jest dod
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Opisz różnicę pomiędzy `cookie`, `sessionStorage` oraz `localStorage`.
 
@@ -117,7 +119,7 @@ _Uwaga: Jeśli użytkownik zdecyduje się wyczyścić dane przeglądania za pomo
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Opisz różnicę pomiędzy `<script>`, `<script async>` oraz `<script defer>`.
 
@@ -133,7 +135,7 @@ Uwaga: Atrybuty `async` oraz `defer` są ignorowane przez skrypty, które nie za
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Dlaczego ogólnie dobrym pomysłem jest pozycjonowanie CSS `<link>` pomiędzy `<head></head>` oraz JS `<script>` tuż przed `</body>`? Czy znasz jakieś wyjątki?
 
@@ -153,7 +155,7 @@ Wyjątkiem dla pozycjonowania `<script>` na dole jest gdy twój skrypt zawiera `
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Co to jest rendering progresywny?
 
@@ -172,7 +174,7 @@ Przykłady takich technik:
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Dlaczego warto użyć atrybutu `srcset` w tagu obrazu? Wyjaśnij proces wykorzystywany przez przeglądarkę podczas oceny zawartości tego atrybutu.
 
@@ -193,13 +195,13 @@ Jeśli rozdzielczość to retina (2x), przeglądarka użyje najbliższej rozdzie
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Czy używałeś wcześniej różnych języków szablonów HTML?
 
 Tak, Pug (formalnie Jade), ERB, Slim, Handlebars, Jinja, Liquid, żeby wymienić tylko kilka. Moim zdaniem są one mniej więcej takie same i zapewniają podobną funkcjonalność ucieczki treści oraz pomocne filtry do manipulowania wyświetlanymi danymi. Większość silników szablonów pozwala również wstrzykiwać własne filtry na wypadek, gdybyś potrzebował niestandardowego przetwarzania przed wyświetleniem.
 
-[[↑] Powrót do góry](#pytania-z-html)
+[[↑] Powrót do góry](#spis-treści)
 
 ### Inne odpowiedzi
 

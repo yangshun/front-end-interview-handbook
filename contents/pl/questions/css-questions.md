@@ -4,6 +4,8 @@ title: Pytania z CSS
 
 Odpowiedzi do [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Pull requesty mile widziane, jeśli masz sugestie i poprawki!
 
+## Spis treści
+
 - [Czym jest specyficzność selektora CSS i jak działa?](#czym-jest-specyficzność-selektora-css-i-jak-działa)
 - [Jaka jest różnica pomiędzy CSS "resetting" oraz "normalizing"? Które wybrałbyś, i dlaczego?](#jaka-jest-różnica-pomiędzy-css-resetting-oraz-normalizing-które-wybrałbyś-i-dlaczego)
 - [Opisz `float`y i jak one działają.](#opisz-floaty-i-jak-one-działają)
@@ -56,7 +58,7 @@ Pisałbym reguły CSS o niskiej specyficzności, aby w razie potrzeby można je 
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jaka jest różnica pomiędzy CSS "resetting" oraz "normalizing"? Które wybrałbyś, i dlaczego?
 
@@ -69,7 +71,7 @@ Zdecydowałbym się zresetować, gdy mam bardzo niestandardowy lub niekonwencjon
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Opisz `float`y i jak one działają.
 
@@ -97,7 +99,7 @@ Alternatywnie, nadaj właściwość `overflow: auto` lub `overflow: hidden` elem
 
 - https://css-tricks.com/all-about-floats/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Opisz `z-index` i jak powstaje stacking context.
 
@@ -117,7 +119,7 @@ _Uwaga: To, co dokładnie kwalifikuje element do utworzenia kontekstu stosu, zna
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Opisz Block Formatting Context (BFC) i jak działa.
 
@@ -141,7 +143,7 @@ Pionowe marginesy między sąsiadującymi polami na poziomie bloku w zwinięciu 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jakie są różne techniki czyszczenia i które są odpowiednie w jakim kontekście?
 
@@ -151,7 +153,7 @@ Pionowe marginesy między sąsiadującymi polami na poziomie bloku w zwinięciu 
 
 W dużych projektach napisałbym klasę użyteczności `.clearfix` i używał ich w miejscach, w których tego potrzebuję. `overflow: hidden` może podcinać children, jeśli children jest wyższy od parent i nie jest zbyt idealny.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Wyjaśnij CSS sprites, i jak zaimplementujesz je na stronie lub witrynie.
 
@@ -170,7 +172,7 @@ CSS sprites łączy wiele obrazów w jeden większy obraz. Jest to powszechnie s
 
 - https://css-tricks.com/css-sprites/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jak podchodziłbyś do rozwiązywania problemów związanych ze stylem specyficznym dla przeglądarki?
 
@@ -180,7 +182,7 @@ CSS sprites łączy wiele obrazów w jeden większy obraz. Jest to powszechnie s
 - Użyj Reset CSS lub Normalize.css.
 - Jeśli korzystasz z Postcss (lub podobnej biblioteki do transpilowania), mogą istnieć wtyczki, które pozwolą ci wybrać nowoczesną składnię CSS (a nawet propozycje W3C), które przekształcą te sekcje twojego kodu w odpowiedni bezpieczny kod, który będzie pracować w celach, dla których korzystałeś.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jak wyświetlasz swoje strony w przeglądarkach z ograniczeniami funkcji? Jakich technik/procesów używasz?
 
@@ -191,7 +193,7 @@ CSS sprites łączy wiele obrazów w jeden większy obraz. Jest to powszechnie s
 - Wykrywanie funkcji za pomocą [Modernizr](https://modernizr.com/).
 - Używanie zapytań CSS Feature [@support](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jakie są różne sposoby wizualnego ukrywania treści (i udostępniania jej tylko dla czytników ekranu)?
 
@@ -211,7 +213,7 @@ Nawet jeśli WAI-ARIA jest idealnym rozwiązaniem, wybrałbym podejście pozycjo
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 - http://a11yproject.com/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy kiedykolwiek korzystałeś z systemu siatki (grid system), a jeśli tak, to co preferujesz?
 
@@ -219,13 +221,13 @@ Przed tym jak Flex stał się popularny (około roku 2014), oparty na `float` gr
 
 Dla odważnych, mogą zajrzeć w [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/), który używa nowej błyszczącej właściwości `grid`; jest nawet lepszy niż `flex` do budowania układów siatki i będzie de facto sposobem na zrobienie tego w przyszłości.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy używałeś lub implementowałeś media queries lub mobile-specific layouts/CSS?
 
 Tak. Przykładem może być przekształcenie nawigacji stacked pill w nawigację fixed-bottom tab poza pewnym breakpointem.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy znasz stylizację SVG?
 
@@ -252,7 +254,7 @@ Powyższe `fill="purple"` to przykład _presentational attribute_. Co ciekawe, w
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy możesz podać przykład właściwości @media innej niż screen?
 
@@ -277,7 +279,7 @@ Tu jest przykład użycia typu `print` media:
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jakie są "tricki" do pisania wydajnego CSS?
 
@@ -292,7 +294,7 @@ Należy pamiętać, które właściwości CSS wyzwalają [trigger](https://csstr
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jakie są zalety/wady korzystania z preprocesorów CSS?
 
@@ -310,7 +312,7 @@ Należy pamiętać, które właściwości CSS wyzwalają [trigger](https://csstr
 - Wymaga narzędzi do wstępnego przetwarzania. Czas ponownej kompilacji może być długi.
 - Brak pisania obecnego i potencjalnie użytecznego CSS. Na przykład, używając czegoś podobnego do [postcss-loader](https://github.com/postcss/postcss-loader) z [webpack](https://webpack.js.org/), możesz napisać potencjalnie kompatybilny CSS, pozwalając na używanie takich zmiennych jak CSS zamiast zmiennych Sass. W ten sposób uczysz się nowych umiejętności, które mogą się opłacić, jeśli/gdy zostaną ujednolicone.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Opisz, co lubisz, a czego nie w preprocesorach CSS, z których korzystałeś.
 
@@ -324,13 +326,13 @@ Należy pamiętać, które właściwości CSS wyzwalają [trigger](https://csstr
 - Używam Sass przez `node-sass`, który jest powiązaniem dla LibSass napisanego w C++. Muszę często go przekompilować podczas przełączania między wersjami węzłów.
 - W Less, nazwy zmiennych są poprzedzone znakiem `@`, które można pomylić z natywnymi słowami kluczowymi CSS, takimi jak `@media`, `@import` i reguła `@font-face`.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jak zaimplementowałbyś kompozycję do projektowania stron internetowych, która wykorzystuje niestandardowe czcionki?
 
 Użycie `@font-face` i zdefiniowanie `font-family` dla różnych `font-weight`.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Wyjaśnij, w jaki sposób przeglądarka określa, które elementy pasują do selektora CSS.
 
@@ -342,7 +344,7 @@ Na przykład ten selektor `p span`, przeglądarka najpierw znajduje wszystkie el
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Opisz pseudoelementy i omów, do czego służą.
 
@@ -356,7 +358,7 @@ Pseudoelement CSS jest słowem kluczowym dodawanym do selektora, który pozwala 
 
 - https://css-tricks.com/almanac/selectors/a/after-and-before/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Wyjaśnij swoje zrozumienie box model i sposób, w jaki chcesz, aby przeglądarka w CSS renderowała układ w różnych modelach pudełkowych.
 
@@ -381,7 +383,7 @@ Model pudełkowy ma następujące zasady:
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Co robi `* { box-sizing: border-box; }`? Jakie są tego zalety?
 
@@ -395,7 +397,7 @@ Model pudełkowy ma następujące zasady:
 
 - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czym jest właściwość `display` w CSS i czy możesz podać kilka przykładów jej użycia?
 
@@ -412,7 +414,7 @@ Model pudełkowy ma następujące zasady:
 | `table-cell` | Behaves like the `<td>` element |
 | `list-item` | Behaves like a `<li>` element which allows it to define `list-style-type` and `list-style-position` |
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jaka jest różnica pomiędzy `inline`, a `inline-block`?
 
@@ -427,7 +429,7 @@ Dla dobrego porównania wrzucę porównanie z `block`.
 | Margins and paddings | All sides respected. | All sides respected. | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
 | Float | - | - | Becomes like a `block` element where you can set vertical margins and paddings. |
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Jaka jest różnica między pozycjonowaniem `relative`, `fixed`, `absolute` i `static` elementu?
 
@@ -443,7 +445,7 @@ Element pozycjonowany to element, którego obliczona właściwość `position` j
 
 - https://developer.mozilla.org/en/docs/Web/CSS/position
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Z jakich istniejących frameworków CSS korzystałeś lokalnie lub na produkcji? Jak byś je zmienił/ulepszył?
 
@@ -451,7 +453,7 @@ Element pozycjonowany to element, którego obliczona właściwość `position` j
 - **Semantic UI** - Struktura kodu źródłowego sprawia, że dostosowanie motywu jest niezwykle trudne do zrozumienia. Niekonwencjonalny system tematyczny jest trudny do dostosowania. Zahardkodowana ścieżka konfiguracji w bibliotece dostawcy. Niezbyt dobrze zaprojektowany do nadpisywania zmiennych w przeciwieństwie do Bootstrap.
 - **Bulma** - Wymaganych jest wiele niesemantycznych i zbędnych klas i znaczników. Niekompatybilny wstecz. Uaktualnianie wersji psuje aplikację w subtelny sposób.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy robiłeś coś w nowej specyfikacji CSS Flexbox lub Grid?
 
@@ -465,7 +467,7 @@ Grid jest zdecydowanie najbardziej intuicyjnym podejściem do tworzenia układó
 
 - https://philipwalton.github.io/solved-by-flexbox/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy potrafisz wyjaśnić różnicę między kodowaniem strony internetowej, aby była responsywna, a używaniem mobile-first strategy?
 
@@ -505,7 +507,7 @@ Mobile-first strategy ma 2 główne zalety:
 - Jest bardziej wydajna na urządzeniach mobilnych, ponieważ wszystkie zastosowane reguły nie muszą być sprawdzane pod kątem media queries.
 - Wymusza pisanie czystszego kodu w odniesieniu do responsywnych reguł CSS.
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czym różni się projektowanie responsywne od projektowania adaptacyjnego?
 
@@ -526,7 +528,7 @@ Obie z tych metod mają pewne problemy, które warto ocenić:
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy kiedykolwiek pracowałeś z grafiką Retina? Jeśli tak, kiedy i jakich technik użyłeś?
 
@@ -565,7 +567,7 @@ W przypadku ikon wolałbym również używać plików SVG i czcionek ikon, jeśl
 - http://scottjehl.github.io/picturefill/
 - https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Czy jest jakiś powód, dla którego chciałbyś użyć `translate ()` zamiast pozycjonowania `absolute` lub odwrotnie? I dlaczego?
 
@@ -577,7 +579,7 @@ Kiedy używasz `translate ()`, element nadal zajmuje swoją pierwotną przestrze
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
-[[↑] Powrót na górę](#pytania-z-css)
+[[↑] Powrót na górę](#spis-treści)
 
 ### Inne odpowiedzi
 

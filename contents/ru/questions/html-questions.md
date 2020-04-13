@@ -4,6 +4,8 @@ title: Вопросы по HTML
 
 Ответы на [Вопросы кандидату на должность фронтенд-разработчика - Вопросы по HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/src/contents/ru#html).
 
+## Содержание
+
 - [Для чего нужен DOCTYPE?](#для-чего-нужен-doctype)
 - [Как следует оформлять страницу, содержимое которой может быть на разных языках?](#как-следует-оформлять-страницу-содержимое-которой-может-быть-на-разных-языках)
 - [На что необходимо обратить внимание при разработке мультиязычных сайтов?](#на-что-необходимо-обратить-внимание-при-разработке-мультиязычных-сайтов)
@@ -32,7 +34,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Как следует оформлять страницу, содержимое которой может быть на разных языках?
 
@@ -46,7 +48,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### На что необходимо обратить внимание при разработке мультиязычных сайтов?
 
@@ -63,7 +65,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Для чего нужны `data-` атрибуты?
 
@@ -76,7 +78,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Представьте HTML5 как открытую веб-платформу. Из каких блоков состоит HTML5?
 
@@ -93,7 +95,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Объясните разницу между `cookie`, `sessionStorage` и `localStorage`.
 
@@ -113,7 +115,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Объясните разницу между `<script>`, `<script async>` и `<script defer>`.
 
@@ -129,7 +131,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Почему хорошей практикой считается располагать `<link>` для подключения CSS между `<head></head>`, а `<script>` для подключения JS ставить перед `</body>`? Знаете ли вы исключения?
 
@@ -149,7 +151,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Что такое прогрессивный рендеринг
 
@@ -170,7 +172,7 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Для чего используется атрибут `srcset` в теге изображения? Опишите процесс, который браузер использует при обработке содержимого этого атрибута.
 
@@ -191,13 +193,13 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Приходилось ли вам работать с языками HTML-шаблонизации?
 
 Да, Pug (ранее известный как Jade), ERB, Slim, Handlebars, Jinja, Liquid и это только некоторые из них. По моему мнению, все они более или менее одинаковые и предоставляют одинаковые возможности экранирования контента и полезных фильтров для работы с отображаемыми данными. Большинство шаблонизаторов позволяют вводить собственные фильтры, если вам необходима дополнительная обработка контента перед его отображением.
 
-[[↑] Наверх](#вопросы-по-html)
+[[↑] Наверх](#Содержание)
 
 ### Другие ответы
 

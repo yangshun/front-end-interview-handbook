@@ -4,6 +4,8 @@ title: CSS 질문
 
 [프론트엔드 면접 질문 - CSS 질문](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md)에 대한 해설입니다. Pull Request를 통한 제안, 수정 요청 환영합니다.
 
+## 목차
+
 - [CSS 선택자의 특정성은 무엇이며 어떻게 작동하나요?](#css-선택자의-특정성은-무엇이며-어떻게-작동하나요)
 - [`Resetting`과 `Normalizing` CSS의 차이점은 무엇인가요? 당신은 무엇을 선택할 것이며, 그 이유는 무엇인가요?](#resetting과-normalizing-css의-차이점은-무엇인가요-당신은-무엇을-선택할-것이며-그-이유는-무엇인가요)
 - [`float`가 어떻게 작동하는지 설명하세요.](#float가-어떻게-작동하는지-설명하세요)
@@ -56,7 +58,7 @@ title: CSS 질문
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `Resetting`과 `Normalizing` CSS의 차이점은 무엇인가요? 당신은 무엇을 선택할 것이며, 그 이유는 무엇인가요?
 
@@ -70,7 +72,7 @@ title: CSS 질문
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `float`가 어떻게 작동하는지 설명하세요.
 
@@ -98,7 +100,7 @@ CSS `clear` 속성은 float 요소에 `left`/`right`/`both`에 위치하도록 �
 
 - https://css-tricks.com/all-about-floats/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `z-index`와 스택 컨텍스트(stacking context)가 어떻게 형성되는지 설명하세요.
 
@@ -116,7 +118,7 @@ CSS의 `z-index`속성은 겹치는 요소의 쌓임 순서를 제어합니다. 
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### BFC(Block Formatting Context)와 그 작동 방식을 설명하세요.
 
@@ -138,7 +140,7 @@ BFC collapse시에 인접한 블록 레벨 박스 사이의 수직 마진. [coll
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### clear 하는 방법에는 어떤 것이 있으며, 각각 어떤상황에 적합한가요?
 
@@ -148,7 +150,7 @@ BFC collapse시에 인접한 블록 레벨 박스 사이의 수직 마진. [coll
 
 대규모의 프로젝트에서는 유용하게 `.clearfix` 클래스를 만들어 필요한 곳에서 사용합니다. 자식이 부모보다 크기가 큰 경우 `overflow: hidden`은 자식을 모두 보여줄 수 없습니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### CSS 스프라이트는 무엇인가요? 그리고 당신이 페이지나 사이트에 구현하는 방법도 설명해주세요.
 
@@ -167,7 +169,7 @@ CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합�
 
 - https://css-tricks.com/css-sprites/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 브라우저 별로 스타일이 다른 문제를 어떤 접근 방법으로 해결하나요?
 
@@ -176,7 +178,7 @@ CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합�
 - `autoprefixer`를 사용하여 벤더 프리픽스를 코드에 자동으로 추가합니다.
 - Reset CSS 또는 Normalize.css를 사용합니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 기능이 제한된 브라우저의 페이지는 어떻게 처리하나요? 어떤 기술/프로세스를 사용하나요?
 
@@ -187,7 +189,7 @@ CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합�
 - [Modernizr](https://modernizr.com/)를 사용하여 기능 감지.
 - CSS Feature 쿼리 [@support](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) 사용.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 콘텐츠를 시각적으로 숨기는(그리고 screen reader에서만 사용할 수 있게 만드는)다양한 방법은 무엇인가요?
 
@@ -208,19 +210,19 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 - http://a11yproject.com/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 그리드 시스템을 사용해본적 있나요? 만약 그렇다면, 당신은 어떤 것을 선호하나요?
 
 저는는 `float` 기반 그리드 시스템을 좋아합니다. 왜냐하면, 여전히 기존 대체할만한 시스템(flex, grid) 중에서도 가장 많은 브라우저를 지원하기 때문입니다. 이것은 `Bootstrap`에서 수 년동안 사용되었으며, 효과가 있다는 것이 입증되었습니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 미디어 쿼리나 모바일만을 위한 layouts/CSS를 사용하거나 구현해본적 있나요?
 
 네. 한가지 예를 들면, 여러 줄 형식의 네비게이션을 특정 breakpoint를 지나면 `fixed-bottom tab` 형태로 변환하였습니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### SVG 스타일링에 익숙하신가요?
 
@@ -245,7 +247,7 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### screen이 아닌 @media 속성의 예를 들어줄 수 있나요?
 
@@ -270,7 +272,7 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 효율적인 CSS를 작성하는데 있어서 어려움은 무엇인가요?
 
@@ -285,7 +287,7 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### CSS 전처리기를 사용하면 어떤 장단점이 있나요?
 
@@ -301,7 +303,7 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 
 - 전처리기를 위한 도구가 필요합니다. 다시 컴파일하는 시간이 느릴 수도 있습니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 사용했던 CSS 전처리기에 대해 좋았던 점과 싫었던 점을 설명해주세요.
 
@@ -315,13 +317,13 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 - 저는 C++로 작성된 LibSass 바인딩인 `node-sass`를 통해 Sass를 사용합니다. 노드 버전을 바꿀 때 자주 다시 컴파일해야 했습니다.
 - Less에서는 변수 이름의 접두어가 `@`이며, `@media`, `@import`, `@font-face` 규칙과 같은 고유 CSS 키워드와 혼동될 수 있습니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 비표준 글꼴을 사용하는 웹 디자인 컴포넌트를 어떻게 구현하나요?
 
 `font-face`를 사용하고 `font-weight`가 다른 경우 `font-family`를 정의합니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 브라우저가 CSS 선택자에 일치하는 요소를 어떻게 결정하는지 설명하세요.
 
@@ -333,7 +335,7 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치�
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### Pseudo-elements에 대해 설명하고 이 요소가 무엇을 위해 사용되는지 설명하세요.
 
@@ -347,7 +349,7 @@ CSS Pseudo-element는 선택자에 추가되는 키워드로, 선택한 요소�
 
 - <https://css-tricks.com/almanac/selectors/a/after-and-before/>
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 박스 모델에 대한 당신의 이해와 CSS에서 브라우저에 다른 박스 모델로 레이아웃을 렌더링하는 방법을 설명하세요.
 
@@ -372,7 +374,7 @@ CSS 박스 모델은 다음을 계산합니다.
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `* { box-sizing: border-box; }`는 무엇을 하나요? 장점은 무엇인가요?
 
@@ -386,7 +388,7 @@ CSS 박스 모델은 다음을 계산합니다.
 
 - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### CSS의 `display` 속성은 무엇이며 사용법에 대한 몇 가지 예를 들 수 있나요?
 
@@ -394,7 +396,7 @@ CSS 박스 모델은 다음을 계산합니다.
 
 TODO
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `inline` 과 `inline-block` 의 차이점은 무엇인가요?
 
@@ -409,7 +411,7 @@ TODO
 | margin 과 padding | 모든 방향에서 가능. | 모든 방향에서 가능. | 수평방향만 가능. 세로방향을 지정하면, 레이아웃에 영향을 주지 않습니다. `border`와 `padding`이 콘텐츠 주위에 시각적으로 나타나는 경우에도, 수직영역은 `line-height`에 의존합니다. |
 | Float | - | - | 수직 margin과 padding을 설정할 수 있는 `block` 요소와 같아집니다. |
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `relative`, `fixed`, `absolute`, `static` 요소의 차이점은 무엇인가요?
 
@@ -425,7 +427,7 @@ TODO
 
 - https://developer.mozilla.org/en/docs/Web/CSS/position
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 로컬이나 프로덕션 환경에서 사용했던 CSS 프레임워크는 무엇인가요? 어떻게 그들을 바꾸거나 개선할 수 있을까요?
 
@@ -433,7 +435,7 @@ TODO
 - **Semantic UI** - 소스 코드 구조는 테마 커스터마이징을 이해하기 어렵게 만듭니다. 틀에 얽매이지 않는 테마 시스템으로 사용자 정의하기가 어렵습니다. 벤더 라이브러리 내의 하드 코딩된 설정 경로. 부트스트랩과 달리 변수 오버라이드에 대해 잘 설계되지 않았습니다.
 - **Bulma** - 많은 의미없고 불필요한 클래스와 마크업을 필요로 합니다. 이전 버전과 호환되지 않습니다. 버전을 업그레이드하면 미묘한 방식으로 앱이 손상됩니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 새로운 CSS Flexbox나 Grid 스펙을 사용해본 적이 있나요?
 
@@ -447,7 +449,7 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 
 - https://philipwalton.github.io/solved-by-flexbox/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 반응형 웹사이트를 코딩하는 것과 모바일 우선 전략을 사용하는 것 사이의 차이점을 설명하세요.
 
@@ -487,7 +489,7 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 - 모바일 장치에서 적용되는 모든 규칙이 미디어 쿼리에 대해 유효성 검사를 받을 필요가 없으므로 모바일 장치에서 더 뛰어난 성능을 발휘합니다.
 - 반응형 CSS 규칙과 관련하여 보다 명확한 코드를 작성해야합니다.
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 반응형 디자인은 적응형 디자인과 어떻게 다른가요?
 
@@ -503,7 +505,7 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 레티나 그래픽으로 작업 해본 적이 있나요? 그렇다면, 언제, 어떤 기술을 사용하였나요?
 
@@ -542,7 +544,7 @@ HTML5의 `srcset`를 지원하지 않는 브라우저(예: IE11)는 이를 무�
 - http://scottjehl.github.io/picturefill/
 - https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### `absolute` 포지셔닝 대신 `translate()`를 사용하는 이유가 무엇인가요? 또는 그 반대의 경우에 대해서는 어떻게 생각하시나요?, 그 이유는 무엇인가요?
 
@@ -554,7 +556,7 @@ HTML5의 `srcset`를 지원하지 않는 브라우저(예: IE11)는 이를 무�
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
-[[↑] Back to top](#css-질문)
+[[↑] Back to top](#목차)
 
 ### 다른 답변들
 
