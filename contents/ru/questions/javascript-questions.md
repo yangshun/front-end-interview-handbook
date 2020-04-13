@@ -129,8 +129,10 @@ IIFE расшифровывается как Immediately Invoked Function Expres
 
 Вы также можете использовать оператор `void` - `void function foo(){ }()`. К сожалению, с таким подходом есть одна проблема. Выполнение данного выражения всегда возвращает `undefined`, поэтому, если ваше IIFE возвращает что-либо, вы не можете его использовать. Пример:
 
-```
-const foo = void function bar() { return 'foo'; }();
+```js
+const foo = void (function bar() {
+  return 'foo';
+})();
 
 console.log(foo); // undefined
 ```
@@ -845,7 +847,7 @@ for (let i = 1; i <= 100; i++) {
 
 Кроме того, при использовании цикла `for-of`, если вам нужен доступ как к индексу, так и к значению каждого элемента массива, вы можете сделать это с помощью метода ES6 `entries()` и деструктуризации:
 
-```
+```js
 const arr = ['a', 'b', 'c'];
 
 for (let [index, elem] of arr.entries()) {

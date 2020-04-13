@@ -463,6 +463,7 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
     font-size: 24px;
   }
 }
+
 @media (max-width: 600px) {
   .my-class {
     font-size: 12px;

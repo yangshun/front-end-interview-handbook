@@ -134,9 +134,10 @@ IIFE（Immediately Invoked Function Expressions）代表立即执行函数。 Ja
 
 你可能会用到 `void` 操作符：`void function foo(){ }();`。但是，这种做法是有问题的。表达式的值是`undefined`，所以如果你的 IIFE 有返回值，不要用这种做法。例如：
 
-```
-// Don't add JS syntax to this code block to prevent Prettier from formatting it.
-const foo = void function bar() { return 'foo'; }();
+```js
+const foo = void (function bar() {
+  return 'foo';
+})();
 
 console.log(foo); // undefined
 ```

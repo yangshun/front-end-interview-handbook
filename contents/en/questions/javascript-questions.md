@@ -107,7 +107,7 @@ This is an extremely common JavaScript interview question. All JavaScript object
 
 We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
 
-```javascript
+```js
 if (typeof Object.create !== 'function') {
   Object.create = function (parent) {
     function Tmp() {}
@@ -146,7 +146,7 @@ Things to note are:
   - Object.create(objLiteral);
   - Currently, `child.constructor` is pointing to the `Parent`:
 
-```javascript
+```js
 child.constructor
 ƒ () {
   this.name = "Parent";
@@ -157,7 +157,7 @@ child.constructor.name
 
 - If we'd like to correct this, one option would be to do:
 
-```javascript
+```js
 function Child() {
   Parent.call(this);
   this.name = 'child';
@@ -211,9 +211,10 @@ Here are two ways to fix it that involves adding more parentheses: `(function fo
 
 You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
 
-```
-// Don't add JS syntax to this code block to prevent Prettier from formatting it.
-const foo = void function bar() { return 'foo'; }();
+```js
+const foo = void (function bar() {
+  return 'foo';
+})();
 
 console.log(foo); // undefined
 ```
@@ -948,7 +949,7 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 Also, when using the `for-of` loop, if you need to access both the index and value of each array element, you can do so with the ES6 Array `entries()` method and destructuring:
 
-```
+```js
 const arr = ['a', 'b', 'c'];
 
 for (let [index, elem] of arr.entries()) {
@@ -995,9 +996,9 @@ console.log(myObject.number); // 42
 
 If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
 
-```
+```js
 var myObject = {
-  a: 2
+  a: 2,
 };
 
 Object.preventExtensions(myObject);

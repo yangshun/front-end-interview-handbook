@@ -107,7 +107,7 @@ To jest bardzo częste pytanie dotyczące rozmowy rekrutacyjnej w JavaScript. Ws
 
 Mamy już wbudowane `Object.create`, ale gdybyś dostarczył dla niego polyfill, mogłoby to wyglądać:
 
-```javascript
+```js
 if (typeof Object.create !== 'function') {
   Object.create = function (parent) {
     function Tmp() {}
@@ -146,7 +146,7 @@ Warto zwrócić uwagę na:
   - Object.create(objLiteral);
   - W tej chwili, `child.constructor` wskazuje na `Parent`:
 
-```javascript
+```js
 child.constructor
 ƒ () {
   this.name = "Parent";
@@ -157,7 +157,7 @@ child.constructor.name
 
 - Jeśli chcielibyśmy to naprawić, jedną z opcji byłoby:
 
-```javascript
+```js
 function Child() {
   Parent.call(this);
   this.name = 'child';
@@ -211,9 +211,10 @@ Oto dwa sposoby rozwiązania tego problemu, polegające na dodaniu większej lic
 
 Możesz także użyć operatora `void`: `void function foo(){ }();`. Niestety istnieje jeden problem związany z takim podejściem. Ocena danego wyrażenia jest zawsze `undefined`, więc jeśli funkcja IIFE zwraca cokolwiek, nie możesz jej użyć. Przykład:
 
-```
-// Don't add JS syntax to this code block to prevent Prettier from formatting it.
-const foo = void function bar() { return 'foo'; }();
+```js
+const foo = void (function bar() {
+  return 'foo';
+})();
 
 console.log(foo); // undefined
 ```
@@ -948,7 +949,7 @@ Przez większość czasu wolałbym metodę `.forEach`, ale tak naprawdę zależy
 
 Ponadto, gdy korzystasz z pętli `for-of`, jeśli potrzebujesz dostępu zarówno do indeksu, jak i wartości każdego elementu tablicy, możesz to zrobić za pomocą metody ESR Array `entry()` i destrukcji:
 
-```
+```js
 const arr = ['a', 'b', 'c'];
 
 for (let [index, elem] of arr.entries()) {
@@ -995,9 +996,9 @@ console.log(myObject.number); // 42
 
 Jeśli chcesz uniemożliwić dodawanie do obiektu nowych właściwości, ale w przeciwnym razie pozostaw resztę właściwości obiektu w spokoju, wywołaj `Object.preventExtensions(...)`:
 
-```
+```js
 var myObject = {
-  a: 2
+  a: 2,
 };
 
 Object.preventExtensions(myObject);

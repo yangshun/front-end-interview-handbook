@@ -481,6 +481,7 @@ Uaktywnienie strony internetowej oznacza, że niektóre elementy zareagują, dos
     font-size: 24px;
   }
 }
+
 @media (max-width: 600px) {
   .my-class {
     font-size: 12px;

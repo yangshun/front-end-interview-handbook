@@ -481,6 +481,7 @@ Making a website responsive means the some elements will respond by adapting its
     font-size: 24px;
   }
 }
+
 @media (max-width: 600px) {
   .my-class {
     font-size: 12px;
