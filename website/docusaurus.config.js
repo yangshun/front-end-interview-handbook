@@ -80,10 +80,10 @@ module.exports = {
     gtag: {
       trackingID: 'UA-44622716-3',
     },
-    // algolia: {
-    //   apiKey: "bd359779d1c4c71ade6062e8f13f5a83",
-    //   indexName: "yangshun-tech-interview",
-    // },
+    algolia: {
+      apiKey: '92f9396569357020046ad53446dc06e3',
+      indexName: 'front-end-interview-handbook',
+    },
   },
   presets: [
     [
