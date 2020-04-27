@@ -1587,4 +1587,4 @@ Statyczne elementy klasy (właściwości / metody) nie są powiązane z konkretn
 
 ---
 
-Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)
+Stworzone przez [@yangshun](https://github.com/yangshun) polska wersja od [@mbiesiad](https://github.com/mbiesiad)

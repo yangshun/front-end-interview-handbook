@@ -590,4 +590,4 @@ Kiedy używasz `translate ()`, element nadal zajmuje swoją pierwotną przestrze
 
 ---
 
-Stworzone przez @[yangshun](https://github.com/yangshun) polska wersja od @[mbiesiad](https://github.com/mbiesiad)
+Stworzone przez [@yangshun](https://github.com/yangshun) polska wersja od [@mbiesiad](https://github.com/mbiesiad)
