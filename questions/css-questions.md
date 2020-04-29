@@ -1,3 +1,3 @@
 # CSS Questions
 
-Moved to [new location](/contents/en/questions/css-questions.md).
+Moved to [new location](/contents/en/css-questions.md).
