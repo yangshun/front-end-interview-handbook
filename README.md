@@ -11,6 +11,12 @@
   </p>
 </div>
 
+<hr/>
+<h3 align="center">
+  Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout" target="_blank">Support the Equal Justice Initiative</a>
+ </h3>
+ <hr/>
+
 ## What is this?
 
 Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
