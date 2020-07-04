@@ -199,6 +199,7 @@ CSS sprites combine multiple images into one single larger image. It is a common
 
 These techniques are related to accessibility (a11y).
 
+- `visibility: hidden`. The element isn't visible but still occupies its original space and remains a part of the flow of the page. 
 - `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
 - `position: absolute; left: -99999px`. Position it outside of the screen.
 - `text-indent: -9999px`. This only works on text within the `block` elements.
