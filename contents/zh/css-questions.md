@@ -193,7 +193,6 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 这些方法与可访问性（a11y）有关。
 
-- `visibility: hidden`：元素仍然在页面流中，并占用空间。
 - `width: 0; height: 0`：使元素不占用屏幕上的任何空间，导致不显示它。
 - `position: absolute; left: -99999px`： 将它置于屏幕之外。
 - `text-indent: -9999px`：这只适用于`block`元素中的文本。
