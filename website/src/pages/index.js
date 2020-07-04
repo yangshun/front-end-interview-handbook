@@ -202,9 +202,9 @@ function Home() {
                     <img src="https://opencollective.com/tech-interview-handbook/sponsor/0/avatar.svg" />
                   </a>
                   <a
-                    href="https://opencollective.com/tech-interview-handbook/sponsor/3/website"
+                    href="https://opencollective.com/tech-interview-handbook/sponsor/1/website"
                     target="_blank">
-                    <img src="https://opencollective.com/tech-interview-handbook/sponsor/3/avatar.svg" />
+                    <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
                   </a>{' '}
                   <a
                     href="https://opencollective.com/tech-interview-handbook/sponsor/4/website"
