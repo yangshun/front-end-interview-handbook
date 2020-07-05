@@ -1,16 +1,16 @@
 ---
-title: HTML Questions
+title: Preguntas de HTML
 ---
 
-Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
+Respuestas a [Preguntas de trabajo para entrevistas Front-end - Preguntas de HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Solicitudes de inserción para sugerencias y correcciones son bienvenidas!
 
-## Table of Contents
+## Tabla de Contenidos
 
-- [What does a doctype do?](#what-does-a-doctype-do)
-- [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-- [What kind of things must you be wary of when designing or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-- [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
-- [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
+- [¿Qué hace un doctype?](#qué-hace-un-doctype)
+- [¿Cómo desplegar una página con contenido en varios idiomas?](#cómo-desplegar-una-página-con-contenido-en-varios-idiomas)
+- [¿Qué cosas debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?](#qué-cosas-debes-tener-en-cuenta-al-diseñar-o-desarrollar-sitios-en-múltiples-lenguajes)
+- [¿Para qué sirve el atributo `data-`?](#para-qué-sirve-el-atributo-data-)
+- [¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?](#consideras-html5-como-una-plataforma-web-abierta-cuáles-son-los-componentes-básicos-de-html5)
 - [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
 - [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
 - [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
@@ -18,86 +18,86 @@ Answers to [Front-end Job Interview Questions - HTML Questions](https://github.c
 - [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 - [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
 
-### What does a DOCTYPE do?
+### ¿Qué hace un doctype?
 
-**DOCTYPE** is an abbreviation for **DOCument TYPE**. A DOCTYPE is always associated to a **DTD** - for **Document Type Definition**.
+**DOCTYPE** es una abreviación para **DOCument TYPE**. Un DOCTYPE es siempre asociado a **DTD** - que significa **Definición de tipo de documento, por sus siglas en inglés**.
 
-A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a DOCTYPE declares what DTD a document _supposedly_ respects (i.e. this document respects the HTML DTD).
+Un DTD define cómo se deben estructurar los documentos de cierto tipo (por ejemplo, un `button` puede contener un `span` pero no un `div`), mientras un DOCTYPE declara qué DTD un documento _supuestamente_ respeta (por ejemplo, este documento respeta el DTD de HTML).
 
-For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects. Once a user agent has recognized a correct DOCTYPE, it will trigger the **no-quirks mode** matching this DOCTYPE for reading the document. If a user agent doesn't recognize a correct DOCTYPE, it will trigger the **quirks mode**.
+Para páginas web, se requiere la declaración DOCTYPE. Se utiliza para indicar a los agentes de usuario qué versión de las especificaciones HTML respeta el documento. Una vez que un agente de usuario ha reconocido un DOCTYPE correcto, activará el **modo sin peculiaridades** haciendo coincidir este DOCTYPE para leer el documento. Si un agente de usuario no reconoce un DOCTYPE correcto, activará el **modo con peculiaridades**.
 
-The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
+La declaración DOCTYPE para los estándares HTML5 es `<!DOCTYPE html>`.
 
-###### References
+###### Referencias
 
 - https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
-### How do you serve a page with content in multiple languages?
+### ¿Cómo desplegar una página con contenido en varios idiomas?
 
-The question is a little vague, I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page should be displayed only in one consistent language.
+La pregunta es un poco vaga, supondré que se trata del caso más común, que es cómo desplegar una página con contenido disponible en varios idiomas, pero el contenido dentro de la página debe mostrarse solo en un idioma coherente.
 
-When an HTTP request is made to a server, the requesting user agent usually sends information about language preferences, such as in the `Accept-Language` header. The server can then use this information to return a version of the document in the appropriate language if such an alternative is available. The returned HTML document should also declare the `lang` attribute in the `<html>` tag, such as `<html lang="en">...</html>`.
+Cuando se realiza una solicitud HTTP a un servidor, el agente de usuario solicitante generalmente envía información sobre las preferencias de idioma, como en el encabezado `Accept-Language`. El servidor puede usar esta información para devolver una versión del documento en el idioma apropiado si dicha alternativa está disponible. El documento HTML devuelto también debe declarar el atributo `lang` en la etiqueta` <html> `, como` <html lang = "en"> ... </html> `.
 
-In the back end, the HTML markup will contain `i18n` placeholders and content for the specific language stored in YML or JSON formats. The server then dynamically generates the HTML page with content in that particular language, usually with the help of a back end framework.
+En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido para el idioma específico almacenado en formatos YML o JSON. El servidor genera dinámicamente la página HTML con contenido en ese idioma en particular, generalmente con la ayuda de un framework back-end.
 
-###### References
+###### Referencias
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
-### What kind of things must you be wary of when designing or developing for multilingual sites?
+### ¿Qué cosas debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?
 
-- Use `lang` attribute in your HTML.
-- Directing users to their native language - Allow a user to change his country/language easily without hassle.
-- Text in raster-based images (e.g. png, gif, jpg, etc.), is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to translate image text, each string of text will need to have a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
-- Restrictive words/sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments.
-- Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
-- Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
-- Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
-- Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
+- Usar el atributo `lang` en tu HTML.
+- Dirigir a los usuarios a su idioma nativo: permitir que un usuario cambie su país / idioma fácilmente sin problemas.
+- El texto en imágenes basadas en ráster (por ejemplo, png, gif, jpg, etc.) no es escalable: colocar texto en una imagen sigue siendo una forma popular de obtener fuentes atractivas que no sean del sistema para mostrarlas en cualquier computadora. Sin embargo, para traducir el texto de la imagen, cada cadena de texto deberá tener una imagen separada creada para cada idioma. Cualquier cosa más que un puñado de reemplazos como este puede salirse rápidamente de control.
+- Palabras restrictivas / longitud de la oración: algunos contenidos pueden ser más largos cuando se escriben en otro idioma. Se debe tener cuidado con los problemas de diseño o desbordamiento en el diseño. Es mejor evitar diseñar donde la cantidad de texto crearía o rompería el diseño. El conteo de caracteres entra en juego con cosas como titulares, etiquetas y botones. Son un problema menor con el texto de flujo libre, como el texto del cuerpo o los comentarios.
+- Tener en cuenta cómo se perciben los colores: los colores se perciben de manera diferente en todos los idiomas y culturas. El diseño debe usar color adecuadamente.
+- Formato de fechas y monedas: las fechas del calendario a veces se presentan de diferentes maneras. Por ejemplo. "Mayo 31, 2012" en los Estados Unidos versus "31 de mayo de 2012" en partes de Europa.
+- No concatenar cadenas traducidas. No haga nada como `" La fecha de hoy es "+ fecha`. Se dividirá en idiomas con un orden de palabras diferente. Utilizar una cadena de plantilla con sustitución de parámetros para cada idioma en su lugar. Por ejemplo, mira las siguientes dos oraciones en español y chino respectivamente: `Viajaré el {% date%}` y `{% date%} 我 会 出发`. Tenga en cuenta que la posición de la variable es diferente debido a las reglas gramaticales del lenguaje.
+- Dirección de lectura del idioma: en español, leemos de izquierda a derecha, de arriba a abajo, en japonés tradicional, el texto se lee de arriba a abajo, de derecha a izquierda.
 
-###### References
+###### Referencias
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
-### What are `data-` attributes good for?
+### ¿Para qué sirve el atributo `data-`?
 
-Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
+Antes de que los frameworks de JavaScript se hicieran populares, los desarrolladores front-end usaban atributos `data-` para almacenar datos adicionales dentro del DOM, sin otros hacks como atributos no estándar, propiedades adicionales en el DOM. Está destinado a almacenar datos personalizados privados para la página o aplicación, para los cuales no hay más atributos o elementos apropiados.
 
-These days, using `data-` attributes is generally not encouraged. One reason is that users can modify the data attribute easily by using inspect element in the browser. The data model is better stored within JavaScript itself and stay updated with the DOM via data binding possibly through a library or a framework.
+Hoy en día, generalmente no se recomienda el uso de los atributos `data-`. Una razón es que los usuarios pueden modificar el atributo de datos fácilmente mediante el uso de inspección de elementos en el navegador. El modelo de datos se almacena mejor dentro de JavaScript y se mantiene actualizado con el DOM a través del enlace de datos posiblemente a través de una biblioteca o un marco.
 
-However, one perfectly valid use of data attributes, is to add a hook for _end to end_ testing frameworks such as Selenium and Capybara without having to create a meaningless classes or ID attributes. The element needs a way to be found by a particular Selenium spec and something like `data-selector='the-thing'` is a valid way to do so without convoluting the semantic markup otherwise.
+Sin embargo, un uso perfectamente válido de los atributos de datos es agregar un gancho para frameworks de testeo como Selenium y Capybara, sin tener que crear clases sin sentido o atributos ID. El elemento necesita una forma de ser encontrado por una especificación de Selenium particular y algo como `data-selector = 'la-cosa`' es una forma válida de hacerlo sin complicar el marcado semántico.
 
-###### References
+###### Referencias
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
-### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+### ¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?
 
-- Semantics - Allowing you to describe more precisely what your content is.
-- Connectivity - Allowing you to communicate with the server in new and innovative ways.
-- Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
-- Multimedia - Making video and audio first-class citizens in the Open Web.
-- 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
-- Performance and integration - Providing greater speed optimization and better usage of computer hardware.
-- Device access - Allowing for the usage of various input and output devices.
-- Styling - Letting authors write more sophisticated themes.
+- Semántica: Permite describir con mayor precisión cuál es tu contenido.
+- Conectividad: Permite comunicarse con el servidor de forma nueva e innovadora.
+- Offline y almacenamiento: Permite que las páginas web almacenen datos por el lado del cliente localmente y operen fuera offline de manera más eficiente.
+- Multimedia: Hace ciudadanos de primera clase en la Web abierta a videos y audio. 
+- Gráficos y efectos 2D / 3D: Permite una gama mucho más diversa de opciones de presentación.
+- Rendimiento e integración: Proporciona una mayor optimización de la velocidad y un mejor uso del hardware de la computadora.
+- Acceso a dispositivos: Permite el uso de varios dispositivos de entrada y salida.
+- Estilo: Permite que los autores escriban temas más sofisticados.
 
-###### References
+###### Referencias
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 
@@ -114,12 +114,12 @@ All the above-mentioned technologies are key-value storage mechanisms on the cli
 
 _Note: If the user decides to clear browsing data via whatever mechanism provided by the browser, this will clear out any `cookie`, `localStorage`, or `sessionStorage` stored. It's important to keep this in mind when designing for local persistance, especially when comparing to alternatives such as server side storing in a database or similar (which of course will persist despite user actions)._
 
-###### References
+###### Referencias
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
@@ -129,13 +129,13 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 
 Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
 
-###### References
+###### Referencias
 
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 
@@ -149,13 +149,13 @@ Putting `<link>`s in the head is part of proper specification in building an opt
 
 An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. This ensures your code that needs to manipulate DOM elements will not throw and error and halt the entire script. If you need to put `<script>` in the `<head>`, use the `defer` attribute, which will achieve the same effect of downloading and running the script only after the HTML is parsed.
 
-###### References
+###### Referencias
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### What is progressive rendering?
 
@@ -169,12 +169,12 @@ Examples of such techniques:
 - Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
 - Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
-###### References
+###### Referencias
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
@@ -190,18 +190,18 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 
 `srcset`s solve the problem whereby you want to serve smaller image files to narrow screen devices, as they don't need huge images like desktop displays do — and also optionally that you want to serve different resolution images to high density/low-density screens.
 
-###### References
+###### Referencias
 
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### Have you used different HTML templating languages before?
 
 Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
 
-[[↑] Back to top](#table-of-contents)
+[[↑] Volver arriba](#tabla-de-contenidos)
 
 ### Other Answers
 
