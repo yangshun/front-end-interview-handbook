@@ -8,12 +8,12 @@ Respuestas a [Preguntas de trabajo para entrevistas Front-end - Preguntas de HTM
 
 - [¿Qué hace un doctype?](#qué-hace-un-doctype)
 - [¿Cómo desplegar una página con contenido en varios idiomas?](#cómo-desplegar-una-página-con-contenido-en-varios-idiomas)
-- [¿Qué cosas debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?](#qué-cosas-debes-tener-en-cuenta-al-diseñar-o-desarrollar-sitios-en-múltiples-lenguajes)
+- [¿Qué debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?](#qué-debes-tener-en-cuenta-al-diseñar-o-desarrollar-sitios-en-múltiples-lenguajes)
 - [¿Para qué sirve el atributo `data-`?](#para-qué-sirve-el-atributo-data-)
 - [¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?](#consideras-html5-como-una-plataforma-web-abierta-cuáles-son-los-componentes-básicos-de-html5)
-- [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-- [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-- [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
+- [Describe las diferenias entre `cookie`, `sessionStorage` y `localStorage`.](#describe-las-diferenias-entre-cookie-sessionstorage-y-localstorage)
+- [Describe las diferencias entre `<script>`, `<script async>` y `<script defer>`.](#describe-las-diferencias-entre-script-script-async-y-script-defer)
+- [¿Por qué generalmente es buena idea colocar los `<link>`  de CSS entre  `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?](#por-qué-generalmente-es-buena-idea-colocar-los-link-de-css-entre-headhead-y-script-de-js-justo-antes-del-body-conoces-alguna-excepción)
 - [What is progressive rendering?](#what-is-progressive-rendering)
 - [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
 - [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
@@ -50,7 +50,7 @@ En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido pa
 
 [[↑] Volver arriba](#tabla-de-contenidos)
 
-### ¿Qué cosas debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?
+### ¿Qué debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?
 
 - Usar el atributo `lang` en tu HTML.
 - Dirigir a los usuarios a su idioma nativo: permitir que un usuario cambie su país / idioma fácilmente sin problemas.
@@ -99,20 +99,20 @@ Sin embargo, un uso perfectamente válido de los atributos de datos es agregar u
 
 [[↑] Volver arriba](#tabla-de-contenidos)
 
-### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+### Describe las diferenias entre `cookie`, `sessionStorage` y `localStorage`.
 
-All the above-mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
+Las tecnologías mencionadas anteriormente son mecanismos de almacenamiento de llave-valor en el lado del cliente. Solo pueden almacenar valores como cadenas.
 
 |  | `cookie` | `localStorage` | `sessionStorage` |
 | --- | --- | --- | --- |
-| Initiator | Client or server. Server can use `Set-Cookie` header | Client | Client |
-| Expiry | Manually set | Forever | On tab close |
-| Persistent across browser sessions | Depends on whether expiration is set | Yes | No |
-| Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No | No |
-| Capacity (per domain) | 4kb | 5MB | 5MB |
-| Accessibility | Any window | Any window | Same tab |
+| Iniciador | Cliente o servidor. El servidor puede utilizar el header `Set-Cookie` | Cliente | Cliente |
+| Expiración | Se establece manualmente | Para siempre | Al cerrar el tab |
+| Persistente en sesiones del navegador | Depende de si se establece la caducidad | Si | No |
+| Enviado al servidor con cada solicitud HTTP | Las cookies se envían automáticamente a través del encabezado `Cookie` | No | No |
+| Capacidad (por dominio) | 4kb | 5MB | 5MB |
+| Accesibilidad | Cualquier ventana | Cualquier ventana | Mismo tab |
 
-_Note: If the user decides to clear browsing data via whatever mechanism provided by the browser, this will clear out any `cookie`, `localStorage`, or `sessionStorage` stored. It's important to keep this in mind when designing for local persistance, especially when comparing to alternatives such as server side storing in a database or similar (which of course will persist despite user actions)._
+_Nota: Si el usuario decide borrar los datos de navegación a través de cualquier mecanismo proporcionado por el navegador, esto borrará cualquier `cookie`,` localStorage` o `sessionStorage` almacenada. Es importante tener esto en cuenta al diseñar la persistencia local, especialmente cuando se compara con alternativas como el almacenamiento del lado del servidor en una base de datos o similar (que por supuesto persistirá a pesar de las acciones del usuario) ._
 
 ###### Referencias
 
@@ -121,13 +121,13 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 
 [[↑] Volver arriba](#tabla-de-contenidos)
 
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+### Describe las diferencias entre `<script>`, `<script async>` y `<script defer>`.
 
-- `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
-- `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example, analytics.
-- `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference in putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+- `<script>` - El análisis del HTML es bloqueado, el script es extraído y ejecutado inmediatamente, el análisis del HTML se reanuda luego de ejecutado el script.
+- `<script async>` - El script será extraído en paralelo con el análisis del HTML y ejecutado tan pronto esté disponible (potencialmente antes de que el análisis HTML termine). Usa `async` cuando el script sea independiente de cualquier otro script en la página, por ejemplo, scripts de analítica.
+- `<script defer>` - El script será extraído en paralelo al análisis del HTML y ejecutado una vez la página haya terminado de ser analizada. Si hay varios scripts, cada script diferido es ejecutado en el orden en el que se encuentran en el documento. Si un script está basado en un análisis completo del DOM, el atributo `defer` será útil en asegurarse que el análisis del HTML haya terminado antes de ser ejecutado el script. No hay mucha diferencia con poner un `<script>` normal al final del `<body>`. Un script diferido no debe contener `document.write`.
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+Nota: Los atributos `async` y `defer` son ignorados por scripts que no tienen el atributo `src`.
 
 ###### Referencias
 
@@ -137,17 +137,17 @@ Note: The `async` and `defer` attrib­utes are ignored for scripts that have no 
 
 [[↑] Volver arriba](#tabla-de-contenidos)
 
-### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+### ¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre  `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?
 
-**Placing `<link>`s in the `<head>`**
+**Colocar los `<link>` en el `<head>`**
 
-Putting `<link>`s in the head is part of proper specification in building an optimized website. When a page first loads, HTML and CSS are being parsed simultaneously; HTML creates the DOM (Document Object Model) and CSS creates the CSSOM (CSS Object Model). Both are needed to create the visuals in a website, allowing for a quick "first meaningful paint" timing. This progressive rendering is a category optimization sites are measured in their performance scores. Putting stylesheets near the bottom of the document is what prohibits progressive rendering in many browsers. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is then stuck viewing a blank white page. Other times there can be flashes of unstyled content (FOUC), which can shows a webpage with no styling applied.
+Colocar los `<link>` dentro de `<head></head>` es parte de la especificación adecuada en la construcción de un sitio web optimizado. Cuando una página se carga por primera vez, el HTML y el CSS se analizan simultáneamente; el HTML crea el DOM (Modelo de objetos de documento) y el CSS crea el CSSOM (Modelo de objetos de CSS). Ambos son necesarios para crear los elementos visuales en un sitio web, lo que permite una sincronización rápida de la "primera pintura significativa". Esta representación progresiva es una categoría de optimización de sitios que se miden en puntajes de rendimiento. Poner hojas de estilo cerca de la parte inferior del documento prohíbe la representación progresiva en muchos navegadores. Algunos navegadores bloquean la representación para evitar tener que volver a pintar elementos de la página si cambian sus estilos. El usuario queda atrapado viendo una página en blanco. Otras veces puede haber flashes de contenido sin estilo (FOUC), que puede mostrar una página web sin aplicar estilo.
 
-**Placing `<script>`s just before `</body>`**
+**Colocar los `<script>` justo antes del `</body>`**
 
-`<script>`s block HTML parsing while they are being downloaded and executed. Placing the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+Los `<script>` bloquean el análisis del HTML mientras son descargados y ejecutados. Colocar los scripts en la parte inferior permitirá que el HTML se analice y se muestre primero al usuario.
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. This ensures your code that needs to manipulate DOM elements will not throw and error and halt the entire script. If you need to put `<script>` in the `<head>`, use the `defer` attribute, which will achieve the same effect of downloading and running the script only after the HTML is parsed.
+Una excepción para el posicionamiento de los `<script>` en la parte inferior es cuando el script contiene `document.write()`, pero hoy en día no es una buena práctica usar `document.write()`. Además, colocar `<script>` en la parte inferior significa que el navegador no puede comenzar a descargar los scripts hasta que se analice todo el documento. Esto garantiza que el código que necesita manipular elementos del DOM no arrojará errores y detendrá todo el script. Si necesitas poner algún `<script>` dentro del `<head>` por algún motivo, se debe utilizar el atributo `defer`, que logrará el mismo efecto de descarga diferido y ejecutará el script solo después de analizado el HTML.
 
 ###### Referencias
 
