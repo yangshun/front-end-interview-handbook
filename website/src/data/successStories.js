@@ -24,21 +24,16 @@ export default [
     ),
   },
   {
-    name: 'Siddhesh Karekar',
-    title: 'Software Engineer, Google',
-    thumbnail: 'https://avatars1.githubusercontent.com/u/18223888?s=460&v=4',
+    name: 'Kai Li',
+    title: 'Software Engineer, Zendesk',
+    thumbnail: 'https://github.com/li-kai.png',
     quote: (
       <>
-        Most of us are familiar with having the prospect of having to grind tons
-        of LeetCode problems before the interview, but I really wanted a sense
-        of direction, an outline of sorts to prepare efficiently; I wanted to
-        pick questions that covered all the important concepts one can be tested
-        on. The Tech Interview Handbook provides just that; the Algorithms
-        section was an absolutely invaluable resource and a great overall
-        reference to brush up my fundamentals with the helpful hints and tips
-        provided, and also solve some of the most popular questions categorized
-        by type. I certainly have Yangshun to thank for helping me land my dream
-        job at Google!
+        Before discovering the handbook, I didn't know what to expect for my
+        frontend interviews. Thanks to it, I had a better understanding and even
+        learned new things about frontend development. The handbook is an
+        immense resource, one that I still use to refresh and reinforce my
+        knowledge to tackle interviews confidently!
       </>
     ),
   },
