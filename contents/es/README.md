@@ -41,14 +41,15 @@ Puede que te interese el [Manual para Entrevistas Tecnológicas](https://github.
 
 ## Contenido
 
-- [Inglés](/contents/en/README.md)
+- [Inglés (English)](/contents/en/README.md)
 - [Chino (Simplificado) (简体中文)](/contents/zh/README.md)
 - [Japonés (日本語)](/contents/jp/README.md)
 - [Coreano (한국어)](/contents/kr/README.md)
 - [Polaco (Polski)](contents/pl/README.md)
 - [Portugués (Português)](contents/pr/README.md)
 - [Ruso (Русский)](/contents/ru/README.md)
-- [Tagalog](/contents/tl/README.md)
+- [Tagalo (Tagalog)](/contents/tl/README.md)
+- [Español](/contents/es/README.md)
 
 ## Relacionado
 
