@@ -9,6 +9,9 @@
     <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
     </em>
   </p>
+  <h3>
+    <a href="https://yangshun.github.io/front-end-interview-handbook/">Read on the website</a>
+  </h3>
 </div>
 
 <hr/>
@@ -38,15 +41,15 @@ While there are some existing resources to help front end developers in preparin
 You might be interested in the [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://yangshun.github.io/tech-interview-handbook/cheatsheet)!
 
 <div align="center">
-  <a href="https://yangshun.github.io/front-end-interview-handbook/">
-    <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
+  <a href="https://yangshun.github.io/tech-end-interview-handbook/">
+    <img src="assets/coding.svg" alt="Web Technologies illustration" width="400"/>
   </a>
   <br/>
   <p>
     <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>
   <h3>
-    <a href="https://yangshun.github.io/front-end-interview-handbook/">Read on the website</a>
+    <a href="https://yangshun.github.io/tech-interview-handbook/">Read on the website</a>
   </h3>
 </div>
 
