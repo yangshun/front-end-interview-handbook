@@ -12,10 +12,12 @@
 </div>
 
 <hr/>
+
 <h3 align="center">
   Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout" target="_blank">Support the Equal Justice Initiative</a>
- </h3>
- <hr/>
+</h3>
+
+<hr/>
 
 ## What is this?
 
@@ -36,11 +38,16 @@ While there are some existing resources to help front end developers in preparin
 You might be interested in the [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://yangshun.github.io/tech-interview-handbook/cheatsheet)!
 
 <div align="center">
-  <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
+  <a href="https://yangshun.github.io/front-end-interview-handbook/">
+    <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>
+  </a>
   <br/>
   <p>
     <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>
+  <h3>
+    <a href="https://yangshun.github.io/front-end-interview-handbook/">Read on the website</a>
+  </h3>
 </div>
 
 ## Table of Contents
