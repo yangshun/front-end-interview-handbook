@@ -30,6 +30,16 @@ module.exports = {
               activeBasePath: 'en',
             },
             {
+              label: '简体中文',
+              to: 'zh/html-questions',
+              activeBasePath: 'zh',
+            },
+            {
+              label: 'Español',
+              to: 'es/html-questions',
+              activeBasePath: 'es',
+            },
+            {
               label: '日本語',
               to: 'jp/html-questions',
               activeBasePath: 'jp',
@@ -58,11 +68,6 @@ module.exports = {
               label: 'Tagalog',
               to: 'tl/html-questions',
               activeBasePath: 'tl',
-            },
-            {
-              label: '简体中文',
-              to: 'zh/html-questions',
-              activeBasePath: 'zh',
             },
           ],
         },

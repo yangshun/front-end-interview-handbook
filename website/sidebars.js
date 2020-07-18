@@ -6,6 +6,13 @@ module.exports = {
       'en/javascript-questions',
     ],
   },
+  es: {
+    Preguntas: [
+      'es/html-questions',
+      'es/css-questions',
+      'es/javascript-questions',
+    ],
+  },
   jp: {
     に関する質問: [
       'jp/html-questions',
