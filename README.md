@@ -28,6 +28,24 @@ Unlike typical software engineer job interviews, front-end job interviews have l
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
+## Why do I want this?
+
+### Go From Zero to Hero
+
+Go from zero to front end interview hero with this handbook. No prior interview experience needed.
+
+### Back to Basics
+
+Learn to walk before you learn to fly. While React, Vue and Angular are cool, make sure you also know your fundamentals.
+
+### Community Effort
+
+The best thing about Open Source is that the community vets the contents, so you can be sure the answers here have been proofread by many.
+
+## Who is this for?
+
+Anybody who wants to land a job at a tech company for a front end role and is looking to make sure they don't stumble on the basic questions. To be frank, I revise the answers here from time to time as well!
+
 ---
 
 <div align="center">

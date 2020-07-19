@@ -89,46 +89,24 @@ function Home() {
                   <div className="col">
                     <h3>From Zero to Hero</h3>
                     <p>
-                      Go from zero to tech interview hero with this handbook. No
-                      prior interview experience needed.
+                      Go from zero to front end interview hero with this
+                      handbook. No prior interview experience needed.
                     </p>
                   </div>
                   <div className="col">
-                    <h3>Curated Practice Questions</h3>
+                    <h3>Back to Basics</h3>
                     <p>
-                      No one has time to practice a few hundred LeetCode
-                      questions. We tell you which are the best questions to
-                      practice.
+                      Learn to walk before you learn to fly. While React, Vue
+                      and Angular are cool, make sure you also know your
+                      fundamentals.
                     </p>
                   </div>
                   <div className="col">
-                    <h3>Interview Cheatsheet</h3>
+                    <h3>Community Effort</h3>
                     <p>
-                      Straight-to-the-point Do's and Don'ts during an interview.
-                      Knowing these, the battle is already half won.
-                    </p>
-                  </div>
-                </div>
-                <div className="row margin-vert--lg">
-                  <div className="col">
-                    <h3>Practical Algorithm Tips</h3>
-                    <p>
-                      Practical tips for every algorithm topic - common
-                      techniques and corner cases to look out for.
-                    </p>
-                  </div>
-                  <div className="col">
-                    <h3>Behavioral Questions</h3>
-                    <p>
-                      Check out what behavioral questions companies commonly ask
-                      and you can prepare your answers ahead of time.
-                    </p>
-                  </div>
-                  <div className="col">
-                    <h3>Tested and Proven</h3>
-                    <p>
-                      Countless engineers have gotten their dream jobs with its
-                      help.
+                      The best thing about Open Source is that the community
+                      vets the contents, so you can be sure the answers here
+                      have been proofread by many.
                     </p>
                   </div>
                 </div>
