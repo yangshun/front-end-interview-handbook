@@ -207,7 +207,7 @@ Handelt es sich um ein Retina-Display (Auflösung: 2x), verwendet der Browser di
 
 Durch `srcset`s lassen sich Bilddateien Geräte- und Auflösungsspezifisch ausliefern: Kleine Bilder an Geräte mit schmalem Bildschirm, große, an Geräte mit großen Monitoren - und optional auch, Bilder unterschiedlicher Auflösung je nach Pixeldichte.
 
-###### References
+###### Referenzen
 
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
