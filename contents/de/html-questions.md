@@ -17,7 +17,7 @@ https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/
 - [Stelle dir HTML5 als eine offene Internetplattform vor. Was sind die Basiskomponenten von HTML5?](#stelle-dir-html5-als-eine-offene-internetplattform-vor-was-sind-die-basiskomponenten-von-html5)
 - [Beschreibe die Unterschiede zwischen `Cookies`, `sessionStorage` und `localStorage`.](#beschreibe-die-unterschiede-zwischen-cookies-sessionstorage-und-localstorage)
 - [Beschreibe die Unterschiedie zwischen `<script>`, `<script async>` und `<script defer>`.](#beschreibe-die-unterschiede-zwischen-script-script-async-und-script-defer)
-- [Warum ist es eine gute Idee, die `<link>`s zum CSS-Stylesheet inneralb der `<head></head>` Tags zu platzieren und die JS `<script>`s direkt vorm `</body>` einzubinden? Würdest du Ausnwahmen machen?](#warum-ist-es-eine-gute-idee-die-links-zum-css-stylesheet-inneralb-der-head-head-tags-zu-platzieren-und-die-js-scripts-direkt-vorm-body-einzubinden-würdest-du-ausnwahmen-machen)
+- [Warum ist es eine gute Idee, die `<link>`s zum CSS-Stylesheet inneralb der `<head></head>` Tags zu platzieren und die JS `<script>`s direkt vorm `</body>` einzubinden? Würdest du Ausnahmen machen?](#warum-ist-es-eine-gute-idee-die-links-zum-css-stylesheet-inneralb-der-head-head-tags-zu-platzieren-und-die-js-scripts-direkt-vorm-body-einzubinden-würdest-du-ausnwahmen-machen)
 - [Was ist progressives Rendern?](#was-ist-progressives-rendern)
 - [Warum würdest du ein `srcset` Attribute in ein image tag einsetzen? Erkläre wie der Browser bei der Auswertung des Inhalts dieses Attributs vorgeht](#warum-würdest-du ein-srcset-attribute-in-ein-image-tag-einsetzen-erkläre-wie-der-browser-bei-der-auswertung-des-inhalts-dieses-attributs-vorgeht)
   <!-- templating languages = template Enginges ? -->
@@ -67,7 +67,7 @@ Im Backend enthält das HTML-Markup `i18n'-Platzhalter und Inhalte für die jewe
 - Setze im HTML das `lang` Attribut.
 - Erlauben Sie einem Benutzer, sein Land/seine Sprache einfach und problemlos zu ändern.
 - Text in rasterbasierten Bildern (z.B. png, gif, jpg, etc.) auszuliefern, ist kein skalierbarer Ansatz. Dabei ist das Platzieren von Texten in Bildern immer noch eine beliebte Methode, um gut aussehende, nicht systemgebundene Schriftarten auf jedem Computer anzuzeigen. In diesem Fall muss aber für jeder auszuliefernde Sprache ein eigenes mit der entsprechenden Textzeichenfolge erstellt werden. Alles, was über eine Handvoll solcher Ersetzungen hinausgeht, kann schnell außer Kontrolle geraten.
-- Restriktive Wort-/Satzlänge - Manche Inhalte können länger sein, wenn sie in einer anderen Sprache geschrieben sind. Seien Sie vorsichtig bei Layout- oder Überlaufproblemen im Design. Besondere Aufemerksamkeit ist prominenten Elementen wie Überschriften, Beschriftungen und Schaltflächen zu widmen, das hier sich ändernde Zeilenlängen schnell Überläufe bilden können. Frei fließender Text wie Fließtext oder Kommentartext ist weniger problematisch.
+- Restriktive Wort-/Satzlänge - Manche Inhalte können länger sein, wenn sie in einer anderen Sprache geschrieben sind. Sei vorsichtig bei Layout- oder Überlaufproblemen im Design. Besondere Aufemerksamkeit ist prominenten Elementen wie Überschriften, Beschriftungen und Schaltflächen zu widmen, das hier sich ändernde Zeilenlängen schnell Überläufe bilden können. Frei fließender Text wie Fließtext oder Kommentartext ist weniger problematisch.
 - Achte darauf, wie Farben wahrgenommen werden - Farben werden je nach Sprache und Kultur unterschiedlich wahrgenommen. Das Design sollte das berücksichtigen.
 - Formatierung von Daten und Währungen - Kalenderdaten werden unterschiedlich dargestellt. Z.B. "31. Mai 2012" in den USA vs. "31. Mai 2012" in Teilen Europas.
 
@@ -136,15 +136,15 @@ _Note: Löscht der Nutzer seine Browser-Daten s zu löschen, löscht dies auch j
 
 [[↑] Back to top](#table-of-contents)
 
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+### Beschreibe die Unterschiedie zwischen `<script>`, `<script async>` und `<script defer>`.
 
-- `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
-- `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example, analytics.
-- `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference in putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+- `<script>` - Das HTML-Parsing wird blockiert, das Skript wird geholt (gefetcht) und sofort ausgeführt, das HTML-Parsing wird nach Ausführung des Scripts fortgesetzt.
+- `<script async>` - Das Skript wird parallel zum HTML-Parsing geholt (gefetcht) und ausgeführt, sobald es verfügbar ist (möglicherweise bevor das HTML-Parsing abgeschlossen ist). Verwende `async`, wenn das Skript unabhängig von anderen Skripten auf der Seite ist, z.B. bei Analysen. (im Original "Analytics")
+- `<script defer>` - Das Skript wird parallel zum HTML-Parsing geholt (gefetcht) aber erst dann ausgeführt, wenn das Parsen der Seite beendet ist. Sind mehrere Scripts vorhanden, werden sie in der Reihenfolge ausgeführt, in der sie im Dokument angetroffen wurden. Wenn sich ein Script auf ein vollständig geparstes DOM stützt, ist das `defer`-Attribut nützlich, um sicherzustellen, dass das HTML vor der Ausführung vollständig geparst wird. Es macht keinen großen Unterschied, ein normales `<script>` an das Ende von `<body>` zu setzen. Ein verzögertes Skript darf kein `document.write` enthalten.
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+Hinweis: Die Attribute `async` und `defer` werden für Skripte ignoriert, die kein `src'-Attribut haben.
 
-###### References
+###### Referenzen
 
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
@@ -152,19 +152,19 @@ Note: The `async` and `defer` attrib­utes are ignored for scripts that have no 
 
 [[↑] Back to top](#table-of-contents)
 
-### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+### Warum ist es eine gute Idee, die `<link>`s zum CSS-Stylesheet inneralb der `<head></head>` Tags zu platzieren und die JS `<script>`s direkt vorm `</body>` einzubinden? Würdest du Ausnahmen machen?
 
-**Placing `<link>`s in the `<head>`**
+**Platzieren von `<link>`s im `<head>`**
 
-Putting `<link>`s in the `<head>` is part of proper specification in building an optimized website. When a page first loads, HTML and CSS are being parsed simultaneously; HTML creates the DOM (Document Object Model) and CSS creates the CSSOM (CSS Object Model). Both are needed to create the visuals in a website, allowing for a quick "first meaningful paint" timing. This progressive rendering is a category optimization sites are measured in their performance scores. Putting stylesheets near the bottom of the document is what prohibits progressive rendering in many browsers. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is then stuck viewing a blank white page. Other times there can be flashes of unstyled content (FOUC), which show a webpage with no styling applied.
+Eine optimierten Website setzt voraus, dass das `<link>` Attribut im `<head>` platziert ist. Wird eine Seite erstmalig geladen, werden HTML und CSS gleichzeitig geparst; HTML erzeugt das DOM (Document Object Model) und CSS erzeugt das CSSOM (CSS Object Model). Beide sind für die Erstellung einer Website erforderlich. Je schneller geparsed wird, desto besser, denn "first meaningful paint" ist ein wichtiger Performance-Indikator. Die Platzierung von Stylesheets am unteren Rand des Dokuments würde das progressessive Rendering in vielen Browsern verhindern. Einige Browser blockieren das Rendering, um zu vermeiden, dass Elemente der Seite neu gezeichnet werden müssen, wenn sich ihre Stile ändern. Der Benutzer bleibt dann bei der Anzeige einer leeren weißen Seite hängen. Zu anderen Zeiten kann es Flashs mit unstyled content (FOUC) geben, die eine Webseite ohne angewandtes Styling zeigen.
 
-**Placing `<script>`s just before `</body>`**
+**Platzieren von `<script>`s direkt vor `</body>`**
 
-`<script>` tags block HTML parsing while they are being downloaded and executed which can slow down your page. Placing the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+`<script>` Tags blockieren das Parsen von HTML, während sie heruntergeladen und ausgeführt werden. Das kann die Seite verlangsamen. Durch die Platzierung der Skripte am unteren Rand wird das HTML zuerst geparsed und dem Benutzer angezeigt.
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. This ensures your code that needs to manipulate DOM elements will not throw and error and halt the entire script. If you need to put `<script>` in the `<head>`, use the `defer` attribute, which will achieve the same effect of downloading and running the script only after the HTML is parsed.
+Es gibt eine Ausnahme für die Positionierung von `<script>`s am unteren Rand: Dein Script enthält `document.write()`. Das ist aber heutzutage eine schlechte Praxis. Außerdem bedeutet die Platzierung von `<script>`s am unteren Rand, dass der Browser erst dann mit dem Herunterladen der Skripte beginnen kann, wenn das gesamte Dokument geparst wurde. Dies stellt sicher, dass Code, der DOM-Elemente manipulieren muss, das gesamte Skript nicht verwirft, Fehler macht und anhält. Muss `<script>` in's `<head>` gesetzt werden, sollte man das`defer`-Attribut nutzen, das den gleichen Effekt erzielt wie das Herunterladen und Ausführen des Skripts nach dem Parsen des HTML-Dokuments.
 
-Keep in mind that putting scripts just before the closing `</body>` tag will create the illusion that the page loads faster on an empty cache (since the scripts won't block downloading the rest of the document). However, if you have some code you want to run during page load, it will only start executing after the entire page has loaded. If you put those scripts in the `<head>` tag, they would start executing before - so on a primed cache the page would actually appear to load faster.
+Denke daran, dass das Einfügen von Scripten vor dem schließenden `</body>`-Tag die Illusion erzeugt, dass die Seite in einem leeren Cache schneller geladen wird (da die Scripte den Download des restlichen Dokuments nicht blockieren). Der Code wird erst dann ausgeführt, wenn die gesamte Seite geladen ist. Sind diese Scripte in das `<head>`-Tag gesetzt, beginnen sie vorher mit der Ausführung - auf einem vorbereiteten Cache würde die Seite also tatsächlich schneller geladen werden.
 
 ###### References
 
@@ -174,38 +174,38 @@ Keep in mind that putting scripts just before the closing `</body>` tag will cre
 
 [[↑] Back to top](#table-of-contents)
 
-### What is progressive rendering?
+### Was ist progressives Rendern?
 
-Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
+"Progressive rendering" (progressive Wiedergabe) bezeichnet Techniken zur Verbesserung der Leistung einer Webseite (insbesondere zur Verbesserung der wahrgenommenen Ladezeit), da Inhalte so schnell wie möglich dargestellt werden können.
 
-It used to be much more prevalent in the days before broadband internet but it is still used in modern development as mobile data connections are becoming increasingly popular (and unreliable)!
+Vor der Einführung des Breitband-Internets war es viel weiter verbreitet, aber es wird in der modernen Web-Entwicklung immer noch verwendet, da mobile Datenverbindungen immer populärer (und unzuverlässiger) werden!
 
-Examples of such techniques:
+Beispiele für diese Technologie:
 
-- Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
-- Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
-- Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+- Langsames Laden von Bildern (Lazy loading of images) - Bilder werden nicht alle auf einmal geladen. JavaScript lädtt Bilder erst, wenn der Benutzer in den Teil der Seite scrollt, der das Bild anzeigt.
+- Priorisierung von sichtbarem Inhalt (oder Rendering über dem Falz "above-the-fold rendering" ) - Berücksichtige nur das für das erste Erscheinen der Seite nötige Minimum an CSS/Inhalten/Scripten. Durch verzögerte Scripte bzw. durch `DOMContentLoaded`/`load` können andere Ressourcen nachgeladen werden.
+- Asynchrone HTML-Fragmente - Flushen von Teilen des HTML in den Browser, während die Seite im Backend aufgebaut wird.Mehr Details findest du [hier](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
-###### References
+###### Referenzen
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
 [[↑] Back to top](#table-of-contents)
 
-### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+### Warum würdest du ein `srcset` Attribute in ein image tag einsetzen? Erkläre wie der Browser bei der Auswertung des Inhalts dieses Attributs vorgeht.
 
-You would use the `srcset` attribute when you want to serve different images to users depending on their device display width - serve higher quality images to devices with retina display enhances the user experience while serving lower resolution images to low-end devices increase performance and decrease data wastage (because serving a larger image will not have any visible difference). For example: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` tells the browser to display the small, medium or large `.jpg` graphic depending on the client's resolution. The first value is the image name and the second is the width of the image in pixels. For a device width of 320px, the following calculations are made:
+Das`srcset`-Attribut wird verwendet, um Benutzern abhängig von der Anzeigebreite ihrer Geräte unterschiedliche Bilder zur Verfügung zu stellen. Die Bereitstellung von Bildern höherer Qualität für Geräte mit Retina-Display verbessert das Nutzererlebnis, während die Bereitstellung von Bildern niedrigerer Auflösung für Geräte des unteren Marktsegments die Leistung erhöht und das Datenvolumen verringert (da die Bereitstellung eines größeren Bildes keinen sichtbaren Unterschied aufweist). Zum Beispiel: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` weist den Browser an, die kleine, mittlere oder große `.jpg` Grafik abhängig von der Auflösung des Kunden anzuzeigen. Der erste Wert ist der Bildname und der zweite ist die Breite des Bildes in Pixeln. Für eine Gerätebreite von 320px werden die folgenden Berechnungen durchgeführt:
 
 - 500 / 320 = 1.5625
 - 1000 / 320 = 3.125
 - 2000 / 320 = 6.25
 
-If the client's resolution is 1x, 1.5625 is the closest, and `500w` corresponding to `small.jpg` will be selected by the browser.
+Wenn die Auflösung des Clients 1x ist, ist 1.5625 die nächstliegende Auflösung. Damit entspricht `500w` `small.jpg` und wird vom Browser ausgewählt.
 
-If the resolution is retina (2x), the browser will use the closest resolution above the minimum. Meaning it will not choose the 500w (1.5625) because it is greater than 1 and the image might look bad. The browser would then choose the image with a resulting ratio closer to 2 which is 1000w (3.125).
+Handelt es sich um ein Retina-Display (Auflösung: 2x), verwendet der Browser die nächstliegende Auflösung, die über dem Minimum liegt. Das heißt, er wird nicht die 500w (1,5625) wählen, nur weil sie größer als 1. Der Browser würde stattdessen das Bild mit einem resultierenden Verhältnis wählen, das näher an 2 liegt, d.h. 1000w (3,125). (Dessen Qualität der einer Retina-Auflösung entspricht)
 
-`srcset`s solve the problem whereby you want to serve smaller image files to narrow screen devices, as they don't need huge images like desktop displays do — and also optionally that you want to serve different resolution images to high density/low-density screens.
+Durch `srcset`s lassen sich Bilddateien Geräte- und Auflösungsspezifisch ausliefern: Kleine Bilder an Geräte mit schmalem Bildschirm, große, an Geräte mit großen Monitoren - und optional auch, Bilder unterschiedlicher Auflösung je nach Pixeldichte.
 
 ###### References
 
@@ -214,13 +214,13 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 
 [[↑] Back to top](#table-of-contents)
 
-### Have you used different HTML templating languages before?
+### Hast du Erfahrungen mit unterschiedlichen HTML templating languages gemacht?
 
-Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, and EJS just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
+Ja, Pug (früher Jade), ERB, Slim, Handlebars, Jinja, Liquid und EJS, um nur einige zu nennen. Meiner Meinung nach sind sie mehr oder weniger gleich und bieten eine ähnliche Funktionalität: Inhalte zu "escapen" und die anzuzeigenden Daten zu Filter um beispielsweise ihre Darstellung zu manipulieren. Die meisten Template-Engines erlauben es, eigene Filter einzufügen, falls eine benutzerdefinierte Verarbeitung benötigt wird.
 
 [[↑] Back to top](#table-of-contents)
 
-### Other Answers
+### Andere Antworten
 
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
