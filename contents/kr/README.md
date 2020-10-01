@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
-    <img src="https://cdn.rawgit.com/yangshun/front-end-interview-handbook/23d89c8/assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
+    <img src="../../assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
   </a>
   <p>
     <em>번역: <a href="https://github.com/ysm0622">@양성민</a>, <a href="https://github.com/devjang">@장현석</a>, <a href="https://github.com/tuhbm">@김태균</a>, <a href="https://github.com/octave08">@황규정</a>
