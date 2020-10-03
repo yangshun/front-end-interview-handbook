@@ -60,6 +60,7 @@ Answers to [Front-end Job Interview Questions - JS Questions](https://github.com
 - [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
 - [How can you share code between files?](#how-can-you-share-code-between-files)
 - [Why you might want to create static class members?](#why-you-might-want-to-create-static-class-members)
+- [What is virtual dom?](#what-is-virtual-dom)
 
 ### Explain event delegation
 
@@ -1578,6 +1579,16 @@ Static class members (properties/methods) are not tied to a specific instance of
 ###### References
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
+
+[[↑] Back to top](#table-of-contents)
+
+### What is virtual dom?
+
+The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
+
+###### References
+
+- https://reactjs.org/docs/faq-internals.html
 
 [[↑] Back to top](#table-of-contents)
 
