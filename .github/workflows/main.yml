@@ -1,0 +1,98 @@
+name: Docs to PDF
+# This workflow is triggered on pushes to the master branch.
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  converttopdf:
+    name: Create our PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Generate PDF for each folder in /contents
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/de
+          output_dir: pdfde
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/en
+          output_dir: pdfen
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/es
+          output_dir: pdfes
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/jp
+          output_dir: pdfjp
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/kr
+          output_dir: pdfkr
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/pl
+          output_dir: pdfpl
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/pr
+          output_dir: pdfpr
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/ru
+          output_dir: pdfru
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/tl
+          output_dir: pdftl
+      - uses: mkrakowitzer/actions-makepdfs@master
+        with:
+          markdown_dir: contents/zh
+          output_dir: pdfzh
+
+
+      # Upload PDF of Markdown files
+      - uses: actions/upload-artifact@v1
+        with:
+          name: de
+          path: pdfde
+      - uses: actions/upload-artifact@v1
+        with:
+          name: en
+          path: pdfen
+      - uses: actions/upload-artifact@v1
+        with:
+          name: es
+          path: pdfes
+      - uses: actions/upload-artifact@v1
+        with:
+          name: jp
+          path: pdfjp
+      - uses: actions/upload-artifact@v1
+        with:
+          name: kr
+          path: pdfkr
+      - uses: actions/upload-artifact@v1
+        with:
+          name: pl
+          path: pdfpl
+      - uses: actions/upload-artifact@v1
+        with:
+          name: pr
+          path: pdfpr
+      - uses: actions/upload-artifact@v1
+        with:
+          name: ru
+          path: pdfru
+      - uses: actions/upload-artifact@v1
+        with:
+          name: tl
+          path: pdftl
+      - uses: actions/upload-artifact@v1
+        with:
+          name: zh
+          path: pdfzh
