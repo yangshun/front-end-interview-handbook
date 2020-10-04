@@ -14,7 +14,7 @@
   </h3>
 </div>
 
-<hr/>
+<hr/> 
 
 <h3 align="center">
   Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout" target="_blank">Support the Equal Justice Initiative</a>
