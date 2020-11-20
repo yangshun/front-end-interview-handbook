@@ -193,7 +193,6 @@ Ang mga CSS na sprite ay pinagsasama ang maramihang mga imahe sa isang solong ma
 
 Ang mga pamamaraan na ito ay may kaugnayan sa pagkakarating (a11y).
 
-- `visibility: hidden`. Gayunpaman ang elemento ay nasa daloy pa rin ng pahina, at umuupa pa rin ng espasyo.
 - `width: 0; height: 0`. Gawin ang elemento na hindi kukuha ng anumang espasyo sa iskrin ng lahat, na magreresulta sa hindi pagpapakita nito.
 - `position: absolute; left: -99999px`. Ilagay ito sa labas ng iskrin.
 - `text-indent: -9999px`. Ito ay gagana lamang sa mga teksto sa loob ng `block` na mga elemento.
