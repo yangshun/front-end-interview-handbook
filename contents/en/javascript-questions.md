@@ -1094,7 +1094,6 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 ###### References
 
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
-- http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
 
 [[↑] Back to top](#table-of-contents)
 
