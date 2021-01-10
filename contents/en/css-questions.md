@@ -405,7 +405,7 @@ The box model has the following rules:
 
 | `display` | Description |
 | :-- | :-- |
-| `none` | Does not display an element (the elementv no longer affects the layout of the document). All child element are also no longer displayed. The document is rendered as if the element did not exist in the document tree |
+| `none` | Does not display an element (the element no longer affects the layout of the document). All child element are also no longer displayed. The document is rendered as if the element did not exist in the document tree |
 | `block` | The element consumes the whole line in the block direction (which is usually horizontal) |
 | `inline` | Elements can be laid out beside each other |
 | `inline-block` | Similar to `inline`, but allows some `block` properties like setting `width` and `height` |
