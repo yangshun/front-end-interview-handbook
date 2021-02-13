@@ -979,7 +979,7 @@ baz = 'qux';
 
 ### ES6 のクラス定義と、ES5 のコンストラクタ関数との違いには何がありますか？
 
-Let's first look at example of each:
+まずはそれぞれの例を見てみましょう。
 
 ```js
 // ES5 Function Constructor
@@ -995,9 +995,9 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar.
+単純なコンストラクタの場合、見た目はよく似ています。
 
-The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+コンストラクタの主な違いは継承を使う場合です。`Person`をサブクラス化した Student クラスを作成して`studentId` フィールドを追加したい場合は、上記に加えて以下のようにしなければなりません。
 
 ```js
 // ES5 Function Constructor
@@ -1021,24 +1021,29 @@ class Student extends Person {
 }
 ```
 
-It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+ES5 で継承を使う方が冗長になりますし、ES6 版の方がわかりやすくて覚えやすいです。
 
-###### References
+###### 参考
 
-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance (英語)
+- https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/Inheritance (日本語)
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 [[↑] 先頭に戻る](#目次)
 
 ### アロー構文の使い方を例示してください。この構文と他の方法による定義とは何が違いますか？
 
-One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
+アロー関数の明白な利点の 1 つは、関数を作成するのに必要な構文を単純化し、`function` キーワードを必要としないことです。これは、通常の関数では `this` がそれを呼び出すオブジェクトによって決定されますが、これとは異なります。レキシカルスコープされた `this` は、とくに React コンポーネントでコールバックを呼び出すときに便利です。
 
 [[↑] 先頭に戻る](#目次)
 
 ### コンストラクタにおいて、メソッドをアロー構文で定義する方法の利点はなんですか？
 
-The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
+コンストラクタ内のメソッドとしてアロー関数を使用する主な利点は、`this` の値が関数の作成時に設定され、それ以降は変更できないことです。
+
+つまり、コンストラクタを使って新しいオブジェクトを作成するとき、`this` は常にそのオブジェクトを参照することになります。
+
+例えば、ファーストネームを引数に取る `Person`コンストラクタがあり、その名前を `console.log` に出力するための 2 つのメソッドを持っているとします。
 
 ```js
 const Person = function (firstName) {
@@ -1074,13 +1079,14 @@ var sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
 
-The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
+ここでの主なポイントは、通常の関数では `this` を変更できますが、アロー関数ではコンテキストは常に同じままであるということです。つまり、アプリケーションの異なる部分にアロー関数を渡していても、コンテキストが変わることを心配する必要はありません。
 
-This can be particularly helpful in React class components. If you define a class method for something such as a click handler using a normal function, and then you pass that click handler down into a child component as a prop, you will need to also bind `this` in the constructor of the parent component. If you instead use an arrow function, there is no need to also bind "this", as the method will automatically get its "this" value from its enclosing lexical context. (See this article for an excellent demonstration and sample code: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+これは React のクラスコンポーネントでとくに便利です。通常の関数を使ってクリックハンドラなどのクラスメソッドを定義し、そのクリックハンドラを prop として子コンポーネントに渡す場合、親コンポーネントのコンストラクタで `this` もバインドする必要があります。代わりにアロー関数を使用する場合、"this "もバインドする必要はありません。(素晴らしいデモとサンプルコードについては、この記事を参照してください。: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
 
-###### References
+###### 参考
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions (英語)
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions (日本語)
 - https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
 [[↑] 先頭に戻る](#目次)
@@ -1174,7 +1180,7 @@ console.log(q); // true
 
 ### ES6 のテンプレート文字列は文字列を作り出す上で様々な柔軟性をもたらしますが、例を示すことはできますか？
 
-Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
+テンプレートリテラルは、文字列の補間や、文字列に変数を含めることを簡単にするのに役立ちます。ES2015 以前は、このようなことをするのが一般的でした。
 
 ```js
 var person = {name: 'Tyler', age: 28};
@@ -1184,7 +1190,7 @@ console.log(
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
 
-With template literals, you can now create that same output like this instead:
+テンプレートリテラルを使用すると、このような出力で作成できます。
 
 ```js
 const person = {name: 'Tyler', age: 28};
@@ -1192,9 +1198,9 @@ console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
 
-Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
+テンプレートリテラルを使用していることと、`${}`プレースホルダー内に式を挿入できることを示すために、引用符ではなくバッククォートを使用していることに注意してください。
 
-A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
+2 つ目の便利な使用例は、複数行の文字列を作成する場合です。ES2015 以前は、以下のような複数行文字列を作成することができました。
 
 ```js
 console.log('This is line one.\nThis is line two.');
@@ -1202,7 +1208,7 @@ console.log('This is line one.\nThis is line two.');
 // This is line two.
 ```
 
-Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
+あるいは、長い文字列を読むためにテキストエディタで右にスクロールする必要がないように、コードの中で複数行に分割したい場合は、次のように書くこともできます。
 
 ```js
 console.log('This is line one.\n' + 'This is line two.');
@@ -1210,7 +1216,7 @@ console.log('This is line one.\n' + 'This is line two.');
 // This is line two.
 ```
 
-Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
+しかし、テンプレートリテラルは、それらに追加した間隔を保持します。たとえば、上で作成したのと同じ複数行の出力を作成するには、以下のようにします。
 
 ```js
 console.log(`This is line one.
@@ -1219,7 +1225,7 @@ This is line two.`);
 // This is line two.
 ```
 
-Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
+テンプレートリテラルのもう 1 つの使用例は、単純な変数補間のためのテンプレートライブラリの代用として使用することです。
 
 ```js
 const person = {name: 'Tyler', age: 28};
@@ -1231,11 +1237,12 @@ document.body.innerHTML = `
 `;
 ```
 
-**Note that your code may be susceptible to XSS by using `.innerHTML`. Sanitize your data before displaying it if it came from a user!**
+**`.innerHTML`を使用していると、コードが XSS の影響を受ける可能性があるので注意してください。データがユーザからのものであれば、表示する前にデータをサニタイズしましょう!**
 
-###### References
+###### 参考
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals (英語)
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals (日本語)
 
 [[↑] 先頭に戻る](#目次)
 
