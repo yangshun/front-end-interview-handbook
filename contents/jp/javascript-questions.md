@@ -979,19 +979,115 @@ baz = 'qux';
 
 ### ES6 のクラス定義と、ES5 のコンストラクタ関数との違いには何がありますか？
 
-TODO
+まずはそれぞれの例を見てみましょう。
+
+```js
+// ES5 Function Constructor
+function Person(name) {
+  this.name = name;
+}
+
+// ES6 Class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
+
+単純なコンストラクタの場合、見た目はよく似ています。
+
+コンストラクタの主な違いは継承を使う場合です。`Person`をサブクラス化した Student クラスを作成して`studentId` フィールドを追加したい場合は、上記に加えて以下のようにしなければなりません。
+
+```js
+// ES5 Function Constructor
+function Student(name, studentId) {
+  // Call constructor of superclass to initialize superclass-derived members.
+  Person.call(this, name);
+
+  // Initialize subclass's own members.
+  this.studentId = studentId;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+// ES6 Class
+class Student extends Person {
+  constructor(name, studentId) {
+    super(name);
+    this.studentId = studentId;
+  }
+}
+```
+
+ES5 で継承を使う方が冗長になりますし、ES6 版の方がわかりやすくて覚えやすいです。
+
+###### 参考
+
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance (英語)
+- https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/Inheritance (日本語)
+- https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 [[↑] 先頭に戻る](#目次)
 
 ### アロー構文の使い方を例示してください。この構文と他の方法による定義とは何が違いますか？
 
-TODO
+アロー関数の明白な利点の 1 つは、関数を作成するのに必要な構文を単純化し、`function` キーワードを必要としないことです。これは、通常の関数では `this` がそれを呼び出すオブジェクトによって決定されますが、これとは異なります。レキシカルスコープされた `this` は、とくに React コンポーネントでコールバックを呼び出すときに便利です。
 
 [[↑] 先頭に戻る](#目次)
 
 ### コンストラクタにおいて、メソッドをアロー構文で定義する方法の利点はなんですか？
 
-TODO
+コンストラクタ内のメソッドとしてアロー関数を使用する主な利点は、`this` の値が関数の作成時に設定され、それ以降は変更できないことです。
+
+つまり、コンストラクタを使って新しいオブジェクトを作成するとき、`this` は常にそのオブジェクトを参照することになります。
+
+例えば、ファーストネームを引数に取る `Person`コンストラクタがあり、その名前を `console.log` に出力するための 2 つのメソッドを持っているとします。
+
+```js
+const Person = function (firstName) {
+  this.firstName = firstName;
+  this.sayName1 = function () {
+    console.log(this.firstName);
+  };
+  this.sayName2 = () => {
+    console.log(this.firstName);
+  };
+};
+
+const john = new Person('John');
+const dave = new Person('Dave');
+
+john.sayName1(); // John
+john.sayName2(); // John
+
+// The regular function can have its 'this' value changed, but the arrow function cannot
+john.sayName1.call(dave); // Dave (because "this" is now the dave object)
+john.sayName2.call(dave); // John
+
+john.sayName1.apply(dave); // Dave (because 'this' is now the dave object)
+john.sayName2.apply(dave); // John
+
+john.sayName1.bind(dave)(); // Dave (because 'this' is now the dave object)
+john.sayName2.bind(dave)(); // John
+
+var sayNameFromWindow1 = john.sayName1;
+sayNameFromWindow1(); // undefined (because 'this' is now the window object)
+
+var sayNameFromWindow2 = john.sayName2;
+sayNameFromWindow2(); // John
+```
+
+ここでの主なポイントは、通常の関数では `this` を変更できますが、アロー関数ではコンテキストは常に同じままであるということです。つまり、アプリケーションの異なる部分にアロー関数を渡していても、コンテキストが変わることを心配する必要はありません。
+
+これは React のクラスコンポーネントでとくに便利です。通常の関数を使ってクリックハンドラなどのクラスメソッドを定義し、そのクリックハンドラを prop として子コンポーネントに渡す場合、親コンポーネントのコンストラクタで `this` もバインドする必要があります。代わりにアロー関数を使用する場合、"this "もバインドする必要はありません。(素晴らしいデモとサンプルコードについては、この記事を参照してください。: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+
+###### 参考
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions (英語)
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions (日本語)
+- https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
 [[↑] 先頭に戻る](#目次)
 
@@ -1084,7 +1180,69 @@ console.log(q); // true
 
 ### ES6 のテンプレート文字列は文字列を作り出す上で様々な柔軟性をもたらしますが、例を示すことはできますか？
 
-TODO
+テンプレートリテラルは、文字列の補間や、文字列に変数を含めることを簡単にするのに役立ちます。ES2015 以前は、このようなことをするのが一般的でした。
+
+```js
+var person = {name: 'Tyler', age: 28};
+console.log(
+  'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
+);
+// 'Hi, my name is Tyler and I am 28 years old!'
+```
+
+テンプレートリテラルを使用すると、このような出力で作成できます。
+
+```js
+const person = {name: 'Tyler', age: 28};
+console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
+// 'Hi, my name is Tyler and I am 28 years old!'
+```
+
+テンプレートリテラルを使用していることと、`${}`プレースホルダー内に式を挿入できることを示すために、引用符ではなくバッククォートを使用していることに注意してください。
+
+2 つ目の便利な使用例は、複数行の文字列を作成する場合です。ES2015 以前は、以下のような複数行文字列を作成することができました。
+
+```js
+console.log('This is line one.\nThis is line two.');
+// This is line one.
+// This is line two.
+```
+
+あるいは、長い文字列を読むためにテキストエディタで右にスクロールする必要がないように、コードの中で複数行に分割したい場合は、次のように書くこともできます。
+
+```js
+console.log('This is line one.\n' + 'This is line two.');
+// This is line one.
+// This is line two.
+```
+
+しかし、テンプレートリテラルは、それらに追加した間隔を保持します。たとえば、上で作成したのと同じ複数行の出力を作成するには、以下のようにします。
+
+```js
+console.log(`This is line one.
+This is line two.`);
+// This is line one.
+// This is line two.
+```
+
+テンプレートリテラルのもう 1 つの使用例は、単純な変数補間のためのテンプレートライブラリの代用として使用することです。
+
+```js
+const person = {name: 'Tyler', age: 28};
+document.body.innerHTML = `
+  <div>
+    <p>Name: ${person.name}</p>
+    <p>Name: ${person.age}</p>
+  </div>
+`;
+```
+
+**`.innerHTML`を使用していると、コードが XSS の影響を受ける可能性があるので注意してください。データがユーザからのものであれば、表示する前にデータをサニタイズしましょう!**
+
+###### 参考
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals (英語)
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals (日本語)
 
 [[↑] 先頭に戻る](#目次)
 
