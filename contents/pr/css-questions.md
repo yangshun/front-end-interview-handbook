@@ -50,13 +50,15 @@ Se um elemento pai não contém nada além de elementos flutuantes, sua altura s
 
 O hack ```.clearfix``` usa um pseudo-seletor CSS inteligente (```: after```) para limpar os floats. Em vez de definir o overflow no pai, você aplica uma classe adicional ```clearfix``` a ele. Em seguida, aplique este CSS:
 
-```.clearfix:after {
+```
+.clearfix:after {
     content: ' ';
     visibility: hidden;
     display: block;
     height: 0;
     clear: both;
-}```
+}
+```
 
 Como alternativa, atribua a propriedade ```overflow: auto``` ou ```overflow: hidden``` ao elemento pai, que estabelecerá um novo contexto de formatação de bloco dentro dos filhos e se expandirá para conter seus filhos.
 
