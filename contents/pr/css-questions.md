@@ -64,3 +64,5 @@ Como alternativa, atribua a propriedade ```overflow: auto``` ou ```overflow: hid
 
 Referências
 - https://css-tricks.com/all-about-floats/
+
+Vamos traduzir esse conteúdo juntos para toda comunidade. Agradecemos a sua ajuda na tradução!
