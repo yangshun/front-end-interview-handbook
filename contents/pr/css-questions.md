@@ -1,5 +1,5 @@
 ---
-Título: Perguntas de CSS
+title: Perguntas de CSS
 ---
 
 Respostas às <a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md" id="top">Perguntas da Entrevista de Trabalho de Front-end - Questões CSS</a>. Pull requests para sugestões e correções são bem-vindos!
@@ -70,6 +70,7 @@ Como alternativa, atribua a propriedade ```overflow: auto``` ou ```overflow: hid
 Referências
 - https://css-tricks.com/all-about-floats/
 
+<<<<<<< HEAD
 <a href="#top">[↑]Volte para o topo</a>
 
 ### <p id="04">Descreva o z-index e como o contexto de empilhamento é formado.</a>
@@ -139,3 +140,6 @@ Referências
 
 
 Vamos traduzir esse conteúdo juntos para toda comunidade. Agradecemos a sua ajuda na tradução!
+=======
+Vamos traduzir esse conteúdo juntos para toda comunidade. Agradecemos a sua ajuda na tradução!
+>>>>>>> 000b4dd322d3dfeea9534b57ef39c01f0b14887a
