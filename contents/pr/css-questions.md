@@ -13,8 +13,6 @@ Respostas às <a href="https://github.com/h5bp/Front-end-Developer-Interview-Que
 - <a href="#06">Quais são as várias técnicas de limpeza e quais são apropriadas para qual contexto?</a>
 - <a href="#07">Explique os sprites CSS e como você os implementaria em uma página ou site.</a>
 
-
-
 ### <p id="01">O que é a especificidade do seletor CSS e como funciona?<p>
 O navegador determina quais estilos mostrar em um elemento, dependendo da especificidade das regras CSS. Presumimos que o navegador já determinou as regras que correspondem a um elemento específico. Entre as regras de correspondência, a especificidade, quatro valores separados por vírgulas, ```a, b, c, d``` são calculados para cada regra com base no seguinte:
 
@@ -137,8 +135,4 @@ Referências
 
 <a href="#top">[↑]Volte para o topo</a>
 
-
 Vamos traduzir esse conteúdo juntos para toda comunidade. Agradecemos a sua ajuda na tradução!
-
-
-
