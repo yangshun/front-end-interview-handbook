@@ -70,9 +70,7 @@ Im Backend enthält das HTML-Markup `i18n'-Platzhalter und Inhalte für die jewe
 - Achte darauf, wie Farben wahrgenommen werden - Farben werden je nach Sprache und Kultur unterschiedlich wahrgenommen. Das Design sollte das berücksichtigen.
 - Formatierung von Daten und Währungen - Kalenderdaten werden unterschiedlich dargestellt. Z.B. "31. Mai 2012" in den USA vs. "31. Mai 2012" in Teilen Europas.
 
-- Verketten Sie keine übersetzten Zeichenketten - Machen Sie nichts wie `"Das heutige Datum ist " + date`. So ein Konstrukt funktioniert in einer Sprache mit einer anderen Wortstellung nicht. Verwende stattdessen Template-Strings mit sprachspezifischen Parameter-Substitution.
-    <!--Paramater Substitutionen? Ist das der gängige Begriff?  -->
-  Dazu ein Beispiel: `I will travel on {% date %}` sieht auf Chinesisch so aus: `{% date %} 我会出发`. Beachte, dass die Position der Variable Grammatikbedingt unterschiedlich ist.
+- Verketten Sie keine übersetzten Zeichenketten - Machen Sie nichts wie `"Das heutige Datum ist " + date`. So ein Konstrukt funktioniert in einer Sprache mit einer anderen Wortstellung nicht. Verwende stattdessen Template-Strings mit sprachspezifischen Parameter-Substitution. Dazu ein Beispiel: `I will travel on {% date %}` sieht auf Chinesisch so aus: `{% date %} 我会出发`. Beachte, dass die Position der Variable Grammatikbedingt unterschiedlich ist.
 - Sprachleserichtung - Im Englischen lesen wir von links nach rechts, von oben nach unten, im traditionellen Japanisch wird der Text von oben nach unten, von rechts nach links gelesen.
 
 ###### Referenzen
