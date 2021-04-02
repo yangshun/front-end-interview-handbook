@@ -4,7 +4,7 @@ export default [
   {
     name: 'Erin Teo',
     title: 'Front End Engineer, Facebook',
-    thumbnail: 'https://avatars1.githubusercontent.com/u/5081708?s=460&v=4',
+    thumbnail: 'https://github.com/airse.png',
     quote: (
       <>
         Preparing for my first rounds of tech interviews was really daunting - I
@@ -25,7 +25,7 @@ export default [
   },
   {
     name: 'Kai Li',
-    title: 'Software Engineer, Zendesk',
+    title: 'Software Engineer, Quora',
     thumbnail: 'https://github.com/li-kai.png',
     quote: (
       <>
