@@ -36,7 +36,7 @@ function Home() {
               src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
               frameBorder={0}
               scrolling={0}
-              width={160}
+              width={165}
               height={30}
               title="GitHub Stars"
             />
