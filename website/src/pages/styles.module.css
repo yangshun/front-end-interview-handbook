@@ -5,6 +5,11 @@
   overflow: hidden;
 }
 
+.title__header {
+  font-size: 17px;
+}
+
+
 .heroBannerLogo {
   max-width: 300px;
 }
@@ -44,3 +49,4 @@
 .quote {
   font-size: 1.1rem;
 }
+
