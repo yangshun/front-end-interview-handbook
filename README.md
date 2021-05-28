@@ -10,7 +10,7 @@
     </em>
   </p>
   <h3>
-    <a href="https://yangshun.github.io/front-end-interview-handbook/">Read on the website</a>
+    <a href="https://frontendinterviewhandbook.com">Read on the website</a>
   </h3>
 </div>
 

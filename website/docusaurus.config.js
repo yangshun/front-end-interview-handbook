@@ -2,11 +2,12 @@ module.exports = {
   title: 'Front End Interview Handbook',
   tagline:
     'Almost complete answers to "Front-end Job Interview Questions" which you can use to interview potential candidates, test yourself or completely ignore',
-  url: 'https://yangshun.github.io',
-  baseUrl: '/front-end-interview-handbook/',
+  url: 'https://frontendinterviewhandbook.com',
+  baseUrl: '/',
   favicon: 'img/favicon.png',
   organizationName: 'yangshun',
   projectName: 'front-end-interview-handbook',
+  onBrokenLinks: 'ignore',
   themeConfig: {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
