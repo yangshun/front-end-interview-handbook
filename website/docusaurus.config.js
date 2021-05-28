@@ -18,10 +18,10 @@ module.exports = {
         alt: 'Front End Interview Handbook Logo',
         src: 'img/logo.svg',
       },
-      links: [
+      items: [
         {
           label: 'Translations',
-          to: '', // "fake" link
+          to: '#', // "fake" link
           position: 'right',
           items: [
             {
@@ -96,7 +96,7 @@ module.exports = {
       {
         docs: {
           path: '../contents',
-          routeBasePath: '',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/yangshun/front-end-interview-handbook/edit/master/contents/',
