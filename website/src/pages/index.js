@@ -15,31 +15,35 @@ function Home() {
     <Layout title={siteConfig.title} description={siteConfig.tagline}>
       <header className={classnames('hero', styles.heroBanner)}>
         <div className="container">
-          <img
-            className={classnames(styles.heroBannerLogo, 'margin-vert--md')}
-            src={useBaseUrl('img/logo.svg')}
-          />
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={classnames(
-                'button button--primary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('en/html-questions')}>
-              Get Started&nbsp;&nbsp;→
-            </Link>
-          </div>
-          <div className="margin-top--lg">
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
-              frameBorder={0}
-              scrolling={0}
-              width={165}
-              height={30}
-              title="GitHub Stars"
-            />
+          <div className="row">
+            <div className="col col--8 col--offset-2">
+              <img
+                className={classnames(styles.heroBannerLogo, 'margin-vert--md')}
+                src={useBaseUrl('img/logo.svg')}
+              />
+              <h1 className="hero__title">{siteConfig.title}</h1>
+              <p className="hero__subtitle">{siteConfig.tagline}</p>
+              <div className={styles.buttons}>
+                <Link
+                  className={classnames(
+                    'button button--primary button--lg',
+                    styles.getStarted,
+                  )}
+                  to={useBaseUrl('en/html-questions')}>
+                  Get Started&nbsp;&nbsp;→
+                </Link>
+              </div>
+              <div className="margin-top--lg">
+                <iframe
+                  src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
+                  frameBorder={0}
+                  scrolling={0}
+                  width={165}
+                  height={30}
+                  title="GitHub Stars"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </header>
