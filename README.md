@@ -56,10 +56,10 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 
 ## Looking for Generic Interview Preparation?
 
-You might be interested in the [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://yangshun.github.io/tech-interview-handbook/cheatsheet)!
+You might be interested in the [Tech Interview Handbook](https://techinterviewhandbook.org) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://techinterviewhandbook.org/cheatsheet)!
 
 <div align="center">
-  <a href="https://yangshun.github.io/tech-end-interview-handbook/">
+  <a href="https://techinterviewhandbook.org/">
     <img src="assets/coding.svg" alt="Web Technologies illustration" width="400"/>
   </a>
   <br/>
@@ -67,7 +67,7 @@ You might be interested in the [Tech Interview Handbook](https://yangshun.github
     <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>
   <h3>
-    <a href="https://yangshun.github.io/tech-interview-handbook/">Read on the website</a>
+    <a href="https://techinterviewhandbook.org/">Read on the website</a>
   </h3>
 </div>
 
@@ -94,10 +94,6 @@ If you are interested in how data structures are implemented, check out [Lago](h
 
 ## Contributing
 
-### Code of Conduct
-
-We have adopted the same Code of Conduct as Facebook that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
-
 ### Contributing Guide
 
 Read our [contributing guide](/CONTRIBUTING.md) to learn about how you can contribute, how to propose improvements or if you are interested in translating the content.
@@ -111,3 +107,7 @@ Many hours of hard work have gone into this project. Your support will be very a
 ## License
 
 All projects and packages in this repository are [MIT licensed](/LICENSE).
+
+## Disclaimer
+
+I am providing code in the repository to you under an open source license. Because this is my personal repository, the license you receive to my code is from me and not my employer (Facebook)
