@@ -13,7 +13,7 @@ Respuestas a [Preguntas de trabajo para entrevistas Front-end - Preguntas de HTM
 - [¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?](#consideras-html5-como-una-plataforma-web-abierta-cuáles-son-los-componentes-básicos-de-html5)
 - [Describe las diferenias entre `cookie`, `sessionStorage` y `localStorage`.](#describe-las-diferenias-entre-cookie-sessionstorage-y-localstorage)
 - [Describe las diferencias entre `<script>`, `<script async>` y `<script defer>`.](#describe-las-diferencias-entre-script-script-async-y-script-defer)
-- [¿Por qué generalmente es buena idea colocar los `<link>`  de CSS entre  `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?](#por-qué-generalmente-es-buena-idea-colocar-los-link-de-css-entre-headhead-y-script-de-js-justo-antes-del-body-conoces-alguna-excepción)
+- [¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?](#por-qué-generalmente-es-buena-idea-colocar-los-link-de-css-entre-headhead-y-script-de-js-justo-antes-del-body-conoces-alguna-excepción)
 - [¿Qué es el renderizado progresivo?](#qué-es-el-renderizado-progresivo)
 - [¿Por qué usaría el atributo `srcset` en una etiqueta de imagen? Explica el proceso que usa el navegador al evaluar el contenido de este atributo.](#por-qué-usaría-el-atributo-srcset-en-una-etiqueta-de-imagen-explica-el-proceso-que-usa-el-navegador-al-evaluar-el-contenido-de-este-atributo)
 - [¿Has utilizado otros lenguajes de plantillas HTML anteriormente?](#has-utilizado-otros-lenguajes-de-plantillas-html-anteriormente)
@@ -40,7 +40,7 @@ La declaración DOCTYPE para los estándares HTML5 es `<!DOCTYPE html>`.
 
 La pregunta es un poco vaga, supondré que se trata del caso más común, que es cómo desplegar una página con contenido disponible en varios idiomas, pero el contenido dentro de la página debe mostrarse solo en un idioma coherente.
 
-Cuando se realiza una solicitud HTTP a un servidor, el agente de usuario solicitante generalmente envía información sobre las preferencias de idioma, como en el encabezado `Accept-Language`. El servidor puede usar esta información para devolver una versión del documento en el idioma apropiado si dicha alternativa está disponible. El documento HTML devuelto también debe declarar el atributo `lang` en la etiqueta` <html> `, como` <html lang="en">...</html> `.
+Cuando se realiza una solicitud HTTP a un servidor, el agente de usuario solicitante generalmente envía información sobre las preferencias de idioma, como en el encabezado `Accept-Language`. El servidor puede usar esta información para devolver una versión del documento en el idioma apropiado si dicha alternativa está disponible. El documento HTML devuelto también debe declarar el atributo `lang` en la etiqueta`<html>`, como`<html lang="en">...</html>`.
 
 En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido para el idioma específico almacenado en formatos YML o JSON. El servidor genera dinámicamente la página HTML con contenido en ese idioma en particular, generalmente con la ayuda de un framework back-end.
 
@@ -87,7 +87,7 @@ Sin embargo, un uso perfectamente válido de los atributos de datos es agregar u
 - Semántica: Permite describir con mayor precisión cuál es tu contenido.
 - Conectividad: Permite comunicarse con el servidor de forma nueva e innovadora.
 - Offline y almacenamiento: Permite que las páginas web almacenen datos por el lado del cliente localmente y operen offline de manera más eficiente.
-- Multimedia: Hace ciudadanos de primera clase en la Web abierta a videos y audio. 
+- Multimedia: Hace ciudadanos de primera clase en la Web abierta a videos y audio.
 - Gráficos y efectos 2D/3D: Permite una gama mucho más diversa de opciones de presentación.
 - Rendimiento e integración: Proporciona una mayor optimización de la velocidad y un mejor uso del hardware de la computadora.
 - Acceso a dispositivos: Permite el uso de varios dispositivos de entrada y salida.
@@ -137,7 +137,7 @@ Nota: Los atributos `async` y `defer` son ignorados por scripts que no tienen el
 
 [[↑] Volver arriba](#tabla-de-contenidos)
 
-### ¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre  `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?
+### ¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?
 
 **Colocar los `<link>` en el `<head>`**
 

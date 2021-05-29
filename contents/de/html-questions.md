@@ -6,10 +6,6 @@ Antworten auf [Front-end Job Interview Questions - HTML Questions](https://githu
 
 ## Inhaltsverzeichnis
 
-<!-- Achtung: Übersetzung der Überschriften zum Teil von hier:
-https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md
- -->
-
 - [Was tut ein `doctype` und wie viele von ihnen kannst du benennen?](#was-tut-ein-doctype)
 - [Wie lieferst du eine Seite mit Inhalten in verschiedenen Sprachen aus?](#wie-lieferst-du-eine-seite-mit-inhalten-in-verschiedenen-sprachen-aus)
 - [Vor welchen Dingen solltest du dich hüten, wenn du mehrsprachige Websites designst oder entwickelst?](#vor-welchen-dingen-solltest-du-dich-hüten-wenn-du-mehrsprachige-websites-designst-oder-entwickelst)

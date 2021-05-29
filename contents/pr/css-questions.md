@@ -79,7 +79,7 @@ Um contexto de empilhamento é um elemento que contém um conjunto de camadas. E
 
 Cada contexto de empilhamento é autocontido - depois que o conteúdo do elemento é empilhado, todo o elemento é considerado na ordem de empilhamento do contexto de empilhamento pai. Algumas propriedades CSS acionam um novo contexto de empilhamento, como `opacity` menor que 1, `filter` que não é `none` e `transform` que não é `none`.
 
-*Nota: O que exatamente qualifica um elemento para criar um contexto de empilhamento está listado neste longo conjunto de [regras](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#the_stacking_context").*
+_Nota: O que exatamente qualifica um elemento para criar um contexto de empilhamento está listado neste longo conjunto de [regras](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#the_stacking_context")._
 
 ###### Referências
 
