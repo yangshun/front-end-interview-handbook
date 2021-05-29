@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: var(--ifm-global-radius);
-  color: var(--ifm-color-gray-900);
+  color: var(--ifm-color-gray-0);
   display: block;
   margin: 0.5rem;
   padding: 1rem;
@@ -13,7 +13,7 @@
 
 .container:hover {
   background-color: var(--ifm-color-primary);
-  color: var(--ifm-color-gray-900);
+  color: var(--ifm-color-gray-0);
   text-decoration: none;
 }
 
