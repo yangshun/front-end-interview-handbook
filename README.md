@@ -43,7 +43,7 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 ---
 
 <div align="center">
-  <h3>Get paid more. Moonchaser has negotiated hundreds of tech offers. Get 1-1 guidance from their experienced team of ex-FAANG PMs, SWEs, and Recruiters. <a href="https://www.moonchaser.io/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_campaign=github" target="_blank">Find out more</a></h3>
+  <h3>Get paid more. Moonchaser has negotiated hundreds of tech offers. Get 1-1 guidance from their experienced team of ex-FAANG PMs, SWEs, and Recruiters. <a href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_campaign=github_frontend" target="_blank">Find out more</a></h3>
 </div>
 
 ---
