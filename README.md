@@ -84,7 +84,7 @@ You might be interested in the [Tech Interview Handbook](https://techinterviewha
 
 ## Related
 
-If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It is pretty much still WIP but I intend to make it into a library that is able to be used in production and also a reference resource for revising Data Structures and Algorithms.
+If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It's meant for reference and studying purposes, not really for production use.
 
 ## Contributing
 
@@ -104,4 +104,4 @@ All projects and packages in this repository are [MIT licensed](/LICENSE).
 
 ## Disclaimer
 
-I am providing code in the repository to you under an open source license. Because this is my personal repository, the license you receive to my code is from me and not my employer (Facebook)
+I am providing code in the repository to you under an open source license. Because this is my personal repository, the license you receive to my code is from me and not my employer (Facebook).

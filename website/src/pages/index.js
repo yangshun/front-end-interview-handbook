@@ -193,6 +193,16 @@ function Home() {
                     <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
                   </a>{' '}
                   <a
+                    href="https://opencollective.com/tech-interview-handbook/sponsor/2/website"
+                    target="_blank">
+                    <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
+                  </a>{' '}
+                  <a
+                    href="https://opencollective.com/tech-interview-handbook/sponsor/3/website"
+                    target="_blank">
+                    <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
+                  </a>{' '}
+                  <a
                     href="https://opencollective.com/tech-interview-handbook/sponsor/4/website"
                     target="_blank">
                     <img src="https://opencollective.com/tech-interview-handbook/sponsor/4/avatar.svg" />
