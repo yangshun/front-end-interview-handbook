@@ -20,7 +20,7 @@ title: HTML 질문
 
 ### `DOCTYPE`은 무엇을 하나요?
 
-**DOCTYPE**은 **document type**의 약어입니다. **DOCTYPE**은 항상 **DTD(Document Type Definition)**와 관련됩니다.
+**DOCTYPE**은 **document type**의 약어입니다. **DOCTYPE**은 항상 **DTD** (Document Type Definition)와 관련됩니다.
 
 **DTD**는 특정 문서가 어떻게 구성되어야 하는지 정의합니다(예시: `button`은 `span`을 포함할 수 있지만, `div`는 그럴 수 없다.), 반면, **DOCTYPE**은 문서가 _대략_ 존중할만한 **DTD**를 선언합니다. (예시: 이 문서는 HTML DTD를 존중한다.)
 
