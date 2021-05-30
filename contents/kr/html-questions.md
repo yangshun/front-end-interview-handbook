@@ -20,11 +20,11 @@ title: HTML 질문
 
 ### `DOCTYPE`은 무엇을 하나요?
 
-**DOCTYPE**은 **document type**의 약어입니다. **DOCTYPE**은 항상 **DTD(Document Type Definition)**와 관련됩니다.
+**DOCTYPE**은 **document type**의 약어입니다. **DOCTYPE**은 항상 **DTD** (Document Type Definition)와 관련됩니다.
 
 **DTD**는 특정 문서가 어떻게 구성되어야 하는지 정의합니다(예시: `button`은 `span`을 포함할 수 있지만, `div`는 그럴 수 없다.), 반면, **DOCTYPE**은 문서가 _대략_ 존중할만한 **DTD**를 선언합니다. (예시: 이 문서는 HTML DTD를 존중한다.)
 
-웹 페이지의는 DOCTYPE 선언이 필요합니다. 유저 에이전트에게 문서가 존중하는 HTML 사양의 버전을 알리는데 사용됩니다. 유저 에이전트가 올바른 DOCTYPE을 인식하면, 문서를 읽는데에 DOCTYPE과 일치하는 **no-quirks mode**를 트리거합니다. 유저 에이전트가 올바른 DOCTYPE을 인식하지 못하면, **quirks mode**를 트리거합니다.
+웹 페이지는 DOCTYPE 선언이 필요합니다. 유저 에이전트에게 문서가 존중하는 HTML 사양의 버전을 알리는데 사용됩니다. 유저 에이전트가 올바른 DOCTYPE을 인식하면, 문서를 읽는데에 DOCTYPE과 일치하는 **no-quirks mode**를 트리거합니다. 유저 에이전트가 올바른 DOCTYPE을 인식하지 못하면, **quirks mode**를 트리거합니다.
 
 HTML5 표준에 대한 DOCTYPE 선언은 `<!DOCTYPE html>`입니다.
 
