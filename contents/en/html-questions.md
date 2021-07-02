@@ -56,6 +56,7 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 ### What kind of things must you be wary of when designing or developing for multilingual sites?
 
 - Use `lang` attribute in your HTML.
+- Provide different variants for the same language in your url ( e.g en-us, en-uk, en-ca ).
 - Directing users to their native language - Allow a user to change his country/language easily without hassle.
 - Text in raster-based images (e.g. png, gif, jpg, etc.), is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to translate image text, each string of text will need to have a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
 - Restrictive words/sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments.
