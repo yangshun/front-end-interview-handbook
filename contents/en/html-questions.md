@@ -20,7 +20,7 @@ Answers to [Front-end Job Interview Questions - HTML Questions](https://github.c
 
 ### What does a DOCTYPE do?
 
-**DOCTYPE** is an abbreviation for **DOCument TYPE**. A DOCTYPE is always associated to a **DTD** - for **Document Type Definition**.
+**DOCTYPE** is an abbreviation for **Document Type**. A DOCTYPE is always associated to a **DTD** - for **Document Type Definition**.
 
 A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a DOCTYPE declares what DTD a document _supposedly_ respects (i.e. this document respects the HTML DTD).
 
