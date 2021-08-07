@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
@@ -24,14 +23,14 @@ function Home() {
               <h1 className="hero__title">{siteConfig.title}</h1>
               <p className="hero__subtitle">{siteConfig.tagline}</p>
               <div className={styles.buttons}>
-                <Link
+                <a
                   className={classnames(
                     'button button--primary button--lg',
                     styles.getStarted,
                   )}
-                  to={useBaseUrl('en/html-questions')}>
+                  href={useBaseUrl('en/html-questions')}>
                   Get Started&nbsp;&nbsp;→
-                </Link>
+                </a>
               </div>
               <div className="margin-top--lg">
                 <iframe

@@ -1,26 +1,31 @@
 .container {
-  background-color: var(--ifm-color-primary-light);
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: var(--ifm-global-radius);
-  color: var(--ifm-color-emphasis-0);
+  color: #fff;
   display: block;
-  margin: 0.5rem;
+  opacity: 0.95;
   padding: 1rem;
-  transition: background-color var(--ifm-transition-fast)
+  transition: opacity var(--ifm-transition-fast)
     var(--ifm-transition-timing-default);
 }
 
-.container:hover {
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-color-emphasis-0);
-  text-decoration: none;
+.backgroundPurple {
+  background-image: linear-gradient(138deg, rgb(69, 104, 220), rgb(176, 106, 179));
 }
 
-@media screen and (max-width: 996px) {
-  .container {
-    display: none;
-  }
+.backgroundRed {
+  background-image: linear-gradient(39deg, rgb(188, 78, 156), rgb(248, 7, 89));
+}
+
+.backgroundOrange {
+  background-image: linear-gradient(90deg, rgb(253, 200, 48), rgb(243, 115, 53));
+}
+
+.container:hover {
+  color: #fff;
+  opacity: 1;
+  text-decoration: none;
 }
 
 .tagline {

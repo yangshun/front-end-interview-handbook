@@ -34,7 +34,12 @@
 }
 
 .sectionPrimary {
-  background-color: var(--ifm-color-primary);
+  background-image: linear-gradient(90deg, rgb(188, 78, 156), rgb(248, 7, 89));
+}
+
+
+html[data-theme='dark'] .sectionPrimary {
+  background-image: linear-gradient(90deg, rgb(253, 200, 48), rgb(243, 115, 53));
 }
 
 .sectionPrimaryTitle {
