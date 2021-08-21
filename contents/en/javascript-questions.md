@@ -163,7 +163,7 @@ function Child() {
   this.name = 'child';
 }
 
-Child.prototype = Parent.prototype;
+Child.prototype = Object.create(Parent.prototype);
 Child.prototype.constructor = Child;
 
 const c = new Child();
