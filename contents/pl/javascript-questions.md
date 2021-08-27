@@ -1456,7 +1456,7 @@ const person = {name: 'Tyler', age: 28};
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
-    <p>Name: ${person.age}</p>
+    <p>Age: ${person.age}</p>
   </div>
 `;
 ```
