@@ -22,8 +22,7 @@ Si bien existen recursos para ayudar a los desarrolladores front-end a preparars
 
 ## ¿Buscas preparación para entrevistas genéricas?
 
-Puede que te interese el [Manual para Entrevistas Tecnológicas](https://github.com/yangshun/tech-interview-handbook) que tiene contenido útil sobre entrevistas de desarrollo general, como algoritmos, preguntas de comportamiento humano y una
- [hoja resumen de consejos para entrevistas](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
+Puede que te interese el [Manual para Entrevistas Tecnológicas](https://github.com/yangshun/tech-interview-handbook) que tiene contenido útil sobre entrevistas de desarrollo general, como algoritmos, preguntas de comportamiento humano y una [hoja resumen de consejos para entrevistas](https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md)!
 
 <div align="center">
   <img src="assets/web-tech.svg" alt="Web Technologies illustration" width="400"/>

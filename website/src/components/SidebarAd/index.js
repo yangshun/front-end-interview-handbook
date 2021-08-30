@@ -13,8 +13,9 @@ const BACKGROUNDS = [
 ];
 
 export default React.memo(function SidebarAd() {
-  const backgroundClass = BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
-  
+  const backgroundClass =
+    BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
+
   return (
     <a
       className={clsx(styles.container, backgroundClass)}

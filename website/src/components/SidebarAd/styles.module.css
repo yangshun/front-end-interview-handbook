@@ -11,7 +11,11 @@
 }
 
 .backgroundPurple {
-  background-image: linear-gradient(138deg, rgb(69, 104, 220), rgb(176, 106, 179));
+  background-image: linear-gradient(
+    138deg,
+    rgb(69, 104, 220),
+    rgb(176, 106, 179)
+  );
 }
 
 .backgroundRed {
@@ -19,7 +23,11 @@
 }
 
 .backgroundOrange {
-  background-image: linear-gradient(90deg, rgb(253, 200, 48), rgb(243, 115, 53));
+  background-image: linear-gradient(
+    90deg,
+    rgb(253, 200, 48),
+    rgb(243, 115, 53)
+  );
 }
 
 .container:hover {
