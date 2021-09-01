@@ -57,27 +57,55 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionPrimaryTitle}>
-                    <div align="center">
-                      <strong>
-                        Get paid more. Receive risk-free salary negotiation help
-                        from Moonchaser. You pay nothing unless your offer is
-                        increased.
-                      </strong>
-                    </div>
-                  </h2>
-                  <div className="margin-vert--lg">
-                    <a
-                      className="button button--secondary button--lg"
-                      href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=frontend_website_homepage"
-                      rel="noreferrer noopener"
-                      target="_blank"
-                      onClick={() => {
-                        window.gtag('event', 'moonchaser.click');
-                      }}>
-                      Find Out More&nbsp;&nbsp;→
-                    </a>
-                  </div>
+                  {Math.random() > 0.5 ? (
+                    <>
+                      <h2 className={styles.sectionPrimaryTitle}>
+                        <div align="center">
+                          <strong>
+                            Get paid more. Receive risk-free salary negotiation
+                            help from Moonchaser. You pay nothing unless your
+                            offer is increased.
+                          </strong>
+                        </div>
+                      </h2>
+                      <div className="margin-vert--lg">
+                        <a
+                          className="button button--secondary button--lg"
+                          href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=website_homepage"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                          onClick={() => {
+                            window.gtag('event', 'moonchaser.homepage.click');
+                          }}>
+                          Get Risk-free Negotiation Help&nbsp;&nbsp;→
+                        </a>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <h2 className={styles.sectionPrimaryTitle}>
+                        <div align="center">
+                          <strong>
+                            Get paid, not played. Chat with former tech
+                            recruiters who’ll guide you on exactly what to say
+                            to get you a higher offer.
+                          </strong>
+                        </div>
+                      </h2>
+                      <div className="margin-vert--lg">
+                        <a
+                          className="button button--secondary button--lg"
+                          href="https://www.levels.fyi/services/?ref=TechInterviewHandbook&utm_source=techinterviewhandbook&utm_medium=referral&utm_content=website_homepage"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                          onClick={() => {
+                            window.gtag('event', 'levelsfyi.homepage.click');
+                          }}>
+                          Get Negotiation Help&nbsp;&nbsp;→
+                        </a>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
