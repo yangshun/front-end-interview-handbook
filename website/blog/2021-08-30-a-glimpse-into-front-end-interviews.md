@@ -1,6 +1,6 @@
 ---
-title: A Glimpse into the Front End Interview Process
-slug: a-glimpse-into-the-front-end-interview-process
+title: A Glimpse into Front End Interviews
+slug: a-glimpse-into-front-end-interviews
 author: Kai Li
 author_title: Software Engineer at Quora
 author_url: https://github.com/li-kai
