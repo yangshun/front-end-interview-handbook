@@ -78,6 +78,11 @@ module.exports = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://twitter.com/yangshunz',
+          label: 'Twitter',
+          position: 'right',
+        },
       ],
     },
     footer: {
