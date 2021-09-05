@@ -4,6 +4,7 @@ module.exports = {
     'Almost complete answers to "Front-end Job Interview Questions" which you can use to interview potential candidates, test yourself or completely ignore',
   url: 'https://frontendinterviewhandbook.com',
   baseUrl: '/',
+  trailingSlash: true,
   favicon: 'img/favicon.png',
   organizationName: 'yangshun',
   projectName: 'front-end-interview-handbook',
