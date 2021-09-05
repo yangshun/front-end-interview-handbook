@@ -11,8 +11,11 @@ import successStories from '@site/src/data/successStories';
 function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
+
   return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+    <Layout
+      title="Front End Interview Preparation for Busy Engineers"
+      description={siteConfig.tagline}>
       <header className={classnames('hero', styles.heroBanner)}>
         <div className="container">
           <div className="row">
