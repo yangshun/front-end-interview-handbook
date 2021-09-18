@@ -59,7 +59,7 @@ function Home() {
               className={classnames(
                 'margin-bottom--lg',
                 'padding-vert--lg',
-                styles.sectionPrimary,
+                styles.sectionSponsor,
               )}>
               <div className="container">
                 <div className="row">
@@ -67,7 +67,7 @@ function Home() {
                     <div className="margin-vert--lg text--center">
                       {Math.random() > 0.5 ? (
                         <>
-                          <h2 className={styles.sectionPrimaryTitle}>
+                          <h2 className={styles.sectionSponsorTitle}>
                             <div align="center">
                               <strong>
                                 Get paid more. Receive risk-free salary
@@ -94,7 +94,7 @@ function Home() {
                         </>
                       ) : (
                         <>
-                          <h2 className={styles.sectionPrimaryTitle}>
+                          <h2 className={styles.sectionSponsorTitle}>
                             <div align="center">
                               <strong>
                                 Get paid, not played. Chat with former tech
@@ -162,6 +162,42 @@ function Home() {
                       vets the contents, so you can be sure the answers here
                       have been proofread by many.
                     </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className={classnames(
+            'margin-bottom--lg',
+            'padding-vert--lg',
+            styles.sectionSponsorAlt,
+          )}>
+          <div className="container">
+            <div className="row">
+              <div className="col col--8 col--offset-2">
+                <div className="margin-vert--lg text--center">
+                  <div>
+                    <h2 className={styles.sectionSponsorTitle}>
+                      <strong>
+                        Looking for high quality interview courses? Educative
+                        offers a ton of great courses to improve your interview
+                        game.
+                      </strong>
+                    </h2>
+                    <div className="margin-vert--lg">
+                      <a
+                        className="button button--secondary button--lg"
+                        href="https://www.educative.io/explore?search_string=interview&aff=x23W"
+                        rel="noreferrer noopener"
+                        target="_blank"
+                        onClick={() => {
+                          window.gtag('event', 'educative.homepage.click');
+                        }}>
+                        Get Started&nbsp;&nbsp;→
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

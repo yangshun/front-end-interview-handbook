@@ -33,11 +33,11 @@
   background-color: var(--ifm-color-emphasis-100);
 }
 
-.sectionPrimary {
+.sectionSponsor {
   background-image: linear-gradient(90deg, rgb(188, 78, 156), rgb(248, 7, 89));
 }
 
-html[data-theme='dark'] .sectionPrimary {
+html[data-theme='dark'] .sectionSponsor {
   background-image: linear-gradient(
     90deg,
     rgb(253, 200, 48),
@@ -45,8 +45,17 @@ html[data-theme='dark'] .sectionPrimary {
   );
 }
 
-.sectionPrimaryTitle {
+.sectionSponsorTitle {
   color: var(--ifm-color-gray-0);
+}
+
+.sectionSponsorAlt {
+  background: linear-gradient(
+    135deg,
+    rgb(29, 136, 244),
+    rgb(252, 67, 128),
+    rgb(251, 191, 36)
+  );
 }
 
 .quote {
