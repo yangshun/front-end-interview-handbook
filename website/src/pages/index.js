@@ -305,12 +305,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div
-          className={classnames(
-            'margin-vert--lg',
-            'padding-vert--lg',
-            'text--center',
-          )}>
+        <div className={classnames('padding-vert--lg', 'text--center')}>
           <div className="container">
             <div className="row">
               <div className="col col--8 col--offset-2">

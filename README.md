@@ -67,7 +67,7 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 ---
 
 <div align="center">
-  <h3>💡 Looking for high quality interview courses? <a href="https://www.educative.io/explore?search_string=interview&aff=x23W">Educative</a> offers a ton of great courses to improve your interview game 💡</h3>
+  <h3>💡 Looking for high quality front end interview courses? <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Educative</a> offers a ton of great courses to improve your interview game 💡</h3>
 </div>
 
 ---
@@ -77,7 +77,7 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 You might be interested in the [Tech Interview Handbook](https://techinterviewhandbook.org) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://techinterviewhandbook.org/cheatsheet)!
 
 <div align="center">
-  <a href="https://techinterviewhandbook.org/">
+  <a href="https://techinterviewhandbook.org">
     <img src="assets/coding.svg" alt="Web Technologies illustration" width="400"/>
   </a>
   <br/>
@@ -91,20 +91,22 @@ You might be interested in the [Tech Interview Handbook](https://techinterviewha
 
 ## Table of Contents
 
-1. [HTML Questions](/contents/en/html-questions.md)
-1. [CSS Questions](/contents/en/css-questions.md)
-1. [JavaScript Questions](/contents/en/javascript-questions.md)
+1. [Pop Quiz Questions](https://frontendinterviewhandbook.com/pop-quiz/)
+1. [JavaScript Utility Function Questions](https://frontendinterviewhandbook.com/utility-functions/)
+1. [Front End Coding Questions](https://frontendinterviewhandbook.com/build-user-interfaces/)
+1. [JavaScript Algorithm Questions](https://frontendinterviewhandbook.com/algorithms/)
+1. [Front End System Design Questions](https://frontendinterviewhandbook.com/front-end-system-design/)
 
-## Contents
+## Translations
 
-- [English](/contents/en/README.md)
-- [Chinese (Simplified) (简体中文)](/contents/zh/README.md)
-- [Japanese (日本語)](/contents/jp/README.md)
-- [Korean (한국어)](/contents/kr/README.md)
-- [Polish (Polski)](contents/pl/README.md)
-- [Portuguese (Português)](contents/pr/README.md)
-- [Russian (Русский)](/contents/ru/README.md)
-- [Tagalog](/contents/tl/README.md)
+- [English](https://frontendinterviewhandbook.com)
+- [Chinese (Simplified) (简体中文)](https://frontendinterviewhandbook.com/zh/html-questions/)
+- [Japanese (日本語)](https://frontendinterviewhandbook.com/jp/html-questions/)
+- [Korean (한국어)](https://frontendinterviewhandbook.com/kr/html-questions/)
+- [Polish (Polski)](https://frontendinterviewhandbook.com/pl/html-questions/)
+- [Portuguese (Português)](https://frontendinterviewhandbook.com/pr/html-questions/)
+- [Russian (Русский)](https://frontendinterviewhandbook.com/ru/html-questions/)
+- [Tagalog](https://frontendinterviewhandbook.com/tl/html-questions/)
 
 ## Related
 
