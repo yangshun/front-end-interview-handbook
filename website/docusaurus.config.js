@@ -10,6 +10,10 @@ module.exports = {
   projectName: 'front-end-interview-handbook',
   onBrokenLinks: 'ignore',
   themeConfig: {
+    announcementBar: {
+      id: 'announcement-1', // Increment on change
+      content: `⭐️ Front End Interview Handbook now includes content on coding questions and system design questions!⭐️`,
+    },
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
