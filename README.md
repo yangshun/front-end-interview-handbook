@@ -14,25 +14,49 @@
   </h3>
 </div>
 
-<hr/>
+---
+
+<div align="center">
+  <h3>Get paid more. Moonchaser has negotiated hundreds of tech offers. Get 1-1 guidance from their experienced team of ex-FAANG PMs, SWEs, and Recruiters. <a href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=frontend_github" target="_blank">Find out more</a></h3>
+</div>
+
+---
 
 ## What is this?
 
-Unlike typical software engineer job interviews, front-end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
+Unlike typical software engineer job interviews, front end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
 
 ## Why do I want this?
 
-### Go From Zero to Hero
+### 🔍 Front End Interviews Demystified
+
+Front End interview preparation resources are scarce but no fret, we tell you what to expect and everything else you need to know!
+
+[**Learn more**](https://frontendinterviewhandbook.com/introduction/)
+
+### 👩‍🎨 System Design
+
+What even is Front End system design?! Learn more about them and how to ace these interviews.
+
+[**Learn more**](https://frontendinterviewhandbook.com/front-end-system-design/)
+
+### 👩‍💻 Coding Questions
+
+Coding questions are an entirely different ball game for Front End interviews. We tell you how to prepare for them (hint: not LeetCode).
+
+[**Learn more**](https://frontendinterviewhandbook.com/build-user-interfaces/)
+
+### 💯 Go From Zero to Hero
 
 Go from zero to front end interview hero with this handbook. No prior interview experience needed.
 
-### Back to Basics
+### 🍼 Back to Basics
 
 Learn to walk before you learn to fly. While React, Vue and Angular are cool, make sure you also know your fundamentals.
 
-### Community Effort
+### 👨‍👩‍👦‍👦 Community Effort
 
 The best thing about Open Source is that the community vets the contents, so you can be sure the answers here have been proofread by many.
 
@@ -43,7 +67,7 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 ---
 
 <div align="center">
-  <h3>Get paid more. Moonchaser has negotiated hundreds of tech offers. Get 1-1 guidance from their experienced team of ex-FAANG PMs, SWEs, and Recruiters. <a href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=frontend_github" target="_blank">Find out more</a></h3>
+  <h3>💡 Looking for high quality interview courses? <a href="https://www.educative.io/explore?search_string=interview&aff=x23W">Educative</a> offers a ton of great courses to improve your interview game 💡</h3>
 </div>
 
 ---

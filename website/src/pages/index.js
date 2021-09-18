@@ -139,24 +139,86 @@ function Home() {
                   )}>
                   Why Front End Interview Handbook?
                 </h2>
-                <div className="row">
-                  <div className="col">
-                    <h3>From Zero to Hero</h3>
+                <div className={classnames('row', styles.featuresRow)}>
+                  <div
+                    className={classnames(
+                      'col',
+                      'col--4',
+                      styles.featuresRowItem,
+                    )}>
+                    <h3>🔍 Front End Interviews Demystified</h3>
+                    <p>
+                      Front End interview preparation resources are scarce but
+                      no fret, we tell you what to expect and everything else
+                      you need to know!
+                    </p>
+                    <a href={useBaseUrl('introduction')}>
+                      <strong>Learn more</strong>
+                    </a>
+                  </div>
+                  <div
+                    className={classnames(
+                      'col',
+                      'col--4',
+                      styles.featuresRowItem,
+                    )}>
+                    <h3>👩‍🎨 System Design</h3>
+                    <p>
+                      What even is Front End system design?! Learn more about
+                      them and how to ace these interviews.
+                    </p>
+                    <a href={useBaseUrl('front-end-system-design')}>
+                      <strong>Learn more</strong>
+                    </a>
+                  </div>
+                  <div
+                    className={classnames(
+                      'col',
+                      'col--4',
+                      styles.featuresRowItem,
+                    )}>
+                    <h3>👩‍💻 Coding Questions</h3>
+                    <p>
+                      Coding questions are an entirely different ball game for
+                      Front End interviews. We tell you how to prepare for them
+                      (hint: not LeetCode).
+                    </p>
+                    <a href={useBaseUrl('build-user-interfaces')}>
+                      <strong>Learn more</strong>
+                    </a>
+                  </div>
+                  <div
+                    className={classnames(
+                      'col',
+                      'col--4',
+                      styles.featuresRowItem,
+                    )}>
+                    <h3>💯 From Zero to Hero</h3>
                     <p>
                       Go from zero to front end interview hero with this
                       handbook. No prior interview experience needed.
                     </p>
                   </div>
-                  <div className="col">
-                    <h3>Back to Basics</h3>
+                  <div
+                    className={classnames(
+                      'col',
+                      'col--4',
+                      styles.featuresRowItem,
+                    )}>
+                    <h3>🍼 Back to Basics</h3>
                     <p>
                       Learn to walk before you learn to fly. While React, Vue
                       and Angular are cool, make sure you also know your
                       fundamentals.
                     </p>
                   </div>
-                  <div className="col">
-                    <h3>Community Effort</h3>
+                  <div
+                    className={classnames(
+                      'col',
+                      'col--4',
+                      styles.featuresRowItem,
+                    )}>
+                    <h3>👨‍👩‍👦‍👦 Community Effort</h3>
                     <p>
                       The best thing about Open Source is that the community
                       vets the contents, so you can be sure the answers here

@@ -61,3 +61,11 @@ html[data-theme='dark'] .sectionSponsor {
 .quote {
   font-size: 1.1rem;
 }
+
+.featuresRow {
+  margin-top: -2rem;
+}
+
+.featuresRow .featuresRowItem {
+  padding-top: 2rem;
+}
