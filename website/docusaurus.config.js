@@ -22,56 +22,8 @@ module.exports = {
       },
       items: [
         {
-          label: 'Translations',
-          to: '#', // "fake" link
+          type: 'localeDropdown',
           position: 'right',
-          items: [
-            {
-              label: 'English',
-              to: 'en/html-questions',
-              activeBasePath: 'en',
-            },
-            {
-              label: '简体中文',
-              to: 'zh/html-questions',
-              activeBasePath: 'zh',
-            },
-            {
-              label: 'Español',
-              to: 'es/html-questions',
-              activeBasePath: 'es',
-            },
-            {
-              label: '日本語',
-              to: 'jp/html-questions',
-              activeBasePath: 'jp',
-            },
-            {
-              label: '한국어',
-              to: 'kr/html-questions',
-              activeBasePath: 'kr',
-            },
-            {
-              label: 'Polski',
-              to: 'pl/html-questions',
-              activeBasePath: 'pl',
-            },
-            {
-              label: 'Português',
-              to: 'pr/html-questions',
-              activeBasePath: 'pr',
-            },
-            {
-              label: 'Русский',
-              to: 'ru/html-questions',
-              activeBasePath: 'ru',
-            },
-            {
-              label: 'Tagalog',
-              to: 'tl/html-questions',
-              activeBasePath: 'tl',
-            },
-          ],
         },
         {to: 'blog', label: 'Blog', position: 'right'},
         {
@@ -124,4 +76,42 @@ module.exports = {
       async: true,
     },
   ],
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh', 'es', 'jp', 'kr', 'pl', 'pr', 'ru', 'tl'],
+    localeConfigs: {
+      zh: {
+        label: '简体中文',
+        direction: 'ltr',
+      },
+      es: {
+        label: 'Español',
+        direction: 'ltr',
+      },
+      jp: {
+        label: '日本語',
+        direction: 'ltr',
+      },
+      kr: {
+        label: '한국어',
+        direction: 'ltr',
+      },
+      pl: {
+        label: 'Polski',
+        direction: 'ltr',
+      },
+      pr: {
+        label: 'Português',
+        direction: 'ltr',
+      },
+      ru: {
+        label: 'Русский',
+        direction: 'ltr',
+      },
+      tl: {
+        label: 'Tagalog',
+        direction: 'ltr',
+      },
+    },
+  },
 };

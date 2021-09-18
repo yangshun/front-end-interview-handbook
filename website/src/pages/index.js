@@ -32,7 +32,7 @@ function Home() {
                     'button button--primary button--lg',
                     styles.getStarted,
                   )}
-                  href={useBaseUrl('en/html-questions')}>
+                  href={useBaseUrl('introduction')}>
                   Get Started&nbsp;&nbsp;→
                 </a>
               </div>
@@ -139,7 +139,7 @@ function Home() {
                   )}>
                   Why Front End Interview Handbook?
                 </h2>
-                <div className="row margin-vert--lg">
+                <div className="row">
                   <div className="col">
                     <h3>From Zero to Hero</h3>
                     <p>
@@ -169,11 +169,7 @@ function Home() {
           </div>
         </div>
         <div
-          className={classnames(
-            'margin-bottom--lg',
-            'padding-vert--lg',
-            styles.sectionSponsorAlt,
-          )}>
+          className={classnames('padding-vert--lg', styles.sectionSponsorAlt)}>
           <div className="container">
             <div className="row">
               <div className="col col--8 col--offset-2">
@@ -204,12 +200,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div
-          className={classnames(
-            'margin-vert--lg',
-            'padding-vert--lg',
-            styles.sectionAlt,
-          )}>
+        <div className={classnames('padding-vert--lg', styles.sectionAlt)}>
           <div className="container">
             <div className="row">
               <div className="col col--6 col--offset-3">
