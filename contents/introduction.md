@@ -2,7 +2,13 @@
 title: Introduction
 ---
 
+## What is this?
+
+Unlike typical software engineer job interviews, front end interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the front end domain — HTML, CSS, JavaScript, just to name a few.
+
 Many front end interviews are highly-focused on domain knowledge and applying them to real-world scenarios. You might find that grinding LeetCode is not extremely useful when it comes to interviewing for a front end position, and that's a good thing! But that doesn't mean that you don't have to be familiar with basic data structure and algorithmic concepts - it's just that the concepts that you're tested on are more practical and relevant to real front end development.
+
+While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there complete and satisfactory answers to these questions aren't readily available online. This handbook answers them along with information and guidance for other front end interview formats.
 
 ## Front end interview formats
 

@@ -11,7 +11,7 @@ Many Front End engineers spend a lot of time building UI, and building a UI comp
 - Accordion
 - Other possible components - [Bootstrap](https://getbootstrap.com/docs/4.0/components/)
 
-Companies that ask UI components questions usually ask candidates to code in one of these three styles:
+Companies that ask UI components questions usually ask candidates to code in one of these three ways:
 
 - [Codepen](https://codepen.io) (or some other online editor with preview) - You get to visualize the output and iterate on the solution
 - BYOE (Bring your Own Environment) - Candidates bring their own development environment/laptop and free to choose whether they want to do local development using their own editors or use online environments like codepen.io or codesandbox.io. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites
@@ -21,13 +21,13 @@ Companies that ask UI components questions usually ask candidates to code in one
 
 After you complete (or even before you start on) the question, think about these potential issues (where relevant). You may or may not have to handle them, so you can always clarify with the interviewer before starting on it so that you don't write too much/little code.
 
-### Front End Best Practices
+### Front end best practices
 
 - Avoid writing global variables. Wrap your code within an IIFE and leave the global scope clean.
 - What if I need to have multiple instances of this components on the page? Did I use any global variables that will make it hard for me to do so? Will having my components on the same page affect each other? They should be independent!
 - Do I have a convenient API to instantiate independent components with configurable options? Old school jQuery UI components are a good examples of this.
 
-### Performance and Scalability
+### Performance and scalability
 
 Can my component scale (network request duration, performance, UI, UX, etc)?
 
@@ -39,14 +39,14 @@ Can my component scale (network request duration, performance, UI, UX, etc)?
 - How will performance be affected if I have too many elements on the page? How do I solve it? Hint: [Virtual list](https://medium.com/outsystems-engineering/virtualizing-the-virtual-dom-pushing-react-further-d76a16e5f209)
 - Did I hard code any values that will make it hard to extend to changing requirements in future? Did I design for extensibility?
 
-### Network Requests
+### Network requests
 
 - Does the component deal with race conditions in network/async requests? E.g. a new network request is fired before the response for the previous request is returned.
 - What if the request timeout or errored? How can I recover from it gracefully?
 - How can I improve the performance of the component? Can I make use of caching, lazy loading, prefetching/preloading?
 - What if I need to load a lot of data/images? Can I lazily load them? Can I fetch the data in batches to reduce spamming the API endpoint?
 
-### User Experience
+### User experience
 
 - Is my component mobile-friendly? Can my component fit on different screen widths? How do I make it mobile-friendly?
 - Is my component easily i18n-able? How can I change the design to cater for i18n? Does my component support RTL languages?
