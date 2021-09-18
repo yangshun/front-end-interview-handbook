@@ -181,15 +181,15 @@ function Home() {
                   <div>
                     <h2 className={styles.sectionSponsorTitle}>
                       <strong>
-                        Looking for high quality interview courses? Educative
-                        offers a ton of great courses to improve your interview
-                        game.
+                        Looking for high quality front end interview courses?
+                        Educative offers a ton of great courses to improve your
+                        interview game.
                       </strong>
                     </h2>
                     <div className="margin-vert--lg">
                       <a
                         className="button button--secondary button--lg"
-                        href="https://www.educative.io/explore?search_string=interview&aff=x23W"
+                        href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W"
                         rel="noreferrer noopener"
                         target="_blank"
                         onClick={() => {
