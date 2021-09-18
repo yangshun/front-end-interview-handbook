@@ -1,6 +1,6 @@
 ---
-title: Pop Quiz Introduction
-sidebar_label: Introduction
+title: Pop Quiz Overview
+sidebar_label: Overview
 ---
 
 Pop Quiz-style questions are usually found in the first few stages of an interview as the answers are usually short and can possibly be administered by a minimally-technical recruiter.

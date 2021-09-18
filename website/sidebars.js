@@ -11,8 +11,12 @@ module.exports = {
         'javascript-questions',
       ],
     },
-    'utility-function',
-    'build-ui-component-app-game',
-    'design-ui-component-app-game',
+    {
+      type: 'category',
+      label: 'Coding Round',
+      items: ['utility-function', 'build-user-interfaces', 'algorithms'],
+    },
+    'front-end-system-design',
+    'behavioral',
   ],
 };

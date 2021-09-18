@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Front End Interview Handbook',
   tagline:
-    'Almost complete answers to "Front-end Job Interview Questions" which you can use to interview potential candidates, test yourself or completely ignore',
+    'All you need for your front end interview preparation - covers pop quizzes, coding, system design and more!',
   url: 'https://frontendinterviewhandbook.com',
   baseUrl: '/',
   trailingSlash: true,

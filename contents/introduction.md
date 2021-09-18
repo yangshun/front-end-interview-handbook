@@ -4,7 +4,7 @@ title: Introduction
 
 Many front end interviews are highly-focused on domain knowledge and applying them to real-world scenarios. You might find that grinding LeetCode is not extremely useful when it comes to interviewing for a front end position, and that's a good thing! But that doesn't mean that you don't have to be familiar with basic data structure and algorithmic concepts - it's just that the concepts that you're tested on are more practical and relevant to real front end development.
 
-## Front End Interviews Formats
+## Front end interview formats
 
 Unlike Software Engineering interviews, the formats for front end interviews are less known and less standard. However, there are a few common formats:
 
@@ -12,9 +12,9 @@ Unlike Software Engineering interviews, the formats for front end interviews are
 - **Algorithms** - LeetCode-style algorithmic coding questions, but solve them using JavaScript
 - **Write a small utility function/library** - Implement a common function in JavaScript. This is the front end version of LeetCode-style algorithm questions. E.g. Implement the `debounce` function found in Underscore/Lodash
 - **Build a UI component/game** - Write HTML, CSS and JavaScript to implement a UI component or a small app/game. E.g. Build a tabs component, Tic-tac-toe Game, Tetris Game
-- **Design a UI component/app/game** - Describe and discuss how you would build a UI component/app/game. This is the front end version of system design questions. E.g. Describe how you would build Emoji autocomplete feature in a chat app
+- **System Design** - Describe and discuss how you would build a UI component/app/game. This is the front end version of system design questions. E.g. Describe how you would build Emoji autocomplete feature in a chat app
 
-## General Tips
+## General tips for front end interviews
 
 Regardless of which type of format you are given, one thing stays true - you need to be extremely strong in your front end fundamentals and constantly display mastery of them to your interviewer.
 
