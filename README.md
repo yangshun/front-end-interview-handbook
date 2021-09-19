@@ -44,7 +44,7 @@ What even is Front End system design?! Learn more about them and how to ace thes
 
 ### 👩‍💻 Coding Questions
 
-Coding questions are an entirely different ball game for Front End interviews. We tell you how to prepare for them (hint: not LeetCode).
+Coding questions are an entirely different ball game for Front End interviews. We tell you how to prepare for them (hint: not just LeetCode).
 
 [**Learn more**](https://frontendinterviewhandbook.com/build-user-interfaces/)
 

@@ -3,27 +3,31 @@ title: Front End System Design
 sidebar_label: System Design
 ---
 
-"System" here typically refers to front end systems, which are different from the typical distributed system design questions for Software Engineering interviews. This format of question is quite similar to the ["Build User Interface" format](./build-user-interfaces.md) and there's a significant amount of overlap between that and this - you will likely need to do some design in that and also do some coding here to illustrate your ideas/app state format.
+"System" here typically refers to front end systems, which are different from the typical distributed system design questions for Software Engineering interviews. The question topic asked is quite similar to the ["Build User Interface" format](./build-user-interfaces.md) but with more focus on architecture and design. There's a significant amount of overlap between that and this - you will likely need to do some design in that and also do some coding here to illustrate your ideas/app state format.
 
 The difference between this section and the ["Build User Interface" format](./build-user-interfaces.md) is that the questions here are usually larger. If the session is only half an hour, candidates are expected to talk about the design tradeoffs, possible implementations, instead of coding it out. Because this format of questions involve multiple components and knowledge across the web stack, candidates usually do not have to go very deep into the lower-level details and can keep the discussion at a higher level.
 
-Many of the topics mentioned in the ["Build User Interface" format](./build-user-interfaces.md) are also relevant for front end system design - API design, scalability, performance, user experience, i18n, accessibility, security. Candidates should take the initiative and bring these topics up and lead the discussion with the interviewer. The more advanced topics such as performance, accessibility and i18n are what differentiates senior candidates from the more junior ones.
+Many of the topics mentioned in the ["Build User Interface" format](./build-user-interfaces.md) are also relevant for front end system design - API design, scalability, performance, user experience, i18n, accessibility, security. Candidates should take the initiative and bring these topics up and lead the discussion with the interviewer. The more advanced topics such as performance, accessibility and i18n are what differentiates senior candidates from the junior ones.
 
-If you possess a laptop and are asked to code them out, you usually can use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals.
+## Structure
 
-## Basic Examples
+1. Requirements clarifications/alignment
+1. Components Architecture
+1. API Design
+1. Data Model Design
+1. Extra Stuff
+   - User Experience
+   - Performance
+   - Accessibility
+   - i18n
+   - Security
 
-- Tic-tac-toe Game
-- Whack-a-mole Game
-- Sortable Data Table (with extensions for filtering)
+## Examples
 
-## Advanced Examples
-
-If you have to implement these, usually you are given more than half an hour
-
-- WYSIWYG Editor
-- Tetris Game
-- Snake Game
+- Photo gallery
+- Chat application
+- News feed
+- Video watching application
 
 ## Helpful Articles
 

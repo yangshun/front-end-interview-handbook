@@ -181,7 +181,7 @@ function Home() {
                     <p>
                       Coding questions are an entirely different ball game for
                       Front End interviews. We tell you how to prepare for them
-                      (hint: not LeetCode).
+                      (hint: not just LeetCode).
                     </p>
                     <a href={useBaseUrl('build-user-interfaces')}>
                       <strong>Learn more</strong>
