@@ -7,9 +7,9 @@ Front End engineers are also Software Engineers after all, and it's an expectati
 
 Trees are a very common data structures in Front End because the DOM is a tree, so if you have to prioritize, definitely focus on being good at tree data structures.
 
-The [Tech Interview Handbook](https://techinterviewhandbook.org/algorithms/algorithms-introduction/) goes into great detail about preparing for Algorithms questions.
+The [Tech Interview Handbook](https://techinterviewhandbook.org/algorithms/introduction/) goes into great detail about preparing for Algorithms questions.
 
-<a className="button button--primary" href="https://techinterviewhandbook.org/algorithms/algorithms-introduction/">Go to Tech Interview Handbook &nbsp;→</a>
+<a className="button button--primary" href="https://techinterviewhandbook.org/algorithms/introduction/">Go to Tech Interview Handbook &nbsp;→</a>
 
 ## JavaScript Algorithm courses
 
