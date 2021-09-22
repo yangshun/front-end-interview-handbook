@@ -17,7 +17,7 @@ Pop quiz questions are meant to test how well a candidates understands the theor
 
 For more senior candidates, expect to explain more advanced stuff with no absolute answers.
 
-- How does React work? What is Virtual DOM and why problems does it solve?
+- How does React work? What is Virtual DOM and what problems does it solve?
 - Why did you use library X over library Y?
 
 The best and correct way is to prepare for such questions is to really understand the concepts and gets some hands-on experience in applying them in a project. Memorizing the answers is not recommended but is acceptable if you are running out of time.
