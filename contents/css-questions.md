@@ -4,7 +4,7 @@ title: CSS Questions
 
 Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!
 
-## Table of Contents
+## Table of contents
 
 - [What is CSS selector specificity and how does it work?](#what-is-css-selector-specificity-and-how-does-it-work)
 - [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](#whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)

@@ -11,6 +11,6 @@ The [Tech Interview Handbook](https://techinterviewhandbook.org/algorithms/intro
 
 <a className="button button--primary" href="https://techinterviewhandbook.org/algorithms/introduction/">Go to Tech Interview Handbook &nbsp;→</a>
 
-## JavaScript Algorithm courses
+## JavaScript algorithm courses
 
 If you want more structured algorithms practice, I recommend Educative's [Ace the JavaScript Coding Interview](https://www.educative.io/path/ace-javascript-coding-interview?aff=x23W) course.

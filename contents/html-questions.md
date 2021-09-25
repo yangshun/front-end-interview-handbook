@@ -4,7 +4,7 @@ title: HTML Questions
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
 
-## Table of Contents
+## Table of contents
 
 - [What does a doctype do?](#what-does-a-doctype-do)
 - [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)

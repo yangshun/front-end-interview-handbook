@@ -6,7 +6,7 @@ These are the front-end version of LeetCode questions, but with less emphasis on
 
 Almost all existing utilty functions asked exist within JavaScript core or famous third-party libraries like Lodash, with the most famous being `debounce` and `throttle`. However, Lodash's implementation is extremely over-engineered - reusing a lot of abstract functions and supporting weird and obscure use cases for older browsers and you're not expected to produce such level of complexity in an interview.
 
-## Basic Examples
+## Basic examples
 
 - `debounce()`/`throttle()`
 - `cloneDeep()`
@@ -20,7 +20,7 @@ The best way to prepare is to get your hands dirty by implementing them yourself
 
 Candidates are expected to take just around 10-15 minutes for a basic question. If you can tell that you received a basic question, try to finish within the suggested duration and do not intentionally take the entire interview to do one question. In most cases, you are expected to answer another small coding question.
 
-## Advanced Examples
+## Advanced examples
 
 Advanced questions are usually given to more senior candidates and expect around 25-30 minutes to complete or arrive at a minimally working solution.
 
