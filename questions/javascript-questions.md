@@ -1,3 +1,3 @@
 # JavaScript Questions
 
-Moved to [new location](/contents/en/javascript-questions.md).
+Moved to [new location](https://frontendinterviewhandbook.com/javascript-questions/).

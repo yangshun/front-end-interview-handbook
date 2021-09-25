@@ -73,6 +73,27 @@ module.exports = {
       },
     ],
   ],
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/css-questions',
+            from: '/en/css-questions',
+          },
+          {
+            to: '/html-questions',
+            from: '/en/html-questions',
+          },
+          {
+            to: '/javascript-questions',
+            from: '/en/javascript-questions',
+          },
+        ],
+      },
+    ],
+  ],
   scripts: [
     {
       src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4984084888641317',

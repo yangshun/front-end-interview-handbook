@@ -1,3 +1,3 @@
 # CSS Questions
 
-Moved to [new location](/contents/en/css-questions.md).
+Moved to [new location](https://frontendinterviewhandbook.com/css-questions/).
