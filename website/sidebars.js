@@ -16,7 +16,15 @@ module.exports = {
       label: 'Coding Round',
       items: ['utility-function', 'build-user-interfaces', 'algorithms'],
     },
-    'front-end-system-design',
+    {
+      type: 'category',
+      label: 'System Design',
+      items: [
+        'front-end-system-design',
+        'front-end-system-design-ui-components',
+        'front-end-system-design-applications',
+      ],
+    },
     'behavioral',
   ],
 };
