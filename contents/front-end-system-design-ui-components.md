@@ -20,8 +20,8 @@ sidebar_label: UI Components
    - Performance
    - Accessibility (a11y)
    - Internationalization (i18n)
-   - Security
    - Multi-device support
+   - Security
 
 ### Requirements clarification
 
@@ -49,7 +49,8 @@ Deciding what data to put in state is essential to doing well for this portion. 
 
 - State is allowed to change over time during the lifecycle of the component, typically as a result of user interactions
 - Each component has its own state which allows _multiple instances_ of the component to coexist on a single page. The state of a component instance should not affect the state of another instance
-- If a component uses a value which can be derived from another piece of state, then that value should most likely not be part of the state. For example if your component is rendering a list of items and you want to display a message when there are no items to render, there shouldn't be an additional `isEmpty` state because it can be derived from the length of the `items`
+- Components are easier to reason about (read/understand) the less state there is. We should strive to reduce the amount of state needed. If a component uses a value which can be derived from another piece of state, then that value should most likely not be part of the state. For example if your component is rendering a list of items and you want to display a message when there are no items to render, there shouldn't be an additional `isEmpty` state because it can be derived from the length of the `items`
+- If a component has multiple sub-components, it'll be best if it's possible to consolidate the state within the top level and the rest of the components are pure and stateless
 
 ### API design
 
@@ -133,11 +134,11 @@ Is the component expected to be used on mobile web? Mobile devices have unique c
 
 Most of the time, components aren't exposed to security vulnerabilities, but it can still happen. Here are the more common security vulnerabilities you should be aware of:
 
-- XSS - Is your component vulnerable to cross-site scripting (XSS)? E.g. do you render user input via `.innerHTML` or `dangerouslySetInnerHTML` (React-specific)?
+- XSS - Is your component vulnerable to cross-site scripting (XSS)? E.g. Do you render user input via `.innerHTML` or `dangerouslySetInnerHTML` (React-specific)?
 - CSRF (Cross-Site Request Forgery)
 - Clickjacking
 - [`rel=noopener`](https://mathiasbynens.github.io/rel-noopener/)
 
 ## Helpful articles
 
-- [Buillding an accessible autocomplete control](https://adamsilver.io/blog/building-an-accessible-autocomplete-control/)
+- [Building an accessible autocomplete control](https://adamsilver.io/blog/building-an-accessible-autocomplete-control/)

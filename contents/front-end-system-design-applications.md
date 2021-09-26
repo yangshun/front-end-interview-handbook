@@ -22,8 +22,8 @@ sidebar_label: Applications
    - Performance
    - Accessibility (a11y)
    - Internationalization (i18n)
-   - Security
    - Multi-device support
+   - Security
 
 ### Requirements clarification
 
@@ -43,15 +43,19 @@ For applications, common architectures include Model-View-Controller, Model-View
 
 ### Data model
 
-Client app state.
+Client app state, which is a combination of server state (database) and true client state (non-persisted to the server).
+
+TBD.
 
 ### API design
 
 API design for applications will refer to the HTTP/network API parameters and the shape of the responses.
 
+TBD.
+
 ### Deep dives
 
-With the basics of the application covered, we can dive into specific areas which the application might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
+With the architectural basics of the application covered, we can dive into specific areas which the application might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
 
 Showing knowledge about these areas and being able to dive deep into them are traits of senior developers.
 
