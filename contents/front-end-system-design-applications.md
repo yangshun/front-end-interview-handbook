@@ -6,18 +6,19 @@ sidebar_label: Applications
 
 ## Examples
 
-- News feed
+- Social network
 - Video watching website
 - Chat application
+- Mail application
 
 ## Framework
 
 1. Requirements clarifications/alignment
 1. Architecture
-1. Data Model Design
-1. API Design
-1. Extra Stuff
-   - User Experience
+1. Data model
+1. API design
+1. Deep dive
+   - User experience (UX)
    - Performance
    - Accessibility (a11y)
    - Internationalization (i18n)
@@ -48,21 +49,18 @@ Client app state.
 
 API design for applications will refer to the HTTP/network API parameters and the shape of the responses.
 
-### Extra stuff
+### Deep dives
 
-TODO
+With the basics of the application covered, we can dive into specific areas which the application might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
 
-<!-- #### User experience
+Showing knowledge about these areas and being able to dive deep into them are traits of senior developers.
 
-#### Performance
-
-#### Accessibility (a11y)
-
-#### Internationalization (i18n)
-
-#### Security
-
-#### Multi-device support -->
+- User experience (UX)
+- Performance
+- Accessibility (a11y)
+- Internationalization (i18n)
+- Multi-device support
+- Security
 
 ## Helpful articles
 

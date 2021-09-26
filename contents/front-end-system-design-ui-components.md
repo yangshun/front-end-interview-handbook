@@ -6,22 +6,22 @@ sidebar_label: UI Components
 
 ## Examples
 
-- Photo gallery
-- Selector
+- Image Carousel
+- Selector which loads options over the network
 
 ## Framework
 
 1. Requirements clarifications/alignment
 1. Architecture
-1. Data Model Design
-1. API Design
-1. Extra Stuff
-   - Multi-device support
-   - User Experience
+1. Data model
+1. API design
+1. Deep dive
+   - User Experience (UX)
    - Performance
-   - Accessibility
-   - i18n
+   - Accessibility (a11y)
+   - Internationalization (i18n)
    - Security
+   - Multi-device support
 
 ### Requirements clarification
 
@@ -62,23 +62,58 @@ The key idea behind components is for reusing. Good components are designed well
   - [Render props](https://reactjs.org/docs/render-props.html) are function props that a component uses to know what to render. It also helps in reusing behavior without bothering about the appearance
   - `className` or `style` props - Allows users to inject class namaes and/or styling attributes to inner DOM elements
 
-### Extra stuff
+### Deep dives
 
 With the basics of the component covered, we can dive into specific areas which the component might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
 
-#### User experience
+Showing knowledge about these areas and being able to dive deep into them are traits of senior developers.
+
+#### User experience (UX)
+
+UX might not fall squarely under engineering but good front end engineers have good understanding of UX and building UI with great UX. There are too many UX practices to be aware of, but the most common ones/low hanging fruits are:
+
+- Reflect state of the component to the user - If there's a pending background request, show a spinner. If there's an error, make sure to display it instead of silently failing
+- Display an empty state if there are no items in a list instead of not rendering anything
+- Destructive actions should have a confirmation step, especially irreversible ones
+- Disable interactive elements if they trigger an async request! Prevents double firing of events
+- Handle extreme cases
+  - Strings can be really long/short and your UI should not look weird in either case. For long strings, they can have their contents truncated and hidden behind a "View more" button
+  - If there are many items to display within a component, they shouldn't all be displayed on the screen at once and making the page extremely long/wide. Paginate the items or contain them within a container with a maximum width/height
 
 #### Performance
 
-In front end, performance typically refers to a few things - loading speed, how fast the UI responds to user interactions, memory space (heap) required by the component
+In front end, performance typically refers to a few things - loading speed, how fast the UI responds to user interactions, memory space (heap) required by the component.
 
-- Reducing loading speed - The less JavaScript the component contains, the less JavaScript the browser has to download to load the component and the lower the network request time. It's also important to modularize components and allow users to download only the necessary JavaScript modules needed for their use case.
-- User interactions - TODO
-- Memory space - TODO
+- Loading speed - The less JavaScript the component contains, the less JavaScript the browser has to download to load the component and the lower the network request time. It's also important to modularize components and allow users to download only the necessary JavaScript modules needed for their use case.
+- Responsiveness to user interactions
+  - If a user interaction results in displaying of data that has to be loaded over the network, there will be a delay between the user interaction and updating of the UI. Minimizing that delay or removing it entirely is the key to improving responsiveness.
+  - JavaScript in a browser is single-threaded. The browser can only do execute one line of code at any one time. The less work (JavaScript executed, DOM updates) the component has to do when a user does something on the page, the faster the component can update the UI to respond to the changes.
+- Memory space - The more memory your component takes up on the page, the slower the browser performs and the experience will feel sluggish/janky. If your component has to render hundreds/thousands of items (e.g. number of images in a carousel, number of items in a selector), memory space might become significant.
+
+**Optimization tips**
+
+- Render only what is displayed on the screen - For example, in a selector, only a few items are displayed to the user even if the list can contain hundreds of elements. Rendering all of them into the browser would be a waste of processing power and memory space. We can leverage a technique called windowing/virtualization to emulate a list with many elements while only rendering a few as possible to make the final result look as if there was no optimization done (especially preserving scroll height). Read more about virtualization [here](https://web.dev/virtualize-long-lists-react-window/).
+- Lazy loading/load only necessary data - For example, in a photo gallery component, a user can have hundreds and thousands of photos, but it won't be feasible to load all of them eagerly. Most likely the user won't be browsing all of them in that session too. An optimization could be to load only the ones that the user is likely to view, or those that are within the viewport (which we call "above the fold"). The rest of the photos can be loaded on demand, which introduces responsiveness delay, but the next tip will help you to handle that.
+- Preloading/prefetching data ahead of time - For example, in an image carousel where there are too many images to load beforehand, an optimization could be to load the next image ahead of time while the user is still on the current image, such that when the user clicks the "Next" button, there's no network delay needed because the next image has already been loaded. This technique can also be modified to load the next N images to handle the case where users click "Next" in rapid succession.
 
 #### Accessibility (a11y)
 
-TODO
+Accessibility (a11y) is the practice of making your websites usable by as many people as possible.
+
+- Color contrasts (e.g. color blindness)
+- Keyboard friendliness (e.g. people with limited fine motor control)
+- Visual Impairment (e.g. blind)
+- Transcripts for audio (e.g. deaf)
+
+Not everyone surfs the web the same way; some people use screenreaders and keyboards exclusively (no mouse)! Here are some basic tips for achieving a11y in UI components:
+
+- Foreground colors should have sufficient contrast from the background colors
+- Use the right HTML tags for semanticness, or the right `aria-role` attributes
+- Clickable items should have `tabindex` attribute (so that they are focusable) and also "cursor: pointer" styling to indicate that they can be clicked on
+- Images should have `alt` text, which will be read out by screen readers and act as a fallback description if the image fails to load
+- `aria-label`s help to provide context to elements which are non-obvious to non-visual users. E.g. an icon button without any text label within it should have an `aria-label` attribute so that the intention is clear for users who can't see the icon
+
+a11y is one of the most commonly neglected areas as most of the time they're invisible to the developer. Showing knowledge of a11y and possessing the skills to create accessible components will definitely reflect well on you. More reading on [Web Accessibility](https://www.w3.org/WAI/fundamentals/accessibility-intro/).
 
 #### Internationalization (i18n)
 
@@ -89,11 +124,19 @@ Internationalization (i18n) is the design and development of a product, applicat
 
 #### Multi-device support
 
-Is the component expected to be used on mobile web? Mobile devices have unique constraints - they have less powerful hardware and viewport size is smaller. Hence things could be done differently to allow the component to work better on mobile devices - making a conscious effort not to use too much memory and increasing the hit box of interactive elements.
+Is the component expected to be used on mobile web? Mobile devices have unique constraints - they have less powerful hardware and viewport size is smaller. Hence things could be done differently to allow the component to work better on mobile devices - making a conscious effort to:
+
+- Not use too much memory - using too much memory makes the device perform slower
+- Increasing the hit box of interactive elements - fingers have an easier time tapping on the right element
 
 #### Security
 
-- Is your component vulnerable to cross-site scripting (XSS)? E.g. do you render user input via `.innerHTML` or `dangerouslySetInnerHTML` (React-specific)?
+Most of the time, components aren't exposed to security vulnerabilities, but it can still happen. Here are the more common security vulnerabilities you should be aware of:
+
+- XSS - Is your component vulnerable to cross-site scripting (XSS)? E.g. do you render user input via `.innerHTML` or `dangerouslySetInnerHTML` (React-specific)?
+- CSRF (Cross-Site Request Forgery)
+- Clickjacking
+- [`rel=noopener`](https://mathiasbynens.github.io/rel-noopener/)
 
 ## Helpful articles
 
