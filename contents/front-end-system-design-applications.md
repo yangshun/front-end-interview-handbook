@@ -4,6 +4,12 @@ slug: front-end-system-design/applications
 sidebar_label: Applications
 ---
 
+:::caution
+
+This page is still work in progress.
+
+:::
+
 ## Examples
 
 - Social network
