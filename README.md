@@ -92,7 +92,7 @@ You might be interested in the [Tech Interview Handbook](https://techinterviewha
 ## Table of Contents
 
 1. [Pop Quiz Questions](https://frontendinterviewhandbook.com/pop-quiz/)
-1. [JavaScript Utility Function Questions](https://frontendinterviewhandbook.com/utility-functions/)
+1. [JavaScript Utility Function Questions](https://frontendinterviewhandbook.com/utility-function/)
 1. [Front End Coding Questions](https://frontendinterviewhandbook.com/build-user-interfaces/)
 1. [JavaScript Algorithm Questions](https://frontendinterviewhandbook.com/algorithms/)
 1. [Front End System Design Questions](https://frontendinterviewhandbook.com/front-end-system-design/)
