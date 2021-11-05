@@ -11,8 +11,8 @@ module.exports = {
   onBrokenLinks: 'ignore',
   themeConfig: {
     announcementBar: {
-      id: 'announcement-1', // Increment on change
-      content: `⭐️ Front End Interview Handbook now includes content on coding questions and system design questions!⭐️`,
+      id: 'announcement-2', // Increment on change
+      content: `⭐️ Educative offers tons of high quality front end interview courses. <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Join today for a discount!</a> ⭐️`,
     },
     prism: {
       theme: require('prism-react-renderer/themes/github'),
