@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       id: 'announcement-2', // Increment on change
-      content: `⭐️ Educative offers tons of high quality front end interview courses. <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Join today for a discount!</a> ⭐️`,
+      content: `⭐️ Bring your front end interview skills to the next level with Educative. <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Join today for a discount!</a> ⭐️`,
     },
     prism: {
       theme: require('prism-react-renderer/themes/github'),
@@ -21,7 +21,7 @@ module.exports = {
     navbar: {
       title: 'Front End Interview Handbook',
       logo: {
-        alt: 'Front End Interview Handbook Logo',
+        alt: '',
         src: 'img/logo.svg',
       },
       items: [
