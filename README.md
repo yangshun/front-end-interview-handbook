@@ -22,6 +22,23 @@
 
 ---
 
+<div align="center">
+	<p>
+		<a href="https://simplify.jobs/?utm_source=github&utm_medium=frontend_interview_handbook">
+			<b>Applying to jobs or internships?</b>
+			<br>
+			Autofill all your applications in a single click.
+			<br>
+			<div>
+				<img src="https://res.cloudinary.com/dpeo4xcnc/image/upload/v1637058958/simplify_banner.png" width="450"  alt="Simplify">
+			</div>
+		</a>
+		<sub><i>Stop manually re-entering your information. Simplify’s extension helps you autofill job applications on millions of sites.</i></sub>
+	</p>
+</div>
+
+---
+
 ## What is this?
 
 Unlike typical software engineer job interviews, front end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
