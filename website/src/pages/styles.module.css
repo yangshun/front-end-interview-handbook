@@ -69,3 +69,25 @@ html[data-theme='dark'] .sectionSponsor {
 .featuresRow .featuresRowItem {
   padding-top: 2rem;
 }
+
+.tweet {
+  font-size: 15px;
+}
+
+.tweetsSection {
+  margin-top: -2rem;
+}
+
+.tweetsSection > :global(.col) {
+  padding-top: 2rem;
+  margin-top: -2rem;
+}
+
+.tweetsSection > :global(.col) > * {
+  margin-top: 2rem;
+}
+
+.tweetMeta,
+.tweetMeta:hover {
+  color: var(--ifm-color-emphasis-700);
+}
