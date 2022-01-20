@@ -33,7 +33,7 @@ function Home() {
                     styles.getStarted,
                   )}
                   href={useBaseUrl('introduction')}>
-                  Get Started&nbsp;&nbsp;→
+                  Get started&nbsp;&nbsp;→
                 </a>
               </div>
               <div className="margin-top--lg">
@@ -83,7 +83,7 @@ function Home() {
                           onClick={() => {
                             window.gtag('event', 'moonchaser.homepage.click');
                           }}>
-                          Get Risk-free Negotiation Help&nbsp;&nbsp;→
+                          Get risk-free negotiation advice&nbsp;&nbsp;→
                         </a>
                       </div>
                     </div>
@@ -219,7 +219,7 @@ function Home() {
                         onClick={() => {
                           window.gtag('event', 'educative.homepage.click');
                         }}>
-                        Get Started&nbsp;&nbsp;→
+                        Get started&nbsp;&nbsp;→
                       </a>
                     </div>
                   </div>
