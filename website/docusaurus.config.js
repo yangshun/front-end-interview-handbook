@@ -25,11 +25,12 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
+        {to: 'introduction', label: 'Get started', position: 'left'},
+        {to: 'blog', label: 'Blog', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
         },
-        {to: 'blog', label: 'Blog', position: 'right'},
         {
           href: 'https://github.com/yangshun/front-end-interview-handbook',
           label: 'GitHub',

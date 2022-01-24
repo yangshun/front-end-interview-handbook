@@ -31,8 +31,8 @@ export default React.memo(function SidebarAd() {
             }}>
             <p className={styles.tagline}>
               <strong>Get paid more.</strong> Receive risk-free salary
-              negotiation advice from Moonchaser. You pay nothing unless your
-              offer is increased.
+              negotiation advice from <u>Moonchaser</u>. You pay nothing unless
+              your offer is increased. <u>Book a free consultation today!</u>
             </p>
           </a>
         ) : (
@@ -46,8 +46,9 @@ export default React.memo(function SidebarAd() {
               window.gtag('event', 'educative.sidebar.click');
             }}>
             <p className={styles.tagline}>
-              <strong>Level up with Educative.</strong> Get 10% off Educative's
-              wide range of interview courses today!
+              <strong>Looking to get hired at FAANG?</strong> <u>Educative</u>{' '}
+              offers many great courses to improve your interview game.{' '}
+              <u>Join today for a 10% discount!</u>
             </p>
           </a>
         )
