@@ -46,3 +46,43 @@ div[class^='announcementBar_'] {
   background-color: var(--ifm-color-primary);
   font-weight: bold;
 }
+
+.navbar-icon:before {
+  background-repeat: no-repeat;
+  content: '';
+  display: flex;
+  height: 24px;
+  width: 24px;
+  transition: all 300ms ease-in-out;
+}
+
+.navbar-icon:hover {
+  opacity: 0.6;
+}
+
+.navbar-icon-github:before {
+  background-image: url('/img/icons8-github.svg');
+}
+
+html[data-theme='dark'] .navbar-icon-github:before {
+  background-image: url('/img/icons8-github-light.svg');
+  height: 28px;
+  width: 28px;
+}
+
+.navbar-icon-twitter:before {
+  background-image: url('/img/icons8-twitter.svg');
+}
+
+html[data-theme='dark'] .navbar-icon-twitter:before {
+  background-image: url('/img/icons8-twitter-light.svg');
+}
+.navbar-icon-facebook:before {
+  background-image: url('/img/icons8-facebook.svg');
+}
+
+html[data-theme='dark'] .navbar-icon-facebook:before {
+  background-image: url('/img/icons8-facebook-light.svg');
+  height: 28px;
+  width: 28px;
+}

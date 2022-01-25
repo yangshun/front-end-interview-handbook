@@ -33,13 +33,21 @@ module.exports = {
         },
         {
           href: 'https://github.com/yangshun/front-end-interview-handbook',
-          label: 'GitHub',
           position: 'right',
+          className: 'navbar-icon navbar-icon-github',
+          'aria-label': 'GitHub repository',
+        },
+        {
+          href: 'https://www.facebook.com/techinterviewhandbook',
+          position: 'right',
+          className: 'navbar-icon navbar-icon-facebook',
+          'aria-label': 'Facebook page',
         },
         {
           href: 'https://twitter.com/yangshunz',
-          label: 'Twitter',
           position: 'right',
+          className: 'navbar-icon navbar-icon-twitter',
+          'aria-label': 'Twitter page',
         },
       ],
     },
