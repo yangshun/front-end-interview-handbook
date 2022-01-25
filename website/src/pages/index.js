@@ -127,7 +127,7 @@ function EducativeSection() {
                 <h2 className={styles.sectionSponsorTitle}>
                   <strong>
                     Looking to get hired at FAANG? Educative offers many great
-                    courses to improve your interview game. Join today for a
+                    courses to improve your interview game. Join today for a 10%
                     discount!
                   </strong>
                 </h2>

@@ -1,5 +1,5 @@
 ---
-title: Front End System Design - UI Components
+title: Front end system design - UI components
 slug: front-end-system-design/ui-components
 sidebar_label: UI Components
 ---
@@ -54,14 +54,16 @@ Deciding what data to put in state is essential to doing well for this portion. 
 
 ### API design
 
-The key idea behind components is for reusing. Good components are designed well such that they can be reused in multiple scenarios.
+The key idea behind components is for reusing. Good components are designed well such that they can be reused in multiple scenarios. For components, API refers to configuration options which would the component developer would expose to other developers to specify.
 
-- Configuration options for the component (`props` in React)
+- What are the configuration options you would allow for the component? (`props` in React). What would be reasonable defaults?
 - Follow Open-closed principle - the component should be open for extension but closed for modification. In React,
 - If your component is meant to be a UI library that doesn't bother about the appearance and leaves the styling to the user, extra care has to go into the design of the props and to allow users to customize the look and feel of the components. There are a few ways to go about this in React:
   - [Composition](https://reactjs.org/docs/composition-vs-inheritance.html) - Props which accept React components which also promotes code reuse
   - [Render props](https://reactjs.org/docs/render-props.html) are function props that a component uses to know what to render. It also helps in reusing behavior without bothering about the appearance
   - `className` or `style` props - Allows users to inject class namaes and/or styling attributes to inner DOM elements
+- Possible configuration options:
+  - Lifecycle/event hooks - `click`, `blur`, etc
 
 ### Deep dives
 
@@ -77,6 +79,7 @@ UX might not fall squarely under engineering but good front end engineers have g
 - Display an empty state if there are no items in a list instead of not rendering anything
 - Destructive actions should have a confirmation step, especially irreversible ones
 - Disable interactive elements if they trigger an async request! Prevents double firing of events
+- If there are search inputs involved, each keystroke should not fire a network request
 - Handle extreme cases
   - Strings can be really long/short and your UI should not look weird in either case. For long strings, they can have their contents truncated and hidden behind a "View more" button
   - If there are many items to display within a component, they shouldn't all be displayed on the screen at once and making the page extremely long/wide. Paginate the items or contain them within a container with a maximum width/height

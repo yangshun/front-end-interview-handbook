@@ -1,5 +1,5 @@
 ---
-title: Pop Quiz Overview
+title: Pop quiz overview
 sidebar_label: Overview
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: CSS Questions
+title: CSS questions
 ---
 
 Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!

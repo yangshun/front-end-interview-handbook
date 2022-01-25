@@ -1,5 +1,5 @@
 ---
-title: Front End System Design Overview
+title: Front end system design overview
 sidebar_label: Overview
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Front End System Design - Applications
+title: Front end system design - applications
 slug: front-end-system-design/applications
 sidebar_label: Applications
 ---

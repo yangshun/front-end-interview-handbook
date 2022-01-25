@@ -1,5 +1,5 @@
 ---
-title: HTML Questions
+title: HTML questions
 ---
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
