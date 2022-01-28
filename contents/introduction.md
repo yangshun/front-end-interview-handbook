@@ -14,11 +14,11 @@ While there are some existing resources to help front end developers in preparin
 
 Unlike Software Engineering interviews, the formats for front end interviews are less known and less standard. However, there are a few common formats:
 
-- **Pop Quiz** - Short questions which test your knowledge and have clear non-subjective answers. E.g. Explain the `this` keyword in JavaScript
+- **Pop quiz** - Short questions which test your knowledge and have clear non-subjective answers. E.g. Explain the `this` keyword in JavaScript
 - **Algorithms** - LeetCode-style algorithmic coding questions, but solve them using JavaScript
 - **Write a small utility function/library** - Implement a common function in JavaScript. This is the front end version of LeetCode-style algorithm questions. E.g. Implement the `debounce` function found in Underscore/Lodash
-- **Build User Interfaces (component/app/game)** - Write HTML, CSS and JavaScript to implement a UI component or a small app/game. E.g. Build a tabs component, Tic-tac-toe Game, Tetris Game
-- **System Design** - Describe and discuss how you would build a UI component/app/game and its architecture. This is the front end version of system design questions. E.g. Describe how you would build Emoji autocomplete feature in a chat app, what APIs it would have, what components there are to the feature, how to ensure it has good performance, UX, etc.
+- **Build user interfaces (component/app/game)** - Write HTML, CSS and JavaScript to implement a UI component or a small app/game. E.g. Build a tabs component, Tic-tac-toe Game, Tetris Game
+- **System design** - Describe and discuss how you would build a UI component/app/game and its architecture. This is the front end version of system design questions. E.g. Describe how you would build Emoji autocomplete feature in a chat app, what APIs it would have, what components there are to the feature, how to ensure it has good performance, UX, etc.
 
 ## General tips for front end interviews
 
@@ -28,7 +28,7 @@ Be _extremely_ familiar with the following concepts:
 
 - CSS: Specificity, Box model, Layout, Positioning
 - JavaScript: `this` keyword, Prototypes, closures, Async-style code, Promises, Timers (`setTimeout`, `setInterval`)
-- JavaScript Design Patterns: Observer pattern, Module pattern
+- JavaScript design patterns: Observer pattern, Module pattern
 - HTML: Event delegation (it was useful in almost every interview), DOM traversal, DOM manipulation, Form validation and submission
 - Vanilla JS, or jQuery at the very least. Not all interviews allow you to use React as they want to see mastery of lower-level stuff
 

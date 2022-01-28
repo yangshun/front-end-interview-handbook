@@ -1,3 +1,3 @@
 # HTML Questions
 
-Moved to [new location](https://frontendinterviewhandbook.com/html-questions/).
+Moved to [new location](https://www.frontendinterviewhandbook.com/html-questions/).
