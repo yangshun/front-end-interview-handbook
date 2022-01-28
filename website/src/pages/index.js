@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <Layout
-      title="Front End Interview Preparation for Busy Engineers"
+      title="Front end interview preparation for busy engineers"
       description={siteConfig.tagline}>
       <div>
         <HeroSection />
@@ -169,9 +169,9 @@ function FeaturesSection() {
             <div className={classnames('row', styles.featuresRow)}>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>🔍 Front End interviews demystified</h3>
+                <h3>🔍 Front end interviews demystified</h3>
                 <p>
-                  Front End interview preparation resources are scarce but no
+                  Front end interview preparation resources are scarce but no
                   fret, we tell you what to expect and everything else you need
                   to know!
                 </p>
@@ -183,7 +183,7 @@ function FeaturesSection() {
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
                 <h3>👩‍🎨 System design</h3>
                 <p>
-                  What even is Front End system design?! Learn more about them
+                  What even is Front end system design?! Learn more about them
                   and how to ace these interviews.
                 </p>
                 <a href={useBaseUrl('front-end-system-design')}>
