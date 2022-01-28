@@ -2,7 +2,7 @@ module.exports = {
   title: 'Front End Interview Handbook',
   tagline:
     'Front End interview preparation materials for busy engineers - pop quizzes, coding, front end system design and more!',
-  url: 'https://frontendinterviewhandbook.com',
+  url: 'https://www.frontendinterviewhandbook.com',
   baseUrl: '/',
   trailingSlash: true,
   favicon: 'img/favicon.png',
