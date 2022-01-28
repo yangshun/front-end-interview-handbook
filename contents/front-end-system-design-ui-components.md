@@ -1,12 +1,12 @@
 ---
 title: Front end system design - UI components
 slug: front-end-system-design/ui-components
-sidebar_label: UI Components
+sidebar_label: UI components
 ---
 
 ## Examples
 
-- Image Carousel
+- Image carousel
 - Selector which loads options over the network
 
 ## Framework

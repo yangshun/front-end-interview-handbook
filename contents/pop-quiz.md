@@ -22,6 +22,6 @@ For more senior candidates, expect to explain more advanced stuff with no absolu
 
 The best and correct way is to prepare for such questions is to really understand the concepts and gets some hands-on experience in applying them in a project. Memorizing the answers is not recommended but is acceptable if you are running out of time.
 
-## Common Pop Quiz questions
+## Common questions
 
 The next few pages go through common questions tested for HTML/CSS/JavaScript and provides answers to them.

@@ -3,7 +3,7 @@ module.exports = {
     'introduction',
     {
       type: 'category',
-      label: 'Pop Quiz',
+      label: 'Pop quiz',
       items: [
         'pop-quiz',
         'html-questions',
@@ -13,12 +13,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Coding Round',
+      label: 'Coding round',
       items: ['utility-function', 'build-user-interfaces', 'algorithms'],
     },
     {
       type: 'category',
-      label: 'System Design',
+      label: 'System design',
       items: [
         'front-end-system-design',
         'front-end-system-design-ui-components',

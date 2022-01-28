@@ -169,7 +169,7 @@ function FeaturesSection() {
             <div className={classnames('row', styles.featuresRow)}>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>🔍 Front End Interviews Demystified</h3>
+                <h3>🔍 Front End interviews demystified</h3>
                 <p>
                   Front End interview preparation resources are scarce but no
                   fret, we tell you what to expect and everything else you need
@@ -181,7 +181,7 @@ function FeaturesSection() {
               </div>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>👩‍🎨 System Design</h3>
+                <h3>👩‍🎨 System design</h3>
                 <p>
                   What even is Front End system design?! Learn more about them
                   and how to ace these interviews.
@@ -192,7 +192,7 @@ function FeaturesSection() {
               </div>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>👩‍💻 Coding Questions</h3>
+                <h3>👩‍💻 Coding questions</h3>
                 <p>
                   Coding questions are an entirely different ball game for Front
                   End interviews. We tell you how to prepare for them (hint: not
@@ -204,7 +204,7 @@ function FeaturesSection() {
               </div>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>💯 From Zero to Hero</h3>
+                <h3>💯 From zero to hero</h3>
                 <p>
                   Go from zero to front end interview hero with this handbook.
                   No prior interview experience needed.
@@ -212,7 +212,7 @@ function FeaturesSection() {
               </div>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>🍼 Back to Basics</h3>
+                <h3>🍼 Back to basics</h3>
                 <p>
                   Learn to walk before you learn to fly. While React, Vue and
                   Angular are cool, make sure you also know your fundamentals.
@@ -220,7 +220,7 @@ function FeaturesSection() {
               </div>
               <div
                 className={classnames('col', 'col--4', styles.featuresRowItem)}>
-                <h3>👨‍👩‍👦‍👦 Community Effort</h3>
+                <h3>👨‍👩‍👦‍👦 Community effort</h3>
                 <p>
                   The best thing about Open Source is that the community vets
                   the contents, so you can be sure the answers here have been
@@ -427,7 +427,7 @@ function SuccessStoriesSection() {
                 'text--center',
                 styles.sectionTitle,
               )}>
-              Success Stories
+              Success stories
             </h2>
             {successStories.map((user) => (
               <div className="card margin-vert--lg" key={user.name}>
