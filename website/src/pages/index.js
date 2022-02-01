@@ -37,6 +37,7 @@ function HeroSection() {
         <div className="row">
           <div className="col col--8 col--offset-2">
             <img
+              alt={siteConfig.title}
               className={classnames(styles.heroBannerLogo, 'margin-vert--md')}
               src={useBaseUrl('img/logo.svg')}
             />
@@ -240,7 +241,7 @@ function Tweet({url, handle, name, content, avatar, date}) {
     <div className={classnames('card', styles.tweet)}>
       <div className="card__header">
         <div className="avatar">
-          <img className="avatar__photo" src={avatar} />
+          <img alt={name} className="avatar__photo" src={avatar} />
           <div className="avatar__intro">
             <div className={styles.tweet}>
               <strong>{name}</strong>{' '}
@@ -436,7 +437,11 @@ function SuccessStoriesSection() {
                 </div>
                 <div className="card__header">
                   <div className="avatar">
-                    <img className="avatar__photo" src={user.thumbnail} />
+                    <img
+                      alt={user.name}
+                      className="avatar__photo"
+                      src={user.thumbnail}
+                    />
                     <div className="avatar__intro">
                       <div className="avatar__name">{user.name}</div>
                       <small className="avatar__subtitle">{user.title}</small>
@@ -478,52 +483,18 @@ function SponsorshipSection() {
               <a
                 href="https://opencollective.com/tech-interview-handbook/sponsor/0/website"
                 target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/0/avatar.svg" />
+                <img
+                  alt="Sponsor"
+                  src="https://opencollective.com/tech-interview-handbook/sponsor/0/avatar.svg"
+                />
               </a>
               <a
                 href="https://opencollective.com/tech-interview-handbook/sponsor/1/website"
                 target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/2/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/3/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/4/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/4/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/5/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/5/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/6/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/6/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/7/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/7/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/8/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/8/avatar.svg" />
-              </a>{' '}
-              <a
-                href="https://opencollective.com/tech-interview-handbook/sponsor/9/website"
-                target="_blank">
-                <img src="https://opencollective.com/tech-interview-handbook/sponsor/9/avatar.svg" />
+                <img
+                  alt="Sponsor"
+                  src="https://opencollective.com/tech-interview-handbook/sponsor/1/avatar.svg"
+                />
               </a>
             </div>
             <div className="margin-vert--lg">
