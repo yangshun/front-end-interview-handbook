@@ -47,6 +47,10 @@ div[class^='announcementBar_'] {
   font-weight: bold;
 }
 
+.navbar__item.dropdown.dropdown--hoverable {
+  flex-shrink: 0;
+}
+
 .navbar-icon:before {
   background-repeat: no-repeat;
   content: '';
