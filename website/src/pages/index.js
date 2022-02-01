@@ -99,7 +99,7 @@ we'll render this on the browser only. */
                     <a
                       className="button button--secondary button--lg"
                       href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=website_homepage"
-                      rel="noreferrer noopener"
+                      rel="noopener"
                       target="_blank"
                       onClick={() => {
                         window.gtag('event', 'moonchaser.homepage.click');
@@ -136,7 +136,7 @@ function EducativeSection() {
                   <a
                     className="button button--secondary button--lg"
                     href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W"
-                    rel="noreferrer noopener"
+                    rel="noopener"
                     target="_blank"
                     onClick={() => {
                       window.gtag('event', 'educative.homepage.click');
@@ -247,7 +247,7 @@ function Tweet({url, handle, name, content, avatar, date}) {
               <strong>{name}</strong>{' '}
               <span className={styles.tweetMeta}>
                 @{handle} &middot;{' '}
-                <a className={styles.tweetMeta} href={url}>
+                <a className={styles.tweetMeta} href={url} rel="noopener">
                   {date}
                 </a>
               </span>
@@ -454,6 +454,7 @@ function SuccessStoriesSection() {
               Would you like to contribute a success story?{' '}
               <a
                 href="https://github.com/yangshun/front-end-interview-handbook/edit/master/website/src/data/successStories.js"
+                rel="noopener"
                 target="_blank">
                 Open a Pull Request here
               </a>
@@ -482,6 +483,7 @@ function SponsorshipSection() {
             <div>
               <a
                 href="https://opencollective.com/tech-interview-handbook/sponsor/0/website"
+                rel="noopener"
                 target="_blank">
                 <img
                   alt="Sponsor"
@@ -490,6 +492,7 @@ function SponsorshipSection() {
               </a>
               <a
                 href="https://opencollective.com/tech-interview-handbook/sponsor/1/website"
+                rel="noopener"
                 target="_blank">
                 <img
                   alt="Sponsor"
@@ -501,7 +504,7 @@ function SponsorshipSection() {
               <a
                 className="button button--primary button--lg"
                 href="https://opencollective.com/tech-interview-handbook"
-                rel="noreferrer noopener"
+                rel="noopener"
                 target="_blank">
                 Become a sponsor!
               </a>
