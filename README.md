@@ -4,30 +4,12 @@
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
     <img src="assets/scroll.svg" alt="Front End Interview Handbook" width="400"/>
     </a>
-  <br/>
-  <p>
-    <em>Credits: <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">Illustration</a> by <a href="https://dribbble.com/yangheng">@yangheng</a>
-    </em>
-  </p>
+  <br />
   <h3>
     <a href="https://www.frontendinterviewhandbook.com">Read on the website</a>
   </h3>
-</div>
-
----
-
-<div align="center">
   <p>
-    <a href="https://simplify.jobs/?utm_source=github&utm_medium=front_end_interview_handbook">
-      <strong>Applying to jobs or internships?</strong>
-      <br>
-      Autofill all your applications in a single click.
-      <br>
-      <div>
-        <img src="https://res.cloudinary.com/dpeo4xcnc/image/upload/v1637058958/simplify_banner.png" width="450"  alt="Simplify">
-      </div>
-    </a>
-    <sub><i>Stop manually re-entering your information. Simplify’s extension helps you autofill job applications on millions of sites.</i></sub>
+    Follow us on <a href="https://facebook.com/techinterviewhandbook">Facebook</a> | <a href="https://twitter.com/techinterviewhb">Twitter</a> | <a href="https://t.me/techinterviewhandbook">Telegram</a>
   </p>
 </div>
 
