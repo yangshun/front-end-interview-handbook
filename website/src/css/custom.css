@@ -12,6 +12,8 @@
   --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
+
+  --ifm-footer-padding-vertical: 3rem;
 }
 
 html[data-theme='dark'] {
@@ -22,6 +24,14 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #ffb01a;
   --ifm-color-primary-lighter: #ffb426;
   --ifm-color-primary-lightest: #ffc14d;
+}
+
+.footer__links {
+  margin-bottom: 3rem;
+}
+
+.footer__copyright {
+  text-align: start;
 }
 
 @media screen and (max-width: 767px) {
