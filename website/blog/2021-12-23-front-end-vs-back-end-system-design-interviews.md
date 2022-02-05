@@ -34,7 +34,7 @@ Both front end-focused and back end-focused system design interviews share a lot
 
 Other kinds of similarities include:
 
-- The interviewer is relying on you to drive the presentation. You can't to rely on the interviewer to have your back.
+- The interviewer is relying on you to drive the presentation. You can't rely on the interviewer to have your back.
 - While the topics can be either micro or macro, you probably won't need to actually write code - it is rare to jam some portion of coding in the middle of a system design interview
 - Unlike scantron school exams, both types will consist of mainly open ended questions. There probably isn't a checklist of things for you to cover one by one. Nor are you expected to drill deep into all of those. When you realize your interviewer is biased toward a particular part of the system, which they usually do, pivot your focus to that area. Other times you focus on your strengths and lead the conversation.
 
@@ -46,18 +46,18 @@ During the back end-focused system design interviews, you would spend most of th
 - Discussing which type of database to use and how to aggregate data across different shards
 - Designing SQL table schema
 - Choosing the right the cross-region strategy if your service has a global user base
-- Any other kinds of system characteristics like latency, availability, fault tolerance, etc.
+- Any other kinds of system characteristics like latency, availability, fault tolerance, etc
 
 For front end-focused system design interviews, you would spend most of the time talking about stuff like:
 
-- front end/client side architecture, such as the appropriate rendering pattern to choose - client side rendering, or server side rendering or static generation or something in between?
+- Front end/client side architecture, such as the appropriate rendering pattern to choose - client side rendering, or server side rendering or static generation or something in between?
 - What kind of data fetching mechanism to use - REST vs. GRAPHQL vs. gRPC and what should the APIs look like?
 - Specifics about UI components
   - A news feed which has an infinite scroll behavior with all the images lazily loaded while ensuring the client side has the aspect ratio of the images upfront to prevent layout shift.
   - An autocomplete UI component which fetches search result data incrementally in batches while receiving images from server pushes in parallel.
   - a gallery page which pulls images and displays them in the correct order despite the asynchrony that comes with the network requests that might cause them to arrive out of order.
 - How do you leverage different layers of cache to decrease latency or support offline mode.
-- if they want to get framework-specific, which is totally possible, they might even ask you to define a particular React components's props or manage complex state in a React app.
+- If they want to get framework-specific, which is totally possible, they might even ask you to define a particular React components's props or manage complex state in a React app.
 
 A lot times having one type of system design interviews means you can over simplify the opposite side:
 
@@ -68,7 +68,7 @@ But again, this is a summary of my experience and depending on who your intervie
 
 Outside of the differences with the technical topics I needed to dig deep into during the interviews, I found there are two other interesting differences that stand out between the two types:
 
-- For front end system design interviews I was often encouraged to treat the interviewers as the **product manager** and we spent some time just fleshing out the brief solution for each user story. For the back end system design interviews, we didn't really get to talk about any user interaction (I am aware that the definition of users of your system might vary, depending on whether it is customer-facing vs. developer-facing)
+- For front end system design interviews I was often encouraged to treat the interviewer as the **product manager** and we spent some time just fleshing out the brief solution for each user story. For the back end system design interviews, we didn't really get to talk about any user interaction (I am aware that the definition of users of your system might vary, depending on whether it is customer-facing vs. developer-facing)
 - These two types of system design interviews also differ a lot in terms of estimating certain system's needs based on the potential scale of the system. The system needs can be storage needs or throughput needs or any other types of requirements.
   - It is common and expected to do these estimation during back end system design interviews since your design decision is only feasible when all of the system needs can realistically be met.
   - But for the front end system design interview, I rarely needed to do any **quantitative estimation** - for example, when I was designing some live feed during a front end system design interview, I didn't need to do estimations like "So let's say each message was roughly 140 characters long and it is utf8 so that's 140 bytes and an average user gets 10000 messages over a certain period of time so we ended up allocating 1.4mb memory on user devices". Again, I am not saying that this would never come up during a front end system design interview. in my experience It is just much, much more rare compared to back end ones.
@@ -79,9 +79,9 @@ I am going to talk about something that is a little tangential. I don't think th
 
 I have done interviews for both front end focused roles and general software engineer roles. As I went through the preparation process for the system designs interviews, it just occurred to me that there is indeed a career ceiling for a pure front end focused software engineer role.
 
-Ok so let's first get this out of the way - you can be extremely successful as either a front end dev or a back end dev.
+Ok so let's first get this out of the way - you can be extremely successful as either a front end developer or a back end developer.
 
-Also it is hard to discuss any topic intelligently when we cannot agree on definitions. By saying front end developers I meant developers/engineers who solely work on the UI of a software system. And by saying career ceiling I meant the potential terminal title and the highest level such a dev/engineer can achieve in the technical individual contributor track.
+Also it is hard to discuss any topic intelligently when we cannot agree on definitions. By saying front end developers I meant developers/engineers who solely work on the UI of a software system. And by saying career ceiling I meant the potential terminal title and the highest level such a developer/engineer can achieve in the technical individual contributor track.
 
 This is an unspoken thing and a very impolite conversation. And [there are exceptions](https://twitter.com/swyx/status/1236023548227072000) to this but just statistically speaking there seems to be a career ceiling for front end-only developers.
 
@@ -94,7 +94,7 @@ Part of the ceiling comes from some traditional baggage:
 
 ## Economic reasoning
 
-I had this realization that when I was going through the back end system design interviews vs. the front end system design interviews - the technical topics those interviews tend to cover let me think about some economic reasoning leading to the perception of a "Front end ceiling" as well. Your value to the company really depends on how many machines/compute/storage run through you. As a dev/engineer, that means much money you control and front end-only developers just don't take as much. Of course front end is just as hard and as important especially for consumer facing products but at the end of the day your compute is being run on someone else's machine or device and the company just don't value that as much as the compute that they themselves need to pay for and to scale.
+I had this realization that when I was going through the back end system design interviews vs. the front end system design interviews - the technical topics those interviews tend to cover let me think about some economic reasoning leading to the perception of a "Front end ceiling" as well. Your value to the company really depends on how many machines/compute/storage run through you. As a developer/engineer, that means much money you control and front end-only developers just don't take as much. Of course front end is just as hard and as important especially for consumer facing products but at the end of the day your compute is being run on someone else's machine or device and the company just don't value that as much as the compute that they themselves need to pay for and to scale.
 
 ## Short-lived vs. long-running
 
