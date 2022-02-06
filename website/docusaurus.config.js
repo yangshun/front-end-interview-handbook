@@ -127,6 +127,9 @@ module.exports = {
       apiKey: '6c13c369e8d9809cebb5c51330c914c3',
       indexName: 'frontendinterviewhandbook',
     },
+    metadata: [
+      {name: 'fo-verify', content: '2cc93525-ece8-402e-a4b8-d1d0853175e8'},
+    ],
   },
   presets: [
     [
