@@ -11,6 +11,12 @@ The [Tech Interview Handbook](https://techinterviewhandbook.org/algorithms/intro
 
 <a className="button button--primary" href="https://techinterviewhandbook.org/algorithms/introduction/">Go to Tech Interview Handbook &nbsp;→</a>
 
-## JavaScript algorithm courses
+## Quality courses
 
-If you want more structured algorithms practice, I recommend Educative's [Ace the JavaScript Coding Interview](https://www.educative.io/path/ace-javascript-coding-interview?aff=x23W) course.
+If you want more structured algorithms practice in JavaScript, check out the following courses.
+
+| Course | Reviews | Duration | Price | Contents |
+| :-- | --- | --- | --- | --- |
+| [Master the Coding Interview: Data Structures + Algorithms](https://fxo.co/DQpY) | 4.6/5 | 19.5h | $$ | Basic data structures and algorithms, job application, behavioral interview, negotiation |
+| [JavaScript Data Structures and Algorithms Masterclass](https://fxo.co/DQpZ) | 4.5/5 | 45h | $ | Basic and advanced data structures and algorithms |
+| [Ace the JavaScript Coding Interview](https://www.educative.io/path/ace-javascript-coding-interview?aff=x23W) | - | 87h | $ | Basic data structures and algorithms, system design, object-oriented design |
