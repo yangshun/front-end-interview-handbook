@@ -25,7 +25,7 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: 'introduction', label: 'Get started', position: 'left'},
+        {to: 'introduction', label: 'Start reading', position: 'left'},
         {to: 'coding', label: 'Coding', position: 'left'},
         {
           to: 'front-end-system-design',

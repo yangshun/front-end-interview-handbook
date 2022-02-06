@@ -50,9 +50,12 @@ function HeroSection() {
                   styles.getStarted,
                 )}
                 href={useBaseUrl('introduction')}>
-                Get started&nbsp;&nbsp;→
+                Start reading&nbsp;&nbsp;→
               </a>
             </div>
+            <p className="margin-top--md">
+              <em>It's completely free!</em>
+            </p>
             <div className="margin-top--lg">
               <iframe
                 src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
