@@ -14,17 +14,19 @@ module.exports = {
     {
       type: 'category',
       label: 'Coding round',
+      collapsed: false,
       link: {
         type: 'generated-index',
         title: 'Coding round',
         description: 'Various type of front end coding interview!',
         slug: '/coding',
       },
-      items: ['utility-function', 'build-user-interfaces', 'algorithms'],
+      items: ['algorithms', 'utility-function', 'build-user-interfaces'],
     },
     {
       type: 'category',
       label: 'System design',
+      collapsed: false,
       items: [
         'front-end-system-design',
         'front-end-system-design-ui-components',

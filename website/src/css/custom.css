@@ -54,6 +54,7 @@ html[data-theme='dark'] {
 
 div[class^='announcementBar_'] {
   background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-emphasis-100);
   font-weight: bold;
 }
 

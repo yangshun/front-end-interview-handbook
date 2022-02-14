@@ -1,5 +1,6 @@
 ---
-title: Build user interfaces
+title: Build front end user interfaces
+sidebar_label: Build user interfaces
 ---
 
 Many Front End engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end - HTML, JS, CSS.

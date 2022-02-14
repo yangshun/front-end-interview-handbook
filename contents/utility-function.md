@@ -1,5 +1,6 @@
 ---
-title: Utility functions
+title: Front end utility functions
+sidebar_label: Utility functions
 ---
 
 These are the front-end version of LeetCode questions, but with less emphasis on complicated algorithms and more focused to practical use cases. However, they could also be questions simply being the same LeetCode problem but you are required to answer in JavaScript.
