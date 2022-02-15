@@ -74,7 +74,7 @@ function DocSidebarDesktop({path, sidebar, onCollapse, isHidden}) {
           <DocSidebarItems items={sidebar} activePath={path} level={1} />
         </ul>
         <div className="margin--md">
-          <SidebarAd />
+          <SidebarAd position="left_sidebar" />
         </div>
       </nav>
       {hideableSidebar && <HideableSidebarButton onClick={onCollapse} />}
@@ -92,7 +92,7 @@ const DocSidebarMobileSecondaryMenu = ({toggleSidebar, sidebar, path}) => {
         level={1}
       />
       <div className="margin--md">
-        <SidebarAd />
+        <SidebarAd position="mobile_sidebar" />
       </div>
     </ul>
   );

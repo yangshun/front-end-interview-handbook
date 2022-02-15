@@ -42,7 +42,7 @@ function DocPaginator({previous, next}) {
         </div>
       </nav>
       <div className="margin-top--md">
-        <SidebarAd />
+        <SidebarAd position="docs_bottom" />
       </div>
     </>
   );
