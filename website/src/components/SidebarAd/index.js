@@ -22,7 +22,7 @@ export default React.memo(function SidebarAd({position}) {
       {() =>
         Math.random() > 0.5 ? (
           <a
-            className={clsx(styles.container, className)}
+            className={clsx(styles.container, backgroundClass)}
             href="https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack="
             target="_blank"
             rel="noopener"
