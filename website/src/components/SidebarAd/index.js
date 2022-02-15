@@ -12,7 +12,7 @@ const BACKGROUNDS = [
   styles.backgroundRed,
 ];
 
-export default React.memo(function SidebarAd() {
+export default React.memo(function SidebarAd({position}) {
   const backgroundClass =
     BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
   // Because the SSR and client output can differ and hydration doesn't patch attribute differences,
@@ -23,16 +23,18 @@ export default React.memo(function SidebarAd() {
         Math.random() > 0.5 ? (
           <a
             className={clsx(styles.container, backgroundClass)}
-            href="https://www.moonchaser.io/?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=website_docs_sidebar"
+            href="https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack="
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             onClick={() => {
-              window.gtag('event', 'moonchaser.sidebar.click');
+              window.gtag('event', `algomonster.${position}.click`);
             }}>
             <p className={styles.tagline}>
-              <strong>Get paid more.</strong> Receive risk-free salary
-              negotiation advice from <u>Moonchaser</u>. You pay nothing unless
-              your offer is increased. <u>Book a free consultation today!</u>
+              <strong>Stop grinding and study with a plan! </strong>
+              <br />
+              Developed by Google engineers, <u>AlgoMonster</u> is the fastest
+              way to get a software engineering job.{' '}
+              <u>Join today for a 70% discount!</u>!
             </p>
           </a>
         ) : (
@@ -43,7 +45,7 @@ export default React.memo(function SidebarAd() {
             target="_blank"
             rel="noreferrer noopener"
             onClick={() => {
-              window.gtag('event', 'educative.sidebar.click');
+              window.gtag('event', `educative.${position}.click`);
             }}>
             <p className={styles.tagline}>
               <strong>Looking to get hired at FAANG?</strong> <u>Educative</u>{' '}
