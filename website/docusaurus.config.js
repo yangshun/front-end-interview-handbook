@@ -118,7 +118,7 @@ module.exports = {
           items: [
             {
               label: 'Contact us',
-              href: 'mailto:business@techinterviewhandbook.org',
+              href: 'mailto:contact@techinterviewhandbook.org',
             },
           ],
         },
@@ -175,13 +175,7 @@ module.exports = {
       },
     ],
   ],
-  scripts: [
-    {
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4984084888641317',
-      crossorigin: 'anonymous',
-      async: true,
-    },
-  ],
+  scripts: [],
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh', 'es', 'jp', 'kr', 'pl', 'pr', 'ru', 'tl'],
