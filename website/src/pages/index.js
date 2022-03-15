@@ -17,9 +17,9 @@ export default function Home() {
       description={siteConfig.tagline}>
       <div>
         <HeroSection />
-        <MoonchaserSection />
-        <FeaturesSection />
         <EducativeSection />
+        <FeaturesSection />
+        <MoonchaserSection />
         <TweetsSection />
         <SuccessStoriesSection />
         <SponsorshipSection />
@@ -331,7 +331,7 @@ function TweetsSection() {
               handle="silvenon"
               name="Matija Marohnić"
               date="Jul 20, 2020"
-              avatar="https://pbs.twimg.com/profile_images/1337063712470036480/QvLY_uQZ_400x400.jpg"
+              avatar="https://pbs.twimg.com/profile_images/1497396127745945606/rtohsd4F_400x400.jpg"
               content={
                 <>
                   Front End Interview Handbook is AMAZING, huge props to
@@ -398,11 +398,11 @@ function TweetsSection() {
               }
             />
             <Tweet
-              url="https://twitter.com/nd_loves/status/964146313016283136"
-              handle="nd_loves"
-              name="Andi"
+              url="https://twitter.com/CATB3AN5/status/964146313016283136"
+              handle="CATB3AN5"
+              name="Cat Beans"
               date="Feb 15, 2018"
-              avatar="https://pbs.twimg.com/profile_images/1413231434442084355/FvJeZqau_400x400.jpg"
+              avatar="https://pbs.twimg.com/profile_images/1496932257625526274/Cdsr_RUn_400x400.jpg"
               content={
                 <>
                   Are you hiring new frontend developers or are you applying to

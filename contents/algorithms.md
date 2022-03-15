@@ -3,15 +3,15 @@ title: Front end algorithms
 sidebar_label: Algorithms
 ---
 
-Front End engineers are also Software Engineers after all, and it's an expectation that Front End engineers have basic competency in algorithms and data structures. It is possible and reasonable that you will be asked to solve algorithmic questions during your front end interviews and most likely you will be expected to use JavaScript.
+Front End Engineers are also Software Engineers after all, and it's an expectation that Front End Engineers have basic competency in algorithms and data structures. It is possible and reasonable that you will be asked to solve algorithmic questions during your front end interviews and most likely you will be expected to use JavaScript.
 
-Trees are a commonly-encountered data structure in Front End development because the DOM is a tree, so if you have to prioritize, definitely focus on being good at tree data structures.
+Trees are a commonly-encountered data structure in Front End development because the DOM is a tree, so if you have to prioritize, definitely focus on being good at tree data structures and common algorithms for trees, such as Breadth-first Search and Depth-first Search.
 
 The [Tech Interview Handbook](https://techinterviewhandbook.org/algorithms/introduction/) goes into great detail about preparing for Algorithms questions.
 
 <a className="button button--primary" href="https://techinterviewhandbook.org/algorithms/introduction/">Go to Tech Interview Handbook &nbsp;→</a>
 
-## Quality courses
+## Algorithm courses
 
 ### [AlgoMonster](https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack=)
 
@@ -27,7 +27,7 @@ This Udemy bestseller is one of the highest-rated interview preparation course (
 
 ## JavaScript courses
 
-If you want more structured algorithms practice in JavaScript, check out the following courses.
+If you want more structured algorithms practice which are targeted at JavaScript, check out the following courses.
 
 | Course | Reviews | Duration | Price | Contents |
 | :-- | --- | --- | --- | --- |

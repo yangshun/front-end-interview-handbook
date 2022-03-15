@@ -3,7 +3,7 @@ title: Build front end user interfaces
 sidebar_label: Build user interfaces
 ---
 
-Many Front End engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end - HTML, JS, CSS.
+Many Front End Engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end - HTML, JS, CSS.
 
 Companies that ask such questions usually ask candidates to code in one of these three ways:
 
@@ -16,17 +16,18 @@ Companies that ask such questions usually ask candidates to code in one of these
 - Components
   - Tabs
   - Accordion
-  - Photo gallery
-  - Other possible components - [Bootstrap](https://getbootstrap.com/docs/4.0/components/)
+  - Photo Gallery
+  - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/4.0/components/)
 - Apps
   - Sortable Data Table (with extensions for filtering)
   - TODO list
   - Kanban Board
 - Games
-  - Tic-tac-toe Game
-  - Whack-a-mole Game
-  - Tetris Game (advanced)
-  - Snake Game (advanced)
+  - Tic-tac-toe
+  - Whack-a-mole
+  - Wordle
+  - Tetris (advanced)
+  - Snake (advanced)
 
 ## Considerations
 
@@ -35,36 +36,36 @@ After you complete (or even before you start on) the question, think about these
 ### Front end best practices
 
 - Avoid writing global variables. Wrap your code within an IIFE and leave the global scope clean.
-- What if I need to have multiple instances of this components on the page? Did I use any global variables that will make it hard for me to do so? Will having my components on the same page affect each other? They should be independent!
-- Do I have a convenient API to instantiate independent components with configurable options? Old school jQuery UI components are a good examples of this.
+- What if you need to have multiple instances of this components on the page? Does your code enable me to do this? Did you use any global variables that will make it hard for you to do so? Will having multiple components on the same page affect each other? They should be independent!
+- Do you have a convenient API to instantiate independent components with configurable options? Old school jQuery UI components are a good examples of this.
 
 ### Performance and scalability
 
-Can my component scale (network request duration, performance, UI, UX, etc)?
+Can your component scale (network request duration, performance, UI, UX, etc)?
 
-- What if the network takes too long to return something? How do I test slow network speed? Hint: Chrome Devtools Network tab.
+- What if the network takes too long to return something? How do you test slow network speed? Hint: Chrome Devtools Network tab.
 - What if a string is too long? Hint: CSS `word-break` property.
-- What if a picture is too large?
+- What if an image is too large?
 - Can the component contain any amount of child items? Example: Support flexible amount of thumbnails in a photo gallery component.
-- Will the layout be messed up if I have too few or too many of these items? What if there are no items, what empty state do I show?
-- How will performance be affected if I have too many elements on the page? How do I solve it? Hint: [Virtual list](https://medium.com/outsystems-engineering/virtualizing-the-virtual-dom-pushing-react-further-d76a16e5f209)
-- Did I hard code any values that will make it hard to extend to changing requirements in future? Did I design for extensibility?
+- Will the layout be messed up if you have too few or too many of these items? What if there are no items, what empty state do you show?
+- How will performance be affected if you have too many elements on the page? How do you solve it? Hint: [Virtual list](https://medium.com/outsystems-engineering/virtualizing-the-virtual-dom-pushing-react-further-d76a16e5f209)
+- Did you hard code any values that will make it hard to extend to changing requirements in future? Did you design for extensibility?
 
 ### Network requests
 
 - Does the component deal with race conditions in network/async requests? E.g. a new network request is fired before the response for the previous request is returned.
-- What if the request timeout or errored? How can I recover from it gracefully?
-- How can I improve the performance of the component? Can I make use of caching, lazy loading, prefetching/preloading?
-- What if I need to load a lot of data/images? Can I lazily load them? Can I fetch the data in batches to reduce spamming the API endpoint?
+- What if the request timeout or errored? How can you recover from it gracefully?
+- How can you improve the performance of the component? Can you make use of caching, lazy loading, prefetching/preloading?
+- What if you need to load a lot of data/images? Can you lazily load them? Can you fetch the data in batches to reduce spamming the API endpoint?
 
 ### User experience
 
-- Is my component mobile-friendly? Can my component fit on different screen widths? How do I make it mobile-friendly?
-- Is my component easily i18n-able? How can I change the design to cater for i18n? Does my component support RTL languages?
-- Are there any potential UX/accessibility (a11y) issues with my components?
+- Is my component mobile-friendly? Can my component fit on different screen widths? How do you make it mobile-friendly?
+- Is my component easily i18n-able? How can you change the design to cater for i18n? Does your component support RTL languages?
+- Are there any potential UX/accessibility (a11y) issues with your components?
 - What are some common accessibility techniques and gotchas?
   - https://medium.com/@addyosmani/accessible-ui-components-for-the-web-39e727101a67
-- What tools can I use to check for accessibility?
+- What tools can you use to check for accessibility?
 - There's probably isn't much time for you to be an expert in a11y but knowledge of a11y is one of the differentiating factors between junior vs senior engineers.
 
 ### Security
@@ -74,4 +75,4 @@ Can my component scale (network request duration, performance, UI, UX, etc)?
 
 ### Future
 
-Lastly, mention how you would do things differently if you had more time and were writing production code that you need to maintain. Perhaps use Sass instead of CSS, use React instead of jQuery for better maintainability, make the component mobile-friendly and test on different screen widths, add keyboard shortcuts, etc.
+Lastly, mention how you would do things differently if you had more time and were writing production code that you need to maintain. Perhaps use Sass instead of CSS, use React instead of jQuery for better maintainability, use Babel to compile your code for older browsers, make the component mobile-friendly and test on different screen widths, add keyboard shortcuts, etc.
