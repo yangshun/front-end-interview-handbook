@@ -14,6 +14,7 @@ import {translate} from '@docusaurus/Translate';
 import {DocSidebarItems} from '@theme/DocSidebarItem';
 import styles from './styles.module.css';
 import SidebarAd from '../../components/SidebarAd';
+import CarbonAd from '../../components/CarbonAd';
 
 function useShowAnnouncementBar() {
   const {isActive} = useAnnouncementBar();
@@ -73,8 +74,8 @@ function DocSidebarDesktop({path, sidebar, onCollapse, isHidden}) {
         <ul className={clsx(ThemeClassNames.docs.docSidebarMenu, 'menu__list')}>
           <DocSidebarItems items={sidebar} activePath={path} level={1} />
         </ul>
-        <div className="margin--md">
-          <SidebarAd position="left_sidebar" />
+        <div className="margin-vert--md">
+          <CarbonAd key={path} />
         </div>
       </nav>
       {hideableSidebar && <HideableSidebarButton onClick={onCollapse} />}

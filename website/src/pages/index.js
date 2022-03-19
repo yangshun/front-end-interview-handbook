@@ -7,6 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 import successStories from '@site/src/data/successStories';
+import CarbonAd from '../components/CarbonAd';
 
 export default function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
@@ -18,9 +19,10 @@ export default function Home() {
       <div>
         <HeroSection />
         <EducativeSection />
+        <CarbonAdSection />
         <FeaturesSection />
-        <MoonchaserSection />
         <TweetsSection />
+        <MoonchaserSection />
         <SuccessStoriesSection />
         <SponsorshipSection />
       </div>
@@ -70,6 +72,20 @@ function HeroSection() {
         </div>
       </div>
     </header>
+  );
+}
+
+function CarbonAdSection() {
+  return (
+    <div className={classnames('padding-vert--lg', styles.sectionAlt)}>
+      <div className="container">
+        <div className="row">
+          <div className="col col--8 col--offset-2">
+            <CarbonAd />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
