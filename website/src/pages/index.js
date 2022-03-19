@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 import successStories from '@site/src/data/successStories';
@@ -46,14 +47,14 @@ function HeroSection() {
             <h1 className="hero__title">{siteConfig.title}</h1>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className={styles.buttons}>
-              <a
+              <Link
                 className={classnames(
                   'button button--primary button--lg',
                   styles.getStarted,
                 )}
-                href={useBaseUrl('introduction')}>
+                to="/introduction">
                 Start reading&nbsp;&nbsp;→
-              </a>
+              </Link>
             </div>
             <p className="margin-top--md">
               <em>It's completely free!</em>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
+import Link from '@docusaurus/Link';
 import SidebarAd from '../../components/SidebarAd';
 
 function DocPaginator({previous, next}) {
@@ -14,7 +15,7 @@ function DocPaginator({previous, next}) {
         })}>
         <div className="pagination-nav__item">
           {previous && (
-            <a className="pagination-nav__link" href={previous.permalink}>
+            <Link className="pagination-nav__link" to={previous.permalink}>
               <div className="pagination-nav__sublabel">
                 <Translate
                   id="theme.docs.paginator.previous"
@@ -23,12 +24,12 @@ function DocPaginator({previous, next}) {
                 </Translate>
               </div>
               <div className="pagination-nav__label">{previous.title}</div>
-            </a>
+            </Link>
           )}
         </div>
         <div className="pagination-nav__item pagination-nav__item--next">
           {next && (
-            <a className="pagination-nav__link" href={next.permalink}>
+            <Link className="pagination-nav__link" to={next.permalink}>
               <div className="pagination-nav__sublabel">
                 <Translate
                   id="theme.docs.paginator.next"
@@ -37,7 +38,7 @@ function DocPaginator({previous, next}) {
                 </Translate>
               </div>
               <div className="pagination-nav__label">{next.title}</div>
-            </a>
+            </Link>
           )}
         </div>
       </nav>

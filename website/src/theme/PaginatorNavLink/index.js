@@ -1,11 +1,12 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 
 function PaginatorNavLink({permalink, title, subLabel}) {
   return (
-    <a className="pagination-nav__link" href={permalink}>
+    <Link className="pagination-nav__link" to={permalink}>
       {subLabel && <div className="pagination-nav__sublabel">{subLabel}</div>}
       <div className="pagination-nav__label">{title}</div>
-    </a>
+    </Link>
   );
 }
 
