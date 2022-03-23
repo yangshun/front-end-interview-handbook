@@ -20,7 +20,7 @@ export default React.memo(() => {
 
   useEffect(() => {
     const script = buildScript(
-      '//cdn.carbonads.com/carbon.js?serve=CEAI4537&placement=wwwtechinterviewhandbookorg',
+      '//cdn.carbonads.com/carbon.js?serve=CEAI6K3W&placement=wwwfrontendinterviewhandbookcom',
       {
         type: 'text/javascript',
         id: '_carbonads_js',
