@@ -40,6 +40,8 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #ffb01a;
   --ifm-color-primary-lighter: #ffb426;
   --ifm-color-primary-lightest: #ffc14d;
+
+  --ifm-footer-padding-vertical: 3rem;
 }
 
 .footer__links {
