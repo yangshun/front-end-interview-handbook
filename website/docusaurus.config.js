@@ -125,7 +125,8 @@ module.exports = {
       ],
     },
     algolia: {
-      apiKey: '6c13c369e8d9809cebb5c51330c914c3',
+      appId: '21T5PEFGI7',
+      apiKey: '10d7777b44bc7e0495cc00e860918b03',
       indexName: 'frontendinterviewhandbook',
     },
   },

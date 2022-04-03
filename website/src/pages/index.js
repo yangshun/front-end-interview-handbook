@@ -8,7 +8,6 @@ import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 import successStories from '@site/src/data/successStories';
-import CarbonAd from '../components/CarbonAd';
 
 export default function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
@@ -20,7 +19,6 @@ export default function Home() {
       <div>
         <HeroSection />
         <EducativeSection />
-        <CarbonAdSection />
         <FeaturesSection />
         <TweetsSection />
         <MoonchaserSection />
@@ -76,32 +74,13 @@ function HeroSection() {
   );
 }
 
-function CarbonAdSection() {
-  return (
-    <div className={classnames('padding-vert--lg', styles.sectionAlt)}>
-      <div className="container">
-        <div className="row">
-          <div className="col col--8 col--offset-2">
-            <CarbonAd />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function MoonchaserSection() {
   /* Because the SSR and client output can differ and hydration doesn't patch attribute differences, 
 we'll render this on the browser only. */
   return (
     <BrowserOnly>
       {() => (
-        <div
-          className={classnames(
-            'margin-bottom--lg',
-            'padding-vert--lg',
-            styles.sectionSponsor,
-          )}>
+        <div className={classnames('padding-vert--lg', styles.sectionSponsor)}>
           <div className="container">
             <div className="row">
               <div className="col col--8 col--offset-2">
