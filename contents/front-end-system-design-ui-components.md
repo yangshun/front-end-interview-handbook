@@ -11,21 +11,19 @@ sidebar_label: UI components
 
 ## Framework
 
-1. Requirements clarifications/alignment
-1. Architecture
-1. Data model
-1. API design
-1. Deep dive
-   - User Experience (UX)
-   - Performance
-   - Accessibility (a11y)
-   - Internationalization (i18n)
-   - Multi-device support
-   - Security
+In system design interviews, candidates are supposed to lead the conversation. Here's a framework you can use to give an outline to the interviewer as to what you are going to cover. This framework is called **RADAD** and it is made up of the first character of each step. You can write this structure down on the whiteboard/online editor so that you don't forget.
+
+1. **<u>R</u>equirements clarifications/alignment** - Ask about the requirements of the system.
+1. **<u>A</u>rchitecture** - Outline the architecture of the subcomponents in the component, where relevant.
+1. **<u>D</u>ata model** - How would the component store any data passed into it? What data structures are used?
+1. **<u>A</u>PI design** - What's the API for using this component? What options will be allowed on the component?
+1. **<u>D</u>eep dive** - User Experience (UX), Performance, Accessibility (a11y), Internationalization (i18n), Multi-device support, Security
 
 ### Requirements clarification
 
-Every system design interview should start with clarifying requirements about the question, which is usually left vague intentionally. Components have well-defined scope and not try to do too many things.
+Every system design interview (even for non-front end as well) should start with requirements gathering/clarifying requirements about the question, which is usually left underspecified on purpose. You are recommended to spend at least a few minutes clarifying the requirements. Do not start drawing the architecture before you are clear about the requirements!
+
+Thankfully, components have well-defined scope and not try to do too many things. You likely have used such a component yourself and possibly know what you need from such a component.
 
 Some considerations:
 
@@ -39,7 +37,15 @@ Some considerations:
 
 Architecture for front end interviews are typically focused on the client-side architecture, and not on large scale distributed systems where databases, load balancers and servers are involved.
 
-For components, list down the various sub-components that will exist within it, what data is being passed among each component (e.g. in a Photo Gallery, there are the Image, Thumbnail, Paginator, etc sub-components). If you have a whiteboard/online drawing tool, it would also be helpful to draw diagrams to illustrate the entities and their relationships.
+For components, list down the various subcomponents that will exist within it and what data is being passed among each component.
+
+Let's take an image carousel example. Subcomponents within an image carousel would be:
+
+- Main image - An image that displays the photo in focus
+- Thumbnail - Smaller images below the (Will there be thumbnails? You will only know if you clarified requirements earlier)
+- Image store - A client side cache of the list of photos to display
+
+If you have a whiteboard/online drawing tool, it would also be helpful to draw diagrams to illustrate the entities and their relationships. Which subcomponent communicates with which when a user interaction occurs.
 
 ### Data model
 
@@ -47,42 +53,46 @@ Data model for components will refer to the component state. The concept of stat
 
 Deciding what data to put in state is essential to doing well for this portion. Few factors to consider when deciding what goes into component state:
 
-- State is allowed to change over time during the lifecycle of the component, typically as a result of user interactions
-- Each component has its own state which allows _multiple instances_ of the component to coexist on a single page. The state of a component instance should not affect the state of another instance
-- Components are easier to reason about (read/understand) the less state there is. We should strive to reduce the amount of state needed. If a component uses a value which can be derived from another piece of state, then that value should most likely not be part of the state. For example if your component is rendering a list of items and you want to display a message when there are no items to render, there shouldn't be an additional `isEmpty` state because it can be derived from the length of the `items`
-- If a component has multiple sub-components, it'll be best if it's possible to consolidate the state within the top level and the rest of the components are pure and stateless
+- State is allowed to change over time during the lifecycle of the component, typically as a result of user interactions.
+- Each component should maintain its own independent state which allows **multiple instances** of the component to coexist on a single page. The state of a component instance should not affect the state of another instance.
+- Components are easier to reason about (read/understand) the fewer the fields there are in the state. We should strive to reduce the amount of state needed. If a component uses a value which can be derived from another piece of state, then that value should most likely not be part of the state. For example if your component is rendering a list of items and you want to display a message when there are no items to render, there shouldn't be an additional `isEmpty` state because it can be derived from the length of the `items`.
+- If a component has multiple subcomponents, it'll be best if it's possible to consolidate the state within the top level and the rest of the components are pure and stateless.
 
 ### API design
 
-The key idea behind components is for reusing. Good components are designed well such that they can be reused in multiple scenarios. For components, API refers to configuration options which would the component developer would expose to other developers to specify.
+The key idea behind components is for them to be reused and abstract complexities. Good components are designed well such that they can be reused in multiple scenarios and users do not have to know how they work internally before using them. For components, API refers to configuration options which would the component developer would expose to other developers to specify.
 
 - What are the configuration options you would allow for the component? (`props` in React). What would be reasonable defaults?
-- Follow Open-closed principle - the component should be open for extension but closed for modification. In React,
-- If your component is meant to be a UI library that doesn't bother about the appearance and leaves the styling to the user, extra care has to go into the design of the props and to allow users to customize the look and feel of the components. There are a few ways to go about this in React:
-  - [Composition](https://reactjs.org/docs/composition-vs-inheritance.html) - Props which accept React components which also promotes code reuse
-  - [Render props](https://reactjs.org/docs/render-props.html) are function props that a component uses to know what to render. It also helps in reusing behavior without bothering about the appearance
-  - `className` or `style` props - Allows users to inject class namaes and/or styling attributes to inner DOM elements
+- Follow the [Open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) - the component should be open for extension but closed for modification.
+- If your component is meant to be part of a UI library that doesn't bother about the appearance and leaves the styling to the user, extra care has to go into the design of the props and to allow users to customize the look and feel of the components. There are a few ways to go about this in React:
+  - [Composition](https://reactjs.org/docs/composition-vs-inheritance.html) - Props which accept React components which also promotes code reuse.
+  - [Render props](https://reactjs.org/docs/render-props.html) are function props that a component uses to know what to render. It also helps in reusing behavior without bothering about the appearance.
+  - `className` or `style` props - Allows users to inject class names and/or styling attributes to inner DOM elements. This could have negative consequences but is still a common way of allowing user to customize component appearance.
 - Possible configuration options:
-  - Lifecycle/event hooks - `click`, `blur`, etc
+  - Lifecycle/event hooks - `onClick`, `onChange`, `onBlur`, `onFocus`, etc.
 
 ### Deep dives
 
-With the basics of the component covered, we can dive into specific areas which the component might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
+With the basics of the component covered, we can dive into specific areas where the component might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
 
-Showing knowledge about these areas and being able to dive deep into them are traits of senior developers.
+Showing knowledge about these areas and being able to dive deep into them are traits of senior front end engineers.
 
 #### User experience (UX)
 
 UX might not fall squarely under engineering but good front end engineers have good understanding of UX and building UI with great UX. There are too many UX practices to be aware of, but the most common ones/low hanging fruits are:
 
-- Reflect state of the component to the user - If there's a pending background request, show a spinner. If there's an error, make sure to display it instead of silently failing
-- Display an empty state if there are no items in a list instead of not rendering anything
-- Destructive actions should have a confirmation step, especially irreversible ones
-- Disable interactive elements if they trigger an async request! Prevents double firing of events
-- If there are search inputs involved, each keystroke should not fire a network request
+- Reflect state of the component to the user - If there's a pending background request, show a spinner. If there's an error, make sure to display it instead of silently failing.
+- Display an empty state if there are no items in a list, instead of not rendering anything.
+- Destructive actions should have a confirmation step, especially irreversible ones.
+- Disable interactive elements if they trigger an async request! Prevents double firing of events in the case of accidental double clicking (possible for people with motor disabilities).
+- If there are search inputs involved, each keystroke should not fire a network request.
 - Handle extreme cases
-  - Strings can be really long/short and your UI should not look weird in either case. For long strings, they can have their contents truncated and hidden behind a "View more" button
-  - If there are many items to display within a component, they shouldn't all be displayed on the screen at once and making the page extremely long/wide. Paginate the items or contain them within a container with a maximum width/height
+  - Strings can be really long/short and your UI should not look weird in either case. For long strings, they can have their contents truncated and hidden behind a "View more" button.
+  - If there are many items to display within a component, they shouldn't all be displayed on the screen at once and making the page extremely long/wide. Paginate the items or contain them within a container with a maximum width/height.
+- Keyboard friendliness - This involves making sure the component is keyboard-friendly
+  - Add shortcuts to make the component more usable by keyboard-only users
+  - Ensure that elements can be focused and tab order within the component is correct
+- Accessibility is part of UX but will be covered in a later section
 
 #### Performance
 
