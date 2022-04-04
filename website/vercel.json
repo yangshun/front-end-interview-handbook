@@ -1,5 +1,32 @@
 {
   "github": {
     "silent": true
-  }
+  },
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/algorithms",
+      "destination": "/coding/algorithms/"
+    },
+    {
+      "source": "/algorithms/",
+      "destination": "/coding/algorithms/"
+    },
+    {
+      "source": "/utility-function",
+      "destination": "/coding/utility-function/"
+    },
+    {
+      "source": "/utility-function/",
+      "destination": "/coding/utility-function/"
+    },
+    {
+      "source": "/build-user-interfaces",
+      "destination": "/coding/build-user-interfaces/"
+    },
+    {
+      "source": "/build-user-interfaces/",
+      "destination": "/coding/build-user-interfaces/"
+    }
+  ]
 }

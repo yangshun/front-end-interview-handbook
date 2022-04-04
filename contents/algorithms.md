@@ -1,5 +1,6 @@
 ---
 title: Front end algorithms
+slug: coding/algorithms
 sidebar_label: Algorithms
 ---
 

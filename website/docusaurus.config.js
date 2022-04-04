@@ -67,37 +67,58 @@ module.exports = {
           items: [
             {
               label: 'Get started',
-              href: '/introduction',
+              href: '/introduction/',
             },
-            {
-              label: 'Blog',
-              href: '/blog',
-            },
-          ],
-        },
-        {
-          title: 'Interviews',
-          items: [
             {
               label: 'Pop quiz',
-              href: '/pop-quiz',
-            },
-            {
-              label: 'Coding round',
-              href: '/coding',
-            },
-            {
-              label: 'System design',
-              href: '/front-end-system-design',
+              href: '/pop-quiz/',
             },
             {
               label: 'Behavioral round',
-              href: '/behavioral',
+              href: '/behavioral/',
+            },
+            {
+              label: 'Blog',
+              href: '/blog/',
             },
           ],
         },
         {
-          title: 'About',
+          title: 'Coding',
+          items: [
+            {
+              label: 'Algorithms',
+              href: '/coding/algorithms/',
+            },
+            {
+              label: 'Utility function',
+              href: '/coding/utility-function/',
+            },
+            {
+              label: 'User interfaces',
+              href: '/coding/build-user-interfaces/',
+            },
+          ],
+        },
+        {
+          title: 'System design',
+          items: [
+            {
+              label: 'System design overview',
+              href: '/front-end-system-design/',
+            },
+            {
+              label: 'UI components',
+              href: '/front-end-system-design/ui-components/',
+            },
+            {
+              label: 'Applications',
+              href: '/front-end-system-design/applications/',
+            },
+          ],
+        },
+        {
+          title: 'More',
           items: [
             {
               label: 'GitHub',
@@ -111,11 +132,6 @@ module.exports = {
               label: 'Twitter',
               href: 'https://twitter.com/yangshunz',
             },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
             {
               label: 'Contact us',
               href: 'mailto:contact@techinterviewhandbook.org',

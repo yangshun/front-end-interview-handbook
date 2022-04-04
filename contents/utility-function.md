@@ -1,11 +1,12 @@
 ---
 title: Front end utility functions
+slug: coding/utility-function
 sidebar_label: Utility functions
 ---
 
 These are the front-end version of LeetCode questions, but with less emphasis on complicated algorithms and more focused on practical use cases. However, they could also be questions simply being the same LeetCode problem but you are required to answer in JavaScript.
 
-Almost all existing utilty functions you will be asked exist within the JavaScript language or famous third-party libraries like Lodash/Underscore, with the most famous being `debounce` and `throttle`. However, Lodash's implementation is extremely over-engineered - reusing a lot of abstract functions and supporting weird and obscure use cases for older browsers and you're not expected to produce such level of complexity in an interview.
+Almost all existing utility functions you will be asked exist within the JavaScript language or famous third-party libraries like Lodash/Underscore, with the most famous being `debounce` and `throttle`. However, Lodash's implementation is extremely over-engineered - reusing a lot of abstract functions and supporting weird and obscure use cases for older browsers and you're not expected to produce such level of complexity in an interview.
 
 ## Basic examples
 

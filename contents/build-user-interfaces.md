@@ -1,5 +1,6 @@
 ---
 title: Build front end user interfaces
+slug: coding/build-user-interfaces
 sidebar_label: Build user interfaces
 ---
 
