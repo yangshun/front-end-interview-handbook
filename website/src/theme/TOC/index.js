@@ -20,7 +20,19 @@ function TOC({className, ...props}) {
         linkActiveClassName={LINK_ACTIVE_CLASS_NAME}
       />
       <div className="margin--md">
-        <div className={clsx('padding--md', styles.socialLinksContainer)}>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
+          frameBorder={0}
+          scrolling={0}
+          width={165}
+          height={30}
+          title="GitHub Stars"
+        />
+        <div
+          className={clsx(
+            'margin-top--md padding--md',
+            styles.socialLinksContainer,
+          )}>
           <div className={styles.socialLinks}>
             Follow us
             <a
