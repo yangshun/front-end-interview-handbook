@@ -163,7 +163,7 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         gtag: {
-          trackingID: 'UA-44622716-3',
+          trackingID: 'G-D9B6CHX36V',
         },
       },
     ],
