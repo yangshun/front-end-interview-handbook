@@ -201,7 +201,7 @@ Te techniki są związane z dostępnością (a11y).
 
 - `width: 0; height: 0`. Spraw, aby element nie zajmował w ogóle miejsca na ekranie, co powoduje, że nie jest pokazywany.
 - `position: absolute; left: -99999px`. Ustaw go poza ekranem.
-- `text-indent: -9999px`. Działa to tylko w przypadku tekstu w elementach `block`.
+- `text-indent: 100%; white-space: nowrap; overflow: hidden;`. Działa to tylko w przypadku tekstu w elementach `block`.
 - Metadane. Na przykład za pomocą Schema.org, RDF i JSON-LD.
 - WAI-ARIA. Specyfikacja techniczna W3C określająca sposób zwiększenia dostępności stron internetowych.
 

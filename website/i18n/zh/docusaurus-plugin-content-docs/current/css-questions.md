@@ -195,7 +195,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 - `width: 0; height: 0`：使元素不占用屏幕上的任何空间，导致不显示它。
 - `position: absolute; left: -99999px`： 将它置于屏幕之外。
-- `text-indent: -9999px`：这只适用于`block`元素中的文本。
+- `text-indent: 100%; white-space: nowrap; overflow: hidden;`：这只适用于`block`元素中的文本。
 - Metadata： 例如通过使用 Schema.org，RDF 和 JSON-LD。
 - WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
 

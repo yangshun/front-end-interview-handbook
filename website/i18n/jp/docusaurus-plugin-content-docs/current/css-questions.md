@@ -197,7 +197,7 @@ CSS スプライトは、複数のイメージを 1 つの大きなイメージ�
 
 - `width: 0; height: 0`： 要素が画面上のスペースを全く占めないようにして、それを表示しないようにします。
 - `position: absolute; left: -99999px`： 画面の外側に配置します。
-- `text-indent: -9999px`： これは `block` 要素内のテキストに対してのみ機能します。
+- `text-indent: 100%; white-space: nowrap; overflow: hidden;`： これは `block` 要素内のテキストに対してのみ機能します。
 - メタデータ： たとえば、Schema.org、RDF、JSON-LD を使用します。
 - WAI-ARIA： Web ページのアクセシビリティを向上させる方法を指定する W3C の技術仕様。
 

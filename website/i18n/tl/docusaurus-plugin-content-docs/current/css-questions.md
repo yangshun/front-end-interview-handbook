@@ -195,7 +195,7 @@ Ang mga pamamaraan na ito ay may kaugnayan sa pagkakarating (a11y).
 
 - `width: 0; height: 0`. Gawin ang elemento na hindi kukuha ng anumang espasyo sa iskrin ng lahat, na magreresulta sa hindi pagpapakita nito.
 - `position: absolute; left: -99999px`. Ilagay ito sa labas ng iskrin.
-- `text-indent: -9999px`. Ito ay gagana lamang sa mga teksto sa loob ng `block` na mga elemento.
+- `text-indent: 100%; white-space: nowrap; overflow: hidden;`. Ito ay gagana lamang sa mga teksto sa loob ng `block` na mga elemento.
 - Metadata. Halimbawa ay sa paggamit ng Schema.org, RDF at JSON-LD.
 - WAI-ARIA. Isang W3C na teknikal na ispisipikasyon na tinutukoy kung paano madagdagan ang ang abilidad ng pag-akses ng mga pahina ng web.
 

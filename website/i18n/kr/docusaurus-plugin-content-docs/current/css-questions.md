@@ -197,7 +197,7 @@ CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합�
 
 - `width: 0; height: 0`. 요소가 화면의 어떤 공간도 차지하지 않도록 합니다. 결과적으로 보이지 않게 됩니다.
 - `position: absolute; left: -99999px`. 화면 외부에 배치합니다.
-- `text-indent: -9999px`. 이것은 `block`인 요소 내의 텍스트에서만 작동합니다.
+- `text-indent: 100%; white-space: nowrap; overflow: hidden;`. 이것은 `block`인 요소 내의 텍스트에서만 작동합니다.
 - 메타데이터. 예를 들면, Schema.org, RDF, JSON-LD를 사용합니다.
 - WAI-ARIA. 웹 페이지의 Accessibility를 높이는 방법을 정의하는 W3C 기술 사양입니다.
 
