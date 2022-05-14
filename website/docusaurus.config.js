@@ -170,6 +170,14 @@ module.exports = {
   ],
   plugins: [
     [
+      '@docusaurus/plugin-google-gtag',
+      {
+        id: 'universal-analytics',
+        trackingID: 'UA-44622716-3',
+        anonymizeIP: true,
+      },
+    ],
+    [
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
