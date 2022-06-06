@@ -1,29 +1,44 @@
 ---
-title: Perguntas de HTML
+title: Perguntas sobre HTML
 ---
 
-Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/Índice.md). Os pedidos de sugestões e correções são bem-vindos!
+Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/Índice.md). Pedidos de sugestões e correções são bem-vindos!
 
 ## Índice
 
-- [O que faz um doctype?](#what-does-a-doctype-do)
-- [Como é que tu serves uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-- [Que tipo de coisas tu deves desconfiar ao projetar ou desenvolver sites multilíngues?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
+- [Para que serve o DOCTYPE?](#what-does-a-doctype-do)
+- [Como é possível servir uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+- [O que deve ser levado em conta ao projetar ou desenvolver sites multilíngues?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
 - [Para que servem os atributos `data-`?](#what-are-data--attributes-good-for)
-- [Considera HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-- [Descreve a diferença entre uma `cookie`, `sessionStorage` e `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
+- [Considere o HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
+- [Descreva a diferença entre `cookie`, `sessionStorage` e `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
 - [Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-- [Por que é geralmente uma boa ideia posicionar o CSS `<link>`s entre `<head></head>` e JS `<script>`s antes de `</body>`? Tu conheces alguma exceção?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-- [O que é a renderização progressiva?](#what-is-progressive-rendering)
-- [Por que usarias um atributo `srcset` numa etiqueta de imagem? Explica o processo que o navegador usa ao avaliar o conteúdo deste atributo](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-- [Tu já usaste diferentes linguagens de modelos de HTML antes?](#have-you-used-different-html-templating-languages-before)
+- [Por que geralmente é uma boa ideia posicionar os `<link>`s para CSS entre `<head></head>` e os `<script>`s de JS antes de `</body>`? Existe alguma exceção?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
+- [O que é renderização progressiva?](#what-is-progressive-rendering)
+- [Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
+- [Já usou diferentes linguagens de modelos de HTML antes?](#have-you-used-different-html-templating-languages-before)
 
-### O que faz um `DOCTYPE`?
+### Para que serve o `DOCTYPE`?
 
-`DOCTYPE` é uma abreviatura para “tipo de documento”. É uma declaração usada em HTML para distinguir entre o modo de padrões e [modo peculiar](https://quirks.spec.whatwg.org/#history). A sua presença diz ao navegador para renderizar a página da web no modo padrão.
+<!-- Updated according to the current English version of the website (June 6/2022) -->
 
-Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página.
+**DOCTYPE** é uma abreviatura para **Tipo de documento** (Document Type). Um DOCTYPE sempre está associado a um **DTD** - Document Type Definition (Definição do Tipo de Documento). 
 
+O DTD define como estruturar documentos de um certo tipo (por exemplo, um `<button>` pode conter um `<span>` mas não um `<div>`), enquanto o DOCTYPE declara qual DTD o documento _supostamente_ respeita (por exemplo, este documento respeita o DTD de HTML).
+
+Una vez que un agente de usuario ha reconocido un DOCTYPE correcto, activará el **modo sin peculiaridades** haciendo coincidir este DOCTYPE para leer el documento. Si un agente de usuario no reconoce un DOCTYPE correcto, activará el **modo con peculiaridades**.
+
+Uma declaração de DOCTYPE é necessária para os websites. A declaração é utilizada para indicar aos agentes de usuário qual versão das especificações HTML o documento respeita. Assim que o agente de usuário reconheça o DOCTYPE correto, será ativado o **modo padrão** (_no-quirks mode_) que coincide com esse DOCTYPE para ler o documento. Caso o agente de usuário não reconheça um DOCTYPE correto, será ativado o **modo peculiar** (_quirks mode_).
+
+A declaração DOCTYPE para os _standards_ de HTML5 é `<!DOCTYPE html>`.
+
+<!-- The following text doesn't correspond to the current EN and ES version of the website -->
+<!-- É uma declaração usada em HTML para distinguir entre o modo de padrões e [modo peculiar](https://quirks.spec.whatwg.org/#history). A sua presença diz ao navegador para renderizar a página da web no modo padrão. -->
+
+<!-- Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página. -->
+
+<!-- 
+PAREI AQUI -->
 ###### Referências
 
 - https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
@@ -32,7 +47,7 @@ Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página
 
 [[↑] De volta ao topo](#Índice)
 
-### Como é que tu serves uma página com conteúdo em vários idiomas?
+### Como é possível servir uma página com conteúdo em vários idiomas??
 
 A questão é um pouco vaga, eu vou assumir que está a perguntar sobre o caso mais comum, que é como servir uma página com conteúdo disponível em vários idiomas, mas o conteúdo dentro da página deve ser exibido somente num idioma consistente.
 
@@ -46,7 +61,7 @@ Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e co
 
 [[↑] De volta ao topo](#Índice)
 
-### Que tipo de coisas tuvocê deves desconfiar ao projetar ou desenvolver sites multilíngues?
+### O que deve ser levado em conta ao projetar ou desenvolver sites multilíngues?
 
 - Usa atributos `lang` a tua HTML.
 - Direccionando os de utilizadores para o teu idioma nativo - Permite que um utilizador mude facilmente o seu país/idioma sem problemas.
@@ -63,7 +78,7 @@ Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e co
 
 [[↑] De volta ao topo](#Índice)
 
-### Para que são bons os atributos `data-`?
+### Para que servem os atributos `data-`?
 
 Antes que os frameworks JavaScript se tornassem populares, os desenvolvedores front-end usavam atributos `data-` para armazenar dados extras dentro do próprio DOM, sem outros hacks, como atributos não-padrão, propriedades extras no DOM. É destinado a armazenar dados personalizados privados para a página ou aplicativo, para os quais não há mais atributos ou elementos apropriados.
 
@@ -76,7 +91,7 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 [[↑] De volta ao topo](#Índice)
 
-### Considera HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?
+### Considere o HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?
 
 - Semântica - Permite que tu descrevas mais precisamente o que é o teu conteúdo.
 - Conectividade - Permite que tu comuniques com o servidor de formas novas e inovadoras.
@@ -93,7 +108,7 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 [[↑] De volta ao topo](#Índice)
 
-### Descreve a diferença entre uma `cookie`,`sessionStorage` e `localStorage`.
+### Descreva a diferença entre `cookie`,`sessionStorage` e `localStorage`.
 
 Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor-chave do lado do cliente. Eles só conseguem armazenar valores como strings.
 
@@ -114,7 +129,7 @@ Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor
 
 [[↑] De volta ao topo](#Índice)
 
-### Descreve a diferença entre `<script>`, `<script async>` e `<script defer>`.
+### Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.
 
 - `<script>` - A análise HTML é bloqueada, o script é executado e executado imediatamente, a análise HTML é retomada após o script ser executado.
 - `<script async>` - O script será procurado em paralelo com a análise HTML e executado assim que estiver disponível (potencialmente antes da análise HTML). Usa `async` quando o script for independente de qualquer outro script na página, por exemplo, analítica.
@@ -131,7 +146,7 @@ Nota: Os atributos `async` e` defer`` são ignorados para scripts que não possu
 
 [[↑] De volta ao topo](#Índice)
 
-### Por que é geralmente uma boa ideia posicionar o CSS `<link>`s entre `<head></head>` e JS `<script>`s antes de `</body>`? Tu conheces alguma exceção?
+### Por que geralmente é uma boa ideia posicionar os `<link>`s para CSS entre `<head></head>` e os `<script>`s de JS antes de `</body>`? Existe alguma exceção?
 
 **Colocar `<link>`s no `<head>`**
 
@@ -149,7 +164,7 @@ Uma exceção para o posicionamento de `<script>`s na parte inferior é quando o
 
 [[↑] De volta ao topo](#Índice)
 
-### O que é a renderização progressiva?
+### O que é renderização progressiva?
 
 A renderização progressiva é o nome dado às técnicas utilizadas para melhorar o desempenho de uma página web (em particular, melhorar o tempo de carregamento percebido) para renderizar o conteúdo para a sua exibição o mais rápido possível.
 
@@ -168,7 +183,7 @@ Exemplos de tais técnicas:
 
 [[↑] De volta ao topo](#Índice)
 
-### Por que usarias um atributo `srcset` numa tag de imagem? Explica o processo que o navegador usa ao avaliar o conteúdo deste atributo.
+### Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo. 
 
 Tu usarias o atributo `srcset` quando quiseres exibir imagens diferentes para os utilizadores, dependendo da largura do ecrã do dispositivo - mostrar imagens de qualidade superior para dispositivos com display de retina aumenta a experiência do utilizador enquanto fornece imagens de baixa resolução para dispositivos de baixo custo aumentam o desempenho e diminuem o desperdício de dados (porque servir uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para mostrar o pequeno, médio ou grande `.jpg` gráfico dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para uma largura de dispositivo de 320px, os seguintes cálculos são feitos:
 
@@ -189,7 +204,7 @@ Se a resolução for retina (2x), o navegador usará a resolução mais próxima
 
 [[↑] De volta ao topo](#Índice)
 
-### Tu já usaste antes diferentes linguagens de modelos de HTML?
+### Já usou diferentes linguagens de modelos de HTML antes?
 
 Sim, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, apenas para citar alguns. Na minha opinião, eles são mais ou menos o mesmo e oferecem funcionalidades semelhantes de conteúdo de escape e filtros úteis para manipular os dados a serem exibidos. A maioria dos modelos de modelos também permitirá que injetes teus próprios filtros no caso de precisares de processamento personalizado antes da exibição.
 
