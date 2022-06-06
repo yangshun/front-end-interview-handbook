@@ -9,7 +9,7 @@ Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.
 - [O que faz um doctype?](#what-does-a-doctype-do)
 - [Como é que tu serves uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
 - [Que tipo de coisas tu deves desconfiar ao projetar ou desenvolver sites multilíngues?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-- [Quais são os atributos `data-` bons para?](#what-are-data--attributes-good-for)
+- [Para que servem os atributos `data-`?](#what-are-data--attributes-good-for)
 - [Considera HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
 - [Descreve a diferença entre uma `cookie`, `sessionStorage` e `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
 - [Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
