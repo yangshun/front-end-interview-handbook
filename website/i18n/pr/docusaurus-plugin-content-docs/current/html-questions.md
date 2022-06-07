@@ -7,7 +7,7 @@ Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.
 ## Índice
 
 - [Para que serve o DOCTYPE?](#what-does-a-doctype-do)
-- [Como é possível servir uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
+- [Como podemos servir uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
 - [O que deve ser levado em conta ao projetar ou desenvolver sites multilíngues?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
 - [Para que servem os atributos `data-`?](#what-are-data--attributes-good-for)
 - [Considere o HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
@@ -20,25 +20,21 @@ Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.
 
 ### Para que serve o `DOCTYPE`?
 
-<!-- Updated according to the current English version of the website (June 6/2022) -->
+<!-- Answers wee updated according to the current English version of the website (June 6/2022) -->
 
 **DOCTYPE** é uma abreviatura para **Tipo de documento** (Document Type). Um DOCTYPE sempre está associado a um **DTD** - Document Type Definition (Definição do Tipo de Documento). 
 
 O DTD define como estruturar documentos de um certo tipo (por exemplo, um `<button>` pode conter um `<span>` mas não um `<div>`), enquanto o DOCTYPE declara qual DTD o documento _supostamente_ respeita (por exemplo, este documento respeita o DTD de HTML).
 
-Una vez que un agente de usuario ha reconocido un DOCTYPE correcto, activará el **modo sin peculiaridades** haciendo coincidir este DOCTYPE para leer el documento. Si un agente de usuario no reconoce un DOCTYPE correcto, activará el **modo con peculiaridades**.
-
-Uma declaração de DOCTYPE é necessária para os websites. A declaração é utilizada para indicar aos agentes de usuário qual versão das especificações HTML o documento respeita. Assim que o agente de usuário reconheça o DOCTYPE correto, será ativado o **modo padrão** (_no-quirks mode_) que coincide com esse DOCTYPE para ler o documento. Caso o agente de usuário não reconheça um DOCTYPE correto, será ativado o **modo peculiar** (_quirks mode_).
+Uma declaração de DOCTYPE é necessária para os websites. A declaração é utilizada para indicar aos agentes-usuários qual versão das especificações HTML o documento respeita. Assim que o agente-usuário reconheça o DOCTYPE correto, será ativado o **modo padrão** (_no-quirks mode_) que coincide com esse DOCTYPE para ler o documento. Caso o agente-usuário não reconheça um DOCTYPE correto, será ativado o **modo peculiar** (_quirks mode_).
 
 A declaração DOCTYPE para os _standards_ de HTML5 é `<!DOCTYPE html>`.
 
-<!-- The following text doesn't correspond to the current EN and ES version of the website -->
+<!-- The following paragraphs don't correspond to the current EN and ES version of the website -->
 <!-- É uma declaração usada em HTML para distinguir entre o modo de padrões e [modo peculiar](https://quirks.spec.whatwg.org/#history). A sua presença diz ao navegador para renderizar a página da web no modo padrão. -->
-
 <!-- Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página. -->
 
-<!-- 
-PAREI AQUI -->
+
 ###### Referências
 
 - https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
@@ -47,13 +43,16 @@ PAREI AQUI -->
 
 [[↑] De volta ao topo](#Índice)
 
-### Como é possível servir uma página com conteúdo em vários idiomas??
+### Como podemos servir uma página com conteúdo em vários idiomas?
 
-A questão é um pouco vaga, eu vou assumir que está a perguntar sobre o caso mais comum, que é como servir uma página com conteúdo disponível em vários idiomas, mas o conteúdo dentro da página deve ser exibido somente num idioma consistente.
+A questão é um pouco vaga. Vou supor que quer saber sobre o caso mais comum: servir uma página com conteúdo disponível em vários idiomas, mas o conteúdo dentro da página deve ser exibido somente em um idioma coerente.
 
-Quando uma solicitação HTTP é feita para um servidor, o agente de utilizador pedido geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Aceitar-Idioma`. O servidor pode então usar estas informações para retornar uma versão do documento no idioma apropriado, caso tal alternativa esteja disponível. O documento HTML retornado também deve declarar o atributo`lang`na marca`<html>`, como`<html lang="en">...</html>`.
+Quando uma requisição (_request_) HTTP é feita para um servidor, o agente-usuário que faz a requisição geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Accept-Language`. O servidor pode usar essas informações para retornar uma versão do documento no idioma apropriado, caso tal alternativa esteja disponível. O documento HTML retornado também deve declarar o atributo `lang` na tag `<html>`, como por exemplo `<html lang="en">...</html>`.
 
-Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e conteúdo para o idioma específico armazenado nos formatos YML ou JSON. O servidor, em seguida, gera dinamicamente a página HTML com conteúdo nesse idioma específico, geralmente com a ajuda de uma estrutura de back-end.
+<!-- Included this paragraph from EN version on the website. It was not available in the PT version. -->
+Obviamente, isso não permite a um mecanismo de busca saiba que o conteúdo está disponível em idiomas diferentes, e por isso devemos também usar o atributo `hreflang` na <head>. Por exemplo, <link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>.
+
+No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` e conteúdo para o idioma específico, armazenado em formato YML ou JSON. O servidor, em seguida, gera dinamicamente a página HTML com conteúdo nesse idioma específico, geralmente com a ajuda de uma estrutura de back end.
 
 ###### Referências
 
@@ -63,14 +62,18 @@ Na parte de trás, a marcação HTML irá conter espaços reservados `i18n` e co
 
 ### O que deve ser levado em conta ao projetar ou desenvolver sites multilíngues?
 
-- Usa atributos `lang` a tua HTML.
-- Direccionando os de utilizadores para o teu idioma nativo - Permite que um utilizador mude facilmente o seu país/idioma sem problemas.
-- O texto em imagens não é uma abordagem escalável - Colocar texto numa imagem ainda é uma maneira popular de obter fontes bonitas e sem sistema para serem exibidas em qualquer computador. No entanto, para traduzir o texto da imagem, cada sequência de texto precisará de ter uma imagem separada criada para cada idioma. Qualquer coisa mais do que um punhado de substituições como esta podem rapidamente sair do controle.
-- Palavras restritas/comprimento da frase - Alguns conteúdos podem ser mais longos quando escritos num outro idioma. Desconfie de problemas de layout ou transbordamento no design. É melhor evitar projetar onde a quantidade de texto faria ou partisse um projeto. As contagens de personagens entram no jogo com coisas como manchetes, rótulos e botões. Eles são um menor problema com o texto livre, como texto corporativo ou comentários.
-- Lembra-te de como as cores são percebidas - As cores são percebidas de maneira diferente em línguas e culturas. O design deve usar a cor adequadamente.
-- Formatar datas e moedas - As datas do calendário são por vezes apresentadas de diferentes maneiras. Por exemplo. "31 de maio de 2012" nos EUA versus "31 de maio de 2012" em partes da Europa.
-- Não concatene as cordas traduzidas - Não faças nada como `"A data hoje é" + data`. Ele vai partir em idiomas com diferentes ordens de palavras. Usa uma string de modelo com substituição de parâmetros para cada idioma. Por exemplo, vê as duas frases seguintes em inglês e chinês, respectivamente: `I will travel on {% date %}` e `{% date %} 我会出发`. Observa que a posição da variável é diferente devido às regras da gramática do idioma.
-- Direção da leitura de idioma - Em inglês, lemos da esquerda para a direita, de cima para baixo, em japonês tradicional, o texto é lido de cima para baixo, da direita para a esquerda.
+- Usar o atributo `lang` no HTML.
+- Direcionar os usuários ao seu idioma nativo - Permitir que um usuário mude seu país/idioma sem problemas.
+- Texto em imagens rasterizadas (por exemplo, png, gif, jpg) não é uma abordagem escalável - colocar texto numa imagem ainda é uma maneira popular de exibir fontes bonitas e que não são do sistema em qualquer computador. No entanto, para traduzir o texto da imagem, cada sequência de texto precisará de uma imagem separada para cada idioma. Qualquer coisa além de algumas substituições como essa podem rapidamente sair do controle.
+- Restrições no comprimento de palavras restritas/frases - Alguns conteúdos podem ser mais longos quando escritos num outro idioma. É preciso ter cuidado com problemas de layout ou overflow no design. É melhor evitar situações em que a quantidade de texto possa quebrar o layout. A contagem de caracteres é importante para coisas como manchetes, legendas e botões. É um problema menor com texto livre, como o corpo do texto  ou comentários.
+- Levar em consideração a percepção das cores - As cores são percebidas de maneira diferente dependendo do idioma e a cultura. O design deve usar a cor adequadamente.
+- Formatar datas e moedas - As datas do calendário são por vezes apresentadas de maneiras diferentes. Por exemplo, "May 31, 2012" nos EUA e "31 de maio de 2012" em partes da Europa.
+- Não concatenar strings traduzidas - Não fazer coisas como `"A data hoje é" + data`. Isso não vai funcionar para idiomas com diferentes ordem de palavras. É melhor usar um template que permita a substituição de parâmetros para cada idioma. Por exemplo, considere as frases seguintes em inglês e chinês, respectivamente: `I will travel on {% date %}` e `{% date %} 我会出发`. Observe que a posição da variável é diferente devido às regras da gramática do idioma.
+- Direção da leitura do idioma - Em inglês, lemos da esquerda para a direita, de cima para baixo; em japonês tradicional, o texto é lido de cima para baixo, da direita para a esquerda.
+<!-- New content included from the website -->
+- Útil - incluir o local na especificação (p.ex., en_US, zh_CN, etc.).
+
+<!-- Parei aqui -->
 
 ###### Referências
 
