@@ -73,8 +73,6 @@ No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` 
 <!-- New content included from the website -->
 - Útil - incluir o local na especificação (p.ex., en_US, zh_CN, etc.).
 
-<!-- Parei aqui -->
-
 ###### Referências
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
@@ -83,9 +81,12 @@ No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` 
 
 ### Para que servem os atributos `data-`?
 
-Antes que os frameworks JavaScript se tornassem populares, os desenvolvedores front-end usavam atributos `data-` para armazenar dados extras dentro do próprio DOM, sem outros hacks, como atributos não-padrão, propriedades extras no DOM. É destinado a armazenar dados personalizados privados para a página ou aplicativo, para os quais não há mais atributos ou elementos apropriados.
+Antes que os frameworks JavaScript se tornassem populares, os programadores front-end usavam atributos `data-` para armazenar dados extras dentro do próprio DOM, sem usar outros hacks como atributos fora do padrão, propriedades extras no DOM. Os atributos `data-` servem para armazenar dados personalizados privados de uma página ou aplicativo, para os quais não há mais atributos ou elementos apropriados.
 
-Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é que os utilizadores podem modificar o atributo de dados facilmente usando o elemento de inspeção no navegador. O modelo de dados é melhor armazenado dentro do próprio JavaScript e permaneça atualizado com o DOM via ligação de dados possivelmente através de uma biblioteca ou uma estrutura.
+Atualmente, o uso dos atributos `data-` não é recomendado. Um dos motivos é que os usuários podem modificar o atributo de dados facilmente mediante a inspeção de elementos no navegador. O modelo de dados é melhor armazenado dentro do próprio JavaScript e se mantém atualizado com o DOM pela ligação de dados possivelmente com o uso de uma biblioteca ou framework.
+
+<!-- included based on EN and ES website: -->
+No entanto, um uso perfeitamente válido dos atributos `-data` é adicionar um gancho para frameworks de teste como Selenium e Cabybara, sem a necessidade de criar classes sem sentido ou atributos ID. É necessário que o elemento possa ser encontrado por uma especificação particular de Selenium e algo como `data-selector='a-coisa` é uma solução válida que não irá confundir o markup semântico.
 
 ###### Referências
 
@@ -96,14 +97,14 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 ### Considere o HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?
 
-- Semântica - Permite que tu descrevas mais precisamente o que é o teu conteúdo.
-- Conectividade - Permite que tu comuniques com o servidor de formas novas e inovadoras.
-- Offline e armazenamento - Permite que as páginas da Web armazenem dados no lado do cliente localmente e funcionem offline de forma mais eficiente.
-- Multimédia - Criar vídeo e áudio de primeira classe cidadãos na Open Web.
-- Gráficos e efeitos 2D/3D - Permitir uma gama muito mais diversificada de opções de apresentação.
-- Desempenho e integração - Fornecer maior optimização da velocidade e melhor uso do hardware do computador.
-- Acesso ao dispositivo - Permitir o uso de vários dispositivos de entrada e saída.
-- Styling - Permitir que os autores escrevam temas mais sofisticados.
+- Semântica - Permite descrever o conteúdo mais precisamente.
+- Conectividade - Permite a comunicação com o servidor de formas novas e inovadoras.
+- Offline e armazenamento - Permite que os websites armazenem dados localmente no lado do cliente e funcionem offline de forma mais eficiente.
+- Multimédia - Faz com que vídeo e áudio sejam cidadãos de primeira classe na Open Web.
+- Gráficos e efeitos 2D/3D - Permite uma gama muito mais diversificada de opções de apresentação.
+- Desempenho e integração - Possibilita uma maior optimização da velocidade e melhor uso do hardware do computador.
+- Acesso ao dispositivo - Permite o uso de vários dispositivos de entrada e saída.
+- Estilo - Permite que autores escrevam temas mais sofisticados.
 
 ###### Referências
 
@@ -113,17 +114,18 @@ Atualmente, o uso dos atributos `data-` não é encorajado. Uma das razões é q
 
 ### Descreva a diferença entre `cookie`,`sessionStorage` e `localStorage`.
 
-Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor-chave do lado do cliente. Eles só conseguem armazenar valores como strings.
+Todas as tecnologias mencionadas são mecanismos de armazenamento de valor-chave do lado do cliente. Elas só podem armazenar valores como strings.
 
 |  | `cookie` | `localStorage` | `sessionStorage` |
 | --- | --- | --- | --- |
-| Iniciador | Cliente ou servidor. Pode usar cabeçalho `Set-Cookie` | Cliente | Cliente |
-| Expira | Definir manualmente | Para sempre | Na aba fechar |
+| Iniciador | Cliente ou servidor. O servidor pode usar o cabeçalho `Set-Cookie` | Cliente | Cliente |
+| Validade | Definida manualmente | Para sempre | Ao fechar a aba |
 | Persiste em todas sessões do navegador | Depende de se o tempo de validade está configurado | Sim | Não |
-| Tem um domínio associado | Sim | Não | Não |
-| Enviado para servidor com cada solicitação HTTP | Os cookies são automaticamente enviados através do cabeçalho `Cookie` | Não | Não |
+| Enviado para servidor a cada solicitação HTTP | Os cookies são automaticamente enviados através do cabeçalho `Cookie` | Não | Não |
 | Capacidade (por domínio) | 4kb | 5MB | 5MB |
 | Acessibilidade | Qualquer janela | Qualquer janela | A mesma aba |
+
+_Nota: Se o usuário decide apagar os dados de navegação através de qualquer mecanismo proporcionado pelo navegador, isso irá apagar qualquer `cookie`,` localStorage` ou `sessionStorage` armazenada. É importante ter isso em mente ao projetar para persistência local, especialmente quando se compara com alternativas como o armazenamento do lado do servidor em uma base de dados ou algo semelhante (que obviamente irá persistir independentemente das ações do usuário) ._
 
 ###### Referências
 
@@ -133,6 +135,8 @@ Todas as tecnologias acima mencionadas são mecanismos de armazenamento de valor
 [[↑] De volta ao topo](#Índice)
 
 ### Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.
+
+<!-- parei aqui -->
 
 - `<script>` - A análise HTML é bloqueada, o script é executado e executado imediatamente, a análise HTML é retomada após o script ser executado.
 - `<script async>` - O script será procurado em paralelo com a análise HTML e executado assim que estiver disponível (potencialmente antes da análise HTML). Usa `async` quando o script for independente de qualquer outro script na página, por exemplo, analítica.
