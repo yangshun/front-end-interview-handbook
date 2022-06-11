@@ -201,7 +201,7 @@ These techniques are related to accessibility (a11y).
 
 - `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
 - `position: absolute; left: -99999px`. Position it outside of the screen.
-- `text-indent: -9999px`. This only works on text within the `block` elements.
+- `text-indent: 100%; white-space: nowrap; overflow: hidden;`. This only works on text within the `block` elements.
 - Meta tags. For example by using Schema.org, RDF, and JSON-LD.
 - WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
 
