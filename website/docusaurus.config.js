@@ -145,6 +145,11 @@ module.exports = {
       apiKey: '10d7777b44bc7e0495cc00e860918b03',
       indexName: 'frontendinterviewhandbook',
     },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
   },
   presets: [
     [
