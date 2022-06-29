@@ -125,7 +125,7 @@ Todas as tecnologias mencionadas são mecanismos de armazenamento de valor-chave
 | Capacidade (por domínio) | 4kb | 5MB | 5MB |
 | Acessibilidade | Qualquer janela | Qualquer janela | A mesma aba |
 
-_Nota: Se o usuário decide apagar os dados de navegação através de qualquer mecanismo proporcionado pelo navegador, isso irá apagar qualquer `cookie`,` localStorage` ou `sessionStorage` armazenada. É importante ter isso em mente ao projetar para persistência local, especialmente quando se compara com alternativas como o armazenamento do lado do servidor em uma base de dados ou algo semelhante (que obviamente irá persistir independentemente das ações do usuário) ._
+_Nota: Se o usuário decide apagar os dados de navegação através de qualquer mecanismo disponibilizado pelo navegador, isso irá apagar qualquer `cookie`,` localStorage` ou `sessionStorage` armazenada. É importante ter isso em mente ao projetar para persistência local, especialmente quando se compara com alternativas como o armazenamento do lado do servidor em uma base de dados ou algo semelhante (que obviamente irá persistir independentemente das ações do usuário) ._
 
 ###### Referências
 
@@ -136,14 +136,11 @@ _Nota: Se o usuário decide apagar os dados de navegação através de qualquer 
 
 ### Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.
 
-<!-- parei aqui -->
+- `<script>` - A análise do HTML é bloqueada, o script é obtido e executado imediatamente, a análise do HTML é retomada após o script ser executado.
+- `<script async>` - O script será obtido em paralelo com a análise do HTML e executado assim que estiver disponível (possivelmente antes da análise do HTML ter sido finalizada). Use `async` quando o script for independente de qualquer outro script na página, por exemplo, scripts de analítica.
+* `<script defer>` - O script será obtido em paralelo com a análise do HTML e executado quando a página terminar de analisar. Se houver vários scripts, cada script diferido será executado na ordem em que se encontra no documento. Se um script estiver baseado na análise completa do DOM, o atributo `defer` será útil para garantir que o HTML seja totalmente analisado antes de executar o script. Não é muito diferente de colocar um `<script>` normal no final de `<body>`. Um script diferido não deve conter`document.write`.
 
-- `<script>` - A análise HTML é bloqueada, o script é executado e executado imediatamente, a análise HTML é retomada após o script ser executado.
-- `<script async>` - O script será procurado em paralelo com a análise HTML e executado assim que estiver disponível (potencialmente antes da análise HTML). Usa `async` quando o script for independente de qualquer outro script na página, por exemplo, analítica.
-
-* `<script defer>` - O script será procurado em paralelo com a análise de HTML e executado quando a página terminar de analisar. Se houver vários deles, cada script diferido é executado na ordem em que foram encontrados no documento. Se um script depende de um DOM totalmente analisado, o atributo `defer` será útil para garantir que o HTML seja totalmente analisado antes de o executar. Não há muita diferença em colocar um `<script>`normal no final de`<body>`. Um script diferido não deve conter`document.write`.
-
-Nota: Os atributos `async` e` defer`` são ignorados para scripts que não possuem atributo `src`.
+Nota: Os atributos `async` e` defer` são ignorados para scripts que não tenham o atributo `src`.
 
 ###### Referências
 
@@ -157,19 +154,21 @@ Nota: Os atributos `async` e` defer`` são ignorados para scripts que não possu
 
 **Colocar `<link>`s no `<head>`**
 
-Colocar `<link>`s na cabeça faz parte da especificação. Além disso, colocar na parte superior permite que a página seja processada progressivamente, o que melhora a experiência do utilizador. O problema com a colocação de folhas de estilo perto da parte inferior do documento é que ele proíbe a renderização progressiva em muitos navegadores, incluindo o Internet Explorer. Alguns navegadores bloqueiam a renderização para evitar ter que pintar elementos da página se os seus estilos mudarem. O utilizador está preso a ver uma página branca em branco. Evita o flash de conteúdo não esmagado.
+Colocar `<link>`s no `<head>` faz parte da especificação adequada para construir um website otimizado. Quando a página é carregada pela primeira vez, o HTML e CSS são analisados simultaneamente; o HTML cria o DOM (Document Object Model) e o CSS cria o CSSOM (CSS Object Model). Ambos são necessários para criar a parte visual de um website, permitindo uma sincronização rápida da "primeira pintura significativa". Essa renderização progressiva é uma categoria de otimização mensurada em análises de desempenho. Colocar as folhas de estilo perto da parte inferior do documento impede a renderização progressiva em muitos navegadores. Alguns navegadores bloqueiam a renderização para evitar ter que pintar elementos da página novamente caso os seus estilos mudem. O utilizador terá que ver uma página em branco. Em outras situações pode haver flashes de conteúdo não estilizado (FOUC), mostrando uma página sem nenhum estilo aplicado.
 
 **Colocar `<script>`s pouco antes de `</body>`**
 
-`<script>`s bloqueia a análise HTML enquanto eles estão a ser descarregados e executados. Fazer o download dos scripts na parte inferior permitirá que o HTML seja analisado e mostrado em primeiro ao utilizador.
+A tag `<script>`s bloqueia a análise do HTML enquanto os scripts estão sendo descarregados e executados, o que pode tornar a página lenta. Colocar os scripts na parte inferior permite que o HTML seja analisado e mostrado por primeiro ao utilizador.
 
-Uma exceção para o posicionamento de `<script>`s na parte inferior é quando o teu script contém `document.write ()`, mas nos dias de hoje não é uma boa prática usar `document.write ()`. Além disso, colocar `<script>`s na parte inferior significa que o navegador não pode começar a descarregar os scripts até que o documento inteiro seja analisado. Uma solução possível é colocar `<script>` no `<head>` e usar o atributo `defer``
+Uma exceção para o posicionamento de `<script>`s na parte inferior é quando o script contém `document.write()`, mas nos dias de hoje não é uma boa prática usar `document.write()`. Além disso, colocar `<script>`s na parte inferior significa que o navegador não pode começar a descarregar os scripts até que o documento inteiro seja analisado. Isso garante que o código que precise manipular elementos do DOM não apresente erros e detenha todo o script. Se for necessário colocar `<script>`s na `<head>`, utilize o atributo `defer`, o que vai ter o mesmo efeito de executar o script apenas depois do HTML ser analisado, mas permite ao navegador baixar o script antes.
 
 ###### Referências
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
 [[↑] De volta ao topo](#Índice)
+
+<!-- AQUI -->
 
 ### O que é renderização progressiva?
 
