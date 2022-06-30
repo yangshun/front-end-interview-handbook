@@ -168,19 +168,17 @@ Uma exceção para o posicionamento de `<script>`s na parte inferior é quando o
 
 [[↑] De volta ao topo](#Índice)
 
-<!-- AQUI -->
-
 ### O que é renderização progressiva?
 
-A renderização progressiva é o nome dado às técnicas utilizadas para melhorar o desempenho de uma página web (em particular, melhorar o tempo de carregamento percebido) para renderizar o conteúdo para a sua exibição o mais rápido possível.
+A renderização progressiva é o nome dado às técnicas utilizadas para melhorar o desempenho de uma página web (em particular, melhorar a percepção do usuário sobre o tempo de carregamento) de forma a renderizar o conteúdo para exibição o mais rápido possível.
 
-Ele costumava ser muito mais prevalecente nos dias que antecedem a internet de banda larga, mas ainda é útil no desenvolvimento moderno, pois as conexões de dados móveis estão a tornar-se cada vez mais populares (e não confiáveis)!
+Costumava ser muito mais prevalente antes da internet de banda larga, mas ainda é utilizada no desenvolvimento moderno, pois as conexões de dados móveis estão a tornar-se cada vez mais populares (e não confiáveis)!
 
 Exemplos de tais técnicas:
 
-- O carregamento preguiçoso de imagens - As imagens na página não são carregadas de uma só vez. O JavaScript será usado para carregar uma imagem quando o utilizador rolar para a parte da página que mostra a imagem.
-- Priorizando o conteúdo visível (ou a renderização acima da dobra) - Inclua apenas o CSS/conteúdo/scripts mínimos necessários para a quantidade de página que será processada no navegador de primeiros utilizadores para exibir o mais rápido possível, tu podes usar o diferido scripts ou ouve o evento `DOMContentLoaded`/`load` para carregar os outros recursos e conteúdo.
-- Fragmentos HTML Async - Peças de lavagem do HTML para o navegador à medida que a página é construída na parte traseira. Mais detalhes sobre a técnica podem ser encontrados [aqui](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+- O carregamento preguiçoso de imagens - As imagens da página não são carregadas de uma só vez. O JavaScript será usado para carregar uma imagem quando o utilizador encontrar a parte da página que mostra a imagem.
+- Priorizar o conteúdo visível (ou a renderização acima da dobra) - Incluir apenas o CSS/conteúdo/scripts mínimos necessários para que a página apresentada no navegador do utilizador seja exibida o mais rápido possível, pode-se então usar scripts diferidos ou escutar o evento `DOMContentLoaded`/`load` para carregar os outros recursos e conteúdo.
+- Fragmentos HTML assíncronos - Enviar partes do HTML ao navegador à medida em que a página é construída no back-end. Mais detalhes sobre a técnica podem ser encontrados [aqui](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
 ###### Referências
 
@@ -191,17 +189,17 @@ Exemplos de tais técnicas:
 
 ### Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo. 
 
-Tu usarias o atributo `srcset` quando quiseres exibir imagens diferentes para os utilizadores, dependendo da largura do ecrã do dispositivo - mostrar imagens de qualidade superior para dispositivos com display de retina aumenta a experiência do utilizador enquanto fornece imagens de baixa resolução para dispositivos de baixo custo aumentam o desempenho e diminuem o desperdício de dados (porque servir uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para mostrar o pequeno, médio ou grande `.jpg` gráfico dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para uma largura de dispositivo de 320px, os seguintes cálculos são feitos:
+Tu usarias o atributo `srcset` quando quiseres exibir imagens diferentes para os utilizadores, dependendo da largura do ecrã (tela) do dispositivo - mostrar imagens de qualidade superior para dispositivos com display de retina melhora a experiência do utilizador, enquanto fornecer imagens de baixa resolução para dispositivos de baixo custo melhora o desempenho e diminui o desperdício de dados (porque mostrar uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para mostrar o `.jpg` pequeno, médio ou grande dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para um dispositivo com 320px de largura, são feitos os seguintes cálculos:
 
 - 500 / 320 = 1.5625
 - 1000 / 320 = 3.125
 - 2000 / 320 = 6.25
 
-Se a resolução do cliente for 1x, 1.5625 é o mais próximo, e `500w` corresponde a `small.jpg` será selecionado pelo navegador.
+Se a resolução do cliente for 1x, 1.5625 é a mais próxima, e o navegador irá selecionar `500w` que corresponde a `small.jpg`.
 
-Se a resolução for retina (2x), o navegador usará a resolução mais próxima acima do mínimo. O que significa que não escolherá o 500w (1.5625) porque é maior que 1 e a imagem pode parecer de má qualidade. O navegador escolheria então a imagem com uma razão resultante mais próxima de 2 que é 1000w (3.125).
+Se a resolução for retina (2x), o navegador usará a resolução mais próxima acima do mínimo. O que significa que não escolherá o 500w (1.5625) porque é maior que 1 e a imagem pode parecer de má qualidade. O navegador escolheria então a imagem com uma razão resultante mais próxima de 2, que é 1000w (3.125).
 
-`srcset`s resolve o problema pelo qual tu queres servir arquivos de imagem menores para estreitar dispositivos de ecrã, pois eles não precisam de imagens enormes, como monitores de desktop - e também opcionalmente que tu queres servir imagens de resolução diferentes para ecrãs de alta densidade/baixa densidade.
+O `srcset` resolve o problema de querer servir arquivos de imagem menores para dispositivos com ecrã estreita, já que não precisam de imagens enormes como monitores de desktop - e também opcionalmente permite servir imagens de resolução diferentes para ecrãs de alta densidade/baixa densidade.
 
 ###### Referências
 
@@ -212,7 +210,7 @@ Se a resolução for retina (2x), o navegador usará a resolução mais próxima
 
 ### Já usou diferentes linguagens de modelos de HTML antes?
 
-Sim, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, apenas para citar alguns. Na minha opinião, eles são mais ou menos o mesmo e oferecem funcionalidades semelhantes de conteúdo de escape e filtros úteis para manipular os dados a serem exibidos. A maioria dos modelos de modelos também permitirá que injetes teus próprios filtros no caso de precisares de processamento personalizado antes da exibição.
+Sim, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, para citar alguns. Na minha opinião, eles são mais ou menos o mesmo e oferecem funcionalidades semelhantes de escape de conteúdo e filtros úteis para manipular os dados a serem exibidos. A maioria motores de template também permitirá que injetes teus próprios filtros no caso de precisares de processamento personalizado antes da exibição.
 
 [[↑] De volta ao topo](#Índice)
 
