@@ -25,7 +25,7 @@ export default [
   },
   {
     name: 'Zhenghao He',
-    title: 'Senior Software Engineer, Instacart',
+    title: 'Senior Software Engineer, Instacart, ex-Amazon',
     thumbnail: 'https://github.com/zhenghaohe.png',
     quote: (
       <>
