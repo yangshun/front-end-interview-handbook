@@ -67,7 +67,7 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 
 ## Looking for Generic Interview Preparation?
 
-You might be interested in the [Tech Interview Handbook](https://techinterviewhandbook.org) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://techinterviewhandbook.org/cheatsheet)!
+You might be interested in the [Tech Interview Handbook](https://www.techinterviewhandbook.org) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://www.techinterviewhandbook.org/coding-interview-cheatsheet/)!
 
 <div align="center">
   <a href="https://techinterviewhandbook.org">

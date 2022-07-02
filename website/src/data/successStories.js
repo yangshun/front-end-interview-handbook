@@ -11,7 +11,7 @@ export default [
         wasn't sure what to expect and where to start. This handbook together
         with the{' '}
         <a
-          href="https://techinterviewhandbook.org"
+          href="https://www.techinterviewhandbook.org"
           target="_blank"
           rel="noreferrer noopener">
           Tech Interview Handbook
