@@ -33,6 +33,7 @@ module.exports = {
         'front-end-system-design-applications',
       ],
     },
+    'company-interview-questions',
     'behavioral',
     'resume',
   ],
