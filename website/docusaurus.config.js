@@ -11,8 +11,8 @@ module.exports = {
   onBrokenLinks: 'ignore',
   themeConfig: {
     announcementBar: {
-      id: 'educative', // Increment on change
-      content: `⭐️ Level up your front end interviewing skills with Educative. <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Join today for a discount!</a> ⭐️`,
+      id: 'faangtechleads', // Increment on change
+      content: `⭐️ Craft the perfect resume for FAANG with these <a href="https://www.faangtechleads.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=banner&aff=1e80c401fe7e2" target="_blank">Software Engineer resume templates and examples</a>!</a> ⭐️`,
       isCloseable: false,
     },
     prism: {
