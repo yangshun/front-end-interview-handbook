@@ -144,8 +144,6 @@ div[class^='announcementBar_'] {
 
 html[data-theme='dark'] .navbar-icon-github:before {
   background-image: url('/img/icons8-github-light.svg');
-  height: 28px;
-  width: 28px;
 }
 
 .navbar-icon-twitter:before {
@@ -161,6 +159,4 @@ html[data-theme='dark'] .navbar-icon-twitter:before {
 
 html[data-theme='dark'] .navbar-icon-facebook:before {
   background-image: url('/img/icons8-facebook-light.svg');
-  height: 28px;
-  width: 28px;
 }
