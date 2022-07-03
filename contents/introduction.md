@@ -80,7 +80,7 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
-## Company formats
+## Company interview formats
 
 Through extensive research, are the different type of formats companies ask during the technical rounds of front end interviews. If you're interviewing for front end engineering roles at certain companies, prepare accordingly!
 
@@ -88,17 +88,17 @@ _Legend: ✅: Asked, ❌: Not asked, ⚠️: No data_
 
 | Company | Trivia | Algorithms | JavaScript coding | UI coding | System design |
 | :-- | :-: | :-: | :-: | :-: | :-: |
-| Airbnb | ❌ | ✅ | ✅ | ✅ | ❌ |
-| Amazon | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Apple | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
-| ByteDance/TikTok | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Dropbox | ❌ | ⚠️ | ✅ | ✅ | ✅ |
+| [**Airbnb**](./companies/airbnb-front-end-interview-questions.md) | ❌ | ✅ | ✅ | ✅ | ❌ |
+| [**Amazon**](./companies/amazon-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [**Apple**](./companies/apple-front-end-interview-questions.md) | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**ByteDance/TikTok**](./companies/bytedance-tiktok-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ❌ |
+| [**Dropbox**](./companies/dropbox-front-end-interview-questions.md) | ❌ | ⚠️ | ✅ | ✅ | ✅ |
 | Facebook/Meta | ✅ | ❌ | ✅ | ❌ | ✅ |
 | Flipkart | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ |
-| Google | ✅ | ✅ | ✅ | ✅ | ✅ |
-| LinkedIn | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
-| Lyft | ❌ | ❌ | ✅ | ✅ | ⚠️ |
-| Microsoft | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| Salesforce | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
-| Twitter | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
-| Uber | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**Google**](./companies/google-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [**LinkedIn**](./companies/linkedin-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**Lyft**](./companies/lyft-front-end-interview-questions.md) | ❌ | ❌ | ✅ | ✅ | ⚠️ |
+| [**Microsoft**](./companies/microsoft-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [**Salesforce**](./companies/salesforce-front-end-interview-questions.md) | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| [**Twitter**](./companies/twitter-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**Uber**](./companies/uber-front-end-interview-questions.md) | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
