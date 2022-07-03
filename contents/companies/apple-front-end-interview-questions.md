@@ -3,7 +3,7 @@ title: Apple front end interview questions
 sidebar_label: Apple
 ---
 
-Little is known about Apple's front end interview process.
+Not much is known about Apple's front end interview process.
 
 ## JavaScript
 

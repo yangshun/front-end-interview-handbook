@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Front End Interview Handbook',
   tagline:
-    'Front end interview preparation materials for busy engineers - pop quizzes, coding, algorithms, front end system design and more!',
+    'Front end interview preparation materials for busy engineers - trivias, coding, algorithms, front end system design and more!',
   url: 'https://www.frontendinterviewhandbook.com',
   baseUrl: '/',
   trailingSlash: true,
@@ -70,12 +70,12 @@ module.exports = {
               href: '/introduction/',
             },
             {
-              label: 'Pop quiz',
-              href: '/pop-quiz/',
+              label: 'Trivia questions',
+              href: '/trivia/',
             },
             {
-              label: 'Behavioral round',
-              href: '/behavioral/',
+              label: 'Company questions',
+              href: '/company-interview-questions/',
             },
             {
               label: 'Blog',
@@ -91,12 +91,12 @@ module.exports = {
               href: '/coding/algorithms/',
             },
             {
-              label: 'Utility function',
-              href: '/coding/utility-function/',
+              label: 'JavaScript utility functions',
+              href: '/coding/javascript-utility-function/',
             },
             {
               label: 'User interfaces',
-              href: '/coding/build-user-interfaces/',
+              href: '/coding/build-front-end-user-interfaces/',
             },
           ],
         },

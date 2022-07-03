@@ -3,7 +3,7 @@ title: Salesforce front end interview questions
 sidebar_label: Salesforce
 ---
 
-Note much is known about Salesforce's front end interview process.
+Not much is known about Salesforce's front end interview process.
 
 ## Trivia
 

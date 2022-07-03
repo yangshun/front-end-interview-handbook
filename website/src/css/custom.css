@@ -52,21 +52,62 @@ html[data-theme='dark'] {
   text-align: start;
 }
 
+.markdown h1:first-child {
+  --ifm-h1-font-size: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .markdown h1:first-child {
+    --ifm-h1-font-size: 2.25em;
+  }
+}
+
+.markdown h2 {
+  --ifm-h2-font-size: 1.375em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .markdown h2 {
+    --ifm-h2-font-size: 1.5em;
+  }
+}
+
+.markdown h3 {
+  --ifm-h3-font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+.markdown h4 {
+  font-size: 1.15em;
+  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.4em;
+}
+
+.markdown h5 {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 1.4em;
+  margin-bottom: 0.3em;
+}
+.markdown blockquote {
+  border-left-color: var(--ifm-color-emphasis-200);
+  border-left-width: 0.5rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.markdown ul blockquote {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
 @media screen and (max-width: 767px) {
   :root {
     --ifm-font-size-base: 16px;
-  }
-
-  .markdown h1 {
-    --ifm-h1-font-size: 1.5rem;
-  }
-
-  .markdown h2 {
-    --ifm-h2-font-size: 1.375rem;
-  }
-
-  .markdown h3 {
-    --ifm-h3-font-size: 1.25rem;
   }
 }
 
@@ -122,72 +163,4 @@ html[data-theme='dark'] .navbar-icon-facebook:before {
   background-image: url('/img/icons8-facebook-light.svg');
   height: 28px;
   width: 28px;
-}
-
-#carbonads * {
-  margin: initial;
-  padding: initial;
-}
-#carbonads {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
-  display: flex;
-  background-color: hsl(0, 0%, 98%);
-  box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, 0.1);
-  z-index: 100;
-  margin: 1rem auto;
-}
-html[data-theme='dark'] #carbonads {
-  background-color: hsl(0, 0%, 15%);
-  box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.085), 0 0 2px hsl(0deg 0% 0% / 0.085),
-    0 0 4px hsl(0deg 0% 0% / 0.085), 0 0 8px hsl(0deg 0% 0% / 0.085);
-}
-#carbonads a {
-  color: inherit;
-  text-decoration: none;
-}
-#carbonads a:hover {
-  color: inherit;
-}
-#carbonads span {
-  position: relative;
-  display: block;
-  overflow: hidden;
-}
-#carbonads .carbon-wrap {
-  display: flex;
-}
-#carbonads .carbon-img {
-  display: block;
-  margin: 0;
-  line-height: 1;
-}
-#carbonads .carbon-img img {
-  display: block;
-}
-#carbonads .carbon-text {
-  font-size: 13px;
-  padding: 10px;
-  margin-bottom: 16px;
-  line-height: 1.5;
-  text-align: left;
-}
-#carbonads .carbon-poweredby {
-  display: block;
-  padding: 6px 8px;
-  background: #f1f1f2;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  font-size: 8px;
-  line-height: 1;
-  border-top-left-radius: 3px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-html[data-theme='dark'] #carbonads .carbon-poweredby {
-  background: #1e2021;
 }

@@ -198,7 +198,7 @@ function FeaturesSection() {
                   End interviews. We tell you how to prepare for them (hint: not
                   just LeetCode).
                 </p>
-                <a href={useBaseUrl('build-user-interfaces')}>
+                <a href={useBaseUrl('coding/build-front-end-user-interfaces')}>
                   <strong>Learn more</strong>
                 </a>
               </div>

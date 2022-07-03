@@ -25,13 +25,13 @@ While there are some existing resources to help front end developers in preparin
 
 ### 🔍 Front End Interviews Demystified
 
-Front End interview preparation resources are scarce but no fret, we tell you what to expect and everything else you need to know!
+Front end interview preparation resources are scarce but no fret, we tell you what to expect and everything else you need to know!
 
 [**Learn more**](https://www.frontendinterviewhandbook.com/introduction/)
 
 ### 👩‍🎨 System Design
 
-What even is Front End system design?! Learn more about them and how to ace these interviews.
+What even is Front end system design?! Learn more about them and how to ace these interviews.
 
 [**Learn more**](https://www.frontendinterviewhandbook.com/front-end-system-design/)
 
@@ -39,7 +39,7 @@ What even is Front End system design?! Learn more about them and how to ace thes
 
 Coding questions are an entirely different ball game for Front End interviews. We tell you how to prepare for them (hint: not just LeetCode).
 
-[**Learn more**](https://www.frontendinterviewhandbook.com/build-user-interfaces/)
+[**Learn more**](https://www.frontendinterviewhandbook.com/build-front-end-user-interfaces/)
 
 ### 💯 Go From Zero to Hero
 
@@ -84,22 +84,22 @@ You might be interested in the [Tech Interview Handbook](https://www.techintervi
 
 ## Table of Contents
 
-1. [Pop Quiz Questions](https://www.frontendinterviewhandbook.com/pop-quiz/)
-1. [JavaScript Utility Function Questions](https://www.frontendinterviewhandbook.com/utility-function/)
-1. [Front End Coding Questions](https://www.frontendinterviewhandbook.com/build-user-interfaces/)
-1. [JavaScript Algorithm Questions](https://www.frontendinterviewhandbook.com/algorithms/)
-1. [Front End System Design Questions](https://www.frontendinterviewhandbook.com/front-end-system-design/)
+1. [Trivia questions](https://www.frontendinterviewhandbook.com/trivia/)
+1. [JavaScript utility function questions](https://www.frontendinterviewhandbook.com/javascript-utility-function/)
+1. [Front end user interface coding questions](https://www.frontendinterviewhandbook.com/build-front-end-user-interfaces/)
+1. [Front end algorithm coding questions](https://www.frontendinterviewhandbook.com/algorithms/)
+1. [Front end system design questions](https://www.frontendinterviewhandbook.com/front-end-system-design/)
 
 ## Translations
 
 - [English](https://www.frontendinterviewhandbook.com)
-- [Chinese (Simplified) (简体中文)](https://www.frontendinterviewhandbook.com/zh/html-questions/)
-- [Japanese (日本語)](https://www.frontendinterviewhandbook.com/jp/html-questions/)
-- [Korean (한국어)](https://www.frontendinterviewhandbook.com/kr/html-questions/)
-- [Polish (Polski)](https://www.frontendinterviewhandbook.com/pl/html-questions/)
-- [Portuguese (Português)](https://www.frontendinterviewhandbook.com/pr/html-questions/)
-- [Russian (Русский)](https://www.frontendinterviewhandbook.com/ru/html-questions/)
-- [Tagalog](https://www.frontendinterviewhandbook.com/tl/html-questions/)
+- [Chinese (Simplified) (简体中文)](https://www.frontendinterviewhandbook.com/zh/javascript-questions/)
+- [Japanese (日本語)](https://www.frontendinterviewhandbook.com/jp/javascript-questions/)
+- [Korean (한국어)](https://www.frontendinterviewhandbook.com/kr/javascript-questions/)
+- [Polish (Polski)](https://www.frontendinterviewhandbook.com/pl/javascript-questions/)
+- [Portuguese (Português)](https://www.frontendinterviewhandbook.com/pr/javascript-questions/)
+- [Russian (Русский)](https://www.frontendinterviewhandbook.com/ru/javascript-questions/)
+- [Tagalog](https://www.frontendinterviewhandbook.com/tl/javascript-questions/)
 
 ## Related
 

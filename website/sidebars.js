@@ -3,29 +3,34 @@ module.exports = {
     'introduction',
     {
       type: 'category',
-      label: 'Pop quiz',
+      label: 'Trivia questions',
       items: [
-        'pop-quiz',
-        'html-questions',
-        'css-questions',
+        'trivia',
         'javascript-questions',
+        'css-questions',
+        'html-questions',
       ],
     },
     {
       type: 'category',
-      label: 'Coding round',
+      label: 'Coding interview',
       collapsed: false,
       link: {
         type: 'generated-index',
         title: 'Coding round',
-        description: 'Various type of front end coding interview!',
+        description:
+          'Various type of coding questions for front end interviews!',
         slug: '/coding',
       },
-      items: ['algorithms', 'utility-function', 'build-user-interfaces'],
+      items: [
+        'javascript-utility-function',
+        'build-front-end-user-interfaces',
+        'algorithms',
+      ],
     },
     {
       type: 'category',
-      label: 'System design',
+      label: 'System design interview',
       collapsed: false,
       items: [
         'front-end-system-design',
@@ -39,6 +44,11 @@ module.exports = {
       type: 'category',
       label: 'Interview questions 🔥',
       collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'Company interview questions',
+        slug: '/company-interview-questions',
+      },
       items: [
         'companies/google-front-end-interview-questions',
         'companies/microsoft-front-end-interview-questions',
