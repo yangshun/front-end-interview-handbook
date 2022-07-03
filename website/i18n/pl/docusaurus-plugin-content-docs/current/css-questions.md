@@ -4,39 +4,9 @@ title: Pytania z CSS
 
 Odpowiedzi do [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Pull requesty mile widziane, jeśli masz sugestie i poprawki!
 
-## Spis treści
+import TOCInline from '@theme/TOCInline';
 
-- [Czym jest specyficzność selektora CSS i jak działa?](#czym-jest-specyficzność-selektora-css-i-jak-działa)
-- [Jaka jest różnica pomiędzy CSS "resetting" oraz "normalizing"? Które wybrałbyś, i dlaczego?](#jaka-jest-różnica-pomiędzy-css-resetting-oraz-normalizing-które-wybrałbyś-i-dlaczego)
-- [Opisz `float`y i jak one działają.](#opisz-floaty-i-jak-one-działają)
-- [Opisz `z-index` i jak powstaje stacking context.](#opisz-z-index-i-jak-powstaje-stacking-context)
-- [Opisz Block Formatting Context (BFC) i jak działa.](#opisz-block-formatting-context-bfc-i-jak-działa)
-- [Jakie są różne techniki czyszczenia i które są odpowiednie w jakim kontekście?](#jakie-są-różne-techniki-czyszczenia-i-które-są-odpowiednie-w-jakim-kontekście)
-- [Wyjaśnij CSS sprites, i jak zaimplementujesz je na stronie lub witrynie.](#wyjaśnij-css-sprites-i-jak-zaimplementujesz-je-na-stronie-lub-witrynie)
-- [Jak podchodziłbyś do rozwiązywania problemów związanych ze stylem specyficznym dla przeglądarki?](#jak-podchodziłbyś-do-rozwiązywania-problemów-związanych-ze-stylem-specyficznym-dla-przeglądarki)
-- [Jak wyświetlasz swoje strony w przeglądarkach z ograniczeniami funkcji? Jakich technik/procesów używasz?](#jak-wyświetlasz-swoje-strony-w-przeglądarkach-z-ograniczeniami-funkcji-jakich-technikprocesów-używasz)
-- [Jakie są różne sposoby wizualnego ukrywania treści (i udostępniania jej tylko dla czytników ekranu)?](#jakie-są-różne-sposoby-wizualnego-ukrywania-treści-i-udostępniania-jej-tylko-dla-czytników-ekranu)
-- [Czy kiedykolwiek korzystałeś z systemu siatki (grid system), a jeśli tak, to co preferujesz?](#czy-kiedykolwiek-korzystałeś-z-systemu-siatki-grid-system-a-jeśli-tak-to-co-preferujesz)
-- [Czy używałeś lub implementowałeś media queries lub mobile-specific layouts/CSS?](#czy-używałeś-lub-implementowałeś-media-queries-lub-mobile-specific-layoutsCSS)
-- [Czy znasz stylizację SVG?](#czy-znasz-stylizację-cvg)
-- [Czy możesz podać przykład właściwości @media innej niż screen?](#czy-możesz-podać-przykład-właściwości-media-innej-niż-screen)
-- [Jakie są "tricki" do pisania wydajnego CSS?](#jakie-są-tricki-do-pisania-wydajnego-css)
-- [Jakie są zalety/wady korzystania z preprocesorów CSS?](#jakie-są-zaletywady-korzystania-z-preprocesorów-css)
-- [Opisz, co lubisz, a czego nie w preprocesorach CSS, z których korzystałeś.](#opisz-co-lubisz-a-czego-nie-w-preprocesorach-css-z-których-korzystałeś)
-- [Jak zaimplementowałbyś kompozycję do projektowania stron internetowych, która wykorzystuje niestandardowe czcionki?](#jak-zaimplementowałbyś-kompozycję-do-projektowania-stron-internetowych-która-wykorzystuje-niestandardowe-czcionki)
-- [Wyjaśnij, w jaki sposób przeglądarka określa, które elementy pasują do selektora CSS.](#wyjaśnij-w-jaki-sposób-przeglądarka-określa-które-elementy-pasują-do-selektora-css)
-- [Opisz pseudoelementy i omów, do czego służą.](#opisz-pseudoelementy-i-omów-do-czego-służą)
-- [Wyjaśnij swoje zrozumienie box model i sposób, w jaki chcesz, aby przeglądarka w CSS renderowała układ w różnych modelach pudełkowych.](#wyjaśnij-swoje-zrozumienie-box-model-i-sposób-w-jaki-chcesz-aby-przeglądarka-w-css-renderowała-układ-w-różnych-modelach-pudełkowych)
-- [Co robi `* { box-sizing: border-box; }`? Jakie są tego zalety?](#co-robi---box-sizing-border-box--jakie-są-tego-zalety)
-- [Czym jest właściwość `display` w CSS i czy możesz podać kilka przykładów jej użycia?](#czym-jest-właściwość-display-w-css-i-czy-możesz-podać-kilka-przykładów-jej-użycia)
-- [Jaka jest różnica pomiędzy `inline`, a `inline-block`?](#jaka-jest-różnica-pomiędzy-inline-a-inline-block)
-- [Jaka jest różnica między pozycjonowaniem `relative`, `fixed`, `absolute` i `static` elementu?](#jaka-jest-różnica-między-pozycjonowaniem-relative-fixed-absolute-i-static-elementu)
-- [Z jakich istniejących frameworków CSS korzystałeś lokalnie lub na produkcji? Jak byś je zmienił/ulepszył?](#z-jakich-istniejących-frameworków-css-korzystałeś-lokalnie-lub-na-produkcji-jak-byś-je-zmieniłulepszył)
-- [Czy robiłeś coś w nowej specyfikacji CSS Flexbox lub Grid?](#czy-robiłeś-coś-w-nowej-specyfikacji-css-flexbox-lub-grid)
-- [Czy potrafisz wyjaśnić różnicę między kodowaniem strony internetowej, aby była responsywna, a używaniem mobile-first strategy?](#czy-potrafisz-wyjaśnić-różnicę-między-kodowaniem-strony-internetowej-aby-była-responsywna-a-używaniem-mobile-first-strategy)
-- [Czym różni się projektowanie responsywne od projektowania adaptacyjnego?](#czym-różni-się-projektowanie-responsywne-od-projektowania-adaptacyjnego)
-- [Czy kiedykolwiek pracowałeś z grafiką Retina? Jeśli tak, kiedy i jakich technik użyłeś?](#czy-kiedykolwiek-pracowałeś-z-grafiką-retina-jeśli-tak-kiedy-i-jakich-technik-użyłeś)
-- [Czy jest jakiś powód, dla którego chciałbyś użyć `translate ()` zamiast pozycjonowania `absolute` lub odwrotnie? I dlaczego?](#czy-jest-jakiś-powód-dla-którego-chciałbyś-użyć-translate-zamiast-pozycjonowania-absolute-lub-odwrotnie-i-dlaczego)
+<TOCInline toc={toc} />
 
 ### Czym jest specyficzność selektora CSS i jak działa?
 

@@ -5,31 +5,9 @@ sidebar_label: HTML questions
 
 Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
 
-## Table of contents
+import TOCInline from '@theme/TOCInline';
 
-- [Table of contents](#table-of-contents)
-  - [What does a DOCTYPE do?](#what-does-a-doctype-do)
-        - [References](#references)
-  - [How do you serve a page with content in multiple languages?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-        - [References](#references-1)
-  - [What kind of things must you be wary of when designing or developing for multilingual sites?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-        - [References](#references-2)
-  - [What are `data-` attributes good for?](#what-are-data--attributes-good-for)
-        - [References](#references-3)
-  - [Consider HTML5 as an open web platform. What are the building blocks of HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-        - [References](#references-4)
-  - [Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-        - [References](#references-5)
-  - [Describe the difference between `<script>`, `<script async>` and `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-        - [References](#references-6)
-  - [Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-        - [References](#references-7)
-  - [What is progressive rendering?](#what-is-progressive-rendering)
-        - [References](#references-8)
-  - [Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-        - [References](#references-9)
-  - [Have you used different HTML templating languages before?](#have-you-used-different-html-templating-languages-before)
-  - [Other Answers](#other-answers)
+<TOCInline toc={toc} />
 
 ### What does a DOCTYPE do?
 

@@ -4,15 +4,9 @@ title: Perguntas de CSS
 
 Respostas às <a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md" id="top">Perguntas da Entrevista de Trabalho de Front-end - Questões CSS</a>. Pull requests para sugestões e correções são bem-vindos!
 
-## Índice
+import TOCInline from '@theme/TOCInline';
 
-- [O que é a especificidade do seletor CSS e como funciona?](#01)
-- [Qual é a diferença entre "redefinir"/"resetting" e "normalizar"/"normalizing" o CSS? Qual você escolheri a e porquê](#02)?
-- [Descreva `float` e como eles funcionam.](#03)
-- [Descreva o z-index e como o contexto de empilhamento é formado.](#04)
-- [Descreva o BFC (Block Formatting Context) e como ele funciona.](#05)
-- [Quais são as várias técnicas de limpeza e quais são apropriadas para qual contexto?](#06)
-- [Explique os sprites CSS e como você os implementaria em uma página ou site.](#07)
+<TOCInline toc={toc} />
 
 ### <a id="01">O que é a especificidade do seletor CSS e como funciona?</a>
 

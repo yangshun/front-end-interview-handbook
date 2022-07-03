@@ -4,19 +4,9 @@ title: HTML 问题
 
 本章节是[前端开发者面试问题 - HTML 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
 
-## 目录
+import TOCInline from '@theme/TOCInline';
 
-- [`DOCTYPE`有什么用？](#doctype有什么用)
-- [如何提供包含多种语言内容的页面？](#如何提供包含多种语言内容的页面)
-- [在设计开发多语言网站时，需要留心哪些事情？](#在设计开发多语言网站时需要留心哪些事情)
-- [什么是`data-`属性？](#什么是data-属性)
-- [将 HTML5 看作成开放的网络平台，什么是 HTML5 的基本构件（building block）？](#将-html5-看作成开放的网络平台什么是-html5-的基本构件building-block)
-- [请描述`cookie`、`sessionStorage`和`localStorage`的区别。](#请描述cookiesessionstorage和localstorage的区别)
-- [请描述`<script>`、`<script async>`和`<script defer>`的区别。](#请描述scriptscript-async和script-defer的区别)
-- [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
-- [什么是渐进式渲染（progressive rendering）？](#什么是渐进式渲染progressive-rendering)
-- [为什么在`<img>`标签中使用`srcset`属性？请描述浏览器遇到该属性后的处理过程。](#为什么在img标签中使用srcset属性请描述浏览器遇到该属性后的处理过程)
-- [你有过使用不同模版语言的经历吗？](#你有过使用不同模版语言的经历吗)
+<TOCInline toc={toc} />
 
 ### `DOCTYPE`有什么用？
 

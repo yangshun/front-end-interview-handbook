@@ -4,19 +4,9 @@ title: Fragen zu HTML
 
 Antworten auf [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull requests for suggestions and corrections are welcome!
 
-## Inhaltsverzeichnis
+import TOCInline from '@theme/TOCInline';
 
-- [Was tut ein `doctype` und wie viele von ihnen kannst du benennen?](#was-tut-ein-doctype)
-- [Wie lieferst du eine Seite mit Inhalten in verschiedenen Sprachen aus?](#wie-lieferst-du-eine-seite-mit-inhalten-in-verschiedenen-sprachen-aus)
-- [Vor welchen Dingen solltest du dich hüten, wenn du mehrsprachige Websites designst oder entwickelst?](#vor-welchen-dingen-solltest-du-dich-hüten-wenn-du-mehrsprachige-websites-designst-oder-entwickelst)
-- [Wofür sind `data--Attribute` nützlich?](#wofür-sind-data--attribute-nützlich)
-- [Stelle dir HTML5 als eine offene Internetplattform vor. Was sind die Basiskomponenten von HTML5?](#stelle-dir-html5-als-eine-offene-internetplattform-vor-was-sind-die-basiskomponenten-von-html5)
-- [Beschreibe die Unterschiede zwischen `Cookies`, `sessionStorage` und `localStorage`.](#beschreibe-die-unterschiede-zwischen-cookies-sessionstorage-und-localstorage)
-- [Beschreibe die Unterschiedie zwischen `<script>`, `<script async>` und `<script defer>`.](#beschreibe-die-unterschiede-zwischen-script-script-async-und-script-defer)
-- [Warum ist es eine gute Idee, die `<link>`s zum CSS-Stylesheet inneralb der `<head></head>` Tags zu platzieren und die JS `<script>`s direkt vorm `</body>` einzubinden? Würdest du Ausnahmen machen?](#warum-ist-es-eine-gute-idee-die-links-zum-css-stylesheet-inneralb-der-head-head-tags-zu-platzieren-und-die-js-scripts-direkt-vorm-body-einzubinden-würdest-du-ausnwahmen-machen)
-- [Was ist progressives Rendern?](#was-ist-progressives-rendern)
-- [Warum würdest du ein `srcset` Attribut in ein image tag setzen? Erkläre wie der Browser den Inhalt dieses Attributs auswertet.](#warum-würdest-du-ein-srcset-attribute-in-ein-image-tag-einsetzen-erkläre-wie-der-browser-bei-der-auswertung-des-inhalts-dieses-attributs-vorgeht)
-- [Hast du Erfahrungen mit unterschiedlichen HTML templating languages gemacht?](#hast-du-erfahrungen-mit-unterschiedlichen-html-templating-languages-gemacht)
+<TOCInline toc={toc} />
 
 ### Was tut ein doctype?
 

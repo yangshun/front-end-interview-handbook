@@ -4,19 +4,9 @@ title: Mga Tanong sa HTML
 
 Mga sagot sa [Mga Tanong sa Pakikipanayam para sa Trabahong Pangfront-end - Mga Tanong sa HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Malugod naming tatanggaping ang mga pull request para sa mga mungkahi at mga koreksyon
 
-## Talaan ng nilalaman
+import TOCInline from '@theme/TOCInline';
 
-- [Ano ang ginagawa ng `DOCTYPE`?](#ano-ang-ginagawa-ng-doctype)
-- [Papaano mo ihahain ang pahinang may iba't-ibang lenggwaheng nilalaman?](#papaano-mo-ihahain-ang-pahinang-may-ibat-ibang-lenggwaheng-nilalaman)
-- [Anong uri ng mga bagay ang dapat mong ingatan ukol sa pagdidisenyo o pag-develop ng mga multilingual na site?](#anong-uri-ng-mga-bagay-ang-dapat-mong-ingatan-ukol-sa-pagdidisenyo-o-pag-develop-ng-mga-multilingual-na-site)
-- [Saan maganda ang mga `data-`na katangian?](#saan-maganda-ang-mga-data-na-katangian)
-- [Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?](#isaalang-alang-ang-html5-bilang-isang-bukas-na-web-platform-ano-ano-ang-mga-pangunahing-sangkap-ng-html5)
-- [Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,`sessionStorage` at `localStorage`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-isang-cookie-sessionstorage-at-localstorage)
-- [Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.](#ilarawan-ang-pagkakaiba-sa-pagitan-ng-script-script-async-at-script-defer)
-- [Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>` sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang `/ <body>`? May alam ka bang anumang mga pagbubukod?](#bakit-karaniwang-magandang-ideya-na-ilagay-ang-mga-css-link-sa-pagitan-ng-head-head-at-js-script-s-bago-ang-body-may-alam-ka-bang-anumang-mga-pagbubukod)
-- [Ano ang progresibong pag-render?](#ano-ang-progresibong-pag-render)
-- [Bakit ka gagamit ng isang `srcset` na katangian sa isang tag ng imahe? Ipaliwanag ang proseso na ginagamit ng browser sa pagsuri ng nilalaman ng katangiang ito.](#bakit-ka-gagamit-ng-isang-srcset-na-katangian-sa-isang-tag-ng-imahe-ipaliwanag-ang-proseso-na-ginagamit-ng-browser-sa-pagsuri-ng-nilalaman-ng-katangiang-ito)
-- [Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?](#nakagamit-ka-na-ba-ng-ibang-lenggwahe-sa-pag-template-ng-html)
+<TOCInline toc={toc} />
 
 ### Ano ang ginagawa ng `DOCTYPE`?
 
