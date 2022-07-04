@@ -30,9 +30,7 @@ Uma declaração de DOCTYPE é necessária para os websites. A declaração é u
 
 A declaração DOCTYPE para os _standards_ de HTML5 é `<!DOCTYPE html>`.
 
-<!-- The following paragraphs don't correspond to the current EN and ES version of the website -->
-<!-- É uma declaração usada em HTML para distinguir entre o modo de padrões e [modo peculiar](https://quirks.spec.whatwg.org/#history). A sua presença diz ao navegador para renderizar a página da web no modo padrão. -->
-<!-- Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página. -->
+Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página.
 
 
 ###### Referências
@@ -85,7 +83,6 @@ Antes que os frameworks JavaScript se tornassem populares, os programadores fron
 
 Atualmente, o uso dos atributos `data-` não é recomendado. Um dos motivos é que os usuários podem modificar o atributo de dados facilmente mediante a inspeção de elementos no navegador. O modelo de dados é melhor armazenado dentro do próprio JavaScript e se mantém atualizado com o DOM pela ligação de dados possivelmente com o uso de uma biblioteca ou framework.
 
-<!-- included based on EN and ES website: -->
 No entanto, um uso perfeitamente válido dos atributos `-data` é adicionar um gancho para frameworks de teste como Selenium e Cabybara, sem a necessidade de criar classes sem sentido ou atributos ID. É necessário que o elemento possa ser encontrado por uma especificação particular de Selenium e algo como `data-selector='a-coisa` é uma solução válida que não irá confundir o markup semântico.
 
 ###### Referências
@@ -138,7 +135,7 @@ _Nota: Se o usuário decide apagar os dados de navegação através de qualquer 
 
 - `<script>` - A análise do HTML é bloqueada, o script é obtido e executado imediatamente, a análise do HTML é retomada após o script ser executado.
 - `<script async>` - O script será obtido em paralelo com a análise do HTML e executado assim que estiver disponível (possivelmente antes da análise do HTML ter sido finalizada). Use `async` quando o script for independente de qualquer outro script na página, por exemplo, scripts de analítica.
-* `<script defer>` - O script será obtido em paralelo com a análise do HTML e executado quando a página terminar de analisar. Se houver vários scripts, cada script diferido será executado na ordem em que se encontra no documento. Se um script estiver baseado na análise completa do DOM, o atributo `defer` será útil para garantir que o HTML seja totalmente analisado antes de executar o script. Não é muito diferente de colocar um `<script>` normal no final de `<body>`. Um script diferido não deve conter`document.write`.
+* `<script defer>` - O script será obtido em paralelo com a análise do HTML e executado quando a página terminar de analisar. Se houver vários scripts, cada script diferido será executado na ordem em que se encontra no documento. Se um script estiver baseado na análise completa do DOM, o atributo `defer` será útil para garantir que o HTML seja totalmente analisado antes de executar o script. Não é muito diferente de colocar um `<script>` normal no final de `<body>`. Um script diferido não deve conter `document.write`.
 
 Nota: Os atributos `async` e` defer` são ignorados para scripts que não tenham o atributo `src`.
 
