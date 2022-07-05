@@ -4,19 +4,6 @@ title: Perguntas sobre HTML
 
 Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/Índice.md). Pedidos de sugestões e correções são bem-vindos!
 
-## Índice
-
-- [Para que serve o DOCTYPE?](#what-does-a-doctype-do)
-- [Como podemos servir uma página com conteúdo em vários idiomas?](#how-do-you-serve-a-page-with-content-in-multiple-languages)
-- [O que deve ser levado em conta ao projetar ou desenvolver sites multilíngues?](#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
-- [Para que servem os atributos `data-`?](#what-are-data--attributes-good-for)
-- [Considere o HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?](#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
-- [Descreva a diferença entre `cookie`, `sessionStorage` e `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
-- [Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.](#describe-the-difference-between-script-script-async-and-script-defer)
-- [Por que geralmente é uma boa ideia posicionar os `<link>`s para CSS entre `<head></head>` e os `<script>`s de JS antes de `</body>`? Existe alguma exceção?](#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
-- [O que é renderização progressiva?](#what-is-progressive-rendering)
-- [Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo](#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
-- [Já usou diferentes linguagens de modelos de HTML antes?](#have-you-used-different-html-templating-languages-before)
 
 ### Para que serve o `DOCTYPE`?
 
