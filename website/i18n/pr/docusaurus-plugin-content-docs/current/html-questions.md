@@ -7,8 +7,6 @@ Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.
 
 ### Para que serve o `DOCTYPE`?
 
-<!-- Answers wee updated according to the current English version of the website (June 6/2022) -->
-
 **DOCTYPE** é uma abreviatura para **Tipo de documento** (Document Type). Um DOCTYPE sempre está associado a um **DTD** - Document Type Definition (Definição do Tipo de Documento). 
 
 O DTD define como estruturar documentos de um certo tipo (por exemplo, um `<button>` pode conter um `<span>` mas não um `<div>`), enquanto o DOCTYPE declara qual DTD o documento _supostamente_ respeita (por exemplo, este documento respeita o DTD de HTML).
@@ -34,7 +32,6 @@ A questão é um pouco vaga. Vou supor que quer saber sobre o caso mais comum: s
 
 Quando uma requisição (_request_) HTTP é feita para um servidor, o agente-usuário que faz a requisição geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Accept-Language`. O servidor pode usar essas informações para retornar uma versão do documento no idioma apropriado, caso tal alternativa esteja disponível. O documento HTML retornado também deve declarar o atributo `lang` na tag `<html>`, como por exemplo `<html lang="en">...</html>`.
 
-<!-- Included this paragraph from EN version on the website. It was not available in the PT version. -->
 Obviamente, isso não permite a um mecanismo de busca saiba que o conteúdo está disponível em idiomas diferentes, e por isso devemos também usar o atributo `hreflang` na <head>. Por exemplo, <link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>.
 
 No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` e conteúdo para o idioma específico, armazenado em formato YML ou JSON. O servidor, em seguida, gera dinamicamente a página HTML com conteúdo nesse idioma específico, geralmente com a ajuda de uma estrutura de back end.
@@ -55,7 +52,6 @@ No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` 
 - Formatar datas e moedas - As datas do calendário são por vezes apresentadas de maneiras diferentes. Por exemplo, "May 31, 2012" nos EUA e "31 de maio de 2012" em partes da Europa.
 - Não concatenar strings traduzidas - Não fazer coisas como `"A data hoje é" + data`. Isso não vai funcionar para idiomas com diferentes ordem de palavras. É melhor usar um template que permita a substituição de parâmetros para cada idioma. Por exemplo, considere as frases seguintes em inglês e chinês, respectivamente: `I will travel on {% date %}` e `{% date %} 我会出发`. Observe que a posição da variável é diferente devido às regras da gramática do idioma.
 - Direção da leitura do idioma - Em inglês, lemos da esquerda para a direita, de cima para baixo; em japonês tradicional, o texto é lido de cima para baixo, da direita para a esquerda.
-<!-- New content included from the website -->
 - Útil - incluir o local na especificação (p.ex., en_US, zh_CN, etc.).
 
 ###### Referências
