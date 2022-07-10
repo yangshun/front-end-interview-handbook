@@ -4,19 +4,9 @@ title: HTML に関する質問
 
 [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md) の回答集です。提案や訂正のプルリクエストは大歓迎です！
 
-## 目次
+import TOCInline from '@theme/TOCInline';
 
-- [`DOCTYPE` は何のためにあるものですか？](#doctype-は何のためにあるものですか)
-- [どのようにすれば複数の言語のコンテンツを含むページを提供できますか？](#どのようにすれば複数の言語のコンテンツを含むページを提供できますか)
-- [多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？](#多言語サイトを設計開発する際にはどんなことに注意を払わなければならないですか)
-- [`data-` 属性は何のために使われるのですか？](#data--属性は何のために使われるのですか)
-- [HTML5 をオープンウェブプラットフォームとして考えたときに、HTML5 とはどんな要素から成るものですか？](#html5-をオープンウェブプラットフォームとして考えたときにhtml5-とはどんな要素から成るものですか)
-- [`cookie`、`sessionStorage`、`localStorage` の違いを教えてください。](#cookiesessionstoragelocalstorage-の違いを教えてください)
-- [`<script>`、`<script async>`、`<script defer>` の違いを教えてください。](#scriptscript-asyncscript-defer-の違いを教えてください)
-- [なぜ一般的に、CSS の `<link>` を `<head></head>` の間に、JS の `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？](#なぜ一般的にcss-の-link-を-headhead-の間にjs-の-script-を-body-の直前に置くことが良いと言われているのでしょうかこうすべきでない例外を知っていますか)
-- [プログレッシブレンダリングとは何ですか？](#プログレッシブレンダリングとは何ですか)
-- [img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。](#img-タグに-srcset-属性を使用する理由はこの属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください)
-- [HTML テンプレート言語をいくつか使用した経験はありますか？](#html-テンプレート言語をいくつか使用した経験はありますか)
+<TOCInline toc={toc} />
 
 ### `DOCTYPE` は何のためにあるものですか？
 

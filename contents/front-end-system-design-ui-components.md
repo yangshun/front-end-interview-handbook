@@ -1,5 +1,5 @@
 ---
-title: Front end system design - UI components
+title: Front end system design interview - UI components
 slug: front-end-system-design/ui-components
 sidebar_label: UI components
 ---

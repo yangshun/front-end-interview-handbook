@@ -1,10 +1,10 @@
 ---
-title: Behavorial round
+title: Behavorial interview
 ---
 
-Behavioral interview rounds focus on a candidate's soft skills - how they work with others, how they handled situations in the past. For comprehensive behavioral interview content, [Tech Interview Handbook](https://techinterviewhandbook.org/behavioral-round-overview/) covers that along with common behavioral interview questions from the top companies.
+Behavioral interview rounds focus on a candidate's soft skills - how they work with others, how they handled situations in the past. For comprehensive behavioral interview content, [Tech Interview Handbook](https://www.techinterviewhandbook.org/behavioral-interview/) covers that along with common behavioral interview questions from the top companies.
 
-<a className="button button--primary" href="https://techinterviewhandbook.org/behavioral-round-overview/">Go to Tech Interview Handbook &nbsp;→</a>
+<a className="button button--primary" href="https://www.techinterviewhandbook.org/behavioral-interview/">Go to Tech Interview Handbook &nbsp;→</a>
 
 ## What Facebook looks for in behavioral interviews
 

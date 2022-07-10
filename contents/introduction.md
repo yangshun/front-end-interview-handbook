@@ -8,7 +8,7 @@ Unlike typical software engineer job interviews, front end interviews have less 
 
 Many front end interviews are highly-focused on domain knowledge and applying them to real-world scenarios. You might find that grinding LeetCode is not all you need when it comes to interviewing for a front end position, but that's a good thing! Front end interviews tend to test concepts that are more practical and relevant to real world front end development. But that doesn't mean that you don't have to be familiar with basic data structure and algorithmic concepts - there's just less emphasis on them and probably you get easier algorithmic questions.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there aren't many complete and satisfactory answers to these questions readily available online. This handbook answers these pop quiz-style questions along with information and guidance for other front end interview formats.
+While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there aren't many complete and satisfactory answers to these questions readily available online. This handbook answers these trivia-style questions along with information and guidance for other front end interview formats.
 
 ## General tips for front end interviews
 
@@ -26,24 +26,79 @@ Look out for interview questions by companies on Glassdoor. Front end questions 
 
 ## Front end interview formats
 
-Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. However, there are a few common formats:
+Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We have made the efforts to search the Internet for front end interview questions asked by the popular companies and there are some questions which appear very often. In general, you should be familiar with the following questions and formats:
 
-### Pop quiz
+### Trivia questions
 
-Short questions which test your knowledge and have clear non-subjective answers. These are usually asked by recruiters because the answers can be verified by non-technical people E.g. Explain the `this` keyword in JavaScript.
+Short questions which test your knowledge and have clear non-subjective answers. These are usually asked by recruiters because the accuracy of the answers can be verified even by non-technical people. Here are some examples:
 
-[Read more about front end pop quizzes](./pop-quiz.md)
+- JavaScript
+  - What is a closure?
+  - What is the difference between a promise and a callback?
+  - Explain the `this` keyword in JavaScript.
+- CSS
+  - What is the CSS box model?
+  - Various CSS `position` properties and its differences.
 
-### Coding
+[**Read more about front end trivia questions →**](./trivia.md)
 
-- **Algorithms** - LeetCode-style algorithmic coding questions, but solve them using JavaScript
-- **Write a small utility function/library** - Implement a common function in JavaScript. This is the front end version of LeetCode-style algorithm questions. E.g. Implement the `debounce` function found in Underscore/Lodash
-- **Build user interfaces (component/app/game)** - Write HTML, CSS and JavaScript to implement a UI component or a small app/game. E.g. Build a tabs component, Tic-tac-toe Game, Tetris Game
+### JavaScript coding
 
-[Read more about front end coding questions](./algorithms.md)
+This is the front end version of LeetCode-style algorithm questions. Implement a function in JavaScript, it could be a utility function found in Lodash/Underscore (e.g. `throttle`), or a polyfill for the JavaScript language/DOM APIs (e.g. `Array.prototype.filter`, `Promise.all`, `document.getElementsByClassName()`).
 
-### System Design
+- Implement `Array.prototype` functions: `map`, `reduce`, `filter`, `sort`.
+- Implement DOM APIs: `getElementsByClassName`.
+- `debounce`/`throttle`.
+- Implement Promise/Promise-related APIs: `Promise`, `Promise.all`.
+
+### User interface coding
+
+Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS, and JavaScript.
+
+- Components
+  - Autocomplete (**very popular**)
+  - Photo gallery
+  - Image carousel
+  - Tooltip component
+  - Star rating widget
+- Apps
+  - Build tic-tac-toe
+  - Build a chess board with movable pieces
+
+[**Read more about front end coding questions →**](./algorithms.md)
+
+### Algorithm coding
+
+LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills. You can be asked any questions on LeetCode and might be asked to solve them using JavaScript.
+
+### System design
 
 Describe and discuss how you would build a UI component/app/game and its architecture. This is the front end version of system design questions. E.g. Describe how you would build Emoji autocomplete feature in a chat app, what APIs it would have, what components there are to the feature, how to ensure it has good performance, UX, etc.
 
-[Read more about front end system design](./front-end-system-design.md)
+- Design an image carousel component.
+- Design an email client application.
+
+[**Read more about front end system design →**](./front-end-system-design.md)
+
+## Company interview formats
+
+Through extensive research, are the different type of formats companies ask during the technical rounds of front end interviews. If you're interviewing for front end engineering roles at certain companies, prepare accordingly!
+
+_Legend: ✅: Asked, ❌: Not asked, ⚠️: No data_
+
+| Company | Trivia | Algorithms | JavaScript coding | UI coding | System design |
+| :-- | :-: | :-: | :-: | :-: | :-: |
+| [**Airbnb**](./companies/airbnb-front-end-interview-questions.md) | ❌ | ✅ | ✅ | ✅ | ❌ |
+| [**Amazon**](./companies/amazon-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [**Apple**](./companies/apple-front-end-interview-questions.md) | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**ByteDance/TikTok**](./companies/bytedance-tiktok-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ❌ |
+| [**Dropbox**](./companies/dropbox-front-end-interview-questions.md) | ❌ | ⚠️ | ✅ | ✅ | ✅ |
+| Facebook/Meta | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Flipkart | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ |
+| [**Google**](./companies/google-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [**LinkedIn**](./companies/linkedin-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**Lyft**](./companies/lyft-front-end-interview-questions.md) | ❌ | ❌ | ✅ | ✅ | ⚠️ |
+| [**Microsoft**](./companies/microsoft-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [**Salesforce**](./companies/salesforce-front-end-interview-questions.md) | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| [**Twitter**](./companies/twitter-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**Uber**](./companies/uber-front-end-interview-questions.md) | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |

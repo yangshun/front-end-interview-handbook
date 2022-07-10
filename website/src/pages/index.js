@@ -18,7 +18,7 @@ export default function Home() {
       description={siteConfig.tagline}>
       <div>
         <HeroSection />
-        <EducativeSection />
+        <FAANGTechLeadsSection />
         <FeaturesSection />
         <TweetsSection />
         <MoonchaserSection />
@@ -116,9 +116,11 @@ we'll render this on the browser only. */
   );
 }
 
-function EducativeSection() {
+function FAANGTechLeadsSection() {
   return (
-    <div className={classnames('padding-vert--lg', styles.sectionSponsorAlt)}>
+    <div
+      className={classnames('padding-vert--lg')}
+      style={{backgroundColor: 'rgb(244, 63, 94)'}}>
       <div className="container">
         <div className="row">
           <div className="col col--8 col--offset-2">
@@ -126,21 +128,20 @@ function EducativeSection() {
               <div>
                 <h2 className={styles.sectionSponsorTitle}>
                   <strong>
-                    Looking to get hired at FAANG? Educative offers many great
-                    courses to improve your interview game. Join today for a 10%
-                    discount!
+                    Craft the perfect resume for FAANG with FAANG Tech Leads'
+                    high quality Software Engineer resume templates and samples.
                   </strong>
                 </h2>
                 <div className="margin-vert--lg">
                   <a
                     className="button button--secondary button--lg"
-                    href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W"
+                    href="https://www.faangtechleads.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=${position}&aff=1e80c401fe7e2"
                     rel="noopener"
                     target="_blank"
                     onClick={() => {
-                      window.gtag('event', 'educative.homepage.click');
+                      window.gtag('event', 'faangtechleads.homepage.click');
                     }}>
-                    Check out courses&nbsp;&nbsp;→
+                    Improve your resume now &nbsp;&nbsp;→
                   </a>
                 </div>
               </div>
@@ -198,7 +199,7 @@ function FeaturesSection() {
                   End interviews. We tell you how to prepare for them (hint: not
                   just LeetCode).
                 </p>
-                <a href={useBaseUrl('build-user-interfaces')}>
+                <a href={useBaseUrl('coding/build-front-end-user-interfaces')}>
                   <strong>Learn more</strong>
                 </a>
               </div>

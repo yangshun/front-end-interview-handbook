@@ -2,14 +2,9 @@
 title: Preguntas de JavaScript
 ---
 
-## Tabla de contenidos
+import TOCInline from '@theme/TOCInline';
 
-- [Explique la delegación de eventos](#explique-la-delegación-de-eventos)
-- [Explique como funciona this](#explique-como-funciona-this)
-- [Explique como funciona la herencia de prototipos](#explique-como-funciona-la-herencia-de-prototipos)
-- [Ejemplo de herencia de prototipos](#ejemplo-de-herencia-de-prototipos)
-- [Explique la diferencia cuando una variable es: `null`, `undefined` o `undeclared`. Como chequearia cada uno de estos estados?](#explique-la-diferencia-cuando-una-variable-es-null-undefined-o-undeclared-como-chequearia-cada-uno-de-estos-estados) - [Referencias](#referencias-1)
-- [Que es una closure, y como/porque se utilizaria?](#que-es-una-closure-y-comoporque-se-utilizaria) - [Referencias](#referencias-2)
+<TOCInline toc={toc} />
 
 ### Explique la delegación de eventos
 

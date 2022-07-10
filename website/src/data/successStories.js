@@ -11,7 +11,7 @@ export default [
         wasn't sure what to expect and where to start. This handbook together
         with the{' '}
         <a
-          href="https://techinterviewhandbook.org"
+          href="https://www.techinterviewhandbook.org"
           target="_blank"
           rel="noreferrer noopener">
           Tech Interview Handbook
@@ -25,7 +25,7 @@ export default [
   },
   {
     name: 'Zhenghao He',
-    title: 'Senior Software Engineer, Instacart',
+    title: 'Senior Software Engineer, Instacart, ex-Amazon',
     thumbnail: 'https://github.com/zhenghaohe.png',
     quote: (
       <>

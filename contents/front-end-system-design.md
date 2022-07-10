@@ -1,22 +1,22 @@
 ---
-title: Front end system design overview
+title: Front end system design interview overview
 sidebar_label: Overview
 ---
 
 There are shockingly few front end system design resources out there, probably because there's a lower demand and supply for front end engineer candidates.
 
-"System" here typically refers to front end systems, which are quite different from the typical distributed system design questions for Software Engineering interviews. The questions asked can be quite similar to the possible questions in ["Build user interfaces" format](./build-user-interfaces.md) but with more focus on architecture and design. There's a significant amount of overlap between them - you will likely need to do some design (data model, API) when you build UI, and also do some coding here to illustrate your ideas/app state format.
+"System" here typically refers to front end systems, which are quite different from the typical distributed system design questions for Software Engineering interviews. The questions asked can be quite similar to the possible questions in ["Build user interfaces" format](./build-front-end-user-interfaces.md) but with more focus on architecture and design. There's a significant amount of overlap between them - you will likely need to do some design (data model, API) when you build UI, and also do some coding here to illustrate your ideas/app state format.
 
-The difference between this section and the ["Build user interfaces" format](./build-user-interfaces.md) is that the questions here are usually larger. If the session is only half an hour, candidates are expected to talk about the design tradeoffs, possible implementations, instead of coding it out. Because system design questions usually involve multiple components and knowledge across the web stack, candidates usually do not have to go very deep into the lower-level details of each component and can keep the discussion at a higher level, about API design between the client and server, and API between the components.
+The difference between this section and the ["Build user interfaces" format](./build-front-end-user-interfaces.md) is that the questions here are usually larger. If the session is only half an hour, candidates are expected to talk about the design tradeoffs, possible implementations, instead of coding it out. Because system design questions usually involve multiple components and knowledge across the web stack, candidates usually do not have to go very deep into the lower-level details of each component and can keep the discussion at a higher level, about API design between the client and server, and API between the components.
 
-Many of the topics mentioned in the ["Build user interfaces" format](./build-user-interfaces.md) are also relevant for front end system design - API design, scalability, performance, user experience, i18n, accessibility, security, etc. Candidates should take the initiative and bring these topics up and lead the discussion with the interviewer. The more advanced topics such as performance, accessibility and i18n are what differentiates senior candidates from junior candidates.
+Many of the topics mentioned in the ["Build user interfaces" format](./build-front-end-user-interfaces.md) are also relevant for front end system design - API design, scalability, performance, user experience, i18n, accessibility, security, etc. Candidates should take the initiative and bring these topics up and lead the discussion with the interviewer. The more advanced topics such as performance, accessibility and i18n are what differentiates senior candidates from junior candidates.
 
 The two main kinds of front end system design interviews are UI components and applications.
 
 ## Examples
 
-- UI Components
-  - Photo gallery
+- User interface components
+  - Image carousel
   - Selector
 - Applications
   - News feed

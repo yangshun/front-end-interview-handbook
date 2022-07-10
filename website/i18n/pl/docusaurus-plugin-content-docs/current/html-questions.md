@@ -4,19 +4,9 @@ title: Pytania z HTML
 
 Odpowiedzi do [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Pull request mile widziany, jeśli masz jakieś sugestie lub poprawki!
 
-## Spis treści
+import TOCInline from '@theme/TOCInline';
 
-- [Co robi DOCTYPE?](#co-robi-doctype)
-- [W jaki sposób wyświetlasz stronę z treścią w wielu językach?](#w-jaki-sposób-wyświetlasz-stronę-z-treścią-w-wielu-językach)
-- [Jakich rzeczy należy się wystrzegać podczas projektowania lub tworzenia witryn wielojęzycznych?](#jakich-rzeczy-należy-się-wystrzegać-podczas-projektowania-lub-tworzenia-witryn-wielojęzycznych)
-- [Do czego są dobre atrybuty `data-`?](#do-czego-są-dobre-atrybuty-data)
-- [Rozważ HTML5 jako Open Web Platform. Jakie są elementy składowe HTML5?](#rozważ-html5-jako-open-web-platform-jakie-są-elementy-składowe-html5)
-- [Opisz różnicę pomiędzy `cookie`, `sessionStorage` oraz `localStorage`.](#opisz-różnicę-pomiędzy-cookie-sessionStorage-oraz-localstorage)
-- [Opisz różnicę pomiędzy `<script>`, `<script async>` oraz `<script defer>`.](#opisz-różnicę-pomiędzy-script-script-async-oraz-script-defer)
-- [Dlaczego ogólnie dobrym pomysłem jest pozycjonowanie CSS `<link>` pomiędzy `<head></head>` oraz JS `<script>` tuż przed `</body>`? Czy znasz jakieś wyjątki?](#dlaczego-ogólnie-dobrym-pomysłem-jest-pozycjonowanie-css-link-pomiędzy-headhead-oraz-js-script-tuż-przed-body-czy-znasz-jakieś-wyjątki)
-- [Co to jest rendering progresywny?](#co-to-jest-rendering-progresywny)
-- [Dlaczego warto użyć atrybutu `srcset` w tagu obrazu? Wyjaśnij proces wykorzystywany przez przeglądarkę podczas oceny zawartości tego atrybutu.](#dlaczego-warto-użyć-atrybutu-srcset-w-tagu-obrazu-wyjaśnij-proces-wykorzystywany-przez-przeglądarkę-podczas-oceny-zawartości-tego-atrybutu)
-- [Czy używałeś wcześniej różnych języków szablonów HTML?](#czy-używałeś-wcześniej-różnych-języków-szablonów-html)
+<TOCInline toc={toc} />
 
 ### Co robi DOCTYPE?
 

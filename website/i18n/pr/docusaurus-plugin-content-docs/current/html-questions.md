@@ -4,8 +4,9 @@ title: Perguntas sobre HTML
 
 Respostas a [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/Índice.md). Pedidos de sugestões e correções são bem-vindos!
 
+import TOCInline from '@theme/TOCInline';
 
-### Para que serve o `DOCTYPE`?
+<TOCInline toc={toc} />
 
 **DOCTYPE** é uma abreviatura para **Tipo de documento** (Document Type). Um DOCTYPE sempre está associado a um **DTD** - Document Type Definition (Definição do Tipo de Documento). 
 

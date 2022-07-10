@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Front End Interview Handbook',
   tagline:
-    'Front end interview preparation materials for busy engineers - pop quizzes, coding, algorithms, front end system design and more!',
+    'Front end interview preparation materials for busy engineers - trivias, coding, algorithms, front end system design and more!',
   url: 'https://www.frontendinterviewhandbook.com',
   baseUrl: '/',
   trailingSlash: true,
@@ -11,8 +11,8 @@ module.exports = {
   onBrokenLinks: 'ignore',
   themeConfig: {
     announcementBar: {
-      id: 'educative', // Increment on change
-      content: `⭐️ Level up your front end interviewing skills with Educative. <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Join today for a discount!</a> ⭐️`,
+      id: 'faangtechleads', // Increment on change
+      content: `⭐️ Craft the perfect resume for FAANG with these <a href="https://www.faangtechleads.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=banner&aff=1e80c401fe7e2" target="_blank">Software Engineer resume templates and examples</a>!</a> ⭐️`,
       isCloseable: false,
     },
     prism: {
@@ -70,12 +70,12 @@ module.exports = {
               href: '/introduction/',
             },
             {
-              label: 'Pop quiz',
-              href: '/pop-quiz/',
+              label: 'Trivia questions',
+              href: '/trivia/',
             },
             {
-              label: 'Behavioral round',
-              href: '/behavioral/',
+              label: 'Company questions',
+              href: '/company-interview-questions/',
             },
             {
               label: 'Blog',
@@ -91,12 +91,12 @@ module.exports = {
               href: '/coding/algorithms/',
             },
             {
-              label: 'Utility function',
-              href: '/coding/utility-function/',
+              label: 'JavaScript utility functions',
+              href: '/coding/javascript-utility-function/',
             },
             {
               label: 'User interfaces',
-              href: '/coding/build-user-interfaces/',
+              href: '/coding/build-front-end-user-interfaces/',
             },
           ],
         },
@@ -144,6 +144,11 @@ module.exports = {
       appId: '21T5PEFGI7',
       apiKey: '10d7777b44bc7e0495cc00e860918b03',
       indexName: 'frontendinterviewhandbook',
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
     },
   },
   presets: [

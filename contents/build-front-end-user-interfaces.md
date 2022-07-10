@@ -1,16 +1,17 @@
 ---
-title: Build front end user interfaces
-slug: coding/build-user-interfaces
-sidebar_label: Build user interfaces
+title: Coding user interfaces in front end interviews
+slug: coding/build-front-end-user-interfaces
+sidebar_label: User interface coding
 ---
 
-Many Front End Engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end - HTML, JS, CSS.
+Many Front End Engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end - HTML, JavaScript, CSS.
 
 Companies that ask such questions usually ask candidates to code in one of these three ways:
 
-- [Codepen](https://codepen.io) (or some other online editor with preview) - You get to visualize the output and iterate on the solution
-- BYOE (Bring your Own Environment) - Candidates bring their own development environment/laptop and free to choose whether they want to do local development using their own editors or use online environments like codepen.io or codesandbox.io. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites. You can usually use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals
-- Whiteboard - Candidates have to write all the required HTML, JS, CSS on the whiteboard. There's no preview, no autocomplete, no online documentation to help you; you're totally on your own. So far Facebook and Google are the only companies that are known to do whiteboard-style for front end interviews
+- Online editor with preview: You get to write HTML, CSS, JavaScript within the browser and see an instant preview of the page. Common platforms used include [CodePen](https://codepen.io) and [CodeSandbox](https://codesandbox.io/dashboard),
+- Online editor without preview: Similar to the above, but you don't get to see any visual output of the page. A common platform for this is [CoderPad](https://coderpad.io/). In the past, Google used Google Docs 😱.
+- BYOE (Bring Your Own Environment): Candidates bring their own development environment/laptop and free to choose whether they want to do local development using their own editors or use online environments like CodePen or CodeSandbox. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites. You can usually use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals.
+- Whiteboard: Candidates have to write all the required HTML, JS, CSS on the whiteboard. There's no preview, no autocomplete, no online documentation to help you; you're totally on your own. So far Facebook and Google are the only companies that are known to make candidates write on a whiteboard in front end interviews.
 
 ## Examples
 
@@ -36,13 +37,16 @@ After you complete (or even before you start on) the question, think about these
 
 ### Front end best practices
 
-- Avoid writing global variables. Wrap your code within an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and leave the global scope clean.
-- What if you need to have multiple instances of this components on the page? Does your code enable me to do this? Did you use any global variables that will make it hard for you to do so? Will having multiple components on the same page affect each other? They should be independent!
-- Do you have a convenient API to instantiate independent components with configurable options? Old school jQuery UI components are good examples of doing this in a pre-React world.
+- Avoid writing global variables. Wrap your code within an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and don't pollute the global scope.
+- What if you need to have multiple instances of this components on the page?
+  - Does your code enable you to do this?
+  - Did you use any global variables that will make it hard for you to do so?
+  - Will having multiple components on the same page affect each other? They should be independent!
+- Do you have a convenient API to instantiate independent components with configurable options? Old school jQuery UI components are good examples of doing this in a pre-React era.
 
 ### Performance and scalability
 
-Can your component scale (latency, performance, UI, UX, etc)?
+Does your component scale (latency, performance, UI, UX, etc)?
 
 - What if the network takes too long to return something? How do you test slow network speed? Hint: Chrome Devtools Network tab.
 - What if a string is too long? Hint: CSS `word-break` property.

@@ -4,19 +4,9 @@ title: Preguntas de HTML
 
 Respuestas a [Preguntas de trabajo para entrevistas Front-end - Preguntas de HTML](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/html-questions.md). Solicitudes de inserción para sugerencias y correcciones son bienvenidas!
 
-## Tabla de Contenidos
+import TOCInline from '@theme/TOCInline';
 
-- [¿Qué hace un doctype?](#qué-hace-un-doctype)
-- [¿Cómo desplegar una página con contenido en varios idiomas?](#cómo-desplegar-una-página-con-contenido-en-varios-idiomas)
-- [¿Qué debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?](#qué-debes-tener-en-cuenta-al-diseñar-o-desarrollar-sitios-en-múltiples-lenguajes)
-- [¿Para qué sirve el atributo `data-`?](#para-qué-sirve-el-atributo-data-)
-- [¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?](#consideras-html5-como-una-plataforma-web-abierta-cuáles-son-los-componentes-básicos-de-html5)
-- [Describe las diferenias entre `cookie`, `sessionStorage` y `localStorage`.](#describe-las-diferenias-entre-cookie-sessionstorage-y-localstorage)
-- [Describe las diferencias entre `<script>`, `<script async>` y `<script defer>`.](#describe-las-diferencias-entre-script-script-async-y-script-defer)
-- [¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?](#por-qué-generalmente-es-buena-idea-colocar-los-link-de-css-entre-headhead-y-script-de-js-justo-antes-del-body-conoces-alguna-excepción)
-- [¿Qué es el renderizado progresivo?](#qué-es-el-renderizado-progresivo)
-- [¿Por qué usaría el atributo `srcset` en una etiqueta de imagen? Explica el proceso que usa el navegador al evaluar el contenido de este atributo.](#por-qué-usaría-el-atributo-srcset-en-una-etiqueta-de-imagen-explica-el-proceso-que-usa-el-navegador-al-evaluar-el-contenido-de-este-atributo)
-- [¿Has utilizado otros lenguajes de plantillas HTML anteriormente?](#has-utilizado-otros-lenguajes-de-plantillas-html-anteriormente)
+<TOCInline toc={toc} />
 
 ### ¿Qué hace un doctype?
 
