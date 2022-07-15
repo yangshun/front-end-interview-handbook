@@ -12,7 +12,7 @@ Resumes are often overlooked in the job application process, but extremely impor
 
 ### 1. Use resume templates
 
-Why waste time creating your own resume from scratch when you can use a template?! There are many free resume templates you can find online, or you can just purchase quality ones. [FAANG Tech Leads](https://www.faangtechleads.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=ats_template&aff=1e80c401fe7e2) is currently offering resume templates and references at **70% off**.
+Why waste time creating your own resume from scratch when you can use a template?! There are many free resume templates you can find online, or you can just purchase quality ones. [FAANG Tech Leads](https://www.faangtechleads.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=ats_template&aff=1e80c401fe7e2) is currently offering resume templates and references at **70% off**.
 
 Their templates:
 
@@ -20,7 +20,7 @@ Their templates:
 - Guarantee readability by FAANG ATS
 - Cater to various experience levels
 
-They also offer resume examples/references from candidates who have received multiple offers from FAANG companies - which are helpful in helping you craft content that meets the same bar. [Check it out](https://www.faangtechleads.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=ats_template&aff=1e80c401fe7e2)!
+They also offer resume examples/references from candidates who have received multiple offers from FAANG companies - which are helpful in helping you craft content that meets the same bar. [Check it out](https://www.faangtechleads.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=ats_template&aff=1e80c401fe7e2)!
 
 ### 2. Test readability with industry-standard ATS
 

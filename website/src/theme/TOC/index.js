@@ -14,44 +14,21 @@ function TOC({className, ...props}) {
       <div className="margin--md">
         <SidebarAd position="table_of_contents" />
       </div>
+      <h3
+        className="padding-left--md padding-top--md margin-bottom--none"
+        style={{
+          textTransform: 'uppercase',
+          fontSize: '0.75em',
+          color: 'var(--ifm-color-emphasis-700)',
+          letterSpacing: '0.5px',
+        }}>
+        Table of Contents
+      </h3>
       <TOCItems
         {...props}
         linkClassName={LINK_CLASS_NAME}
         linkActiveClassName={LINK_ACTIVE_CLASS_NAME}
       />
-      <div className="margin--md">
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
-          frameBorder={0}
-          scrolling={0}
-          width={165}
-          height={30}
-          title="GitHub Stars"
-        />
-        <div
-          className={clsx(
-            'margin-top--md padding--md',
-            styles.socialLinksContainer,
-          )}>
-          <div className={styles.socialLinks}>
-            Follow us
-            <a
-              href="https://twitter.com/techinterviewhb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar-icon navbar-icon-twitter"
-              aria-label="Twitter"
-            />
-            <a
-              href="https://www.facebook.com/techinterviewhandbook"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar-icon navbar-icon-facebook"
-              aria-label="Facebook page"
-            />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
