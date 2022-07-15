@@ -8,7 +8,7 @@ import TOCInline from '@theme/TOCInline';
 
 <TOCInline toc={toc} />
 
-**DOCTYPE** é uma abreviatura para **Tipo de documento** (Document Type). Um DOCTYPE sempre está associado a um **DTD** - Document Type Definition (Definição do Tipo de Documento). 
+**DOCTYPE** é uma abreviatura para **Tipo de documento** (Document Type). Um DOCTYPE sempre está associado a um **DTD** - Document Type Definition (Definição do Tipo de Documento).
 
 O DTD define como estruturar documentos de um certo tipo (por exemplo, um `<button>` pode conter um `<span>` mas não um `<div>`), enquanto o DOCTYPE declara qual DTD o documento _supostamente_ respeita (por exemplo, este documento respeita o DTD de HTML).
 
@@ -17,7 +17,6 @@ Uma declaração de DOCTYPE é necessária para os websites. A declaração é u
 A declaração DOCTYPE para os _standards_ de HTML5 é `<!DOCTYPE html>`.
 
 Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página.
-
 
 ###### Referências
 
@@ -33,7 +32,7 @@ A questão é um pouco vaga. Vou supor que quer saber sobre o caso mais comum: s
 
 Quando uma requisição (_request_) HTTP é feita para um servidor, o agente-usuário que faz a requisição geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Accept-Language`. O servidor pode usar essas informações para retornar uma versão do documento no idioma apropriado, caso tal alternativa esteja disponível. O documento HTML retornado também deve declarar o atributo `lang` na tag `<html>`, como por exemplo `<html lang="en">...</html>`.
 
-Obviamente, isso não permite a um mecanismo de busca saiba que o conteúdo está disponível em idiomas diferentes, e por isso devemos também usar o atributo `hreflang` na <head>. Por exemplo, <link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>.
+Obviamente, isso não permite a um mecanismo de busca saiba que o conteúdo está disponível em idiomas diferentes, e por isso devemos também usar o atributo `hreflang` na `<head>`. Por exemplo, <link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>.
 
 No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` e conteúdo para o idioma específico, armazenado em formato YML ou JSON. O servidor, em seguida, gera dinamicamente a página HTML com conteúdo nesse idioma específico, geralmente com a ajuda de uma estrutura de back end.
 
@@ -48,7 +47,7 @@ No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` 
 - Usar o atributo `lang` no HTML.
 - Direcionar os usuários ao seu idioma nativo - Permitir que um usuário mude seu país/idioma sem problemas.
 - Texto em imagens rasterizadas (por exemplo, png, gif, jpg) não é uma abordagem escalável - colocar texto numa imagem ainda é uma maneira popular de exibir fontes bonitas e que não são do sistema em qualquer computador. No entanto, para traduzir o texto da imagem, cada sequência de texto precisará de uma imagem separada para cada idioma. Qualquer coisa além de algumas substituições como essa podem rapidamente sair do controle.
-- Restrições no comprimento de palavras restritas/frases - Alguns conteúdos podem ser mais longos quando escritos num outro idioma. É preciso ter cuidado com problemas de layout ou overflow no design. É melhor evitar situações em que a quantidade de texto possa quebrar o layout. A contagem de caracteres é importante para coisas como manchetes, legendas e botões. É um problema menor com texto livre, como o corpo do texto  ou comentários.
+- Restrições no comprimento de palavras restritas/frases - Alguns conteúdos podem ser mais longos quando escritos num outro idioma. É preciso ter cuidado com problemas de layout ou overflow no design. É melhor evitar situações em que a quantidade de texto possa quebrar o layout. A contagem de caracteres é importante para coisas como manchetes, legendas e botões. É um problema menor com texto livre, como o corpo do texto ou comentários.
 - Levar em consideração a percepção das cores - As cores são percebidas de maneira diferente dependendo do idioma e a cultura. O design deve usar a cor adequadamente.
 - Formatar datas e moedas - As datas do calendário são por vezes apresentadas de maneiras diferentes. Por exemplo, "May 31, 2012" nos EUA e "31 de maio de 2012" em partes da Europa.
 - Não concatenar strings traduzidas - Não fazer coisas como `"A data hoje é" + data`. Isso não vai funcionar para idiomas com diferentes ordem de palavras. É melhor usar um template que permita a substituição de parâmetros para cada idioma. Por exemplo, considere as frases seguintes em inglês e chinês, respectivamente: `I will travel on {% date %}` e `{% date %} 我会出发`. Observe que a posição da variável é diferente devido às regras da gramática do idioma.
@@ -119,6 +118,7 @@ _Nota: Se o usuário decide apagar os dados de navegação através de qualquer 
 
 - `<script>` - A análise do HTML é bloqueada, o script é obtido e executado imediatamente, a análise do HTML é retomada após o script ser executado.
 - `<script async>` - O script será obtido em paralelo com a análise do HTML e executado assim que estiver disponível (possivelmente antes da análise do HTML ter sido finalizada). Use `async` quando o script for independente de qualquer outro script na página, por exemplo, scripts de analítica.
+
 * `<script defer>` - O script será obtido em paralelo com a análise do HTML e executado quando a página terminar de analisar. Se houver vários scripts, cada script diferido será executado na ordem em que se encontra no documento. Se um script estiver baseado na análise completa do DOM, o atributo `defer` será útil para garantir que o HTML seja totalmente analisado antes de executar o script. Não é muito diferente de colocar um `<script>` normal no final de `<body>`. Um script diferido não deve conter `document.write`.
 
 Nota: Os atributos `async` e` defer` são ignorados para scripts que não tenham o atributo `src`.
@@ -168,7 +168,7 @@ Exemplos de tais técnicas:
 
 [[↑] De volta ao topo](#Índice)
 
-### Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo. 
+### Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo.
 
 Tu usarias o atributo `srcset` quando quiseres exibir imagens diferentes para os utilizadores, dependendo da largura do ecrã (tela) do dispositivo - mostrar imagens de qualidade superior para dispositivos com display de retina melhora a experiência do utilizador, enquanto fornecer imagens de baixa resolução para dispositivos de baixo custo melhora o desempenho e diminui o desperdício de dados (porque mostrar uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para mostrar o `.jpg` pequeno, médio ou grande dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para um dispositivo com 320px de largura, são feitos os seguintes cálculos:
 
