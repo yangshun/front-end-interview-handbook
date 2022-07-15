@@ -1,6 +1,6 @@
 ---
 title: Microsoft front end interview questions
-sidebar_label: Microsoft
+sidebar_label: Microsoft interview questions
 ---
 
 ## JavaScript

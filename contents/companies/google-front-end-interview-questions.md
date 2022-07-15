@@ -1,6 +1,6 @@
 ---
 title: Google front end interview questions
-sidebar_label: Google
+sidebar_label: Google interview questions
 ---
 
 Since it's Google, candidates can expect to be tested on fundamental Computer Science concepts as well as their front end knowledge/skills.

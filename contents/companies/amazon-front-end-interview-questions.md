@@ -1,6 +1,6 @@
 ---
 title: Amazon front end interview questions
-sidebar_label: Amazon
+sidebar_label: Amazon interview questions
 ---
 
 Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.

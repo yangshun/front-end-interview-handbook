@@ -1,6 +1,6 @@
 ---
 title: Lyft front end interview questions
-sidebar_label: Lyft
+sidebar_label: Lyft interview questions
 ---
 
 ## JavaScript

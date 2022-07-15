@@ -1,6 +1,6 @@
 ---
 title: Apple front end interview questions
-sidebar_label: Apple
+sidebar_label: Apple interview questions
 ---
 
 Not much is known about Apple's front end interview process.

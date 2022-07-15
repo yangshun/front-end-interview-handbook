@@ -1,6 +1,6 @@
 ---
 title: Dropbox front end interview questions
-sidebar_label: Dropbox
+sidebar_label: Dropbox interview questions
 ---
 
 ## JavaScript

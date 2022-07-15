@@ -1,6 +1,6 @@
 ---
 title: Uber front end interview questions
-sidebar_label: Uber
+sidebar_label: Uber interview questions
 ---
 
 Not much is known about Uber's front end interview process.

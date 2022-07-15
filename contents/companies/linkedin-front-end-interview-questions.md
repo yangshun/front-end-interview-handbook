@@ -1,6 +1,6 @@
 ---
 title: LinkedIn front end interview questions
-sidebar_label: LinkedIn
+sidebar_label: LinkedIn interview questions
 ---
 
 ## JavaScript

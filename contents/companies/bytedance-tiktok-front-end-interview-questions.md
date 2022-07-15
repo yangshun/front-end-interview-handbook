@@ -1,6 +1,6 @@
 ---
 title: ByteDance/TikTok front end interview questions
-sidebar_label: ByteDance/TikTok
+sidebar_label: ByteDance/TikTok interview questions
 ---
 
 ByteDance/TikTok's front end interview is quite balanced in terms of interview format.

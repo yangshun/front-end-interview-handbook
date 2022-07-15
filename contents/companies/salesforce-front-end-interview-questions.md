@@ -1,6 +1,6 @@
 ---
 title: Salesforce front end interview questions
-sidebar_label: Salesforce
+sidebar_label: Salesforce interview questions
 ---
 
 Not much is known about Salesforce's front end interview process.

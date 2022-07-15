@@ -1,6 +1,6 @@
 ---
 title: Airbnb front end interview questions
-sidebar_label: Airbnb
+sidebar_label: Airbnb interview questions
 ---
 
 ## JavaScript

@@ -1,6 +1,6 @@
 ---
 title: Twitter front end interview questions
-sidebar_label: Twitter
+sidebar_label: Twitter interview questions
 ---
 
 ## User interface coding
