@@ -153,10 +153,12 @@ html[data-theme='dark'] .navbar-icon-github:before {
 html[data-theme='dark'] .navbar-icon-twitter:before {
   background-image: url('/img/icons8-twitter-light.svg');
 }
-.navbar-icon-facebook:before {
-  background-image: url('/img/icons8-facebook.svg');
+
+.navbar-icon-discord:before {
+  background-image: url('/img/discord.svg');
+  width: 31px;
 }
 
-html[data-theme='dark'] .navbar-icon-facebook:before {
-  background-image: url('/img/icons8-facebook-light.svg');
+html[data-theme='dark'] .navbar-icon-discord:before {
+  background-image: url('/img/discord-light.svg');
 }

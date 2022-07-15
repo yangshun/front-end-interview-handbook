@@ -45,10 +45,10 @@ module.exports = {
           'aria-label': 'GitHub repository',
         },
         {
-          href: 'https://www.facebook.com/techinterviewhandbook',
+          href: 'https://discord.gg/BZuXW2gJy9',
           position: 'right',
-          className: 'navbar-icon navbar-icon-facebook',
-          'aria-label': 'Facebook page',
+          className: 'navbar-icon navbar-icon-discord',
+          'aria-label': 'Discord channel',
         },
         {
           href: 'https://twitter.com/yangshunz',

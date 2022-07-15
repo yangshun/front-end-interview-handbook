@@ -29,6 +29,29 @@ function TOC({className, ...props}) {
         linkClassName={LINK_CLASS_NAME}
         linkActiveClassName={LINK_ACTIVE_CLASS_NAME}
       />
+      <div
+        className={clsx(
+          'margin-top--md padding--md',
+          styles.socialLinksContainer,
+        )}>
+        <div className={styles.socialLinks}>
+          Follow us
+          <a
+            href="https://twitter.com/yangshunz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar-icon navbar-icon-twitter"
+            aria-label="Twitter"
+          />
+          <a
+            href="https://discord.gg/BZuXW2gJy9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar-icon navbar-icon-discord"
+            aria-label="Discord channel"
+          />
+        </div>
+      </div>
     </div>
   );
 }
