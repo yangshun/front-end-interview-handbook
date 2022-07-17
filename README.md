@@ -9,53 +9,25 @@
     <a href="https://www.frontendinterviewhandbook.com">Read on the website</a>
   </h3>
   <p>
-    Follow us on <a href="https://facebook.com/techinterviewhandbook">Facebook</a> | <a href="https://twitter.com/techinterviewhb">Twitter</a> | <a href="https://t.me/techinterviewhandbook">Telegram</a>
+    Join/follow us on <a href="https://discord.com/invite/BZuXW2gJy9" target="_blank">Discord</a> | <a href="https://twitter.com/yangshunz" target="_blank">Twitter</a> | <a href="https://t.me/techinterviewhandbook" target="_blank" >Telegram</a> |  <a href="https://facebook.com/techinterviewhandbook" target="_blank">Facebook</a>
   </p>
 </div>
 
 ---
 
+<a href="https://www.frontendinterviewhandbook.com/introduction/" target="_blank">
+  <img src="assets/start-reading-button.jpg" alt="Start Reading Front End Interview Handbook" />
+</a>
+
 ## What is this?
 
-Unlike typical software engineer job interviews, front end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
+Unlike typical software engineer job interviews, front end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas. This repository covers all you need to know for front end interviews:
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers to these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
-
-## Why do I want this?
-
-### 🔍 Front End Interviews Demystified
-
-Front end interview preparation resources are scarce but no fret, we tell you what to expect and everything else you need to know!
-
-[**Learn more**](https://www.frontendinterviewhandbook.com/introduction/)
-
-### 👩‍🎨 System Design
-
-What even is Front end system design?! Learn more about them and how to ace these interviews.
-
-[**Learn more**](https://www.frontendinterviewhandbook.com/front-end-system-design/)
-
-### 👩‍💻 Coding Questions
-
-Coding questions are an entirely different ball game for Front End interviews. We tell you how to prepare for them (hint: not just LeetCode).
-
-[**Learn more**](https://www.frontendinterviewhandbook.com/build-front-end-user-interfaces/)
-
-### 💯 Go From Zero to Hero
-
-Go from zero to front end interview hero with this handbook. No prior interview experience needed.
-
-### 🍼 Back to Basics
-
-Learn to walk before you learn to fly. While React, Vue and Angular are cool, make sure you also know your fundamentals.
-
-### 👨‍👩‍👦‍👦 Community Effort
-
-The best thing about Open Source is that the community vets the contents, so you can be sure the answers here have been proofread by many.
-
-## Who is this for?
-
-Anybody who wants to land a job at a tech company for a front end role and is looking to make sure they don't stumble on the basic questions. To be frank, I revise the answers here from time to time as well!
+- [Various formats of Front end interviews](https://www.frontendinterviewhandbook.com/introduction/) including formats by different companies
+- [Front end system design interviews](https://www.frontendinterviewhandbook.com/front-end-system-design/)
+- [Front end trivia questions](https://www.frontendinterviewhandbook.com/trivia/) - answers to the h5bp Front-end Developer Interview Questions
+- [Front end questions](https://www.frontendinterviewhandbook.com/coding/javascript-utility-function/) - JavaScript, DOM, algorithms, and more
+- [Front end interview questions by companies](https://www.frontendinterviewhandbook.com/company-interview-questions/)
 
 ---
 
@@ -70,7 +42,7 @@ Anybody who wants to land a job at a tech company for a front end role and is lo
 You might be interested in the [Tech Interview Handbook](https://www.techinterviewhandbook.org) which has helpful content on general coding interviews such as algorithms, behavioral questions and an [interview cheatsheet](https://www.techinterviewhandbook.org/coding-interview-cheatsheet/)!
 
 <div align="center">
-  <a href="https://techinterviewhandbook.org">
+  <a href="https://www.techinterviewhandbook.org">
     <img src="assets/coding.svg" alt="Web Technologies illustration" width="400"/>
   </a>
   <br/>
@@ -78,17 +50,9 @@ You might be interested in the [Tech Interview Handbook](https://www.techintervi
     <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
   </p>
   <h3>
-    <a href="https://techinterviewhandbook.org/">Read on the website</a>
+    <a href="https://www.techinterviewhandbook.org/">Read on the website</a>
   </h3>
 </div>
-
-## Table of Contents
-
-1. [Trivia questions](https://www.frontendinterviewhandbook.com/trivia/)
-1. [JavaScript utility function questions](https://www.frontendinterviewhandbook.com/javascript-utility-function/)
-1. [Front end user interface coding questions](https://www.frontendinterviewhandbook.com/build-front-end-user-interfaces/)
-1. [Front end algorithm coding questions](https://www.frontendinterviewhandbook.com/algorithms/)
-1. [Front end system design questions](https://www.frontendinterviewhandbook.com/front-end-system-design/)
 
 ## Translations
 
