@@ -125,40 +125,19 @@ div[class^='announcementBar_'] {
   flex-shrink: 0;
 }
 
-.navbar-icon:before {
-  background-repeat: no-repeat;
-  content: '';
+.navbar-icon {
+  border-radius: 50%;
   display: flex;
-  height: 24px;
-  width: 24px;
-  transition: all 300ms ease-in-out;
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  padding: 0;
+  transition: background var(--ifm-transition-fast);
 }
 
 .navbar-icon:hover {
-  opacity: 0.6;
-}
-
-.navbar-icon-github:before {
-  background-image: url('/img/icons8-github.svg');
-}
-
-html[data-theme='dark'] .navbar-icon-github:before {
-  background-image: url('/img/icons8-github-light.svg');
-}
-
-.navbar-icon-twitter:before {
-  background-image: url('/img/icons8-twitter.svg');
-}
-
-html[data-theme='dark'] .navbar-icon-twitter:before {
-  background-image: url('/img/icons8-twitter-light.svg');
-}
-
-.navbar-icon-discord:before {
-  background-image: url('/img/discord.svg');
-  width: 31px;
-}
-
-html[data-theme='dark'] .navbar-icon-discord:before {
-  background-image: url('/img/discord-light.svg');
+  background: var(--ifm-color-emphasis-200);
+  color: inherit;
 }
