@@ -46,7 +46,7 @@ export default [
   },
   {
     name: 'Kai Li',
-    title: 'Software Engineer, Quora',
+    title: 'Software Engineer, Stripe, ex-Quora, ex-Zendesk',
     thumbnail: 'https://github.com/li-kai.png',
     quote: (
       <>
