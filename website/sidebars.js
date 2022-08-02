@@ -51,8 +51,8 @@ module.exports = {
       },
       items: [
         'companies/google-front-end-interview-questions',
-        'companies/microsoft-front-end-interview-questions',
         'companies/amazon-front-end-interview-questions',
+        'companies/microsoft-front-end-interview-questions',
         'companies/apple-front-end-interview-questions',
         'companies/airbnb-front-end-interview-questions',
         'companies/bytedance-tiktok-front-end-interview-questions',
