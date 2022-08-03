@@ -22,7 +22,7 @@ Since it's Google, candidates can expect to be tested on fundamental Computer Sc
 - Design a webpage which can auto load new posts when you reach the bottom of the page by using JavaScript. You may use AJAX and JavaScript event listeners.
 - Write a UI using HTML, CSS, JavaScript that allows uses to enter the number of rows and columns in text input fields within a form and renders a table.
 
-Example: Number of rows: 4, Number of rows: 5, "Submit" button. Clicking on the "Submit" button will show the following:
+Example: Number of rows: 4, Number of columns: 5, "Submit" button. Clicking on the "Submit" button will show the following table (ignore the styling):
 
 | 1   | 8   | 9   | 16  | 17  |
 | --- | --- | --- | --- | --- |
