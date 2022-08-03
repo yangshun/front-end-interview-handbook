@@ -172,7 +172,7 @@ module.exports = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/yangshun/front-end-interview-handbook/edit/master/contents/',
+            'https://github.com/yangshun/front-end-interview-handbook/edit/main/contents/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },

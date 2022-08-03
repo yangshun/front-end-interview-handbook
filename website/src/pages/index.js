@@ -75,7 +75,7 @@ function HeroSection() {
 }
 
 function MoonchaserSection() {
-  /* Because the SSR and client output can differ and hydration doesn't patch attribute differences, 
+  /* Because the SSR and client output can differ and hydration doesn't patch attribute differences,
 we'll render this on the browser only. */
   return (
     <BrowserOnly>
@@ -453,7 +453,7 @@ function SuccessStoriesSection() {
             <p className="margin-vert--lg text--center">
               Would you like to contribute a success story?{' '}
               <a
-                href="https://github.com/yangshun/front-end-interview-handbook/edit/master/website/src/data/successStories.js"
+                href="https://github.com/yangshun/front-end-interview-handbook/edit/main/website/src/data/successStories.js"
                 rel="noopener"
                 target="_blank">
                 Open a Pull Request here
