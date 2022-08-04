@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -33,20 +33,20 @@ function HeroSection() {
   const {siteConfig = {}} = useDocusaurusContext();
 
   return (
-    <header className={classnames('hero', styles.heroBanner)}>
+    <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
         <div className="row">
           <div className="col col--8 col--offset-2">
             <img
               alt={siteConfig.title}
-              className={classnames(styles.heroBannerLogo, 'margin-vert--md')}
+              className={clsx(styles.heroBannerLogo, 'margin-vert--md')}
               src={useBaseUrl('img/logo.svg')}
             />
             <h1 className="hero__title">{siteConfig.title}</h1>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className={styles.buttons}>
               <Link
-                className={classnames(
+                className={clsx(
                   'button button--primary button--lg',
                   styles.getStarted,
                 )}
@@ -80,7 +80,7 @@ we'll render this on the browser only. */
   return (
     <BrowserOnly>
       {() => (
-        <div className={classnames('padding-vert--lg', styles.sectionSponsor)}>
+        <div className={clsx('padding-vert--lg', styles.sectionSponsor)}>
           <div className="container">
             <div className="row">
               <div className="col col--8 col--offset-2">
@@ -119,7 +119,7 @@ we'll render this on the browser only. */
 function FAANGTechLeadsSection() {
   return (
     <div
-      className={classnames('padding-vert--lg')}
+      className={clsx('padding-vert--lg')}
       style={{backgroundColor: 'rgb(244, 63, 94)'}}>
       <div className="container">
         <div className="row">
@@ -155,21 +155,20 @@ function FAANGTechLeadsSection() {
 
 function FeaturesSection() {
   return (
-    <div className={classnames('margin-vert--lg', 'padding-vert--lg')}>
+    <div className={clsx('margin-vert--lg', 'padding-vert--lg')}>
       <div className="container">
         <div className="row">
           <div className="col col--10 col--offset-1">
             <h2
-              className={classnames(
+              className={clsx(
                 'text--center',
                 'margin-bottom--xl',
                 styles.sectionTitle,
               )}>
               Why Front End Interview Handbook?
             </h2>
-            <div className={classnames('row', styles.featuresRow)}>
-              <div
-                className={classnames('col', 'col--4', styles.featuresRowItem)}>
+            <div className={clsx('row', styles.featuresRow)}>
+              <div className={clsx('col', 'col--4', styles.featuresRowItem)}>
                 <h3>🔍 Front end interviews demystified</h3>
                 <p>
                   Front end interview preparation resources are scarce but no
@@ -180,8 +179,7 @@ function FeaturesSection() {
                   <strong>Learn more</strong>
                 </a>
               </div>
-              <div
-                className={classnames('col', 'col--4', styles.featuresRowItem)}>
+              <div className={clsx('col', 'col--4', styles.featuresRowItem)}>
                 <h3>👩‍🎨 System design</h3>
                 <p>
                   What even is Front end system design?! Learn more about them
@@ -191,8 +189,7 @@ function FeaturesSection() {
                   <strong>Learn more</strong>
                 </a>
               </div>
-              <div
-                className={classnames('col', 'col--4', styles.featuresRowItem)}>
+              <div className={clsx('col', 'col--4', styles.featuresRowItem)}>
                 <h3>👩‍💻 Coding questions</h3>
                 <p>
                   Coding questions are an entirely different ball game for Front
@@ -203,24 +200,21 @@ function FeaturesSection() {
                   <strong>Learn more</strong>
                 </a>
               </div>
-              <div
-                className={classnames('col', 'col--4', styles.featuresRowItem)}>
+              <div className={clsx('col', 'col--4', styles.featuresRowItem)}>
                 <h3>💯 From zero to hero</h3>
                 <p>
                   Go from zero to front end interview hero with this handbook.
                   No prior interview experience needed.
                 </p>
               </div>
-              <div
-                className={classnames('col', 'col--4', styles.featuresRowItem)}>
+              <div className={clsx('col', 'col--4', styles.featuresRowItem)}>
                 <h3>🍼 Back to basics</h3>
                 <p>
                   Learn to walk before you learn to fly. While React, Vue and
                   Angular are cool, make sure you also know your fundamentals.
                 </p>
               </div>
-              <div
-                className={classnames('col', 'col--4', styles.featuresRowItem)}>
+              <div className={clsx('col', 'col--4', styles.featuresRowItem)}>
                 <h3>👨‍👩‍👦‍👦 Community effort</h3>
                 <p>
                   The best thing about Open Source is that the community vets
@@ -238,7 +232,7 @@ function FeaturesSection() {
 
 function Tweet({url, handle, name, content, avatar, date}) {
   return (
-    <div className={classnames('card', styles.tweet)}>
+    <div className={clsx('card', styles.tweet)}>
       <div className="card__header">
         <div className="avatar">
           <img alt={name} className="avatar__photo" src={avatar} />
@@ -262,17 +256,17 @@ function Tweet({url, handle, name, content, avatar, date}) {
 
 function TweetsSection() {
   return (
-    <div className={classnames('padding-vert--lg', styles.sectionAlt)}>
+    <div className={clsx('padding-vert--lg', styles.sectionAlt)}>
       <div className="container">
         <h2
-          className={classnames(
+          className={clsx(
             'margin-vert--lg',
             'text--center',
             styles.sectionTitle,
           )}>
           Loved by many engineers
         </h2>
-        <div className={classnames('row', styles.tweetsSection)}>
+        <div className={clsx('row', styles.tweetsSection)}>
           <div className="col col--4">
             <Tweet
               url="https://twitter.com/rwenderlich/status/1166336060533727232"
@@ -418,12 +412,12 @@ function TweetsSection() {
 
 function SuccessStoriesSection() {
   return (
-    <div className={classnames('padding-vert--lg', styles.sectionAlt)}>
+    <div className={clsx('padding-vert--lg', styles.sectionAlt)}>
       <div className="container">
         <div className="row">
           <div className="col col--6 col--offset-3">
             <h2
-              className={classnames(
+              className={clsx(
                 'margin-vert--lg',
                 'text--center',
                 styles.sectionTitle,
@@ -469,14 +463,14 @@ function SuccessStoriesSection() {
 
 function SponsorshipSection() {
   return (
-    <div className={classnames('padding-vert--lg', 'text--center')}>
+    <div className={clsx('padding-vert--lg', 'text--center')}>
       <div className="container">
         <div className="row">
           <div className="col col--8 col--offset-2">
-            <h2 className={classnames('margin-vert--lg', styles.sectionTitle)}>
+            <h2 className={clsx('margin-vert--lg', styles.sectionTitle)}>
               Enjoying Front End Interview Handbook so far?
             </h2>
-            <p className={classnames(styles.sectionTagline)}>
+            <p className={clsx(styles.sectionTagline)}>
               Support this project by becoming a sponsor! Your logo/profile
               picture will show up here with a link to your website.
             </p>
