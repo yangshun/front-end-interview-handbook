@@ -444,7 +444,7 @@ Grid is by far the most intuitive approach for creating grid-based layouts (it b
 
 Note that these two 2 approaches are not exclusive.
 
-Making a website responsive means the some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.
+Making a website responsive means that some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.
 
 ```css
 @media (min-width: 601px) {
