@@ -256,24 +256,24 @@ function Tweet({url, handle, name, content, avatar, date}) {
 
 function TweetsSection() {
   return (
-    <div className={clsx('padding-vert--lg', styles.sectionAlt)}>
+    <div className={clsx('padding-vert--xl', styles.sectionAlt)}>
       <div className="container">
         <h2
           className={clsx(
-            'margin-vert--lg',
+            'margin-btm--lg',
             'text--center',
             styles.sectionTitle,
           )}>
-          Loved by many engineers
+          Over 100,000 people have benefitted from this handbook!
         </h2>
         <div className={clsx('row', styles.tweetsSection)}>
           <div className="col col--4">
             <Tweet
-              url="https://twitter.com/rwenderlich/status/1166336060533727232"
+              url="https://twitter.com/css/status/963442650476089344"
               handle="css"
               name="CSS-Tricks"
               date="Feb 14, 2018"
-              avatar="https://pbs.twimg.com/profile_images/1080202898372362240/akqRGyta_400x400.jpg"
+              avatar="/img/tweets/css.jpg"
               content={
                 <>
                   Front End Interview [Question] Handbook
@@ -288,12 +288,9 @@ function TweetsSection() {
               handle="Insharamin"
               name="Insha"
               date="Jan 7, 2022"
-              avatar="https://pbs.twimg.com/profile_images/1468474545891774464/jENKPsRG_400x400.jpg"
+              avatar="/img/tweets/Insharamin.jpg"
               content={
                 <>
-                  📌 front-end-interview-handbook
-                  <br />
-                  <br />
                   Almost complete answers to "Front-end Job Interview Questions"
                   which you can use to interview potential candidates, test
                   yourself. Go from zero to front end interview hero with this
@@ -306,7 +303,7 @@ function TweetsSection() {
               handle="umaar"
               name="Umar Hansa"
               date="Feb 13, 2018"
-              avatar="https://pbs.twimg.com/profile_images/1305935669705965568/vS_bpIuu_400x400.jpg"
+              avatar="/img/tweets/umaar.jpg"
               content={
                 <>
                   Front End Interview Handbook (Answers) 👀 - Useful for testing
@@ -318,11 +315,25 @@ function TweetsSection() {
           </div>
           <div className="col col--4">
             <Tweet
+              url="https://twitter.com/FrontendDaily/status/966791481058119680"
+              handle="FrontendDaily"
+              name="Frontend Daily"
+              date="Apr 10, 2018"
+              avatar="/img/tweets/FrontendDaily.jpg"
+              content={
+                <>
+                  A Front End Interview Handbook (Headed to a job interview any
+                  time soon? Here are some questions and answers worth being
+                  prepared for.)
+                </>
+              }
+            />
+            <Tweet
               url="https://twitter.com/silvenon/status/1284988755942748161"
               handle="silvenon"
               name="Matija Marohnić"
               date="Jul 20, 2020"
-              avatar="https://pbs.twimg.com/profile_images/1497396127745945606/rtohsd4F_400x400.jpg"
+              avatar="/img/tweets/silvenon.jpg"
               content={
                 <>
                   Front End Interview Handbook is AMAZING, huge props to
@@ -335,7 +346,7 @@ function TweetsSection() {
               handle="nimz_co"
               name="Nima Izadi"
               date="Oct 19, 2018"
-              avatar="https://pbs.twimg.com/profile_images/1439945799086051331/Gx6kzS-F_400x400.jpg"
+              avatar="/img/tweets/nimz_co.jpg"
               content={
                 <>
                   Awesome guide for beginners to front-end development
@@ -346,20 +357,6 @@ function TweetsSection() {
                 </>
               }
             />
-            <Tweet
-              url="https://twitter.com/realJacobJed/status/969604583273172992"
-              handle="realJacobJed"
-              name="Jacob Jed"
-              date="Mar 3, 2018"
-              avatar="https://pbs.twimg.com/profile_images/632336891543597056/IJrRDr0e_400x400.jpg"
-              content={
-                <>
-                  Awesome Front End Interview Handbook. I learned a lot from
-                  this. Test yourself! I wouldn't pass this interview before
-                  reading the answers for the first time. Would you?
-                </>
-              }
-            />
           </div>
           <div className="col col--4">
             <Tweet
@@ -367,7 +364,7 @@ function TweetsSection() {
               handle="CodeWithKenny"
               name="Code with Kenny"
               date="Nov 11, 2020"
-              avatar="https://pbs.twimg.com/profile_images/1369449318684430349/FiAUX1SB_400x400.jpg"
+              avatar="/img/tweets/CodeWithKenny.jpg"
               content={
                 <>
                   This has been a great refresher resource and in an easy to
@@ -380,7 +377,7 @@ function TweetsSection() {
               handle="ddskier"
               name="DeeDee Walsh"
               date="Jul 26, 2020"
-              avatar="https://pbs.twimg.com/profile_images/1445527010269302786/vpK5S5RI_400x400.jpg"
+              avatar="/img/tweets/ddskier.jpg"
               content={
                 <>
                   This is useful! Front End Interview Handbook by @yangshunz
@@ -389,17 +386,16 @@ function TweetsSection() {
               }
             />
             <Tweet
-              url="https://twitter.com/CATB3AN5/status/964146313016283136"
-              handle="CATB3AN5"
-              name="Cat Beans"
-              date="Feb 15, 2018"
-              avatar="https://pbs.twimg.com/profile_images/1496932257625526274/Cdsr_RUn_400x400.jpg"
+              url="https://twitter.com/realJacobJed/status/969604583273172992"
+              handle="realJacobJed"
+              name="Jacob Jed"
+              date="Mar 3, 2018"
+              avatar="/img/tweets/realJacobJed.jpg"
               content={
                 <>
-                  Are you hiring new frontend developers or are you applying to
-                  a frontend dev position? yangshun's
-                  front-end-interview-handbook also gives you the opportunity to
-                  challenge yourself from time to time.
+                  Awesome Front End Interview Handbook. I learned a lot from
+                  this. Test yourself! I wouldn't pass this interview before
+                  reading the answers for the first time. Would you?
                 </>
               }
             />
