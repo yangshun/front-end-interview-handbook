@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 import clsx from 'clsx';
@@ -12,7 +11,7 @@ const BACKGROUNDS = [
   styles.backgroundRed,
 ];
 
-function FAANGTechLeads({className, position}) {
+function FAANGTechLeads({ className, position }) {
   return (
     <a
       className={clsx(styles.container, className)}
@@ -35,7 +34,7 @@ function FAANGTechLeads({className, position}) {
   );
 }
 
-function AlgoMonster({className, position}) {
+function AlgoMonster({ className, position }) {
   return (
     <a
       className={clsx(styles.container, className)}
@@ -56,7 +55,7 @@ function AlgoMonster({className, position}) {
   );
 }
 
-function EducativeCoding({className, position}) {
+function EducativeCoding({ className, position }) {
   return (
     <a
       className={clsx(styles.container, className)}
@@ -76,7 +75,7 @@ function EducativeCoding({className, position}) {
   );
 }
 
-export default React.memo(function SidebarAd({position}) {
+export default React.memo(function SidebarAd({ position }) {
   const backgroundClass =
     BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
   // Because the SSR and client output can differ and hydration doesn't patch attribute differences,
