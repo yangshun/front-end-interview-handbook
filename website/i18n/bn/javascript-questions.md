@@ -20,8 +20,6 @@ import TOCInline from '@theme/TOCInline';
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-[[↑] উপরে যান](#table-of-contents)
-
 
 ### JavaScript এ 'this' কীভাবে কাজ করে তা ব্যাখ্যা করুন
 
@@ -45,8 +43,6 @@ ES6 এ [অ্যারো ফাঙ্কশন](http://2ality.com/2017/12/alt
 
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
-
-[[↑] উপরে যান](#table-of-contents)
 
 
 ### প্রোটোটিপাল ইনহেরিটেন্স কিভাবে কাজ করে তা ব্যাখ্যা করুন
@@ -131,8 +127,6 @@ child.constructor.name;
 - https://crockford.com/javascript/prototypal.html
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
-[[↑] উপরে যান](#table-of-contents)
-
 
 ### আপনি AMD বনাম CommonJS সম্পর্কে কি মনে করেন?
 
@@ -146,8 +140,6 @@ child.constructor.name;
 
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
-
-[[↑] উপরে যান](#table-of-contents)
 
 
 ### ব্যাখ্যা করুন কেন নিম্নলিখিত কোডটি একটি IIFE হিসাবে কাজ করে না: `function foo(){ }();`। এটিকে সঠিকভাবে একটি IIFE করতে কী পরিবর্তন করতে হবে?
@@ -172,8 +164,6 @@ console.log(foo); // undefined
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
-
-[[↑] উপরে যান](#table-of-contents)
 
 
 ### `null`, `undefined` অথবা undeclared ভেরিয়েবলের মধ্যে পার্থক্য কী? আপনি কিভাবে ভেরিয়েবলের এই মানগুলো চেক করবেন?
@@ -221,8 +211,6 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] উপরে যান](#table-of-contents)
-
 
 ### closure কি, এবং কিভাবে/কেন আপনি একটি ব্যবহার করবেন?
 
@@ -237,8 +225,6 @@ Closure হল একটি ফাংশন এবং ঐ  ফাংশনটি
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
-[[↑] উপরে যান](#table-of-contents)
 
 
 ### আপনি কি একটি `.forEach` লুপ এবং `.map()` লুপের মধ্যে প্রধান পার্থক্য বর্ণনা করতে পারেন এবং কেন আপনি একটি বনাম অন্যটিকে বেছে নেবেন?
@@ -279,8 +265,6 @@ const doubled = a.map((num) => {
 ###### রেফারেন্স
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
-
-[[↑] উপরে যান](#table-of-contents)
 
 
 
