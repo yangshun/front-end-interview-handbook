@@ -24,7 +24,7 @@ HTML5 표준에 대한 DOCTYPE 선언은 `<!DOCTYPE html>`입니다.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Back to top](#목차)
+
 
 ### 여러 언어로 되어 있는 콘텐츠의 페이지를 어떻게 제공하나요?
 
@@ -38,7 +38,7 @@ HTTP 요청을 서버에 보내면, 대개 요청하는 유저 에이전트가 `
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Back to top](#목차)
+
 
 ### 다국어 사이트를 디자인하거나 개발할 때 주의해야할 사항은 무엇인가요?
 
@@ -55,7 +55,7 @@ HTTP 요청을 서버에 보내면, 대개 요청하는 유저 에이전트가 `
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Back to top](#목차)
+
 
 ### `data-`속성은 무엇에 좋은가요?
 
@@ -68,7 +68,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Back to top](#목차)
+
 
 ### HTML5를 개방형 웹 플랫폼으로 간주할 때, HTML5의 구성 요소는 무엇인가요?
 
@@ -85,7 +85,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Back to top](#목차)
+
 
 ### `cookie`, `sessionStorage`, `localStorage` 사이의 차이점을 설명하세요.
 
@@ -105,7 +105,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Back to top](#목차)
+
 
 ### `<script>`, `<script async>`, `<script defer>` 사이의 차이점을 설명하세요.
 
@@ -121,7 +121,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Back to top](#목차)
+
 
 ### 왜 일반적으로 CSS `<link>` 태그를 `<head></head>` 태그 사이에 위치시키고, JS `<script>` 태그를 `</body>` 직전에 위치시키는 것이 좋은 방법인가요? 다른 예외적인 상황을 알고있나요?
 
@@ -143,7 +143,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Back to top](#목차)
+
 
 ### 프로그레시브 렌더링이 무엇인가요?
 
@@ -162,7 +162,7 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Back to top](#목차)
+
 
 ### 이미지 태그에 `srcset` 속성을 사용하는 이유는 무엇인가요? 이 속성의 컨텐츠를 실행할 때 브라우저의 프로세스를 설명하세요.
 
@@ -185,13 +185,13 @@ JavaScript 프레임워크가 인기있기 전에, 프론트엔드 개발자는 
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Back to top](#목차)
+
 
 ### 다른 HTML 템플릿 언어를 사용해본 적이 있나요?
 
 네, Pug (구 Jade), ERB, Slim, Handlebars, Jinja, Liquid 등이 있습니다. 필자의 견해로, 이들은 다소 차이는 없으며, 보여줄 데이터를 조작하는 데 유용한 필터들과 내용을 escape하는 유사한 기능을 제공합니다. 대부분의 템플릿 엔진을 사용하면 표시하기 전에 처리가 필요한 이벤트에 자신의 필터를 삽입할 수 있습니다.
 
-[[↑] Back to top](#목차)
+
 
 ### 다른 답변들
 

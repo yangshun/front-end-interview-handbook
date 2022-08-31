@@ -20,7 +20,7 @@ Moral ng kuwento - idagdag lamang ang `<! DOCTYPE html>` sa simula ng iyong pahi
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Papaano mo ihahain ang pahinang may iba't-ibang lenggwaheng nilalaman?
 
@@ -34,7 +34,7 @@ Sa back end, ang HTML markup ay maglalaman ng mga `i18n` na placeholder at para 
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Anong uri ng mga bagay ang dapat mong ingatan ukol sa pagdidisenyo o pag-develop ng mga multilingual na site?
 
@@ -51,7 +51,7 @@ Sa back end, ang HTML markup ay maglalaman ng mga `i18n` na placeholder at para 
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Saan maganda ang mga `data-`na katangian?
 
@@ -64,7 +64,7 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Isaalang-alang ang HTML5 bilang isang bukas na web platform. Ano-ano ang mga pangunahing sangkap ng HTML5?
 
@@ -81,7 +81,7 @@ These days, using `data-` attributes is not encouraged. One reason is that users
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Ilarawan ang pagkakaiba sa pagitan ng isang `cookie`,`sessionStorage` at `localStorage`.
 
@@ -101,7 +101,7 @@ Ang lahat ng nabanggit na mga teknolohiya ay ang mahahalagang mekanismo ng imbak
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Ilarawan ang pagkakaiba sa pagitan ng `<script>`, `<script async>` at `<script defer>`.
 
@@ -117,7 +117,7 @@ Tandaan: Ang mga katangian ng `async` at `defer` ay binabalewala para sa mga scr
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Bakit karaniwang magandang ideya na ilagay ang mga CSS `<link>` sa pagitan ng `<head> </ head>` at JS `<script>` s bago ang `/ <body>`? May alam ka bang anumang mga pagbubukod?
 
@@ -135,7 +135,7 @@ Ang isang pagbubukod para sa pagpoposisyon ng mga `<script>` sa baba ay kapag an
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Ano ang progresibong pag-render?
 
@@ -154,17 +154,17 @@ Mga halimbawa ng naturang pamamaraan:
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Bakit ka gagamit ng isang `srcset` na katangian sa isang tag ng imahe? Ipaliwanag ang proseso na ginagamit ng browser sa pagsuri ng nilalaman ng katangiang ito.
 
 TODO
 
-[[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+
 
 ### Nakagamit ka na ba ng ibang lenggwahe sa pag-template ng HTML?
 
-Oo, Pug (dating Jade), ERB, Slim, Handlebars, Jinja, Liquid, upang pangalanan lamang ang ilan. Sa palagay ko, ang mga ito ay higit pa o mas mababa na parehong nagbibigay ng katulad na pag-andar ng nilalamang tumatakas at kapaki-pakinabang na mga pag-sala para sa pagmamanipula ng datos na ipapakita. Ang karamihan sa mga engine sa pag-template ay magpapahintulot din sa iyo na mag-inject ng iyong sariling mga pag-sala sa kaganapan na kailangan mo ng pasadyang pagproseso bago ipakita. [[↑] Bumalik sa taas](#talaan-ng-nilalaman)
+Oo, Pug (dating Jade), ERB, Slim, Handlebars, Jinja, Liquid, upang pangalanan lamang ang ilan. Sa palagay ko, ang mga ito ay higit pa o mas mababa na parehong nagbibigay ng katulad na pag-andar ng nilalamang tumatakas at kapaki-pakinabang na mga pag-sala para sa pagmamanipula ng datos na ipapakita. Ang karamihan sa mga engine sa pag-template ay magpapahintulot din sa iyo na mag-inject ng iyong sariling mga pag-sala sa kaganapan na kailangan mo ng pasadyang pagproseso bago ipakita. 
 
 ### Mga Ibang Sagot
 

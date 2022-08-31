@@ -24,7 +24,7 @@ Moral da história - apenas adiciona `<!DOCTYPE html>` no início da sua página
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Como podemos servir uma página com conteúdo em vários idiomas?
 
@@ -40,7 +40,7 @@ No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` 
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### O que deve ser levado em conta ao projetar ou desenvolver sites multilíngues?
 
@@ -58,7 +58,7 @@ No back end, o HTML irá conter marcadores de posição (_placeholders_) `i18n` 
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Para que servem os atributos `data-`?
 
@@ -73,7 +73,7 @@ No entanto, um uso perfeitamente válido dos atributos `-data` é adicionar um g
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Considere o HTML5 como uma plataforma aberta. Quais são os blocos de construção do HTML5?
 
@@ -90,7 +90,7 @@ No entanto, um uso perfeitamente válido dos atributos `-data` é adicionar um g
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Descreva a diferença entre `cookie`,`sessionStorage` e `localStorage`.
 
@@ -112,7 +112,7 @@ _Nota: Se o usuário decide apagar os dados de navegação através de qualquer 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`.
 
@@ -129,7 +129,7 @@ Nota: Os atributos `async` e` defer` são ignorados para scripts que não tenham
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Por que geralmente é uma boa ideia posicionar os `<link>`s para CSS entre `<head></head>` e os `<script>`s de JS antes de `</body>`? Existe alguma exceção?
 
@@ -147,7 +147,7 @@ Uma exceção para o posicionamento de `<script>`s na parte inferior é quando o
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### O que é renderização progressiva?
 
@@ -166,7 +166,7 @@ Exemplos de tais técnicas:
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Por que usar um atributo `srcset` numa tag de imagem? Explique o processo que o navegador usa ao avaliar o conteúdo desse atributo.
 
@@ -187,13 +187,13 @@ O `srcset` resolve o problema de querer servir arquivos de imagem menores para d
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Já usou diferentes linguagens de modelos de HTML antes?
 
 Sim, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, para citar alguns. Na minha opinião, eles são mais ou menos o mesmo e oferecem funcionalidades semelhantes de escape de conteúdo e filtros úteis para manipular os dados a serem exibidos. A maioria motores de template também permitirá que injetes teus próprios filtros no caso de precisares de processamento personalizado antes da exibição.
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### Outras respostas
 

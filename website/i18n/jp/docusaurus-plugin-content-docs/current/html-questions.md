@@ -20,7 +20,7 @@ import TOCInline from '@theme/TOCInline';
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### どのようにすれば複数の言語のコンテンツを含むページを提供できますか？
 
@@ -34,7 +34,7 @@ HTTP リクエストがサーバに対して行われるとき、リクエスト
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### 多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？
 
@@ -51,7 +51,7 @@ HTTP リクエストがサーバに対して行われるとき、リクエスト
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### `data-` 属性は何のために使われるのですか？
 
@@ -64,7 +64,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### HTML5 をオープンウェブプラットフォームとして考えたときに、HTML5 とはどんな要素から成るものですか？
 
@@ -82,7 +82,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5 (英語)
 - https://developer.mozilla.org/ja/docs/Web/HTML/HTML5 (日本語)
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### `cookie`、`sessionStorage`、`localStorage` の違いを教えてください。
 
@@ -103,7 +103,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies (日本語)
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### `<script>`、`<script async>`、`<script defer>` の違いを教えてください。
 
@@ -119,7 +119,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### なぜ一般的に、CSS の `<link>` を `<head></head>` の間に、JS の `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？
 
@@ -137,7 +137,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### プログレッシブレンダリングとは何ですか？
 
@@ -156,7 +156,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。
 
@@ -177,13 +177,13 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### HTML テンプレート言語をいくつか使用した経験はありますか？
 
 はい。例をあげると、Pug (旧 Jade)、ERB、Slim、Handlebars、Jinja、Liquid を使ったことがあります。私の意見では、これらはおおよそ同じようなものであり、表示されるデータを操作するためのエスケープするコンテンツや役立つフィルタと同様の機能を提供します。ほとんどのテンプレートエンジンでは、表示前にカスタム処理が必要なイベントに独自のフィルタを挿入することもできます。
 
-[[↑] 先頭に戻る](#目次)
+
 
 ### 他の方の回答集
 
