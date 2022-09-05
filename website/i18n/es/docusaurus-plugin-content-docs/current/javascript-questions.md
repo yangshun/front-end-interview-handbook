@@ -17,7 +17,6 @@ La delegación de eventos es una técnica en la cual los escuchas de eventos se 
 
 - https://medium.com/@osmancea/delegaci%C3%B3n-de-eventos-del-dom-con-javascript-d28131d43686
 - https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Eventos
-- [[↑] Ir al principio](#tabla-de-contenidos)
 
 ### Explique como funciona this
 
@@ -115,7 +114,7 @@ c.constructor.name;
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
 - https://crockford.com/javascript/prototypal.html
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain [[↑] Ir al principio](#tabla-de-contenidos)
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain 
 
 ### Explique la diferencia cuando una variable es: `null`, `undefined` o `undeclared`. Como chequearia cada uno de estos estados?
 
@@ -164,7 +163,7 @@ Como recomendación personal, nunca dejar las variables no declaradas o no asign
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[[↑] Ir al principio](#tabla-de-contenidos)
+
 
 ### Que es una closure, y como/porque se utilizaria?
 
@@ -180,4 +179,4 @@ Una **closure** es la combinación de una función con el entorno lexico en el c
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
-[[↑] Ir al principio](#tabla-de-contenidos)
+

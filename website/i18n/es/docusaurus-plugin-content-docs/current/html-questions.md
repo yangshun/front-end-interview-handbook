@@ -24,7 +24,7 @@ La declaración DOCTYPE para los estándares HTML5 es `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Cómo desplegar una página con contenido en varios idiomas?
 
@@ -38,7 +38,7 @@ En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido pa
 
 - https://www.w3.org/International/getting-started/language
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Qué debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?
 
@@ -55,7 +55,7 @@ En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido pa
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Para qué sirve el atributo `data-`?
 
@@ -70,7 +70,7 @@ Sin embargo, un uso perfectamente válido de los atributos de datos es agregar u
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?
 
@@ -87,7 +87,7 @@ Sin embargo, un uso perfectamente válido de los atributos de datos es agregar u
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### Describe las diferenias entre `cookie`, `sessionStorage` y `localStorage`.
 
@@ -109,7 +109,7 @@ _Nota: Si el usuario decide borrar los datos de navegación a través de cualqui
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### Describe las diferencias entre `<script>`, `<script async>` y `<script defer>`.
 
@@ -125,7 +125,7 @@ Nota: Los atributos `async` y `defer` son ignorados por scripts que no tienen el
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?
 
@@ -145,7 +145,7 @@ Una excepción para el posicionamiento de los `<script>` en la parte inferior es
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Qué es el renderizado progresivo?
 
@@ -164,7 +164,7 @@ Ejemplos:
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Por qué usaría el atributo `srcset` en una etiqueta de imagen? Explica el proceso que usa el navegador al evaluar el contenido de este atributo.
 
@@ -185,13 +185,13 @@ Si la resolución es retina (2x), el navegador usará la resolución más cercan
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### ¿Has utilizado otros lenguajes de plantillas HTML anteriormente?
 
 Sí, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, por nombrar algunos. En mi opinión, son más o menos lo mismo y proporcionan una funcionalidad similar de escape de contenido y filtros útiles para manipular los datos que se mostrarán. La mayoría de los motores de plantillas también permiten inyectar tus propios filtros en caso de que se necesite un procesamiento personalizado antes de mostrarlos.
 
-[[↑] Volver arriba](#tabla-de-contenidos)
+
 
 ### Otras Respuestas
 

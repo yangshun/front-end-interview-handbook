@@ -28,7 +28,7 @@ import TOCInline from '@theme/TOCInline';
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？
 
@@ -41,7 +41,7 @@ import TOCInline from '@theme/TOCInline';
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] 回到顶部](#目录)
+
 
 ### 请阐述`Float`定位的工作原理。
 
@@ -67,7 +67,7 @@ CSS 的`clear`属性通过使用`left`、`right`、`both`，让该元素向下�
 
 - https://css-tricks.com/all-about-floats/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。
 
@@ -85,7 +85,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] 回到顶部](#目录)
+
 
 ### 请阐述块格式化上下文（Block Formatting Context）及其工作原理。
 
@@ -107,7 +107,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 有哪些清除浮动的技术，都适用哪些情况？
 
@@ -117,7 +117,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 在大型项目中，我会使用 Clearfix 方法，在需要的地方使用`.clearfix`。设置`overflow: hidden`的方法可能使其子元素显示不完整，当子元素的高度大于父元素时。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 请解释什么是精灵图（css sprites），以及如何实现？
 
@@ -138,7 +138,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 - https://css-tricks.com/css-sprites/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 如何解决不同浏览器的样式兼容性问题？
 
@@ -147,7 +147,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - 使用 `autoprefixer` 自动生成 CSS 属性前缀。
 - 使用 Reset CSS 或 Normalize.css。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？
 
@@ -157,7 +157,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - 使用 `autoprefixer` 自动生成 CSS 属性前缀。
 - 使用 [Modernizr](https://modernizr.com/)进行特性检测。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 有什么不同的方式可以隐藏内容（使其仅适用于屏幕阅读器）？
 
@@ -177,19 +177,19 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 - http://a11yproject.com/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 你使用过栅格系统吗？偏爱哪一个？
 
 我使用 `float`-based 栅格系统，因为它相比 flex、grid 系统，拥有更多浏览器的支持。它已经在 Bootstrap 中使用多年，并且已经被证明是可行的。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 你是否使用过媒体查询或移动优先的布局？
 
 是的，一个例子就是根据窗口的尺寸改变导航的样式。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 你熟悉制作 SVG 吗？
 
@@ -214,7 +214,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
 
-[[↑] 回到顶部](#目录)
+
 
 ### 除了`screen`，你还能说出一个 @media 属性的例子吗？
 
@@ -227,7 +227,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 - https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media
 
-[[↑] 回到顶部](#目录)
+
 
 ### 编写高效的 CSS 应该注意什么？
 
@@ -242,7 +242,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 使用 CSS 预处理的优缺点分别是什么？
 
@@ -259,7 +259,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - 需要预处理工具。
 - 重新编译的时间可能会很慢。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 对于你使用过的 CSS 预处理，说说喜欢和不喜欢的地方？
 
@@ -273,13 +273,13 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 - 我通过`node-sass`使用 Sass，它用 C ++ 编写的 LibSass 绑定。在 Node 版本切换时，我必须经常重新编译。
 - Less 中，变量名称以`@`作为前缀，容易与 CSS 关键字混淆，如`@media`、`@import`和`@font-face`。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 如何实现一个使用非标准字体的网页设计？
 
 使用`@font-face`并为不同的`font-weight`定义`font-family`。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 解释浏览器如何确定哪些元素与 CSS 选择器匹配。
 
@@ -291,7 +291,7 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-[[↑] 回到顶部](#目录)
+
 
 ### 描述伪元素及其用途。
 
@@ -305,7 +305,7 @@ CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分�
 
 - https://css-tricks.com/almanac/selectors/a/after-and-before/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 说说你对盒模型的理解，以及如何告知浏览器使用不同的盒模型渲染布局。
 
@@ -330,7 +330,7 @@ CSS 盒模型负责计算：
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-[[↑] 回到顶部](#目录)
+
 
 ### `* { box-sizing: border-box; }`会产生怎样的效果？
 
@@ -339,7 +339,7 @@ CSS 盒模型负责计算：
 - 元素的`height` = 内容（content）的高度 + 垂直方向的`padding` + 垂直方向`border`的宽度
 - 元素的`width` = 内容（content）的宽度 + 水平方向的`padding` + 水平方向`border`的宽度
 
-[[↑] 回到顶部](#目录)
+
 
 ### `display`的属性值都有哪些？
 
@@ -347,7 +347,7 @@ CSS 盒模型负责计算：
 
 TODO
 
-[[↑] 回到顶部](#目录)
+
 
 ### `inline`和`inline-block`有什么区别？
 
@@ -362,7 +362,7 @@ TODO
 | 边距（margin）和填充（padding） | 各个方向都存在 | 各个方向都存在 | 只有水平方向存在。垂直方向会被忽略。 尽管`border`和`padding`在`content`周围，但垂直方向上的空间取决于'line-height' |
 | 浮动（float） | - | - | 就像一个`block`元素，可以设置垂直边距和填充。 |
 
-[[↑] 回到顶部](#目录)
+
 
 ### `relative`、`fixed`、`absolute`和`static`四种定位有什么区别？
 
@@ -378,7 +378,7 @@ TODO
 
 - https://developer.mozilla.org/en/docs/Web/CSS/position
 
-[[↑] 回到顶部](#目录)
+
 
 ### 你使用过哪些现有的 CSS 框架？你是如何改进它们的？
 
@@ -386,7 +386,7 @@ TODO
 - **Semantic UI**：源代码结构使得自定义主题很难理解。非常规主题系统的使用体验很差。外部库的路径需要硬编码（hard code）配置。变量重新赋值没有 Bootstrap 设计得好。
 - **Bulma**： 需要很多非语义的类和标记，显得很多余。不向后兼容，以至于升级版本后，会破坏应用的正常运行。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 你了解 CSS Flexbox 和 Grid 吗？
 
@@ -400,7 +400,7 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 
 - https://philipwalton.github.io/solved-by-flexbox/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 请解释在编写网站时，响应式与移动优先的区别。
 
@@ -441,7 +441,7 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 - 在移动设备上有更好的性能，因为应用于它们的规则无需针对任何媒体查询的验证。
 - 它让你强制编写与响应 CSS 规则相关的更干净的代码。
 
-[[↑] 回到顶部](#目录)
+
 
 ### 响应式设计与自适应设计有何不同？
 
@@ -457,7 +457,7 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 你有没有使用过视网膜分辨率的图形？当中使用什么技术？
 
@@ -471,7 +471,7 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 
 - https://www.sitepoint.com/css-techniques-for-retina-displays/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。
 
@@ -483,7 +483,7 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 
-[[↑] 回到顶部](#目录)
+
 
 ### 其他答案
 

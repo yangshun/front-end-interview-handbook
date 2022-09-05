@@ -28,7 +28,7 @@ Eu escreveria regras CSS com baixa especificidade para que possam ser facilmente
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### <a id="02">Qual é a diferença entre "redefinir"/"resetting" e "normalizar"/"normalizing" o CSS? Qual você escolheria e porquê?</a>
 
@@ -41,7 +41,7 @@ Eu escolheria redefinir quando tenho um design de site muito personalizado ou n�
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### <a id="03">Descreva `float` e como eles funcionam.</a>
 
@@ -61,7 +61,7 @@ Como alternativa, atribua a propriedade `overflow: auto` ou `overflow: hidden` a
 
 - https://css-tricks.com/all-about-floats/
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### <a id="04">Descreva o z-index e como o contexto de empilhamento é formado.</a>
 
@@ -81,7 +81,7 @@ _Nota: O que exatamente qualifica um elemento para criar um contexto de empilham
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### <a id="05">Descreva o BFC (Block Formatting Context) e como ele funciona.</a>
 
@@ -105,7 +105,7 @@ Margens verticais entre caixas de nível de bloco adjacentes em um colapso BFC. 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### <a id="06">Quais são as várias técnicas de limpeza e quais são apropriadas para qual contexto?</a>
 
@@ -115,7 +115,7 @@ Margens verticais entre caixas de nível de bloco adjacentes em um colapso BFC. 
 
 Em grandes projetos, eu escreveria uma classe utilitária `.clearfix` e a usaria nos lugares onde preciso. `overflow: hidden` pode cortar os filhos se os filhos forem mais altos do que os pais e não for muito ideal.
 
-[[↑] De volta ao topo](#Índice)
+
 
 ### <a id="07">Explique os sprites CSS e como você os implementaria em uma página ou site.</a>
 
@@ -132,6 +132,6 @@ Sprites CSS combinam várias imagens em uma única imagem maior. É uma técnica
 
 - https://css-tricks.com/css-sprites/
 
-[[↑] De volta ao topo](#Índice)
+
 
 Vamos traduzir esse conteúdo juntos para toda comunidade. Agradecemos a sua ajuda na tradução!
