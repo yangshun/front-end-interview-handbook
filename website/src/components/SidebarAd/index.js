@@ -1,16 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
 
-const BACKGROUNDS = [
-  styles.backgroundOrange,
-  styles.backgroundPurple,
-  styles.backgroundRed,
-];
+const BACKGROUNDS = [styles.backgroundOrange, styles.backgroundRed];
 
 function FAANGTechLeads({className, position}) {
   return (
@@ -35,42 +30,23 @@ function FAANGTechLeads({className, position}) {
   );
 }
 
-function AlgoMonster({className, position}) {
+function GreatFrontEnd({position}) {
   return (
     <a
-      className={clsx(styles.container, className)}
-      href="https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack="
+      className={clsx(styles.container, styles.backgroundPurple)}
+      href={`https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=${position}&fpr=frontendinterviewhandbook`}
       target="_blank"
       rel="noopener"
       onClick={() => {
-        window.gtag('event', `algomonster.${position}.click`);
+        window.gtag('event', `greatfrontend.${position}.click`);
       }}>
       <p className={styles.tagline}>
         <strong className={styles.title}>
-          Stop grinding. Study with a plan
+          LeetCode for Front End Interviews
         </strong>
-        Developed by Google engineers, <u>AlgoMonster</u> is the fastest way to
-        get a software engineering job. <u>Join today for a 70% discount!</u>!
-      </p>
-    </a>
-  );
-}
-
-function EducativeCoding({className, position}) {
-  return (
-    <a
-      className={clsx(styles.container, className)}
-      href="https://educative.io/tech-interview-handbook"
-      key={Math.random()}
-      target="_blank"
-      rel="noreferrer noopener"
-      onClick={() => {
-        window.gtag('event', `educative.${position}.click`);
-      }}>
-      <p className={styles.tagline}>
-        <strong className={styles.title}>Looking to get hired at FAANG?</strong>{' '}
-        <u>Educative</u> offers many great courses to improve your interview
-        game. <u>Join today for a 10% discount!</u>
+        Get 25% off <u>GreatFrontEnd</u>'s lifetime plan of high quality
+        practice questions, answers and guides by{' '}
+        <u>ex-FAANG Senior Engineers</u>
       </p>
     </a>
   );
@@ -97,19 +73,7 @@ export default React.memo(function SidebarAd({position}) {
           );
         }
 
-        return Math.random() > 0.5 ? (
-          <AlgoMonster
-            className={backgroundClass}
-            key={Math.random()}
-            position={position}
-          />
-        ) : (
-          <EducativeCoding
-            className={backgroundClass}
-            key={Math.random()}
-            position={position}
-          />
-        );
+        return <GreatFrontEnd position={position} />;
       }}
     </BrowserOnly>
   );

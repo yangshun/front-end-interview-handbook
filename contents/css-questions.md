@@ -3,6 +3,12 @@ title: CSS trivia questions in front end interviews
 sidebar_label: CSS questions
 ---
 
+:::info We are now part of GreatFrontEnd!
+
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz?fpr=frontendinterviewhandbook).
+
+:::
+
 Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/css-questions.md). Pull requests for suggestions and corrections are welcome!
 
 import TOCInline from '@theme/TOCInline';

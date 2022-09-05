@@ -3,6 +3,12 @@ title: Trivia questions in front end interviews
 sidebar_label: Overview
 ---
 
+:::info We are now part of GreatFrontEnd!
+
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz?fpr=frontendinterviewhandbook).
+
+:::
+
 Trivia-style questions are usually found in the first few stages of an interview as the answers are usually short and can possibly be administered by a minimally-technical recruiter.
 
 Trivia questions are meant to test how well candidates understand the theory behind the domain. They can be aced by either having real solid understanding of the concepts or by pure memorization of answers. While there can be infinitely many possible quiz questions, the most common questions can be found within the next few pages.
@@ -17,6 +23,12 @@ Trivia questions are meant to test how well candidates understand the theory beh
 - CSS
   - Explain the CSS box model.
   - Explain the various CSS `position` properties and its differences.
+
+:::info Best place to prepare for Front End interviews.
+
+[GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) provides front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of trivia questions and answers](https://www.greatfrontend.com/prepare/quiz?fpr=frontendinterviewhandbook). Start studying today!
+
+:::
 
 ## Advanced examples
 

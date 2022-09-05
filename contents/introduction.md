@@ -2,6 +2,12 @@
 title: Introduction
 ---
 
+:::info We are now part of GreatFrontEnd!
+
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook?fpr=frontendinterviewhandbook).
+
+:::
+
 ## What is this?
 
 Unlike typical software engineer job interviews, front end interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the front end domain — HTML, CSS, JavaScript, just to name a few.
@@ -9,6 +15,8 @@ Unlike typical software engineer job interviews, front end interviews have less 
 Many front end interviews are highly-focused on domain knowledge and applying them to real-world scenarios. You might find that grinding LeetCode is not all you need when it comes to interviewing for a front end position, but that's a good thing! Front end interviews tend to test concepts that are more practical and relevant to real world front end development. But that doesn't mean that you don't have to be familiar with basic data structures and algorithmic concepts - there's just less emphasis on them and you are probably going to get easier algorithmic questions.
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a general software engineer interview. Among the existing resources, the most helpful question bank would probably be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there aren't many complete and satisfactory answers to these questions readily available online. This handbook answers these trivia-style questions along with information and guidance for other front end interview formats.
+
+To solve this problem, [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=introduction&fpr=frontendinterviewhandbook), an interview preparation platform for Front End interviews, was created. It contains Front End interview questions and answers written by ex-FAANG Senior Engineers (such as myself!) and have both questions and answers for various formats: JavaScript, TypeScript, User Interface Component questions, quiz-style front end questions.
 
 ## General tips for front end interviews
 
@@ -80,9 +88,15 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
+:::info Be interview-ready with GreatFrontEnd
+
+[GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has questions and answers for all kind of front end interview questions, [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook), and a [huge question bank](https://www.greatfrontend.com/prepare/coding?fpr=frontendinterviewhandbook)!
+
+:::
+
 ## Company interview formats
 
-Through extensive research, are the different type of formats companies ask during the technical rounds of front end interviews. If you're interviewing for front end engineering roles at certain companies, prepare accordingly!
+Through extensive research, here are the different type of formats companies ask during the technical rounds of front end interviews. If you're interviewing for front end engineering roles at certain companies, prepare accordingly!
 
 _Legend: ✅: Asked, ❌: Not asked, ⚠️: No data_
 

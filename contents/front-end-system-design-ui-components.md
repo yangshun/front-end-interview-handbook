@@ -4,10 +4,25 @@ slug: front-end-system-design/ui-components
 sidebar_label: UI components
 ---
 
+:::info We are now part of GreatFrontEnd!
+
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?fpr=frontendinterviewhandbook).
+
+:::
+
 ## Examples
 
-- Image carousel
+- Autocomplete — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
+- Image carousel — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
+- Dropdown menu — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
+- Modal dialog — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
 - Selector which loads options over the network
+
+:::info Read front end system design case studies
+
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
+
+:::
 
 ## Framework
 
@@ -47,6 +62,12 @@ Let's take an image carousel example. Subcomponents within an image carousel wou
 
 If you have a whiteboard/online drawing tool, it would also be helpful to draw diagrams to illustrate the entities and their relationships. Which subcomponent communicates with which when a user interaction occurs.
 
+:::info Read front end system design case studies
+
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
+
+:::
+
 ### Data model
 
 Data model for components will refer to the component state. The concept of state should be familiar to most front end developers who have used front end UI libraries/frameworks such as React, Angular, Vue, Svelte, etc. In every of these libraries/frameworks, state is a common concept.
@@ -70,6 +91,12 @@ The key idea behind components is for them to be reused and abstract complexitie
   - `className` or `style` props - Allows users to inject class names and/or styling attributes to inner DOM elements. This could have negative consequences but is still a common way of allowing user to customize component appearance.
 - Possible configuration options:
   - Lifecycle/event hooks - `onClick`, `onChange`, `onBlur`, `onFocus`, etc.
+
+:::info Read front end system design case studies
+
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
+
+:::
 
 ### Deep dives
 
@@ -109,6 +136,12 @@ In front end, performance typically refers to a few things - loading speed, how 
 - Render only what is displayed on the screen - For example, in a selector, only a few items are displayed to the user even if the list can contain hundreds of elements. Rendering all of them into the browser would be a waste of processing power and memory space. We can leverage a technique called windowing/virtualization to emulate a list with many elements while only rendering a few as possible to make the final result look as if there was no optimization done (especially preserving scroll height). Read more about virtualization [here](https://web.dev/virtualize-long-lists-react-window/).
 - Lazy loading/load only necessary data - For example, in a photo gallery component, a user can have hundreds and thousands of photos, but it won't be feasible to load all of them eagerly. Most likely the user won't be browsing all of them in that session too. An optimization could be to load only the ones that the user is likely to view, or those that are within the viewport (which we call "above the fold"). The rest of the photos can be loaded on demand, which introduces responsiveness delay, but the next tip will help you to handle that.
 - Preloading/prefetching data ahead of time - For example, in an image carousel where there are too many images to load beforehand, an optimization could be to load the next image ahead of time while the user is still on the current image, such that when the user clicks the "Next" button, there's no network delay needed because the next image has already been loaded. This technique can also be modified to load the next N images to handle the case where users click "Next" in rapid succession.
+
+:::info Read front end system design case studies
+
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
+
+:::
 
 #### Accessibility (a11y)
 
@@ -152,6 +185,8 @@ Most of the time, components aren't exposed to security vulnerabilities, but it 
 - Clickjacking
 - [`rel=noopener`](https://mathiasbynens.github.io/rel-noopener/)
 
-## Helpful articles
+:::info Read front end system design case studies
 
-- [Building an accessible autocomplete control](https://adamsilver.io/blog/building-an-accessible-autocomplete-control/)
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their front end system design guide and case studies. Start reading today!
+
+:::

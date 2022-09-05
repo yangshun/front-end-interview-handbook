@@ -9,7 +9,7 @@
     <a href="https://www.frontendinterviewhandbook.com">Read on the website</a>
   </h3>
   <p>
-    Join/follow us on <a href="https://discord.com/invite/BZuXW2gJy9" target="_blank">Discord</a> | <a href="https://twitter.com/yangshunz" target="_blank">Twitter</a> | <a href="https://t.me/techinterviewhandbook" target="_blank" >Telegram</a> |  <a href="https://facebook.com/techinterviewhandbook" target="_blank">Facebook</a>
+    Join/follow us on <a href="https://discord.com/invite/BZuXW2gJy9" target="_blank">Discord</a> | <a href="https://twitter.com/greatfrontend" target="_blank">Twitter</a> | <a href="https://t.me/techinterviewhandbook" target="_blank" >Telegram</a> |  <a href="https://facebook.com/techinterviewhandbook" target="_blank">Facebook</a>
   </p>
 </div>
 
@@ -32,7 +32,7 @@ Unlike typical software engineer job interviews, front end job interviews have l
 ---
 
 <div align="center">
-  <h3>💡 Preparing for front end interviews? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is offering 50% off its lifetime plan of high quality practice questions and solutions written by ex-FAANG Engineers 💡</h3>
+  <h3>💡 Preparing for front end interviews? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is offering 25% off its lifetime plan of high quality practice questions and solutions written by ex-FAANG Engineers 💡</h3>
 </div>
 
 ---

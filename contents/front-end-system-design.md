@@ -3,6 +3,12 @@ title: Front end system design interview overview
 sidebar_label: Overview
 ---
 
+:::info We are now part of GreatFrontEnd!
+
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design?fpr=frontendinterviewhandbook).
+
+:::
+
 There are shockingly few front end system design resources out there, probably because there's a lower demand and supply for front end engineer candidates.
 
 "System" here typically refers to front end systems, which are quite different from the typical distributed system design questions for Software Engineering interviews. The questions asked can be quite similar to the possible questions in ["Build user interfaces" format](./build-front-end-user-interfaces.md) but with more focus on architecture and design. There's a significant amount of overlap between them - you will likely need to do some design (data model, API) when you build UI, and also do some coding here to illustrate your ideas/app state format.
@@ -13,15 +19,25 @@ Many of the topics mentioned in the ["Build user interfaces" format](./build-fro
 
 The two main kinds of front end system design interviews are UI components and applications.
 
-## Examples
+## Front end system design examples
 
 - User interface components
-  - Image carousel
-  - Selector
+  - Autocomplete — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
+  - Image carousel — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
+  - Dropdown menu — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
+  - Modal dialog — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
 - Applications
-  - News feed
+  - News feed (e.g. Facebook) — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/news-feed-facebook)
+  - E-commerce marketplace (e.g. Amazon) — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon) (Paid)
+  - Chat application (e.g. Messenger) — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/chat-application-messenger) (Paid)
+  - Photo sharing application (e.g. Instagram) — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
   - Video watching website
-  - Chat application
+
+:::info Read front end system design case studies
+
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
+
+:::
 
 ## RADAD Framework
 
@@ -47,3 +63,9 @@ Because front end system design interviews focus on front end, you probably do n
 - Talk about availability, fault tolerance, latency, etc
 
 Read more about the differences between [Front End vs Back End System Design interviews](/blog/front-end-vs-back-end-system-design-interviews/#differences).
+
+:::info Read front end system design case studies
+
+[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their front end system design guide and case studies. Start reading today!
+
+:::

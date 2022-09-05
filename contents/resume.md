@@ -2,6 +2,12 @@
 title: Resume preparation
 ---
 
+:::info We are now part of GreatFrontEnd!
+
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/resume?fpr=frontendinterviewhandbook).
+
+:::
+
 Resumes are often overlooked in the job application process, but extremely important as they can make or break your application. The [Tech Interview Handbook](https://www.techinterviewhandbook.org/resume/guide) contains more details on how to write a killer resume which will also benefit Front End engineer candidates.
 
 <div>
