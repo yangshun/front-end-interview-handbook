@@ -132,6 +132,10 @@ An exception for positioning of `<script>`s at the bottom is when your script co
 
 Keep in mind that putting scripts just before the closing `</body>` tag will create the illusion that the page loads faster on an empty cache (since the scripts won't block downloading the rest of the document). However, if you have some code you want to run during page load, it will only start executing after the entire page has loaded. If you put those scripts in the `<head>` tag, they would start executing before - so on a primed cache the page would actually appear to load faster.
 
+**`<head>` and `<body>` tags are now optional**
+
+As per the HTML5 specification, certain HTML tags like `<head>` and `<body>` are optional. Google's style guide even recommends removing them to save bytes. However, this practice is still not widely adopted and the performance gain is likely to be minimal and for most sites it's not likely going to matter.
+
 ###### References
 
 - https://developer.yahoo.com/performance/rules.html#css_top
