@@ -28,8 +28,6 @@ Eu escreveria regras CSS com baixa especificidade para que possam ser facilmente
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-
-
 ### <a id="02">Qual é a diferença entre "redefinir"/"resetting" e "normalizar"/"normalizing" o CSS? Qual você escolheria e porquê?</a>
 
 - <b>Redefinir</b> - Redefinir visa eliminar todos os estilos padrão do navegador nos elementos. Por exemplo: `margins, paddings, font-size` são todos redefinidos. Você terá que redeclarar o estilo dos elementos tipográficos comuns.
@@ -40,8 +38,6 @@ Eu escolheria redefinir quando tenho um design de site muito personalizado ou n�
 ###### Referências
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
-
-
 
 ### <a id="03">Descreva `float` e como eles funcionam.</a>
 
@@ -61,8 +57,6 @@ Como alternativa, atribua a propriedade `overflow: auto` ou `overflow: hidden` a
 
 - https://css-tricks.com/all-about-floats/
 
-
-
 ### <a id="04">Descreva o z-index e como o contexto de empilhamento é formado.</a>
 
 A propriedade `z-index` em CSS controla a ordem de empilhamento vertical dos elementos que se sobrepõem. O `z-index` afeta apenas os elementos que possuem um valor `position` que não seja `static`.
@@ -80,8 +74,6 @@ _Nota: O que exatamente qualifica um elemento para criar um contexto de empilham
 - https://css-tricks.com/almanac/properties/z/z-index/
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
-
-
 
 ### <a id="05">Descreva o BFC (Block Formatting Context) e como ele funciona.</a>
 
@@ -105,8 +97,6 @@ Margens verticais entre caixas de nível de bloco adjacentes em um colapso BFC. 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-
-
 ### <a id="06">Quais são as várias técnicas de limpeza e quais são apropriadas para qual contexto?</a>
 
 - `div` vazia, método - `<div style="clear: both;"></div>`.
@@ -114,8 +104,6 @@ Margens verticais entre caixas de nível de bloco adjacentes em um colapso BFC. 
 - Método `overflow: auto` ou `overflow: hidden` - O pai estabelecerá um novo contexto de formatação de bloco e se expandirá para conter seus filhos flutuados.
 
 Em grandes projetos, eu escreveria uma classe utilitária `.clearfix` e a usaria nos lugares onde preciso. `overflow: hidden` pode cortar os filhos se os filhos forem mais altos do que os pais e não for muito ideal.
-
-
 
 ### <a id="07">Explique os sprites CSS e como você os implementaria em uma página ou site.</a>
 
@@ -131,7 +119,5 @@ Sprites CSS combinam várias imagens em uma única imagem maior. É uma técnica
 ###### Referências
 
 - https://css-tricks.com/css-sprites/
-
-
 
 Vamos traduzir esse conteúdo juntos para toda comunidade. Agradecemos a sua ajuda na tradução!

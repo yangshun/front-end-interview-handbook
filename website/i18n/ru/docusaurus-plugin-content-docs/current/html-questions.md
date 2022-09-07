@@ -24,8 +24,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-
-
 ### Как следует оформлять страницу, содержимое которой может быть на разных языках?
 
 Вопрос немного расплывчатый. Полагаю, что речь о наиболее частом случае: как показывать страницу, где содержимое доступно на нескольких языках, но отображается на одном определенном.
@@ -37,8 +35,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 ###### Ссылки
 
 - https://www.w3.org/International/getting-started/language
-
-
 
 ### На что необходимо обратить внимание при разработке мультиязычных сайтов?
 
@@ -55,8 +51,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### Для чего нужны `data-` атрибуты?
 
 До того, как JavaScript-фреймворки стали популярны, фронтенд-разработчики использовали `data-` атрибуты чтобы хранить дополнительные данные прямо в DOM без хаков вроде нестандартных атрибутов или дополнительных свойств в DOM. Атрибуты этого семейства предназначены для хранения частных данных пользователя, для которых не существует более подходящих атрибутов или элементов на странице или в приложении.
@@ -67,8 +61,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### Представьте HTML5 как открытую веб-платформу. Из каких блоков состоит HTML5?
 
@@ -84,8 +76,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 ###### Ссылки
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
-
-
 
 ### Объясните разницу между `cookie`, `sessionStorage` и `localStorage`.
 
@@ -105,8 +95,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### Объясните разницу между `<script>`, `<script async>` и `<script defer>`.
 
 - `<script>` - отрисовка HTML блокируется, скрипт извлекается и выполняется немедленно, отрисовка HTML возобновляется после окончания выполнения скрипта.
@@ -120,8 +108,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### Почему хорошей практикой считается располагать `<link>` для подключения CSS между `<head></head>`, а `<script>` для подключения JS ставить перед `</body>`? Знаете ли вы исключения?
 
@@ -141,8 +127,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-
-
 ### Что такое прогрессивный рендеринг
 
 Прогрессивный рендеринг — это название технологий, используемых для ускорения отрисовки страниц (в частности, для уменьшения времени загрузки), чтобы показать пользователю контент как можно скорее.
@@ -159,8 +143,6 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### Для чего используется атрибут `srcset` в теге изображения? Опишите процесс, который браузер использует при обработке содержимого этого атрибута.
 
@@ -181,13 +163,9 @@ DOCTYPE для стандарта HTML5 определяется как `<!DOCTY
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-
-
 ### Приходилось ли вам работать с языками HTML-шаблонизации?
 
 Да, Pug (ранее известный как Jade), ERB, Slim, Handlebars, Jinja, Liquid и это только некоторые из них. По моему мнению, все они более или менее одинаковые и предоставляют одинаковые возможности экранирования контента и полезных фильтров для работы с отображаемыми данными. Большинство шаблонизаторов позволяют вводить собственные фильтры, если вам необходима дополнительная обработка контента перед его отображением.
-
-
 
 ### Другие ответы
 

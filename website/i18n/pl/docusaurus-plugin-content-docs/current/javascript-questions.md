@@ -20,8 +20,6 @@ Delegowanie zdarzeń to technika polegająca na dodawaniu event listenerów do e
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-
-
 ### Wyjaśnij jak `this` działa w JavaScript
 
 Nie ma prostego wyjaśnienia dla `this`; jest to jedna z najbardziej mylących koncepcji w JavaScript. Wytłumaczeniem na szybko jest to, że wartość `this` zależy od tego, jak wywoływana jest funkcja. Przeczytałem wiele wyjaśnień na temat `this` w Internecie i znalazłem wytłumaczenie od [Arnav Aggrawal](https://medium.com/@arnav_aggarwal), jako najbardziej klarowne. Stosuje się następujące zasady:
@@ -43,8 +41,6 @@ ES6 umożliwia korzystanie z [funkcji strzałkowych (arrow functions)](http://2a
 
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
-
-
 
 ### Wyjaśnij, jak działa dziedziczenie prototypowe
 
@@ -133,8 +129,6 @@ c.constructor.name;
 - https://crockford.com/javascript/prototypal.html
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
-
-
 ### Co sądzisz o AMD vs CommonJS?
 
 Oba sposoby implementacji systemu modułowego, który nie pojawił się natywnie w JavaScript przed pojawieniem się ES2015. CommonJS jest synchroniczny, podczas gdy AMD (definicja modułu asynchronicznego) jest oczywiście asynchroniczny. CommonJS został zaprojektowany z myślą o rozwoju po stronie serwera, podczas gdy AMD, ze wsparciem dla asynchronicznego ładowania modułów, jest bardziej przeznaczone dla przeglądarek.
@@ -147,8 +141,6 @@ Cieszę się, że dzięki modułom ES2015, które obsługują zarówno ładowani
 
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
-
-
 
 ### Wyjaśnij, dlaczego następujące elementy nie działają jako IIFE: `function foo(){ }();`. Co należy zmienić, aby poprawnie uczynić to IIFE?
 
@@ -170,8 +162,6 @@ console.log(foo); // undefined
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
-
-
 
 ### Jaka jest różnica między zmienną: `null`, `undefined` lub niezadeklarowaną? Jak sprawdziłbyś którykolwiek z tych stanów?
 
@@ -218,8 +208,6 @@ Jako osobisty nawyk nigdy nie pozostawiam moich zmiennych niezadeklarowanych ani
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-
-
 ### Czym jest domknięcie i jak/dlaczego miałbyś je zastosować?
 
 Domknięcie (closure) jest kombinacją funkcji i środowiska leksykalnego, w którym zadeklarowano tę funkcję. Słowo "leksykalny" odnosi się do faktu, że zakres leksykalny wykorzystuje lokalizację, w której zmienna jest zadeklarowana w kodzie źródłowym, w celu ustalenia, gdzie ta zmienna jest dostępna. Domknięcia to funkcje, które mają dostęp do zmiennych funkcji zewnętrznej (obejmującej) - łańcuch zasięgu nawet po zwróceniu funkcji zewnętrznej.
@@ -233,8 +221,6 @@ Domknięcie (closure) jest kombinacją funkcji i środowiska leksykalnego, w kt�
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
-
 
 ### Czy możesz opisać główną różnicę pomiędzy pętlą `.forEach`, a pętlą `.map()` i dlaczego wybrałbyś jeden albo drugi?
 
@@ -275,8 +261,6 @@ Główna różnica między `.forEach` i `.map()` to to, że `.map()` zwraca now�
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-
-
 ### Jaki jest typowy przypadek użycia funkcji anonimowych?
 
 Można ich użyć w IIFE do enkapsulacji części kodu w zakresie lokalnym, tak aby zmienne zadeklarowane w nim nie przenikały do zakresu globalnego.
@@ -310,8 +294,6 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-
-
 ### Jak organizujesz swój kod? (wzorzec modułu, klasyczne dziedziczenie?)
 
 W przeszłości używałem Backbone do moich modeli, co zachęca do bardziej otwartego podejścia, tworzenia modeli Backbone i dołączania do nich metod.
@@ -319,8 +301,6 @@ W przeszłości używałem Backbone do moich modeli, co zachęca do bardziej otw
 Wzorzec modułu jest nadal świetny, ale obecnie używam React/Redux, które wykorzystują jednokierunkowy przepływ danych oparty na architekturze Flux. Reprezentowałbym modele mojej aplikacji przy użyciu prostych obiektów i pisał funkcje czysto użytkowe do manipulowania tymi obiektami. Stan jest manipulowany za pomocą akcji i reduktorów, jak w każdej innej aplikacji Redux.
 
 W miarę możliwości unikam dziedziczenia klasycznego. Kiedy już i jeśli to zrobię, trzymam się [tych reguł](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
-
-
 
 ### Jaka jest różnica między obiektami hosta a obiektami macierzystymi?
 
@@ -331,8 +311,6 @@ Obiekty hosta są dostarczane przez środowisko wykonawcze (przeglądarkę lub N
 ###### Bibliografia
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
-
-
 
 ### Różnica pomiędzy: `function Person(){}`, `var person = Person()`, i `var person = new Person()`?
 
@@ -360,8 +338,6 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-
-
 ### Jaka jest różnica pomiędzy `.call` i `.apply`?
 
 Zarówno `.call`, jak i `.apply` są używane do wywoływania funkcji, a pierwszy parametr zostanie użyty jako wartość `this` w funkcji. Jednak `.call` przyjmuje argumenty oddzielone przecinkami jako kolejne argumenty, podczas gdy `.apply` przyjmuje tablicę argumentów jako następny argument. Łatwym sposobem na zapamiętanie tego jest C dla `call` i oddzielone przecinkami, i A dla `apply` oraz tablica argumentów.
@@ -375,8 +351,6 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-
-
 ### Wytłumacz `Function.prototype.bind`.
 
 Wzięte słowo w słowo z[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
@@ -389,8 +363,6 @@ Z mojego doświadczenia wynika, że jest to najbardziej przydatne do bindowania 
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-
-
 ### Kiedy użyłbyś `document.write()`?
 
 `document.write()` zapisuje ciąg tekstu do strumienia dokumentów otwartego przez `document.open()`. Kiedy `document.write()` jest wykonywane po załadowaniu strony, wywoła `document.open`, który usuwa cały dokument (`<head>`i `<body>` usunięto!) i zamienia zawartość na podaną wartość parametru. Dlatego jest zwykle uważany za niebezpieczny i podatny na niewłaściwe użycie.
@@ -401,8 +373,6 @@ Istnieje kilka odpowiedzi online, które wyjaśniają, że w kodzie analitycznym
 
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
-
-
 
 ### Jaka jest różnica między wykrywaniem funkcji, feature inference i używaniem UA string?
 
@@ -442,8 +412,6 @@ Jest to string zgłaszany przez przeglądarkę, który umożliwia elementom prot
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-
-
 ### Wyjaśnij Ajax tak szczegółowo, jak to możliwe.
 
 Ajax (asynchronous JavaScript and XML - asynchroniczny JavaScript i XML) to zestaw technik tworzenia stron internetowych wykorzystujących wiele technologii sieciowych po stronie klienta do tworzenia asynchronicznych aplikacji internetowych. Dzięki Ajax aplikacje internetowe mogą wysyłać dane i pobierać je z serwera asynchronicznie (w tle) bez ingerencji w wyświetlanie i zachowanie istniejącej strony. Oddzielając warstwę wymiany danych od warstwy prezentacji, Ajax pozwala stronom internetowym, a poprzez rozszerzenia aplikacji internetowych, dynamicznie zmieniać treść bez konieczności ponownego ładowania całej strony. W praktyce nowoczesne implementacje często zastępują użycie JSON zamiast XML, ze względu na zalety natywnej obsługi JSON w JavaScript.
@@ -454,8 +422,6 @@ API `XMLHttpRequest` jest często używany do komunikacji asynchronicznej lub w 
 
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
-
-
 
 ### Jakie są zalety i wady korzystania z Ajax?
 
@@ -473,8 +439,6 @@ API `XMLHttpRequest` jest często używany do komunikacji asynchronicznej lub w 
 - Niektóre przeglądarki internetowe nie wykonują JavaScript i nie widzą treści załadowanych przez JavaScript.
 - Strony internetowe wykorzystujące Ajax do pobierania danych prawdopodobnie będą musiały połączyć pobrane dane zdalne z szablonami po stronie klienta, aby zaktualizować DOM. Aby tak się stało, JavaScript musi zostać przeanalizowany i wykonany w przeglądarce, a urządzenia mobilne z niższej półki mogą mieć z tym problem.
 - Zasadniczo większość wad SPA.
-
-
 
 ### Wyjaśnij, jak działa JSONP (i jak to naprawdę nie jest Ajax).
 
@@ -508,8 +472,6 @@ Obecnie, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) jest
 
 - https://stackoverflow.com/a/2067584/1751946
 
-
-
 ### Czy kiedykolwiek używałeś szablonów JavaScript? Jeśli tak, z jakich bibliotek korzystałeś?
 
 Tak. Handlebars, Underscore, Lodash, AngularJS, i JSX. Nie podobało mi się tworzenie szablonów w AngularJS, ponieważ często używało łańcuchów w dyrektywach, a literówki nie zostały złapane. JSX jest moim nowym ulubionym, ponieważ jest bliżej JavaScript i nie ma prawie żadnej składni do nauki. W dzisiejszych czasach możesz nawet używać literałów ciągów szablonów ES2015 jako szybkiego sposobu tworzenia szablonów bez konieczności korzystania z kodu innej firmy.
@@ -519,8 +481,6 @@ const template = `<div>My name is: ${name}</div>`;
 ```
 
 Należy jednak pamiętać o potencjalnym XSS w powyższym podejściu, ponieważ zawartość nie jest dla ciebie umykająca, w przeciwieństwie do bibliotek szablonów.
-
-
 
 ### Wytłumacz "hoisting".
 
@@ -569,13 +529,9 @@ let y = 'local';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Variable_hoisting
 - https://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6/31222689#31222689
 
-
-
 ### Opisz event bubbling.
 
 Kiedy zdarzenie zostanie wyzwolone na elemencie DOM, spróbuje obsłużyć to zdarzenie, jeśli dołączony jest detektor, a następnie zdarzenie zostanie przekazane do jego obiektu nadrzędnego i nastąpi to samo. To 'bubbling' występuje u przodków elementu aż do `document`. Event bubbling jest mechanizmem delegowania zdarzeń.
-
-
 
 ### Jaka jest różnica pomiędzy "attribute", a "property"?
 
@@ -598,8 +554,6 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-
-
 ### Dlaczego rozszerzenie wbudowanych obiektów JavaScript nie jest dobrym pomysłem?
 
 Rozszerzenie wbudowanego/natywnego obiektu JavaScript oznacza dodanie właściwości/funkcji do jego `prototype`. Choć na początku może się to wydawać dobrym pomysłem, w praktyce jest niebezpieczne. Wyobraź sobie, że twój kod używa kilku bibliotek, które rozszerzają `Array.prototype` poprzez dodanie tej samej metody `contains`, implementacje się nadpisują, a twój kod się zepsuje, jeśli zachowanie tych dwóch metod nie będzie takie samo.
@@ -609,8 +563,6 @@ Jedynym momentem, w którym możesz chcieć rozszerzyć obiekt macierzysty, jest
 ###### Bibliografia
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
-
-
 
 ### Różnica między document `load` event, a document `DOMContentLoaded` event?
 
@@ -622,8 +574,6 @@ Zdarzenie `DOMContentLoaded` jest uruchamiane, gdy początkowy dokument HTML zos
 
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
-
-
 
 ### Jaka jest różnica pomiędzy `==` i `===`?
 
@@ -650,8 +600,6 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-
-
 ### Wyjaśnij same-origin policy w odniesieniu do JavaScript.
 
 Same-origin policy zapobiega przesyłaniu żądań JavaScript przez granice domen. Źródło jest zdefiniowane jako kombinacja schematu URI, nazwy hosta i numeru portu. Ta zasada uniemożliwia złośliwemu skryptowi na jednej stronie uzyskanie dostępu do poufnych danych na innej stronie internetowej za pomocą modelu obiektowego dokumentu (DOM) tej strony.
@@ -659,8 +607,6 @@ Same-origin policy zapobiega przesyłaniu żądań JavaScript przez granice dome
 ###### Bibliografia
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
-
-
 
 ### Spraw aby działało:
 
@@ -684,8 +630,6 @@ const duplicate = (arr) => [...arr, ...arr];
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-
-
 ### Dlaczego nazywa się to wyrażeniem trójargumentowym, co oznacza słowo "trójargumentowe"?
 
 "Ternary" wskazuje trzy, a wyrażenie potrójne akceptuje trzy operandy, warunek testu, wyrażenie "then" i wyrażenie "else". Wyrażenia trójskładnikowe nie są specyficzne dla JavaScript i nie jestem pewien, dlaczego znajduje się nawet na tej liście.
@@ -693,8 +637,6 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ###### Bibliografia
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-
-
 
 ### Czym jest `"use strict";`? Jakie są zalety i wady korzystania z tego?
 
@@ -723,8 +665,6 @@ Ogólnie rzecz biorąc, uważam, że korzyści przeważają nad wadami i nigdy n
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-
-
 ### Utwórz pętlę for, która będzie się powtarzać do `100` podczas wysyłania **"fizz"** w wielokrotnościach `3`, **"buzz"** w wielokrotnościach `5` i **"fizzbuzz"** w wielokrotnościach `3` oraz `5`.
 
 Sprawdź tę wersję FizzBuzz od [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
@@ -743,13 +683,9 @@ Nie radzę jednak pisać wyżej podczas wywiadów. Trzymaj się długiego, ale w
 
 - https://gist.github.com/jaysonrowe/1592432
 
-
-
 ### Dlaczego generalnie dobrym pomysłem jest pozostawienie globalnego zasięgu witryny takim, jakim jest, i nigdy go nie dotykać?
 
 Każdy skrypt ma dostęp do zakresu globalnego, a jeśli wszyscy użyją globalnej przestrzeni nazw do zdefiniowania swoich zmiennych, prawdopodobnie dojdzie do kolizji. Wzorzec modułu (IIFE) służy do enkapsulacji zmiennych w lokalnej przestrzeni nazw.
-
-
 
 ### Dlaczego miałbyś używać czegoś takiego jak zdarzenie `load`? Czy to wydarzenie ma wady? Czy znasz jakieś alternatywy i dlaczego miałbyś je wykorzystać?
 
@@ -762,8 +698,6 @@ TODO.
 ###### Bibliografia
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
-
-
 
 ### Wyjaśnij, czym jest SAP i jak uczynić ją przyjazną SEO.
 
@@ -792,8 +726,6 @@ Wady:
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-
-
 ### Jaki jest zakres twojego doświadczenia z Promises i/lub ich polyfills?
 
 Posiadanie praktycznej wiedzy na ten temat. Obietnica (promise) to obiekt, który może kiedyś wygenerować jedną wartość: wartość rozwiązaną lub przyczynę, dla której nie została ona rozwiązana (np. wystąpił błąd sieci). Obietnica może być w jednym z 3 możliwych stanów: spełniona, odrzucona lub oczekująca (fulfilled, rejected, pending). Użytkownicy promise mogą dołączać callbacks, aby obsłużyć spełnioną wartość lub przyczynę odrzucenia.
@@ -803,8 +735,6 @@ Niektóre wspólne polyfills są `$.deferred`, Q oraz Bluebird ale nie wszystkie
 ###### Bibliografia
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
-
-
 
 ### Jakie są zalety i wady korzystania z obietnic zamiast callbacks?
 
@@ -828,8 +758,6 @@ Niektóre wspólne polyfills są `$.deferred`, Q oraz Bluebird ale nie wszystkie
 ###### Bibliografia
 
 - https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
-
-
 
 ### Jakie są zalety/wady pisania kodu JavaScript w języku kompilującym się w JavaScript?
 
@@ -857,8 +785,6 @@ W praktyce, ES2015 znacznie poprawił JavaScript i znacznie ułatwił pisanie. O
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-
-
 ### Jakich narzędzi i technik używasz do debugowania kodu JavaScript?
 
 - React i Redux
@@ -875,8 +801,6 @@ W praktyce, ES2015 znacznie poprawił JavaScript i znacznie ułatwił pisanie. O
 
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
-
-
 
 ### Jakich konstrukcji językowych używasz do iteracji właściwości obiektów i elementów tablicy?
 
@@ -908,8 +832,6 @@ for (let [index, elem] of arr.entries()) {
 
 - http://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
-
-
 
 ### Wyjaśnij różnicę między obiektami mutable, a immutable.
 
@@ -995,8 +917,6 @@ Zamrożenie obiektu nie pozwala na dodanie nowych właściwości do obiektu i un
 
 - https://stackoverflow.com/questions/1863515/pros-cons-of-immutability-vs-mutability
 
-
-
 #### Jak osiągnąć niezmienność we własnym kodzie?
 
 Jednym ze sposobów osiągnięcia niezmienności jest użycie bibliotek takich jak [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) lub [immer](https://github.com/immerjs/immer).
@@ -1022,15 +942,11 @@ const alienJohn = {...john, race: 'alien'}; // {race: "alien", name: "John"}
 - https://www.sitepoint.com/immutability-javascript/
 - https://wecodetheweb.com/2016/02/12/immutable-javascript-using-es6-and-beyond/
 
-
-
 ### Wyjaśnij różnicę między funkcjami synchronicznymi i asynchronicznymi.
 
 Funkcje synchroniczne blokują, a funkcje asynchroniczne nie. W funkcjach synchronicznych instrukcje kończą się przed uruchomieniem następnej instrukcji. W takim przypadku program jest oceniany dokładnie w kolejności instrukcji, a wykonywanie programu jest wstrzymywane, jeśli jedna z instrukcji zajmuje bardzo dużo czasu.
 
 Funkcje asynchroniczne zwykle akceptują wywołanie zwrotne (callback) jako parametr i wykonywanie jest kontynuowane w następnym wierszu natychmiast po wywołaniu funkcji asynchronicznej. Wywołanie zwrotne jest wywoływane tylko wtedy, gdy operacja asynchroniczna jest zakończona, a stos wywołań jest pusty. Intensywne operacje, takie jak ładowanie danych z serwera WWW lub wyszukiwanie w bazie danych, powinny być wykonywane asynchronicznie, aby główny wątek mógł kontynuować wykonywanie innych operacji zamiast blokować do czasu zakończenia tej długiej operacji (w przypadku przeglądarek interfejs użytkownika (UI) zawiesza się).
-
-
 
 ### Co to jest pętla zdarzeń? Jaka jest różnica między stosem wywołań (call stack) a kolejką zadań (task queue)?
 
@@ -1042,8 +958,6 @@ Jeśli jeszcze nie sprawdziłeś Philipa Roberta i jego [talk odnośnie Event Lo
 
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
-
-
 
 ### Wyjaśnij różnice w korzystaniu z `foo` pomiędzy `function foo() {}` i `var foo = function() {}`
 
@@ -1070,8 +984,6 @@ var foo = function () {
 ###### Bibliografia
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
-
-
 
 ### Jakie są różnice między zmiennymi utworzonymi za pomocą `let`, `var` lub `const`?
 
@@ -1153,8 +1065,6 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-
-
 ### Jakie są różnice między konstruktorami funkcji ES6 i ES5?
 
 Najpierw spójrzmy na przykład każdego:
@@ -1206,13 +1116,9 @@ Używanie dziedziczenia w ES5 jest znacznie bardziej szczegółowe, a wersja ES6
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
-
-
 ### Czy możesz podać przypadek użycia nowej składni funkcji arrow =>? Czym ta nowa składnia różni się od innych funkcji?
 
 Jedną oczywistą zaletą funkcji strzałek jest uproszczenie składni potrzebnej do tworzenia funkcji, bez potrzeby stosowania słowa kluczowego `function`. Funkcja `this` w funkcjach strzałek jest również związana z otaczającym zakresem, który jest inny w porównaniu do zwykłych funkcji, w których `this` jest określane przez obiekt wywołujący go. Leksykonowalne `this` jest przydatne, gdy wywołuje się callbacki, szczególnie w komponentach React.
-
-
 
 ### Jaka jest zaleta korzystania ze składni arrow syntax dla metody w konstruktorze?
 
@@ -1261,8 +1167,6 @@ Może to być szczególnie pomocne w komponentach klasy React. Jeśli zdefiniuje
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 - https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
-
-
 ### Jaka jest definicja funkcji wyższego rzędu?
 
 Funkcja wyższego rzędu to dowolna funkcja, która przyjmuje jedną lub więcej funkcji jako argumenty, których używa do działania na niektórych danych i / lub zwraca w rezultacie funkcję. Funkcje wyższego rzędu mają na celu wyodrębnienie niektórych operacji, które są wykonywane wielokrotnie. Klasycznym przykładem tego jest `map`, który przyjmuje tablicę i funkcję jako argumenty. `map` następnie używa tej funkcji do transformacji każdego elementu w tablicy, zwracając nową tablicę z transformowanymi danymi. Inne popularne przykłady w JavaScript to `forEach`, `filter` i `reduce`. Funkcja wyższego rzędu nie musi tylko manipulować tablicami, ponieważ istnieje wiele przypadków użycia do zwrócenia funkcji z innej funkcji. `Function.prototype.bind` jest jednym z takich przykładów w JavaScript.
@@ -1302,8 +1206,6 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
-
-
 
 ### Czy możesz podać przykład destrukturyzacji obiektu lub tablicy?
 
@@ -1346,8 +1248,6 @@ console.log(q); // true
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
-
-
 
 ### ES6 Template Literals oferują dużą elastyczność w generowaniu ciągów, czy możesz podać przykład?
 
@@ -1414,8 +1314,6 @@ document.body.innerHTML = `
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
-
-
 ### Czy możesz podać przykład curry function i dlaczego ta składnia ma tę zaletę?
 
 Currying to wzorzec, w którym funkcja z więcej niż jednym parametrem jest podzielona na wiele funkcji, które po wywołaniu szeregowym będą gromadzić wszystkie wymagane parametry pojedynczo. Ta technika może być użyteczna do ułatwienia czytania i komponowania kodu napisanego w funkcjonalnym stylu. Ważne jest, aby pamiętać, że aby funkcja była curry, musi zacząć od jednej funkcji, a następnie podzielić ją na sekwencję funkcji, z których każda akceptuje jeden parametr.
@@ -1451,8 +1349,6 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ###### Bibliografia
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
-
-
 
 ### Jakie są zalety korzystania ze składni spread syntax i czym różni się od rest syntax?
 
@@ -1498,8 +1394,6 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-
-
 ### Jak współdzielić kod między plikami?
 
 To zależy od środowiska JavaScript.
@@ -1509,8 +1403,6 @@ Na kliencie (środowisko przeglądarki), o ile zmienne / funkcje są zadeklarowa
 Na serwerze (Node.js) powszechnym sposobem było użycie CommonJS. Każdy plik jest traktowany jako moduł i może eksportować zmienne i funkcje, dołączając je do obiektu `module.exports`.
 
 ES2015 definiuje składnię modułu, która ma zastąpić zarówno AMD, jak i CommonJS. To będzie ostatecznie obsługiwane zarówno w przeglądarce, jak i w środowisku Node.
-
-
 
 ###### Bibliografia
 
@@ -1525,8 +1417,6 @@ Statyczne elementy klasy (właściwości / metody) nie są powiązane z konkretn
 ###### Bibliografia
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
-
-
 
 ### Inne odpowiedzi
 

@@ -28,8 +28,6 @@ import TOCInline from '@theme/TOCInline';
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-
-
 ### `Resetting`과 `Normalizing` CSS의 차이점은 무엇인가요? 당신은 무엇을 선택할 것이며, 그 이유는 무엇인가요?
 
 - **Resetting** - Resetting은 요소의 모든 기본 브라우저 스타일을 제거하기 위한 것입니다. 예: `margin`, `padding`, `font-size`는 같은 값으로 재설정됩니다. 일반적인 타이포그래피 요소에 대한 스타일을 재 선언해야합니다.
@@ -41,8 +39,6 @@ import TOCInline from '@theme/TOCInline';
 ###### 참고자료
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
-
-
 
 ### `float`가 어떻게 작동하는지 설명하세요.
 
@@ -70,8 +66,6 @@ CSS `clear` 속성은 float 요소에 `left`/`right`/`both`에 위치하도록 �
 
 - https://css-tricks.com/all-about-floats/
 
-
-
 ### `z-index`와 스택 컨텍스트(stacking context)가 어떻게 형성되는지 설명하세요.
 
 CSS의 `z-index`속성은 겹치는 요소의 쌓임 순서를 제어합니다. `z-index`는 `position`에 `static`이 아닌 값을 갖는 요소에만 영향을 줍니다.
@@ -87,8 +81,6 @@ CSS의 `z-index`속성은 겹치는 요소의 쌓임 순서를 제어합니다. 
 - https://css-tricks.com/almanac/properties/z/z-index/
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
-
-
 
 ### BFC(Block Formatting Context)와 그 작동 방식을 설명하세요.
 
@@ -110,8 +102,6 @@ BFC collapse 시에 인접한 블록 레벨 박스 사이의 수직 마진. [col
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-
-
 ### clear 하는 방법에는 어떤 것이 있으며, 각각 어떤 상황에 적합한가요?
 
 - 빈 `div` 방법 - `<div style="clear:both;"></div>`
@@ -119,8 +109,6 @@ BFC collapse 시에 인접한 블록 레벨 박스 사이의 수직 마진. [col
 - `overflow: auto` 또는 `overflow: hidden` 방법 - 부모는 새로운 Block Formatting Context를 설정하고, 확장된 자식을 포함하도록 합니다.
 
 대규모의 프로젝트에서는 유용하게 `.clearfix` 클래스를 만들어 필요한 곳에서 사용합니다. 자식이 부모보다 크기가 큰 경우 `overflow: hidden`은 자식을 모두 보여줄 수 없습니다.
-
-
 
 ### CSS 스프라이트는 무엇인가요? 그리고 당신이 페이지나 사이트에 구현하는 방법도 설명해 주세요.
 
@@ -139,16 +127,12 @@ CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합�
 
 - https://css-tricks.com/css-sprites/
 
-
-
 ### 브라우저 별로 스타일이 다른 문제를 어떤 접근 방법으로 해결하나요?
 
 - 문제와 그 문제를 일으키는 브라우저를 식별한 후, 해당 브라우저가 사용 중일 때만 로드되는 별도의 스타일 시트를 사용합니다. 하지만 이 방식을 사용하려면 서버사이드 렌더링이 필요합니다.
 - 이미 이러한 스타일링 문제를 처리하고 있는 Bootstrap 같은 라이브러리를 사용합니다.
 - `autoprefixer`를 사용하여 벤더 프리픽스를 코드에 자동으로 추가합니다.
 - Reset CSS 또는 Normalize.css를 사용합니다.
-
-
 
 ### 기능이 제한된 브라우저의 페이지는 어떻게 처리하나요? 어떤 기술/프로세스를 사용하나요?
 
@@ -158,8 +142,6 @@ CSS 스프라이트는 여러 이미지를 하나의 큰 이미지로 결합합�
 - 자동 벤더 프리픽스 삽입을 위해 Autoprefixer 사용.
 - [Modernizr](https://modernizr.com/)를 사용하여 기능 감지.
 - CSS Feature 쿼리 [@support](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) 사용.
-
-
 
 ### 콘텐츠를 시각적으로 숨기는(그리고 screen reader에서만 사용할 수 있게 만드는) 다양한 방법은 무엇인가요?
 
@@ -179,19 +161,13 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 - http://a11yproject.com/
 
-
-
 ### 그리드 시스템을 사용해본적 있나요? 만약 그렇다면, 당신은 어떤 것을 선호하나요?
 
 저는는 `float` 기반 그리드 시스템을 좋아합니다. 왜냐하면, 여전히 기존 대체할만한 시스템(flex, grid) 중에서도 가장 많은 브라우저를 지원하기 때문입니다. 이것은 `Bootstrap`에서 수 년동안 사용되었으며, 효과가 있다는 것이 입증되었습니다.
 
-
-
 ### 미디어 쿼리나 모바일만을 위한 layouts/CSS를 사용하거나 구현해본적 있나요?
 
 네. 한가지 예를 들면, 여러 줄 형식의 네비게이션을 특정 breakpoint를 지나면 `fixed-bottom tab` 형태로 변환하였습니다.
-
-
 
 ### SVG 스타일링에 익숙하신가요?
 
@@ -208,15 +184,12 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
   stroke="blue"
   fill="purple"
   fill-opacity="0.5"
-  stroke-opacity="0.8"
-/>
+  stroke-opacity="0.8" />
 ```
 
 ###### 참고자료
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
-
-
 
 ### screen이 아닌 @media 속성의 예를 들어줄 수 있나요?
 
@@ -241,8 +214,6 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
-
-
 ### 효율적인 CSS를 작성하는데 있어서 어려움은 무엇인가요?
 
 먼저, 브라우저는 선택자가 맨 오른쪽(key 선택자)부터 왼쪽으로 일치하는지 확인합니다. 브라우저는 선택자에 따라 DOM의 요소를 필터링하고 해당 부모요소가 일치하는지 식별합니다. 선택자 체인의 길이가 짧을수록 브라우저는 해당 요소가 선택자와 일치하는지 여부를 빠르게 판별할 수 있습니다. 따라서 태그 선택자와 보편적인 선택자 사용을 피해야 합니다. 이들은 많은 요소가 매치되기 때문에 부모가 일치하는지 여부를 판단하기 위해 브라우저가 많은 작업을 해야합니다.
@@ -255,8 +226,6 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
 
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
-
-
 
 ### CSS 전처리기를 사용하면 어떤 장단점이 있나요?
 
@@ -272,8 +241,6 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
 
 - 전처리기를 위한 도구가 필요합니다. 다시 컴파일하는 시간이 느릴 수도 있습니다.
 
-
-
 ### 사용했던 CSS 전처리기에 대해 좋았던 점과 싫었던 점을 설명해주세요.
 
 **좋은 점:**
@@ -286,13 +253,9 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
 - 저는 C++로 작성된 LibSass 바인딩인 `node-sass`를 통해 Sass를 사용합니다. 노드 버전을 바꿀 때 자주 다시 컴파일해야 했습니다.
 - Less에서는 변수 이름의 접두어가 `@`이며, `@media`, `@import`, `@font-face` 규칙과 같은 고유 CSS 키워드와 혼동될 수 있습니다.
 
-
-
 ### 비표준 글꼴을 사용하는 웹 디자인 컴포넌트를 어떻게 구현하나요?
 
 `font-face`를 사용하고 `font-weight`가 다른 경우 `font-family`를 정의합니다.
-
-
 
 ### 브라우저가 CSS 선택자에 일치하는 요소를 어떻게 결정하는지 설명하세요.
 
@@ -303,8 +266,6 @@ WAI-ARIA가 이상적인 해결책이라 하더라도 저는 `absolute` 위치 �
 ###### 참고자료
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
-
-
 
 ### Pseudo-elements에 대해 설명하고 이 요소가 무엇을 위해 사용되는지 설명하세요.
 
@@ -317,8 +278,6 @@ CSS Pseudo-element는 선택자에 추가되는 키워드로, 선택한 요소�
 ###### 참고자료
 
 - <https://css-tricks.com/almanac/selectors/a/after-and-before/>
-
-
 
 ### 박스 모델에 대한 당신의 이해와 CSS에서 브라우저에 다른 박스 모델로 레이아웃을 렌더링하는 방법을 설명하세요.
 
@@ -343,8 +302,6 @@ CSS 박스 모델은 다음을 계산합니다.
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-
-
 ### `* { box-sizing: border-box; }`는 무엇을 하나요? 장점은 무엇인가요?
 
 - 기본적으로, 요소들에 `box-sizing: content-box`가 적용되면, 내용의 크기만 고려됩니다.
@@ -357,15 +314,11 @@ CSS 박스 모델은 다음을 계산합니다.
 
 - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 
-
-
 ### CSS의 `display` 속성은 무엇이며 사용법에 대한 몇 가지 예를 들 수 있나요?
 
 - `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
 TODO
-
-
 
 ### `inline` 과 `inline-block` 의 차이점은 무엇인가요?
 
@@ -379,8 +332,6 @@ TODO
 | `vertical-align` 정렬 가능 여부 | 불가능 | 가능 | 가능 |
 | margin 과 padding | 모든 방향에서 가능. | 모든 방향에서 가능. | 수평방향만 가능. 세로방향을 지정하면, 레이아웃에 영향을 주지 않습니다. `border`와 `padding`이 콘텐츠 주위에 시각적으로 나타나는 경우에도, 수직영역은 `line-height`에 의존합니다. |
 | Float | - | - | 수직 margin과 padding을 설정할 수 있는 `block` 요소와 같아집니다. |
-
-
 
 ### `relative`, `fixed`, `absolute`, `static` 요소의 차이점은 무엇인가요?
 
@@ -396,15 +347,11 @@ TODO
 
 - https://developer.mozilla.org/en/docs/Web/CSS/position
 
-
-
 ### 로컬이나 프로덕션 환경에서 사용했던 CSS 프레임워크는 무엇인가요? 어떻게 그들을 바꾸거나 개선할 수 있을까요?
 
 - **Bootstrap** - 느린 배포 주기. 부트스트랩 4는 거의 2년 동안 알파버전 상태였습니다. 널리 사용되는 Spinner 버튼 컴포넌트를 추가합니다.
 - **Semantic UI** - 소스 코드 구조는 테마 커스터마이징을 이해하기 어렵게 만듭니다. 틀에 얽매이지 않는 테마 시스템으로 사용자 정의하기가 어렵습니다. 벤더 라이브러리 내의 하드 코딩된 설정 경로. 부트스트랩과 달리 변수 오버라이드에 대해 잘 설계되지 않았습니다.
 - **Bulma** - 많은 의미없고 불필요한 클래스와 마크업을 필요로 합니다. 이전 버전과 호환되지 않습니다. 버전을 업그레이드하면 미묘한 방식으로 앱이 손상됩니다.
-
-
 
 ### 새로운 CSS Flexbox나 Grid 스펙을 사용해본 적이 있나요?
 
@@ -417,8 +364,6 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 ###### 참고자료
 
 - https://philipwalton.github.io/solved-by-flexbox/
-
-
 
 ### 반응형 웹사이트를 코딩하는 것과 모바일 우선 전략을 사용하는 것 사이의 차이점을 설명하세요.
 
@@ -459,8 +404,6 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 - 모바일 장치에서 적용되는 모든 규칙이 미디어 쿼리에 대해 유효성 검사를 받을 필요가 없으므로 모바일 장치에서 더 뛰어난 성능을 발휘합니다.
 - 반응형 CSS 규칙과 관련하여 보다 명확한 코드를 작성해야합니다.
 
-
-
 ### 반응형 디자인은 적응형 디자인과 어떻게 다른가요?
 
 반응형과 적응형 디자인은 모두 서로 다른 뷰포트 사이즈, 해상도, 사용 컨텍스트, 제어 메커니즘 등을 조정하여 다양한 장치에서 사용자 경험을 최적화하려고 시도합니다.
@@ -474,8 +417,6 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 - https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
-
-
 
 ### 레티나 그래픽으로 작업 해본 적이 있나요? 그렇다면, 언제, 어떤 기술을 사용하였나요?
 
@@ -499,8 +440,7 @@ _레티나_ 는 픽셀 비율이 1보다 큰 고해상도 화면을 나타내는
       /images/test-400.jpg   400w,
       /images/test-800.jpg   800w,
       /images/test-1200.jpg 1200w
-    "
-  />
+    " />
 </div>
 ```
 
@@ -514,8 +454,6 @@ HTML5의 `srcset`를 지원하지 않는 브라우저(예: IE11)는 이를 무�
 - http://scottjehl.github.io/picturefill/
 - https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
 
-
-
 ### `absolute` 포지셔닝 대신 `translate()`를 사용하는 이유가 무엇인가요? 또는 그 반대의 경우에 대해서는 어떻게 생각하시나요?, 그 이유는 무엇인가요?
 
 `translate()`은 CSS `transform`의 값입니다. `transform`이나 `opacity`를 변경해도 브라우저의 reflow나 repaint가 다시 발생하지 않고 컴포지션만 실행되는 반면, 절대 위치를 변경하면 `reflow`가 발생합니다. `transform`을 사용하면 브라우저에서 이 요소를 위한 GPU 레이어가 생성되지만, 절대 위치 속성을 변경하는 것은 CPU를 사용합니다. 그러므로 `translate()`가 더 효율적이며, 매끄러운 애니메이션을 위한 페인트 시간이 짧아집니다.
@@ -525,8 +463,6 @@ HTML5의 `srcset`를 지원하지 않는 브라우저(예: IE11)는 이를 무�
 ###### 참고자료
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
-
-
 
 ### 다른 답변들
 

@@ -26,8 +26,6 @@ Die DOCTYPE Spezifikation für den HTML5 Standard ist `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-
-
 ### Wie lieferst du eine Seite mit Inhalten in verschiedenen Sprachen aus?
 
 Ich gehe davon aus, dass es sich um den häufigsten Fall handelt: Wie kann eine Seite mit Inhalten bedient werden, die in mehreren Sprachen verfügbar ist. Dabei soll der Inhalt innerhalb der Seite nur in einer konsistenten Sprache angezeigt werden.
@@ -45,8 +43,6 @@ Im Backend enthält das HTML-Markup `i18n'-Platzhalter und Inhalte für die jewe
 - https://www.w3.org/International/getting-started/language
 - https://support.google.com/webmasters/answer/189077
 
-
-
 ### Vor welchen Dingen solltest du dich hüten, wenn du mehrsprachige Websites designst oder entwickelst?
 
 - Setze im HTML das `lang` Attribut.
@@ -63,8 +59,6 @@ Im Backend enthält das HTML-Markup `i18n'-Platzhalter und Inhalte für die jewe
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### Wofür sind `data-` Attribute nützlich?
 
 Bevor JavaScript-Frameworks populär wurden, benutzten Front-End-Entwickler `data-` Attribute, um zusätzliche Daten innerhalb des DOM selbst zu speichern. Sie dienen zum Speichern benutzerdefinierter Daten, für die es keine passenderen Attribute oder Elemente gibt.
@@ -77,8 +71,6 @@ Das Hinzufügen eines Hooks für _end to end_ Testframeworks wie Selenium und Ca
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### Stelle dir HTML5 als eine offene Internetplattform vor. Was sind die Basiskomponenten von HTML5?
 
@@ -94,8 +86,6 @@ Das Hinzufügen eines Hooks für _end to end_ Testframeworks wie Selenium und Ca
 ###### Referenzen
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
-
-
 
 ### Beschreibe die Unterschiede zwischen `Cookies`, `sessionStorage` und `localStorage`.
 
@@ -117,8 +107,6 @@ _Hinweis: Löscht der Nutzer seine Browser-Daten s zu löschen, löscht dies auc
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### Beschreibe die Unterschiedie zwischen `<script>`, `<script async>` und `<script defer>`.
 
 - `<script>` - Das HTML-Parsing wird blockiert, das Skript wird geholt (gefetcht) und sofort ausgeführt, das HTML-Parsing wird nach Ausführung des Scripts fortgesetzt.
@@ -132,8 +120,6 @@ Hinweis: Die Attribute `async` und `defer` werden für Skripte ignoriert, die ke
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### Warum ist es eine gute Idee, die `<link>`s zum CSS-Stylesheet inneralb der `<head></head>` Tags zu platzieren und die JS `<script>`s direkt vorm `</body>` einzubinden? Würdest du Ausnahmen machen?
 
@@ -155,8 +141,6 @@ Denke daran, dass das Einfügen von Scripten vor dem schließenden `</body>`-Tag
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-
-
 ### Was ist progressives Rendern?
 
 "Progressive rendering" (progressive Wiedergabe) bezeichnet Techniken zur Verbesserung der Leistung einer Webseite (insbesondere zur Verbesserung der wahrgenommenen Ladezeit), da Inhalte so schnell wie möglich dargestellt werden können.
@@ -173,8 +157,6 @@ Beispiele für diese Technologie:
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### Warum würdest du ein `srcset` Attribute in ein image tag einsetzen? Erkläre wie der Browser bei der Auswertung des Inhalts dieses Attributs vorgeht.
 
@@ -195,13 +177,9 @@ Durch `srcset`s lassen sich Bilddateien Geräte- und Auflösungsspezifisch ausli
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-
-
 ### Hast du Erfahrungen mit unterschiedlichen HTML templating languages gemacht?
 
 Ja, Pug (früher Jade), ERB, Slim, Handlebars, Jinja, Liquid und EJS, um nur einige zu nennen. Meiner Meinung nach sind sie mehr oder weniger gleich und bieten eine ähnliche Funktionalität: Inhalte zu "escapen" und die anzuzeigenden Daten zu Filter um beispielsweise ihre Darstellung zu manipulieren. Die meisten Template-Engines erlauben es, eigene Filter einzufügen, falls eine benutzerdefinierte Verarbeitung benötigt wird.
-
-
 
 ### Andere Antworten
 

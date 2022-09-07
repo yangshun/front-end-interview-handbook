@@ -114,7 +114,7 @@ c.constructor.name;
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
 - https://crockford.com/javascript/prototypal.html
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain 
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 ### Explique la diferencia cuando una variable es: `null`, `undefined` o `undeclared`. Como chequearia cada uno de estos estados?
 
@@ -163,8 +163,6 @@ Como recomendación personal, nunca dejar las variables no declaradas o no asign
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-
-
 ### Que es una closure, y como/porque se utilizaria?
 
 Una **closure** es la combinación de una función con el entorno lexico en el cual se declara dicha función. La palabra `lexico` hace referencia al hecho de que el contexto lexico referencia donde se declara una variable dentro del código para determinar que parte del código puede acceder a dicha variable. Una closure es una función que tiene acceso a las variables declaradas en el contexto externo aún cuando la función externa ya haya finalizado su ejecución.
@@ -178,5 +176,3 @@ Una **closure** es la combinación de una función con el entorno lexico en el c
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
-

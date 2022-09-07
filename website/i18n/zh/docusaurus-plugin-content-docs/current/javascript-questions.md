@@ -20,8 +20,6 @@ import TOCInline from '@theme/TOCInline';
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-
-
 ### 请简述`JavaScript`中的`this`。
 
 JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清楚的。粗略地讲，函数的调用方式决定了`this`的值。我阅读了网上很多关于`this`的文章，[Arnav Aggrawal](https://medium.com/@arnav_aggarwal) 写的比较清楚。`this`取值符合以下规则：
@@ -40,8 +38,6 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-
-
 ### 请解释原型继承（prototypal inheritance）的工作原理。
 
 这是一个非常常见的 JavaScript 问题。所有 JS 对象都有一个`__proto__`属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，[但是与其说是继承，不如说是委托（delegation）](https://davidwalsh.name/javascript-objects)。
@@ -50,8 +46,6 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
-
-
 
 ### 说说你对 AMD 和 CommonJS 的了解。
 
@@ -65,8 +59,6 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
-
-
 
 ### 请解释下面代码为什么不能用作 IIFE：`function foo(){ }();`，需要作出哪些修改才能使其成为 IIFE？
 
@@ -88,8 +80,6 @@ console.log(foo); // undefined
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
-
-
 
 ### `null`、`undefined`和未声明变量之间有什么区别？如何检查判断这些状态值？
 
@@ -135,8 +125,6 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-
-
 ### 什么是闭包（closure），为什么使用闭包？
 
 闭包是函数和声明该函数的词法环境的组合。词法作用域中使用的域，是变量在代码中声明的位置所决定的。闭包是即使被外部函数返回，依然可以访问到外部（封闭）函数作用域的函数。
@@ -150,8 +138,6 @@ console.log(foo == undefined); // true. 错误，不要使用非严格相等！
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
-
 
 ### 请说明`.forEach`循环和`.map()`循环的主要区别，它们分别在什么情况下使用？
 
@@ -192,8 +178,6 @@ const doubled = a.map((num) => {
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-
-
 ### 匿名函数的典型应用场景是什么？
 
 匿名函数可以在 IIFE 中使用，来封装局部作用域内的代码，以便其声明的变量不会暴露到全局作用域。
@@ -227,8 +211,6 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-
-
 ### 你如何组织自己的代码？（使用模块模式（module pattern）还是经典继承（classical inheritance）？）
 
 我以前使用 Backbone 组织我的模型（model），Backbone 鼓励采用面向对象的方法——创建 Backbone 模型，并为其添加方法。
@@ -236,8 +218,6 @@ console.log(double); // [2, 4, 6]
 模块模式仍然是很好的方式，但是现在我使用基于 React/Redux 的 Flux 体系结构，它鼓励使用单向函数编程的方法。我用普通对象（plain object）表示我的 app 模型，编写实用纯函数去操作这些对象。使用动作（actions）和化简器（reducers）来处理状态，就像其他 Redux 应用一样。
 
 我尽可能避免使用经典继承。如果非要这么做，我会坚持[这些原则](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)。
-
-
 
 ### 宿主对象（host objects）和原生对象（native objects）的区别是什么？
 
@@ -248,8 +228,6 @@ console.log(double); // [2, 4, 6]
 ###### 参考
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
-
-
 
 ### 下列语句有什么区别：`function Person(){}`、`var person = Person()`和`var person = new Person()`？
 
@@ -277,8 +255,6 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-
-
 ### `.call`和`.apply`有什么区别？
 
 `.call`和`.apply`都用于调用函数，第一个参数将用作函数内 this 的值。然而，`.call`接受逗号分隔的参数作为后面的参数，而`.apply`接受一个参数数组作为后面的参数。一个简单的记忆方法是，从`call`中的 C 联想到逗号分隔（comma-separated），从`apply`中的 A 联想到数组（array）。
@@ -292,8 +268,6 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-
-
 ### 请说明`Function.prototype.bind`的用法。
 
 摘自[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)：
@@ -306,8 +280,6 @@ console.log(add.apply(null, [1, 2])); // 3
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-
-
 ### 什么时候会用到`document.write()`？
 
 `document.write()`用来将一串文本写入由`document.open()`打开的文档流中。当页面加载后执行`document.write()`时，它将调用`document.open`，会清除整个文档（`<head>`和`<body>`会被移除！），并将文档内容替换成给定的字符串参数。因此它通常被认为是危险的并且容易被误用。
@@ -318,8 +290,6 @@ console.log(add.apply(null, [1, 2])); // 3
 
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
-
-
 
 ### 功能检测（feature detection）、功能推断（feature inference）和使用 UA 字符串之间有什么区别？
 
@@ -359,8 +329,6 @@ if (document.getElementsByTagName) {
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-
-
 ### 请尽可能详细地解释 Ajax。
 
 Ajax（asynchronous JavaScript and XML）是使用客户端上的许多 Web 技术，创建异步 Web 应用的一种 Web 开发技术。借助 Ajax，Web 应用可以异步（在后台）向服务器发送数据和从服务器检索数据，而不会干扰现有页面的显示和行为。通过将数据交换层与表示层分离，Ajax 允许网页和扩展 Web 应用程序动态更改内容，而无需重新加载整个页面。实际上，现在通常将 XML 替换为 JSON，因为 JavaScript 对 JSON 有原生支持优势。
@@ -371,8 +339,6 @@ Ajax（asynchronous JavaScript and XML）是使用客户端上的许多 Web 技�
 
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
-
-
 
 ### 使用 Ajax 的优缺点分别是什么？
 
@@ -389,8 +355,6 @@ Ajax（asynchronous JavaScript and XML）是使用客户端上的许多 Web 技�
 - 如果 JavaScript 已在浏览器中被禁用，则不起作用。
 - 有些网络爬虫不执行 JavaScript，也不会看到 JavaScript 加载的内容。
 - 基本上包括大部分 SPA 的缺点。
-
-
 
 ### 请说明 JSONP 的工作原理，它为什么不是真正的 Ajax？
 
@@ -424,8 +388,6 @@ JSONP 可能具有一些安全隐患。由于 JSONP 是纯 JavaScript 实现，�
 
 - https://stackoverflow.com/a/2067584/1751946
 
-
-
 ### 你使用过 JavaScript 模板吗？用过什么相关的库？
 
 使用过。Handlebars、Underscore、Lodash、AngularJS 和 JSX。我不喜欢 AngularJS 中的模板，因为它在指令中大量使用了字符串，并且书写错误会被忽略。JSX 是我的新宠，因为它更接近 JavaScript，几乎没有什么学习成本。现在，可以使用 ES2015 模板字符串快速创建模板，而不需依赖第三方代码。
@@ -435,8 +397,6 @@ const template = `<div>My name is: ${name}</div>`;
 ```
 
 但是，请注意上述方法中可能存在的 XSS，因为内容不会被转义，与模板库不同。
-
-
 
 ### 请解释变量提升（hoisting）。
 
@@ -474,13 +434,9 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-
-
 ### 请描述事件冒泡。
 
 当一个事件在 DOM 元素上触发时，如果有事件监听器，它将尝试处理该事件，然后事件冒泡到其父级元素，并发生同样的事情。最后直到事件到达祖先元素。事件冒泡是实现事件委托的原理（event delegation）。
-
-
 
 ### “attribute” 和 “property” 之间有什么区别？
 
@@ -503,8 +459,6 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-
-
 ### 为什么扩展 JavaScript 内置对象是不好的做法？
 
 扩展 JavaScript 内置（原生）对象意味着将属性或方法添加到其`prototype`中。虽然听起来很不错，但事实上这样做很危险。想象一下，你的代码使用了一些库，它们通过添加相同的 contains 方法来扩展`Array.prototype`，如果这两个方法的行为不相同，那么这些实现将会相互覆盖，你的代码将不能正常运行。
@@ -514,8 +468,6 @@ console.log(input.value); // Hello World!
 ###### 参考
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
-
-
 
 ### document 中的`load`事件和`DOMContentLoaded`事件之间的区别是什么？
 
@@ -527,8 +479,6 @@ console.log(input.value); // Hello World!
 
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
-
-
 
 ### `==`和`===`的区别是什么？
 
@@ -555,8 +505,6 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-
-
 ### 请解释关于 JavaScript 的同源策略。
 
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -564,8 +512,6 @@ console.log(a == undefined); // true
 ###### 参考
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
-
-
 
 ### 请使下面的语句生效：
 
@@ -581,8 +527,6 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-
-
 ### 请说明三元表达式中“三元”这个词代表什么？
 
 “三元”表示接受三个操作数：判断条件，`then`表达式和`else`表达式。三元表达式不是 JavaScript 特有的，我不知道这个问题为什么会出现在这里。
@@ -590,8 +534,6 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ###### 参考
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-
-
 
 ### 什么是`"use strict";`？使用它有什么优缺点？
 
@@ -620,8 +562,6 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-
-
 ### 创建一个循环，从 1 迭代到 100，`3`的倍数时输出 "fizz"，`5`的倍数时输出 "buzz"，同时为`3`和`5`的倍数时输出 "fizzbuzz"。
 
 来自 [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724)的 FizzBuzz。
@@ -640,13 +580,9 @@ for (let i = 1; i <= 100; i++) {
 
 - https://gist.github.com/jaysonrowe/1592432
 
-
-
 ### 为什么不要使用全局作用域？
 
 每个脚本都可以访问全局作用域，如果人人都使用全局命名空间来定义自己的变量，肯定会发生冲突。使用模块模式（IIFE）将变量封装在本地命名空间中。
-
-
 
 ### 为什么要使用`load`事件？这个事件有什么缺点吗？你知道一些代替方案吗，为什么使用它们？
 
@@ -659,8 +595,6 @@ TODO.
 ###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
-
-
 
 ### 请解释单页应用是什么，如何使其对 SEO 友好。
 
@@ -689,8 +623,6 @@ TODO.
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-
-
 ### 你对 Promises 及其 polyfill 的掌握程度如何？
 
 掌握它的工作原理。`Promise`是一个可能在未来某个时间产生结果的对象：操作成功的结果或失败的原因（例如发生网络错误）。 `Promise`可能处于以下三种状态之一：fulfilled、rejected 或 pending。 用户可以对`Promise`添加回调函数来处理操作成功的结果或失败的原因。
@@ -700,8 +632,6 @@ TODO.
 ###### 参考
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
-
-
 
 ### `Promise`代替回调函数有什么优缺点？
 
@@ -715,8 +645,6 @@ TODO.
 
 - 轻微地增加了代码的复杂度（这点存在争议）。
 - 在不支持 ES2015 的旧版浏览器中，需要引入 polyfill 才能使用。
-
-
 
 ### 用转译成 JavaScript 的语言写 JavaScript 有什么优缺点？
 
@@ -744,8 +672,6 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-
-
 ### 你使用什么工具和技巧调试 JavaScript 代码？
 
 - React 和 Redux
@@ -763,8 +689,6 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
 
-
-
 ### 你使用什么语句遍历对象的属性和数组的元素？
 
 **对象：**
@@ -779,8 +703,6 @@ Some examples of languages that compile to JavaScript include CoffeeScript, Elm,
 - `forEach`：`arr.forEach(function (el, index) { ... })`。这个语句结构有时会更精简，因为如果你所需要的只是数组元素，你不必使用`index`。还有`every`和`some`方法可以让你提前终止遍历。
 
 大多数情况下，我更喜欢`.forEach`方法，但这取决于你想要做什么。`for`循环有更强的灵活性，比如使用`break`提前终止循环，或者递增步数大于一。
-
-
 
 ### 请解释可变对象和不可变对象之间的区别。
 
@@ -825,15 +747,11 @@ console.log(student1, student2);
 - https://www.interviewcake.com/concept/java/mutable
 - https://www.sitepoint.com/immutability-javascript/
 
-
-
 ### 请解释同步和异步函数之间的区别。
 
 同步函数阻塞，而异步函数不阻塞。在同步函数中，语句完成后，下一句才执行。在这种情况下，程序可以按照语句的顺序进行精确评估，如果其中一个语句需要很长时间，程序的执行会停滞很长时间。
 
 异步函数通常接受回调作为参数，在调用异步函数后立即继续执行下一行。回调函数仅在异步操作完成且调用堆栈为空时调用。诸如从 Web 服务器加载数据或查询数据库等重负载操作应该异步完成，以便主线程可以继续执行其他操作，而不会出现一直阻塞，直到费时操作完成的情况（在浏览器中，界面会卡住）。
-
-
 
 ### 什么是事件循环？调用堆栈和任务队列之间有什么区别？
 
@@ -845,8 +763,6 @@ console.log(student1, student2);
 
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
-
-
 
 ### 请解释`function foo() {}`和`var foo = function() {}`之间`foo`的用法上的区别。
 
@@ -873,8 +789,6 @@ var foo = function () {
 ###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
-
-
 
 ### 使用`let`、`var`和`const`创建变量有什么区别？
 
@@ -956,8 +870,6 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-
-
 ### ES6 的类和 ES5 的构造函数有什么区别？
 
 让我们来看一个例子：
@@ -1009,13 +921,9 @@ class Student extends Person {
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
-
-
 ### 你能给出一个使用箭头函数的例子吗，箭头函数与其他函数有什么不同？
 
 一个很明显的优点就是箭头函数可以简化创建函数的语法，我们不需要在箭头函数前面加上 `function` 关键词。并且箭头函数的 `this` 会自动绑定到当前作用域的上下文中，这和普通的函数不一样。普通函数的 `this` 是在执行的时候才能确定的。箭头函数的这个特点对于回调函数来说特别有用，特别对于 React 组件而言。
-
-
 
 ### 在构造函数中使用箭头函数有什么好处？
 
@@ -1061,8 +969,6 @@ sayNameFromWindow2(); // John
 
 (想看更好的演示以及示例代码，可以打开这篇文章: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
 
-
-
 ### 高阶函数（higher-order）的定义是什么？
 
 高阶函数是将一个或多个函数作为参数的函数，它用于数据处理，也可能将函数作为返回结果。高阶函数是为了抽象一些重复执行的操作。一个典型的例子是`map`，它将一个数组和一个函数作为参数。`map`使用这个函数来转换数组中的每个元素，并返回一个包含转换后元素的新数组。JavaScript 中的其他常见示例是`forEach`、`filter`和`reduce`。高阶函数不仅需要操作数组的时候会用到，还有许多函数返回新函数的用例。`Function.prototype.bind`就是一个例子。
@@ -1102,8 +1008,6 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
-
-
 
 ### 请给出一个解构（destructuring）对象或数组的例子。
 
@@ -1146,8 +1050,6 @@ console.log(q); // true
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
-
-
 
 ### ES6 的模板字符串为生成字符串提供了很大的灵活性，你可以举个例子吗？
 
@@ -1205,8 +1107,6 @@ message; //"我来给大家介绍:张三的年龄是20."
 
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings
 
-
-
 ### 你能举出一个柯里化函数（curry function）的例子吗？它有哪些好处？
 
 柯里化（currying）是一种模式，其中具有多个参数的函数被分解为多个函数，当被串联调用时，将一次一个地累积所有需要的参数。这种技术帮助编写函数式风格的代码，使代码更易读、紧凑。值得注意的是，对于需要被 curry 的函数，它需要从一个函数开始，然后分解成一系列函数，每个函数都需要一个参数。
@@ -1242,8 +1142,6 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ###### 参考
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
-
-
 
 ### 使用扩展运算符（spread）的好处是什么，它与使用剩余参数语句（rest）有什么区别？
 
@@ -1289,8 +1187,6 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-
-
 ### 如何在文件之间共用代码？
 
 这取决于执行 JavaScript 的环境。
@@ -1300,8 +1196,6 @@ const {e, f, ...others} = {
 在服务器（Node.js）上，常用的方法是使用 CommonJS。每个文件都被视为一个模块，可以通过将它们附加到`module.exports`对象来导出变量和函数。
 
 ES2015 定义了一个模块语法，旨在替换 AMD 和 CommonJS。 这最终将在浏览器和 Node 环境中得到支持。
-
-
 
 ###### 参考
 
@@ -1316,8 +1210,6 @@ ES2015 定义了一个模块语法，旨在替换 AMD 和 CommonJS。 这最终�
 ###### 参考
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
-
-
 
 ### 其他答案
 

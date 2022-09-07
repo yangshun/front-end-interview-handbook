@@ -28,8 +28,6 @@ Mas gusto kong magsulat ng mga CSS na panuntunan na may mababang pagtitiyak ng s
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-
-
 ### Ano ang pagkakaiba sa pagitan ng "pag-reset" at "pag-normalize" ng CSS? saan sa dalawa ang iyong pipiliin, at bakit?
 
 - **Pag-reset** - Ang pag-reset ay sinadya upang i-strip ang lahat ng mga default na pag-istilo ng browser sa mga elemento. Halimbawa. mga `margin`,mga `padding`,mga `font-size` ng lahat ng mga elemento ay naka-set upang maging pareho. Kakailanganin mong ideklara ulit ang estilo para sa karaniwang mga elemento ng tipograpiya.
@@ -40,8 +38,6 @@ Mas pipiliin ko ang pagreset kung meron man akong mas pinasadya o hindi tipikal 
 ###### Mga Reperensiya
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
-
-
 
 ### Ilarawan ang mga `float` at kung paano sila gumagana.
 
@@ -69,8 +65,6 @@ Bilang alternatibo, Ibigay ang `overflow: auto` o `overflow: hidden` na katangia
 
 - https://css-tricks.com/all-about-floats/
 
-
-
 ### Ilarawan ang z-index at kung papaano nabuo ang konteksto.
 
 Ang `z-index` na katangian sa CSS ay kumokontrol sa bertikal na pagkaka-ayos na pagkakasalansan ng mga elemento na sumasapaw. Ang `z-index` ay nakakaapekto lamang sa mga elemento na may `position` na may halagang hindi `static`.
@@ -86,8 +80,6 @@ Ang bawat kontekstong nakasalansan ay nakatimpi - matapos ang mga nilalaman ng e
 - https://css-tricks.com/almanac/properties/z/z-index/
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
-
-
 
 ### Ilarawan ang BFK (Block Formatting na Konteksto) at papaaano ito gumagana.
 
@@ -109,8 +101,6 @@ Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa is
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-
-
 ### Ano ang iba't ibang teknik ng paglilinis at kung ano ang nararapat sa kung ano ang konteksto?
 
 - Walang laman na `div` na paraaan- `<div style="clear:both;"></div>`.
@@ -118,8 +108,6 @@ Ang mga bertikal na margin sa pagitan ng mga katabing kahon ng block-level sa is
 - `overflow: auto` o `overflow: hidden` na paraan - Magtatatag ang magulang ng isang bagong konteksto sa pag-format ng block at palawakin na naglalaman ng mga anak nito.
 
 Sa mga malaking proyekto, Gusto kong magsulat ng kagamitan na `.clearfix` na klase at gamitin ang mga ito sa mga lugar na kung saan ko kailangan. Ang `overflow: hidden` maaaring i-clip ang mga bata kung ang mga bata ay mas mataas kaysa sa magulang at hindi masyadong mainam.
-
-
 
 ### Ipaliwanag ang mga CSS na sprite, at papaano mo ipapatupad ang mga ito sa isang pahina o site.
 
@@ -138,16 +126,12 @@ Ang mga CSS na sprite ay pinagsasama ang maramihang mga imahe sa isang solong ma
 
 - https://css-tricks.com/css-sprites/
 
-
-
 ### Papaano mo didiskartehan ang pag-aayos ng mga ispisipik sa browser na pag-eestilo na isyu?
 
 - Matapos malaman ang isyu at ang nakakasakit na browser, gumamit ng isang hiwalay na estilo ng sheet na naglo-load lamang kapag ginagamit ang partikular na browser na iyon. Bagaman ang pamamaraan na ito ay nangangailangan ng pagrender sa panig ng serber.
 - Gumamit ng mga librerya kagaya ng Bootstrap na humahawak na ng mga estilo ng mga isyu para sa iyo.
 - Gumamit ng `autoprefixer` upang awtomatikong magdagdag ng mga prefix ng vendor sa iyong code.
 - Gumamit ng pa-reset sa CSS o kaya naman ay Normalize.css.
-
-
 
 ### Papaano mo inahahanda ang iyong mga pahina para sa mga browser na kulang sa tampok? Ano-ano ang mga teknik or proseso ang iyong ginagamit?
 
@@ -156,8 +140,6 @@ Ang mga CSS na sprite ay pinagsasama ang maramihang mga imahe sa isang solong ma
 - Gumamit ng [caniuse.com](https://caniuse.com/)upang suriin ang suporta sa tampok.
 - Autoprefixer para sa pagpapasok ng prefix ng awtomatikong vendor.
 - Pag-detect ng mga tampok gamit ang [Modernizr](https://modernizr.com/).
-
-
 
 ### Ano-ano ang mga iba't ibang pamamaraan upang matago ang nakatagong nilalaman (at gawan ng paraan na ito ay magagamit lamang ng mga mambabasa ng iskrin)?
 
@@ -177,25 +159,17 @@ Kahit na ang WAI-ARIA ay ang angkop na solusyon, Ako ay pupunta parin sa `absolu
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 - http://a11yproject.com/
 
-
-
 ### Ikaw ba ay nakagamit kailanman ng sistemang grid?, at kung gayon, Ano ang iyong mas pipiliin?
 
 Gusto ko ang `float`na batay sa sistemang grid dahil mayroon pa rin itong pinakamaraming suportado ng browser sa mga alternatibong umiiral na mga sistema (flex, grid). Ginamit na ito sa Bootstrap nang maraming taon at napatunayan na ito ay gumagana.
-
-
 
 ### Ikaw ba ay nakagamit oh nakapagpatupad na ng mga query sa mobile o mga layout na espisipik sa mobile/CSS?
 
 OO. Ang isang halimbawa ay ang pagbabago ng isang nakasalansan na pag-navigate ng pill sa isang fixed-bottom na tab na navigation na lampas sa isang tiyak yugto ng pagpatlang.
 
-
-
 ### Ikaw ba ay pamilyar sa estilong SVG?
 
 Hindi... Sa kasamaang palad
-
-
 
 ### Makapagbibigay kaba ng halimbawa ng klase ng @media maliban sa iskrin?
 
@@ -220,8 +194,6 @@ Narito ang isang halimbawa ng paggamit ng `print` na uri ng media:
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
-
-
 ### Ano-ano ang ilan sa mga "pasabog" para sa epektibong pagsusulat ng CSS?
 
 Una, unawain na ang mga browser ay tumutugma sa mga tagapili mula sa pinaka-kanang (tagapili ng key) papunta sa kaliwa. Sinasala ng mga browser ang mga elemento sa DOM ayon sa tagapili ng susi, at dumaan ang mga elemento ng magulang nito upang matukoy ang mga tugma. Sa pag-ikli chain ng tagapili, ay siyang pagbilis ng pagtukoy ng browser kung ang elementong iyon ay tumutugma sa tagapili. Kaya iwasan ang mga tagapili ng key na tag at mga pandaigdigang tagapili. Sila ay tugma sa isang malaking bilang ng mga elemento at ang mga browser ay kailangang gumawa ng mas maraming trabaho sa pagtukoy kung ang mga magulang ay tumutugma.
@@ -234,8 +206,6 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
-
-
 
 ### Ano ang mga pakinabang o di-pakinabang ng paggamit ng mga preprocessors ng CSS?
 
@@ -251,8 +221,6 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 
 - Nangangailangan ng mga gamit para sa pag-preprocess. Maaaring ang oras ng pag-compile ulit ay magiging.
 
-
-
 ### Ilarawan kung ano ang iyong gusto at di gusto tungkol sa CSS na mga preprocessor na iyong nagamit.
 
 **Mga Gusto:**
@@ -265,13 +233,9 @@ Maging maingat kung aling mga katangian ng CSS ang mag-trigger ng reflow, repain
 - Gumagamit ako ng Sass sa pamamagitan ng `node-sass`, na kung saan ay naka-bisa para sa LibSass na nakasulat sa C++. Ako ay madalas na mag-recompile nito kapag ako ay lumilipat sa pagitan ng mga bersyon ng node.
 - Sa maliit, ang mga variable na pangalan ay naka-prefix sa `@`, na maaaring malito sa katutubong mga keyword sa CSS tulad ng `@ media`,`@ import` at `@ font-face` na panuntunan.
 
-
-
 ### Papaano mo ipapatupad ang isang web design comp na gumagamit ng mga di pangkaraniwang font?
 
 Gumamit ng `@font-face` at tukuyin ang `font-family` para sa ibang mga `font-weight`.
-
-
 
 ### Ipaliwanag kung paano tinutukoy ng isang browser kung anu-anong mga elemento ang tumutugma sa tagapili ng CSS.
 
@@ -283,8 +247,6 @@ Halimbawa ay sa tagapiling `p span` na ito, unang hahanapin ng mga browser ang l
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
-
-
 ### Ilarawan ang mga elementong pseudo at talakayin kung para saan ito gagamitin.
 
 Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-daan sa iyo ng pag-eestilo ng isang tiyak na bahagi ng piniling elemento(s). Maaari silang magamit para sa dekorasyon (`:first-line`, `:first-letter`) o pagdaragdag ng mga elemento sa markup (kasama ng `content: ...`) na hindi na kailangang baguhin pa ang markup (`:before`, `:after`).
@@ -295,8 +257,6 @@ Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-
   ###### RMga Reperensiya
 
 - https://css-tricks.com/almanac/selectors/a/after-and-before/
-
-
 
 ### Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.
 
@@ -321,8 +281,6 @@ Ang modelo ng kahon ay may mga sumusunod na panuntunan:
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-
-
 ### Ano ang ginagawa ng `* { box-sizing: border-box; }`? Anu-ano ang mga pakinabang nito?
 
 - Bilang default, ang mga elemento ay may `box-sizing: content-box` na naipapatupad, at tanging ang laki ng nilalaman lang ang siyang binibilang.
@@ -330,15 +288,11 @@ Ang modelo ng kahon ay may mga sumusunod na panuntunan:
 - Ang `taas` ng isang elemento ay kinalkula ngayon ng lapad ng`taas` + bertikal na `padding` + bertikal na `border`.
 - Ang `lapad` ng isang elemento ay kinakalkula ngayon ng `lapad` ng nilalaman + pahalang na `padding` + pahalang na `border`.
 
-
-
 ### Ano ang katangian ng CSS na `display` at pwede ka bang magbigay ng ilang mga halimbawa ng paggamit nito?
 
 - `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
 TODO
-
-
 
 ### Ano ang pagkakaiba sa pagitan ng `inline` at `inline-block`?
 
@@ -352,8 +306,6 @@ Ako ay magbibigay ng isang paghahambing sa `block` para sa mahusay na panukalang
 | Maaaring nakahanay sa `vertical-align` | Hindi | Oo | Oo |
 | Mga margin at paddings | Iginagalang ang lahat ng panig. | Iginagalang ang lahat ng panig. | Iginagalang lamang ang mga pahalang na panig. Ang mga bertikal na gilid, kung tinukoy, ito ay hindi nakakaapekto sa layout. Ang bertikal na puwang na kinukuha ay depende sa `line-height`, kahit na ang`border` at `padding` ay mukhang biswal na nakikita sa paligid ng nilalaman. |
 | Float | - | - | Nagiging katulad ng isang elemento ng 'block' kung saan maaari kang magtakda ng mga bertikal na margin at paddings. |
-
-
 
 ### Ano ang pagkakaiba sa pagitan ng `relative`, `fixed`, `absolute` at elementong nakaposisyong panig sa `static`?
 
@@ -369,15 +321,11 @@ Ang isang naka-posisyon na elemento ay isang elemento na ang na-compute na `posi
 
 - https://developer.mozilla.org/en/docs/Web/CSS/position
 
-
-
 ### Ano ang mga umiiral na framework ng CSS na ginamit mo ng lokal, o kaya naman ay sa produksyon? Papaano mo babaguhin o mapapabuti ang mga ito?
 
 - ** Bootstrap ** - Mabagal na ikot ng paglabas. Ang Bootstrap 4 ay nasa alpha sa halos dalawang taon. Magdagdag ng bahagi ng pindutan ng spinner, dahil malawak itong ginagamit.
 - ** Semantikong UI ** - Ang istraktura ng pinagmulang code ay gumagawa ng pagsadya ng tema na napakahirap maunawaan. Masakit na ipasadya sa hindi pangkaraniwang sistema ng paggawa ng tema. Hardcoded na config na landas sa loob ng librerya ng vendor. Hindi mahusay na pag-disenyo para pag-override ng mga variable na hindi katulad sa Bootstrap.
 - ** Bulma ** - Isang pulutong ng mga di-semantiko at labis na mga klase at markup ang kinakailangan. Hindi tugma ang pabalik. Ang pag-upgrade ng mga bersyon sa sumisira sa app sa banayad na asal.
-
-
 
 ### Ikaw ba ay nakapaglaro na sa paligid ng bagong CSS Flexbox o Grid na specs?
 
@@ -391,13 +339,9 @@ Ang Grid sa ngayon ay ang pinaka-intuitive na diskarte para sa paglikha ng grid-
 
 - https://philipwalton.github.io/solved-by-flexbox/
 
-
-
 ### Maipapaliwanag mo ba ang kaibahan sa pagitan ng Pag-code ng isang web site na tumutugon kumpara sa paggamit ng diskarteng mobile ang una?
 
 TODO
-
-
 
 ### Sa anong paraan naiiba ang disenyo ng tumutugon mula sa disenyo ng umaangkop?
 
@@ -413,8 +357,6 @@ Ang bumabagay na disenyo ay mas katulad ng modernong kahulugan ng progresibong p
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-
-
 ### Ikaw ba ay nakagamit na ng mga grapikong retina? kung gayon, kelan at anu-anong mga teknik ang iyong ginamit?
 
 May gusto kong gamitin ang mas mataas na resolusyon nga mga grapika (dalawang beses ang laki ng display) upang ma-handle ang retina display. Ang mas mahusay na paraan ay ang paggamit ng isang query sa media tulad ng `@media na iskrin lamang at (min-device-pixel-ratio: 2) {...}` at baguhin ang `background-image`.
@@ -427,8 +369,6 @@ Ang isa pang paraan ay ang paggamit ng JavaScript upang palitan ang mga attribut
 
 - https://www.sitepoint.com/css-techniques-for-retina-displays/
 
-
-
 ### May kadahilanan ba na nais mong gamitin ang `translate()` kesa sa `absolute` na pag-poposisyon, o kabaliktaran? at bakit?
 
 Ang `translate ()` ay isang halaga ng CSS `transform`. Ang pagpapalit ng `transform` o `opacity` ay hindi nag-trigger ng browser reflow o repaint, mga komposisyon lamang, samantalang ang pagpapalit ng tiyak na pagpoposisyon ay nagpapalit ng `reflow`. Ang `transform` ay nagiging sanhi ng browser na lumikha ng isang GPU na layer para sa elemento ngunit ang pagpapalit ng mga tiyak na katangian sa pagpoposisyon ay gumagamit ng CPU. Kaya ang `isalin ()` ay mas mahusay at magreresulta sa mas maikling oras ng pintura para sa mas malinaw na mga animasyon. Kapag gumagamit ng `translate ()`, ang elemento ay kumakain pa rin ng orihinal na espasyo nito (sabihin nalang nating `posisyon: kamag-anak`), hindi katulad sa pagbabago ng tiyak na pagpoposisyon.
@@ -436,8 +376,6 @@ Ang `translate ()` ay isang halaga ng CSS `transform`. Ang pagpapalit ng `transf
 ###### Mga Reperensiya
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
-
-
 
 ### Ang ibang mga Kasagutan
 

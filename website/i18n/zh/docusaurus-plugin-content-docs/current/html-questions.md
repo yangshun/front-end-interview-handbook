@@ -20,8 +20,6 @@ import TOCInline from '@theme/TOCInline';
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-
-
 ### 如何提供包含多种语言内容的页面？
 
 这个问题有点问得含糊其辞，我认为这是在询问最常见的情况：如何提供包含多种语言内容的页面，并保证页面内容语言的一致性。
@@ -33,8 +31,6 @@ import TOCInline from '@theme/TOCInline';
 ###### 参考
 
 - https://www.w3.org/International/getting-started/language
-
-
 
 ### 在设计开发多语言网站时，需要留心哪些事情？
 
@@ -51,8 +47,6 @@ import TOCInline from '@theme/TOCInline';
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### 什么是`data-`属性？
 
 在 JavaScript 框架变得流行之前，前端开发者经常使用`data-`属性，把额外数据存储在 DOM 自身中。当时没有其他 Hack 手段（比如使用非标准属性或 DOM 上额外属性）。这样做是为了将自定义数据存储到页面或应用中，对此没有其他更适当的属性或元素。
@@ -63,8 +57,6 @@ import TOCInline from '@theme/TOCInline';
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### 将 HTML5 看作成开放的网络平台，什么是 HTML5 的基本构件（building block）？
 
@@ -80,8 +72,6 @@ import TOCInline from '@theme/TOCInline';
 ###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
-
-
 
 ### 请描述`cookie`、`sessionStorage`和`localStorage`的区别。
 
@@ -101,8 +91,6 @@ import TOCInline from '@theme/TOCInline';
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### 请描述`<script>`、`<script async>`和`<script defer>`的区别。
 
 - `<script>` - HTML 解析中断，脚本被提取并立即执行。执行结束后，HTML 解析继续。
@@ -116,8 +104,6 @@ import TOCInline from '@theme/TOCInline';
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### 为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
 
@@ -135,8 +121,6 @@ import TOCInline from '@theme/TOCInline';
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-
-
 ### 什么是渐进式渲染（progressive rendering）？
 
 渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
@@ -153,8 +137,6 @@ import TOCInline from '@theme/TOCInline';
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### 为什么在`<img>`标签中使用`srcset`属性？请描述浏览器遇到该属性后的处理过程。
 
@@ -175,13 +157,9 @@ import TOCInline from '@theme/TOCInline';
 
 - https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
-
-
 ### 你有过使用不同模版语言的经历吗？
 
 有过，比如 Pug （以前叫 Jade）、 ERB、 Slim、 Handlebars、 Jinja、 Liquid 等等。在我看来，这些模版语言大多是相似的，都提供了用于展示数据的内容替换和过滤器的功能。大部分模版引擎都支持自定义过滤器，以展示自定义格式的内容。
-
-
 
 ### 其它答案
 

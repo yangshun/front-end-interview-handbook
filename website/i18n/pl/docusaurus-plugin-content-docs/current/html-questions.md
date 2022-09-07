@@ -24,8 +24,6 @@ Deklaracja DOCTYPE dla standardów HTML5 to `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-
-
 ### W jaki sposób wyświetlasz stronę z treścią w wielu językach?
 
 Pytanie jest trochę niejasne, założę się, że chodzi o najczęstszy przypadek, czyli sposób obsługi strony z treścią dostępną w wielu językach, ale treść na stronie powinna być wyświetlana tylko w jednym spójnym języku.
@@ -37,8 +35,6 @@ W backendzie, HTML będzie zawierać symbole zastępcze `i18n` oraz treść dla 
 ###### Bibliografia
 
 - https://www.w3.org/International/getting-started/language
-
-
 
 ### Jakich rzeczy należy się wystrzegać podczas projektowania lub tworzenia witryn wielojęzycznych?
 
@@ -55,8 +51,6 @@ W backendzie, HTML będzie zawierać symbole zastępcze `i18n` oraz treść dla 
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### Do czego są dobre atrybuty `data-`?
 
 Zanim frameworki JavaScript stały się popularne, programiści używali atrybutów `data-` do przechowywania dodatkowych danych w samym DOM, bez innych sztuczek, takich jak niestandardowe atrybuty, dodatkowe właściwości w DOM. Jest przeznaczony do przechowywania niestandardowych danych prywatnych na stronie lub w aplikacji, dla których nie ma już odpowiednich atrybutów ani elementów.
@@ -69,8 +63,6 @@ Jednakże, jednym całkowicie poprawnym zastosowaniem atrybutów danych jest dod
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### Rozważ HTML5 jako Open Web Platform. Jakie są elementy składowe HTML5?
 
@@ -86,8 +78,6 @@ Jednakże, jednym całkowicie poprawnym zastosowaniem atrybutów danych jest dod
 ###### Bibliografia
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
-
-
 
 ### Opisz różnicę pomiędzy `cookie`, `sessionStorage` oraz `localStorage`.
 
@@ -109,8 +99,6 @@ _Uwaga: Jeśli użytkownik zdecyduje się wyczyścić dane przeglądania za pomo
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### Opisz różnicę pomiędzy `<script>`, `<script async>` oraz `<script defer>`.
 
 - `<script>` - Parsowanie HTML jest zablokowane, skrypt jest pobierany i wykonywany natychmiast, parsowanie HTML jest wznawiane po wykonaniu skryptu.
@@ -124,8 +112,6 @@ Uwaga: Atrybuty `async` oraz `defer` są ignorowane przez skrypty, które nie za
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### Dlaczego ogólnie dobrym pomysłem jest pozycjonowanie CSS `<link>` pomiędzy `<head></head>` oraz JS `<script>` tuż przed `</body>`? Czy znasz jakieś wyjątki?
 
@@ -145,8 +131,6 @@ Wyjątkiem dla pozycjonowania `<script>` na dole jest gdy twój skrypt zawiera `
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-
-
 ### Co to jest rendering progresywny?
 
 Renderowanie progresywne to nazwa nadana technikom stosowanym w celu poprawy wydajności strony internetowej (w szczególności w celu poprawy postrzeganego czasu ładowania) w celu renderowania treści do wyświetlenia tak szybko, jak to możliwe.
@@ -163,8 +147,6 @@ Przykłady takich technik:
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### Dlaczego warto użyć atrybutu `srcset` w tagu obrazu? Wyjaśnij proces wykorzystywany przez przeglądarkę podczas oceny zawartości tego atrybutu.
 
@@ -185,13 +167,9 @@ Jeśli rozdzielczość to retina (2x), przeglądarka użyje najbliższej rozdzie
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-
-
 ### Czy używałeś wcześniej różnych języków szablonów HTML?
 
 Tak, Pug (formalnie Jade), ERB, Slim, Handlebars, Jinja, Liquid, żeby wymienić tylko kilka. Moim zdaniem są one mniej więcej takie same i zapewniają podobną funkcjonalność ucieczki treści oraz pomocne filtry do manipulowania wyświetlanymi danymi. Większość silników szablonów pozwala również wstrzykiwać własne filtry na wypadek, gdybyś potrzebował niestandardowego przetwarzania przed wyświetleniem.
-
-
 
 ### Inne odpowiedzi
 

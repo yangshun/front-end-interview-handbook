@@ -25,8 +25,6 @@ The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-
-
 ### How do you serve a page with content in multiple languages?
 
 I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page should be displayed only in one consistent language.
@@ -41,8 +39,6 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 - https://www.w3.org/International/getting-started/language
 - https://support.google.com/webmasters/answer/189077
-
-
 
 ### What kind of things must you be wary of when designing or developing for multilingual sites?
 
@@ -60,8 +56,6 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### What are `data-` attributes good for?
 
 Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
@@ -74,8 +68,6 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 
@@ -91,8 +83,6 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 ###### References
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
-
-
 
 ### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 
@@ -114,8 +104,6 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
 - `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
@@ -129,8 +117,6 @@ Note: The `async` and `defer` attributes are ignored for scripts that have no `s
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 
@@ -152,8 +138,6 @@ Keep in mind that putting scripts just before the closing `</body>` tag will cre
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-
-
 ### What is progressive rendering?
 
 Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
@@ -170,8 +154,6 @@ Examples of such techniques:
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
@@ -192,13 +174,9 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-
-
 ### Have you used different HTML templating languages before?
 
 Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, and EJS just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
-
-
 
 ### Other Answers
 

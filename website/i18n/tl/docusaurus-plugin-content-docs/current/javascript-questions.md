@@ -20,8 +20,6 @@ Ang delegasyon ng kaganapan ay isang pamamaraan na kinasasangkutan ng pagdaragda
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-
-
 ### Ipaliwanag kung paano gumagana ang `this` na ito sa JavaScript
 
 Walang simpleng paliwanag para sa `this`; ito ay isa sa mga pinaka-nakakalitong konsepto sa JavaScript. Ang isang paliwanag na hand-wavey na ang halaga ng `this` ay nakadepende sa kung paano tinawag ang punksyon. Nabasa ko ang maraming paliwanag sa `this` online, at natagpuan ko ang paliwanag ni [Arnav Aggrawal](https://medium.com/@arnav_aggarwal) para sa kalinawan. Ang mga sumusunod na alituntunin ay inilalapat:
@@ -40,8 +38,6 @@ Para sa malalim na pagpapaliwanag, tingnan ang kanyang [artikulo sa Medium](http
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-
-
 ### Ipaliwanag kung paano gumagana ang prototypal na pagmamana
 
 Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang lahat ng mga JavaScript na mga bagay ay may isang `__proto__` na propyedad, iyon ay isang reperensiya sa ibang bagay. Kapag ang isang propyedad ay na-akses sa isang bagay at kung ang propyedad ay hindi natagpuan sa bagay na iyon, tinitingnan ng engine ng JavaScript ang `__proto__` ng object, at ang`__proto__` ng `__proto__` at iba pa, hanggang sa matagpuan nito ang tinukoy ng propyedad sa isa sa `__proto__` o hanggang sa ito ay umabot sa dulo ng prototype na chain. Ang pag-uugali na ito ay gumagaya ng klasikal na pagpapamana, ngunit ito ay higit pa sa [delegasyon kaysa sa pamana](https://davidwalsh.name/javascript-objects).
@@ -50,8 +46,6 @@ Ito ay isang pangkaraniwan na tanong sa pakikipanayam tungkol sa JavaScript. Ang
 
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
-
-
 
 ### Ano ang iyong naiisip sa AMD laban sa CommonJS??
 
@@ -66,8 +60,6 @@ Natutuwa ako na may mga ES2015 na module, na may suporta para sa parehong kasaba
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
-
-
 ### Ipaliwanag kung bakit ang mga sumusunod ay hindi gumagana bilang isang IIFE: `function foo(){ }();`. Ano ang kailangang baguhin upang gawing maayos itong IIFE?
 
 IAng IFE ay nangangahulugan ng Immediately Invoked Function Expressions. Ang parser ng JavaScript binabasa ang `function foo () {} ();` bilang `function foo () {}` at `();`, kung saan ang dati ay isang deklarasyon ng punksyon at ang huli (isang pares ng mga braket) ay isang pagtatangka sa pagtawag sa isang punksyon ngunit walang pangalan na tinukoy, kaya ito ay tumatapon ng `Uncaught SyntaxError: Hindi inaasahang token)`.
@@ -77,8 +69,6 @@ Narito ang dalawang paraan upang ayusin ito na kinasasangkutan ng pagdaragdag ng
 ###### Mga Reperensiya
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
-
-
 
 ### Ano ang kaibahan sa pagitan ng isang variable na: `null`, `undefined` o hindi naipahayag? Paano mo gagawin ang pag-check para sa alinman sa mga kalagayang ito?
 
@@ -124,8 +114,6 @@ Bilang isang personal na nakaugalian, hindi ko kailanman iiwanan ang aking mga v
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-
-
 ### Ano ang pagsasara, at paano mo gagamitin ang isa sa mga ito?
 
 Ang pagsasara ay ang kumbinasyon ng isang punksyon at ang leksikong environment sa loob kung saan ang punksyon ay ipinahayag. Ang salitang "leksikal" ay tumutukoy sa katotohanang ang paggamit ng leksiko ay paggamit ng lokasyon kung saan ang isang variable ay ipinahayag sa loob ng source code upang matukoy kung saan pwede pa ang variable na iyon. Ang mga pagsasara ay mga punksyon na may akses sa mga panlabas na (kalakip) na mga variable ng punkyon na saklaw kahit na matapos na bumalik ang panlabas na punksyon.
@@ -139,8 +127,6 @@ Ang pagsasara ay ang kumbinasyon ng isang punksyon at ang leksikong environment 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
-
 
 ### Mailalarawan mo ba ang pangunahing pagkakaiba sa pagitan ng isang `.forEach` na loop at isang `.Map()` na loop at bakit kailangan mo lang pumili ng isa mula sa dalawa?
 
@@ -181,8 +167,6 @@ Ang pangunahing pagkakaiba sa pagitan ng `.forEach` at `.map ()` ay ang `.map ()
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-
-
 ### Ano ang isang tipikal na kaso ng paggamit para sa mga hindi kilalang punksyon?
 
 Maaari silang gamitin sa mga IIFE upang ipaloob ang ilang mga code sa loob ng isang lokal na saklaw upang ang mga variable na ipinahayag dito ay hindi mag-leak sa pandaigdigang saklaw.
@@ -216,8 +200,6 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-
-
 ### Paano mo inaayos ang iyong code? (modular na pattern, makalumang pagmamana?)
 
 Sa nakaraan, ginamit ko ang Backbone para sa aking mga modelo na naghihikayat sa higit pang pamamaraan sa OOP, ang paglikha ng mga modelo ng Backbone at paglakip ng mga pamamaraan sa kanila.
@@ -225,8 +207,6 @@ Sa nakaraan, ginamit ko ang Backbone para sa aking mga modelo na naghihikayat sa
 Mahusay pa rin ang module pattern, ngunit sa mga araw na ito, ginagamit ko ang arkitektura ng Flux batay sa React o Redux na naghihikayat sa isang direksyunal na punksyunal na pag-program na pamamaraan sa halip. Gusto kong kumatawan sa mga modelo ng aking app gamit ang mga plain na mga bagay at sumulat ng utility na purong mga punksyon upang manipulahin ang mga bagay na ito. Minamanipula ang estado gamit ang mga pagkilos at mga reducer tulad ng sa anumang iba pang aplikasyon ng Redux.
 
 Iniiwasan ko ang paggamit ng klasikal na pagmamana kung posible. Kapag at kung gagawin ko, mananatili ako sa [mga patakarang ito](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
-
-
 
 ### Ano ang pagkakaiba sa pagitan ng mga host na bagay at mga likas na bagay?
 
@@ -237,8 +217,6 @@ Ang mga bagay na host ay ibinibigay ng runtime environment (browser o Node), kag
 ###### Mga Reperensiya
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
-
-
 
 ### Kaibahan sa pagitan ng: punksyon na `Person(){}`, `var person = Person()`, at `var person = new Person()`?
 
@@ -266,8 +244,6 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-
-
 ### Ano ang pagkakaiba sa pagitan ng `.call` at `.apply`?
 
 Ang parehong `.call` at `.apply` ay ginagamit upang tumawag ng mga punksyon at ang unang parameter ay gagamitin bilang halaga ng `ito` sa loob ng punksyon Gayunpaman, Ang `.call` ay tumatagal ng mga argumento na pinaghiwalay ng kuwit bilang mga susunod na argumento habang ang `.apply` tumatagal sa isang hanay ng mga argumento bilang susunod na argumento. Ang pinakamadaling paraaan upang matandaan ito ay ang C ay para sa `call` na pinaghihiwalay ng kuwit at A para sa `apply` at array ng mga argumento.
@@ -281,8 +257,6 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-
-
 ### Ipaliwanag ang `Function.prototype.bind`.
 
 Kinuha mula sa bawat salita ng [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
@@ -295,8 +269,6 @@ Sa aking karanasan, ito ay pinaka-kapaki-pakinabang para sa pag-bind ng halaga n
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-
-
 ### Kelan ka gagamit ng `document.write()`?
 
 Ang `document.write()` ay sumusulat ng isang string ng teksto sa isang stream ng dokumento na binuksan ng `document.open()`. Kapag ang `document.write ()` ay naisakatuparan pagkatapos na mai-load ang pahina, tatawag itong `document.open` na nililimas ang buong dokumento (`<head>`at`<body>`removed!) At pinapalitan ang mga nilalaman sa binigay na halaga ng parameter sa string. Kaya nga naman ito ay karaniwang itinuturing na mapanganib at madaling kapitan ng sakit sa maling paggamit.
@@ -307,8 +279,6 @@ Mayroong ilang mga sagot na makikita online na nagpapaliwanag na ang `document.w
 
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
-
-
 
 ### Ano ang kaibahan sa pagitan ng pagtukoy na tampok, tampok na pagkakilala, at paggamit ng UA na string?
 
@@ -348,8 +318,6 @@ Ito ay isang string na iniulat ng browser na nagbibigay-daan sa mga network prot
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-
-
 ### Ipaliwanag ang Ajax sa mas detalyadong pamamaraan hangga't maaari.
 
 Ang Ajax ay (sinkronisadong JavaScript at XML) ay isang set ng mga diskarte sa pag-develop ng web gamit ang maraming mga teknolohiya ng web sa panig ng kliyente upang lumikha ng mga aplikasyon ng web na sinkronisado. Sa Ajax, ang mga web na aplikasyon ay maaaring magpadala ng datos sa at kunin mula sa isang serber na di-sinkronisado (sa background) nang hindi nakakasagabal sa displey at pag-uugali ng umiiral na pahina. Sa pamamagitan ng pag-decoupling ng layer ng pagpapalit ng datos mula sa layer ng pagtatanghal, ang Ajax ay nagbibigay-daan para sa mga web na pahina, at sa pamamagitan ng extension ng mga aplikasyon sa web, upang baguhin ang nilalaman na dynamic na walang kailangang i-reload ang buong pahina. Sa pagsasagawa, ang mga modernong pagpapatupad ay kadalasang kapalit ng JSON para sa XML dahil sa mga pakinabang ng pagiging likas sa JavaScript.
@@ -360,8 +328,6 @@ Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong ko
 
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
-
-
 
 ### Ano ang mga kalamangan at di-kalamangan ng paggamit ng Ajax?
 
@@ -377,8 +343,6 @@ Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong ko
 - Ang mga dynamic na webpage ay mas mahirap i-bookmark.
 - Hindi gagana kung hindi pinagana ang JavaScript sa browser.\* Ang ilang mga webcrawlers ay hindi nagsasagawa ng JavaScript at hindi makikita ang nilalamang na-load ng JavaScript.
 - Karaniwang karamihan sa mga di kalamangan ng isang SPA.
-
-
 
 ### Ipaliwanag kung papaano gumagana ang JSONP (at kung bakit hindi talaga Ajax).
 
@@ -412,8 +376,6 @@ Sa panahon ngayon, Ang [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource
 
 - https://stackoverflow.com/a/2067584/1751946
 
-
-
 ### Ikaw ba ay nakagamit na ng JavaScript sa pag-template? Kung gayon, anong mga librerya ang ginamit mo?
 
 Oo. mga Handlebar, Underscore, Lodash, AngularJS at JSX. Hindi ko nagustuhan ang pag-template sa AngularJS dahil sa mabigat na paggamit nito ng mga string sa mga direktiba at ang mga typo ay di agad nakikita. Ang JSX ay ang aking bagong paborito dahil ito ay mas malapit sa JavaScript at mayroong halos anumang sintaks na iyong matututunan. Sa mga araw na ito, maaari mo ring gamitin ang ES2015 na mga template string literal bilang isang mabilis na paraan para sa paglikha ng mga template nang hindi umaasa sa third-party na code.
@@ -423,8 +385,6 @@ const template = `<div>My name is: ${name}</div>`;
 ```
 
 Gayunpaman, maging maingat sa isang potensyal na XSS sa itaas na pamamaraan dahil ang mga nilalaman ay hindi ligtas para sa iyo, hindi katulad sa mga libreryang pang-template.
-
-
 
 ### Ipaliwanag ang "hoisting".
 
@@ -462,13 +422,9 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-
-
 ### Ilarawan ang kaganapan ng pagbubwak.
 
 Kapag ang isang kaganapan ay nag-trigger sa isang elemento ng DOM, susubukan nito na pangasiwaan ang kaganapan kung may nakakabit na tagapakinig, pagkatapos ay ang kaganapan ay bubula hanggang sa kanyang magulang at ang parehong bagay ang mangyayari. Ang pag-bula na ito ay nangyayari sa mga ninuno ng elemento sa lahat ng mga paraan sa `dokumento`. Ang kaganapan ng pagbubwak ng bula ay ang mekanismo sa likod ng delegasyon ng kaganapan.
-
-
 
 ### Ano ang pagkakaiba sa pagitan ng isang "katangian" at isang "propyedad"?
 
@@ -491,8 +447,6 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-
-
 ### Bakit ang pagpapalawak ng mga built-in na JavaScript na mga bagay ay hindi isang magandang ideya?
 
 Ang pagpapalawak ng isang built-in o likas na JavaScript na bagay ay nangangahulugan ng pagdaragdag ng mga katangian o mga punksyon sa `prototype` nito. Bagaman ito ay maaaring mukhang isang magandang ideya sa simula, ito ay mapanganib sa pagsasagawa. Isipin mo nalang na ang iyong code ay gumagamit ng ilang mga librerya na parehong nagpapahaba ng `Array.prototype` sa pamamagitan ng pagdaragdag ng parehong `contains` na paraan, ang mga pagpapatupad ay papatungan ang bawat isa at ang iyong code at masisira kung ang pag-uugali ng dalawang mga paraan ay hindi pareho.
@@ -503,8 +457,6 @@ Ang tanging oras na maaari mong i-extend ang isang likas na bagay ay kung nais m
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
 
-
-
 ### Pagkakaiba sa pagitan ng kaganapan ng `pag-load` ng dokumento at dokumento ng `DOMContentLoaded` na kaganapan?
 
 Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokumento ay ganap na na-load at ma-parse, nang hindi naghihintay para sa mga stylesheet, mga larawan, at mga subframe upang tapusin ang paglo-load. Ang `window` ng `load` na kaganapan ay painapaputok pagkatapos lamang ng DOM at ang lahat ng mga mapagkukunang at asset na umaasa.
@@ -513,8 +465,6 @@ Ang `DOMContentLoaded` na kaganapan ay pinapaputok kapag ang unang HTML na dokum
 
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
-
-
 
 ### Ano ang pagkakaiba sa pagitan ng `==` at `===`
 
@@ -541,8 +491,6 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-
-
 ### Ipaliwanag ang patakaran na pareho pareho dapat ang pinanggalingan tungkol sa JavaScript.
 
 Pinipigilan ng patakaran ng may parehong pinagmulan ang JavaScript mula sa paggawa ng mga kahilingan sa mga hangganan ng domain. Ang pinagmulan ay tinukoy bilang isang kumbinasyon ng scheme ng URI, hostname, at numero ng port. Pinipigilan ng patakarang ito ang isang nakakahamak na script sa isang pahina mula sa pagkuha ng akses sa mga sensitibong datos sa isa pang pahina ng web sa pamamagitan ng Document Object Model na pahina.
@@ -550,8 +498,6 @@ Pinipigilan ng patakaran ng may parehong pinagmulan ang JavaScript mula sa pagga
 ###### Mga reperensiya
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
-
-
 
 ### Paganahin ito:
 
@@ -567,8 +513,6 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-
-
 ### Bakit tinatawag itong isang ternary na ekspresyon, ano ang ibig sabihin ng salitang "Ternary"?
 
 "Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
@@ -576,8 +520,6 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ###### References
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-
-
 
 ### Ano ang `"use strict";`? ano ang mga bentahe at di-bentahe sa paggamit nito?
 
@@ -606,8 +548,6 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-
-
 ### Gumawa ng para sa loop na mag-iterate hanggang sa `100` habang mag-ouput ng **"fizz"** sa multiples ng `3`, **"buzz"** sa pagmultiplika ng `5` at **"fizzbuzz"** sa pagmultiplika ng `3` at `5`
 
 Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
@@ -626,8 +566,6 @@ I would not advise you to write the above during interviews though. Just stick w
 
 - https://gist.github.com/jaysonrowe/1592432
 
-
-
 ### Bakit, sa pangkalahatan, isang magandang ideya na iwanan ang pandaigdigang saklaw ng isang website bilang kung ano man ito at hindi kailanman na galawin ito?
 
 Every script has access to the global scope, and if everyone is using the global namespace to define their own variables, there will bound to be collisions. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
@@ -645,8 +583,6 @@ TODO.
 ###### References
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
-
-
 
 ### Ipaliwanag kung ano ang isang solong pahina na app at kung paano gumawa ng isang SEO-friendly.
 
@@ -675,8 +611,6 @@ The downsides:
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-
-
 ### Ano ang lawak ng iyong karanasan sa Mga Pangako at/o ang kanilang mga polyfill?
 
 Possess working knowledge of it. A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
@@ -686,8 +620,6 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 ###### References
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
-
-
 
 ### Ano ang mga kalamangan at kahinaan ng paggamit ng mga pangako sa halip ng mga callback?
 
@@ -701,8 +633,6 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 - Slightly more complex code (debatable).
 - In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
-
-
 
 ### Ano ang ilan sa mga pakinabang o di-pakinabang ng pagsulat ng JavaScript code sa isang wika na naka-compile sa JavaScript?
 
@@ -730,8 +660,6 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-
-
 ### Anong mga kagamitan at pamamaraan ang ginagamit mo sa pag-debug ng JavaScript na code?
 
 - React and Redux
@@ -746,8 +674,6 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
-
-
 
 ### Anong mga pag-construct ng wika ang ginagamit mo para sa pag-ulit sa mga katangian ng bagay at mga item na array?
 
@@ -764,8 +690,6 @@ For arrays:
 
 Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. `for` loops allow more flexibility, such as prematurely terminate the loop using `break` or incrementing the iterator more than once per loop.
 
-
-
 ### Ipaliwanag ang pagkakaiba sa pagitan ng mga bagay na nababago at hindi nababago.
 
 - What is an example of an immutable object in JavaScript?
@@ -774,15 +698,11 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 TODO
 
-
-
 ### Ipaliwanag ang pagkakaiba sa pagitan ng sabay at hindi sabay na punksiyon.
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
 
 Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
-
-
 
 ### Ano ang loop na kaganapan? Ano ang pagkakaiba sa pagitan ng call na stack at queue ng gawain?
 
@@ -794,8 +714,6 @@ If you haven't already checked out Philip Robert's [talk on the Event Loop](http
 
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
-
-
 
 ### Ipaliwanag ang mga pagkakaiba sa paggamit ng `foo` sa pagitan ng `function foo() {}` at `var foo = function() {}`
 
@@ -822,8 +740,6 @@ var foo = function () {
 ###### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
-
-
 
 ### Ano ang mga pagkakaiba sa pagitan ng mga variable na nilikha sa pamamagitan ng paggamit ng `let`,`var` o `const`?
 
@@ -905,25 +821,17 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-
-
 ### Ano ang mga pagkakaiba sa pagitan ng ES6 na class at mga ES5 na taga-construct na punksyon?
 
 TODO
-
-
 
 ### May maaalok ka bang isang kaso ng paggamit para sa bagong arrow => sintaks ng punksyon? Paano naiiba ang bagong sintaks na ito sa iba pang mga punksyon?
 
 TODO
 
-
-
 ### Ano ang bentahe para sa paggamit ng sintaks na arrow para sa isang paraan sa isang taga-construct?
 
 TODO
-
-
 
 ### Ano ang kahulugan ng isang mas mataas na hanay na punksyon?
 
@@ -964,8 +872,6 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
-
-
 
 ### Makapagbibigaay kaba ng isang halimbawa para sa pag-destructure ng isang bagay o isang array?
 
@@ -1009,13 +915,9 @@ console.log(q); // true
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
 
-
-
 ### Ang literal na ES6 na template ay nag-aalok ng maraming kakayahan na umangkop sa pagbuo ng mga string, maaari ka bang makapagbigay ng isang halimbawa
 
 TODO
-
-
 
 ### Makapagbibigay kaba ng isang halimbawa ng isang punksyon na curry at kung bakit ang sintaks na ito ay nag-aalok ng isang kalamangan?
 
@@ -1052,8 +954,6 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ###### References
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
-
-
 
 ### Ano ang mga pakinabang ng paggamit ng spread na sintaks at kung paano ito naiiba mula sa rest na sintaks?
 
@@ -1099,19 +999,13 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-
-
 ### Paano ka makakabahagi ng code sa pagitan ng mga file?
 
 TODO
 
-
-
 ### Bakit gusto mong lumikha ng mga statik na miyembro ng klase?
 
 TODO
-
-
 
 ### Mga Ibang Sagot
 

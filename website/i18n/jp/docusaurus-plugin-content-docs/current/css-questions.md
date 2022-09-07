@@ -28,8 +28,6 @@ import TOCInline from '@theme/TOCInline';
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
 
-
-
 ### "リセット" と "ノーマライズ" CSS の違いは何ですか？あなたはどちらを使いますか？そしてそれはなぜですか？
 
 - **リセット** - リセットとは、要素のすべてのデフォルトブラウザスタイルを削除することを意味します。例えば、`margin`、`padding`、`font-size` は全て同じ要素にリセットされます。一般的なタイポグラフィー要素のためにスタイリングを再宣言しなければなりません。
@@ -40,8 +38,6 @@ import TOCInline from '@theme/TOCInline';
 ###### 参考
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
-
-
 
 ### `float` とは何ですか？どのようにはたらきますか？
 
@@ -69,8 +65,6 @@ CSS の `clear` プロパティは、`left`/`right`/`both` フロート要素の
 
 - https://css-tricks.com/all-about-floats/
 
-
-
 ### `z-index` とは何かと、スタックコンテキスト(スタック文脈)がどのように作られるのかを教えてください。
 
 CSS の `z-index` プロパティは、重なっている要素の垂直方向の積み重ね順序を制御します。`z-index` は `static` ではない `position` 値を持つ要素にのみ影響します。
@@ -87,8 +81,6 @@ CSS の `z-index` プロパティは、重なっている要素の垂直方向�
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context (英語)
 - https://developer.mozilla.org/ja/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context (日本語)
-
-
 
 ### ブロック整形文脈（Block Formatting Context: BFC）とその仕組みを教えてください。
 
@@ -111,8 +103,6 @@ BFC が崩壊したときに隣接するブロックレベルボックス間の�
 - https://developer.mozilla.org/ja/docs/Web/CSS/Block_formatting_context (日本語)
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-
-
 ### clear を行う手法にはどのようなものがあり、それぞれどのような状況に適していますか？
 
 - 空の `div` メソッド - `<div style="clear:both;"></div>`
@@ -120,8 +110,6 @@ BFC が崩壊したときに隣接するブロックレベルボックス間の�
 - `overflow: auto` または `overflow: hidden` メソッド - 親は新しいブロック書式設定コンテキストを確立し、float された子を含むように展開します。
 
 大規模なプロジェクトでは、ユーティリティ `.clearfix` クラスを作成し、必要な場所で使用します。子供が親よりも背が高く、それほど理想的でない場合、`overflow: hidden` は子供をクリップするかもしれません。
-
-
 
 ### CSS スプライトとは何ですか？ページやサイトに実装する方法も合わせて説明してください。
 
@@ -140,16 +128,12 @@ CSS スプライトは、複数のイメージを 1 つの大きなイメージ�
 
 - https://css-tricks.com/css-sprites/
 
-
-
 ### ブラウザ固有のスタイリングに関する問題を解決するにはどうすればいいですか？
 
 - 問題を特定して問題のブラウザを特定したら、その特定のブラウザが使用されているときにのみロードする別のスタイルシートを使用します。この手法では、サーバー側のレンダリングが必要です。
 - これらのスタイリングの問題を既に処理している Bootstrap のようなライブラリを使用してください。
 - ベンダープレフィックスをコードに自動的に追加するには、`autoprefixer` を使用します。
 - Reset CSS または Normalize.css を使用してください。
-
-
 
 ### 機能の少ないブラウザに対しては、どのようにページを提供しますか？どのようなテクニック/プロセスを使用しますか？
 
@@ -158,8 +142,6 @@ CSS スプライトは、複数のイメージを 1 つの大きなイメージ�
 - 機能のサポートを確認するには、[caniuse.com](https://caniuse.com/) を使用してください。
 - 自動ベンダー接頭辞挿入のための\*オートプレフィクサー。
 - [Modernizr](https://modernizr.com/) を使った機能の検出
-
-
 
 ### コンテンツを視覚的に隠す（スクリーンリーダーのみ利用可能にする）方法にはどのようなものがありますか？いくつか教えてください。
 
@@ -180,25 +162,17 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 - https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA (日本語)
 - http://a11yproject.com/
 
-
-
 ### グリッドシステムを使用したことがありますか？使ったことがあるなら、あなたはどのグリッドシステムが好きですか？
 
 私は `float` ベースのグリッドシステムが好きです。なぜなら、既存の代替システム（フレックス、グリッド）の中でも最も多くのブラウザをサポートしているからです。ブートストラップで長年使用されており、動作することが証明されています。
-
-
 
 ### メディアクエリやモバイル固有のレイアウト/CSS を使用したり実装したことはありますか？
 
 はい。一例は、ピル型ナビゲーションを、特定のブレークポイントを越えた固定底のタブ型ナビゲーションに変換することである。
 
-
-
 ### SVG のスタイリングについては詳しいですか？
 
 いいえ...悲しいことに。
-
-
 
 ### `screen` 以外の @media プロパティの例を挙げられますか？
 
@@ -219,8 +193,6 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 }
 ```
 
-
-
 ### 効率的な CSS を書くにために避けるべき "落とし穴" にはどんなものがありますか？
 
 まず、ブラウザがセレクタを右端（キーセレクタ）から左に一致させることを理解してください。ブラウザはキーセレクタに従って DOM 内の要素をフィルタリングし、親要素を走査して一致を判定します。セレクターチェーンの長さが短いほど、ブラウザーはそのエレメントがセレクターと一致するかどうかを判別することができます。したがって、タグセレクタとユニバーサルセレクタであるキーセレクタは避けてください。それらは多数の要素にマッチし、ブラウザは親がマッチするかどうかを判断するために多くの作業をする必要があります。
@@ -233,8 +205,6 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
-
-
 
 ### CSS プリプロセッサを使用するメリットとデメリットには何がありますか？
 
@@ -250,8 +220,6 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 
 - 前処理のためのツールが必要です。再コンパイル時間が遅くなることがあります。
 
-
-
 ### 使用したことのある CSS プリプロセッサについて好きなものと嫌いなものを教えてください。
 
 **好きなもの:**
@@ -264,13 +232,9 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 - C++ で書かれた LibSass のバインディングである `node-sass` を使って Sass を使用します。ノードのバージョンを切り替えるときに、頻繁に再コンパイルする必要があります。
 - Less では、変数名の先頭に `@` が付いています。これは `@media`、`@import`、`@font-face` ルールなどのネイティブ CSS キーワードと混同することがあります。
 
-
-
 ### 非標準フォントを使用する Web サイトを実装するにはどのようにしますか？
 
 `font-face` を使って `font-weight` の `font-family` を定義してください。
-
-
 
 ### CSS セレクタにマッチする要素がどれなのか、ブラウザがどのように決定しているかを説明してください。
 
@@ -281,8 +245,6 @@ WAI-ARIA が理想的な解決策かもしれませんが、私は `absolute` �
 ###### 参考
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
-
-
 
 ### 疑似要素について説明し、それらがなんのために使われているかを詳しく話してください。
 
@@ -295,8 +257,6 @@ CSS 疑似要素はセレクタに追加されたキーワードで、選択し�
 ###### 参考
 
 - https://css-tricks.com/almanac/selectors/a/after-and-before/
-
-
 
 ### ボックスモデルがなんであるかのあなたの理解と、異なるボックスモデルでレイアウトをレンダリングするために CSS でブラウザに指示する方法を説明してください。
 
@@ -321,8 +281,6 @@ CSS ボックスモデルは、次の計算を行います。
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
-
-
 ### `* { box-sizing: border-box; }` によって何が起きますか？その利点は何ですか？
 
 - デフォルトでは、要素には `box-sizing: content-box` が適用され、コンテンツサイズのみが考慮されます。
@@ -330,15 +288,11 @@ CSS ボックスモデルは、次の計算を行います。
 - 要素の `height` は、コンテンツの `height` + 垂直 `padding` + 垂直 `border` 幅によって計算されます。
 - 要素の `width` は、コンテンツの `width` + 水平 `padding` + 水平 `border` 幅によって計算されます。
 
-
-
 ### CSS の `display` プロパティとは何ですか？その使い方の例をいくつか挙げることができますか？
 
 - `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`
 
 TODO
-
-
 
 ### `inline` と `inline-block` の違いは何ですか？
 
@@ -352,8 +306,6 @@ TODO
 | `vertical-align` を指定できるか | いいえ | はい | はい |
 | マージンとパディング | 上下左右に指定できる。 | 上下左右に指定できる。 | 左右のみ指定可能。上下に指定をしてもレイアウトに影響はない。 `border` と `padding` が要素の周りに視覚的に現れていても、上下のスペースは `line-height` によって決まる。 |
 | フロート | - | - | 上下の `margins` と `paddings` を設定できる `block` 要素のようになる。 |
-
-
 
 ### `position` が `relative`、`fixed`、`absolute`、`static` の要素の違いは何ですか？
 
@@ -370,15 +322,11 @@ TODO
 - https://developer.mozilla.org/en/docs/Web/CSS/position (英語)
 - https://developer.mozilla.org/ja/docs/Web/CSS/position (日本語)
 
-
-
 ### ローカルや本番環境で、どの既存の CSS フレームワークを使用していますか？また、どのように変更/改善していますか？
 
 - **BootStrap** - 緩やかなリリースサイクル。BootStrap4 は、ほぼ 2 年間アルファになっています。広く使用されているように、スピナーボタンコンポーネントを追加します。
 - **Semantic UI** - ソースコード構造により、テーマのカスタマイズが非常に難しくなります。慣習的でないテーマ設定システムでカスタマイズするのは面倒です。ベンダライブラリ内のハードコードされた設定パス。BootStrap とは違って、変数をオーバーライドするためにうまく設計されていません。
 - **Bulma** - 非セマンティックで余計なクラスやマークアップが必要です。下位互換性がありません。バージョンをアップグレードすると、微妙な方法でアプリが壊れてしまいます。
-
-
 
 ### CSS の Flexbox や Grid の仕様で遊んだことはありますか？
 
@@ -392,13 +340,9 @@ Flexbox は、コンテナ内の要素の垂直方向のセンタリング、ス
 
 - https://philipwalton.github.io/solved-by-flexbox/
 
-
-
 ### ウェブサイトをレスポンシブでコーディングすることとモバイルファーストでコーディングすることの違いを説明できますか？
 
 TODO
-
-
 
 ### レスポンシブデザインはアダプティブデザインと何が違いますか？
 
@@ -415,8 +359,6 @@ TODO
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
-
-
 ### Retina 対応を行ったことはありますか？もしあるなら、いつどのようなテクニックを使いましたか？
 
 私は Retina ディスプレイを扱うために高解像度のグラフィックス（ディスプレイサイズの 2 倍）を使用する傾向があります。より良い方法は `@media only screen and (min-device-pixel-ratio: 2) { ... }` のようなメディアクエリを使用し、`background-image` を変更することです。
@@ -429,8 +371,6 @@ TODO
 
 - https://www.sitepoint.com/css-techniques-for-retina-displays/
 
-
-
 ### `position: absolute` の代わりに `translate()` を使用するべき場合はありますか？その逆の場合もありますか？理由も合わせて教えてください。
 
 `translate()` は CSS の `transform` の値です。`transform` や `opacity` を変更しても、ブラウザのリフローや再描画は行われず、コンポジションのみがトリガされます。`transform` はブラウザに要素の GPU 層を作成させますが、絶対配置プロパティを変更すると CPU を使用します。したがって、`translate()` はより効率的であり、より滑らかなアニメーションのためのペイント時間を短縮します。
@@ -440,8 +380,6 @@ TODO
 ###### 参考
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
-
-
 
 ### 他の方の回答集
 

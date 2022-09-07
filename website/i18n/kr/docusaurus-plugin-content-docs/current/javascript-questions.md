@@ -20,8 +20,6 @@ import TOCInline from '@theme/TOCInline';
 - https://davidwalsh.name/event-delegate
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 
-
-
 ### `this`가 JavaScript에서 어떻게 작동하는지 설명하세요.
 
 `this`는 간단하게 설명하기 어렵습니다. JavaScript에서 가장 혼란스러운 개념 중 하나입니다. 대략 설명하면 `this`의 값은 함수가 호출되는 방식에 따라 달라집니다. 온라인에 많은 설명을 읽었는데, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)의 설명이 가장 명확했습니다. 다음 규칙과 같습니다.
@@ -40,8 +38,6 @@ import TOCInline from '@theme/TOCInline';
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
-
-
 ### 프로토타입 상속이 어떻게 작동하는지 설명하세요.
 
 이는 매우 일반적인 JavaScript 인터뷰 질문입니다. 모든 JavaScript 객체는 다른 객체에 대한 참조인 `__proto__` 프로퍼티를 가지고 있습니다. 객체의 프로퍼티에 접근할 때, 해당 객체에 해당 프로퍼티가 없으면 JavaScript 엔진은 객체의 `__proto__`과 `__proto__`의 `__proto__`등을 보고 프로퍼티 정의가 있을 때까지 찾고, 만약 객체의 프로퍼티에 접근할 때 해당 객체에 해당 프로퍼티가 없으면 프로토타입 체인 중 하나에 있거나 프로토타입 체인의 끝에 도달할 때까지 찾습니다. 이 동작은 고전적인 상속을 흉내내지만, 실제로 [상속보다 위임](https://davidwalsh.name/javascript-objects)에 더 가깝습니다.
@@ -50,8 +46,6 @@ import TOCInline from '@theme/TOCInline';
 
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
-
-
 
 ### AMD vs CommonJS에 대해 어떻게 생각하나요?
 
@@ -65,8 +59,6 @@ ES2015 모듈이 동기식 및 비동기식 로딩을 모두 지원하는 것이
 
 - https://auth0.com/blog/javascript-module-systems-showdown/
 - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
-
-
 
 ### 다음이 IIFE로 작동하지 않는 이유를 설명하세요: `function foo(){ }();`를 IIFE로 만들기 위해서는 무엇을 바꿔야하나요?
 
@@ -89,8 +81,6 @@ console.log(foo); // undefined
 
 - http://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
-
-
 
 ### `null`, `undefined`, `undeclared`의 차이점은 무엇인가요? 어떻게 이 상태들에 대한 확인을 할 것인가요?
 
@@ -136,8 +126,6 @@ console.log(foo == undefined); // true. 옳지않습니다. 이렇게 사용하�
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-
-
 ### 클로저는 무엇이며, 어떻게/왜 사용하나요?
 
 클로저는 함수와 그 함수가 선언된 렉시컬 환경의 조합입니다. "렉시컬"은 렉시컬 범위 지정이 변수가 사용 가능한 위치를 결정하기 위해 소스 코드 내에서 변수가 선언된 위치를 사용한다는 사실을 나타냅니다. 클로저는 외부 함수가 반환된 후에도 외부 함수의 변수 범위 체인에 접근할 수 있는 함수입니다.
@@ -151,8 +139,6 @@ console.log(foo == undefined); // true. 옳지않습니다. 이렇게 사용하�
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
-
-
 
 ### `.forEach` 루프와 `.map()` 루프 사이의 주요 차이점을 설명할 수 있나요? 왜 둘 중 하나를 선택할 것인가요?
 
@@ -193,8 +179,6 @@ const doubled = a.map((num) => {
 
 - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
-
-
 ### 익명 함수의 일반적인 사용 사례는 무엇인가요?
 
 익명함수는 IIFE로 사용되어 지역 범위 내에서 일부 코드를 캡슐화하므로 선언된 변수가 전역 범위로 누출되지 않습니다.
@@ -228,8 +212,6 @@ console.log(double); // [2, 4, 6]
 - https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions
 - https://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo
 
-
-
 ### 코드를 어떻게 구성하나요? (모듈 패턴, 고전적인 상속?)
 
 과거에는 Backbone 모델을 만들고 그 모델에 메소드를 연결하는 등 OOP 접근 방식을 장려하는 모델에 Backbone 을 사용했습니다.
@@ -237,8 +219,6 @@ console.log(double); // [2, 4, 6]
 모듈 패턴은 여전히​​ 훌륭하지만, 요즘에는 React/Redux 기반의 Flux 아키텍처를 사용합니다. 이 아키텍처는 단방향 프로그래밍 방식을 권장합니다. 저는 평범한 객체를 사용하여 응용 프로그램의 모델을 표현하고 이러한 객체를 조작하는 유틸리티 순수 함수를 작성합니다. 상태는 다른 Redux 응용 프로그램에서와 마찬가지로 action 및 reducer를 사용하여 조작됩니다.
 
 가능한 경우 고전적인 상속을 사용하지 않습니다. 저는 [이 규칙들](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)을 유지합니다.
-
-
 
 ### 호스트 객체와 내장 객체의 차이점은 무엇인가요?
 
@@ -249,8 +229,6 @@ console.log(double); // [2, 4, 6]
 ###### 참고자료
 
 - https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects
-
-
 
 ### `function Person(){}`, `var person = Person()`, `var person = new Person()`의 차이점은 무엇인가요?
 
@@ -278,8 +256,6 @@ console.log(person.name); // "john"
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 
-
-
 ### `.call`과 `.apply`의 차이점은 무엇인가요?
 
 `.call`과 `.apply`는 모두 함수를 호출하는데 사용되며, 첫 번째 매개변수는 함수 내에서 `this`의 값으로 사용됩니다. 그러나 `.call`은 쉼표로 구분된 인수를 두 번째 인수로 취하고 `.apply`는 인수의 배열을 두 번째 인수로 취합니다. `call`은 `C`: `Comma` 로 구분되며, `apply`는 인수 배열인 `A`: `arguments` 라고 기억하면 쉽습니다.
@@ -293,8 +269,6 @@ console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
 
-
-
 ### `Function.prototype.bind`에 대해 설명하세요.
 
 [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)에서 인용:
@@ -307,8 +281,6 @@ console.log(add.apply(null, [1, 2])); // 3
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-
-
 ### 언제 `document.write()`를 사용하나요?
 
 `document.write()`는 `document.open()`에 의해 열린 문서 스트림에 텍스트 문자열을 씁니다. 페이지가 로드된 후에 `document.write()`가 실행되면 `document.open`을 호출하여 문서 전체를 지우고 (`<head>`와 `<body>`를 지웁니다!). 문자열로 주어진 매개 변수 값으로 대체합니다. 그러므로 일반적으로 위험하고 오용되기 쉽습니다.
@@ -319,8 +291,6 @@ console.log(add.apply(null, [1, 2])); // 3
 
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
 - https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
-
-
 
 ### Feature detection, Feature inference, UA String의 차이점은 무엇인가요?
 
@@ -360,8 +330,6 @@ if (document.getElementsByTagName) {
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 
-
-
 ### Ajax에 대해 가능한 한 자세히 설명하세요.
 
 Ajax(asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 만들기 위해 클라이언트 측에서 사용되는 웹 개발 기술의 집합입니다. Ajax를 사용하면 웹 애플리케이션은 기존 페이지의 화면 및 동작을 방해하지 않으면서 백그라운드에서 비동기적으로 서버로 데이터를 보내고 서버에서 데이터를 받아올 수 있습니다. Ajax는 프리젠테이션 레이어에서 데이터 교환 레이어를 분리함으로써, 웹페이지 및 확장 웹 애플리케이션이 전체 페이지를 다시 로드 할 필요 없이 동적으로 컨텐츠를 변경할 수 있도록 합니다. 실제로 최근에는 일반적으로 네이티브 JavaScript의 장점 때문에 XML대신 JSON을 사용합니다.
@@ -372,8 +340,6 @@ Ajax(asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 �
 
 - https://en.wikipedia.org/wiki/Ajax_(programming)
 - https://developer.mozilla.org/en-US/docs/AJAX
-
-
 
 ### Ajax를 사용하는 것의 장단점은 무엇인가요?
 
@@ -390,8 +356,6 @@ Ajax(asynchronous JavaScript and XML)는 비동기 웹 응용 프로그램을 �
 - 브라우저에서 JavaScript가 비활성화된 경우 작동하지 않습니다.
 - 일부 웹 크롤러는 JavaScript를 실행하지 않으며 JavaScript에 의해 로드된 콘텐츠를 볼 수 없습니다.
 - SPA의 대부분의 단점과 같습니다.
-
-
 
 ### JSONP가 어떻게 동작하는지(그리고 Ajax와 어떻게 다른지)를 설명하세요.
 
@@ -425,8 +389,6 @@ JSONP는 안전하지 않을 수 있으며, 보안 관련 이슈가 있습니다
 
 - https://stackoverflow.com/a/2067584/1751946
 
-
-
 ### JavaScript 템플릿을 사용한 적이 있나요? 사용해봤다면, 어떤 라이브러리를 사용했나요?
 
 네. Handlebars, Underscore, Lodash, AngularJS, JSX. 저는 AngularJS에서의 템플릿을 좋아하지 않았습니다. 지시자에서 문자열을 많이 사용하게 되며 오타가 감지되지 않기 때문입니다. JSX는 JavaScript에 가깝고 배워야 하는 새로운 문법이 거의 없기 때문에 더 좋아합니다. 요즘에는, Third-party 라이브러리에 의존하지 않고 템플릿을 만드는 빠른 방법으로 ES2015 템플릿 문자열 리터럴을 사용할 수도 있습니다.
@@ -436,8 +398,6 @@ const template = `<div>My name is: ${name}</div>`;
 ```
 
 그러나 템플릿 라이브러리와 달리 컨텐츠가 이스케이프되지 않으므로 위의 접근 방식에서 잠재적 XSS를 알고 있어야 합니다.
-
-
 
 ### `호이스팅`에 대해 설명하세요.
 
@@ -477,13 +437,9 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-
-
 ### event bubbling에 대해 설명하세요.
 
 DOM 요소에서 이벤트가 트리거되면 리스너가 연결되어 있는 경우 이벤트 처리를 시도한 다음, 해당 이벤트가 부모에게 bubbling되고 부모에서 같은 이벤트가 발생합니다. 이 bubbling은 요소의 최상단 부모요소인 `document`까지 계속적으로 발생시킵니다. 이벤트 bubbling은 이벤트 위임의 작동 메커니즘입니다.
-
-
 
 ### "attribute"와 "property"의 차이점은 무엇인가요?
 
@@ -506,8 +462,6 @@ console.log(input.value); // Hello World!
 
 - https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html
 
-
-
 ### 내장 JavaScript 객체를 확장하는 것이 좋은 생각이 아닌 이유는 무엇인가요?
 
 내장/네이티브 JavaScript 객체를 확장한다는 것은 prototype에 속성/함수를 추가한다는 것을 의미합니다. 이것은 처음에는 좋은 생각처럼 보일 수 있지만 실제로는 위험합니다. 여러분의 코드가 동일한 `contains` 메소드를 추가함으로써 `Array.prototype`을 확장하는 여러가지 라이브러리를 사용한다고 상상해보십시오. 이러한 구현은 메소드를 서로 덮어쓰게 되며, 이 두 메소드의 동작이 동일하지 않으면 코드가 망가질 것입니다.
@@ -517,8 +471,6 @@ console.log(input.value); // Hello World!
 ###### 참고자료
 
 - http://lucybain.com/blog/2014/js-extending-built-in-objects/
-
-
 
 ### document `load` 이벤트와 document `DOMContentLoaded` 이벤트의 차이점은 무엇인가요?
 
@@ -530,8 +482,6 @@ console.log(input.value); // Hello World!
 
 - https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 - https://developer.mozilla.org/en-US/docs/Web/Events/load
-
-
 
 ### `==`와 `===`의 차이점은 무엇인가요?
 
@@ -558,8 +508,6 @@ console.log(a == undefined); // true
 
 - https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
 
-
-
 ### JavaScript와 관련하여 same-origin 정책을 설명하세요.
 
 same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 것을 방지합니다. origin은 URI 체계, 호스트 이름, 포트 번호의 조합으로 정의됩니다. 이 정책은 한 페이지의 악의적인 스크립트가 해당 페이지의 DOM을 통해 다른 웹 페이지의 중요한 데이터에 접근하는 것을 방지합니다.
@@ -567,8 +515,6 @@ same-origin 정책은 JavaScript가 도메인 경계를 넘어서 요청하는 �
 ###### 참고자료
 
 - https://en.wikipedia.org/wiki/Same-origin_policy
-
-
 
 ### 다음이 작동하게 만들어보세요.
 
@@ -584,8 +530,6 @@ function duplicate(arr) {
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-
-
 ### 왜 Ternary expression이라고 부르고, "Ternary"라는 단어는 무엇을 나타내나요?
 
 "Ternary"는 "삼항"을 나타내고 삼항 표현식은 세가지 피연산자, 테스트 조건문, "then"표현식, "else"표현식을 받습니다. 삼항 표현식은 JavaScript에만 해당되는 것이 아니며 왜 이 목록에 있는지 잘 모르겠습니다.
@@ -593,8 +537,6 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ###### 참고자료
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-
-
 
 ### `"use strict";` 이 무엇인가요? 사용시 장단점이 무엇인가요?
 
@@ -623,8 +565,6 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
 
-
-
 ### 100까지 증가하면서 `3`의 배수에는 `fizz`를 출력하고, `5`의 배수에는 `buzz`를 출력하고, `3`과 `5`의 배수에는 `fizzbuzz`를 출력하는 for loop를 만드세요.
 
 [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724)의 FizzBuzz를 확인해보세요.
@@ -643,13 +583,9 @@ for (let i = 1; i <= 100; i++) {
 
 - https://gist.github.com/jaysonrowe/1592432
 
-
-
 ### 일반적으로 웹 사이트의 전역 스코프를 그대로 두고 건드리지 않는 것이 좋은 이유는 무엇인가요?
 
 모든 스크립트는 전역 스코프에 접근할 수 있으며, 모든 사람이 전역 네임스페이스를 사용하여 변수를 정의하면 충돌이 발생할 수 있습니다. 모듈 패턴 (IIFEs)을 사용하여 변수를 로컬 네임스페이스 내에 캡슐화하세요.
-
-
 
 ### 왜 `load` 이벤트와 같은 것을 사용하나요? 이 이벤트에는 단점이 있나요? 다른 대안을 알고 있나요? 알고 있다면 왜 그것을 사용할 건가요?
 
@@ -662,8 +598,6 @@ TODO.
 ###### 참고자료
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
-
-
 
 ### single page app이 무엇인지 설명하고 SEO-friendly하게 만드는 방법을 설명하세요.
 
@@ -692,8 +626,6 @@ TODO.
 - http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
 - https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
 
-
-
 ### Promises와 그 Polyfill에 대한 당신의 경험은 어느 정도인가요?
 
 Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(예: 네트워크 오류가 발생) 중 하나의 값을 생성할 수 있는 객체입니다. promise는 fulfilled, rejected, pending 3가지 상태 중 하나일 수 있습니다. promise 사용자는 콜백을 붙여서 fulfill된 값이나 reject된 이유를 처리할 수 ​​있습니다.
@@ -703,8 +635,6 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 ###### 참고자료
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
-
-
 
 ### Callback 대신에 Promise를 사용할 때의 장점과 단점은 무엇인가요?
 
@@ -728,8 +658,6 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 ###### 참고자료
 
 - https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
-
-
 
 ### JavaScript로 컴파일되는 언어로 JavaScript 코드를 작성하는 경우의 장단점은 무엇인가요?
 
@@ -757,8 +685,6 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
-
-
 ### JavaScript 코드를 디버깅하기 위해 어떤 도구와 기술을 사용하나요?
 
 - React and Redux
@@ -773,8 +699,6 @@ JavaScript로 컴파일되는 언어의 예로 CoffeeScript, Elm, ClojureScript,
 
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
-
-
 
 ### 오브젝트 속성이나 배열 항목을 반복할 때 사용하는 언어 구문은 무엇인가요?
 
@@ -807,8 +731,6 @@ for (let [index, elem] of arr.entries()) {
 - http://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
-
-
 ### mutable 객체와 immutable 객체 사이의 차이점을 설명하세요.
 
 - JavaScript에서 immutable 객체의 예는 무엇인가요?
@@ -817,15 +739,11 @@ for (let [index, elem] of arr.entries()) {
 
 TODO
 
-
-
 ### 동기, 비동기 함수의 차이점을 설명하세요.
 
 동기 함수는 블로킹인 반면, 비동기 함수는 그렇지 않습니다. 동기 함수에서는 다음 명령문이 실행되기 전에 앞 명령문이 완료됩니다. 이 경우, 프로그램은 명령문의 순서대로 정확하게 평가되고 명령문 중 하나가 매우 오랜 시간이 걸리면 프로그램 실행이 일시중지됩니다.
 
 비동기 함수는 일반적으로 파라미터를 통해서 콜백을 받고, 비동기 함수가 호출된 후 즉시 다음 줄 실행이 계속됩니다. 콜백은 비동기 작업이 완료되고 호출 스택이 비어 있을 때만 호출됩니다. 웹 서버에서 데이터를 로드하거나 데이터베이스를 쿼리하는 등의 무거운 작업을 비동기식으로 수행하여, 메인 스레드가 긴 작업을 완료할 때까지 블로킹하지 않고 다른 작업을 계속할 수 있습니다(브라우저의 경우 UI가 중지됨).
-
-
 
 ### 이벤트 루프란 무엇인가요? 콜 스택과 태스크 큐의 차이점은 무엇인가요?
 
@@ -837,8 +755,6 @@ Philip Robert의 [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip
 
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
-
-
 
 ### `function foo() {}`와 `var foo = function() {}` 사이에서 `foo` 사용의 차이에 대해 설명하세요.
 
@@ -865,8 +781,6 @@ var foo = function () {
 ###### 참고자료
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
-
-
 
 ### `let`, `var`, `const`를 사용하여 생성된 변수들의 차이점은 무엇인가요?
 
@@ -948,8 +862,6 @@ baz = 'qux';
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 
-
-
 ### ES6 클래스와 ES5 함수 생성자의 차이점은 무엇인가요?
 
 먼저 각각의 예를 살펴보겠습니다.
@@ -1001,8 +913,6 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
-
-
 ### 새 화살표 => 함수 문법에 대한 사용 예시를 들 수 있나요? 이 새로운 문법은 다른 함수와 어떻게 다른가요?
 
 화살표 함수의 한 가지 분명한 이점은 `function` 키워드를 사용하지 않고도 함수를 생성하는데 필요한 문법을 단순화하는 것입니다.
@@ -1010,8 +920,6 @@ ES5에서 상속을 사용하는 것이 훨씬 더 불편하며, ES6 버전이 �
 또한, 화살표 함수 내의 `this`는, `this`가 함수를 호출하는 객체에 의해 결정되는 일반 함수와 다르게, 주변 스코프에에 묶입니다.
 
 렉시컬스코프 `this`는 특히 React 컴포넌트에서 콜백을 호출할 때 유용합니다.
-
-
 
 ### 생성자의 메서드에 화살표 문법을 사용하면 어떤 이점이 있나요?
 
@@ -1068,8 +976,6 @@ sayNameFromWindow2(); // John
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 - https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
 
-
-
 ### 고차 함수(higher-order function)의 정의는 무엇인가요?
 
 고차 함수는 다른 함수를 매개 변수로 사용하여 어떤 데이터를 처리하거나, 결과로 함수를 반환하는 함수입니다. 고차 함수는 반복적으로 수행되는 어떤 연산을 추상화하기 위한 것입니다. 전형적인 예시는 배열과 함수를 인수로 취하는 `map`입니다. `map`은 고차 함수를 사용하여 배열의 각 항목을 변환하고, 변환된 데이터로 새로운 배열을 반환합니다. JavaScript에서 흔히 볼 수 있는 다른 예로 `forEach`, `filter`, `reduce`가 있습니다. 다른 함수에서 함수를 반환하는 많은 사용사례가 있기 때문에 고차 함수는 배열을 조작할 필요가 없습니다. `Array.prototype.bind`는 JavaScript에서 그러한 예시 중 하나입니다.
@@ -1109,8 +1015,6 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 - https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
 - https://eloquentjavascript.net/05_higher_order.html
-
-
 
 ### 객체나 배열에 대한 디스트럭쳐링 예시를 들 수 있나요?
 
@@ -1153,8 +1057,6 @@ console.log(q); // true
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
-
-
 
 ### ES6 템플릿 리터럴은 문자열을 생성하는데 많은 유연성을 제공합니다. 이에 대한 예를 들 수 있나요?
 
@@ -1221,8 +1123,6 @@ document.body.innerHTML = `
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
-
-
 ### curry 함수의 예를 들어 줄 수 있나요? 그리고 이 문법은 어떤 이점을 가지고 있나요?
 
 currying은 둘 이상의 매개 변수가 있는 함수가 여러 함수로 분리된 패턴으로, 직렬로 호출하면, 필요한 모든 매개 변수가 한 번에 하나씩 누적됩니다. 이 기법은 함수형 스타일로 작성된 코드를 읽고, 합성하기 더 쉬워진 경우 유용할 수 있습니다. 함수를 currying하려면, 하나의 함수로 시작하여, 하나의 매개 변수를 취하는 일련의 함수로 분리해야 합니다.
@@ -1258,8 +1158,6 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ###### 참고자료
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
-
-
 
 ### spread 문법을 사용할 때의 이점은 무엇이며 rest 문법과 다른 점은 무엇인가요?
 
@@ -1305,8 +1203,6 @@ const {e, f, ...others} = {
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-
-
 ### 파일 간에 코드를 공유하려면 어떻게 해야하나요?
 
 이것은 Javascript 환경에 따라 다릅니다.
@@ -1323,8 +1219,6 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 - https://nodejs.org/docs/latest/api/modules.html
 - http://2ality.com/2014/09/es6-modules-final.html
 
-
-
 ### 정적 클래스 멤버를 만드는 이유는 무엇인가요?
 
 정적 클래스 멤버(속성/메서드)는 클래스의 특정 인스턴스와 묶이지 않으며, 어떤 인스턴스가 이를 참조하는지에 관계없이 동일한 값을 가집니다. 정적 속성은 일반적으로 설정(configuration) 변수이며 정적 메서드는 일반적으로 인스턴스의 상태에 의존하지 않는 순수 유틸리티 함수입니다.
@@ -1332,8 +1226,6 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 ###### 참고자료
 
 - https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods
-
-
 
 ### 다른 답변들
 

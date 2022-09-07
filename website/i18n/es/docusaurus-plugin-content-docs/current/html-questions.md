@@ -24,8 +24,6 @@ La declaración DOCTYPE para los estándares HTML5 es `<!DOCTYPE html>`.
 - https://html.spec.whatwg.org/multipage/xhtml.html
 - https://quirks.spec.whatwg.org/
 
-
-
 ### ¿Cómo desplegar una página con contenido en varios idiomas?
 
 La pregunta es un poco vaga, supondré que se trata del caso más común, que es cómo desplegar una página con contenido disponible en varios idiomas, pero el contenido dentro de la página debe mostrarse solo en un idioma coherente.
@@ -37,8 +35,6 @@ En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido pa
 ###### Referencias
 
 - https://www.w3.org/International/getting-started/language
-
-
 
 ### ¿Qué debes tener en cuenta al diseñar o desarrollar sitios en múltiples lenguajes?
 
@@ -55,8 +51,6 @@ En el back-end, el HTML contendrá marcadores de posición `i18n` y contenido pa
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### ¿Para qué sirve el atributo `data-`?
 
 Antes de que los frameworks de JavaScript se hicieran populares, los desarrolladores front-end usaban atributos `data-` para almacenar datos adicionales dentro del DOM, sin otros hacks como atributos no estándar, propiedades adicionales en el DOM. Está destinado a almacenar datos personalizados privados para la página o aplicación, para los cuales no hay más atributos o elementos apropiados.
@@ -69,8 +63,6 @@ Sin embargo, un uso perfectamente válido de los atributos de datos es agregar u
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### ¿Consideras HTML5 como una plataforma web abierta. Cuáles son los componentes básicos de HTML5?
 
@@ -86,8 +78,6 @@ Sin embargo, un uso perfectamente válido de los atributos de datos es agregar u
 ###### Referencias
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
-
-
 
 ### Describe las diferenias entre `cookie`, `sessionStorage` y `localStorage`.
 
@@ -109,8 +99,6 @@ _Nota: Si el usuario decide borrar los datos de navegación a través de cualqui
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### Describe las diferencias entre `<script>`, `<script async>` y `<script defer>`.
 
 - `<script>` - El análisis del HTML es bloqueado, el script es extraído y ejecutado inmediatamente, el análisis del HTML se reanuda luego de ejecutado el script.
@@ -124,8 +112,6 @@ Nota: Los atributos `async` y `defer` son ignorados por scripts que no tienen el
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### ¿Por qué generalmente es buena idea colocar los `<link>` de CSS entre `<head></head>` y `<script>` de JS justo antes del `</body>`? ¿Conoces alguna excepción?
 
@@ -145,8 +131,6 @@ Una excepción para el posicionamiento de los `<script>` en la parte inferior es
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
 
-
-
 ### ¿Qué es el renderizado progresivo?
 
 Renderizado progresivo es el nombre dado a las técnicas utilizadas para mejorar el rendimiento de una página web (en particular, mejorar el tiempo de carga percibido) para representar el contenido y su visualización lo más rápido posible.
@@ -163,8 +147,6 @@ Ejemplos:
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### ¿Por qué usaría el atributo `srcset` en una etiqueta de imagen? Explica el proceso que usa el navegador al evaluar el contenido de este atributo.
 
@@ -185,13 +167,9 @@ Si la resolución es retina (2x), el navegador usará la resolución más cercan
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
-
-
 ### ¿Has utilizado otros lenguajes de plantillas HTML anteriormente?
 
 Sí, Pug (anteriormente Jade), ERB, Slim, Handlebars, Jinja, Liquid, por nombrar algunos. En mi opinión, son más o menos lo mismo y proporcionan una funcionalidad similar de escape de contenido y filtros útiles para manipular los datos que se mostrarán. La mayoría de los motores de plantillas también permiten inyectar tus propios filtros en caso de que se necesite un procesamiento personalizado antes de mostrarlos.
-
-
 
 ### Otras Respuestas
 

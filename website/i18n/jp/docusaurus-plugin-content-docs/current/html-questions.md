@@ -20,8 +20,6 @@ import TOCInline from '@theme/TOCInline';
 - https://www.w3.org/QA/Tips/Doctype
 - https://quirks.spec.whatwg.org/#history
 
-
-
 ### どのようにすれば複数の言語のコンテンツを含むページを提供できますか？
 
 この質問は少し曖昧なので、最も一般的なケース、つまり複数の言語で利用可能なコンテンツを提供する方法を聞かれているとします。1 つのページ内のコンテンツは 1 つの言語でのみ表示されるべきです。
@@ -33,8 +31,6 @@ HTTP リクエストがサーバに対して行われるとき、リクエスト
 ###### 参考
 
 - https://www.w3.org/International/getting-started/language
-
-
 
 ### 多言語サイトを設計・開発する際には、どんなことに注意を払わなければならないですか？
 
@@ -51,8 +47,6 @@ HTTP リクエストがサーバに対して行われるとき、リクエスト
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-
-
 ### `data-` 属性は何のために使われるのですか？
 
 JavaScript フレームワークが普及する前に、フロントエンドの開発者は、非標準属性、DOM の余分なプロパティなどの他のハッキングなしで、DOM 内に余分なデータを格納する `data-` 属性を使用しました。カスタムデータをページやアプリケーションに格納する際に、適切な属性や要素が存在しない時のために利用するものです。
@@ -63,8 +57,6 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
-
-
 
 ### HTML5 をオープンウェブプラットフォームとして考えたときに、HTML5 とはどんな要素から成るものですか？
 
@@ -81,8 +73,6 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5 (英語)
 - https://developer.mozilla.org/ja/docs/Web/HTML/HTML5 (日本語)
-
-
 
 ### `cookie`、`sessionStorage`、`localStorage` の違いを教えてください。
 
@@ -103,8 +93,6 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies (日本語)
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-
-
 ### `<script>`、`<script async>`、`<script defer>` の違いを教えてください。
 
 - `<script>` - HTML 解析がブロックされ、スクリプトがフェッチされてすぐに実行され、スクリプトの実行後に HTML 解析が再開されます。
@@ -118,8 +106,6 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
-
-
 
 ### なぜ一般的に、CSS の `<link>` を `<head></head>` の間に、JS の `<script>` を `</body>` の直前に置くことが良いと言われているのでしょうか？こうすべきでない例外を知っていますか？
 
@@ -137,8 +123,6 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 
-
-
 ### プログレッシブレンダリングとは何ですか？
 
 プログレッシブレンダリングは、ウェブページのパフォーマンスを向上させる（特に、感覚的な読み込み時間を改善する）ために使用される技術に与えられた名前であり、できるだけ早く表示するためにコンテンツをレンダリングします。
@@ -155,8 +139,6 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
-
-
 
 ### img タグに `srcset` 属性を使用する理由は？この属性をもつ要素を評価するときにブラウザが行うプロセスを説明してください。
 
@@ -177,13 +159,9 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-
-
 ### HTML テンプレート言語をいくつか使用した経験はありますか？
 
 はい。例をあげると、Pug (旧 Jade)、ERB、Slim、Handlebars、Jinja、Liquid を使ったことがあります。私の意見では、これらはおおよそ同じようなものであり、表示されるデータを操作するためのエスケープするコンテンツや役立つフィルタと同様の機能を提供します。ほとんどのテンプレートエンジンでは、表示前にカスタム処理が必要なイベントに独自のフィルタを挿入することもできます。
-
-
 
 ### 他の方の回答集
 
