@@ -217,7 +217,7 @@ module.exports = {
   scripts: [],
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh', 'es', 'jp', 'kr', 'pl', 'pr', 'ru', 'tl'],
+    locales: ['en', 'zh', 'es', 'jp', 'kr', 'pl', 'pr', 'ru', 'tl', 'bn'],
     localeConfigs: {
       zh: {
         label: '简体中文',
@@ -249,6 +249,10 @@ module.exports = {
       },
       tl: {
         label: 'Tagalog',
+        direction: 'ltr',
+      },
+      bn: {
+        label: 'বাংলা',
         direction: 'ltr',
       },
     },
