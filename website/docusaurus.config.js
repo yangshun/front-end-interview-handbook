@@ -26,14 +26,14 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: 'introduction', label: 'Start reading', position: 'left' },
-        { to: 'coding', label: 'Coding', position: 'left' },
+        {to: 'introduction', label: 'Start reading', position: 'left'},
+        {to: 'coding', label: 'Coding', position: 'left'},
         {
           to: 'front-end-system-design',
           label: 'System design',
           position: 'left',
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
+        {to: 'blog', label: 'Blog', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
