@@ -900,7 +900,7 @@ Freezing an object does not allow new properties to be added to an object and pr
 - Defensive copies are no longer necessary when immutable objects are returning from or passed to functions, since there is no possibility an immutable object will be modified by it.
 - Easy sharing via references - One copy of an object is just as good as another, so you can cache objects or reuse the same object multiple times.
 - Thread-safe - Immutable objects can be safely used between threads in a multi-threaded environment since there is no risk of them being modified in other concurrently running threads.
-- Using libraries like ImmmutableJS, objects are modified using structural sharing and less memory is needed for having multiple objects with similar structures.
+- Using libraries like ImmutableJS, objects are modified using structural sharing and less memory is needed for having multiple objects with similar structures.
 
 **Cons**
 
