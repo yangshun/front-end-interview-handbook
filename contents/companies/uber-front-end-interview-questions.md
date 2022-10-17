@@ -7,7 +7,7 @@ Not much is known about Uber's front end interview process.
 
 ## JavaScript
 
-- Implement a rate limiter attribute/decoration/annotation on top of an API endpoint. Caps to N requests per minute with a rolling window. [Source](https://leetcode.com/discuss/interview-question/1248
+- Implement a rate limiter attribute/decoration/annotation on top of an API endpoint. Caps to N requests per minute with a rolling window. [Source A](https://leetcode.com/discuss/interview-question/2409192/Uber-or-Phone-Screen-or-Senior-Front-End-Engineer) and [Source B](https://leetcode.com/discuss/interview-question/124880/Rate-Limiter)
 
 ## User interface coding
 
