@@ -32,7 +32,7 @@ Unlike typical software engineer job interviews, front end job interviews have l
 ---
 
 <div align="center">
-  <h3>💡 Looking for high quality front end interview courses? <a href="https://www.educative.io/explore?search_string=interview&skills=javascript&aff=x23W">Educative</a> offers a ton of great courses to improve your interview game 💡</h3>
+  <h3>💡 Preparing for front end interviews? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is offering 50% off its lifetime plan of high quality practice questions and solutions written by ex-FAANG Engineers 💡</h3>
 </div>
 
 ---
