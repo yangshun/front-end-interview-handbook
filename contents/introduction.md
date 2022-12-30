@@ -6,9 +6,9 @@ title: Introduction
 
 Unlike typical software engineer job interviews, front end interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the front end domain — HTML, CSS, JavaScript, just to name a few.
 
-Many front end interviews are highly-focused on domain knowledge and applying them to real-world scenarios. You might find that grinding LeetCode is not all you need when it comes to interviewing for a front end position, but that's a good thing! Front end interviews tend to test concepts that are more practical and relevant to real world front end development. But that doesn't mean that you don't have to be familiar with basic data structure and algorithmic concepts - there's just less emphasis on them and probably you get easier algorithmic questions.
+Many front end interviews are highly-focused on domain knowledge and applying them to real-world scenarios. You might find that grinding LeetCode is not all you need when it comes to interviewing for a front end position, but that's a good thing! Front end interviews tend to test concepts that are more practical and relevant to real world front end development. But that doesn't mean that you don't have to be familiar with basic data structures and algorithmic concepts - there's just less emphasis on them and you are probably going to get easier algorithmic questions.
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there aren't many complete and satisfactory answers to these questions readily available online. This handbook answers these trivia-style questions along with information and guidance for other front end interview formats.
+While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a general software engineer interview. Among the existing resources, the most helpful question bank would probably be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there aren't many complete and satisfactory answers to these questions readily available online. This handbook answers these trivia-style questions along with information and guidance for other front end interview formats.
 
 ## General tips for front end interviews
 
@@ -26,7 +26,7 @@ Look out for interview questions by companies on Glassdoor. Front end questions 
 
 ## Front end interview formats
 
-Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We have made the efforts to search the Internet for front end interview questions asked by the popular companies and there are some questions which appear very often. In general, you should be familiar with the following questions and formats:
+Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We have made the effort to search the Internet for front end interview questions asked by the popular companies and there are some questions which appear very often. In general, you should be familiar with the following questions and formats:
 
 ### Trivia questions
 
@@ -44,12 +44,12 @@ Short questions which test your knowledge and have clear non-subjective answers.
 
 ### JavaScript coding
 
-This is the front end version of LeetCode-style algorithm questions. Implement a function in JavaScript, it could be a utility function found in Lodash/Underscore (e.g. `throttle`), or a polyfill for the JavaScript language/DOM APIs (e.g. `Array.prototype.filter`, `Promise.all`, `document.getElementsByClassName()`).
+This is the front end version of LeetCode-style algorithm questions. Implement a function in JavaScript, which can be a utility function found in Lodash/Underscore (e.g. `throttle`), or a polyfill for the JavaScript language/DOM APIs (e.g. `Array.prototype.filter()`, `Promise.all()`, `document.getElementsByClassName()`).
 
 - Implement `Array.prototype` functions: `map`, `reduce`, `filter`, `sort`.
-- Implement DOM APIs: `getElementsByClassName`.
+- Implement DOM APIs: `document.getElementsByClassName`, `document.getElementsByTagName`.
 - `debounce`/`throttle`.
-- Implement Promise/Promise-related APIs: `Promise`, `Promise.all`.
+- Implement Promise/Promise-related APIs: `Promise`, `Promise.all`, `Promise.any`.
 
 ### User interface coding
 
@@ -67,13 +67,13 @@ Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS
 
 [**Read more about front end coding questions →**](./algorithms.md)
 
-### Algorithm coding
+### Algorithmic coding
 
-LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills. You can be asked any questions on LeetCode and might be asked to solve them using JavaScript.
+LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills. You can be asked any question on LeetCode and might be asked to complete them using JavaScript.
 
 ### System design
 
-Describe and discuss how you would build a UI component/app/game and its architecture. This is the front end version of system design questions. E.g. Describe how you would build Emoji autocomplete feature in a chat app, what APIs it would have, what components there are to the feature, how to ensure it has good performance, UX, etc.
+Describe and discuss how you would build a UI component/app/game and its architecture. This is the front end version of system design questions. E.g. Describe how you would build the Emoji autocomplete feature in a chat app, what APIs it would have, what components there are to the feature, how to ensure it has good performance, UX, etc.
 
 - Design an image carousel component.
 - Design an email client application.

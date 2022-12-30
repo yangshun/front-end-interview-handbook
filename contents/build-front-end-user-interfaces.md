@@ -4,14 +4,14 @@ slug: coding/build-front-end-user-interfaces
 sidebar_label: User interface coding
 ---
 
-Many Front End Engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end - HTML, JavaScript, CSS.
+Many Front End Engineers spend a lot of time building UI, and building a UI component is a good way to assess someone's familiarity in the three biggest aspects of front end — HTML, JavaScript, CSS.
 
 Companies that ask such questions usually ask candidates to code in one of these three ways:
 
-- Online editor with preview: You get to write HTML, CSS, JavaScript within the browser and see an instant preview of the page. Common platforms used include [CodePen](https://codepen.io) and [CodeSandbox](https://codesandbox.io/dashboard),
+- Online editor with preview: You get to write HTML, CSS, JavaScript within the browser and see an instant preview of the page. Common platforms used include [CodePen](https://codepen.io) and [CodeSandbox](https://codesandbox.io/dashboard).
 - Online editor without preview: Similar to the above, but you don't get to see any visual output of the page. A common platform for this is [CoderPad](https://coderpad.io/). In the past, Google used Google Docs 😱.
 - BYOE (Bring Your Own Environment): Candidates bring their own development environment/laptop and free to choose whether they want to do local development using their own editors or use online environments like CodePen or CodeSandbox. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites. You can usually use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals.
-- Whiteboard: Candidates have to write all the required HTML, JS, CSS on the whiteboard. There's no preview, no autocomplete, no online documentation to help you; you're totally on your own. So far Facebook and Google are the only companies that are known to make candidates write on a whiteboard in front end interviews.
+- Whiteboard: Candidates have to write all the required HTML, JS, CSS on the whiteboard. There's no preview, no autocomplete, no online documentation to help you; you're totally on your own. So far Facebook and Google are the only companies that are known to make candidates write on a whiteboard during front end interviews.
 
 ## Examples
 
@@ -78,7 +78,7 @@ Does your component scale (latency, performance, UI, UX, etc)?
 ### Security
 
 - XSS vulnerability. Interviewers are especially looking out for this whenever you need to render user input. You almost never need to use `.innerHTML` or jQuery's `$.html()`. There's `.textContent` and `$.text()`. If you do have to render raw HTML, make sure you escape the contents first.
-- User input that is being displayed in the URL has to be encoded first as well, or else there's also a potential for mischief.
+- User input that is being displayed in the URL has to be encoded first as well, or else there's also a potential for mischief where users can add additional query parameters.
 
 ### Future
 
