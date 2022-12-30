@@ -3,7 +3,7 @@ title: Amazon front end interview questions
 sidebar_label: Amazon interview questions
 ---
 
-Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.
+Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too. Refer to the [official Amazon Interview Preparation Guide for Software Development Engineer](https://amazonsdeinterviewprep.splashthat.com/).
 
 ## Trivia
 

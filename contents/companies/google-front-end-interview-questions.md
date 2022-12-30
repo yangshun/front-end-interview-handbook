@@ -5,6 +5,10 @@ sidebar_label: Google interview questions
 
 Since it's Google, candidates can expect to be tested on fundamental Computer Science concepts as well as their front end knowledge/skills.
 
+> Web Front End: ​You should be ready to cover topics like front end latency and implementation of standard CS algorithms using idiomatic JavaScript. You should be able to articulate Javascript strengths and shortcomings and ready to cover any of the following: Web security issues (XSS, XSRF), Prototypal inheritance, DOM API & manipulation, CSS manipulation, Browser / DOM events & event handling, XHR requests & HTTP headers, JavaScript closures
+
+Refer to the [full official Google Interview Preparation Guide for Front End Software Engineer](/companies/google.pdf).
+
 ## JavaScript
 
 - Implement the outline view for a Google doc.

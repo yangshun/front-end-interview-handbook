@@ -3,6 +3,12 @@ title: Dropbox front end interview questions
 sidebar_label: Dropbox interview questions
 ---
 
+Dropbox focuses on practical questions for their Front End Engineering interview loop rather than on raw algorithmic coding.
+
+> Our web developer interviews focus on practical application of HTML/CSS/JS for building web UI. The questions are based on real-world examples rather than raw coding exercises. You will be given a design spec and asked to build the best solution you can that demonstrates your experience and grasp of web development technologies.
+
+Refer to the [full official Dropbox Web Developer Interview Preparation Guide](/companies/dropbox.pdf).
+
 ## JavaScript
 
 - Implement [`getByClassName()` and `getByClassnameHierarchy()`](https://leetcode.com/discuss/interview-question/427896/Dropbox-or-Phone-Screen-or-Implement-getByClassName-and-getByClassnameHierarchy)
