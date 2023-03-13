@@ -64,11 +64,13 @@ child.cry = function () {
   console.log('waaaaaahhhh!');
 };
 
+child.name = 'Child';
+
 child.cry();
 // waaaaaahhhh!
 
 child.greet();
-// hello from Parent
+// hello from Child
 
 child.constructor;
 // ƒ Parent() {
