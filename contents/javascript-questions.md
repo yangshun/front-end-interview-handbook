@@ -55,13 +55,13 @@ function Parent() {
 }
 
 Parent.prototype.greet = function () {
-  console.log('Hello from ' + this.name);
+  console.log('Hello from Parent');
 };
 
 const child = Object.create(Parent.prototype);
 
 child.cry = function () {
-  console.log('waaaaaahhhh!');
+  console.log('waaaaaahhhh!');it
 };
 
 child.cry();
