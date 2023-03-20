@@ -27,7 +27,7 @@ export default function i18nMiddleware(
   // TODO: Support Next.js-style rewrites config (array).
   rewrites: Rewrites = {},
 ) {
-  const { pathname } = request.nextUrl;
+  const { pathname, search } = request.nextUrl;
 
   // Check if pathname starts with a known locale.
   const pathnameStartsWithKnownLocale = nextI18nosticConfig.locales.some(
@@ -44,7 +44,8 @@ export default function i18nMiddleware(
     if (locale !== nextI18nosticConfig.defaultLocale) {
       return NextResponse.redirect(
         new URL(
-          stripTrailingSlashFromPathnameIfNecessary(`/${locale}${pathname}`),
+          stripTrailingSlashFromPathnameIfNecessary(`/${locale}${pathname}`) +
+            search,
           request.url,
         ),
       );
@@ -58,7 +59,7 @@ export default function i18nMiddleware(
       new URL(
         stripTrailingSlashFromPathnameIfNecessary(
           `/${locale}${rewritePathnameIfNecessary(pathname, rewrites)}`,
-        ),
+        ) + search,
         request.url,
       ),
     );
@@ -73,7 +74,7 @@ export default function i18nMiddleware(
 
     return NextResponse.redirect(
       new URL(
-        rewritePathnameIfNecessary(strippedPathname, rewrites),
+        rewritePathnameIfNecessary(strippedPathname, rewrites) + search,
         request.url,
       ),
     );
@@ -88,7 +89,7 @@ export default function i18nMiddleware(
         i18nHref(
           rewritePathnameIfNecessary(rawPathname, rewrites),
           locale ?? nextI18nosticConfig.defaultLocale,
-        ).toString(),
+        ).toString() + search,
         request.url,
       ),
     );

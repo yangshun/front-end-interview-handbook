@@ -31,6 +31,15 @@ describe('i18nMiddleware', () => {
       expect(res).toBe(null);
     });
 
+    test('contains query string', () => {
+      const req = new NextRequest(
+        'https://www.example.com/fr/products?foo=bar',
+      );
+      const res = i18nMiddleware(req);
+
+      expect(res).toBe(null);
+    });
+
     describe('starts with default locale', () => {
       test('only contains locale', () => {
         const req = new NextRequest('https://www.example.com/en');
@@ -49,56 +58,129 @@ describe('i18nMiddleware', () => {
           'https://www.example.com/products',
         );
       });
+
+      test('contains query string', () => {
+        const req = new NextRequest(
+          'https://www.example.com/en/products?foo=bar',
+        );
+        const res = i18nMiddleware(req);
+
+        expect(res).toBeInstanceOf(NextResponse);
+        expect(res?.headers.get('location')).toBe(
+          'https://www.example.com/products?foo=bar',
+        );
+      });
     });
   });
 
   describe('rewrites', () => {
     describe('default locale', () => {
-      test('matching rewrite', () => {
-        const req = new NextRequest('https://www.example.com/products');
-        const res = i18nMiddleware(req, {
-          '/products': '/products/list',
+      describe('matching rewrite', () => {
+        test('pathname', () => {
+          const req = new NextRequest('https://www.example.com/products');
+          const res = i18nMiddleware(req, {
+            '/products': '/products/list',
+          });
+
+          expect(res).toBeInstanceOf(NextResponse);
+          expect(res?.headers.get('x-middleware-rewrite')).toBe(
+            'https://www.example.com/en/products/list',
+          );
         });
 
-        expect(res).toBeInstanceOf(NextResponse);
-        expect(res?.headers.get('x-middleware-rewrite')).toBe(
-          'https://www.example.com/en/products/list',
-        );
+        test('query string', () => {
+          const req = new NextRequest(
+            'https://www.example.com/products?foo=bar',
+          );
+          const res = i18nMiddleware(req, {
+            '/products': '/products/list',
+          });
+
+          expect(res).toBeInstanceOf(NextResponse);
+          expect(res?.headers.get('x-middleware-rewrite')).toBe(
+            'https://www.example.com/en/products/list?foo=bar',
+          );
+        });
       });
 
-      test('unmatched rewrite', () => {
-        const req = new NextRequest('https://www.example.com/products');
-        const res = i18nMiddleware(req, {
-          '/checkout': '/cart',
+      describe('unmatched rewrite', () => {
+        test('pathname', () => {
+          const req = new NextRequest('https://www.example.com/products');
+          const res = i18nMiddleware(req, {
+            '/checkout': '/cart',
+          });
+
+          expect(res).toBeInstanceOf(NextResponse);
+          expect(res?.headers.get('x-middleware-rewrite')).toBe(
+            'https://www.example.com/en/products',
+          );
         });
 
-        expect(res).toBeInstanceOf(NextResponse);
-        expect(res?.headers.get('x-middleware-rewrite')).toBe(
-          'https://www.example.com/en/products',
-        );
+        test('query string', () => {
+          const req = new NextRequest(
+            'https://www.example.com/products?foo=bar',
+          );
+          const res = i18nMiddleware(req, {
+            '/checkout': '/cart',
+          });
+
+          expect(res).toBeInstanceOf(NextResponse);
+          expect(res?.headers.get('x-middleware-rewrite')).toBe(
+            'https://www.example.com/en/products?foo=bar',
+          );
+        });
       });
     });
 
     describe('non-default locale', () => {
-      test('matching rewrite', () => {
-        const req = new NextRequest('https://www.example.com/zh-CN/products');
-        const res = i18nMiddleware(req, {
-          '/products': '/products/list',
+      describe('matching rewrite', () => {
+        test('pathname', () => {
+          const req = new NextRequest('https://www.example.com/zh-CN/products');
+          const res = i18nMiddleware(req, {
+            '/products': '/products/list',
+          });
+
+          expect(res).toBeInstanceOf(NextResponse);
+          expect(res?.headers.get('x-middleware-rewrite')).toBe(
+            'https://www.example.com/zh-CN/products/list',
+          );
         });
 
-        expect(res).toBeInstanceOf(NextResponse);
-        expect(res?.headers.get('x-middleware-rewrite')).toBe(
-          'https://www.example.com/zh-CN/products/list',
-        );
+        test('query string', () => {
+          const req = new NextRequest(
+            'https://www.example.com/zh-CN/products?foo=bar',
+          );
+          const res = i18nMiddleware(req, {
+            '/products': '/products/list',
+          });
+
+          expect(res).toBeInstanceOf(NextResponse);
+          expect(res?.headers.get('x-middleware-rewrite')).toBe(
+            'https://www.example.com/zh-CN/products/list?foo=bar',
+          );
+        });
       });
 
-      test('unmatched rewrite', () => {
-        const req = new NextRequest('https://www.example.com/zh-CN/products');
-        const res = i18nMiddleware(req, {
-          '/checkout': '/cart',
+      describe('unmatched rewrite', () => {
+        test('pathname', () => {
+          const req = new NextRequest('https://www.example.com/zh-CN/products');
+          const res = i18nMiddleware(req, {
+            '/checkout': '/cart',
+          });
+
+          expect(res).toBe(null);
         });
 
-        expect(res).toBe(null);
+        test('query string', () => {
+          const req = new NextRequest(
+            'https://www.example.com/zh-CN/products?foo=bar',
+          );
+          const res = i18nMiddleware(req, {
+            '/checkout': '/cart',
+          });
+
+          expect(res).toBe(null);
+        });
       });
     });
   });
