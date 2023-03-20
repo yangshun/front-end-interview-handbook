@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife",
+    "title": "Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var w=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var t in e)r(o,t,{get:e[t],enumerable:!0})},a=(o,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of f(e))!m.call(o,i)&&i!==t&&r(o,i,{get:()=>e[i],enumerable:!(c=u(e,i))||c.enumerable});return o};var g=(o,e,t)=>(t=o!=null?l(p(o)):{},a(e||!o||!o.__esModule?r(t,\"default\",{value:o,enumerable:!0}):t,o)),b=o=>a(r({},\"__esModule\",{value:!0}),o);var s=w((F,d)=>{d.exports=_jsx_runtime});var j={};x(j,{default:()=>I,frontmatter:()=>y});var n=g(s()),y={title:\"Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?\"};function h(o){let e=Object.assign({p:\"p\",code:\"code\",em:\"em\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads \",(0,n.jsx)(e.code,{children:\"function foo(){ }();\"}),\" as \",(0,n.jsx)(e.code,{children:\"function foo(){ }\"}),\" and \",(0,n.jsx)(e.code,{children:\"();\"}),\", where the former is a \",(0,n.jsx)(e.em,{children:\"function declaration\"}),\" and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws \",(0,n.jsx)(e.code,{children:\"Uncaught SyntaxError: Unexpected token )\"}),\".\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Here are two ways to fix it that involves adding more parentheses: \",(0,n.jsx)(e.code,{children:\"(function foo(){ })()\"}),\" and \",(0,n.jsx)(e.code,{children:\"(function foo(){ }())\"}),\". Statements that begin with \",(0,n.jsx)(e.code,{children:\"function\"}),\" are considered to be \",(0,n.jsx)(e.em,{children:\"function declarations\"}),\"; by wrapping this function within \",(0,n.jsx)(e.code,{children:\"()\"}),\", it becomes a \",(0,n.jsx)(e.em,{children:\"function expression\"}),\" which can then be executed with the subsequent \",(0,n.jsx)(e.code,{children:\"()\"}),\". These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"You might also use \",(0,n.jsx)(e.code,{children:\"void\"}),\" operator: \",(0,n.jsx)(e.code,{children:\"void function foo(){ }();\"}),\". Unfortunately, there is one issue with such approach. The evaluation of given expression is always \",(0,n.jsx)(e.code,{children:\"undefined\"}),\", so if your IIFE function returns anything, you can't use it. An example:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const foo = void (function bar() {\n  return 'foo';\n})();\n\nconsole.log(foo); // undefined\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function v(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(h,o)})):h(o)}var I=v;return b(j);})();\n;return Component;"
+}

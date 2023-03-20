@@ -1,0 +1,16 @@
+{
+  "slug": "image-carousel",
+  "created": "2022-10-16T00:00:00.000Z",
+  "languages": [],
+  "companies": [
+    "dropbox",
+    "google"
+  ],
+  "premium": true,
+  "duration": 30,
+  "featured": true,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "ranking": 4
+}

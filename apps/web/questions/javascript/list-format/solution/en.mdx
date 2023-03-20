@@ -1,0 +1,31 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import listFormat from '../src/list-format';
+
+This question is inspired by the JavaScript API `Intl.ListFormat.prototype.format()` function.
+
+## Solution
+
+By looking at the examples, we can split the solution into two sections:
+
+1. Processing the input list - removing empty values, sorting, de-duplicating.
+1. Formatting the items into a second string.
+
+The first section is pretty straightforward, we can just maintain an `items` array that we mutate according to the `options`.
+
+The second section is a little trickier, but we can observe the following:
+
+- The `length` option splits the array into two parts.
+- The first part will be joined with a `, ` and the second will be joined with `and`. - Whether to show `X other(s)` for the second part is dependent on whether the `length` value is a valid value within the range `[0, items.length]`.
+
+<MDXCodeBlock>{listFormat}</MDXCodeBlock>
+
+## Notes
+
+This function is not as usable as the `Intl.ListFormat.prototype.format()` API because the separators are hardcoded to be English. The `Intl` API is meant for internationalization (i18n) in the first place and also allows for customization of the separators (the comma and the `and`), so there shouldn't be any hardcoding of separators if this function is meant for production use!
+
+To make this function better, we could allow customization of the list separator and the "others" separator.
+
+## Resources
+
+- [`Intl.ListFormat` MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat)

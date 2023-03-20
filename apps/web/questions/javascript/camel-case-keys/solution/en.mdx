@@ -1,0 +1,45 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import camelCaseKeys from '../src/camel-case-keys';
+
+This question is similar to [Squash Object](/questions/javascript/squash-object), where we need a function to apply some changes to the keys of an object.
+
+## Clarification Questions
+
+- Is every key going to be snake-cased? What if there are keys that use other naming conventions?
+  - Ignore these keys and skip processing of such keys.
+- Do we only care about enumerable, non-inherited string keys? Are we interested in converting inherited keys?
+  - They can be ignored.
+- Can the object contain cyclic references?
+  - We can ignore that case.
+
+## Solution
+
+The solution can be broken down into two main parts:
+
+1. Traverse the objects and apply changes to every key (i.e. snake case to camel case).
+1. Return a new object with the changes applied without modifying the existing input object.
+
+There are generally two ways we can explore an object:
+
+- Looping through the keys with the old school `for ... in` statement. This approach reveals inherited, enumerable properties, which is normally not what we want. Instead we should add an additional check with `hasOwnProperty` or `Object.hasOwn` to make sure the properties are not from the prototypal inheritance.
+- Converting the object into an array of keys with `Object.keys`, or an array of a key-value tuple with `Object.entries`. This approach works if we don't care about Symbol keys and non-enumerable keys. Often times this is indeed the case.
+
+Also note we need to traverse recursively if we find the value of the current property is also an object. And recursion comes with its own caveats and overhead we need to be aware of:
+
+- What if the object has too many levels of nesting, then the recursion stack gets too deep? In that case we would either face a stack overflow error or risk the UI remaining unresponsive for too long.
+- What if the object is cyclic, i.e. it has circular references, then a naive recursion implementation would never exit.
+
+Now that we have figured out how to traverse the object, next we need to check the type of the current input and handle each type differently:
+
+- If the input is an object, we traverse that object using the aforementioned approaches. We can use the `typeof` operator to check its type. Be careful with `null` as `typeof null` results in `'object'`, which is a [known issue](https://2ality.com/2013/10/typeof-null.html) in JavaScript.
+- If the input is an array, we iterate through the array with the `Array.prototype.map()` method, which gives us a new array, and invoke the function recursively on each item of the array. We can use `Array.isArray()` to check if the input is an array.
+- For anything else, we return it as-is.
+
+The next thing to talk about is how we can should identify snake-cased keys and camel case-ify them. One simple way to achieve that is to use `String.prototype.split()` to divide keys into substrings separated by `_`, and join them back to a new string with substrings being capitalized (except for the first one). Another way to do is to use regex, which can be extended easily if we want to support other naming conventions, such as Pascal case.
+
+<MDXCodeBlock>{camelCaseKeys}</MDXCodeBlock>
+
+## Resources
+
+- [`camelcase-keys` library on GitHub](https://github.com/sindresorhus/camelcase-keys)

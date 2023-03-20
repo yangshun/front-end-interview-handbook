@@ -1,0 +1,282 @@
+import clsx from 'clsx';
+import { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
+
+import {
+  filterQuestions,
+  sortQuestionsMultiple,
+} from '~/components/questions/common/QuestionsProcessor';
+import type {
+  QuestionQuizMetadata,
+  QuestionSortField,
+} from '~/components/questions/common/QuestionsTypes';
+import QuestionListingFilterSectionDesktop from '~/components/questions/listings/QuestionListingFilterSectionDesktop';
+import QuestionListingFilterSectionMobile from '~/components/questions/listings/QuestionListingFilterSectionMobile';
+import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
+import QuestionsQuizList from '~/components/questions/listings/QuestionsQuizList';
+import useQuestionCompletionStatusFilter from '~/components/questions/listings/useQuestionCompletionStatusFilter';
+import useQuestionQuizTopicFilter from '~/components/questions/listings/useQuestionQuizTopicFilter';
+import Button from '~/components/ui/Button';
+import DropdownMenu from '~/components/ui/DropdownMenu';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import SlideOut from '~/components/ui/SlideOut';
+
+import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
+import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
+
+import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
+type Props = Readonly<{
+  layout?: 'embedded' | 'full';
+  mode?: 'default' | 'topic';
+  questions: ReadonlyArray<QuestionQuizMetadata>;
+}>;
+
+export default function QuestionsQuizListWithFilters({
+  layout = 'full',
+  mode = 'default',
+  questions,
+}: Props) {
+  const intl = useIntl();
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [isAscendingOrder, setIsAscendingOrder] = useState(false);
+  const [sortField, setSortField] = useState<QuestionSortField>('importance');
+  const [quizTopicFilters, quizTopicFilterOptions] =
+    useQuestionQuizTopicFilter();
+  const [completionStatusFilters, completionStatusFilterOptions] =
+    useQuestionCompletionStatusFilter();
+  const { data: questionProgress } = useQueryQuestionProgressAll();
+
+  function makeDropdownItemProps(
+    label: string,
+    itemField: QuestionSortField,
+    isItemAscendingOrder: boolean,
+  ) {
+    return {
+      isSelected:
+        sortField === itemField && isAscendingOrder === isItemAscendingOrder,
+      label,
+      onClick: () => {
+        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+      },
+    };
+  }
+
+  const completedQuestions = new Set(
+    (questionProgress ?? []).map(({ format, slug }) =>
+      hashQuestion(format, slug),
+    ),
+  );
+  const sortedQuestions = sortQuestionsMultiple(questions, [
+    { field: 'ranking', isAscendingOrder: true },
+    { field: sortField, isAscendingOrder },
+  ]);
+  const filters: ReadonlyArray<
+    [number, (question: QuestionQuizMetadata) => boolean]
+  > = [
+    // Topics
+    [
+      quizTopicFilters.size,
+      (question) =>
+        quizTopicFilters.size === 0 ||
+        question.topics.some((topic) => quizTopicFilters.has(topic)),
+    ],
+    // Completion Status.
+    [
+      completionStatusFilters.size,
+      (question) =>
+        completionStatusFilters.size === 0 ||
+        (completionStatusFilters.has('completed') &&
+          hasCompletedQuestion(completedQuestions, question)) ||
+        (completionStatusFilters.has('incomplete') &&
+          !hasCompletedQuestion(completedQuestions, question)),
+    ],
+  ];
+  const numberOfFilters = filters.filter(([size]) => size > 0).length;
+  const processedQuestions = filterQuestions(
+    sortedQuestions,
+    filters.map(([_, filterFn]) => filterFn),
+  );
+  const sortAndFilters = (
+    <div className={clsx('flex shrink-0 gap-2 sm:pt-0 lg:justify-end')}>
+      <div>
+        <Button
+          icon={PlusIcon}
+          label={
+            intl.formatMessage({
+              defaultMessage: 'Filters',
+              description: 'Label for filters button',
+              id: 'k2Oi+j',
+            }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+          }
+          size="sm"
+          type="button"
+          variant="tertiary"
+          onClick={() => setMobileFiltersOpen(true)}
+        />
+      </div>
+      <SlideOut
+        isShown={mobileFiltersOpen}
+        size="sm"
+        title={intl.formatMessage({
+          defaultMessage: 'Filters',
+          description: 'Label for filters button',
+          id: 'k2Oi+j',
+        })}
+        onClose={() => {
+          setMobileFiltersOpen(false);
+        }}>
+        <form className="mt-4">
+          {mode !== 'topic' && (
+            <QuestionListingFilterSectionMobile
+              section={quizTopicFilterOptions}
+              values={quizTopicFilters}
+            />
+          )}
+          <QuestionListingFilterSectionMobile
+            section={completionStatusFilterOptions}
+            values={completionStatusFilters}
+          />
+        </form>
+      </SlideOut>
+      <DropdownMenu
+        align="end"
+        icon={BarsArrowDownIcon}
+        label={intl.formatMessage({
+          defaultMessage: 'Sort By',
+          description: 'Label for sort button',
+          id: 'oQiKcl',
+        })}
+        size="sm">
+        {[
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Importance: High to Low',
+              description:
+                'Sorting option on quiz questions page - from High to Low',
+              id: 'hoQUfU',
+            }),
+            'importance',
+            false,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Importance: Low to High',
+              description:
+                'Sorting option on quiz questions page - from Low to High',
+              id: 'ZX2n3I',
+            }),
+            'importance',
+            true,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Title: A to Z',
+              description:
+                'Sorting option for question list - sort titles from A to Z',
+              id: 'tsVEh8',
+            }),
+            'title',
+            true,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Title: Z to A',
+              description:
+                'Sorting option for question list - sort titles from Z to A',
+              id: 'jblvez',
+            }),
+            'title',
+            false,
+          ),
+        ].map((props) => (
+          <DropdownMenu.Item key={props.label} {...props} />
+        ))}
+      </DropdownMenu>
+    </div>
+  );
+  const squareFilters = (
+    <QuestionListingSquareFilterSectionDesktop
+      itemsPerRow={5}
+      section={quizTopicFilterOptions}
+      values={quizTopicFilters}
+    />
+  );
+  const squareFiltersEmbedded = (
+    <QuestionListingSquareFilterSectionDesktop
+      itemsPerRow={4}
+      limit={3}
+      section={quizTopicFilterOptions}
+      values={quizTopicFilters}
+    />
+  );
+
+  return (
+    <div
+      className={clsx(
+        layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
+      )}>
+      <section className="space-y-6 lg:col-span-7 lg:mt-0">
+        {layout === 'embedded' ? (
+          <div className="flex items-center justify-between gap-8">
+            <div className="hidden sm:block">
+              {mode === 'default' && squareFiltersEmbedded}
+            </div>
+            {sortAndFilters}
+          </div>
+        ) : (
+          <>
+            <div className="lg:end flex flex-col justify-end gap-4 border-b border-slate-200 pb-4 lg:flex-row lg:items-center">
+              {sortAndFilters}
+            </div>
+            <div className="hidden sm:block">{squareFilters}</div>
+          </>
+        )}
+        <div>
+          <Heading className="sr-only">
+            <FormattedMessage
+              defaultMessage="Questions List"
+              description="Screenreader text for quiz questions list"
+              id="AYkO94"
+            />
+          </Heading>
+          <Section>
+            <QuestionsQuizList
+              checkIfCompletedQuestion={(question) =>
+                hasCompletedQuestion(completedQuestions, question)
+              }
+              questions={processedQuestions}
+              showChevron={true}
+            />
+          </Section>
+        </div>
+      </section>
+      {layout === 'full' && (
+        <aside className="hidden h-full flex-col gap-y-8 border-l border-slate-200 pl-8 lg:col-span-3 lg:flex">
+          <Heading className="sr-only">
+            <FormattedMessage
+              defaultMessage="Filters"
+              description="Screenreader text to indicate filters component on quiz questions list"
+              id="knfvnJ"
+            />
+          </Heading>
+          <Section>
+            <form className="flex flex-col gap-y-6">
+              {mode !== 'topic' && (
+                <QuestionListingFilterSectionDesktop
+                  isFirstSection={true}
+                  section={quizTopicFilterOptions}
+                  values={quizTopicFilters}
+                />
+              )}
+              <QuestionListingFilterSectionDesktop
+                section={completionStatusFilterOptions}
+                values={completionStatusFilters}
+              />
+            </form>
+          </Section>
+        </aside>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,184 @@
+# Coding Questions
+
+Remove from this list when a folder for it has been created.
+
+- https://leetcode.com/discuss/interview-question/742791/Front-End-Interview-Questions
+- https://github.com/devAbhijeet/job-hunt-interview-questions-2020
+
+## JS Utils
+
+- Function prototypes
+- Closures in for loops
+- `Object.assign()` and `Object.seal()`
+- Alphabet board path
+  - Google
+  - https://leetcode.com/discuss/interview-question/317388/Google-or-Phone-screen-or-Press-buttons-to-print-a-word
+  - https://leetcode.com/problems/alphabet-board-path/
+- Execute promises sequentially
+- Render a React renderer - React elements to the DOM
+- Math class
+  - https://leetcode.com/discuss/interview-experience/829791/Antra-or-React-Developer-or-USA-or-Aug-2020-Offer
+- Emoji autocomplete
+- Lowest common parent in DOM tree
+- CSS Parent selector
+- Google Analytics tag library that watches route changes and click events
+- Simple layout engine for final height/width and DOM tree containing block and inline-block elements with width and height specified
+
+## UI
+
+- Build a sortable table
+  - https://leetcode.com/discuss/interview-experience/375578/LINE-Corporation-or-Frontend-Engineer-or-Fukouka-Japan-or-Take-Home-Project-or-REJECTED
+- Build a stopwatch using HTML and JS
+  - https://leetcode.com/discuss/interview-experience/402632/Google-or-L5-or-San-Bruno-or-Oct-2019-Reject
+- People you may know
+  - https://blog.linkedin.com/2010/05/12/linkedin-pymk
+- Progress Bar
+  - https://leetcode.com/discuss/interview-question/1064199/Uber-Front-end-Phone-screen-Reject
+- Tooltip
+  - https://anonymousfiles.io/ph3CeErs/
+- Button widget
+  - Amazon
+  - There is a button on a page with text inside that says 'Clicked {#} times' with the number changing each time the button has been clicked.
+  - Follow up: Now each time the button is clicked, spawn a new button with its own counter, and the same functionality.
+  - https://leetcode.com/discuss/interview-experience/508233/Amazon-or-SDE1-Front-End-or-Feb-2020-Rejected
+- Build a calculator UI
+- Collapsible tree view with nested checkboxes
+- Poll widget
+- Throttle/debounce without `setTimeout()` and `clearTimeout()`
+- Tic Tac Toe
+- Navbar with submenus
+
+## Design
+
+- Modal boxes
+- Carousel ([Udacity](https://classroom.udacity.com/courses/ud250/lessons/df437585-6a96-4f7c-a0f8-5e5f34b865fa/concepts/47557702360923))
+- Infinite scrolling
+
+## Front End Signals
+
+### HTML/CSS
+
+Can the candidate faithfully and elegantly reproduce a visual design?
+
+- Layout (positioning, flexbox, box-model)
+- Attention to detail (handle edge cases? anticipate bad input?)
+- Browser compatibility
+- Accessibility
+
+Specific skills per question:
+
+- Ad Units:
+- Facepile:
+- Profile Pic: `<img>` vs background, position: absolute/relative, nested links are invalid, a:hover b, display: inline-block
+- Render Poll:
+- Rich Text Ninja: Proper tree nesting, styling using tags vs classes (rare signal)
+
+### DOM API
+
+Does the candidate know how to interact with the DOM?
+
+- basic traversal: `.parentNode`, `.firstChild`/`.nextSibling`/`.previousSibling`
+- `.nodeType`
+
+Specific skills per question:
+
+- Find Node In Clone: Array methods on NodeList, basic traversal
+- Text In Range: `.nodeType`, basic traversal
+
+### Advanced functions, Async/Event-driven programming
+
+Almost nothing in our codebase is linear or synchronous. Can the candidate think about problems in an asynchronous manner?
+
+- Use of closures
+- Using function as objects
+- Preserving appropriate context and scope
+- Rest/spread (or arguments)
+- Async constructs (e.g. `setTimeout`/`setInterval`, callbacks, promises, etc.)
+
+Specific skills per question:
+
+- Clear All Timeouts: basic behavior `setTimeout`/`setInterval`, wrapping one function with another
+- Debounce/Throttle: async reasoning, closures, clearTimeout on invalid value, rest/spread (rarer signal)
+- Event Emitter: storing functions, this, rest/spread
+
+### Front-end Perf
+
+Does the candidate understand performance topics specific to the browser/web environment?
+
+- Critical path
+- packaging/loading/parsing JS
+- `requestAnimationFrame`, `requestIdleCallback`
+- scroll performance
+
+Specific skills per question:
+
+- Debounce / Throttle: knowing to do this to solve scroll perf (rarer signal)
+
+### JS Language
+
+Is the candidate fluent in JS best practices? Advanced function skills go with async above since candidates often have one and not the other.
+
+- ES6 idioms (Map, arrow functions, etc.)
+- Class construction
+- Ability to use an object as a map successfully (looping over objects)
+- Common methods and statements (`Array.filter`, `Array.splice`, `Object.keys`, `for-in`, `delete`)
+- Awareness of JS idiosyncrasies (eg. equality tests, pitfalls, etc).
+
+Specific skills per question:
+
+- Apply Filters: `.filter()`, object as map, initializing nested maps, looping over keys, `Object.prototype` pitfalls (rarer signal)
+- Clear All Timeouts: monkeypatching globals, object as map
+- DOM Store: classes, understanding identity, array methods [solution A] OR object as map [solution B]
+- Event Emitter: classes, array methods OR `for-in`/`Object.keys`
+
+### Data Structures / Algorithms
+
+Can the candidate pick a practical data structure and algorithm to solve real-world problems and successfully use it?
+
+- Trees
+- Arrays
+- Stacks/Queues
+- HashMaps (e.g. objects)
+
+Specific skills per question:
+
+- Apply Filters: understand (nested) hash maps
+- Clear All Timeouts: understand array or object for storage of keys
+- DOM Store: use an object or pair-of-arrays
+- Event Emitter: store listeners in array or object
+- Find Node in Clone: tree traversal, describing an element position by its path
+- Rich Text Ninja: maintain stack of tags
+- Text in Range: complex tree traversal
+
+### Perf
+
+Can the candidate analyze the performance of different data structures and pick an appropriate one based on perf characteristics?
+
+- Familiarity with performance profiles of common data structures.
+- Ability to analyze more complex units of code as a whole.
+
+Specific skills per question:
+
+- Apply Filters: reformat input data, avoid n^2 loop
+- Clear All Timeouts: element deletion in array vs object, avoid n^2 loop
+- DOM Store: contrasting perf of object vs pair-of-arrays
+- Event Emitter: element deletion in array vs object
+- Find Node in Clone: compare DFS versus path-based
+- Rich Text Ninja: reformat input data
+- Text in Range: tree traversal perf
+
+### Bang out code
+
+Can the candidate write a sizable quantity of bug-free code?
+
+- Testing
+- Debugging
+- Dealing with complexity and edge cases
+
+Specific skills per question:
+
+- (Each question doesn't necessarily have something to list here, but noting a few interesting cases.)
+- Event Emitter: mutation during iteration
+- Rich Text Ninja: off by one errors, closing/reopening tags carefully
+- RomToInt/IntToRom: dealing with many cases (?)
+- Text in Range: off by one errors

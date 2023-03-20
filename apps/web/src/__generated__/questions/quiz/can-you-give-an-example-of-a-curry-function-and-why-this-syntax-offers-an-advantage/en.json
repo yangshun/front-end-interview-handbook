@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
+    "title": "Can you give an example of a curry function and why this syntax offers an advantage?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var g=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var r in n)i(e,r,{get:n[r],enumerable:!0})},c=(e,n,r,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of h(n))!p.call(e,a)&&a!==r&&i(e,a,{get:()=>n[a],enumerable:!(o=f(n,a))||o.enumerable});return e};var x=(e,n,r)=>(r=e!=null?l(m(e)):{},c(n||!e||!e.__esModule?i(r,\"default\",{value:e,enumerable:!0}):r,e)),b=e=>c(i({},\"__esModule\",{value:!0}),e);var s=g((A,u)=>{u.exports=_jsx_runtime});var y={};w(y,{default:()=>j,frontmatter:()=>v});var t=x(s()),v={title:\"Can you give an example of a curry function and why this syntax offers an advantage?\"};function d(e){let n=Object.assign({p:\"p\",pre:\"pre\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.p,{children:\"Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.\"}),`\n`,(0,t.jsx)(n.pre,{children:(0,t.jsx)(n.code,{className:\"language-js\",children:`function curry(fn) {\n  if (fn.length === 0) {\n    return fn;\n  }\n\n  function _curried(depth, args) {\n    return function (newArgument) {\n      if (depth - 1 === 0) {\n        return fn(...args, newArgument);\n      }\n      return _curried(depth - 1, [...args, newArgument]);\n    };\n  }\n\n  return _curried(fn.length, []);\n}\n\nfunction add(a, b) {\n  return a + b;\n}\n\nvar curriedAdd = curry(add);\nvar addFive = curriedAdd(5);\n\nvar result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]\n`})}),`\n`,(0,t.jsx)(n.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function _(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(d,e)})):d(e)}var j=_;return b(y);})();\n;return Component;"
+}

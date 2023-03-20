@@ -1,0 +1,15 @@
+{
+  "slug": "list-format",
+  "created": "2022-05-18T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [
+    "dropbox"
+  ],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium"
+}

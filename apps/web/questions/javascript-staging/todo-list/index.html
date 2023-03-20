@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div>
+      <h1>Todo List</h1>
+      <form class="task-form">
+        <div>
+          <input type="text" name="task" class="task" />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      <ul class="todo-list"></ul>
+    </div>
+    <script type="text/javascript">
+      (() => {
+        function TodoList($rootEl, initialProps) {
+          let state = {
+            items: initialProps.items,
+          };
+          // Cache the DOM elements.
+          // A common convention is to use a prefix of $ to name DOM elements.
+          const $todoList = $rootEl.querySelector('.todo-list');
+          const $taskForm = $rootEl.querySelector('.task-form');
+          const $taskInput = $rootEl.querySelector('.task');
+          const $taskTemplate = $rootEl.querySelector('.task-template');
+
+          function setState(newState) {
+            state = {
+              ...state,
+              ...newState,
+            };
+
+            render();
+          }
+
+          function render() {
+            $todoList.innerHTML = '';
+            const $frag = document.createDocumentFragment();
+            state.items.forEach((item, index) => {
+              const $item = TaskItem({
+                item,
+              });
+
+              $item.dataset.index = index;
+              $frag.appendChild($item);
+            });
+            $todoList.appendChild($frag);
+          }
+
+          function TaskItem(props) {
+            const $li = document.createElement('li');
+
+            const $span = document.createElement('span');
+            $span.className = 'task';
+            // Use innerText to prevent XSS (cross-site scripting)
+            $span.innerText = props.item;
+
+            const $button = document.createElement('button');
+            $button.className = 'remove';
+            $button.innerText = 'remove';
+            $li.appendChild($span);
+            $li.appendChild($button);
+            return $li;
+          }
+
+          $todoList.addEventListener('click', function (event) {
+            const $target = event.target;
+            if (
+              event.target.tagName !== 'BUTTON' ||
+              event.target.className !== 'remove'
+            ) {
+              return;
+            }
+
+            const index = parseInt($target.parentNode.dataset.index, 10);
+            const newItems = state.items.slice(0);
+            newItems.splice(index, 1);
+            setState({
+              items: newItems,
+            });
+          });
+
+          $taskForm.addEventListener('submit', function (event) {
+            // By default a form submit would navigate the browser
+            // so we have to call this.
+            event.preventDefault();
+            const value = $taskInput.value;
+            // Don't do anything for empty value. Good for UX.
+            if (value.trim() === '') {
+              return;
+            }
+
+            setState({
+              items: [...state.items, value],
+            });
+
+            // Reset input and focus back so that users can keep adding.
+            $taskInput.value = null;
+            $taskInput.focus();
+          });
+
+          render();
+        }
+
+        // 2. Implement add task functionality upon form submit
+        document.addEventListener('DOMContentLoaded', function () {
+          TodoList(document.querySelector('#todo-list-app'), {
+            items: ['task 1', 'task 2', 'task 3'],
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

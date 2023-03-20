@@ -1,0 +1,16 @@
+{
+  "slug": "once",
+  "created": "2022-12-12T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 10,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "next_questions": [
+    "limit"
+  ]
+}

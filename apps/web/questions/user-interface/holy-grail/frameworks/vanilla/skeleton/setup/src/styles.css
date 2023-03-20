@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+  padding: 12px;
+}
+
+header {
+  background-color: tomato;
+}
+
+nav {
+  background-color: coral;
+}
+
+main {
+  background-color: moccasin;
+}
+
+aside {
+  background-color: sandybrown;
+}
+
+footer {
+  background-color: slategray;
+}

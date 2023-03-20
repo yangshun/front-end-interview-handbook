@@ -1,0 +1,25 @@
+{
+  "sandpack": {
+    "dependencies": {},
+    "entry": "/src/index.js",
+    "environment": "parcel",
+    "main": "/src/index.js",
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "files": {
+      "/index.html": {
+        "code": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"progress\"></div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+      },
+      "/src/index.js": {
+        "code": "import './styles.css';\n\n// Write your JavaScript here.\ndocument.querySelector('.progress-bar');\n"
+      },
+      "/src/styles.css": {
+        "code": "body {\n  font-family: sans-serif;\n}\n\n.progress {\n  background-color: rgb(233, 236, 239);\n  border: 1px solid #c5c5c5;\n  border-radius: 8px;\n  height: 20px;\n}\n"
+      }
+    }
+  },
+  "writeup": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var t in e)s(n,t,{get:e[t],enumerable:!0})},l=(n,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of b(e))!j.call(n,o)&&o!==t&&s(n,o,{get:()=>e[o],enumerable:!(c=f(e,o))||c.enumerable});return n};var m=(n,e,t)=>(t=n!=null?d(x(n)):{},l(e||!n||!n.__esModule?s(t,\"default\",{value:n,enumerable:!0}):t,n)),y=n=>l(s({},\"__esModule\",{value:!0}),n);var a=_((B,p)=>{p.exports=_jsx_runtime});var C={};w(C,{default:()=>q});var i=m(a());var r=m(a());function u(n){let e=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.p,{children:\"Implement a progress bar component which shows the completion progress by filling the bar proportionately to the progress (a number between 0-100, inclusive).\"}),`\n`,(0,r.jsx)(e.p,{children:(0,r.jsx)(e.img,{src:\"/img/questions/progress-bar/progress-bar-example.png\",alt:\"Progress Bar Example\"})}),`\n`,(0,r.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsxs)(e.li,{children:[\"The filled bar can be of any background color. The example uses \",(0,r.jsx)(e.code,{children:\"#c5c5c5\"}),\".\"]}),`\n`,(0,r.jsx)(e.li,{children:\"The completion % is shown in the center of the filled bar.\"}),`\n`]})]})}function D(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(u,n)})):u(n)}var h=D;function g(n){return(0,i.jsx)(h,{})}function M(n={}){let{wrapper:e}=n.components||{};return e?(0,i.jsx)(e,Object.assign({},n,{children:(0,i.jsx)(g,n)})):g(n)}var q=M;return y(C);})();\n;return Component;"
+}

@@ -1,0 +1,77 @@
+import clsx from 'clsx';
+
+import Anchor from '~/components/ui/Anchor';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
+
+type Props = Readonly<{
+  columns?: number;
+  items: ReadonlyArray<{
+    cardTitle?: string;
+    description?: string;
+    href: string;
+    slug: string;
+    title: string;
+  }>;
+  title: string;
+}>;
+
+export default function QuestionsGuidesGrid({
+  columns = 5,
+  title,
+  items,
+}: Props) {
+  return (
+    <div className="grid gap-4">
+      <Heading className="text-lg font-semibold text-slate-900">
+        {title}
+      </Heading>
+      <Section>
+        <div
+          className={clsx(
+            'isolate grid overflow-hidden border-l border-slate-200 bg-white',
+            items.length >= columns ? 'md:border-t' : 'border-t md:border-t-0',
+            columns <= 4 && 'md:grid-cols-3',
+            columns === 4 && 'md:grid-cols-4',
+            columns === 5 && 'md:grid-cols-4',
+            columns === 6 && 'sm:grid-cols-3 lg:grid-cols-6',
+            columns >= 7 && 'md:grid-cols-4',
+          )}>
+          {items.map((guide, index) => (
+            <Anchor
+              key={guide.slug}
+              className={clsx(
+                'relative flex items-center gap-4 border-b border-r p-3 hover:bg-slate-50 md:flex-col md:items-start md:gap-2 md:p-6',
+                items.length < columns && index < columns - 1 && 'md:border-t',
+              )}
+              href={guide.href}
+              variant="unstyled">
+              <div className="flex justify-center md:w-full">
+                <span className="z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-200 bg-white text-xs font-semibold text-slate-500">
+                  {index + 1}
+                </span>
+              </div>
+              <div className="flex w-full flex-col gap-1">
+                <Heading className="text-xs font-medium md:w-full md:text-center md:text-sm">
+                  {guide.cardTitle ?? guide.title}
+                </Heading>
+                {guide.description && (
+                  <Section>
+                    <Text
+                      className="line-clamp-3 pt-1 md:text-center"
+                      color="secondary"
+                      display="block"
+                      variant="body2">
+                      {guide.description}
+                    </Text>
+                  </Section>
+                )}
+              </div>
+            </Anchor>
+          ))}
+        </div>
+      </Section>
+    </div>
+  );
+}

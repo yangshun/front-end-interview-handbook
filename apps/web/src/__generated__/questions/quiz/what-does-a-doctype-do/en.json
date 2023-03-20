@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-does-a-doctype-do",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-does-a-doctype-do",
+    "title": "What does a `DOCTYPE` do?",
+    "subtitle": null,
+    "topics": [
+      "html"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,D=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),T=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},c=(t,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!D.call(t,o)&&o!==r&&i(t,o,{get:()=>e[o],enumerable:!(s=u(e,o))||s.enumerable});return t};var f=(t,e,r)=>(r=t!=null?l(g(t)):{},c(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),w=t=>c(i({},\"__esModule\",{value:!0}),t);var d=p((Y,a)=>{a.exports=_jsx_runtime});var b={};T(b,{default:()=>E,frontmatter:()=>O});var n=f(d()),O={title:\"What does a `DOCTYPE` do?\"};function h(t){let e=Object.assign({p:\"p\",strong:\"strong\",code:\"code\",em:\"em\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"DOCTYPE\"}),\" is an abbreviation for \",(0,n.jsx)(e.strong,{children:\"Document Type\"}),\". A DOCTYPE is always associated to a \",(0,n.jsx)(e.strong,{children:\"DTD\"}),\" - for \",(0,n.jsx)(e.strong,{children:\"Document Type Definition\"}),\".\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"A DTD defines how documents of a certain type should be structured (i.e. a \",(0,n.jsx)(e.code,{children:\"button\"}),\" can contain a \",(0,n.jsx)(e.code,{children:\"span\"}),\" but not a \",(0,n.jsx)(e.code,{children:\"div\"}),\"), whereas a DOCTYPE declares what DTD a document \",(0,n.jsx)(e.em,{children:\"supposedly\"}),\" respects (i.e. this document respects the HTML DTD).\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects. Once a user agent has recognized a correct DOCTYPE, it will trigger the \",(0,n.jsx)(e.strong,{children:\"no-quirks mode\"}),\" matching this DOCTYPE for reading the document. If a user agent doesn't recognize a correct DOCTYPE, it will trigger the \",(0,n.jsx)(e.strong,{children:\"quirks mode\"}),\".\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The DOCTYPE declaration for the HTML5 standards is \",(0,n.jsx)(e.code,{children:\"<!DOCTYPE html>\"}),\".\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/html-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function C(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var E=C;return w(b);})();\n;return Component;"
+}

@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-how-jsonp-works-and-how-its-not-really-ajax",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-how-jsonp-works-and-how-its-not-really-ajax",
+    "title": "Explain how JSONP works (and how it's not really Ajax)",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "network",
+      "security"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),f=(a,e)=>{for(var t in e)r(a,t,{get:e[t],enumerable:!0})},c=(a,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!w.call(a,i)&&i!==t&&r(a,i,{get:()=>e[i],enumerable:!(o=p(e,i))||o.enumerable});return a};var b=(a,e,t)=>(t=a!=null?h(u(a)):{},c(e||!a||!a.__esModule?r(t,\"default\",{value:a,enumerable:!0}):t,a)),x=a=>c(r({},\"__esModule\",{value:!0}),a);var l=g((O,s)=>{s.exports=_jsx_runtime});var v={};f(v,{default:()=>j,frontmatter:()=>y});var n=b(l()),y={title:\"Explain how JSONP works (and how it's not really Ajax)\"};function d(a){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"JSONP works by making a request to a cross-origin domain via a \",(0,n.jsx)(e.code,{children:\"<script>\"}),\" tag and usually with a \",(0,n.jsx)(e.code,{children:\"callback\"}),\" query parameter, for example: \",(0,n.jsx)(e.code,{children:\"https://example.com?callback=printData\"}),\". The server will then wrap the data within a function called \",(0,n.jsx)(e.code,{children:\"printData\"}),\" and return it to the client.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-html\",children:`<!-- https://mydomain.com -->\n<script>\n  function printData(data) {\n    console.log(\\`My name is \\${data.name}!\\`);\n  }\n<\\/script>\n\n<script src=\"https://example.com?callback=printData\"><\\/script>\n`})}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// File loaded from https://example.com?callback=printData\nprintData({ name: 'John Doe' });\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"The client has to have the \",(0,n.jsx)(e.code,{children:\"printData\"}),\" function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.\"]}),`\n`,(0,n.jsx)(e.p,{children:\"JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"These days, \",(0,n.jsx)(e.a,{href:\"http://en.wikipedia.org/wiki/Cross-origin_resource_sharing\",children:\"CORS\"}),\" is the recommended approach and JSONP is seen as a hack.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function k(a={}){let{wrapper:e}=a.components||{};return e?(0,n.jsx)(e,Object.assign({},a,{children:(0,n.jsx)(d,a)})):d(a)}var j=k;return x(v);})();\n;return Component;"
+}

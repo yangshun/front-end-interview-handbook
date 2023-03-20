@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/html5-as-an-open-web-platform-building-blocks",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "html5-as-an-open-web-platform-building-blocks",
+    "title": "Consider HTML5 as an open web platform. What are the building blocks of HTML5?",
+    "subtitle": null,
+    "topics": [
+      "html"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),w=(t,e)=>{for(var i in e)o(t,i,{get:e[i],enumerable:!0})},a=(t,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of f(e))!m.call(t,r)&&r!==i&&o(t,r,{get:()=>e[r],enumerable:!(s=g(e,r))||s.enumerable});return t};var v=(t,e,i)=>(i=t!=null?h(u(t)):{},a(e||!t||!t.__esModule?o(i,\"default\",{value:t,enumerable:!0}):i,t)),b=t=>a(o({},\"__esModule\",{value:!0}),t);var c=p((C,l)=>{l.exports=_jsx_runtime});var _={};w(_,{default:()=>j,frontmatter:()=>x});var n=v(c()),x={title:\"Consider HTML5 as an open web platform. What are the building blocks of HTML5?\"};function d(t){let e=Object.assign({ul:\"ul\",li:\"li\",strong:\"strong\",h2:\"h2\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Semantics\"}),\": HTML tags describe the content.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Styling\"}),\": Customizing appearance of HTML tags\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Connectivity\"}),\": Communicate with the server in new and innovative ways.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Offline and storage\"}),\": Allows webpages to store data on the client-side locally and operate offline more efficiently.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Multimedia\"}),\": Makes video and audio first-class citizens in the Open Web.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"2D/3D graphics and effects\"}),\": Allows a much more diverse range of presentation options.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Performance\"}),\" and integration: Provides greater speed optimization and better usage of computer hardware.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Device access\"}),\": Allows for the usage of various input and output devices.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/html-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var j=M;return b(_);})();\n;return Component;"
+}

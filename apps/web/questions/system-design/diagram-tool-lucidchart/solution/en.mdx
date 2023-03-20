@@ -1,0 +1,126 @@
+## Requirements Exploration
+
+TODO
+
+---
+
+## Architecture/High-level Design
+
+TODO
+
+React is effective: separate data from rendering from synchronizing. Can build these pieces independently.
+
+- UI
+  - Scene
+    - Elements
+  - Toolbar
+  - Properties panel
+- Actions manager
+- History
+
+---
+
+## Data Model
+
+TODO
+
+- App state: https://github.com/excalidraw/excalidraw/blob/e6de1fe4a41947a7980c416e353f1e66ec5fc50b/src/types.ts
+
+- Scene
+  - Elements
+- History
+- Selected elements
+
+```js
+// Data model of an object.
+{
+  type: 'rectangle',
+  x: 404,
+  y: 237,
+  width: 200,
+  height: 100,
+  angle: 0,
+  backgroundColor: 'red',
+  strokeColor: '#000',
+  strokeWidth: 2,
+  strokeStyle: 'solid',
+  opacity: 1,
+}
+```
+
+- How to have parent/child elements.
+
+---
+
+## Interface Definition (API)
+
+TODO
+
+Actions payload:
+
+- https://github.com/excalidraw/excalidraw/blob/d4afd6626850befdb000d86c203e7a604f8a871c/src/actions/types.ts
+- https://github.com/excalidraw/excalidraw/blob/6c1246ef77433fcd178be380b451c5b904aece00/src/actions/index.ts
+
+- Every action has a name, payload, logic (reducer fn), predicates, commit to history, and keyboard shortcuts.
+- Actions manager to
+
+---
+
+## Optimizations and Deep Dive
+
+TODO
+
+- Rendering
+  - Model: Canvas or SVG.
+    - Canvas: Excalidraw/Figma
+    - SVG: diagrams.net
+  - Basic properties (stroke/background/edges/opacity)
+  - Translation
+  - Scaling
+  - Rotation
+  - Zooming
+  - Layers
+- Operations
+  - Selection
+    - https://github.com/excalidraw/excalidraw/blob/327ed0e2d1c8f79fba7a46bcd6e8ee0404a2d0de/src/scene/selection.ts
+  - Deleting
+  - Translations
+  - Alignment
+    - https://github.com/excalidraw/excalidraw/blob/d2cc76e52eae9377f924172efebb81fae8baba5a/src/distribute.ts
+  - Front/back ordering
+  - Grouping
+    - https://github.com/excalidraw/excalidraw/blob/6d0716eb6bd23685fc92277ae86dd3ea5745270f/src/groups.ts
+  - Copy/Paste/Duplicate
+  - History: Undo/redo
+    - https://github.com/excalidraw/excalidraw/blob/master/src/history.ts
+    - Not all actions should be committed to history (such as saving)
+- Performance
+  - Caching of canvas elements
+  - Only re-render viewable screen
+- Keyboard Shortcuts
+- Real-time Collaboration
+  - Socket.io / Rooms
+  - Syncing
+    - Adding
+    - Editing
+      - Versioning
+    - Deleting
+      - `isDeleted` flag
+  - Lock elements that are being edited
+  - https://blog.excalidraw.com/building-excalidraw-p2p-collaboration-feature/
+- Exporting
+  - SVG/Image/Save to disk
+  - Reading/writing to filesystem
+    - Convert data model to JSON
+    - https://blog.excalidraw.com/browser-fs-access/
+  - https://github.com/excalidraw/excalidraw/blob/bbe0c35f66a3fded6a2d8e61974d19f0f3b0e803/src/scene/export.ts
+- Sharing
+  - Encode in URL as base64
+- End-to-end Encryption
+  - https://blog.excalidraw.com/end-to-end-encryption/
+
+---
+
+## References
+
+- [Deprecating Excalidraw Electron in favor of the web version](https://web.dev/deprecating-excalidraw-electron/)

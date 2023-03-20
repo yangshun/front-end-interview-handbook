@@ -1,0 +1,44 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+The focus of this question is in the handling of the various states when there's a pending request.
+
+### Initialization
+
+To make the `likeButton` function component-ized, the function takes in two elements, the button element and the error message element. It will be on the developer to ensure that separate instances of DOM elements are passed into the function if there are multiple Like buttons on the page.
+
+### Data Model
+
+We'll need a few state variables:
+
+- `liked`: Tracks whether the button is in the default state or the liked state. Since there are only two states, we can use a boolean type to represent it.
+- `isPending`: Determines if there's a pending background request.
+- `errorMessage`: Error message obtained from the back end when the API request fails.
+
+### Making Back End API Requests
+
+Writing code to make back end requests is pretty standard, in general you should use the following flow:
+
+1. Set the UI to show a loading state.
+1. Clear the error message.
+1. Make the back end request via `fetch`
+1. Determine if the request has succeeded.
+   1. If the response has succeeded, update the UI to indicate success.
+   1. If the response has failed, update the UI to indicate failure by showing an error message.
+1. Remove the loading state.
+
+The above is captured in the `likeUnlikeAction` function.
+
+### Rendering
+
+Within the button, there are two elements which change often, the icon and the label. Hence we can create two inner `span`s to contain those elements.
+
+We define two functions for rendering:
+
+- `init`: Renders the class names and the elements that don't change. As the name suggests, this function is only being initially and only once.
+- `update`: Updates the UI to reflect the latest state. This function is being called whenever the UI needs to be updated.
+
+<TestCases />
+<Notes />

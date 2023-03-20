@@ -1,0 +1,41 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jQuery from '../src/jquery-css';
+import jQueryClass from '../src/jQueryClass';
+
+## Clarification Questions
+
+- What should happen if there are no elements match the selector? In jQuery when there are no matched elements, nothing occurs, so we can follow that.
+- What do we return if we try to get the value of a CSS property that isn't set on the element? We should return `undefined` as per jQuery.
+
+## Solution
+
+The toughest part of this question is how to implement method chaining on objects. We have to maintain a reference to the element, which can be done either via closures or using a class property. Classes are overkill here, so we will use the closure approach. We can just return an object with a single `css()` method. To allow for method chaining, the method has to return `this` at the end.
+
+Getting and setting the CSS properties is straightforward with the use of the [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) property.
+
+<MDXCodeBlock>{jQuery}</MDXCodeBlock>
+
+## Alternative Solution
+
+An alternative solution here is to use classes to retain a reference to the selected element. The implementation of the `css()` method is largely similar.
+
+<MDXCodeBlock>{jQueryClass}</MDXCodeBlock>
+
+## Edge Cases
+
+- No elements match the selector. We should handle gracefully instead of erroring.
+- Return `undefined` instead of empty string if CSS property does not exist on element.
+
+## Techniques
+
+- Closures.
+- Object chaining.
+
+## Notes
+
+- Arrow functions have a lexical scoping to the `this` context, hence they should not be used as methods on objects as the `this` will not be referring to the object. Thus the `css` method cannot be defined as an arrow function if the return value is the `this` object.
+
+## Resources
+
+- [jQuery.css() | jQuery API Documentation](https://api.jquery.com/css/)

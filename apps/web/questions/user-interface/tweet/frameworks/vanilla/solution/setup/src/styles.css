@@ -1,0 +1,71 @@
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+.tweet-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.tweet {
+  --spacing: 12px;
+
+  background-color: #fff;
+  border: 1px solid #cfd9de;
+  border-radius: 16px;
+  column-gap: var(--spacing);
+  display: flex;
+  font-size: 15px;
+  padding: var(--spacing);
+}
+
+.tweet-top-row {
+  margin-bottom: 2px;
+}
+
+.tweet-author-thumbnail {
+  --thumbnail-size: 48px;
+
+  border-radius: var(--thumbnail-size);
+  height: var(--thumbnail-size);
+  width: var(--thumbnail-size);
+}
+
+.tweet-author-name {
+  color: #000;
+  font-weight: bold;
+}
+
+.tweet-author-meta {
+  color: #71767b;
+  margin-left: 4px;
+}
+
+.tweet-content {
+  color: #0f1419;
+}
+
+.tweet-actions {
+  color: #536471;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing);
+  max-width: 425px;
+}
+
+.tweet-action {
+  align-items: center;
+  display: flex;
+  column-gap: var(--spacing);
+}
+
+.tweet-icon {
+  --icon-size: 16px;
+
+  fill: currentColor;
+  height: var(--icon-size);
+  width: var(--icon-size);
+}

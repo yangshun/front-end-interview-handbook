@@ -1,0 +1,47 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import reduce from '../src/array-reduce';
+import reduceSpec from '../src/reduceSpec';
+
+This question might seem easy on first glance, but the nuances make the question trickier than it seems on the surface. Knowing the nuances differentiates senior candidates and gives you bonus points. Are you aware that:
+
+- The reducer callback is passed the `currentIndex` and `array` as the third and fourth argument respectively?
+- If there is no initial value supplied to the reduce function, the array element at index 0 is used and the iteration starts from the next element (index 1 instead of index 0).
+
+## Solution
+
+The rest of the implementation is straightforward with these nuances taken into account. As we loop through the array (via `this`), call the callback on each array element with the following parameters: `acc`, `element`, `index`, and `this`. The returned value will become the new `acc` to be passed to the next call of the `callbackFn`.
+
+<MDXCodeBlock>{reduce}</MDXCodeBlock>
+
+## Edge Cases
+
+- Empty array, with and without the `initialValue` argument.
+- Single-value array, with and without the `initialValue` argument.
+- Passing the `index` and `array` to the reducer callback.
+- Sparse arrays, e.g. `[1, 2, , 4]`. The empty values should be ignored while traversing the array.
+
+## Notes
+
+Mutating the array in the reducer callback is a bad idea and can cause unintended consequences. The provided solution does not follow the TC39 specification for array mutation scenarios, neither does the autograder check for the specification behavior for mutations.
+
+You probably won't be asked to implement the specification behavior during interviews but it is still a positive signal to mention that mutation of the array within the callback is possible but your code might not follow the specifications for it.
+
+## One-liner Solution
+
+You can cheat the autograder by doing this.
+
+```js
+Array.prototype.myReduce = Array.prototype.reduce;
+```
+
+## Spec Solution
+
+Here's a solution that is based off the [`Array.prototype.reduce` ECMAScript specification](https://tc39.es/ecma262/multipage/array-reduceed-collections.html#sec-array.prototype.reduce).
+
+<MDXCodeBlock>{reduceSpec}</MDXCodeBlock>
+
+## Resources
+
+- [`Array.prototype.reduce` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+- [`Array.prototype.reduce` ECMAScript specification](https://tc39.es/ecma262/multipage/array-reduceed-collections.html#sec-array.prototype.reduce)

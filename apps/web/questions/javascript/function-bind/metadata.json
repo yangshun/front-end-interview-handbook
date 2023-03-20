@@ -1,0 +1,17 @@
+{
+  "slug": "function-bind",
+  "author": "zhenghao",
+  "created": "2022-06-26T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "easy",
+  "similar_questions": [
+    "curry"
+  ]
+}

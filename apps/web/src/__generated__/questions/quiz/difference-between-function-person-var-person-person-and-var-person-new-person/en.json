@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "difference-between-function-person-var-person-person-and-var-person-new-person",
+    "title": "Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var g=(o,n)=>()=>(n||o((n={exports:{}}).exports,n),n.exports),v=(o,n)=>{for(var t in n)s(o,t,{get:n[t],enumerable:!0})},i=(o,n,t,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of p(n))!m.call(o,r)&&r!==t&&s(o,r,{get:()=>n[r],enumerable:!(c=u(n,r))||c.enumerable});return o};var P=(o,n,t)=>(t=o!=null?l(f(o)):{},i(n||!o||!o.__esModule?s(t,\"default\",{value:o,enumerable:!0}):t,o)),b=o=>i(s({},\"__esModule\",{value:!0}),o);var d=g((_,a)=>{a.exports=_jsx_runtime});var k={};v(k,{default:()=>y,frontmatter:()=>j});var e=P(d()),j={title:\"Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?\"};function h(o){let n=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)(n.p,{children:[\"This question is pretty vague. Our best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, \",(0,e.jsx)(n.code,{children:\"function Person(){}\"}),\" is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.\"]}),`\n`,(0,e.jsxs)(n.p,{children:[(0,e.jsx)(n.code,{children:\"var person = Person()\"}),\" invokes the \",(0,e.jsx)(n.code,{children:\"Person\"}),\" as a function, and not as a constructor. Invoking as such is a common mistake if the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return \",(0,e.jsx)(n.code,{children:\"undefined\"}),\" and that gets assigned to the variable intended as the instance.\"]}),`\n`,(0,e.jsxs)(n.p,{children:[(0,e.jsx)(n.code,{children:\"var person = new Person()\"}),\" creates an instance of the \",(0,e.jsx)(n.code,{children:\"Person\"}),\" object using the \",(0,e.jsx)(n.code,{children:\"new\"}),\" operator, which inherits from \",(0,e.jsx)(n.code,{children:\"Person.prototype\"}),\". An alternative would be to use \",(0,e.jsx)(n.code,{children:\"Object.create\"}),\", such as: \",(0,e.jsx)(n.code,{children:\"Object.create(Person.prototype)\"}),\".\"]}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name) {\n  this.name = name;\n}\n\nvar person = Person('John');\nconsole.log(person); // undefined\nconsole.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined\n\nvar person = new Person('John');\nconsole.log(person); // Person { name: \"John\" }\nconsole.log(person.name); // \"john\"\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"References\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function w(o={}){let{wrapper:n}=o.components||{};return n?(0,e.jsx)(n,Object.assign({},o,{children:(0,e.jsx)(h,o)})):h(o)}var y=w;return b(k);})();\n;return Component;"
+}

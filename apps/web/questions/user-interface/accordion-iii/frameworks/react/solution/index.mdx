@@ -1,0 +1,32 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+The following explanation assumes you have a good understanding of [Accordion II's React solution](/questions/user-interface/accordion-ii/react/solution).
+
+### Listening for Keyboard Events
+
+Firstly it's crucial to know the difference between the `keypress` vs the `keydown` event. The `keypress` event is only fired when a key that produces a character value is pressed down. This would exclude the <kbd>Up</kbd>, <kbd>Down</kbd>, <kbd>Home</kbd>, and <kbd>End</kbd> keys which are requirements of this question. The `keypress` event is also deprecated and shouldn't be used. For these reasons, we should be using the `keydown` event. We'll add the `onKeyPress` prop to root `<div>` element.
+
+To know which key is being pressed, we can use `event.key` or `event.code` on the event passed to `onKeyPress`'s callback. There are some [differences between `event.key` vs `event.code`](https://javascript.info/keyboard-events) but for the purposes of this question it doesn't make a difference and can be ignored. We'll just use `event.code`.
+
+### Responding to Keyboard Events
+
+Note that these keyboard events should only be responded to if the focus is currently on one of the accordion headers. We can get the currently focused DOM element on the page with `document.activeElement`, and check if it has a `data-accordion-value` attribute, which is added to all the accordion header buttons.
+
+Next we read the `event.code` property and respond with custom code depending on its value. A `switch` case is suitable for such a situation:
+
+- `ArrowUp`: Focus on the previous header or "wrap around" to the last one if the focus was on the first header. We first find the index of the currently focused header, decrease it by one, and use modulo arithmetic to elegantly handle the "wrap around".
+- `ArrowRight`: Focus on the next header or "wrap around" to the first one if the focus was on the last. We first find the index of the currently focused header, increase it by one, and use modulo arithmetic to elegantly handle the "wrap around".
+- `Home`: Focus on the first header.
+- `End`: Focus on the last header.
+
+A valid keyboard even should focus on a new header button. Since we know the `id` of each header, we can imperatively call `.focus()` on it by using `document.getElementById()` with the desired header element id. This approach is non-idiomatic by usual React standards but is acceptable during interviews.
+
+<TestCases />
+
+## Resources
+
+- [Accordion | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/)
+- [Accordion | Reach UI](https://reach.tech/accordion)
+- [Disclosure - Headless UI](https://headlessui.com/react/disclosure)

@@ -1,0 +1,19 @@
+{
+  "slug": "sum",
+  "created": "2022-06-15T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [
+    "amazon"
+  ],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "similar_questions": [
+    "curry",
+    "curry-ii"
+  ]
+}

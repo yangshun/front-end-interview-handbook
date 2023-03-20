@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-z-index-and-how-stacking-context-is-formed",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-z-index-and-how-stacking-context-is-formed",
+    "title": "Describe `z-index` and how stacking context is formed.",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),u=(n,e)=>{for(var i in e)a(n,i,{get:e[i],enumerable:!0})},s=(n,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of f(e))!g.call(n,o)&&o!==i&&a(n,o,{get:()=>e[o],enumerable:!(c=m(e,o))||c.enumerable});return n};var w=(n,e,i)=>(i=n!=null?d(p(n)):{},s(e||!n||!n.__esModule?a(i,\"default\",{value:n,enumerable:!0}):i,n)),k=n=>s(a({},\"__esModule\",{value:!0}),n);var l=x((z,r)=>{r.exports=_jsx_runtime});var b={};u(b,{default:()=>y,frontmatter:()=>_});var t=w(l()),_={title:\"Describe `z-index` and how stacking context is formed.\"};function h(n){let e=Object.assign({p:\"p\",code:\"code\",em:\"em\",strong:\"strong\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[\"The \",(0,t.jsx)(e.code,{children:\"z-index\"}),\" property in CSS controls the vertical stacking order of elements that overlap. \",(0,t.jsx)(e.code,{children:\"z-index\"}),\" only affects positioned elements (elements which have a \",(0,t.jsx)(e.code,{children:\"position\"}),\" value which is not \",(0,t.jsx)(e.code,{children:\"static\"}),\") and its descendants or flex items.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"Without any \",(0,t.jsx)(e.code,{children:\"z-index\"}),\" value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of the HTML hierarchy.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"A stacking context is an element that contains a set of layers. Within a local stacking context, the \",(0,t.jsx)(e.code,{children:\"z-index\"}),\" values of its children are set relative to that element rather than to the document root. Layers outside of that context \\u2014 i.e. sibling elements of a local stacking context \\u2014 can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher \",(0,t.jsx)(e.code,{children:\"z-index\"}),\" than element B.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as \",(0,t.jsx)(e.code,{children:\"opacity\"}),\" less than 1, \",(0,t.jsx)(e.code,{children:\"filter\"}),\" that is not \",(0,t.jsx)(e.code,{children:\"none\"}),\", and \",(0,t.jsx)(e.code,{children:\"transform\"}),\" that is not\",(0,t.jsx)(e.code,{children:\"none\"}),\".\"]}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsxs)(e.em,{children:[(0,t.jsx)(e.strong,{children:\"Note\"}),\": What exactly qualifies an element to create a stacking context is listed in this long set of \",(0,t.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context\",children:\"rules\"}),\".\"]})}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function v(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var y=v;return k(b);})();\n;return Component;"
+}

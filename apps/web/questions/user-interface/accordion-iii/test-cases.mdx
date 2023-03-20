@@ -1,0 +1,25 @@
+## Test Cases
+
+- Expanding/collapsing panels
+  - When a header is focused, hitting <kbd>Enter</kbd> or <kbd>Space</kbd> should toggle the associated panel between the expanded/collapsed state.
+- Switching header focus
+  - <kbd>Tab</kbd> key should focus on the next focusable element,
+    which in our example is the next header element. It should
+    focus on panel contents if any of them contains focusable
+    elements. This scenario is not testable since we only allow
+    text contents in our accordion.
+  - <kbd>Shift</kbd> + <kbd>Tab</kbd> keys should focus on the
+    previous focusable element, which in our example is the previous
+    header element. It should focus on panel contents if any
+    of them contains focusable elements. This scenario is not
+    testable since we only allow text contents in our accordion.
+  - <kbd>Up</kbd> key should focus on the previous header element
+    and focus on the last header element if the first header
+    had focus, skipping any focusable elements within the contents.
+  - <kbd>Right</kbd> key should focus on the next header element
+    and focus on the first header element if the last header
+    had focus, skipping any focusable elements within the contents.
+  - <kbd>Home</kbd> key should focus the first header element.
+  - <kbd>End</kbd> key should focus on the last header element.
+    and focus on the last header element if the first header
+    had focus.

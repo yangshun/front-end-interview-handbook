@@ -1,0 +1,25 @@
+import Solution from '../solution.mdx';
+import Notes from '../notes.mdx';
+import A11y from '../../../a11y.mdx';
+import TestCases from '../../../test-cases.mdx';
+
+<Solution />
+
+In this approach, `<template>`s are used for rendering both initial and new tasks. You might have realized that you have the task markup duplicated in two places: the initially-rendered tasks and new tasks.
+
+It is a chore to make the markup consistent for both initial and new tasks. Using a `<template>` element will make it easy to render both the initial task and newly-added tasks.
+
+This solution also contains some UX improvements:
+
+- Use a `<form>` to capture submission of new tasks. This will handle both <kbd>Enter</kbd> keys and "Submit" button clicks.
+- Prevents empty input values from being added to the list.
+  - Useful for preventing accidental additions.
+- Trims the input value before adding to the list.
+- Asks for confirmation before deletion of a task.
+  - Destructive actions should always require double confirmation in case the user accidentally pressed the delete button.
+
+<Notes />
+
+<A11y />
+
+<TestCases />

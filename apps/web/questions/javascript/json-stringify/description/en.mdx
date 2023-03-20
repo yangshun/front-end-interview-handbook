@@ -1,0 +1,28 @@
+---
+title: JSON.stringify
+excerpt: Implement a function that converts a JavaScript value into a JSON string
+---
+
+Implement your own `JSON.stringify()` function that converts a JavaScript value into a JSON string. You may ignore the [second and the third](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#parameters) optional parameters in the original API.
+
+The function should behave exactly like `JSON.stringify()` for any data types.
+
+## Examples
+
+```js
+jsonStringify(); // undefined
+jsonStringify(undefined); // undefined
+jsonStringify(null); // 'null'
+jsonStringify(true); // 'true'
+jsonStringify(false); // 'false'
+jsonStringify(1); // '1'
+jsonStringify('foo'); // '"foo"'
+jsonStringify('"foo"') === '"\\"foo\\""'; // Double quotes present in the original input are escaped using backslashes
+jsonStringify(Symbol('foo')); // undefined
+jsonStringify(() => {}); // undefined
+jsonStringify({ foo: 'bar' }); // '{"foo":"bar"}'
+jsonStringify(['foo', 'bar']); // '["foo","bar"]'
+jsonStringify(/foo/); // '{}'
+jsonStringify(new Map()); // '{}'
+jsonStringify(new Set()); //'{}'
+```

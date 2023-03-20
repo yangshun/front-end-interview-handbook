@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 1,
+    "similarQuestions": [],
+    "slug": "what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use",
+    "title": "What is the CSS `display` property and can you give a few examples of its use?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var d=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var u=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),p=(n,e)=>{for(var t in e)d(n,t,{get:e[t],enumerable:!0})},r=(n,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!b.call(n,i)&&i!==t&&d(n,i,{get:()=>e[i],enumerable:!(c=f(e,i))||c.enumerable});return n};var y=(n,e,t)=>(t=n!=null?s(g(n)):{},r(e||!n||!n.__esModule?d(t,\"default\",{value:n,enumerable:!0}):t,n)),w=n=>r(d({},\"__esModule\",{value:!0}),n);var o=u((B,h)=>{h.exports=_jsx_runtime});var j={};p(j,{default:()=>v,frontmatter:()=>k});var l=y(o()),k={title:\"What is the CSS `display` property and can you give a few examples of its use?\"};function a(n){let e=Object.assign({p:\"p\",code:\"code\",table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",tbody:\"tbody\",td:\"td\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,l.jsxs)(l.Fragment,{children:[(0,l.jsxs)(e.p,{children:[\"The various values for the \",(0,l.jsx)(e.code,{children:\"display\"}),\" property: \",(0,l.jsx)(e.code,{children:\"none\"}),\", \",(0,l.jsx)(e.code,{children:\"block\"}),\", \",(0,l.jsx)(e.code,{children:\"inline\"}),\", \",(0,l.jsx)(e.code,{children:\"inline-block\"}),\", \",(0,l.jsx)(e.code,{children:\"flex\"}),\", \",(0,l.jsx)(e.code,{children:\"grid\"}),\", \",(0,l.jsx)(e.code,{children:\"table\"}),\", \",(0,l.jsx)(e.code,{children:\"table-row\"}),\", \",(0,l.jsx)(e.code,{children:\"table-cell\"}),\", \",(0,l.jsx)(e.code,{children:\"list-item\"}),\".\"]}),`\n`,(0,l.jsxs)(e.table,{children:[(0,l.jsx)(e.thead,{children:(0,l.jsxs)(e.tr,{children:[(0,l.jsxs)(e.th,{align:\"left\",children:[(0,l.jsx)(e.code,{children:\"display\"}),\" Value\"]}),(0,l.jsx)(e.th,{align:\"left\",children:\"Description\"})]})}),(0,l.jsxs)(e.tbody,{children:[(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"none\"})}),(0,l.jsx)(e.td,{align:\"left\",children:\"Does not display an element (the element no longer affects the layout of the document). All child element are also no longer displayed. The document is rendered as if the element did not exist in the document tree.\"})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"block\"})}),(0,l.jsx)(e.td,{align:\"left\",children:\"The element consumes the whole line in the block direction (which is usually horizontal).\"})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"inline\"})}),(0,l.jsx)(e.td,{align:\"left\",children:\"Elements can be laid out beside each other.\"})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"inline-block\"})}),(0,l.jsxs)(e.td,{align:\"left\",children:[\"Similar to \",(0,l.jsx)(e.code,{children:\"inline\"}),\", but allows some \",(0,l.jsx)(e.code,{children:\"block\"}),\" properties like setting \",(0,l.jsx)(e.code,{children:\"width\"}),\" and \",(0,l.jsx)(e.code,{children:\"height\"}),\".\"]})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"table\"})}),(0,l.jsxs)(e.td,{align:\"left\",children:[\"Behaves like the \",(0,l.jsx)(e.code,{children:\"<table>\"}),\" element.\"]})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"table-row\"})}),(0,l.jsxs)(e.td,{align:\"left\",children:[\"Behaves like the \",(0,l.jsx)(e.code,{children:\"<tr>\"}),\" element.\"]})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"table-cell\"})}),(0,l.jsxs)(e.td,{align:\"left\",children:[\"Behaves like the \",(0,l.jsx)(e.code,{children:\"<td>\"}),\" element.\"]})]}),(0,l.jsxs)(e.tr,{children:[(0,l.jsx)(e.td,{align:\"left\",children:(0,l.jsx)(e.code,{children:\"list-item\"})}),(0,l.jsxs)(e.td,{align:\"left\",children:[\"Behaves like a \",(0,l.jsx)(e.code,{children:\"<li>\"}),\" element which allows it to define \",(0,l.jsx)(e.code,{children:\"list-style-type\"}),\" and \",(0,l.jsx)(e.code,{children:\"list-style-position\"}),\".\"]})]})]})]}),`\n`,(0,l.jsx)(e.h2,{children:\"References\"}),`\n`,(0,l.jsxs)(e.ul,{children:[`\n`,(0,l.jsx)(e.li,{children:(0,l.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,l.jsx)(e,Object.assign({},n,{children:(0,l.jsx)(a,n)})):a(n)}var v=x;return w(j);})();\n;return Component;"
+}

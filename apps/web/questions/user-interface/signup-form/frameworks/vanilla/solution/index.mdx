@@ -1,0 +1,27 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+Since the browser has native form validation capabilities, we will make use of it so that we can write less JavaScript.
+
+HTML-based validation doesn't allow for customization of the error styling. Hence these days, it's no surprise that many forms opt for JavaScript-based validation to have more control over the validation styling. In interview settings, there are tight time constraints. If there is no requirement for specific validation styling, using HTML-based validation will save you some time and also demonstrate your HTML knowledge to the interviewer which is a positive signal.
+
+This question is a good opportunity to get familiar with HTML-based validation if you aren't already! There's very little JavaScript we need to write if we use HTML-based validation. Only the matching password confirmation has to be done using JavaScript.
+
+The following attributes on `<input>` are especially helpful for validating form values before submission can occur:
+
+- `required`: input value must be non-empty.
+- `pattern`: input value must match the specified regular expression.
+- `minlength`: input value must contain the minimum number of characters.
+
+There are a [more validation attributes](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation) but the above are the ones relevant to signup forms.
+
+All the fields are `required`, so we can add this attribute to all the `<input>`.
+
+- Username: To validate a minimum of 4 characters, use `minlength="3"`. To validate the alphanumeric constraint, we use a simple regex of `^[a-zA-Z0-9]+$`.
+- Email: By using `type="email"`, the browser will validate that the value matches an email format if it's non-empty.
+- Password/Confirm password: Use `minlength="6"` for minimum length validation and `type="password"` to hide the values.
+
+Since we also need to validate that the password matches, we can add a `'submit'` event listener to the form, use `event.preventDefault()` to intercept the browser submit, and validate using JavaScript. If the password validation fails, we show the error message below the password confirmation field.
+
+<TestCases />
+<Notes />

@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseAny from '../src/promise-any';
+import promiseAnyThen from '../src/promiseAnyThen';
+
+**Note:** If you haven't completed the [`Promise.all`](/questions/javascript/promise-all) question, you should attempt that first.
+
+Async programming is frequently tested during interviews. Understanding how `Promise.any` works under the hood will help you in understanding the mechanisms behind similar `Promise`-related functions like `Promise.race`, `Promise.all`, `Promise.allSettled` etc.
+
+## Solution
+
+`Promise.any` is very similar to `Promise.all`, but the resolves and rejects are swapped around.
+
+There are a few aspects to this question we need to bear in mind and handle:
+
+1. `Promise`s are meant to be chained, so the function needs to return a `Promise`.
+1. If the input array is empty, an `AggregateError` is returned with `errors` set to an empty array.
+1. The returned `Promise` resolved immediately with the first input value that is resolved.
+1. The returned `Promise` is rejected with an `AggregateError` containing an array of errors values in the same order as the input array if all of them are rejected.
+1. The input array can contain non-`Promise`s.
+
+We'll return a `Promise` at the top level of the function. We first check if the input array is empty, and reject with an empty `AggregateError` (`new AggregateError([])`) if so.
+
+We then need to attempt resolving every item in the input array. This can be achieved using `Array.prototype.forEach` or `Array.prototype.map`.
+
+If any of the items are fulfilled, we resolve the top-level `Promise` immediately with that value without waiting for any other pending promises.
+
+As we encounter rejections, we need to keep them in an errors array in case all the promises turn out to be rejected. As the returned errors will need to preserve the order of the input array, we create an `errors` array and slot the value in the right place using its `index` within the input array.
+
+To know when all the input array values are no longer pending, we keep track of how many pending promises there are by initializing a counter of pending values and decrementing it whenever a value is rejected. When the counter reaches 0, we can reject with an `AggregateError` using the `errors`. There is no need to modify the pending counter when a value is resolved because the overall promise will be resolved.
+
+One thing to note here is that because the input array can contain non-`Promise` values, if we are not `await`-ing them, we need to wrap each value with `Promise.resolve()` which allows us to use `.then()` on each of them and we don't have to differentiate between `Promise` vs non-`Promise` values and whether they need to be resolved.
+
+<MDXCodeBlock>{promiseAny}</MDXCodeBlock>
+
+Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`.
+
+<MDXCodeBlock>{promiseAnyThen}</MDXCodeBlock>
+
+## Edge Cases
+
+- Empty input array. The promise should reject with an `AggregateError`.
+
+## Techniques
+
+- Knowledge of `Promise`s, how to construct one, how to use them.
+- Async programming.
+
+## Notes
+
+- The evaluator does not verify that your input array is resolved concurrently rather than sequentially.
+
+## Resources
+
+- [Promise.any() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/when-would-you-use-document-write",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "when-would-you-use-document-write",
+    "title": "When would you use `document.write()`?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var i in e)r(n,i,{get:e[i],enumerable:!0})},d=(n,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!w.call(n,o)&&o!==i&&r(n,o,{get:()=>e[o],enumerable:!(c=u(e,o))||c.enumerable});return n};var f=(n,e,i)=>(i=n!=null?l(p(n)):{},d(e||!n||!n.__esModule?r(i,\"default\",{value:n,enumerable:!0}):i,n)),v=n=>d(r({},\"__esModule\",{value:!0}),n);var s=g((H,a)=>{a.exports=_jsx_runtime});var _={};b(_,{default:()=>j,frontmatter:()=>x});var t=f(s()),x={title:\"When would you use `document.write()`?\"};function h(n){let e=Object.assign({p:\"p\",code:\"code\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[(0,t.jsx)(e.code,{children:\"document.write()\"}),\" writes a string of text to a document stream opened by \",(0,t.jsx)(e.code,{children:\"document.open()\"}),\". When \",(0,t.jsx)(e.code,{children:\"document.write()\"}),\" is executed after the page has loaded, it will call \",(0,t.jsx)(e.code,{children:\"document.open\"}),\" which clears the whole document (\",(0,t.jsx)(e.code,{children:\"<head>\"}),\" and \",(0,t.jsx)(e.code,{children:\"<body>\"}),\" removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"There are some answers online that explain \",(0,t.jsx)(e.code,{children:\"document.write()\"}),\" is being used in analytics code or \",(0,t.jsx)(e.a,{href:\"https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html\",children:\"when you want to include styles that should only work if JavaScript is enabled\"}),\". It is even being used in HTML5 boilerplate to \",(0,t.jsx)(e.a,{href:\"https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag\",children:\"load scripts in parallel and preserve execution order\"}),\"! However, these reasons might be outdated and in this age, they can be achieved without using \",(0,t.jsx)(e.code,{children:\"document.write()\"}),\".\"]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var j=y;return v(_);})();\n;return Component;"
+}

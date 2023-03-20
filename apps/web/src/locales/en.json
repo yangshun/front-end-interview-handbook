@@ -1,0 +1,1222 @@
+{
+  "+Z1K3f": {
+    "defaultMessage": "{failed} failed",
+    "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
+  },
+  "+pieds": {
+    "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
+    "description": "Subtitle text for newsletter sign up section"
+  },
+  "+wR7CJ": {
+    "defaultMessage": "Legal",
+    "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
+  },
+  "+ywzSI": {
+    "defaultMessage": "There are currently quiz questions, JavaScript coding questions, User Interface coding questions and System Design content.",
+    "description": "Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
+  },
+  "/ftlBv": {
+    "defaultMessage": "Undo",
+    "description": "Text describing undo command in the coding workspace shortcuts menu"
+  },
+  "/jCLBS": {
+    "defaultMessage": "3 simple steps to start earning",
+    "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
+  },
+  "032cio": {
+    "defaultMessage": "Move line up",
+    "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
+  },
+  "0RaY4p": {
+    "defaultMessage": "What does buying GreatFrontEnd get me?",
+    "description": "Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
+  },
+  "0dqqyE": {
+    "defaultMessage": "Studying well-written solutions is one the most effective methods to ace the interview. Our platform guarantees the quality of our solutions because they are all written by us, ex-FAANG Senior Front End Engineers.",
+    "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 1"
+  },
+  "0hdhAz": {
+    "defaultMessage": "Low",
+    "description": "Label for low question importance"
+  },
+  "1FbA4H": {
+    "defaultMessage": "What types of questions do you have on your platform?",
+    "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
+  },
+  "2YMuJe": {
+    "defaultMessage": "What does \"lifetime access\" mean?",
+    "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
+  },
+  "2a4of9": {
+    "defaultMessage": "Change to horizontal",
+    "description": "Tooltip for changing to horizontal layout for coding workspace"
+  },
+  "2sIcqn": {
+    "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
+    "description": "Subtitle of Pricing section on Homepage or Pricing page"
+  },
+  "32cQk/": {
+    "defaultMessage": "Warm Up Question",
+    "description": "Label for warm up questions"
+  },
+  "37Ttml": {
+    "defaultMessage": "Security",
+    "description": "Title for Security section on profile page"
+  },
+  "3aPvGu": {
+    "defaultMessage": "Front End Interview Guidebook",
+    "description": "Sidebar label for Front End Interview Guidebook page"
+  },
+  "3du5bC": {
+    "defaultMessage": "Toptal",
+    "description": "Company name for Toptal"
+  },
+  "3lEE1N": {
+    "defaultMessage": "New",
+    "description": "Label for new questions ribbon"
+  },
+  "3lWGUg": {
+    "defaultMessage": "Not Completed",
+    "description": "Label for Not completed status on quiz quqestions list"
+  },
+  "3v5v1K": {
+    "defaultMessage": "Get started in minutes",
+    "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
+  },
+  "3z2LJp": {
+    "defaultMessage": "Practice",
+    "description": "Section heading in footer for links to practice question pages"
+  },
+  "44kz/c": {
+    "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
+    "description": "Description within code editor shortcuts"
+  },
+  "4zNzv1": {
+    "defaultMessage": "Select navigation item in DevTool",
+    "description": "Label for tabs in the coding workspace DevTool"
+  },
+  "50kzzq": {
+    "defaultMessage": "Select question format",
+    "description": "Label for tabs to select sample interview question format"
+  },
+  "55uCRp": {
+    "defaultMessage": "Premium",
+    "description": "Tooltip for Premium questions label"
+  },
+  "5A3y/o": {
+    "defaultMessage": "Leave more feedback",
+    "description": "Feedback widget button label to leave more feedback before the session closes"
+  },
+  "5D3gTs": {
+    "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive freebies!",
+    "description": "Feedback widget textarea description"
+  },
+  "5dwMRE": {
+    "defaultMessage": "Interview Guides",
+    "description": "Sidebar label for Interview Guides category"
+  },
+  "68EGSg": {
+    "defaultMessage": "View All Questions",
+    "description": "Link label to the list of all System Design questions"
+  },
+  "6IwcDT": {
+    "defaultMessage": "Show",
+    "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
+  },
+  "6UytmZ": {
+    "defaultMessage": "Something went wrong",
+    "description": "Text that appears when the solution fails to load"
+  },
+  "6e1+nl": {
+    "defaultMessage": "Front end interviews come in so many formats. You could be asked to write JavaScript functions, build a UI, design a system, or even solve LeetCode-style algorithm questions.",
+    "description": "Subtitle of Second section on homepage - first paragraph"
+  },
+  "6yAWpI": {
+    "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
+    "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
+  },
+  "73vnK2": {
+    "defaultMessage": "Mid",
+    "description": "Label for medium question importance"
+  },
+  "7HLv+l": {
+    "defaultMessage": "Try these questions next",
+    "description": "Text above suggested questions to indicate to the user that they can try those questions next"
+  },
+  "7OxMtC": {
+    "defaultMessage": "Importance",
+    "description": "Screenreader text to indicate question importance - how important it is to practice this question"
+  },
+  "7Po5ci": {
+    "defaultMessage": "Know your fundamentals",
+    "description": "Label for an example list of Quiz Questions on marketing pages"
+  },
+  "7gb9hK": {
+    "defaultMessage": "Everything you need",
+    "description": "Label for an example list of JavaScript Questions on marketing pages"
+  },
+  "8+Ezk6": {
+    "defaultMessage": "Chat with us directly!",
+    "description": "Text on Feedback Widget when it is closed to notify users of its presence"
+  },
+  "8Nm9WZ": {
+    "defaultMessage": "Walmart",
+    "description": "Company name for Walmart"
+  },
+  "8aQEL8": {
+    "defaultMessage": "Your existing code will be discarded, are you sure?",
+    "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
+  },
+  "8klsso": {
+    "defaultMessage": "Study Plans",
+    "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
+  },
+  "8q3l4q": {
+    "defaultMessage": "The ultimate <span>Front End Interview</span> <span2>preparation platform</span2>.",
+    "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
+  },
+  "8vjTks": {
+    "defaultMessage": "Select current line",
+    "description": "Text describing command to select current line in the coding workspace shortcuts menu"
+  },
+  "94oFfy": {
+    "defaultMessage": "Completed",
+    "description": "Label indicating that the question has been completed by the user"
+  },
+  "9jbYus": {
+    "defaultMessage": "Pay once, get full access <span>forever</span>.",
+    "description": "Title on Pricing section of Homepage or Pricing page"
+  },
+  "A+qESm": {
+    "defaultMessage": "Created: Newest to Oldest",
+    "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
+  },
+  "A9A7/h": {
+    "defaultMessage": "Available in {frameworkLabel}",
+    "description": "Label displayed on question cards in question lists telling user what frameworks this question is available in"
+  },
+  "AGwpnL": {
+    "defaultMessage": "We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers.",
+    "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
+  },
+  "ATwxZX": {
+    "defaultMessage": "Buy Now",
+    "description": "Purchase button label"
+  },
+  "AYkO94": {
+    "defaultMessage": "Questions List",
+    "description": "Screenreader text for quiz questions list"
+  },
+  "Aa86vz": {
+    "defaultMessage": "Free",
+    "description": "Label to indicate the item is free"
+  },
+  "AmBMf9": {
+    "defaultMessage": "No questions",
+    "description": "Title for empty state when application of filters return no results"
+  },
+  "Axiomj": {
+    "defaultMessage": "Questions",
+    "description": "Sidebar label for Questions Bank page"
+  },
+  "B6qk8B": {
+    "defaultMessage": "Hide side menu",
+    "description": "Screenreader text for the button that expands the side menu"
+  },
+  "BGn++d": {
+    "defaultMessage": "Quiz Questions",
+    "description": "Title for an example list of Quiz Questions on marketing pages"
+  },
+  "BPE/qv": {
+    "defaultMessage": "Premium Feature",
+    "description": "Title for paywall over information about companies that asked the question"
+  },
+  "BtCbN4": {
+    "defaultMessage": "Recommended Duration",
+    "description": "Recommended duration tooltip displayed on question cards found on question lists"
+  },
+  "C7tiFm": {
+    "defaultMessage": "Why join us?",
+    "description": "Section label for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
+  },
+  "C8/0hU": {
+    "defaultMessage": "Pagination",
+    "description": "Screenreader text for the pagination component"
+  },
+  "CBU+k0": {
+    "defaultMessage": "Company",
+    "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
+  },
+  "CNjnh0": {
+    "defaultMessage": "Not written for this question.",
+    "description": "Text that apppears if a solution has not been written for the question"
+  },
+  "CrNgUe": {
+    "defaultMessage": "Questions List",
+    "description": "Screenreader text for question list"
+  },
+  "Cw8cK4": {
+    "defaultMessage": "{completedQuestions} of {totalQuestions} completed",
+    "description": "Line describing the number of questions completed by user over the total number of questions"
+  },
+  "DAqJ87": {
+    "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
+    "description": "Subtitle on question paywall displayed on premium question's pages"
+  },
+  "ENNKyg": {
+    "defaultMessage": "View subscription plans",
+    "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
+  },
+  "ExWrYc": {
+    "defaultMessage": "Practice everything here.",
+    "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
+  },
+  "F5oV3L": {
+    "defaultMessage": "Delete line",
+    "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
+  },
+  "FAArTO": {
+    "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
+    "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
+  },
+  "FAtaOX": {
+    "defaultMessage": "Languages",
+    "description": "Screenreader text to indicate the Programming Languages section"
+  },
+  "FIQIm5": {
+    "defaultMessage": "Learn from the best solutions.",
+    "description": "Title of the 'Learn from the best solutions' section on Homepage"
+  },
+  "FInmLy": {
+    "defaultMessage": "Reset to initial code",
+    "description": "Label for button that allows users to reset their coding workspace to the initial code"
+  },
+  "FLKG3X": {
+    "defaultMessage": "Cut line (empty selection)",
+    "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
+  },
+  "FkGppk": {
+    "defaultMessage": "Submit",
+    "description": "Label for button to submit code for testing within coding workspace"
+  },
+  "GHQ8sO": {
+    "defaultMessage": "Cancel anytime.",
+    "description": "Cancel the subscription anytime."
+  },
+  "GJB3/X": {
+    "defaultMessage": "Email Address",
+    "description": "Label for email address input field"
+  },
+  "GOgjw1": {
+    "defaultMessage": "{passed} passed",
+    "description": "Line in DevTools showing the number of test cases passed when running the code submitted by the user"
+  },
+  "GVHds/": {
+    "defaultMessage": "Premium Feature",
+    "description": "Title on question paywall appearing on the question pages of premium questions"
+  },
+  "GYwmPt": {
+    "defaultMessage": "For a limited time, we are offering lifetime access at a discount, which will provide you immediate access to our huge question bank, guides, and study plans. All future updates to our interview preparation platform will also be completely free for you.",
+    "description": "Answer to 'What does buying GreatFrontEnd get me' on Homepage's FAQ sections"
+  },
+  "Gi1TRd": {
+    "defaultMessage": "Filters",
+    "description": "Screenreader text for Filters"
+  },
+  "Gv0+LY": {
+    "defaultMessage": "Woohoo! You completed the question!",
+    "description": "Toast congratulating user once they mark a question as complete"
+  },
+  "GyDKzV": {
+    "defaultMessage": "Filters",
+    "description": "Screenreader text indicating the filters component on question list pages"
+  },
+  "H94EnK": {
+    "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
+    "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
+  },
+  "HEQbsp": {
+    "defaultMessage": "Created: Oldest to Newest",
+    "description": "Sorting option on question list page to sort by creation time, from oldest to newest"
+  },
+  "HHJYxM": {
+    "defaultMessage": "Failed to load coding questions",
+    "description": "Error message when the questions failed to load"
+  },
+  "HUP0Fq": {
+    "defaultMessage": "While Offer Lasts",
+    "description": "Label to indicate lifetime plan is a limited time offering"
+  },
+  "Hj6BTz": {
+    "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
+    "description": "Error message shown to user when they are trying to checkout but it fails"
+  },
+  "I619Rj": {
+    "defaultMessage": "Profile image",
+    "description": "Alt text for user profile image"
+  },
+  "IBP/D0": {
+    "defaultMessage": "Tell us your email if you want us to follow up with you.",
+    "description": "Feedback widget text to request for optional email input for following up"
+  },
+  "IUYG0x": {
+    "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
+    "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
+  "IhJAk8": {
+    "defaultMessage": "What's Included",
+    "description": "Section label for features included in a pricing plan"
+  },
+  "IiZazG": {
+    "defaultMessage": "Company",
+    "description": "Header for company filters"
+  },
+  "Im9sPX": {
+    "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
+    "description": "Question base section subtitle - second paragraph"
+  },
+  "IuWsYS": {
+    "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
+    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+  },
+  "JEcwe6": {
+    "defaultMessage": "Solution",
+    "description": "Header for question solution section in coding workspace"
+  },
+  "JJ0V4Y": {
+    "defaultMessage": "Duration: Low to High",
+    "description": "Sorting option for question list - sort by duration from low to high"
+  },
+  "JKBRGr": {
+    "defaultMessage": "Enter your email",
+    "description": "Placeholder text for email input field"
+  },
+  "JLf/Lc": {
+    "defaultMessage": "Vanilla JS",
+    "description": "Label for Vanilla JavaScript framework"
+  },
+  "JQa3Or": {
+    "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
+    "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+  },
+  "K08edE": {
+    "defaultMessage": "Show only failed tests",
+    "description": "Checkbox for whether to show only failed test cases"
+  },
+  "KaGCVb": {
+    "defaultMessage": "Select question section",
+    "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
+  },
+  "KjD2cI": {
+    "defaultMessage": "Duration: High to Low",
+    "description": "Sorting option for question list - sort by duration from high to low"
+  },
+  "Ku1Crp": {
+    "defaultMessage": "Wrong Answer",
+    "description": "Status label for incorrect answer given"
+  },
+  "Ku3VdX": {
+    "defaultMessage": "Uber",
+    "description": "Company name for Uber"
+  },
+  "L/BHun": {
+    "defaultMessage": "Send us a Message",
+    "description": "Title for send us a feedback modal"
+  },
+  "L0IePi": {
+    "defaultMessage": "Because front end interviews are about <span>fundamentals</span>.",
+    "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
+  },
+  "LK0JHB": {
+    "defaultMessage": "FAQs.",
+    "description": "Frequently Asked Questions"
+  },
+  "LMdhmW": {
+    "defaultMessage": "Signed in as",
+    "description": "TODO_i18n_REPLACE_ME"
+  },
+  "LNBK2M": {
+    "defaultMessage": "Our services are unavailable at your location.",
+    "description": "Message explaining that the website does not transact with the user's location."
+  },
+  "LNK1eb": {
+    "defaultMessage": "Premium Feature",
+    "description": "Header on paywall over company tags on question list pages"
+  },
+  "LPfKTO": {
+    "defaultMessage": "Completed",
+    "description": "Label to indicate that a question has been completed"
+  },
+  "LfcLVQ": {
+    "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
+    "description": "Sentence to report bug on GitHub"
+  },
+  "M9z02W": {
+    "defaultMessage": "Airbnb",
+    "description": "Company name for Airbnb"
+  },
+  "MKfy+9": {
+    "defaultMessage": "Pricing",
+    "description": "Section label on Pricing section of Homepage or Pricing page"
+  },
+  "MYi0uz": {
+    "defaultMessage": "Previous",
+    "description": "Button to go back to the previous page"
+  },
+  "MeV/ww": {
+    "defaultMessage": "Microsoft",
+    "description": "Company name for Microsoft"
+  },
+  "NAkpAg": {
+    "defaultMessage": "Jump to matching bracket",
+    "description": "Text describing jump command in the coding workspace shortcuts menu"
+  },
+  "NMKLAX": {
+    "defaultMessage": "Console",
+    "description": "Label for Console tab on the coding workspace"
+  },
+  "NZo2FG": {
+    "defaultMessage": "Description",
+    "description": "Header for the question description section"
+  },
+  "OL9m/V": {
+    "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
+    "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
+  },
+  "OZgalz": {
+    "defaultMessage": "{total} total",
+    "description": "Line in DevTools showing the total number of test cases for this question"
+  },
+  "OcBA+t": {
+    "defaultMessage": "What does \"free updates\" include?",
+    "description": "Question on Homepage's FAQ section - on the scope of complimentary updates to the GreatFrontEnd interview platform"
+  },
+  "OkgtcI": {
+    "defaultMessage": "Change to vertical",
+    "description": "Tooltip for changing to vertical layout for coding workspace"
+  },
+  "OtRu2B": {
+    "defaultMessage": "You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!",
+    "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
+  },
+  "PFRVpF": {
+    "defaultMessage": "Get Full Access",
+    "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
+  },
+  "PLm7ub": {
+    "defaultMessage": "Facebook",
+    "description": "Company name for Facebook"
+  },
+  "PWyAGW": {
+    "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
+    "description": "Subtitle for paywall over company tagging"
+  },
+  "PyDwDF": {
+    "defaultMessage": "Close",
+    "description": "Close button label"
+  },
+  "Q2pP1Q": {
+    "defaultMessage": "Test Cases",
+    "description": "Header for question test cases section in coding workspace"
+  },
+  "QIRY6V": {
+    "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
+    "description": "Subtitle for an example list of User Interface Questions on marketing pages"
+  },
+  "QJaxVF": {
+    "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
+    "description": "Question base section subtitle - first paragraph"
+  },
+  "QVh3mt": {
+    "defaultMessage": "Dropbox",
+    "description": "Company name for Dropbox"
+  },
+  "QggKKV": {
+    "defaultMessage": "How does it work?",
+    "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
+  },
+  "R79mq9": {
+    "defaultMessage": "Check out sample solutions:",
+    "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
+  },
+  "R99Y8S": {
+    "defaultMessage": "At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!",
+    "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
+  },
+  "RMBCok": {
+    "defaultMessage": "Snap",
+    "description": "Company name for Snap"
+  },
+  "RTBOas": {
+    "defaultMessage": "JavaScript",
+    "description": "Label for JavaScript language"
+  },
+  "RTwyWd": {
+    "defaultMessage": "Completed",
+    "description": "Label for completed status on quiz quqestions list"
+  },
+  "RWMcHN": {
+    "defaultMessage": "Quiz Topics",
+    "description": "Screenreader text indicating component for quiz question topics"
+  },
+  "RXqyFg": {
+    "defaultMessage": "Try your first free question",
+    "description": "Header for section prompting user to try their first question"
+  },
+  "RxZwQ9": {
+    "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
+    "description": "Subtitle on paywall over company tags on question list pages"
+  },
+  "S+6OOS": {
+    "defaultMessage": "Free",
+    "description": "Free-of-charge label"
+  },
+  "SAFY5p": {
+    "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
+    "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
+  },
+  "SWOTIA": {
+    "defaultMessage": "Reset to initial code",
+    "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
+  },
+  "SdXQye": {
+    "defaultMessage": "Add selection to next find match",
+    "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
+  },
+  "TAajQb": {
+    "defaultMessage": "Building your fundamentals is the only way to rock the interview every single time.",
+    "description": "Subtitle of Second section on homepage - second paragraph"
+  },
+  "TB8vuT": {
+    "defaultMessage": "Collapse side menu",
+    "description": "Screenreader text for the button that collapses the side menu"
+  },
+  "TDzLXK": {
+    "defaultMessage": "Lyft",
+    "description": "Company name for Lyft"
+  },
+  "THblGQ": {
+    "defaultMessage": "New Year Sale! Additional 20% off annual and lifetime plans with the code NEWYEAR2023. <link>Grab your discount today!</link>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of New Year discount"
+  },
+  "TQLJ/G": {
+    "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
+    "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
+  },
+  "Tc2C+b": {
+    "defaultMessage": "Free",
+    "description": "Label for free questions"
+  },
+  "TeTJmh": {
+    "defaultMessage": "What if those fundamentals were already abstracted for you?",
+    "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
+  },
+  "U022No": {
+    "defaultMessage": "Palantir",
+    "description": "Company name for Palantir"
+  },
+  "UBPrBM": {
+    "defaultMessage": "Yelp",
+    "description": "Company name for Yelp"
+  },
+  "UltF1J": {
+    "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
+    "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
+  },
+  "Us7Uly": {
+    "defaultMessage": "Ask us about it",
+    "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
+  },
+  "VJ8xZy": {
+    "defaultMessage": "Prices will be increased as more content is being added to the website.",
+    "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
+  },
+  "VQ9c4+": {
+    "defaultMessage": "Feedback received successfully.",
+    "description": "Feedback widget success message."
+  },
+  "VYWqtL": {
+    "defaultMessage": "System Design Questions",
+    "description": "Label for system design questions"
+  },
+  "VcLkXG": {
+    "defaultMessage": "Free",
+    "description": "Label to indicate that the item is free of charge"
+  },
+  "WzDhJE": {
+    "defaultMessage": "Logos provided by Clearbit",
+    "description": "Attribution text that company logos were provided by Clearbit"
+  },
+  "X3NpRr": {
+    "defaultMessage": "U.P. {symbol}{unitCostBeforeDiscountInCurrency} <span>({discount}% off)</span>",
+    "description": "bla "
+  },
+  "X55xMA": {
+    "defaultMessage": "Premium Feature",
+    "description": "Header for paywall over company tagging"
+  },
+  "Xka4d3": {
+    "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
+    "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
+  "YB06jW": {
+    "defaultMessage": "Premium",
+    "description": "Label for premium questions"
+  },
+  "YIsqrq": {
+    "defaultMessage": "Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>.",
+    "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
+  "YJmwAv": {
+    "defaultMessage": "Or reach us via these channels",
+    "description": "Text to introduce users to alternative feedback channels"
+  },
+  "YMfxks": {
+    "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
+    "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+  },
+  "Z9Wr7g": {
+    "defaultMessage": "See all",
+    "description": "Label for see all button that brings user to the full question list for that question format"
+  },
+  "ZCmkG3": {
+    "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
+    "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZX2n3I": {
+    "defaultMessage": "Importance: Low to High",
+    "description": "Sorting option on quiz questions page - from Low to High"
+  },
+  "ZYFcYD": {
+    "defaultMessage": "Report an issue",
+    "description": "Label for reporting an issue"
+  },
+  "a8ETQr": {
+    "defaultMessage": "Meta logo",
+    "description": "Meta company logo"
+  },
+  "aQKVD4": {
+    "defaultMessage": "Contributed by ex-interviewers at",
+    "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
+  },
+  "aZqFm4": {
+    "defaultMessage": "Completed",
+    "description": "Tooltip for Completed questions label"
+  },
+  "akHBWv": {
+    "defaultMessage": "Outdent line",
+    "description": "Text describing outdent line command in the coding workspace shortcuts menu"
+  },
+  "am2rVD": {
+    "defaultMessage": "Try changing the filters",
+    "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
+  },
+  "aqK/Gm": {
+    "defaultMessage": "Available Frameworks",
+    "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
+  },
+  "b0OofK": {
+    "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
+    "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
+  },
+  "b2csyI": {
+    "defaultMessage": "Next",
+    "description": "Label for button leading to the next page"
+  },
+  "bE90WW": {
+    "defaultMessage": "Redo",
+    "description": "Text describing redo command in the coding workspace shortcuts menu"
+  },
+  "bQ3XUx": {
+    "defaultMessage": "No Tests",
+    "description": "Label indicating that no test cases are available for this question"
+  },
+  "bZFghR": {
+    "defaultMessage": "Twitter",
+    "description": "Company name for Twitter"
+  },
+  "bf0Hsc": {
+    "defaultMessage": "Open user menu",
+    "description": "Screenreader text to let user know that the profile icon's menu is open"
+  },
+  "bxZm1S": {
+    "defaultMessage": "User Interface Questions",
+    "description": "Title for an example list of User Interface Questions on marketing pages"
+  },
+  "c12AhV": {
+    "defaultMessage": "Breadcrumb",
+    "description": "Screenreader text to indicate breadcrumb component"
+  },
+  "c2hcfm": {
+    "defaultMessage": "Submit",
+    "description": "Feedback widget submit button label"
+  },
+  "cZVPou": {
+    "defaultMessage": "HTML",
+    "description": "Label for HTML language"
+  },
+  "cuNbpf": {
+    "defaultMessage": "Front End System Design Guidebook",
+    "description": "Header for front end system design guidebook on the system design sidebar"
+  },
+  "d3GL1v": {
+    "defaultMessage": "Copy line down",
+    "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
+  },
+  "dJf+5S": {
+    "defaultMessage": "JavaScript Questions",
+    "description": "Title for an example list of JavaScript Questions on marketing pages"
+  },
+  "da4RLj": {
+    "defaultMessage": "Google logo",
+    "description": "Google company logo"
+  },
+  "dfAvc7": {
+    "defaultMessage": "Footer",
+    "description": "Footer section heading"
+  },
+  "ePyk/V": {
+    "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
+    "description": "Title for newsletter sign up section"
+  },
+  "eQwU0l": {
+    "defaultMessage": "Copy line up",
+    "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
+  },
+  "eeWLAW": {
+    "defaultMessage": "Framework",
+    "description": "Label for the selection dropdown used to select the framework to use for the question"
+  },
+  "ejq1dY": {
+    "defaultMessage": "Clear Console",
+    "description": "Tooltip for button to clear the console in the coding workspace"
+  },
+  "ekSPPz": {
+    "defaultMessage": "Flashcard format",
+    "description": "Button label for flashcard display format of quiz questions"
+  },
+  "eyLjDz": {
+    "defaultMessage": "Have questions, feedback or anything to say?",
+    "description": "Title for contact us section"
+  },
+  "f3e84v": {
+    "defaultMessage": "Accepted",
+    "description": "Status label for question answered correctly"
+  },
+  "fHpn67": {
+    "defaultMessage": "Google",
+    "description": "Company name for Google"
+  },
+  "fQHORb": {
+    "defaultMessage": "Show DevTool",
+    "description": "Label for button to expand the DevTool"
+  },
+  "fXNw/d": {
+    "defaultMessage": "Your Email",
+    "description": "Feedback widget email input field label"
+  },
+  "fevC5W": {
+    "defaultMessage": "Free",
+    "description": "Label indicating that quiz questions are free"
+  },
+  "fnVJCv": {
+    "defaultMessage": "Progress Overview",
+    "description": "Header for progress overview section which tells user the progress they have made on questions practice on the platform"
+  },
+  "frl+Af": {
+    "defaultMessage": "Prev",
+    "description": "Label for button leading to the previous page"
+  },
+  "ftr2lo": {
+    "defaultMessage": "No tagged companies",
+    "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
+  },
+  "fvztbG": {
+    "defaultMessage": "Submit your code to check against the tests.",
+    "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+  },
+  "g3PJQr": {
+    "defaultMessage": "LinkedIn",
+    "description": "Company name for LinkedIn"
+  },
+  "gDAVYm": {
+    "defaultMessage": "Report an issue",
+    "description": "Tooltip for button to report an issue"
+  },
+  "gdGavv": {
+    "defaultMessage": "Premium Question",
+    "description": "Title on question paywall displayed on premium question's pages"
+  },
+  "geCoTi": {
+    "defaultMessage": "Hide DevTool",
+    "description": "Label for button to collapse the DevTool"
+  },
+  "h38yCs": {
+    "defaultMessage": "Questions List",
+    "description": "Screenreader text indicating the question list component on question list pages"
+  },
+  "hNQSH/": {
+    "defaultMessage": "Apple",
+    "description": "Company name for Apple"
+  },
+  "hOD4kM": {
+    "defaultMessage": "Any <code>console.log()</code> statements will appear here.",
+    "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
+  },
+  "hQa+4K": {
+    "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
+    "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
+  },
+  "hhbPlp": {
+    "defaultMessage": "Pay once, get access to the interview platform forever, including updates.",
+    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "hoQUfU": {
+    "defaultMessage": "Importance: High to Low",
+    "description": "Sorting option on quiz questions page - from High to Low"
+  },
+  "iElBQT": {
+    "defaultMessage": "Pricing Plans",
+    "description": "Screen reader text referring to the Pricing Plan cards"
+  },
+  "iIQL6V": {
+    "defaultMessage": "Completed",
+    "description": "Label indicating that the question has been completed"
+  },
+  "iLx/BQ": {
+    "defaultMessage": "Amazon",
+    "description": "Company name for Amazon"
+  },
+  "iSDQh3": {
+    "defaultMessage": "Companies",
+    "description": "Title for section on question that shows which companies asked the question"
+  },
+  "jIpXy+": {
+    "defaultMessage": "Coming Soon",
+    "description": "Coming soon label indicating that a feature will be launched soon"
+  },
+  "jVSwXw": {
+    "defaultMessage": "Purchase premium to unlock full access to the question.",
+    "description": "Subtitle on question paywall appearing on the question pages of premium questions"
+  },
+  "jblvez": {
+    "defaultMessage": "Title: Z to A",
+    "description": "Sorting option for question list - sort titles from Z to A"
+  },
+  "jcGC9r": {
+    "defaultMessage": "Prep Dashboard",
+    "description": "Sidebar label for Front End Interview Prep Dashboard page"
+  },
+  "jgldKV": {
+    "defaultMessage": "Select question section",
+    "description": "Label for tabs within coding workspace"
+  },
+  "jlTtgt": {
+    "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
+    "description": "Question base section subtitle - third paragraph"
+  },
+  "jnV/ZP": {
+    "defaultMessage": "System Design Questions",
+    "description": "Title for an example list of System Design Questions on marketing pages"
+  },
+  "jxXMtj": {
+    "defaultMessage": "Prices shown are in {currency}.",
+    "description": "Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
+  },
+  "jzVpyI": {
+    "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
+    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
+  "k2Oi+j": {
+    "defaultMessage": "Filters",
+    "description": "Label for filters button"
+  },
+  "kEhkCv": {
+    "defaultMessage": "Coming Soon",
+    "description": "Tooltip for Coming Soon questions label"
+  },
+  "kF3Llo": {
+    "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
+    "description": "Subtitle for an example list of Quiz Questions on marketing pages"
+  },
+  "kL0yEH": {
+    "defaultMessage": "You can't find it elsewhere",
+    "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "knfvnJ": {
+    "defaultMessage": "Filters",
+    "description": "Screenreader text to indicate filters component on quiz questions list"
+  },
+  "lJupPX": {
+    "defaultMessage": "View All Questions",
+    "description": "Link label to the list of all JavaScript coding questions"
+  },
+  "lTQM7o": {
+    "defaultMessage": "Want to see more solutions? <link>Explore our product →</link>",
+    "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
+  },
+  "lVmhzW": {
+    "defaultMessage": "Behavioral Interview Guidebook",
+    "description": "Sidebar label for Behavioral Interview Guidebook page"
+  },
+  "lfY3AI": {
+    "defaultMessage": "Spread the word and get rewarded",
+    "description": "Title of the Hero section of the 'Become An Affiliate' page"
+  },
+  "lkCg86": {
+    "defaultMessage": "Description",
+    "description": "Header for question description section in coding workspace"
+  },
+  "lmBDjV": {
+    "defaultMessage": "Quiz Questions",
+    "description": "Header for quiz questions"
+  },
+  "m+nWg0": {
+    "defaultMessage": "Not Completed",
+    "description": "Tooltip for questions Not Completed label"
+  },
+  "mb7erW": {
+    "defaultMessage": "Importance",
+    "description": "Label for question importance - how important it is to practice this question"
+  },
+  "nFYr2a": {
+    "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
+    "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+  },
+  "nOvXhk": {
+    "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
+    "description": "Answer to 'What does free updates include?' on Homepage's FAQ sections"
+  },
+  "nPkj31": {
+    "defaultMessage": "For your reference, these are the Jest tests that your code will run against.",
+    "description": "Text indicating to users that the below section are test cases that their code will be tested against"
+  },
+  "nai6YT": {
+    "defaultMessage": "Amazon logo",
+    "description": "Amazon company logo"
+  },
+  "nuO9Ny": {
+    "defaultMessage": "Try our questions here:",
+    "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
+  },
+  "nzauMv": {
+    "defaultMessage": "Compilation Error",
+    "description": "Status label for compilation error when code is run"
+  },
+  "o+1cag": {
+    "defaultMessage": "Clear Console",
+    "description": "Button label to clear the console in the coding workspace"
+  },
+  "oE3TMf": {
+    "defaultMessage": "Quiz Questions",
+    "description": "Label for quiz questions"
+  },
+  "oNMAi3": {
+    "defaultMessage": "Difficulty: Easy to Hard",
+    "description": "Sorting option for question list - sort by difficulty from easy to hard"
+  },
+  "oQiKcl": {
+    "defaultMessage": "Sort By",
+    "description": "Label for sort button"
+  },
+  "oXHJcG": {
+    "defaultMessage": "Coding Questions",
+    "description": "Label for button that opens slideout of question list on coding workspace"
+  },
+  "opQRju": {
+    "defaultMessage": "{mins} mins",
+    "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
+  },
+  "ozQHOy": {
+    "defaultMessage": "Hide widget for this session",
+    "description": "Feedback widget button label to hide the feedback widget for their current session"
+  },
+  "pRCMpc": {
+    "defaultMessage": "View plans",
+    "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
+  },
+  "pp1TOt": {
+    "defaultMessage": "Copy line (empty selection)",
+    "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
+  },
+  "px5rU7": {
+    "defaultMessage": "Solution",
+    "description": "Header for the question solution section"
+  },
+  "qfX/3p": {
+    "defaultMessage": "Tests",
+    "description": "Label for Tests tab on the coding workspace"
+  },
+  "qjKLfH": {
+    "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
+    "description": "Subtitle for contact us section"
+  },
+  "rXnAi2": {
+    "defaultMessage": "We're still growing our question base.",
+    "description": "Question base section title"
+  },
+  "ryCcOP": {
+    "defaultMessage": "Notify Me",
+    "description": "Button label for a newsletter subscription section"
+  },
+  "s3LMhK": {
+    "defaultMessage": "Home",
+    "description": "Home button on breadcrumb component"
+  },
+  "s51Pgd": {
+    "defaultMessage": "React",
+    "description": "Label for React framework"
+  },
+  "sn/P86": {
+    "defaultMessage": "Guides",
+    "description": "Section heading in footer for links to interview guides"
+  },
+  "snLKzs": {
+    "defaultMessage": "Manage Subscription",
+    "description": "Manage user membership subscription button label"
+  },
+  "tDJ0XN": {
+    "defaultMessage": "Difficulty: Hard to Easy",
+    "description": "Sorting option for question list - sort by difficulty from hard to easy"
+  },
+  "tJIZWT": {
+    "defaultMessage": "Layout",
+    "description": "Label for button that changes the layout of the coding workspace"
+  },
+  "tU2J/q": {
+    "defaultMessage": "Front End System Design Guidebook",
+    "description": "Sidebar label for Front End System Design Guidebook page"
+  },
+  "tnHfa2": {
+    "defaultMessage": "Move line down",
+    "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
+  },
+  "tsVEh8": {
+    "defaultMessage": "Title: A to Z",
+    "description": "Sorting option for question list - sort titles from A to Z"
+  },
+  "tuaXhc": {
+    "defaultMessage": "Indent line",
+    "description": "Text describing indent line in the coding workspace shortcuts menu"
+  },
+  "u0dndi": {
+    "defaultMessage": "View All Questions",
+    "description": "Link label to the list of all Quiz coding questions"
+  },
+  "uM5kA8": {
+    "defaultMessage": "Toggle line comment",
+    "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
+  },
+  "uawqxS": {
+    "defaultMessage": "You have completed <span>{completionProgressPercentage}%</span> of this plan <span2> ({completedQuestions} of {totalQuestions})</span2>",
+    "description": "Line describing completion status of the study plan"
+  },
+  "ukvoec": {
+    "defaultMessage": "Start on this preparation plan today!",
+    "description": "Call-to-Action that asks user to try out a study plan"
+  },
+  "uogn1k": {
+    "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
+    "description": "Subtitle for an example list of User Interface Questions on marketing pages"
+  },
+  "uz7f93": {
+    "defaultMessage": "Salesforce",
+    "description": "Company name for Salesforce"
+  },
+  "v2TGFl": {
+    "defaultMessage": "High",
+    "description": "Label for high question importance"
+  },
+  "v7xpbV": {
+    "defaultMessage": "Stripe",
+    "description": "Company name for Stripe"
+  },
+  "vO1Ejd": {
+    "defaultMessage": "Hide Details",
+    "description": "Label for button that allows users to collapse details of the code execution in the coding workspace"
+  },
+  "vp4zbB": {
+    "defaultMessage": "Purchase premium to see companies which ask this question.",
+    "description": "Subtitle for paywall over information about companies that asked the question"
+  },
+  "vqL6fD": {
+    "defaultMessage": "Start earning passive commissions with a great product",
+    "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
+  },
+  "vqTecf": {
+    "defaultMessage": "Evaluating tests against code...",
+    "description": "Loading text that appears when the tests cases are running (after the user submits their code in the coding workspace)"
+  },
+  "w1iJ0L": {
+    "defaultMessage": "Lifetime Membership",
+    "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "w3T2Ld": {
+    "defaultMessage": "Editor shortcuts",
+    "description": "Tooltip for button to open code editor shortcuts"
+  },
+  "w3pn1B": {
+    "defaultMessage": "Pick your framework",
+    "description": "Label for an example list of User Interface Questions on marketing pages"
+  },
+  "wAOHw9": {
+    "defaultMessage": "Similar Questions",
+    "description": "Header for similar questions to the current question"
+  },
+  "wVEJye": {
+    "defaultMessage": "Study Plans",
+    "description": "Sidebar label for Study Plans category"
+  },
+  "wdlzwm": {
+    "defaultMessage": "Your Message",
+    "description": "Feedback widget textarea title"
+  },
+  "wzQGxj": {
+    "defaultMessage": "Start in minutes",
+    "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
+  },
+  "yM3vbW": {
+    "defaultMessage": "Editor Shortcuts",
+    "description": "Label for slideout for code editor shortcuts"
+  },
+  "yXh24P": {
+    "defaultMessage": "Logos provided by Clearbit",
+    "description": "Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
+  },
+  "yeLNWe": {
+    "defaultMessage": "ByteDance",
+    "description": "Company name for ByteDance"
+  },
+  "yrC3kR": {
+    "defaultMessage": "Editor shortcuts",
+    "description": "Label for button to open code editor shortcuts"
+  },
+  "z+5YJV": {
+    "defaultMessage": "View All Questions",
+    "description": "Link label to the list of all User Interface coding questions"
+  },
+  "zDt/bH": {
+    "defaultMessage": "Next",
+    "description": "Button to go to the next page"
+  },
+  "zRNA7X": {
+    "defaultMessage": "Coding Questions",
+    "description": "Label for coding questions"
+  },
+  "zSySsj": {
+    "defaultMessage": "Question Formats",
+    "description": "Label for tabs for question formats"
+  },
+  "zaEg+y": {
+    "defaultMessage": "Pay once, own it forever",
+    "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "zo65Ck": {
+    "defaultMessage": "All Practice Questions",
+    "description": "Header for all practice questions section in study plans"
+  },
+  "zqNjnp": {
+    "defaultMessage": "CSS",
+    "description": "Label for CSS language"
+  }
+}

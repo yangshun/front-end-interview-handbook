@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-would-you-approach-fixing-browser-specific-styling-issues",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "how-would-you-approach-fixing-browser-specific-styling-issues",
+    "title": "How would you approach fixing browser-specific styling issues?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),m=(n,e)=>{for(var i in e)o(n,i,{get:e[i],enumerable:!0})},a=(n,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of f(e))!w.call(n,s)&&s!==i&&o(n,s,{get:()=>e[s],enumerable:!(r=u(e,s))||r.enumerable});return n};var g=(n,e,i)=>(i=n!=null?h(p(n)):{},a(e||!n||!n.__esModule?o(i,\"default\",{value:n,enumerable:!0}):i,n)),b=n=>a(o({},\"__esModule\",{value:!0}),n);var c=y((_,l)=>{l.exports=_jsx_runtime});var v={};m(v,{default:()=>j,frontmatter:()=>x});var t=g(c()),x={title:\"How would you approach fixing browser-specific styling issues?\"};function d(n){let e=Object.assign({ul:\"ul\",li:\"li\",code:\"code\",h2:\"h2\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Use libraries like Bootstrap that already handles these styling issues for you.\"}),`\n`,(0,t.jsxs)(e.li,{children:[\"Use \",(0,t.jsx)(e.code,{children:\"autoprefixer\"}),\" to automatically add vendor prefixes to your code.\"]}),`\n`,(0,t.jsx)(e.li,{children:\"Use Reset CSS or Normalize.css.\"}),`\n`,(0,t.jsx)(e.li,{children:\"If you're using PostCSS (or a similar CSS transpilation library), there may be plugins which allow you to opt in to using modern CSS syntax (and even W3C proposals) that will transform those sections of your code into equivalent backward-compatible code that will work in the targets you've used.\"}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function S(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var j=S;return b(v);})();\n;return Component;"
+}

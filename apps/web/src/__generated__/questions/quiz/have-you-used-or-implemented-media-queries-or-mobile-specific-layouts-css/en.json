@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
+    "title": "Have you used or implemented media queries or mobile-specific layouts/CSS?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),b=(e,n)=>{for(var o in n)r(e,o,{get:n[o],enumerable:!0})},s=(e,n,o,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let i of h(n))!f.call(e,i)&&i!==o&&r(e,i,{get:()=>n[i],enumerable:!(a=u(n,i))||a.enumerable});return e};var g=(e,n,o)=>(o=e!=null?m(p(e)):{},s(n||!e||!e.__esModule?r(o,\"default\",{value:e,enumerable:!0}):o,e)),j=e=>s(r({},\"__esModule\",{value:!0}),e);var l=x((C,c)=>{c.exports=_jsx_runtime});var k={};b(k,{default:()=>v,frontmatter:()=>w});var t=g(l()),w={title:\"Have you used or implemented media queries or mobile-specific layouts/CSS?\"};function d(e){let n=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.p,{children:\"An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.\"}),`\n`,(0,t.jsx)(n.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function _(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(d,e)})):d(e)}var v=_;return j(k);})();\n;return Component;"
+}

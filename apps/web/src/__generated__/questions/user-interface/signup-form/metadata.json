@@ -1,0 +1,35 @@
+{
+  "author": null,
+  "companies": [
+    "lyft",
+    "toptal"
+  ],
+  "created": 1658707200,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build a signup form that does validation on user details and submits to a back end API",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/signup-form/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/signup-form",
+  "importance": "high",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "contact-form"
+  ],
+  "slug": "signup-form",
+  "title": "Signup Form"
+}

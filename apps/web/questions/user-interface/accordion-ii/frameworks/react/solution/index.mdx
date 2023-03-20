@@ -1,0 +1,14 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+We'll build on top of [Accordion's solution](/questions/user-interface/accordion/react/solution). Other than adding the right ARIA roles and states, which is straightforward, we also need to link the accordion headers with the corresponding accordion contents/panels. Hence we create two functions, `getAccordionHeaderId` and `getAccordionPanelId` to do this.
+
+- `getAccordionHeaderId` generates a unique ID string to use as the value of the `id` attribute of the header element. This ID will be used as the value of the `aria-labelledby` attribute of the corresponding accordion panel.
+- `getAccordionPanelId` generates a unique ID string to use as the value of the `id` attribute of accordion panel. This ID will be used as the value of the `aria-controls` attribute of the corresponding accordion header.
+
+Since there can be multiple `Accordion` component instances on the page and we cannot guarantee that the accordion section values will be globally unique, each `Accordion` instance needs to have a unique identifier. The `useId` React hook can be used to generate unique ID for each `Accordion` instance. The final ID string will be a concatenation of the `Accordion` instance's ID, the item value, and whether it's a header or a panel.
+
+<TestCases />
+<Notes />

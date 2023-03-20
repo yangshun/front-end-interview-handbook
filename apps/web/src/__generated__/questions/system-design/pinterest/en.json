@@ -1,0 +1,27 @@
+{
+  "description": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var O=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),f=(e,n)=>{for(var r in n)s(e,r,{get:n[r],enumerable:!0})},c=(e,n,r,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let i of x(n))!p.call(e,i)&&i!==r&&s(e,i,{get:()=>n[i],enumerable:!(o=m(n,i))||o.enumerable});return e};var g=(e,n,r)=>(r=e!=null?u(d(e)):{},c(n||!e||!e.__esModule?s(r,\"default\",{value:e,enumerable:!0}):r,e)),j=e=>c(s({},\"__esModule\",{value:!0}),e);var a=O((b,l)=>{l.exports=_jsx_runtime});var M={};f(M,{default:()=>y,frontmatter:()=>_});var t=g(a()),_={title:\"Pinterest\",excerpt:\"Design Pinterest homepage, focusing on the masonry layout\"};function h(e){let n=Object.assign({h2:\"h2\",p:\"p\",h3:\"h3\",ul:\"ul\",li:\"li\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(n.p,{children:\"TODO\"}),`\n`,(0,t.jsx)(n.h3,{children:\"Real-life Examples\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:\"TODO\"}),`\n`,(0,t.jsx)(n.li,{children:\"TODO\"}),`\n`]})]})}function D(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(h,e)})):h(e)}var y=D;return j(M);})();\n;return Component;",
+  "format": "system-design",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design Pinterest homepage, focusing on the masonry layout",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/pinterest",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 12,
+    "similarQuestions": [],
+    "slug": "pinterest",
+    "title": "Pinterest"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var d=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var g=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),v=(i,e)=>{for(var t in e)d(i,t,{get:e[t],enumerable:!0})},c=(i,e,t,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!u.call(i,r)&&r!==t&&d(i,r,{get:()=>e[r],enumerable:!(a=l(e,r))||a.enumerable});return i};var D=(i,e,t)=>(t=i!=null?s(f(i)):{},c(e||!i||!i.__esModule?d(t,\"default\",{value:i,enumerable:!0}):t,i)),O=i=>c(d({},\"__esModule\",{value:!0}),i);var p=g((y,h)=>{h.exports=_jsx_runtime});var _={};v(_,{default:()=>j,tableOfContents:()=>x});var n=D(p()),x=[{depth:2,value:\"Requirements Exploration\",id:\"requirements-exploration\"},{depth:2,value:\"Architecture/High-level Design\",id:\"architecturehigh-level-design\"},{depth:2,value:\"Data Model\",id:\"data-model\"},{depth:2,value:\"Interface Definition (API)\",id:\"interface-definition-api\"},{depth:2,value:\"Optimizations and Deep Dive\",id:\"optimizations-and-deep-dive\"},{depth:2,value:\"References\",id:\"references\"}];function o(i){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",ul:\"ul\",li:\"li\",a:\"a\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{id:\"requirements-exploration\",children:\"Requirements Exploration\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"architecturehigh-level-design\",children:\"Architecture/High-level Design\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"data-model\",children:\"Data Model\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"interface-definition-api\",children:\"Interface Definition (API)\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"optimizations-and-deep-dive\",children:\"Optimizations and Deep Dive\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"references\",children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://medium.com/dev-channel/a-pinterest-progressive-web-app-performance-case-study-3bd6ed2e6154\",children:\"https://medium.com/dev-channel/a-pinterest-progressive-web-app-performance-case-study-3bd6ed2e6154\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://medium.com/pinterest-engineering/a-one-year-pwa-retrospective-f4a2f4129e05\",children:\"https://medium.com/pinterest-engineering/a-one-year-pwa-retrospective-f4a2f4129e05\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://medium.com/pinterest-engineering/improving-gif-performance-on-pinterest-8dad74bf92f1\",children:\"https://medium.com/pinterest-engineering/improving-gif-performance-on-pinterest-8dad74bf92f1\"})}),`\n`]})]})}function b(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(o,i)})):o(i)}var j=b;return O(_);})();\n;return Component;"
+}

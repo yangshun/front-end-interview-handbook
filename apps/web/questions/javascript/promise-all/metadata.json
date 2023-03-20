@@ -1,0 +1,28 @@
+{
+  "slug": "promise-all",
+  "created": "2022-06-16T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [
+    "bytedance",
+    "lyft",
+    "tiktok"
+  ],
+  "premium": false,
+  "duration": 20,
+  "published": true,
+  "importance": "high",
+  "difficulty": "medium",
+  "featured": true,
+  "similar_questions": [
+    "promise-all-settled",
+    "promise-any",
+    "promise-race"
+  ],
+  "next_questions": [
+    "flatten",
+    "promise-any",
+    "todo-list"
+  ]
+}

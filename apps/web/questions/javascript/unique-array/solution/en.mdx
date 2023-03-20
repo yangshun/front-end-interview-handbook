@@ -1,0 +1,44 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import uniqueArray from '../src/unique-array';
+import uniqueArrayQuadratic from '../src/uniqueArrayQuadratic';
+import uniqueArraySet from '../src/uniqueArraySet';
+
+This question is a simple question and is expected to be used as a warm up question in interviews. However, there are some traps in the question which we will go through.
+
+## Clarification Questions
+
+- How do we compare equality for non-primitive values like arrays and objects?
+  - For the purpose of this question in an interview setting, we can use `===` for comparison. Lodash's `uniq` function uses [`SameValueZero`](https://262.ecma-international.org/7.0/#sec-samevaluezero) which is much more sophisticated.
+- Will the array only contain values of the same type?
+  - We cannot make that assumption.
+
+## Solution
+
+### Brute force approach
+
+We can use a new array to store the `result`. By iterating through the input array, we check if the current element is in the `result` array using `Array.prototype.includes()` and add it into the `results` array if it doesn't exist.
+
+However, this solution is O(n<sup>2</sup>) because `Array.prototype.includes()` is an O(n) operation and we do it once for every element in the input array.
+
+<MDXCodeBlock>{uniqueArrayQuadratic}</MDXCodeBlock>
+
+### Using `Set` to track existing elements
+
+As seen above, `Array.prototype.includes()` is not efficient. We can check for existence of an element in O(1) time with the right data structure. `Set`s are the perfect data structure to achieve this. Instead of using `Array.prototype.includes()`, we can use `Set.prototype.has()` to query in O(1) time for the existence of an element. The structure is similar to the brute force approach above. The time complexity of this solution is O(n).
+
+<MDXCodeBlock>{uniqueArraySet}</MDXCodeBlock>
+
+### Converting to `Set` then back
+
+The simplest one-liner answer is to convert the array into a `Set`, then back into an array. If your interviewer does not allow you to do this elegant one-liner, you can use the previous approach. The time complexity of this solution is also O(n).
+
+<MDXCodeBlock>{uniqueArray}</MDXCodeBlock>
+
+## Notes
+
+- An `Object` cannot be used as a replacement for `Set` for tracking seen values because object keys are strings and the ability to distinguish between types vs their stringified versions will be lost (e.g. `2` vs `'2'` and `true` vs `'true'`). We have a test to check for this.
+
+## Resources
+
+- [Lodash `_.uniq`](https://lodash.com/docs/4.17.15#uniq)

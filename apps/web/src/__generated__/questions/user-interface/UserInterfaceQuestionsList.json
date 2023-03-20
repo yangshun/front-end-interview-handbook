@@ -1,0 +1,958 @@
+[
+  {
+    "author": null,
+    "companies": [],
+    "created": 1671580800,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Build an accordion component that a displays a list of vertically stacked sections that each contain a title and content snippet",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/accordion/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/accordion/react"
+      }
+    ],
+    "href": "/questions/user-interface/accordion",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "accordion-ii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "accordion",
+    "title": "Accordion"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1671580800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build an accessible accordion component that has the right ARIA roles, states, and properties",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/accordion-ii/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/accordion-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/accordion-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "accordion-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "accordion-ii",
+    "title": "Accordion II"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1671580800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a fully accessible accordion component that has keyboard support according to ARIA specifications",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/accordion-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/accordion-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "accordion-iii",
+    "title": "Accordion III"
+  },
+  {
+    "author": null,
+    "companies": [
+      "lyft"
+    ],
+    "created": 1670198400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build an analog clock where the hands update and move like a real clock",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/analog-clock/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/analog-clock/react"
+      }
+    ],
+    "href": "/questions/user-interface/analog-clock",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "digital-clock"
+    ],
+    "slug": "analog-clock",
+    "title": "Analog Clock"
+  },
+  {
+    "author": null,
+    "companies": [
+      "lyft"
+    ],
+    "created": 1658880000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/contact-form/vanilla"
+      }
+    ],
+    "href": "/questions/user-interface/contact-form",
+    "importance": "high",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "nextQuestions": [
+      "flatten",
+      "signup-form"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "signup-form"
+    ],
+    "slug": "contact-form",
+    "title": "Contact Form"
+  },
+  {
+    "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1656028800,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Build a simple counter which increments whenever a button is clicked",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/counter/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/counter/react"
+      }
+    ],
+    "href": "/questions/user-interface/counter",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "flatten",
+      "todo-list",
+      "contact-form"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "todo-list",
+      "temperature-converter"
+    ],
+    "slug": "counter",
+    "title": "Counter"
+  },
+  {
+    "author": null,
+    "companies": [
+      "lyft"
+    ],
+    "created": 1656892800,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "Build a 7-segment digital clock which shows the current time",
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/digital-clock/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/digital-clock/react"
+      }
+    ],
+    "href": "/questions/user-interface/digital-clock",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "digital-clock",
+    "title": "Digital Clock"
+  },
+  {
+    "author": null,
+    "companies": [
+      "google"
+    ],
+    "created": 1675123200,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Generate a table of numbers given the rows and columns",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/generate-table/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/generate-table/vanilla"
+      }
+    ],
+    "href": "/questions/user-interface/generate-table",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "generate-table",
+    "title": "Generate Table"
+  },
+  {
+    "author": null,
+    "companies": [
+      "uber"
+    ],
+    "created": 1671148800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/grid-lights/react"
+      }
+    ],
+    "href": "/questions/user-interface/grid-lights",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "grid-lights",
+    "title": "Grid Lights"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1658275200,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/holy-grail/vanilla"
+      }
+    ],
+    "href": "/questions/user-interface/holy-grail",
+    "importance": "high",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "nextQuestions": [
+      "flatten",
+      "todo-list",
+      "contact-form"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "tweet"
+    ],
+    "slug": "holy-grail",
+    "title": "Holy Grail"
+  },
+  {
+    "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1670976000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a Like button that changes appearance based on the states",
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/like-button/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/like-button/react"
+      }
+    ],
+    "href": "/questions/user-interface/like-button",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "like-button",
+    "title": "Like Button"
+  },
+  {
+    "author": null,
+    "companies": [
+      "uber"
+    ],
+    "created": 1656720000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Build a progress bar component which shows the percentage completion of an operation",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/progress-bar/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/progress-bar/react"
+      }
+    ],
+    "href": "/questions/user-interface/progress-bar",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "progress-bars",
+      "flatten",
+      "star-rating"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "star-rating"
+    ],
+    "slug": "progress-bar",
+    "title": "Progress Bar"
+  },
+  {
+    "author": null,
+    "companies": [
+      "uber"
+    ],
+    "created": 1671321600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Build a list of progress bars which fill up gradually when they are added to the page",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/progress-bars/react"
+      }
+    ],
+    "href": "/questions/user-interface/progress-bars",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "progress-bars-ii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "progress-bars",
+    "title": "Progress Bars"
+  },
+  {
+    "author": null,
+    "companies": [
+      "uber"
+    ],
+    "created": 1671321600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a list of progress bars which fill up gradually in sequence, one at a time",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/progress-bars-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/progress-bars-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "progress-bars-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "progress-bars-ii",
+    "title": "Progress Bars II"
+  },
+  {
+    "author": null,
+    "companies": [
+      "uber"
+    ],
+    "created": 1671321600,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "Build a list of progress bars which fill up gradually concurrently, up to a limit of 3",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/progress-bars-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/progress-bars-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "progress-bars-iv"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "progress-bars-iii",
+    "title": "Progress Bars III"
+  },
+  {
+    "author": null,
+    "companies": [
+      "uber"
+    ],
+    "created": 1671321600,
+    "difficulty": "hard",
+    "duration": 25,
+    "excerpt": "Build a list of progress bars which fill up gradually concurrently, up to a limit of 3 and allows for pausing and resuming",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/progress-bars-iv/react"
+      }
+    ],
+    "href": "/questions/user-interface/progress-bars-iv",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "progress-bars-iv",
+    "title": "Progress Bars IV"
+  },
+  {
+    "author": null,
+    "companies": [
+      "lyft",
+      "toptal"
+    ],
+    "created": 1658707200,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a signup form that does validation on user details and submits to a back end API",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/signup-form/vanilla"
+      }
+    ],
+    "href": "/questions/user-interface/signup-form",
+    "importance": "high",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "contact-form"
+    ],
+    "slug": "signup-form",
+    "title": "Signup Form"
+  },
+  {
+    "author": null,
+    "companies": [
+      "airbnb",
+      "amazon",
+      "uber"
+    ],
+    "created": 1658016000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/star-rating/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/star-rating/react"
+      }
+    ],
+    "href": "/questions/user-interface/star-rating",
+    "importance": "high",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "progress-bar"
+    ],
+    "slug": "star-rating",
+    "title": "Star Rating"
+  },
+  {
+    "author": null,
+    "companies": [
+      "cisco",
+      "uber"
+    ],
+    "created": 1670889600,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a stopwatch widget which can measure how much time has passed",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/stopwatch/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/stopwatch/react"
+      }
+    ],
+    "href": "/questions/user-interface/stopwatch",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "digital-clock"
+    ],
+    "slug": "stopwatch",
+    "title": "Stopwatch"
+  },
+  {
+    "author": null,
+    "companies": [
+      "airbnb"
+    ],
+    "created": 1670976000,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Build a tabs component that a displays a list of tab elements and one associated panel of content at a time",
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tabs/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tabs/react"
+      }
+    ],
+    "href": "/questions/user-interface/tabs",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "tabs-ii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tabs",
+    "title": "Tabs"
+  },
+  {
+    "author": null,
+    "companies": [
+      "airbnb"
+    ],
+    "created": 1670976000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a semi-accessible tabs component that has the right ARIA roles, states, and properties",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tabs-ii/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tabs-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/tabs-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "tabs-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tabs-ii",
+    "title": "Tabs II"
+  },
+  {
+    "author": null,
+    "companies": [
+      "airbnb"
+    ],
+    "created": 1671062400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a fully accessible tabs component that has keyboard support according to ARIA specifications",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tabs-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/tabs-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tabs-iii",
+    "title": "Tabs III"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1657065600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/temperature-converter/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/temperature-converter/react"
+      }
+    ],
+    "href": "/questions/user-interface/temperature-converter",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "todo-list"
+    ],
+    "slug": "temperature-converter",
+    "title": "Temperature Converter"
+  },
+  {
+    "author": null,
+    "companies": [
+      "grab",
+      "toptal"
+    ],
+    "created": 1656460800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/todo-list/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/todo-list/react"
+      }
+    ],
+    "href": "/questions/user-interface/todo-list",
+    "importance": "high",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "flatten",
+      "promise-any",
+      "holy-grail"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "temperature-converter"
+    ],
+    "slug": "todo-list",
+    "title": "Todo List"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1670716800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/traffic-light/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/traffic-light/react"
+      }
+    ],
+    "href": "/questions/user-interface/traffic-light",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "digital-clock"
+    ],
+    "slug": "traffic-light",
+    "title": "Traffic Light"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1658188800,
+    "difficulty": "easy",
+    "duration": 20,
+    "excerpt": "Build a component that resembles a Tweet from Twitter",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tweet/vanilla"
+      }
+    ],
+    "href": "/questions/user-interface/tweet",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "holy-grail"
+    ],
+    "slug": "tweet",
+    "title": "Tweet"
+  }
+]

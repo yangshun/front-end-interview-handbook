@@ -1,0 +1,7 @@
+## Accessibility
+
+While a11y is not the focus of this question, there are some things we can do to improve both the a11y and user experience of this app.
+
+- Use `<button>`s to render the grid cells so that they are focusable via <kbd>Tab</kbd> and activated via <kbd>Space</kbd> and <kbd>Enter</kbd>. With this, we can activate the grid entirely using the keyboard.
+- All buttons should have labels, so we add `aria-label` with the index to describe the cell. The label can be further improved by calling out the column and row numbers instead.
+- It also helps to `disable` the button for activated cells and while deactivating, so that the cells can no longer be focused or respond to clicks.

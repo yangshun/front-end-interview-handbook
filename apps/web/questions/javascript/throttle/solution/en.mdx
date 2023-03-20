@@ -1,0 +1,37 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import throttle from '../src/throttle';
+
+Throttle, along with [debounce](/questions/javascript/debounce), are among the most common front end interview questions; it's the front end equivalent of inverting a binary tree. Hence you should make sure that you are very familiar with the question.
+
+## Solution
+
+Given that there's a `wait` duration before the function can be invoked again, we know that we will need a timer, and `setTimeout` is the first thing that comes to mind.
+
+We will also need to return a function which wraps around the callback function parameter. This function needs to do a few things:
+
+### 1) Throttle invocation
+
+- It invokes the callback function immediately and doesn't allow only invocation again until a duration of `wait` has passed. Since we need to keep track of whether there is an existing timer, we can use a boolean variable `shouldThrottle` to do so, which acts as a lock, preventing further invocations of the callback until the lock is released. We set `shouldThrottle` to `true` when the function is first called, invoke the function, and set a timeout to release the lock after `wait`. Future calls of the throttled function will not do anything if the lock is present.
+
+### 2) Calls the callback function with the right parameters
+
+Throttled functions are used like the original functions, so we should forward the value of `this` and function arguments when invoking the original callback functions.
+
+You may be tempted to use `func(...args)` but `this` will be lost if callback functions are invoked that way. Hence we have use `Function.prototype.apply()`/`Function.prototype.call()` which allows us to specify `this` as the first argument.
+
+- `func.apply(thisArg, args)`
+- `func.call(thisArg, ...args)`
+
+<MDXCodeBlock>{throttle}</MDXCodeBlock>
+
+## Techniques
+
+- Using `setTimeout`.
+- Closures.
+- How `this` works.
+- Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`.
+
+## Resources
+
+- [Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)

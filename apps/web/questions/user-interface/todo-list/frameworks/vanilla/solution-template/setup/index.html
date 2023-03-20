@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div>
+      <h1>Todo List</h1>
+      <form>
+        <input
+          aria-label="Add new task"
+          type="text"
+          placeholder="Add your task" />
+        <div>
+          <button id="submit">Submit</button>
+        </div>
+      </form>
+      <ul></ul>
+    </div>
+    <template id="task-template">
+      <li>
+        <span></span>
+        <button>Delete</button>
+      </li>
+    </template>
+    <script src="src/index.js"></script>
+  </body>
+</html>

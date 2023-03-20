@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-a-typical-use-case-for-anonymous-functions",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "whats-a-typical-use-case-for-anonymous-functions",
+    "title": "What's a typical use case for anonymous functions?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of m(e))!g.call(n,a)&&a!==t&&c(n,a,{get:()=>e[a],enumerable:!(r=u(e,a))||r.enumerable});return n};var w=(n,e,t)=>(t=n!=null?h(p(n)):{},s(e||!n||!n.__esModule?c(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>s(c({},\"__esModule\",{value:!0}),n);var i=f((F,l)=>{l.exports=_jsx_runtime});var k={};b(k,{default:()=>y,frontmatter:()=>x});var o=w(i()),x={title:\"What's a typical use case for anonymous functions?\"};function d(n){let e=Object.assign({p:\"p\",pre:\"pre\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.p,{children:\"They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`(function () {\n  // Some code here.\n})();\n`})}),`\n`,(0,o.jsx)(e.p,{children:\"As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`setTimeout(function () {\n  console.log('Hello world!');\n}, 1000);\n`})}),`\n`,(0,o.jsx)(e.p,{children:\"Arguments to functional programming constructs or Lodash (similar to callbacks).\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const arr = [1, 2, 3];\nconst double = arr.map(function (el) {\n  return el * 2;\n});\nconsole.log(double); // [2, 4, 6]\n`})}),`\n`,(0,o.jsx)(e.h2,{children:\"References\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:(0,o.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function _(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(d,n)})):d(n)}var y=_;return j(k);})();\n;return Component;"
+}

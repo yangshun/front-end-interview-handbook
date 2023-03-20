@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills",
+    "title": "What is the extent of your experience with Promises and/or their polyfills?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var o in e)s(t,o,{get:e[o],enumerable:!0})},a=(t,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of f(e))!p.call(t,r)&&r!==o&&s(t,r,{get:()=>e[r],enumerable:!(i=u(e,r))||i.enumerable});return t};var j=(t,e,o)=>(o=t!=null?h(m(t)):{},a(e||!t||!t.__esModule?s(o,\"default\",{value:t,enumerable:!0}):o,t)),w=t=>a(s({},\"__esModule\",{value:!0}),t);var c=x((P,l)=>{l.exports=_jsx_runtime});var _={};b(_,{default:()=>v,frontmatter:()=>y});var n=j(c()),y={title:\"What is the extent of your experience with Promises and/or their polyfills?\"};function d(t){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Possess working knowledge of it. A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Some common polyfills are \",(0,n.jsx)(e.code,{children:\"$.deferred\"}),\", Q and Bluebird but not all of them comply with the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function g(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var v=g;return w(_);})();\n;return Component;"
+}

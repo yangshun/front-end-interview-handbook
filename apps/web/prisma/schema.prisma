@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model EmailSubscriber {
+  id        String    @id(map: "EmailSubscribers_pkey") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  email     String    @unique(map: "EmailSubscribers_email_key")
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model Event {
+  id        BigInt    @id @default(autoincrement())
+  userId    String    @db.Uuid
+  action    String
+  payload   Json?     @db.Json
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  referer   String?   @db.VarChar
+  country   String?
+  Profile   Profile   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model FeedbackMessage {
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  message   String    @db.VarChar
+  email     String?
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+  resolved  Boolean   @default(false)
+  owner     String?   @default("yangshun")
+  userEmail String?
+  comments  String?   @db.VarChar
+  metadata  Json?     @db.Json
+}
+
+model Profile {
+  id               String             @id(map: "profile_pkey") @db.Uuid
+  premium          Boolean            @default(false)
+  plan             String?
+  stripeCustomer   String?
+  createdAt        DateTime           @default(now()) @db.Timestamptz(6)
+  Event            Event[]
+  QuestionProgress QuestionProgress[]
+}
+
+model QuestionProgress {
+  format    String
+  slug      String
+  id        String   @id(map: "question_progress_pkey") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  status    String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  userId    String   @db.Uuid
+  Profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model SitePerformance {
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  duration  Float?
+  country   String?
+  userEmail String?
+  event     String?
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  url       String?
+  referrer  String?
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "curry",
+  "created": "2022-06-18T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "similar_questions": [
+    "curry-ii",
+    "function-bind"
+  ],
+  "next_questions": [
+    "flatten",
+    "promise-all",
+    "todo-list"
+  ]
+}

@@ -1,0 +1,7 @@
+## Notes
+
+- Use a `<label>` for the form fields to indicate what the input is for.
+- Number formatting is tricky:
+  - `Number()` constructor: converts a value into a number or `NaN` if not possible. note that this returns `Number(anyFalseyValue)` gives 0, so we need to differentiate the empty string case from a real 0.
+  - `Number.IsNaN()`: determine if a value is a number.
+  - `/\.\d{5}/`: this regex tests is a number has 5 or more decimal places.

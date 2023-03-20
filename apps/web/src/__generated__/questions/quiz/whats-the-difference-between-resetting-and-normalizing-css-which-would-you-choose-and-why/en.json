@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
+    "title": "What's the difference between \"resetting\" and \"normalizing\" CSS?",
+    "subtitle": "Which would you choose, and why?",
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var i=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!f.call(t,o)&&o!==r&&i(t,o,{get:()=>e[o],enumerable:!(d=g(e,o))||d.enumerable});return t};var w=(t,e,r)=>(r=t!=null?a(m(t)):{},s(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),p=t=>s(i({},\"__esModule\",{value:!0}),t);var h=y((C,l)=>{l.exports=_jsx_runtime});var _={};b(_,{default:()=>j,frontmatter:()=>v});var n=w(h()),v={title:`What's the difference between \"resetting\" and \"normalizing\" CSS?`,subtitle:\"Which would you choose, and why?\"};function c(t){let e=Object.assign({table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",tbody:\"tbody\",td:\"td\",strong:\"strong\",code:\"code\",h2:\"h2\",p:\"p\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.table,{children:[(0,n.jsx)(e.thead,{children:(0,n.jsxs)(e.tr,{children:[(0,n.jsx)(e.th,{children:\"Term\"}),(0,n.jsx)(e.th,{children:\"Definition\"})]})}),(0,n.jsxs)(e.tbody,{children:[(0,n.jsxs)(e.tr,{children:[(0,n.jsx)(e.td,{children:(0,n.jsx)(e.strong,{children:\"Resetting\"})}),(0,n.jsxs)(e.td,{children:[\"Resetting is meant to strip all default browser styling on elements. For e.g. \",(0,n.jsx)(e.code,{children:\"margin\"}),\"s, \",(0,n.jsx)(e.code,{children:\"padding\"}),\"s, \",(0,n.jsx)(e.code,{children:\"font-size\"}),\"s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.\"]})]}),(0,n.jsxs)(e.tr,{children:[(0,n.jsx)(e.td,{children:(0,n.jsx)(e.strong,{children:\"Normalizing\"})}),(0,n.jsx)(e.td,{children:'Normalizing preserves useful default styles rather than \"unstyling\" everything. It also corrects bugs for common browser dependencies.'})]})]})]}),`\n`,(0,n.jsx)(e.h2,{children:\"Which to choose and why?\"}),`\n`,(0,n.jsx)(e.p,{children:\"Choose resetting when you need to have a very customized or unconventional site design such that you need to do a lot of my own styling and do not need any default styling to be preserved.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(c,t)})):c(t)}var j=x;return p(_);})();\n;return Component;"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "get-elements-by-tag-name",
+  "created": "2022-06-15T00:00:00.000Z",
+  "languages": ["html", "js"],
+  "companies": [],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "featured": true,
+  "similar_questions": ["get-elements-by-class-name"]
+}

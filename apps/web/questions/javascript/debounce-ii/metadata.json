@@ -1,0 +1,28 @@
+{
+  "slug": "debounce-ii",
+  "created": "2022-12-10T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [
+    "facebook",
+    "flipkart",
+    "google",
+    "lyft",
+    "walmart",
+    "yelp"
+  ],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "high",
+  "difficulty": "medium",
+  "featured": false,
+  "similar_questions": [
+    "debounce",
+    "throttle"
+  ],
+  "next_questions": [
+    "throttle"
+  ]
+}

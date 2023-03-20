@@ -1,0 +1,35 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+The solution can be split into three parts: (1) State, (2) Styling, and (3) Animation.
+
+### State
+
+Since the progress bars do not interaction with each other and the animation uses a "fire and forget" model, we only need a single numerical value as state, which is the number of bars onscreen. Hitting the "Add" button increases the number of bars to be rendered.
+
+### Styling
+
+Have a look at the [Progress Bar](/questions/user-interface/progress-bar) question for how to style a progress bar given a value out of 100. However, we'll use CSS `transform`s instead of changing the `width` as CSS transforms run on the GPU which results in better performance for animations.
+
+### Animation
+
+As mentioned above, each progress bar's animation uses a "fire and forget" model, meaning they are non-interruptible and do not interact with each other. CSS transitions work very well for animating the bars from 0 to 100 and there's no need to resort to JavaScript. Note that we have to use `transform-origin: left` so that the bar is "anchored" on the left and expands rightwards. Without that, the transition will appear to expand outwards from the center.
+
+```css
+.bar-contents {
+  background-color: green;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition-duration: 2000ms;
+  transition-property: transform;
+  transition-timing-function: linear;
+}
+
+.bar-contents--filled {
+  transform: scaleX(1);
+}
+```
+
+<TestCases />

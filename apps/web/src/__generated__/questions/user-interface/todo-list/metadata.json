@@ -1,0 +1,43 @@
+{
+  "author": null,
+  "companies": [
+    "grab",
+    "toptal"
+  ],
+  "created": 1656460800,
+  "difficulty": "medium",
+  "duration": 20,
+  "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/todo-list/vanilla"
+    },
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/todo-list/react"
+    }
+  ],
+  "href": "/questions/user-interface/todo-list",
+  "importance": "high",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "promise-any",
+    "holy-grail"
+  ],
+  "premium": false,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "temperature-converter"
+  ],
+  "slug": "todo-list",
+  "title": "Todo List"
+}

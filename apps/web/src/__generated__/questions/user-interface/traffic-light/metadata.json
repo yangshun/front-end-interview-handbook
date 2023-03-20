@@ -1,0 +1,37 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1670716800,
+  "difficulty": "medium",
+  "duration": 20,
+  "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/traffic-light/vanilla"
+    },
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/traffic-light/react"
+    }
+  ],
+  "href": "/questions/user-interface/traffic-light",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "digital-clock"
+  ],
+  "slug": "traffic-light",
+  "title": "Traffic Light"
+}

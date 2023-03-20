@@ -1,0 +1,16 @@
+{
+  "slug": "unique-array",
+  "created": "2022-06-14T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 10,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "similar_questions": [
+    "data-selection"
+  ]
+}

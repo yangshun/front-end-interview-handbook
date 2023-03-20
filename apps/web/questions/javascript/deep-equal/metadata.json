@@ -1,0 +1,18 @@
+{
+  "slug": "deep-equal",
+  "author": "zhenghao",
+  "created": "2022-08-08T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 25,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "similar_questions": [
+    "deep-clone",
+    "deep-clone-ii"
+  ]
+}

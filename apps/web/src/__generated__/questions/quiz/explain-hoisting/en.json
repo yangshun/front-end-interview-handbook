@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-hoisting",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-hoisting",
+    "title": "Explain \"hoisting\"",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var m=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),b=(o,e)=>{for(var i in e)a(o,i,{get:e[i],enumerable:!0})},l=(o,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of f(e))!g.call(o,t)&&t!==i&&a(o,t,{get:()=>e[t],enumerable:!(r=u(e,t))||r.enumerable});return o};var v=(o,e,i)=>(i=o!=null?h(p(o)):{},l(e||!o||!o.__esModule?a(i,\"default\",{value:o,enumerable:!0}):i,o)),w=o=>l(a({},\"__esModule\",{value:!0}),o);var s=m((R,c)=>{c.exports=_jsx_runtime});var O={};b(O,{default:()=>j,frontmatter:()=>x});var n=v(s()),x={title:'Explain \"hoisting\"'};function d(o){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the \",(0,n.jsx)(e.code,{children:\"var\"}),' keyword will have their declaration \"moved\" up to the top of their module/function-level scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.']}),`\n`,(0,n.jsx)(e.p,{children:\"Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`console.log(foo); // undefined\nvar foo = 1;\nconsole.log(foo); // 1\n`})}),`\n`,(0,n.jsx)(e.p,{children:\"Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// Function Declaration\nconsole.log(foo); // [Function: foo]\nfoo(); // 'FOOOOO'\nfunction foo() {\n  console.log('FOOOOO');\n}\nconsole.log(foo); // [Function: foo]\n\n// Function Expression\nconsole.log(bar); // undefined\nbar(); // Uncaught TypeError: bar is not a function\nvar bar = function () {\n  console.log('BARRRR');\n};\nconsole.log(bar); // [Function: bar]\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"Variables declared via \",(0,n.jsx)(e.code,{children:\"let\"}),\" and \",(0,n.jsx)(e.code,{children:\"const\"}),\" are hoisted as well. However, unlike \",(0,n.jsx)(e.code,{children:\"var\"}),\" and \",(0,n.jsx)(e.code,{children:\"function\"}),\", they are not initialized and accessing them before the declaration will result in a \",(0,n.jsx)(e.code,{children:\"ReferenceError\"}),' exception. The variable is in a \"temporal dead zone\" from the start of the block until the declaration is processed.']}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`x; // undefined\ny; // Reference error: y is not defined\n\nvar x = 'local';\nlet y = 'local';\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(d,o)})):d(o)}var j=y;return w(O);})();\n;return Component;"
+}

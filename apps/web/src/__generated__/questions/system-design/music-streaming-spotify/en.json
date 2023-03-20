@@ -1,0 +1,27 @@
+{
+  "description": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var f=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),g=(e,n)=>{for(var i in n)s(e,i,{get:n[i],enumerable:!0})},l=(e,n,i,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of d(n))!p.call(e,r)&&r!==i&&s(e,r,{get:()=>n[r],enumerable:!(c=u(n,r))||c.enumerable});return e};var O=(e,n,i)=>(i=e!=null?m(x(e)):{},l(n||!e||!e.__esModule?s(i,\"default\",{value:e,enumerable:!0}):i,e)),j=e=>l(s({},\"__esModule\",{value:!0}),e);var a=f((S,o)=>{o.exports=_jsx_runtime});var b={};g(b,{default:()=>M,frontmatter:()=>_});var t=O(a()),_={title:\"Music Streaming (e.g. Spotify)\",excerpt:\"Design a music streaming website like Spotify and Pandora\"};function h(e){let n=Object.assign({h2:\"h2\",p:\"p\",h3:\"h3\",ul:\"ul\",li:\"li\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(n.p,{children:\"TODO\"}),`\n`,(0,t.jsx)(n.h3,{children:\"Real-life Examples\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:\"TODO\"}),`\n`,(0,t.jsx)(n.li,{children:\"TODO\"}),`\n`]})]})}function D(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(h,e)})):h(e)}var M=D;return j(b);})();\n;return Component;",
+  "format": "system-design",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design a music streaming website like Spotify and Pandora",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/music-streaming-spotify",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 11,
+    "similarQuestions": [],
+    "slug": "music-streaming-spotify",
+    "title": "Music Streaming (e.g. Spotify)"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,D=Object.prototype.hasOwnProperty;var f=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),O=(i,e)=>{for(var t in e)d(i,t,{get:e[t],enumerable:!0})},h=(i,e,t,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!D.call(i,r)&&r!==t&&d(i,r,{get:()=>e[r],enumerable:!(a=p(e,r))||a.enumerable});return i};var v=(i,e,t)=>(t=i!=null?s(m(i)):{},h(e||!i||!i.__esModule?d(t,\"default\",{value:i,enumerable:!0}):t,i)),x=i=>h(d({},\"__esModule\",{value:!0}),i);var o=f((q,c)=>{c.exports=_jsx_runtime});var T={};O(T,{default:()=>_,tableOfContents:()=>g});var n=v(o()),g=[{depth:2,value:\"Requirements Exploration\",id:\"requirements-exploration\"},{depth:2,value:\"Architecture/High-level Design\",id:\"architecturehigh-level-design\"},{depth:2,value:\"Data Model\",id:\"data-model\"},{depth:2,value:\"Interface Definition (API)\",id:\"interface-definition-api\"},{depth:2,value:\"Optimizations and Deep Dive\",id:\"optimizations-and-deep-dive\"},{depth:2,value:\"References\",id:\"references\"}];function l(i){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{id:\"requirements-exploration\",children:\"Requirements Exploration\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"architecturehigh-level-design\",children:\"Architecture/High-level Design\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"data-model\",children:\"Data Model\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"interface-definition-api\",children:\"Interface Definition (API)\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"optimizations-and-deep-dive\",children:\"Optimizations and Deep Dive\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{id:\"references\",children:\"References\"}),`\n`,(0,n.jsx)(e.p,{children:\"TODO\"})]})}function j(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(l,i)})):l(i)}var _=j;return x(T);})();\n;return Component;"
+}

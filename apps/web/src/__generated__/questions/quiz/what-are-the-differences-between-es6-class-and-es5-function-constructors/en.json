@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-differences-between-es6-class-and-es5-function-constructors",
+    "title": "What are the differences between ES2015 class and ES5 function constructors?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var S=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),b=(e,n)=>{for(var s in n)o(e,s,{get:n[s],enumerable:!0})},a=(e,n,s,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of m(n))!f.call(e,r)&&r!==s&&o(e,r,{get:()=>n[r],enumerable:!(c=h(n,r))||c.enumerable});return e};var w=(e,n,s)=>(s=e!=null?u(p(e)):{},a(n||!e||!e.__esModule?o(s,\"default\",{value:e,enumerable:!0}):s,e)),j=e=>a(o({},\"__esModule\",{value:!0}),e);var d=S((C,i)=>{i.exports=_jsx_runtime});var E={};b(E,{default:()=>g,frontmatter:()=>x});var t=w(d()),x={title:\"What are the differences between ES2015 class and ES5 function constructors?\"};function l(e){let n=Object.assign({p:\"p\",pre:\"pre\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.p,{children:\"Let's first look at example of each:\"}),`\n`,(0,t.jsx)(n.pre,{children:(0,t.jsx)(n.code,{className:\"language-js\",children:`// ES5 Function Constructor\nfunction Person(name) {\n  this.name = name;\n}\n\n// ES2015 Class\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n`})}),`\n`,(0,t.jsx)(n.p,{children:\"For simple constructors, they look pretty similar.\"}),`\n`,(0,t.jsxs)(n.p,{children:[\"The main difference in the constructor comes when using inheritance. If we want to create a \",(0,t.jsx)(n.code,{children:\"Student\"}),\" class that subclasses \",(0,t.jsx)(n.code,{children:\"Person\"}),\" and add a \",(0,t.jsx)(n.code,{children:\"studentId\"}),\" field, this is what we have to do in addition to the above.\"]}),`\n`,(0,t.jsx)(n.pre,{children:(0,t.jsx)(n.code,{className:\"language-js\",children:`// ES5 Function Constructor\nfunction Student(name, studentId) {\n  // Call constructor of superclass to initialize superclass-derived members.\n  Person.call(this, name);\n\n  // Initialize subclass's own members.\n  this.studentId = studentId;\n}\n\nStudent.prototype = Object.create(Person.prototype);\nStudent.prototype.constructor = Student;\n\n// ES2015 Class\nclass Student extends Person {\n  constructor(name, studentId) {\n    super(name);\n    this.studentId = studentId;\n  }\n}\n`})}),`\n`,(0,t.jsx)(n.p,{children:\"It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.\"}),`\n`,(0,t.jsx)(n.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function I(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(l,e)})):l(e)}var g=I;return j(E);})();\n;return Component;"
+}

@@ -1,0 +1,19 @@
+import TestCases from '../../../test-cases.mdx';
+
+**Note:** This solution builds on top of the solution for [Progress Bars](/questions/user-interface/progress-bars), so make sure to check that question's solution first.
+
+## Solution
+
+The question can be split into two parts: (1) State, (2) Orchestration of Transitions.
+
+### State
+
+On top of the number of bars that we need, we'll need to know how many of the current bars have been filled up and which bars can start to fill up. We introduce a new numeric variable state called `numFilledUpBars` to track the number of bars that have been filled up. Any bar that has an index that's greater than `numFilledUpBars` should not start filling up yet. To know when to increment `numFilledUpBars`, we'll add an `onCompleted` prop to `ProgressBar` that fires when a progress bar is full.
+
+### Orchestration of Transitions
+
+Using the `numFilledUpBars` state, we'll determine an `isEmpty` value to be passed to the `ProgressBar` as a prop. `ProgressBar`s that have `isEmpty={true}` should not be animating yet.
+
+We can use the `onTransitionEnd` prop on React DOM elements to detect when a CSS transition is complete, and firing `onCompleted` prop. Within the main `App`, the `numFilledUpBars` will be incremented whenever an `onCompleted` callback is triggered.
+
+<TestCases />

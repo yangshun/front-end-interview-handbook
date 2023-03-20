@@ -1,0 +1,15 @@
+## Test Cases
+
+We've intentionally added some focusable elements above and below the `Tabs` component to make it easier to check the focus order.
+
+- Switching tabs
+  - <kbd>Left</kbd> key should activate the previous tab element
+    and activate the last tab element if the first tab was active.
+  - <kbd>Right</kbd> key should activate the next tab element
+    and activate the first tab element if the last tab was active.
+  - <kbd>Home</kbd> key should activate the first tab element.
+  - <kbd>End</kbd> key should activate the last tab element.
+- Focus behavior
+  - Click on the topmost button. After that, hitting <kbd>Tab</kbd> should focus on the active tab element, which is not necessarily the first tab.
+  - Click on the bottommost button. After that, hitting <kbd>Shift</kbd> + <kbd>Tab</kbd> should focus on the tabpanel, not any of the tabs.
+  - When switching between the tabs using the keyboard, the new tab should be focused. Hitting <kbd>Tab</kbd> again should shift focus to the tabpanel instead of any other tabs.

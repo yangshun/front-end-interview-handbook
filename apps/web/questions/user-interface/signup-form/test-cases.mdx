@@ -1,0 +1,23 @@
+## Test Cases
+
+- Username input
+  - Empty: ❌ Fail validation
+  - Shorter than 4 characters: ❌ Fail validation
+  - Contains on-alphanumeric characters: ❌ Fail validation
+  - Alphanumeric values 3 characters or more: ✅ Pass validation
+- Email input
+  - Empty: ❌ Fail validation
+  - Without username: ❌ Fail validation
+  - Without domain: ❌ Fail validation
+  - Valid email: ✅ Pass validation
+- Password input
+  - Empty: ❌ Fail validation
+  - Shorter than 6 characters: ❌ Fail validation
+  - At least 6 characters: ✅ Pass validation
+- Confirm Password input
+  - Empty: ❌ Fail validation
+  - Shorter than 6 characters: ❌ Fail validation
+  - Does not match password input: ❌ Fail validation
+  - Matches password input: ✅ Pass validation
+- Submit button
+  - Clicking on it triggers submits the form if there are no validation errors

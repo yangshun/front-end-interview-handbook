@@ -1,0 +1,19 @@
+## Test Cases
+
+- Add
+  - Hitting "Add" adds a new empty bar is appended to the bottom of the list.
+    - The bar should eventually fill up if the animation is ongoing.
+  - Adding new bars should not change the animation state.
+    - If all the bars are full and the animation is ongoing and a new bar is added, the newly added bar should start filling up.
+- Start
+  - Hitting "Start" starts filling up to 3 bars in parallel.
+- Pause
+  - Hitting "Pause" when the bars are filling up should stop the animation and the button should show "Start".
+- Reset
+  - Hitting "Reset" clears all bars and the "Start"/"Pause" button should show "Start" if it was showing "Pause".
+
+### Testing Concurrency
+
+- Hit "Add" 3 times to have 4 bars in total, then hit "Start". The first 3 should start filling up and complete together and the fourth only starts filling up after the first 3 completes.
+- Hit "Add" once to have 2 bars in total, then hit "Start". After 1 second, hit "Add" again. The third bar should start filling up as soon as it's added.
+- Hit "Add" once to have 2 bars in total, then hit "Start". After 1 second, hit "Add" twice. The third bar should start filling up as soon as it's added but the fourth bar only starts filling up after the first bar is completed.

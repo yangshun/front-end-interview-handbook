@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
+    "title": "What is `\"use strict\";`?",
+    "subtitle": "What are the advantages and disadvantages to using it?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var i in e)o(n,i,{get:e[i],enumerable:!0})},a=(n,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of m(e))!p.call(n,s)&&s!==i&&o(n,s,{get:()=>e[s],enumerable:!(r=u(e,s))||r.enumerable});return n};var w=(n,e,i)=>(i=n!=null?h(f(n)):{},a(e||!n||!n.__esModule?o(i,\"default\",{value:n,enumerable:!0}):i,n)),v=n=>a(o({},\"__esModule\",{value:!0}),n);var l=g((k,c)=>{c.exports=_jsx_runtime});var M={};b(M,{default:()=>j,frontmatter:()=>x});var t=w(l()),x={title:'What is `\"use strict\";`?',subtitle:\"What are the advantages and disadvantages to using it?\"};function d(n){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[(0,t.jsx)(e.code,{children:\"'use strict'\"}),\" is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.\"]}),`\n`,(0,t.jsx)(e.h2,{children:\"Advantages\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Makes it impossible to accidentally create global variables.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Makes assignments which would otherwise silently fail to throw an exception.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Makes attempts to delete undeletable properties throw an exception (where before the attempt would simply have no effect).\"}),`\n`,(0,t.jsx)(e.li,{children:\"Requires that function parameter names be unique.\"}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"this\"}),\" is \",(0,t.jsx)(e.code,{children:\"undefined\"}),\" in the global context.\"]}),`\n`,(0,t.jsx)(e.li,{children:\"It catches some common coding bloopers, throwing exceptions.\"}),`\n`,(0,t.jsx)(e.li,{children:\"It disables features that are confusing or poorly thought out.\"}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Disadvantages\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Many missing features that some developers might be used to.\"}),`\n`,(0,t.jsxs)(e.li,{children:[\"No more access to \",(0,t.jsx)(e.code,{children:\"function.caller\"}),\" and \",(0,t.jsx)(e.code,{children:\"function.arguments\"}),\".\"]}),`\n`,(0,t.jsx)(e.li,{children:\"Concatenation of scripts written in different strict modes might cause issues.\"}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"Overall, the benefits outweigh the disadvantages and there is not really a need to rely on the features that strict mode prohibits. We should all be using strict mode by default.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var j=y;return v(M);})();\n;return Component;"
+}

@@ -1,0 +1,37 @@
+{
+  "description": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),x=(r,e)=>{for(var t in e)s(r,t,{get:e[t],enumerable:!0})},c=(r,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of m(e))!y.call(r,a)&&a!==t&&s(r,a,{get:()=>e[a],enumerable:!(o=u(e,a))||o.enumerable});return r};var f=(r,e,t)=>(t=r!=null?d(p(r)):{},c(e||!r||!r.__esModule?s(t,\"default\",{value:r,enumerable:!0}):t,r)),j=r=>c(s({},\"__esModule\",{value:!0}),r);var l=g((M,i)=>{i.exports=_jsx_runtime});var A={};x(A,{default:()=>_,frontmatter:()=>q});var n=f(l()),q={title:\"Array.prototype.square\",excerpt:\"Implement a custom Array.prototype.square() method which squares the values in an array\"};function h(r){let e=Object.assign({p:\"p\",code:\"code\",strong:\"strong\",h2:\"h2\",pre:\"pre\",ul:\"ul\",li:\"li\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Implement a custom \",(0,n.jsx)(e.code,{children:\"Array\"}),\" function, \",(0,n.jsx)(e.code,{children:\"Array.prototype.square()\"}),\" which creates a \",(0,n.jsx)(e.strong,{children:\"new\"}),\" array with the results of squaring every element within the array the \",(0,n.jsx)(e.code,{children:\".square()\"}),\" method is called on.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Examples\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`[-2].square(); // [4]\n[1, 2, 3, 4].square(); // [1, 4, 9, 16]\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Notes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The original array should not be modified.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Assume that the array only contains numbers.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Assume that the array will not be sparse, e.g. \",(0,n.jsx)(e.code,{children:\"[1, 2, , 4]\"}),\".\"]}),`\n`]})]})}function w(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(h,r)})):h(r)}var _=w;return j(A);})();\n;return Component;",
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "bytedance"
+    ],
+    "created": 1652832000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a custom Array.prototype.square() method which squares the values in an array",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-square",
+    "importance": "low",
+    "languages": [
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-filter",
+      "array-map",
+      "array-reduce"
+    ],
+    "slug": "array-square",
+    "title": "Array.prototype.square"
+  },
+  "skeleton": "/**\n * @return {Array<number>}\n */\nArray.prototype.square = function () {\n  throw 'Not implemented!';\n};",
+  "solution": "var Component=(()=>{var y=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var j=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var t in e)o(n,t,{get:e[t],enumerable:!0})},l=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of g(e))!x.call(n,i)&&i!==t&&o(n,i,{get:()=>e[i],enumerable:!(s=m(e,i))||s.enumerable});return n};var A=(n,e,t)=>(t=n!=null?y(f(n)):{},l(e||!n||!n.__esModule?o(t,\"default\",{value:n,enumerable:!0}):t,n)),M=n=>l(o({},\"__esModule\",{value:!0}),n);var h=j((X,c)=>{c.exports=_jsx_runtime});var v={};w(v,{default:()=>q});var r=A(h());var a=MDXCodeBlock;var d=`/**\n * @return {Array<number>}\n */\nArray.prototype.square = function () {\n  const length = this.length;\n  const results = new Array(length);\n\n  for (let i = 0; i < length; i++) {\n    results[i] = this[i] * this[i];\n  }\n\n  return results;\n};\n`;var u=`Array.prototype.square = function () {\n  return this.map((el) => el * el);\n};\n`;function p(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",ul:\"ul\",li:\"li\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"This question is pretty straightforward and just tests that you know how to access the array values within \",(0,r.jsx)(e.code,{children:\"Array.prototype\"}),\" methods (using \",(0,r.jsx)(e.code,{children:\"this\"}),\").\"]}),`\n`,(0,r.jsxs)(e.p,{children:[\"Creation of a new array can be done using \",(0,r.jsx)(e.code,{children:\"new Array(length)\"}),\" or creating an empty array and pushing to it.\"]}),`\n`,(0,r.jsxs)(e.p,{children:[\"Elements of the array can be accessed via \",(0,r.jsx)(e.code,{children:\"this[index]\"}),\".\"]}),`\n`,(0,r.jsx)(a,{children:d}),`\n`,(0,r.jsxs)(e.p,{children:[\"Simpler version using \",(0,r.jsx)(e.code,{children:\"Array.prototype.map()\"}),\".\"]}),`\n`,(0,r.jsx)(a,{children:u}),`\n`,(0,r.jsx)(e.h2,{children:\"Edge Cases\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:\"Empty array.\"}),`\n`,(0,r.jsx)(e.li,{children:\"Single-value array.\"}),`\n`,(0,r.jsx)(e.li,{children:\"Multi-value array.\"}),`\n`]})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(p,n)})):p(n)}var q=b;return M(v);})();\n;return Component;",
+  "tests": "import './array-square';\n\n/* eslint-disable no-undef */\ndescribe('Array.prototype.square', () => {\n  test('empty array', () => {\n    expect([].square()).toEqual([]);\n  });\n\n  test('one value', () => {\n    expect([10].square()).toEqual([100]);\n  });\n\n  test('two values', () => {\n    expect([-4, 10].square()).toEqual([16, 100]);\n  });\n\n  test('multiple values', () => {\n    expect([1, 2, 3, 4].square()).toEqual([1, 4, 9, 16]);\n    expect([1, 2, 3, 4, 5].square()).toEqual([1, 4, 9, 16, 25]);\n  });\n\n  test('original array is not modified', () => {\n    const arr = [1, 2, 3, 4];\n    expect(arr.square()).toEqual([1, 4, 9, 16]);\n    expect(arr).toEqual([1, 2, 3, 4]);\n  });\n});"
+}

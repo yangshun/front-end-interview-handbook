@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet" />
+    <header>
+      <h1 class="title">Weather in the United States</h1>
+    </header>
+
+    <section class="weather">
+      <ul class="weather-cards js-weather-cards"></ul>
+    </section>
+    <template class="js-card-template">
+      <li>
+        <h2 class="card-country js-card-country"></h2>
+        <div class="js-card-body">
+          <p class="card-temperature js-card-temperature"></p>
+          <p class="card-weather-row">
+            <img class="card-image js-card-image" />
+            <span class="card-weather js-card-weather"></span>
+          </p>
+          <p class="card-wind-speed js-card-wind-speed"></p>
+        </div>
+      </li>
+    </template>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

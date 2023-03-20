@@ -1,0 +1,43 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import topologicalSort from '../src/topological-sort';
+
+Topological sort is an algorithm that produces a linear ordering of the vertices of a Directed Acyclic Graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering. Topological sort implemented with Kahn's algorithm has linear time complexity, which makes it relatively efficient for large graphs.
+
+## Clarification Questions
+
+If unspecified:
+
+- Input and output format:
+  - Should the input graph be represented as an adjacency matrix, adjacency list, or some other data structure?
+  - Should the output be a list of nodes in topological order or an array of integers representing the topological order of the nodes?
+
+## Solution
+
+<MDXCodeBlock>{topologicalSort}</MDXCodeBlock>
+
+## Edge Cases
+
+- Graph with no edges: Either return an empty array or an appropriate error message.
+- Graph with cycles: Return an error or an empty array.
+
+## Time Complexity
+
+Topological sort implemented with Kahn's algorithm always runs with O(V + E) time complexity, where V is the number of vertices (or nodes) in the graph, and E is the number of edges in the graph.
+
+- The loop that initializes the `Map` object to store every node's incoming and outgoing edges has a time complexity of O(V), since it visits all the vertices (nodes) of the graph once.
+- The loop that iterates over all the keys in the input graph and for each node increases the `in` property of its neighbor node by 1, has a time complexity of O(E), since it's visiting all the edges of the graph once.
+- The loop that iterates over the nodes, adding all the nodes with `in: 0` to the queue, has a time complexity of O(V) as well, since it's visiting all the vertices of the graph once.
+- The while loop that iterates until the queue is not empty, has a maximum time complexity of O(V + E) as it is processing all the vertices and edges of the graph.
+
+Overall, the time complexity of the implementation of Kahn's algorithm is O(V + E).
+
+## Space Complexity
+
+The space complexity for topological sorting implemented with Kahn's algorithm is O(V + E), where V is the number of vertices (or nodes) in the graph, and E is the number of edges in the graph.
+
+- The Map data structure "nodes" stores properties of each node and takes O(V) space.
+- The output array "order" takes O(V) space as it stores the topological order of all the nodes.
+- The Queue data structure "queue" stores nodes with in-degree equals 0 which requires space linear to the input data and hence takes O(V) space.
+
+The space complexity of the algorithm is therefore O(V + E).

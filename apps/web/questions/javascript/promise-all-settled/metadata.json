@@ -1,0 +1,18 @@
+{
+  "slug": "promise-all-settled",
+  "created": "2022-06-16T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "similar_questions": [
+    "promise-all",
+    "promise-any",
+    "promise-race"
+  ]
+}

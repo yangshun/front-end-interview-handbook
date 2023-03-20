@@ -1,0 +1,20 @@
+{
+  "slug": "type-utilities-ii",
+  "created": "2022-04-14T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": false,
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "similar_questions": [
+    "type-utilities"
+  ],
+  "next_questions": [
+    "deep-clone",
+    "deep-equal"
+  ]
+}

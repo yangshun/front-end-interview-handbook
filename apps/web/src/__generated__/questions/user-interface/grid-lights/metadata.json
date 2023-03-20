@@ -1,0 +1,33 @@
+{
+  "author": null,
+  "companies": [
+    "uber"
+  ],
+  "created": 1671148800,
+  "difficulty": "medium",
+  "duration": 20,
+  "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/grid-lights/react"
+    }
+  ],
+  "href": "/questions/user-interface/grid-lights",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "grid-lights",
+  "title": "Grid Lights"
+}

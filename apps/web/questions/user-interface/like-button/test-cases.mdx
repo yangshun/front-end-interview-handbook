@@ -1,0 +1,12 @@
+## Test Cases
+
+- "Default" state
+  - Hovering the button should show the "Hovered" state.
+  - Clicking on the button should show a loading spinner.
+    - If the request succeeds, the button should transition into the "Liked" state.
+    - If the request fails, the button should go back to the "Default" state and an error message is shown below the button.
+- "Liked" state
+  - Hovering the button in this state is undefined behavior. It's fine to not show any difference when hovering.
+  - Clicking on the button should show a loading spinner.
+    - If the request succeeds, the button should transition into the "Default" state.
+    - If the request fails, the button should go back to the "Liked" state and an error message is shown below the button.

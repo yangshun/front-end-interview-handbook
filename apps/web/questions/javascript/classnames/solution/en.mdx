@@ -1,0 +1,54 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import classnames from '../src/classnames';
+import classnamesLib from '../src/classnamesLib';
+
+## Solution
+
+The tricky part of this solution is in the recursive nature of the function. Hence we can separate out the solution into two parts:
+
+1. Handling of each data type
+1. Recursing for array type
+
+We will need a data structure, `classes` to collect all the classes for the lifetime of the function that the recursive calls have access to. This can either be defined as a variable in the top level of the function, or the variable can be passed as an argument into the recursive calls. In our solution we use an `Array`, but you could use a `Set`.
+
+Here's how we will handle each data type:
+
+- **Falsey values**: Ignore
+- **String**: Add it to the `classes` collection
+- **Number**: Add it to the `classes` collection
+- **Array**: Invoke the `classNames` function recursively
+- **Object**: Loop through the key/value pairs and add the keys with truthy values into the `classes` collection
+
+<MDXCodeBlock>{classnames}</MDXCodeBlock>
+
+## Follow Up: De-duplicating classes
+
+The provided solution doesn't handle de-duplicating classes, which would be a nice optimization and in some cases affect the output, for example, if `{ foo: true }` and `{ foo: false }` are present at the same time and `false` appears later in the arguments.
+
+This can be handled by using `Set` to collect the classes from the start, or de-duplicating the final array of classes by turning into a `Set`. De-duplicating classes is usually out of the scope of interviews but is a possible follow-up question.
+
+## Techniques
+
+- Familiar with JavaScript value types and how to check for them
+- Recursion
+- Converting from `Array`s to `Set`s and vice versa (for the unique classes follow-up)
+- Handling of variadic arguments
+
+## Notes
+
+- `typeof []` gives `'object'`, so you need to handle arrays before objects.
+- You likely don't have to handle these scenario, but you should mention them:
+  - Possibility of stack overflow. This applies to any recursive solution.
+  - Possibility of circular references for arrays and objects. This applies to any input which has arbitrary depth.
+
+## Library implementation
+
+For reference, this is how the `classnames` library is implemented.
+
+<MDXCodeBlock>{classnamesLib}</MDXCodeBlock>
+
+## Resources
+
+- [`classnames` library on GitHub](https://github.com/JedWatson/classnames)
+- [`clsx` library on GitHub](https://github.com/lukeed/clsx) - A newer version which serves as a faster and smaller drop-in replacement for `classnames`.

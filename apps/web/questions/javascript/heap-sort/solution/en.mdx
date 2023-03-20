@@ -1,0 +1,76 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import heapSort from '../src/heap-sort';
+import heapifyMin from '../src/heapifyMin';
+
+Heap sort is an in-place, comparison-based algorithm that works well for large sized arrays since it has a time complexity of O(nlog(n)).
+
+It also does not require any additional memory space to sort the data as it is an in-place sorting algorithm. However, it is not a stable sort, which means that the order of elements with equal values may not be preserved.
+
+## Clarification Questions
+
+If unspecified:
+
+- Should the data be sorted in an ascending or descending order?
+- Should the data be sorted in-place or is it acceptable to use additional data structures?
+- What kinds of inputs do we need to handle?
+  - Will it just be an array of integers or should we handle other data types?
+  - Are there a large number of duplicate elements?
+  - How should negative numbers be handled?
+
+## Solution
+
+Note: This question tackles in-place sorting for an output in ascending order. Refer to the 'Notes' section below on how to handle other cases.
+
+<MDXCodeBlock>{heapSort}</MDXCodeBlock>
+
+## Edge Cases
+
+- Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
+- Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
+- Already sorted input: You may want to detect sorting and return the input unchanged.
+- Invalid input: If the input is not a array, consider throwing an error.
+
+## Notes
+
+- If asked to sort in descending order: Change comparison operators in `heapify()` function in order to build a min heap instead of a max heap, then use it as per normal in `heapSort`:
+
+<MDXCodeBlock>{heapifyMin}</MDXCodeBlock>
+
+- If asked to use additional data structures or to write a pure function rather than sorting the data in-place, create a copy of the array and return a shallow copy of the sorted array:
+
+```js
+function heapSort(arr) {
+  const result = arr.slice(0);
+  const size = arr.length;
+  for (let i = Math.floor(size / 2 - 1); i >= 0; i--) {
+    heapify(result, size, i);
+  }
+  for (let i = size - 1; i >= 0; i--) {
+    [result[0], result[i]] = [result[i], result[0]];
+    heapify(result, i, 0);
+  }
+  return result;
+}
+```
+
+- If you're wondering why `Math.floor(size / 2 - 1)` was able to calculate the index of the last parent node, it's because in a complete binary tree, the number of parent nodes is equal to Math.floor(size / 2). The -1 at the end is needed because the indices in the array start at 0, not 1.
+
+## Time Complexity
+
+The best, average and worst case time complexity of heap sort is O(nlog n). Regardless of whether the elements are already sorted, the algorithm will always take O(nlog(n)) time to complete. This is accurate unless you detect sorted arrays and return them immediately for a O(n) time complexity at the best case with a completely sorted array.
+
+To understand the time complexity of heap sort, understanding the time complexity of `heapify()` is critical. In `heapify()`, we walk through the tree from top to bottom, which means the time complexity is proportional to the height of the binary tree, which is O(log(n)) at most for a tree of size n. Therefore, time complexity for the `heapify()` function is O(log(n)).
+
+The time complexity of heap sort is O(nlog(n)) as there are 2 steps to the algorithm: Building the heap and then sorting the data.
+
+1. Building the heap has a time complexity of O(n) because the `heapify()` method is called for each parent node backward, starting with the last node and ending at the tree root. On average, this can be done optimally at O(n).
+1. When sorting the data, we call the `heapify()` method n-1 times to maintain the heap property on the unsorted part of the array. Hence, the total time complexity is O(nlog(n)).
+
+The total time complexity of heap sort is the sum of the time complexity of each step, which is O(n) + O(nlog(n)) = O(nlog(n)).
+
+## Space Complexity
+
+The space complexity for heap sort is O(1), as it does in-place sorting and does not require additional storage proportional to input size.
+
+However, the space complexity will be O(n) if the algorithm is implemented using recursive function calls, which requires additional memory space to store the function call stack.

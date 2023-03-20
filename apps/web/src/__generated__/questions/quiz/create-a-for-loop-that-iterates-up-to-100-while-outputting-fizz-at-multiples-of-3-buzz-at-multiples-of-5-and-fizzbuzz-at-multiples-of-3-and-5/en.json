@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5",
+    "title": "Create a for loop that iterates up to `100` while outputting **\"fizz\"** at multiples of `3`, **\"buzz\"** at multiples of `5` and **\"fizzbuzz\"** at multiples of `3` and `5`",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var z=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var m=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},a=(t,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of z(e))!p.call(t,o)&&o!==i&&r(t,o,{get:()=>e[o],enumerable:!(s=d(e,o))||s.enumerable});return t};var g=(t,e,i)=>(i=t!=null?u(f(t)):{},a(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),w=t=>a(r({},\"__esModule\",{value:!0}),t);var l=m((_,c)=>{c.exports=_jsx_runtime});var F={};b(F,{default:()=>v,frontmatter:()=>j});var n=g(l()),j={title:'Create a for loop that iterates up to `100` while outputting **\"fizz\"** at multiples of `3`, **\"buzz\"** at multiples of `5` and **\"fizzbuzz\"** at multiples of `3` and `5`'};function h(t){let e=Object.assign({p:\"p\",a:\"a\",pre:\"pre\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Check out this version of FizzBuzz by \",(0,n.jsx)(e.a,{href:\"https://gist.github.com/jaysonrowe/1592432#gistcomment-790724\",children:\"Paul Irish\"}),\".\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`for (let i = 1; i <= 100; i++) {\n  let f = i % 3 == 0,\n    b = i % 5 == 0;\n  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);\n}\n`})}),`\n`,(0,n.jsx)(e.p,{children:\"It is not advisable to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var v=x;return w(F);})();\n;return Component;"
+}

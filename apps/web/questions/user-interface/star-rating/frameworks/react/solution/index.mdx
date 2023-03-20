@@ -1,0 +1,15 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+The solution is much shorter using React as compared to the Vanilla version.
+
+We can create a `Star` component that takes in a `filled` prop which conditionally renders the appropriate classnames.
+
+The component will need a state `hoveredIndex` which is used to track the index of the currently hovered star.
+
+To determine whether a `Star` should be highlighted/filled, we check if any stars are currently hovered, if so, that takes priority and any star with `index <= hoveredIndex` should be highlighted. Otherwise, any star where `index < value` can be highlighted/filled.
+
+<Notes />
+<TestCases />

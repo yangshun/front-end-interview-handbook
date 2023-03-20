@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function",
+    "title": "Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var O=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),x=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let i of u(n))!g.call(e,i)&&i!==t&&r(e,i,{get:()=>n[i],enumerable:!(s=d(n,i))||s.enumerable});return e};var m=(e,n,t)=>(t=e!=null?f(p(e)):{},a(n||!e||!e.__esModule?r(t,\"default\",{value:e,enumerable:!0}):t,e)),b=e=>a(r({},\"__esModule\",{value:!0}),e);var h=O((_,c)=>{c.exports=_jsx_runtime});var y={};x(y,{default:()=>w,frontmatter:()=>j});var o=m(h()),j={title:\"Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`\"};function l(e){let n=Object.assign({p:\"p\",a:\"a\",code:\"code\",h2:\"h2\",pre:\"pre\",ul:\"ul\",li:\"li\"},e.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(n.p,{children:[\"The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question on \",(0,o.jsx)(n.a,{href:\"/questions/quiz/explain-hoisting\",children:\"hoisting\"}),\". If you try to invoke a function expression before it is defined, you will get an \",(0,o.jsx)(n.code,{children:\"Uncaught TypeError: XXX is not a function\"}),\" error.\"]}),`\n`,(0,o.jsx)(n.h2,{children:\"Function Declaration\"}),`\n`,(0,o.jsx)(n.pre,{children:(0,o.jsx)(n.code,{className:\"language-js\",children:`foo(); // 'FOOOOO'\nfunction foo() {\n  console.log('FOOOOO');\n}\n`})}),`\n`,(0,o.jsx)(n.h2,{children:\"Function Expression\"}),`\n`,(0,o.jsx)(n.pre,{children:(0,o.jsx)(n.code,{className:\"language-js\",children:`foo(); // Uncaught TypeError: foo is not a function\nvar foo = function () {\n  console.log('FOOOOO');\n};\n`})}),`\n`,(0,o.jsx)(n.h2,{children:\"References\"}),`\n`,(0,o.jsxs)(n.ul,{children:[`\n`,(0,o.jsx)(n.li,{children:(0,o.jsx)(n.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function v(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,Object.assign({},e,{children:(0,o.jsx)(l,e)})):l(e)}var w=v;return b(y);})();\n;return Component;"
+}

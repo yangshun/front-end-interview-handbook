@@ -1,0 +1,54 @@
+---
+slug: stripe-checkout
+title: Stripe Checkout
+languages: [js]
+companies: [stripe]
+premium: false
+duration: 30
+published: false
+importance: low
+difficulty: medium
+---
+
+```js
+<!-- Load Stripe.js on your website. -->
+<script src="https://edge-js.stripe.com/v3/"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-sku_EioiwhmnOyVPPY"
+  role="link"
+>
+  Checkout
+</button>
+
+<div id="error-message"></div>
+
+<script>
+  var stripe = Stripe('pk_test_NM5w4DCyID2RLpsmut4d0aEz');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_EioiwhmnOyVPPY');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_EioiwhmnOyVPPY', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://example.com/success',
+      cancelUrl: 'https://example.com/cancel',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+```

@@ -1,0 +1,19 @@
+---
+title: Describe pseudo-elements and discuss what they are used for.
+---
+
+A CSS [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`::first-line`, `::first-letter`) or adding elements to the markup (combined with `content: ...`) without having to modify the markup (`:before`, `:after`).
+
+- `::first-line` and `::first-letter` can be used to decorate text.
+- Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
+- Triangular arrows in tooltips use `::before` and `::after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM.
+
+## Notes
+
+- Pseudo-elements are different from [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), which are used to style an element based on its _state_ (such as `:hover`, `:focus`, etc).
+- Double colons should be used instead of single colon to distinguish pseudo-classes from pseudo-elements. Most browsers support both syntaxs since this distinction was not clear in legacy W3C specs.
+
+## References
+
+- [Pseudo-elements - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)

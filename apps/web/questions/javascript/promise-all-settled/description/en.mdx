@@ -1,0 +1,37 @@
+---
+title: Promise.allSettled
+excerpt: Implement the Promise.allSettled() function that resolves to an array of outcomes when all the input elements are either resolved or rejected
+---
+
+**Note:** If you haven't completed the [`Promise.all`](/questions/javascript/promise-all) question, you should attempt that first.
+
+> The `Promise.allSettled()` method returns a promise that resolves after all of the given promises have either fulfilled or rejected, with an array of objects that each describes the outcome of each promise.
+
+> However, if and only if an empty iterable is passed as an argument, `Promise.allSettled()` returns a `Promise` object that has already been resolved as an empty array.
+
+> For each outcome object, a `status` string is present. If the status is `'fulfilled'`, then a `value` is present. If the status is `'rejected'`, then a `reason` is present. The value (or reason) reflects what value each promise was fulfilled (or rejected) with.
+
+_Source: [Promise.allSettled() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)_
+
+`Promise.allSettled()` is frequently used when there are multiple independent asynchronous tasks and we want to know the result of each promise, regardless of whether they were fulfilled or rejected.
+
+Let's implement our own version of `Promise.allSettled()`, a `promiseAllSettled` function, with the difference being the function takes in an array instead of an iterable. Be sure to read the description carefully and implement accordingly!
+
+## Examples
+
+```js
+const p0 = Promise.resolve(3);
+const p1 = 42;
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('foo');
+  }, 100);
+});
+
+await promiseAllSettled([p0, p1, p2]);
+// [
+//   { status: 'fulfilled', value: 3 },
+//   { status: 'fulfilled', value: 42 },
+//   { status: 'rejected', reason: 'foo' },
+// ];
+```

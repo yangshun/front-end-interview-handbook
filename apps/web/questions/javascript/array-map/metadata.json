@@ -1,0 +1,25 @@
+{
+  "slug": "array-map",
+  "created": "2022-05-19T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [
+    "amazon",
+    "apple"
+  ],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "easy",
+  "similar_questions": [
+    "array-square",
+    "array-filter",
+    "array-reduce"
+  ],
+  "next_questions": [
+    "contact-form",
+    "curry"
+  ]
+}

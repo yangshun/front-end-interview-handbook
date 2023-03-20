@@ -1,0 +1,17 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+We first construct the DOM to render the number of stars and a `highlightStars` function which highlights all the stars smaller than the passed in `index` (0-based).
+
+We also need to variable `currentValue` to track the latest value which determines the highlighted state unhovered. This is needed because we need to revert to that state when the cursor is not hovering over any stars.
+
+Then we add a few event listeners to the root component of the widget:
+
+- `click`: Using event delegation, we only have to add one click event handler per widget. We can determine the index of the currently clicked star using `event.target.closest` and add/remove the `star-icon-filled` class from the stars depending on the index of the clicked star.
+- `mouseover`: Using event delegation, we only have to add one mouseover event handler per widget. We can determine the index of the currently hovered star using `event.target.closest` and add/remove the `star-icon-filled` class from the stars depending on the index of the clicked star. This takes priority over the currently filled stars.
+- `mouseout`: Reset the filled state to before the `mouseover` event. Event delegation is not needed here because there's no specific star involved.
+
+<Notes />
+<TestCases />

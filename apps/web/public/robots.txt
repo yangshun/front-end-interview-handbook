@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+
+Disallow: /logout
+Disallow: /password/
+Disallow: /payment/
+Disallow: /profile
+Disallow: /profile/
+
+# Host
+Host: https://www.greatfrontend.com
+
+# Sitemaps
+Sitemap: https://www.greatfrontend.com/sitemap.xml

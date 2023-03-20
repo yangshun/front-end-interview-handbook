@@ -1,0 +1,32 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepClone from '../src/deep-clone-ii';
+
+This is a follow-up question based on Deep Clone I, with much more depth and obscure corners of the JavaScript language covered.
+
+It is not realistic to expect anyone to come up with a complete deep clone solution in typical interview settings. However, this question serves a good tool to test your knowledge on checking various data types, object properties, leverage various built-in APIs and `Object` methods to traverse a given object and various edge cases you might only encounter when writing library code.
+
+## Solution
+
+Before we go about writing out the deep clone function, we need a way to identify the data type of a given JavaScript value. It is ok to go with `typeof` and `instanceof` but you have to be aware of their limitations. In this solution, I choose to leverage `Object.prototype.toString`. Check out my post [_A Complete Guide To Check Data Types In JavaScript_](https://www.zhenghao.io/posts/js-data-type) if you like to understand how this works exactly.
+
+Since we want to implement it as thoroughly as possible, here are a few things to consider:
+
+- Our `deepClone` should work with objects that have symbol-keyed properties. That is, symbol-keyed properties are also copied. On top of that, non-enumerable properties should also be copied. Either the `for...in` statement or the `Object.entries`/`Object.keys` reveals them. We need to leverage a lesser-known API called `Reflect.ownKeys`. Check out [this MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys) to learn more about it.
+- The input object's property descriptors should also be copied. For that, we can use the method `Object.getOwnPropertyDescriptors`.
+- The input object's prototype should not be lost after the copying. We can use `getPrototypeOf` to get the reference to the prototype of a given object.
+- We should account for circular references in the input object and avoid crashing the program. We can achieve this by having a cache to store visited properties.
+
+<MDXCodeBlock>{deepClone}</MDXCodeBlock>
+
+## One-liner Solution
+
+As of this writing, all major browsers have native support for performing deep clone via the `structuredClone` API. Check out [this article](https://web.dev/structured-clone/) if you want to learn more about this API.
+
+```js
+const clonedObj = structuredClone(obj);
+```
+
+## Edge Cases
+
+- [Property descriptors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) are not copied.

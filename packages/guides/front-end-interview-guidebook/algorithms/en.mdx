@@ -1,0 +1,62 @@
+---
+title: Front End Interview Algorithmic Coding Questions — How to Prepare
+description: Guide to preparing for algorithmic coding questions in front end / web developer interviews — Concepts to know, interview rubrics, and important practice questions.
+---
+
+Algorithmic coding questions are exactly the questions you can find on LeetCode. The traits of algorithmic questions are as follows:
+
+- They aren't specific to the front end domain; they can be solved in most mainstream programming languages.
+- Usually accompanied with impractical scenarios. You would not have had to solve such a problem before during real world development.
+- Efficiency of the code (time and space) is important and producing the most efficient solution requires solid knowledge of data structures and algorithms.
+
+Although algorithmic coding questions aren't specific to front end, the skills needed to excel in these questions — strong analytical thinking, effective communication, a solid grasp of the common data structures and algorithms, good code hygiene, are still crucial skills good Front End Engineers should possess. It's no surprise that many companies still ask algorithmic coding questions during the interview process. Familiarity with data structures and algorithms is also helpful for solving JavaScript coding questions and User Interface coding questions.
+
+There are a ton of resources out there which cover algorithmic coding interviews and since they are not specific to front end, we won't go into too much detail on this page. We recommend referring to [Tech Interview Handbook](https://www.techinterviewhandbook.org) as a free resource if you would like to learn more about algorithmic coding interviews.
+
+## Examples
+
+- Reverse a linked list.
+- Check for balanced brackets in a string.
+- Determine how many substrings in a string are palindromes.
+
+## How to Prepare
+
+1. Pick a good programming language to use. If you want to save time you should probably stick with JavaScript for algorithmic questions.
+1. Plan your time and tackle topics and questions in order of importance.
+1. Combine studying and practicing for a single topic.
+1. Accompany practice with coding interview cheat sheets to internalize the must-dos and must-remembers.
+
+Refer to [Tech Interview Handbook's step-by-step guide on how to prepare for algorithmic coding interviews](https://www.techinterviewhandbook.org/coding-interview-prep/).
+
+## Important Concepts
+
+Although you can still be asked any algorithmic question, companies tend to go easy on Front End Engineer candidates and probably will not ask questions involving hard topics like dynamic programming.
+
+Since the DOM is a tree, prioritize learning about trees and the various tree traversal algorithms.
+
+| Category | Important Topics |
+| --- | --- |
+| Data Structures | Arrays, Maps, Stacks, Trees, Graphs, Matrix (2D Arrays), Sets |
+| Algorithms | Binary Search, Breadth-first Search, Depth-first Search, Topological Sorting, Recursion |
+
+## Algorithmic Coding Interview Rubrics
+
+During algorithmic coding interviews, interviewers are evaluating candidates on the following skills:
+
+- **Problem Solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs.
+- **Technical Competence**: Ability to translate solutions into working code and demonstrating a strong understanding of the language being used.
+- **Communication**: Ask questions to clarify details and clearly explain one's approach and considerations.
+- **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise.
+
+## Tips
+
+- JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during algorithmic coding interviews. However, if the core of the question doesn't involve implementing these "missing" libraries, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it in your solution without implementing it.
+- Aim to write pure functions which have the benefit of reusability and modularity. aka functions which don't rely on state outside of the function and doesn't cause side effects.
+- Pay attention to your choice of data structures and be aware of the time complexities of the code. Be familiar with the time/space complexities of the basic JavaScript Array, Object, Set, Map operations should you want to use them in your solution. Some of these time/space complexities differ across languages. Don't write code that runs in O(n<sup>2</sup>) if it can accomplished with O(n) runtime by using hash maps.
+- If you have identified the function to require recursion, ask about the input size and how to handle the case of recursion stack overflow. Usually you won't have to handle it but raising this issue is a good signal.
+
+{/* TODO: Add runtime complexities of common methods */}
+
+## Practice Questions
+
+Currently the best platform to practice algorithmic questions is undeniably LeetCode. However, GreatFrontEnd provides some [practice questions for Data Structures and Algorithms](/questions/js/coding/data-structures-algorithms) where you can practice implementing common data structures ([Stack](/questions/javascript/stack), [Queue](/questions/javascript/queue)) and algorithms ([Binary Search](/questions/javascript/binary-search), [Merge Sort](/questions/javascript/merge-sort)), etc in JavaScript.

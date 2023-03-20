@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="app">
+      <form id="form">
+        <div>
+          <label htmlFor="rows">Rows</label>
+          <input
+            id="rows"
+            name="rows"
+            type="number"
+            min="1" />
+        </div>
+        <div>
+          <label htmlFor="columns">Columns</label>
+          <input
+            id="columns"
+            name="columns"
+            type="number"
+            min="1" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="table-container"></div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

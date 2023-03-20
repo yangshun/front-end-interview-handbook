@@ -1,0 +1,57 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import debounce from '../src/debounce-ii';
+
+**Note:** This is an advanced version of [Debounce](/questions/javascript/debounce), you should complete that first before attempting this question.
+
+## Solution
+
+Observe that the function is more complicated now that we have to implement two additional methods, `cancel` and `flush`. There's also duplicate functionality here:
+
+| Flow | Cancel existing timer | Invoke original function |
+| --- | --- | --- |
+| Debounced function called before `wait` is up | ✅ | ✅ |
+| `cancel()` | ✅ |  |
+| `flush()` | ✅ | ✅ |
+
+We can create two helper functions:
+
+1. `invoke` to call the original function with the latest provided arguments.
+1. `clearTimer` to cancel an existing timer/timeout.
+
+### `invoke`
+
+Unlike in the first Debounce question, the callback can be prematurely invoked via `flush()`. Once a delayed callback is `flush()`-ed, further `flush()`es shouldn't do anything. So we need to keep track of whether there is an existing pending callback to be invoked and we can use `timeoutId` to do that. If `timeoutId` is `null`, there's no pending callback. If it's a number (value returned from `setTimeout`), then there's a pending callback.
+
+Hence we should check if `timeoutId == null` before we proceed with the invocations. We should also clear any existing timers.
+
+Since `invoke` can be called from two places (within the `setTimeout` after a delay and manually through `flush`), we need to save a reference to the arguments the original function needs (`this` and the arguments) by creating two new function-level variables `context` and `argsToInvoke`. They are written to when the debounced function is being called and when `invoke` is being called, its values will then be used and the original function is called using `func.apply`/`func.call`.
+
+### `clearTimer`
+
+The implementation of `clearTimer` is simple, we can do `setTimeout(timeoutId)` and set `timeoutId` to be `null`.
+
+<MDXCodeBlock>{debounce}</MDXCodeBlock>
+
+## Edge Cases
+
+The main pitfall in this question is invoking the callback function with the correct `this` and the arguments. Since the callback function will be invoked by other objects, the value of `this` will be lost. We retain a reference to `this` outside the `setTimeout` (by saving it in a function-level variable called `context`) and pass it into `func.apply()`/`func.call()` as the first argument. The same is done for the arguments the function expects.
+
+We should not implement `fn` using an arrow function because the value of `this` within arrow functions has lexical scope, i.e., it is bound to the context in which the function is created, not to the environment in which the function is called. For the other functions, it doesn't matter if we use function declarations or arrow functions.
+
+## Techniques
+
+- Using `setTimeout`.
+- Closures.
+- How `this` works.
+- Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`.
+
+## Notes
+
+`clearTimeout()` is a forgiving function and passing an invalid ID to `clearTimeout()` silently does nothing; no exception is thrown. Hence we don't have to check for `timeoutID == null` before using `clearTimeout()`.
+
+## Resources
+
+- [Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)
+- [Implementing Debounce in JavaScript](https://medium.com/@griffinmichl/implementing-debounce-in-javascript-eab51a12311e)
+- [clearTimeout() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout)

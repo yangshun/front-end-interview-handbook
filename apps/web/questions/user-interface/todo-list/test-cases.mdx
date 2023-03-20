@@ -1,0 +1,11 @@
+## Test Cases
+
+- Add tasks
+  - Add a new task.
+  - Add multiple tasks.
+  - Add tasks with potentially malicious content like HTML (e.g. `<script>`, `<style>` or `<link`>) and ensure there's no XSS.
+  - Check that `<input>` is cleared after a task is added.
+- Delete tasks
+  - Delete an existing task.
+  - Delete multiple tasks.
+  - Delete newly-added tasks.

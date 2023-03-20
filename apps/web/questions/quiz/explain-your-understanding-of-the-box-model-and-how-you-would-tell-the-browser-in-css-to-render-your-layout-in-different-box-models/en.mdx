@@ -1,0 +1,34 @@
+---
+title: Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
+---
+
+The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
+
+The CSS box model is responsible for calculating:
+
+- How much space a block element takes up.
+- Whether or not borders and/or margins overlap, or collapse.
+- A box's dimensions.
+
+## Box Model Rules
+
+- The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s.
+- If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which, see below).
+- If no `width` is specified, a non-`float`-ed block element will expand to fit the width of its parent minus the `padding`.
+- The `height` of an element is calculated by the content's `height`.
+- The `width` of an element is calculated by the content's `width`.
+- By default (`box-sizing: content-box`), `padding`s and `border`s are not part of the `width` and `height` of an element.
+
+Note that `margin`s are not counted towards the actual size of the box. It affects the total space that the box will take up on the page, but only the space outside the box. The box's area stops at the `border` — it does not extend into the `margin`.
+
+## Extra
+
+Look up the `box-sizing` property, which affects how the total heights and widths of elements are calculated.
+
+- `box-sizing: content-box`: This is the default value of `box-sizing` and adheres to the rules above.
+- `box-sizing: border-box`: The `width` and `height` will include the content, padding and border, but not including the margin. This is a much more intuitive way to think about boxes and hence many CSS frameworks set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default. See the [question on `box-sizing: border-box`](/questions/css/what-does-box-sizing-border-box-do-what-are-its-advantages) for more information.
+
+## References
+
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)
+- [The box model | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#the_standard_css_box_model)

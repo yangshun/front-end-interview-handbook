@@ -1,0 +1,47 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jsonStringify from '../src/json-stringify';
+
+This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function, e.g. functions, `regex`, and `Date` object.
+
+## Handling Data Types
+
+When passed directly with unsupported type `undefined`, `Symbol`, and `Function`, JSON.stringify outputs `undefined` (not the string `'undefined'`):
+
+```js
+JSON.stringify(undefined); // undefined
+JSON.stringify(Symbol('foo')); // undefined
+JSON.stringify(() => {}); // undefined
+```
+
+For other built-in object types (except for `Function` and `Date`) such as `Map`, `Set`, `WeakMap`, `WeakSet`, `Regex`, etc., `JSON.stringify` will return a string of an empty object literal, i.e. `{}`:
+
+```js
+JSON.stringify(/foo/); // '{}'
+JSON.stringify(new Map()); // '{}'
+JSON.stringify(new Set()); //'{}'
+```
+
+`NaN` and `Infinity` are converted into `null`, and `Date` objects are encoded into ISO strings by `JSON.stringify` because of `Date.prototype.toJSON`. And yes, we will have to take care of a custom `toJSON` method present in the input value.
+
+## Cyclic References
+
+Finally, `JSON.stringify` can detect a cyclic object i.e. objects with circular references and bail out from the stringification by throwing an error. We will have to account for that as well.
+
+```js
+const foo = {};
+foo.a = foo;
+
+JSON.stringify(foo); // ❌ Uncaught TypeError: Converting circular structure to JSON
+```
+
+To detect circular references in an object, we can use a `Set` to keep track of property values we have visited while traversing the object. As soon as we find a value that exists in the set already, we know the object has circular references.
+
+Here is how we would write it:
+
+<MDXCodeBlock>{jsonStringify}</MDXCodeBlock>
+
+## Notes
+
+- There are still uncovered edge cases with the current implementation. Check out [the spec](https://262.ecma-international.org/5.1/#sec-15.12.3) if you are interested in learning more about it.
+- One possible follow-up question could be to make it faster. Our current implementation involves frequent runtime type checks due to the dynamic typing nature of the JavaScript language. One way we can make our own implementation of `JSON.stringify` faster is to have the user provide a schema of the object (e.g. using [JSON Schema](https://json-schema.org/)) so we know the object structure before serialization. This can save us a ton of guesswork. In fact, many `JSON.stringify`-alternative libraries are implemented this way to make serialization faster. One example would be [fast-json-stringify](https://github.com/fastify/fast-json-stringify).

@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "amazon",
+      "linkedin",
+      "microsoft",
+      "salesforce"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-a-closure-and-how-why-would-you-use-one",
+    "title": "What is a closure, and how/why would you use one?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var a in e)r(n,a,{get:e[a],enumerable:!0})},s=(n,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!f.call(n,i)&&i!==a&&r(n,i,{get:()=>e[i],enumerable:!(o=d(e,i))||o.enumerable});return n};var x=(n,e,a)=>(a=n!=null?u(p(n)):{},s(e||!n||!n.__esModule?r(a,\"default\",{value:n,enumerable:!0}):a,n)),b=n=>s(r({},\"__esModule\",{value:!0}),n);var l=w((k,c)=>{c.exports=_jsx_runtime});var _={};v(_,{default:()=>g,frontmatter:()=>j});var t=x(l()),j={title:\"What is a closure, and how/why would you use one?\"};function h(n){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:`A closure is the combination of a function and the lexical environment within which that function was declared. The word \"lexical\" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables\\u2014scope chain even after the outer function has returned.`}),`\n`,(0,t.jsx)(e.h2,{children:\"Why would you use one?\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[\"Data privacy / emulating private methods with closures. Commonly used in the \",(0,t.jsx)(e.a,{href:\"https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript\",children:\"module pattern\"}),\".\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.a,{href:\"https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x\",children:\"Partial applications or currying\"}),\".\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var g=y;return b(_);})();\n;return Component;"
+}

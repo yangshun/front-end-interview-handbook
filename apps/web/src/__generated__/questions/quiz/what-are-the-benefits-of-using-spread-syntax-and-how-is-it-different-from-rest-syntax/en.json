@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax",
+    "title": "What are the benefits of using spread syntax and how is it different from rest syntax?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var m=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),y=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of h(n))!g.call(e,a)&&a!==t&&s(e,a,{get:()=>n[a],enumerable:!(o=f(n,a))||o.enumerable});return e};var b=(e,n,t)=>(t=e!=null?l(p(e)):{},i(n||!e||!e.__esModule?s(t,\"default\",{value:e,enumerable:!0}):t,e)),x=e=>i(s({},\"__esModule\",{value:!0}),e);var d=m((A,c)=>{c.exports=_jsx_runtime});var v={};y(v,{default:()=>w,frontmatter:()=>j});var r=b(d()),j={title:\"What are the benefits of using spread syntax and how is it different from rest syntax?\"};function u(e){let n=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsxs)(n.p,{children:[\"ES2015's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to \",(0,r.jsx)(n.code,{children:\"Object.create\"}),\", \",(0,r.jsx)(n.code,{children:\"slice\"}),\", or a library function. This language feature is used often in Redux and RxJS projects.\"]}),`\n`,(0,r.jsx)(n.pre,{children:(0,r.jsx)(n.code,{className:\"language-js\",children:`function putDookieInAnyArray(arr) {\n  return [...arr, 'dookie'];\n}\n\nconst result = putDookieInAnyArray(['I', 'really', \"don't\", 'like']); // [\"I\", \"really\", \"don't\", \"like\", \"dookie\"]\n\nconst person = {\n  name: 'Todd',\n  age: 29,\n};\n\nconst copyOfTodd = { ...person };\n`})}),`\n`,(0,r.jsx)(n.p,{children:\"ES2015's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.\"}),`\n`,(0,r.jsx)(n.pre,{children:(0,r.jsx)(n.code,{className:\"language-js\",children:`function addFiveToABunchOfNumbers(...numbers) {\n  return numbers.map((x) => x + 5);\n}\n\nconst result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]\n\nconst [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]\n\nconst { e, f, ...others } = {\n  e: 1,\n  f: 2,\n  g: 3,\n  h: 4,\n}; // e: 1, f: 2, others: { g: 3, h: 4 }\n`})}),`\n`,(0,r.jsx)(n.h2,{children:\"References\"}),`\n`,(0,r.jsxs)(n.ul,{children:[`\n`,(0,r.jsx)(n.li,{children:(0,r.jsx)(n.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function k(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,Object.assign({},e,{children:(0,r.jsx)(u,e)})):u(e)}var w=k;return x(v);})();\n;return Component;"
+}

@@ -1,0 +1,36 @@
+{
+  "sandpack": {
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^4.0.0"
+    },
+    "entry": "/index.js",
+    "environment": "create-react-app",
+    "main": "/App.js",
+    "visibleFiles": [
+      "/App.js",
+      "/TrafficLight.js",
+      "/styles.css"
+    ],
+    "activeFile": "/TrafficLight.js",
+    "files": {
+      "/App.js": {
+        "code": "import TrafficLight from './TrafficLight';\n\nimport './styles.css';\n\nexport default function App() {\n  return <TrafficLight />;\n}\n"
+      },
+      "/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/public/index.html": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "/styles.css": {
+        "code": "body {\n  font-family: sans-serif;\n}\n"
+      },
+      "/TrafficLight.js": {
+        "code": "export default function TrafficLight() {\n  return <div>Render your Traffic Light here.</div>;\n}\n"
+      }
+    }
+  },
+  "writeup": "var Component=(()=>{var g=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),_=(e,t)=>{for(var n in t)l(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of x(t))!j.call(e,r)&&r!==n&&l(e,r,{get:()=>t[r],enumerable:!(s=p(t,r))||s.enumerable});return e};var d=(e,t,n)=>(n=e!=null?g(w(e)):{},c(t||!e||!e.__esModule?l(n,\"default\",{value:e,enumerable:!0}):n,e)),D=e=>c(l({},\"__esModule\",{value:!0}),e);var a=y((L,f)=>{f.exports=_jsx_runtime});var C={};_(C,{default:()=>v});var o=d(a());var i=d(a());function h(e){let t=Object.assign({p:\"p\",ul:\"ul\",li:\"li\"},e.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(t.p,{children:\"Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely. Each light should be lit for the following durations:\"}),`\n`,(0,i.jsxs)(t.ul,{children:[`\n`,(0,i.jsx)(t.li,{children:\"Red light: 4000ms\"}),`\n`,(0,i.jsx)(t.li,{children:\"Yellow light: 500ms\"}),`\n`,(0,i.jsx)(t.li,{children:\"Green light: 3000ms\"}),`\n`]}),`\n`,(0,i.jsx)(t.p,{children:\"You are free to exercise your creativity to style the appearance of the traffic light.\"})]})}function M(e={}){let{wrapper:t}=e.components||{};return t?(0,i.jsx)(t,Object.assign({},e,{children:(0,i.jsx)(h,e)})):h(e)}var u=M;function m(e){return(0,o.jsx)(u,{})}function b(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,Object.assign({},e,{children:(0,o.jsx)(m,e)})):m(e)}var v=b;return D(C);})();\n;return Component;"
+}

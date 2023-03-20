@@ -1,0 +1,36 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import solution from '../src/queue';
+
+## Solution
+
+Queues should be implemented with linked lists which are essentially a chain of connected nodes. To simplify handling of linked list manipulation of empty queues, we make use of doubly-linked lists (nodes have both `prev` and `next` pointers) and dummy/sentinel head/tail nodes. With the usage of dummy nodes, the linked list will never be "empty" and we don't have to separately handle the case of enqueuing into empty queues and dequeuing a queue with only one item.
+
+![Empty Queue](/img/questions/queue/empty-queue.png)
+
+`enqueue()`-ing involves creating a new `Node` and adding it between the `_dummyTail` node and `_dummyTail.next` (which is `_dummyHead` in the case of empty queues).
+
+![Enqueue one item](/img/questions/queue/enqueue-a.png)
+
+![Enqueue second item](/img/questions/queue/enqueue-b.png)
+
+`dequeue()`-ing involves removing the node between the `_dummyHead` node and `_dummyHead.prev`. This should be a no-op if the queue is empty otherwise `_dummyTail` will get dequeued.
+
+![Dequeue](/img/questions/queue/dequeue.png)
+
+Since the time complexity of `length()` has to be O(1) and counting the number of items in a linked list will take O(n), we need to separately track the number of items in the list with a `_length` instance property and update it within the `enqueue()` and `dequeue()` methods.
+
+Note that the autograder doesn't check if the time complexity of your `enqueue()` and `dequeue()` operations are O(1), but if you're only using a single JavaScript array to solve this question, then it's almost certainly not achieving O(1) time complexity for either of those operations.
+
+<MDXCodeBlock>{solution}</MDXCodeBlock>
+
+## Edge Cases
+
+- Calling `dequeue()` on empty stacks.
+- Calling `front()` on empty stacks.
+- Calling `back()` on empty stacks.
+
+## Techniques
+
+- Object-oriented programming.
+- Linked list manipulation.

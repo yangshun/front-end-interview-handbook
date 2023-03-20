@@ -1,0 +1,10 @@
+body {
+  font-family: sans-serif;
+}
+
+.progress {
+  background-color: rgb(233, 236, 239);
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  height: 20px;
+}

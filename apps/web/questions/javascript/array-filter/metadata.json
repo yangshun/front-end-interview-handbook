@@ -1,0 +1,14 @@
+{
+  "slug": "array-filter",
+  "created": "2022-06-26T00:00:00.000Z",
+  "languages": ["js"],
+  "companies": ["amazon", "apple"],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "easy",
+  "featured": true,
+  "similar_questions": ["array-square", "array-map", "array-reduce"],
+  "next_questions": ["array-map", "array-reduce"]
+}

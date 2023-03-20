@@ -1,0 +1,39 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+This question looks simple on first glance but is actually more complex than it seems. Note that `setInterval`'s `delay` parameter is unreliable. The actual amount of time that elapses between calls to the callback may be [longer than the given delay due to various reasons](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified). Because of this behavior, we cannot assume that each time the interval callback is fired, the same duration as passed. We will need to read the current time within the callback code to ensure that we are using the most updated timings.
+
+### State
+
+The tricky part of this question is deciding what goes into the component state and how to manage them. We need a few states:
+
+- `totalDuration`: Total time that has passed so far.
+- `timerId`: Timer ID of the currently running interval timer, or `null` if there's no currently running timer.
+- `lastTickTiming`: This is the time that the last interval callback has run. We will keep incrementing the `totalDuration` by the delta between the current time (`Date.now()`) and the `lastTickTiming`. Using this approach, the `totalDuration` will still be accurate even if the callbacks run at irregular intervals.
+
+Since there are a few buttons in the requirements that has duplicate functionality, we should define these functionality as a few functions that will be triggered by the buttons:
+
+### `startTimer`
+
+This function kicks off the timer and updates the `totalDuration` value each time the `setInterval` callback is run with the delta between the last update time (`lastTickTiming`) and the current time. We use a interval timing of 1ms since stopwatches are very time sensitive and millisecond-level precision is desired.
+
+### `stopInterval`
+
+A simple function to stop the interval timer from running (via `clearInterval`) and clear the current `timerId`. This is being used by the "Stop" button and "Reset" button.
+
+### `resetTimer`
+
+We want to reset the component to its initial state in this function. It stops the interval timer by calling `stopInterval()` and also resets the total duration to 0. It's not important to reset the value of `lastTickTiming` because it will be set at the start of `startTimer()`, before the first interval callback is executed. Used by the "Reset" button.
+
+### `toggleTimer`
+
+A function to toggle between calling `stopInterval()` and `startTimer()` depending on whether there's a current timer. Used by the time display and the "Start"/"Stop" button.
+
+### Special Note
+
+Because the time digits are constantly being re-rendered via the `updateTime()` loop, the digits don't respond to clicks well. As a workaround, we add a persistent DOM element to cover the digits and ensure that all the clicks go through.
+
+<TestCases />
+<Notes />

@@ -1,0 +1,18 @@
+{
+  "slug": "camel-case-keys",
+  "created": "2022-06-29T00:00:00.000Z",
+  "author": "zhenghao",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "similar_questions": [
+    "deep-equal",
+    "squash-object"
+  ]
+}

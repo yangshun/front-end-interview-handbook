@@ -1,0 +1,37 @@
+{
+  "author": null,
+  "companies": [
+    "lyft"
+  ],
+  "created": 1658880000,
+  "difficulty": "easy",
+  "duration": 15,
+  "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/contact-form/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/contact-form",
+  "importance": "high",
+  "languages": [
+    "html",
+    "css"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "signup-form"
+  ],
+  "premium": false,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "signup-form"
+  ],
+  "slug": "contact-form",
+  "title": "Contact Form"
+}

@@ -1,0 +1,52 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jQueryClassManipulation from '../src/jquery-class-manipulation';
+import jQueryClassManipulationClass from '../src/jQueryClassManipulationClass';
+
+**Note:** If you haven't completed the [`jQuery.css`](/questions/javascript/jquery-css) question, you should attempt that first.
+
+## Clarification Questions
+
+- What should happen if there are no elements match the selector?
+  - In jQuery when there are no matched elements, nothing occurs, so we can follow that.
+- Can there be duplicate classes in the parameters and on the element?
+  - Yes there can be.
+
+## Solution
+
+Method chaining is not the focus of the question given you just have to return `this` at the end of every method in the skeleton which already contains the structure of an object-based approach. Hence it's important to have completed the [`jQuery.css`](/questions/javascript/jquery-css) question first.
+
+The bulk of the complexity is in the `toggleClass` method. We first need to parse the `className` parameter and the element's `className` properties into a set of class strings. Then that's followed by manipulation of the element's class set according to the `className` input. We iterate through the classes in the `className` input and depending on whether `state` is explicitly defined and whether the element's classes contain the input class, add/delete the class from the set.
+
+Lastly, we modify the element's `className` by concatenating the classes back into a single string.
+
+`addClass` and `removeClass` can be implemented trivially by using `toggleClass` with `state` set as `true` and `false` respectively.
+
+<MDXCodeBlock>{jQueryClassManipulation}</MDXCodeBlock>
+
+## Alternative Solution
+
+An alternative class-based approach can be found below which is a bit longer and overkill.
+
+<MDXCodeBlock>{jQueryClassManipulationClass}</MDXCodeBlock>
+
+## Edge Cases
+
+- No elements match the selector. We should handle gracefully instead of erroring.
+- The `className` string can contain duplicate classes.
+- The `className` string can contain leading/trailing whitespace and also more than one space character between classes.
+- The element's `className` can contain uppercase classes which shouldn't be matched in [Standards Mode for browsers](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
+
+## Techniques
+
+- CSS fundamentals.
+
+## Notes
+
+- Arrow functions has a lexical scoping to the `this` context, and should not be used as methods on objects as the `this` will not be referring to the object. Thus the methods cannot be defined as an arrow function if the return value is an object.
+
+## Resources
+
+- [.toggleClass() | jQuery API Documentation](https://api.jquery.com/toggleClass/)
+- [.addClass() | jQuery API Documentation](https://api.jquery.com/addClass/)
+- [.removeClass() | jQuery API Documentation](https://api.jquery.com/removeClass/)

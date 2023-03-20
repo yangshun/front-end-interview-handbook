@@ -1,0 +1,19 @@
+{
+  "slug": "data-selection",
+  "created": "2022-06-19T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [
+    "facebook",
+    "soundcloud"
+  ],
+  "premium": true,
+  "duration": 30,
+  "published": true,
+  "importance": "high",
+  "difficulty": "hard",
+  "similar_questions": [
+    "unique-array"
+  ]
+}

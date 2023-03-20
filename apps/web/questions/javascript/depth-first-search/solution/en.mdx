@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import depthFirstSearch from '../src/depth-first-search';
+import depthFirstSearchRecursive from '../src/depthFirstSearchRecursive';
+
+## Clarification Questions
+
+If unspecified:
+
+- Order of traversal: Should we use a standard pre-order traversal or other orders of traversal?
+- Input format: What is the format of the input data? Can we assume the input will be an adjacency list in the form of a JavaScript Object where keys are nodes and values are child nodes?
+- Output format: How should the output be formatted? Are there specific requirements or can we return an array with elements in the order of traversal?
+- Disconnected graphs: Do we have to consider or handle the case for disconnected graphs where there are multiple subgraphs that are not connected to each other?
+
+## Solution
+
+The solution implements the algorithm outlined in the description.
+
+<MDXCodeBlock>{depthFirstSearch}</MDXCodeBlock>
+
+We can also perform DFS recursively, which is can be more intuitive in certain cases. The recursion call stack is an implicit stack to track which nodes to visit next.
+
+<MDXCodeBlock>{depthFirstSearchRecursive}</MDXCodeBlock>
+
+## Edge Cases
+
+- Empty graphs: Return an empty array without crashing.
+- Graphs with only one-two nodes: Traverse without crashing.
+- Cyclic graphs: Make sure not to traverse visited nodes again.
+- Disjoint graphs: Doesn't require special handling but good to be aware of.

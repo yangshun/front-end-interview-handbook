@@ -1,0 +1,6 @@
+## Notes
+
+When rendering user input, there's a risk of inserting potentially malicious content resulting in Cross Site Scripting (XSS). To prevent XSS:
+
+- Sanitize the user input before rendering.
+- Avoid setting `Element.innerHTML`, set `Node.textContent` instead which inserts strings as raw text rather than parsing it as HTML.

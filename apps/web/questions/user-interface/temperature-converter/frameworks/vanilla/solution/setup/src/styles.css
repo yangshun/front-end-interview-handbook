@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+}
+
+.temperature-converter {
+  display: flex;
+}
+
+.temperature-converter
+  .temperature-converter-column-top-row {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  height: 24px;
+  padding: 4px;
+  text-align: center;
+}
+
+.temperature-converter
+  .temperature-converter-column-bottom-row {
+  padding: 4px;
+  text-align: center;
+}

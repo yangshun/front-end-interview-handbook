@@ -1,0 +1,7 @@
+## Accessibility
+
+- Link `<label>`s to `<input>` so that clicking on the `<label>` will focus on the corresponding `<input>`.
+  - Use `<label for="some-id">` and `<input id="some-id">` to define the relation between `<label>` and `<input>`.
+  - Do not nest `<input>` inside of `<label>` because some assistive technologies (e.g. Dragon NaturallySpeaking) do not support it.
+- Apply a styling for `<input>` focus to clearly tell users which field they're on.
+- Link the error message up with the password confirmation field by using `aria-describedby` to indicate that the error message is for that `<input>` field.

@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+}
+
+.app {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label + input {
+  margin-left: 8px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}

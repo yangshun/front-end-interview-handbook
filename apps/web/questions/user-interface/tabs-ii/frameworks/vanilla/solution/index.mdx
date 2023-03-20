@@ -1,0 +1,14 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+We'll build on top of [Tabs' solution](/questions/user-interface/tabs/vanilla/solution). Other than adding the right ARIA roles and states, which is straightforward, we also need to link the tab items with the corresponding tabpanels. Hence we create two functions, `getTabListItemId` and `getTabPanelId` to do this.
+
+- `getTabListItemId` generates a unique ID string to use as the value of the `id` attribute of tab items. This ID will be used as the value of the `aria-labelledby` attribute of the corresponding tabpanel.
+- `getTabPanelId` generates a unique ID string to use as the value of the `id` attribute of tabpanels. This ID will be used as the value of the `aria-controls` attribute of the corresponding tab item.
+
+Since there can be multiple tabs component instances on the page and we cannot guarantee that the tab item values will be globally unique, each tabs instance needs to have a unique identifier. We can create a `newID` function that generates a unique ID which under the hood is a globally-incrementing integer. The final ID string will be a concatenation of the tab instance's ID, the item value, and whether it's a tab item or a tabpanel.
+
+<TestCases />
+<Notes />

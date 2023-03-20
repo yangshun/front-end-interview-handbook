@@ -1,0 +1,116 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import solution from '../src/event-emitter';
+import solutionFunctionPrototype from '../src/eventEmitterFunctionPrototype';
+
+An event-based interaction model is the most common way of building user interfaces. The DOM is also built around this model with the `document.addEventListener()` and `document.removeEventListener()` APIs to allow responding to events like `click`, `hover`, `input`, etc.
+
+## Clarification Questions
+
+The following are good questions to ask the interviewer to demonstrate your thoughtfulness. Depending on their response, you might need to adjust the implementation accordingly.
+
+1. Can `emitter.emit()` be called without any arguments besides the `eventName`?
+   - Yes, it can be.
+1. Can the same listener be added multiple times with the same `eventName`?
+   - Yes, it can be. It will be called once for each time it is added when `eventName` is emitted in the order they were added.
+1. Following up on the question above, what should happen if a listener is added multiple times and `emitter.off()` is being called once for that listener?
+   - The listener will only be removed once.
+1. Can non-existent events be emitted?
+   - Yes, but nothing should happen and the code should not error or crash.
+1. What should the `this` value of the listeners be?
+   - It can be `null`.
+1. Can listeners contain code that invoke methods on the emitter instance?
+   - Yes, but we can ignore that scenario for this question.
+1. What if the listener callbacks throw an error during `emitter.emit()`?
+   - The error should be caught and not halt the rest of the execution. However, we will not test for this case.
+
+We will handle all the above cases except for the last two cases.
+
+## Solutions
+
+### Data Structure
+
+Firstly, we have to decide on the data structure to store the events and the listeners. We can either use:
+
+#### 1. Map of `eventName`s to an array of listener functions.
+
+```js
+events = {
+  foo: [Function1, Function3],
+  bar: [Function2],
+};
+```
+
+- Pros:
+  - Fast lookup of the list of listeners for an `eventName`.
+- Cons:
+  - Since `eventName` is provided by the user, it can be any value and might conflict with existing keys on `Object.prototype` such as `toString`. We will handle this situation.
+
+#### 2. A flat array of `eventName` and listener pairs.
+
+```js
+events = [
+  { eventName: 'foo', listener: Function1 },
+  { eventName: 'bar', listener: Function2 },
+  { eventName: 'foo', listener: Function3 },
+];
+```
+
+- Pros:
+  - Simple, flat structure.
+- Cons:
+  - Requires O(n) time to find the listeners for an event because you have to look through the entire list of events.
+  - `emit()` and `off()` operations will require iterating through the array, you can't instantly determine if an event exists and ignore emission of non-existent events.
+  - Potentially more space needed to store the data because of the repeated object fields and `eventName` strings.
+
+Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `events` object with `Object.create(null)` or use a ES6 `Map` class.
+
+### Implementing `EventEmitter.on()`
+
+Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `events` object and make the value an empty array (for the list of listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
+
+Return `this` so that the method can be chained.
+
+### Implementing `EventEmitter.off()`
+
+First check if `eventName` is present as a key of the `events` object. If no events with `eventName` exists, we do not need to proceed further and can do an early `return`.
+
+Since we only want to remove the first instance of any matching `listener`, we'll use `listeners.findIndex()` and remove _only one_ instance via `.splice()`, instead of using something like `.filter()` which will remove all matching instances.
+
+Return `this` so that the method can be chained.
+
+### Implementing `EventEmitter.emit()`
+
+Check if the `eventName` exists or has any events and we can terminate and return `false` if the `eventName` doesn't exist or if there are no listeners for `eventName`.
+
+To pass the rest of the arguments to each listener, we have to use `...args` in the method signature to capture all other arguments as the variable `args`. The listeners can be called with `args` via `Function.prototype.apply()` or `Function.prototype.call()`.
+
+### Class-based Solution
+
+<MDXCodeBlock>{solution}</MDXCodeBlock>
+
+### Function prototype-based Solution
+
+<MDXCodeBlock>{solutionFunctionPrototype}</MDXCodeBlock>
+
+## Edge Cases
+
+- The same listener function can be added more than once for the same event. Removal should be done in order of adding.
+- `emitter.emit()` is called without any arguments.
+- Methods are called with non-existing `eventName`s.
+
+## Techniques
+
+- Object-oriented programming.
+- Using the right data structures.
+- Handling of variadic arguments.
+- Object chaining.
+
+## Notes
+
+- Arrow functions have a lexical scoping to the `this` context, hence they should not be used as methods on objects as the `this` will not be referring to the object. Thus the `emitter.on()` and `emitter.off()` methods cannot be defined as an arrow function if the return value is the `this` object.
+- Node.js' `EventEmitter`'s implementation allows `eventName`s to be symbols which we don't allow here.
+
+## Resources
+
+- [EventEmitter | Node.js](https://nodejs.org/api/events.html#class-eventemitter)

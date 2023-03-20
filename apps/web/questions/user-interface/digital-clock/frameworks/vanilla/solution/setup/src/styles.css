@@ -1,0 +1,69 @@
+body {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  --segment-width: 10px;
+  --segment-size: 40px;
+  --segment-color: #fff;
+
+  background-color: #000;
+  border: 10px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+
+.digit-square {
+  border-style: solid;
+  border-color: transparent;
+  border-width: var(--segment-width);
+  box-sizing: border-box;
+  height: var(--segment-size);
+  width: var(--segment-size);
+}
+
+.digit-square-top {
+  border-bottom-width: calc(var(--segment-width) / 2);
+}
+
+.digit-square-bottom {
+  border-top-width: calc(var(--segment-width) / 2);
+}
+
+.digit-square-border-top {
+  border-top-color: var(--segment-color);
+}
+
+.digit-square-border-left {
+  border-left-color: var(--segment-color);
+}
+
+.digit-square-border-right {
+  border-right-color: var(--segment-color);
+}
+
+.digit-square-border-bottom {
+  border-bottom-color: var(--segment-color);
+}
+
+.separator {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.separator-dot {
+  background-color: var(--segment-color);
+  border-radius: var(--segment-width);
+  height: var(--segment-width);
+  width: var(--segment-width);
+}

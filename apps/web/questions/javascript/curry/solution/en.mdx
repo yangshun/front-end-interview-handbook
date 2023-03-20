@@ -1,0 +1,45 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import curry from '../src/curry';
+
+Currying is not commonly used in real-world development but is a moderately common question for interviews as it tests the candidate's understanding of certain JavaScript fundamentals like arity and closures.
+
+## Clarification Questions
+
+- What value types will `curry` expect?
+- Should the function expect values of different types?
+
+## Solution
+
+We first need to understand a few terms:
+
+- **Arity**: The number of arguments or operands taken by a function.
+- **Closure**: A closure is the combination of a function bundled together with references to its lexical environment (surrounding state).
+
+The curried function will stop accepting arguments after the number of arguments have been passed into the curried function equals the arity of the original function.
+
+We can keep a record of the curried function arguments so far via closures. Each time the curried function is called, we compare the number of arguments so far with the arity of the original function.
+
+- If they're the same, we call the original function with the arguments.
+- If more arguments are needed, we will return a function that accepts more arguments and invokes the curried function with the new arguments.
+
+<MDXCodeBlock>{curry}</MDXCodeBlock>
+
+## Edge Cases
+
+- Calling the function without any arguments should not have any effect, unless the function does not take in any arguments.
+- Functions which access `this`.
+
+## Techniques
+
+- Closures.
+- Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`.
+
+## Notes
+
+- Intermediate functions should be reusable as seen from the examples in the question description.
+
+## Resources
+
+- [Understanding JavaScript currying](https://blog.logrocket.com/understanding-javascript-currying)
+- [Lodash curry](https://lodash.com/docs/4.17.15#curry)

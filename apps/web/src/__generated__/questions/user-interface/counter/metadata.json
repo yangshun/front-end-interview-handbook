@@ -1,0 +1,43 @@
+{
+  "author": null,
+  "companies": [
+    "amazon"
+  ],
+  "created": 1656028800,
+  "difficulty": "easy",
+  "duration": 5,
+  "excerpt": "Build a simple counter which increments whenever a button is clicked",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/counter/vanilla"
+    },
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/counter/react"
+    }
+  ],
+  "href": "/questions/user-interface/counter",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "todo-list",
+    "contact-form"
+  ],
+  "premium": false,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "todo-list",
+    "temperature-converter"
+  ],
+  "slug": "counter",
+  "title": "Counter"
+}

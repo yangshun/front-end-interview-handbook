@@ -1,0 +1,16 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+This is a basic question which evaluates your knowledge of the web platform. Forms and form submissions can entirely be built without any JavaScript! As a Front End Engineer, it's important to know what the platform provides and not resort to JavaScript for everything.
+
+The first thing we need to do is to wrap the fields in a `<form>`, which is already given in the template. To tell the `<form>` which URL to submit the data to, we use the `action` attribute with the API URL as the value. The API URL is expecting a HTTP POST request, hence we also use `method="post"` on the `<form>`.
+
+Form fields with the `name` attribute will have the attribute value become the key in the form data. Hence we can add `name="name"`, `name="email"`, `name="message"` to the various form fields. Do also add `<label>`s to label your `<input>`s.
+
+Lastly, submit buttons can be implemented in two ways:
+
+1. `<button>`: By default, any `<button>`s in `<form>`s will trigger a form submission.
+1. `<input type="submit">`: The element will be rendered as a button and clicking the `<input>` will trigger a form submission.
+
+<TestCases />
+<Notes />

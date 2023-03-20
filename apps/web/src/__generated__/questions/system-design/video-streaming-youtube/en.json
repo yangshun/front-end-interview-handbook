@@ -1,0 +1,27 @@
+{
+  "description": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),O=(n,e)=>{for(var i in e)s(n,i,{get:e[i],enumerable:!0})},o=(n,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!g.call(n,r)&&r!==i&&s(n,r,{get:()=>e[r],enumerable:!(l=d(e,r))||l.enumerable});return n};var f=(n,e,i)=>(i=n!=null?h(x(n)):{},o(e||!n||!n.__esModule?s(i,\"default\",{value:n,enumerable:!0}):i,n)),j=n=>o(s({},\"__esModule\",{value:!0}),n);var a=p((w,c)=>{c.exports=_jsx_runtime});var T={};O(T,{default:()=>b,frontmatter:()=>_});var t=f(a()),_={title:\"Video Streaming (e.g. YouTube)\",excerpt:\"Design a video streaming website like YouTube and Netflix\"};function u(n){let e=Object.assign({h2:\"h2\",p:\"p\",h3:\"h3\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,t.jsx)(e.h3,{children:\"Real-life Examples\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"TODO\"}),`\n`,(0,t.jsx)(e.li,{children:\"TODO\"}),`\n`]})]})}function D(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(u,n)})):u(n)}var b=D;return j(T);})();\n;return Component;",
+  "format": "system-design",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design a video streaming website like YouTube and Netflix",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/video-streaming-youtube",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 7,
+    "similarQuestions": [],
+    "slug": "video-streaming-youtube",
+    "title": "Video Streaming (e.g. YouTube)"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var v=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),D=(n,e)=>{for(var t in e)d(n,t,{get:e[t],enumerable:!0})},h=(n,e,t,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!m.call(n,r)&&r!==t&&d(n,r,{get:()=>e[r],enumerable:!(a=p(e,r))||a.enumerable});return n};var b=(n,e,t)=>(t=n!=null?s(f(n)):{},h(e||!n||!n.__esModule?d(t,\"default\",{value:n,enumerable:!0}):t,n)),O=n=>h(d({},\"__esModule\",{value:!0}),n);var o=v((_,l)=>{l.exports=_jsx_runtime});var w={};D(w,{default:()=>j,tableOfContents:()=>g});var i=b(o()),g=[{depth:2,value:\"Requirements Exploration\",id:\"requirements-exploration\"},{depth:2,value:\"Architecture/High-level Design\",id:\"architecturehigh-level-design\"},{depth:2,value:\"Data Model\",id:\"data-model\"},{depth:2,value:\"Interface Definition (API)\",id:\"interface-definition-api\"},{depth:2,value:\"Optimizations and Deep Dive\",id:\"optimizations-and-deep-dive\"},{depth:2,value:\"References\",id:\"references\"}];function c(n){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(e.h2,{id:\"requirements-exploration\",children:\"Requirements Exploration\"}),`\n`,(0,i.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,i.jsx)(e.hr,{}),`\n`,(0,i.jsx)(e.h2,{id:\"architecturehigh-level-design\",children:\"Architecture/High-level Design\"}),`\n`,(0,i.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,i.jsx)(e.hr,{}),`\n`,(0,i.jsx)(e.h2,{id:\"data-model\",children:\"Data Model\"}),`\n`,(0,i.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,i.jsx)(e.hr,{}),`\n`,(0,i.jsx)(e.h2,{id:\"interface-definition-api\",children:\"Interface Definition (API)\"}),`\n`,(0,i.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,i.jsx)(e.hr,{}),`\n`,(0,i.jsx)(e.h2,{id:\"optimizations-and-deep-dive\",children:\"Optimizations and Deep Dive\"}),`\n`,(0,i.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,i.jsx)(e.hr,{}),`\n`,(0,i.jsx)(e.h2,{id:\"references\",children:\"References\"}),`\n`,(0,i.jsxs)(e.ul,{children:[`\n`,(0,i.jsx)(e.li,{children:(0,i.jsx)(e.a,{href:\"https://web.dev/better-youtube-web-part1/\",children:\"Building a Better Web - Part 1: A faster YouTube on web\"})}),`\n`,(0,i.jsx)(e.li,{children:(0,i.jsx)(e.a,{href:\"https://web.dev/youtube-media-capabilities/\",children:\"How YouTube improved video performance with the Media Capabilities API\"})}),`\n`]})]})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,i.jsx)(e,Object.assign({},n,{children:(0,i.jsx)(c,n)})):c(n)}var j=x;return O(w);})();\n;return Component;"
+}

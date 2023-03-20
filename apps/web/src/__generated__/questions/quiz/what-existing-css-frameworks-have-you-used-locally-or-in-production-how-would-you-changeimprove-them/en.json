@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
+    "title": "What existing CSS frameworks have you used locally, or in production?",
+    "subtitle": "How would you change/improve them?",
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var o in e)s(n,o,{get:e[o],enumerable:!0})},a=(n,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!g.call(n,r)&&r!==o&&s(n,r,{get:()=>e[r],enumerable:!(i=h(e,r))||i.enumerable});return n};var b=(n,e,o)=>(o=n!=null?u(p(n)):{},a(e||!n||!n.__esModule?s(o,\"default\",{value:n,enumerable:!0}):o,n)),x=n=>a(s({},\"__esModule\",{value:!0}),n);var c=f((B,l)=>{l.exports=_jsx_runtime});var j={};w(j,{default:()=>k,frontmatter:()=>v});var t=b(c()),v={title:\"What existing CSS frameworks have you used locally, or in production?\",subtitle:\"How would you change/improve them?\"};function d(n){let e=Object.assign({ul:\"ul\",li:\"li\",strong:\"strong\",h2:\"h2\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Bootstrap\"}),\": Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Future versions of Bootstrap should include a spinner button component, as it is widely used.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Semantic UI\"}),\": Source code structure makes theme customization extremely hard to understand. Its unconventional theming system is a pain to customize. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Bulma\"}),\": A lot of non-semantic and superfluous classes and markup required. Not backward-compatible. Upgrading versions breaks the app in subtle manners.\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var k=y;return x(j);})();\n;return Component;"
+}

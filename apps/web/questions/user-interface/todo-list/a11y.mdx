@@ -1,0 +1,4 @@
+## Accessibility
+
+- All form `<input>`s should be labelled either via `<label>`s or `aria-label` attributes. Since the original markup doesn't contain a `<label>`, we can add `aria-label` to the `<input>`.
+- For screen reader users, they won't be aware that a new task has been added. An `aria-live` region can be added to inform about the newly-added task. There is unlikely enough time to do this during an interview but you will get bonus points for mentioning it. Read more about [ARIA live regions on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).

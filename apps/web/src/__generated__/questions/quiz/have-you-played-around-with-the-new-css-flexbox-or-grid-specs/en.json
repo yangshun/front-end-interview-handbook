@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/have-you-played-around-with-the-new-css-flexbox-or-grid-specs",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "have-you-played-around-with-the-new-css-flexbox-or-grid-specs",
+    "title": "Have you played around with the new CSS Flexbox or Grid specs?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),f=(n,e)=>{for(var o in e)a(n,o,{get:e[o],enumerable:!0})},i=(n,e,o,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!p.call(n,r)&&r!==o&&a(n,r,{get:()=>e[r],enumerable:!(s=m(e,r))||s.enumerable});return n};var w=(n,e,o)=>(o=n!=null?h(x(n)):{},i(e||!n||!n.__esModule?a(o,\"default\",{value:n,enumerable:!0}):o,n)),y=n=>i(a({},\"__esModule\",{value:!0}),n);var c=b((S,l)=>{l.exports=_jsx_runtime});var j={};f(j,{default:()=>v,frontmatter:()=>F});var t=w(c()),F={title:\"Have you played around with the new CSS Flexbox or Grid specs?\"};function d(n){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.\"}),`\n`,(0,t.jsx)(e.p,{children:\"Flexbox solves many common problems in CSS, such as vertical centering of elements within a container, sticky footer, etc. famous CSS frameworks like Bootstrap and Bulma are based on Flexbox, and Flexbox is still the tested and proven way to create layouts.\"}),`\n`,(0,t.jsx)(e.p,{children:\"Grid is by far the most intuitive approach for creating grid-based layouts but browser support is not that wide at the moment. Many layout problems can already be solved with Flexbox, so there's not a huge need for Grid.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function g(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var v=g;return y(j);})();\n;return Component;"
+}

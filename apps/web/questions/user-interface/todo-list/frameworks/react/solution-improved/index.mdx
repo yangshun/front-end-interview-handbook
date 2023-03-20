@@ -1,0 +1,18 @@
+import Solution from '../solution.mdx';
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+This is an improved version of the [basic solution](/questions/user-interface/todo-list/react/solution).
+
+Some of the improvements:
+
+- Encapsulating the ID generator so that it can only be read from but not modified from external sources.
+- Use a `<form>` to capture submission of new tasks. This will handle both <kbd>Enter</kbd> keys and "Submit" button clicks.
+- Prevents empty input values from being added to the list.
+- Trims the input value before adding to the list.
+- Displays an empty state when there are no tasks in the list.
+- Asks for confirmation before deletion of a task.
+
+<A11y />
+
+<TestCases />

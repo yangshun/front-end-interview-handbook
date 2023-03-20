@@ -1,0 +1,16 @@
+{
+  "slug": "type-utilities",
+  "created": "2022-04-14T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": false,
+  "duration": 10,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "next_questions": [
+    "type-utilities-ii"
+  ]
+}

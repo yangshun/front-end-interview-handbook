@@ -1,0 +1,38 @@
+Table Conversation {
+  id int [PK]
+  name varchar
+}
+
+Table Message {
+  id int [PK]
+  content varchar
+  status varchar
+  created_at timestamp
+  sender_id int [ref: > User.id]
+  conversation_id int [ref: > Conversation.id]
+}
+
+Table User {
+  id int [PK]
+  name varchar
+  profile_photo_url varchar
+}
+
+Table ConversationUser {
+  conversation_id int [ref: > Conversation.id]
+  user_id int [ref: > User.id]
+}
+
+Table "DraftMessage [Local]" {
+  id int [PK]
+  content varchar
+  conversation_id int [ref: > Conversation.id]
+}
+
+Table "SendMessageRequest [Local]" {
+  id int [PK]
+  message_id int [ref: > Message.id]
+  status varchar
+  last_sent_at timestamp
+  fail_count int
+}

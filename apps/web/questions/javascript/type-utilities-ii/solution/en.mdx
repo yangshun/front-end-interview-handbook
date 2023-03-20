@@ -1,0 +1,37 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import solution from '../src/type-utilities-ii';
+
+## Solution
+
+### `isArray`
+
+Since ES5, there exists an `Array.isArray()` function which does exactly what we need here.
+
+However, if we're not allowed to use this or need to support old browsers, we can check the constructor of the object. However, some values like `null` and `undefined` have to be specially handled.
+
+### `isFunction`
+
+We can simply use `typeof value === 'function'` to check.
+
+### `isObject`
+
+`null` and `undefined` are considered `Object`s, so we need to handle them specially as well. `Function`s are also objects.
+
+### `isPlainObject`
+
+There are two types of plain objects:
+
+1. Objects without prototypes, created using `Object.create(null)`s.
+1. Object defined using literals (e.g. `let a = {}`).
+
+To check for the first case, `Object.getPrototypeOf(value)` will be exactly `null`. To check for the second case, we can use the constructor of its prototype, similar to how we check if an object is an `Array`.
+
+Lodash's implementation of `isPlainObject` traverses the object's prototype chain but that's unnecessary if we check the constructor.
+
+<MDXCodeBlock>{solution}</MDXCodeBlock>
+
+## Techniques
+
+- Familiarity with JavaScript types.
+- Object and prototypes.

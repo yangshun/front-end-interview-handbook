@@ -1,0 +1,35 @@
+{
+  "author": null,
+  "companies": [
+    "uber"
+  ],
+  "created": 1671321600,
+  "difficulty": "easy",
+  "duration": 15,
+  "excerpt": "Build a list of progress bars which fill up gradually when they are added to the page",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/progress-bars/react"
+    }
+  ],
+  "href": "/questions/user-interface/progress-bars",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "progress-bars-ii"
+  ],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "progress-bars",
+  "title": "Progress Bars"
+}

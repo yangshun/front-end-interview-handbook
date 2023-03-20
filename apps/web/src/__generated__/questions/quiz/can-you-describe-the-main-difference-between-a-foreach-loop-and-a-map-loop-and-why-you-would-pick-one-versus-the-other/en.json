@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "twitter"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other",
+    "title": "Can you describe the main difference between a `.forEach` loop and a `.map()` loop?",
+    "subtitle": "Why you would pick one versus the other?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)c(t,r,{get:e[r],enumerable:!0})},i=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of m(e))!p.call(t,a)&&a!==r&&c(t,a,{get:()=>e[a],enumerable:!(o=u(e,a))||o.enumerable});return t};var g=(t,e,r)=>(r=t!=null?s(f(t)):{},i(e||!t||!t.__esModule?c(r,\"default\",{value:t,enumerable:!0}):r,t)),y=t=>i(c({},\"__esModule\",{value:!0}),t);var d=w((k,l)=>{l.exports=_jsx_runtime});var _={};b(_,{default:()=>E,frontmatter:()=>x});var n=g(d()),x={title:\"Can you describe the main difference between a `.forEach` loop and a `.map()` loop?\",subtitle:\"Why you would pick one versus the other?\"};function h(t){let e=Object.assign({p:\"p\",h2:\"h2\",code:\"code\",ul:\"ul\",li:\"li\",pre:\"pre\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"To understand the differences between the two, let's look at what each function does.\"}),`\n`,(0,n.jsx)(e.h2,{children:(0,n.jsx)(e.code,{children:\"forEach\"})}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Iterates through the elements in an array.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Executes a callback for each element.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Does not return a value.\"}),`\n`]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const a = [1, 2, 3];\nconst doubled = a.forEach((num, index) => {\n  // Do something with num and/or index.\n});\n\n// doubled = undefined\n`})}),`\n`,(0,n.jsx)(e.h2,{children:(0,n.jsx)(e.code,{children:\"map\"})}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Iterates through the elements in an array.\"}),`\n`,(0,n.jsx)(e.li,{children:'\"Maps\" each element to a new element by calling the function on each element, creating a new array as a result.'}),`\n`]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const a = [1, 2, 3];\nconst doubled = a.map((num) => {\n  return num * 2;\n});\n\n// doubled = [2, 4, 6]\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"The main difference between \",(0,n.jsx)(e.code,{children:\".forEach\"}),\" and \",(0,n.jsx)(e.code,{children:\".map()\"}),\" is that \",(0,n.jsx)(e.code,{children:\".map()\"}),\" returns a new array. If you need the result, but do not wish to mutate the original array, \",(0,n.jsx)(e.code,{children:\".map()\"}),\" is the clear choice. If you simply need to iterate over an array, \",(0,n.jsx)(e.code,{children:\"forEach\"}),\" is a fine choice.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function j(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var E=j;return y(_);})();\n;return Component;"
+}

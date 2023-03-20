@@ -1,0 +1,23 @@
+import TestCases from '../../../test-cases.mdx';
+
+**Note:** This is an advanced version of [Progress Bars II](/questions/user-interface/progress-bars-ii), you should complete that question first before attempting this question.
+
+## Solution
+
+The only change we have to make to the solution from [Progress Bars II](/questions/user-interface/progress-bars-ii) is the way we are determining whether `isEmpty={true}` (whether a bar is allowed to increment).
+
+```jsx
+<ProgressBar isEmpty={index > numFilledUpBars} />
+
+// The above can be rewritten as:
+<ProgressBar isEmpty={index >= numFilledUpBars + 1} />
+
+// Extract the concurrency limit as a variable:
+const CONCURRENCY_LIMIT = 1;
+<ProgressBar isEmpty={index >= numFilledUpBars + CONCURRENCY_LIMIT} />
+// And we can change the value of CONCURRENCY_LIMIT to 3 to solve the question.
+```
+
+With this change, up to 3 non-full bars will have `<ProgressBar isEmpty={false} />` which provides the concurrency needed to solve this question.
+
+<TestCases />

@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 8px;
+}

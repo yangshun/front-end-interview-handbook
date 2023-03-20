@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy",
+    "title": "Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var i in e)a(n,i,{get:e[i],enumerable:!0})},o=(n,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!f.call(n,t)&&t!==i&&a(n,t,{get:()=>e[t],enumerable:!(r=m(e,t))||r.enumerable});return n};var w=(n,e,i)=>(i=n!=null?h(u(n)):{},o(e||!n||!n.__esModule?a(i,\"default\",{value:n,enumerable:!0}):i,n)),x=n=>o(a({},\"__esModule\",{value:!0}),n);var c=g((k,l)=>{l.exports=_jsx_runtime});var z={};v(z,{default:()=>j,frontmatter:()=>b});var s=w(c()),b={title:\"Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?\"};function d(n){let e=Object.assign({p:\"p\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",h2:\"h2\",a:\"a\"},n.components);return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(e.p,{children:\"These two approaches are not mutually exclusive. Making a website responsive means that some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.\"}),`\n`,(0,s.jsx)(e.pre,{children:(0,s.jsx)(e.code,{className:\"language-css\",children:`@media (min-width: 768px) {\n  .my-class {\n    font-size: 24px;\n  }\n}\n\n@media (max-width: 767px) {\n  .my-class {\n    font-size: 12px;\n  }\n}\n`})}),`\n`,(0,s.jsx)(e.p,{children:\"A mobile-first strategy is also responsive, however it agrees we should default and define all the styles for mobile devices, and only add specific responsive rules to other devices later. Following the previous example:\"}),`\n`,(0,s.jsx)(e.pre,{children:(0,s.jsx)(e.code,{className:\"language-css\",children:`.my-class {\n  font-size: 12px;\n}\n\n@media (min-width: 768px) {\n  .my-class {\n    font-size: 24px;\n  }\n}\n`})}),`\n`,(0,s.jsx)(e.p,{children:\"A mobile-first strategy has the following main advantages:\"}),`\n`,(0,s.jsxs)(e.ul,{children:[`\n`,(0,s.jsx)(e.li,{children:\"It's more performant on mobile devices, since all the rules applied for them don't have to be validated against any media queries.\"}),`\n`,(0,s.jsx)(e.li,{children:\"Mobile-first designs are more likely to be usable on larger devices (will just appear more stretched, but still usable). However, the reverse is not the case.\"}),`\n`]}),`\n`,(0,s.jsx)(e.h2,{children:\"References\"}),`\n`,(0,s.jsxs)(e.ul,{children:[`\n`,(0,s.jsx)(e.li,{children:(0,s.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,s.jsx)(e,Object.assign({},n,{children:(0,s.jsx)(d,n)})):d(n)}var j=y;return x(z);})();\n;return Component;"
+}

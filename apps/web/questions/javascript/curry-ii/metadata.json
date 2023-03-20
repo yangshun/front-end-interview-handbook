@@ -1,0 +1,19 @@
+{
+  "slug": "curry-ii",
+  "created": "2022-06-18T00:00:00.000Z",
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "similar_questions": [
+    "curry"
+  ],
+  "next_questions": [
+    "curry-iii"
+  ]
+}

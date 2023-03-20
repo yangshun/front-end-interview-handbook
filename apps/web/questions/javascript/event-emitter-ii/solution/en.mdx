@@ -1,0 +1,143 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import solution from '../src/event-emitter-ii';
+import solutionFunctionPrototype from '../src/eventEmitterFunctionPrototype';
+
+An event-based interaction model is the most common way of building user interfaces. The DOM is also built around this model with the `document.addEventListener()` and `document.removeEventListener()` APIs to allow responding to events like `click`, `hover`, `input`, etc.
+
+## Clarification Questions
+
+The following are good questions to ask the interviewer to demonstrate your thoughtfulness. Depending on their response, you might need to adjust the implementation accordingly.
+
+1. Can `emitter.emit()` be called without any arguments besides the `eventName`?
+   - Yes, it can be.
+1. Can the same listener be added multiple times with the same `eventName`?
+   - Yes, it can be. It will be called once for each time it is added when `eventName` is emitted in the order they were added.
+1. Can non-existent events be emitted?
+   - Yes, but nothing should happen and the code should not error or crash.
+1. What should the `this` value of the listeners be?
+   - It can be `null`.
+1. Can `sub.off()` be called more than once?
+   - Yes it can be, the second call should be a no-op.
+1. Can listeners contain code that invoke methods on the emitter instance?
+   - Yes, but we can ignore that scenario for this question.
+1. What if the listener callbacks throw an error during `emitter.emit()`?
+   - The error should be caught and not halt the rest of the execution. However, we will not test for this case.
+
+We will handle all the above cases except for the last two cases.
+
+## Solutions
+
+### Data Structure
+
+Firstly, we have to decide on the data structure to store the events and the listeners.
+
+We need to be able to uniquely identify each listener function so that when we call `sub.off()` we know which listener to remove. This can be achieved by having the `EventEmitter` instance keep an integer counter which is incremented on every new listener added and each listener is assigned the counter's current value.
+
+We can either use:
+
+#### 1. Map of `eventName`s of map of listener functions.
+
+```js
+events = {
+  foo: {1: Function1, 3: Function3],
+  bar: [2: Function2],
+};
+```
+
+- Pros:
+  - Fast lookup of listeners given an `eventName` and a listener ID.
+- Cons:
+  - Since `eventName` is provided by the user, it can be any value and might conflict with existing keys on `Object.prototype` such as `.toString`. We will handle this situation.
+
+#### 2. A flat array of `eventName` and listener pairs.
+
+```js
+events = [
+  { eventName: 'foo', listener: Function1, key: 1 },
+  { eventName: 'bar', listener: Function2, key: 2 },
+  { eventName: 'foo', listener: Function3, key: 3 },
+];
+```
+
+- Pros:
+  - Simple, flat structure.
+- Cons:
+  - Requires O(n) time to find the listeners for an event because you have to look through the entire list of events.
+  - `emit()` and `sub.off()` operations will require iterating through the array, you can't instantly determine if an event exists and ignore emission of non-existent events.
+  - Potentially more space needed to store the data because of the repeated object fields and `eventName` strings.
+
+Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `events` object with `Object.create(null)` or use a ES6 `Map` class.
+
+### Implementing `EventEmitter.on()`
+
+Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `events` object and make the value an empty object (for the map of listenerIds to its listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
+
+### Implementing `sub.off()`
+
+`emitter.on()` needs to return an object that has an `off()` method. It will suffice to use a plain object with an `off()` method. The `off()` method contains a reference to the `listener`'s unique ID (`listenerId`) and `eventName` thanks to closures. However, for the `off()` method to have access to the emitter instance's `this` value, it should be defined using an arrow function or use a separate `that` variable to retain a reference to `this`.
+
+To remove the listener from the emitter, simply `delete` the key from `this.events[eventName]`. This approach also works if called `sub.off()` is called multiple times because `delete` on non-existing keys is a no-op.
+
+```js
+function on(eventName, listener) {
+  // Rest of the implementation omitted for brevity.
+  return {
+    // Use arrow function so that `this` is preserved.
+    off: () => {
+      delete this.events[eventName][listenerId];
+    },
+  };
+}
+```
+
+```js
+function on(eventName, listener) {
+  // Rest of the implementation omitted for brevity.
+  // Define a separate `that` variable to retain a reference to `this`.
+  const that = this;
+  return {
+    off() {
+      delete that.events[eventName][listenerId];
+    },
+  };
+}
+```
+
+We can create a new class `EventSubscription` to instantiate as the object returned from `emitter.off()`, which has the benefit of sharing the method implementation across instances. However, the memory footprint is negligible and is considered overkill.
+
+### Implementing `EventEmitter.emit()`
+
+Check if the `eventName` exists or has any events and we can terminate and return `false` if the `eventName` doesn't exist or if there are no listeners for `eventName` (object is empty).
+
+To pass the rest of the arguments to each listener, we have to use `...args` in the method signature to capture all other arguments as the variable `args`. The listeners can be called with `args` via `Function.prototype.apply()` or `Function.prototype.call()`.
+
+### Class-based Solution
+
+<MDXCodeBlock>{solution}</MDXCodeBlock>
+
+### Function prototype-based Solution
+
+<MDXCodeBlock>{solutionFunctionPrototype}</MDXCodeBlock>
+
+## Edge Cases
+
+- The same listener function can be added more than once for the same event. Calling `sub.off()` should remove the respective listener because the order of invocation matters.
+- `emitter.emit()` is called without any arguments.
+- Methods are called with non-existing `eventName`s.
+- `sub.off()` is called multiple times and shouldn't crash.
+
+## Techniques
+
+- Object-oriented programming.
+- Using the right data structures.
+- Closures.
+- Handling of variadic arguments.
+
+## Notes
+
+- Node.js' `EventEmitter`'s implementation allows `eventName`s to be symbols which we don't allow here.
+
+## Resources
+
+- [EventEmitter | Node.js](https://nodejs.org/api/events.html#class-eventemitter)

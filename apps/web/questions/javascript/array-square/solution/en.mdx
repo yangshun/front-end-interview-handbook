@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import square from '../src/array-square';
+import squareMap from '../src/squareMap';
+
+## Solution
+
+This question is pretty straightforward and just tests that you know how to access the array values within `Array.prototype` methods (using `this`).
+
+Creation of a new array can be done using `new Array(length)` or creating an empty array and pushing to it.
+
+Elements of the array can be accessed via `this[index]`.
+
+<MDXCodeBlock>{square}</MDXCodeBlock>
+
+Simpler version using `Array.prototype.map()`.
+
+<MDXCodeBlock>{squareMap}</MDXCodeBlock>
+
+## Edge Cases
+
+- Empty array.
+- Single-value array.
+- Multi-value array.

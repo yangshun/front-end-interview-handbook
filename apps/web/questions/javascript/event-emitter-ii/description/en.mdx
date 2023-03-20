@@ -1,0 +1,66 @@
+---
+title: Event Emitter II
+excerpt: Implement a class that can subscribe to and emit events which triggers attached callback functions. Susbcription objects are returned and can unsubscribe itself
+---
+
+In the [**observer pattern**](https://www.patterns.dev/posts/observer-pattern/) (also commonly known as the publish-subscribe model), we can observe/subscribe to events emitted by publishers and execute code whenever an event happens.
+
+Implement an [`EventEmitter` class](https://nodejs.org/api/events.html#class-eventemitter) similar to the one in [Node.js](https://nodejs.org/api/events.html) that follows such an observer pattern. The difference between this question and the other [Event Emitter](/questions/javascript/event-emitter) question is the way listeners are unsubscribed. In this version, there's no `emitter.off()` method available on the `EventEmitter` instance. Instead, `emitter.on()` returns an object that has an `off()` method.
+
+Example usage of the `EventEmitter` class:
+
+```js
+const emitter = new EventEmitter();
+
+function addTwoNumbers(a, b) {
+  console.log(`The sum is ${a + b}`);
+}
+
+// Returns a subscription object that has an .off() method.
+const sub = emitter.on('foo', addTwoNumbers);
+emitter.emit('foo', 2, 5);
+// > "The sum is 7"
+
+// Returns a subscription object that has an .off() method.
+emitter.on('foo', (a, b) => {
+  console.log(`The product is ${a * b}`);
+});
+emitter.emit('foo', 4, 5);
+// > "The sum is 9"
+// > "The product is 20"
+
+sub.off(); // This unsubscribes the callback that logs the sum of the numbers.
+emitter.emit('foo', -3, 9);
+// > "The product is -27"
+// (Only the multiply callback is triggered, the first one was unsubscribed.)
+```
+
+Implement the following APIs:
+
+## `new EventEmitter()`
+
+Creates an instance of the `EventEmitter` class. Events and listeners are isolated within the `EventEmitter` instances they're added to, aka listeners shouldn't react to events emitted by other `EventEmitter` instances.
+
+## `emitter.on(eventName, listener)`
+
+Adds a callback function (`listener`) that will be invoked when an event with the name `eventName` is emitted.
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `eventName` | `string` | The name of the event. |
+| `listener` | `Function` | The callback function to be invoked when the event occurs. |
+
+Returns an object that has an `off()` method that unsubscribes this listener from the event. More details below.
+
+## `emitter.emit(eventName[, ...args])`
+
+Invokes each of the listeners listening to `eventName` with the supplied arguments in order.
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `eventName` | `string` | The name of the event. |
+| `...args` | `any` | Arguments to invoke the list of listener functions with. |
+
+## `sub.off()`
+
+This object is returned from an `emitter.on()` call. Calling `sub.off()` unsubscribes the respective listener from the event.

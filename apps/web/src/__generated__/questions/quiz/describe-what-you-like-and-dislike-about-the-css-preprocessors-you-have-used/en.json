@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used",
+    "title": "Describe what you like and dislike about the CSS preprocessors you have used.",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var t=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var w=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var p=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),b=(i,e)=>{for(var s in e)t(i,s,{get:e[s],enumerable:!0})},o=(i,e,s,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of w(e))!m.call(i,r)&&r!==s&&t(i,r,{get:()=>e[r],enumerable:!(a=u(e,r))||a.enumerable});return i};var g=(i,e,s)=>(s=i!=null?l(f(i)):{},o(e||!i||!i.__esModule?t(s,\"default\",{value:i,enumerable:!0}):s,i)),v=i=>o(t({},\"__esModule\",{value:!0}),i);var d=p((_,c)=>{c.exports=_jsx_runtime});var k={};b(k,{default:()=>j,frontmatter:()=>x});var n=g(d()),x={title:\"Describe what you like and dislike about the CSS preprocessors you have used.\"};function h(i){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\",code:\"code\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Likes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Mostly the advantages mentioned in \",(0,n.jsx)(e.a,{href:\"/questions/quiz/what-are-the-advantages-disadvantages-of-using-css-preprocessors\",children:'\"What are the advantages/disadvantages of using CSS preprocessors?\"'}),\".\"]}),`\n`,(0,n.jsx)(e.li,{children:\"Less is written in JavaScript, which plays well with Node.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Dislikes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Sass relies on \",(0,n.jsx)(e.code,{children:\"node-sass\"}),\", which is a binding for LibSass written in C++. The library has to be recompiled frequently when when switching between Node.js versions.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"In Less, variable names are prefixed with \",(0,n.jsx)(e.code,{children:\"@\"}),\", which can be confused with native CSS keywords like \",(0,n.jsx)(e.code,{children:\"@media\"}),\", \",(0,n.jsx)(e.code,{children:\"@import\"}),\" and \",(0,n.jsx)(e.code,{children:\"@font-face\"}),\" rule.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function S(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(h,i)})):h(i)}var j=S;return v(k);})();\n;return Component;"
+}

@@ -1,0 +1,43 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import recursiveMergeSort from '../src/merge-sort';
+
+Merge sort is a stable comparison-based algorithm, with a time complexity of O(nlog(n)) in all cases. It is commonly used in practice as a general-purpose algorithm for sorting arrays of all sizes.
+
+## Clarification Questions
+
+If unspecified:
+
+- Should the data be sorted in an ascending or descending order?
+- Should the data be sorted in-place or is it acceptable to use additional data structures?
+- What kinds of inputs do we need to handle?
+  - Will it just be an array of integers or should we handle other data types?
+  - Are there a large number of duplicate elements?
+  - How should negative numbers be handled?
+
+## Solution
+
+Note: This question tackles a standard merge sort which is recursive and not "in-place" for an output in ascending order.
+
+<MDXCodeBlock>{recursiveMergeSort}</MDXCodeBlock>
+
+## Edge Cases
+
+- Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
+- Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
+- Already sorted input: You may want to detect sorting and return the input unchanged.
+- Invalid input: If the input is not a array, consider throwing an error.
+
+## Time Complexity
+
+In the case of merge sort, the best, average and worst case time complexity are all O(nlog(n)). This means that the time taken for sorting is directly proportional to the product of the array size and logarithm of array size.
+
+The dividing step has a time complexity proportional to the height of the binary tree created due to repeated divisions of the input array in half, and the number of steps is log(n) + 1 at most. Finding the middle of any subarray is a single-step operation that costs O(1). Hence, we expect a time complexity of O(log(n)) for this.
+
+The merging step takes O(n) time for each subarray created by division, as it requires combining of n elements into a single sorted list.
+
+Overall, the time complexity of merge sort is n(log(n) + 1) = O(nlog(n)).
+
+## Space Complexity
+
+In terms of space complexity, it is O(n) for a standard merge sort that is recursive and not in-place. The merge step requires the creation of a new array to store the merged result of the 2 halves. At the very last merge step, we expect the array to be as large as the input array. Hence, the space requirement is linear.

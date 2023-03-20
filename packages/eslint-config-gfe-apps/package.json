@@ -1,0 +1,17 @@
+{
+  "name": "@gfe/eslint-config-gfe-apps",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "@gfe/eslint-config-gfe-core": "*",
+    "eslint-plugin-formatjs": "^4.7.1"
+  },
+  "peerDependencies": {
+    "eslint": ">= 8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

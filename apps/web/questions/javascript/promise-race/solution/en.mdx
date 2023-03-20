@@ -1,0 +1,45 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseRace from '../src/promise-race';
+import promiseRaceThen from '../src/promiseRaceThen';
+
+Async programming is frequently tested during interviews. Understanding how `Promise.race` works under the hood will help you in understanding the mechanisms behind similar `Promise`-related functions like `Promise.any`, `Promise.all`, `Promise.allSettled` etc.
+
+## Solution
+
+There are a few aspects to this question we need to bear in mind and handle:
+
+1. `Promise`s are meant to be chained, so the function needs to return a `Promise`.
+1. If the input array is empty, the returned `Promise` will be forever pending.
+1. The input array can contain non-`Promise`s.
+
+We'll return a `Promise` at the top level of the function. We first check if the input array is empty, and just return without resolving or rejecting.
+
+We then need to attempt resolving every item in the input array. This can be achieved using `Array.prototype.forEach` or `Array.prototype.map`.
+
+- If a item is resolved, resolve with the value.
+- If a item is rejected, reject with the reason.
+
+Since it's a race, we don't have to do much. Whichever item is resolved/rejected first wins and calls the `resolve`/`reject` function respectively.
+
+One thing to note here is that because the input array can contain non-`Promise` values, if we are not `await`-ing them, we need to wrap each value with `Promise.resolve()` which allows us to use `.then()` on each of them and we don't have to differentiate between `Promise` vs non-`Promise` values and whether they need to be resolved.
+
+<MDXCodeBlock>{promiseRace}</MDXCodeBlock>
+
+Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`, which is much shorter.
+
+<MDXCodeBlock>{promiseRaceThen}</MDXCodeBlock>
+
+## Edge Cases
+
+- Empty input array. A forever-pending promise should be returned.
+- If the array contains non-`Promise` values, `Promise.race()` will resolve to the first of these values found in the iterable.
+
+## Techniques
+
+- Knowledge of `Promise`s, how to construct one, how to use them.
+- Async programming.
+
+## Resources
+
+- [Promise.race() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)

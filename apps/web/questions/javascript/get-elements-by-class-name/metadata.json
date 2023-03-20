@@ -1,0 +1,21 @@
+{
+  "slug": "get-elements-by-class-name",
+  "created": "2022-06-16T00:00:00.000Z",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "companies": [
+    "dropbox",
+    "linkedin"
+  ],
+  "premium": true,
+  "duration": 25,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "similar_questions": [
+    "get-elements-by-tag-name"
+  ]
+}

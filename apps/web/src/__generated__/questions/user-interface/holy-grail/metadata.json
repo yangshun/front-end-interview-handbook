@@ -1,0 +1,36 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1658275200,
+  "difficulty": "easy",
+  "duration": 15,
+  "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/holy-grail/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/holy-grail",
+  "importance": "high",
+  "languages": [
+    "html",
+    "css"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "todo-list",
+    "contact-form"
+  ],
+  "premium": false,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "tweet"
+  ],
+  "slug": "holy-grail",
+  "title": "Holy Grail"
+}

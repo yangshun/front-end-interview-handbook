@@ -1,0 +1,200 @@
+'use client';
+
+import { useSelectedLayoutSegment } from 'next/navigation';
+
+import { useUserProfile } from '~/components/global/UserProfileProvider';
+import DiscordIcon from '~/components/icons/DiscordIcon';
+import GitHubIcon from '~/components/icons/GitHubIcon';
+import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Tabs from '~/components/ui/Tabs';
+import Text from '~/components/ui/Text';
+
+import {
+  CalendarIcon,
+  EnvelopeIcon,
+  StarIcon,
+  UserCircleIcon,
+} from '@heroicons/react/24/solid';
+import type { User } from '@supabase/auth-helpers-nextjs';
+
+type Props = Readonly<{
+  children: React.ReactNode;
+  user: User;
+}>;
+
+type ProfileTabItem = 'account' | 'activity' | 'billing' | 'security';
+type ProfileTabItemData = Readonly<{
+  href: string;
+  label: string;
+  value: ProfileTabItem;
+}>;
+
+const TabsData: Record<ProfileTabItem, ProfileTabItemData> = {
+  account: { href: '/profile/account', label: 'Account', value: 'account' },
+  activity: { href: '/profile', label: 'Activity', value: 'activity' },
+  billing: { href: '/profile/billing', label: 'Billing', value: 'billing' },
+  security: { href: '/profile/security', label: 'Security', value: 'security' },
+};
+
+const TabsList: ReadonlyArray<ProfileTabItemData> = [
+  TabsData.activity,
+  TabsData.account,
+  TabsData.billing,
+  TabsData.security,
+];
+
+export default function ProfileShell({ user, children }: Props) {
+  const segment = useSelectedLayoutSegment() ?? 'activity';
+  const { userProfile, isUserProfileLoading } = useUserProfile();
+
+  return (
+    <>
+      <Heading className="sr-only">Profile</Heading>
+      <Section>
+        {/* 3 column wrapper */}
+        <div className="mx-auto w-full max-w-6xl flex-grow border-slate-200 lg:flex lg:border-x">
+          {/* Left sidebar & main wrapper */}
+          <div className="min-w-0 flex-1 bg-white xl:flex">
+            {/* Account profile */}
+            <div className="xl:w-64 xl:flex-shrink-0 xl:px-6">
+              <div className="py-6 px-4 sm:px-6 lg:px-8 xl:px-0">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1 space-y-8">
+                    <div className="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
+                      {/* Profile */}
+                      <div className="flex items-center space-x-3">
+                        {user?.user_metadata?.avatar_url && (
+                          <div className="h-24 w-24 flex-shrink-0">
+                            <img
+                              alt={user?.user_metadata?.full_name}
+                              className="h-24 w-24 rounded-full"
+                              src={user?.user_metadata?.avatar_url}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    {/* Meta info */}
+                    <div className="flex flex-col space-y-6 sm:flex-row sm:space-y-0 sm:space-x-8 xl:flex-col xl:space-x-0 xl:space-y-4">
+                      {user?.user_metadata?.full_name && (
+                        <Text display="block" weight="bold">
+                          {user?.user_metadata?.full_name}
+                        </Text>
+                      )}
+                      {!isUserProfileLoading && (
+                        <>
+                          <div className="flex items-center space-x-2">
+                            {userProfile?.isPremium ? (
+                              <span className="to-brand-600 inline-flex items-center space-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
+                                <StarIcon
+                                  aria-hidden="true"
+                                  className="text-white-400 h-5 w-5 shrink-0"
+                                />
+                                <Text variant="body3" weight="bold">
+                                  PREMIUM
+                                </Text>
+                              </span>
+                            ) : (
+                              <Button
+                                display="block"
+                                href="/pricing"
+                                label="Get Full Access"
+                                size="sm"
+                                variant="special"
+                              />
+                            )}
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <EnvelopeIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 shrink-0 text-slate-400"
+                            />
+                            <Text color="secondary" variant="body2">
+                              {user.email}
+                            </Text>
+                          </div>
+                          {process.env.NODE_ENV === 'development' && (
+                            <div className="flex items-center space-x-2">
+                              <UserCircleIcon
+                                aria-hidden="true"
+                                className="h-5 w-5 shrink-0 text-slate-400"
+                              />
+                              <Text color="secondary" variant="body2">
+                                {user.id}
+                              </Text>
+                            </div>
+                          )}
+                          {userProfile?.createdAt && (
+                            <div className="flex items-center space-x-2">
+                              <CalendarIcon
+                                aria-hidden="true"
+                                className="h-5 w-5 shrink-0 text-slate-400"
+                              />
+                              <Text color="secondary" variant="body2">
+                                Joined{' '}
+                                {new Date(
+                                  userProfile?.createdAt,
+                                ).toLocaleDateString()}
+                              </Text>
+                            </div>
+                          )}
+                          {/* Signed in via GitHub  */}
+                          {user?.user_metadata.user_name &&
+                            user?.user_metadata.iss.includes('github.com') && (
+                              <div className="flex items-center space-x-2">
+                                <GitHubIcon
+                                  aria-hidden="true"
+                                  className="h-5 w-5 shrink-0 text-slate-400"
+                                />
+                                <Text color="secondary" variant="body2">
+                                  <Anchor
+                                    href={`https://github.com/${user?.user_metadata.user_name}`}>
+                                    {user?.user_metadata.user_name}
+                                  </Anchor>
+                                </Text>
+                              </div>
+                            )}
+                          {(userProfile?.plan === 'lifetime' ||
+                            userProfile?.plan === 'year') && (
+                            <div className="flex items-center space-x-2">
+                              <DiscordIcon
+                                aria-hidden="true"
+                                className="h-5 w-5 shrink-0 text-slate-400"
+                              />
+                              <Text color="secondary" variant="body2">
+                                <Anchor href="https://discord.gg/8suTg77xXz">
+                                  Join Discord
+                                </Anchor>
+                              </Text>
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="border-slate-200 bg-white lg:min-w-0 lg:flex-1 lg:border-l">
+              <div className="border-t border-slate-200 pl-4 pr-4 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
+                <div className="flex items-center">
+                  <Tabs
+                    label="Select navigation item"
+                    tabs={TabsList}
+                    value={segment}
+                  />
+                </div>
+              </div>
+              <div className="py-8 px-4 sm:px-6 lg:px-8 xl:px-6">
+                {children}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+    </>
+  );
+}

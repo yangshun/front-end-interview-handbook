@@ -1,0 +1,93 @@
+# System Design
+
+## Framework
+
+- Components Responsibility and API
+- Common pitfalls
+
+## Introduction
+
+The goal of the UIE Architecture & Design interview is to determine if the candidate can design a solution to a higher level problem that requires connecting multiple concepts. This problem should require the understanding of multiple front-end concepts that are important to us (event-driven programming, browsers, performance, transport, API design, etc.). The focus should be on their understanding of these concepts rather than the implementation (although a poor implementation often reveals a poor understanding of concepts).
+
+Because System Design questions are often open-ended, their solutions taking many forms and their performance subjective, this guide offers a series of expectation and considerations for consistent assessment.
+
+## Mechanics of Solution
+
+All problems require different discussions, but in general, System Designs share much of the following:
+
+1. Coding is rarely necessary. Stubbed function calls or pseudo-code usually sufficient
+2. Whiteboarding of systems at play.
+   1. Block diagrams
+   2. Timing diagrams
+   3. Illustration of edge cases
+3. Drawing a picture of the UI
+4. Solution expressed in multiple pieces
+   1. There's usually a few different layers to the system (the DOM vs the control logic / the client vs the server / the API vs the implementation / the cache vs ...)
+   2. Candidate explains clearly how these layers are tied together
+
+## Key Skills Required
+
+- Problem exploration: understand the problem and flesh out the requirements
+- Ability to separate parts of a problem into different components (see the big picture)
+- Articulation of tradeoffs
+- Developing a working solution that connects multiple components together
+- Demonstrate Technical Depth
+- Understand UX and UI considerations
+
+## Evaluation Dimensions
+
+Use the following dimensions as a template for writing feedback and provide structure for your thoughts.
+
+**All UIE System Design write-ups must include** [**leveling guidance**](https://www.internalfb.com/intern/wiki/Engineering/Interviewing/PirateLevelingGuide/). Level recommendations are now included in the invites for Behavioral (Jedi) and Systems Design loops. You can also use inference by looking at the resumes.
+
+- **Problem Exploration**
+  - Understand the problem and flesh out the requirements
+  - Clarify ambiguity
+- **Completeness of solution**
+  - Does it work? Generate a design for a system that addresses the requirements
+  - Try not to dive deep unless you do point-depth dives
+- **API/Component Responsibility**
+  - Tackle the individual parts of the problem while keeping in mind the larger goals
+- **Tradeoffs**
+  - Articulate the positives and negatives of the design that was proposed
+- **Technical Depth**
+  - Showcase domain knowledge and dive into a broad range of considerations
+- **UX/UI**
+  - Consider experience, product concerns, intuitiveness, and performance by empathizing with real-world users
+
+## Keep in Mind
+
+- Problem understanding is part of the expectation
+  - It's up to the interviewer to do a good job explaining. But it's up to the candidate to demonstrate and build understanding by drawing upon their own experience and instincts. This shows up as they talk through ideas and consider different options.
+  - Unlike a Coding (Ninja) or Behavioral (Jedi), the candidate's problem understanding itself and the exploration of the problem are part of the evaluation.
+- Added requirements/considerations
+  - Expect that some candidates will add extra constraints (eg: Pinterest: dynamic number of columns, resizability, infinite images)
+    - Accept this as good signal but consider steering them back to the simpler, original problem.
+  - Decide up front how far off-track you're willing to go
+
+## Expectations for Success
+
+- Frame in terms of signal rather than hitting all of the above dimensions.
+  - For example, an incomplete solution can still result in a hire when there's high confidence they know how to explore the problem space, design a system, weigh tradeoffs, etc. On the other hand, a working solution doesn't imply a 'hire'.
+- System Design problems typically can go off in many different directions
+- For any problem, it's critical to decide in advance to which degree the following are required:
+  - Completeness
+  - Domain knowledge
+  - Product thinking
+  - Edge case support
+
+## Technical Coding Questions
+
+- [Data Table](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Data_Table/) - [Feedback Examples](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Data_Table/Feedback_Examples/)
+- [Pinterest Layout](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Pinterest_Layout/) - [Feedback Examples](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Pinterest_Layout/Feedback_Examples/)
+- [Typeahead](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Typeahead/) - [Feedback Examples](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Typeahead/Feedback_Examples/)
+- [Live Comments](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Live_Comments/)
+- [Infinite Scrolling List](https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Infinite_Scrolling_List/)
+- [Rich Text Editor](<https://www.internalfb.com/intern/wiki/UIE_Interviewing/UIE_Pirate/Rich_Text_Editor_(Pirate)/>)
+
+## Questions
+
+- Video streaming
+  - [How YouTube improved video performance with the Media Capabilities API](https://web.dev/youtube-media-capabilities/)
+- Marketplace
+  - https://web.dev/housing/

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate",
+    "title": "Why is it called a Ternary expression, what does the word \"Ternary\" indicate?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var r in e)i(n,r,{get:e[r],enumerable:!0})},o=(n,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of x(e))!m.call(n,s)&&s!==r&&i(n,s,{get:()=>e[s],enumerable:!(a=p(e,s))||a.enumerable});return n};var j=(n,e,r)=>(r=n!=null?l(u(n)):{},o(e||!n||!n.__esModule?i(r,\"default\",{value:n,enumerable:!0}):r,n)),y=n=>o(i({},\"__esModule\",{value:!0}),n);var h=f((F,c)=>{c.exports=_jsx_runtime});var g={};w(g,{default:()=>b,frontmatter:()=>_});var t=j(h()),_={title:'Why is it called a Ternary expression, what does the word \"Ternary\" indicate?'};function d(n){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:`\"Ternary\" indicates three, and a ternary expression accepts three operands, the test condition, the \"then\" expression and the \"else\" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.`}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function v(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var b=v;return y(g);})();\n;return Component;"
+}

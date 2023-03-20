@@ -1,0 +1,46 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Data Model
+
+Traffic lights are simple state machines where each color is a state and each state is shown for a fixed duration before moving to the next. We can capture the state information (how long to remain in each color for and which color to transition to) using a simple JavaScript object:
+
+```js
+const config = {
+  red: {
+    duration: 4000,
+    next: 'green',
+  },
+  yellow: {
+    duration: 500,
+    next: 'red',
+  },
+  green: {
+    duration: 3000,
+    next: 'yellow',
+  },
+};
+```
+
+Within the `TrafficLight` component, we only need a single state variable, which is the current color. We also set a timer via `setTimeout` to transition to the next color by looking up the `config` object to know what the next color is and when to do so. Do remember to clear the timer upon unmounting of the component to prevent "setState on unmounted component" errors and memory leaks.
+
+### Rendering
+
+The rendering of this component is pretty straightforward and can be achieved with Flexbox. With Flexbox, it's also easy to change the layout of the lights from a vertical one to a horizontal one just by changing the `flex-direction` property.
+
+### Component API
+
+It's a good practice to make components reusable by allowing customization of:
+
+- What the states are.
+- Next states.
+- Each state's duration.
+- The initial state.
+- Traffic light layout (certain countries use certain layouts).
+
+We also define the color of each light within the `config` object so that the `TrafficLight` component is both state and color agnostic. It's even possible to create 2-colored and 4-colored traffic lights just by modifying the `config` object without having to modify the `TrafficLight` component's implementation.
+
+<TestCases />
+<Notes />

@@ -1,0 +1,59 @@
+'use client';
+
+import clsx from 'clsx';
+import { useIntl } from 'react-intl';
+
+import Button from '~/components/ui/Button';
+
+import { ViewColumnsIcon } from '@heroicons/react/24/outline';
+type CodingWorkspaceLayout = 'horizontal' | 'vertical';
+type Props = Readonly<{
+  layout: CodingWorkspaceLayout;
+  onChangeLayout: (layout: CodingWorkspaceLayout) => void;
+}>;
+
+export default function CodingWorkspaceChangLayoutButton({
+  layout,
+  onChangeLayout,
+}: Props) {
+  const intl = useIntl();
+
+  return (
+    <Button
+      icon={({ className, ...others }) => (
+        <ViewColumnsIcon
+          className={clsx(className, layout === 'horizontal' && 'rotate-90')}
+          {...others}
+        />
+      )}
+      isLabelHidden={true}
+      label={intl.formatMessage({
+        defaultMessage: 'Layout',
+        description:
+          'Label for button that changes the layout of the coding workspace',
+        id: 'tJIZWT',
+      })}
+      size="sm"
+      tooltip={
+        layout === 'horizontal'
+          ? intl.formatMessage({
+              defaultMessage: 'Change to vertical',
+              description:
+                'Tooltip for changing to vertical layout for coding workspace',
+              id: 'OkgtcI',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Change to horizontal',
+              description:
+                'Tooltip for changing to horizontal layout for coding workspace',
+              id: '2a4of9',
+            })
+      }
+      tooltipPosition="start"
+      variant="tertiary"
+      onClick={() => {
+        onChangeLayout(layout === 'horizontal' ? 'vertical' : 'horizontal');
+      }}
+    />
+  );
+}

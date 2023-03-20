@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript",
+    "title": "What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},s=(t,e,i,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!g.call(t,a)&&a!==i&&r(t,a,{get:()=>e[a],enumerable:!(o=p(e,a))||o.enumerable});return t};var v=(t,e,i)=>(i=t!=null?h(m(t)):{},s(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),w=t=>s(r({},\"__esModule\",{value:!0}),t);var c=f((E,l)=>{l.exports=_jsx_runtime});var j={};b(j,{default:()=>x,frontmatter:()=>y});var n=v(c()),y={title:\"What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?\"};function d(t){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Advantages\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Fixes some of the longstanding problems in JavaScript and discourages JavaScript anti-patterns.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Enables you to write shorter code, by providing some syntactic sugar on top of JavaScript, which ES5 lacks, but ES2015 is awesome.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Static types are awesome (in the case of TypeScript) for large projects that need to be maintained over time.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Disadvantages\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Smaller community (depends on the language), which means resources, tutorials, libraries, and tooling would be harder to find.\"}),`\n`,(0,n.jsx)(e.li,{children:\"IDE/editor support might be lacking.\"}),`\n`,(0,n.jsx)(e.li,{children:\"These languages will always be behind the latest JavaScript standard.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Developers should be cognizant of what their code is being compiled to\\u200A\\u2014\\u200Abecause that is what would actually be running, and that is what matters in the end.\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. There's more not really a need to use CoffeeScript these days. Instead, TypeScript is the preferred choice because of the added typesafety and improved developer experience it brings.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function S(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var x=S;return w(j);})();\n;return Component;"
+}

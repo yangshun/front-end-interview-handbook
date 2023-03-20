@@ -1,0 +1,9 @@
+## Notes
+
+The update frequency of the timer depends on how accurate we want the clock to be. The maximum we can set is 1000ms, however, the clock's accuracy might be off by 1000ms in the case we load the page nearing the last millisecond of the second. However, using too small of an interval can be quite expensive because of too frequent updates. Hence a middleground we've chosen is 100ms. The clock can only ever be off by 100ms, which is not very noticeable by humans.
+
+The current date/time should be polled in each loop, as opposed to recording the time when the clock was first rendered and incrementing based on the interval duration of the timer because the invocations of the loop can be delayed by processes hogging the main thread and the loop may not run at every fixed interval.
+
+## Accessibility
+
+For a11y reasons, use a `<time>` element with `datetime` attribute set to the current time in 24-hour format so that screen readers can read this component. Otherwise the component will be ignored by screen readers, which is bad. Add the `aria-hidden` attribute to the internals of `<time>` since they are for presentation purposes and not useful to screen readers.

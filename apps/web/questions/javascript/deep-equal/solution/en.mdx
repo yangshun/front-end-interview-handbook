@@ -1,0 +1,57 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepEqual from '../src/deep-equal';
+
+## Solution
+
+Value comparison in JavaScript can be deceptively simple. Normally a triple equal `===`, i.e. strict equality, can do the job: for primitive values, it compares the actual values; for objects, it compares their identities/references, instead of their “contents”. For example, `const a = {id: 1}; const b = {id:1}` are considered different objects by `===` even if they contain the exactly same `id` property. Most of the time this is what you'd want. For this question though, we are going to implement a function that can deeply compare objects. Therefore we can't solely rely on `===` for comparison.
+
+Outside its reference-checking nature, strict equality `===` does have a few edge cases that it can't cover:
+
+1. Two `NaN` values are considered different `NaN === NaN // false`.
+2. Number values `-0 `and `+0` are considered as equal.
+
+A better choice here is to use `Object.is`. This is also what React uses during its reconciliation phase to detect props change for a given component. Check out [this MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) if you want to learn more about it and see how it differs from `===`.
+
+Let's move to discuss the hard part of the question about deep-comparing objects and arrays. First we need to know how to detect their data types. The `typeof` operator is probably the first solution that came to mind but it is not enough for our use case here. First of all, when passed with `null` it wrongly outputs `object` . More importantly, it doesn't distinguish other built-in objects such as `Date` and `Regex` from plain objects and array. That is, it outputs `object` for all of the built-in objects (except for functions). This is not ok because we can only sensibly traverse and deep-compare objects and arrays, and everything else should be compared by references via `Object.is`.
+
+To get around this, you can combine the `instanceof` operator to check for the constructor of a given object. But an easier and cleaner way to detect data types is to use `Object.prototype.toString`. Check out [my article](https://www.zhenghao.io/posts/js-data-type) if you want to dive deep on this topic.
+
+Now I have a utility function `shouldDeepCompare` that will tell us whether we should traverse down the current property of the input object based on the data type retrieved by `getType`. When the current property is _not_ an object or an array, we can proceed to compare their types and values via `Object.is`.
+
+```js
+function shouldDeepCompare(type) {
+  return type === '[object Object]' || type === '[object Array]';
+}
+
+function getType(value) {
+  return Object.prototype.toString.call(value);
+}
+
+export default function deepEqual(value1, value2) {
+  const type1 = getType(value1);
+  const type2 = getType(value2);
+
+  if (type1 === type2 && shouldDeepCompare(type1) && shouldDeepCompare(type2)) {
+    // When both props are objects or arrays, we traverse into them by calling `isEqual` again.
+  }
+
+  return Object.is(value1, value2);
+}
+```
+
+Now let's work on the case where both input values are objects or arrays. Because we need to traverse down any objects/arrays we found in the input. If it is an array, we can just loop through the items. However if it is an object, we either use `for...in` statement to loop through all the keys (own keys _and_ inherited keys), or we can convert its own enumerable, non-symbol-keyed properties into an array of key-value pairs with `Object.entries` and then we can loop through that array instead. The benefits with the second approach are:
+
+1. We only get its own properties, as opposed to inherited ones.
+
+1. We can bail out of comparison if the lengths of two arrays are different. That is, two objects/arrays have different numbers of properties/items.
+
+Here is the complete solution
+
+<MDXCodeBlock>{deepEqual}</MDXCodeBlock>
+
+## Edge Cases
+
+- Cyclic objects, i.e. objects with circular references are not handled.
+- [Property descriptors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) are not taken into account when comparing properties.
+- Non-enumerable properties and symbol-keyed properties are not compared.

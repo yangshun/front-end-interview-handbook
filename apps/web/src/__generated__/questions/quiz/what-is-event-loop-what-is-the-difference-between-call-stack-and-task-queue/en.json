@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "salesforce"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue",
+    "title": "What is event loop?",
+    "subtitle": "What is the difference between call stack and task queue?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var m=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var o in e)s(t,o,{get:e[o],enumerable:!0})},c=(t,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of p(e))!k.call(t,a)&&a!==o&&s(t,a,{get:()=>e[a],enumerable:!(i=u(e,a))||i.enumerable});return t};var v=(t,e,o)=>(o=t!=null?d(f(t)):{},c(e||!t||!t.__esModule?s(o,\"default\",{value:t,enumerable:!0}):o,t)),w=t=>c(s({},\"__esModule\",{value:!0}),t);var r=m((q,h)=>{h.exports=_jsx_runtime});var _={};b(_,{default:()=>y,frontmatter:()=>x});var n=v(r()),x={title:\"What is event loop?\",subtitle:\"What is the difference between call stack and task queue?\"};function l(t){let e=Object.assign({p:\"p\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"If you haven't already checked out Philip Robert's \",(0,n.jsx)(e.a,{href:\"https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html\",children:\"talk on the Event Loop\"}),\", you should. It is one of the most viewed videos on JavaScript.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function j(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(l,t)})):l(t)}var y=j;return w(_);})();\n;return Component;"
+}

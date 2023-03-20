@@ -1,0 +1,13 @@
+---
+title: How would you approach fixing browser-specific styling issues?
+---
+
+- After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
+- Use libraries like Bootstrap that already handles these styling issues for you.
+- Use `autoprefixer` to automatically add vendor prefixes to your code.
+- Use Reset CSS or Normalize.css.
+- If you're using PostCSS (or a similar CSS transpilation library), there may be plugins which allow you to opt in to using modern CSS syntax (and even W3C proposals) that will transform those sections of your code into equivalent backward-compatible code that will work in the targets you've used.
+
+## References
+
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)

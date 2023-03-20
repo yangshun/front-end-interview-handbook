@@ -1,0 +1,75 @@
+---
+title: What are the different ways to visually hide content (and make it available only for screen readers)?
+---
+
+These techniques are related to accessibility (a11y).
+
+## Small/zero size
+
+`width: 1px; height: 1px` and a combination of using CSS clip to make the element take up (barely any) space on the screen at all.
+
+Using `width: 0; height; 0` is not recommended because search engines might penalize this thinking it has a malicious intention, like keyword stuffing.
+
+## Absolute positioning
+
+`position: absolute; left: -99999px` will position an element way outside of the screen. However, as per [WebAIM's article](https://webaim.org/techniques/css/invisiblecontent/):
+
+> Navigable elements, such as links and form controls, should not be hidden off-screen. They would still be navigable by sighted keyboard users, but would not be visible to them, unless they are styled to become visible when they receive keyboard focus.
+
+Use this only when your contents contain only text.
+
+## Text indentation
+
+`text-indent: -9999px`. This only works on text within the `block` elements. Similar to the absolute positioning technique above, focusable elements given this style will still be focusable, causing confusion for sighted users who use keyboard navigation.
+
+## Incorrect ways
+
+The following ways are incorrect because they hide content from the user **AND** screen readers, which is incorrect if the purpose is to expose to screen readers only.
+
+- `display: none`
+- `visibility: hidden`
+- `hidden` attribute
+
+## Techniques in the wild
+
+Ideally, it is recommended to combine the above approaches to make sure it works properly in all browsers.
+
+Instead of implementing your own way to remove an element from the rendering tree and the a11y tree, you are recommended to use one of the following approaches from mature CSS frameworks, which have been battle-tested on many websites.
+
+### Tailwind CSS
+
+```css
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+```
+
+### Bootstrap CSS
+
+```css
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+```
+
+## References
+
+- [CSS in Action - Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)

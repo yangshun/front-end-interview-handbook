@@ -1,0 +1,430 @@
+<div className="not-prose rounded-md bg-amber-500 p-4">
+  <h2 className="text-sm font-medium text-white">Note: Work in Progress!</h2>
+  <p className="mt-2 text-sm text-white">
+    The solution is still being worked on but we'd like to share the drafts so
+    that interested users can still benefit from it in the meanwhile and provide
+    feedback.
+  </p>
+</div>
+
+## Requirements Exploration
+
+### What are the core functionalities needed?
+
+- Sending email messages to an SMTP server.
+- Retrieving email messages from an IMAP server.
+- Access email messages already on the device.
+
+### What operating systems does the app need to support?
+
+The popular ones: Windows, macOS, and Linux/Ubuntu.
+
+### What email services/accounts need to be supported?
+
+We don't have to focus on that aspect for this question. Assume that the user can make authenticated requests to preconfigured SMTP/IMAP servers to send/retrieve emails successfully.
+
+Many native desktop email clients like Apple Mail, Outlook, and Mailspring allow users to connect to multiple email services like iCloud Mail, Gmail, Exchange to show emails from multiple services within the app. However, that is beyond the scope for this question.
+
+### Does the application need to work offline?
+
+Yes, where possible. Outgoing email messages should be saved and sent out when the application goes online. Users should still be allowed to browse and search for emails on the device even if they are offline.
+
+### Should emails between the same sender and topic be threaded?
+
+Threading of message conversations will be good but not required.
+
+---
+
+## Background Knowledge
+
+Email client applications are quite different from your traditional web applications due to the fact that server requests are made using non-HTTP protocols like SMTP and IMAP. It is unlikely interviewers will require candidates to be familiar with how the common email protocols work, so you can assume you are working with HTTP-based APIs for sending and retrieving emails.
+
+Nevertheless, we'll cover some fundamental email system concepts for the sake of learning.
+
+### Parts of Email Systems
+
+- **Mail User Agent (MUA)**: An application where users can compose, send, receive, and read email messages. Other non-core functionalities include searching, flagging, address books, etc. These can be desktop applications with graphical user interfaces (Outlook, Apple Mail), or command line programs.
+- **Mail Transfer Agent (MTA)**: A software that transfers email messages from one host to another using the SMTP protocol. MTAs can exist on both users' devices and mail servers.
+- **Mail Servers**: Computers which host the MTAs and stores the email messages in a mailbox.
+- **Mailbox**: A mailbox is a conceptual entity that does not necessarily pertain to storage and is identified by an email address. It contains email messages and typically exists on mail servers.
+
+### Mail Transport Protocols
+
+If you have set up email clients before, you might have come across the terms SMTP, POP and IMAP. SMTP is an outgoing email protocol used to send messages while POP and IMAP are incoming email protocols that email servers support to allow clients to retrieve messages.
+
+The benefit of having standardized protocols for sending and retrieving messages is that email services can send messages between each other and email clients can connect to any email service.
+
+#### Simple Mail Transport Protocol (SMTP)
+
+[Simple Mail Transport Protocol](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) is a protocol for sending email messages over the internet used by mail servers, MTAs, and MUAs (non-webmail).
+
+SMTP uses a simple set of commands to transfer messages, including commands to authenticate the sender, specify the recipient(s), and sending the message.
+
+Nylas discussed about SMTP relays in detail in their blog post ["SMTP vs. Web API: The Best Methods for Sending Email"](https://www.nylas.com/blog/smtp-vs.-web-api-the-best-methods-for-sending-email/). Here's an [example SMTP conversation](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol#SMTP_transport_example) with an SMTP server over the command line. Lines starting with `S:` are sent from the server and line starting with `C:` are written from the user.
+
+```sh
+$ openssl s_client -connect smtp.example.com:465 -crlf
+
+S: 220 smtp.example.com ESMTP Postfix
+C: HELO relay.example.org
+S: 250 Hello relay.example.org, I am glad to meet you
+C: AUTH LOGIN
+S: 334 VXNlcm5hbWU6
+C: dXNlcm5hbWUuY29t # Username encoded in Base64
+S: 334 UGFzc3dvcmQ6
+C: bXlwYXNzd29yZA== # Password encoded in Base64
+S: 235 Authentication succeeded
+C: MAIL FROM:<bob@example.org>
+S: 250 Ok
+C: RCPT TO:<alice@example.com>
+S: 250 Ok
+C: RCPT TO:<theboss@example.com>
+S: 250 Ok
+C: DATA
+S: 354 End data with <CR><LF>.<CR><LF>
+C: From: "Bob Example" <bob@example.org>
+C: To: "Alice Example" <alice@example.com>
+C: Cc: theboss@example.com
+C: Date: Tue, 15 Jan 2008 16:02:43 -0500
+C: Subject: Test message
+C:
+C: Hello Alice.
+C: This is a test message with 5 header fields and 4 lines in the message body.
+C: Your friend,
+C: Bob
+C: .
+S: 250 Ok: queued as 12345
+C: QUIT
+S: 221 Bye
+{The server closes the connection}
+```
+
+Specification of SMTP can be found in [RFC5321](https://www.rfc-editor.org/rfc/rfc5321).
+
+#### Post Office Protocol (POP)
+
+[Post Office Protocol](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a traditional standard protocol for accessing email messages on a mail server. Messages are kept on the server only until the first device accesses and downloads them. As the name suggests, once an email is downloaded, it is usually deleted from the server, just like how post offices act as temporary storage for physical mail before they get delivered to recipients.
+
+POP3 is the most recent widely-used version of POP but is older than newer protocols like IMAP and less feature. POP is generally considered less desirable than IMAP as it is less flexible and does not allow for server-side searching or message flagging.
+
+The specification for POP3 can be found in [RFC1939](https://www.rfc-editor.org/rfc/rfc1939).
+
+#### Internet Message Access Protocol (IMAP)
+
+[Internet Message Access Protocol](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) is a standard protocol for accessing email messages on a mail server with the latest version being IMAP4. IMAP allows users to retrieve and manage their email messages within webmail and email clients, without having to download them to the local computer. IMAP also allows users to access their email from multiple devices and locations, and provides features such as server-side searching and message flagging.
+
+IMAP addresses many of the shortcomings of POP, at the cost of server storage. Nylas published a [deep dive into IMAP](https://www.nylas.com/blog/nylas-imap-therefore-i-am/) on their engineering blog which we highly recommend checking out.
+
+The specification for IMAP4 can be found in [RFC3501](https://www.rfc-editor.org/rfc/rfc3501).
+
+#### POP vs IMAP
+
+Here's a table comparing the POP (POP3) and IMAP (IMAP4) protocols.
+
+| Feature | POP3 | IMAP |
+| --- | --- | --- |
+| Source of truth | Client(s) | Server |
+| No. of simultaneous clients | One | Multiple |
+| No. of mailboxes | One | Multiple |
+| Message downloading | Entire message | Individual parts |
+| Message [flagging](https://www.rfc-editor.org/rfc/rfc3501#section-2.3.2) (seen, answered, deleted) | No | Yes |
+| Deleted from server after downloading | Yes by default | No |
+| Server-side search | No | Yes |
+| Server storage usage | Low | High |
+
+_Reference: [IMAP vs. POP3: What's the Difference? Which One Should You Use?](https://www.makeuseof.com/tag/pop-vs-imap/)_
+
+It is an expectation to access emails on multiple devices today and view a consistent mailbox state across different client devices, so POP's model is outdated. The main advantage of POP is that less server storage space is needed, but that is usually not a concern these days since storage is relatively cheap.
+
+IMAP is the prevalent email protocol in the current age but many email clients still support retrieving emails from both IMAP and POP servers.
+
+### Email Server Configurations
+
+Popular email services have the following configurations.
+
+| Service | SMTP | IMAP | POP |
+| --- | --- | --- | --- |
+| [Gmail](https://support.google.com/mail/answer/7126229) | `smtp.gmail.com` | `imap.gmail.com` | `pop.gmail.com` |
+| [Outlook](https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) | `smtp-mail.outlook.com` | `outlook.office365.com` (port 993) | `outlook.office365.com` (port 995) |
+| [iCloud](https://support.apple.com/en-us/HT202304) | `smtp.mail.me.com` | `imap.mail.me.com` | Unsupported |
+
+### Email Flow
+
+Let's assume the following users with the respective roles, services, and types of clients:
+
+| User  | Role     | Service | Client Type |
+| ----- | -------- | ------- | ----------- |
+| Alice | Sender   | Gmail   | Desktop App |
+| Bob   | Receiver | Outlook | Desktop App |
+| Carol | Sender   | Gmail   | Webmail     |
+| David | Receiver | Outlook | Webmail     |
+
+We'll go through the flows detailing how messages are sent between the various types of clients.
+
+<figure>
+  <img
+    alt="Email flow"
+    className="mx-auto w-full max-w-7xl"
+    loading="lazy"
+    src="/img/questions/email-client-outlook/email-flow.png"
+  />
+  <figcaption>How email messages travel from senders to recipient</figcaption>
+</figure>
+
+**Important notes:**
+
+- Mail services can be running SMTP servers and IMAP/POP servers on the same machine or on different machines. The decision is not important for our discussion as long as the servers for a mail service have access to the same email message database.
+- The arrows directions indicate the flow of the email message, and not the origin of the request. IMAP/POP requests are initiated by clients, not pushed from the mail servers.
+- Gmail's IMAP servers are not shown because in the above scenario, Gmail is only used for sending and not receiving.
+- The DNS lookup stage for the MX (Mail Exchange) record is omitted for simplicity. SMTP servers use the domain name of the recipient's email address to look up DNS records for that domain (MX records in particular) to determine the address of the mail server.
+- MTAs are pretty general terms but they all use SMTP to send messages. SMTP servers are MTAs.
+
+#### Email Client -> Email Client
+
+1. Alice (alice@gmail.com) wants to send an email to Bob (bob@outlook.com).
+1. Alice's email client desktop app sends the message to the MTA, a software running on her computer.
+1. Alice's computer's MTA sends the message to Gmail's SMTP server (`smtp.gmail.com`) over SMTP.
+1. Gmail's SMTP servers send the message to Outlook's SMTP servers (`smtp-mail.outlook.com`) over SMTP and the message is saved into Outlook's database.
+1. Bob's email desktop client makes IMAP requests to Outlook's IMAP servers (`outlook.office365.com:993`).
+1. Outlook's IMAP servers retrieve the message from the database and send it back to Bob's desktop client over IMAP.
+1. Bob's email desktop client displays the new email message from Alice.
+
+#### Email Client -> Webmail
+
+1. Alice (alice@gmail.com) wants to send an email to David (david@outlook.com).
+1. Alice's email client desktop app sends the message to the MTA, a software running on her computer.
+1. Alice's computer's MTA to send the message to Gmail's SMTP server (`smtp.gmail.com`) over SMTP.
+1. Gmail's SMTP servers send the message to Outlook's SMTP servers (`smtp-mail.outlook.com`) over SMTP and the message is saved into Outlook's database.
+1. David accesses Outlook webmail by visiting `https://outlook.live.com` in his browser.
+1. The servers hosting `outlook.live.com` makes IMAP requests to Outlook's IMAP servers (`outlook.office365.com:993`).
+1. Outlook's IMAP servers retrieve the message from the database and send it back to `outlook.live.com`.
+1. The servers hosting `outlook.live.com` sends the response to David's browser over HTTP.
+1. David's browser displays the new email message from Alice.
+
+#### Webmail -> Email Client
+
+1. Carol (carol@gmail.com) wants to send an email to Bob (bob@outlook.com).
+1. Carol accesses Gmail webmail by visiting `https://www.gmail.com` in her browser.
+1. Carol sends out an email message from Gmail webmail, which makes a HTTP request to `gmail.com` servers.
+1. `gmail.com` servers uses its MTA software to send the message to Gmail's SMTP server (`smtp.gmail.com`) over SMTP.
+1. Gmail's SMTP servers send the message to Outlook's SMTP servers (`smtp-mail.outlook.com`) over SMTP and the message is saved into Outlook's database.
+1. Bob's email desktop client makes IMAP requests to Outlook's IMAP servers (`outlook.office365.com:993`).
+1. Outlook's IMAP servers retrieve the message from the database and send it back to Bob's desktop client over IMAP.
+1. Bob's email desktop client displays the new email message from Carol.
+
+#### Webmail -> Webmail
+
+1. Carol (carol@gmail.com) wants to send an email to David (david@outlook.com).
+1. Carol accesses Gmail webmail by visiting `https://www.gmail.com` in her browser.
+1. Carol sends out an email message from Gmail webmail, which makes a HTTP request to `gmail.com` servers.
+1. `gmail.com` servers uses its MTA software to send the message to Gmail's SMTP server (`smtp.gmail.com`) over SMTP.
+1. Gmail's SMTP servers send the message to Outlook's SMTP servers (`smtp-mail.outlook.com`) over SMTP and the message is saved into Outlook's database.
+1. David accesses Outlook webmail by visiting `https://outlook.live.com` in his browser.
+1. The servers hosting `outlook.live.com` makes IMAP requests to Outlook's IMAP servers (`outlook.office365.com:993`).
+1. Outlook's IMAP servers retrieve the message from the database and send it back to `outlook.live.com` over IMAP.
+1. The servers hosting `outlook.live.com` sends the response to David's browser over HTTP.
+1. David's browser displays the new email message from Carol.
+
+### Types of Email Systems
+
+Email systems can be broadly categorized into the following types:
+
+#### Store and Forward Servers
+
+Store and forward email servers usually run on POP, where messages are kept on the server only until a user first accesses and downloads them. It is a simple and straightforward design.
+
+**Advantages**
+
+- Messages do not remain on the server for long (until a client accesses them) and server doesn't need to do much processing on them.
+- Client devices usually store the downloaded messages, so users can still access old messages even when there is no internet connection, the mail server is unavailable due to outages.
+- Server does not require much storage space as messages are deleted after downloading.
+
+**Disadvantages**
+
+- Since messages are stored locally, if the server is accessed from multiple client devices, there's no consistent view for all the messages.
+- Users are responsible for backing up and restoring their messages. Without any backup, messages will be lost forever if devices are spoilt/stolen.
+- Functionality such as searching/sorting of messages has to be done locally on the device, which can be computationally intensive for mailboxes containing large amount of messages. In the case of messages being stored across multiple devices, searching is only within the messages on the current device which can be inconvenient.
+
+#### Server-only Mailboxes
+
+In such system, servers act as the source of truth for the messages and even after clients download the messages, the server retains them. Clients do not cache or persist the messages after downloading them. Such servers can run on IMAP and webmail is a common example of such a model.
+
+**Advantages**
+
+- All devices have a consistent view of the mailboxes.
+- Backups can be done by the email service providers without users going through any hassle.
+- Functionality that can be computationally intensive or difficult to be done by clients can be performed on the server. Less powerful devices like mobile phones will benefit from this.
+
+**Disadvantages**
+
+- Requires internet connection to view the messages.
+- Sufficient server storage space is required as it is the source of truth for messages.
+
+#### Server Mailbox with Client-side Cache
+
+A hybrid model combines the best characteristics of both the store and forward servers and the server-only mailbox by having a permanent server mailbox with clients caching/persisting the downloaded messages. Most desktop email clients operate using this model and is the most complex out of the above.
+
+**Advantages**
+
+- Most advantages of store and forward model:
+  - Can access messages even when offline or the email server is unavailable.
+- Advantages of server-only mailboxes:
+  - All devices have a consistent view of the mailboxes.
+  - Backup done by email service providers.
+  - Leverage server-side features like searching.
+
+**Disadvantages**
+
+- Complex synchronization logic between client and server.
+- Sufficient server storage space is required as it is still the source of truth for messages.
+
+_Reference: [NinjaMail: the Design of a High-Performance Clustered, Distributed E-mail System](https://people.eecs.berkeley.edu/~kubitron/papers/ninja/pdf/ninjamail-workshop.pdf)_
+
+### Native HTML Apps
+
+{/* TODO */}
+
+- How to build native apps
+- Talk about examples (Electron/Nativefier/Tauri) and their differences:
+
+## Architecture/High-level Design
+
+### Desktop Client vs Webmail
+
+- Separate into Client app vs Isomorphic core.
+- Abstract out database layer so can select db depending on runtime environment.
+- Values of a native desktop app:
+  - Menubar
+  - Notifications
+  - Keyboard shortcuts that don't conflict with the browser's
+  - Badge
+
+### Flux/Redux Architecture
+
+Use a Flux architecture reducer architecture/Command query request separation. Many different actions in the application which can be abstracted out as application-wide commands and have multiple trigger sources (e.g. UI element interaction, File menu interaction, Keyboard shortcut).
+
+- Central store. Many parts of the UI rely on the same data store.
+- Namespaced commands for better organization and lower chance of collision.
+- Easily implement undo/redo.
+
+- [Mailspring's list of actions](https://github.com/Foundry376/Mailspring/blob/master/app/src/flux/actions.ts)
+
+### SSR vs CSR
+
+- CSR because it's an app.
+
+### Task Queue
+
+- Mutable operations will update the local data store immediately, and queue changes to sync back to your mail provider.
+
+---
+
+## Data Model
+
+{/* TODO */}
+
+Work-in-progress
+
+---
+
+## Interface Definition (API)
+
+{/* TODO */}
+
+Work-in-progress
+
+---
+
+## Optimizations and Deep Dive
+
+- Go through the different email protocols: IMAP, SMTP, POP, etc.
+
+- Synchronizing with the mail server
+  - https://www.rfc-editor.org/rfc/rfc4549
+- Email List
+  - How to do threading
+    - https://www.jwz.org/doc/threading.html
+    - https://www.rfc-editor.org/rfc/rfc5256
+    - [Identifying Quoted Text in Emails](https://patents.google.com/patent/US7222299)
+  - Searching through emails
+  - Sorting through emails
+- Reading
+  - Read email's HTML
+  - Inject a [browser default stylesheet](https://github.com/Foundry376/Mailspring/tree/master/app) or use webview.
+- Composing
+  - Email address autocompletion
+  - Implementing undo send feature
+  - Rich Text/WYSIWYG
+  - Attachments format
+- Performance
+  - Virtual lists
+  - Lazy load emoji picker, etc.
+- a11y
+  - Keyboard shortcuts
+- Networking
+  - Sync frequency
+  - Retries with exponential backoff
+  - Handle offline mode
+- UX
+  - Offline indicator
+  - Swipe gestures
+- Notifications
+- i18n
+  - RTL
+- Extra features
+  - Theming
+  - [Spellcheck](https://github.com/Foundry376/Mailspring/app/src/spellchecker.ts)
+  - Saving drafts
+  - Blocking open tracking
+    - [How open tracking works](https://nylas-mail-lives.gitbooks.io/nylas-mail-docs/content/tracking_and_notifications/226411088-how-does-nylas-perform-open-tracking.html)
+  - Mail rules
+  - Playing sounds
+
+### Composing
+
+{/* TODO */}
+
+Work-in-progress
+
+#### Message Format
+
+{/* TODO */}
+
+Work-in-progress
+
+#### Attachments
+
+- Resume attachment.
+- Async attachment flow.
+
+### Keyboard Shortcuts
+
+- Implement different shortcuts in popular clients like Gmail, Apple Mail, Outlook, etc.
+
+### Undo/redo
+
+- Made easy with action history and centralized store.
+- Toasts
+
+### Performance
+
+- Not that much need for performance.
+- Lazy loading is optional and not a priority since the assets are bundled as part of the app. Network request latency is short, only affects JavaScript boot up and execution time.
+
+{/* TODO: ### Right Click Behavior */}
+
+---
+
+## References
+
+- http://www.slate.com/articles/technology/technology/2015/02/email_overload_building_my_own_email_app_to_reach_inbox_zero.html
+- https://people.eecs.berkeley.edu/~kubitron/papers/ninja/pdf/ninjamail-workshop.pdf
+- https://github.com/nylas/nylas-mail
+- https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol
+- https://www.rfc-editor.org/rfc/rfc3501
+- https://github.com/Foundry376/Mailspring
+- https://web.dev/mailru-cwv/
+- https://zapier.com/blog/best-email-client-for-mac/
+- [Email Architecture, Gmail two Step Verification, SMTP POP3 IMAP](https://www.electroniclinic.com/email-architecture-gmail-two-step-verification-smtp-pop3-imap)
+- [Email Program Classifications](https://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-email-types.html)
+- [How does email work?](https://www.namecheap.com/guru-guides/how-does-email-work)

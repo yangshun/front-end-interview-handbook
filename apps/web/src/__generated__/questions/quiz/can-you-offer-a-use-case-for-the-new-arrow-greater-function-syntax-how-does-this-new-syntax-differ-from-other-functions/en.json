@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-offer-a-use-case-for-the-new-arrow-greater-function-syntax-how-does-this-new-syntax-differ-from-other-functions",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-offer-a-use-case-for-the-new-arrow-greater-function-syntax-how-does-this-new-syntax-differ-from-other-functions",
+    "title": "Can you offer a use case for the new arrow => function syntax?",
+    "subtitle": "How does this new syntax differ from other functions?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var p=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var o in e)s(n,o,{get:e[o],enumerable:!0})},r=(n,e,o,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!m.call(n,i)&&i!==o&&s(n,i,{get:()=>e[i],enumerable:!(c=f(e,i))||c.enumerable});return n};var b=(n,e,o)=>(o=n!=null?l(w(n)):{},r(e||!n||!n.__esModule?s(o,\"default\",{value:n,enumerable:!0}):o,n)),y=n=>r(s({},\"__esModule\",{value:!0}),n);var d=p((C,a)=>{a.exports=_jsx_runtime});var k={};x(k,{default:()=>_,frontmatter:()=>j});var t=b(d()),j={title:\"Can you offer a use case for the new arrow => function syntax?\",subtitle:\"How does this new syntax differ from other functions?\"};function h(n){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[\"One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the \",(0,t.jsx)(e.code,{children:\"function\"}),\" keyword. The \",(0,t.jsx)(e.code,{children:\"this\"}),\" within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the \",(0,t.jsx)(e.code,{children:\"this\"}),\" is determined by the object calling it. Lexically-scoped \",(0,t.jsx)(e.code,{children:\"this\"}),\" is useful when invoking callbacks especially in React components.\"]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function g(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var _=g;return y(k);})();\n;return Component;"
+}

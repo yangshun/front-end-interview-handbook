@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-organize-your-code-module-pattern-classical-inheritance",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "how-do-you-organize-your-code-module-pattern-classical-inheritance",
+    "title": "How do you organize your code?",
+    "subtitle": "Do you use module pattern, classical inheritance, something else?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var a in e)i(n,a,{get:e[a],enumerable:!0})},r=(n,e,a,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!g.call(n,o)&&o!==a&&i(n,o,{get:()=>e[o],enumerable:!(s=u(e,o))||s.enumerable});return n};var w=(n,e,a)=>(a=n!=null?h(m(n)):{},r(e||!n||!n.__esModule?i(a,\"default\",{value:n,enumerable:!0}):a,n)),x=n=>r(i({},\"__esModule\",{value:!0}),n);var l=f((F,c)=>{c.exports=_jsx_runtime});var v={};b(v,{default:()=>_,frontmatter:()=>j});var t=w(l()),j={title:\"How do you organize your code?\",subtitle:\"Do you use module pattern, classical inheritance, something else?\"};function d(n){let e=Object.assign({p:\"p\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"In the past, developers used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.\"}),`\n`,(0,t.jsx)(e.p,{children:\"The module pattern is still great, but these days, developers prefer using React/Redux which utilize a single-directional data flow based on Flux architecture. It is common now to represent an app's data model using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"Avoid using classical inheritance where possible. When and if you do, stick to \",(0,t.jsx)(e.a,{href:\"https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4\",children:\"these rules\"}),\".\"]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var _=y;return x(v);})();\n;return Component;"
+}

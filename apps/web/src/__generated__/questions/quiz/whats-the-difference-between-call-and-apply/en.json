@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-call-and-apply",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 1,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-call-and-apply",
+    "title": "What's the difference between `.call` and `.apply`?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var t in e)o(n,t,{get:e[t],enumerable:!0})},l=(n,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!f.call(n,r)&&r!==t&&o(n,r,{get:()=>e[r],enumerable:!(c=u(e,r))||c.enumerable});return n};var x=(n,e,t)=>(t=n!=null?h(m(n)):{},l(e||!n||!n.__esModule?o(t,\"default\",{value:n,enumerable:!0}):t,n)),y=n=>l(o({},\"__esModule\",{value:!0}),n);var s=g((C,d)=>{d.exports=_jsx_runtime});var v={};w(v,{default:()=>_,frontmatter:()=>b});var a=x(s()),b={title:\"What's the difference between `.call` and `.apply`?\"};function i(n){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(e.p,{children:[\"Both \",(0,a.jsx)(e.code,{children:\".call\"}),\" and \",(0,a.jsx)(e.code,{children:\".apply\"}),\" are used to invoke functions and the first parameter will be used as the value of \",(0,a.jsx)(e.code,{children:\"this\"}),\" within the function. However, \",(0,a.jsx)(e.code,{children:\".call\"}),\" takes in comma-separated arguments as the next arguments while \",(0,a.jsx)(e.code,{children:\".apply\"}),\" takes in an array of arguments as the next argument. An easy way to remember this is C for \",(0,a.jsx)(e.code,{children:\"call\"}),\" and comma-separated and A for \",(0,a.jsx)(e.code,{children:\"apply\"}),\" and an array of arguments.\"]}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-js\",children:`function add(a, b) {\n  return a + b;\n}\n\nconsole.log(add.call(null, 1, 2)); // 3\nconsole.log(add.apply(null, [1, 2])); // 3\n`})}),`\n`,(0,a.jsx)(e.h2,{children:\"References\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsx)(e.li,{children:(0,a.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function j(n={}){let{wrapper:e}=n.components||{};return e?(0,a.jsx)(e,Object.assign({},n,{children:(0,a.jsx)(i,n)})):i(n)}var _=j;return y(v);})();\n;return Component;"
+}

@@ -1,0 +1,35 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Config / API Design
+
+Part of the complexity of building a component is designing the API for it. The `tabs` function accepts a root element, `$rootEl`, where the tabs components will be inserted. The second parameter of the `tabs` function is an object used to store the configuration options. At the bare minimum, we will need the following options:
+
+- `items`: A list of item objects. Each item is an object with the fields:
+  - `value`: A unique identifier for the tab item.
+  - `label`: The text label to show in the tab item.
+  - `details`: The contents to show in the tab panel when the item is active.
+- `defaultValue`: The default tab item/panel to show. In case the `defaultValue` is not provided, we'll use the first item as the value. This is assuming that `items` is non-empty.
+
+The `tabs` function maintains the selected tab value in the `state` object, and it uses the `DOM` object to store references to the tab bar and tab panel elements.
+
+We only need one state value in the component, which is the currently selected tab item. The initial value of this state will either come from the `defaultValue` option or the value of the first item.
+
+The `tabs` function calls the `init`, `update`, and `attachEvents` functions to set up the tabs widget, update its initial state, and attach the necessary event listeners.
+
+### `init`
+
+This function sets up the DOM elements that remain throughout the lifecycle of the component, aka they will never be destroyed. In the Tabs component, the tabs list and the tab panel are always present. This function sets up the root element and creates the tab bar and tab panel elements.
+
+### `attachEvents`
+
+Only a single event listener is necessary in this component, which is the `click` event, to be added to the tablist. We make use of Event Delegation so that only a single event listener has to be added and will work for any of its child contents. This technique is useful given that we'll repeatedly destroy and recreate the DOM nodes for the tabs. If we added separate event listeners to each tab, we'd have to keep adding the event listener each time the tabs are recreated.
+
+### `update`
+
+This function updates the tablist and tab panel elements to reflect the current selected tab value. The tablist is always changing depending on the selected value, hence it will be easier to destroy all the tabs and render them again depending on the updated state. We will also have to update the contents of the panel with the selected tab's details.
+
+<TestCases />
+<Notes />

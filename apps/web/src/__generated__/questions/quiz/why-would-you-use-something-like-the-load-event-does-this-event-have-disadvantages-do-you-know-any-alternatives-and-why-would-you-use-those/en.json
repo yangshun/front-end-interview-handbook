@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
+    "title": "Why would you use something like the `load` event?",
+    "subtitle": "Does this event have disadvantages? Do you know any alternatives, and why would you use those?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var c=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var o in e)s(n,o,{get:e[o],enumerable:!0})},r=(n,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of f(e))!p.call(n,i)&&i!==o&&s(n,i,{get:()=>e[i],enumerable:!(a=u(e,i))||a.enumerable});return n};var b=(n,e,o)=>(o=n!=null?c(m(n)):{},r(e||!n||!n.__esModule?s(o,\"default\",{value:n,enumerable:!0}):o,n)),v=n=>r(s({},\"__esModule\",{value:!0}),n);var h=g((_,d)=>{d.exports=_jsx_runtime});var D={};w(D,{default:()=>y,frontmatter:()=>j});var t=b(h()),j={title:\"Why would you use something like the `load` event?\",subtitle:\"Does this event have disadvantages? Do you know any alternatives, and why would you use those?\"};function l(n){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[\"The \",(0,t.jsx)(e.code,{children:\"load\"}),\" event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"The DOM event \",(0,t.jsx)(e.code,{children:\"DOMContentLoaded\"}),\" will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.\"]}),`\n`,(0,t.jsx)(e.h2,{children:\"References\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(l,n)})):l(n)}var y=x;return v(D);})();\n;return Component;"
+}

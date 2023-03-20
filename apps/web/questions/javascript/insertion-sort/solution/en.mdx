@@ -1,0 +1,56 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import insertionSort from '../src/insertion-sort';
+
+Insertion sort is a stable, in-place, comparison-based algorithm that works well for small to medium-sized arrays as well as arrays that are partially sorted.
+
+It only requires a constant amount of work to sort an array that is already partially sorted.
+
+## Clarification Questions
+
+If unspecified:
+
+- Should the data be sorted in an ascending or descending order?
+- Should the data be sorted in-place or is it acceptable to use additional data structures?
+- What kinds of inputs do we need to handle?
+  - Will it just be an array of integers or should we handle other data types?
+  - Are there a large number of duplicate elements?
+  - How should negative numbers be handled?
+
+## Solution
+
+Note: This question tackles in-place sorting for an output in ascending order. Refer to the 'Notes' section below on how to handle other cases.
+
+<MDXCodeBlock>{insertionSort}</MDXCodeBlock>
+
+## Edge Cases
+
+- Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
+- Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
+- Large input: You may want to consider using additional optimizations like binary search to speed up insertions.
+- Already sorted input: You may want to detect sorting and return the input unchanged.
+- Invalid input: If the input is not a array, consider throwing an error.
+
+## Notes
+
+- If asked to sort in descending order: Just change the comparison to `<` instead of `>`, as per below:
+
+```js
+while (j >= 0 && arr[j] < currentValue)
+```
+
+- If asked to use additional data structures or to write a pure function rather than sorting the data in-place, use the spread operator or `Array.prototype.slice()` to clone the input array and do the sorting on the cloned array instead.
+
+## Time Complexity
+
+In the case of insertion sort, the best case time complexity is O(n), the worst case time complexity is O(n<sup>2</sup>), and the average case time complexity is also O(n<sup>2</sup>).
+
+Due to the nested loop structure required in insertion sort where we have an outer loop that iterates over the array and inner loop which iterates over the already sorted array to find the correct position to insert the current element, the time complexity will generally be O(n<sup>2</sup>) if both loops iterate fully. The discrepancy between different cases is affected by how well sorted the original input is, which affects if we need to run the inner loop at all for specific elements.
+
+- **Worst case time complexity**: When the input is arranged in the complete opposite order the output has to be (e.g. ascending when we need descending). We will need to iterate fully through outer and inner loops for every element, with a time complexity of O(n<sup>2</sup>).
+- **Best case time complexity**: When the input is already sorted or nearly sorted. This means that the inner loop will not need to iterate very much. In the very best case, the input array is already completely sorted and we only run the outer loop for O(n) complexity.
+- **Average case time complexity**: Considering the case where the input array is randomly arranged, the inner loop of the algorithm must still iterate over the sorted portion of the array in order to find the correct position to insert the current element.
+
+## Space Complexity
+
+The space complexity for insertion sort is O(1), as it does in-place sorting and does not require additional storage proportional to input size.

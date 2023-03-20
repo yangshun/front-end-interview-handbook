@@ -1,0 +1,32 @@
+---
+title: Deep Equal
+excerpt: Implement a function that determines if two values are equal
+---
+
+Implement a function `deepEqual` that performs a deep comparison between two values. It returns `true` if two input values are deemed equal, and returns `false` if not.
+
+## Examples
+
+```js
+const v1 = 'foo';
+const v2 = 'foo';
+
+deepEqual(v1, v2); // true
+
+const v3 = { id: 1 };
+const v4 = { id: 1 };
+
+deepEqual(v3, v4); // true
+
+const v5 = [1, 2, 3];
+const v6 = [1, 2, 3];
+
+deepEqual(v5, v6); // true
+
+const v7 = [{ id: '1' }];
+const v8 = [{ id: '2' }];
+
+deepEqual(v7, v8); // false
+```
+
+It needs to support primitive values, plain objects and arrays. For functions and other built-in objects such as `Map` or `Set`, it should simply check for the references/identities i.e. strict equality. You don't need to handle cyclic objects, i.e. objects with circular references.

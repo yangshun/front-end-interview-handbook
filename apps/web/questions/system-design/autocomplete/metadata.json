@@ -1,0 +1,18 @@
+{
+  "slug": "autocomplete",
+  "created": "2022-04-19T00:00:00.000Z",
+  "languages": [],
+  "companies": [
+    "airbnb",
+    "facebook",
+    "lyft",
+    "twitter"
+  ],
+  "premium": false,
+  "duration": 30,
+  "published": true,
+  "featured": true,
+  "importance": "high",
+  "difficulty": "medium",
+  "ranking": 2
+}

@@ -1,0 +1,78 @@
+---
+title: Explain how prototypal inheritance works
+---
+
+This is an extremely common JavaScript interview question. All JavaScript objects have a `__proto__` property with the exception of objects created with `Object.create(null)`, that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+
+## Example of Prototypal Inheritance
+
+```js
+function Parent() {
+  this.name = 'Parent';
+}
+
+Parent.prototype.greet = function () {
+  console.log('Hello from ' + this.name);
+};
+
+const child = Object.create(Parent.prototype);
+
+child.cry = function () {
+  console.log('waaaaaahhhh!');
+};
+
+child.cry();
+// waaaaaahhhh!
+
+child.greet();
+// hello from Parent
+
+child.constructor;
+// ƒ Parent() {
+//   this.name = 'Parent';
+// }
+
+child.constructor.name;
+// 'Parent'
+```
+
+Things to note are:
+
+- `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
+- We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
+  - Object.create(Parent.prototype);
+  - Object.create(new Parent(null));
+  - Object.create(objLiteral);
+  - Currently, `child.constructor` is pointing to the `Parent`:
+
+If we'd like to correct this, one option would be to do:
+
+```js
+function Parent() {
+  this.name = 'Parent';
+}
+
+Parent.prototype.greet = function () {
+  console.log('Hello from ' + this.name);
+};
+
+function Child() {
+  Parent.call(this);
+  this.name = 'Child';
+}
+
+Child.prototype = Object.create(Parent.prototype);
+Child.prototype.constructor = Child;
+
+const child = new Child();
+
+child.greet();
+// hello from Child
+
+child.constructor.name;
+// 'Child'
+```
+
+## References
+
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/javascript-questions)

@@ -1,0 +1,23 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+Implementing a basic (not fully accessible) Tabs component in React is quite simple due to the fact that only one state value is needed, the currently active tab item. React also helps to keep the state and the UI in sync, which is more troublesome to do so in Vanilla JavaScript.
+
+For simplicity sake, we'll create an [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) Tabs component where the state is managed within the Tabs component. During interviews, do clarify with your interviewer if they want you to implement a controlled or uncontrolled component.
+
+### Props (API Design)
+
+Part of the complexity of building a component is designing the API for it. In the case of React, it would be the props of the component. At the bare minimum, we will need the following props:
+
+- `items`: A list of item objects. Each item is an object with the fields:
+  - `value`: A unique identifier for the tab item.
+  - `label`: The text label to show in the tab item.
+  - `details`: The contents to show in the tab panel when the item is active.
+- `defaultValue`: The default tab item/panel to show. In case the `defaultValue` is not provided, we'll use the first item as the value. This is assuming that `items` is non-empty.
+
+For controlled components, there will be a `value` and `onChange` props instead of a `defaultValue` prop.
+
+<TestCases />
+<Notes />

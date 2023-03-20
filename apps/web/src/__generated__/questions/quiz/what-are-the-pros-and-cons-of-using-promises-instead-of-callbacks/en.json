@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "linkedin"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
+    "title": "What are the pros and cons of using Promises instead of callbacks?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var b=(l,e)=>()=>(e||l((e={exports:{}}).exports,e),e.exports),y=(l,e)=>{for(var i in e)r(l,i,{get:e[i],enumerable:!0})},a=(l,e,i,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!w.call(l,o)&&o!==i&&r(l,o,{get:()=>e[o],enumerable:!(t=u(e,o))||t.enumerable});return l};var f=(l,e,i)=>(i=l!=null?d(p(l)):{},a(e||!l||!l.__esModule?r(i,\"default\",{value:l,enumerable:!0}):i,l)),x=l=>a(r({},\"__esModule\",{value:!0}),l);var s=b((C,c)=>{c.exports=_jsx_runtime});var _={};y(_,{default:()=>j,frontmatter:()=>k});var n=f(s()),k={title:\"What are the pros and cons of using Promises instead of callbacks?\"};function h(l){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\",a:\"a\"},l.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Pros\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Avoid callback hell which can be unreadable.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Makes it easy to write sequential asynchronous code that is readable with \",(0,n.jsx)(e.code,{children:\".then()\"}),\".\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Makes it easy to write parallel asynchronous code with \",(0,n.jsx)(e.code,{children:\"Promise.all()\"}),\".\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"With promises, these scenarios which are present in callbacks-only coding, will not happen:\",`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Call the callback too early\"}),`\n`,(0,n.jsx)(e.li,{children:\"Call the callback too late (or never)\"}),`\n`,(0,n.jsx)(e.li,{children:\"Call the callback too few or too many times\"}),`\n`,(0,n.jsx)(e.li,{children:\"Fail to pass along any necessary environment/parameters\"}),`\n`,(0,n.jsx)(e.li,{children:\"Swallow any errors/exceptions that may happen\"}),`\n`]}),`\n`]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Cons\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Slightly more complex code (debatable).\"}),`\n`,(0,n.jsx)(e.li,{children:\"In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function g(l={}){let{wrapper:e}=l.components||{};return e?(0,n.jsx)(e,Object.assign({},l,{children:(0,n.jsx)(h,l)})):h(l)}var j=g;return x(_);})();\n;return Component;"
+}

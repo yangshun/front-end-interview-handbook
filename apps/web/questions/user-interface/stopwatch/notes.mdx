@@ -1,0 +1,9 @@
+## Accessibility
+
+People who are unfamiliar with a11y will add an `onClick`/`'click'` event to the DOM element rendering the time (usually a `<div>`) and consider it complete. However, this the timer is not a11y-friendly just by doing so. Some might add `tabIndex="0"` (to allow focus) and `role="button"` to the element, which certainly improves the a11y, but is not the best.
+
+For the best a11y, we can and should use a `<button>` to render the timing, which comes with additional a11y benefits like focus and keyboard support. By using a `<button>`, you get automatic focus support (be able to use <kbd>Tab</kbd> to focus onto the timer) and keyboard support (hit the <kbd>Spacebar</kbd> to start/stop the timer). The latter will not be possible without custom code to add key event listeners to non-interactive elements.
+
+## User Experience
+
+`user-select: none` is added to the timer so that the digits aren't selected if a user double clicks on them. Selecting the digits is usually not desired.

@@ -1,0 +1,39 @@
+{
+  "author": null,
+  "companies": [
+    "airbnb"
+  ],
+  "created": 1670976000,
+  "difficulty": "medium",
+  "duration": 15,
+  "excerpt": "Build a tabs component that a displays a list of tab elements and one associated panel of content at a time",
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/tabs/vanilla"
+    },
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/tabs/react"
+    }
+  ],
+  "href": "/questions/user-interface/tabs",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "tabs-ii"
+  ],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "tabs",
+  "title": "Tabs"
+}

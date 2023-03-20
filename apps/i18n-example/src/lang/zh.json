@@ -1,0 +1,35 @@
+{
+  "/x1uyJ": {
+    "defaultMessage": "文件",
+    "description": "Docs page"
+  },
+  "81i+95": {
+    "defaultMessage": "资料",
+    "description": "Profile page title"
+  },
+  "ADeXOi": {
+    "defaultMessage": "递减",
+    "description": "Decrease"
+  },
+  "MCH3lP": {
+    "defaultMessage": "递增",
+    "description": "Increase"
+  },
+  "OmkkJd": {
+    "defaultMessage": "主页",
+    "description": "Link to home page"
+  },
+  "SMjxq8": {
+    "defaultMessage": "正文内容",
+    "description": "Some content"
+  },
+  "iyaPkC": {
+    "defaultMessage": "欢迎",
+    "description": "Welcome message"
+  },
+  "v0BzAj": {
+    "defaultMessage": "个人资料内容",
+    "description": "Profile page contents"
+  }
+}
+

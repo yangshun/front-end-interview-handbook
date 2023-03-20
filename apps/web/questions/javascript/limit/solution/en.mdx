@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import limit from '../src/limit';
+
+## Solution
+
+We can use closures to capture state required by the returned function. The returned function's closure has access to the following variables:
+
+- `func`: The first argument to `limit()`, the callback function to be invoked.
+- `n`: The second argument to `limit()`, the maximum number of times the callback function can be invoked.
+- `count`: A boolean variable indicating the number of times the function has been invoked before. `func` will only be invoked if `count < n`.
+- `value`: Since we need to return the value of the last invocation for subsequent invocations exceeding `n`, we have to save the result of the last invocation and return it directly for those situation.
+
+<MDXCodeBlock>{limit}</MDXCodeBlock>
+
+Note that the callback function is invoked with the `this` binding and arguments of the created function, hence we cannot return an arrow function if we want the value of `this` to refer to the object calling the created function.
+
+## Edge Cases
+
+- Functions which access `this`.
+
+## Techniques
+
+- Closures.
+- How `this` works.
+- Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`.
+
+## Resources
+
+- [Lodash `_.before`](https://lodash.com/docs/4.17.15#before)

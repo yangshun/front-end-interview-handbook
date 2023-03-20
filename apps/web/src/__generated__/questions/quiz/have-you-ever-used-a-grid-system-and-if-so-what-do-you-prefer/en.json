@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer",
+    "title": "Have you ever used a grid system, and if so, what do you prefer?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),x=(t,e)=>{for(var s in e)r(t,s,{get:e[s],enumerable:!0})},a=(t,e,s,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!f.call(t,o)&&o!==s&&r(t,o,{get:()=>e[o],enumerable:!(i=p(e,o))||i.enumerable});return t};var g=(t,e,s)=>(s=t!=null?l(m(t)):{},a(e||!t||!t.__esModule?r(s,\"default\",{value:t,enumerable:!0}):s,t)),b=t=>a(r({},\"__esModule\",{value:!0}),t);var d=w((k,c)=>{c.exports=_jsx_runtime});var v={};x(v,{default:()=>_,frontmatter:()=>y});var n=g(d()),y={title:\"Have you ever used a grid system, and if so, what do you prefer?\"};function h(t){let e=Object.assign({p:\"p\",code:\"code\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Before Flex became popular (around 2014), the \",(0,n.jsx)(e.code,{children:\"float\"}),\"-based grid system was the most reliable because it still has the most browser support among the alternative existing systems (flex, grid). Bootstrap was using the \",(0,n.jsx)(e.code,{children:\"float\"}),\" approach until Bootstrap 4 which switched to the \",(0,n.jsx)(e.code,{children:\"flex\"}),\"-based approach.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Today, \",(0,n.jsx)(e.code,{children:\"flex\"}),\" is the recommended approach for building grid systems and has \",(0,n.jsx)(e.a,{href:\"https://caniuse.com/#search=flex\",children:\"decent browser support (99.64%)\"}),\".\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"For the adventurous, they can look into \",(0,n.jsx)(e.a,{href:\"https://css-tricks.com/snippets/css/complete-guide-grid/\",children:\"CSS Grid Layout\"}),\", which uses the shiny new \",(0,n.jsx)(e.code,{children:\"grid\"}),\" property. Grid is a two-dimensional grid-based layout system as compared to Flexbox, which is one-dimensional.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/css-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function j(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var _=j;return b(v);})();\n;return Component;"
+}

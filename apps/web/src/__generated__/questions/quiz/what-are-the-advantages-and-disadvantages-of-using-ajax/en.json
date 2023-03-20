@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-advantages-and-disadvantages-of-using-ajax",
+    "title": "What are the advantages and disadvantages of using Ajax?",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "network"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var v=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),w=(t,e)=>{for(var a in e)r(t,a,{get:e[a],enumerable:!0})},s=(t,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!p.call(t,i)&&i!==a&&r(t,i,{get:()=>e[i],enumerable:!(o=m(e,i))||o.enumerable});return t};var g=(t,e,a)=>(a=t!=null?h(b(t)):{},s(e||!t||!t.__esModule?r(a,\"default\",{value:t,enumerable:!0}):a,t)),f=t=>s(r({},\"__esModule\",{value:!0}),t);var c=v((_,l)=>{l.exports=_jsx_runtime});var S={};w(S,{default:()=>j,frontmatter:()=>x});var n=g(c()),x={title:\"What are the advantages and disadvantages of using Ajax?\"};function d(t){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Advantages\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Reduce connections to the server since scripts and stylesheets only have to be requested once.\"}),`\n`,(0,n.jsx)(e.li,{children:\"State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Basically most of the advantages of an SPA.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Disadvantages\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Dynamic webpages are harder to bookmark.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Does not work if JavaScript has been disabled in the browser.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Some web crawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Webpages using Ajax to fetch data will likely have to combine the fetched remote data with client-side templates to update the DOM. For this to happen, JavaScript will have to be parsed and executed on the browser, and low-end mobile devices might struggle with this.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Basically most of the disadvantages of an SPA.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.frontendinterviewhandbook.com/javascript-questions\",children:\"Front End Interview Handbook\"})}),`\n`]})]})}function y(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var j=y;return f(S);})();\n;return Component;"
+}

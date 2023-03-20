@@ -1,0 +1,13 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+Create a function to turn a DOM element into a progress bar. We then construct the necessary inner DOM elements and set the appropriate styling and add a label within to indicate the progress percentage.
+
+Filling the bar proportionately to the progress (a number between 0-100, inclusive) can be accomplished using the `Element.style.width` property . Since the value is dynamic, we cannot possibly write classes for it beforehand and we have to use inline styles.
+
+It's a good practice to expose a method to change the progress percentage in case as it is common for the progress changes with time. Its usage is shown with the progress slider at the bottom.
+
+<TestCases />
+<Notes />

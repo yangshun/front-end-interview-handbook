@@ -1,0 +1,32 @@
+{
+  "sandpack": {
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^4.0.0"
+    },
+    "entry": "/index.js",
+    "environment": "create-react-app",
+    "main": "/App.js",
+    "visibleFiles": [
+      "/App.js",
+      "/styles.css"
+    ],
+    "activeFile": "/App.js",
+    "files": {
+      "/App.js": {
+        "code": "import './styles.css';\n\nexport default function App() {\n  return <div>Hello World</div>;\n}\n"
+      },
+      "/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/public/index.html": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "/styles.css": {
+        "code": "body {\n  font-family: sans-serif;\n}\n"
+      }
+    }
+  },
+  "writeup": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),v=(e,t)=>{for(var r in t)a(e,r,{get:t[r],enumerable:!0})},l=(e,t,r,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of x(t))!b.call(e,i)&&i!==r&&a(e,i,{get:()=>t[i],enumerable:!(s=f(t,i))||s.enumerable});return e};var h=(e,t,r)=>(r=e!=null?p(w(e)):{},l(t||!e||!e.__esModule?a(r,\"default\",{value:e,enumerable:!0}):r,e)),_=e=>l(a({},\"__esModule\",{value:!0}),e);var o=j((X,d)=>{d.exports=_jsx_runtime});var C={};v(C,{default:()=>M});var c=h(o());var n=h(o());function m(e){let t=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",a:\"a\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Build a 3x3 grid of light cells (omitting the center cell) where you can click on the cells to activate them, turning them green. When all the cells have been activated, they will be deactivated one by one in the reverse order they were activated with a 300ms interval in between.\"}),`\n`,(0,n.jsx)(t.p,{children:(0,n.jsx)(t.img,{src:\"/img/questions/grid-lights/grid-lights-example.png\",alt:\"Grid Lights Example\"})}),`\n`,(0,n.jsx)(t.h2,{children:\"Demo\"}),`\n`,(0,n.jsxs)(t.p,{children:[\"A demo of the final product can be found \",(0,n.jsx)(t.a,{href:\"https://k2053q.csb.app\",children:\"here\"}),\".\"]})]})}function y(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(m,e)})):m(e)}var u=y;function g(e){return(0,c.jsx)(u,{})}function D(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,Object.assign({},e,{children:(0,c.jsx)(g,e)})):g(e)}var M=D;return _(C);})();\n;return Component;"
+}

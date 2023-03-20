@@ -1,0 +1,16 @@
+{
+  "slug": "table-of-contents",
+  "created": "2022-04-14T00:00:00.000Z",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "companies": [
+    "google"
+  ],
+  "premium": true,
+  "duration": 30,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "hard"
+}

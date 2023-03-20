@@ -1,0 +1,36 @@
+{
+  "sandpack": {
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^4.0.0"
+    },
+    "entry": "/index.js",
+    "environment": "create-react-app",
+    "main": "/App.js",
+    "visibleFiles": [
+      "/App.js",
+      "/Clock.js",
+      "/styles.css"
+    ],
+    "activeFile": "/Clock.js",
+    "files": {
+      "/App.js": {
+        "code": "import Clock from './Clock';\n\nimport './styles.css';\n\nexport default function App() {\n  return <Clock />;\n}\n"
+      },
+      "/Clock.js": {
+        "code": "export default function Clock() {\n  return <div>10:35:54</div>;\n}\n"
+      },
+      "/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/public/index.html": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "/styles.css": {
+        "code": "body {\n  font-family: sans-serif;\n}\n"
+      }
+    }
+  },
+  "writeup": "var Component=(()=>{var p=Object.create;var o=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var k=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),_=(e,t)=>{for(var i in t)o(e,i,{get:t[i],enumerable:!0})},l=(e,t,i,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of x(t))!y.call(e,r)&&r!==i&&o(e,r,{get:()=>t[r],enumerable:!(s=h(t,r))||s.enumerable});return e};var u=(e,t,i)=>(i=e!=null?p(j(e)):{},l(t||!e||!e.__esModule?o(i,\"default\",{value:e,enumerable:!0}):i,e)),w=e=>l(o({},\"__esModule\",{value:!0}),e);var c=k((v,m)=>{m.exports=_jsx_runtime});var C={};_(C,{default:()=>b});var a=u(c());var n=u(c());function d(e){let t=Object.assign({p:\"p\",img:\"img\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Create a widget that renders the current time in HH:MM:SS format using a 7-segment digital display. You are free to choose to use 12-hour or a 24-hour display.\"}),`\n`,(0,n.jsx)(t.p,{children:\"Here's an example of a digital clock, but you can exercise your creativity by choosing different colors and styling it differently. It should however still function as a clock.\"}),`\n`,(0,n.jsx)(t.p,{children:(0,n.jsx)(t.img,{src:\"/img/questions/digital-clock/digital-clock-example.jpg\",alt:\"Digital clock example\"})})]})}function D(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(d,e)})):d(e)}var g=D;function f(e){return(0,a.jsx)(g,{})}function M(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,Object.assign({},e,{children:(0,a.jsx)(f,e)})):f(e)}var b=M;return w(C);})();\n;return Component;"
+}
