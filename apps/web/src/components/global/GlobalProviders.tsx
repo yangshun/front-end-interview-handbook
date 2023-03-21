@@ -10,6 +10,7 @@ import MDXComponents from '~/components/mdx/MDXComponents';
 import type { IntlMessages } from '~/i18n';
 import type { Database } from '~/supabase/database.types';
 
+import AppContextProvider from './AppContextProvider';
 import ScrollManagementProvider from './ScrollManagementProvider';
 import ToastsProvider from './toasts/ToastsProvider';
 import UserPreferencesProvider from './UserPreferencesProvider';
@@ -22,6 +23,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  countryCode: string;
   intlMessages: IntlMessages;
   locale: string;
 }>;
@@ -30,6 +32,7 @@ const queryClient = new QueryClient();
 
 export default function GlobalProviders({
   children,
+  countryCode,
   intlMessages,
   locale,
 }: Props) {
@@ -45,19 +48,21 @@ export default function GlobalProviders({
         locale={locale}
         messages={intlMessages}>
         <SessionContextProvider supabaseClient={supabaseClient}>
-          <ScrollManagementProvider>
-            <UserProfileProvider>
-              <QueryClientProvider client={queryClient}>
-                <UserPreferencesProvider>
-                  <ToastsProvider>
-                    <MDXProvider components={MDXComponents}>
-                      {children}
-                    </MDXProvider>
-                  </ToastsProvider>
-                </UserPreferencesProvider>
-              </QueryClientProvider>
-            </UserProfileProvider>
-          </ScrollManagementProvider>
+          <AppContextProvider countryCode={countryCode}>
+            <ScrollManagementProvider>
+              <UserProfileProvider>
+                <QueryClientProvider client={queryClient}>
+                  <UserPreferencesProvider>
+                    <ToastsProvider>
+                      <MDXProvider components={MDXComponents}>
+                        {children}
+                      </MDXProvider>
+                    </ToastsProvider>
+                  </UserPreferencesProvider>
+                </QueryClientProvider>
+              </UserProfileProvider>
+            </ScrollManagementProvider>
+          </AppContextProvider>
         </SessionContextProvider>
       </IntlProvider>
     </I18nProvider>

@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
 import { getIntlServerOnly, getLocaleMessages } from '~/i18n';
@@ -29,15 +30,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 type Props = Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Readonly<{ locale: string }>;
 }>;
 
 export default async function Layout({ children, params }: Props) {
   const { locale } = params;
   const localeMessages = await getLocaleMessages(locale);
 
+  const cookieStore = cookies();
+  const countryCode: string = cookieStore.get('country')?.value ?? 'US';
+
   return (
-    <RootLayout intlMessages={localeMessages} locale={locale}>
+    <RootLayout
+      countryCode={countryCode}
+      intlMessages={localeMessages}
+      locale={locale}>
       {children}
     </RootLayout>
   );

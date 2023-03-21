@@ -11,15 +11,24 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  countryCode: string;
   intlMessages: IntlMessages;
   locale: string;
 }>;
 
-export default function RootLayout({ children, intlMessages, locale }: Props) {
+export default function RootLayout({
+  children,
+  countryCode,
+  intlMessages,
+  locale,
+}: Props) {
   return (
     <html lang={locale}>
       <body>
-        <GlobalProviders intlMessages={intlMessages} locale={locale}>
+        <GlobalProviders
+          countryCode={countryCode}
+          intlMessages={intlMessages}
+          locale={locale}>
           <GoogleAnalytics />
           <MetaPixel />
           <style>{`:root { --navbar-height: 57px; }`}</style>

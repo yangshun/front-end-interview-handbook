@@ -12,19 +12,21 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import { useAppContext } from './AppContextProvider';
 import LogoLink from './Logo';
+import { isHiringCountry } from '../hiring/utils';
 
-type FooterLinks = ReadonlyArray<
-  Readonly<{
-    href: string;
-    key: string;
-    name: string;
-  }>
->;
+type FooterLink = Readonly<{
+  href: string;
+  key: string;
+  name: string;
+}>;
+type FooterLinks = ReadonlyArray<FooterLink | null>;
 
 function useFooterNavigation() {
   const questionFormatLists = useQuestionFormatLists();
   const guides = useGuidesData();
+  const { countryCode } = useAppContext();
 
   const navigation: Record<string, FooterLinks> = {
     company: [
@@ -34,6 +36,13 @@ function useFooterNavigation() {
       // { href: '/team', key: 'team', name: 'Team' },
       { href: '/contact', key: 'contact', name: 'Contact Us' },
       { href: '/affiliates', key: 'affiliates', name: 'Become an Affiliate' },
+      isHiringCountry(countryCode)
+        ? {
+            href: '/hiring',
+            key: 'hiring',
+            name: "We're Hiring",
+          }
+        : null,
     ],
     guides: [
       {
@@ -102,25 +111,31 @@ function FooterSection({
       </Heading>
       <Section>
         <ul className="flex flex-col gap-y-3" role="list">
-          {links.map((item) => (
-            <li key={item.name}>
-              <Text variant="body2">
-                <Anchor
-                  href={item.href}
-                  variant="muted"
-                  weight="regular"
-                  onClick={() => {
-                    gtag.event({
-                      action: `footer.${item.key}.click`,
-                      category: 'engagement',
-                      label: item.name,
-                    });
-                  }}>
-                  {item.name}
-                </Anchor>
-              </Text>
-            </li>
-          ))}
+          {links
+            .filter((item) => item != null)
+            .map((item_) => {
+              const item = item_ as FooterLink;
+
+              return (
+                <li key={item.name}>
+                  <Text variant="body2">
+                    <Anchor
+                      href={item.href}
+                      variant="muted"
+                      weight="regular"
+                      onClick={() => {
+                        gtag.event({
+                          action: `footer.${item.key}.click`,
+                          category: 'engagement',
+                          label: item.name,
+                        });
+                      }}>
+                      {item.name}
+                    </Anchor>
+                  </Text>
+                </li>
+              );
+            })}
         </ul>
       </Section>
     </div>

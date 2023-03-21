@@ -13,6 +13,7 @@ import {
   useQuestionFormatLists,
 } from '~/data/QuestionFormats';
 
+import { isHiringCountry } from '~/components/hiring/utils';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -23,6 +24,7 @@ import type {
 } from '~/components/ui/Navbar/NavTypes';
 
 import NavProfileIcon from './NavProfileIcon';
+import { useAppContext } from '../AppContextProvider';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
 
@@ -35,6 +37,7 @@ function useNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const intl = useIntl();
+  const { countryCode } = useAppContext();
   const questionCategoryLists = useQuestionCategoryLists();
   const questionFormatLists = useQuestionFormatLists();
   const preparationPlansExtra = usePreparationPlansUI();
@@ -423,6 +426,22 @@ function useNavLinks(
       position: 'start',
       type: 'popover',
     },
+    isHiringCountry(countryCode)
+      ? {
+          href: '/hiring',
+          key: 'hiring',
+          label: "We're Hiring",
+          onClick: () => {
+            gtag.event({
+              action: `nav.hiring.click`,
+              category: 'engagement',
+              label: "We're Hiring",
+            });
+          },
+          position: 'end',
+          type: 'link',
+        }
+      : null,
     !isPremium
       ? {
           href: '/pricing',

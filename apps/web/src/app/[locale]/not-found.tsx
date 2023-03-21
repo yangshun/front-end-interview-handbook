@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 import nextI18nosticConfig from 'next-i18nostic/config';
 
@@ -29,18 +30,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 type Props = Readonly<{
-  params: { locale: string };
+  params: Readonly<{ locale: string }>;
 }>;
 
 export default async function Page({ params }: Props) {
   // TODO: i18n. For some reason params is empty during second render.
   // There's no need for the default locale here otherwise.
   const locale = params?.locale ?? nextI18nosticConfig.defaultLocale;
-
   const localeMessages = await getLocaleMessages(locale);
 
+  const cookieStore = cookies();
+  const countryCode: string = cookieStore.get('country')?.value ?? 'US';
+
   return (
-    <RootLayout intlMessages={localeMessages} locale={locale}>
+    <RootLayout
+      countryCode={countryCode}
+      intlMessages={localeMessages}
+      locale={locale}>
       <StandardLayout>
         <NotFoundPage />
       </StandardLayout>
