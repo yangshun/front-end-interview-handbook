@@ -4,6 +4,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import fbq from '~/lib/fbq';
 import * as gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
@@ -185,6 +186,11 @@ function PricingButtonSection({
                     action: `checkout.attempt.${plan.planType}`,
                     category: 'ecommerce',
                     label: 'Buy Now',
+                  });
+                  fbq.event('InitiateCheckout', {
+                    content_category: plan.planType,
+                    currency: plan.currency.toLocaleUpperCase(),
+                    value: plan.unitCostLocalizedInCurrency,
                   });
 
                   return processSubscription(plan.planType);

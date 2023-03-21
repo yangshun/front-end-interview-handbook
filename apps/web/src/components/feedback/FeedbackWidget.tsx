@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import fbq from '~/lib/fbq';
+
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 
 import FeedbackDialog from './FeedbackDialog';
@@ -34,7 +36,11 @@ export default function FeedbackWidget({ position }: Props) {
         )}
         type="button"
         onClick={() => {
-          setIsOpen(!isOpen);
+          const newOpenState = !isOpen;
+
+          setIsOpen(newOpenState);
+
+          fbq.event('Contact');
         }}>
         <div
           className={clsx(

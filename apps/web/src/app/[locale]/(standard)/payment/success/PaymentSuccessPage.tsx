@@ -3,7 +3,13 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
+import fbq from '~/lib/fbq';
 import * as gtag from '~/lib/gtag';
+
+import type {
+  PricingPlansLocalized,
+  PricingPlanType,
+} from '~/data/PricingPlans';
 
 import DiscordIcon from '~/components/icons/DiscordIcon';
 import Anchor from '~/components/ui/Anchor';
@@ -38,9 +44,13 @@ const links = [
   },
 ];
 
-export default function PaymentSuccess(): JSX.Element {
+type Props = Readonly<{
+  plans: PricingPlansLocalized;
+}>;
+
+export default function PaymentSuccess({ plans }: Props): JSX.Element {
   const searchParams = useSearchParams();
-  const planSearchParam = searchParams?.get('plan');
+  const planSearchParam = searchParams?.get('plan') as PricingPlanType | null;
 
   useEffect(() => {
     if (planSearchParam != null) {
@@ -69,8 +79,15 @@ export default function PaymentSuccess(): JSX.Element {
         category: 'ecommerce',
         label: String(planSearchParam),
       });
+
+      const plan = plans[planSearchParam];
+
+      fbq.event('Purchase', {
+        currency: plan.currency.toLocaleUpperCase(),
+        value: plan.unitCostLocalizedInCurrency,
+      });
     }
-  }, [planSearchParam]);
+  }, [planSearchParam, plans]);
 
   return (
     <div className="bg-white">
