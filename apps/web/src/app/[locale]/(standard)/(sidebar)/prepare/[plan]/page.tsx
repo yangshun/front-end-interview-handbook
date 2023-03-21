@@ -10,29 +10,62 @@ import {
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import PreparePlanPage from './PreparePlanPage';
 
-function preparationPlansMetadata(planType: PreparationPlanType) {
+async function getPreparationPlansMetadata(
+  planType: PreparationPlanType,
+  locale: string,
+) {
+  const intl = await getIntlServerOnly(locale);
+
   switch (planType) {
     case 'one-week':
       return {
-        description:
-          'Study and practice the exact questions and concepts you need to prepare for front end interviews within a week',
-        title: 'Study plan to prepare for front end interviews in 1 week',
+        description: intl.formatMessage({
+          defaultMessage:
+            'Study and practice the exact questions and concepts you need to prepare for front end interviews within a week',
+          description: 'Description of 1 Week Preparation Plan page',
+          id: 'D3YhsE',
+        }),
+        title: intl.formatMessage({
+          defaultMessage:
+            'Study plan to prepare for front end interviews in 1 week',
+          description: 'Title of 1 Week Preparation Plan page',
+          id: 'UiHdWK',
+        }),
       };
     case 'one-month':
       return {
-        description:
-          'Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month',
-        title: 'Study plan to prepare for front end interviews in 1 month',
+        description: intl.formatMessage({
+          defaultMessage:
+            'Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month',
+          description: 'Description of 1 Month Preparation Plan page',
+          id: 'N4F6al',
+        }),
+        title: intl.formatMessage({
+          defaultMessage:
+            'Study plan to prepare for front end interviews in 1 month',
+          description: 'Title of 1 Month Preparation Plan page',
+          id: 'O7MAvX',
+        }),
       };
     case 'three-months':
       return {
-        description:
-          'Everything you need to study and practice for front end interviews for a complete preparation.',
-        title: 'Study plan to prepare for front end interviews in 3 months',
+        description: intl.formatMessage({
+          defaultMessage:
+            'Everything you need to study and practice for front end interviews for a complete preparation.',
+          description: 'Description of 3 Months Preparation Plan page',
+          id: '8UEoLG',
+        }),
+        title: intl.formatMessage({
+          defaultMessage:
+            'Study plan to prepare for front end interviews in 3 months',
+          description: 'Title of 3 Months Preparation Plan page',
+          id: '7Iapcq',
+        }),
       };
   }
 }
@@ -49,13 +82,18 @@ export async function generateStaticParams() {
 
 type Props = Readonly<{
   params: {
+    locale: string;
     plan: PreparationPlanType;
   };
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const planType = params.plan;
-  const { title, description } = preparationPlansMetadata(planType);
+  const { locale, plan: planType } = params;
+
+  const { title, description } = await getPreparationPlansMetadata(
+    planType,
+    locale,
+  );
 
   return defaultMetadata({
     description,
@@ -65,14 +103,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const planType = params.plan as PreparationPlanType;
+  const { locale, plan: planType } = params;
   const [quizQuestions, codingQuestions, systemDesignQuestions] =
     await Promise.all([
       fetchQuestionsListQuiz(),
       fetchQuestionsListCoding(),
       fetchQuestionsListSystemDesign(),
     ]);
-  const { title, description } = preparationPlansMetadata(planType);
+
+  const { title, description } = await getPreparationPlansMetadata(
+    planType,
+    locale,
+  );
 
   return (
     <>

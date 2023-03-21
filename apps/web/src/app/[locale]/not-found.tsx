@@ -1,18 +1,30 @@
 import type { Metadata } from 'next/types';
 import nextI18nosticConfig from 'next-i18nostic/config';
 
-import { getLocaleMessages } from '~/i18n';
+import { getIntlServerOnly, getLocaleMessages } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import StandardLayout from './(standard)/layout';
 import NotFoundPage from './NotFoundPage';
 import RootLayout from './RootLayout';
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description: 'The page you requested could not be found.',
+    description: intl.formatMessage({
+      defaultMessage: 'The page you requested could not be found',
+      description: 'Description of 404 page',
+      id: 'zUR/Om',
+    }),
     pathname: '/',
-    title: 'Not Found',
+    title: intl.formatMessage({
+      defaultMessage: 'Not Found',
+      description: 'Title of 404 page',
+      id: '4/GKns',
+    }),
   });
 }
 

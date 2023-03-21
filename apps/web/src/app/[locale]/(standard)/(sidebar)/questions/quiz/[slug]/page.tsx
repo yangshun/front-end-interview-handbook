@@ -7,6 +7,7 @@ import QuestionQuizContents from '~/components/questions/content/quiz/QuestionQu
 
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -18,12 +19,24 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
+
+  const intl = await getIntlServerOnly(locale);
   const question = readQuestionQuizContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
     pathname: question.metadata.href,
-    title: `${question.metadata.title} | Front End Quiz Interview Questions with Solutions`,
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{questionTitle} | Front End Quiz Interview Questions with Solutions',
+        description: 'Title of quiz question page',
+        id: 'cqEIAI',
+      },
+      {
+        questionTitle: question.metadata.title,
+      },
+    ),
   });
 }
 

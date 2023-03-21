@@ -9,15 +9,39 @@ import {
   fetchQuestionsListSystemDesign,
   fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import GetStartedPage from './GetStartedPage';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description: `Get started with GreatFrontEnd's study plans or practice over ${QuestionCount} questions across all front end interview formats`,
+    description: intl.formatMessage(
+      {
+        defaultMessage: `Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats`,
+        description: 'Description of Get Started page',
+        id: 'v4ChUi',
+      },
+      {
+        questionCount: QuestionCount,
+      },
+    ),
     pathname: '/get-started',
-    title: 'Get Started',
+    title: intl.formatMessage({
+      defaultMessage: 'Get Started',
+      description: 'Title of Get Started page',
+      id: 'Ll7iob',
+    }),
   });
 }
 

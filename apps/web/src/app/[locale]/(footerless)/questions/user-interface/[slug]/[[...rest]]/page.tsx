@@ -13,6 +13,7 @@ import { determineFrameworkAndMode } from '~/components/questions/common/Questio
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { genQuestionProgress } from '~/db/QuestionsProgressUniversal';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
   createSupabaseAdminClientGFE,
@@ -22,7 +23,11 @@ import {
 import QuestionUserInterfaceCodingWorkspacePage from './QuestionUserInterfaceCodingWorkspacePage';
 
 type Props = Readonly<{
-  params: Readonly<{ rest: ReadonlyArray<string>; slug: string }>;
+  params: Readonly<{
+    locale: string;
+    rest: ReadonlyArray<string>;
+    slug: string;
+  }>;
 }>;
 
 function frameworkAgnosticLinks(
@@ -41,8 +46,9 @@ function frameworkAgnosticLinks(
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, rest } = params;
+  const { locale, slug, rest } = params;
 
+  const intl = await getIntlServerOnly(locale);
   const {
     framework: parsedFramework,
     mode,
@@ -59,22 +65,60 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description:
       mode === 'solution'
-        ? `Read how to solve ${question.metadata.title} using ${
-            QuestionFrameworkLabels[question.framework]
-          }`
-        : `${question.metadata.excerpt!} using ${
-            QuestionFrameworkLabels[question.framework]
-          }`,
+        ? intl.formatMessage(
+            {
+              defaultMessage:
+                'Read how to solve {questionTitle} using {questionFramework}',
+              description:
+                'Description of Front End Interview UI Coding Questions solution page',
+              id: 'cjgzTz',
+            },
+            {
+              questionFramework: QuestionFrameworkLabels[question.framework],
+              questionTitle: question.metadata.title,
+            },
+          )
+        : intl.formatMessage(
+            {
+              defaultMessage: '{questionExcept} using {questionFramework}',
+              description:
+                'Description of Front End Interview UI Coding Questions practice page',
+              id: '5JY9Ft',
+            },
+            {
+              questionExcerpt: question.metadata.excerpt,
+              questionFramework: QuestionFrameworkLabels[question.framework],
+            },
+          ),
     pathname,
-    title: `${
+    title:
       mode === 'solution'
-        ? `Solution for ${question.metadata.title} in ${
-            QuestionFrameworkLabels[question.framework]
-          }`
-        : `${question.metadata.title} in ${
-            QuestionFrameworkLabels[question.framework]
-          }`
-    } | Front End Interview UI Coding Questions with Solutions`,
+        ? intl.formatMessage(
+            {
+              defaultMessage:
+                'Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
+              description:
+                'Title of Front End Interview UI Coding Questions solution page',
+              id: 'I5iXtu',
+            },
+            {
+              questionFramework: QuestionFrameworkLabels[question.framework],
+              questionTitle: question.metadata.title,
+            },
+          )
+        : intl.formatMessage(
+            {
+              defaultMessage:
+                '{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
+              description:
+                'Title of Front End Interview UI Coding Questions practice page',
+              id: 'huof8A',
+            },
+            {
+              questionFramework: QuestionFrameworkLabels[question.framework],
+              questionTitle: question.metadata.title,
+            },
+          ),
   });
 }
 

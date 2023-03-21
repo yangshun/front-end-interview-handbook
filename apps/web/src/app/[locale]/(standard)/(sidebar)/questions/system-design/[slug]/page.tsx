@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
   createSupabaseAdminClientGFE,
@@ -19,12 +20,24 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
+
+  const intl = await getIntlServerOnly(locale);
   const question = readQuestionSystemDesignContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
     pathname: question.metadata.href,
-    title: `${question.metadata.title} | Front End System Design Interview Questions with Solutions`,
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{questionTitle} | Front End System Design Interview Questions with Solutions',
+        description: 'Title of system design question page',
+        id: 'ujL9EM',
+      },
+      {
+        questionTitle: question.metadata.title,
+      },
+    ),
   });
 }
 

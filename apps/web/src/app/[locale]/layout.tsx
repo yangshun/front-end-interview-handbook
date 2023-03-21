@@ -1,17 +1,29 @@
 import type { Metadata } from 'next/types';
 
-import { getLocaleMessages } from '~/i18n';
+import { getIntlServerOnly, getLocaleMessages } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import RootLayout from './RootLayout';
 
 import '~/styles/globals.css';
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description: 'The ultimate Front End Interview preparation platform.',
+    description: intl.formatMessage({
+      defaultMessage: 'The ultimate Front End Interview preparation platform.',
+      description: 'Description of GreatFrontEnd page',
+      id: 'xWAt8Q',
+    }),
     pathname: '/',
-    title: 'GreatFrontEnd',
+    title: intl.formatMessage({
+      defaultMessage: 'GreatFrontEnd',
+      description: 'Title of GreatFrontEnd page',
+      id: '9DlLF1',
+    }),
   });
 }
 

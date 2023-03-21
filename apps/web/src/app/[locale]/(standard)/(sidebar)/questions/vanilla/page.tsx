@@ -4,16 +4,37 @@ import type { QuestionFramework } from '~/components/questions/common/QuestionsT
 import QuestionsFrameworkPage from '~/components/questions/listings/QuestionsFrameworkPage';
 
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'vanilla';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description:
-      'Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+    description: intl.formatMessage({
+      defaultMessage:
+        'Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+      description:
+        'Description of Vanilla JavaScript UI Interview Questions page',
+      id: 'VLFSw7',
+    }),
     pathname: `/questions/${framework}`,
-    title: 'Practice Vanilla JavaScript UI Interview Questions with Solutions',
+    title: intl.formatMessage({
+      defaultMessage:
+        'Practice Vanilla JavaScript UI Interview Questions with Solutions',
+      description: 'Title of Vanilla JavaScript UI Interview Questions page',
+      id: 'A+H3cR',
+    }),
   });
 }
 

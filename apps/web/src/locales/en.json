@@ -1,4 +1,8 @@
 {
+  "+OVTKu": {
+    "defaultMessage": "Billing | Profile",
+    "description": "Title of Profile Billing page"
+  },
   "+Z1K3f": {
     "defaultMessage": "{failed} failed",
     "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
@@ -26,6 +30,10 @@
   "032cio": {
     "defaultMessage": "Move line up",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
+  },
+  "035J/P": {
+    "defaultMessage": "Practice React Interview Questions with Solutions",
+    "description": "Title of React Interview Questions page"
   },
   "0RaY4p": {
     "defaultMessage": "What does buying GreatFrontEnd get me?",
@@ -87,6 +95,10 @@
     "defaultMessage": "Practice",
     "description": "Section heading in footer for links to practice question pages"
   },
+  "4/GKns": {
+    "defaultMessage": "Not Found",
+    "description": "Title of 404 page"
+  },
   "44kz/c": {
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
@@ -107,13 +119,17 @@
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
   },
-  "5D3gTs": {
-    "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive freebies!",
-    "description": "Feedback widget textarea description"
+  "5JY9Ft": {
+    "defaultMessage": "{questionExcept} using {questionFramework}",
+    "description": "Description of Front End Interview UI Coding Questions practice page"
   },
   "5dwMRE": {
     "defaultMessage": "Interview Guides",
     "description": "Sidebar label for Interview Guides category"
+  },
+  "5hTR16": {
+    "defaultMessage": "Profile",
+    "description": "Title of Profile page"
   },
   "68EGSg": {
     "defaultMessage": "View All Questions",
@@ -135,6 +151,10 @@
     "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
   },
+  "72GwzV": {
+    "defaultMessage": "Available in {frameworkLabel}",
+    "description": "Label indicating what JavaScript frameworks this question is available in"
+  },
   "73vnK2": {
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
@@ -142,6 +162,10 @@
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
+  },
+  "7Iapcq": {
+    "defaultMessage": "Study plan to prepare for front end interviews in 3 months",
+    "description": "Title of 3 Months Preparation Plan page"
   },
   "7OxMtC": {
     "defaultMessage": "Importance",
@@ -159,9 +183,17 @@
     "defaultMessage": "Chat with us directly!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
   },
+  "8MHkPL": {
+    "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive a discount/cashback!",
+    "description": "Feedback widget textarea description"
+  },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
+  },
+  "8UEoLG": {
+    "defaultMessage": "Everything you need to study and practice for front end interviews for a complete preparation.",
+    "description": "Description of 3 Months Preparation Plan page"
   },
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
@@ -183,17 +215,21 @@
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed by the user"
   },
+  "9DlLF1": {
+    "defaultMessage": "GreatFrontEnd",
+    "description": "Title of GreatFrontEnd page"
+  },
   "9jbYus": {
     "defaultMessage": "Pay once, get full access <span>forever</span>.",
     "description": "Title on Pricing section of Homepage or Pricing page"
   },
+  "A+H3cR": {
+    "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
+    "description": "Title of Vanilla JavaScript UI Interview Questions page"
+  },
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
-  },
-  "A9A7/h": {
-    "defaultMessage": "Available in {frameworkLabel}",
-    "description": "Label displayed on question cards in question lists telling user what frameworks this question is available in"
   },
   "AGwpnL": {
     "defaultMessage": "We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers.",
@@ -251,6 +287,10 @@
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
   },
+  "CXs8z4": {
+    "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
+    "description": "Title of Interview Preparation Quiz page"
+  },
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
@@ -258,6 +298,10 @@
   "Cw8cK4": {
     "defaultMessage": "{completedQuestions} of {totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
+  },
+  "D3YhsE": {
+    "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
+    "description": "Description of 1 Week Preparation Plan page"
   },
   "DAqJ87": {
     "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
@@ -351,6 +395,10 @@
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
   },
+  "I5iXtu": {
+    "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
+    "description": "Title of Front End Interview UI Coding Questions solution page"
+  },
   "I619Rj": {
     "defaultMessage": "Profile image",
     "description": "Alt text for user profile image"
@@ -398,6 +446,10 @@
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+  },
+  "K/Nz6V": {
+    "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Interview Preparation Quiz page"
   },
   "K08edE": {
     "defaultMessage": "Show only failed tests",
@@ -451,6 +503,18 @@
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Sentence to report bug on GitHub"
   },
+  "Ll7iob": {
+    "defaultMessage": "Get Started",
+    "description": "Title of Get Started page"
+  },
+  "M2rIUU": {
+    "defaultMessage": "Practice UI and JavaScript Interview Questions with Solutions",
+    "description": "Title of Interview Preparation Coding page"
+  },
+  "M7x/vv": {
+    "defaultMessage": "The best way to prepare for Front End Interviews",
+    "description": "Title of GreatFrontEnd standard page"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -467,6 +531,14 @@
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
   },
+  "MkjGJD": {
+    "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of React Interview Questions page"
+  },
+  "N4F6al": {
+    "defaultMessage": "Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month",
+    "description": "Description of 1 Month Preparation Plan page"
+  },
   "NAkpAg": {
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
@@ -478,6 +550,14 @@
   "NZo2FG": {
     "defaultMessage": "Description",
     "description": "Header for the question description section"
+  },
+  "O7MAvX": {
+    "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
+    "description": "Title of 1 Month Preparation Plan page"
+  },
+  "OGpZxl": {
+    "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Interview Preparation System Design page"
   },
   "OL9m/V": {
     "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
@@ -511,6 +591,10 @@
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
   },
+  "PeXK7/": {
+    "defaultMessage": "Pricing",
+    "description": "Title of Pricing page"
+  },
   "PyDwDF": {
     "defaultMessage": "Close",
     "description": "Close button label"
@@ -535,6 +619,10 @@
     "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "R5FPug": {
+    "defaultMessage": "Contact Us",
+    "description": "Title of Contact Us page"
+  },
   "R79mq9": {
     "defaultMessage": "Check out sample solutions:",
     "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
@@ -542,6 +630,10 @@
   "R99Y8S": {
     "defaultMessage": "At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!",
     "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
+  },
+  "RIhdqg": {
+    "defaultMessage": "Sign In",
+    "description": "Title of Login page"
   },
   "RMBCok": {
     "defaultMessage": "Snap",
@@ -570,6 +662,10 @@
   "S+6OOS": {
     "defaultMessage": "Free",
     "description": "Free-of-charge label"
+  },
+  "S21xBI": {
+    "defaultMessage": "Login to track your progress and access premium",
+    "description": "Description of Login page"
   },
   "SAFY5p": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
@@ -619,6 +715,10 @@
     "defaultMessage": "Yelp",
     "description": "Company name for Yelp"
   },
+  "UiHdWK": {
+    "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
+    "description": "Title of 1 Week Preparation Plan page"
+  },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -627,9 +727,17 @@
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
   },
+  "V0hPhI": {
+    "defaultMessage": "Sign Up",
+    "description": "Title of Sign Up page"
+  },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
+  },
+  "VLFSw7": {
+    "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Vanilla JavaScript UI Interview Questions page"
   },
   "VQ9c4+": {
     "defaultMessage": "Feedback received successfully.",
@@ -643,9 +751,21 @@
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
   },
+  "VlLGKt": {
+    "defaultMessage": "Payment Success",
+    "description": "Title of Payment Success page"
+  },
+  "WJ/3Qn": {
+    "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
+    "description": "Description of GreatFrontEnd standard page"
+  },
   "WzDhJE": {
     "defaultMessage": "Logos provided by Clearbit",
     "description": "Attribution text that company logos were provided by Clearbit"
+  },
+  "X/axGA": {
+    "defaultMessage": "Affiliate Program",
+    "description": "Title of Affiliate Program page"
   },
   "X3NpRr": {
     "defaultMessage": "U.P. {symbol}{unitCostBeforeDiscountInCurrency} <span>({discount}% off)</span>",
@@ -751,13 +871,33 @@
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
   },
+  "cB23kJ": {
+    "defaultMessage": "Security | Profile",
+    "description": "Title of Profile Security page"
+  },
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
   },
+  "cjgzTz": {
+    "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
+    "description": "Description of Front End Interview UI Coding Questions solution page"
+  },
+  "cqEIAI": {
+    "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
+    "description": "Title of quiz question page"
+  },
   "cuNbpf": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Header for front end system design guidebook on the system design sidebar"
+  },
+  "cxU8W8": {
+    "defaultMessage": "Refer more users to us and earn 15% commission of the first order",
+    "description": "Description of Affiliate Program page"
+  },
+  "d+wYSW": {
+    "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
+    "description": "Description of Sign Up page"
   },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
@@ -774,6 +914,10 @@
   "dfAvc7": {
     "defaultMessage": "Footer",
     "description": "Footer section heading"
+  },
+  "dk2vXq": {
+    "defaultMessage": "Terms of Service",
+    "description": "Title of Terms of Service page"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -802,6 +946,10 @@
   "f3e84v": {
     "defaultMessage": "Accepted",
     "description": "Status label for question answered correctly"
+  },
+  "fH+NAA": {
+    "defaultMessage": "Account | Profile",
+    "description": "Title of Profile Account page"
   },
   "fHpn67": {
     "defaultMessage": "Google",
@@ -875,6 +1023,10 @@
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
   },
+  "huof8A": {
+    "defaultMessage": "{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
+    "description": "Title of Front End Interview UI Coding Questions practice page"
+  },
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
@@ -890,6 +1042,10 @@
   "iSDQh3": {
     "defaultMessage": "Companies",
     "description": "Title for section on question that shows which companies asked the question"
+  },
+  "iSFCj/": {
+    "defaultMessage": "Signing Out",
+    "description": "Title of Logout page"
   },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",
@@ -919,6 +1075,10 @@
     "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
   },
+  "jtuJQk": {
+    "defaultMessage": "About Us",
+    "description": "Title of About Us page"
+  },
   "jxXMtj": {
     "defaultMessage": "Prices shown are in {currency}.",
     "description": "Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
@@ -942,6 +1102,10 @@
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "kn+R8V": {
+    "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
+    "description": "Description of Contact Us page"
   },
   "knfvnJ": {
     "defaultMessage": "Filters",
@@ -979,6 +1143,10 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
+  "mt2ON4": {
+    "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
+    "description": "Description of About Us page"
+  },
   "nFYr2a": {
     "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -990,6 +1158,10 @@
   "nPkj31": {
     "defaultMessage": "For your reference, these are the Jest tests that your code will run against.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
+  },
+  "nTu2nu": {
+    "defaultMessage": "Privacy Policy",
+    "description": "Title of Privacy Policy page"
   },
   "nai6YT": {
     "defaultMessage": "Amazon logo",
@@ -1075,6 +1247,10 @@
     "defaultMessage": "Manage Subscription",
     "description": "Manage user membership subscription button label"
   },
+  "srrlrR": {
+    "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
+    "description": "Title of Interview Preparation System Design page"
+  },
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
@@ -1082,6 +1258,10 @@
   "tJIZWT": {
     "defaultMessage": "Layout",
     "description": "Label for button that changes the layout of the coding workspace"
+  },
+  "tO/Ph4": {
+    "defaultMessage": "Activity | Profile",
+    "description": "Title of Profile Activity page"
   },
   "tU2J/q": {
     "defaultMessage": "Front End System Design Guidebook",
@@ -1111,6 +1291,10 @@
     "defaultMessage": "You have completed <span>{completionProgressPercentage}%</span> of this plan <span2> ({completedQuestions} of {totalQuestions})</span2>",
     "description": "Line describing completion status of the study plan"
   },
+  "ujL9EM": {
+    "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
+    "description": "Title of system design question page"
+  },
   "ukvoec": {
     "defaultMessage": "Start on this preparation plan today!",
     "description": "Call-to-Action that asks user to try out a study plan"
@@ -1126,6 +1310,10 @@
   "v2TGFl": {
     "defaultMessage": "High",
     "description": "Label for high question importance"
+  },
+  "v4ChUi": {
+    "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
+    "description": "Description of Get Started page"
   },
   "v7xpbV": {
     "defaultMessage": "Stripe",
@@ -1146,6 +1334,14 @@
   "vqTecf": {
     "defaultMessage": "Evaluating tests against code...",
     "description": "Loading text that appears when the tests cases are running (after the user submits their code in the coding workspace)"
+  },
+  "vrK3ev": {
+    "defaultMessage": "Prepare for Front End Behavioral Interviews",
+    "description": "Title of Behavioral Interview Preparation page"
+  },
+  "w0h58l": {
+    "defaultMessage": "Efficiently prepare for behavioral interviews for front end / web developers / software engineers, with guides about evaluation criteria at big tech, preparation strategies, and common behavioral interview questions.",
+    "description": "Description of Behavioral Interview Preparation page"
   },
   "w1iJ0L": {
     "defaultMessage": "Lifetime Membership",
@@ -1171,9 +1367,25 @@
     "defaultMessage": "Your Message",
     "description": "Feedback widget textarea title"
   },
+  "wmvMT1": {
+    "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",
+    "description": "Description of Pricing page"
+  },
+  "wqIwvv": {
+    "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
+    "description": "Title of Javascript Front End interview questions page"
+  },
   "wzQGxj": {
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
+  },
+  "x8+4jJ": {
+    "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Interview Preparation Coding page"
+  },
+  "xWAt8Q": {
+    "defaultMessage": "The ultimate Front End Interview preparation platform.",
+    "description": "Description of GreatFrontEnd page"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
@@ -1182,6 +1394,10 @@
   "yXh24P": {
     "defaultMessage": "Logos provided by Clearbit",
     "description": "Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
+  },
+  "yeGTq1": {
+    "defaultMessage": "Reset Password",
+    "description": "Title of Password Reset page"
   },
   "yeLNWe": {
     "defaultMessage": "ByteDance",
@@ -1206,6 +1422,10 @@
   "zSySsj": {
     "defaultMessage": "Question Formats",
     "description": "Label for tabs for question formats"
+  },
+  "zUR/Om": {
+    "defaultMessage": "The page you requested could not be found",
+    "description": "Description of 404 page"
   },
   "zaEg+y": {
     "defaultMessage": "Pay once, own it forever",

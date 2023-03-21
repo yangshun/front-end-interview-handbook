@@ -1,17 +1,42 @@
 import type { Metadata } from 'next/types';
 
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import PrepareCodingPage from './PrepareCodingPage';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
   const questions = await fetchQuestionsListCoding();
 
   return defaultMetadata({
-    description: `Top ${questions.length} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.`,
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+        description: 'Description of Interview Preparation Coding page',
+        id: 'x8+4jJ',
+      },
+      {
+        questionCount: questions.length,
+      },
+    ),
     pathname: '/prepare/coding',
-    title: 'Practice UI and JavaScript Interview Questions with Solutions',
+    title: intl.formatMessage({
+      defaultMessage:
+        'Practice UI and JavaScript Interview Questions with Solutions',
+      description: 'Title of Interview Preparation Coding page',
+      id: 'M2rIUU',
+    }),
   });
 }
 

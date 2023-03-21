@@ -203,6 +203,7 @@ async function processParams(params: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, seoTitle, description } = await processParams(params);
 
+  // TODO: METADATA I18N
   return defaultMetadata({
     description,
     pathname: `/questions/${category}`,

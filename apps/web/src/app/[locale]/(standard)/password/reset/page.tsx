@@ -1,13 +1,28 @@
 import type { Metadata } from 'next/types';
 
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import PasswordResetPage from './PasswordResetPage';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
     pathname: '/password/reset',
-    title: 'Reset Password',
+    title: intl.formatMessage({
+      defaultMessage: 'Reset Password',
+      description: 'Title of Password Reset page',
+      id: 'yeGTq1',
+    }),
   });
 }
 

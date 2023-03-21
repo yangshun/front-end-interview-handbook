@@ -3,14 +3,29 @@ import type { Metadata } from 'next/types';
 
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
 
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import PaymentSuccessPage from './PaymentSuccessPage';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
     pathname: '/payment/success',
-    title: 'Payment Success',
+    title: intl.formatMessage({
+      defaultMessage: 'Payment Success',
+      description: 'Title of Payment Success page',
+      id: 'VlLGKt',
+    }),
   });
 }
 

@@ -7,6 +7,7 @@ import type { QuestionMetadata } from '~/components/questions/common/QuestionsTy
 import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { genQuestionProgress } from '~/db/QuestionsProgressUniversal';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
@@ -19,12 +20,22 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
+  
+  const intl = await getIntlServerOnly(locale);
   const question = readQuestionJavaScriptContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt!,
     pathname: question.metadata.href,
-    title: `${question.metadata.title} | JavaScript Front End Interview Questions with Solutions`,
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{questionTitle} | JavaScript Front End Interview Questions with Solutions',
+        description: 'Title of Javascript Front End interview questions page',
+        id: 'wqIwvv',
+      },
+      { questionTitle: question.metadata.title },
+    ),
   });
 }
 

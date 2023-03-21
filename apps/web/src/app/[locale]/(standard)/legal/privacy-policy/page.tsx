@@ -3,14 +3,29 @@ import type { Metadata } from 'next/types';
 import Container from '~/components/ui/Container';
 import Prose from '~/components/ui/Prose';
 
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import PrivacyPolicy from './privacy-policy.mdx';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
     pathname: '/legal/privacy-policy',
-    title: 'Privacy Policy',
+    title: intl.formatMessage({
+      defaultMessage: 'Privacy Policy',
+      description: 'Title of Privacy Policy page',
+      id: 'nTu2nu',
+    }),
   });
 }
 

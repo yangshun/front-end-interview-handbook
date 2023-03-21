@@ -3,20 +3,36 @@ import type { Metadata } from 'next/types';
 
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
 
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import PricingPage from './PricingPage';
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description:
-      'Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!',
+    description: intl.formatMessage({
+      defaultMessage:
+        'Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!',
+      description: 'Description of Pricing page',
+      id: 'wmvMT1',
+    }),
     pathname: '/pricing',
-    title: 'Pricing',
+    title: intl.formatMessage({
+      defaultMessage: 'Pricing',
+      description: 'Title of Pricing page',
+      id: 'PeXK7/',
+    }),
   });
 }
 
 type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
   searchParams?: Readonly<{ cty?: string }>;
 }>;
 

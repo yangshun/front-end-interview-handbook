@@ -4,16 +4,35 @@ import type { QuestionFramework } from '~/components/questions/common/QuestionsT
 import QuestionsFrameworkPage from '~/components/questions/listings/QuestionsFrameworkPage';
 
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description:
-      'Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+    description: intl.formatMessage({
+      defaultMessage:
+        'Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+      description: 'Description of React Interview Questions page',
+      id: 'MkjGJD',
+    }),
     pathname: `/questions/${framework}`,
-    title: 'Practice React Interview Questions with Solutions',
+    title: intl.formatMessage({
+      defaultMessage: 'Practice React Interview Questions with Solutions',
+      description: 'Title of React Interview Questions page',
+      id: '035J/P',
+    }),
   });
 }
 

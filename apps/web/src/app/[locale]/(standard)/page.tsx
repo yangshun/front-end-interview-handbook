@@ -13,17 +13,35 @@ import {
   fetchQuestionsListSystemDesign,
   fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import MarketingHomePage from './MarketingHomePage';
 
 export const dynamic = 'force-static';
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description: `The complete preparation platform for front end interviews. ${QuestionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.`,
+    description: intl.formatMessage(
+      {
+        defaultMessage: `The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.`,
+        description: 'Description of GreatFrontEnd standard page',
+        id: 'WJ/3Qn',
+      },
+      {
+        questionCount: QuestionCount,
+      },
+    ),
     pathname: '/',
-    title: 'The best way to prepare for Front End Interviews',
+    title: intl.formatMessage({
+      defaultMessage: 'The best way to prepare for Front End Interviews',
+      description: 'Title of GreatFrontEnd standard page',
+      id: 'M7x/vv',
+    }),
   });
 }
 

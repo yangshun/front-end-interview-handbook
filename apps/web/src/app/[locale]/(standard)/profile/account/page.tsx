@@ -3,13 +3,28 @@ import { redirect } from 'next/navigation';
 
 import ProfileAccount from '~/components/profile/ProfileAccount';
 
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
     pathname: '/profile/account',
-    title: 'Account | Profile',
+    title: intl.formatMessage({
+      defaultMessage: 'Account | Profile',
+      description: 'Title of Profile Account page',
+      id: 'fH+NAA',
+    }),
   });
 }
 

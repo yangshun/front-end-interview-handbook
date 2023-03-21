@@ -2,14 +2,33 @@ import type { Metadata } from 'next/types';
 
 import AuthPage from '~/components/auth/AuthPage';
 
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
   return defaultMetadata({
-    description:
-      'Sign up for a free GreatFrontEnd account to track your progress and access premium',
+    description: intl.formatMessage({
+      defaultMessage:
+        'Sign up for a free GreatFrontEnd account to track your progress and access premium',
+      description: 'Description of Sign Up page',
+      id: 'd+wYSW',
+    }),
     pathname: '/sign-up',
-    title: 'Sign Up',
+    title: intl.formatMessage({
+      defaultMessage: 'Sign Up',
+      description: 'Title of Sign Up page',
+      id: 'V0hPhI',
+    }),
   });
 }
 
