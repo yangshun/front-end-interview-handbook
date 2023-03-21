@@ -121,9 +121,9 @@ export default function FeedbackDialog({
               autoFocus={true}
               description={intl.formatMessage({
                 defaultMessage:
-                  'Give us your feedback/suggestions and stand a chance to receive freebies!',
+                  'Give us your feedback/suggestions and stand a chance to receive a discount/cashback!',
                 description: 'Feedback widget textarea description',
-                id: '5D3gTs',
+                id: '8MHkPL',
               })}
               errorMessage={messageFormErrorMessage}
               fontSize="xs"
