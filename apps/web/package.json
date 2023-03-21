@@ -18,7 +18,7 @@
     "gen:all": "yarn gen:clean && yarn gen",
     "gen:clean": "rm -rf src/__generated__",
     "postinstall": "prisma generate",
-    "i18n:extract": "formatjs extract 'src/**/*.ts*' --ignore='**/*.d.ts' --out-file src/locales/en.json",
+    "i18n:extract": "formatjs extract \"src/**/*.ts*\" --ignore=\"**/*.d.ts\" --out-file src/locales/en.json",
     "ppp": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/ppp-update.ts",
     "supabase": "supabase gen types typescript --project-id vaqybtnqyonvlwtskzmv --schema public > src/supabase/database.types.ts",
     "intl:js": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-intl.ts",
