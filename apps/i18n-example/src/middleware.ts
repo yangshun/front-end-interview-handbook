@@ -3,12 +3,12 @@ import { NextResponse } from 'next/server';
 import { i18nMiddleware } from 'next-i18nostic';
 
 export function middleware(req: NextRequest) {
-  // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // // If you have one
+  // `/_next/` and `/api/` are ignored by the watcher, but we need to
+  // ignore files in `public` manually if they're not already handled below.
+  //
   // if (
   //   [
   //     '/manifest.json',
-  //     '/favicon.ico',
   //     // Your other files in `public`
   //   ].includes(pathname)
   // )
@@ -18,6 +18,19 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _vercel (Vercel internal routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - sitemap.xml (sitemap file)
+     * - robots.txt (robots.txt file)
+     *
+     * Add/remove where necessary.
+     */
+    '/((?!api|_vercel|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+  ],
 };
