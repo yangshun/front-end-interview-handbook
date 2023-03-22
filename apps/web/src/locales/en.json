@@ -143,10 +143,6 @@
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
   },
-  "5JY9Ft": {
-    "defaultMessage": "{questionExcept} using {questionFramework}",
-    "description": "Description of Front End Interview UI Coding Questions practice page"
-  },
   "5dwMRE": {
     "defaultMessage": "Interview Guides",
     "description": "Sidebar label for Interview Guides category"
@@ -506,6 +502,10 @@
   "K08edE": {
     "defaultMessage": "Show only failed tests",
     "description": "Checkbox for whether to show only failed test cases"
+  },
+  "KDDzWX": {
+    "defaultMessage": "{questionExcerpt} using {questionFramework}",
+    "description": "Description of Front End Interview UI Coding Questions practice page"
   },
   "KaGCVb": {
     "defaultMessage": "Select question section",

@@ -80,10 +80,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           )
         : intl.formatMessage(
             {
-              defaultMessage: '{questionExcept} using {questionFramework}',
+              defaultMessage: '{questionExcerpt} using {questionFramework}',
               description:
                 'Description of Front End Interview UI Coding Questions practice page',
-              id: '5JY9Ft',
+              id: 'KDDzWX',
             },
             {
               questionExcerpt: question.metadata.excerpt,
