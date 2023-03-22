@@ -1,7 +1,6 @@
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import GoogleAnalytics from '~/components/global/GoogleAnalytics';
-import MetaPixel from '~/components/global/MetaPixel';
 
 import type { IntlMessages } from '~/i18n';
 
@@ -30,7 +29,6 @@ export default function RootLayout({
           intlMessages={intlMessages}
           locale={locale}>
           <GoogleAnalytics />
-          <MetaPixel />
           <style>{`:root { --navbar-height: 57px; }`}</style>
           {children}
           <VercelAnalytics />

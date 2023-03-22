@@ -41,7 +41,7 @@ function trackImpl(name: string, options?: Record<string, unknown>) {
     return;
   }
 
-  window.fbq('track', name, options);
+  // Window.fbq('track', name, options);
 }
 
 const fbq = Object.freeze({
