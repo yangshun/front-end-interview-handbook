@@ -1,6 +1,8 @@
 import { useI18nRouter } from 'next-i18nostic';
 import { useEffect, useRef, useState } from 'react';
 
+import fbq from '~/lib/fbq';
+
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -84,6 +86,8 @@ export default function SupabaseAuthEmail({
         break;
       }
       case 'sign_up': {
+        fbq.track('CompleteRegistration');
+
         const { data, error: signUpError } = await supabaseClient.auth.signUp({
           email,
           options: {

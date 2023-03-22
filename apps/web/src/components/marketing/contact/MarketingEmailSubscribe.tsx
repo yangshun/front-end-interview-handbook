@@ -1,6 +1,8 @@
 import { useId, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import fbq from '~/lib/fbq';
+
 import Heading from '~/components/ui/Heading';
 
 export default function MarketingEmailSubscribe() {
@@ -59,6 +61,7 @@ export default function MarketingEmailSubscribe() {
             onSubmit={async (event) => {
               event.preventDefault();
               event.stopPropagation();
+              fbq.track('Lead');
 
               const data = new FormData(event.target as HTMLFormElement);
 

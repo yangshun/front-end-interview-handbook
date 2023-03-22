@@ -1,18 +1,53 @@
 const FB_PIXEL_ID = '213222811360903';
 
 function pageview() {
-  window.fbq('track', 'PageView');
+  trackImpl('PageView');
 }
 
-// https://developers.facebook.com/docs/facebook-pixel/advanced/
-function event(name: string, options: Record<string, unknown> = {}) {
+// https://developers.facebook.com/docs/meta-pixel/reference
+type MetaPixelStandardEventName =
+  | 'AddPaymentInfo'
+  | 'AddToCart'
+  | 'AddToWishlist'
+  | 'CompleteRegistration'
+  | 'Contact'
+  | 'CustomizeProduct'
+  | 'Donate'
+  | 'FindLocation'
+  | 'InitiateCheckout'
+  | 'Lead'
+  | 'Purchase'
+  | 'Schedule'
+  | 'Search'
+  | 'StartTrial'
+  | 'SubmitApplication'
+  | 'Subscribe'
+  | 'ViewContent';
+
+function track(
+  name: MetaPixelStandardEventName,
+  // TODO: Improve options according to Object Properties: https://developers.facebook.com/docs/meta-pixel/reference#object-properties
+  options: Record<string, unknown> = {},
+) {
+  trackImpl(name, options);
+}
+
+// https://developers.facebook.com/docs/meta-pixel/guides/track-multiple-events
+function trackImpl(name: string, options?: Record<string, unknown>) {
+  // Don't log analytics during development.
+  if (process.env.NODE_ENV === 'development') {
+    console.info('[fbq]', name, options);
+
+    return;
+  }
+
   window.fbq('track', name, options);
 }
 
 const fbq = Object.freeze({
-  event,
   pageview,
   pixelID: FB_PIXEL_ID,
+  track,
 });
 
 export default fbq;

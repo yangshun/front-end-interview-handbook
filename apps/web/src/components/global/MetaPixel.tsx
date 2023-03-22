@@ -30,15 +30,15 @@ export default function MetaPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', ${fbq.pixelID});
+            fbq('init', '${fbq.pixelID}');
           `,
         }}
         id="fb-pixel"
         strategy="afterInteractive"
       />
       <noscript>
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img
+          alt=""
           height="1"
           src={`https://www.facebook.com/tr?id=${fbq.pixelID}&ev=PageView&noscript=1`}
           style={{ display: 'none' }}

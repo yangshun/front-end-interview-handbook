@@ -82,7 +82,8 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
 
       const plan = plans[planSearchParam];
 
-      fbq.event('Purchase', {
+      fbq.track('Purchase', {
+        content_name: plan.planType,
         currency: plan.currency.toLocaleUpperCase(),
         value: plan.unitCostLocalizedInCurrency,
       });

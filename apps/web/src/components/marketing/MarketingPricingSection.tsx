@@ -187,7 +187,7 @@ function PricingButtonSection({
                     category: 'ecommerce',
                     label: 'Buy Now',
                   });
-                  fbq.event('InitiateCheckout', {
+                  fbq.track('InitiateCheckout', {
                     content_category: plan.planType,
                     currency: plan.currency.toLocaleUpperCase(),
                     value: plan.unitCostLocalizedInCurrency,

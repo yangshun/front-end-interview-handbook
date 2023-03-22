@@ -40,7 +40,7 @@ export default function FeedbackWidget({ position }: Props) {
 
           setIsOpen(newOpenState);
 
-          fbq.event('Contact');
+          fbq.track('Contact');
         }}>
         <div
           className={clsx(
