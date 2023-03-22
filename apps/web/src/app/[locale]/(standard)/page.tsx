@@ -18,8 +18,6 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import MarketingHomePage from './MarketingHomePage';
 
-export const dynamic = 'force-static';
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
