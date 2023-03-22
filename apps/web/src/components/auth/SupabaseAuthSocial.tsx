@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -73,6 +74,7 @@ export default function SupabaseAuthSocial({
   layout,
   redirectTo,
 }: SocialAuthProps) {
+  const intl = useIntl();
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -111,7 +113,17 @@ export default function SupabaseAuthSocial({
                 icon={icon}
                 isDisabled={loading}
                 isLoading={loading}
-                label={`Continue with ${label}`}
+                label={intl.formatMessage(
+                  {
+                    defaultMessage: 'Continue with {authProviderLabel}',
+                    description:
+                      'Label of social media sign in button on Social Sign In page',
+                    id: 'q0J0CA',
+                  },
+                  {
+                    authProviderLabel: label,
+                  },
+                )}
                 size={socialButtonSize}
                 variant="tertiary"
                 onClick={() => handleProviderSignIn(provider)}

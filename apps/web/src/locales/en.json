@@ -23,6 +23,10 @@
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
   },
+  "/iF6ou": {
+    "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>{Terms of Service}</tos> and <pp>Privacy Policy</pp>.",
+    "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
+  },
   "/jCLBS": {
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
@@ -34,6 +38,10 @@
   "035J/P": {
     "defaultMessage": "Practice React Interview Questions with Solutions",
     "description": "Title of React Interview Questions page"
+  },
+  "0IALGm": {
+    "defaultMessage": "Hello {userEmail}!",
+    "description": "Title of AuthPage when logged in"
   },
   "0RaY4p": {
     "defaultMessage": "What does buying GreatFrontEnd get me?",
@@ -50,6 +58,10 @@
   "1FbA4H": {
     "defaultMessage": "What types of questions do you have on your platform?",
     "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
+  },
+  "1gkgr4": {
+    "defaultMessage": "Sign In",
+    "description": "Label of Sign In button on Email Sign In page"
   },
   "2YMuJe": {
     "defaultMessage": "What does \"lifetime access\" mean?",
@@ -70,6 +82,10 @@
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
+  },
+  "3AfCoE": {
+    "defaultMessage": "Minimum 6 characters",
+    "description": "Description of password field indicating minimum character count, on Change Password page"
   },
   "3aPvGu": {
     "defaultMessage": "Front End Interview Guidebook",
@@ -103,6 +119,10 @@
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
   },
+  "4Bt00L": {
+    "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
+    "description": "Prompt for account creation on Email Sign In page"
+  },
   "4zNzv1": {
     "defaultMessage": "Select navigation item in DevTool",
     "description": "Label for tabs in the coding workspace DevTool"
@@ -110,6 +130,10 @@
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
+  },
+  "51w4r4": {
+    "defaultMessage": "Get Started",
+    "description": "Title of Sign Up page"
   },
   "55uCRp": {
     "defaultMessage": "Premium",
@@ -163,6 +187,10 @@
     "defaultMessage": "Try these questions next",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
   },
+  "7Hng1e": {
+    "defaultMessage": "Already have an account? <link>Sign in</link>",
+    "description": "Prompt for sign in on Email Sign Up page"
+  },
   "7Iapcq": {
     "defaultMessage": "Study plan to prepare for front end interviews in 3 months",
     "description": "Title of 3 Months Preparation Plan page"
@@ -183,6 +211,10 @@
     "defaultMessage": "Chat with us directly!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
   },
+  "8GTfgf": {
+    "defaultMessage": "Welcome Back",
+    "description": "Title of Sign In page"
+  },
   "8MHkPL": {
     "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive a discount/cashback!",
     "description": "Feedback widget textarea description"
@@ -190,6 +222,10 @@
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
+  },
+  "8Ti6rm": {
+    "defaultMessage": "Your password has been updated",
+    "description": "Message indicating a successful password update"
   },
   "8UEoLG": {
     "defaultMessage": "Everything you need to study and practice for front end interviews for a complete preparation.",
@@ -218,6 +254,10 @@
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
+  },
+  "9LT8eh": {
+    "defaultMessage": "Email",
+    "description": "Label of email field on Sign In/Up page"
   },
   "9jbYus": {
     "defaultMessage": "Pay once, get full access <span>forever</span>.",
@@ -271,6 +311,10 @@
     "defaultMessage": "Recommended Duration",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
   },
+  "C+WlY+": {
+    "defaultMessage": "Please create a free account in order to purchase the premium plans.",
+    "description": "Content of alert requesting user to create an account to purchase premium plans"
+  },
   "C7tiFm": {
     "defaultMessage": "Why join us?",
     "description": "Section label for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
@@ -282,6 +326,10 @@
   "CBU+k0": {
     "defaultMessage": "Company",
     "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
+  },
+  "CDrriz": {
+    "defaultMessage": "Sign in with password",
+    "description": "Label of link to go to Password Sign In Page on Magic Link Sign In page"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -395,6 +443,10 @@
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
   },
+  "I5MeD9": {
+    "defaultMessage": "Signed up successfully",
+    "description": "Title of alert indicating a successful email sign up"
+  },
   "I5iXtu": {
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
@@ -462,6 +514,14 @@
   "KjD2cI": {
     "defaultMessage": "Duration: High to Low",
     "description": "Sorting option for question list - sort by duration from high to low"
+  },
+  "KmiBbk": {
+    "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
+    "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
+  },
+  "KtYnhS": {
+    "defaultMessage": "Create a new account",
+    "description": "Subtitle of Sign Up page"
   },
   "Ku1Crp": {
     "defaultMessage": "Wrong Answer",
@@ -551,6 +611,10 @@
     "defaultMessage": "Description",
     "description": "Header for the question description section"
   },
+  "O4XAXC": {
+    "defaultMessage": "An email will be sent to the address above if an associated account exists",
+    "description": "Message indicating a successful password reset request"
+  },
   "O7MAvX": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
@@ -619,6 +683,10 @@
     "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "R1ji0N": {
+    "defaultMessage": "Signing out. See you again!",
+    "description": "Main content of Sign Out page"
+  },
   "R5FPug": {
     "defaultMessage": "Contact Us",
     "description": "Title of Contact Us page"
@@ -654,6 +722,10 @@
   "RXqyFg": {
     "defaultMessage": "Try your first free question",
     "description": "Header for section prompting user to try their first question"
+  },
+  "RnHcaK": {
+    "defaultMessage": "An account is required to purchase premium",
+    "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
   "RxZwQ9": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
@@ -703,6 +775,10 @@
     "defaultMessage": "Free",
     "description": "Label for free questions"
   },
+  "TcVgOJ": {
+    "defaultMessage": "Sign in",
+    "description": "Title of Magic Link Sign In page"
+  },
   "TeTJmh": {
     "defaultMessage": "What if those fundamentals were already abstracted for you?",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
@@ -715,6 +791,10 @@
     "defaultMessage": "Yelp",
     "description": "Company name for Yelp"
   },
+  "UHZyhq": {
+    "defaultMessage": "Email",
+    "description": "Label of email field on Magic Link Sign In page"
+  },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
     "description": "Title of 1 Week Preparation Plan page"
@@ -722,6 +802,10 @@
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
+  },
+  "UotwsL": {
+    "defaultMessage": "Logging you in...",
+    "description": "Subtitle of AuthPage when logged in"
   },
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
@@ -743,6 +827,10 @@
     "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
   },
+  "VVf84T": {
+    "defaultMessage": "Password",
+    "description": "Label of password field on Change Password page"
+  },
   "VYWqtL": {
     "defaultMessage": "System Design Questions",
     "description": "Label for system design questions"
@@ -754,6 +842,10 @@
   "VlLGKt": {
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
+  },
+  "Vvc37/": {
+    "defaultMessage": "Sign up for an account",
+    "description": "Title of Email Sign Up page"
   },
   "WJ/3Qn": {
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
@@ -775,6 +867,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
   },
+  "XVPYZg": {
+    "defaultMessage": "Forgot your password?",
+    "description": "Label of forget password button on Email Sign In page"
+  },
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
@@ -791,6 +887,10 @@
     "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
   },
+  "YM1bnf": {
+    "defaultMessage": "An error has occurred",
+    "description": "Title of alert indicating an error on Email Sign In/Up Page"
+  },
   "YMfxks": {
     "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
@@ -798,6 +898,10 @@
   "Z9Wr7g": {
     "defaultMessage": "See all",
     "description": "Label for see all button that brings user to the full question list for that question format"
+  },
+  "ZCTrb8": {
+    "defaultMessage": "Sign in to your account",
+    "description": "Title of Email Sign In page"
   },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -811,9 +915,17 @@
     "defaultMessage": "Report an issue",
     "description": "Label for reporting an issue"
   },
+  "a6L95B": {
+    "defaultMessage": "Check your email for the confirmation link.",
+    "description": "Content of alert indicating a successful email sign up"
+  },
   "a8ETQr": {
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
+  },
+  "aPfuzs": {
+    "defaultMessage": "Reset password",
+    "description": "Title of Password Reset page"
   },
   "aQKVD4": {
     "defaultMessage": "Contributed by ex-interviewers at",
@@ -903,6 +1015,10 @@
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
   },
+  "d8XKhi": {
+    "defaultMessage": "Change password",
+    "description": "Label of Change Password button on Change Password page"
+  },
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
@@ -918,6 +1034,10 @@
   "dk2vXq": {
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
+  },
+  "dz24ro": {
+    "defaultMessage": "Send reset password instructions",
+    "description": "Label of password reset button on Password Reset page"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -991,6 +1111,10 @@
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
   },
+  "gZL62Q": {
+    "defaultMessage": "Change password for {userEmail}",
+    "description": "Title of Change Password page"
+  },
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
@@ -1051,6 +1175,10 @@
     "defaultMessage": "Coming Soon",
     "description": "Coming soon label indicating that a feature will be launched soon"
   },
+  "jNXBSj": {
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
+    "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
+  },
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
@@ -1062,6 +1190,10 @@
   "jcGC9r": {
     "defaultMessage": "Prep Dashboard",
     "description": "Sidebar label for Front End Interview Prep Dashboard page"
+  },
+  "jgIdRC": {
+    "defaultMessage": "Password",
+    "description": "Label of password field on Sign In/Up page"
   },
   "jgldKV": {
     "defaultMessage": "Select question section",
@@ -1215,6 +1347,14 @@
     "defaultMessage": "Solution",
     "description": "Header for the question solution section"
   },
+  "q0J0CA": {
+    "defaultMessage": "Continue with {authProviderLabel}",
+    "description": "Label of social media sign in button on Social Sign In page"
+  },
+  "qAxlQN": {
+    "defaultMessage": "Sign in with magic link",
+    "description": "Label of magic link sign in button on Email Sign In page"
+  },
   "qfX/3p": {
     "defaultMessage": "Tests",
     "description": "Label for Tests tab on the coding workspace"
@@ -1263,9 +1403,17 @@
     "defaultMessage": "Activity | Profile",
     "description": "Title of Profile Activity page"
   },
+  "tP5+Am": {
+    "defaultMessage": "Sign Up",
+    "description": "Label of Sign Up button on Email Sign Up page"
+  },
   "tU2J/q": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Sidebar label for Front End System Design Guidebook page"
+  },
+  "taVYcT": {
+    "defaultMessage": "Check your email for the magic link",
+    "description": "Message indicating a successful magic link request"
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -1283,6 +1431,10 @@
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all Quiz coding questions"
   },
+  "uCbhIG": {
+    "defaultMessage": "Go back to sign in",
+    "description": "Label of link to return to Sign In Page on Password Reset page"
+  },
   "uM5kA8": {
     "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
@@ -1290,6 +1442,10 @@
   "uawqxS": {
     "defaultMessage": "You have completed <span>{completionProgressPercentage}%</span> of this plan <span2> ({completedQuestions} of {totalQuestions})</span2>",
     "description": "Line describing completion status of the study plan"
+  },
+  "ugHQqC": {
+    "defaultMessage": "Or continue with",
+    "description": "Label of divider preceding third party providers on Sign In page"
   },
   "ujL9EM": {
     "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
@@ -1302,6 +1458,10 @@
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
+  },
+  "urvIL3": {
+    "defaultMessage": "Sign in to your account",
+    "description": "Subtitle of Sign In page"
   },
   "uz7f93": {
     "defaultMessage": "Salesforce",
@@ -1339,6 +1499,10 @@
     "defaultMessage": "Prepare for Front End Behavioral Interviews",
     "description": "Title of Behavioral Interview Preparation page"
   },
+  "vx/nPL": {
+    "defaultMessage": "Email",
+    "description": "Label of email field on Password Reset page"
+  },
   "w0h58l": {
     "defaultMessage": "Efficiently prepare for behavioral interviews for front end / web developers / software engineers, with guides about evaluation criteria at big tech, preparation strategies, and common behavioral interview questions.",
     "description": "Description of Behavioral Interview Preparation page"
@@ -1362,6 +1526,10 @@
   "wVEJye": {
     "defaultMessage": "Study Plans",
     "description": "Sidebar label for Study Plans category"
+  },
+  "wbjMPn": {
+    "defaultMessage": "Send magic link",
+    "description": "Label of send magic link button on Magic Link Sign In page"
   },
   "wdlzwm": {
     "defaultMessage": "Your Message",
@@ -1430,6 +1598,10 @@
   "zaEg+y": {
     "defaultMessage": "Pay once, own it forever",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "zn3iWx": {
+    "defaultMessage": "Repeat Password",
+    "description": "Label of confirm password field on Change Password page"
   },
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",

@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useI18nRouter } from 'next-i18nostic';
 import { useEffect } from 'react';
+import { useIntl } from 'react-intl';
 
 import Container from '~/components/ui/Container';
 import EmptyState from '~/components/ui/EmptyState';
@@ -11,6 +12,7 @@ import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 export default function LogoutPage() {
   const supabaseClient = useSupabaseClientGFE();
+  const intl = useIntl();
   const router = useI18nRouter();
   const searchParams = useSearchParams();
   const nextSearchParam = searchParams?.get('next');
@@ -40,7 +42,14 @@ export default function LogoutPage() {
 
   return (
     <Container className="flex h-96 items-center justify-center">
-      <EmptyState title="Signing out. See you again!" variant="exit" />
+      <EmptyState
+        title={intl.formatMessage({
+          defaultMessage: 'Signing out. See you again!',
+          description: 'Main content of Sign Out page',
+          id: 'R1ji0N',
+        })}
+        variant="exit"
+      />
     </Container>
   );
 }

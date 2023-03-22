@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -26,6 +27,7 @@ export default function SupabaseAuthMagicLink({
   redirectTo,
   showTitle,
 }: Props) {
+  const intl = useIntl();
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -45,7 +47,13 @@ export default function SupabaseAuthMagicLink({
     if (signInError) {
       setError(signInError.message);
     } else {
-      setMessage('Check your email for the magic link');
+      setMessage(
+        intl.formatMessage({
+          defaultMessage: 'Check your email for the magic link',
+          description: 'Message indicating a successful magic link request',
+          id: 'taVYcT',
+        }),
+      );
     }
 
     setLoading(false);
@@ -56,7 +64,11 @@ export default function SupabaseAuthMagicLink({
       <div className="space-y-8">
         {showTitle && (
           <Heading className="text-3xl font-bold text-slate-900">
-            Sign in
+            <FormattedMessage
+              defaultMessage="Sign in"
+              description="Title of Magic Link Sign In page"
+              id="TcVgOJ"
+            />
           </Heading>
         )}
         <Section>
@@ -64,7 +76,11 @@ export default function SupabaseAuthMagicLink({
             <TextInput
               autoComplete="email"
               defaultValue={email}
-              label="Email"
+              label={intl.formatMessage({
+                defaultMessage: 'Email',
+                description: 'Label of email field on Magic Link Sign In page',
+                id: 'UHZyhq',
+              })}
               startIcon={EnvelopeIcon}
               type="email"
               onChange={setEmail}
@@ -73,7 +89,12 @@ export default function SupabaseAuthMagicLink({
               display="block"
               isDisabled={loading}
               isLoading={loading}
-              label="Send magic link"
+              label={intl.formatMessage({
+                defaultMessage: 'Send magic link',
+                description:
+                  'Label of send magic link button on Magic Link Sign In page',
+                id: 'wbjMPn',
+              })}
               size="lg"
               type="submit"
               variant="secondary"
@@ -87,7 +108,11 @@ export default function SupabaseAuthMagicLink({
                 e.preventDefault();
                 setAuthView('sign_in');
               }}>
-              Sign in with password
+              <FormattedMessage
+                defaultMessage="Sign in with password"
+                description="Label of link to go to Password Sign In Page on Magic Link Sign In page"
+                id="CDrriz"
+              />
             </Anchor>
           </div>
           {message && (

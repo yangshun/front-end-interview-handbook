@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useI18nRouter } from 'next-i18nostic';
 import { useEffect } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import Alert from '~/components/ui/Alert';
@@ -19,6 +20,7 @@ type Props = Readonly<{
 }>;
 
 export default function AuthPage({ view }: Props) {
+  const intl = useIntl();
   const { error } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
   const user = useUser();
@@ -52,10 +54,19 @@ export default function AuthPage({ view }: Props) {
               nextSearchParam === '/pricing' &&
               sourceSearchParam === 'buy_now' ? (
                 <Alert
-                  title="An account is required to purchase premium"
+                  title={intl.formatMessage({
+                    defaultMessage:
+                      'An account is required to purchase premium',
+                    description:
+                      'Title of alert requesting user to create an account to purchase premium plans',
+                    id: 'RnHcaK',
+                  })}
                   variant="success">
-                  Please create a free account in order to purchase the premium
-                  plans.
+                  <FormattedMessage
+                    defaultMessage="Please create a free account in order to purchase the premium plans."
+                    description="Content of alert requesting user to create an account to purchase premium plans"
+                    id="C+WlY+"
+                  />
                 </Alert>
               ) : undefined
             }
@@ -68,8 +79,21 @@ export default function AuthPage({ view }: Props) {
         </>
       ) : (
         <EmptyState
-          subtitle="Logging you in..."
-          title={`Hello ${user.email}!`}
+          subtitle={intl.formatMessage({
+            defaultMessage: 'Logging you in...',
+            description: 'Subtitle of AuthPage when logged in',
+            id: 'UotwsL',
+          })}
+          title={intl.formatMessage(
+            {
+              defaultMessage: 'Hello {userEmail}!',
+              description: 'Title of AuthPage when logged in',
+              id: '0IALGm',
+            },
+            {
+              userEmail: user.email,
+            },
+          )}
           variant="login"
         />
       )}

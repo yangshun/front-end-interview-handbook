@@ -1,5 +1,6 @@
 import { useI18nRouter } from 'next-i18nostic';
 import { useEffect, useRef, useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
 
@@ -50,6 +51,7 @@ export default function SupabaseAuthEmail({
   const [message, setMessage] = useState<string | null>(null);
   const [signUpForMarketingEmails, setSignUpForMarketingEmails] =
     useState(true);
+  const intl = useIntl();
   const router = useI18nRouter();
 
   useEffect(() => {
@@ -108,7 +110,14 @@ export default function SupabaseAuthEmail({
 
         if (signUpUser && !signUpSession) {
           // Check if session is null -> email confirmation setting is turned on
-          setMessage('Check your email for the confirmation link.');
+          setMessage(
+            intl.formatMessage({
+              defaultMessage: 'Check your email for the confirmation link.',
+              description:
+                'Content of alert indicating a successful email sign up',
+              id: 'a6L95B',
+            }),
+          );
         }
 
         if (signUpForMarketingEmails) {
@@ -147,9 +156,17 @@ export default function SupabaseAuthEmail({
         {showTitle && (
           <Heading className="text-3xl font-bold text-slate-900">
             {authView === 'sign_in' ? (
-              <>Sign in to your account</>
+              <FormattedMessage
+                defaultMessage="Sign in to your account"
+                description="Title of Email Sign In page"
+                id="ZCTrb8"
+              />
             ) : (
-              <>Sign up for an account</>
+              <FormattedMessage
+                defaultMessage="Sign up for an account"
+                description="Title of Email Sign Up page"
+                id="Vvc37/"
+              />
             )}
           </Heading>
         )}
@@ -157,7 +174,11 @@ export default function SupabaseAuthEmail({
           <TextInput
             autoComplete="email"
             defaultValue={email}
-            label="Email"
+            label={intl.formatMessage({
+              defaultMessage: 'Email',
+              description: 'Label of email field on Sign In/Up page',
+              id: '9LT8eh',
+            })}
             startIcon={EnvelopeIcon}
             type="email"
             onChange={setEmail}
@@ -165,7 +186,11 @@ export default function SupabaseAuthEmail({
           <div className="space-y-2">
             <TextInput
               defaultValue={password}
-              label="Password"
+              label={intl.formatMessage({
+                defaultMessage: 'Password',
+                description: 'Label of password field on Sign In/Up page',
+                id: 'jgIdRC',
+              })}
               startIcon={KeyIcon}
               type="password"
               onChange={setPassword}
@@ -179,7 +204,11 @@ export default function SupabaseAuthEmail({
                     e.preventDefault();
                     setAuthView('forgotten_password');
                   }}>
-                  Forgot your password?
+                  <FormattedMessage
+                    defaultMessage="Forgot your password?"
+                    description="Label of forget password button on Email Sign In page"
+                    id="XVPYZg"
+                  />
                 </Anchor>
               </div>
             )}
@@ -188,7 +217,13 @@ export default function SupabaseAuthEmail({
         <div className="grid gap-y-8">
           {authView === 'sign_up' && (
             <CheckboxInput
-              label="I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates"
+              label={intl.formatMessage({
+                defaultMessage:
+                  "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
+                description:
+                  'Label of checkbox to sign up for newsletter on Email Sign Up page',
+                id: 'KmiBbk',
+              })}
               value={signUpForMarketingEmails}
               onChange={(value) => {
                 setSignUpForMarketingEmails(value);
@@ -196,12 +231,26 @@ export default function SupabaseAuthEmail({
             />
           )}
           {message && (
-            <Alert title="Signed up successfully" variant="info">
+            <Alert
+              title={intl.formatMessage({
+                defaultMessage: 'Signed up successfully',
+                description:
+                  'Title of alert indicating a successful email sign up',
+                id: 'I5MeD9',
+              })}
+              variant="info">
               {message}
             </Alert>
           )}
           {error && (
-            <Alert title="An error has occurred" variant="danger">
+            <Alert
+              title={intl.formatMessage({
+                defaultMessage: 'An error has occurred',
+                description:
+                  'Title of alert indicating an error on Email Sign In/Up Page',
+                id: 'YM1bnf',
+              })}
+              variant="danger">
               {error}
             </Alert>
           )}
@@ -210,7 +259,21 @@ export default function SupabaseAuthEmail({
               display="block"
               isDisabled={loading}
               isLoading={loading}
-              label={authView === 'sign_in' ? 'Sign In' : 'Sign Up'}
+              label={
+                authView === 'sign_in'
+                  ? intl.formatMessage({
+                      defaultMessage: 'Sign In',
+                      description:
+                        'Label of Sign In button on Email Sign In page',
+                      id: '1gkgr4',
+                    })
+                  : intl.formatMessage({
+                      defaultMessage: 'Sign Up',
+                      description:
+                        'Label of Sign Up button on Email Sign Up page',
+                      id: 'tP5+Am',
+                    })
+              }
               size="lg"
               type="submit"
               variant="primary"
@@ -224,7 +287,11 @@ export default function SupabaseAuthEmail({
                     e.preventDefault();
                     setAuthView('magic_link');
                   }}>
-                  Sign in with magic link
+                  <FormattedMessage
+                    defaultMessage="Sign in with magic link"
+                    description="Label of magic link sign in button on Email Sign In page"
+                    id="qAxlQN"
+                  />
                 </Anchor>
               </div>
             )}
@@ -234,15 +301,23 @@ export default function SupabaseAuthEmail({
                 color="secondary"
                 display="block"
                 variant="body">
-                Don't have an account?{' '}
-                <Anchor
-                  href="#auth-sign-up"
-                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                    e.preventDefault();
-                    handleViewChange('sign_up');
-                  }}>
-                  Sign up for free
-                </Anchor>
+                <FormattedMessage
+                  defaultMessage="Don't have an account? <link>Sign up for free</link>"
+                  description="Prompt for account creation on Email Sign In page"
+                  id="4Bt00L"
+                  values={{
+                    link: (chunks) => (
+                      <Anchor
+                        href="#auth-sign-up"
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                          e.preventDefault();
+                          handleViewChange('sign_up');
+                        }}>
+                        {chunks}
+                      </Anchor>
+                    ),
+                  }}
+                />
               </Text>
             ) : (
               <div className="flex flex-col gap-6">
@@ -251,23 +326,41 @@ export default function SupabaseAuthEmail({
                   color="secondary"
                   display="block"
                   variant="body">
-                  Already have an account?{' '}
-                  <Anchor
-                    href="#auth-sign-in"
-                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                      e.preventDefault();
-                      handleViewChange('sign_in');
-                    }}>
-                    Sign in
-                  </Anchor>
+                  <FormattedMessage
+                    defaultMessage="Already have an account? <link>Sign in</link>"
+                    description="Prompt for sign in on Email Sign Up page"
+                    id="7Hng1e"
+                    values={{
+                      link: (chunks) => (
+                        <Anchor
+                          href="#auth-sign-in"
+                          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                            e.preventDefault();
+                            handleViewChange('sign_in');
+                          }}>
+                          {chunks}
+                        </Anchor>
+                      ),
+                    }}
+                  />
                 </Text>
               </div>
             )}
             <hr />
             <Text color="secondary" display="block" variant="body3">
-              By proceeding, you agree to GreatFrontEnd's{' '}
-              <Anchor href="/legal/terms">Terms of Service</Anchor> and{' '}
-              <Anchor href="/legal/privacy-policy">Privacy Policy</Anchor>.
+              <FormattedMessage
+                defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>{Terms of Service}</tos> and <pp>Privacy Policy</pp>."
+                description="Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
+                id="/iF6ou"
+                values={{
+                  pp: (chunks) => (
+                    <Anchor href="/legal/privacy-policy">{chunks}</Anchor>
+                  ),
+                  tos: (chunks) => (
+                    <Anchor href="/legal/terms">{chunks}</Anchor>
+                  ),
+                }}
+              />
             </Text>
           </div>
         </div>

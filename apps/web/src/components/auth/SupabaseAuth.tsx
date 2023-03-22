@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -49,13 +50,33 @@ export default function Auth({
         <div className="space-y-8">
           <div className="flex flex-col gap-2 text-center">
             <Heading className="text-3xl font-bold text-slate-900">
-              {authView === 'sign_in' ? <>Welcome Back</> : <>Get Started</>}
+              {authView === 'sign_in' ? (
+                <FormattedMessage
+                  defaultMessage="Welcome Back"
+                  description="Title of Sign In page"
+                  id="8GTfgf"
+                />
+              ) : (
+                <FormattedMessage
+                  defaultMessage="Get Started"
+                  description="Title of Sign Up page"
+                  id="51w4r4"
+                />
+              )}
             </Heading>
             <Text color="secondary" display="block" variant="body2">
               {authView === 'sign_in' ? (
-                <>Sign in to your account</>
+                <FormattedMessage
+                  defaultMessage="Sign in to your account"
+                  description="Subtitle of Sign In page"
+                  id="urvIL3"
+                />
               ) : (
-                <>Create a new account</>
+                <FormattedMessage
+                  defaultMessage="Create a new account"
+                  description="Subtitle of Sign Up page"
+                  id="KtYnhS"
+                />
               )}
             </Text>
           </div>
@@ -74,7 +95,11 @@ export default function Auth({
                 </div>
                 <div className="relative flex justify-center text-sm">
                   <span className="bg-white px-2 text-slate-500">
-                    Or continue with
+                    <FormattedMessage
+                      defaultMessage="Or continue with"
+                      description="Label of divider preceding third party providers on Sign In page"
+                      id="ugHQqC"
+                    />
                   </span>
                 </div>
               </div>

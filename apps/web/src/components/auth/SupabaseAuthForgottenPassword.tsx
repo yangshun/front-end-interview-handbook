@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -24,6 +25,7 @@ export default function SupabaseAuthForgottenPassword({
   supabaseClient,
   showTitle,
 }: Props) {
+  const intl = useIntl();
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -44,7 +46,12 @@ export default function SupabaseAuthForgottenPassword({
       setError(resetError.message);
     } else {
       setMessage(
-        'An email will be sent to the address above if an associated account exists',
+        intl.formatMessage({
+          defaultMessage:
+            'An email will be sent to the address above if an associated account exists',
+          description: 'Message indicating a successful password reset request',
+          id: 'O4XAXC',
+        }),
       );
     }
     setLoading(false);
@@ -55,7 +62,11 @@ export default function SupabaseAuthForgottenPassword({
       <div className="space-y-8">
         {showTitle && (
           <Heading className="text-3xl font-bold text-slate-900">
-            Reset password
+            <FormattedMessage
+              defaultMessage="Reset password"
+              description="Title of Password Reset page"
+              id="aPfuzs"
+            />
           </Heading>
         )}
         <Section>
@@ -63,7 +74,11 @@ export default function SupabaseAuthForgottenPassword({
             <TextInput
               autoComplete="email"
               defaultValue={email}
-              label="Email"
+              label={intl.formatMessage({
+                defaultMessage: 'Email',
+                description: 'Label of email field on Password Reset page',
+                id: 'vx/nPL',
+              })}
               startIcon={EnvelopeIcon}
               type="email"
               onChange={setEmail}
@@ -72,7 +87,12 @@ export default function SupabaseAuthForgottenPassword({
               display="block"
               isDisabled={loading}
               isLoading={loading}
-              label="Send reset password instructions"
+              label={intl.formatMessage({
+                defaultMessage: 'Send reset password instructions',
+                description:
+                  'Label of password reset button on Password Reset page',
+                id: 'dz24ro',
+              })}
               size="lg"
               type="submit"
               variant="primary"
@@ -86,7 +106,11 @@ export default function SupabaseAuthForgottenPassword({
                 e.preventDefault();
                 setAuthView('sign_in');
               }}>
-              Go back to sign in
+              <FormattedMessage
+                defaultMessage="Go back to sign in"
+                description="Label of link to return to Sign In Page on Password Reset page"
+                id="uCbhIG"
+              />
             </Anchor>
           </div>
           {message && (

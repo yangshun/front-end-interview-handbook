@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -14,6 +15,7 @@ import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 export default function SupabaseAuthUpdatePassword() {
+  const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
   const user = useUser();
@@ -38,7 +40,13 @@ export default function SupabaseAuthUpdatePassword() {
     if (updateError) {
       setError(updateError.message);
     } else {
-      setMessage('Your password has been updated');
+      setMessage(
+        intl.formatMessage({
+          defaultMessage: 'Your password has been updated',
+          description: 'Message indicating a successful password update',
+          id: '8Ti6rm',
+        }),
+      );
     }
     setIsLoading(false);
   }
@@ -47,12 +55,23 @@ export default function SupabaseAuthUpdatePassword() {
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-2">
         <Heading className="flex-1 text-xl font-semibold">
-          Change password for {user?.email}
+          <FormattedMessage
+            defaultMessage="Change password for {userEmail}"
+            description="Title of Change Password page"
+            id="gZL62Q"
+            values={{
+              userEmail: user?.email,
+            }}
+          />
         </Heading>
         {user?.app_metadata.provider !== 'email' && (
           <Text color="secondary" display="block" variant="body2">
-            If you are logged in with OAuth (e.g. GitHub), you can set a
-            password here to use email and password to log in instead.
+            <FormattedMessage
+              defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can set a
+            password here to use email and password to log in instead."
+              description="Tip to set password if third-party sign in methods were used, on Change Password page"
+              id="jNXBSj"
+            />
           </Text>
         )}
       </div>
@@ -64,9 +83,18 @@ export default function SupabaseAuthUpdatePassword() {
             <TextInput
               autoComplete="password"
               defaultValue={password}
-              description="Minimum 6 characters"
+              description={intl.formatMessage({
+                defaultMessage: 'Minimum 6 characters',
+                description:
+                  'Description of password field indicating minimum character count, on Change Password page',
+                id: '3AfCoE',
+              })}
               isDisabled={isLoading}
-              label="Password"
+              label={intl.formatMessage({
+                defaultMessage: 'Password',
+                description: 'Label of password field on Change Password page',
+                id: 'VVf84T',
+              })}
               type="password"
               onChange={setPassword}
             />
@@ -74,7 +102,12 @@ export default function SupabaseAuthUpdatePassword() {
               autoComplete="password"
               defaultValue={confirmPassword}
               isDisabled={isLoading}
-              label="Repeat Password"
+              label={intl.formatMessage({
+                defaultMessage: 'Repeat Password',
+                description:
+                  'Label of confirm password field on Change Password page',
+                id: 'zn3iWx',
+              })}
               type="password"
               onChange={setConfirmPassword}
             />
@@ -82,7 +115,12 @@ export default function SupabaseAuthUpdatePassword() {
               display="block"
               isDisabled={!isValidPassword || isLoading}
               isLoading={isLoading}
-              label="Change password"
+              label={intl.formatMessage({
+                defaultMessage: 'Change password',
+                description:
+                  'Label of Change Password button on Change Password page',
+                id: 'd8XKhi',
+              })}
               type="submit"
               variant="primary"
             />
