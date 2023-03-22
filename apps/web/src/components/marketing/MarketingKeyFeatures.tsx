@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';

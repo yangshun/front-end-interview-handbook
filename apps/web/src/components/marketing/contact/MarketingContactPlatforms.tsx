@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import Anchor from '~/components/ui/Anchor';
 

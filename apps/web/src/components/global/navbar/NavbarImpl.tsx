@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useIntl } from 'react-intl';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import { useGuidesData } from '~/data/Guides';
 import { usePreparationPlansUI } from '~/data/PreparationPlansUI';

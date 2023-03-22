@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 

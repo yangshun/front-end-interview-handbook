@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/questions/listings/QuestionsList';

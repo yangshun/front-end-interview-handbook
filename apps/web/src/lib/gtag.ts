@@ -1,9 +1,9 @@
 import { currentExperiment } from '~/components/experiments';
 
-export const GA_TRACKING_ID = 'G-4PM3M4LWEM';
+const GA_TRACKING_ID = 'G-4PM3M4LWEM';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-export function pageview(url: string) {
+function pageview(url: string) {
   // Don't log analytics during development.
   if (process.env.NODE_ENV === 'development') {
     return;
@@ -17,7 +17,7 @@ export function pageview(url: string) {
 }
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export function event({
+function event({
   action,
   category,
   label,
@@ -39,7 +39,7 @@ export function event({
 
   // Don't log analytics during development.
   if (process.env.NODE_ENV === 'development') {
-    console.info('[GA]', action, payload);
+    console.info('[gtag]', action, payload);
 
     return;
   }
@@ -57,3 +57,11 @@ export function event({
     window.gtag('event', actionWithExperimentPrefix, payload);
   }
 }
+
+const gtag = Object.freeze({
+  event,
+  pageview,
+  trackingID: GA_TRACKING_ID,
+});
+
+export default gtag;

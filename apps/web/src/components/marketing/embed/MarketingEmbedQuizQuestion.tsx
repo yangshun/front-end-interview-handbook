@@ -1,4 +1,4 @@
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import QuestionQuizTopicLabel from '~/components/questions/common/QuestionQuizTopicLabel';
 import Button from '~/components/ui/Button';

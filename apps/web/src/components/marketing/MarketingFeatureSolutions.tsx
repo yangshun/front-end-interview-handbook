@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';

@@ -2,7 +2,7 @@
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';

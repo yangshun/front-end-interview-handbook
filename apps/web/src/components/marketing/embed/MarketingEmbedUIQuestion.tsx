@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import QuestionMetadataSection from '~/components/questions/common/QuestionMetadataSection';
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';

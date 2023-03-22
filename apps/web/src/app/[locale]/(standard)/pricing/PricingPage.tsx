@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import type { PricingPlansLocalized } from '~/data/PricingPlans';
 

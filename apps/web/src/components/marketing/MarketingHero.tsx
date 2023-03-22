@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React, { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

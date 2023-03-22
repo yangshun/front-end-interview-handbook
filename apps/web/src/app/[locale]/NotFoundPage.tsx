@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 

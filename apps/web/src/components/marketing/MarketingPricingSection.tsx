@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
 import type {

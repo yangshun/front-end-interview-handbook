@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { useI18nPathname } from 'next-i18nostic';
 import { useEffect } from 'react';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 export default function GoogleAnalytics() {
   const { pathname } = useI18nPathname();
@@ -37,7 +37,7 @@ export default function GoogleAnalytics() {
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.trackingID}`}
         strategy="afterInteractive"
       />
       <Script
@@ -46,7 +46,7 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtag.GA_TRACKING_ID}', {
+            gtag('config', '${gtag.trackingID}', {
               page_path: window.location.pathname,
             });
             gtag('config', 'AW-11039716901');

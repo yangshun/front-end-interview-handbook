@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import * as gtag from '~/lib/gtag';
+import gtag from '~/lib/gtag';
 
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
