@@ -23,10 +23,6 @@
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
   },
-  "/iF6ou": {
-    "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>{Terms of Service}</tos> and <pp>Privacy Policy</pp>.",
-    "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
-  },
   "/jCLBS": {
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
@@ -874,6 +870,10 @@
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
+  "Y6CFPM": {
+    "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
+    "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
   "YB06jW": {
     "defaultMessage": "Premium",

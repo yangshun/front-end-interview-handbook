@@ -349,9 +349,9 @@ export default function SupabaseAuthEmail({
             <hr />
             <Text color="secondary" display="block" variant="body3">
               <FormattedMessage
-                defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>{Terms of Service}</tos> and <pp>Privacy Policy</pp>."
+                defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."
                 description="Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
-                id="/iF6ou"
+                id="Y6CFPM"
                 values={{
                   pp: (chunks) => (
                     <Anchor href="/legal/privacy-policy">{chunks}</Anchor>
