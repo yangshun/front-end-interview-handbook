@@ -4,7 +4,7 @@ import deepEqual from '../src/deep-equal';
 
 ## Solution
 
-Value comparison in JavaScript can be deceptively simple. Normally a triple equal `===`, i.e. strict equality, can do the job: for primitive values, it compares the actual values; for objects, it compares their identities/references, instead of their “contents”. For example, `const a = {id: 1}; const b = {id:1}` are considered different objects by `===` even if they contain the exactly same `id` property. Most of the time this is what you'd want. For this question though, we are going to implement a function that can deeply compare objects. Therefore we can't solely rely on `===` for comparison.
+Value comparison in JavaScript can be deceptively simple. Normally a triple equal `===`, i.e. strict equality, can do the job: for primitive values, it compares the actual values; for objects, it compares their identities/references, instead of their "contents". For example, `const a = {id: 1}; const b = {id:1}` are considered different objects by `===` even if they contain the exactly same `id` property. Most of the time this is what you'd want. For this question though, we are going to implement a function that can deeply compare objects. Therefore we can't solely rely on `===` for comparison.
 
 Outside its reference-checking nature, strict equality `===` does have a few edge cases that it can't cover:
 
