@@ -35,7 +35,7 @@ const TESTIMONIALS: ReadonlyArray<TestimonialItem> = [
     title: 'Software Engineer — Front End, Perch, USA',
   },
   {
-    authorThumbnailUrl: '/img/testimonials/larry.png',
+    authorThumbnailUrl: '/img/testimonials/larry.jpg',
     authorUrl: 'https://www.linkedin.com/in/larrydalmeida/',
     key: 'larry',
     name: 'Larry Almeida',
