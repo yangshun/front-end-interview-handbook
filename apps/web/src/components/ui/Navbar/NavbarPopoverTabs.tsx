@@ -103,14 +103,15 @@ export default function NavbarPopoverTabs({
                   (item.items.length === 3 || item.items.length > 4) &&
                     'grid-cols-3',
                 )}>
-                {item.items.map((childItem) => (
+                {item.items.map(({ key, ...childItem }) => (
                   <div
-                    key={childItem.key}
+                    key={key}
                     className={clsx(
                       'flex h-full grow',
                       item.alignment === 'center' && 'items-center',
                     )}>
                     <NavbarPopoverLink
+                      key={key}
                       {...childItem}
                       onClick={(event) => {
                         // To close the popover.

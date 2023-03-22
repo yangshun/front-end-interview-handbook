@@ -13,9 +13,10 @@ type Props = Readonly<{
 }>;
 
 const MyLink = forwardRef<HTMLAnchorElement, NavLinkItem>(
-  ({ href, label, ...rest }: NavLinkItem, ref) => {
+  ({ href, label, key, ...rest }: NavLinkItem, ref) => {
     return (
       <Anchor
+        key={key}
         ref={ref}
         className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
         href={href}

@@ -109,15 +109,16 @@ export default function NavbarPopover({
           items.length === 3 && 'grid-cols-3',
           items.length === 4 && 'grid-cols-4',
         )}>
-        {items.map((item, index) => (
+        {items.map(({ key, ...item }, index) => (
           <li
-            key={item.key}
+            key={key}
             className={clsx(
               index !== 0 && 'pl-6',
               index !== items.length - 1 && 'pr-6',
             )}>
             {item.type === 'popover-list' && (
               <NavbarPopoverGroup
+                key={key}
                 {...item}
                 onClick={(event) => {
                   onClose();
@@ -127,6 +128,7 @@ export default function NavbarPopover({
             )}
             {item.type === 'popover-link' && (
               <NavbarPopoverLink
+                key={key}
                 {...item}
                 onClick={(event) => {
                   onClose();
