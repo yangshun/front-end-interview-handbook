@@ -18,6 +18,23 @@ type TestimonialItem = Readonly<{ key: string; position: 'left' | 'right' }> &
 
 const TESTIMONIALS: ReadonlyArray<TestimonialItem> = [
   {
+    authorThumbnailUrl: '/img/testimonials/ryanlvv.jpg',
+    authorUrl: 'https://www.linkedin.com/in/ryanlvv/',
+    key: 'ryanlvv',
+    name: 'Ryan Van Valkenburg',
+    position: 'right',
+    testimonial: (
+      <>
+        GreatFrontEnd has been a great resource for preparing and continuing in
+        the ever-shifting front-end world. Allowing me to brush up on
+        fundamentals, hone new concepts and practices to put my best foot
+        forward in technical ability and confidence to be able to get interviews
+        AND offers.
+      </>
+    ),
+    title: 'Senior Software Engineer, Seattle, WA, USA',
+  },
+  {
     authorUrl: 'https://www.linkedin.com/in/ananddharne/',
     key: 'anand',
     name: 'Anand Dharne',
@@ -79,7 +96,7 @@ const TESTIMONIALS: ReadonlyArray<TestimonialItem> = [
   },
   {
     key: 'india',
-    position: 'left',
+    position: 'right',
     testimonial: (
       <>
         Amazing to see such a comprehensive resource for front end dev
@@ -107,7 +124,7 @@ const TESTIMONIALS: ReadonlyArray<TestimonialItem> = [
     authorUrl: 'https://www.linkedin.com/in/gouse-basha-7a0902191/',
     key: 'india-2',
     name: 'Gouse Basha',
-    position: 'right',
+    position: 'left',
     testimonial: (
       <>
         If you are looking for front end interviews, GreatFrontEnd is for you.
