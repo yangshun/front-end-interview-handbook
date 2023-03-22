@@ -1,6 +1,10 @@
 import { useSearchParams } from 'next/navigation';
 
-type LoggingAction = 'copy' | 'page_load';
+type LoggingAction =
+  | 'copy'
+  | 'page_load'
+  | 'question.mark_complete'
+  | 'question.submit';
 type LoggingPayload = Record<string, unknown>;
 
 export default function useLogEvent() {

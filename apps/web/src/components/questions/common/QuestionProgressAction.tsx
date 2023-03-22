@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
+import useLogEvent from '~/components/logging/useLogEvent';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
@@ -32,6 +33,7 @@ export default function QuestionProgressAction({
   const addProgressMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
   const { showToast } = useToast();
+  const logEvent = useLogEvent();
 
   if (user == null) {
     return (
@@ -136,6 +138,10 @@ export default function QuestionProgressAction({
             },
           },
         );
+        logEvent('question.mark_complete', {
+          format: question.metadata.format,
+          slug: question.metadata.slug,
+        });
       }}
     />
   );

@@ -6,6 +6,7 @@ import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
+import useLogEvent from '~/components/logging/useLogEvent';
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
 import type {
   QuestionJavaScript,
@@ -114,6 +115,7 @@ function Contents({
     isDragging: isBottomSectionDividerDragging,
     size: bottomSectionHeight,
   } = useResizablePaneDivider(400, true, 'vertical');
+  const logEvent = useLogEvent();
 
   useEffect(() => {
     function onIframeEvents(event: MessageEvent) {
@@ -372,6 +374,10 @@ function Contents({
                       { source: 'gfe', type: 'start_tests' },
                       '*',
                     );
+                  });
+                  logEvent('question.submit', {
+                    format: question.metadata.format,
+                    slug: question.metadata.slug,
                   });
                 }}
               />
