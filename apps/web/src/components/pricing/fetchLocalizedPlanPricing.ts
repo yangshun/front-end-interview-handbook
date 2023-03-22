@@ -1,5 +1,6 @@
 import { shouldUseCountryCurrency } from '~/lib/stripeUtils';
-import { sendMessage } from '~/lib/telegram';
+
+import logMessage from '~/logging/logMessage';
 
 import { priceRoundToNearestNiceNumber } from './pricingUtils';
 import pppValues from './purchasingPowerParity.json';
@@ -131,7 +132,7 @@ export default async function fetchLocalizedPlanPricing(
     }
   } catch {
     // Ignore and proceed with default ppp.
-    sendMessage({
+    logMessage({
       message: `Error fetching purchasing power parity for ${countryCode}`,
       severity: 'error',
     });

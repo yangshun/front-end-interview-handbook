@@ -13,6 +13,8 @@ import MarketingPricingSection from '~/components/marketing/MarketingPricingSect
 import MarketingTestimonial from '~/components/marketing/MarketingTestimonial';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logMessage from '~/logging/logMessage';
+
 type Props = Readonly<{
   countryCode: string;
   plans: PricingPlansLocalized;
@@ -34,6 +36,10 @@ export default function PricingPage({ countryCode, plans }: Props) {
         action: `checkout.cancel.${planSearchParams}`,
         category: 'ecommerce',
         label: String(planSearchParams),
+      });
+      logMessage({
+        message: `Cancelled checkout for ${planSearchParams}`,
+        severity: 'warning',
       });
     }
   }, [cancelSearchParams, planSearchParams]);

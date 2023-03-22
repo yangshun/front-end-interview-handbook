@@ -6,7 +6,6 @@ import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
-import useLogEvent from '~/components/logging/useLogEvent';
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
 import type {
   QuestionJavaScript,
@@ -33,6 +32,7 @@ import Text from '~/components/ui/Text';
 
 import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
+import useLogEvent from '~/logging/useLogEvent';
 
 import CodingWorkspaceChangLayoutButton from './CodingWorkspaceChangeLayoutButton';
 import CodingWorkspaceEditorShortcutsButton from './CodingWorkspaceEditorShortcutsButton';

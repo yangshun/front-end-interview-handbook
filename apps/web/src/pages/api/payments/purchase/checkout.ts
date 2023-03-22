@@ -2,13 +2,13 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
-import { sendMessage } from '~/lib/telegram';
 
 import type {
   PricingPlansLocalized,
   PricingPlanType,
 } from '~/data/PricingPlans';
 
+import logMessage from '~/logging/logMessage';
 import {
   createSupabaseAdminClientGFE,
   fetchUser,
@@ -43,7 +43,7 @@ export default async function handler(req: NextRequest) {
   const user = await fetchUser(req.cookies.get('supabase-auth-token')?.value);
 
   if (user == null) {
-    sendMessage({
+    logMessage({
       message: `Attempted to checkout while not logged in`,
       severity: 'error',
     });
@@ -67,7 +67,7 @@ export default async function handler(req: NextRequest) {
   const countryCode = req.geo?.country ?? 'US';
 
   try {
-    sendMessage({
+    logMessage({
       message: `User attempting to checkout`,
       severity: 'info',
       userIdentifier: user.email,
@@ -136,7 +136,7 @@ export default async function handler(req: NextRequest) {
 
     return NextResponse.json(payload);
   } catch (err: any) {
-    sendMessage({
+    logMessage({
       message: `Error generating checkout session for ${countryCode}`,
       severity: 'error',
       userIdentifier: user.id,

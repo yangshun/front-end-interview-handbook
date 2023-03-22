@@ -3,11 +3,12 @@ import absoluteUrl from 'next-absolute-url';
 import Stripe from 'stripe';
 
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
-import { sendMessage } from '~/lib/telegram';
 
 import type { PricingPlanDetails, PricingPlanType } from '~/data/PricingPlans';
 
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
+
+import logMessage from '~/logging/logMessage';
 
 const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
 
@@ -46,8 +47,8 @@ export default async function handler(
   });
 
   try {
-    sendMessage({
-      message: `Attempting to generate plan pricing for ${countryCode}`,
+    logMessage({
+      message: `Attempting to generate pricing plan for ${countryCode}`,
       severity: 'info',
       userIdentifier: stripeCustomerId,
     });
@@ -98,8 +99,8 @@ export default async function handler(
       );
     }
   } catch (err) {
-    sendMessage({
-      message: `Error generating plan pricing for ${countryCode}`,
+    logMessage({
+      message: `Error generating pricing plan for ${countryCode}`,
       severity: 'error',
       userIdentifier: stripeCustomerId,
     });

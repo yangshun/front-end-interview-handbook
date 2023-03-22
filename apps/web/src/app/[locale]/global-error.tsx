@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import logMessage from '~/logging/logMessage';
+
 export default function GlobalError({
   error,
   reset,
@@ -12,6 +14,10 @@ export default function GlobalError({
   useEffect(() => {
     // TODO: Log the error to an error reporting service
     console.error(error);
+    logMessage({
+      message: `Global error ${error.message}`,
+      severity: 'error',
+    });
   }, [error]);
 
   return (

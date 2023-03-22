@@ -24,6 +24,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import logMessage from '~/logging/logMessage';
+
 import MarketingSectionTitleLabel from './MarketingSectionTitleLabel';
 import { priceRoundToNearestNiceNumber } from '../pricing/pricingUtils';
 
@@ -98,7 +100,7 @@ function PricingButtonSection({
       );
 
       await stripe?.redirectToCheckout({ sessionId: data.payload.id });
-    } catch {
+    } catch (err: any) {
       setError(
         intl.formatMessage({
           defaultMessage:
@@ -117,6 +119,10 @@ function PricingButtonSection({
         action: `checkout.failure.${planType}.${plan.countryCode}`,
         category: 'ecommerce',
         label: planType,
+      });
+      logMessage({
+        message: `Error when trying to check out: ${err?.message}`,
+        severity: 'error',
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -158,6 +164,14 @@ function PricingButtonSection({
                     category: 'ecommerce',
                     label: 'Buy Now (not logged in)',
                   });
+                  logMessage({
+                    message: `Initiate checkout for ${
+                      plan.planType
+                    } plan for ${plan.currency.toLocaleUpperCase()} ${
+                      plan.unitCostLocalizedInCurrency
+                    } but not signed in`,
+                    severity: 'info',
+                  });
                 }}
               />
             </div>
@@ -191,6 +205,14 @@ function PricingButtonSection({
                     content_category: plan.planType,
                     currency: plan.currency.toLocaleUpperCase(),
                     value: plan.unitCostLocalizedInCurrency,
+                  });
+                  logMessage({
+                    message: `Initiate checkout ${
+                      plan.planType
+                    } plan for ${plan.currency.toLocaleUpperCase()} ${
+                      plan.unitCostLocalizedInCurrency
+                    }`,
+                    severity: 'info',
                   });
 
                   return processSubscription(plan.planType);

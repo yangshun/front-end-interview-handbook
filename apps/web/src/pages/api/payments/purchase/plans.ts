@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { sendMessage } from '~/lib/telegram';
-
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
+
+import logMessage from '~/logging/logMessage';
 
 type QueryParams = Readonly<{
   country?: string;
@@ -23,7 +23,7 @@ export default async function handler(
       plans,
     });
   } catch (err: any) {
-    sendMessage({
+    logMessage({
       message: `Error fetching pricing plans for ${countryCode}: ${err.message}`,
       severity: 'error',
     });

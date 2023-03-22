@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
-import useLogEvent from '~/components/logging/useLogEvent';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
@@ -11,6 +10,7 @@ import {
   useMutationQuestionProgressDelete,
 } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
+import useLogEvent from '~/logging/useLogEvent';
 
 import type { QuestionBase } from './QuestionsTypes';
 

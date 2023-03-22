@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import logMessage from '~/logging/logMessage';
+
 export default function Error({
   error,
   reset,
@@ -12,6 +14,10 @@ export default function Error({
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
+    logMessage({
+      message: `Page error ${error.message}`,
+      severity: 'error',
+    });
   }, [error]);
 
   return (

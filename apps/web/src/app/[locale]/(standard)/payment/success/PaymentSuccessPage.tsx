@@ -16,6 +16,8 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logMessage from '~/logging/logMessage';
+
 import { CodeBracketIcon } from '@heroicons/react/20/solid';
 import {
   ArrowRightCircleIcon,
@@ -86,6 +88,15 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         content_name: plan.planType,
         currency: plan.currency.toLocaleUpperCase(),
         value: plan.unitCostLocalizedInCurrency,
+      });
+
+      logMessage({
+        message: `Purchased ${
+          plan.planType
+        } plan for ${plan.currency.toLocaleUpperCase()} ${
+          plan.unitCostLocalizedInCurrency
+        }`,
+        severity: 'info',
       });
     }
   }, [planSearchParam, plans]);

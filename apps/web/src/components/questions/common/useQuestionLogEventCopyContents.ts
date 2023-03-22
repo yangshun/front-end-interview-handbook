@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import useLogEvent from '~/components/logging/useLogEvent';
+import useLogEvent from '~/logging/useLogEvent';
 
 export default function useQuestionLogEventCopyContents<
   T extends HTMLElement,

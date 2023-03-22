@@ -1,0 +1,81 @@
+import cookie from 'cookie';
+import Cors from 'cors';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+import type { MessageSeverity } from '~/logging/logMessage';
+import { createServerSupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
+
+const cors = Cors({
+  methods: ['POST'],
+});
+
+function runMiddleware(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  fn: Function,
+) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: unknown) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+
+      return resolve(result);
+    });
+  });
+}
+
+const severityIcon: Record<MessageSeverity, string> = {
+  error: '⛔',
+  info: '💬',
+  warning: '⚠️',
+};
+
+const telegramToken = `5829204757:AAGQhTP2-aWYDMu3vJHhJkJw2j62Y8bPiFo`;
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  await runMiddleware(req, res, cors);
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Only POST requests allowed' });
+  }
+
+  const supabase = createServerSupabaseClientGFE({ req, res });
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const cookies = cookie.parse(req.headers.cookie ?? '');
+  const { severity, message, url, user_identifier: userIdentifier } = req.body;
+
+  const finalMessage = [
+    `Severity: ${severityIcon[severity as MessageSeverity]}`,
+    `Message: ${message}`,
+    url && `Url: ${url}`,
+    req.headers.referer && `Referer: ${req.headers.referer}`,
+    userIdentifier && `User Identifier: ${userIdentifier}`,
+    user?.email && `Email: ${user?.email}`,
+    cookies.country && `Country: ${cookies.country}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+    body: JSON.stringify({
+      // GFE Internal Tg Chat.
+      chat_id: -1001857413784,
+      parse_mode: 'HTML',
+      text: finalMessage,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
+
+  return res.status(204).send(null);
+}
