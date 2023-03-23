@@ -14,7 +14,10 @@ import {
 } from './QuestionsBundlerSystemDesignConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
-async function readQuestionMetadataSystemDesign(slug: string, locale = 'en') {
+async function readQuestionMetadataSystemDesign(
+  slug: string,
+  locale = 'en',
+): Promise<QuestionMetadata> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
   // Read frontmatter from MDX file.
@@ -31,6 +34,27 @@ async function readQuestionMetadataSystemDesign(slug: string, locale = 'en') {
     { ...frontMatter, ...metadataJSON },
     'system-design',
   );
+}
+
+async function readQuestionMetadataWithFallbackSystemDesign(
+  slug: string,
+  requestedLocale = 'en',
+): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
+  let loadedLocale = requestedLocale;
+  const metadata = await (async () => {
+    try {
+      return await readQuestionMetadataSystemDesign(slug, requestedLocale);
+    } catch {
+      loadedLocale = 'en';
+
+      return await readQuestionMetadataSystemDesign(slug, loadedLocale);
+    }
+  })();
+
+  return {
+    loadedLocale,
+    metadata,
+  };
 }
 
 export async function readQuestionSystemDesign(
@@ -68,7 +92,12 @@ export async function readQuestionListMetadataSystemDesign(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      return await readQuestionMetadataSystemDesign(slug, locale);
+      const { metadata } = await readQuestionMetadataWithFallbackSystemDesign(
+        slug,
+        locale,
+      );
+
+      return metadata;
     }),
   );
 

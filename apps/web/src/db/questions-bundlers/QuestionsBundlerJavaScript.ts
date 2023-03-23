@@ -28,7 +28,10 @@ async function readQuestionJavaScriptTests(slug: string): Promise<string> {
   return fs.readFileSync(testPath).toString().trim();
 }
 
-async function readQuestionMetadataJavaScript(slug: string, locale = 'en') {
+async function readQuestionMetadataJavaScript(
+  slug: string,
+  locale = 'en',
+): Promise<QuestionMetadata> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
 
   // Read frontmatter from MDX file.
@@ -47,6 +50,27 @@ async function readQuestionMetadataJavaScript(slug: string, locale = 'en') {
   );
 
   return metadata;
+}
+
+async function readQuestionMetadataWithFallbackJavaScript(
+  slug: string,
+  requestedLocale = 'en',
+): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
+  let loadedLocale = requestedLocale;
+  const metadata = await (async () => {
+    try {
+      return await readQuestionMetadataJavaScript(slug, requestedLocale);
+    } catch {
+      loadedLocale = 'en';
+
+      return await readQuestionMetadataJavaScript(slug, loadedLocale);
+    }
+  })();
+
+  return {
+    loadedLocale,
+    metadata,
+  };
 }
 
 export async function readQuestionJavaScript(
@@ -85,7 +109,12 @@ export async function readQuestionListMetadataJavaScript(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      return await readQuestionMetadataJavaScript(slug, locale);
+      const { metadata } = await readQuestionMetadataWithFallbackJavaScript(
+        slug,
+        locale,
+      );
+
+      return metadata;
     }),
   );
 

@@ -10,10 +10,10 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 
-import CodingQuestionsList from '~/__generated__/questions/CodingQuestionsList.json';
-import JavaScriptQuestionsList from '~/__generated__/questions/javascript/JavaScriptQuestionsList.json';
-import QuizQuestionsList from '~/__generated__/questions/quiz/QuizQuestionsList.json';
-import QuizQuestionsSystemDesign from '~/__generated__/questions/system-design/SystemDesignQuestionsList.json';
+import CodingQuestionsList from '~/__generated__/questions/coding/list.en.json';
+import JavaScriptQuestionsList from '~/__generated__/questions/javascript/list.en.json';
+import QuizQuestionsList from '~/__generated__/questions/quiz/list.en.json';
+import QuizQuestionsSystemDesign from '~/__generated__/questions/system-design/list.en.json';
 import UserInterfaceQuestionsList from '~/__generated__/questions/user-interface/UserInterfaceQuestionsList.json';
 
 export async function fetchQuestionsListQuiz(): Promise<

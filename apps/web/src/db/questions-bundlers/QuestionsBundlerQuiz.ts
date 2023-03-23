@@ -3,8 +3,8 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 
 import type {
-  QuestionMetadata,
   QuestionQuiz,
+  QuestionQuizMetadata,
   QuestionQuizTopic,
 } from '~/components/questions/common/QuestionsTypes';
 
@@ -15,7 +15,10 @@ import {
 } from './QuestionsBundlerQuizConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
-async function readQuestionMetadataQuiz(slug: string, locale = 'en') {
+async function readQuestionMetadataQuiz(
+  slug: string,
+  locale = 'en',
+): Promise<QuestionQuizMetadata> {
   const questionPath = getQuestionSrcPathQuiz(slug);
 
   // Read frontmatter from MDX file.
@@ -40,6 +43,27 @@ async function readQuestionMetadataQuiz(slug: string, locale = 'en') {
   };
 }
 
+async function readQuestionMetadataWithFallbackQuiz(
+  slug: string,
+  requestedLocale = 'en',
+): Promise<{ loadedLocale: string; metadata: QuestionQuizMetadata }> {
+  let loadedLocale = requestedLocale;
+  const metadata = await (async () => {
+    try {
+      return await readQuestionMetadataQuiz(slug, requestedLocale);
+    } catch {
+      loadedLocale = 'en';
+
+      return await readQuestionMetadataQuiz(slug, loadedLocale);
+    }
+  })();
+
+  return {
+    loadedLocale,
+    metadata,
+  };
+}
+
 export async function readQuestionQuiz(
   slug: string,
   locale = 'en',
@@ -61,7 +85,7 @@ export async function readQuestionQuiz(
 
 export async function readQuestionListMetadataQuiz(
   locale = 'en',
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<QuestionQuizMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_QUIZ, {
       withFileTypes: true,
@@ -72,7 +96,12 @@ export async function readQuestionListMetadataQuiz(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      return await readQuestionMetadataQuiz(slug, locale);
+      const { metadata } = await readQuestionMetadataWithFallbackQuiz(
+        slug,
+        locale,
+      );
+
+      return metadata;
     }),
   );
 

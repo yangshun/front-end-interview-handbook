@@ -19,7 +19,6 @@ export function getQuestionSrcPathJavaScript(slug: string) {
 export function getQuestionOutPathJavaScript(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_JAVASCRIPT, slug);
 }
-export const QUESTIONS_LIST_OUT_DIR_JAVASCRIPT = path.join(
-  QUESTIONS_OUT_DIR_JAVASCRIPT,
-  'JavaScriptQuestionsList.json',
-);
+export function getQuestionsListOutFilenameJavaScript(locale: string) {
+  return path.join(QUESTIONS_OUT_DIR_JAVASCRIPT, `list.${locale}.json`);
+}

@@ -19,7 +19,6 @@ export function getQuestionSrcPathSystemDesign(slug: string) {
 export function getQuestionOutPathSystemDesign(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_SYSTEM_DESIGN, slug);
 }
-export const QUESTIONS_LIST_OUT_DIR_SYSTEM_DESIGN = path.join(
-  QUESTIONS_OUT_DIR_SYSTEM_DESIGN,
-  'SystemDesignQuestionsList.json',
-);
+export function getQuestionsListOutFilenameSystemDesign(locale: string) {
+  return path.join(QUESTIONS_OUT_DIR_SYSTEM_DESIGN, `list.${locale}.json`);
+}

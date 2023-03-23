@@ -19,7 +19,6 @@ export function getQuestionSrcPathQuiz(slug: string) {
 export function getQuestionOutPathQuiz(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_QUIZ, slug);
 }
-export const QUESTIONS_LIST_OUT_DIR_QUIZ = path.join(
-  QUESTIONS_OUT_DIR_QUIZ,
-  'QuizQuestionsList.json',
-);
+export function getQuestionsListOutFilenameQuiz(locale: string) {
+  return path.join(QUESTIONS_OUT_DIR_QUIZ, `list.${locale}.json`);
+}

@@ -3,11 +3,11 @@ import path from 'path';
 
 import type { QuestionMetadata } from '../components/questions/common/QuestionsTypes';
 import { readQuestionListMetadataJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
-import { QUESTIONS_LIST_OUT_DIR_JAVASCRIPT } from '../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';
+import { getQuestionsListOutFilenameJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { readQuestionListMetadataQuiz } from '../db/questions-bundlers/QuestionsBundlerQuiz';
-import { QUESTIONS_LIST_OUT_DIR_QUIZ } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
+import { getQuestionsListOutFilenameQuiz } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
 import { readQuestionListMetadataSystemDesign } from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
-import { QUESTIONS_LIST_OUT_DIR_SYSTEM_DESIGN } from '../db/questions-bundlers/QuestionsBundlerSystemDesignConfig';
+import { getQuestionsListOutFilenameSystemDesign } from '../db/questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { readQuestionListMetadataUserInterface } from '../db/questions-bundlers/QuestionsBundlerUserInterface';
 import { QUESTIONS_LIST_OUT_DIR_USER_INTERFACE } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
@@ -23,10 +23,10 @@ async function generateQuestionsMetadata(
   fs.writeFileSync(outPath, JSON.stringify(metadataList, null, 2));
 }
 
-async function codingQuestionsMetadata(outPath: string) {
+async function codingQuestionsMetadata(outPath: string, locale = 'en') {
   const [javaScriptQuestions, userInterfaceQuestions] = await Promise.all([
-    readQuestionListMetadataJavaScript(),
-    readQuestionListMetadataUserInterface(),
+    readQuestionListMetadataJavaScript(locale),
+    readQuestionListMetadataUserInterface(locale),
   ]);
 
   const combinedQuestions = [
@@ -49,30 +49,38 @@ async function codingQuestionsMetadata(outPath: string) {
 }
 
 export async function generateAllMetadata() {
+  const locale = 'en';
+
   return await Promise.all([
     generateQuestionsMetadata(
       readQuestionListMetadataQuiz,
-      QUESTIONS_LIST_OUT_DIR_QUIZ,
+      getQuestionsListOutFilenameQuiz(locale),
+      locale,
     ),
     generateQuestionsMetadata(
       readQuestionListMetadataSystemDesign,
-      QUESTIONS_LIST_OUT_DIR_SYSTEM_DESIGN,
+      getQuestionsListOutFilenameSystemDesign(locale),
+      locale,
     ),
     generateQuestionsMetadata(
       readQuestionListMetadataJavaScript,
-      QUESTIONS_LIST_OUT_DIR_JAVASCRIPT,
+      getQuestionsListOutFilenameJavaScript(locale),
+      locale,
     ),
     generateQuestionsMetadata(
       readQuestionListMetadataUserInterface,
       QUESTIONS_LIST_OUT_DIR_USER_INTERFACE,
+      locale,
     ),
     codingQuestionsMetadata(
       path.join(
         'src',
         '__generated__',
         'questions',
-        'CodingQuestionsList.json',
+        'coding',
+        `list.${locale}.json`,
       ),
+      locale,
     ),
   ]);
 }

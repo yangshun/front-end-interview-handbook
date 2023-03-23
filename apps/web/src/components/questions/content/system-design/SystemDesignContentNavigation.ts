@@ -1,4 +1,4 @@
-import SystemDesignQuestionList from '~/__generated__/questions/system-design/SystemDesignQuestionsList.json';
+import SystemDesignQuestionList from '~/__generated__/questions/system-design/list.en.json';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
