@@ -31,4 +31,14 @@ describe('isSameTree', () => {
     );
     expect(isSameTree(treeA.body, treeB.body)).toBe(false);
   });
+
+  test('nodes with different tagnames', () => {
+    const treeA = new DOMParser().parseFromString(
+      `<div>hello</div>`,
+      'text/html',
+    );
+    const treeB = new DOMParser().parseFromString(`<p>hello</p>`, 'text/html');
+
+    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+  });
 });

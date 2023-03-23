@@ -12,6 +12,10 @@ export default function isSameTree(nodeA, nodeB) {
     return nodeA.textContent === nodeB.textContent;
   }
 
+  if (nodeA.tagName !== nodeB.tagName) {
+    return false;
+  }
+
   if (nodeA.childNodes.length !== nodeB.childNodes.length) {
     return false;
   }
