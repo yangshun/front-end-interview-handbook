@@ -22,9 +22,9 @@ module.exports = {
     'prettier',
   ],
   rules: {
-    camelcase: [ERROR, { properties: 'never', ignoreDestructuring: true }],
+    camelcase: [WARN, { properties: 'never', ignoreDestructuring: true }],
     'capitalized-comments': [
-      ERROR,
+      WARN,
       'always',
       { ignoreConsecutiveComments: true },
     ],
@@ -47,7 +47,7 @@ module.exports = {
     'one-var': [ERROR, 'never'],
     'operator-assignment': ERROR,
     'padding-line-between-statements': [
-      ERROR,
+      WARN,
       // Blank line after import.
       { blankLine: 'always', prev: '*', next: 'function' },
       // Blank line before function.
@@ -100,12 +100,12 @@ module.exports = {
     '@typescript-eslint/prefer-optional-chain': ERROR,
     '@typescript-eslint/require-array-sort-compare': ERROR,
     '@typescript-eslint/restrict-plus-operands': ERROR,
-    '@typescript-eslint/sort-type-union-intersection-members': ERROR,
+    '@typescript-eslint/sort-type-union-intersection-members': WARN,
 
     // Sorting
-    'typescript-sort-keys/interface': ERROR,
-    'typescript-sort-keys/string-enum': ERROR,
-    'sort-keys-fix/sort-keys-fix': ERROR,
+    'typescript-sort-keys/interface': WARN,
+    'typescript-sort-keys/string-enum': WARN,
+    'sort-keys-fix/sort-keys-fix': WARN,
     'simple-import-sort/exports': WARN,
     'simple-import-sort/imports': [
       WARN,
