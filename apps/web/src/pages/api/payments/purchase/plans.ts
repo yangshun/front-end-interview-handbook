@@ -24,8 +24,8 @@ export default async function handler(
     });
   } catch (err: any) {
     logMessage({
+      level: 'error',
       message: `Error fetching pricing plans for ${countryCode}: ${err.message}`,
-      severity: 'error',
     });
   }
 }

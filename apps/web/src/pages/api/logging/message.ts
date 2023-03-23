@@ -2,7 +2,7 @@ import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import type { MessageSeverity } from '~/logging/logMessage';
+import type { MessageLevel } from '~/logging/logMessage';
 import { createServerSupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 const cors = Cors({
@@ -26,9 +26,10 @@ function runMiddleware(
   });
 }
 
-const severityIcon: Record<MessageSeverity, string> = {
+const levelIcon: Record<MessageLevel, string> = {
   error: '⛔',
   info: '💬',
+  success: '✅ ',
   warning: '⚠️',
 };
 
@@ -50,12 +51,11 @@ export default async function handler(
   } = await supabase.auth.getUser();
 
   const cookies = cookie.parse(req.headers.cookie ?? '');
-  const { severity, message, url, user_identifier: userIdentifier } = req.body;
+  const { level, message, user_identifier: userIdentifier } = req.body;
 
   const finalMessage = [
-    `Severity: ${severityIcon[severity as MessageSeverity]}`,
+    `Level: ${levelIcon[level as MessageLevel]}`,
     `Message: ${message}`,
-    url && `Url: ${url}`,
     req.headers.referer && `Referer: ${req.headers.referer}`,
     userIdentifier && `User Identifier: ${userIdentifier}`,
     user?.email && `Email: ${user?.email}`,

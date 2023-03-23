@@ -133,8 +133,8 @@ export default async function fetchLocalizedPlanPricing(
   } catch {
     // Ignore and proceed with default ppp.
     logMessage({
+      level: 'error',
       message: `Error fetching purchasing power parity for ${countryCode}`,
-      severity: 'error',
     });
     // Fallback to US ppp.
     purchasingPowerParity = defaultPpp;

@@ -1,17 +1,17 @@
-export type MessageSeverity = 'error' | 'info' | 'warning';
+export type MessageLevel = 'error' | 'info' | 'success' | 'warning';
 
 export type Props = Readonly<{
+  level: MessageLevel;
   message: string;
-  severity: MessageSeverity;
   userIdentifier?: string;
 }>;
 
 export default async function logMessage({
-  severity,
+  level,
   message,
   userIdentifier,
 }: Props) {
-  console.info('[message]', severity, message);
+  console.info('[message]', level, message);
   // Don't log messages during development.
   if (process.env.NODE_ENV === 'development') {
     return;
@@ -20,9 +20,8 @@ export default async function logMessage({
   try {
     await fetch(`/api/logging/message`, {
       body: JSON.stringify({
+        level,
         message,
-        severity,
-        url: typeof window === 'undefined' ? null : window.location.href,
         user_identifier: userIdentifier,
       }),
       headers: {

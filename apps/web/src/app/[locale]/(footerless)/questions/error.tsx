@@ -15,8 +15,8 @@ export default function Error({
     // Log the error to an error reporting service
     console.error(error);
     logMessage({
+      level: 'error',
       message: `Questions error ${error.message}`,
-      severity: 'error',
     });
   }, [error]);
 

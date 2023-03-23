@@ -91,12 +91,12 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
       });
 
       logMessage({
+        level: 'info',
         message: `Purchased ${
           plan.planType
         } plan for ${plan.currency.toLocaleUpperCase()} ${
           plan.unitCostLocalizedInCurrency
         }`,
-        severity: 'info',
       });
     }
   }, [planSearchParam, plans]);

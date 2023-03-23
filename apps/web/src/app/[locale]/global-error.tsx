@@ -15,8 +15,8 @@ export default function GlobalError({
     // TODO: Log the error to an error reporting service
     console.error(error);
     logMessage({
+      level: 'error',
       message: `Global error ${error.message}`,
-      severity: 'error',
     });
   }, [error]);
 

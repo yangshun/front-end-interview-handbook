@@ -48,8 +48,8 @@ export default async function handler(
 
   try {
     logMessage({
+      level: 'info',
       message: `Attempting to generate pricing plan for ${countryCode}`,
-      severity: 'info',
       userIdentifier: stripeCustomerId,
     });
 
@@ -100,8 +100,8 @@ export default async function handler(
     }
   } catch (err) {
     logMessage({
+      level: 'error',
       message: `Error generating pricing plan for ${countryCode}`,
-      severity: 'error',
       userIdentifier: stripeCustomerId,
     });
     throw err;

@@ -38,8 +38,8 @@ export default function PricingPage({ countryCode, plans }: Props) {
         label: String(planSearchParams),
       });
       logMessage({
+        level: 'warning',
         message: `Cancelled checkout for ${planSearchParams}`,
-        severity: 'warning',
       });
     }
   }, [cancelSearchParams, planSearchParams]);

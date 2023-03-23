@@ -44,8 +44,8 @@ export default async function handler(req: NextRequest) {
 
   if (user == null) {
     logMessage({
+      level: 'error',
       message: `Attempted to checkout while not logged in`,
-      severity: 'error',
     });
 
     return new Response(
@@ -68,8 +68,8 @@ export default async function handler(req: NextRequest) {
 
   try {
     logMessage({
+      level: 'info',
       message: `User attempting to checkout`,
-      severity: 'info',
       userIdentifier: user.email,
     });
 
@@ -137,8 +137,8 @@ export default async function handler(req: NextRequest) {
     return NextResponse.json(payload);
   } catch (err: any) {
     logMessage({
+      level: 'error',
       message: `Error generating checkout session for ${countryCode}`,
-      severity: 'error',
       userIdentifier: user.id,
     });
 
