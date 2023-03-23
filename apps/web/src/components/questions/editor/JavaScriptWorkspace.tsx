@@ -14,7 +14,7 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
 import type { JavaScriptQuestionDevToolsMode } from '~/components/questions/devtools/JavaScriptQuestionDevTools';
-import JavaScriptQuestionDevTool from '~/components/questions/devtools/JavaScriptQuestionDevTools';
+import JavaScriptQuestionDevTools from '~/components/questions/devtools/JavaScriptQuestionDevTools';
 import CodeEditor from '~/components/questions/editor/CodeEditor';
 import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
 import type {
@@ -285,12 +285,13 @@ function Contents({
                   : 'hidden'
                 : null,
             )}>
-            <JavaScriptQuestionDevTool
+            <JavaScriptQuestionDevTools
               availableModes={['console', 'tests']}
               isRunningCode={isRunningCode}
               mode={devToolsMode}
               result={result}
               runAttempt={runAttempt}
+              showExplicitInvocationMessage={true}
               onChangeMode={setDevToolsMode}
             />
           </div>

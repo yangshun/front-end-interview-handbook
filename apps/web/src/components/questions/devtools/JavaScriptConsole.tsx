@@ -10,25 +10,45 @@ import { CommandLineIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
 type Props = Readonly<{
   logs: SandpackConsoleData;
   onClear: () => void;
+  showExplicitInvocationMessage?: boolean;
 }>;
 
-export default function JavaScriptConsole({ logs, onClear }: Props) {
+export default function JavaScriptConsole({
+  logs,
+  onClear,
+  showExplicitInvocationMessage = false,
+}: Props) {
   const intl = useIntl();
 
   if (logs == null || logs.length === 0) {
     return (
       <div className="flex h-full grow items-center justify-center py-4 px-4 sm:px-6 lg:px-4">
-        <div className="flex flex-col items-center space-y-2 text-center">
-          <CommandLineIcon className="h-12 w-12 shrink-0 text-slate-300" />
-          <Text color="secondary" display="block" variant="body2">
+        <div className="grid gap-y-2">
+          <div className="flex justify-center">
+            <CommandLineIcon className="h-12 w-12 shrink-0 text-slate-300" />
+          </div>
+          <Text
+            className="text-center"
+            color="secondary"
+            display="block"
+            variant="body2">
             <FormattedMessage
-              defaultMessage="Any <code>console.log()</code> statements will appear here."
+              defaultMessage="<code>console.log()</code> statements will appear here."
               description="Text in coding workspace's console to let users know that they can expect console logs to be found there"
-              id="hOD4kM"
+              id="XygrPg"
               values={{
                 code: (chunks) => <code>{chunks}</code>,
               }}
             />
+          </Text>
+          <Text color="secondary" display="block" variant="body2">
+            {showExplicitInvocationMessage && (
+              <FormattedMessage
+                defaultMessage="To test your function without submitting, call the function below the declaration."
+                description="Text in coding workspace's console to inform users they have to call the function themselves to test"
+                id="1mtNyQ"
+              />
+            )}
           </Text>
         </div>
       </div>

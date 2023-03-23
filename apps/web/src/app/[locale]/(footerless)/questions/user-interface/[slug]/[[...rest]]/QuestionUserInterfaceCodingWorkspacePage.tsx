@@ -22,7 +22,7 @@ import type { QuestionContentsUserInterfaceSection } from '~/components/question
 import QuestionContentsUserInterface from '~/components/questions/content/QuestionContentsUserInterface';
 import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
 import type { JavaScriptQuestionDevToolsMode } from '~/components/questions/devtools/JavaScriptQuestionDevTools';
-import JavaScriptQuestionDevTool from '~/components/questions/devtools/JavaScriptQuestionDevTools';
+import JavaScriptQuestionDevTools from '~/components/questions/devtools/JavaScriptQuestionDevTools';
 import CodeEditor from '~/components/questions/editor/CodeEditor';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
@@ -173,7 +173,7 @@ function MiddleRightPaneContents({
             <div
               aria-expanded={showDevToolsPane}
               className={clsx('h-56 shrink', !showDevToolsPane && 'hidden')}>
-              <JavaScriptQuestionDevTool
+              <JavaScriptQuestionDevTools
                 availableModes={['console']}
                 mode={devToolsMode}
                 onChangeMode={setDevToolsMode}

@@ -10,6 +10,7 @@ import type { CodingQuestionSubmissionResult } from '../evaluator/CodingQuestion
 import { useSandpackConsole } from '@codesandbox/sandpack-react';
 
 export type JavaScriptQuestionDevToolsMode = 'console' | 'tests';
+
 type Props = Readonly<{
   availableModes: ReadonlyArray<JavaScriptQuestionDevToolsMode>;
   isRunningCode?: boolean;
@@ -17,6 +18,7 @@ type Props = Readonly<{
   onChangeMode: (mode: JavaScriptQuestionDevToolsMode) => void;
   result?: CodingQuestionSubmissionResult | null;
   runAttempt?: number;
+  showExplicitInvocationMessage?: boolean;
 }>;
 
 export default function JavaScriptQuestionDevTools({
@@ -25,6 +27,7 @@ export default function JavaScriptQuestionDevTools({
   isRunningCode = false,
   mode,
   result,
+  showExplicitInvocationMessage,
   onChangeMode,
 }: Props) {
   const { logs, reset } = useSandpackConsole({
@@ -81,6 +84,7 @@ export default function JavaScriptQuestionDevTools({
               return (
                 <JavaScriptConsole
                   logs={logs}
+                  showExplicitInvocationMessage={showExplicitInvocationMessage}
                   onClear={() => {
                     reset();
                   }}
