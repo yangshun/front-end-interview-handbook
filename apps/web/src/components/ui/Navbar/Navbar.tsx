@@ -9,6 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   endAddOnItems?: React.ReactNode;
+  isLoading: boolean;
   links: ReadonlyArray<NavbarPrimaryItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
@@ -17,8 +18,15 @@ type Props = Readonly<{
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
 }>;
 
+function LineGlimmer() {
+  return (
+    <div className="h-4 min-w-[120px] animate-pulse rounded bg-slate-200" />
+  );
+}
+
 export default function Navbar({
   endAddOnItems,
+  isLoading,
   links,
   logo,
   renderMobileSidebarAddOnItems,
@@ -50,10 +58,18 @@ export default function Navbar({
             </nav>
           </div>
           <div className="hidden items-center justify-end space-x-4 md:flex md:grow lg:w-0 lg:grow-0">
-            {rightLinks.map(({ key, ...navItem }) => (
-              <NavbarItem key={key} {...navItem} />
-            ))}
-            {endAddOnItems}
+            {rightLinks.map(({ key, ...navItem }) =>
+              isLoading ? (
+                <LineGlimmer key={key} />
+              ) : (
+                <NavbarItem key={key} {...navItem} />
+              ),
+            )}
+            {isLoading ? (
+              <div className="h-8 min-w-[32px] rounded-full bg-slate-200" />
+            ) : (
+              endAddOnItems
+            )}
           </div>
           <div className="-my-2 -mr-2 lg:hidden">
             <button

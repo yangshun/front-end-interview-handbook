@@ -531,7 +531,7 @@ function useUserNavigationLinks() {
 // }
 export default function NavbarImpl() {
   const user = useUser();
-  const { userProfile } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
   const isLoggedIn = user != null;
   const isPremium = userProfile?.isPremium ?? false;
@@ -647,6 +647,7 @@ export default function NavbarImpl() {
   return (
     <Navbar
       endAddOnItems={endAddOnItems}
+      isLoading={isUserProfileLoading}
       links={links}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
