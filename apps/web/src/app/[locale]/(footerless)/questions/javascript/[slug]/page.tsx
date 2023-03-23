@@ -20,9 +20,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
-  
+
   const intl = await getIntlServerOnly(locale);
-  const question = readQuestionJavaScriptContents(slug, locale);
+  const { question } = readQuestionJavaScriptContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt!,
@@ -46,7 +46,7 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
   const user = await fetchUser();
-  const question = readQuestionJavaScriptContents(slug, locale);
+  const { question } = readQuestionJavaScriptContents(slug, locale);
 
   let questionProgress = null;
   let canViewPremiumContent = false;

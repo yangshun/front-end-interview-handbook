@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const question = readQuestionSystemDesignContents(slug, locale);
+  const { question } = readQuestionSystemDesignContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
   const t0 = performance.now();
-  const question = readQuestionSystemDesignContents(slug, locale);
+  const { question } = readQuestionSystemDesignContents(slug, locale);
 
   const canViewPremiumContent: boolean = await (async () => {
     const user = await fetchUser();

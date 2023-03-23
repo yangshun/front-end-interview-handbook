@@ -20,6 +20,7 @@ import type {
   QuestionQuizMetadata,
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionQuizMetadata>;

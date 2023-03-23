@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const question = readQuestionQuizContents(slug, locale);
+  const { question } = readQuestionQuizContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
@@ -52,7 +52,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
-  const question = readQuestionQuizContents(slug, locale);
+  const { question } = readQuestionQuizContents(slug, locale);
 
   const questionList = await fetchQuestionsListQuiz();
 

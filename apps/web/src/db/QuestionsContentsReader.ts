@@ -22,62 +22,95 @@ import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsB
 
 export function readQuestionJavaScriptContents(
   slug: string,
-  locale = 'en',
-): QuestionJavaScript {
+  requestedLocale = 'en',
+): Readonly<{
+  loadedLocale: string;
+  question: QuestionJavaScript;
+}> {
+  let loadedLocale = requestedLocale;
   const response = (() => {
     try {
       return fs.readFileSync(
-        path.join(getQuestionOutPathJavaScript(slug), `${locale}.json`),
+        path.join(
+          getQuestionOutPathJavaScript(slug),
+          `${requestedLocale}.json`,
+        ),
       );
     } catch {
+      loadedLocale = 'en';
+
       // Fallback to English.
       return fs.readFileSync(
-        path.join(getQuestionOutPathJavaScript(slug), `en.json`),
+        path.join(getQuestionOutPathJavaScript(slug), `${loadedLocale}.json`),
       );
     }
   })();
 
-  return JSON.parse(String(response)) as QuestionJavaScript;
+  return {
+    loadedLocale,
+    question: JSON.parse(String(response)) as QuestionJavaScript,
+  };
 }
 
 export function readQuestionQuizContents(
   slug: string,
-  locale = 'en',
-): QuestionQuiz {
+  requestedLocale = 'en',
+): Readonly<{
+  loadedLocale: string;
+  question: QuestionQuiz;
+}> {
+  let loadedLocale = requestedLocale;
   const response = (() => {
     try {
       return fs.readFileSync(
-        path.join(getQuestionOutPathQuiz(slug), `${locale}.json`),
+        path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
       );
     } catch {
+      loadedLocale = 'en';
+
       // Fallback to English.
       return fs.readFileSync(
-        path.join(getQuestionOutPathQuiz(slug), `en.json`),
+        path.join(getQuestionOutPathQuiz(slug), `${loadedLocale}.json`),
       );
     }
   })();
 
-  return JSON.parse(String(response)) as QuestionQuiz;
+  return {
+    loadedLocale,
+    question: JSON.parse(String(response)) as QuestionQuiz,
+  };
 }
 
 export function readQuestionSystemDesignContents(
   slug: string,
-  locale = 'en',
-): QuestionSystemDesign {
+  requestedLocale = 'en',
+): Readonly<{
+  loadedLocale: string;
+  question: QuestionSystemDesign;
+}> {
+  let loadedLocale = requestedLocale;
   const response = (() => {
     try {
       return fs.readFileSync(
-        path.join(getQuestionOutPathSystemDesign(slug), `${locale}.json`),
+        path.join(
+          getQuestionOutPathSystemDesign(slug),
+          `${requestedLocale}.json`,
+        ),
       );
     } catch {
+      loadedLocale = 'en';
+
       // Fallback to English.
       return fs.readFileSync(
-        path.join(getQuestionOutPathSystemDesign(slug), `en.json`),
+        path.join(getQuestionOutPathSystemDesign(slug), `${loadedLocale}.json`),
       );
     }
   })();
 
-  return JSON.parse(String(response)) as QuestionSystemDesign;
+  return {
+    loadedLocale,
+    question: JSON.parse(String(response)) as QuestionSystemDesign,
+  };
 }
 
 export async function readQuestionUserInterface(

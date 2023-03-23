@@ -65,7 +65,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const [
-    javaScriptEmbedExample,
+    { question: javaScriptEmbedExample },
     todoListReactSolutionBundle,
     todoListVanillaSolutionBundle,
   ] = await Promise.all([
