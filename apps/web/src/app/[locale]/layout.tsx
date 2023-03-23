@@ -37,8 +37,20 @@ export default async function Layout({ children, params }: Props) {
   const { locale } = params;
   const localeMessages = await getLocaleMessages(locale);
 
-  const cookieStore = cookies();
-  const countryCode: string = cookieStore.get('country')?.value ?? 'US';
+  const countryCode: string = (() => {
+    const defaultCountryCode = 'US';
+
+    // TODO: Using cookies() crash statically generated pages during development.
+    // Workaround to allow static page to load during development.
+    // https://nextjs.org/docs/messages/app-static-to-dynamic-error
+    if (process.env.NODE_ENV === 'development') {
+      return defaultCountryCode;
+    }
+
+    const cookieStore = cookies();
+
+    return cookieStore.get('country')?.value ?? defaultCountryCode;
+  })();
 
   return (
     <RootLayout
