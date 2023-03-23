@@ -59,6 +59,7 @@ export default async function handler(
     req.headers.referer && `Referer: ${req.headers.referer}`,
     userIdentifier && `User Identifier: ${userIdentifier}`,
     user?.email && `Email: ${user?.email}`,
+    user?.id && `User ID: ${user?.id}`,
     cookies.country && `Country: ${cookies.country}`,
   ]
     .filter(Boolean)
