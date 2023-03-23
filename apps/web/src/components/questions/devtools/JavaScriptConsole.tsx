@@ -1,4 +1,5 @@
 import { Console } from 'console-feed';
+import { useEffect, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
@@ -19,6 +20,15 @@ export default function JavaScriptConsole({
   showExplicitInvocationMessage = false,
 }: Props) {
   const intl = useIntl();
+  const consoleRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    consoleRef.current?.scrollBy(0, consoleRef.current?.scrollHeight);
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [logs]);
 
   if (logs == null || logs.length === 0) {
     return (
@@ -85,7 +95,7 @@ export default function JavaScriptConsole({
           }}
         />
       </div>
-      <div className="overflow-y-auto bg-slate-700">
+      <div ref={consoleRef} className="overflow-y-auto bg-slate-700">
         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-ignore */}
         <Console logs={logs} variant="dark" />
