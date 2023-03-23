@@ -41,7 +41,11 @@ export default function JavaScriptConsole({
               }}
             />
           </Text>
-          <Text color="secondary" display="block" variant="body2">
+          <Text
+            className="text-center"
+            color="secondary"
+            display="block"
+            variant="body2">
             {showExplicitInvocationMessage && (
               <FormattedMessage
                 defaultMessage="To test your function without submitting, call the function below the declaration."
