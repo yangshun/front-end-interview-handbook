@@ -39,6 +39,10 @@
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
   },
+  "0Nq65E": {
+    "defaultMessage": "Billing",
+    "description": "Screenreader text for subscription billing."
+  },
   "0RaY4p": {
     "defaultMessage": "What does buying GreatFrontEnd get me?",
     "description": "Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
@@ -106,6 +110,10 @@
   "3v5v1K": {
     "defaultMessage": "Get started in minutes",
     "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
+  },
+  "3y3F8i": {
+    "defaultMessage": "An error occurred",
+    "description": "Error message when there is error fetching question progress or list."
   },
   "3z2LJp": {
     "defaultMessage": "Practice",
@@ -311,6 +319,10 @@
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
   },
+  "C34sRh": {
+    "defaultMessage": "Account Settings",
+    "description": "Screenreader text for account settings."
+  },
   "C7tiFm": {
     "defaultMessage": "Why join us?",
     "description": "Section label for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
@@ -335,6 +347,10 @@
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
   },
+  "CqG3Op": {
+    "defaultMessage": "Completed Questions",
+    "description": "Heading for list of completed questions."
+  },
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
@@ -358,6 +374,10 @@
   "ExWrYc": {
     "defaultMessage": "Practice everything here.",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
+  },
+  "F2QRYu": {
+    "defaultMessage": "Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice.",
+    "description": "Text describing contact method for purchase invoice."
   },
   "F5oV3L": {
     "defaultMessage": "Delete line",
@@ -418,6 +438,10 @@
   "GyDKzV": {
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
+  },
+  "H+BRfg": {
+    "defaultMessage": "No completed questions",
+    "description": "Text shown when no questions are completed."
   },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
@@ -494,6 +518,10 @@
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+  },
+  "Jlr/Yy": {
+    "defaultMessage": "<link>Contact us</link> if you would like to upgrade your plan.",
+    "description": "Call to action text to uppgrade plan."
   },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -639,6 +667,10 @@
     "defaultMessage": "Change to vertical",
     "description": "Tooltip for changing to vertical layout for coding workspace"
   },
+  "Ol7K0w": {
+    "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
+    "description": "Text describing user's subscription plan."
+  },
   "OtRu2B": {
     "defaultMessage": "You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!",
     "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
@@ -662,6 +694,10 @@
   "PyDwDF": {
     "defaultMessage": "Close",
     "description": "Close button label"
+  },
+  "Q1WOVj": {
+    "defaultMessage": "Manage Subscription",
+    "description": "Label for button to manage subscription"
   },
   "Q2pP1Q": {
     "defaultMessage": "Test Cases",
@@ -743,6 +779,10 @@
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
   },
+  "SUjf8L": {
+    "defaultMessage": "Not Subscribed",
+    "description": "Text describing user's subscription status."
+  },
   "SWOTIA": {
     "defaultMessage": "Reset to initial code",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
@@ -814,6 +854,10 @@
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
+  },
+  "VCvG/R": {
+    "defaultMessage": "You are on the <bold>Annual</bold> plan.",
+    "description": "Text describing user's subscription plan."
   },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
@@ -923,6 +967,10 @@
     "defaultMessage": "Report an issue",
     "description": "Label for reporting an issue"
   },
+  "Znv3Y6": {
+    "defaultMessage": "Save Changes",
+    "description": "Label for button to save changes to user account email"
+  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -978,6 +1026,10 @@
   "bf0Hsc": {
     "defaultMessage": "Open user menu",
     "description": "Screenreader text to let user know that the profile icon's menu is open"
+  },
+  "bfMxFC": {
+    "defaultMessage": "Stripe Customer ID:",
+    "description": "Label for Stripe customer ID."
   },
   "bxZm1S": {
     "defaultMessage": "User Interface Questions",
@@ -1046,6 +1098,10 @@
   "dz24ro": {
     "defaultMessage": "Send reset password instructions",
     "description": "Label of password reset button on Password Reset page"
+  },
+  "e+03Yz": {
+    "defaultMessage": "Try out some Front End questions!",
+    "description": "Subtext for call to action when no questions are completed."
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -1175,6 +1231,10 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
+  "jEYebN": {
+    "defaultMessage": "View subscription plans",
+    "description": "Label for button to view subscription plans"
+  },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",
     "description": "Coming soon label indicating that a feature will be launched soon"
@@ -1186,6 +1246,10 @@
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
+  },
+  "jbJq96": {
+    "defaultMessage": "Get premium to unlock <bold>full access to all questions and solutions</bold>!",
+    "description": "Call to action text for premium upgrade."
   },
   "jblvez": {
     "defaultMessage": "Title: Z to A",
@@ -1246,6 +1310,10 @@
   "knfvnJ": {
     "defaultMessage": "Filters",
     "description": "Screenreader text to indicate filters component on quiz questions list"
+  },
+  "kx0gZt": {
+    "defaultMessage": "View questions",
+    "description": "Label for button to view questions"
   },
   "lJupPX": {
     "defaultMessage": "View All Questions",
@@ -1314,6 +1382,10 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
+  },
+  "o2xbIW": {
+    "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
+    "description": "Text describing user's subscription plan."
   },
   "oE3TMf": {
     "defaultMessage": "Quiz Questions",
@@ -1471,6 +1543,10 @@
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
   },
+  "v+Q+mM": {
+    "defaultMessage": "You are on the <bold>Monthly</bold> plan.",
+    "description": "Text describing user's subscription plan."
+  },
   "v2TGFl": {
     "defaultMessage": "High",
     "description": "Label for high question importance"
@@ -1555,9 +1631,17 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Coding page"
   },
+  "xS31qX": {
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
+    "description": "Subtext above email settings."
+  },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
+  },
+  "y8zzVx": {
+    "defaultMessage": "Email",
+    "description": "Email"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
@@ -1614,5 +1698,9 @@
   "zqNjnp": {
     "defaultMessage": "CSS",
     "description": "Label for CSS language"
+  },
+  "zs7+sC": {
+    "defaultMessage": "A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.",
+    "description": "Message shown after an email change request is successful."
   }
 }

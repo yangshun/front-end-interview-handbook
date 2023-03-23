@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { useI18nRouter } from 'next-i18nostic';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -23,38 +24,75 @@ function PlanLabel({
   }
 
   const contactUs = (
-    <>
-      <Anchor href="mailto:contact@greatfrontend.com">Contact us</Anchor> if you
-      would like to upgrade your plan.
-    </>
+    <FormattedMessage
+      defaultMessage="<link>Contact us</link> if you would like to upgrade your plan."
+      description="Call to action text to uppgrade plan."
+      id="Jlr/Yy"
+      values={{
+        link: (chunks) => (
+          <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
+        ),
+      }}
+    />
   );
 
   switch (plan) {
     case 'year': {
       return (
         <Text>
-          You are on the <Text weight="bold">Annual</Text> plan. {contactUs}
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Annual</bold> plan. "
+            description="Text describing user's subscription plan."
+            id="VCvG/R"
+            values={{
+              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            }}
+          />
+          {contactUs}
         </Text>
       );
     }
     case 'month': {
       return (
         <Text>
-          You are on the <Text weight="bold">Monthly</Text> plan. {contactUs}
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Monthly</bold> plan. "
+            description="Text describing user's subscription plan."
+            id="v+Q+mM"
+            values={{
+              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            }}
+          />
+          {contactUs}
         </Text>
       );
     }
     case 'quarter': {
       return (
         <Text>
-          You are on the <Text weight="bold">Quarterly</Text> plan. {contactUs}
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Quarterly</bold> plan. "
+            description="Text describing user's subscription plan."
+            id="Ol7K0w"
+            values={{
+              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            }}
+          />
+          {contactUs}
         </Text>
       );
     }
     case 'lifetime': {
       return (
         <Text>
-          You are on the <Text weight="bold">Lifetime</Text> plan.
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Lifetime</bold> plan. "
+            description="Text describing user's subscription plan."
+            id="o2xbIW"
+            values={{
+              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            }}
+          />
         </Text>
       );
     }
@@ -67,6 +105,7 @@ function ManageSubscriptionButton({
   plan?: UserProfilePlan | null;
 }>): JSX.Element | null {
   const router = useI18nRouter();
+  const intl = useIntl();
 
   if (plan == null) {
     return null;
@@ -85,7 +124,11 @@ function ManageSubscriptionButton({
       return (
         <div>
           <Button
-            label="Manage Subscription"
+            label={intl.formatMessage({
+              defaultMessage: 'Manage Subscription',
+              description: 'Label for button to manage subscription',
+              id: 'Q1WOVj',
+            })}
             variant="tertiary"
             onClick={loadPortal}
           />
@@ -100,11 +143,17 @@ function ManageSubscriptionButton({
 }
 
 function NoBillingPlan() {
+  const intl = useIntl();
+
   return (
     <div className="py-12 text-center">
       <CreditCardIcon className="mx-auto h-12 w-12 text-slate-400" />
       <Heading className="mt-2 text-sm font-medium text-slate-900">
-        Not Subscribed
+        <FormattedMessage
+          defaultMessage="Not Subscribed"
+          description="Text describing user's subscription status."
+          id="SUjf8L"
+        />
       </Heading>
       <Section>
         <Text
@@ -112,16 +161,27 @@ function NoBillingPlan() {
           color="secondary"
           display="block"
           variant="body2">
-          Get premium to unlock{' '}
-          <Text variant="body2" weight="bold">
-            full access to all questions and solutions
-          </Text>
-          !
+          <FormattedMessage
+            defaultMessage="Get premium to unlock <bold>full access to all questions and solutions</bold>!"
+            description="Call to action text for premium upgrade."
+            id="jbJq96"
+            values={{
+              bold: (chunks) => (
+                <Text variant="body2" weight="bold">
+                  {chunks}
+                </Text>
+              ),
+            }}
+          />
         </Text>
         <div className="mt-6">
           <Button
             href="/pricing"
-            label="View subscription plans"
+            label={intl.formatMessage({
+              defaultMessage: 'View subscription plans',
+              description: 'Label for button to view subscription plans',
+              id: 'jEYebN',
+            })}
             variant="primary"
           />
         </div>
@@ -135,7 +195,13 @@ export default function ProfileBilling() {
 
   return (
     <div className="space-y-4">
-      <Heading className="sr-only">Billing</Heading>
+      <Heading className="sr-only">
+        <FormattedMessage
+          defaultMessage="Billing"
+          description="Screenreader text for subscription billing."
+          id="0Nq65E"
+        />
+      </Heading>
       <Section>
         {userProfile == null || !userProfile?.plan ? (
           <NoBillingPlan />
@@ -146,15 +212,27 @@ export default function ProfileBilling() {
             </Text>
             <ManageSubscriptionButton plan={userProfile?.plan} />
             <Text display="block" variant="body2">
-              Please contact us at{' '}
-              <Anchor href="mailto:contact@greatfrontend.com">
-                contact@greatfrontend.com
-              </Anchor>{' '}
-              should you require a purchase invoice.
+              <FormattedMessage
+                defaultMessage="Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice."
+                description="Text describing contact method for purchase invoice."
+                id="F2QRYu"
+                values={{
+                  link: (chunks) => (
+                    <Anchor href="mailto:contact@greatfrontend.com">
+                      {chunks}
+                    </Anchor>
+                  ),
+                }}
+              />
             </Text>
             {process.env.NODE_ENV === 'development' && (
               <Text display="block" variant="body2">
-                Stripe Customer ID: <code>{userProfile?.stripeCustomerID}</code>
+                <FormattedMessage
+                  defaultMessage="Stripe Customer ID: "
+                  description="Label for Stripe customer ID."
+                  id="bfMxFC"
+                />
+                <code>{userProfile?.stripeCustomerID}</code>
               </Text>
             )}
           </>

@@ -1,5 +1,7 @@
 'use client';
 
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -19,20 +21,34 @@ import type { QuestionLanguage } from '../questions/common/QuestionsTypes';
 import { RectangleStackIcon } from '@heroicons/react/24/outline';
 
 function NoCompletedQuestions() {
+  const intl = useIntl();
+
   return (
     <div className="py-12 text-center">
       <RectangleStackIcon className="mx-auto h-12 w-12 text-slate-400" />
       <Heading className="mt-2 text-sm font-medium text-slate-900">
-        No completed questions
+        <FormattedMessage
+          defaultMessage="No completed questions"
+          description="Text shown when no questions are completed."
+          id="H+BRfg"
+        />
       </Heading>
       <Section>
         <p className="mt-1 text-sm text-slate-500">
-          Try out some Front End questions!
+          <FormattedMessage
+            defaultMessage="Try out some Front End questions!"
+            description="Subtext for call to action when no questions are completed."
+            id="e+03Yz"
+          />
         </p>
         <div className="mt-6">
           <Button
             href="/prepare/coding"
-            label="View questions"
+            label={intl.formatMessage({
+              defaultMessage: 'View questions',
+              description: 'Label for button to view questions',
+              id: 'kx0gZt',
+            })}
             variant="primary"
           />
         </div>
@@ -63,7 +79,15 @@ export default function ProfileActivity() {
 
   if (isErrorQuestionProgress || isErrorQuestionList) {
     // TODO: Better error handling.
-    return <div>An error occurred</div>;
+    return (
+      <div>
+        <FormattedMessage
+          defaultMessage="An error occurred"
+          description="Error message when there is error fetching question progress or list."
+          id="3y3F8i"
+        />
+      </div>
+    );
   }
 
   if (questionProgress == null || questionProgress.length === 0) {
@@ -84,7 +108,11 @@ export default function ProfileActivity() {
   return (
     <div className="flex flex-col gap-y-4">
       <Heading className="flex-1 border-b border-slate-200 pb-4 text-xl font-semibold">
-        Completed Questions
+        <FormattedMessage
+          defaultMessage="Completed Questions"
+          description="Heading for list of completed questions."
+          id="CqG3Op"
+        />
       </Heading>
       <Section>
         <ul

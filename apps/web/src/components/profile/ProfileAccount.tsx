@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -17,6 +18,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProfileAccount({ user }: Props) {
+  const intl = useIntl();
   const supabaseClient = useSupabaseClientGFE();
   const [email, setEmail] = useState(user?.email ?? '');
   const [error, setError] = useState('');
@@ -39,7 +41,13 @@ export default function ProfileAccount({ user }: Props) {
       setError(updateError.message);
     } else {
       setMessage(
-        'A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.',
+        intl.formatMessage({
+          defaultMessage:
+            'A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.',
+          description:
+            'Message shown after an email change request is successful.',
+          id: 'zs7+sC',
+        }),
       );
     }
     setIsLoading(false);
@@ -47,11 +55,21 @@ export default function ProfileAccount({ user }: Props) {
 
   return (
     <div className="flex flex-col gap-y-6 md:max-w-md">
-      <Heading className="sr-only">Account Settings</Heading>
+      <Heading className="sr-only">
+        <FormattedMessage
+          defaultMessage="Account Settings"
+          description="Screenreader text for account settings."
+          id="C34sRh"
+        />
+      </Heading>
       {user?.app_metadata.provider !== 'email' && (
         <Text color="secondary" display="block" variant="body2">
-          If you are logged in with OAuth (e.g. GitHub), you can change your
-          email here to use email and password to log in instead.
+          <FormattedMessage
+            defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can change your
+            email here to use email and password to log in instead."
+            description="Subtext above email settings."
+            id="xS31qX"
+          />
         </Text>
       )}
       <Section>
@@ -60,7 +78,11 @@ export default function ProfileAccount({ user }: Props) {
             autoComplete="email"
             defaultValue={email}
             isDisabled={isLoading}
-            label="Email"
+            label={intl.formatMessage({
+              defaultMessage: 'Email',
+              description: 'Email',
+              id: 'y8zzVx',
+            })}
             type="email"
             onChange={setEmail}
           />
@@ -68,7 +90,12 @@ export default function ProfileAccount({ user }: Props) {
             display="block"
             isDisabled={email === user?.email || !isValidEmail || isLoading}
             isLoading={isLoading}
-            label="Save Changes"
+            label={intl.formatMessage({
+              defaultMessage: 'Save Changes',
+              description:
+                'Label for button to save changes to user account email',
+              id: 'Znv3Y6',
+            })}
             type="submit"
             variant="primary"
           />
