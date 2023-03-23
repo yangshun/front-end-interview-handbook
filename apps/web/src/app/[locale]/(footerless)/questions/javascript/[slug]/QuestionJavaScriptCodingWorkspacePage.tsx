@@ -7,7 +7,6 @@ import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import QuestionsListingBreadcrumbs from '~/components/questions/common/QuestionsListingBreadcrumbs';
 import type {
   QuestionJavaScript,
@@ -74,10 +73,6 @@ function LeftPane({
           size="sm"
           variant="tertiary"
           onClick={() => setShowQuestionsSlideOut(true)}
-        />
-        <QuestionReportIssueButton
-          format={question.format}
-          title={question.metadata.title}
         />
       </div>
       <QuestionCodingListSlideOut

@@ -7,6 +7,7 @@ import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
+import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
@@ -214,6 +215,11 @@ function Contents({
               }
               onChangeLayout?.(newLayout);
             }}
+          />
+          <QuestionReportIssueButton
+            format={question.format}
+            title={question.metadata.title}
+            tooltipPosition="start"
           />
         </CodingWorkspaceToolbar>
       )}

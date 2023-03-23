@@ -135,6 +135,11 @@ function MiddleRightPaneContents({
             resetCode();
           }}
         />
+        <QuestionReportIssueButton
+          format={question.format}
+          title={question.metadata.title}
+          tooltipPosition="start"
+        />
       </CodingWorkspaceToolbar>
       <div className="flex flex-col lg:h-0 lg:grow lg:flex-row">
         <div className="h-96 lg:h-full lg:w-0 lg:grow">
@@ -342,10 +347,6 @@ function LeftPane({
           size="sm"
           variant="tertiary"
           onClick={() => setShowQuestionsSlideOut(true)}
-        />
-        <QuestionReportIssueButton
-          format={question.format}
-          title={question.metadata.title}
         />
       </div>
       <QuestionCodingListSlideOut

@@ -4,6 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import FeedbackDialog from '~/components/feedback/FeedbackDialog';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import type { TooltipPosition } from '~/components/ui/Tooltip';
 
 import type { QuestionFormat } from './QuestionsTypes';
 
@@ -14,6 +15,7 @@ type Props = Readonly<{
   isLabelHidden?: boolean;
   showTooltip?: boolean;
   title: string;
+  tooltipPosition?: TooltipPosition;
 }>;
 
 // https://github.com/greatfrontend/greatfrontend/labels
@@ -29,6 +31,7 @@ export default function QuestionReportIssueButton({
   format,
   showTooltip = true,
   title,
+  tooltipPosition = 'above',
 }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +58,7 @@ export default function QuestionReportIssueButton({
               })
             : undefined
         }
-        tooltipPosition={showTooltip ? 'above' : undefined}
+        tooltipPosition={showTooltip ? tooltipPosition : undefined}
         variant="tertiary"
         onClick={() => setIsOpen(true)}
       />
