@@ -18,6 +18,34 @@ type TestimonialItem = Readonly<{ key: string; position: 'left' | 'right' }> &
 
 const TESTIMONIALS: ReadonlyArray<TestimonialItem> = [
   {
+    authorThumbnailUrl: '/img/testimonials/larry.jpg',
+    authorUrl: 'https://www.linkedin.com/in/larrydalmeida/',
+    key: 'larry',
+    name: 'Larry Almeida',
+    position: 'left',
+    testimonial: (
+      <>
+        I got an opportunity to interview for a dream role with a critical
+        frontend team of an online retail giant with over 50m customers and &gt;
+        5 billion renders per day. A great opportunity to take my career to the
+        next level. The problem — I wasn't ready to interview!
+        <br />
+        <br />I could have spent my time scouring the internet for resources.
+        Instead I choose to invest my money wisely. GreatFrontEnd turned out to
+        be a fantastic resource with its curated Study Plans, interactive
+        Practice Questions and Guides that cover all your typical big tech
+        interview needs. Their quiz questions helped me to recap my knowledge on
+        the days before my interview. I especially appreciated the System Design
+        Guide with solutions that cover a range of front end design problems
+        along with frameworks that are easy to remember and apply to any problem
+        type.
+        <br />
+        <br />I got the job and a great ROI!
+      </>
+    ),
+    title: 'Senior Software Engineer — Front End, Zalando, Berlin, Germany',
+  },
+  {
     authorThumbnailUrl: '/img/testimonials/ryanlvv.jpg',
     authorUrl: 'https://www.linkedin.com/in/ryanlvv/',
     key: 'ryanlvv',
@@ -50,34 +78,6 @@ const TESTIMONIALS: ReadonlyArray<TestimonialItem> = [
       </>
     ),
     title: 'Software Engineer — Front End, Perch, USA',
-  },
-  {
-    authorThumbnailUrl: '/img/testimonials/larry.jpg',
-    authorUrl: 'https://www.linkedin.com/in/larrydalmeida/',
-    key: 'larry',
-    name: 'Larry Almeida',
-    position: 'left',
-    testimonial: (
-      <>
-        I got an opportunity to interview for a dream role with a critical
-        frontend team of an online retail giant with over 50m customers and &gt;
-        5 billion renders per day. A great opportunity to take my career to the
-        next level. The problem — I wasn't ready to interview!
-        <br />
-        <br />I could have spent my time scouring the internet for resources.
-        Instead I choose to invest my money wisely. GreatFrontEnd turned out to
-        be a fantastic resource with its curated Study Plans, interactive
-        Practice Questions and Guides that cover all your typical big tech
-        interview needs. Their quiz questions helped me to recap my knowledge on
-        the days before my interview. I especially appreciated the System Design
-        Guide with solutions that cover a range of front end design problems
-        along with frameworks that are easy to remember and apply to any problem
-        type.
-        <br />
-        <br />I got the job and a great ROI!
-      </>
-    ),
-    title: 'Senior Software Engineer — Front End, Zalando, Berlin, Germany',
   },
   {
     key: 'india',
@@ -157,36 +157,32 @@ function Testimonial({
         </svg>
         <p className="relative">{testimonial}</p>
       </div>
-      <footer className="mt-4">
-        <div className="flex items-start">
-          {authorThumbnailUrl && (
-            <div className="mr-4 inline-flex flex-shrink-0 rounded-full border-2 border-white">
-              <img
-                alt={name}
-                className="h-12 w-12 rounded-full"
-                src={authorThumbnailUrl}
-              />
-            </div>
-          )}
-          <div>
-            {name &&
-              (() => {
-                const nameEl = (
-                  <span className="text-base font-medium text-white">
-                    {name}
-                  </span>
-                );
-
-                if (authorUrl) {
-                  return <Anchor href={authorUrl}>{nameEl}</Anchor>;
-                }
-
-                return nameEl;
-              })()}
-            <div className="text-brand-200 text-base font-medium">{title}</div>
+      <div className="mt-4 flex items-start">
+        {authorThumbnailUrl && (
+          <div className="mr-4 inline-flex flex-shrink-0 rounded-full border-2 border-white">
+            <img
+              alt={name}
+              className="h-12 w-12 rounded-full"
+              src={authorThumbnailUrl}
+            />
           </div>
+        )}
+        <div>
+          {name &&
+            (() => {
+              const nameEl = (
+                <span className="text-base font-medium text-white">{name}</span>
+              );
+
+              if (authorUrl) {
+                return <Anchor href={authorUrl}>{nameEl}</Anchor>;
+              }
+
+              return nameEl;
+            })()}
+          <div className="text-brand-200 text-base font-medium">{title}</div>
         </div>
-      </footer>
+      </div>
     </blockquote>
   );
 }
@@ -205,7 +201,7 @@ export default function MarketingTestimonial() {
                 ),
               )}
             </div>
-            <div className="flex flex-col gap-y-24">
+            <div className="flex flex-col gap-y-16">
               {TESTIMONIALS.filter(({ position }) => position === 'right').map(
                 ({ key, ...testimonial }) => (
                   <Testimonial key={key} {...testimonial} />
