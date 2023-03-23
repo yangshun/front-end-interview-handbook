@@ -166,7 +166,7 @@ function PricingButtonSection({
                   });
                   logMessage({
                     level: 'info',
-                    message: `Initiate checkout for ${
+                    message: `Initiate checkout ${
                       plan.planType
                     } plan for ${plan.currency.toLocaleUpperCase()} ${
                       plan.unitCostLocalizedInCurrency

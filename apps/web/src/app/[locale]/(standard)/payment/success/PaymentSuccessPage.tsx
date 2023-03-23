@@ -91,7 +91,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
       });
 
       logMessage({
-        level: 'info',
+        level: 'success',
         message: `Purchased ${
           plan.planType
         } plan for ${plan.currency.toLocaleUpperCase()} ${
