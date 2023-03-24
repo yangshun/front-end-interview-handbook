@@ -39,6 +39,13 @@ export default function TextInputExamples() {
         placeholder="John Doe"
         type="text"
       />
+      <TextInput
+        label="Extra Small"
+        placeholder="you@example.com"
+        size="xs"
+        startIcon={EnvelopeIcon}
+        type="email"
+      />
     </UIExamplesGroup>
   );
 }

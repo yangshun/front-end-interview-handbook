@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import type { ChangeEvent } from 'react';
 import React, { useId } from 'react';
 
+export type TextInputSize = 'sm' | 'xs';
+
 type Props = Readonly<{
   autoComplete?: string;
   autoFocus?: boolean;
@@ -16,6 +18,7 @@ type Props = Readonly<{
   name?: string;
   onChange?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  size?: TextInputSize;
   startIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   type?: 'email' | 'password' | 'text';
   value?: string;
@@ -27,7 +30,16 @@ const stateClasses: Record<State, string> = {
   error:
     'border-rose-300 text-rose-900 placeholder-rose-300 focus:outline-none focus:ring-rose-500 focus:border-rose-500',
   normal:
-    'placeholder:text-slate-400 focus:ring-brand-500 focus:border-brand-500 border-slate-300',
+    'placeholder:text-slate-300 focus:ring-brand-500 focus:border-brand-500 border-slate-200',
+};
+
+const fontSizeClasses: Record<TextInputSize, string> = {
+  sm: 'text-sm',
+  xs: 'text-xs',
+};
+const iconSizeClasses: Record<TextInputSize, string> = {
+  sm: 'h-5 w-5',
+  xs: 'h-4 w-4',
 };
 
 export default function TextInput({
@@ -43,6 +55,7 @@ export default function TextInput({
   label,
   name,
   placeholder,
+  size = 'sm',
   startIcon: StartIcon,
   type = 'text',
   value,
@@ -53,27 +66,33 @@ export default function TextInput({
   const id = idParam ?? generatedId;
   const messageId = useId();
   const state = hasError ? 'error' : 'normal';
+  const fontSizeClass = fontSizeClasses[size];
+  const iconSizeClass = iconSizeClasses[size];
 
   return (
     <div>
       <label
         className={clsx(
-          isLabelHidden
-            ? 'sr-only'
-            : 'mb-1 block text-sm font-medium text-slate-700',
+          isLabelHidden ? 'sr-only' : 'mb-1 block font-medium text-slate-700',
+          fontSizeClass,
         )}
         htmlFor={id}>
         {label}
       </label>
       {!hasError && description && (
-        <p className={clsx('my-2 text-xs text-slate-500')} id={messageId}>
+        <p
+          className={clsx('my-2 text-slate-500', fontSizeClass)}
+          id={messageId}>
           {description}
         </p>
       )}
       <div className="relative">
         {StartIcon && (
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <StartIcon aria-hidden="true" className="h-5 w-5 text-slate-400" />
+            <StartIcon
+              aria-hidden="true"
+              className={clsx(iconSizeClass, 'text-slate-300')}
+            />
           </div>
         )}
         <input
@@ -84,7 +103,8 @@ export default function TextInput({
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           className={clsx(
-            'block w-full rounded-md sm:text-sm',
+            'block w-full rounded-md',
+            fontSizeClass,
             StartIcon && 'pl-10',
             EndIcon && 'pr-10',
             stateClasses[state],
@@ -107,12 +127,15 @@ export default function TextInput({
         />
         {EndIcon && (
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-            <EndIcon aria-hidden="true" className="h-5 w-5 text-slate-400" />
+            <EndIcon
+              aria-hidden="true"
+              className={clsx(iconSizeClass, 'text-slate-300')}
+            />
           </div>
         )}
       </div>
       {errorMessage && (
-        <p className="mt-2 text-sm text-rose-600" id={messageId}>
+        <p className={clsx('mt-2 text-rose-600', fontSizeClass)} id={messageId}>
           {errorMessage}
         </p>
       )}
