@@ -5,6 +5,8 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import { useActiveHeadingId } from './GuidesHeadingObserver';
+
 type TableOfContentsItem = Readonly<{
   children?: ReadonlyArray<TableOfContentsItem>;
   depth: number;
@@ -19,8 +21,10 @@ type Props = Readonly<{
 }>;
 
 function ListItems({
+  activeId,
   items,
 }: Readonly<{
+  activeId: string | null;
   items: TableOfContents;
 }>) {
   return (
@@ -30,16 +34,19 @@ function ListItems({
           <p>
             <Anchor
               className={clsx(
-                'hover:text-brand-700 font-normal text-slate-500',
+                'hover:text-brand-700 motion-safe:transition-all',
+                activeId === section.id
+                  ? 'text-brand-500 font-semibold'
+                  : 'font-normal text-slate-500',
               )}
               href={`#${section.id}`}
-              variant="muted">
+              variant="unstyled">
               {section.value}
             </Anchor>
           </p>
           {section.children && section.children.length > 0 && (
             <div className="pl-4">
-              <ListItems items={section.children} />
+              <ListItems activeId={activeId} items={section.children} />
             </div>
           )}
         </li>
@@ -50,8 +57,8 @@ function ListItems({
 
 export default function GuidesTableOfContents({ tableOfContents }: Props) {
   const titleId = useId();
+  const activeId = useActiveHeadingId();
 
-  // TODO: Highlight active item.
   return (
     // TODO: Replace the labelledby
     <nav aria-labelledby={titleId} className="w-56">
@@ -64,7 +71,7 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
           </Heading>
           <Section>
             <div className="mt-4">
-              <ListItems items={tableOfContents} />
+              <ListItems activeId={activeId} items={tableOfContents} />
             </div>
           </Section>
         </>

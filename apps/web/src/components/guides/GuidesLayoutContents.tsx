@@ -2,12 +2,13 @@
 
 import { useI18nPathname } from 'next-i18nostic';
 import { ArticleJsonLd } from 'next-seo';
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Abstract from '~/components/ui/Prose/Abstract';
 
+import GuidesHeadingObserver from './GuidesHeadingObserver';
 import type {
   GuidesNavigation,
   GuidesNavigationLink,
@@ -61,6 +62,7 @@ export default function GuidesLayoutContents({
   title,
 }: Props) {
   const { pathname } = useI18nPathname();
+  const articleContainerRef = useRef<HTMLDivElement>(null);
 
   const flatNavigationItems = flattenNavigationItems(navigation);
 
@@ -85,44 +87,50 @@ export default function GuidesLayoutContents({
         url={`https://www.greatfrontend.com${pathname}`}
         useAppDir={true}
       />
-      <div className="flex w-0 grow">
-        <div className="mx-auto w-full max-w-xl space-y-6 px-4 py-12 sm:max-w-3xl sm:px-10 md:max-w-4xl 2xl:max-w-5xl">
-          {currentItem && (
-            <div className="-mb-4 flex flex-wrap gap-x-2 text-sm text-slate-500">
-              {currentItem.breadcrumbs.map((breadcrumb, index) => (
-                <Fragment key={breadcrumb}>
-                  {index > 0 && <span>/</span>}
-                  <span>{breadcrumb}</span>
-                </Fragment>
-              ))}
-            </div>
+      <GuidesHeadingObserver
+        articleContainerRef={articleContainerRef}
+        headingSelectors={['h1', 'h2', 'h3', 'h4', 'h5', 'h6']}>
+        <div className="flex w-0 grow">
+          <div className="mx-auto w-full max-w-xl space-y-6 px-4 py-12 sm:max-w-3xl sm:px-10 md:max-w-4xl 2xl:max-w-5xl">
+            {currentItem && (
+              <div className="-mb-4 flex flex-wrap gap-x-2 text-sm text-slate-500">
+                {currentItem.breadcrumbs.map((breadcrumb, index) => (
+                  <Fragment key={breadcrumb}>
+                    {index > 0 && <span>/</span>}
+                    <span>{breadcrumb}</span>
+                  </Fragment>
+                ))}
+              </div>
+            )}
+            <Prose textSize="xl">
+              <div ref={articleContainerRef}>
+                <h1>{title}</h1>
+                <Abstract>{description}</Abstract>
+                {children}
+              </div>
+            </Prose>
+            <Section>
+              <QuestionPagination
+                currentHref={pathname ?? ''}
+                items={flatNavigationItems}
+              />
+            </Section>
+          </div>
+          {tableOfContents && (
+            <Section>
+              <div
+                key={currentItem?.href}
+                className="hidden xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
+                style={{
+                  height: `calc(100vh - var(--navbar-height))`,
+                  top: `var(--navbar-height)`,
+                }}>
+                <GuidesTableOfContents tableOfContents={tableOfContents} />
+              </div>
+            </Section>
           )}
-          <Prose textSize="xl">
-            <h1>{title}</h1>
-            <Abstract>{description}</Abstract>
-            {children}
-          </Prose>
-          <Section>
-            <QuestionPagination
-              currentHref={pathname ?? ''}
-              items={flatNavigationItems}
-            />
-          </Section>
         </div>
-        {tableOfContents && (
-          <Section>
-            <div
-              key={currentItem?.href}
-              className="hidden xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
-              style={{
-                height: `calc(100vh - var(--navbar-height))`,
-                top: `var(--navbar-height)`,
-              }}>
-              <GuidesTableOfContents tableOfContents={tableOfContents} />
-            </div>
-          </Section>
-        )}
-      </div>
+      </GuidesHeadingObserver>
     </>
   );
 }
