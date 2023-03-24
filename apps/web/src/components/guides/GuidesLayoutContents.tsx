@@ -102,12 +102,10 @@ export default function GuidesLayoutContents({
                 ))}
               </div>
             )}
-            <Prose textSize="xl">
-              <div ref={articleContainerRef}>
-                <h1>{title}</h1>
-                <Abstract>{description}</Abstract>
-                {children}
-              </div>
+            <Prose ref={articleContainerRef} textSize="xl">
+              <h1>{title}</h1>
+              <Abstract>{description}</Abstract>
+              {children}
             </Prose>
             <Section>
               <QuestionPagination
