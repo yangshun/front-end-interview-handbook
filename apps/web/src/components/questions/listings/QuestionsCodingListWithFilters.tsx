@@ -30,15 +30,18 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
+import TextInput from '~/components/ui/TextInput';
 
 import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
+import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import { DSAQuestions } from '../common/QuestionsCodingDataStructuresAlgorithms';
 import type { QuestionFramework } from '../common/QuestionsTypes';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (
     format: QuestionCodingFormat,
@@ -68,6 +71,7 @@ export default function QuestionsCodingListWithFilters({
   const { userProfile } = useUserProfile();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isAscendingOrder, setIsAscendingOrder] = useState(true);
+  const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
     useQuestionDifficultyFilter();
@@ -126,6 +130,8 @@ export default function QuestionsCodingListWithFilters({
   const filters: ReadonlyArray<
     [number, (question: QuestionMetadata) => boolean]
   > = [
+    // Query.
+    [0, (question) => questionMatchesTextQuery(question, query)],
     // Difficulty.
     [
       difficultyFilters.size,
@@ -197,7 +203,7 @@ export default function QuestionsCodingListWithFilters({
   );
   const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
   const sortAndFilters = (
-    <div className={clsx('flex shrink-0 gap-2 sm:pt-0')}>
+    <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div>
         <Button
           icon={PlusIcon}
@@ -366,12 +372,34 @@ export default function QuestionsCodingListWithFilters({
         layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
       )}>
       <section className="space-y-6 lg:col-span-7 lg:mt-0">
-        <div className="flex items-center justify-between gap-8">
-          {mode === 'default' && (
-            <div className="hidden sm:block">{squareFilters}</div>
-          )}
+        <div className="flex flex-col justify-end gap-4 border-b border-slate-200 pb-4 sm:flex-row sm:items-center">
+          <div className="flex-1">
+            <TextInput
+              autoComplete="off"
+              isLabelHidden={true}
+              label={intl.formatMessage({
+                defaultMessage: 'Search coding questions',
+                description:
+                  'Placeholder for search input of coding question list',
+                id: 'jGQnYd',
+              })}
+              placeholder={intl.formatMessage({
+                defaultMessage: 'Search coding questions',
+                description:
+                  'Placeholder for search input of coding question list',
+                id: 'jGQnYd',
+              })}
+              size="xs"
+              startIcon={MagnifyingGlassIcon}
+              value={query}
+              onChange={(value) => setQuery(value)}
+            />
+          </div>
           {sortAndFilters}
         </div>
+        {mode === 'default' && (
+          <div className="hidden sm:block">{squareFilters}</div>
+        )}
         {showPaywall ? (
           <QuestionPaywall
             subtitle={intl.formatMessage({

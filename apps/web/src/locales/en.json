@@ -311,6 +311,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Title for paywall over information about companies that asked the question"
   },
+  "BgJTSk": {
+    "defaultMessage": "Search system design questions",
+    "description": "Placeholder for search input of system design question list"
+  },
   "BtCbN4": {
     "defaultMessage": "Recommended Duration",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
@@ -947,6 +951,10 @@
     "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "YbRLG7": {
+    "defaultMessage": "Search quiz questions",
+    "description": "Placeholder for search input of quiz question list"
+  },
   "Z9Wr7g": {
     "defaultMessage": "See all",
     "description": "Label for see all button that brings user to the full question list for that question format"
@@ -1230,6 +1238,10 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
+  },
+  "jGQnYd": {
+    "defaultMessage": "Search coding questions",
+    "description": "Placeholder for search input of coding question list"
   },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
