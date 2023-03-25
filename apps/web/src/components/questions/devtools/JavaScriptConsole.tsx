@@ -1,5 +1,6 @@
 import { Console } from 'console-feed';
-import { useEffect, useRef } from 'react';
+import type { UIEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
@@ -21,14 +22,27 @@ export default function JavaScriptConsole({
 }: Props) {
   const intl = useIntl();
   const consoleRef = useRef<HTMLDivElement>(null);
+  const [isScrollBottom, setIsScrollBottom] = useState(true);
+
+  const handleScroll = (e: UIEvent<HTMLElement>) => {
+    const roundingErrorThreshold = 1;
+
+    setIsScrollBottom(
+      e.currentTarget.scrollHeight -
+        (e.currentTarget.scrollTop + e.currentTarget.clientHeight) <
+        roundingErrorThreshold,
+    );
+  };
 
   const scrollToBottom = () => {
     consoleRef.current?.scrollBy(0, consoleRef.current?.scrollHeight);
   };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [logs]);
+    if (isScrollBottom) {
+      scrollToBottom();
+    }
+  }, [logs, isScrollBottom]);
 
   if (logs == null || logs.length === 0) {
     return (
@@ -95,7 +109,10 @@ export default function JavaScriptConsole({
           }}
         />
       </div>
-      <div ref={consoleRef} className="overflow-y-auto bg-slate-700">
+      <div
+        ref={consoleRef}
+        className="overflow-y-auto bg-slate-700"
+        onScroll={handleScroll}>
         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-ignore */}
         <Console logs={logs} variant="dark" />
