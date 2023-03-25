@@ -57,14 +57,16 @@ export default function Navbar({
               ))}
             </nav>
           </div>
-          <div className="hidden items-center justify-end space-x-4 md:flex md:grow lg:w-0 lg:grow-0">
-            {rightLinks.map(({ key, ...navItem }) =>
-              isLoading ? (
-                <LineGlimmer key={key} />
-              ) : (
-                <NavbarItem key={key} {...navItem} />
-              ),
-            )}
+          <div className="hidden items-center justify-end gap-x-4 md:flex md:grow lg:w-0 lg:grow-0">
+            <div className="flex gap-x-4">
+              {rightLinks.map(({ key, ...navItem }) =>
+                isLoading ? (
+                  <LineGlimmer key={key} />
+                ) : (
+                  <NavbarItem key={key} {...navItem} />
+                ),
+              )}
+            </div>
             {isLoading ? (
               <div className="h-8 min-w-[32px] rounded-full bg-slate-200" />
             ) : (
