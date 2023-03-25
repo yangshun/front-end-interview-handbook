@@ -15,8 +15,10 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const intl = await getIntlServerOnly(locale);
-  const questions = await fetchQuestionsListCoding();
+  const [intl, { questions }] = await Promise.all([
+    getIntlServerOnly(locale),
+    fetchQuestionsListCoding(locale),
+  ]);
 
   return defaultMetadata({
     description: intl.formatMessage(
@@ -40,8 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  const codingQuestions = await fetchQuestionsListCoding();
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
 
   return <PrepareCodingPage questions={codingQuestions} />;
 }

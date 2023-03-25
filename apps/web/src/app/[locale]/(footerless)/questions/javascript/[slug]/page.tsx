@@ -72,7 +72,7 @@ export default async function Page({ params }: Props) {
 
   const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
 
-  const codingQuestions = await fetchQuestionsListCoding();
+  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
       question.metadata.nextQuestions.includes(questionItem.slug),

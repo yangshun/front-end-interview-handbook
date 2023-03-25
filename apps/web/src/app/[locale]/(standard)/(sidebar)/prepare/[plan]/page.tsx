@@ -104,12 +104,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, plan: planType } = params;
-  const [quizQuestions, codingQuestions, systemDesignQuestions] =
-    await Promise.all([
-      fetchQuestionsListQuiz(),
-      fetchQuestionsListCoding(),
-      fetchQuestionsListSystemDesign(),
-    ]);
+  const [
+    { questions: quizQuestions },
+    { questions: codingQuestions },
+    { questions: systemDesignQuestions },
+  ] = await Promise.all([
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListCoding(locale),
+    fetchQuestionsListSystemDesign(locale),
+  ]);
 
   const { title, description } = await getPreparationPlansMetadata(
     planType,

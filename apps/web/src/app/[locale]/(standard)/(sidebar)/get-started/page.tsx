@@ -47,17 +47,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const QUESTIONS_TO_SHOW = 6;
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+
   const [
-    quizQuestions,
-    javaScriptQuestions,
-    userInterfaceQuestions,
-    systemDesignQuestions,
+    { questions: quizQuestions },
+    { questions: javaScriptQuestions },
+    { questions: userInterfaceQuestions },
+    { questions: systemDesignQuestions },
   ] = await Promise.all([
-    fetchQuestionsListQuiz(),
-    fetchQuestionsListJavaScript(),
-    fetchQuestionsListUserInterface(),
-    fetchQuestionsListSystemDesign(),
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListJavaScript(locale),
+    fetchQuestionsListUserInterface(locale),
+    fetchQuestionsListSystemDesign(locale),
   ]);
 
   return (

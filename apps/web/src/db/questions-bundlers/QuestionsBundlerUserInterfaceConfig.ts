@@ -19,7 +19,10 @@ export function getQuestionSrcPathUserInterface(slug: string) {
 export function getQuestionOutPathUserInterface(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_USER_INTERFACE, slug);
 }
-export const QUESTIONS_LIST_OUT_DIR_USER_INTERFACE = path.join(
+
+export function getQuestionsListOutFilenameUserInterface(_locale: string) {
+  return path.join(
   QUESTIONS_OUT_DIR_USER_INTERFACE,
   'UserInterfaceQuestionsList.json',
 );
+}

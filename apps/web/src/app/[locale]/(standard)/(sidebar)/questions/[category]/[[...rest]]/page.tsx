@@ -157,7 +157,7 @@ export async function generateStaticParams() {
 }
 
 async function processParams(params: Props['params']) {
-  const { category = 'js', rest } = params;
+  const { category = 'js', rest, locale } = params;
 
   const format: QuestionUserFacingFormat | null =
     (rest?.[0] as QuestionUserFacingFormat) ?? null;
@@ -168,10 +168,11 @@ async function processParams(params: Props['params']) {
   const language = CATEGORY_TO_LANGUAGE[category];
   const quizTopic = CATEGORY_TO_QUIZ_TOPIC[category];
 
-  const [quizQuestionsAll, codingQuestionsAll] = await Promise.all([
-    fetchQuestionsListQuiz(),
-    fetchQuestionsListCoding(),
-  ]);
+  const [{ questions: quizQuestionsAll }, { questions: codingQuestionsAll }] =
+    await Promise.all([
+      fetchQuestionsListQuiz(locale),
+      fetchQuestionsListCoding(locale),
+    ]);
 
   const quizQuestions = filterQuestions(quizQuestionsAll, [
     (question) => question.topics.includes(quizTopic),
@@ -214,6 +215,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 type Props = Readonly<{
   params: Readonly<{
     category: QuestionListCategory;
+    locale: string;
     rest: Array<string>;
   }>;
 }>;

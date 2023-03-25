@@ -3,6 +3,8 @@
 
 // This file reads from filesystem only (hence the term "reader" in the name)
 // It's only meant to be used on the server.
+import fs from 'node:fs';
+
 import { filterQuestions } from '~/components/questions/common/QuestionsProcessor';
 import type {
   QuestionFramework,
@@ -10,46 +12,158 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 
-import CodingQuestionsList from '~/__generated__/questions/coding/list.en.json';
-import JavaScriptQuestionsList from '~/__generated__/questions/javascript/list.en.json';
-import QuizQuestionsList from '~/__generated__/questions/quiz/list.en.json';
-import QuizQuestionsSystemDesign from '~/__generated__/questions/system-design/list.en.json';
-import UserInterfaceQuestionsList from '~/__generated__/questions/user-interface/UserInterfaceQuestionsList.json';
+import { getQuestionsListOutFilenameCoding } from './questions-bundlers/QuestionsBundlerCodingConfig';
+import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
+import { getQuestionsListOutFilenameQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
+import { getQuestionsListOutFilenameSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
+import { getQuestionsListOutFilenameUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
-export async function fetchQuestionsListQuiz(): Promise<
-  ReadonlyArray<QuestionQuizMetadata>
+export async function fetchQuestionsListQuiz(requestedLocale = 'en'): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionQuizMetadata>;
+  }>
 > {
-  return QuizQuestionsList as ReadonlyArray<QuestionQuizMetadata>;
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(getQuestionsListOutFilenameQuiz(requestedLocale));
+    } catch {
+      loadedLocale = 'en';
+
+      // Fallback to English.
+      return fs.readFileSync(getQuestionsListOutFilenameQuiz(loadedLocale));
+    }
+  })();
+
+  return {
+    loadedLocale,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<QuestionQuizMetadata>,
+  };
 }
 
-export async function fetchQuestionsListJavaScript(): Promise<
-  ReadonlyArray<QuestionMetadata>
+export async function fetchQuestionsListJavaScript(
+  requestedLocale = 'en',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
 > {
-  return JavaScriptQuestionsList as ReadonlyArray<QuestionMetadata>;
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(
+        getQuestionsListOutFilenameJavaScript(requestedLocale),
+      );
+    } catch {
+      loadedLocale = 'en';
+
+      // Fallback to English.
+      return fs.readFileSync(
+        getQuestionsListOutFilenameJavaScript(loadedLocale),
+      );
+    }
+  })();
+
+  return {
+    loadedLocale,
+    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+  };
 }
 
-export async function fetchQuestionsListUserInterface(): Promise<
-  ReadonlyArray<QuestionMetadata>
+export async function fetchQuestionsListUserInterface(
+  requestedLocale = 'en',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
 > {
-  return UserInterfaceQuestionsList as ReadonlyArray<QuestionMetadata>;
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(
+        getQuestionsListOutFilenameUserInterface(requestedLocale),
+      );
+    } catch {
+      loadedLocale = 'en';
+
+      // Fallback to English.
+      return fs.readFileSync(
+        getQuestionsListOutFilenameUserInterface(loadedLocale),
+      );
+    }
+  })();
+
+  return {
+    loadedLocale,
+    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+  };
 }
 
-export async function fetchQuestionsListCoding(): Promise<
-  ReadonlyArray<QuestionMetadata>
+export async function fetchQuestionsListCoding(requestedLocale = 'en'): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
 > {
-  return CodingQuestionsList as ReadonlyArray<QuestionMetadata>;
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(
+        getQuestionsListOutFilenameCoding(requestedLocale),
+      );
+    } catch {
+      loadedLocale = 'en';
+
+      // Fallback to English.
+      return fs.readFileSync(getQuestionsListOutFilenameCoding(loadedLocale));
+    }
+  })();
+
+  return {
+    loadedLocale,
+    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+  };
 }
 
-export async function fetchQuestionsListSystemDesign(): Promise<
-  ReadonlyArray<QuestionMetadata>
+export async function fetchQuestionsListSystemDesign(
+  requestedLocale = 'en',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
 > {
-  return QuizQuestionsSystemDesign as ReadonlyArray<QuestionMetadata>;
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(
+        getQuestionsListOutFilenameSystemDesign(requestedLocale),
+      );
+    } catch {
+      loadedLocale = 'en';
+
+      // Fallback to English.
+      return fs.readFileSync(
+        getQuestionsListOutFilenameSystemDesign(loadedLocale),
+      );
+    }
+  })();
+
+  return {
+    loadedLocale,
+    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+  };
 }
 
 export async function fetchCodingQuestionsForFramework(
   framework: QuestionFramework,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
-  const questions = await fetchQuestionsListCoding();
+  const { questions } = await fetchQuestionsListCoding();
 
   return filterQuestions(questions, [
     (question) =>

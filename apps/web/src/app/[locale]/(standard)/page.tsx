@@ -63,26 +63,27 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
+  const { locale } = params;
   const [
     { question: javaScriptEmbedExample },
     todoListReactSolutionBundle,
     todoListVanillaSolutionBundle,
   ] = await Promise.all([
-    readQuestionJavaScriptContents('flatten', params.locale),
+    readQuestionJavaScriptContents('flatten', locale),
     readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
     readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
   ]);
 
   const [
-    quizQuestions,
-    javaScriptQuestions,
-    userInterfaceQuestions,
-    systemDesignQuestions,
+    { questions: quizQuestions },
+    { questions: javaScriptQuestions },
+    { questions: userInterfaceQuestions },
+    { questions: systemDesignQuestions },
   ] = await Promise.all([
-    fetchQuestionsListQuiz(),
-    fetchQuestionsListJavaScript(),
-    fetchQuestionsListUserInterface(),
-    fetchQuestionsListSystemDesign(),
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListJavaScript(locale),
+    fetchQuestionsListUserInterface(locale),
+    fetchQuestionsListSystemDesign(locale),
   ]);
 
   return (

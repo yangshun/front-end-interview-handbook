@@ -6,8 +6,9 @@ export function useQueryQuestionListCoding() {
   return useQuery({
     queryFn: async () => {
       const res = await fetch('/api/questions/coding');
+      const { questions } = await res.json();
 
-      return (await res.json()) as ReadonlyArray<QuestionMetadata>;
+      return questions as ReadonlyArray<QuestionMetadata>;
     },
     queryKey: ['questionsListCoding'],
   });

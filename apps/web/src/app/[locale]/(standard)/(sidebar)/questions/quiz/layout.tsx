@@ -6,15 +6,19 @@ import QuestionsQuizContentLayout from './QuestionsQuizContentLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  params: Readonly<{
+    locale: string;
+  }>;
 }>;
 
-export default async function QuizContentLayout({ children }: Props) {
-  const questionList = await fetchQuestionsListQuiz();
+export default async function QuizContentLayout({ children, params }: Props) {
+  const { locale } = params;
+  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
 
   return (
     <QuestionsQuizContentLayout
       // Keep in sync with layout.
-      questionList={sortQuestionsMultiple(questionList, [
+      questionList={sortQuestionsMultiple(quizQuestions, [
         {
           field: 'ranking',
           isAscendingOrder: true,

@@ -125,7 +125,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const t0 = performance.now();
 
-  const { slug, rest } = params;
+  const { slug, rest, locale } = params;
   const {
     mode,
     framework: parsedFramework,
@@ -163,7 +163,7 @@ export default async function Page({ params }: Props) {
   const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
   const { url } = frameworkAgnosticLinks(question, mode);
 
-  const codingQuestions = await fetchQuestionsListCoding();
+  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
       question.metadata.nextQuestions.includes(questionItem.slug),

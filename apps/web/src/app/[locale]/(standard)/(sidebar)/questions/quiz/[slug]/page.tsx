@@ -40,11 +40,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export async function generateStaticParams() {
-  const questionList = await fetchQuestionsListQuiz();
+export async function generateStaticParams({ params }: Props) {
+  const { locale } = params;
+  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
 
   return generateStaticParamsWithLocale(
-    questionList.map((question) => ({
+    quizQuestions.map((question) => ({
       slug: question.slug,
     })),
   );
@@ -54,7 +55,7 @@ export default async function Page({ params }: Props) {
   const { locale, slug } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const questionList = await fetchQuestionsListQuiz();
+  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
 
   return (
     <>
@@ -76,7 +77,7 @@ export default async function Page({ params }: Props) {
       <QuestionQuizContents
         question={question}
         // Keep in sync with layout.
-        questionList={sortQuestionsMultiple(questionList, [
+        questionList={sortQuestionsMultiple(quizQuestions, [
           {
             field: 'ranking',
             isAscendingOrder: true,
