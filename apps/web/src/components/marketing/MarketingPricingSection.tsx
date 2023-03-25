@@ -13,7 +13,6 @@ import type {
   PricingPlansLocalized,
   PricingPlanType,
 } from '~/data/PricingPlans';
-import { usePricingPlansLabels } from '~/data/PricingPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Alert from '~/components/ui/Alert';
@@ -37,6 +36,34 @@ type Props = Readonly<{
   countryCode: string;
   plans: PricingPlansLocalized;
 }>;
+
+export function usePricingPlansLabels() {
+  const intl = useIntl();
+  const labels: Record<PricingPlanType, string> = {
+    annual: intl.formatMessage({
+      defaultMessage: 'Annual',
+      description: 'Title of annual pricing plan',
+      id: 'Rdi/Kx',
+    }),
+    lifetime: intl.formatMessage({
+      defaultMessage: 'Lifetime',
+      description: 'Title of lifetime pricing plan',
+      id: 'vaKldd',
+    }),
+    monthly: intl.formatMessage({
+      defaultMessage: 'Monthly',
+      description: 'Title of monthly pricing plan',
+      id: 'y7sRet',
+    }),
+    quarterly: intl.formatMessage({
+      defaultMessage: '3 Months',
+      description: 'Title of quarterly pricing plan',
+      id: 'JOj1C3',
+    }),
+  };
+
+  return labels;
+}
 
 function PricingButton({
   'aria-describedby': ariaDescribedBy,
@@ -266,36 +293,73 @@ export default function MarketingPricingSectionNew({
 
   const planList = [
     {
-      denominator: 'per month',
-      description: 'Perfect for short term job hunts.',
+      description: intl.formatMessage({
+        defaultMessage: 'Perfect for short term job hunts.',
+        description: 'Supporting statement for a monthly pricing plan',
+        id: 'GObvI2',
+      }),
       includedFeatures: [
-        'Access to all premium content including solutions and companies.',
-        'Access to continuously updating question library.',
+        intl.formatMessage({
+          defaultMessage:
+            'Access to all premium content including solutions and companies.',
+          description: 'Feature of monthly pricing plan',
+          id: 'P/sSbP',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Access to continuously updating question library.',
+          description: 'Feature of monthly pricing plan',
+          id: 'iqc+V7',
+        }),
       ],
       numberOfMonths: 1,
       plan: monthlyPlan,
     },
     {
-      denominator: 'every 3 months',
-      description: 'Discounted rate for a typical job hunt duration.',
+      description: intl.formatMessage({
+        defaultMessage: 'Discounted rate for a typical job hunt duration.',
+        description: 'Supporting statement for a quarterly pricing plan',
+        id: 'h63G52',
+      }),
       includedFeatures: [
-        'Access to all premium content including solutions and companies.',
-        'Access to continuously updating question library.',
+        intl.formatMessage({
+          defaultMessage:
+            'Access to all premium content including solutions and companies.',
+          description: 'Feature of quarterly pricing plan',
+          id: 'JFHL5z',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Access to continuously updating question library.',
+          description: 'Feature of quarterly pricing plan',
+          id: 'cU6AYV',
+        }),
       ],
       numberOfMonths: 3,
       plan: quarterlyPlan,
     },
     {
-      denominator: 'yearly',
-      description: 'For serious job seekers or longer term job hunts.',
+      description: intl.formatMessage({
+        defaultMessage: 'For serious job seekers or longer term job hunts.',
+        description: 'Supporting statement for an annual pricing plan',
+        id: 'td80TL',
+      }),
       includedFeatures: [
-        'Access to all premium content including solutions and companies.',
-        'Access to continuously updating question library.',
-        <>
-          Exclusive lifetime{' '}
-          <strong className="font-medium">Discord channel access</strong>. Get
-          real-time support from the team and the community.
-        </>,
+        intl.formatMessage({
+          defaultMessage:
+            'Access to all premium content including solutions and companies.',
+          description: 'Feature of annual pricing plan',
+          id: '0JrrHl',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Access to continuously updating question library.',
+          description: 'Feature of annual pricing plan',
+          id: 'nId6NF',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            'Exclusive lifetime Discord channel access. Get real-time support from the team and the community.',
+          description: 'Feature of annual pricing plan',
+          id: 'fy/E4B',
+        }),
       ],
       numberOfMonths: 12,
       plan: annualPlan,
@@ -415,16 +479,40 @@ export default function MarketingPricingSectionNew({
                           className="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0"
                           role="list">
                           {[
-                            'Unlock all premium content including official solutions, companies, and study plans.',
-                            'Access updates to the interview platform for life.',
-                            <>
-                              Exclusive lifetime{' '}
-                              <strong className="font-medium">
-                                Discord channel access
-                              </strong>
-                              .
-                            </>,
-                            'Real-time support from the team and the growing community.',
+                            intl.formatMessage({
+                              defaultMessage:
+                                'Unlock all premium content including official solutions, companies, and study plans.',
+                              description:
+                                'Lifetime membership feature of unlocking premium content.',
+                              id: 'tmvC1S',
+                            }),
+                            intl.formatMessage({
+                              defaultMessage:
+                                'Access updates to the interview platform for life.',
+                              description:
+                                'Lifetime membership feature of accessing updates to interview platforms',
+                              id: '1AGOZJ',
+                            }),
+                            <FormattedMessage
+                              key="tkN0s+"
+                              defaultMessage="Exclusive lifetime <strong>Discord channel access</strong>."
+                              description="Lifetime membership feature of Discord channel access."
+                              id="Kv46h1"
+                              values={{
+                                strong: (chunks) => (
+                                  <strong className="font-medium">
+                                    {chunks}
+                                  </strong>
+                                ),
+                              }}
+                            />,
+                            intl.formatMessage({
+                              defaultMessage:
+                                'Real-time support from the team and the growing community.',
+                              description:
+                                'Lifetime membership feature of real-time support.',
+                              id: 'F74ozi',
+                            }),
                           ].map((feature, idx) => (
                             <li
                               // eslint-disable-next-line react/no-array-index-key
@@ -476,17 +564,17 @@ export default function MarketingPricingSectionNew({
                       </div>
                       <p className="mt-4 text-sm font-medium text-slate-500">
                         <FormattedMessage
-                          defaultMessage="U.P. {symbol}{unitCostBeforeDiscountInCurrency} <span>({discount}% off)</span>"
-                          description="bla "
-                          id="X3NpRr"
+                          defaultMessage="U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>"
+                          description="Usual price of the item and the discount off"
+                          id="ul1/lo"
                           values={{
-                            discount: lifetimePlan.discount,
+                            currencySymbol: lifetimePlan.symbol,
+                            discountPercentage: lifetimePlan.discount,
+                            price:
+                              lifetimePlan.unitCostBeforeDiscountInCurrency,
                             span: (chunks) => (
                               <span className="text-brand-500">{chunks}</span>
                             ),
-                            symbol: lifetimePlan.symbol,
-                            unitCostBeforeDiscountInCurrency:
-                              lifetimePlan.unitCostBeforeDiscountInCurrency,
                           }}
                         />
                       </p>
@@ -518,7 +606,6 @@ export default function MarketingPricingSectionNew({
                     {planList.map(
                       ({
                         description,
-                        denominator,
                         numberOfMonths,
                         plan,
                         includedFeatures,
@@ -549,15 +636,57 @@ export default function MarketingPricingSectionNew({
                                     )}
                                   </span>{' '}
                                   <span className="text-base font-medium text-slate-500">
-                                    {/* TODO: i18n */}
-                                    /month
+                                    <FormattedMessage
+                                      defaultMessage="/month"
+                                      description="Per month"
+                                      id="aE1FCD"
+                                    />
                                   </span>
                                 </p>
                                 <p className="pt-4 text-xs text-slate-500 md:min-h-[32px]">
-                                  {/* TODO: i18n */}
-                                  {plan.symbol}
-                                  {plan.unitCostLocalizedInCurrency} billed{' '}
-                                  {denominator}.{' '}
+                                  {(() => {
+                                    switch (plan.planType) {
+                                      case 'monthly':
+                                        return (
+                                          <FormattedMessage
+                                            defaultMessage="{currencySymbol}{price} billed per month."
+                                            description="Description of billing frequency for monthly plan"
+                                            id="aBlEic"
+                                            values={{
+                                              currencySymbol: plan.symbol,
+                                              price:
+                                                plan.unitCostLocalizedInCurrency,
+                                            }}
+                                          />
+                                        );
+                                      case 'quarterly':
+                                        return (
+                                          <FormattedMessage
+                                            defaultMessage="{currencySymbol}{price} billed every 3 months."
+                                            description="Description of billing frequency for quarterly plan"
+                                            id="kmEY/r"
+                                            values={{
+                                              currencySymbol: plan.symbol,
+                                              price:
+                                                plan.unitCostLocalizedInCurrency,
+                                            }}
+                                          />
+                                        );
+                                      case 'annual':
+                                        return (
+                                          <FormattedMessage
+                                            defaultMessage="{currencySymbol}{price} billed yearly."
+                                            description="Description of billing frequency for annual plan"
+                                            id="Pohz4K"
+                                            values={{
+                                              currencySymbol: plan.symbol,
+                                              price:
+                                                plan.unitCostLocalizedInCurrency,
+                                            }}
+                                          />
+                                        );
+                                    }
+                                  })()}{' '}
                                   {plan.planType === 'monthly' ? (
                                     <FormattedMessage
                                       defaultMessage="Cancel anytime."
@@ -566,8 +695,14 @@ export default function MarketingPricingSectionNew({
                                     />
                                   ) : (
                                     <span className="text-brand-500">
-                                      {/* TODO: i18n */} (Save {plan.discount}%
-                                      vs monthly)
+                                      <FormattedMessage
+                                        defaultMessage="(Save {discountPercentage}% vs monthly)"
+                                        description="Save more compared to monthly plan."
+                                        id="Dynazi"
+                                        values={{
+                                          discountPercentage: plan.discount,
+                                        }}
+                                      />
                                     </span>
                                   )}
                                 </p>

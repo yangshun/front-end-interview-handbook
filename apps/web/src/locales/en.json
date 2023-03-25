@@ -1,4 +1,12 @@
 {
+  "+4N+iX": {
+    "defaultMessage": "Real interview simulation",
+    "description": "Table row header for real interview simulation feature"
+  },
+  "+7Wuw5": {
+    "defaultMessage": "Software Engineer, Chennai, India",
+    "description": "Gouse Basha's job title"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -18,6 +26,14 @@
   "+ywzSI": {
     "defaultMessage": "There are currently quiz questions, JavaScript coding questions, User Interface coding questions and System Design content.",
     "description": "Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
+  },
+  "/06NwY": {
+    "defaultMessage": "Company-tagged questions",
+    "description": "Title for company-tagged questions feature"
+  },
+  "/Q1sUc": {
+    "defaultMessage": "In-browser coding workspace with test cases - no need for any setup!",
+    "description": "Table cell content for real interview simulation feature comparison in GFE."
   },
   "/ftlBv": {
     "defaultMessage": "Undo",
@@ -39,6 +55,10 @@
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
   },
+  "0JrrHl": {
+    "defaultMessage": "Access to all premium content including solutions and companies.",
+    "description": "Feature of annual pricing plan"
+  },
   "0Nq65E": {
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
@@ -55,9 +75,17 @@
     "defaultMessage": "Low",
     "description": "Label for low question importance"
   },
+  "1AGOZJ": {
+    "defaultMessage": "Access updates to the interview platform for life.",
+    "description": "Lifetime membership feature of accessing updates to interview platforms"
+  },
   "1FbA4H": {
     "defaultMessage": "What types of questions do you have on your platform?",
     "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
+  },
+  "1IbtLx": {
+    "defaultMessage": "System design resources are virtually non-existent.",
+    "description": "Table cell content for front end system design feature comparison in other platforms."
   },
   "1gkgr4": {
     "defaultMessage": "Sign In",
@@ -66,6 +94,10 @@
   "1mtNyQ": {
     "defaultMessage": "To test your function without submitting, call the function below the declaration.",
     "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
+  },
+  "2XFmzP": {
+    "defaultMessage": "<link>View question list <span>→</span></link>",
+    "description": "View question list link"
   },
   "2YMuJe": {
     "defaultMessage": "What does \"lifetime access\" mean?",
@@ -91,6 +123,10 @@
     "defaultMessage": "Minimum 6 characters",
     "description": "Description of password field indicating minimum character count, on Change Password page"
   },
+  "3HUfI+": {
+    "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
+    "description": "Anonymous Software Engineer's testimonial"
+  },
   "3aPvGu": {
     "defaultMessage": "Front End Interview Guidebook",
     "description": "Sidebar label for Front End Interview Guidebook page"
@@ -98,6 +134,10 @@
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
+  },
+  "3iv+7q": {
+    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
+    "description": "Anand Dharne's testimonial"
   },
   "3lEE1N": {
     "defaultMessage": "New",
@@ -150,6 +190,10 @@
   "5A3y/o": {
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
+  },
+  "5QmCPt": {
+    "defaultMessage": "Study plans and Progress tracking",
+    "description": "Table row header for study plans feature"
   },
   "5dwMRE": {
     "defaultMessage": "Interview Guides",
@@ -215,6 +259,10 @@
     "defaultMessage": "Chat with us directly!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
   },
+  "8/l1dM": {
+    "defaultMessage": "{questionCount}+ commonly asked questions across every interview format - <strong>System design, UI, JavaScript, Quizzes</strong>",
+    "description": "Table cell content for large and curated question bank feature comparison in GFE."
+  },
   "8GTfgf": {
     "defaultMessage": "Welcome Back",
     "description": "Title of Sign In page"
@@ -239,6 +287,10 @@
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
   },
+  "8k78Jb": {
+    "defaultMessage": "Proven study plans with the most important questions to practice for various preparation timelines.",
+    "description": "Table cell content for study plans feature comparison in GFE."
+  },
   "8klsso": {
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
@@ -246,6 +298,10 @@
   "8q3l4q": {
     "defaultMessage": "The ultimate <span>Front End Interview</span> <span2>preparation platform</span2>.",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
+  },
+  "8ulBJI": {
+    "defaultMessage": "All questions come with solutions written by ex-FAANG Senior Front End Engineers.",
+    "description": "Subtitle for high quality solutions feature"
   },
   "8vjTks": {
     "defaultMessage": "Select current line",
@@ -258,6 +314,10 @@
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
+  },
+  "9KrOcn": {
+    "defaultMessage": "The only platform with front end system design questions with official solutions written by senior engineers.",
+    "description": "Subtitle for front end system design feature"
   },
   "9LT8eh": {
     "defaultMessage": "Email",
@@ -302,6 +362,14 @@
   "B6qk8B": {
     "defaultMessage": "Hide side menu",
     "description": "Screenreader text for the button that expands the side menu"
+  },
+  "B7d1jK": {
+    "defaultMessage": "Front End Engineer, India",
+    "description": "Anonymous Front End Engineer's job title"
+  },
+  "B9449h": {
+    "defaultMessage": "Not available.",
+    "description": "Not available."
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -363,6 +431,10 @@
     "defaultMessage": "{completedQuestions} of {totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
   },
+  "D0Hpsv": {
+    "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
+    "description": "Subtitle for huge question bank feature"
+  },
   "D3YhsE": {
     "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
     "description": "Description of 1 Week Preparation Plan page"
@@ -370,6 +442,14 @@
   "DAqJ87": {
     "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
     "description": "Subtitle on question paywall displayed on premium question's pages"
+  },
+  "DCBQiM": {
+    "defaultMessage": "If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you.",
+    "description": "Gouse Basha's testimonial"
+  },
+  "Dynazi": {
+    "defaultMessage": "(Save {discountPercentage}% vs monthly)",
+    "description": "Save more compared to monthly plan."
   },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
@@ -387,6 +467,10 @@
     "defaultMessage": "Delete line",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
   },
+  "F74ozi": {
+    "defaultMessage": "Real-time support from the team and the growing community.",
+    "description": "Lifetime membership feature of real-time support."
+  },
   "FAArTO": {
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
@@ -394,6 +478,10 @@
   "FAtaOX": {
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
+  },
+  "FI93m3": {
+    "defaultMessage": "Reddit",
+    "description": "Reddit"
   },
   "FIQIm5": {
     "defaultMessage": "Learn from the best solutions.",
@@ -411,6 +499,10 @@
     "defaultMessage": "Submit",
     "description": "Label for button to submit code for testing within coding workspace"
   },
+  "G9r7uh": {
+    "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
+    "description": "Subtitle for bringing your own framework feature"
+  },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
@@ -419,9 +511,21 @@
     "defaultMessage": "Email Address",
     "description": "Label for email address input field"
   },
+  "GObvI2": {
+    "defaultMessage": "Perfect for short term job hunts.",
+    "description": "Supporting statement for a monthly pricing plan"
+  },
   "GOgjw1": {
     "defaultMessage": "{passed} passed",
     "description": "Line in DevTools showing the number of test cases passed when running the code submitted by the user"
+  },
+  "GP3q80": {
+    "defaultMessage": "Quality solutions to learn from",
+    "description": "Table row header for quality solutions feature"
+  },
+  "GQhit1": {
+    "defaultMessage": "Exclusive system design guides, including solution framework, cheatsheet and evaluation axes.",
+    "description": "Table cell content for front end system design feature comparison in GFE."
   },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
@@ -467,6 +571,10 @@
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
   },
+  "HlRbK4": {
+    "defaultMessage": "High quality solutions",
+    "description": "Title for high quality solutions feature"
+  },
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
     "description": "Title of alert indicating a successful email sign up"
@@ -482,6 +590,10 @@
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
+  },
+  "IK98yM": {
+    "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
+    "description": "Call-to-action"
   },
   "IUYG0x": {
     "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
@@ -499,10 +611,6 @@
     "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
     "description": "Question base section subtitle - second paragraph"
   },
-  "ImwV0T": {
-    "defaultMessage": "Scroll to bottom",
-    "description": "Button label to scroll to bottom of the console logs"
-  },
   "IuWsYS": {
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
@@ -510,6 +618,10 @@
   "JEcwe6": {
     "defaultMessage": "Solution",
     "description": "Header for question solution section in coding workspace"
+  },
+  "JFHL5z": {
+    "defaultMessage": "Access to all premium content including solutions and companies.",
+    "description": "Feature of quarterly pricing plan"
   },
   "JJ0V4Y": {
     "defaultMessage": "Duration: Low to High",
@@ -523,9 +635,21 @@
     "defaultMessage": "Vanilla JS",
     "description": "Label for Vanilla JavaScript framework"
   },
+  "JOj1C3": {
+    "defaultMessage": "3 Months",
+    "description": "Title of quarterly pricing plan"
+  },
+  "JP4Wie": {
+    "defaultMessage": "<p>Every question has an in-depth solution with inline explanations.</p> <p>Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations.</p>",
+    "description": "Table cell content for quality solutions feature comparison in GFE."
+  },
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+  },
+  "JdOpbg": {
+    "defaultMessage": "Solutions are hard to find or incomplete, usually superficial.",
+    "description": "Table cell content for quality solutions feature comparison in other platforms."
   },
   "Jlr/Yy": {
     "defaultMessage": "<link>Contact us</link> if you would like to upgrade your plan.",
@@ -566,6 +690,10 @@
   "Ku3VdX": {
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
+  },
+  "Kv46h1": {
+    "defaultMessage": "Exclusive lifetime <strong>Discord channel access</strong>.",
+    "description": "Lifetime membership feature of Discord channel access."
   },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
@@ -647,6 +775,10 @@
     "defaultMessage": "Description",
     "description": "Header for the question description section"
   },
+  "Nt+P5A": {
+    "defaultMessage": "Simulate real interview conditions, no need for any setup!",
+    "description": "Subtitle for in-browser coding workspace feature"
+  },
   "O4XAXC": {
     "defaultMessage": "An email will be sent to the address above if an associated account exists",
     "description": "Message indicating a successful password reset request"
@@ -662,6 +794,10 @@
   "OL9m/V": {
     "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
+  },
+  "OX/Imk": {
+    "defaultMessage": "Rarely cover system design or coding questions.",
+    "description": "Table cell content for large and curated question bank feature comparison in other platforms."
   },
   "OZgalz": {
     "defaultMessage": "{total} total",
@@ -683,6 +819,10 @@
     "defaultMessage": "You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!",
     "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
   },
+  "P/sSbP": {
+    "defaultMessage": "Access to all premium content including solutions and companies.",
+    "description": "Feature of monthly pricing plan"
+  },
   "PFRVpF": {
     "defaultMessage": "Get Full Access",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
@@ -698,6 +838,14 @@
   "PeXK7/": {
     "defaultMessage": "Pricing",
     "description": "Title of Pricing page"
+  },
+  "Pohz4K": {
+    "defaultMessage": "{currencySymbol}{price} billed yearly.",
+    "description": "Description of billing frequency for annual plan"
+  },
+  "Ptmnjq": {
+    "defaultMessage": "Free continuous updates",
+    "description": "Title for free continuous updates feature"
   },
   "PyDwDF": {
     "defaultMessage": "Close",
@@ -726,6 +874,10 @@
   "QggKKV": {
     "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
+  },
+  "QjhN+w": {
+    "defaultMessage": "Front end system design",
+    "description": "Title for front end system design feature"
   },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
@@ -767,6 +919,10 @@
     "defaultMessage": "Try your first free question",
     "description": "Header for section prompting user to try their first question"
   },
+  "Rdi/Kx": {
+    "defaultMessage": "Annual",
+    "description": "Title of annual pricing plan"
+  },
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
@@ -787,6 +943,10 @@
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
   },
+  "SO8lrv": {
+    "defaultMessage": "Front End Engineer, Delhi, India",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
@@ -798,6 +958,14 @@
   "SdXQye": {
     "defaultMessage": "Add selection to next find match",
     "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
+  },
+  "T1UibH": {
+    "defaultMessage": "Often community-sourced.",
+    "description": "Table cell content for large and curated question bank feature comparison in other platforms."
+  },
+  "T5ZDDU": {
+    "defaultMessage": "Large and curated question bank",
+    "description": "Table row header for large and curated question bank feature"
   },
   "TAajQb": {
     "defaultMessage": "Building your fundamentals is the only way to rock the interview every single time.",
@@ -842,6 +1010,10 @@
   "UHZyhq": {
     "defaultMessage": "Email",
     "description": "Label of email field on Magic Link Sign In page"
+  },
+  "UM4r2s": {
+    "defaultMessage": "Other Platforms",
+    "description": "Table column header for other platforms"
   },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
@@ -895,6 +1067,10 @@
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
   },
+  "Vqt5YP": {
+    "defaultMessage": "Senior Software Engineer, Seattle, WA, USA",
+    "description": "Ryan Van Valkenburg's job title"
+  },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
     "description": "Title of Email Sign Up page"
@@ -911,13 +1087,17 @@
     "defaultMessage": "Affiliate Program",
     "description": "Title of Affiliate Program page"
   },
-  "X3NpRr": {
-    "defaultMessage": "U.P. {symbol}{unitCostBeforeDiscountInCurrency} <span>({discount}% off)</span>",
-    "description": "bla "
+  "X1UVMv": {
+    "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
+    "description": "Subtitle for free continuous updates feature"
   },
   "X55xMA": {
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
+  },
+  "XUWY7n": {
+    "defaultMessage": "Front end system design",
+    "description": "Table row header for front end system design feature"
   },
   "XVPYZg": {
     "defaultMessage": "Forgot your password?",
@@ -955,6 +1135,10 @@
     "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "YWz2ko": {
+    "defaultMessage": "Proven preparation plans",
+    "description": "Title for proven preparation plans feature"
+  },
   "YbRLG7": {
     "defaultMessage": "Search quiz questions",
     "description": "Placeholder for search input of quiz question list"
@@ -971,6 +1155,10 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
   },
+  "ZLXgL9": {
+    "defaultMessage": "<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>.",
+    "description": "Key features section heading"
+  },
   "ZX2n3I": {
     "defaultMessage": "Importance: Low to High",
     "description": "Sorting option on quiz questions page - from Low to High"
@@ -983,6 +1171,10 @@
     "defaultMessage": "Save Changes",
     "description": "Label for button to save changes to user account email"
   },
+  "ZpZ8tp": {
+    "defaultMessage": "Software Engineer — Front End, Perch, USA",
+    "description": "Anand Dharne's job title"
+  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -990,6 +1182,14 @@
   "a8ETQr": {
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
+  },
+  "aBlEic": {
+    "defaultMessage": "{currencySymbol}{price} billed per month.",
+    "description": "Description of billing frequency for monthly plan"
+  },
+  "aE1FCD": {
+    "defaultMessage": "/month",
+    "description": "Per month"
   },
   "aPfuzs": {
     "defaultMessage": "Reset password",
@@ -1027,6 +1227,10 @@
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
+  "bGwCko": {
+    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
+    "description": "Ryan Van Valkenburg's testimonial"
+  },
   "bQ3XUx": {
     "defaultMessage": "No Tests",
     "description": "Label indicating that no test cases are available for this question"
@@ -1055,13 +1259,25 @@
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
   },
+  "c4SvsG": {
+    "defaultMessage": "I got an opportunity to interview for a dream role with a critical frontend team of an online retail giant with over 50m customers and > 5 billion renders per day. A great opportunity to take my career to the next level. The problem — I wasn't ready to interview!",
+    "description": "Larry Almeida's testimonial"
+  },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
   },
+  "cU6AYV": {
+    "defaultMessage": "Access to continuously updating question library.",
+    "description": "Feature of quarterly pricing plan"
+  },
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
+  },
+  "caYk+w": {
+    "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
+    "description": "Subtitle for proven preparation plans feature"
   },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
@@ -1079,9 +1295,17 @@
     "defaultMessage": "Refer more users to us and earn 15% commission of the first order",
     "description": "Description of Affiliate Program page"
   },
+  "cxo3yi": {
+    "defaultMessage": "Bring your own framework",
+    "description": "Title for bring your own framework feature"
+  },
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
+  },
+  "d1vCxb": {
+    "defaultMessage": "Software Engineer, Vietnam",
+    "description": "Anonymous Software Engineer's job title"
   },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
@@ -1114,6 +1338,10 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
+  },
+  "eFGHLB": {
+    "defaultMessage": "You won't find the same depth and quality elsewhere.",
+    "description": "Key features section subheading"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -1151,6 +1379,10 @@
     "defaultMessage": "Show DevTool",
     "description": "Label for button to expand the DevTool"
   },
+  "fSn4nv": {
+    "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
+    "description": "Anonymous Front End Engineer's testimonial"
+  },
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
@@ -1174,6 +1406,10 @@
   "fvztbG": {
     "defaultMessage": "Submit your code to check against the tests.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+  },
+  "fy/E4B": {
+    "defaultMessage": "Exclusive lifetime Discord channel access. Get real-time support from the team and the community.",
+    "description": "Feature of annual pricing plan"
   },
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
@@ -1199,9 +1435,17 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
   },
+  "h63G52": {
+    "defaultMessage": "Discounted rate for a typical job hunt duration.",
+    "description": "Supporting statement for a quarterly pricing plan"
+  },
   "hNQSH/": {
     "defaultMessage": "Apple",
     "description": "Company name for Apple"
+  },
+  "hOEGb+": {
+    "defaultMessage": "Scroll to Bottom",
+    "description": "Button label to scroll to bottom of the console logs"
   },
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
@@ -1238,6 +1482,10 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
+  },
+  "iqc+V7": {
+    "defaultMessage": "Access to continuously updating question library.",
+    "description": "Feature of monthly pricing plan"
   },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
@@ -1311,9 +1559,25 @@
     "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
   },
+  "kHB06P": {
+    "defaultMessage": "I got the job and a great ROI!",
+    "description": "Larry Almeida's testimonial"
+  },
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "keURBI": {
+    "defaultMessage": "GitHub",
+    "description": "GitHub"
+  },
+  "kjdLiy": {
+    "defaultMessage": "Practice questions by companies",
+    "description": "Table row header for practice questions by companies feature"
+  },
+  "kmEY/r": {
+    "defaultMessage": "{currencySymbol}{price} billed every 3 months.",
+    "description": "Description of billing frequency for quarterly plan"
   },
   "kn+R8V": {
     "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
@@ -1322,6 +1586,10 @@
   "knfvnJ": {
     "defaultMessage": "Filters",
     "description": "Screenreader text to indicate filters component on quiz questions list"
+  },
+  "koTXam": {
+    "defaultMessage": "In-browser coding workspace",
+    "description": "Title for in-browser coding workspace feature"
   },
   "kx0gZt": {
     "defaultMessage": "View questions",
@@ -1351,9 +1619,17 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
+  "loCbaG": {
+    "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
+    "description": "System design link"
+  },
   "m+nWg0": {
     "defaultMessage": "Not Completed",
     "description": "Tooltip for questions Not Completed label"
+  },
+  "mVXHy8": {
+    "defaultMessage": "Senior Software Engineer — Front End, Zalando, Berlin, Germany",
+    "description": "Larry Almeida's job title"
   },
   "mb7erW": {
     "defaultMessage": "Importance",
@@ -1366,6 +1642,10 @@
   "nFYr2a": {
     "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+  },
+  "nId6NF": {
+    "defaultMessage": "Access to continuously updating question library.",
+    "description": "Feature of annual pricing plan"
   },
   "nOvXhk": {
     "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
@@ -1399,6 +1679,10 @@
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
+  "o4toU7": {
+    "defaultMessage": "Only platform with in-depth solutions to the most commonly asked system design questions.",
+    "description": "Table cell content for front end system design feature comparison in GFE."
+  },
   "oE3TMf": {
     "defaultMessage": "Quiz Questions",
     "description": "Label for quiz questions"
@@ -1427,6 +1711,10 @@
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
   },
+  "phh5/0": {
+    "defaultMessage": "GreatFrontEnd",
+    "description": "Table column header for GFE"
+  },
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
@@ -1438,6 +1726,10 @@
   "q0J0CA": {
     "defaultMessage": "Continue with {authProviderLabel}",
     "description": "Label of social media sign in button on Social Sign In page"
+  },
+  "q4xRCW": {
+    "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
+    "description": "Anonymous Front End Engineer's testimonial"
   },
   "qAxlQN": {
     "defaultMessage": "Sign in with magic link",
@@ -1451,6 +1743,14 @@
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
   },
+  "qwP4CA": {
+    "defaultMessage": "Huge question bank",
+    "description": "Title for huge question bank feature"
+  },
+  "qzKA9Y": {
+    "defaultMessage": "Not many have experience to write quality guides.",
+    "description": "Table cell content for front end system design feature comparison in other platforms."
+  },
   "rXnAi2": {
     "defaultMessage": "We're still growing our question base.",
     "description": "Question base section title"
@@ -1458,6 +1758,10 @@
   "ryCcOP": {
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
+  },
+  "s0GXXm": {
+    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
+    "description": "Larry Almeida's testimonial"
   },
   "s3LMhK": {
     "defaultMessage": "Home",
@@ -1491,6 +1795,10 @@
     "defaultMessage": "Activity | Profile",
     "description": "Title of Profile Activity page"
   },
+  "tP3EF4": {
+    "defaultMessage": "Twitter",
+    "description": "Twitter"
+  },
   "tP5+Am": {
     "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
@@ -1502,6 +1810,14 @@
   "taVYcT": {
     "defaultMessage": "Check your email for the magic link",
     "description": "Message indicating a successful magic link request"
+  },
+  "td80TL": {
+    "defaultMessage": "For serious job seekers or longer term job hunts.",
+    "description": "Supporting statement for an annual pricing plan"
+  },
+  "tmvC1S": {
+    "defaultMessage": "Unlock all premium content including official solutions, companies, and study plans.",
+    "description": "Lifetime membership feature of unlocking premium content."
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -1543,6 +1859,10 @@
     "defaultMessage": "Start on this preparation plan today!",
     "description": "Call-to-Action that asks user to try out a study plan"
   },
+  "ul1/lo": {
+    "defaultMessage": "U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>",
+    "description": "Usual price of the item and the discount off"
+  },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -1567,6 +1887,10 @@
     "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
     "description": "Description of Get Started page"
   },
+  "v4Z+0r": {
+    "defaultMessage": "Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>.",
+    "description": "Table cell content for practice questions by companies feature comparison in GFE."
+  },
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
@@ -1574,6 +1898,10 @@
   "vO1Ejd": {
     "defaultMessage": "Hide Details",
     "description": "Label for button that allows users to collapse details of the code execution in the coding workspace"
+  },
+  "vaKldd": {
+    "defaultMessage": "Lifetime",
+    "description": "Title of lifetime pricing plan"
   },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
@@ -1619,6 +1947,10 @@
     "defaultMessage": "Study Plans",
     "description": "Sidebar label for Study Plans category"
   },
+  "wY7F08": {
+    "defaultMessage": "<link>View study plans <span>→</span></link>",
+    "description": "Study plans link"
+  },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
     "description": "Label of send magic link button on Magic Link Sign In page"
@@ -1650,6 +1982,14 @@
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
+  },
+  "y16Lzt": {
+    "defaultMessage": "Find out what questions companies are asking their candidates.",
+    "description": "Subtitle for company-tagged questions feature"
+  },
+  "y7sRet": {
+    "defaultMessage": "Monthly",
+    "description": "Title of monthly pricing plan"
   },
   "y8zzVx": {
     "defaultMessage": "Email",

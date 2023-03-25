@@ -66,14 +66,3 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
     unitCostInUSD: 57,
   },
 };
-
-export function usePricingPlansLabels() {
-  const labels: Record<PricingPlanType, string> = {
-    annual: 'Annual',
-    lifetime: 'Lifetime',
-    monthly: 'Monthly',
-    quarterly: '3 Months',
-  };
-
-  return labels;
-}

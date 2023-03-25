@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import { QuestionCount } from '~/components/questions/listings/QuestionCount';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
@@ -15,93 +17,162 @@ import {
   CubeIcon,
 } from '@heroicons/react/24/outline';
 
-const features = [
-  {
-    description: (
-      <>
-        {QuestionCount}+ interview questions across{' '}
-        <Anchor href="/prepare/coding">coding</Anchor> and{' '}
-        <Anchor href="/prepare/quiz">quiz</Anchor> formats and new questions
-        constantly being added.
-      </>
-    ),
-    icon: BookOpenIcon,
-    name: 'Huge question bank',
-  },
-  {
-    description: (
-      <>
-        All questions come with solutions written by ex-FAANG Senior Front End
-        Engineers.
-      </>
-    ),
-    icon: CheckBadgeIcon,
-    name: 'High quality solutions',
-  },
-  {
-    description: (
-      <>
-        Preparation plans for all kinds of preparation timelines —{' '}
-        <Anchor href="/prepare/one-week">1 week</Anchor>,{' '}
-        <Anchor href="/prepare/one-month">1 month</Anchor>,{' '}
-        <Anchor href="/prepare/three-months">3 months</Anchor>.
-      </>
-    ),
-    icon: AcademicCapIcon,
-    name: 'Proven preparation plans',
-  },
-  {
-    description: (
-      <>Find out what questions companies are asking their candidates.</>
-    ),
-    icon: BuildingOfficeIcon,
-    name: 'Company-tagged questions',
-  },
-  {
-    description: (
-      <>Simulate real interview conditions, no need for any setup!</>
-    ),
-    icon: CodeBracketSquareIcon,
-    name: 'In-browser coding workspace',
-  },
-  {
-    description: (
-      <>
-        Coding questions supported in Vanilla JavaScript and React, with support
-        for more libraries coming soon!
-      </>
-    ),
-    icon: BeakerIcon,
-    name: 'Bring your own framework',
-  },
-  {
-    description: (
-      <>
-        The only platform with front end system design questions with official
-        solutions written by senior engineers.
-      </>
-    ),
-    icon: CubeIcon,
-    name: 'Front end system design',
-  },
-  {
-    description: (
-      <>
-        We add more questions and guides from time to time, available for free
-        to premium subscribers.
-      </>
-    ),
-    icon: ArrowTrendingUpIcon,
-    name: 'Free continuous updates',
-  },
-  // {
-  //   name: 'Exclusive techniques and best practices guides',
-  //   description:
-  //     'TODO',
-  // },
-];
+function useFeatures() {
+  const intl = useIntl();
+  const features = [
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="{questionCount}+ interview questions across <clink>coding</clink>
+        and <qlink>quiz</qlink> formats and new questions constantly being added."
+          description="Subtitle for huge question bank feature"
+          id="D0Hpsv"
+          values={{
+            clink: (chunks) => <Anchor href="/prepare/coding">{chunks}</Anchor>,
+            qlink: (chunks) => <Anchor href="/prepare/quiz">{chunks}</Anchor>,
+            questionCount: QuestionCount,
+          }}
+        />
+      ),
+      icon: BookOpenIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'Huge question bank',
+        description: 'Title for huge question bank feature',
+        id: 'qwP4CA',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="All questions come with solutions written by ex-FAANG Senior Front End Engineers."
+          description="Subtitle for high quality solutions feature"
+          id="8ulBJI"
+        />
+      ),
+      icon: CheckBadgeIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'High quality solutions',
+        description: 'Title for high quality solutions feature',
+        id: 'HlRbK4',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="Preparation plans for all kinds of preparation timelines —
+          <owlink>1 week</owlink>,
+          <omlink>1 month</omlink>,
+          <tmlink>3 months</tmlink>."
+          description="Subtitle for proven preparation plans feature"
+          id="caYk+w"
+          values={{
+            omlink: (chunks) => (
+              <Anchor href="/prepare/one-month">{chunks}</Anchor>
+            ),
+            owlink: (chunks) => (
+              <Anchor href="/prepare/one-week">{chunks}</Anchor>
+            ),
+            tmlink: (chunks) => (
+              <Anchor href="/prepare/three-months">{chunks}</Anchor>
+            ),
+          }}
+        />
+      ),
+      icon: AcademicCapIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'Proven preparation plans',
+        description: 'Title for proven preparation plans feature',
+        id: 'YWz2ko',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="Find out what questions companies are asking their candidates."
+          description="Subtitle for company-tagged questions feature"
+          id="y16Lzt"
+        />
+      ),
+      icon: BuildingOfficeIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'Company-tagged questions',
+        description: 'Title for company-tagged questions feature',
+        id: '/06NwY',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="Simulate real interview conditions, no need for any setup!"
+          description="Subtitle for in-browser coding workspace feature"
+          id="Nt+P5A"
+        />
+      ),
+      icon: CodeBracketSquareIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'In-browser coding workspace',
+        description: 'Title for in-browser coding workspace feature',
+        id: 'koTXam',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!"
+          description="Subtitle for bringing your own framework feature"
+          id="G9r7uh"
+        />
+      ),
+      icon: BeakerIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'Bring your own framework',
+        description: 'Title for bring your own framework feature',
+        id: 'cxo3yi',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="The only platform with front end system design questions with official solutions written by senior engineers."
+          description="Subtitle for front end system design feature"
+          id="9KrOcn"
+        />
+      ),
+      icon: CubeIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'Front end system design',
+        description: 'Title for front end system design feature',
+        id: 'QjhN+w',
+      }),
+    },
+    {
+      description: (
+        <FormattedMessage
+          defaultMessage="We add more questions and guides from time to time, available for free to premium subscribers."
+          description="Subtitle for free continuous updates feature"
+          id="X1UVMv"
+        />
+      ),
+      icon: ArrowTrendingUpIcon,
+      name: intl.formatMessage({
+        defaultMessage: 'Free continuous updates',
+        description: 'Title for free continuous updates feature',
+        id: 'Ptmnjq',
+      }),
+    },
+    // {
+    //   name: 'Exclusive techniques and best practices guides',
+    //   description:
+    //     'TODO',
+    // },
+  ];
+
+  return features;
+}
 
 export default function MarketingFeatures() {
+  const features = useFeatures();
+
   return (
     <Container variant="narrow">
       <Heading className="sr-only">Features</Heading>

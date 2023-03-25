@@ -10,12 +10,14 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
-import MarketingContactPlatformsConfig from '../marketing/contact/MarketingContactPlatformsConfig';
+import useMarketingContactPlatformsConfig from '../marketing/contact/MarketingContactPlatformsConfig';
 
 import { useUser } from '@supabase/auth-helpers-react';
 type FeedbackState = 'email' | 'message' | 'success';
 
 function SocialPlatform() {
+  const marketingContactPlatformsConfig = useMarketingContactPlatformsConfig();
+
   return (
     <div className="flex flex-col gap-3">
       <div className="relative">
@@ -33,7 +35,7 @@ function SocialPlatform() {
         </div>
       </div>
       <div className="flex items-center justify-center gap-2">
-        {MarketingContactPlatformsConfig.map((platform) => (
+        {marketingContactPlatformsConfig.map((platform) => (
           <Anchor
             key={platform.key}
             className="focus:ring-brand-500 flex items-center justify-center gap-2 rounded-full bg-slate-100 p-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-200 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
