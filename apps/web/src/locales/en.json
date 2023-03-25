@@ -499,6 +499,10 @@
     "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
     "description": "Question base section subtitle - second paragraph"
   },
+  "ImwV0T": {
+    "defaultMessage": "Scroll to bottom",
+    "description": "Button label to scroll to bottom of the console logs"
+  },
   "IuWsYS": {
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
@@ -1123,10 +1127,6 @@
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
   },
-  "ejq1dY": {
-    "defaultMessage": "Clear Console",
-    "description": "Tooltip for button to clear the console in the coding workspace"
-  },
   "ekSPPz": {
     "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"
@@ -1239,13 +1239,13 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
-  "jGQnYd": {
-    "defaultMessage": "Search coding questions",
-    "description": "Placeholder for search input of coding question list"
-  },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
+  },
+  "jGQnYd": {
+    "defaultMessage": "Search coding questions",
+    "description": "Placeholder for search input of coding question list"
   },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",

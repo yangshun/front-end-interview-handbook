@@ -7,7 +7,11 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/types/components/Console/utils/getType';
-import { CommandLineIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
+import {
+  ArrowSmallDownIcon,
+  CommandLineIcon,
+  NoSymbolIcon,
+} from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   logs: SandpackConsoleData;
@@ -22,12 +26,13 @@ export default function JavaScriptConsole({
 }: Props) {
   const intl = useIntl();
   const consoleRef = useRef<HTMLDivElement>(null);
-  const [isScrollBottom, setIsScrollBottom] = useState(true);
+  const [isScrollPositionAtBottom, setIsScrollPositionAtBottom] =
+    useState(true);
 
   const handleScroll = (e: UIEvent<HTMLElement>) => {
     const roundingErrorThreshold = 1;
 
-    setIsScrollBottom(
+    setIsScrollPositionAtBottom(
       e.currentTarget.scrollHeight -
         (e.currentTarget.scrollTop + e.currentTarget.clientHeight) <
         roundingErrorThreshold,
@@ -39,10 +44,10 @@ export default function JavaScriptConsole({
   };
 
   useEffect(() => {
-    if (isScrollBottom) {
+    if (isScrollPositionAtBottom) {
       scrollToBottom();
     }
-  }, [logs, isScrollBottom]);
+  }, [logs, isScrollPositionAtBottom]);
 
   if (logs == null || logs.length === 0) {
     return (
@@ -85,10 +90,9 @@ export default function JavaScriptConsole({
 
   return (
     <div className="flex h-full flex-col overflow-x-auto">
-      <div className="flex p-2">
+      <div className="flex gap-x-2 p-2">
         <Button
           icon={NoSymbolIcon}
-          isLabelHidden={true}
           label={intl.formatMessage({
             defaultMessage: 'Clear Console',
             description:
@@ -96,18 +100,27 @@ export default function JavaScriptConsole({
             id: 'o+1cag',
           })}
           size="sm"
-          tooltip={intl.formatMessage({
-            defaultMessage: 'Clear Console',
-            description:
-              'Tooltip for button to clear the console in the coding workspace',
-            id: 'ejq1dY',
-          })}
-          tooltipPosition="end"
           variant="tertiary"
           onClick={() => {
             onClear();
           }}
         />
+        {!isScrollPositionAtBottom && (
+          <Button
+            icon={ArrowSmallDownIcon}
+            label={intl.formatMessage({
+              defaultMessage: 'Scroll to Bottom',
+              description:
+                'Button label to scroll to bottom of the console logs',
+              id: 'hOEGb+',
+            })}
+            size="sm"
+            variant="tertiary"
+            onClick={() => {
+              scrollToBottom();
+            }}
+          />
+        )}
       </div>
       <div
         ref={consoleRef}
