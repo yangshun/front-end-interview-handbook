@@ -17,6 +17,8 @@ import UserPreferencesProvider from './UserPreferencesProvider';
 import UserProfileProvider from './UserProfileProvider';
 
 import { MDXProvider } from '@mdx-js/react';
+import * as Sentry from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -29,6 +31,12 @@ type Props = Readonly<{
 }>;
 
 const queryClient = new QueryClient();
+
+Sentry.init({
+  dsn: 'https://460c2fa53b094ff4a66e01209cd4b5c4@o4504898382790656.ingest.sentry.io/4504898384429056',
+  integrations: [new BrowserTracing()],
+  tracesSampleRate: 1.0,
+});
 
 export default function GlobalProviders({
   children,
