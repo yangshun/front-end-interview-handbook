@@ -90,10 +90,12 @@ export default function UserProfileProvider({ children }: Props) {
       return;
     }
 
+    const { href } = window.location;
+
     setTimeout(() => {
       logEvent('page_load', {
         pathname,
-        url: window.location.href,
+        url: href,
       });
     }, 100);
   }, [logEvent, pathname, user]);
@@ -104,35 +106,6 @@ export default function UserProfileProvider({ children }: Props) {
       setUserProfile(null);
     }
   }, [user]);
-
-  useEffect(() => {
-    if (user && userProfile) {
-      const channel = supabaseClient
-        .channel('any')
-        .on(
-          'postgres_changes',
-          {
-            event: 'UPDATE',
-            filter: `id=eq.${user.id}`,
-            schema: 'public',
-            table: 'Profile',
-          },
-          (payload) => {
-            setUserProfile({
-              ...userProfile,
-              ...convertProfile(
-                payload.new as Database['public']['Tables']['Profile']['Row'],
-              ),
-            });
-          },
-        )
-        .subscribe();
-
-      return () => {
-        supabaseClient.removeChannel(channel);
-      };
-    }
-  }, [userProfile, user, supabaseClient]);
 
   return (
     <UserProfileContext.Provider
