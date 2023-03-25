@@ -1,12 +1,16 @@
-import type { HTMLAttributes } from 'react';
+import type { ForwardedRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 import { useHeadingLevel } from './HeadingContext';
 
 type Props = HTMLAttributes<HTMLHeadingElement>;
 
-export default function Heading(props: Props) {
+function Heading(props: Props, ref: ForwardedRef<HTMLHeadingElement>) {
   const { level } = useHeadingLevel();
   const HeadingTag = `h${level}`;
 
-  return <HeadingTag {...props} />;
+  // @ts-expect-error TS doesn't know the tags are h1/h2.
+  return <HeadingTag ref={ref} {...props} />;
 }
+
+export default forwardRef(Heading);

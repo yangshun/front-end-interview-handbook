@@ -1,6 +1,7 @@
 'use client';
 
 import { useI18nRouter } from 'next-i18nostic';
+import { useEffect, useRef } from 'react';
 
 import PromoBanner from '~/components/global/PromoBanner';
 import type {
@@ -119,6 +120,19 @@ export default function QuestionsCategoryPage({
   codingQuestions,
   quizQuestions,
 }: Props) {
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+
+  useEffect(() => {
+    if (window.location.hash === '#questions' && headingRef != null) {
+      setTimeout(() => {
+        window.scrollTo({
+          left: 0,
+          top: headingRef?.current?.offsetTop,
+        });
+      }, 100);
+    }
+  }, []);
+
   return (
     <>
       <PromoBanner sticky={true} />
@@ -128,10 +142,16 @@ export default function QuestionsCategoryPage({
         </Section>
         <hr />
         <div className="grid gap-y-4">
-          <Heading className="text-xl font-semibold tracking-tight sm:text-2xl">
+          <Heading
+            ref={headingRef}
+            className="text-xl font-semibold tracking-tight sm:text-2xl">
             {pageTitle}
           </Heading>
-          <Text className="max-w-3xl" color="secondary" display="block">
+          <Text
+            className="max-w-3xl"
+            color="secondary"
+            display="block"
+            variant="body2">
             {description}
           </Text>
         </div>
