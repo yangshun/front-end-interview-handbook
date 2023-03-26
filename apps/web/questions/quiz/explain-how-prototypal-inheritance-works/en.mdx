@@ -17,6 +17,9 @@ Parent.prototype.greet = function () {
 
 const child = Object.create(Parent.prototype);
 
+// Call parent constructor with child
+Parent.call(child);
+
 child.cry = function () {
   console.log('waaaaaahhhh!');
 };
