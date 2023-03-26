@@ -28,6 +28,7 @@ import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceToolbar from '~/components/questions/editor/CodingWorkspaceToolbar';
 import useUserInterfaceQuestionCode from '~/components/questions/editor/useUserInterfaceQuestionCode';
+import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import QuestionCodingListSlideOut from '~/components/questions/listings/QuestionCodingListSlideOut';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
@@ -259,6 +260,7 @@ function MiddleRightPane({
       }}
       files={setup?.files}
       options={{
+        ...sandpackProviderOptions,
         activeFile: setup?.activeFile,
         classes: {
           'sp-input': 'touch-none select-none pointer-events-none',

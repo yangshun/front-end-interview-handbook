@@ -13,6 +13,7 @@ import TabsSolutions from '~/components/ui/Tabs/TabsSolutions';
 
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
 import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
+import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
 
 import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
 import {
@@ -145,14 +146,11 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                 }}
                 files={setup?.files}
                 options={{
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
+                  ...sandpackProviderOptions,
                   activeFile: setup?.activeFile,
                   classes: {
                     'sp-input': 'touch-none select-none pointer-events-none',
                   },
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
                   visibleFiles: setup?.visibleFiles,
                 }}
                 theme={MarketingCodeMirrorTheme}>

@@ -12,6 +12,7 @@ import { QuestionFrameworkLabels } from '~/components/questions/common/Questions
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import type { QuestionContentsSection } from '~/components/questions/content/QuestionContentsSectionTabs';
 import QuestionContentsSectionTabs from '~/components/questions/content/QuestionContentsSectionTabs';
+import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
@@ -119,16 +120,13 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
             }}
             files={setup?.files}
             options={{
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
+              ...sandpackProviderOptions,
               activeFile: setup?.activeFile,
               classes: {
                 'sp-input': 'touch-none select-none pointer-events-none',
                 'sp-layout': 'h-full',
                 'sp-wrapper': '!h-full',
               },
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
               visibleFiles: setup?.visibleFiles,
             }}
             theme={MarketingCodeMirrorTheme}>

@@ -42,6 +42,7 @@ import CodingWorkspaceToolbar from './CodingWorkspaceToolbar';
 import type { CodingWorkspaceLayout } from './useCodingWorkspaceLayout';
 import QuestionPaneDivider from '../common/QuestionPaneDivider';
 import QuestionPaneHorizontalDivider from '../common/QuestionPaneHorizontalDivider';
+import sandpackProviderOptions from '../evaluator/sandpackProviderOptions';
 
 import {
   SandpackPreview,
@@ -431,6 +432,7 @@ export default function JavaScriptWorkspace({
         question.tests,
       )}
       options={{
+        ...sandpackProviderOptions,
         classes: {
           'sp-wrapper': clsx(
             '!flex !grow !flex-col lg:!h-full !w-full lg:!w-0',
