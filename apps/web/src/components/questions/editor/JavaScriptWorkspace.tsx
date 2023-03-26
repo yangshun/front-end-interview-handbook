@@ -384,6 +384,7 @@ function Contents({
                     );
                   });
                   logEvent('question.submit', {
+                    code,
                     format: question.metadata.format,
                     slug: question.metadata.slug,
                   });
