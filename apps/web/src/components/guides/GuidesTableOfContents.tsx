@@ -1,5 +1,9 @@
 import clsx from 'clsx';
-import { useId } from 'react';
+import type { Ref } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+
+import useScrollIntoView from '~/hooks/useScrollIntoView';
+import useScrollParent from '~/hooks/useScrollParent';
 
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
@@ -22,9 +26,11 @@ type Props = Readonly<{
 
 function ListItems({
   activeId,
+  activeLinkRef,
   items,
 }: Readonly<{
   activeId: string | null;
+  activeLinkRef: Ref<HTMLAnchorElement>;
   items: TableOfContents;
 }>) {
   return (
@@ -33,6 +39,7 @@ function ListItems({
         <li key={section.id}>
           <p>
             <Anchor
+              ref={activeId === section.id ? activeLinkRef : undefined}
               className={clsx(
                 'hover:text-brand-700 motion-safe:transition-all',
                 activeId === section.id
@@ -46,7 +53,11 @@ function ListItems({
           </p>
           {section.children && section.children.length > 0 && (
             <div className="pl-4">
-              <ListItems activeId={activeId} items={section.children} />
+              <ListItems
+                activeId={activeId}
+                activeLinkRef={activeLinkRef}
+                items={section.children}
+              />
             </div>
           )}
         </li>
@@ -59,9 +70,24 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
   const titleId = useId();
   const activeId = useActiveHeadingId();
 
+  const [activeLink, setActiveLink] = useState<HTMLAnchorElement | null>(null);
+  const activeLinkRef: Ref<HTMLAnchorElement> = setActiveLink;
+
+  const navRef = useRef<HTMLElement>(null);
+  const scrollParent = useScrollParent(navRef.current);
+
+  const scrollIntoView = useScrollIntoView(scrollParent, {
+    behavior: 'smooth',
+    inPadding: 128,
+  });
+
+  useEffect(() => {
+    scrollIntoView(activeLink);
+  }, [scrollIntoView, activeLink]);
+
   return (
     // TODO: Replace the labelledby
-    <nav aria-labelledby={titleId} className="w-56">
+    <nav ref={navRef} aria-labelledby={titleId} className="w-56">
       {tableOfContents.length > 0 && (
         <>
           <Heading
@@ -71,7 +97,11 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
           </Heading>
           <Section>
             <div className="mt-4">
-              <ListItems activeId={activeId} items={tableOfContents} />
+              <ListItems
+                activeId={activeId}
+                activeLinkRef={activeLinkRef}
+                items={tableOfContents}
+              />
             </div>
           </Section>
         </>
