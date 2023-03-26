@@ -89,6 +89,13 @@ export async function genQuestionProgressDelete(
     .eq('slug', question.slug);
 }
 
+export async function genQuestionProgressDeleteAll(
+  client: SupabaseClientGFE,
+  user: User,
+) {
+  return await client.from('QuestionProgress').delete().eq('userId', user.id);
+}
+
 export async function genQuestionProgressAll(
   client: SupabaseClientGFE,
   user: User,

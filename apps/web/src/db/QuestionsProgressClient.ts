@@ -16,6 +16,7 @@ import {
   genQuestionProgressAdd,
   genQuestionProgressAll,
   genQuestionProgressDelete,
+  genQuestionProgressDeleteAll,
 } from './QuestionsProgressUniversal';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -102,6 +103,22 @@ export function useMutationQuestionProgressDelete() {
       onSuccess: (_, { question, user }) => {
         queryClient.invalidateQueries(['questionProgressAll']);
         queryClient.setQueryData(['questionProgress', question, user], null);
+      },
+    },
+  );
+}
+
+export function useMutationQuestionProgressDeleteAll() {
+  const queryClient = useQueryClient();
+  const supabaseClient = useSupabaseClientGFE();
+
+  return useMutation(
+    async ({ user }: Readonly<{ user: User }>) =>
+      genQuestionProgressDeleteAll(supabaseClient, user),
+    {
+      onSuccess: (_, { user }) => {
+        queryClient.invalidateQueries(['questionProgressAll']);
+        queryClient.setQueryData(['questionProgressAll', user], null);
       },
     },
   );

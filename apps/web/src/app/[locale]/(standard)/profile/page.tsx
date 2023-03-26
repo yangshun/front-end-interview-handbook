@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
 import ProfileActivity from '~/components/profile/ProfileActivity';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -26,6 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function ProfileSecurityPage() {
-  return <ProfileActivity />;
+export default async function ProfileActivityPage() {
+  const user = await fetchUser();
+
+  if (user == null) {
+    return redirect(`/login?next=${encodeURIComponent('/profile')}`);
+  }
+
+  return <ProfileActivity user={user} />;
 }
