@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl';
+
 import type {
   PreparationPlan,
   PreparationPlanType,
@@ -7,11 +9,21 @@ import { QuestionCount } from '~/components/questions/listings/QuestionCount';
 type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
 
 export default function usePreparationPlans() {
+  const intl = useIntl();
   const preparationPlans: PreparationPlans = {
     'one-month': {
-      description:
-        'Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.',
+      description: intl.formatMessage({
+        defaultMessage:
+          'Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.',
+        description: 'Description for one month study plan',
+        id: 'CyhMLj',
+      }),
       href: '/prepare/one-month',
+      longTitle: intl.formatMessage({
+        defaultMessage: '1 Month Plan',
+        description: 'Long label for one month study plan',
+        id: 'lyjVwD',
+      }),
       questions: {
         javascript: [
           'array-filter',
@@ -55,14 +67,31 @@ export default function usePreparationPlans() {
           'todo-list',
         ],
       },
-      shortDescription: 'All rounded coverage to bring you to the next level.',
-      title: '1 Month',
+      shortDescription: intl.formatMessage({
+        defaultMessage: 'All rounded coverage to bring you to the next level.',
+        description: 'Short description for one month study plan',
+        id: 'SId1Gq',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: '1 Month',
+        description: 'Short label for one month study plan',
+        id: 'EJRNjL',
+      }),
       type: 'one-month',
     },
     'one-week': {
-      description:
-        'Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.',
+      description: intl.formatMessage({
+        defaultMessage:
+          'Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.',
+        description: 'Description for one week study plan',
+        id: 'npvgQq',
+      }),
       href: '/prepare/one-week',
+      longTitle: intl.formatMessage({
+        defaultMessage: '1 Week Plan',
+        description: 'Long label for one week study plan',
+        id: 'jN6xqZ',
+      }),
       questions: {
         javascript: [
           'array-filter',
@@ -87,13 +116,36 @@ export default function usePreparationPlans() {
           'todo-list',
         ],
       },
-      shortDescription: 'Efficiently focus on the most important concepts',
-      title: '1 Week',
+      shortDescription: intl.formatMessage({
+        defaultMessage: 'Efficiently focus on the most important concepts',
+        description: 'Short description for one week study plan',
+        id: '4WUroS',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: '1 Week',
+        description: 'Short label for one week study plan',
+        id: 'vfVwh2',
+      }),
       type: 'one-week',
     },
     'three-months': {
-      description: `With over ${QuestionCount} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.`,
+      description: intl.formatMessage(
+        {
+          defaultMessage:
+            'With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.',
+          description: 'Long description for three months study plan',
+          id: 'JrmA6j',
+        },
+        {
+          numberOfQuestions: QuestionCount,
+        },
+      ),
       href: '/prepare/three-months',
+      longTitle: intl.formatMessage({
+        defaultMessage: '3 Months Plan',
+        description: 'Short label for 3 months study plan',
+        id: 'g65B9h',
+      }),
       questions: {
         javascript: [
           'array-filter',
@@ -152,9 +204,17 @@ export default function usePreparationPlans() {
           'tweet',
         ],
       },
-      shortDescription:
-        'Most complete all-in-one front end interview preparation.',
-      title: '3 Months',
+      shortDescription: intl.formatMessage({
+        defaultMessage:
+          'Most complete all-in-one front end interview preparation.',
+        description: 'Short description for 3 months study plan',
+        id: '1PHE0Y',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: '3 Months',
+        description: 'Short label for 3 months study plan',
+        id: 'ojtNa2',
+      }),
       type: 'three-months',
     },
   };

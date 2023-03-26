@@ -22,6 +22,7 @@ type PreparationPlanExtra = Readonly<{
   iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
+  longName: string;
   name: string;
   shortDescription: string;
   type: PreparationPlanType;
@@ -42,6 +43,7 @@ export function usePreparationPlansUI() {
       iconOutline: StarIcon,
       iconSolid: StarSolidIcon,
       key: preparationPlans['one-month'].type,
+      longName: preparationPlans['one-month'].longTitle,
       name: preparationPlans['one-month'].title,
       shortDescription: preparationPlans['one-month'].shortDescription,
       type: preparationPlans['one-month'].type,
@@ -55,6 +57,7 @@ export function usePreparationPlansUI() {
       iconOutline: FireIcon,
       iconSolid: FireSolidIcon,
       key: preparationPlans['one-week'].type,
+      longName: preparationPlans['one-week'].longTitle,
       name: preparationPlans['one-week'].title,
       shortDescription: preparationPlans['one-week'].shortDescription,
       type: preparationPlans['one-week'].type,
@@ -68,6 +71,7 @@ export function usePreparationPlansUI() {
       iconOutline: AcademicCapIcon,
       iconSolid: AcademicCapSolidIcon,
       key: preparationPlans['three-months'].type,
+      longName: preparationPlans['three-months'].longTitle,
       name: preparationPlans['three-months'].title,
       shortDescription: preparationPlans['three-months'].shortDescription,
       type: preparationPlans['three-months'].type,

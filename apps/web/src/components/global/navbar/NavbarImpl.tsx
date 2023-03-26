@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
@@ -66,8 +66,11 @@ function useNavLinks(
       ? {
           href: '/prepare',
           key: 'dashboard',
-          // TODO: i18n
-          label: 'Dashboard',
+          label: intl.formatMessage({
+            defaultMessage: 'Dashboard',
+            description: 'Link to dashboard page',
+            id: 'vi10y1',
+          }),
           onClick: () => {
             gtag.event({
               action: `nav.dashboard.click`,
@@ -81,7 +84,11 @@ function useNavLinks(
       : {
           href: '/',
           key: 'features',
-          label: 'Features',
+          label: intl.formatMessage({
+            defaultMessage: 'Features',
+            description: 'Link to features page',
+            id: 'xEvm93',
+          }),
           onClick: () => {
             gtag.event({
               action: `nav.features.click`,
@@ -101,7 +108,7 @@ function useNavLinks(
               href: questionFormatLists.coding.href,
               icon: questionFormatLists.coding.icon,
               key: questionFormatLists.coding.key,
-              label: `${questionFormatLists.coding.name} Questions`,
+              label: questionFormatLists.coding.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.questions.coding.click`,
@@ -116,7 +123,7 @@ function useNavLinks(
               href: questionFormatLists['system-design'].href,
               icon: questionFormatLists['system-design'].icon,
               key: questionFormatLists['system-design'].key,
-              label: `${questionFormatLists['system-design'].name} Questions`,
+              label: questionFormatLists['system-design'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.questions.system_design.click`,
@@ -131,7 +138,7 @@ function useNavLinks(
               href: questionFormatLists.quiz.href,
               icon: questionFormatLists.quiz.icon,
               key: questionFormatLists.quiz.key,
-              label: `${questionFormatLists.quiz.name} Questions`,
+              label: questionFormatLists.quiz.longName,
               labelAddon: (
                 <Badge
                   label={intl.formatMessage({
@@ -155,7 +162,11 @@ function useNavLinks(
             },
           ],
           key: 'questions-types',
-          label: 'Prepare end-to-end for front end interviews',
+          label: intl.formatMessage({
+            defaultMessage: 'Prepare end-to-end for front end interviews',
+            description: 'Title for question format category links in navbar',
+            id: 'mOk1w0',
+          }),
           supplementaryItem: {
             href: questionFormatLists.coding.href,
             icon: PlayIcon,
@@ -172,7 +183,7 @@ function useNavLinks(
               href: questionCategoryLists.javascript.href,
               icon: questionCategoryLists.javascript.icon,
               key: questionCategoryLists.javascript.key,
-              label: `${questionCategoryLists.javascript.name} Questions`,
+              label: questionCategoryLists.javascript.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.javascript.click`,
@@ -186,7 +197,7 @@ function useNavLinks(
               href: questionCategoryLists.html.href,
               icon: questionCategoryLists.html.icon,
               key: questionCategoryLists.html.key,
-              label: `${questionCategoryLists.html.name} Questions`,
+              label: questionCategoryLists.html.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.html.click`,
@@ -200,7 +211,7 @@ function useNavLinks(
               href: questionCategoryLists.css.href,
               icon: questionCategoryLists.css.icon,
               key: questionCategoryLists.css.key,
-              label: `${questionCategoryLists.css.name} Questions`,
+              label: questionCategoryLists.css.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.css.click`,
@@ -214,7 +225,7 @@ function useNavLinks(
               href: questionCategoryLists.react.href,
               icon: questionCategoryLists.react.icon,
               key: questionCategoryLists.react.key,
-              label: `${questionCategoryLists.react.name} Questions`,
+              label: questionCategoryLists.react.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.react.click`,
@@ -276,7 +287,12 @@ function useNavLinks(
             },
           ],
           key: 'language-framework',
-          label: 'Practice questions by framework or language',
+          label: intl.formatMessage({
+            defaultMessage: 'Practice questions by framework or language',
+            description:
+              'Title for question framework category links in navbar',
+            id: '0mKzkX',
+          }),
           type: 'popover-list',
         },
         {
@@ -285,7 +301,7 @@ function useNavLinks(
               href: preparationPlansExtra['one-week'].href,
               icon: preparationPlansExtra['one-week'].iconOutline,
               key: preparationPlansExtra['one-week'].type,
-              label: preparationPlansExtra['one-week'].name + ' Plan',
+              label: preparationPlansExtra['one-week'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.plans.one_week.click`,
@@ -300,7 +316,7 @@ function useNavLinks(
               href: preparationPlansExtra['one-month'].href,
               icon: preparationPlansExtra['one-month'].iconOutline,
               key: preparationPlansExtra['one-month'].type,
-              label: preparationPlansExtra['one-month'].name + ' Plan',
+              label: preparationPlansExtra['one-month'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.plans.one_month.click`,
@@ -315,7 +331,7 @@ function useNavLinks(
               href: preparationPlansExtra['three-months'].href,
               icon: preparationPlansExtra['three-months'].iconOutline,
               key: preparationPlansExtra['three-months'].type,
-              label: preparationPlansExtra['three-months'].name + ' Plan',
+              label: preparationPlansExtra['three-months'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.plans.three_months.click`,
@@ -328,12 +344,21 @@ function useNavLinks(
             },
           ],
           key: 'study-plans',
-          label: 'Practice with study plans and timelines',
+          label: intl.formatMessage({
+            defaultMessage: 'Practice with study plans and timelines',
+            description: 'Section title for study plans',
+            id: 'CQOAJS',
+          }),
           type: 'popover-list',
         },
       ],
       key: 'practice-questions',
-      label: 'Practice Questions',
+      label: intl.formatMessage({
+        defaultMessage: 'Practice Questions',
+        description:
+          'Section title for links to question lists by category and format',
+        id: '6w1Z0V',
+      }),
       position: 'start',
       type: 'popover-tabs',
     },
@@ -430,7 +455,11 @@ function useNavLinks(
       ? {
           href: '/hiring',
           key: 'hiring',
-          label: "We're Hiring",
+          label: intl.formatMessage({
+            defaultMessage: "We're Hiring",
+            description: 'Link label to the hiring page',
+            id: 'xq16Hq',
+          }),
           onClick: () => {
             gtag.event({
               action: `nav.hiring.click`,
@@ -446,7 +475,11 @@ function useNavLinks(
       ? {
           href: '/pricing',
           key: 'pricing',
-          label: 'Pricing',
+          label: intl.formatMessage({
+            defaultMessage: 'Pricing',
+            description: 'Link label to the pricing page',
+            id: 'VlrCm6',
+          }),
           onClick: () => {
             gtag.event({
               action: `nav.pricing.click`,
@@ -464,12 +497,16 @@ function useNavLinks(
             pathname ?? window.location.pathname,
           )}`,
           key: 'login',
-          label: 'Sign In / Up',
+          label: intl.formatMessage({
+            defaultMessage: 'Sign In / Up',
+            description: 'Link label to the sign in / up page',
+            id: 'q3MA2w',
+          }),
           onClick: () => {
             gtag.event({
               action: `nav.sign_in.click`,
               category: 'engagement',
-              label: 'Sign In',
+              label: 'Sign In / Up',
             });
           },
           position: 'end',
@@ -484,11 +521,16 @@ function useNavLinks(
 }
 
 function useUserNavigationLinks() {
+  const intl = useIntl();
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
       href: '/profile',
       key: 'login',
-      label: 'Profile',
+      label: intl.formatMessage({
+        defaultMessage: 'Profile',
+        description: 'Link label to the profile page',
+        id: 'BwHkBU',
+      }),
       onClick: () => {
         gtag.event({
           action: `nav.profile.click`,
@@ -503,7 +545,11 @@ function useUserNavigationLinks() {
         typeof window !== 'undefined' ? window.location.pathname : '',
       )}`,
       key: 'logout',
-      label: 'Sign Out',
+      label: intl.formatMessage({
+        defaultMessage: 'Sign Out',
+        description: 'Link label to the sign out page',
+        id: '641P5n',
+      }),
       onClick: () => {
         gtag.event({
           action: `nav.sign_out.click`,
@@ -611,9 +657,12 @@ export default function NavbarImpl() {
                   label: 'Get Full Access',
                 });
               }}>
-              <span>
-                Get full access <span aria-hidden="true">→</span>
-              </span>
+              <FormattedMessage
+                defaultMessage="Get Full Access"
+                description="Link label to the pricing page"
+                id="OugnPX"
+              />{' '}
+              <span aria-hidden="true">→</span>
             </Anchor>
           </div>
         )}

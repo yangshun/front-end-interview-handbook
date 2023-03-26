@@ -24,23 +24,60 @@ type FooterLink = Readonly<{
 type FooterLinks = ReadonlyArray<FooterLink | null>;
 
 function useFooterNavigation() {
+  const intl = useIntl();
   const questionFormatLists = useQuestionFormatLists();
   const guides = useGuidesData();
   const { countryCode } = useAppContext();
 
   const navigation: Record<string, FooterLinks> = {
     company: [
-      { href: '/pricing', key: 'pricing', name: 'Pricing' },
-      { href: '/about', key: 'about', name: 'About' },
+      {
+        href: '/pricing',
+        key: 'pricing',
+        name: intl.formatMessage({
+          defaultMessage: 'Pricing',
+          description: 'Link to pricing plans page',
+          id: 't5L0yE',
+        }),
+      },
+      {
+        href: '/about',
+        key: 'about',
+        name: intl.formatMessage({
+          defaultMessage: 'About',
+          description: "Link to company's about page",
+          id: '+5JohH',
+        }),
+      },
       // Remove team page temporarily while we sort out incorporation.
       // { href: '/team', key: 'team', name: 'Team' },
-      { href: '/contact', key: 'contact', name: 'Contact Us' },
-      { href: '/affiliates', key: 'affiliates', name: 'Become an Affiliate' },
+      {
+        href: '/contact',
+        key: 'contact',
+        name: intl.formatMessage({
+          defaultMessage: 'Contact Us',
+          description: 'Link to contact us page',
+          id: '8iiFM+',
+        }),
+      },
+      {
+        href: '/affiliates',
+        key: 'affiliates',
+        name: intl.formatMessage({
+          defaultMessage: 'Become an Affiliate',
+          description: 'Link to affiliate marketing program page',
+          id: 'XS6Jyn',
+        }),
+      },
       isHiringCountry(countryCode)
         ? {
             href: '/hiring',
             key: 'hiring',
-            name: "We're Hiring",
+            name: intl.formatMessage({
+              defaultMessage: "We're Hiring",
+              description: 'Link to careers page',
+              id: 'ivmSx0',
+            }),
           }
         : null,
     ],
@@ -62,34 +99,78 @@ function useFooterNavigation() {
       },
     ],
     legal: [
-      { href: '/legal/privacy-policy', key: 'privacy', name: 'Privacy Policy' },
-      { href: '/legal/terms', key: 'tos', name: 'Terms of Service' },
+      {
+        href: '/legal/privacy-policy',
+        key: 'privacy',
+        name: intl.formatMessage({
+          defaultMessage: 'Privacy Policy',
+          description: 'Link to privacy policy page',
+          id: 'ITq0p4',
+        }),
+      },
+      {
+        href: '/legal/terms',
+        key: 'tos',
+        name: intl.formatMessage({
+          defaultMessage: 'Terms of Service',
+          description: 'Link to terms of service page',
+          id: 'zIQsmk',
+        }),
+      },
     ],
     practice: [
-      { href: '/get-started', key: 'get_started', name: 'Get Started' },
+      {
+        href: '/get-started',
+        key: 'get_started',
+        name: intl.formatMessage({
+          defaultMessage: 'Get Started',
+          description: 'Link to get started page',
+          id: '15O0qb',
+        }),
+      },
       {
         href: questionFormatLists.coding.href,
         key: 'questions.coding',
-        name: `${questionFormatLists.coding.name} Questions`,
+        name: questionFormatLists.coding.longName,
       },
       {
         href: questionFormatLists['system-design'].href,
         key: 'questions.system_design',
-        name: `${questionFormatLists['system-design'].name} Questions`,
+        name: questionFormatLists['system-design'].longName,
       },
       {
         href: questionFormatLists.quiz.href,
         key: 'questions.quiz',
-        name: `${questionFormatLists.quiz.name} Questions`,
+        name: questionFormatLists.quiz.longName,
       },
     ],
     preparationPlans: [
-      { href: '/prepare/one-week', key: 'one_week', name: '1 Week Plan' },
-      { href: '/prepare/one-month', key: 'one_month', name: '1 Month Plan' },
+      {
+        href: '/prepare/one-week',
+        key: 'one_week',
+        name: intl.formatMessage({
+          defaultMessage: '1 Week Plan',
+          description: 'Link to one week study plan',
+          id: 'i4MSQe',
+        }),
+      },
+      {
+        href: '/prepare/one-month',
+        key: 'one_month',
+        name: intl.formatMessage({
+          defaultMessage: '1 Month Plan',
+          description: 'Link to one month study plan',
+          id: 'CBhQ13',
+        }),
+      },
       {
         href: '/prepare/three-months',
         key: 'three_months',
-        name: '3 Months Plan',
+        name: intl.formatMessage({
+          defaultMessage: '3 Months Plan',
+          description: 'Link to three months study plan',
+          id: 'PGFsFr',
+        }),
       },
     ],
   };
@@ -234,9 +315,13 @@ export default function Footer() {
           </div>
           <div className="mt-12 border-t border-slate-200 pt-8">
             <p className="text-base text-slate-400 xl:text-center">
-              {/* TODO: i18n */}
-              &copy; {new Date().getFullYear()} Codeney Pte Ltd. All rights
-              reserved.
+              &copy; {new Date().getFullYear()}{' '}
+              <FormattedMessage
+                defaultMessage="Codeney Pte Ltd. All rights
+              reserved."
+                description="Footer copyright text containing the company name"
+                id="P/tvlV"
+              />
             </p>
           </div>
         </div>
