@@ -13,8 +13,10 @@ The CSS box model is responsible for calculating:
 ## Box Model Rules
 
 - The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s.
-- If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which, see below).
-- If no `width` is specified, a non-`float`-ed block element will expand to fit the width of its parent minus the `padding`.
+- If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which, see [describe floats and how they work](/questions/quiz/describe-floats-and-how-they-work)).
+- If no `width` is specified, a non-`float`-ed block element will expand to fit the width of its parent minus the `padding`, unless it has a `max-width` property set, in which case it will be no wider than the specified maximum width.
+  - Some block-level elements (e.g. `table`, `figure`, and `input`) have inherent or default width values, and may not expand to fill the full width of their parent container.
+  - Note: `span` is an inline-level element and does not have a default width, so it will not expand to fit.
 - The `height` of an element is calculated by the content's `height`.
 - The `width` of an element is calculated by the content's `width`.
 - By default (`box-sizing: content-box`), `padding`s and `border`s are not part of the `width` and `height` of an element.
