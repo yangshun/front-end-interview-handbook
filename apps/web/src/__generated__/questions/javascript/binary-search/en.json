@@ -21,7 +21,8 @@
       "selection-sort",
       "quick-sort",
       "merge-sort",
-      "depth-first-search"
+      "depth-first-search",
+      "breadth-first-search"
     ],
     "premium": false,
     "published": true,

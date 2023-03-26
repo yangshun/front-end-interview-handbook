@@ -1,6 +1,6 @@
 {
-  "slug": "depth-first-search",
-  "created": "2022-12-22T00:00:00.000Z",
+  "slug": "breadth-first-search",
+  "created": "2023-03-26T00:00:00.000Z",
   "languages": ["js"],
   "companies": [],
   "premium": false,
@@ -8,5 +8,5 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["breadth-first-search"]
+  "similar_questions": ["depth-first-search"]
 }

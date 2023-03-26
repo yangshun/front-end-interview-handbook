@@ -21,7 +21,9 @@
     "premium": false,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "breadth-first-search"
+    ],
     "slug": "depth-first-search",
     "title": "Depth-First Search"
   },

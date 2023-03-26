@@ -294,7 +294,8 @@
       "selection-sort",
       "quick-sort",
       "merge-sort",
-      "depth-first-search"
+      "depth-first-search",
+      "breadth-first-search"
     ],
     "premium": false,
     "published": true,
@@ -302,6 +303,32 @@
     "similarQuestions": [],
     "slug": "binary-search",
     "title": "Binary Search"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1679788800,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a breadth-first search algorithm that traverses a directed graph in a breadth-first manner.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/breadth-first-search",
+    "importance": "low",
+    "languages": [
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "depth-first-search"
+    ],
+    "slug": "breadth-first-search",
+    "title": "Breadth-First Search"
   },
   {
     "author": "zhenghao",
@@ -730,7 +757,9 @@
     "premium": false,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "breadth-first-search"
+    ],
     "slug": "depth-first-search",
     "title": "Depth-First Search"
   },
