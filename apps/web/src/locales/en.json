@@ -455,6 +455,10 @@
     "defaultMessage": "View subscription plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
   },
+  "EjbpUe": {
+    "defaultMessage": "Open navigation profile menu",
+    "description": "Screenreader text to open the profile menu"
+  },
   "ExWrYc": {
     "defaultMessage": "Practice everything here.",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -714,10 +718,6 @@
   "LK0JHB": {
     "defaultMessage": "FAQs.",
     "description": "Frequently Asked Questions"
-  },
-  "LMdhmW": {
-    "defaultMessage": "Signed in as",
-    "description": "TODO_i18n_REPLACE_ME"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
@@ -1250,10 +1250,6 @@
   "bZFghR": {
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
-  },
-  "bf0Hsc": {
-    "defaultMessage": "Open user menu",
-    "description": "Screenreader text to let user know that the profile icon's menu is open"
   },
   "bfMxFC": {
     "defaultMessage": "Stripe Customer ID:",

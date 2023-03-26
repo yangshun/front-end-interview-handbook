@@ -41,9 +41,9 @@ export default function NavProfileIcon({
         <Menu.Button className="focus:ring-brand-500 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
           <span className="sr-only">
             <FormattedMessage
-              defaultMessage="Open user menu"
-              description="Screenreader text to let user know that the profile icon's menu is open"
-              id="bf0Hsc"
+              defaultMessage="Open navigation profile menu"
+              description="Screenreader text to open the profile menu"
+              id="EjbpUe"
             />
           </span>
           {thumbnailUrl ? (
@@ -71,23 +71,14 @@ export default function NavProfileIcon({
         leaveTo="transform opacity-0 scale-95">
         <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-slate-200 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <p className="truncate py-3 px-3.5 text-sm" role="none">
-            <span className="block text-xs text-slate-500" role="none">
-              {/* TODO: i18n */}
-              <FormattedMessage
-                defaultMessage="Signed in as"
-                description="TODO_i18n_REPLACE_ME"
-                id="LMdhmW"
-              />
-            </span>
-            {/* TODO: i18n */}
             <span className="mt-0.5 font-semibold" role="none">
               {email}
             </span>
           </p>
           <div className="py-1.5" role="none">
-            {navItems.map((item) => (
-              <Menu.Item key={item.key}>
-                <MyLink {...item} />
+            {navItems.map(({ key, ...others }) => (
+              <Menu.Item key={key}>
+                <MyLink key={key} {...others} />
               </Menu.Item>
             ))}
           </div>
