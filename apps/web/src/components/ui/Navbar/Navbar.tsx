@@ -52,18 +52,18 @@ export default function Navbar({
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             {logo && <div>{logo}</div>}
             <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
-              {leftLinks.map(({ key, ...navItem }) => (
-                <NavbarItem key={key} {...navItem} />
+              {leftLinks.map((navItem) => (
+                <NavbarItem key={navItem.itemKey} {...navItem} />
               ))}
             </nav>
           </div>
           <div className="hidden items-center justify-end gap-x-4 md:flex md:grow lg:w-0 lg:grow-0">
             <div className="flex gap-x-4">
-              {rightLinks.map(({ key, ...navItem }) =>
+              {rightLinks.map((navItem) =>
                 isLoading ? (
-                  <LineGlimmer key={key} />
+                  <LineGlimmer key={navItem.itemKey} />
                 ) : (
-                  <NavbarItem key={key} {...navItem} />
+                  <NavbarItem key={navItem.itemKey} {...navItem} />
                 ),
               )}
             </div>
@@ -139,13 +139,13 @@ export default function Navbar({
                   <nav aria-label="Sidebar" className="mt-5">
                     {leftLinks.length > 0 && (
                       <div className="space-y-1 px-2">
-                        {leftLinks.map(({ key, ...props }) => (
+                        {leftLinks.map((navItem) => (
                           <NavbarSidebarItem
-                            key={key}
-                            {...props}
+                            key={navItem.itemKey}
+                            {...navItem}
                             onClick={(event) => {
                               closeMobileNav();
-                              props.onClick?.(event);
+                              navItem.onClick?.(event);
                             }}
                           />
                         ))}
@@ -155,13 +155,13 @@ export default function Navbar({
                       <>
                         {leftLinks.length > 0 && divider}
                         <div className="space-y-1 px-2">
-                          {rightLinks.map(({ key, ...props }) => (
+                          {rightLinks.map((navItem) => (
                             <NavbarSidebarItem
-                              key={key}
-                              {...props}
+                              key={navItem.itemKey}
+                              {...navItem}
                               onClick={(event) => {
                                 closeMobileNav();
-                                props.onClick?.(event);
+                                navItem.onClick?.(event);
                               }}
                             />
                           ))}

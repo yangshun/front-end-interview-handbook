@@ -6,17 +6,18 @@ import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 
 import { Menu, Transition } from '@headlessui/react';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
+
 type Props = Readonly<{
   email?: string;
   navItems: ReadonlyArray<NavLinkItem>;
   thumbnailUrl?: string;
 }>;
 
-const MyLink = forwardRef<HTMLAnchorElement, NavLinkItem>(
-  ({ href, label, key, ...rest }: NavLinkItem, ref) => {
+const NavProfileLink = forwardRef<HTMLAnchorElement, NavLinkItem>(
+  ({ href, label, itemKey, ...rest }: NavLinkItem, ref) => {
     return (
       <Anchor
-        key={key}
+        key={itemKey}
         ref={ref}
         className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
         href={href}
@@ -76,9 +77,9 @@ export default function NavProfileIcon({
             </span>
           </p>
           <div className="py-1.5" role="none">
-            {navItems.map(({ key, ...others }) => (
-              <Menu.Item key={key}>
-                <MyLink key={key} {...others} />
+            {navItems.map((navItem) => (
+              <Menu.Item key={navItem.itemKey}>
+                <NavProfileLink {...navItem} />
               </Menu.Item>
             ))}
           </div>

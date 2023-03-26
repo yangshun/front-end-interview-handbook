@@ -77,7 +77,7 @@ function NavbarPopoverGroup({ label, items, onClick }: NavPopoverGroupItem) {
       <p className="text-sm font-medium text-slate-500">{label}</p>
       <ul className="space-y-1" role="list">
         {items.map(({ onClick: onItemClick, ...item }) => (
-          <li key={item.key}>
+          <li key={item.itemKey}>
             <NavbarPopoverLink
               {...item}
               onClick={(event) => {
@@ -109,16 +109,15 @@ export default function NavbarPopover({
           items.length === 3 && 'grid-cols-3',
           items.length === 4 && 'grid-cols-4',
         )}>
-        {items.map(({ key, ...item }, index) => (
+        {items.map((item, index) => (
           <li
-            key={key}
+            key={item.itemKey}
             className={clsx(
               index !== 0 && 'pl-6',
               index !== items.length - 1 && 'pr-6',
             )}>
             {item.type === 'popover-list' && (
               <NavbarPopoverGroup
-                key={key}
                 {...item}
                 onClick={(event) => {
                   onClose();
@@ -128,7 +127,6 @@ export default function NavbarPopover({
             )}
             {item.type === 'popover-link' && (
               <NavbarPopoverLink
-                key={key}
                 {...item}
                 onClick={(event) => {
                   onClose();

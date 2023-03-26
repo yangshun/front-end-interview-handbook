@@ -79,9 +79,9 @@ export default function NavbarPopoverTabs({
     <div className="flex overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
       <Tab.Group vertical={true}>
         <Tab.List className="flex w-1/4 shrink-0 flex-col space-y-2 bg-slate-50 p-2">
-          {items.map(({ key, label }) => (
+          {items.map(({ itemKey, label }) => (
             <Tab
-              key={key}
+              key={itemKey}
               className={({ selected }) =>
                 clsx(
                   'block w-full rounded-md p-3 text-left text-sm font-medium',
@@ -94,7 +94,7 @@ export default function NavbarPopoverTabs({
         </Tab.List>
         <Tab.Panels className="flex w-full grow items-center">
           {items.map((item) => (
-            <Tab.Panel key={item.key} className="grid h-full w-full">
+            <Tab.Panel key={item.itemKey} className="grid h-full w-full">
               <div
                 className={clsx(
                   'relative grid grow gap-2 p-6',
@@ -103,15 +103,14 @@ export default function NavbarPopoverTabs({
                   (item.items.length === 3 || item.items.length > 4) &&
                     'grid-cols-3',
                 )}>
-                {item.items.map(({ key, ...childItem }) => (
+                {item.items.map((childItem) => (
                   <div
-                    key={key}
+                    key={childItem.itemKey}
                     className={clsx(
                       'flex h-full grow',
                       item.alignment === 'center' && 'items-center',
                     )}>
                     <NavbarPopoverLink
-                      key={key}
                       {...childItem}
                       onClick={(event) => {
                         // To close the popover.

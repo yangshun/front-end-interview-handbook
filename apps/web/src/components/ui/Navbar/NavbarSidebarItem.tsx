@@ -53,10 +53,9 @@ function NavbarSidebarInner({
       <ul
         className="my-1 ml-2 space-y-1 border-l-2 border-slate-200 pl-2 lg:border-slate-200"
         role="list">
-        {props.items.map(({ key, onClick: onItemClick, ...item }) => (
-          <li key={key}>
+        {props.items.map(({ onClick: onItemClick, ...item }) => (
+          <li key={item.itemKey}>
             <NavbarSidebarInner
-              key={key}
               className={className}
               isCurrent={isCurrent}
               linkClass={linkClass}
@@ -75,7 +74,6 @@ function NavbarSidebarInner({
 }
 
 export default function NavbarSidebarItem({
-  key,
   onClick,
   label,
   ...props
@@ -90,7 +88,7 @@ export default function NavbarSidebarItem({
   if (props.type === 'link') {
     return (
       <Anchor
-        key={key}
+        key={props.itemKey}
         aria-current={isCurrent ? 'page' : undefined}
         className={clsx(className, !isCurrent && linkClass)}
         href={props.href}
@@ -103,7 +101,7 @@ export default function NavbarSidebarItem({
 
   return (
     <NavbarSidebarInner
-      key={key}
+      key={props.itemKey}
       className={className}
       isCurrent={isCurrent}
       label={label}

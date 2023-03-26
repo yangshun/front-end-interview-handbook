@@ -48,7 +48,7 @@ function useNavLinks(
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     // {
     //   type: 'link',
-    //   key: 'ui',
+    //   itemKey: 'ui',
     //   label: 'UI Library',
     //   href: '/dev__/ui',
     //   mode: 'dev-only',
@@ -56,7 +56,7 @@ function useNavLinks(
     // },
     // {
     //   type: 'link',
-    //   key: 'prose',
+    //   itemKey: 'prose',
     //   label: 'Prose',
     //   href: '/dev__/prose',
     //   mode: 'dev-only',
@@ -65,7 +65,7 @@ function useNavLinks(
     isLoggedIn
       ? {
           href: '/prepare',
-          key: 'dashboard',
+          itemKey: 'dashboard',
           label: intl.formatMessage({
             defaultMessage: 'Dashboard',
             description: 'Link to dashboard page',
@@ -83,7 +83,7 @@ function useNavLinks(
         }
       : {
           href: '/',
-          key: 'features',
+          itemKey: 'features',
           label: intl.formatMessage({
             defaultMessage: 'Features',
             description: 'Link to features page',
@@ -100,14 +100,16 @@ function useNavLinks(
           type: 'link',
         },
     {
+      itemKey: 'practice-questions',
       items: [
         {
           alignment: 'top',
+          itemKey: 'questions-types',
           items: [
             {
               href: questionFormatLists.coding.href,
               icon: questionFormatLists.coding.icon,
-              key: questionFormatLists.coding.key,
+              itemKey: questionFormatLists.coding.key,
               label: questionFormatLists.coding.longName,
               onClick: () => {
                 gtag.event({
@@ -122,7 +124,7 @@ function useNavLinks(
             {
               href: questionFormatLists['system-design'].href,
               icon: questionFormatLists['system-design'].icon,
-              key: questionFormatLists['system-design'].key,
+              itemKey: questionFormatLists['system-design'].key,
               label: questionFormatLists['system-design'].longName,
               onClick: () => {
                 gtag.event({
@@ -137,7 +139,7 @@ function useNavLinks(
             {
               href: questionFormatLists.quiz.href,
               icon: questionFormatLists.quiz.icon,
-              key: questionFormatLists.quiz.key,
+              itemKey: questionFormatLists.quiz.key,
               label: questionFormatLists.quiz.longName,
               labelAddon: (
                 <Badge
@@ -161,7 +163,6 @@ function useNavLinks(
               type: 'popover-link',
             },
           ],
-          key: 'questions-types',
           label: intl.formatMessage({
             defaultMessage: 'Prepare end-to-end for front end interviews',
             description: 'Title for question format category links in navbar',
@@ -170,7 +171,7 @@ function useNavLinks(
           supplementaryItem: {
             href: questionFormatLists.coding.href,
             icon: PlayIcon,
-            key: questionFormatLists.coding.key,
+            itemKey: questionFormatLists.coding.key,
             label: 'Practice end-to-end',
             type: 'link',
           },
@@ -178,11 +179,12 @@ function useNavLinks(
         },
         {
           alignment: 'center',
+          itemKey: 'language-framework',
           items: [
             {
               href: questionCategoryLists.javascript.href,
               icon: questionCategoryLists.javascript.icon,
-              key: questionCategoryLists.javascript.key,
+              itemKey: questionCategoryLists.javascript.key,
               label: questionCategoryLists.javascript.longName,
               onClick: () => {
                 gtag.event({
@@ -196,7 +198,7 @@ function useNavLinks(
             {
               href: questionCategoryLists.html.href,
               icon: questionCategoryLists.html.icon,
-              key: questionCategoryLists.html.key,
+              itemKey: questionCategoryLists.html.key,
               label: questionCategoryLists.html.longName,
               onClick: () => {
                 gtag.event({
@@ -210,7 +212,7 @@ function useNavLinks(
             {
               href: questionCategoryLists.css.href,
               icon: questionCategoryLists.css.icon,
-              key: questionCategoryLists.css.key,
+              itemKey: questionCategoryLists.css.key,
               label: questionCategoryLists.css.longName,
               onClick: () => {
                 gtag.event({
@@ -224,7 +226,7 @@ function useNavLinks(
             {
               href: questionCategoryLists.react.href,
               icon: questionCategoryLists.react.icon,
-              key: questionCategoryLists.react.key,
+              itemKey: questionCategoryLists.react.key,
               label: questionCategoryLists.react.longName,
               onClick: () => {
                 gtag.event({
@@ -237,7 +239,7 @@ function useNavLinks(
             },
             {
               icon: questionCategoryLists.angular.icon,
-              key: questionCategoryLists.angular.key,
+              itemKey: questionCategoryLists.angular.key,
               label: questionCategoryLists.angular.name,
               labelAddon: (
                 <Badge
@@ -262,7 +264,7 @@ function useNavLinks(
             },
             {
               icon: questionCategoryLists.vue.icon,
-              key: questionCategoryLists.vue.key,
+              itemKey: questionCategoryLists.vue.key,
               label: questionCategoryLists.vue.name,
               labelAddon: (
                 <Badge
@@ -286,7 +288,6 @@ function useNavLinks(
               type: 'popover-link',
             },
           ],
-          key: 'language-framework',
           label: intl.formatMessage({
             defaultMessage: 'Practice questions by framework or language',
             description:
@@ -296,11 +297,12 @@ function useNavLinks(
           type: 'popover-list',
         },
         {
+          itemKey: 'study-plans',
           items: [
             {
               href: preparationPlansExtra['one-week'].href,
               icon: preparationPlansExtra['one-week'].iconOutline,
-              key: preparationPlansExtra['one-week'].type,
+              itemKey: preparationPlansExtra['one-week'].type,
               label: preparationPlansExtra['one-week'].longName,
               onClick: () => {
                 gtag.event({
@@ -315,7 +317,7 @@ function useNavLinks(
             {
               href: preparationPlansExtra['one-month'].href,
               icon: preparationPlansExtra['one-month'].iconOutline,
-              key: preparationPlansExtra['one-month'].type,
+              itemKey: preparationPlansExtra['one-month'].type,
               label: preparationPlansExtra['one-month'].longName,
               onClick: () => {
                 gtag.event({
@@ -330,7 +332,7 @@ function useNavLinks(
             {
               href: preparationPlansExtra['three-months'].href,
               icon: preparationPlansExtra['three-months'].iconOutline,
-              key: preparationPlansExtra['three-months'].type,
+              itemKey: preparationPlansExtra['three-months'].type,
               label: preparationPlansExtra['three-months'].longName,
               onClick: () => {
                 gtag.event({
@@ -343,7 +345,6 @@ function useNavLinks(
               type: 'popover-link',
             },
           ],
-          key: 'study-plans',
           label: intl.formatMessage({
             defaultMessage: 'Practice with study plans and timelines',
             description: 'Section title for study plans',
@@ -352,7 +353,6 @@ function useNavLinks(
           type: 'popover-list',
         },
       ],
-      key: 'practice-questions',
       label: intl.formatMessage({
         defaultMessage: 'Practice Questions',
         description:
@@ -363,13 +363,15 @@ function useNavLinks(
       type: 'popover-tabs',
     },
     {
+      itemKey: 'guides',
       items: [
         {
+          itemKey: 'guidebooks',
           items: [
             {
               href: guides['front-end-interview-guidebook'].href,
               icon: guides['front-end-interview-guidebook'].icon,
-              key: guides['front-end-interview-guidebook'].key,
+              itemKey: guides['front-end-interview-guidebook'].key,
               label: guides['front-end-interview-guidebook'].name,
               labelAddon: (
                 <Badge
@@ -395,7 +397,7 @@ function useNavLinks(
             {
               href: guides['front-end-system-design-guidebook'].href,
               icon: guides['front-end-system-design-guidebook'].icon,
-              key: guides['front-end-system-design-guidebook'].key,
+              itemKey: guides['front-end-system-design-guidebook'].key,
               label: guides['front-end-system-design-guidebook'].name,
               onClick: () => {
                 gtag.event({
@@ -410,7 +412,7 @@ function useNavLinks(
             {
               href: guides['behavioral-interview-guidebook'].href,
               icon: guides['behavioral-interview-guidebook'].icon,
-              key: guides['behavioral-interview-guidebook'].key,
+              itemKey: guides['behavioral-interview-guidebook'].key,
               label: guides['behavioral-interview-guidebook'].name,
               labelAddon: (
                 <Badge
@@ -434,12 +436,10 @@ function useNavLinks(
               type: 'popover-link',
             },
           ],
-          key: 'guidebooks',
           label: 'Guidebooks',
           type: 'popover-list',
         },
       ],
-      key: 'guides',
       label: 'Guides',
       onClick: () => {
         gtag.event({
@@ -454,7 +454,7 @@ function useNavLinks(
     isHiringCountry(countryCode)
       ? {
           href: '/hiring',
-          key: 'hiring',
+          itemKey: 'hiring',
           label: intl.formatMessage({
             defaultMessage: "We're Hiring",
             description: 'Link label to the hiring page',
@@ -474,7 +474,7 @@ function useNavLinks(
     !isPremium
       ? {
           href: '/pricing',
-          key: 'pricing',
+          itemKey: 'pricing',
           label: intl.formatMessage({
             defaultMessage: 'Pricing',
             description: 'Link label to the pricing page',
@@ -496,7 +496,7 @@ function useNavLinks(
           href: `/login?next=${encodeURIComponent(
             pathname ?? window.location.pathname,
           )}`,
-          key: 'login',
+          itemKey: 'login',
           label: intl.formatMessage({
             defaultMessage: 'Sign In / Up',
             description: 'Link label to the sign in / up page',
@@ -525,7 +525,7 @@ function useUserNavigationLinks() {
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
       href: '/profile',
-      key: 'login',
+      itemKey: 'login',
       label: intl.formatMessage({
         defaultMessage: 'Profile',
         description: 'Link label to the profile page',
@@ -544,7 +544,7 @@ function useUserNavigationLinks() {
       href: `/logout?next=${encodeURIComponent(
         typeof window !== 'undefined' ? window.location.pathname : '',
       )}`,
-      key: 'logout',
+      itemKey: 'logout',
       label: intl.formatMessage({
         defaultMessage: 'Sign Out',
         description: 'Link label to the sign out page',
@@ -628,7 +628,7 @@ export default function NavbarImpl() {
           <div className="space-y-1 px-2">
             {userNavigationLinks.map((props) => (
               <Anchor
-                key={props.key}
+                key={props.itemKey}
                 className={clsx(
                   'group flex items-center rounded-md px-2 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900',
                 )}

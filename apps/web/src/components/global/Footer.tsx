@@ -198,7 +198,7 @@ function FooterSection({
               const item = item_ as FooterLink;
 
               return (
-                <li key={item.name}>
+                <li key={item.key}>
                   <Text variant="body2">
                     <Anchor
                       href={item.href}

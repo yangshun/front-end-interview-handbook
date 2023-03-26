@@ -1,5 +1,5 @@
 export type NavBaseItem = Readonly<{
-  key: string;
+  itemKey: string;
   label: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }>;
