@@ -56,28 +56,28 @@ Here is the second solution and you might find it easier to understand than the 
 
 ```js
 function chunk(array, size = 2) {
-  // This is a helper function that groups two adjacent items in an array into one subarray.
+  // Helper function that groups two adjacent items in an array into one subarray.
   const chunkedArray = [];
   while (array.length) {
     chunkedArray.push(array.splice(0, size));
   }
-
   return chunkedArray;
 }
 
-// TODO: Fix infinite loop bug.
-export default function squashObject(object) {
-  function traverse(object, path = []) {
-    if (typeof object !== 'object' || object === null) {
-      return [path.join('.'), object];
-    }
-
-    return Object.entries(object).flatMap(([key, value]) =>
-      traverse(value, path.concat(key)),
-    );
+function traverse(object, path = []) {
+  if (typeof object !== 'object' || object === null) {
+    return [path.join('.'), object];
   }
 
-  return Object.fromEntries(chunk(squashObject(object)));
+  return Object.entries(object).flatMap(([key, value]) => {
+    const newPath = key === '' ? [...path] : [...path, key];
+    return traverse(value, newPath);
+  });
+}
+
+export default function squashObject(object) {
+  const flattened = traverse(object);
+  return Object.fromEntries(chunk(flattened));
 }
 ```
 
