@@ -7,10 +7,10 @@ export function SpinnerIcon({ className }) {
       viewBox="0 0 38 38"
       xmlns="http://www.w3.org/2000/svg"
       stroke="currentColor">
-      <g fill="none" fill-rule="evenodd">
-        <g transform="translate(1 1)" stroke-width="2">
+      <g fill="none" fillRule="evenodd">
+        <g transform="translate(1 1)" strokeWidth="2">
           <circle
-            stroke-opacity=".5"
+            strokeOpacity=".5"
             cx="18"
             cy="18"
             r="18"
