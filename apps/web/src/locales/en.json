@@ -499,6 +499,10 @@
     "defaultMessage": "Submit",
     "description": "Label for button to submit code for testing within coding workspace"
   },
+  "FonVOb": {
+    "defaultMessage": "All question progress has been reset.",
+    "description": "Message shown when question reset progress action succeeds."
+  },
   "G9r7uh": {
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
@@ -510,6 +514,10 @@
   "GJB3/X": {
     "defaultMessage": "Email Address",
     "description": "Label for email address input field"
+  },
+  "GM9dpG": {
+    "defaultMessage": "Failed to reset progress. Please try again.",
+    "description": "Message shown when question reset progress action fails."
   },
   "GObvI2": {
     "defaultMessage": "Perfect for short term job hunts.",
@@ -822,6 +830,10 @@
   "P/sSbP": {
     "defaultMessage": "Access to all premium content including solutions and companies.",
     "description": "Feature of monthly pricing plan"
+  },
+  "PB+rpp": {
+    "defaultMessage": "Reset Progress",
+    "description": "Label for button to reset progress"
   },
   "PFRVpF": {
     "defaultMessage": "Get Full Access",
@@ -1315,6 +1327,10 @@
     "defaultMessage": "Change password",
     "description": "Label of Change Password button on Change Password page"
   },
+  "dFz30c": {
+    "defaultMessage": "Reset",
+    "description": "Label for button to confirm progress reset"
+  },
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
@@ -1338,6 +1354,10 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
+  },
+  "eBp6vh": {
+    "defaultMessage": "Reset Progress",
+    "description": "Title for reset progress confirmation dialog"
   },
   "eFGHLB": {
     "defaultMessage": "You won't find the same depth and quality elsewhere.",
@@ -1755,6 +1775,10 @@
     "defaultMessage": "We're still growing our question base.",
     "description": "Question base section title"
   },
+  "rfI2w+": {
+    "defaultMessage": "Cancel",
+    "description": "Label for button to cancel action"
+  },
   "ryCcOP": {
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
@@ -2010,6 +2034,10 @@
   "yeLNWe": {
     "defaultMessage": "ByteDance",
     "description": "Company name for ByteDance"
+  },
+  "yhHx9e": {
+    "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
+    "description": "Warning message in reset progress confirmation dialog"
   },
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",

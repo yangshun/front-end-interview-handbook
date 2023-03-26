@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import QuestionLanguages from '~/components/questions/common/QuestionLanguages';
+import type { QuestionLanguage } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -13,14 +14,10 @@ import Text from '~/components/ui/Text';
 import { useQueryQuestionListCoding } from '~/db/QuestionsListQuery';
 import {
   getQuestionMetadata,
-  useMutationQuestionProgressDeleteAll,
   useQueryQuestionProgressAll,
 } from '~/db/QuestionsProgressClient';
 
-import { useToast } from '../global/toasts/ToastsProvider';
-import QuestionLanguages from '../questions/common/QuestionLanguages';
-import type { QuestionLanguage } from '../questions/common/QuestionsTypes';
-import Dialog from '../ui/Dialog';
+import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
 
 import { RectangleStackIcon } from '@heroicons/react/24/outline';
 import type { User } from '@supabase/supabase-js';
@@ -67,10 +64,6 @@ type Props = Readonly<{
 }>;
 
 export default function ProfileActivity({ user }: Props) {
-  const intl = useIntl();
-  const { showToast } = useToast();
-  const [isResetProgressDialogShown, setIsResetProgressDialogShown] =
-    useState(false);
   const {
     data: questionProgress,
     isLoading: isFetchingQuestionProgress,
@@ -81,7 +74,6 @@ export default function ProfileActivity({ user }: Props) {
     isLoading: isFetchingQuestionList,
     isError: isErrorQuestionList,
   } = useQueryQuestionListCoding();
-  const resetProgressMutation = useMutationQuestionProgressDeleteAll();
 
   if (isFetchingQuestionProgress || isFetchingQuestionList) {
     return (
@@ -119,26 +111,6 @@ export default function ProfileActivity({ user }: Props) {
     }))
     .filter(({ metadata }) => !!metadata);
 
-  const resetProgress = () => {
-    resetProgressMutation.mutate(
-      { user },
-      {
-        onError: () => {
-          showToast({
-            title: 'Failed to reset progress. Please try again',
-            variant: 'failure',
-          });
-        },
-        onSuccess: () => {
-          showToast({
-            title: 'Reset progress successful',
-            variant: 'success',
-          });
-        },
-      },
-    );
-  };
-
   return (
     <div className="flex flex-col gap-y-4">
       <Heading className="flex flex-row justify-between border-b border-slate-200 pb-4 text-xl font-semibold">
@@ -147,60 +119,8 @@ export default function ProfileActivity({ user }: Props) {
           description="Heading for list of completed questions."
           id="CqG3Op"
         />
-        <Button
-          label={intl.formatMessage({
-            defaultMessage: 'Reset Progress',
-            description: 'Label for button to reset progress',
-            id: 'PB+rpp',
-          })}
-          variant="primary"
-          onClick={() => setIsResetProgressDialogShown(true)}
-        />
-        <Dialog
-          isShown={isResetProgressDialogShown}
-          primaryButton={
-            <Button
-              display="block"
-              label={intl.formatMessage({
-                defaultMessage: 'Reset',
-                description: 'Label for button to confirm progress reset',
-                id: 'dFz30c',
-              })}
-              variant="primary"
-              onClick={() => {
-                setIsResetProgressDialogShown(false);
-                resetProgress();
-              }}
-            />
-          }
-          secondaryButton={
-            <Button
-              display="block"
-              label={intl.formatMessage({
-                defaultMessage: 'Cancel',
-                description: 'Label for button to cancel action',
-                id: 'rfI2w+',
-              })}
-              variant="tertiary"
-              onClick={() => setIsResetProgressDialogShown(false)}
-            />
-          }
-          title={intl.formatMessage({
-            defaultMessage: 'Reset Progress',
-            description: 'Title for reset progress confirmation dialog',
-            id: 'eBp6vh',
-          })}
-          onClose={() => setIsResetProgressDialogShown(false)}>
-          <Text color="secondary" display="block">
-            <FormattedMessage
-              defaultMessage="All your progress will be reset, are you sure?"
-              description="Text in reset progress confirmation dialog"
-              id="u4Qqnq"
-            />
-          </Text>
-        </Dialog>
+        <ProfileActivityResetProgressButton user={user} />
       </Heading>
-
       <Section>
         <ul
           className="relative z-0 divide-y divide-slate-200 border-slate-200"
