@@ -33,15 +33,15 @@ breadthFirstSearch(graph1, 'A'); // ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
          |
          J
 
-breadthFirstSearch(graph1, 'B'); // ['B', 'E', 'F', 'D', 'G', 'H', 'I', 'J', 'C']
+breadthFirstSearch(graph1, 'B'); // ['B', 'E', 'F', 'D', 'I', 'J']
 
     B
-  / | \
- E  F  A
-       | \
-       C  D
-      /|   | \
-     G H   I  J
+   / \
+  E   F
+  |
+  D
+ / \
+I   J
 
 
 const graph2 = {
@@ -64,15 +64,6 @@ breadthFirstSearch(graph2, 'A')); // ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
 breadthFirstSearch(graph2, 'E')); // ['E']
 
-  E
-  |
-  B
- / \
-D   A
-    / \
-   C   F
-        \
-         G
 
 ```
 
