@@ -1,6 +1,6 @@
 /**
  * @param {Object} graph Node to array of neighboring nodes.
- * @param {string=} source Source node to start traversal from. Has to be a valid node if graph is non-empty.
+ * @param {string} source Source node to start traversal from. Has to be a valid node if graph is non-empty.
  * @return {Array<string>} A BFS-traversed order of nodes.
  */
 export default function breadthFirstSearch(graph, source) {
@@ -10,10 +10,10 @@ export default function breadthFirstSearch(graph, source) {
 /*  Auxiliary classes */
 
 /**
- * A Queue class with O(1) enqueue and dequeue is provided to you.
- * You don't need to implement it.
+ * A Queue class with O(1) enqueue and dequeue is provided for you.
+ * You can use it directly should you wish to.
  *
- * Exampe usage:
+ * Example usage:
  * const q = new Queue();
  * q.enqueue('a');
  * q.enqueue('b');

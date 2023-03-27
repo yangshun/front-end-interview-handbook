@@ -63,20 +63,20 @@ breadthFirstSearch(graph2, 'A')); // ['A', 'B', 'C', 'D', 'E', 'F', 'G']
  D   E  F    G
 
 breadthFirstSearch(graph2, 'E')); // ['E']
-
-
 ```
+
+A `Queue` data structure is also provided for you at the bottom of the skeleton code.
 
 ## Recap (Hint)
 
 Breadth-first search (BFS) is an algorithm used for traversing a graph or a tree. Here is an overview of how BFS works to traverse a graph, using the standard implementation that takes in an adjacency list (we use an array instead) and the root node:
 
-1. Initialize a queue to store nodes to be visited. Push root node.
+1. Initialize a queue to store nodes to be visited. Enqueue the root node.
 1. Initialize a set to track visited nodes.
 1. Enter a loop that continues until the queue is empty. In each iteration of the loop:
-   1. Pop the top node from the queue and mark it as visited.
+   1. Dequeue from the queue and mark it as visited.
    1. Retrieve the neighbors of the node from the input graph.
-   1. Enqueue the neighbors of the current node.
+   1. For each neighbor, check if it has been visited. If it has not been visited, enqueue the node.
 1. Return the set of visited nodes.
 
-BFS is useful for the same purposes as [DFS](/questions/javascript/depth-first-search), and it is especially useful for finding the shortest path between two nodes.
+Breadth-first search is useful for the same purposes as [Depth-first search](/questions/javascript/depth-first-search), and it is especially useful for finding the shortest path between two nodes.
