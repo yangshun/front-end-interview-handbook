@@ -1,7 +1,7 @@
 'use client';
 
 import PromoBanner from '~/components/global/PromoBanner';
-import { useCodingQuestionListGuideItems } from '~/components/guides/FrontEndInterviewGuidebookNavigation';
+import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFormatTitleSection from '~/components/questions/listings/QuestionFormatTitleSection';
 import QuestionsCodingListWithFilters from '~/components/questions/listings/QuestionsCodingListWithFilters';

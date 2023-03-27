@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
-import { ArticleJsonLd } from 'next-seo';
+
+import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -69,20 +70,11 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <ArticleJsonLd
-        authorName={[
-          {
-            name: 'GreatFrontEnd',
-            url: 'https://twitter.com/greatfrontend',
-          },
-        ]}
-        datePublished="2022-11-01T08:00:00+08:00"
+      <GuidesArticleJsonLd
         description={question.metadata.excerpt ?? ''}
-        images={[]}
         isAccessibleForFree={!question.metadata.premium}
+        pathname={question.metadata.href}
         title={`Front End System Design: ${question.metadata.title}`}
-        url={`https://www.greatfrontend.com${question.metadata.href}`}
-        useAppDir={true}
       />
       <QuestionsSystemDesignPage
         canViewPremiumContent={canViewPremiumContent}

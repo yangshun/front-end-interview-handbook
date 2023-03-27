@@ -31,7 +31,7 @@ import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
-import { allSystemDesignQuestions } from '../content/system-design/SystemDesignContentNavigation';
+import { allSystemDesignQuestions } from '../content/system-design/SystemDesignNavigation';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';

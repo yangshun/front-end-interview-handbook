@@ -12,7 +12,7 @@ import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSi
 import {
   ReadyQuestions,
   useSystemDesignNavigation,
-} from '~/components/questions/content/system-design/SystemDesignContentNavigation';
+} from '~/components/questions/content/system-design/SystemDesignNavigation';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -28,7 +28,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
   const { pathname } = useI18nPathname();
   const { userProfile } = useUserProfile();
   const isPremiumUser = userProfile?.isPremium ?? false;
-  const systemDesignNavigation = useSystemDesignNavigation();
+  const { items: systemDesignNavigation } = useSystemDesignNavigation();
 
   useScrollToTop([pathname]);
 

@@ -1,23 +1,18 @@
+import type {
+  BaseGuideNavigationLink,
+  GuideNavigation,
+} from '~/components/guides/GuidesLayoutSidebar';
+
 import SystemDesignQuestionList from '~/__generated__/questions/system-design/list.en.json';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
-type NavigationLinks = ReadonlyArray<
-  Readonly<{
-    description?: string;
-    href: string;
-    premium: boolean;
-    slug: string;
-    title: string;
-    type: 'guide' | 'question';
-  }>
->;
-type Navigation = ReadonlyArray<
-  Readonly<{
-    links: NavigationLinks;
-    title: string;
-  }>
->;
+export type SystemDesignNavigationLink = BaseGuideNavigationLink<{
+  premium: boolean;
+  type: 'guide' | 'question';
+}>;
+
+type NavigationLinks = ReadonlyArray<SystemDesignNavigationLink>;
 
 export const ReadyQuestions: ReadonlyArray<string> = [
   'autocomplete',
@@ -120,40 +115,43 @@ export function useSystemDesignNavigation() {
   const systemDesignIntroduction = useSystemDesignIntroduction();
   const systemDesignGuides = useSystemDesignGuides();
 
-  const navigation: Navigation = [
-    {
-      links: systemDesignIntroduction,
-      title: 'Overview',
-    },
-    {
-      links: systemDesignGuides,
-      title: 'How to Prepare',
-    },
-    {
-      links: readySystemDesignQuestions.map((question) => ({
-        href: question.href,
-        premium: question.premium,
-        slug: question.slug,
-        title: question.title,
-        type: 'question',
-      })),
-      title: 'Questions',
-    },
-    {
-      links: allSystemDesignQuestions
-        .slice()
-        .sort((a, b) => a.ranking - b.ranking)
-        .filter((question) => !ReadyQuestions.includes(question.slug))
-        .map((question) => ({
+  const navigation: GuideNavigation<SystemDesignNavigationLink> = {
+    items: [
+      {
+        links: systemDesignIntroduction,
+        title: 'Overview',
+      },
+      {
+        links: systemDesignGuides,
+        title: 'How to Prepare',
+      },
+      {
+        links: readySystemDesignQuestions.map((question) => ({
           href: question.href,
           premium: question.premium,
           slug: question.slug,
           title: question.title,
           type: 'question',
         })),
-      title: 'Coming Soon',
-    },
-  ];
+        title: 'Questions',
+      },
+      {
+        links: allSystemDesignQuestions
+          .slice()
+          .sort((a, b) => a.ranking - b.ranking)
+          .filter((question) => !ReadyQuestions.includes(question.slug))
+          .map((question) => ({
+            href: question.href,
+            premium: question.premium,
+            slug: question.slug,
+            title: question.title,
+            type: 'question',
+          })),
+        title: 'Coming Soon',
+      },
+    ],
+    title: 'Front End System Design Guidebook',
+  };
 
   return navigation;
 }

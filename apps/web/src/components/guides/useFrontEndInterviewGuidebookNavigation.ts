@@ -1,12 +1,12 @@
 import type {
-  GuidesNavigation,
-  GuidesNavigationLink,
+  GuideNavigation,
+  GuideNavigationLink,
 } from './GuidesLayoutSidebar';
 
 export const basePath = '/front-end-interview-guidebook';
 
 function useCodingSectionItem() {
-  const codingSectionItem: GuidesNavigationLink = {
+  const codingSectionItem: GuideNavigationLink = {
     cardTitle: 'Intro to Coding Round',
     description: 'What to expect in the coding round and tips to succeed',
     href: `${basePath}/coding`,
@@ -18,7 +18,7 @@ function useCodingSectionItem() {
 }
 
 export function useQuizSectionItem() {
-  const quizSectionItem: GuidesNavigationLink = {
+  const quizSectionItem: GuideNavigationLink = {
     cardTitle: 'Intro to Quiz Questions',
     description:
       'What to expect, which rounds to expect them, and how to prepare',
@@ -31,7 +31,7 @@ export function useQuizSectionItem() {
 }
 
 function useCodingSectionFormatItems() {
-  const codingSectionFormatItems: ReadonlyArray<GuidesNavigationLink> = [
+  const codingSectionFormatItems: ReadonlyArray<GuideNavigationLink> = [
     {
       description: 'Algo concepts to cover and tips to succeed',
       href: `${basePath}/algorithms`,
@@ -59,7 +59,7 @@ export function useCodingQuestionListGuideItems() {
   const codingSectionItem = useCodingSectionItem();
   const codingSectionFormatItems = useCodingSectionFormatItems();
 
-  const combined: ReadonlyArray<GuidesNavigationLink> = [
+  const combined: ReadonlyArray<GuideNavigationLink> = [
     codingSectionItem,
     ...codingSectionFormatItems,
   ];
@@ -71,7 +71,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
   const codingSectionItem = useCodingSectionItem();
   const quizSectionItem = useQuizSectionItem();
   const codingSectionFormatItems = useCodingSectionFormatItems();
-  const navigation: GuidesNavigation = {
+  const navigation: GuideNavigation = {
     items: [
       {
         links: [

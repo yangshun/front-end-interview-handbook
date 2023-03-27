@@ -1,7 +1,7 @@
 'use client';
 
 import PromoBanner from '~/components/global/PromoBanner';
-import { useSystemDesignLearningContent } from '~/components/questions/content/system-design/SystemDesignContentNavigation';
+import { useSystemDesignLearningContent } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import QuestionFormatTitleSection from '~/components/questions/listings/QuestionFormatTitleSection';
 import QuestionsGuidesGrid from '~/components/questions/listings/QuestionsGuidesGrid';
 import QuestionsSystemDesignListWithFilters from '~/components/questions/listings/QuestionsSystemDesignListWithFilters';

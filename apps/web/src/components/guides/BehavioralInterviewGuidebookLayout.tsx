@@ -1,6 +1,10 @@
 'use client';
 
-import GuidesLayoutContents from './GuidesLayoutContents';
+import { useI18nPathname } from 'next-i18nostic';
+
+import GuidesArticle from './GuidesArticle';
+import GuidesArticleJsonLd from './GuidesArticleJsonLd';
+import GuidesMainLayout from './GuidesMainLayout';
 import type { TableOfContents } from './GuidesTableOfContents';
 import useBehavioralInterviewGuidebookNavigation from './useBehavioralInterviewGuidebookNavigation';
 
@@ -18,14 +22,23 @@ export default function BehavioralInterviewGuidebookLayout({
   tableOfContents,
 }: Props) {
   const navigation = useBehavioralInterviewGuidebookNavigation();
+  const { pathname } = useI18nPathname();
 
   return (
-    <GuidesLayoutContents
-      description={description}
-      navigation={navigation}
-      tableOfContents={tableOfContents}
-      title={title}>
-      {children}
-    </GuidesLayoutContents>
+    <>
+      <GuidesArticleJsonLd
+        description={description}
+        isAccessibleForFree={true}
+        pathname={pathname}
+        title={title}
+      />
+      <GuidesMainLayout
+        navigation={navigation}
+        tableOfContents={tableOfContents}>
+        <GuidesArticle description={description} title={title}>
+          {children}
+        </GuidesArticle>
+      </GuidesMainLayout>
+    </>
   );
 }

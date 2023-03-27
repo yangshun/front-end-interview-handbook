@@ -1,6 +1,12 @@
-import { useFrontEndInterviewGuidebookNavigation } from './FrontEndInterviewGuidebookNavigation';
-import GuidesLayoutContents from './GuidesLayoutContents';
+'use client';
+
+import { useI18nPathname } from 'next-i18nostic';
+
+import GuidesArticle from './GuidesArticle';
+import GuidesArticleJsonLd from './GuidesArticleJsonLd';
+import GuidesMainLayout from './GuidesMainLayout';
 import type { TableOfContents } from './GuidesTableOfContents';
+import { useFrontEndInterviewGuidebookNavigation } from './useFrontEndInterviewGuidebookNavigation';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -16,14 +22,23 @@ export default function FrontEndInterviewGuidebookLayout({
   title,
 }: Props) {
   const navigation = useFrontEndInterviewGuidebookNavigation();
+  const { pathname } = useI18nPathname();
 
   return (
-    <GuidesLayoutContents
-      description={description}
-      navigation={navigation}
-      tableOfContents={tableOfContents}
-      title={title}>
-      {children}
-    </GuidesLayoutContents>
+    <>
+      <GuidesArticleJsonLd
+        description={description}
+        isAccessibleForFree={true}
+        pathname={pathname}
+        title={title}
+      />
+      <GuidesMainLayout
+        navigation={navigation}
+        tableOfContents={tableOfContents}>
+        <GuidesArticle description={description} title={title}>
+          {children}
+        </GuidesArticle>
+      </GuidesMainLayout>
+    </>
   );
 }

@@ -18,7 +18,7 @@ import type {
   QuestionFramework,
   QuestionMetadata,
 } from '../common/QuestionsTypes';
-import { ReadyQuestions } from '../content/system-design/SystemDesignContentNavigation';
+import { ReadyQuestions } from '../content/system-design/SystemDesignNavigation';
 
 import {
   ChevronRightIcon,

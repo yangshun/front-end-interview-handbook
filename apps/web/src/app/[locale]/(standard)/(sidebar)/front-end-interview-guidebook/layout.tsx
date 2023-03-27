@@ -1,7 +1,7 @@
 'use client';
 
-import { useFrontEndInterviewGuidebookNavigation } from '~/components/guides/FrontEndInterviewGuidebookNavigation';
 import GuidesLayoutSidebar from '~/components/guides/GuidesLayoutSidebar';
+import { useFrontEndInterviewGuidebookNavigation } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 
 type Props = Readonly<{
   children: React.ReactNode;

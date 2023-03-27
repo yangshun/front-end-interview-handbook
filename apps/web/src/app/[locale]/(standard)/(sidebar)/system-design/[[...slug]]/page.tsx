@@ -4,9 +4,9 @@ import type { Metadata } from 'next/types';
 import { generateStaticParamsWithLocale } from 'next-i18nostic';
 import path from 'path';
 
+import SystemDesignGuidebookLayout from '~/components/guides/SystemDesignGuidebookLayout';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
-import SystemDesignGuideLayoutContents from '~/components/questions/content/system-design/SystemDesignGuideLayoutContents';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
@@ -94,11 +94,11 @@ export default async function Page(props: Props) {
   });
 
   return (
-    <SystemDesignGuideLayoutContents
+    <SystemDesignGuidebookLayout
       description={description}
       tableOfContents={tableOfContents}
       title={title}>
       <Markdown components={MDXComponents} />
-    </SystemDesignGuideLayoutContents>
+    </SystemDesignGuidebookLayout>
   );
 }

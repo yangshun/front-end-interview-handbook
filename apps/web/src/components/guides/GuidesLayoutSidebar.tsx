@@ -12,37 +12,49 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import QuestionsSidebarCollapser from '../questions/common/QuestionsSidebarCollapser';
 
-export type GuidesNavigationLink = Readonly<{
+export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
+  T & {
+    description?: string;
+    href: string;
+    items?: GuideNavigationLinks<BaseGuideNavigationLink<T>>;
+    slug: string;
+    title: string;
+  }
+>;
+
+export type GuideNavigationLink = BaseGuideNavigationLink<{
   cardTitle?: string;
-  description?: string;
-  href: string;
-  items?: GuidesNavigationLinks;
-  slug: string;
-  title: string;
 }>;
 
-export type GuidesNavigationLinks = ReadonlyArray<GuidesNavigationLink>;
-export type GuidesNavigationItems = ReadonlyArray<
+export type GuideNavigationLinks<
+  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
+> = ReadonlyArray<Link>;
+
+export type GuideNavigationItems<
+  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
+> = ReadonlyArray<
   Readonly<{
-    links: GuidesNavigationLinks;
+    links: GuideNavigationLinks<Link>;
     title: string;
   }>
 >;
 
-export type GuidesNavigation = Readonly<{
-  items: GuidesNavigationItems;
+export type GuideNavigation<
+  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
+> = Readonly<{
+  items: GuideNavigationItems<Link>;
   title: string;
 }>;
 
 type Props = Readonly<{
   children?: React.ReactNode;
-  navigation: GuidesNavigation;
+  navigation: GuideNavigation;
 }>;
 
 function LinksList({
   items,
 }: Readonly<{
-  items: GuidesNavigationLinks;
+  items: GuideNavigationLinks;
 }>) {
   const { pathname } = useI18nPathname();
 

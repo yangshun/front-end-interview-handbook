@@ -1,7 +1,7 @@
 'use client';
 
 import PromoBanner from '~/components/global/PromoBanner';
-import { useQuizSectionItem } from '~/components/guides/FrontEndInterviewGuidebookNavigation';
+import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFormatTitleSection from '~/components/questions/listings/QuestionFormatTitleSection';
 import QuestionsGuidesGrid from '~/components/questions/listings/QuestionsGuidesGrid';

@@ -1,9 +1,9 @@
-import type { GuidesNavigation } from './GuidesLayoutSidebar';
+import type { GuideNavigation } from './GuidesLayoutSidebar';
 
 export const basePath = '/behavioral-interview-guidebook';
 
 export default function useBehavioralInterviewGuidebookNavigation() {
-  const navigation: GuidesNavigation = {
+  const navigation: GuideNavigation = {
     items: [
       {
         links: [

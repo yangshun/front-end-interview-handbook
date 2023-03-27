@@ -1,4 +1,4 @@
-import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/FrontEndInterviewGuidebookNavigation';
+import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 
 import {
