@@ -1,5 +1,6 @@
 'use client';
 
+import jsCookie from 'js-cookie';
 import { useSearchParams } from 'next/navigation';
 import { useI18nRouter } from 'next-i18nostic';
 import { useEffect } from 'react';
@@ -15,12 +16,12 @@ export default function LogoutPage() {
   const intl = useIntl();
   const router = useI18nRouter();
   const searchParams = useSearchParams();
-  const nextSearchParam = searchParams?.get('next');
 
   useEffect(() => {
     async function logout() {
       await supabaseClient.auth.signOut();
 
+      const nextSearchParam = searchParams?.get('next');
       // Redirect user to the previous page if defined and the
       // previous page is not the logout page.
       const redirectPath =
@@ -28,17 +29,23 @@ export default function LogoutPage() {
           ? nextSearchParam
           : '/prepare';
 
-      // Effects are fired twice in development and will result
-      // in double redirection and the second redirection will end up
-      // bringing the user to the default page. Do this check so that
-      // this only runs if we're on the logout page.
-      if (window.location.pathname.includes('/logout')) {
-        router.push(redirectPath);
-      }
+      // TODO: There's a problem with signing out not actually signing out.
+      // Force the cookie to be removed and wait a while before redirecting.
+      setTimeout(() => {
+        jsCookie.remove('supabase-auth-token');
+        // Effects are fired twice in development and will result
+        // in double redirection and the second redirection will end up
+        // bringing the user to the default page. Do this check so that
+        // this only runs if we're on the logout page.
+        if (window.location.pathname.includes('/logout')) {
+          // Do a hard redirect.
+          window.location.href = redirectPath;
+        }
+      }, 1000);
     }
 
     logout();
-  }, [nextSearchParam, router, supabaseClient.auth]);
+  }, [searchParams, router, supabaseClient.auth]);
 
   return (
     <Container className="flex h-96 items-center justify-center">

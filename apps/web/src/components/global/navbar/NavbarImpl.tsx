@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
+import { useI18nRouter } from 'next-i18nostic';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -522,6 +523,8 @@ function useNavLinks(
 
 function useUserNavigationLinks() {
   const intl = useIntl();
+  const router = useI18nRouter();
+
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
       href: '/profile',
@@ -541,9 +544,7 @@ function useUserNavigationLinks() {
       type: 'link',
     },
     {
-      href: `/logout?next=${encodeURIComponent(
-        typeof window !== 'undefined' ? window.location.pathname : '',
-      )}`,
+      href: '#',
       itemKey: 'logout',
       label: intl.formatMessage({
         defaultMessage: 'Sign Out',
@@ -551,6 +552,11 @@ function useUserNavigationLinks() {
         id: '641P5n',
       }),
       onClick: () => {
+        router.push(
+          `/logout?next=${encodeURIComponent(
+            typeof window !== 'undefined' ? window.location.pathname : '',
+          )}`,
+        );
         gtag.event({
           action: `nav.sign_out.click`,
           category: 'engagement',

@@ -4,13 +4,11 @@ export type NavBaseItem = Readonly<{
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }>;
 
-export type NavLinkItem = Readonly<
-  NavBaseItem &
-    Readonly<{
-      href: string;
-      type: 'link';
-    }>
->;
+export type NavLinkItem = NavBaseItem &
+  Readonly<{
+    href: string;
+    type: 'link';
+  }>;
 
 export type NavPrimaryItem = Readonly<{
   position: 'end' | 'start';
