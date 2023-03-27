@@ -1,6 +1,6 @@
 /**
  * @param {Object} graph Node to array of neighboring nodes.
- * @param {string=} source Source node to start traversal from. Has to be a valid node if graph is non-empty.
+ * @param {string} source Source node to start traversal from. Has to be a valid node if graph is non-empty.
  * @return {string[]} A DFS-traversed order of nodes.
  */
 export default function depthFirstSearch(graph, source) {
