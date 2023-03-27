@@ -10,7 +10,7 @@ export default function SidebarLayout({ children }: Props) {
       <aside
         className="sticky z-20 hidden w-24 shrink-0 overflow-visible md:block"
         style={{
-          height: `calc(100vh - var(--navbar-height))`,
+          height: `calc(100dvh - var(--navbar-height))`,
           top: `var(--navbar-height)`,
         }}>
         <QuestionsSidebar />

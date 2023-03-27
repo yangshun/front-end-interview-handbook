@@ -38,7 +38,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
         <div
           className="sticky hidden lg:flex"
           style={{
-            height: `calc(100vh - var(--navbar-height))`,
+            height: `calc(100dvh - var(--navbar-height))`,
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (

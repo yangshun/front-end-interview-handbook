@@ -94,7 +94,7 @@ export default function SystemDesignLayoutContents({
               key={currentItem?.href}
               className="hidden xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
               style={{
-                height: `calc(100vh - var(--navbar-height))`,
+                height: `calc(100dvh - var(--navbar-height))`,
                 top: `var(--navbar-height)`,
               }}>
               <GuidesTableOfContents tableOfContents={tableOfContents} />

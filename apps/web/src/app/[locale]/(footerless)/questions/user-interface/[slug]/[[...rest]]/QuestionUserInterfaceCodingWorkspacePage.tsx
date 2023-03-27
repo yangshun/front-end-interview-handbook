@@ -399,7 +399,7 @@ export default function QuestionUserInterfaceCodingWorkspacePage({
   return (
     <>
       <style>{`@media (min-width:1024px) {
-        #container { height: calc(100vh - var(--navbar-height)); }
+        #container { height: calc(100dvh - var(--navbar-height)); }
         #left-section { width: ${leftPaneWidth}px; }
       }`}</style>
       <div

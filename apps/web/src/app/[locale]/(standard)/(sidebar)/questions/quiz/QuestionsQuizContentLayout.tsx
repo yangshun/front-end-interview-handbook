@@ -31,7 +31,7 @@ export default function QuestionsQuizContentLayout({
       <div
         className="sticky flex"
         style={{
-          height: `calc(100vh - var(--navbar-height))`,
+          height: `calc(100dvh - var(--navbar-height))`,
           top: `var(--navbar-height)`,
         }}>
         {showSidebar && (

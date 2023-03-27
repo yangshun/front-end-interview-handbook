@@ -86,7 +86,7 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
         <div
           className="sticky hidden lg:flex"
           style={{
-            height: `calc(100vh - var(--navbar-height))`,
+            height: `calc(100dvh - var(--navbar-height))`,
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
