@@ -70,7 +70,8 @@
     "remark-mdx-frontmatter": "^2.1.1",
     "remark-slug": "^7.0.1",
     "server-only": "^0.0.1",
-    "stripe": "^11.11.0"
+    "stripe": "^11.11.0",
+    "usehooks-ts": "^2.9.1"
   },
   "devDependencies": {
     "@formatjs/cli": "^6.0.1",
