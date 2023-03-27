@@ -1,14 +1,18 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
-import useScrollParent from './useScrollParent';
-
-type ScrollIntoViewOptions = {
+type ScrollIntoViewOptions = Readonly<{
   behavior: ScrollBehavior;
   // The number of pixels inwards from the top/bottom of the screen to the element scroll to.
   inPadding: number;
   // The number of pixels inwards from the top/bottom of the screen the element has to be
   // to be considered out of view.
   outPadding: number;
+}>;
+
+const defaultScrollIntoViewOptions: ScrollIntoViewOptions = {
+  behavior: 'auto',
+  inPadding: 64,
+  outPadding: 0,
 };
 
 export default function useScrollIntoView(
@@ -17,9 +21,7 @@ export default function useScrollIntoView(
 ) {
   const options = useMemo<ScrollIntoViewOptions>(
     () => ({
-      behavior: 'auto',
-      inPadding: 64,
-      outPadding: 0,
+      ...defaultScrollIntoViewOptions,
       ...partialOptions,
     }),
     [partialOptions],
@@ -40,7 +42,9 @@ export default function useScrollIntoView(
           });
         } else if (
           elementToScroll.offsetTop >
-          scrollParent.scrollTop + scrollParent.clientHeight - options.outPadding
+          scrollParent.scrollTop +
+            scrollParent.clientHeight -
+            options.outPadding
         ) {
           // Scroll until the bottom of the link is at the bottom of the screen
           scrollParent.scrollTo({

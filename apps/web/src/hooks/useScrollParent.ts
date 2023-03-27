@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 function getScrollParent(element: HTMLElement): HTMLElement | null {
-  // Check if scrollable using computed style
-  const style = getComputedStyle(element);
+  // Check if scrollable using computed style.
+  const style = window.getComputedStyle(element);
 
   if (style.overflowY === 'auto' || style.overflowY === 'scroll') {
     return element;
