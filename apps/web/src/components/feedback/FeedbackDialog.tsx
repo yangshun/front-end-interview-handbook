@@ -10,6 +10,8 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
+import logMessage from '~/logging/logMessage';
+
 import useMarketingContactPlatformsConfig from '../marketing/contact/MarketingContactPlatformsConfig';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -99,6 +101,12 @@ export default function FeedbackDialog({
               event.stopPropagation();
 
               const data = new FormData(event.target as HTMLFormElement);
+
+              logMessage({
+                level: 'info',
+                message: `User feedback: ${data.get('message')}`,
+              });
+
               const response = await fetch('/api/marketing/feedback', {
                 body: JSON.stringify({
                   message: data.get('message') as string,
