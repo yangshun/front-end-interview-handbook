@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^1.20.9",
+    "@fullstory/browser": "^1.7.0",
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "2.0.13",
     "@mdx-js/react": "^2.3.0",
@@ -70,6 +71,7 @@
     "remark-mdx-frontmatter": "^2.1.1",
     "remark-slug": "^7.0.1",
     "server-only": "^0.0.1",
+    "smartlook-client": "^8.1.0",
     "stripe": "^11.11.0",
     "usehooks-ts": "^2.9.1"
   },

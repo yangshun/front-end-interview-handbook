@@ -1,10 +1,10 @@
 import FirstPromoter from '~/components/global/FirstPromoter';
-import FullStory from '~/components/global/FullStory';
+import FullStoryInit from '~/components/global/FullStoryInit';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import GoogleAnalytics from '~/components/global/GoogleAnalytics';
 import MetaPixel from '~/components/global/MetaPixel';
-import Mouseflow from '~/components/global/Mouseflow';
-import SmartLook from '~/components/global/SmartLook';
+import MouseflowInit from '~/components/global/MouseflowInit';
+import SmartlookInit from '~/components/global/SmartlookInit';
 
 import type { IntlMessages } from '~/i18n';
 
@@ -38,9 +38,9 @@ export default function RootLayout({
           {children}
           <VercelAnalytics />
           <FirstPromoter />
-          <SmartLook countryCode={countryCode} />
-          <Mouseflow countryCode={countryCode} />
-          <FullStory countryCode={countryCode} />
+          <SmartlookInit countryCode={countryCode} />
+          <MouseflowInit countryCode={countryCode} />
+          <FullStoryInit countryCode={countryCode} />
         </GlobalProviders>
       </body>
     </html>
