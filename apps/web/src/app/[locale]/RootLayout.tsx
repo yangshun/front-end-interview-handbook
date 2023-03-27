@@ -2,6 +2,7 @@ import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import GoogleAnalytics from '~/components/global/GoogleAnalytics';
 import MetaPixel from '~/components/global/MetaPixel';
+import SmartLook from '~/components/global/SmartLook';
 
 import type { IntlMessages } from '~/i18n';
 
@@ -35,6 +36,7 @@ export default function RootLayout({
           {children}
           <VercelAnalytics />
           <FirstPromoter />
+          <SmartLook countryCode={countryCode} />
         </GlobalProviders>
       </body>
     </html>
