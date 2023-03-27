@@ -8,6 +8,7 @@ import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
 import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
+import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
 import TabsExamples from '~/components/ui/Tabs/TabsExamples';
@@ -24,6 +25,7 @@ export default function UILibraryPage() {
         <ButtonExamples />
         <SpinnerExamples />
         <TabsExamples />
+        <SelectExamples />
         <TextInputExamples />
         <TextAreaExamples />
         <BannerExamples />

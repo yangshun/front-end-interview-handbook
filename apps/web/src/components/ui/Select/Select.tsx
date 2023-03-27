@@ -7,6 +7,7 @@ export type SelectItem<T> = Readonly<{
 }>;
 
 type SelectDisplay = 'block' | 'inline';
+type SelectSize = 'md' | 'sm';
 
 type Props<T> = Readonly<{
   display?: SelectDisplay;
@@ -15,8 +16,28 @@ type Props<T> = Readonly<{
   name?: string;
   onChange: (value: string) => void;
   options: ReadonlyArray<SelectItem<T>>;
+  size?: SelectSize;
   value: T;
 }>;
+
+const textSizeClasses: Record<
+  SelectSize,
+  Readonly<{ label: string; option: string }>
+> = {
+  md: {
+    label: 'text-sm',
+    option: 'sm:text-sm',
+  },
+  sm: {
+    label: 'text-xs',
+    option: 'sm:text-xs',
+  },
+};
+
+const paddingSizeClasses: Record<SelectSize, string> = {
+  md: 'py-2 pl-3 pr-10 ',
+  sm: 'py-1.5 pl-2 pr-10 ',
+};
 
 export default function Select<T>({
   display,
@@ -24,6 +45,7 @@ export default function Select<T>({
   isLabelHidden,
   name,
   options,
+  size = 'md',
   value,
   onChange,
 }: Props<T>) {
@@ -33,7 +55,8 @@ export default function Select<T>({
     <div>
       <label
         className={clsx(
-          'mb-1 block text-sm font-medium text-slate-700',
+          'mb-1 block font-medium text-slate-700',
+          textSizeClasses[size].label,
           isLabelHidden && 'sr-only',
         )}
         htmlFor={id ?? undefined}>
@@ -43,7 +66,9 @@ export default function Select<T>({
         aria-label={isLabelHidden ? label : undefined}
         className={clsx(
           display === 'block' && 'block w-full',
-          'focus:border-brand-500 focus:ring-brand-500 rounded-md border-slate-300 py-2 pl-3 pr-10 text-base focus:outline-none sm:text-sm',
+          'focus:border-brand-500 focus:ring-brand-500 rounded-md border-slate-300 focus:outline-none',
+          paddingSizeClasses[size],
+          textSizeClasses[size].label,
         )}
         id={id}
         name={name ?? undefined}
