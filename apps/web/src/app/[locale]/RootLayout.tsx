@@ -1,4 +1,5 @@
 import FirstPromoter from '~/components/global/FirstPromoter';
+import FullStory from '~/components/global/FullStory';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import GoogleAnalytics from '~/components/global/GoogleAnalytics';
 import MetaPixel from '~/components/global/MetaPixel';
@@ -39,6 +40,7 @@ export default function RootLayout({
           <FirstPromoter />
           <SmartLook countryCode={countryCode} />
           <Mouseflow countryCode={countryCode} />
+          <FullStory countryCode={countryCode} />
         </GlobalProviders>
       </body>
     </html>
