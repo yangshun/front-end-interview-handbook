@@ -149,7 +149,8 @@ function PricingButtonSection({
       });
       logMessage({
         level: 'error',
-        message: `Error when trying to check out: ${err?.message}`,
+        message: err?.message,
+        title: 'Checkout attempt error',
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -193,11 +194,12 @@ function PricingButtonSection({
                   });
                   logMessage({
                     level: 'info',
-                    message: `Initiate checkout ${
+                    message: `${
                       plan.planType
                     } plan for ${plan.currency.toLocaleUpperCase()} ${
                       plan.unitCostLocalizedInCurrency
                     } but not signed in`,
+                    title: 'Checkout initiate (non-signed in)',
                   });
                 }}
               />
@@ -235,11 +237,12 @@ function PricingButtonSection({
                   });
                   logMessage({
                     level: 'info',
-                    message: `Initiate checkout ${
+                    message: `${
                       plan.planType
                     } plan for ${plan.currency.toLocaleUpperCase()} ${
                       plan.unitCostLocalizedInCurrency
                     }`,
+                    title: 'Checkout Initiate',
                   });
 
                   return processSubscription(plan.planType);

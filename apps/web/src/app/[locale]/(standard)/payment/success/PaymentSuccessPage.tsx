@@ -97,6 +97,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         } plan for ${plan.currency.toLocaleUpperCase()} ${
           plan.unitCostLocalizedInCurrency
         }`,
+        title: 'Purchase',
       });
     }
   }, [planSearchParam, plans]);

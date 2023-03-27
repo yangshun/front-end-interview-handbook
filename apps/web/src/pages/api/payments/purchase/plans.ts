@@ -26,6 +26,7 @@ export default async function handler(
     logMessage({
       level: 'error',
       message: `Error fetching pricing plans for ${countryCode}: ${err.message}`,
+      title: 'Pricing plans error',
     });
   }
 }

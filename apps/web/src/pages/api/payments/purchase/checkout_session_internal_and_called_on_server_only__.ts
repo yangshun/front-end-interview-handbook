@@ -8,8 +8,6 @@ import type { PricingPlanDetails, PricingPlanType } from '~/data/PricingPlans';
 
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
 
-import logMessage from '~/logging/logMessage';
-
 const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
 
 export type QueryParams = {
@@ -46,65 +44,50 @@ export default async function handler(
     apiVersion: '2022-11-15',
   });
 
-  try {
-    logMessage({
-      level: 'info',
-      message: `Attempting to generate pricing plan for ${countryCode}`,
-      userIdentifier: stripeCustomerId,
+  const data = await fetchLocalizedPlanPricing(countryCode);
+
+  const planDetails = data[planType];
+
+  if (planDetails == null) {
+    return res.status(401).send({
+      error: {
+        message: `Invalid or non-existent plan type: ${planType}`,
+      },
+      success: false,
     });
+  }
 
-    const data = await fetchLocalizedPlanPricing(countryCode);
+  const { currency, unitCostLocalizedInCurrency } = planDetails;
+  const unitAmountInStripeFormat = normalizeCurrencyValue(
+    unitCostLocalizedInCurrency,
+    currency,
+  );
 
-    const planDetails = data[planType];
-
-    if (planDetails == null) {
-      return res.status(401).send({
-        error: {
-          message: `Invalid or non-existent plan type: ${planType}`,
-        },
-        success: false,
-      });
-    }
-
-    const { currency, unitCostLocalizedInCurrency } = planDetails;
-    const unitAmountInStripeFormat = normalizeCurrencyValue(
-      unitCostLocalizedInCurrency,
+  if (planDetails.checkoutMode === 'subscription') {
+    return await processSubscriptionPlan(
+      req,
+      res,
+      stripeCustomerId,
+      stripe,
+      planDetails,
       currency,
+      unitAmountInStripeFormat,
+      firstPromoterTrackingId,
     );
+  }
 
-    if (planDetails.checkoutMode === 'subscription') {
-      return await processSubscriptionPlan(
-        req,
-        res,
-        stripeCustomerId,
-        stripe,
-        planDetails,
-        currency,
-        unitAmountInStripeFormat,
-        firstPromoterTrackingId,
-      );
-    }
-
-    if (planDetails.checkoutMode === 'payment') {
-      return await processOneTimePlan(
-        req,
-        res,
-        stripeCustomerId,
-        stripe,
-        planDetails,
-        currency,
-        unitAmountInStripeFormat,
-        receiptEmail,
-        firstPromoterTrackingId,
-      );
-    }
-  } catch (err) {
-    logMessage({
-      level: 'error',
-      message: `Error generating pricing plan for ${countryCode}`,
-      userIdentifier: stripeCustomerId,
-    });
-    throw err;
+  if (planDetails.checkoutMode === 'payment') {
+    return await processOneTimePlan(
+      req,
+      res,
+      stripeCustomerId,
+      stripe,
+      planDetails,
+      currency,
+      unitAmountInStripeFormat,
+      receiptEmail,
+      firstPromoterTrackingId,
+    );
   }
 }
 

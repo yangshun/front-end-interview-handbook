@@ -40,6 +40,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
       logMessage({
         level: 'warning',
         message: `Cancelled checkout for ${planSearchParams}`,
+        title: 'Checkout cancel',
       });
     }
   }, [cancelSearchParams, planSearchParams]);

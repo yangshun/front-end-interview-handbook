@@ -3,11 +3,13 @@ export type MessageLevel = 'error' | 'info' | 'success' | 'warning';
 export type Props = Readonly<{
   level: MessageLevel;
   message: string;
+  title: string;
   userIdentifier?: string;
 }>;
 
 export default async function logMessage({
   level,
+  title,
   message,
   userIdentifier,
 }: Props) {
@@ -22,6 +24,7 @@ export default async function logMessage({
       body: JSON.stringify({
         level,
         message,
+        title,
         user_identifier: userIdentifier,
       }),
       headers: {

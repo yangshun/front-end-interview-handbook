@@ -51,10 +51,11 @@ export default async function handler(
   } = await supabase.auth.getUser();
 
   const cookies = cookie.parse(req.headers.cookie ?? '');
-  const { level, message, user_identifier: userIdentifier } = req.body;
+  const { level, message, title, user_identifier: userIdentifier } = req.body;
 
   const finalMessage = [
     `Level: ${levelIcon[level as MessageLevel]}`,
+    `Title: ${title}`,
     `Message: ${message}`,
     req.headers.referer && `Referer: ${req.headers.referer}`,
     userIdentifier && `User Identifier: ${userIdentifier}`,

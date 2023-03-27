@@ -104,7 +104,8 @@ export default function FeedbackDialog({
 
               logMessage({
                 level: 'info',
-                message: `User feedback: ${data.get('message')}`,
+                message: (data.get('message') ?? '')?.toString(),
+                title: 'User Feedback',
               });
 
               const response = await fetch('/api/marketing/feedback', {

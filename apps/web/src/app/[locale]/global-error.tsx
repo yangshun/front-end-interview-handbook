@@ -16,7 +16,8 @@ export default function GlobalError({
     console.error(error);
     logMessage({
       level: 'error',
-      message: `Global error ${error.message}`,
+      message: `${error.message}`,
+      title: 'Global error',
     });
   }, [error]);
 

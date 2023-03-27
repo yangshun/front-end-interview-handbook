@@ -16,7 +16,8 @@ export default function Error({
     console.error(error);
     logMessage({
       level: 'error',
-      message: `Page error ${error.message}`,
+      message: error.message,
+      title: 'Page error',
     });
   }, [error]);
 

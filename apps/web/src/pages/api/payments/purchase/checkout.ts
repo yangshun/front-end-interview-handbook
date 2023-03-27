@@ -8,7 +8,6 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
-import logMessage from '~/logging/logMessage';
 import {
   createSupabaseAdminClientGFE,
   fetchUser,
@@ -43,11 +42,6 @@ export default async function handler(req: NextRequest) {
   const user = await fetchUser(req.cookies.get('supabase-auth-token')?.value);
 
   if (user == null) {
-    logMessage({
-      level: 'error',
-      message: `Attempted to checkout while not logged in`,
-    });
-
     return new Response(
       JSON.stringify({
         error: {
@@ -67,12 +61,6 @@ export default async function handler(req: NextRequest) {
   const countryCode = req.geo?.country ?? 'US';
 
   try {
-    logMessage({
-      level: 'info',
-      message: `User attempting to checkout`,
-      userIdentifier: user.email,
-    });
-
     if (isProhibitedCountry(countryCode)) {
       throw new Error(`Prohibited country: ${countryCode}`);
     }
@@ -136,12 +124,6 @@ export default async function handler(req: NextRequest) {
 
     return NextResponse.json(payload);
   } catch (err: any) {
-    logMessage({
-      level: 'error',
-      message: `Error generating checkout session for ${countryCode}`,
-      userIdentifier: user.id,
-    });
-
     return new Response(
       JSON.stringify({
         error: {
