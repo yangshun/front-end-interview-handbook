@@ -22,6 +22,7 @@ export default function defaultMetadata({
     metadataBase: new URL('https://www.greatfrontend.com'),
     openGraph: {
       description,
+      images: '/img/seo/og.jpg',
       // TODO: i18n
       locale: 'en-US',
       siteName: 'GreatFrontEnd',
@@ -37,6 +38,7 @@ export default function defaultMetadata({
       card: 'summary_large_image',
       creator: '@greatfrontend',
       description,
+      images: '/img/seo/og.jpg',
       site: '@greatfrontend',
       title,
     },
