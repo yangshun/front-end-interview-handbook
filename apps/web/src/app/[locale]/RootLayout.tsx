@@ -6,12 +6,11 @@ import HydrationFailureLogging from '~/components/global/HydrationFailureLogging
 import MetaPixel from '~/components/global/MetaPixel';
 import MouseflowInit from '~/components/global/MouseflowInit';
 import SmartlookInit from '~/components/global/SmartlookInit';
+import VercelAnalytics from '~/components/global/VercelAnalytics';
 
 import type { IntlMessages } from '~/i18n';
 
 import '~/styles/globals.css';
-
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
 type Props = Readonly<{
   children: React.ReactNode;
