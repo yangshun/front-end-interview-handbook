@@ -1,12 +1,10 @@
 import { useI18nPathname } from 'next-i18nostic';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import Smartlook from 'smartlook-client';
 
 import useLogEvent from '~/logging/useLogEvent';
 import type { Database } from '~/supabase/database.types';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
-import * as FullStory from '@fullstory/browser';
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 export type UserProfilePlan = 'lifetime' | 'month' | 'quarter' | 'year';
