@@ -34,7 +34,7 @@ export default function Mouseflow({ countryCode }: Props) {
   (function() {
     var mf = document.createElement("script");
     mf.type = "text/javascript"; mf.defer = true;
-    mf.src = "//cdn.mouseflow.com/projects/ce83d290-2d2c-4585-8eb3-479458dcd50b.js";
+    mf.src = "//cdn.mouseflow.com/projects/c0acf7e7-f772-401a-9132-0447e53aab43.js";
     document.getElementsByTagName("head")[0].appendChild(mf);
   })();`}
     </Script>
