@@ -25,21 +25,23 @@ export async function genQuestionProgress(
     .eq('slug', question.slug)
     .order('createdAt', { ascending: false })
     // User can have multiple progress for one question, we just take the latest one.
-    .limit(1)
-    .maybeSingle();
+    .limit(1);
+  // Don't use maybeSingle(), PostgreREST returns HTTP 406 if no rows found.
 
   if (error) {
     throw new Error(error.message);
   }
 
-  if (questionProgress == null) {
+  if (questionProgress.length === 0) {
     return null;
   }
 
+  const questionProgressItem = questionProgress[0];
+
   return {
-    ...questionProgress,
-    format: questionProgress.format as QuestionFormat,
-    status: questionProgress.status as QuestionProgressStatus,
+    ...questionProgressItem,
+    format: questionProgressItem.format as QuestionFormat,
+    status: questionProgressItem.status as QuestionProgressStatus,
   };
 }
 
