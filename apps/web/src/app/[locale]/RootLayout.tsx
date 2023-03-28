@@ -2,6 +2,7 @@ import FirstPromoter from '~/components/global/FirstPromoter';
 import FullStoryInit from '~/components/global/FullStoryInit';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import GoogleAnalytics from '~/components/global/GoogleAnalytics';
+import HydrationFailureLogging from '~/components/global/HydrationFailureLogging';
 import MetaPixel from '~/components/global/MetaPixel';
 import MouseflowInit from '~/components/global/MouseflowInit';
 import SmartlookInit from '~/components/global/SmartlookInit';
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body>
+        <HydrationFailureLogging countryCode={countryCode} />
         <GlobalProviders
           countryCode={countryCode}
           intlMessages={intlMessages}
