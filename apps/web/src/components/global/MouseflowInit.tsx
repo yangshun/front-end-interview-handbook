@@ -1,4 +1,8 @@
+'use client';
+
 import Script from 'next/script';
+
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 
 import gdprCountryCodes from '../hiring/gdprCountries';
 
@@ -7,7 +11,20 @@ type Props = Readonly<{
 }>;
 
 export default function Mouseflow({ countryCode }: Props) {
+  const { userProfile, isUserProfileLoading } = useUserProfile();
+
+  // Don't record for development.
+  if (process.env.NODE_ENV === 'development') {
+    return null;
+  }
+
+  // Don't record for GDPR countries.
   if (gdprCountryCodes.has(countryCode)) {
+    return null;
+  }
+
+  // Don't record if premium.
+  if (isUserProfileLoading || userProfile?.isPremium) {
     return null;
   }
 

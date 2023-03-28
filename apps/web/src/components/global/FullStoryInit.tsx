@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
+
 import gdprCountryCodes from '../hiring/gdprCountries';
 
 import * as FullStory from '@fullstory/browser';
@@ -11,16 +13,26 @@ type Props = Readonly<{
 }>;
 
 export default function FullStoryInit({ countryCode }: Props) {
+  const { userProfile, isUserProfileLoading } = useUserProfile();
+
   useEffect(() => {
-    if (
-      process.env.NODE_ENV === 'development' ||
-      gdprCountryCodes.has(countryCode)
-    ) {
+    // Don't record for development.
+    if (process.env.NODE_ENV === 'development') {
       return;
     }
 
-    FullStory.init({ orgId: '<your org id here>' });
-  }, [countryCode]);
+    // Don't record for GDPR countries.
+    if (gdprCountryCodes.has(countryCode)) {
+      return;
+    }
+
+    // Don't record if premium.
+    if (isUserProfileLoading || userProfile?.isPremium) {
+      return;
+    }
+
+    FullStory.init({ orgId: 'o-1JDPTA-na1' });
+  }, [countryCode, isUserProfileLoading, userProfile?.isPremium]);
 
   return null;
 }
