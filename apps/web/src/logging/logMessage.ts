@@ -24,6 +24,7 @@ export default async function logMessage({
       body: JSON.stringify({
         level,
         message,
+        sha: process.env.VERCEL_GIT_COMMIT_SHA,
         title,
         user_identifier: userIdentifier,
       }),

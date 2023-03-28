@@ -51,7 +51,13 @@ export default async function handler(
   } = await supabase.auth.getUser();
 
   const cookies = cookie.parse(req.headers.cookie ?? '');
-  const { level, message, title, user_identifier: userIdentifier } = req.body;
+  const {
+    level,
+    message,
+    title,
+    user_identifier: userIdentifier,
+    sha,
+  } = req.body;
 
   const finalMessage = [
     `Level: ${levelIcon[level as MessageLevel]}`,
@@ -61,6 +67,9 @@ export default async function handler(
     userIdentifier && `User Identifier: ${userIdentifier}`,
     user?.email && `Email: ${user?.email}`,
     user?.id && `User ID: ${user?.id}`,
+    sha && `Client SHA: ${sha}`,
+    process.env.VERCEL_GIT_COMMIT_SHA &&
+      `Server SHA: ${process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 8)}`,
     cookies.country && `Country: ${cookies.country}`,
   ]
     .filter(Boolean)

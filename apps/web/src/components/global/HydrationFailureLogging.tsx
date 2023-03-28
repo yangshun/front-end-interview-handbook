@@ -20,8 +20,9 @@ export default function HydrationFailureLogging({ countryCode }: Props) {
         w.setTimeout(function() {
           if (w.__hydrated) { return; }
           w.fetch('/api/logging/message', {
-            body: JSON.stringify({ level: 'error', message: window.location.href, title: 'Unhydrated page for ${countryCode}',
-            }),
+            body: JSON.stringify({ level: 'error', message: window.location.href, title: 'Unhydrated page for ${countryCode}', sha: '${
+        process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? ''
+      }'.slice(0, 8) }),
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
           });
