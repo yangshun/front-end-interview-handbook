@@ -28,7 +28,13 @@ type Props = Readonly<{
   locale: string;
 }>;
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export default function GlobalProviders({
   children,
