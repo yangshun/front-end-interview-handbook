@@ -98,6 +98,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     description,
+    locale,
     pathname: `/prepare/${planType}`,
     title,
   });

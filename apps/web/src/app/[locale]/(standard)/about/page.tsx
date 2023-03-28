@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of About Us page',
       id: 'mt2ON4',
     }),
+    locale,
     pathname: '/about',
     title: intl.formatMessage({
       defaultMessage: 'About Us',

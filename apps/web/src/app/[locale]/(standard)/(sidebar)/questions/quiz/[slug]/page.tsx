@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
+    locale,
     pathname: question.metadata.href,
     title: intl.formatMessage(
       {

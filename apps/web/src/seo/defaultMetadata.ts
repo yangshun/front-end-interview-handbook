@@ -7,12 +7,14 @@ import { getSiteUrl } from './siteUrl';
 
 type PageMetadata = Readonly<{
   description?: string;
+  locale: string;
   pathname: string;
   title: string;
 }>;
 
 export default function defaultMetadata({
   description,
+  locale,
   pathname,
   title,
 }: PageMetadata): Metadata {
@@ -25,8 +27,7 @@ export default function defaultMetadata({
     openGraph: {
       description,
       images: '/img/seo/og.jpg',
-      // TODO: i18n
-      locale: 'en-US',
+      locale,
       siteName: 'GreatFrontEnd',
       title,
       type: 'website',

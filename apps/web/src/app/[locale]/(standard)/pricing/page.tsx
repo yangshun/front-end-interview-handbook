@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Pricing page',
       id: 'wmvMT1',
     }),
+    locale,
     pathname: '/pricing',
     title: intl.formatMessage({
       defaultMessage: 'Pricing',

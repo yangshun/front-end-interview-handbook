@@ -90,6 +90,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               questionFramework: QuestionFrameworkLabels[question.framework],
             },
           ),
+    locale,
     pathname,
     title:
       mode === 'solution'

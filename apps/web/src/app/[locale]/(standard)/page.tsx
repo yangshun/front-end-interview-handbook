@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         questionCount: QuestionCount,
       },
     ),
+    locale,
     pathname: '/',
     title: intl.formatMessage({
       defaultMessage: 'The best way to prepare for Front End Interviews',

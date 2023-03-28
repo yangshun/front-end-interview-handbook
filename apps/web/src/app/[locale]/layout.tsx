@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of GreatFrontEnd page',
       id: 'xWAt8Q',
     }),
+    locale,
     pathname: '/',
     title: intl.formatMessage({
       defaultMessage: 'GreatFrontEnd',

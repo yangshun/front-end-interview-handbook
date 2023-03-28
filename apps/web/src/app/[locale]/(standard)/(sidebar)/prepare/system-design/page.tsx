@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Interview Preparation System Design page',
       id: 'OGpZxl',
     }),
+    locale,
     pathname: '/prepare/system-design',
     title: intl.formatMessage({
       defaultMessage:

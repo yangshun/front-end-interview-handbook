@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         questionCount: QuestionCount,
       },
     ),
+    locale,
     pathname: '/get-started',
     title: intl.formatMessage({
       defaultMessage: 'Get Started',

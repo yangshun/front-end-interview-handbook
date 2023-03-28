@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    locale,
     pathname: '/legal/terms',
     title: intl.formatMessage({
       defaultMessage: 'Terms of Service',

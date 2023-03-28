@@ -70,6 +70,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   return defaultMetadata({
     description: seoDescription ?? description,
+    locale,
     pathname,
     title: seoTitle ?? title,
   });

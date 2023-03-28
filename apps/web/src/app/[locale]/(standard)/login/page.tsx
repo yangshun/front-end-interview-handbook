@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Login page',
       id: 'S21xBI',
     }),
+    locale,
     pathname: '/login',
     title: intl.formatMessage({
       defaultMessage: 'Sign In',

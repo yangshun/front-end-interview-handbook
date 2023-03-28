@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of React Interview Questions page',
       id: 'MkjGJD',
     }),
+    locale,
     pathname: `/questions/${framework}`,
     title: intl.formatMessage({
       defaultMessage: 'Practice React Interview Questions with Solutions',

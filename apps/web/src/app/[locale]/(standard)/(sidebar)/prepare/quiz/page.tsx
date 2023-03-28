@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         questionCount: quizQuestions.length,
       },
     ),
+    locale,
     pathname: '/prepare/quiz',
     title: intl.formatMessage({
       defaultMessage:

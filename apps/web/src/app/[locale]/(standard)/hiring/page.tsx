@@ -19,8 +19,17 @@ import Hiring, {
 } from './hiring.mdx';
 /* eslint-enable @typescript-eslint/ban-ts-comment */
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = Readonly<{
+  params: Readonly<{
+    locale: string;
+  }>;
+}>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
   return defaultMetadata({
+    locale,
     pathname: '/hiring',
     title: 'We are Hiring!',
   });

@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Contact Us page',
       id: 'kn+R8V',
     }),
+    locale,
     pathname: '/contact',
     title: intl.formatMessage({
       defaultMessage: 'Contact Us',

@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Affiliate Program page',
       id: 'cxU8W8',
     }),
+    locale,
     pathname: '/affiliates',
     title: intl.formatMessage({
       defaultMessage: 'Affiliate Program',

@@ -194,6 +194,7 @@ async function processParams(params: Props['params']) {
     description,
     format,
     language,
+    locale,
     pageTitle,
     quizQuestions,
     seoTitle,
@@ -202,11 +203,13 @@ async function processParams(params: Props['params']) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category, seoTitle, description } = await processParams(params);
+  const { category, locale, seoTitle, description } = await processParams(
+    params,
+  );
 
-  // TODO: METADATA I18N
   return defaultMetadata({
     description,
+    locale,
     pathname: `/questions/${category}`,
     title: seoTitle,
   });

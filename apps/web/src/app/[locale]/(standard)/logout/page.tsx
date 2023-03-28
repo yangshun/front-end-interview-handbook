@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    locale,
     pathname: '/logout',
     title: intl.formatMessage({
       defaultMessage: 'Signing Out',

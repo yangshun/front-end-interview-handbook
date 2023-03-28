@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Behavioral Interview Preparation page',
       id: 'w0h58l',
     }),
+    locale,
     pathname: '/prepare/behavioral',
     title: intl.formatMessage({
       defaultMessage: 'Prepare for Front End Behavioral Interviews',

@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of 404 page',
       id: 'zUR/Om',
     }),
+    locale,
     pathname: '/',
     title: intl.formatMessage({
       defaultMessage: 'Not Found',

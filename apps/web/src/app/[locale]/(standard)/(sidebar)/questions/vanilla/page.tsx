@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         'Description of Vanilla JavaScript UI Interview Questions page',
       id: 'VLFSw7',
     }),
+    locale,
     pathname: `/questions/${framework}`,
     title: intl.formatMessage({
       defaultMessage:

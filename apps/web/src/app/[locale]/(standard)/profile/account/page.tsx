@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    locale,
     pathname: '/profile/account',
     title: intl.formatMessage({
       defaultMessage: 'Account | Profile',

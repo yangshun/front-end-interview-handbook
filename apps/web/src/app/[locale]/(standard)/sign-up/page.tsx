@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Description of Sign Up page',
       id: 'd+wYSW',
     }),
+    locale,
     pathname: '/sign-up',
     title: intl.formatMessage({
       defaultMessage: 'Sign Up',
