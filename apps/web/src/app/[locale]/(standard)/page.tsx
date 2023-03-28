@@ -50,9 +50,12 @@ const FLATTEN_SKELETON = `/**
  * @return {Array}
  */
 export default function flatten(array) {
-  // Return the next line to pass the tests!
+  // Add a return to the next line
+  // to pass the tests!
   array.reduce(
-    (acc, curr) => acc.concat(Array.isArray(curr) ? flatten(curr) : curr),
+    (acc, curr) => acc.concat(
+      Array.isArray(curr) ?
+        flatten(curr) : curr),
     [],
   );
 }`;
