@@ -58,7 +58,7 @@ export default function GlobalProviders({
         <SessionContextProvider supabaseClient={supabaseClient}>
           <AppContextProvider countryCode={countryCode}>
             <ScrollManagementProvider>
-              <UserProfileProvider>
+              <UserProfileProvider countryCode={countryCode}>
                 <QueryClientProvider client={queryClient}>
                   <UserPreferencesProvider>
                     <ToastsProvider>

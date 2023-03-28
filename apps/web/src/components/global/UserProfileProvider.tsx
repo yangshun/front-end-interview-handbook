@@ -1,10 +1,12 @@
 import { useI18nPathname } from 'next-i18nostic';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import Smartlook from 'smartlook-client';
 
 import useLogEvent from '~/logging/useLogEvent';
 import type { Database } from '~/supabase/database.types';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
+import * as FullStory from '@fullstory/browser';
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 export type UserProfilePlan = 'lifetime' | 'month' | 'quarter' | 'year';
@@ -31,6 +33,7 @@ export function useUserProfile() {
 
 type Props = Readonly<{
   children: React.ReactNode;
+  countryCode: string;
 }>;
 
 function convertProfile(
@@ -44,7 +47,7 @@ function convertProfile(
   };
 }
 
-export default function UserProfileProvider({ children }: Props) {
+export default function UserProfileProvider({ children, countryCode }: Props) {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const { isLoading: isUserLoading } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
@@ -79,7 +82,7 @@ export default function UserProfileProvider({ children }: Props) {
     if (user == null && !isUserLoading) {
       setIsUserProfileLoading(false);
     }
-  }, [isUserLoading, supabaseClient, user, userProfile]);
+  }, [countryCode, isUserLoading, supabaseClient, user, userProfile]);
 
   const { pathname } = useI18nPathname();
   const logEvent = useLogEvent();
