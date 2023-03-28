@@ -9,6 +9,7 @@ import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { getSiteUrl } from '~/seo/siteUrl';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -71,7 +72,7 @@ export default async function Page({ params }: Props) {
         images={[]}
         isAccessibleForFree={true}
         title={question.metadata.title}
-        url={`https://www.greatfrontend.com${question.metadata.href}`}
+        url={`${getSiteUrl()}${question.metadata.href}`}
         useAppDir={true}
       />
       <QuestionQuizContents

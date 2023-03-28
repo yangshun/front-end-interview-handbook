@@ -3,6 +3,8 @@ import 'server-only';
 import type { Metadata } from 'next/types';
 import { i18nMetadata } from 'next-i18nostic';
 
+import { getSiteUrl } from './siteUrl';
+
 type PageMetadata = Readonly<{
   description?: string;
   pathname: string;
@@ -19,7 +21,7 @@ export default function defaultMetadata({
       canonical: pathname,
     },
     description,
-    metadataBase: new URL('https://www.greatfrontend.com'),
+    metadataBase: new URL(getSiteUrl()),
     openGraph: {
       description,
       images: '/img/seo/og.jpg',

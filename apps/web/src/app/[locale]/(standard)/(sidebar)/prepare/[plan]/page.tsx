@@ -12,6 +12,7 @@ import {
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { getSiteUrl } from '~/seo/siteUrl';
 
 import PreparePlanPage from './PreparePlanPage';
 
@@ -126,7 +127,7 @@ export default async function Page({ params }: Props) {
         description={description}
         provider={{
           name: 'GreatFrontEnd',
-          url: 'https://www.greatfrontend.com',
+          url: getSiteUrl(),
         }}
         useAppDir={true}
       />

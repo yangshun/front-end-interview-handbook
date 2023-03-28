@@ -1,13 +1,13 @@
 // @ts-check
 
-import codingQuestionsList from './src/__generated__/questions/CodingQuestionsList.json' assert { type: 'json' };
+import codingQuestionsList from './src/__generated__/questions/coding/list.en.json' assert { type: 'json' };
 
 const priority = 0.7;
 const changefreq = 'daily';
 
 /** @type {import('next-sitemap').IConfig} */
 export default {
-  siteUrl: process.env.SITE_URL || 'https://www.greatfrontend.com',
+  siteUrl: `https://${process.env.VERCEL_URL || 'www.greatfrontend.com'}`,
   exclude: [
     '/dev__/*',
     '/logout',

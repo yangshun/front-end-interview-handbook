@@ -9,6 +9,7 @@ import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { genQuestionProgress } from '~/db/QuestionsProgressUniversal';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { getSiteUrl } from '~/seo/siteUrl';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
@@ -118,7 +119,7 @@ export default async function Page({ params }: Props) {
         images={[]}
         isAccessibleForFree={!question.metadata.premium}
         title={`Front End Coding Interview Question: ${question.metadata.title}`}
-        url={`https://www.greatfrontend.com${question.metadata.href}`}
+        url={`${getSiteUrl()}${question.metadata.href}`}
         useAppDir={true}
       />
       <QuestionJavaScriptCodingWorkspacePage
