@@ -21,18 +21,17 @@ export default function HydrationFailureLogging({ countryCode }: Props) {
           if (w.__hydrated) { return; }
           w.fetch('/api/logging/events', {
             body: JSON.stringify({
-              action: 'hydration_failure',
-              payload: { clientCountry: '${countryCode}', url: window.location.href },
               clientSHA: '${
                 process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? ''
-              }'.slice(0, 7) }),
-            headers: { 'Content-Type': 'application/json' },
-            method: 'POST',
-          });
-          w.fetch('/api/logging/message', {
-            body: JSON.stringify({ level: 'error', message: window.location.href, title: 'Unhydrated page for ${countryCode}', sha: '${
-          process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? ''
-        }'.slice(0, 7) }),
+              }'.slice(0, 7),
+              name: 'hydration.fail',
+              pathname: window.location.pathname,
+              payload: {
+                clientCountry: '${countryCode}',
+                url: window.location.href,
+              },
+              query: Object.fromEntries(new URLSearchParams(window.location.search)),
+            }),
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
           });

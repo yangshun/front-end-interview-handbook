@@ -88,12 +88,9 @@ export default function UserProfileProvider({ children, countryCode }: Props) {
   // Log initial page load.
   useEffect(() => {
     setTimeout(() => {
-      logEvent('page_load.initial', {
-        pathname,
-        url: window.location.href,
-      });
+      logEvent('pageview', {});
     }, 100);
-  }, []);
+  }, [logEvent, pathname]);
 
   useEffect(() => {
     // Use logged out, clear user profile.

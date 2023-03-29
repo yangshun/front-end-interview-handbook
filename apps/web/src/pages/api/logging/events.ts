@@ -2,11 +2,12 @@ import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { createServerSupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
+import Client from '@axiomhq/axiom-node';
 
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+const client = new Client({
+  orgId: process.env.AXIOM_ORG_ID,
+  token: process.env.AXIOM_TOKEN,
+});
 
 const cors = Cors({
   methods: ['POST'],
@@ -29,39 +30,73 @@ function runMiddleware(
   });
 }
 
+function parseJwt(token: string): Readonly<{
+  // User ID.
+  email: string;
+  sub: string; // User Email.
+}> {
+  return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   await runMiddleware(req, res, cors);
 
+  if (process.env.NODE_ENV !== 'production') {
+    return res
+      .status(403)
+      .json({ message: `Only send in ${process.env.NODE_ENV}` });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  const supabase = createServerSupabaseClientGFE({ req, res });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   const cookies = cookie.parse(req.headers.cookie ?? '');
-  const { action, payload, clientSHA } = req.body;
-  const event = await prisma.event.create({
-    data: {
-      action,
-      clientSHA: (clientSHA || '').slice(0, 7),
-      country: cookies.country,
-      fingerprint: cookies.gfp,
-      payload,
-      referer: req.headers.referer,
-      serverSHA: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7),
-      userId: user?.id,
-    },
-  });
 
-  if (event == null) {
-    return res.status(500).json({ message: 'An error occurred' });
+  let userEmail = null;
+  let userId = null;
+
+  try {
+    if (cookies['supabase-auth-token']) {
+      const { sub, email } = parseJwt(cookies['supabase-auth-token']);
+
+      userId = sub || null;
+      userEmail = email || null;
+    }
+  } catch (err) {
+    // TODO: Log error.
   }
+
+  const { clientSHA, name, pathname, payload, query, value } = req.body;
+
+  const eventPayload = {
+    event: {
+      name,
+      payload,
+      value,
+    },
+    git: {
+      client: (clientSHA || '').slice(0, 7) || undefined,
+      server:
+        (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7) || undefined,
+    },
+    request: {
+      country: cookies.country,
+      pathname,
+      query,
+      referer: req.headers.referer,
+    },
+    user: {
+      email: userEmail,
+      fingerprint: cookies.gfp,
+      id: userId,
+    },
+  };
+
+  await client.ingestEvents('events', [eventPayload]);
 
   return res.status(204).send(null);
 }
