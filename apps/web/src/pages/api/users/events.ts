@@ -2,10 +2,11 @@ import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import {
-  createServerSupabaseClientGFE,
-  createSupabaseAdminClientGFE,
-} from '~/supabase/SupabaseServerGFE';
+import { createServerSupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
+
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const cors = Cors({
   methods: ['POST'],
@@ -47,25 +48,23 @@ export default async function handler(
     return res.status(200).json({ message: 'No-op' });
   }
 
-  const { action, payload } = req.body;
+  const { action, payload, clientSHA } = req.body;
 
   const cookies = cookie.parse(req.headers.cookie ?? '');
-  const supabaseAdmin = createSupabaseAdminClientGFE();
-  const { data, error } = await supabaseAdmin
-    .from('Event')
-    .insert([
-      {
-        action,
-        country: cookies.country,
-        fingerprint: cookies.gfp,
-        payload,
-        referer: req.headers.referer,
-        userId: user?.id,
-      },
-    ])
-    .select();
+  const event = await prisma.event.create({
+    data: {
+      action,
+      clientSHA: (clientSHA || '').slice(0, 7),
+      country: cookies.country,
+      fingerprint: cookies.gfp,
+      payload,
+      referer: req.headers.referer,
+      serverSHA: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7),
+      userId: user?.id,
+    },
+  });
 
-  if (error != null || data == null) {
+  if (event == null) {
     return res.status(500).json({ message: 'An error occurred' });
   }
 

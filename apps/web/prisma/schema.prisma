@@ -22,6 +22,8 @@ model Event {
   referer     String?   @db.VarChar
   country     String?
   fingerprint String?
+  clientSHA   String?
+  serverSHA   String?
   Profile     Profile   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 

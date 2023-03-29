@@ -1,5 +1,10 @@
 export type Json =
-  Array<Json> | boolean | number | string | { [key: string]: Json } | null;
+  | Array<Json>
+  | boolean
+  | number
+  | string
+  | { [key: string]: Json }
+  | null;
 
 export type Database = {
   public: {
@@ -33,32 +38,38 @@ export type Database = {
       Event: {
         Insert: {
           action: string;
+          clientSHA?: string | null;
           country?: string | null;
           createdAt?: string | null;
           fingerprint?: string | null;
           id?: number;
           payload?: Json | null;
           referer?: string | null;
+          serverSHA?: string | null;
           userId: string;
         };
         Row: {
           action: string;
+          clientSHA: string | null;
           country: string | null;
           createdAt: string | null;
           fingerprint: string | null;
           id: number;
           payload: Json | null;
           referer: string | null;
+          serverSHA: string | null;
           userId: string;
         };
         Update: {
           action?: string;
+          clientSHA?: string | null;
           country?: string | null;
           createdAt?: string | null;
           fingerprint?: string | null;
           id?: number;
           payload?: Json | null;
           referer?: string | null;
+          serverSHA?: string | null;
           userId?: string;
         };
       };
@@ -215,4 +226,4 @@ export type Database = {
       [_ in never]: never;
     };
   };
-}
+};
