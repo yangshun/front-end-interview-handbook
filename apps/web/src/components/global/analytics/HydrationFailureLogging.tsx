@@ -19,7 +19,7 @@ export default function HydrationFailureLogging({ countryCode }: Props) {
         __html: `(function (w) {
         w.setTimeout(function() {
           if (w.__hydrated) { return; }
-          w.fetch('/api/users/events', {
+          w.fetch('/api/logging/events', {
             body: JSON.stringify({
               action: 'hydration_failure',
               payload: { clientCountry: '${countryCode}', url: message: window.location.href },

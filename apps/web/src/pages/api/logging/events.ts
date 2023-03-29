@@ -29,7 +29,6 @@ function runMiddleware(
   });
 }
 
-// TODO: Remove this file after 1st Apr 2023.
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,

@@ -18,7 +18,7 @@ export default function useLogEvent() {
       return;
     }
 
-    await fetch('/api/users/events', {
+    await fetch('/api/logging/events', {
       body: JSON.stringify({
         action,
         clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
