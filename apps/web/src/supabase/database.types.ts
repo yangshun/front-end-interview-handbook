@@ -9,6 +9,38 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      _prisma_migrations: {
+        Row: {
+          applied_steps_count: number;
+          checksum: string;
+          finished_at: string | null;
+          id: string;
+          logs: string | null;
+          migration_name: string;
+          rolled_back_at: string | null;
+          started_at: string;
+        };
+        Insert: {
+          applied_steps_count?: number;
+          checksum: string;
+          finished_at?: string | null;
+          id: string;
+          logs?: string | null;
+          migration_name: string;
+          rolled_back_at?: string | null;
+          started_at?: string;
+        };
+        Update: {
+          applied_steps_count?: number;
+          checksum?: string;
+          finished_at?: string | null;
+          id?: string;
+          logs?: string | null;
+          migration_name?: string;
+          rolled_back_at?: string | null;
+          started_at?: string;
+        };
+      };
       EmailSubscriber: {
         Row: {
           createdAt: string | null;
@@ -31,6 +63,7 @@ export interface Database {
           action: string;
           country: string | null;
           createdAt: string | null;
+          fingerprint: string | null;
           id: number;
           payload: Json | null;
           referer: string | null;
@@ -40,6 +73,7 @@ export interface Database {
           action: string;
           country?: string | null;
           createdAt?: string | null;
+          fingerprint?: string | null;
           id?: number;
           payload?: Json | null;
           referer?: string | null;
@@ -49,6 +83,7 @@ export interface Database {
           action?: string;
           country?: string | null;
           createdAt?: string | null;
+          fingerprint?: string | null;
           id?: number;
           payload?: Json | null;
           referer?: string | null;
@@ -120,7 +155,6 @@ export interface Database {
           id: string;
           slug: string;
           status: string;
-          user_id: string | null;
           userId: string;
         };
         Insert: {
@@ -129,7 +163,6 @@ export interface Database {
           id?: string;
           slug: string;
           status: string;
-          user_id?: string | null;
           userId: string;
         };
         Update: {
@@ -138,7 +171,6 @@ export interface Database {
           id?: string;
           slug?: string;
           status?: string;
-          user_id?: string | null;
           userId?: string;
         };
       };

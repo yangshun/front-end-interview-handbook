@@ -14,14 +14,15 @@ model EmailSubscriber {
 }
 
 model Event {
-  id        BigInt    @id @default(autoincrement())
-  userId    String    @db.Uuid
-  action    String
-  payload   Json?     @db.Json
-  createdAt DateTime? @default(now()) @db.Timestamptz(6)
-  referer   String?   @db.VarChar
-  country   String?
-  Profile   Profile   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id          BigInt    @id @default(autoincrement())
+  userId      String    @db.Uuid
+  action      String
+  payload     Json?     @db.Json
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  referer     String?   @db.VarChar
+  country     String?
+  fingerprint String?
+  Profile     Profile   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model FeedbackMessage {
