@@ -69,7 +69,7 @@ export default async function handler(
     user?.id && `User ID: ${user?.id}`,
     sha && `Client SHA: ${sha}`,
     process.env.VERCEL_GIT_COMMIT_SHA &&
-      `Server SHA: ${process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 8)}`,
+      `Server SHA: ${process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7)}`,
     cookies.country && `Country: ${cookies.country}`,
   ]
     .filter(Boolean)
