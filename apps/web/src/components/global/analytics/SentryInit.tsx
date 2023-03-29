@@ -4,16 +4,35 @@ import { useEffect } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 
-import gdprCountryCodes from '../hiring/gdprCountries';
+import gdprCountryCodes from '../../hiring/gdprCountries';
 
-import * as FullStory from '@fullstory/browser';
+import * as Sentry from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   countryCode: string;
 }>;
 
-export default function FullStoryInit({ countryCode }: Props) {
+if (process.env.NODE_ENV !== 'development') {
+  Sentry.init({
+    dsn: 'https://460c2fa53b094ff4a66e01209cd4b5c4@o4504898382790656.ingest.sentry.io/4504898384429056',
+    environment: process.env.NEXT_PUBLIC_VERCEL_ENV,
+    integrations: [
+      new BrowserTracing(),
+      new Sentry.Replay({
+        blockAllMedia: false,
+        maskAllText: false,
+      }),
+    ],
+    release: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
+    replaysOnErrorSampleRate: 1.0,
+    replaysSessionSampleRate: 1.0,
+    tracesSampleRate: 1.0,
+  });
+}
+
+export default function SentryInit({ countryCode }: Props) {
   const { userProfile, isUserProfileLoading } = useUserProfile();
   const user = useUser();
 
@@ -33,15 +52,14 @@ export default function FullStoryInit({ countryCode }: Props) {
       return;
     }
 
-    FullStory.init({ orgId: 'o-1JDPTA-na1' });
-
     if (user != null && userProfile != null && !userProfile.isPremium) {
-      FullStory.identify(user.id, {
+      Sentry.setUser({
         countryCode,
-        email: user.email ?? '',
-        plan: userProfile.plan ?? '',
+        email: user.email,
+        id: user.id,
+        plan: userProfile.plan,
         premium: userProfile?.isPremium,
-        stripeCustomerId: userProfile.stripeCustomerID ?? '',
+        stripeCustomerId: userProfile.stripeCustomerID,
       });
     }
   }, [countryCode, isUserProfileLoading, user, userProfile]);

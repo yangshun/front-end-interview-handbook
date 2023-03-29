@@ -5,7 +5,7 @@ import Smartlook from 'smartlook-client';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 
-import gdprCountryCodes from '../hiring/gdprCountries';
+import gdprCountryCodes from '../../hiring/gdprCountries';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

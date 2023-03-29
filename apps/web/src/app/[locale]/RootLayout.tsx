@@ -1,13 +1,13 @@
+import FullStoryInit from '~/components/global/analytics/FullStoryInit';
+import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
+import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
+import MetaPixel from '~/components/global/analytics/MetaPixel';
+import MouseflowInit from '~/components/global/analytics/MouseflowInit';
+import SentryInit from '~/components/global/analytics/SentryInit';
+import SmartlookInit from '~/components/global/analytics/SmartlookInit';
+import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import FirstPromoter from '~/components/global/FirstPromoter';
-import FullStoryInit from '~/components/global/FullStoryInit';
 import GlobalProviders from '~/components/global/GlobalProviders';
-import GoogleAnalytics from '~/components/global/GoogleAnalytics';
-import HydrationFailureLogging from '~/components/global/HydrationFailureLogging';
-import MetaPixel from '~/components/global/MetaPixel';
-import MouseflowInit from '~/components/global/MouseflowInit';
-import SentryInit from '~/components/global/SentryInit';
-import SmartlookInit from '~/components/global/SmartlookInit';
-import VercelAnalytics from '~/components/global/VercelAnalytics';
 
 import type { IntlMessages } from '~/i18n';
 
