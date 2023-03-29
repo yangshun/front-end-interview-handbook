@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 
+import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 export default function Error({
@@ -17,6 +18,10 @@ export default function Error({
     logMessage({
       level: 'error',
       message: error.message,
+      title: 'Page error',
+    });
+    logEvent('error', {
+      message: `${error.message}`,
       title: 'Page error',
     });
   }, [error]);

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 import gtag from '~/lib/gtag';
 
-import type { PricingPlansLocalized } from '~/data/PricingPlans';
+import type { PricingPlansLocalized, PricingPlanType } from '~/data/PricingPlans';
 
 import PromoBanner from '~/components/global/PromoBanner';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
@@ -13,6 +13,7 @@ import MarketingPricingSection from '~/components/marketing/MarketingPricingSect
 import MarketingTestimonial from '~/components/marketing/MarketingTestimonial';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 type Props = Readonly<{
@@ -22,28 +23,37 @@ type Props = Readonly<{
 
 export default function PricingPage({ countryCode, plans }: Props) {
   const searchParams = useSearchParams();
-  const planSearchParams = searchParams?.get('plan');
-  const cancelSearchParams = searchParams?.get('cancel');
+  const planSearchParam = searchParams?.get('plan') as PricingPlanType | null;
+
+  const cancelSearchParam = searchParams?.get('cancel');
 
   useEffect(() => {
-    if (cancelSearchParams) {
+    if (cancelSearchParam && planSearchParam != null) {
       gtag.event({
         action: `checkout.cancel`,
         category: 'ecommerce',
-        label: String(planSearchParams),
+        label: String(planSearchParam),
       });
       gtag.event({
-        action: `checkout.cancel.${planSearchParams}`,
+        action: `checkout.cancel.${planSearchParam}`,
         category: 'ecommerce',
-        label: String(planSearchParams),
+        label: String(planSearchParam),
       });
       logMessage({
         level: 'warning',
-        message: `Cancelled checkout for ${planSearchParams}`,
+        message: `Cancelled checkout for ${planSearchParam}`,
         title: 'Checkout cancel',
       });
+
+      const plan = plans[planSearchParam];
+
+      logEvent('checkout.cancel', {
+        currency: plan.currency.toLocaleUpperCase(),
+        plan: planSearchParam,
+        value: plan.unitCostLocalizedInCurrency,
+      });
     }
-  }, [cancelSearchParams, planSearchParams]);
+  }, [cancelSearchParam, planSearchParam]);
 
   return (
     <div className="bg-slate-900">

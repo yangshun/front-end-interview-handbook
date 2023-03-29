@@ -33,7 +33,7 @@ import Text from '~/components/ui/Text';
 
 import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
-import useLogEvent from '~/logging/useLogEvent';
+import logEvent from '~/logging/logEvent';
 
 import CodingWorkspaceChangLayoutButton from './CodingWorkspaceChangeLayoutButton';
 import CodingWorkspaceEditorShortcutsButton from './CodingWorkspaceEditorShortcutsButton';
@@ -117,7 +117,6 @@ function Contents({
     isDragging: isBottomSectionDividerDragging,
     size: bottomSectionHeight,
   } = useResizablePaneDivider(400, true, 'vertical');
-  const logEvent = useLogEvent();
 
   useEffect(() => {
     function onIframeEvents(event: MessageEvent) {

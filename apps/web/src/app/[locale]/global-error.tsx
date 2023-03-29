@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 
+import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 export default function GlobalError({
@@ -16,6 +17,10 @@ export default function GlobalError({
     console.error(error);
     logMessage({
       level: 'error',
+      message: `${error.message}`,
+      title: 'Global error',
+    });
+    logEvent('error', {
       message: `${error.message}`,
       title: 'Global error',
     });

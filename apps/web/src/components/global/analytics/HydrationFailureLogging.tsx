@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import logEvent from '~/logging/logEvent';
+
 type Props = Readonly<{
   countryCode: string;
 }>;
@@ -11,14 +13,20 @@ export default function HydrationFailureLogging({ countryCode }: Props) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.__hydrated = true;
-  }, []);
+    logEvent('hydration.success', {
+      clientCountry: countryCode,
+      url: window.location.href,
+    });
+  }, [countryCode]);
 
   return (
     <script
       dangerouslySetInnerHTML={{
         __html: `(function (w) {
         w.setTimeout(function() {
-          if (w.__hydrated) { return; }
+          if (w.__hydrated) {
+            return;
+          }
           w.fetch('/api/logging/events', {
             body: JSON.stringify({
               clientSHA: '${

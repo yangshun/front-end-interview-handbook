@@ -1,7 +1,7 @@
 import { useI18nPathname } from 'next-i18nostic';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-import useLogEvent from '~/logging/useLogEvent';
+import logEvent from '~/logging/logEvent';
 import type { Database } from '~/supabase/database.types';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
@@ -83,14 +83,10 @@ export default function UserProfileProvider({ children, countryCode }: Props) {
   }, [countryCode, isUserLoading, supabaseClient, user, userProfile]);
 
   const { pathname } = useI18nPathname();
-  const logEvent = useLogEvent();
 
-  // Log initial page load.
   useEffect(() => {
-    setTimeout(() => {
-      logEvent('pageview', {});
-    }, 100);
-  }, [logEvent, pathname]);
+    logEvent('pageview', {});
+  }, [pathname]);
 
   useEffect(() => {
     // Use logged out, clear user profile.

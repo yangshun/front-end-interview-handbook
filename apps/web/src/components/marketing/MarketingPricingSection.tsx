@@ -23,6 +23,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import MarketingSectionTitleLabel from './MarketingSectionTitleLabel';
@@ -152,6 +153,11 @@ function PricingButtonSection({
         message: err?.message,
         title: 'Checkout attempt error',
       });
+      logEvent('checkout.fail', {
+        currency: plan.currency.toLocaleUpperCase(),
+        plan: planType,
+        value: plan.unitCostLocalizedInCurrency,
+      });
     } finally {
       setIsCheckoutSessionLoading(false);
     }
@@ -201,6 +207,11 @@ function PricingButtonSection({
                     } but not signed in`,
                     title: 'Checkout initiate (non-signed in)',
                   });
+                  logEvent('checkout.attempt.not_logged_in', {
+                    currency: plan.currency.toLocaleUpperCase(),
+                    plan: plan.planType,
+                    value: plan.unitCostLocalizedInCurrency,
+                  });
                 }}
               />
             </div>
@@ -243,6 +254,11 @@ function PricingButtonSection({
                       plan.unitCostLocalizedInCurrency
                     }`,
                     title: 'Checkout Initiate',
+                  });
+                  logEvent('checkout.attempt', {
+                    currency: plan.currency.toLocaleUpperCase(),
+                    plan: plan.planType,
+                    value: plan.unitCostLocalizedInCurrency,
                   });
 
                   return processSubscription(plan.planType);

@@ -16,6 +16,7 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import { CodeBracketIcon } from '@heroicons/react/20/solid';
@@ -98,6 +99,11 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
           plan.unitCostLocalizedInCurrency
         }`,
         title: 'Purchase',
+      });
+      logEvent('checkout.success', {
+        currency: plan.currency.toLocaleUpperCase(),
+        plan: plan.planType,
+        value: plan.unitCostLocalizedInCurrency,
       });
     }
   }, [planSearchParam, plans]);

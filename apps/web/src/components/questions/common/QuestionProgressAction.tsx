@@ -10,7 +10,7 @@ import {
   useMutationQuestionProgressDelete,
 } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
-import useLogEvent from '~/logging/useLogEvent';
+import logEvent from '~/logging/logEvent';
 
 import type { QuestionBase } from './QuestionsTypes';
 
@@ -33,7 +33,6 @@ export default function QuestionProgressAction({
   const addProgressMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
   const { showToast } = useToast();
-  const logEvent = useLogEvent();
 
   if (user == null) {
     return (

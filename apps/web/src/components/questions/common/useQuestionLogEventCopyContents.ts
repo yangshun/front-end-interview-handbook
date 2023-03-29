@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react';
-
-import useLogEvent from '~/logging/useLogEvent';
+import logEvent from '~/logging/logEvent';
 
 export default function useQuestionLogEventCopyContents<
   T extends HTMLElement,
 >() {
   const ref = useRef<T | null>(null);
-  const logEvent = useLogEvent();
 
   useEffect(() => {
     async function logCopyEvent() {
@@ -26,7 +24,7 @@ export default function useQuestionLogEventCopyContents<
     return () => {
       domEl?.removeEventListener('copy', logCopyEvent);
     };
-  }, [logEvent]);
+  }, []);
 
   return ref;
 }
