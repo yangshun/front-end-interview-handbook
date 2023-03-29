@@ -2,7 +2,6 @@ import FullStoryInit from '~/components/global/analytics/FullStoryInit';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
-import MouseflowInit from '~/components/global/analytics/MouseflowInit';
 import SentryInit from '~/components/global/analytics/SentryInit';
 import SmartlookInit from '~/components/global/analytics/SmartlookInit';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
@@ -41,7 +40,6 @@ export default function RootLayout({
           <VercelAnalytics />
           <FirstPromoter />
           <SmartlookInit countryCode={countryCode} />
-          <MouseflowInit countryCode={countryCode} />
           <FullStoryInit countryCode={countryCode} />
           <SentryInit countryCode={countryCode} />
         </GlobalProviders>
