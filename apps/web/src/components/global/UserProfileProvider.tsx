@@ -85,21 +85,15 @@ export default function UserProfileProvider({ children, countryCode }: Props) {
   const { pathname } = useI18nPathname();
   const logEvent = useLogEvent();
 
-  // Log navigation.
+  // Log initial page load.
   useEffect(() => {
-    if (user == null) {
-      return;
-    }
-
-    const { href } = window.location;
-
     setTimeout(() => {
-      logEvent('page_load', {
+      logEvent('page_load.initial', {
         pathname,
-        url: href,
+        url: window.location.href,
       });
     }, 100);
-  }, [logEvent, pathname, user]);
+  }, []);
 
   useEffect(() => {
     // Use logged out, clear user profile.

@@ -2,6 +2,7 @@ import { useSearchParams } from 'next/navigation';
 
 type LoggingAction =
   | 'copy'
+  | 'page_load.initial'
   | 'page_load'
   | 'question.mark_complete'
   | 'question.submit';
