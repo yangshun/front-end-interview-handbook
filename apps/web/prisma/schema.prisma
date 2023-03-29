@@ -47,6 +47,7 @@ model Profile {
   createdAt        DateTime           @default(now()) @db.Timestamptz(6)
   Event            Event[]
   QuestionProgress QuestionProgress[]
+  SitePerformance  SitePerformance[]
 }
 
 model QuestionProgress {
@@ -60,12 +61,17 @@ model QuestionProgress {
 }
 
 model SitePerformance {
-  createdAt DateTime? @default(now()) @db.Timestamptz(6)
-  duration  Float?
-  country   String?
-  userEmail String?
-  event     String?
-  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  url       String?
-  referrer  String?
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  duration    Float?
+  country     String?
+  userEmail   String?
+  event       String?
+  id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  url         String?
+  referrer    String?
+  fingerprint String?
+  clientSHA   String?
+  serverSHA   String?
+  userId      String?   @db.Uuid
+  Profile     Profile?  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

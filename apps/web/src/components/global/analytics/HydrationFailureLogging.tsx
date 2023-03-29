@@ -22,7 +22,7 @@ export default function HydrationFailureLogging({ countryCode }: Props) {
           w.fetch('/api/logging/events', {
             body: JSON.stringify({
               action: 'hydration_failure',
-              payload: { clientCountry: '${countryCode}', url: message: window.location.href },
+              payload: { clientCountry: '${countryCode}', url: window.location.href },
               clientSHA: '${
                 process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? ''
               }'.slice(0, 7) }),

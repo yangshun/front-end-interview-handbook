@@ -19,6 +19,7 @@ export default function StatisticsPanel({ className, serverDuration }: Props) {
         // Only log in production or when there's a debug flag.
         fetch(`/api/logging/performance`, {
           body: JSON.stringify({
+            clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
             duration: Math.round(serverDuration),
             event: 'questions.load.time_spent.server',
             url: window.location.href,

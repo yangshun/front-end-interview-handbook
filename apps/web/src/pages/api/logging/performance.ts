@@ -39,7 +39,7 @@ export default async function handler(
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  const { duration, event, url } = req.body;
+  const { clientSHA, duration, event, url } = req.body;
 
   if (duration == null || event == null) {
     return res.status(422).json({
@@ -53,15 +53,18 @@ export default async function handler(
   } = await supabase.auth.getUser();
 
   const cookies = cookie.parse(req.headers.cookie ?? '');
-
   const perfItem = await prisma.sitePerformance.create({
     data: {
+      clientSHA: (clientSHA || '').slice(0, 7),
       country: cookies.country,
       duration,
       event,
+      fingerprint: cookies.gfp,
       referrer: req.headers.referer,
+      serverSHA: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7),
       url,
       userEmail: user?.email,
+      userId: user?.id,
     },
   });
 
