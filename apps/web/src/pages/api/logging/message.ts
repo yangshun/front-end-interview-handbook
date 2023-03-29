@@ -70,6 +70,7 @@ export default async function handler(
     sha && `Client SHA: ${sha}`,
     process.env.VERCEL_GIT_COMMIT_SHA &&
       `Server SHA: ${process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7)}`,
+    cookies.gfp && `GFP: ${cookies.gfp}`,
     cookies.country && `Country: ${cookies.country}`,
   ]
     .filter(Boolean)

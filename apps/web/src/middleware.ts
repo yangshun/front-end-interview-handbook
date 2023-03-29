@@ -1,6 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { i18nMiddleware } from 'next-i18nostic';
+import { v4 as uuidv4 } from 'uuid';
 
 import { currentExperiment } from '~/components/experiments';
 
@@ -46,6 +47,14 @@ function migrateSupabaseAuthTokens(req: NextRequest, res: NextResponse) {
   }
 }
 
+function addBrowserFingerprint(req: NextRequest, res: NextResponse) {
+  if (req.cookies.get('gfp')?.value) {
+    return;
+  }
+
+  res.cookies.set('gfp', `gfp-${uuidv4()}`);
+}
+
 export function middleware(req: NextRequest) {
   const i18nMiddlewareRes = i18nMiddleware(req, {
     '/prepare': '/prepare/coding',
@@ -56,6 +65,7 @@ export function middleware(req: NextRequest) {
 
   upsertCookie(req, res);
   migrateSupabaseAuthTokens(req, res);
+  addBrowserFingerprint(req, res);
 
   const country = req.geo?.country ?? null;
 

@@ -57,6 +57,7 @@ export default async function handler(
       {
         action,
         country: cookies.country,
+        gfp: cookies.gfp,
         payload,
         referer: req.headers.referer,
         userId: user?.id,
