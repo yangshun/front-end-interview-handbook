@@ -2,6 +2,8 @@ import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
+
 import Client from '@axiomhq/axiom-node';
 
 const client = new Client({
@@ -30,14 +32,6 @@ function runMiddleware(
   });
 }
 
-function parseJwt(token: string): Readonly<{
-  // User ID.
-  email: string;
-  sub: string; // User Email.
-}> {
-  return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
-}
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -61,7 +55,9 @@ export default async function handler(
 
   try {
     if (cookies['supabase-auth-token']) {
-      const { sub, email } = parseJwt(cookies['supabase-auth-token']);
+      const { sub, email } = parseJWTAccessToken(
+        cookies['supabase-auth-token'],
+      );
 
       userId = sub || null;
       userEmail = email || null;

@@ -77,7 +77,7 @@ export function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
   providerRefreshToken: string | null;
   providerToken: string | null;
   refreshToken: string | null;
-}> | null {
+}> {
   // The shape of the `supabase-auth-token` cookie:
   // [
   //   session.access_token,
@@ -92,6 +92,27 @@ export function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
     return { accessToken, providerRefreshToken, providerToken, refreshToken };
   } catch (err) {
     // TODO: report error.
-    return null;
+    return {
+      accessToken: null,
+      providerRefreshToken: null,
+      providerToken: null,
+      refreshToken: null,
+    };
   }
+}
+
+export function parseJWTAccessToken(token: string): Readonly<{
+  // User ID.
+  email: string;
+  sub: string; // User Email.
+}> {
+  const { accessToken } = decodeSupabaseAuthTokens(token);
+
+  if (!accessToken) {
+    throw new Error('Unable to parse Supabase auth token');
+  }
+
+  return JSON.parse(
+    Buffer.from(accessToken.split('.')[1], 'base64').toString(),
+  );
 }
