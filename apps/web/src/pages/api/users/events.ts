@@ -44,13 +44,8 @@ export default async function handler(
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (user?.id == null) {
-    return res.status(200).json({ message: 'No-op' });
-  }
-
-  const { action, payload, clientSHA } = req.body;
-
   const cookies = cookie.parse(req.headers.cookie ?? '');
+  const { action, payload, clientSHA } = req.body;
   const event = await prisma.event.create({
     data: {
       action,
