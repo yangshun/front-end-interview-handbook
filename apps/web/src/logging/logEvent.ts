@@ -20,6 +20,33 @@ export default async function logEvent(
   value?: number,
 ) {
   const searchParams = new URLSearchParams(window.location.search);
+  const connection =
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    navigator.connection ||
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    navigator.mozConnection ||
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    navigator.webkitConnection ||
+    {};
+  const body = {
+    clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
+    connection: {
+      type: connection?.effectiveType,
+    },
+    name: action,
+    pathname: window.location.pathname,
+    payload,
+    query: Object.fromEntries(new URLSearchParams(window.location.search)),
+    value,
+  };
+
+  if (process.env.NODE_ENV === 'development' || searchParams?.get('debug')) {
+    console.info('[axiom]', body);
+  }
+
   const shouldLog =
     process.env.NODE_ENV === 'production' || searchParams?.get('debug');
 
@@ -28,14 +55,7 @@ export default async function logEvent(
   }
 
   await fetch('/api/logging/events', {
-    body: JSON.stringify({
-      clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
-      name: action,
-      pathname: window.location.pathname,
-      payload,
-      query: Object.fromEntries(new URLSearchParams(window.location.search)),
-      value,
-    }),
+    body: JSON.stringify(body),
     headers: {
       'Content-Type': 'application/json',
     },
