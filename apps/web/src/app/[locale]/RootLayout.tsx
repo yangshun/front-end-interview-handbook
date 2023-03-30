@@ -5,6 +5,7 @@ import MetaPixel from '~/components/global/analytics/MetaPixel';
 import SentryInit from '~/components/global/analytics/SentryInit';
 import SmartlookInit from '~/components/global/analytics/SmartlookInit';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
+import WebVitals from '~/components/global/analytics/WebVitals';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 
@@ -42,6 +43,7 @@ export default function RootLayout({
           <SmartlookInit countryCode={countryCode} />
           <FullStoryInit countryCode={countryCode} />
           <SentryInit countryCode={countryCode} />
+          <WebVitals />
         </GlobalProviders>
       </body>
     </html>

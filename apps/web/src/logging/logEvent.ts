@@ -10,7 +10,8 @@ type LoggingAction =
   | 'hydration.success'
   | 'pageview'
   | 'question.mark_complete'
-  | 'question.submit';
+  | 'question.submit'
+  | 'web_vitals';
 // TODO: Improve typing.
 type LoggingPayload = Record<string, unknown>;
 
