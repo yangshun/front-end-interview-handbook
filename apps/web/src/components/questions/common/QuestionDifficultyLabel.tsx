@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { upperFirst } from 'lodash-es';
 import { useId } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import type { TextVariant } from '~/components/ui/Text';
@@ -28,12 +29,23 @@ export default function QuestionDifficultyLabel({
   value,
   variant = 'body3',
 }: Props) {
+  const intl = useIntl();
   const id = useId();
 
   return (
-    <Tooltip label="Difficulty" position="above">
+    <Tooltip
+      label={intl.formatMessage({
+        defaultMessage: 'Difficulty',
+        description: 'Question difficulty label',
+        id: 'NgxUnY',
+      })}
+      position="above">
       <span className="sr-only" id={id}>
-        Difficulty
+        <FormattedMessage
+          defaultMessage="Difficulty"
+          description="Question difficulty label"
+          id="NgxUnY"
+        />
       </span>
       <div aria-labelledby={id} className="flex items-center">
         {showIcon && (

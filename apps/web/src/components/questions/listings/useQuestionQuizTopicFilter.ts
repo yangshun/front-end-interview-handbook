@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionQuizTopic } from '../common/QuestionsTypes';
@@ -21,15 +22,18 @@ export default function useQuestionQuizTopicFilter(): [
   Set<QuestionQuizTopic>,
   QuestionFilter<QuestionQuizTopic>,
 ] {
+  const intl = useIntl();
   const topicLabels = useQuestionQuizTopicLabels();
-
   const [topicFilters, setTopicFilters] = useState<Set<QuestionQuizTopic>>(
     new Set(),
   );
-
   const topicFilterOptions: QuestionFilter<QuestionQuizTopic> = {
     id: 'topic',
-    name: 'Topic',
+    name: intl.formatMessage({
+      defaultMessage: 'Topic',
+      description: 'Question quiz topic',
+      id: 'oieVuW',
+    }),
     onChange: (value) => {
       const newTopics = new Set(topicFilters);
 

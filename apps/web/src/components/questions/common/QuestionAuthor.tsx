@@ -1,10 +1,10 @@
 import { useId } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import authors from '~/data/authors';
 
 import type { TextVariant } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
-
 type Props = Readonly<{
   author: string;
   variant?: TextVariant;
@@ -21,7 +21,11 @@ export default function QuestionAuthor({ author, variant = 'body3' }: Props) {
   return (
     <div className="group block flex-shrink-0">
       <span className="sr-only" id={id}>
-        Author
+        <FormattedMessage
+          defaultMessage="Author"
+          description="Author of the question"
+          id="n0mDHU"
+        />
       </span>
       <div aria-labelledby={id} className="flex items-center">
         <div>
@@ -33,7 +37,7 @@ export default function QuestionAuthor({ author, variant = 'body3' }: Props) {
         </div>
         <div className="ml-3">
           <Text color="secondary" variant={variant}>
-            By {authorData.name}
+            {authorData.name}
           </Text>
         </div>
       </div>

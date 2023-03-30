@@ -32,11 +32,7 @@ function usePlatforms() {
       href: 'https://github.com/greatfrontend/greatfrontend/discussions',
       icon: GitHubIcon,
       key: 'github',
-      name: intl.formatMessage({
-        defaultMessage: 'GitHub',
-        description: 'GitHub',
-        id: 'keURBI',
-      }),
+      name: 'GitHub',
     },
     // {
     //   href: '/',
@@ -52,11 +48,7 @@ function usePlatforms() {
       href: 'https://twitter.com/greatfrontend',
       icon: TwitterIcon,
       key: 'twitter',
-      name: intl.formatMessage({
-        defaultMessage: 'Twitter',
-        description: 'Twitter',
-        id: 'tP3EF4',
-      }),
+      name: 'Twitter',
     },
     // {
     //   href: '/',
@@ -72,11 +64,7 @@ function usePlatforms() {
       href: 'https://www.reddit.com/r/greatfrontend',
       icon: RedditIcon,
       key: 'reddit',
-      name: intl.formatMessage({
-        defaultMessage: 'Reddit',
-        description: 'Reddit',
-        id: 'FI93m3',
-      }),
+      name: 'Reddit',
     },
   ];
 

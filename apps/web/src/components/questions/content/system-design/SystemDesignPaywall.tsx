@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
+import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 
@@ -19,9 +20,9 @@ export default function SystemDesignPaywall({
   isComingSoon = false,
   shouldCheckPremium = true,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const isPremiumUser = userProfile?.isPremium ?? false;
-
   const canSeePremiumContents = !isPremium || (isPremium && isPremiumUser);
 
   if (!shouldCheckPremium || canSeePremiumContents) {
@@ -32,14 +33,32 @@ export default function SystemDesignPaywall({
   // From this point on the content is premium.
   return isComingSoon ? (
     <QuestionPaywall
-      subtitle="System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question."
-      title="Premium Content Coming Soon"
+      subtitle={intl.formatMessage({
+        defaultMessage:
+          'System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.',
+        description: 'System design questions paywall',
+        id: 'V5x4wO',
+      })}
+      title={intl.formatMessage({
+        defaultMessage: 'Premium Content Coming Soon',
+        description: 'System design questions paywall',
+        id: 'j+MqYO',
+      })}
       variant="under_construction"
     />
   ) : (
     <QuestionPaywall
-      subtitle="Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question."
-      title="Premium Content"
+      subtitle={intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.',
+        description: 'System design questions paywall',
+        id: 'TaIXVz',
+      })}
+      title={intl.formatMessage({
+        defaultMessage: 'Premium Content',
+        description: 'Premium system design questions content',
+        id: 'SKsPOw',
+      })}
     />
   );
 }

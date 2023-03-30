@@ -171,11 +171,11 @@ function TestResultStats({
       {failed > 0 && (
         <Text color="error" variant="body2" weight="bold">
           <FormattedMessage
-            defaultMessage="{failed} failed"
+            defaultMessage="{numberOfFailedTests} failed"
             description="Line in DevTools showing the number of test cases failed when running the code submitted by the user"
-            id="+Z1K3f"
+            id="VoNloX"
             values={{
-              failed,
+              numberOfFailedTests: failed,
             }}
           />
         </Text>
@@ -183,11 +183,11 @@ function TestResultStats({
       {passed > 0 && (
         <Text color="success" variant="body2" weight="bold">
           <FormattedMessage
-            defaultMessage="{passed} passed"
+            defaultMessage="{numberOfPassedTests} passed"
             description="Line in DevTools showing the number of test cases passed when running the code submitted by the user"
-            id="GOgjw1"
+            id="zpxxHX"
             values={{
-              passed,
+              numberOfPassedTests: passed,
             }}
           />
         </Text>
@@ -195,11 +195,11 @@ function TestResultStats({
       {total > 0 && (
         <Text color="secondary" variant="body2" weight="bold">
           <FormattedMessage
-            defaultMessage="{total} total"
+            defaultMessage="{numberOfTotalTests} total"
             description="Line in DevTools showing the total number of test cases for this question"
-            id="OZgalz"
+            id="Iz2KAM"
             values={{
-              total,
+              numberOfTotalTests: total,
             }}
           />
         </Text>

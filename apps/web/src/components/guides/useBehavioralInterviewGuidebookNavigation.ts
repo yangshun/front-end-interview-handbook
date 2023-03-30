@@ -1,77 +1,169 @@
+import { useIntl } from 'react-intl';
+
 import type { GuideNavigation } from './GuidesLayoutSidebar';
 
 export const basePath = '/behavioral-interview-guidebook';
 
 export default function useBehavioralInterviewGuidebookNavigation() {
+  const intl = useIntl();
   const navigation: GuideNavigation = {
     items: [
       {
         links: [
           {
-            description: 'What to expect and how to prepare most efficiently',
+            description: intl.formatMessage({
+              defaultMessage:
+                'What to expect and how to prepare most efficiently',
+              description: 'What to expect in behavioral interviews',
+              id: 'hESyRg',
+            }),
             href: basePath,
             slug: 'introduction',
-            title: 'Intro to Behavioral Round',
+            title: intl.formatMessage({
+              defaultMessage: 'Intro to Behavioral Round',
+              description: 'Introduction to behavioral interviews',
+              id: 'jTXr+7',
+            }),
           },
           {
-            description:
-              'Top 20+ common behavioral interview questions for SWE',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Top 20+ common behavioral interview questions for SWE',
+              description:
+                'Most common behavioral interview questions for software engineers',
+              id: 'RQRPBv',
+            }),
             href: `${basePath}/questions`,
             slug: 'common-interview-questions',
-            title: 'Most Common Questions',
+            title: intl.formatMessage({
+              defaultMessage: 'Most Common Questions',
+              description: 'Most common behavioral interview questions',
+              id: '8yQk1V',
+            }),
           },
         ],
-        title: 'Overview',
+        title: intl.formatMessage({
+          defaultMessage: 'Overview',
+          description: 'Overview of behavioral interview',
+          id: 'OWKf+S',
+        }),
       },
       {
         links: [
           {
-            description:
-              'Tips for making a strong first impression in your self introduction',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Tips for making a strong first impression in your self introduction',
+              description:
+                'How to make strong first impressions during self introductions',
+              id: 'GZnl60',
+            }),
             href: `${basePath}/self-introduction`,
             slug: 'self-introduction',
-            title: 'Answering "Tell Me About Yourself"',
+            title: intl.formatMessage({
+              defaultMessage: 'Answering "Tell Me About Yourself"',
+              description:
+                'How to answer the self introduction question in behavioral interviews',
+              id: 'oNbAS2',
+            }),
           },
           {
-            description:
-              'Tips for answering questions on your motivation to join the role',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Tips for answering questions on your motivation to join the role',
+              description:
+                'How to answer motivation questions in behavioral interviews',
+              id: 'MWe9uf',
+            }),
             href: `${basePath}/why-work-here`,
             slug: 'why-work-here',
-            title: 'Answering "Why Work Here"',
+            title: intl.formatMessage({
+              defaultMessage: 'Answering "Why Work Here"',
+              description:
+                'How to answer the "why work here" question in behavioral interviews',
+              id: 'iCRUOb',
+            }),
           },
           {
-            description:
-              'Learn to ask insightful questions at the end of the interview',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Learn to ask insightful questions at the end of the interview',
+              description:
+                'How to ask insightful questions during behavioral interviews',
+              id: 'U9XHwD',
+            }),
             href: `${basePath}/questions-to-ask`,
             slug: 'questions-to-ask',
-            title: 'Questions to Ask (End of Interview)',
+            title: intl.formatMessage({
+              defaultMessage: 'Questions to Ask (End of Interview)',
+              description:
+                'Best questions to ask at the end of a behavioral interviews',
+              id: '+59/34',
+            }),
           },
           {
-            description:
-              'Learn to answer "Tell me about a time.." problem-solving questions',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Learn to answer "Tell me about a time.." problem solving questions',
+              description:
+                'How to answer problem solving situation questions in behavioral interviews',
+              id: 'q0mkGb',
+            }),
             href: `${basePath}/problem-solving`,
             slug: 'problem-solving',
-            title: 'Problem Solving Questions',
+            title: intl.formatMessage({
+              defaultMessage: 'Problem Solving Questions',
+              description:
+                'Title for sidebar on problem solving situation questions in behavioral interviews',
+              id: 'D5IZKC',
+            }),
           },
           {
-            description:
-              'Learn to answer "Tell me about a time.." collaboration questions',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Learn to answer "Tell me about a time.." collaboration questions',
+              description:
+                'How to answer collaboration situation questions in behavioral interviews',
+              id: 'HcBvYZ',
+            }),
             href: `${basePath}/collaboration`,
             slug: 'collaboration',
-            title: 'Collaboration Questions',
+            title: intl.formatMessage({
+              defaultMessage: 'Collaboration Questions',
+              description:
+                'Title for sidebar on collaboration situation questions in behavioral interviews',
+              id: '0GjR/X',
+            }),
           },
           {
-            description:
-              'Learn to answer "Tell me about a time.." growth mindset questions',
+            description: intl.formatMessage({
+              defaultMessage:
+                'Learn to answer "Tell me about a time.." growth mindset questions',
+              description:
+                'How to answer growth mindset collaboration questions',
+              id: 'Ldysd3',
+            }),
             href: `${basePath}/growth-mindset`,
             slug: 'growth-mindset',
-            title: 'Growth Mindset Questions',
+            title: intl.formatMessage({
+              defaultMessage: 'Growth Mindset Questions',
+              description: 'Title for growth mindset collaboration questions',
+              id: '7Korc4',
+            }),
           },
         ],
-        title: 'Solving Common Questions',
+        title: intl.formatMessage({
+          defaultMessage: 'Solving Common Questions',
+          description: 'Title for solving common behavioral questions section',
+          id: 'EHPx/Z',
+        }),
       },
     ],
-    title: 'Behavioral Interview Guidebook',
+    title: intl.formatMessage({
+      defaultMessage: 'Behavioral Interview Guidebook',
+      description: 'Title for behavioral interview guidebook',
+      id: '6fAxyB',
+    }),
   };
 
   return navigation;

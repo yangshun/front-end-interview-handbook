@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl';
+
 import type {
   GuideNavigation,
   GuideNavigationLink,
@@ -6,49 +8,103 @@ import type {
 export const basePath = '/front-end-interview-guidebook';
 
 function useCodingSectionItem() {
+  const intl = useIntl();
+
   const codingSectionItem: GuideNavigationLink = {
-    cardTitle: 'Intro to Coding Round',
-    description: 'What to expect in the coding round and tips to succeed',
+    cardTitle: intl.formatMessage({
+      defaultMessage: 'Intro to Coding Round',
+      description: 'Introduction to front end coding interview',
+      id: 'DDJTQX',
+    }),
+    description: intl.formatMessage({
+      defaultMessage: 'What to expect in the coding round and tips to succeed',
+      description: 'What to expect in front end coding interviews',
+      id: 'Z5P0Gp',
+    }),
     href: `${basePath}/coding`,
     slug: 'coding',
-    title: 'Coding Questions',
+    title: intl.formatMessage({
+      defaultMessage: 'Coding Questions',
+      description: 'Coding interview questions',
+      id: 'qcjD4a',
+    }),
   };
 
   return codingSectionItem;
 }
 
 export function useQuizSectionItem() {
+  const intl = useIntl();
   const quizSectionItem: GuideNavigationLink = {
-    cardTitle: 'Intro to Quiz Questions',
-    description:
-      'What to expect, which rounds to expect them, and how to prepare',
+    cardTitle: intl.formatMessage({
+      defaultMessage: 'Intro to Quiz Questions',
+      description: 'Introduction to front end quiz questions',
+      id: '8KFYWs',
+    }),
+    description: intl.formatMessage({
+      defaultMessage:
+        'What to expect, which rounds to expect them, and how to prepare',
+      description: 'What to expect in front end quiz interviews',
+      id: 'XdezZk',
+    }),
     href: `${basePath}/quiz`,
     slug: 'quiz',
-    title: 'Quiz Questions',
+    title: intl.formatMessage({
+      defaultMessage: 'Quiz Questions',
+      description: 'Front end quiz interview questions',
+      id: 'Ji3Y+i',
+    }),
   };
 
   return quizSectionItem;
 }
 
 function useCodingSectionFormatItems() {
+  const intl = useIntl();
   const codingSectionFormatItems: ReadonlyArray<GuideNavigationLink> = [
     {
-      description: 'Algo concepts to cover and tips to succeed',
+      description: intl.formatMessage({
+        defaultMessage: 'Algo concepts to cover and tips to succeed',
+        description: 'Algorithm concepts needed in front end coding interviews',
+        id: '0BbsyI',
+      }),
       href: `${basePath}/algorithms`,
       slug: 'algorithms',
-      title: 'Algorithm Questions',
+      title: intl.formatMessage({
+        defaultMessage: 'Algorithm Questions',
+        description: 'Algorithm Coding Interview Questions',
+        id: 'f89otf',
+      }),
     },
     {
-      description: 'Types of JS questions, concepts to cover and rubrics',
+      description: intl.formatMessage({
+        defaultMessage: 'Types of JS questions, concepts to cover and rubrics',
+        description:
+          'JavaScript questions, concepts and rubrics during front end interviews',
+        id: 'iqz/fo',
+      }),
       href: `${basePath}/javascript`,
       slug: 'javascript',
-      title: 'JavaScript Questions',
+      title: intl.formatMessage({
+        defaultMessage: 'JavaScript Questions',
+        description: 'Front End JavaScript questions',
+        id: 'CAMERn',
+      }),
     },
     {
-      description: 'Types of UI questions, concepts to cover and rubrics',
+      description: intl.formatMessage({
+        defaultMessage: 'Types of UI questions, concepts to cover and rubrics',
+        description:
+          'Front End User Interface interview questions, concepts and rubrics',
+        id: 'XwbyU0',
+      }),
       href: `${basePath}/user-interface`,
       slug: 'user-interface',
-      title: 'User Interface Questions',
+      title: intl.formatMessage({
+        defaultMessage: 'User Interface Questions',
+        description: 'Front End User Interface interview questions',
+        id: 'MdGGzJ',
+      }),
     },
   ];
 
@@ -58,7 +114,6 @@ function useCodingSectionFormatItems() {
 export function useCodingQuestionListGuideItems() {
   const codingSectionItem = useCodingSectionItem();
   const codingSectionFormatItems = useCodingSectionFormatItems();
-
   const combined: ReadonlyArray<GuideNavigationLink> = [
     codingSectionItem,
     ...codingSectionFormatItems,
@@ -66,11 +121,12 @@ export function useCodingQuestionListGuideItems() {
 
   return combined;
 }
-
 export function useFrontEndInterviewGuidebookNavigation() {
+  const intl = useIntl();
   const codingSectionItem = useCodingSectionItem();
   const quizSectionItem = useQuizSectionItem();
   const codingSectionFormatItems = useCodingSectionFormatItems();
+
   const navigation: GuideNavigation = {
     items: [
       {
@@ -78,20 +134,36 @@ export function useFrontEndInterviewGuidebookNavigation() {
           {
             href: `${basePath}`,
             slug: 'introduction',
-            title: 'Preparation Guide',
+            title: intl.formatMessage({
+              defaultMessage: 'Preparation Guide',
+              description: 'Front End interview preparation guide',
+              id: 'Gjy+Iy',
+            }),
           },
         ],
-        title: 'Overview',
+        title: intl.formatMessage({
+          defaultMessage: 'Overview',
+          description: 'Front End User Interface interviews overview',
+          id: '03oqt6',
+        }),
       },
       {
         links: [
           {
             href: `${basePath}/resume`,
             slug: 'resume',
-            title: 'Resume Preparation',
+            title: intl.formatMessage({
+              defaultMessage: 'Resume Preparation',
+              description: 'Preparing a resume for front end interviews',
+              id: '3zMEIO',
+            }),
           },
         ],
-        title: 'Getting the Interview',
+        title: intl.formatMessage({
+          defaultMessage: 'Getting the Interview',
+          description: 'Getting the front end interview',
+          id: '+eHFYh',
+        }),
       },
       {
         links: [
@@ -102,29 +174,54 @@ export function useFrontEndInterviewGuidebookNavigation() {
           {
             href: `${basePath}/system-design`,
             slug: 'system-design',
-            title: 'System Design Questions',
+            title: intl.formatMessage({
+              defaultMessage: 'System Design Questions',
+              description: 'Front End system design interview questions',
+              id: 'eVJIGT',
+            }),
           },
           quizSectionItem,
         ],
-        title: 'Preparation by Question Type',
+        title: intl.formatMessage({
+          defaultMessage: 'Preparation by Question Type',
+          description: 'Preparing by front end interview question format',
+          id: 'ZB+f95',
+        }),
       },
       {
         links: [
           {
             href: `${basePath}/user-interface-best-practices`,
             slug: 'user-interface-best-practices',
-            title: 'Best Practices for Building User Interfaces',
+            title: intl.formatMessage({
+              defaultMessage: 'Best Practices for Building User Interfaces',
+              description:
+                'Best practices for building UI during front end interviews',
+              id: 'Ai0ech',
+            }),
           },
           {
             href: `${basePath}/user-interface-components-api-design-principles`,
             slug: 'user-interface-components-api-design-principles',
-            title: 'UI Components API Design Principles',
+            title: intl.formatMessage({
+              defaultMessage: 'UI Components API Design Principles',
+              description: 'User Interface components API design principles',
+              id: '0nGuf2',
+            }),
           },
         ],
-        title: 'Additional Tips',
+        title: intl.formatMessage({
+          defaultMessage: 'Additional Tips',
+          description: 'Additional tips for front end interviews',
+          id: 'zIthEX',
+        }),
       },
     ],
-    title: 'Front End Interview Guidebook',
+    title: intl.formatMessage({
+      defaultMessage: 'Front End Interview Guidebook',
+      description: 'Front End Interview Guidebook title',
+      id: 'w0Gmne',
+    }),
   };
 
   return navigation;

@@ -15,6 +15,7 @@ import QuestionMetadataSection from '../../common/QuestionMetadataSection';
 import QuestionProgressAction from '../../common/QuestionProgressAction';
 import type { QuestionBase } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   hasCompletedQuestion: boolean;

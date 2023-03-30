@@ -45,11 +45,11 @@ export default function QuestionDurationLabel({
         )}
         <Text className="whitespace-nowrap" color="secondary" variant={variant}>
           <FormattedMessage
-            defaultMessage="{mins} mins"
+            defaultMessage="{duration} mins"
             description="Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
-            id="opQRju"
+            id="PfOyMR"
             values={{
-              mins,
+              duration: mins,
             }}
           />
         </Text>
