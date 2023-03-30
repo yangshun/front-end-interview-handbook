@@ -7,7 +7,7 @@ export type IntlMessages = ResolvedIntlConfig['messages'];
 // We enumerate all dictionaries here for better linting and typescript support
 // We also get the default import for cleaner types
 const locales = {
-  en: () => import('../locales/en.json').then((module) => module.default),
+  en: () => import('../locales/en-US.json').then((module) => module.default),
   'zh-CN': () =>
     import('../locales/zh-CN.json').then((module) => module.default),
 };
