@@ -10,6 +10,7 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
+import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import useMarketingContactPlatformsConfig from '../marketing/contact/MarketingContactPlatformsConfig';
@@ -47,6 +48,10 @@ function SocialPlatform() {
               gtag.event({
                 action: `feedback.channel.${platform.key}.click`,
                 category: 'engagement',
+                label: platform.name,
+              });
+              logEvent('click', {
+                element: 'Social link',
                 label: platform.name,
               });
             }}>

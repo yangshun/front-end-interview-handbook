@@ -11,6 +11,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
+
 export default function MarketingUserInterfaceQuestionsExamples({
   questions,
 }: Readonly<{
@@ -67,6 +69,10 @@ export default function MarketingUserInterfaceQuestionsExamples({
                 gtag.event({
                   action: 'marketing.questions.user_interface.cta.click',
                   category: 'engagement',
+                  label: 'View All Questions',
+                });
+                logEvent('click', {
+                  element: 'Homepage User Interface questions list',
                   label: 'View All Questions',
                 });
               }}

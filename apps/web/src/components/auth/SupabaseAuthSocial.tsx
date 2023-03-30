@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { Provider } from '@supabase/supabase-js';
@@ -126,7 +127,13 @@ export default function SupabaseAuthSocial({
                 )}
                 size={socialButtonSize}
                 variant="tertiary"
-                onClick={() => handleProviderSignIn(provider)}
+                onClick={() => {
+                  logEvent('auth.sign_in', {
+                    element: 'Auth page OAuth sign in button',
+                    label,
+                  });
+                  handleProviderSignIn(provider);
+                }}
               />
             </div>
           );

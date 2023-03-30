@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+
 import logEvent from '~/logging/logEvent';
 
 export default function useQuestionLogEventCopyContents<

@@ -6,6 +6,8 @@ import gtag from '~/lib/gtag';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
+import logEvent from '~/logging/logEvent';
+
 import { useUserPreferences } from './UserPreferencesProvider';
 import { useUserProfile } from './UserProfileProvider';
 
@@ -51,6 +53,10 @@ export default function PromoBanner({
                   gtag.event({
                     action: `global.banner.new_year_2023_discount.click`,
                     category: 'engagement',
+                    label: 'Grab your discount today',
+                  });
+                  logEvent('click', {
+                    element: 'Promo banner',
                     label: 'Grab your discount today',
                   });
                 }}>

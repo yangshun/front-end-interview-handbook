@@ -18,6 +18,8 @@ import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import Select from '~/components/ui/Select';
 
+import logEvent from '~/logging/logEvent';
+
 import MarketingCodeMirrorTheme from '../coding/MarketingCodeMirrorTheme';
 import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
@@ -172,6 +174,11 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
           gtag.event({
             action: `homepage.hero.embed.user_interface.try_out.click`,
             category: 'engagement',
+            label:
+              'Click here to try out the actual workspace instead of this embed',
+          });
+          logEvent('click', {
+            element: 'Homepage UI question embed',
             label:
               'Click here to try out the actual workspace instead of this embed',
           });

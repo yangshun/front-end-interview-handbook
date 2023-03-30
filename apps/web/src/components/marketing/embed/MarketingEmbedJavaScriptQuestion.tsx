@@ -16,6 +16,8 @@ import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 
+import logEvent from '~/logging/logEvent';
+
 import JavaScriptWorkspace from '../../questions/editor/JavaScriptWorkspace';
 
 import { ListBulletIcon } from '@heroicons/react/24/outline';
@@ -140,6 +142,11 @@ export default function MarketingEmbedJavaScriptQuestion({
           gtag.event({
             action: `homepage.hero.embed.javascript.try_out.click`,
             category: 'engagement',
+            label:
+              'Click here to try out the actual workspace instead of this embed',
+          });
+          logEvent('click', {
+            element: 'Homepage JavaScript embed',
             label:
               'Click here to try out the actual workspace instead of this embed',
           });

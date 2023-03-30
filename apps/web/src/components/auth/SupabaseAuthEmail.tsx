@@ -12,6 +12,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
@@ -202,6 +203,10 @@ export default function SupabaseAuthEmail({
                   href="#auth-forgot-password"
                   onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault();
+                    logEvent('click', {
+                      element: 'Auth page forgot your password button',
+                      label: 'Forgot your password?',
+                    });
                     setAuthView('forgotten_password');
                   }}>
                   <FormattedMessage
@@ -277,6 +282,21 @@ export default function SupabaseAuthEmail({
               size="lg"
               type="submit"
               variant="primary"
+              onClick={() => {
+                if (authView === 'sign_in') {
+                  logEvent('auth.sign_in', {
+                    element: 'Auth page email sign in button',
+                    label: 'Sign in',
+                  });
+                }
+
+                if (authView === 'sign_up') {
+                  logEvent('auth.sign_up', {
+                    element: 'Auth page email sign up button',
+                    label: 'Sign up',
+                  });
+                }
+              }}
             />
             {authView === 'sign_in' && magicLink && (
               <div>
@@ -311,6 +331,10 @@ export default function SupabaseAuthEmail({
                         href="#auth-sign-up"
                         onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                           e.preventDefault();
+                          logEvent('click', {
+                            element: 'Auth page sign up button',
+                            label: 'Don\t have an account? Sign up for free',
+                          });
                           handleViewChange('sign_up');
                         }}>
                         {chunks}
@@ -337,6 +361,10 @@ export default function SupabaseAuthEmail({
                           onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                             e.preventDefault();
                             handleViewChange('sign_in');
+                            logEvent('click', {
+                              element: 'Auth page sign in button',
+                              label: 'Already have an account? Sign in',
+                            });
                           }}>
                           {chunks}
                         </Anchor>

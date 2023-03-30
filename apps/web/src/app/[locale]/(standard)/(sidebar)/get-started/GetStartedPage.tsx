@@ -19,6 +19,8 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
+
 type Props = Readonly<{
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
@@ -74,6 +76,10 @@ function PreparationPlansSection() {
                     gtag.event({
                       action: `get_started.plans.${plan.type}.click`,
                       category: 'engagement',
+                      label: 'See plan',
+                    });
+                    logEvent('click', {
+                      element: 'Get Started button',
                       label: 'See plan',
                     });
                   }}>

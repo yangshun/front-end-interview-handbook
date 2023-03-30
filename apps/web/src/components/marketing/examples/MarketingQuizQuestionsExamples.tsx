@@ -12,6 +12,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
+
 export default function MarketingQuizQuestionsExamples({
   questions,
 }: Readonly<{
@@ -79,6 +81,10 @@ export default function MarketingQuizQuestionsExamples({
                 gtag.event({
                   action: 'marketing.questions.quiz.cta.click',
                   category: 'engagement',
+                  label: 'View All Questions',
+                });
+                logEvent('click', {
+                  element: 'Homepage Quiz question embed',
                   label: 'View All Questions',
                 });
               }}

@@ -10,6 +10,8 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
+
 import { QuestionCount } from '../questions/listings/QuestionCount';
 
 type Feature = Readonly<{
@@ -56,6 +58,10 @@ function useFeatures() {
                       gtag.event({
                         action: `homepage.key_features.questions`,
                         category: 'engagement',
+                        label: 'View question list',
+                      });
+                      logEvent('click', {
+                        element: 'Key features list',
                         label: 'View question list',
                       });
                     }}>
@@ -165,6 +171,10 @@ function useFeatures() {
                         category: 'engagement',
                         label: 'View our free system design guides',
                       });
+                      logEvent('click', {
+                        element: 'Key features list',
+                        label: 'View our free system design guides',
+                      });
                     }}>
                     {chunks}
                   </Anchor>
@@ -227,6 +237,10 @@ function useFeatures() {
                       gtag.event({
                         action: `homepage.key_features.study_plans`,
                         category: 'engagement',
+                        label: 'View study plans',
+                      });
+                      logEvent('click', {
+                        element: 'Key features list',
                         label: 'View study plans',
                       });
                     }}>
@@ -484,6 +498,10 @@ export default function MarketingKeyFeaturesNew() {
                             gtag.event({
                               action: `homepage.key_features.try_product`,
                               category: 'engagement',
+                              label: "Try the product (it's free)",
+                            });
+                            logEvent('click', {
+                              element: 'Key features list',
                               label: "Try the product (it's free)",
                             });
                           }}>

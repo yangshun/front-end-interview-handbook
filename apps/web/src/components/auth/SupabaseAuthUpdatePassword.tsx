@@ -10,6 +10,7 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import logEvent from '~/logging/logEvent';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
@@ -123,6 +124,12 @@ export default function SupabaseAuthUpdatePassword() {
               })}
               type="submit"
               variant="primary"
+              onClick={() => {
+                logEvent('auth.password.change', {
+                  element: 'Auth page change password button',
+                  label: 'Change password',
+                });
+              }}
             />
             {message && (
               <Text color="success" display="block" variant="body2">

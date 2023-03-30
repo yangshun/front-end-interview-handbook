@@ -8,6 +8,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
@@ -96,6 +97,12 @@ export default function SupabaseAuthForgottenPassword({
               size="lg"
               type="submit"
               variant="primary"
+              onClick={() => {
+                logEvent('auth.password.reset', {
+                  element: 'Reset password button',
+                  label: 'Send reset password instructions',
+                });
+              }}
             />
           </div>
           <div>

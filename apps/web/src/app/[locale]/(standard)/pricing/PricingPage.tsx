@@ -5,7 +5,10 @@ import { useEffect } from 'react';
 
 import gtag from '~/lib/gtag';
 
-import type { PricingPlansLocalized, PricingPlanType } from '~/data/PricingPlans';
+import type {
+  PricingPlansLocalized,
+  PricingPlanType,
+} from '~/data/PricingPlans';
 
 import PromoBanner from '~/components/global/PromoBanner';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
@@ -53,7 +56,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
         value: plan.unitCostLocalizedInCurrency,
       });
     }
-  }, [cancelSearchParam, planSearchParam]);
+  }, [cancelSearchParam, planSearchParam, plans]);
 
   return (
     <div className="bg-slate-900">

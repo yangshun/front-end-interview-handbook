@@ -12,6 +12,8 @@ import Banner from '~/components/ui/Banner';
 import Prose from '~/components/ui/Prose';
 import Tabs from '~/components/ui/Tabs';
 
+import logEvent from '~/logging/logEvent';
+
 function ReadFullQuestionAlert() {
   return (
     <div className="rounded-md bg-cyan-50 p-4 text-xs">
@@ -24,6 +26,11 @@ function ReadFullQuestionAlert() {
           gtag.event({
             action: `homepage.hero.embed.system_design.try_out.click`,
             category: 'engagement',
+            label:
+              'Click here to view the full solution and other System Design guides.',
+          });
+          logEvent('click', {
+            element: 'Homepage System Design questions embed (Try out button)',
             label:
               'Click here to view the full solution and other System Design guides.',
           });
@@ -404,6 +411,10 @@ function Interface() {
               category: 'engagement',
               label: 'Read full content...',
             });
+            logEvent('click', {
+              element: 'Homepage System Design questions embed API tab',
+              label: 'Read full content...',
+            });
           }}>
           Read full content...
         </Anchor>
@@ -464,8 +475,13 @@ function Optimizations() {
           target="_blank"
           onClick={() => {
             gtag.event({
-              action: `homepage.hero.embed.system_design.api.see_more.click`,
+              action: `homepage.hero.embed.system_design.optimizations.see_more.click`,
               category: 'engagement',
+              label: 'Read full content...',
+            });
+            logEvent('click', {
+              element:
+                'Homepage System Design questions embed optimizations tab',
               label: 'Read full content...',
             });
           }}>
@@ -571,6 +587,11 @@ export default function MarketingEmbedSystemDesignQuestion() {
           gtag.event({
             action: `homepage.hero.embed.system_design.try_out.click`,
             category: 'engagement',
+            label:
+              'Click here to view the full solution and other System Design guides.',
+          });
+          logEvent('click', {
+            element: 'Homepage System Design questions embed',
             label:
               'Click here to view the full solution and other System Design guides.',
           });

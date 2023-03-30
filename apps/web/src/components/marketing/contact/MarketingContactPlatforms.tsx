@@ -4,6 +4,8 @@ import gtag from '~/lib/gtag';
 
 import Anchor from '~/components/ui/Anchor';
 
+import logEvent from '~/logging/logEvent';
+
 import MarketingContactPlatformsConfig from './MarketingContactPlatformsConfig';
 
 export default function MarketingContactPlatforms() {
@@ -19,6 +21,10 @@ export default function MarketingContactPlatforms() {
             gtag.event({
               action: `contact_us.${platform.key}.click`,
               category: 'engagement',
+              label: platform.name,
+            });
+            logEvent('click', {
+              element: 'Social link',
               label: platform.name,
             });
           }}>

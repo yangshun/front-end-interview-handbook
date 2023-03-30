@@ -11,6 +11,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import TabsSolutions from '~/components/ui/Tabs/TabsSolutions';
 
+import logEvent from '~/logging/logEvent';
+
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
 import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
 import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
@@ -128,6 +130,10 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                         gtag.event({
                           action: `homepage.solutions.${newTab}.click`,
                           category: 'engagement',
+                          label: newTab,
+                        });
+                        logEvent('click', {
+                          element: 'Homepage solutions tab',
                           label: newTab,
                         });
                         setSelectedTab(newTab);
