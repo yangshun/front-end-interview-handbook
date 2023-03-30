@@ -5,14 +5,11 @@ import { useSearchParams } from 'next/navigation';
 import { useI18nRouter } from 'next-i18nostic';
 import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
-import Smartlook from 'smartlook-client';
 
 import Container from '~/components/ui/Container';
 import EmptyState from '~/components/ui/EmptyState';
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
-import * as FullStory from '@fullstory/browser';
 
 export default function LogoutPage() {
   const supabaseClient = useSupabaseClientGFE();
@@ -23,8 +20,6 @@ export default function LogoutPage() {
   useEffect(() => {
     async function logout() {
       await supabaseClient.auth.signOut();
-      FullStory.anonymize();
-      Smartlook.anonymize();
 
       const nextSearchParam = searchParams?.get('next');
       // Redirect user to the previous page if defined and the
