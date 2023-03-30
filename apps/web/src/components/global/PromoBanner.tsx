@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -7,6 +6,7 @@ import gtag from '~/lib/gtag';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
+import { useUserPreferences } from './UserPreferencesProvider';
 import { useUserProfile } from './UserProfileProvider';
 
 export default function PromoBanner({
@@ -17,9 +17,9 @@ export default function PromoBanner({
   variant?: 'primary' | 'special';
 }>) {
   const { isUserProfileLoading, userProfile } = useUserProfile();
+  const { showPromoBanner, setShowPromoBanner } = useUserPreferences();
   const isPremium = userProfile?.isPremium ?? false;
-  const [isHidden, setIsHidden] = useState(false);
-  const isInvisible = isUserProfileLoading || isPremium || isHidden;
+  const isInvisible = isUserProfileLoading || isPremium || !showPromoBanner;
 
   return (
     <div
@@ -34,7 +34,7 @@ export default function PromoBanner({
         size="xs"
         variant={variant}
         onHide={() => {
-          setIsHidden(true);
+          setShowPromoBanner(false);
         }}>
         <FormattedMessage
           defaultMessage="New Year Sale! Additional 20% off annual and lifetime plans with the code NEWYEAR2023. <link>Grab your discount today!</link>"

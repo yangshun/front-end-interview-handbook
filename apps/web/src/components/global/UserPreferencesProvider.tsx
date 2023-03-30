@@ -6,20 +6,26 @@ type Props = Readonly<{
 
 type UserPreferencesContextType = Readonly<{
   setShowFeedbackWidget: (collapsed: boolean) => void;
+  setShowPromoBanner: (isHidden: boolean) => void;
   setShowSidebar: (collapsed: boolean) => void;
   showFeedbackWidget: boolean;
+  showPromoBanner: boolean;
   showSidebar: boolean;
 }>;
 
 const DEFAULT_SHOW_SIDEBAR = true;
 const DEFAULT_SHOW_FEEDBACK_WIDGET = true;
+const DEFAULT_SHOW_PROMO_BANNER = true;
 
 const UserProfileContext = createContext<UserPreferencesContextType>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowFeedbackWidget: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setShowPromoBanner: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowSidebar: () => {},
   showFeedbackWidget: DEFAULT_SHOW_FEEDBACK_WIDGET,
+  showPromoBanner: DEFAULT_SHOW_PROMO_BANNER,
   showSidebar: DEFAULT_SHOW_SIDEBAR,
 });
 
@@ -32,13 +38,18 @@ export default function UserPreferencesProvider({ children }: Props) {
   const [showFeedbackWidget, setShowFeedbackWidget] = useState(
     DEFAULT_SHOW_FEEDBACK_WIDGET,
   );
+  const [showPromoBanner, setShowPromoBanner] = useState(
+    DEFAULT_SHOW_PROMO_BANNER,
+  );
 
   return (
     <UserProfileContext.Provider
       value={{
         setShowFeedbackWidget,
+        setShowPromoBanner,
         setShowSidebar,
         showFeedbackWidget,
+        showPromoBanner,
         showSidebar,
       }}>
       {children}
