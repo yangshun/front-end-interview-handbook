@@ -1,23 +1,31 @@
 import { Console } from 'console-feed';
+import type { Variants } from 'console-feed/lib/definitions/Component';
 import type { UIEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { useLocalStorage } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+
+import useConsoleStyles from './useConsoleStyles';
 
 import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/types/components/Console/utils/getType';
 import {
   ArrowSmallDownIcon,
   CommandLineIcon,
+  MoonIcon as OutlineMoonIcon,
   NoSymbolIcon,
 } from '@heroicons/react/24/outline';
+import { MoonIcon as SolidMoonIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   logs: SandpackConsoleData;
   onClear: () => void;
   showExplicitInvocationMessage?: boolean;
 }>;
+
+const DEFAULT_CONSOLE_THEME = 'dark';
 
 export default function JavaScriptConsole({
   logs,
@@ -26,6 +34,15 @@ export default function JavaScriptConsole({
 }: Props) {
   const intl = useIntl();
   const consoleRef = useRef<HTMLDivElement>(null);
+  const [consoleTheme, setConsoleTheme] = useLocalStorage<Variants>(
+    'gfe:console:theme',
+    DEFAULT_CONSOLE_THEME,
+  );
+  const consoleStyles = useConsoleStyles(consoleTheme);
+  const toggleConsoleTheme = () => {
+    setConsoleTheme(consoleTheme === 'dark' ? 'light' : 'dark');
+  };
+
   const [isScrollPositionAtBottom, setIsScrollPositionAtBottom] =
     useState(true);
 
@@ -90,45 +107,68 @@ export default function JavaScriptConsole({
 
   return (
     <div className="flex h-full flex-col overflow-x-auto">
-      <div className="flex gap-x-2 p-2">
-        <Button
-          icon={NoSymbolIcon}
-          label={intl.formatMessage({
-            defaultMessage: 'Clear Console',
-            description:
-              'Button label to clear the console in the coding workspace',
-            id: 'o+1cag',
-          })}
-          size="sm"
-          variant="tertiary"
-          onClick={() => {
-            onClear();
-          }}
-        />
-        {!isScrollPositionAtBottom && (
+      <div className="flex flex-row justify-between gap-x-2 p-2">
+        <div className="flex gap-x-2">
           <Button
-            icon={ArrowSmallDownIcon}
+            icon={NoSymbolIcon}
             label={intl.formatMessage({
-              defaultMessage: 'Scroll to Bottom',
+              defaultMessage: 'Clear Console',
               description:
-                'Button label to scroll to bottom of the console logs',
-              id: 'hOEGb+',
+                'Button label to clear the console in the coding workspace',
+              id: 'o+1cag',
             })}
             size="sm"
             variant="tertiary"
             onClick={() => {
-              scrollToBottom();
+              onClear();
             }}
           />
-        )}
+          {!isScrollPositionAtBottom && (
+            <Button
+              icon={ArrowSmallDownIcon}
+              label={intl.formatMessage({
+                defaultMessage: 'Scroll to Bottom',
+                description:
+                  'Button label to scroll to bottom of the console logs',
+                id: 'hOEGb+',
+              })}
+              size="sm"
+              variant="tertiary"
+              onClick={() => {
+                scrollToBottom();
+              }}
+            />
+          )}
+        </div>
+        <Button
+          icon={consoleTheme === 'light' ? OutlineMoonIcon : SolidMoonIcon}
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'Toggle Console Theme',
+            description: 'Button label to toggle console theme',
+            id: 'onDh1B',
+          })}
+          size="sm"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Toggle Console Theme',
+            description: 'Button tooltip to toggle console theme',
+            id: 'WYQiTC',
+          })}
+          tooltipAlignment="center"
+          tooltipPosition="start"
+          variant="tertiary"
+          onClick={toggleConsoleTheme}
+        />
       </div>
       <div
         ref={consoleRef}
-        className="overflow-y-auto bg-slate-700"
+        className={`overflow-y-auto ${
+          consoleTheme === 'light' ? 'bg-white' : 'bg-slate-900'
+        }`}
         onScroll={handleScroll}>
         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-ignore */}
-        <Console logs={logs} variant="dark" />
+        <Console logs={logs} styles={consoleStyles} variant={consoleTheme} />
       </div>
     </div>
   );
