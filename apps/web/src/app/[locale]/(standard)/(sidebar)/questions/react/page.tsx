@@ -37,15 +37,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
+  const { locale } = params;
   const questionList = await fetchCodingQuestionsForFramework(framework);
+  const intl = await getIntlServerOnly(locale);
 
   return (
     <QuestionsFrameworkPage
-      description="Top React coding interview questions to build the most commonly-asked front end UI components and applications."
+      description={intl.formatMessage({
+        defaultMessage:
+          'Top React coding interview questions to build the most commonly-asked front end UI components and applications.',
+        description: 'Description for React questions page',
+        id: 'j5W1/P',
+      })}
       framework={framework}
       questionList={questionList}
-      title="React Coding Questions"
+      title={intl.formatMessage({
+        defaultMessage: 'React Coding Questions',
+        description: 'Description for React questions title',
+        id: 'Qf/RU+',
+      })}
     />
   );
 }

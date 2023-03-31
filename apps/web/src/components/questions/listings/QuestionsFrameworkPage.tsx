@@ -1,5 +1,6 @@
 'use client';
 
+import TextPairing from '~/components/common/TextPairing';
 import PromoBanner from '~/components/global/PromoBanner';
 import type {
   QuestionFramework,
@@ -7,11 +8,10 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionsCodingListWithFilters from '~/components/questions/listings/QuestionsCodingListWithFilters';
 import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import QuestionCategoryTitleSection from './QuestionCategoryTitleSection';
+import useScrollToElement from './useScrollToElement';
 
 type Props = Readonly<{
   description: string;
@@ -26,6 +26,12 @@ export default function QuestionsFrameworkPage({
   questionList,
   title,
 }: Props) {
+  // Keep this component in sync with QuestionsCategoryPage.
+  const headingSectionRef = useScrollToElement<HTMLHRElement>(
+    '#questions',
+    100,
+  );
+
   return (
     <>
       <PromoBanner />
@@ -33,15 +39,8 @@ export default function QuestionsFrameworkPage({
         <Section>
           <QuestionCategoryTitleSection category="react" />
         </Section>
-        <hr />
-        <div className="grid gap-y-4">
-          <Heading className="text-xl font-semibold tracking-tight sm:text-2xl">
-            {title}
-          </Heading>
-          <Text className="max-w-3xl" color="secondary" display="block">
-            {description}
-          </Text>
-        </div>
+        <hr ref={headingSectionRef} />
+        <TextPairing description={description} size="md" title={title} />
         <Section>
           <QuestionsCodingListWithFilters
             framework={framework}

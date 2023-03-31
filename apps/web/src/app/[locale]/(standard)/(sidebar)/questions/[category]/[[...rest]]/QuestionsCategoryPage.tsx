@@ -1,8 +1,8 @@
 'use client';
 
 import { useI18nRouter } from 'next-i18nostic';
-import { useEffect, useRef } from 'react';
 
+import TextPairing from '~/components/common/TextPairing';
 import PromoBanner from '~/components/global/PromoBanner';
 import type {
   QuestionCodingFormat,
@@ -15,10 +15,9 @@ import QuestionsCodingListWithFilters from '~/components/questions/listings/Ques
 import QuestionsFormatTabs from '~/components/questions/listings/QuestionsFormatsTabs';
 import QuestionsQuizListWithFilters from '~/components/questions/listings/QuestionsQuizListWithFilters';
 import type { QuestionListCategory } from '~/components/questions/listings/types';
+import useScrollToElement from '~/components/questions/listings/useScrollToElement';
 import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 // The higher the more important.
 const codingFormatRankingForNonJavaScript: Record<
@@ -120,18 +119,11 @@ export default function QuestionsCategoryPage({
   codingQuestions,
   quizQuestions,
 }: Props) {
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
-
-  useEffect(() => {
-    if (window.location.hash === '#questions' && headingRef != null) {
-      setTimeout(() => {
-        window.scrollTo({
-          left: 0,
-          top: headingRef?.current?.offsetTop,
-        });
-      }, 100);
-    }
-  }, []);
+  // Keep this component in sync with QuestionsFrameworkPage.
+  const headingSectionRef = useScrollToElement<HTMLHRElement>(
+    '#questions',
+    100,
+  );
 
   return (
     <>
@@ -140,21 +132,8 @@ export default function QuestionsCategoryPage({
         <Section>
           <QuestionCategoryTitleSection category={category} />
         </Section>
-        <hr />
-        <div className="grid gap-y-4">
-          <Heading
-            ref={headingRef}
-            className="text-xl font-semibold tracking-tight sm:text-2xl">
-            {pageTitle}
-          </Heading>
-          <Text
-            className="max-w-3xl"
-            color="secondary"
-            display="block"
-            variant="body2">
-            {description}
-          </Text>
-        </div>
+        <hr ref={headingSectionRef} />
+        <TextPairing description={description} size="md" title={pageTitle} />
         <Section>
           <QuestionsList
             key={category}

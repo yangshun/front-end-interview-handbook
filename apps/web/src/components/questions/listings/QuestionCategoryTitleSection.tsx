@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import TextPairing from '~/components/common/TextPairing';
 import { QuestionCount } from '~/components/questions/listings/QuestionCount';
@@ -35,24 +36,36 @@ const items: ReadonlyArray<{
 ];
 
 export default function QuestionCategoryTitleSection({ category }: Props) {
+  const intl = useIntl();
+
   return (
     <div className="flex flex-col gap-y-6">
       <TextPairing
         description={
-          <>
-            Practice {QuestionCount}+ common front end interview questions
+          <FormattedMessage
+            defaultMessage="Practice {QuestionCount}+ common front end interview questions
             across every major front end framework. Reference answers from
-            ex-interviewers at FAANG.
-          </>
+            ex-interviewers at FAANG."
+            description="Questions category list page title"
+            id="jRVVDu"
+            values={{
+              QuestionCount,
+            }}
+          />
         }
         sectionLabel={
-          <>
-            Front End Engineer &middot; Web Developer &middot; Full Stack
-            Engineer
-          </>
+          <FormattedMessage
+            defaultMessage="Front End Engineer &middot; Web Developer &middot; Full Stack Engineer"
+            description="Job titles which are relevant to the page"
+            id="KSM9lZ"
+          />
         }
         size="lg"
-        title="Interview Practice Question Bank"
+        title={intl.formatMessage({
+          defaultMessage: 'Interview Practice Question Bank',
+          description: 'Title of interview questions list pages',
+          id: 'GHJ1o2',
+        })}
       />
       <div className="relative flex flex-wrap gap-3">
         {items.map(({ label, value }) => (
