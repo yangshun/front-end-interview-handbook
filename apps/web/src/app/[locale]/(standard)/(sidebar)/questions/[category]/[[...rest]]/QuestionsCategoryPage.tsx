@@ -120,10 +120,7 @@ export default function QuestionsCategoryPage({
   quizQuestions,
 }: Props) {
   // Keep this component in sync with QuestionsFrameworkPage.
-  const headingSectionRef = useScrollToElement<HTMLHRElement>(
-    '#questions',
-    100,
-  );
+  const listSectionRef = useScrollToElement<HTMLHRElement>('#list', 100);
 
   return (
     <>
@@ -132,7 +129,7 @@ export default function QuestionsCategoryPage({
         <Section>
           <QuestionCategoryTitleSection category={category} />
         </Section>
-        <hr ref={headingSectionRef} />
+        <hr ref={listSectionRef} />
         <TextPairing description={description} size="md" title={pageTitle} />
         <Section>
           <QuestionsList
