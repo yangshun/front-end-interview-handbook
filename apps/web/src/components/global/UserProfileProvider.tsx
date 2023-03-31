@@ -31,7 +31,6 @@ export function useUserProfile() {
 
 type Props = Readonly<{
   children: React.ReactNode;
-  countryCode: string;
 }>;
 
 function convertProfile(
@@ -45,7 +44,7 @@ function convertProfile(
   };
 }
 
-export default function UserProfileProvider({ children, countryCode }: Props) {
+export default function UserProfileProvider({ children }: Props) {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const { isLoading: isUserLoading } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
@@ -80,7 +79,7 @@ export default function UserProfileProvider({ children, countryCode }: Props) {
     if (user == null && !isUserLoading) {
       setIsUserProfileLoading(false);
     }
-  }, [countryCode, isUserLoading, supabaseClient, user, userProfile]);
+  }, [isUserLoading, supabaseClient, user, userProfile]);
 
   const { pathname } = useI18nPathname();
 

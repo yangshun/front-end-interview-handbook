@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 import nextI18nosticConfig from 'next-i18nostic/config';
 
@@ -40,14 +39,8 @@ export default async function Page({ params }: Props) {
   const locale = params?.locale ?? nextI18nosticConfig.defaultLocale;
   const localeMessages = await getLocaleMessages(locale);
 
-  const cookieStore = cookies();
-  const countryCode: string = cookieStore.get('country')?.value ?? 'US';
-
   return (
-    <RootLayout
-      countryCode={countryCode}
-      intlMessages={localeMessages}
-      locale={locale}>
+    <RootLayout intlMessages={localeMessages} locale={locale}>
       <StandardLayout>
         <NotFoundPage />
       </StandardLayout>

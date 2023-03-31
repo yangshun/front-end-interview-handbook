@@ -2,13 +2,9 @@
 
 import { createContext, useContext } from 'react';
 
-type AppContextType = Readonly<{
-  countryCode: string;
-}>;
+type AppContextType = null;
 
-const AppContext = createContext<AppContextType>({
-  countryCode: 'US',
-});
+const AppContext = createContext<AppContextType>(null);
 
 export function useAppContext() {
   return useContext(AppContext);
@@ -16,16 +12,8 @@ export function useAppContext() {
 
 type Props = Readonly<{
   children: React.ReactNode;
-  countryCode: string;
 }>;
 
-export default function AppContextProvider({ children, countryCode }: Props) {
-  return (
-    <AppContext.Provider
-      value={{
-        countryCode,
-      }}>
-      {children}
-    </AppContext.Provider>
-  );
+export default function AppContextProvider({ children }: Props) {
+  return <AppContext.Provider value={null}>{children}</AppContext.Provider>;
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import jsCookie from 'js-cookie';
 import { useEffect } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -9,11 +10,7 @@ import gdprCountryCodes from '../../hiring/gdprCountries';
 import * as FullStory from '@fullstory/browser';
 import { useUser } from '@supabase/auth-helpers-react';
 
-type Props = Readonly<{
-  countryCode: string;
-}>;
-
-export default function FullStoryInit({ countryCode }: Props) {
+export default function FullStoryInit() {
   const { userProfile, isUserProfileLoading } = useUserProfile();
   const user = useUser();
 
@@ -23,13 +20,10 @@ export default function FullStoryInit({ countryCode }: Props) {
       return;
     }
 
-    // Don't record for GDPR countries.
-    if (gdprCountryCodes.has(countryCode)) {
-      return;
-    }
+    const countryCode = jsCookie.get('country') || null;
 
-    // Don't record if premium.
-    if (isUserProfileLoading || userProfile?.isPremium) {
+    // Don't record for GDPR countries.
+    if (countryCode == null || gdprCountryCodes.has(countryCode)) {
       return;
     }
 
@@ -44,7 +38,7 @@ export default function FullStoryInit({ countryCode }: Props) {
         stripeCustomerId: userProfile.stripeCustomerID ?? '',
       });
     }
-  }, [countryCode, isUserProfileLoading, user, userProfile]);
+  }, [isUserProfileLoading, user, userProfile]);
 
   return null;
 }

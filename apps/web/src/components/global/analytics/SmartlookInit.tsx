@@ -1,5 +1,6 @@
 'use client';
 
+import jsCookie from 'js-cookie';
 import { useEffect } from 'react';
 import Smartlook from 'smartlook-client';
 
@@ -9,11 +10,7 @@ import gdprCountryCodes from '../../hiring/gdprCountries';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-type Props = Readonly<{
-  countryCode: string;
-}>;
-
-export default function SmartlookInit({ countryCode }: Props) {
+export default function SmartlookInit() {
   const { userProfile, isUserProfileLoading } = useUserProfile();
   const user = useUser();
 
@@ -23,8 +20,10 @@ export default function SmartlookInit({ countryCode }: Props) {
       return;
     }
 
+    const countryCode = jsCookie.get('country') || null;
+
     // Don't record for GDPR countries.
-    if (gdprCountryCodes.has(countryCode)) {
+    if (countryCode == null || gdprCountryCodes.has(countryCode)) {
       return;
     }
 
@@ -46,7 +45,7 @@ export default function SmartlookInit({ countryCode }: Props) {
         stripeCustomerId: userProfile.stripeCustomerID ?? '',
       });
     }
-  }, [countryCode, isUserProfileLoading, user, userProfile]);
+  }, [isUserProfileLoading, user, userProfile]);
 
   return null;
 }

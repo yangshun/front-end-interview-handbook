@@ -1,23 +1,20 @@
 'use client';
 
+import jsCookie from 'js-cookie';
 import { useEffect } from 'react';
 
 import logEvent from '~/logging/logEvent';
 
-type Props = Readonly<{
-  countryCode: string;
-}>;
-
-export default function HydrationFailureLogging({ countryCode }: Props) {
+export default function HydrationFailureLogging() {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.__hydrated = true;
     logEvent('hydration.success', {
-      clientCountry: countryCode,
+      clientCountry: jsCookie.get('country'),
       url: window.location.href,
     });
-  }, [countryCode]);
+  }, []);
 
   return (
     <script
@@ -35,7 +32,6 @@ export default function HydrationFailureLogging({ countryCode }: Props) {
               name: 'hydration.fail',
               pathname: window.location.pathname,
               payload: {
-                clientCountry: '${countryCode}',
                 url: window.location.href,
               },
               query: Object.fromEntries(new URLSearchParams(window.location.search)),

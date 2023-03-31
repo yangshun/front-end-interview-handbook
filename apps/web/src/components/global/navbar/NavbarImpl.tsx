@@ -14,7 +14,6 @@ import {
   useQuestionFormatLists,
 } from '~/data/QuestionFormats';
 
-import { isHiringCountry } from '~/components/hiring/utils';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -25,7 +24,6 @@ import type {
 } from '~/components/ui/Navbar/NavTypes';
 
 import NavProfileIcon from './NavProfileIcon';
-import { useAppContext } from '../AppContextProvider';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
 
@@ -38,7 +36,6 @@ function useNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const intl = useIntl();
-  const { countryCode } = useAppContext();
   const questionCategoryLists = useQuestionCategoryLists();
   const questionFormatLists = useQuestionFormatLists();
   const preparationPlansExtra = usePreparationPlansUI();
@@ -452,26 +449,24 @@ function useNavLinks(
       position: 'start',
       type: 'popover',
     },
-    isHiringCountry(countryCode)
-      ? {
-          href: '/hiring',
-          itemKey: 'hiring',
-          label: intl.formatMessage({
-            defaultMessage: "We're Hiring",
-            description: 'Link label to the hiring page',
-            id: 'xq16Hq',
-          }),
-          onClick: () => {
-            gtag.event({
-              action: `nav.hiring.click`,
-              category: 'engagement',
-              label: "We're Hiring",
-            });
-          },
-          position: 'end',
-          type: 'link',
-        }
-      : null,
+    {
+      href: '/hiring',
+      itemKey: 'hiring',
+      label: intl.formatMessage({
+        defaultMessage: "We're Hiring",
+        description: 'Link label to the hiring page',
+        id: 'xq16Hq',
+      }),
+      onClick: () => {
+        gtag.event({
+          action: `nav.hiring.click`,
+          category: 'engagement',
+          label: "We're Hiring",
+        });
+      },
+      position: 'end',
+      type: 'link',
+    },
     !isPremium
       ? {
           href: '/pricing',

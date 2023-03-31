@@ -23,7 +23,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  countryCode: string;
   intlMessages: IntlMessages;
   locale: string;
 }>;
@@ -38,7 +37,6 @@ const queryClient = new QueryClient({
 
 export default function GlobalProviders({
   children,
-  countryCode,
   intlMessages,
   locale,
 }: Props) {
@@ -54,9 +52,9 @@ export default function GlobalProviders({
         locale={locale}
         messages={intlMessages}>
         <SessionContextProvider supabaseClient={supabaseClient}>
-          <AppContextProvider countryCode={countryCode}>
+          <AppContextProvider>
             <ScrollManagementProvider>
-              <UserProfileProvider countryCode={countryCode}>
+              <UserProfileProvider>
                 <QueryClientProvider client={queryClient}>
                   <UserPreferencesProvider>
                     <ToastsProvider>

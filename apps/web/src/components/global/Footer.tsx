@@ -12,9 +12,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { useAppContext } from './AppContextProvider';
 import LogoLink from './Logo';
-import { isHiringCountry } from '../hiring/utils';
 
 type FooterLink = Readonly<{
   href: string;
@@ -27,7 +25,6 @@ function useFooterNavigation() {
   const intl = useIntl();
   const questionFormatLists = useQuestionFormatLists();
   const guides = useGuidesData();
-  const { countryCode } = useAppContext();
 
   const navigation: Record<string, FooterLinks> = {
     company: [
@@ -69,17 +66,15 @@ function useFooterNavigation() {
           id: 'XS6Jyn',
         }),
       },
-      isHiringCountry(countryCode)
-        ? {
-            href: '/hiring',
-            key: 'hiring',
-            name: intl.formatMessage({
-              defaultMessage: "We're Hiring",
-              description: 'Link to careers page',
-              id: 'ivmSx0',
-            }),
-          }
-        : null,
+      {
+        href: '/hiring',
+        key: 'hiring',
+        name: intl.formatMessage({
+          defaultMessage: "We're Hiring",
+          description: 'Link to careers page',
+          id: 'ivmSx0',
+        }),
+      },
     ],
     guides: [
       {

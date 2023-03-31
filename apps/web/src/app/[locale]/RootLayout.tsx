@@ -15,34 +15,25 @@ import '~/styles/globals.css';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  countryCode: string;
   intlMessages: IntlMessages;
   locale: string;
 }>;
 
-export default function RootLayout({
-  children,
-  countryCode,
-  intlMessages,
-  locale,
-}: Props) {
+export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html lang={locale}>
       <body>
-        <HydrationFailureLogging countryCode={countryCode} />
-        <GlobalProviders
-          countryCode={countryCode}
-          intlMessages={intlMessages}
-          locale={locale}>
+        <HydrationFailureLogging />
+        <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
           <MetaPixel />
           <style>{`:root { --navbar-height: 57px; }`}</style>
           {children}
           <VercelAnalytics />
           <FirstPromoter />
-          <SmartlookInit countryCode={countryCode} />
-          <FullStoryInit countryCode={countryCode} />
-          <SentryInit countryCode={countryCode} />
+          <SmartlookInit />
+          <FullStoryInit />
+          <SentryInit />
           <WebVitals />
         </GlobalProviders>
       </body>

@@ -1,5 +1,6 @@
 'use client';
 
+import jsCookie from 'js-cookie';
 import { useEffect } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -9,10 +10,6 @@ import gdprCountryCodes from '../../hiring/gdprCountries';
 import * as Sentry from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 import { useUser } from '@supabase/auth-helpers-react';
-
-type Props = Readonly<{
-  countryCode: string;
-}>;
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
@@ -32,7 +29,7 @@ if (process.env.NODE_ENV !== 'development') {
   });
 }
 
-export default function SentryInit({ countryCode }: Props) {
+export default function SentryInit() {
   const { userProfile, isUserProfileLoading } = useUserProfile();
   const user = useUser();
 
@@ -42,8 +39,10 @@ export default function SentryInit({ countryCode }: Props) {
       return;
     }
 
+    const countryCode = jsCookie.get('country') || null;
+
     // Don't record for GDPR countries.
-    if (gdprCountryCodes.has(countryCode)) {
+    if (countryCode == null || gdprCountryCodes.has(countryCode)) {
       return;
     }
 
@@ -52,7 +51,7 @@ export default function SentryInit({ countryCode }: Props) {
       return;
     }
 
-    if (user != null && userProfile != null && !userProfile.isPremium) {
+    if (user != null && userProfile != null) {
       Sentry.setUser({
         countryCode,
         email: user.email,
@@ -62,7 +61,7 @@ export default function SentryInit({ countryCode }: Props) {
         stripeCustomerId: userProfile.stripeCustomerID,
       });
     }
-  }, [countryCode, isUserProfileLoading, user, userProfile]);
+  }, [isUserProfileLoading, user, userProfile]);
 
   return null;
 }
