@@ -1,11 +1,14 @@
+import clsx from 'clsx';
 import { Console } from 'console-feed';
 import type { Variants } from 'console-feed/lib/definitions/Component';
+import type { Methods } from 'console-feed/lib/definitions/Methods';
 import type { UIEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
+import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 
 import useConsoleStyles from './useConsoleStyles';
@@ -25,6 +28,8 @@ type Props = Readonly<{
   showExplicitInvocationMessage?: boolean;
 }>;
 
+type LogLevelFilter = Methods | 'all';
+
 const DEFAULT_CONSOLE_THEME = 'dark';
 
 export default function JavaScriptConsole({
@@ -34,6 +39,7 @@ export default function JavaScriptConsole({
 }: Props) {
   const intl = useIntl();
   const consoleRef = useRef<HTMLDivElement>(null);
+
   const [consoleTheme, setConsoleTheme] = useLocalStorage<Variants>(
     'gfe:console:theme',
     DEFAULT_CONSOLE_THEME,
@@ -43,9 +49,17 @@ export default function JavaScriptConsole({
     setConsoleTheme(consoleTheme === 'dark' ? 'light' : 'dark');
   };
 
+  const [logLevelFilter, setLogLevelFilter] = useState<LogLevelFilter>('all');
+  const getLogLevelFilter = (val: LogLevelFilter) => {
+    if (val === 'all') {
+      return [];
+    }
+
+    return [val];
+  };
+
   const [isScrollPositionAtBottom, setIsScrollPositionAtBottom] =
     useState(true);
-
   const handleScroll = (e: UIEvent<HTMLElement>) => {
     const roundingErrorThreshold = 1;
 
@@ -123,6 +137,53 @@ export default function JavaScriptConsole({
               onClear();
             }}
           />
+          <Select
+            isLabelHidden={true}
+            label="Filter"
+            options={[
+              {
+                label: intl.formatMessage({
+                  defaultMessage: 'All log levels',
+                  description:
+                    'Select label for all log levels in console filter',
+                  id: 'xjHSyF',
+                }),
+                value: 'all',
+              },
+              {
+                label: intl.formatMessage({
+                  defaultMessage: 'Info',
+                  description:
+                    'Select label for info log level in console filter',
+                  id: '4cjRbk',
+                }),
+                value: 'info',
+              },
+              {
+                label: intl.formatMessage({
+                  defaultMessage: 'Warnings',
+                  description:
+                    'Select label for warning log level in console filter',
+                  id: 'nxJioH',
+                }),
+                value: 'warn',
+              },
+              {
+                label: intl.formatMessage({
+                  defaultMessage: 'Errors',
+                  description:
+                    'Select label for error log level in console filter',
+                  id: 'kCkca8',
+                }),
+                value: 'error',
+              },
+            ]}
+            size="sm"
+            value={logLevelFilter}
+            onChange={(v) => setLogLevelFilter(v as LogLevelFilter)}
+          />
+        </div>
+        <div className="flex gap-x-2">
           {!isScrollPositionAtBottom && (
             <Button
               icon={ArrowSmallDownIcon}
@@ -139,36 +200,58 @@ export default function JavaScriptConsole({
               }}
             />
           )}
+          <Button
+            icon={consoleTheme === 'light' ? OutlineMoonIcon : SolidMoonIcon}
+            isLabelHidden={true}
+            label={
+              consoleTheme === 'light'
+                ? intl.formatMessage({
+                    defaultMessage: 'Use dark console theme',
+                    description: 'Button label to use dark console theme',
+                    id: 'VYrdoZ',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Use light console theme',
+                    description: 'Button label to use light console theme',
+                    id: 'A592IF',
+                  })
+            }
+            size="sm"
+            tooltip={
+              consoleTheme === 'light'
+                ? intl.formatMessage({
+                    defaultMessage: 'Use dark console theme',
+                    description: 'Button tooltip to use dark console theme',
+                    id: 'ONV44/',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Use light console theme',
+                    description: 'Button tooltip to use light console theme',
+                    id: 'Kdmu8e',
+                  })
+            }
+            tooltipAlignment="center"
+            tooltipPosition="start"
+            variant="tertiary"
+            onClick={toggleConsoleTheme}
+          />
         </div>
-        <Button
-          icon={consoleTheme === 'light' ? OutlineMoonIcon : SolidMoonIcon}
-          isLabelHidden={true}
-          label={intl.formatMessage({
-            defaultMessage: 'Toggle Console Theme',
-            description: 'Button label to toggle console theme',
-            id: 'onDh1B',
-          })}
-          size="sm"
-          tooltip={intl.formatMessage({
-            defaultMessage: 'Toggle Console Theme',
-            description: 'Button tooltip to toggle console theme',
-            id: 'WYQiTC',
-          })}
-          tooltipAlignment="center"
-          tooltipPosition="start"
-          variant="tertiary"
-          onClick={toggleConsoleTheme}
-        />
       </div>
       <div
         ref={consoleRef}
-        className={`overflow-y-auto ${
-          consoleTheme === 'light' ? 'bg-white' : 'bg-slate-900'
-        }`}
+        className={clsx(
+          'overflow-y-auto',
+          consoleTheme === 'light' ? 'bg-white' : 'bg-slate-900',
+        )}
         onScroll={handleScroll}>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
-        <Console logs={logs} styles={consoleStyles} variant={consoleTheme} />
+        <Console
+          filter={getLogLevelFilter(logLevelFilter)}
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          /* @ts-ignore */
+          logs={logs}
+          styles={consoleStyles}
+          variant={consoleTheme}
+        />
       </div>
     </div>
   );
