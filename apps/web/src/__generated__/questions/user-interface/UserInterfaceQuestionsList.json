@@ -251,7 +251,7 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
+    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -729,7 +729,7 @@
     "nextQuestions": [
       "tabs-ii"
     ],
-    "premium": true,
+    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -888,7 +888,9 @@
   },
   {
     "author": null,
-    "companies": [],
+    "companies": [
+      "roblox"
+    ],
     "created": 1670716800,
     "difficulty": "medium",
     "duration": 20,
@@ -914,7 +916,7 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
+    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
