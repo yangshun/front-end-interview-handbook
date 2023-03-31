@@ -44,14 +44,19 @@ export default async function handler(
 
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
-  const { data, error } = await supabaseAdmin.from('EmailSubscriber').upsert([
-    {
+  const { data, error } = await supabaseAdmin
+    .from('EmailSubscriber')
+    .upsert({
       email,
-    },
-  ]);
+    })
+    .select();
 
   // Ignore duplicate key value constraints on email.
-  if (error?.code !== '23505' && (error != null || data == null)) {
+  if (
+    error?.code !== '23505' &&
+    (error != null || data == null || data.length === 0)
+  ) {
+    // TODO: Add logging.
     return res.status(500).json({ message: 'An error occurred' });
   }
 
