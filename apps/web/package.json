@@ -41,7 +41,11 @@
     "@supabase/auth-helpers-nextjs": "^0.5.4",
     "@supabase/auth-helpers-react": "^0.3.1",
     "@supabase/supabase-js": "^2.10.0",
-    "@tanstack/react-query": "^4.2.3",
+    "@tanstack/react-query": "^4.28.0",
+    "@trpc/client": "^10.18.0",
+    "@trpc/next": "^10.18.0",
+    "@trpc/react-query": "^10.18.0",
+    "@trpc/server": "^10.18.0",
     "@vercel/analytics": "^0.1.10",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
@@ -76,7 +80,8 @@
     "stripe": "^11.11.0",
     "usehooks-ts": "^2.9.1",
     "uuid": "^9.0.0",
-    "web-vitals": "^3.3.0"
+    "web-vitals": "^3.3.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@formatjs/cli": "^6.0.1",

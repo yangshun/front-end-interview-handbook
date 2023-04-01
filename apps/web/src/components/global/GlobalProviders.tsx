@@ -13,27 +13,19 @@ import type { Database } from '~/supabase/database.types';
 import AppContextProvider from './AppContextProvider';
 import ScrollManagementProvider from './ScrollManagementProvider';
 import ToastsProvider from './toasts/ToastsProvider';
+import TrpcClientProvider from './TrpcClientProvider';
 import UserPreferencesProvider from './UserPreferencesProvider';
 import UserProfileProvider from './UserProfileProvider';
 
 import { MDXProvider } from '@mdx-js/react';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 type Props = Readonly<{
   children: React.ReactNode;
   intlMessages: IntlMessages;
   locale: string;
 }>;
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 export default function GlobalProviders({
   children,
@@ -46,16 +38,16 @@ export default function GlobalProviders({
   );
 
   return (
-    <I18nProvider locale={locale}>
-      <IntlProvider
-        defaultLocale={nextI18nosticConfig.defaultLocale}
-        locale={locale}
-        messages={intlMessages}>
-        <SessionContextProvider supabaseClient={supabaseClient}>
-          <AppContextProvider>
-            <ScrollManagementProvider>
-              <UserProfileProvider>
-                <QueryClientProvider client={queryClient}>
+    <TrpcClientProvider>
+      <I18nProvider locale={locale}>
+        <IntlProvider
+          defaultLocale={nextI18nosticConfig.defaultLocale}
+          locale={locale}
+          messages={intlMessages}>
+          <SessionContextProvider supabaseClient={supabaseClient}>
+            <AppContextProvider>
+              <ScrollManagementProvider>
+                <UserProfileProvider>
                   <UserPreferencesProvider>
                     <ToastsProvider>
                       <MDXProvider components={MDXComponents}>
@@ -63,12 +55,12 @@ export default function GlobalProviders({
                       </MDXProvider>
                     </ToastsProvider>
                   </UserPreferencesProvider>
-                </QueryClientProvider>
-              </UserProfileProvider>
-            </ScrollManagementProvider>
-          </AppContextProvider>
-        </SessionContextProvider>
-      </IntlProvider>
-    </I18nProvider>
+                </UserProfileProvider>
+              </ScrollManagementProvider>
+            </AppContextProvider>
+          </SessionContextProvider>
+        </IntlProvider>
+      </I18nProvider>
+    </TrpcClientProvider>
   );
 }
