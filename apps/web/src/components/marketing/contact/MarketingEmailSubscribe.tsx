@@ -1,14 +1,22 @@
-import { useId, useState } from 'react';
+import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
+import { trpc } from '~/hooks/trpc';
 
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
 
 export default function MarketingEmailSubscribe() {
   const emailId = useId();
   const intl = useIntl();
-  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+
+  const {
+    data: submitMessage,
+    isLoading,
+    failureReason,
+    mutate: signUpWithEmail,
+  } = trpc.marketing.signUpWithEmail.useMutation();
 
   return (
     <div className="mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
@@ -58,26 +66,14 @@ export default function MarketingEmailSubscribe() {
           </div>
           <form
             className="mt-12 sm:mx-auto sm:flex sm:max-w-lg"
-            onSubmit={async (event) => {
+            onSubmit={(event) => {
               event.preventDefault();
               event.stopPropagation();
               fbq.track('Lead');
 
               const data = new FormData(event.target as HTMLFormElement);
 
-              const response = await fetch('/api/marketing/email-signup', {
-                body: JSON.stringify({
-                  email: data.get('email') as string,
-                }),
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                method: 'POST',
-              });
-
-              const result = await response.json();
-
-              setSubmitMessage(result.message);
+              signUpWithEmail({ email: data.get('email') as string });
             }}>
             <div className="min-w-0 flex-1">
               <label className="sr-only" htmlFor={emailId}>
@@ -103,6 +99,7 @@ export default function MarketingEmailSubscribe() {
             <div className="mt-4 sm:mt-0 sm:ml-3">
               <button
                 className="bg-brand-500 hover:bg-brand-400 focus:ring-offset-brand-600 block w-full rounded-md border border-transparent px-5 py-3 text-base font-medium text-white shadow focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 sm:px-10"
+                disabled={isLoading}
                 type="submit">
                 {intl.formatMessage({
                   defaultMessage: 'Notify Me',
@@ -113,7 +110,24 @@ export default function MarketingEmailSubscribe() {
               </button>
             </div>
           </form>
-          <p className="mt-3 h-6 text-center text-white">{submitMessage}</p>
+          {submitMessage && (
+            <Text
+              className="mt-3 h-6 text-center"
+              color="success"
+              display="block"
+              variant="body2">
+              {submitMessage}
+            </Text>
+          )}
+          {failureReason?.message && (
+            <Text
+              className="mt-3 h-6 text-center"
+              color="error"
+              display="block"
+              variant="body2">
+              {failureReason?.message}
+            </Text>
+          )}
         </div>
       </div>
     </div>
