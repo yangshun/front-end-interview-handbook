@@ -1,7 +1,6 @@
 import { useIntl } from 'react-intl';
 
 export default function useQuestionFrameworkLabels() {
-  // Now that it's in a React hook, you can use intl.formatMessage
   const intl = useIntl();
 
   return {

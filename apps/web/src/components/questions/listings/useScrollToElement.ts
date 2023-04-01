@@ -13,7 +13,7 @@ export default function useScrollToElement<T extends HTMLElement>(
       timer = setTimeout(() => {
         window.scrollTo({
           left: 0,
-          top: elementRef?.current?.offsetTop,
+          top: (elementRef?.current?.offsetTop ?? 0) - 24,
         });
       }, delay);
     }
