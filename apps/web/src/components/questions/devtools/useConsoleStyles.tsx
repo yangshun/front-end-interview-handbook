@@ -1,7 +1,7 @@
 import type { Variants } from 'console-feed/lib/definitions/Component';
 import type { Styles } from 'console-feed/lib/definitions/Styles';
 
-const useConsoleStyles = (theme: Variants): Styles => {
+const useConsoleStyles = (theme: Variants, fontSize: string): Styles => {
   const isLight = theme === 'light';
 
   return {
@@ -11,7 +11,7 @@ const useConsoleStyles = (theme: Variants): Styles => {
 
     BASE_FONT_FAMILY: 'Consolas, Lucida Console, monospace',
 
-    BASE_FONT_SIZE: '12px',
+    BASE_FONT_SIZE: fontSize,
 
     LOG_AMOUNT_BACKGROUND: isLight ? '#a5b4fc' : '#6366f1',
 

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { Console } from 'console-feed';
 import type { Variants } from 'console-feed/lib/definitions/Component';
 import type { Methods } from 'console-feed/lib/definitions/Methods';
+import { range } from 'lodash';
 import type { UIEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -31,6 +32,7 @@ type Props = Readonly<{
 type LogLevelFilter = Methods | 'all';
 
 const DEFAULT_CONSOLE_THEME = 'dark';
+const DEFAULT_CONSOLE_FONT_SIZE = '12px';
 
 export default function JavaScriptConsole({
   logs,
@@ -44,10 +46,16 @@ export default function JavaScriptConsole({
     'gfe:console:theme',
     DEFAULT_CONSOLE_THEME,
   );
-  const consoleStyles = useConsoleStyles(consoleTheme);
   const toggleConsoleTheme = () => {
     setConsoleTheme(consoleTheme === 'dark' ? 'light' : 'dark');
   };
+
+  const [consoleFontSize, setConsoleFontSize] = useLocalStorage<string>(
+    'gfe:console:font-size',
+    DEFAULT_CONSOLE_FONT_SIZE,
+  );
+
+  const consoleStyles = useConsoleStyles(consoleTheme, consoleFontSize);
 
   const [logLevelFilter, setLogLevelFilter] = useState<LogLevelFilter>('all');
   const getLogLevelFilter = (val: LogLevelFilter) => {
@@ -125,6 +133,7 @@ export default function JavaScriptConsole({
         <div className="flex gap-x-2">
           <Button
             icon={NoSymbolIcon}
+            isLabelHidden={true}
             label={intl.formatMessage({
               defaultMessage: 'Clear Console',
               description:
@@ -132,6 +141,13 @@ export default function JavaScriptConsole({
               id: 'o+1cag',
             })}
             size="sm"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Clear Console',
+              description:
+                'Button tooltip to clear the console in the coding workspace',
+              id: '5RlLAP',
+            })}
+            tooltipPosition="end"
             variant="tertiary"
             onClick={() => {
               onClear();
@@ -139,7 +155,11 @@ export default function JavaScriptConsole({
           />
           <Select
             isLabelHidden={true}
-            label="Filter"
+            label={intl.formatMessage({
+              defaultMessage: 'Filter by log level',
+              description: 'Select label to filter console log by level',
+              id: 'UQh7Xv',
+            })}
             options={[
               {
                 label: intl.formatMessage({
@@ -182,11 +202,27 @@ export default function JavaScriptConsole({
             value={logLevelFilter}
             onChange={(v) => setLogLevelFilter(v as LogLevelFilter)}
           />
+          <Select
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'Choose console font size',
+              description: 'Select label to choose console font size',
+              id: 'x1nxve',
+            })}
+            options={range(10, 17).map((v) => ({
+              label: `${v}px`,
+              value: `${v}px`,
+            }))}
+            size="sm"
+            value={consoleFontSize}
+            onChange={(v) => setConsoleFontSize(v)}
+          />
         </div>
         <div className="flex gap-x-2">
           {!isScrollPositionAtBottom && (
             <Button
               icon={ArrowSmallDownIcon}
+              isLabelHidden={true}
               label={intl.formatMessage({
                 defaultMessage: 'Scroll to Bottom',
                 description:
@@ -194,6 +230,13 @@ export default function JavaScriptConsole({
                 id: 'hOEGb+',
               })}
               size="sm"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Scroll to Bottom',
+                description:
+                  'Button tooltip to scroll to bottom of the console logs',
+                id: 'L7Fz5f',
+              })}
+              tooltipPosition="start"
               variant="tertiary"
               onClick={() => {
                 scrollToBottom();
