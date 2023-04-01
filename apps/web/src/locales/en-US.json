@@ -1,4 +1,8 @@
 {
+  "+/N6q+": {
+    "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
+    "description": "Description for behavioral interview stage"
+  },
   "+4N+iX": {
     "defaultMessage": "Real interview simulation",
     "description": "Table row header for real interview simulation feature"
@@ -815,6 +819,10 @@
     "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
     "description": "Call-to-action"
   },
+  "IQnWm4": {
+    "defaultMessage": "Coding",
+    "description": "Coding interviews stage label"
+  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -911,10 +919,6 @@
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
-  "KSM9lZ": {
-    "defaultMessage": "Front End Engineer &middot; Web Developer &middot; Full Stack Engineer",
-    "description": "Job titles which are relevant to the page"
-  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
@@ -955,6 +959,10 @@
     "defaultMessage": "Exclusive lifetime <strong>Discord channel access</strong>.",
     "description": "Lifetime membership feature of Discord channel access."
   },
+  "KzFlkU": {
+    "defaultMessage": "Quizzes",
+    "description": "Quiz interviews stage label"
+  },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
@@ -986,6 +994,10 @@
   "Ldysd3": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" growth mindset questions",
     "description": "How to answer growth mindset collaboration questions"
+  },
+  "LeyIrf": {
+    "defaultMessage": "System Design",
+    "description": "System design interviews stage label"
   },
   "LfcLVQ": {
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
@@ -1023,6 +1035,10 @@
     "defaultMessage": "Pricing",
     "description": "Section label on Pricing section of Homepage or Pricing page"
   },
+  "MNRS6S": {
+    "defaultMessage": "Preparation Stages",
+    "description": "Preparation page title"
+  },
   "MNgJK6": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty question"
@@ -1046,6 +1062,10 @@
   "MkjGJD": {
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
+  },
+  "MstQla": {
+    "defaultMessage": "First time preparing for front end interviews? Find out what to expect in our <link>Front End Interview Guidebook</link>",
+    "description": "Link to front end interview guidebook"
   },
   "N4F6al": {
     "defaultMessage": "Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month",
@@ -1150,6 +1170,10 @@
   "P4Or/u": {
     "defaultMessage": "CSS",
     "description": "CSS topic for quiz questions"
+  },
+  "P4yQWv": {
+    "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
+    "description": "Description for quiz interview stage"
   },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
@@ -1787,6 +1811,10 @@
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
+  "dSaXF6": {
+    "defaultMessage": "Prepare holistically for all types of front end interview questions and rounds. Guides and {QuestionCount}+ practice questions included.",
+    "description": "Preparation page subtitle"
+  },
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
@@ -1798,6 +1826,10 @@
   "dk2vXq": {
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
+  },
+  "dxwKBt": {
+    "defaultMessage": "Full Stack Engineer",
+    "description": "Full Stack Engineer job title"
   },
   "dz24ro": {
     "defaultMessage": "Send reset password instructions",
@@ -1939,6 +1971,10 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
+  "hXf/Wl": {
+    "defaultMessage": "All types of coding round questions from JS utilities to React user interfaces",
+    "description": "Description for coding interview stage"
+  },
   "hhbPlp": {
     "defaultMessage": "Pay once, get access to the interview platform forever, including updates.",
     "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
@@ -2002,6 +2038,10 @@
   "j+MqYO": {
     "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
+  },
+  "j3EFJn": {
+    "defaultMessage": "Front End Engineer",
+    "description": "Front End Engineer job title"
   },
   "j5W1/P": {
     "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
@@ -2403,6 +2443,10 @@
     "defaultMessage": "System Design Questions",
     "description": "System design questions long title"
   },
+  "slAmNi": {
+    "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
+    "description": "Description for system design interview stage"
+  },
   "sn/P86": {
     "defaultMessage": "Guides",
     "description": "Section heading in footer for links to interview guides"
@@ -2611,6 +2655,10 @@
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
   },
+  "wMMGUk": {
+    "defaultMessage": "Behavioral",
+    "description": "Behavioral interviews stage label"
+  },
   "wVEJye": {
     "defaultMessage": "Study Plans",
     "description": "Sidebar label for Study Plans category"
@@ -2686,6 +2734,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yRjuKv": {
+    "defaultMessage": "Web Developer",
+    "description": "Web Developer job title"
   },
   "yXh24P": {
     "defaultMessage": "Logos provided by Clearbit",

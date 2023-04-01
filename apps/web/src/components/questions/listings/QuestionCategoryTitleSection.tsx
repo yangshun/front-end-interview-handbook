@@ -54,11 +54,25 @@ export default function QuestionCategoryTitleSection({ category }: Props) {
           />
         }
         sectionLabel={
-          <FormattedMessage
-            defaultMessage="Front End Engineer &middot; Web Developer &middot; Full Stack Engineer"
-            description="Job titles which are relevant to the page"
-            id="KSM9lZ"
-          />
+          <div className="flex gap-x-2">
+            <FormattedMessage
+              defaultMessage="Front End Engineer"
+              description="Front End Engineer job title"
+              id="j3EFJn"
+            />
+            <span>&middot;</span>
+            <FormattedMessage
+              defaultMessage="Web Developer"
+              description="Web Developer job title"
+              id="yRjuKv"
+            />
+            <span>&middot;</span>
+            <FormattedMessage
+              defaultMessage="Full Stack Engineer"
+              description="Full Stack Engineer job title"
+              id="dxwKBt"
+            />
+          </div>
         }
         size="lg"
         title={intl.formatMessage({
