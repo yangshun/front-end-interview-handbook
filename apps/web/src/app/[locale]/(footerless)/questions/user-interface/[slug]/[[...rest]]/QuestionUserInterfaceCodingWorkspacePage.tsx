@@ -9,6 +9,7 @@ import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
+import QuestionPaneHorizontalDivider from '~/components/questions/common/QuestionPaneHorizontalDivider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
@@ -85,6 +86,11 @@ function MiddleRightPaneContents({
     0.5,
     () => (window.innerWidth * 2) / 3,
   );
+  const {
+    startDrag: startBottomSectionDividerDrag,
+    isDragging: isBottomSectionDividerDragging,
+    size: bottomSectionHeight,
+  } = useResizablePaneDivider(300, true, 'vertical');
   const { sandpack } = useSandpack();
   const { code, updateCode } = useActiveCode();
   const [showDevToolsPane, setShowDevToolsPane] = useState(false);
@@ -143,6 +149,11 @@ function MiddleRightPaneContents({
         />
       </CodingWorkspaceToolbar>
       <div className="flex flex-col lg:h-0 lg:grow lg:flex-row">
+        <style suppressHydrationWarning={true}>{`@media (min-width: 1024px) {
+        #devtool-section { ${
+          showDevToolsPane ? `height: ${bottomSectionHeight}px;` : ''
+        } }
+      }`}</style>
         <div className="h-96 lg:h-full lg:w-0 lg:grow">
           <FileTabs />
           <CodeEditor
@@ -161,7 +172,9 @@ function MiddleRightPaneContents({
               'grow',
               // Don't allow mouse events on iframe while dragging otherwise
               // the mouseup event doesn't fire on the main window.
-              (isLeftPaneDragging || isDragging) &&
+              (isLeftPaneDragging ||
+                isDragging ||
+                isBottomSectionDividerDragging) &&
                 'pointer-events-none touch-none select-none',
             )}>
             <SandpackPreview
@@ -169,11 +182,23 @@ function MiddleRightPaneContents({
               showOpenInCodeSandbox={false}
             />
           </div>
+          {showDevToolsPane && (
+            <QuestionPaneHorizontalDivider
+              onMouseDown={(event) => startBottomSectionDividerDrag(event)}
+            />
+          )}
           <div
-            className={clsx(showDevToolsPane && 'border-t border-slate-200')}>
+            className={clsx(
+              'flex flex-col',
+              showDevToolsPane && 'border-t border-slate-200',
+            )}
+            id="devtool-section">
             <div
               aria-expanded={showDevToolsPane}
-              className={clsx('h-56 shrink', !showDevToolsPane && 'hidden')}>
+              className={clsx(
+                'h-56 shrink',
+                showDevToolsPane ? 'grow overflow-auto' : 'hidden',
+              )}>
               <JavaScriptQuestionDevTools
                 availableModes={['console']}
                 mode={devToolsMode}
