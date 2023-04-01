@@ -263,6 +263,10 @@
     "defaultMessage": "Study plans and Progress tracking",
     "description": "Table row header for study plans feature"
   },
+  "5RlLAP": {
+    "defaultMessage": "Clear Console",
+    "description": "Button tooltip to clear the console in the coding workspace"
+  },
   "5dwMRE": {
     "defaultMessage": "Interview Guides",
     "description": "Sidebar label for Interview Guides category"
@@ -959,6 +963,10 @@
     "defaultMessage": "Because front end interviews are about <span>fundamentals</span>.",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
+  "L7Fz5f": {
+    "defaultMessage": "Scroll to Bottom",
+    "description": "Button tooltip to scroll to bottom of the console logs"
+  },
   "LK0JHB": {
     "defaultMessage": "FAQs.",
     "description": "Frequently Asked Questions"
@@ -1398,6 +1406,10 @@
   "UM4r2s": {
     "defaultMessage": "Other Platforms",
     "description": "Table column header for other platforms"
+  },
+  "UQh7Xv": {
+    "defaultMessage": "Filter by log level",
+    "description": "Select label to filter console log by level"
   },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
@@ -2626,6 +2638,10 @@
   "wzQGxj": {
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
+  },
+  "x1nxve": {
+    "defaultMessage": "Choose console font size",
+    "description": "Select label to choose console font size"
   },
   "x8+4jJ": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
