@@ -25,9 +25,9 @@ function event({
   extra = {},
 }: {
   action: string;
-  category: 'ecommerce' | 'engagement' | 'pageview';
+  category?: 'ecommerce' | 'engagement' | 'pageview';
   extra?: Record<string, unknown>;
-  label: string;
+  label?: string;
   value?: number;
 }) {
   const payload = {

@@ -62,6 +62,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         action: 'purchase',
         category: 'ecommerce',
         extra: {
+          ignore_referrer: 'true',
           items: [
             {
               item_variant: planSearchParam,
@@ -75,15 +76,32 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
       gtag.event({
         action: 'checkout.success',
         category: 'ecommerce',
+        extra: {
+          ignore_referrer: 'true',
+        },
         label: planSearchParam,
       });
       gtag.event({
         action: `checkout.success.${planSearchParam}`,
         category: 'ecommerce',
+        extra: {
+          ignore_referrer: 'true',
+        },
         label: String(planSearchParam),
       });
 
       const plan = plans[planSearchParam];
+
+      gtag.event({
+        action: 'conversion',
+        extra: {
+          currency: plan.currency.toLocaleUpperCase(),
+          ignore_referrer: 'true',
+          send_to: 'AW-11039716901/SrTfCIrox5UYEKXskpAp',
+          transaction_id: '',
+          value: plan.unitCostLocalizedInCurrency,
+        },
+      });
 
       fbq.track('Purchase', {
         content_name: plan.planType,
