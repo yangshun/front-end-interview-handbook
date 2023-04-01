@@ -235,6 +235,10 @@
     "defaultMessage": "Efficiently focus on the most important concepts",
     "description": "Short description for one week study plan"
   },
+  "4cjRbk": {
+    "defaultMessage": "Info",
+    "description": "Select label for info log level in console filter"
+  },
   "4zNzv1": {
     "defaultMessage": "Select navigation item in DevTool",
     "description": "Label for tabs in the coding workspace DevTool"
@@ -446,6 +450,10 @@
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
+  },
+  "A592IF": {
+    "defaultMessage": "Use light console theme",
+    "description": "Button label to use light console theme"
   },
   "AGwpnL": {
     "defaultMessage": "We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers.",
@@ -675,6 +683,10 @@
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
   },
+  "GHJ1o2": {
+    "defaultMessage": "Interview Practice Question Bank",
+    "description": "Title of interview questions list pages"
+  },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
@@ -895,6 +907,10 @@
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
+  "KSM9lZ": {
+    "defaultMessage": "Front End Engineer &middot; Web Developer &middot; Full Stack Engineer",
+    "description": "Job titles which are relevant to the page"
+  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
@@ -902,6 +918,10 @@
   "KaGCVb": {
     "defaultMessage": "Select question section",
     "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
+  },
+  "Kdmu8e": {
+    "defaultMessage": "Use light console theme",
+    "description": "Button tooltip to use light console theme"
   },
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
@@ -1071,6 +1091,10 @@
     "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
   },
+  "ONV44/": {
+    "defaultMessage": "Use dark console theme",
+    "description": "Button tooltip to use dark console theme"
+  },
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
@@ -1135,10 +1159,6 @@
     "defaultMessage": "3 Months Plan",
     "description": "Link to three months study plan"
   },
-  "PLm7ub": {
-    "defaultMessage": "Facebook",
-    "description": "Company name for Facebook"
-  },
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
@@ -1186,6 +1206,10 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
+  },
+  "Qf/RU+": {
+    "defaultMessage": "React Coding Questions",
+    "description": "Description for React questions title"
   },
   "QggKKV": {
     "defaultMessage": "How does it work?",
@@ -1434,6 +1458,10 @@
   "VYWqtL": {
     "defaultMessage": "System Design Questions",
     "description": "Label for system design questions"
+  },
+  "VYrdoZ": {
+    "defaultMessage": "Use dark console theme",
+    "description": "Button label to use dark console theme"
   },
   "VcLkXG": {
     "defaultMessage": "Free",
@@ -1963,6 +1991,10 @@
     "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
   },
+  "j5W1/P": {
+    "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
+    "description": "Description for React questions page"
+  },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
@@ -1986,6 +2018,10 @@
   "jNXBSj": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
+  },
+  "jRVVDu": {
+    "defaultMessage": "Practice {QuestionCount}+ common front end interview questions across every major front end framework. Reference answers from ex-interviewers at FAANG.",
+    "description": "Questions category list page title"
   },
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
@@ -2042,6 +2078,10 @@
   "k964KU": {
     "defaultMessage": "HTML",
     "description": "CSS questions category short title"
+  },
+  "kCkca8": {
+    "defaultMessage": "Errors",
+    "description": "Select label for error log level in console filter"
   },
   "kEhkCv": {
     "defaultMessage": "Coming Soon",
@@ -2190,6 +2230,10 @@
   "nuO9Ny": {
     "defaultMessage": "Try our questions here:",
     "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
+  },
+  "nxJioH": {
+    "defaultMessage": "Warnings",
+    "description": "Select label for warning log level in console filter"
   },
   "nzauMv": {
     "defaultMessage": "Compilation Error",
@@ -2598,6 +2642,10 @@
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
+  },
+  "xjHSyF": {
+    "defaultMessage": "All log levels",
+    "description": "Select label for all log levels in console filter"
   },
   "xq16Hq": {
     "defaultMessage": "We're Hiring",
