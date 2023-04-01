@@ -1,21 +1,12 @@
 {
   "slug": "throttle",
   "created": "2022-04-14T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
-  "companies": [
-    "google",
-    "facebook",
-    "walmart",
-    "yelp"
-  ],
+  "languages": ["js"],
+  "companies": ["google", "walmart", "yelp"],
   "premium": true,
   "duration": 15,
   "published": true,
   "importance": "high",
   "difficulty": "medium",
-  "similar_questions": [
-    "debounce"
-  ]
+  "similar_questions": ["debounce"]
 }

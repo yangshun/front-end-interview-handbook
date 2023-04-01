@@ -8,7 +8,6 @@ import type { QuestionCompany } from '../common/QuestionsTypes';
 
 const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'google',
-  'facebook',
   'amazon',
   'apple',
   'airbnb',

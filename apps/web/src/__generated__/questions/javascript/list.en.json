@@ -217,9 +217,7 @@
   },
   {
     "author": null,
-    "companies": [
-      "facebook"
-    ],
+    "companies": [],
     "created": 1651449600,
     "difficulty": "medium",
     "duration": 20,
@@ -331,7 +329,6 @@
   {
     "author": null,
     "companies": [
-      "facebook",
       "soundcloud"
     ],
     "created": 1655596800,
@@ -360,7 +357,6 @@
   {
     "author": null,
     "companies": [
-      "facebook",
       "flipkart",
       "google",
       "lyft",
@@ -398,7 +394,6 @@
   {
     "author": null,
     "companies": [
-      "facebook",
       "flipkart",
       "google",
       "lyft",
@@ -544,7 +539,6 @@
   {
     "author": null,
     "companies": [
-      "facebook",
       "google",
       "lyft"
     ],
@@ -577,7 +571,6 @@
   {
     "author": null,
     "companies": [
-      "facebook",
       "google",
       "lyft"
     ],
@@ -611,7 +604,6 @@
     "author": "zhenghao",
     "companies": [
       "apple",
-      "facebook",
       "salesforce"
     ],
     "created": 1649894400,
@@ -809,9 +801,7 @@
   },
   {
     "author": "zhenghao",
-    "companies": [
-      "facebook"
-    ],
+    "companies": [],
     "created": 1649894400,
     "difficulty": "medium",
     "duration": 20,
@@ -1425,7 +1415,6 @@
     "author": null,
     "companies": [
       "google",
-      "facebook",
       "walmart",
       "yelp"
     ],

@@ -7,7 +7,6 @@ export type QuestionCompany =
   | 'apple'
   | 'bytedance'
   | 'dropbox'
-  | 'facebook'
   | 'google'
   | 'linkedin'
   | 'lyft'

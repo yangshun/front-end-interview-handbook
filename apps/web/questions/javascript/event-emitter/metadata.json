@@ -1,24 +1,13 @@
 {
   "slug": "event-emitter",
   "created": "2022-11-26T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
-  "companies": [
-    "facebook",
-    "google",
-    "lyft"
-  ],
+  "languages": ["js"],
+  "companies": ["google", "lyft"],
   "premium": true,
   "duration": 20,
   "published": true,
   "importance": "mid",
   "difficulty": "medium",
-  "similar_questions": [
-    "event-emitter-ii",
-    "jquery-class-manipulation"
-  ],
-  "next_questions": [
-    "event-emitter-ii"
-  ]
+  "similar_questions": ["event-emitter-ii", "jquery-class-manipulation"],
+  "next_questions": ["event-emitter-ii"]
 }

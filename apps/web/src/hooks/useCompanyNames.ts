@@ -50,14 +50,6 @@ export default function useCompanyNames(): Record<
       }),
       logoUrl: 'https://logo.clearbit.com/dropbox.com',
     },
-    facebook: {
-      label: intl.formatMessage({
-        defaultMessage: 'Facebook',
-        description: 'Company name for Facebook',
-        id: 'PLm7ub',
-      }),
-      logoUrl: 'https://logo.clearbit.com/facebook.com',
-    },
     google: {
       label: intl.formatMessage({
         defaultMessage: 'Google',

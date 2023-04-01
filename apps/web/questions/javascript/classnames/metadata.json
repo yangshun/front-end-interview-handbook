@@ -1,13 +1,8 @@
 {
   "slug": "classnames",
   "created": "2022-05-02T00:00:00.000Z",
-  "languages": [
-    "css",
-    "js"
-  ],
-  "companies": [
-    "facebook"
-  ],
+  "languages": ["css", "js"],
+  "companies": [],
   "premium": true,
   "duration": 20,
   "published": true,

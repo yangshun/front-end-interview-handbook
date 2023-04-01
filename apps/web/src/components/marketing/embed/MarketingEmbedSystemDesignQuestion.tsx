@@ -494,7 +494,7 @@ function Optimizations() {
 
 const questionMetadata: QuestionMetadata = {
   author: null,
-  companies: ['facebook', 'twitter'],
+  companies: ['twitter'],
   created: Math.floor(Date.now() / 1000),
   difficulty: 'medium',
   duration: 30,

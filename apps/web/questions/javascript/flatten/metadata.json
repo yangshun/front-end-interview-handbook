@@ -2,27 +2,14 @@
   "slug": "flatten",
   "author": "zhenghao",
   "created": "2022-04-14T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
-  "companies": [
-    "apple",
-    "facebook",
-    "salesforce"
-  ],
+  "languages": ["js"],
+  "companies": ["apple", "salesforce"],
   "premium": false,
   "duration": 20,
   "published": true,
   "importance": "high",
   "featured": true,
   "difficulty": "medium",
-  "similar_questions": [
-    "squash-object",
-    "get"
-  ],
-  "next_questions": [
-    "todo-list",
-    "holy-grail",
-    "deep-equal"
-  ]
+  "similar_questions": ["squash-object", "get"],
+  "next_questions": ["todo-list", "holy-grail", "deep-equal"]
 }
