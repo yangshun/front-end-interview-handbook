@@ -40,7 +40,7 @@ export default async function logEvent(
     // @ts-ignore
     navigator.webkitConnection ||
     {};
-  const body = {
+  const body = JSON.stringify({
     clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
     connection: {
       type: connection?.effectiveType,
@@ -51,7 +51,7 @@ export default async function logEvent(
     query: Object.fromEntries(new URLSearchParams(window.location.search)),
     referer: document.referrer,
     value,
-  };
+  });
 
   if (process.env.NODE_ENV === 'development' || searchParams?.get('debug')) {
     console.info('[axiom]', body);
@@ -64,11 +64,16 @@ export default async function logEvent(
     return;
   }
 
-  await fetch('/api/logging/events', {
-    body: JSON.stringify(body),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon('/api/logging/events', body);
+  } else {
+    fetch('/api/logging/events', {
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      keepalive: true,
+      method: 'POST',
+    });
+  }
 }
