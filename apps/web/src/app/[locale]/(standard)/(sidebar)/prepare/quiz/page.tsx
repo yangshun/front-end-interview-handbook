@@ -6,6 +6,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import PrepareQuizPage from './PrepareQuizPage';
 
+export const dynamic = 'force-static';
+
 type Props = Readonly<{
   params: Readonly<{
     locale: string;

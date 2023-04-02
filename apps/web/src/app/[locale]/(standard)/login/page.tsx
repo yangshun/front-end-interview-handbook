@@ -5,6 +5,8 @@ import AuthPage from '~/components/auth/AuthPage';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
+export const dynamic = 'force-static';
+
 type Props = Readonly<{
   params: Readonly<{
     locale: string;

@@ -14,6 +14,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import GetStartedPage from './GetStartedPage';
 
+export const dynamic = 'force-static';
+
 type Props = Readonly<{
   params: Readonly<{
     locale: string;

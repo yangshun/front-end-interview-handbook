@@ -7,6 +7,8 @@ import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
+export const dynamic = 'force-static';
+
 const framework: QuestionFramework = 'vanilla';
 
 type Props = Readonly<{

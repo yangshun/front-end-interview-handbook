@@ -5,6 +5,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import PrepareSystemDesignPage from './PrepareSystemDesignPage';
 
+export const dynamic = 'force-static';
+
 type Props = Readonly<{
   params: Readonly<{
     locale: string;

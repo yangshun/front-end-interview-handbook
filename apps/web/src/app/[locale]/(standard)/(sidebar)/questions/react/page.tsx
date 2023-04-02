@@ -9,6 +9,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
 
+export const dynamic = 'force-static';
+
 type Props = Readonly<{
   params: Readonly<{
     locale: string;

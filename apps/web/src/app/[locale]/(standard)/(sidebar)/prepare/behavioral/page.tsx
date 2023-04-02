@@ -5,6 +5,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import PrepareBehavioralPage from './PrepareBehavioralPage';
 
+export const dynamic = 'force-static';
+
 type Props = Readonly<{
   params: { locale: string };
 }>;
