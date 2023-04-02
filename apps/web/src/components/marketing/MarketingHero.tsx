@@ -14,6 +14,9 @@ import MarketingEmbedSystemDesignQuestion from './embed/MarketingEmbedSystemDesi
 import type { EmbedUIQuestion } from './embed/MarketingEmbedUIQuestion';
 import MarketingEmbedUIQuestion from './embed/MarketingEmbedUIQuestion';
 import MarketingHeroBrowserWindowFrame from './MarketingHeroBrowserWindowFrame';
+import AmazonLogo from '../icons/AmazonLogo';
+import GoogleLogo from '../icons/GoogleLogo';
+import MetaLogo from '../icons/MetaLogo';
 import type { QuestionJavaScript } from '../questions/common/QuestionsTypes';
 
 const tabs = [
@@ -71,32 +74,29 @@ export default function MarketingHeroNew({
                 />
               </p>
               <span className="flex items-center justify-center space-x-6 lg:space-x-8">
-                <img
-                  alt={intl.formatMessage({
+                <GoogleLogo
+                  className="h-[1.5rem] text-slate-500 lg:h-[2.1rem]"
+                  title={intl.formatMessage({
                     defaultMessage: 'Google logo',
                     description: 'Google company logo',
                     id: 'da4RLj',
                   })}
-                  className="h-[1.5rem] opacity-50 lg:h-[2.1rem]"
-                  src="/img/company-logos/google-logo.svg"
                 />
-                <img
-                  alt={intl.formatMessage({
+                <AmazonLogo
+                  className="mt-1 h-6 text-slate-500 lg:mt-2 lg:h-7"
+                  title={intl.formatMessage({
                     defaultMessage: 'Amazon logo',
                     description: 'Amazon company logo',
                     id: 'nai6YT',
                   })}
-                  className="mt-1 h-6 opacity-50 lg:mt-2 lg:h-7"
-                  src="/img/company-logos/amazon-logo.svg"
                 />
-                <img
-                  alt={intl.formatMessage({
+                <MetaLogo
+                  className="h-4 text-slate-500 lg:mb-2 lg:h-5"
+                  title={intl.formatMessage({
                     defaultMessage: 'Meta logo',
                     description: 'Meta company logo',
                     id: 'a8ETQr',
                   })}
-                  className="h-4 opacity-50 lg:mb-2 lg:h-5"
-                  src="/img/company-logos/meta-logo.svg"
                 />
               </span>
             </div>
