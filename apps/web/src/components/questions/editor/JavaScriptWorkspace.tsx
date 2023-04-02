@@ -5,6 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
+import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
@@ -35,9 +36,10 @@ import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
 
-import CodingWorkspaceChangLayoutButton from './CodingWorkspaceChangeLayoutButton';
+import CodingWorkspaceChangeLayoutButton from './CodingWorkspaceChangeLayoutButton';
 import CodingWorkspaceEditorShortcutsButton from './CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from './CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from './CodingWorkspaceThemeSelect';
 import CodingWorkspaceToolbar from './CodingWorkspaceToolbar';
 import type { CodingWorkspaceLayout } from './useCodingWorkspaceLayout';
 import QuestionPaneDivider from '../common/QuestionPaneDivider';
@@ -195,205 +197,209 @@ function Contents({
   }
 
   return (
-    <div ref={containerRef} className="flex w-full flex-col lg:h-full">
-      {showToolbar && (
-        <CodingWorkspaceToolbar>
-          <CodingWorkspaceEditorShortcutsButton />
-          <CodingWorkspaceResetButton
-            onClick={() => {
-              resetCode();
-            }}
-          />
-          <CodingWorkspaceChangLayoutButton
-            layout={layout}
-            onChangeLayout={(newLayout) => {
-              // Automatically resize left column depending on workspace layout.
-              // Vertical workspace layout: full available width.
-              // Horizontal workspace layout: 1/3 of window (assuming parent gives it 2/3 of window).
-              if (newLayout === 'horizontal') {
-                setRightPaneWidth(window.innerWidth / 3);
-              }
-              onChangeLayout?.(newLayout);
-            }}
-          />
-          <QuestionReportIssueButton
-            format={question.format}
-            title={question.metadata.title}
-            tooltipPosition="start"
-          />
-        </CodingWorkspaceToolbar>
-      )}
-      <div
-        className={clsx(
-          'flex grow flex-col',
-          layout === 'horizontal' && 'lg:!flex-row',
-        )}>
-        <style suppressHydrationWarning={true}>{`@media (min-width: 1024px) {
-        #devtool-section { ${
-          layout === 'horizontal'
-            ? `width: ${rightPaneWidth}px;`
-            : showDevToolsPane
-            ? `height: ${bottomSectionHeight}px;`
-            : ''
-        } }
-      }`}</style>
+    <CodingPreferencesProvider>
+      <div ref={containerRef} className="flex w-full flex-col lg:h-full">
+        {showToolbar && (
+          <CodingWorkspaceToolbar>
+            <CodingWorkspaceThemeSelect />
+            <CodingWorkspaceEditorShortcutsButton />
+            <CodingWorkspaceResetButton
+              onClick={() => {
+                resetCode();
+              }}
+            />
+            <CodingWorkspaceChangeLayoutButton
+              layout={layout}
+              onChangeLayout={(newLayout) => {
+                // Automatically resize left column depending on workspace layout.
+                // Vertical workspace layout: full available width.
+                // Horizontal workspace layout: 1/3 of window (assuming parent gives it 2/3 of window).
+                if (newLayout === 'horizontal') {
+                  setRightPaneWidth(window.innerWidth / 3);
+                }
+                onChangeLayout?.(newLayout);
+              }}
+            />
+            <QuestionReportIssueButton
+              format={question.format}
+              title={question.metadata.title}
+              tooltipPosition="start"
+            />
+          </CodingWorkspaceToolbar>
+        )}
         <div
           className={clsx(
-            'h-72 px-4 sm:px-6 lg:grow lg:px-0',
-            layout === 'horizontal' && 'lg:h-full lg:w-0',
-            layout === 'vertical' && 'lg:h-0',
+            'flex grow flex-col',
+            layout === 'horizontal' && 'lg:!flex-row',
           )}>
-          <CodeEditor
-            key={sandpack.activeFile}
-            filePath={sandpack.activeFile}
-            value={code}
-            onChange={(value) => {
-              const newCode = value || '';
-
-              updateCode(newCode);
-              if (persistCode) {
-                saveCode(newCode);
-              }
-            }}
-          />
-        </div>
-        {layout === 'horizontal' && (
-          <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
-        )}
-        {layout === 'vertical' && showDevToolsPane && (
-          <QuestionPaneHorizontalDivider
-            onMouseDown={(event) => startBottomSectionDividerDrag(event)}
-          />
-        )}
-        <div
-          className={clsx(
-            'flex flex-col bg-white',
-            layout === 'horizontal' && 'lg:h-full',
-            // Don't allow mouse events on iframe while dragging otherwise
-            // the mouseup event doesn't fire on the main window.
-            (isDragging || isBottomSectionDividerDragging) &&
-              'pointer-events-none touch-none select-none',
-          )}
-          id="devtool-section">
+          <style suppressHydrationWarning={true}>{`@media (min-width: 1024px) {
+          #devtool-section { ${
+            layout === 'horizontal'
+              ? `width: ${rightPaneWidth}px;`
+              : showDevToolsPane
+              ? `height: ${bottomSectionHeight}px;`
+              : ''
+          } }
+        }`}</style>
           <div
-            aria-expanded={showDevToolsPane}
             className={clsx(
-              layout === 'horizontal' && 'lg:h-0 lg:grow',
-              layout === 'vertical'
-                ? showDevToolsPane
-                  ? 'grow overflow-auto'
-                  : 'hidden'
-                : null,
+              'h-72 px-4 sm:px-6 lg:grow lg:px-0',
+              layout === 'horizontal' && 'lg:h-full lg:w-0',
+              layout === 'vertical' && 'lg:h-0',
             )}>
-            <JavaScriptQuestionDevTools
-              availableModes={['console', 'tests']}
-              isRunningCode={isRunningCode}
-              mode={devToolsMode}
-              result={result}
-              runAttempt={runAttempt}
-              showExplicitInvocationMessage={true}
-              onChangeMode={setDevToolsMode}
+            <CodeEditor
+              key={sandpack.activeFile}
+              filePath={sandpack.activeFile}
+              value={code}
+              onChange={(value) => {
+                const newCode = value || '';
+
+                updateCode(newCode);
+                if (persistCode) {
+                  saveCode(newCode);
+                }
+              }}
             />
           </div>
-          {isMounted() && showLoadedPreviousCode && (
-            <div
-              className="bg-brand-50 shrink-0 border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
-              suppressHydrationWarning={true}>
-              <Text variant="body3">
-                <FormattedMessage
-                  defaultMessage="Your previous code was restored. <Anchor>Reset to default</Anchor>"
-                  description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
-                  id="nFYr2a"
-                  values={{
-                    Anchor: (chunks) => (
-                      <Anchor
-                        href="#"
-                        onClick={() => {
-                          resetCode();
-                        }}>
-                        {chunks}
-                      </Anchor>
-                    ),
-                  }}
-                />
-              </Text>
-            </div>
+          {layout === 'horizontal' && (
+            <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
           )}
-          <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
-            <div>
-              <div className={clsx(layout === 'horizontal' && 'lg:hidden')}>
+          {layout === 'vertical' && showDevToolsPane && (
+            <QuestionPaneHorizontalDivider
+              onMouseDown={(event) => startBottomSectionDividerDrag(event)}
+            />
+          )}
+          <div
+            className={clsx(
+              'flex flex-col bg-white',
+              layout === 'horizontal' && 'lg:h-full',
+              // Don't allow mouse events on iframe while dragging otherwise
+              // the mouseup event doesn't fire on the main window.
+              (isDragging || isBottomSectionDividerDragging) &&
+                'pointer-events-none touch-none select-none',
+            )}
+            id="devtool-section">
+            <div
+              aria-expanded={showDevToolsPane}
+              className={clsx(
+                layout === 'horizontal' && 'lg:h-0 lg:grow',
+                layout === 'vertical'
+                  ? showDevToolsPane
+                    ? 'grow overflow-auto'
+                    : 'hidden'
+                  : null,
+              )}>
+              <JavaScriptQuestionDevTools
+                availableModes={['console', 'tests']}
+                isRunningCode={isRunningCode}
+                mode={devToolsMode}
+                result={result}
+                runAttempt={runAttempt}
+                showExplicitInvocationMessage={true}
+                onChangeMode={setDevToolsMode}
+              />
+            </div>
+            {isMounted() && showLoadedPreviousCode && (
+              <div
+                className="bg-brand-50 shrink-0 border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
+                suppressHydrationWarning={true}>
+                <Text variant="body3">
+                  <FormattedMessage
+                    defaultMessage="Your previous code was restored. <Anchor>Reset to default</Anchor>"
+                    description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+                    id="nFYr2a"
+                    values={{
+                      Anchor: (chunks) => (
+                        <Anchor
+                          href="#"
+                          onClick={() => {
+                            resetCode();
+                          }}>
+                          {chunks}
+                        </Anchor>
+                      ),
+                    }}
+                  />
+                </Text>
+              </div>
+            )}
+            <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
+              <div>
+                <div className={clsx(layout === 'horizontal' && 'lg:hidden')}>
+                  <Button
+                    icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
+                    label={
+                      showDevToolsPane
+                        ? intl.formatMessage({
+                            defaultMessage: 'Hide DevTool',
+                            description:
+                              'Label for button to collapse the DevTool',
+                            id: 'geCoTi',
+                          })
+                        : intl.formatMessage({
+                            defaultMessage: 'Show DevTool',
+                            description:
+                              'Label for button to expand the DevTool',
+                            id: 'fQHORb',
+                          })
+                    }
+                    size="sm"
+                    variant="tertiary"
+                    onClick={() => {
+                      setShowDevToolsPane(!showDevToolsPane);
+                      onChangeLayout?.('vertical');
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                {showCompletionButton && (
+                  <QuestionProgressAction
+                    question={question}
+                    questionProgress={questionProgress}
+                    signInModalContents={
+                      nextQuestions.length > 0 && (
+                        <div className="mt-4 space-y-4">
+                          <hr />
+                          <QuestionNextQuestions questions={nextQuestions} />
+                        </div>
+                      )
+                    }
+                  />
+                )}
                 <Button
-                  icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
-                  label={
-                    showDevToolsPane
-                      ? intl.formatMessage({
-                          defaultMessage: 'Hide DevTool',
-                          description:
-                            'Label for button to collapse the DevTool',
-                          id: 'geCoTi',
-                        })
-                      : intl.formatMessage({
-                          defaultMessage: 'Show DevTool',
-                          description: 'Label for button to expand the DevTool',
-                          id: 'fQHORb',
-                        })
-                  }
+                  isDisabled={isRunningCode || csbStatus !== 'idle'}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Submit',
+                    description:
+                      'Label for button to submit code for testing within coding workspace',
+                    id: 'FkGppk',
+                  })}
                   size="sm"
-                  variant="tertiary"
-                  onClick={() => {
-                    setShowDevToolsPane(!showDevToolsPane);
-                    onChangeLayout?.('vertical');
+                  variant="special"
+                  onClick={async () => {
+                    setIsRunningCode(true);
+                    setShowDevToolsPane(true);
+                    setDevToolsMode('tests');
+                    Object.values(sandpack.clients).forEach((client) => {
+                      client?.iframe?.contentWindow?.postMessage(
+                        { source: 'gfe', type: 'start_tests' },
+                        '*',
+                      );
+                    });
+                    logEvent('question.submit', {
+                      code,
+                      format: question.metadata.format,
+                      slug: question.metadata.slug,
+                    });
                   }}
                 />
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              {showCompletionButton && (
-                <QuestionProgressAction
-                  question={question}
-                  questionProgress={questionProgress}
-                  signInModalContents={
-                    nextQuestions.length > 0 && (
-                      <div className="mt-4 space-y-4">
-                        <hr />
-                        <QuestionNextQuestions questions={nextQuestions} />
-                      </div>
-                    )
-                  }
-                />
-              )}
-              <Button
-                isDisabled={isRunningCode || csbStatus !== 'idle'}
-                label={intl.formatMessage({
-                  defaultMessage: 'Submit',
-                  description:
-                    'Label for button to submit code for testing within coding workspace',
-                  id: 'FkGppk',
-                })}
-                size="sm"
-                variant="special"
-                onClick={async () => {
-                  setIsRunningCode(true);
-                  setShowDevToolsPane(true);
-                  setDevToolsMode('tests');
-                  Object.values(sandpack.clients).forEach((client) => {
-                    client?.iframe?.contentWindow?.postMessage(
-                      { source: 'gfe', type: 'start_tests' },
-                      '*',
-                    );
-                  });
-                  logEvent('question.submit', {
-                    code,
-                    format: question.metadata.format,
-                    slug: question.metadata.slug,
-                  });
-                }}
-              />
-            </div>
           </div>
         </div>
       </div>
-    </div>
+    </CodingPreferencesProvider>
   );
 }
 

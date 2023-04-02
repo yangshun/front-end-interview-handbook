@@ -1803,6 +1803,10 @@
     "defaultMessage": "Change password",
     "description": "Label of Change Password button on Change Password page"
   },
+  "dAHBqv": {
+    "defaultMessage": "Theme",
+    "description": "Label for select that changes the theme of the editor"
+  },
   "dFz30c": {
     "defaultMessage": "Reset",
     "description": "Label for button to confirm progress reset"

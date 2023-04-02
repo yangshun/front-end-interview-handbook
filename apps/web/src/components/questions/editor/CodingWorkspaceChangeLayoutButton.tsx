@@ -12,7 +12,7 @@ type Props = Readonly<{
   onChangeLayout: (layout: CodingWorkspaceLayout) => void;
 }>;
 
-export default function CodingWorkspaceChangLayoutButton({
+export default function CodingWorkspaceChangeLayoutButton({
   layout,
   onChangeLayout,
 }: Props) {

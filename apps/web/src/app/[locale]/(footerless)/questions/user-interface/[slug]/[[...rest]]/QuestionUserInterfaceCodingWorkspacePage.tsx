@@ -8,6 +8,7 @@ import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
+import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaneHorizontalDivider from '~/components/questions/common/QuestionPaneHorizontalDivider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
@@ -27,6 +28,7 @@ import JavaScriptQuestionDevTools from '~/components/questions/devtools/JavaScri
 import CodeEditor from '~/components/questions/editor/CodeEditor';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import CodingWorkspaceToolbar from '~/components/questions/editor/CodingWorkspaceToolbar';
 import useUserInterfaceQuestionCode from '~/components/questions/editor/useUserInterfaceQuestionCode';
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
@@ -131,123 +133,126 @@ function MiddleRightPaneContents({
   }
 
   return (
-    <div className="flex w-full flex-col lg:h-full">
-      <style>{`@media (min-width: 1024px) {
+    <CodingPreferencesProvider>
+      <div className="flex w-full flex-col lg:h-full">
+        <style>{`@media (min-width: 1024px) {
         #right-section { width: ${rightPaneWidth}px; }
       }`}</style>
-      <CodingWorkspaceToolbar>
-        <CodingWorkspaceEditorShortcutsButton />
-        <CodingWorkspaceResetButton
-          onClick={() => {
-            resetCode();
-          }}
-        />
-        <QuestionReportIssueButton
-          format={question.format}
-          title={question.metadata.title}
-          tooltipPosition="start"
-        />
-      </CodingWorkspaceToolbar>
-      <div className="flex flex-col lg:h-0 lg:grow lg:flex-row">
-        <style suppressHydrationWarning={true}>{`@media (min-width: 1024px) {
+        <CodingWorkspaceToolbar>
+          <CodingWorkspaceThemeSelect />
+          <CodingWorkspaceEditorShortcutsButton />
+          <CodingWorkspaceResetButton
+            onClick={() => {
+              resetCode();
+            }}
+          />
+          <QuestionReportIssueButton
+            format={question.format}
+            title={question.metadata.title}
+            tooltipPosition="start"
+          />
+        </CodingWorkspaceToolbar>
+        <div className="flex flex-col lg:h-0 lg:grow lg:flex-row">
+          <style suppressHydrationWarning={true}>{`@media (min-width: 1024px) {
         #devtool-section { ${
           showDevToolsPane ? `height: ${bottomSectionHeight}px;` : ''
         } }
       }`}</style>
-        <div className="h-96 lg:h-full lg:w-0 lg:grow">
-          <FileTabs />
-          <CodeEditor
-            key={sandpack.activeFile}
-            filePath={sandpack.activeFile}
-            value={code}
-            onChange={(value) => updateCode(value || '')}
-          />
-        </div>
-        <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
-        <div
-          className="flex flex-col border-l border-slate-200 lg:h-full"
-          id="right-section">
-          <div
-            className={clsx(
-              'grow',
-              // Don't allow mouse events on iframe while dragging otherwise
-              // the mouseup event doesn't fire on the main window.
-              (isLeftPaneDragging ||
-                isDragging ||
-                isBottomSectionDividerDragging) &&
-                'pointer-events-none touch-none select-none',
-            )}>
-            <SandpackPreview
-              showNavigator={true}
-              showOpenInCodeSandbox={false}
+          <div className="h-96 lg:h-full lg:w-0 lg:grow">
+            <FileTabs />
+            <CodeEditor
+              key={sandpack.activeFile}
+              filePath={sandpack.activeFile}
+              value={code}
+              onChange={(value) => updateCode(value || '')}
             />
           </div>
-          {showDevToolsPane && (
-            <QuestionPaneHorizontalDivider
-              onMouseDown={(event) => startBottomSectionDividerDrag(event)}
-            />
-          )}
+          <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
           <div
-            className={clsx(
-              'flex flex-col',
-              showDevToolsPane && 'border-t border-slate-200',
-            )}
-            id="devtool-section">
+            className="flex flex-col border-l border-slate-200 lg:h-full"
+            id="right-section">
             <div
-              aria-expanded={showDevToolsPane}
               className={clsx(
-                'h-56 shrink',
-                showDevToolsPane ? 'grow overflow-auto' : 'hidden',
+                'grow',
+                // Don't allow mouse events on iframe while dragging otherwise
+                // the mouseup event doesn't fire on the main window.
+                (isLeftPaneDragging ||
+                  isDragging ||
+                  isBottomSectionDividerDragging) &&
+                  'pointer-events-none touch-none select-none',
               )}>
-              <JavaScriptQuestionDevTools
-                availableModes={['console']}
-                mode={devToolsMode}
-                onChangeMode={setDevToolsMode}
+              <SandpackPreview
+                showNavigator={true}
+                showOpenInCodeSandbox={false}
               />
             </div>
-            {mode === 'practice' && isMounted() && showLoadedPreviousCode && (
-              <div
-                className="bg-brand-50 shrink-0 border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
-                suppressHydrationWarning={true}>
-                <Text variant="body3">
-                  Your previous code was restored.{' '}
-                  <Anchor
-                    href="#"
-                    onClick={() => {
-                      resetCode();
-                    }}>
-                    Reset to default
-                  </Anchor>
-                </Text>
-              </div>
+            {showDevToolsPane && (
+              <QuestionPaneHorizontalDivider
+                onMouseDown={(event) => startBottomSectionDividerDrag(event)}
+              />
             )}
-            <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
-              <Button
-                icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
-                label={showDevToolsPane ? 'Hide DevTool' : 'Show DevTool'}
-                size="sm"
-                variant="tertiary"
-                onClick={() => {
-                  setShowDevToolsPane(!showDevToolsPane);
-                }}
-              />
-              <QuestionProgressAction
-                question={question}
-                questionProgress={questionProgress}
-                signInModalContents={
-                  nextQuestions.length > 0 && (
-                    <div className="mt-4 space-y-4">
-                      <hr />
-                      <QuestionNextQuestions questions={nextQuestions} />
-                    </div>
-                  )
-                }
-              />
+            <div
+              className={clsx(
+                'flex flex-col',
+                showDevToolsPane && 'border-t border-slate-200',
+              )}
+              id="devtool-section">
+              <div
+                aria-expanded={showDevToolsPane}
+                className={clsx(
+                  'h-56 shrink',
+                  showDevToolsPane ? 'grow overflow-auto' : 'hidden',
+                )}>
+                <JavaScriptQuestionDevTools
+                  availableModes={['console']}
+                  mode={devToolsMode}
+                  onChangeMode={setDevToolsMode}
+                />
+              </div>
+              {mode === 'practice' && isMounted() && showLoadedPreviousCode && (
+                <div
+                  className="bg-brand-50 shrink-0 border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
+                  suppressHydrationWarning={true}>
+                  <Text variant="body3">
+                    Your previous code was restored.{' '}
+                    <Anchor
+                      href="#"
+                      onClick={() => {
+                        resetCode();
+                      }}>
+                      Reset to default
+                    </Anchor>
+                  </Text>
+                </div>
+              )}
+              <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
+                <Button
+                  icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
+                  label={showDevToolsPane ? 'Hide DevTool' : 'Show DevTool'}
+                  size="sm"
+                  variant="tertiary"
+                  onClick={() => {
+                    setShowDevToolsPane(!showDevToolsPane);
+                  }}
+                />
+                <QuestionProgressAction
+                  question={question}
+                  questionProgress={questionProgress}
+                  signInModalContents={
+                    nextQuestions.length > 0 && (
+                      <div className="mt-4 space-y-4">
+                        <hr />
+                        <QuestionNextQuestions questions={nextQuestions} />
+                      </div>
+                    )
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </CodingPreferencesProvider>
   );
 }
 
