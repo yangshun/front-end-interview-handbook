@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -83,15 +83,27 @@ export default function FeedbackDialog({
 }: Props) {
   const [feedbackState, setFeedbackState] = useState<FeedbackState>('message');
   const user = useUser();
-  const [emailFormErrorMessage, setEmailFormErrorMessage] = useState('');
   const intl = useIntl();
   const {
     data: feedbackId,
-    isSuccess,
-    isLoading,
-    failureReason,
+    isLoading: isSubmitLoading,
+    failureReason: submitFailureReason,
     mutate: submitFeeback,
-  } = trpc.feedback.submitFeedback.useMutation();
+  } = trpc.feedback.submitFeedback.useMutation({
+    onSuccess: () => {
+      setFeedbackState('email');
+    },
+  });
+  const {
+    isLoading: isUpdateLoading,
+    failureReason: updateFailureReason,
+    mutate: updateFeedback,
+  } = trpc.feedback.updateFeedback.useMutation({
+    onSuccess: () => {
+      setFeedbackState('success');
+    },
+  });
+
   const title =
     titleParam ??
     intl.formatMessage({
@@ -99,12 +111,6 @@ export default function FeedbackDialog({
       description: 'Title for send us a feedback modal',
       id: 'L/BHun',
     });
-
-  useEffect(() => {
-    if (isSuccess) {
-      setFeedbackState('email');
-    }
-  }, [isSuccess]);
 
   return (
     <Dialog isShown={isShown} title={title} onClose={onClose}>
@@ -137,7 +143,7 @@ export default function FeedbackDialog({
                 description: 'Feedback widget textarea description',
                 id: '8MHkPL',
               })}
-              errorMessage={failureReason?.message}
+              errorMessage={submitFailureReason?.message}
               fontSize="xs"
               label={intl.formatMessage({
                 defaultMessage: 'Your Message',
@@ -149,8 +155,8 @@ export default function FeedbackDialog({
             />
             <Button
               display="block"
-              isDisabled={isLoading}
-              isLoading={isLoading}
+              isDisabled={isSubmitLoading}
+              isLoading={isSubmitLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
                 description: 'Feedback widget submit button label',
@@ -169,27 +175,11 @@ export default function FeedbackDialog({
               event.stopPropagation();
 
               const data = new FormData(event.target as HTMLFormElement);
-              const response = await fetch(
-                `/api/marketing/feedback/${feedbackId}`,
-                {
-                  body: JSON.stringify({
-                    email: data.get('email') as string,
-                  }),
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  method: 'PUT',
-                },
-              );
-              const result = await response.json();
 
-              if (!response.ok) {
-                setEmailFormErrorMessage(result.message);
-
-                return;
-              }
-              setEmailFormErrorMessage('');
-              setFeedbackState('success');
+              updateFeedback({
+                email: data.get('email') as string,
+                feedbackId: feedbackId as string,
+              });
             }}>
             <TextInput
               autoFocus={true}
@@ -201,7 +191,7 @@ export default function FeedbackDialog({
                   'Feedback widget text to request for optional email input for following up',
                 id: 'IBP/D0',
               })}
-              errorMessage={emailFormErrorMessage}
+              errorMessage={updateFailureReason?.message}
               label={intl.formatMessage({
                 defaultMessage: 'Your Email',
                 description: 'Feedback widget email input field label',
@@ -211,6 +201,8 @@ export default function FeedbackDialog({
             />
             <Button
               display="block"
+              isDisabled={isUpdateLoading}
+              isLoading={isUpdateLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
                 description: 'Feedback widget submit button label',

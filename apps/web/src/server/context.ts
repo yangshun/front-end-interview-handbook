@@ -7,13 +7,11 @@ export async function createContext({
   req,
 }: trpcNext.CreateNextContextOptions) {
   async function getUserFromHeader() {
-    if (req.headers.authorization) {
-      const user = await fetchUser(req.cookies['supabase-auth-token']);
-
-      return user;
+    if (!req.headers.authorization) {
+      return null;
     }
 
-    return null;
+    return await fetchUser(req.cookies['supabase-auth-token']);
   }
 
   const user = await getUserFromHeader();

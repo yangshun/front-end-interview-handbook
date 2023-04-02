@@ -32,4 +32,23 @@ export const feedbackRouter = router({
 
       return feedbackMessage.id;
     }),
+  updateFeedback: publicProcedure
+    .input(
+      z.object({
+        email: z.string().email('Email is invalid'),
+        feedbackId: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { email, feedbackId } }) => {
+      await prisma.feedbackMessage.update({
+        data: {
+          email,
+        },
+        where: {
+          id: feedbackId,
+        },
+      });
+
+      return 'Message updated with email!';
+    }),
 });
