@@ -5,8 +5,6 @@ import { useEffect } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 
-import gdprCountryCodes from '../../hiring/gdprCountries';
-
 import * as Sentry from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 import { useUser } from '@supabase/auth-helpers-react';
@@ -40,20 +38,23 @@ export default function SentryInit() {
     }
 
     const countryCode = jsCookie.get('country') || null;
-
-    // Don't record for GDPR countries.
-    if (countryCode == null || gdprCountryCodes.has(countryCode)) {
-      return;
-    }
+    const fingerprint = jsCookie.get('gfp');
 
     if (user != null && userProfile != null) {
       Sentry.setUser({
         countryCode,
         email: user.email,
+        fingerprint,
         id: user.id,
         plan: userProfile.plan,
         premium: userProfile?.isPremium,
         stripeCustomerId: userProfile.stripeCustomerID,
+      });
+    } else {
+      Sentry.setUser({
+        countryCode,
+        fingerprint,
+        premium: false,
       });
     }
   }, [isUserProfileLoading, user, userProfile]);
