@@ -18,17 +18,17 @@ export default function PromoBanner({
   sticky?: boolean;
   variant?: 'primary' | 'special';
 }>) {
-  const { isUserProfileLoading, userProfile } = useUserProfile();
+  const { userProfile } = useUserProfile();
   const { showPromoBanner, setShowPromoBanner } = useUserPreferences();
   const isPremium = userProfile?.isPremium ?? false;
-  const isInvisible = isUserProfileLoading || isPremium || !showPromoBanner;
+  const isInvisible = isPremium || !showPromoBanner;
 
   return (
     <div
       className={clsx(
         'z-10 w-full transition-opacity duration-500',
         sticky && 'lg:sticky',
-        isInvisible && 'invisible',
+        isInvisible && 'opacity-0',
       )}
       style={{ top: `var(--navbar-height)` }}
       suppressHydrationWarning={true}>

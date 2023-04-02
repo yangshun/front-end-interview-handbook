@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Fragment, useState } from 'react';
 
 import NavbarItem from './NavbarItem';
@@ -17,12 +18,6 @@ type Props = Readonly<{
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
 }>;
-
-function LineGlimmer() {
-  return (
-    <div className="h-4 min-w-[120px] animate-pulse rounded bg-slate-200" />
-  );
-}
 
 export default function Navbar({
   endAddOnItems,
@@ -57,21 +52,17 @@ export default function Navbar({
               ))}
             </nav>
           </div>
-          <div className="hidden items-center justify-end gap-x-4 md:flex md:grow lg:w-0 lg:grow-0">
+          <div
+            className={clsx(
+              'hidden items-center justify-end gap-x-4 transition-opacity duration-500 md:flex md:grow lg:w-0 lg:grow-0',
+              isLoading ? 'opacity-0' : 'opacity-100',
+            )}>
             <div className="flex gap-x-4">
-              {rightLinks.map((navItem) =>
-                isLoading ? (
-                  <LineGlimmer key={navItem.itemKey} />
-                ) : (
-                  <NavbarItem key={navItem.itemKey} {...navItem} />
-                ),
-              )}
+              {rightLinks.map((navItem) => (
+                <NavbarItem key={navItem.itemKey} {...navItem} />
+              ))}
             </div>
-            {isLoading ? (
-              <div className="h-8 min-w-[32px] rounded-full bg-slate-200" />
-            ) : (
-              endAddOnItems
-            )}
+            {endAddOnItems}
           </div>
           <div className="-my-2 -mr-2 lg:hidden">
             <button
