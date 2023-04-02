@@ -53,10 +53,6 @@ export default async function logEvent(
     value,
   });
 
-  if (process.env.NODE_ENV === 'development' || searchParams?.get('debug')) {
-    console.info('[axiom]', body);
-  }
-
   const shouldLog =
     process.env.NODE_ENV === 'production' || searchParams?.get('debug');
 
@@ -64,16 +60,12 @@ export default async function logEvent(
     return;
   }
 
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon('/api/logging/events', body);
-  } else {
-    fetch('/api/logging/events', {
-      body,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      keepalive: true,
-      method: 'POST',
-    });
-  }
+  await fetch('/api/logging/events', {
+    body,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    keepalive: true,
+    method: 'POST',
+  });
 }
