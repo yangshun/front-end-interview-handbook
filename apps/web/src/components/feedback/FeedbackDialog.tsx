@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
+import { trpc } from '~/hooks/trpc';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -81,11 +82,16 @@ export default function FeedbackDialog({
   onHideWidgetForSession,
 }: Props) {
   const [feedbackState, setFeedbackState] = useState<FeedbackState>('message');
-  const [feedbackId, setFeedbackId] = useState<string | null>(null);
   const user = useUser();
-  const [messageFormErrorMessage, setMessageFormErrorMessage] = useState('');
   const [emailFormErrorMessage, setEmailFormErrorMessage] = useState('');
   const intl = useIntl();
+  const {
+    data: feedbackId,
+    isSuccess,
+    isLoading,
+    failureReason,
+    mutate: submitFeeback,
+  } = trpc.feedback.submitFeedback.useMutation();
   const title =
     titleParam ??
     intl.formatMessage({
@@ -93,6 +99,12 @@ export default function FeedbackDialog({
       description: 'Title for send us a feedback modal',
       id: 'L/BHun',
     });
+
+  useEffect(() => {
+    if (isSuccess) {
+      setFeedbackState('email');
+    }
+  }, [isSuccess]);
 
   return (
     <Dialog isShown={isShown} title={title} onClose={onClose}>
@@ -113,25 +125,9 @@ export default function FeedbackDialog({
                 title: 'User Feedback',
               });
 
-              const response = await fetch('/api/marketing/feedback', {
-                body: JSON.stringify({
-                  message: data.get('message') as string,
-                }),
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                method: 'POST',
+              submitFeeback({
+                message: (data.get('message') ?? '')?.toString(),
               });
-              const result = await response.json();
-
-              if (!response.ok) {
-                setMessageFormErrorMessage(result.message);
-
-                return;
-              }
-              setMessageFormErrorMessage('');
-              setFeedbackId(result.feedbackId);
-              setFeedbackState('email');
             }}>
             <TextArea
               autoFocus={true}
@@ -141,7 +137,7 @@ export default function FeedbackDialog({
                 description: 'Feedback widget textarea description',
                 id: '8MHkPL',
               })}
-              errorMessage={messageFormErrorMessage}
+              errorMessage={failureReason?.message}
               fontSize="xs"
               label={intl.formatMessage({
                 defaultMessage: 'Your Message',
@@ -153,6 +149,8 @@ export default function FeedbackDialog({
             />
             <Button
               display="block"
+              isDisabled={isLoading}
+              isLoading={isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
                 description: 'Feedback widget submit button label',

@@ -7,9 +7,11 @@
  * @see https://trpc.io/docs/v10/router
  * @see https://trpc.io/docs/v10/procedures
  */
+import type { Context } from './context';
+
 import { initTRPC } from '@trpc/server';
 
-const t = initTRPC.create();
+const t = initTRPC.context<Context>().create();
 
 /**
  * Unprotected procedure
