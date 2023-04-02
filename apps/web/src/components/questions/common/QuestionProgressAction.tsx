@@ -93,7 +93,7 @@ export default function QuestionProgressAction({
               id="+JhlMu"
             />
           </Text>
-          ;{signInModalContents}
+          {signInModalContents}
         </Dialog>
       </>
     );
