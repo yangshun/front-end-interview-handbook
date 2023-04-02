@@ -71,7 +71,7 @@ export default function AuthPage({ view }: Props) {
               ) : undefined
             }
             providers={['github']}
-            redirectTo="/prepare"
+            redirectTo={nextSearchParam ?? '/prepare'}
             socialLayout="horizontal"
             supabaseClient={supabaseClient}
             view={view}
