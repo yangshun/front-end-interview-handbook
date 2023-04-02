@@ -1,4 +1,3 @@
-import FullStoryInit from '~/components/global/analytics/FullStoryInit';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
@@ -32,7 +31,6 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <VercelAnalytics />
           <FirstPromoter />
           <SmartlookInit />
-          <FullStoryInit />
           <SentryInit />
           <WebVitals />
         </GlobalProviders>
