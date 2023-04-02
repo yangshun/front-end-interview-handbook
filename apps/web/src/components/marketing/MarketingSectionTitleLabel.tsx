@@ -10,12 +10,12 @@ export default function MarketingSectionTitleLabel({
   className,
 }: Props) {
   return (
-    <p
+    <div
       className={clsx(
         'text-brand-500 text-sm font-semibold leading-7',
         className,
       )}>
       {children}
-    </p>
+    </div>
   );
 }
