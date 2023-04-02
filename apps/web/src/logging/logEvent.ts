@@ -20,6 +20,9 @@ type LoggingAction =
 // TODO: Improve typing.
 type LoggingPayload = Record<string, unknown>;
 
+/**
+ * Client-side logging. Don't use on the server.
+ */
 export default async function logEvent(
   action: LoggingAction,
   payload: LoggingPayload,
@@ -46,6 +49,7 @@ export default async function logEvent(
     pathname: window.location.pathname,
     payload,
     query: Object.fromEntries(new URLSearchParams(window.location.search)),
+    referer: document.referrer,
     value,
   };
 

@@ -66,7 +66,8 @@ export default async function handler(
     // TODO: Log error.
   }
 
-  const { clientSHA, name, pathname, payload, query, value } = req.body;
+  const { clientSHA, name, pathname, payload, query, referer, value } =
+    req.body;
 
   const eventPayload = {
     event: {
@@ -83,7 +84,7 @@ export default async function handler(
       country: cookies.country,
       pathname,
       query,
-      referer: req.headers.referer,
+      referer: referer || req.headers.referer,
     },
     user: {
       email: userEmail,
