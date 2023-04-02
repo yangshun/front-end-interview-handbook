@@ -46,11 +46,6 @@ export default function SentryInit() {
       return;
     }
 
-    // Don't record if premium.
-    if (isUserProfileLoading || userProfile?.isPremium) {
-      return;
-    }
-
     if (user != null && userProfile != null) {
       Sentry.setUser({
         countryCode,
