@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type {  ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
 import Heading from '~/components/ui/Heading';
@@ -13,17 +13,15 @@ type Props = Readonly<{
   title?: string;
 }>;
 
-export default function TextPairing(
-  {
-    description,
-    sectionLabel,
-    size = 'md',
-    title,
-    mode = 'light',
-  }: Props,
-) {
+export default function TextPairing({
+  description,
+  sectionLabel,
+  size = 'md',
+  title,
+  mode = 'light',
+}: Props) {
   return (
-    <div className="grid gap-y-4">
+    <div className="grid gap-y-2 lg:gap-y-3">
       {sectionLabel && (
         <MarketingSectionTitleLabel>{sectionLabel}</MarketingSectionTitleLabel>
       )}

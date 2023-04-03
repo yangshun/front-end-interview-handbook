@@ -1,6 +1,7 @@
 'use client';
 
-import TextPairing from '~/components/common/TextPairing';
+import type { ReactNode } from 'react';
+
 import PromoBanner from '~/components/global/PromoBanner';
 import type {
   QuestionCodingFormat,
@@ -13,7 +14,6 @@ import QuestionsCodingListWithFilters from '~/components/questions/listings/Ques
 import QuestionsFormatTabs from '~/components/questions/listings/QuestionsFormatsTabs';
 import QuestionsQuizListWithFilters from '~/components/questions/listings/QuestionsQuizListWithFilters';
 import type { QuestionListCategory } from '~/components/questions/listings/types';
-import useScrollToElement from '~/components/questions/listings/useScrollToElement';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -60,6 +60,7 @@ type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   description: string;
   format: QuestionUserFacingFormat | null;
+  logo: ReactNode;
   pageTitle: string;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
 }>;
@@ -111,26 +112,25 @@ function QuestionsList({
 }
 
 export default function QuestionsCategoryPage({
+  category,
   codingFormat,
   format,
-  category,
+  logo,
   pageTitle,
   description,
   codingQuestions,
   quizQuestions,
 }: Props) {
-  // Keep this component in sync with QuestionsFrameworkPage.
-  const listSectionRef = useScrollToElement<HTMLHRElement>('#list', 100);
-
   return (
     <>
       <PromoBanner sticky={true} />
       <Container className="grid gap-y-10 py-12 pt-6" variant="normal">
-        <Section>
-          <QuestionCategoryTitleSection category={category} />
-        </Section>
-        <hr ref={listSectionRef} />
-        <TextPairing description={description} size="md" title={pageTitle} />
+        <QuestionCategoryTitleSection
+          category={category}
+          description={description}
+          logo={logo}
+          title={pageTitle}
+        />
         <Section>
           <QuestionsList
             key={category}
@@ -139,6 +139,7 @@ export default function QuestionsCategoryPage({
             codingQuestions={codingQuestions}
             description={description}
             format={format}
+            logo={logo}
             pageTitle={pageTitle}
             quizQuestions={quizQuestions}
           />

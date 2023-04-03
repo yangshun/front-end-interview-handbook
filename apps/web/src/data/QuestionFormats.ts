@@ -1,9 +1,9 @@
 import { useIntl } from 'react-intl';
 
 import AngularLogo from '~/components/icons/AngularLogo';
-import CSS3Logo from '~/components/icons/CSS3Logo';
+import CSS3LogoMonochrome from '~/components/icons/CSS3LogoMonochrome';
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
-import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
+import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 
@@ -111,7 +111,7 @@ export function useQuestionCategoryLists() {
     },
     css: {
       href: '/questions/css',
-      icon: CSS3Logo,
+      icon: CSS3LogoMonochrome,
       key: 'css',
       longName: intl.formatMessage({
         defaultMessage: 'CSS Questions',
@@ -141,7 +141,7 @@ export function useQuestionCategoryLists() {
     },
     javascript: {
       href: '/questions/js',
-      icon: JavaScriptLogo,
+      icon: JavaScriptLogoMonochrome,
       key: 'javascript',
       longName: intl.formatMessage({
         defaultMessage: 'JavaScript Questions',

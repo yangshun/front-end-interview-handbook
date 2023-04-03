@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import ReactLogo from '~/components/icons/ReactLogo';
 import type { QuestionFramework } from '~/components/questions/common/QuestionsTypes';
 import QuestionsFrameworkPage from '~/components/questions/listings/QuestionsFrameworkPage';
 
@@ -53,6 +54,12 @@ export default async function Page({ params }: Props) {
         id: 'j5W1/P',
       })}
       framework={framework}
+      logo={
+        <ReactLogo
+          className="h-24 w-24"
+          style={{ fill: 'rgb(20, 158, 202)' }}
+        />
+      }
       questionList={questionList}
       title={intl.formatMessage({
         defaultMessage: 'React Coding Questions',

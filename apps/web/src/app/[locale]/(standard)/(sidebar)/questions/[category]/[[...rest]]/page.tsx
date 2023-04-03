@@ -1,5 +1,8 @@
 import type { Metadata } from 'next/types';
 
+import CSS3Logo from '~/components/icons/CSS3Logo';
+import HTML5Logo from '~/components/icons/HTML5Logo';
+import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import {
   filterQuestions,
   sortQuestions,
@@ -26,6 +29,7 @@ const CategoryStrings: Record<
   QuestionListCategory,
   Readonly<{
     description: (count: number) => string;
+    logo: (props: React.ComponentProps<'svg'>) => JSX.Element;
     pageTitle: (count: number) => string;
     seoTitle: (count: number) => string;
   }>
@@ -35,6 +39,7 @@ const CategoryStrings: Record<
       `${roundQuestionCountToNearestTen(
         count,
       )}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.`,
+    logo: CSS3Logo,
     pageTitle: () => 'CSS Questions',
     seoTitle: () =>
       'Practice Top CSS Front End Interview Questions with Solutions',
@@ -44,6 +49,7 @@ const CategoryStrings: Record<
       `${roundQuestionCountToNearestTen(
         count,
       )}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.`,
+    logo: HTML5Logo,
     pageTitle: () => 'HTML Questions',
     seoTitle: () =>
       'Practice Top HTML Front End Interview Questions with Solutions',
@@ -53,6 +59,7 @@ const CategoryStrings: Record<
       `${roundQuestionCountToNearestTen(
         count,
       )}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.`,
+    logo: JavaScriptLogo,
     pageTitle: () => 'JavaScript Questions',
     seoTitle: () =>
       'Practice Top JavaScript Front End Interview Questions with Solutions',
@@ -186,6 +193,7 @@ async function processParams(params: Props['params']) {
   const description = CategoryStrings[category].description(totalQuestions);
   const pageTitle = CategoryStrings[category].pageTitle(totalQuestions);
   const seoTitle = CategoryStrings[category].seoTitle(totalQuestions);
+  const { logo } = CategoryStrings[category];
 
   return {
     category,
@@ -195,6 +203,7 @@ async function processParams(params: Props['params']) {
     format,
     language,
     locale,
+    logo,
     pageTitle,
     quizQuestions,
     seoTitle,
@@ -230,6 +239,7 @@ export default async function Page({ params }: Props) {
     codingFormat,
     codingQuestions,
     description,
+    logo: Logo,
     pageTitle,
     quizQuestions,
   } = await processParams(params);
@@ -241,6 +251,7 @@ export default async function Page({ params }: Props) {
       codingQuestions={codingQuestions}
       description={description}
       format={format}
+      logo={<Logo className="h-24 w-24" />}
       pageTitle={pageTitle}
       quizQuestions={sortQuestions(quizQuestions, 'importance', false)}
     />
