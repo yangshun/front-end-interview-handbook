@@ -48,7 +48,7 @@
     "description": "Title for company-tagged questions feature"
   },
   "/4g12b": {
-    "defaultMessage": "System Design Study Guides",
+    "defaultMessage": "Guias de Estudo de Design de Sistemas",
     "description": "System design interview study guides"
   },
   "/Q1sUc": {
@@ -164,7 +164,7 @@
     "description": "Tooltip for changing to horizontal layout for coding workspace"
   },
   "2m5u4b": {
-    "defaultMessage": "Quiz Study Guides",
+    "defaultMessage": "Guias de Estudo para Quiz",
     "description": "Quiz interview study guides"
   },
   "2sIcqn": {
@@ -336,7 +336,7 @@
     "description": "Label for medium question importance"
   },
   "7H/tqa": {
-    "defaultMessage": "Front End Interview Preparation — Coding",
+    "defaultMessage": "Preparação para Entrevista de Front End - Codificação",
     "description": "Prepare for front end interview coding questions"
   },
   "7HLv+l": {
@@ -376,7 +376,7 @@
     "description": "Completion status"
   },
   "7wqhjF": {
-    "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
+    "defaultMessage": "Pratique as principais perguntas de entrevista de Front End em HTML com soluções",
     "description": "SEO title for HTML questions list page"
   },
   "7xAtDI": {
@@ -400,7 +400,7 @@
     "description": "Introduction to front end quiz questions"
   },
   "8KNiXb": {
-    "defaultMessage": "Front End Interview Preparation — System Design",
+    "defaultMessage": "Preparação para Entrevista de Front End - Design de Sistema",
     "description": "Prepare for front end interview system design questions"
   },
   "8MHkPL": {
@@ -520,7 +520,7 @@
     "description": "Anonymous Front End Engineer's job title"
   },
   "B82jFj": {
-    "defaultMessage": "Guidebooks",
+    "defaultMessage": "Guias de referência",
     "description": "Guidebooks category"
   },
   "B9449h": {
@@ -608,7 +608,7 @@
     "description": "Screenreader text for question list"
   },
   "CsuGzS": {
-    "defaultMessage": "JavaScript Questions",
+    "defaultMessage": "Perguntas de JavaScript",
     "description": "JavaScript Questions list page title"
   },
   "Cw8cK4": {
@@ -784,7 +784,7 @@
     "description": "Text shown when no questions are completed."
   },
   "H/u+cg": {
-    "defaultMessage": "Guides",
+    "defaultMessage": "Guias",
     "description": "Guides navbar item"
   },
   "H39M2g": {
@@ -1020,7 +1020,7 @@
     "description": "Label to indicate that a question has been completed"
   },
   "LYxZLx": {
-    "defaultMessage": "CSS Questions",
+    "defaultMessage": "Perguntas de CSS",
     "description": "CSS Questions list page title"
   },
   "Ldysd3": {
@@ -1040,7 +1040,7 @@
     "description": "Title of Get Started page"
   },
   "LnN52b": {
-    "defaultMessage": "Front End Interview Preparation — Behavioral Interviews",
+    "defaultMessage": "Preparação para Entrevista de Front End - Entrevistas Comportamentais",
     "description": "Prepare for front end interview behavioral questions"
   },
   "LnzTdG": {
@@ -1104,7 +1104,7 @@
     "description": "Link to front end interview guidebook"
   },
   "MyaXLl": {
-    "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
+    "defaultMessage": "Pratique as Principais Perguntas de Entrevista de Front End em CSS com Soluções",
     "description": "SEO title for CSS questions list page"
   },
   "N4F6al": {
@@ -1120,7 +1120,7 @@
     "description": "Label for Console tab on the coding workspace"
   },
   "NPBHO+": {
-    "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
+    "defaultMessage": "Mais de {questionCount} perguntas de entrevista em HTML, incluindo perguntas de conhecimento estilo quiz e perguntas de codificação em HTML.",
     "description": "Subtitle for HTML questions list page"
   },
   "NZo2FG": {
@@ -1216,11 +1216,11 @@
     "description": "CSS topic for quiz questions"
   },
   "P4yQWv": {
-    "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
+    "defaultMessage": "Perguntas de trivia em front end que podem ser feitas em todas as rodadas de entrevistas",
     "description": "Description for quiz interview stage"
   },
   "P99cBr": {
-    "defaultMessage": "Overview of various question formats",
+    "defaultMessage": "Visão geral dos diversos formatos de perguntas",
     "description": "Overview of front end system design interview question formats"
   },
   "PB+rpp": {
