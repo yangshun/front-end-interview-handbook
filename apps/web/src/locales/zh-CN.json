@@ -200,7 +200,7 @@
     "description": "Company name for Toptal"
   },
   "3iv+7q": {
-    "defaultMessage": "GreaterFrontEnd 很好地帮助我准备了前端面试。集中在 JavaScript 工具和 React/Vanilla 实现上。 在面试中问到的系统设计题目与在前端面试中略有不同，在 GreaterFrontEnd 这里能真正看到。 我将继续使用这个令人惊叹的平台！",
+    "defaultMessage": "GreatFrontEnd 很好地帮助我准备了前端面试。集中在 JavaScript 工具和 React/Vanilla 实现上。 在面试中问到的系统设计题目与在前端面试中略有不同，在 GreatFrontEnd 这里能真正看到。 我将继续使用这个令人惊叹的平台！",
     "description": "Anand Dharne's testimonial"
   },
   "3lEE1N": {
@@ -236,7 +236,7 @@
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
   },
   "44kz/c": {
-    "defaultMessage": "Greater FrontEnd 使用的是与 Visual Studio Code (VS Code) 相同的代码编辑器 Monaco 。 VS 代码中的大多数快捷方式在这里都生效。你可以参考以下常见快捷方式列表：",
+    "defaultMessage": "GreatFrontEnd 使用的是与 Visual Studio Code (VS Code) 相同的代码编辑器 Monaco 。 VS 代码中的大多数快捷方式在这里都生效。你可以参考以下常见快捷方式列表：",
     "description": "Description within code editor shortcuts"
   },
   "4Bt00L": {
@@ -472,7 +472,7 @@
     "description": "Title on Pricing section of Homepage or Pricing page"
   },
   "A+H3cR": {
-    "defaultMessage": "练习 Vanilla 面试题及解答",
+    "defaultMessage": "练习 Vanilla JS 面试题及解答",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
   },
   "A+qESm": {
@@ -636,7 +636,7 @@
     "description": "Subtitle on question paywall displayed on premium question's pages"
   },
   "DCBQiM": {
-    "defaultMessage": "如果您正在寻找前端面试，Greater FrontEnd 将为您服务。 它有各种各样的编码题目，从HTML、CSS、JavaScript到React。 它还包括函数、算法、用户界面、测验等形式。 如果你想进入高科技公司来做前端角色，Greater FrontEnd 对你来说是最好的。",
+    "defaultMessage": "如果您正在寻找前端面试，GreatFrontEnd 将为您服务。 它有各种各样的编码题目，从HTML、CSS、JavaScript到React。 它还包括函数、算法、用户界面、测验等形式。 如果你想进入高科技公司来做前端角色，GreatFrontEnd 对你来说是最好的。",
     "description": "Gouse Basha's testimonial"
   },
   "DDJTQX": {
@@ -1864,7 +1864,7 @@
     "description": "Title for bring your own framework feature"
   },
   "d+wYSW": {
-    "defaultMessage": "注册免费的 Greater FrontEnd 帐户来跟踪您的进度和访问高级版",
+    "defaultMessage": "注册免费的 GreatFrontEnd 帐户来跟踪您的进度和访问高级版",
     "description": "Description of Sign Up page"
   },
   "d1vCxb": {
@@ -1888,7 +1888,7 @@
     "description": "Label for button to confirm progress reset"
   },
   "dJf+5S": {
-    "defaultMessage": "Javascript 题目",
+    "defaultMessage": "JavaScript 题目",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
   "dSaXF6": {
@@ -1980,7 +1980,7 @@
     "description": "Label for button to expand the DevTool"
   },
   "fSn4nv": {
-    "defaultMessage": "作为一个接受过大量面试的人，我可以说Greater FrontEnd 是一只迷人的金矿。 我强烈建议正在准备前端面试的任何人或只想学习一些新概念的任何人来Greater FrontEnd。 内容组织严密，存在一些非常实用的编码挑战，系统设计部分很惊人！！！",
+    "defaultMessage": "作为一个接受过大量面试的人，我可以说GreatFrontEnd 是一只迷人的金矿。 我强烈建议正在准备前端面试的任何人或只想学习一些新概念的任何人来GreatFrontEnd。 内容组织严密，存在一些非常实用的编码挑战，系统设计部分很惊人！！！",
     "description": "Anonymous Front End Engineer's testimonial"
   },
   "fXNw/d": {
@@ -2043,6 +2043,10 @@
     "defaultMessage": "隐藏开发者工具",
     "description": "Label for button to collapse the DevTool"
   },
+  "gtouN7": {
+    "defaultMessage": "中等",
+    "description": "Medium question difficulty"
+  },
   "h38yCs": {
     "defaultMessage": "题目列表",
     "description": "Screenreader text indicating the question list component on question list pages"
@@ -2064,7 +2068,7 @@
     "description": "Button label to scroll to bottom of the console logs"
   },
   "hQa+4K": {
-    "defaultMessage": "为什么成为 Greater FrontEnd 联盟会员？",
+    "defaultMessage": "为什么成为 GreatFrontEnd 联盟会员？",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
   "hXf/Wl": {
@@ -2220,7 +2224,7 @@
     "description": "Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
   },
   "jzVpyI": {
-    "defaultMessage": "Greater FrontEnd 是否针对具有特定资历的工程师？",
+    "defaultMessage": "GreatFrontEnd 是否针对具有特定资历的工程师？",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
   },
   "k2Oi+j": {
@@ -2303,6 +2307,10 @@
     "defaultMessage": "行为面试指南",
     "description": "Sidebar label for Behavioral Interview Guidebook page"
   },
+  "ldOgfx": {
+    "defaultMessage": "简单",
+    "description": "Easy question difficulty"
+  },
   "lfY3AI": {
     "defaultMessage": "传播信息并获得奖励",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
@@ -2344,7 +2352,7 @@
     "description": "Label for question importance - how important it is to practice this question"
   },
   "mt2ON4": {
-    "defaultMessage": "了解更多关于 Greater FrontEnd 创始团队的信息，以及我们为什么做这件事",
+    "defaultMessage": "了解更多关于 GreatFrontEnd 创始团队的信息，以及我们为什么做这件事",
     "description": "Description of About Us page"
   },
   "n0mDHU": {
@@ -2487,6 +2495,10 @@
     "defaultMessage": "看到如此全面的前端开发面试资源令人惊讶。我来自一个更传统的后端角色，我发现这个网站是一个知识的宝库，它真的把你从一个初学者带到高级水平。",
     "description": "Anonymous Front End Engineer's testimonial"
   },
+  "q9FxEg": {
+    "defaultMessage": "语言",
+    "description": "Question programming language"
+  },
   "qAxlQN": {
     "defaultMessage": "使用 Magic 链接登录",
     "description": "Label of magic link sign in button on Email Sign In page"
@@ -2504,7 +2516,7 @@
     "description": "Label for Tests tab on the coding workspace"
   },
   "qjKLfH": {
-    "defaultMessage": "给我们发电子邮箱 <email>contact@greaterfrontend.com</email> 或使用下面的选项之一。我们通常在一两天内回复。",
+    "defaultMessage": "给我们发电子邮箱 <email>contact@greatfrontend.com</email> 或使用下面的选项之一。我们通常在一两天内回复。",
     "description": "Subtitle for contact us section"
   },
   "qwP4CA": {
@@ -2528,7 +2540,7 @@
     "description": "Button label for a newsletter subscription section"
   },
   "s0GXXm": {
-    "defaultMessage": "我本来可以把时间用来为资源制造祸害，而是选择明智地投入我的资金。 Greater FrontEnd 被证明是精心设计的学习计划中的一种奇妙的资源。 交互式练习问答和指南，涵盖您所有典型的大科技面试需求。 他们的测验题目有助于我在面试前几天回顾我的知识。 我特别赞赏《系统设计指南》，其中包括一系列前端设计题目，以及易于记住和适用于任何题目类型的框架。",
+    "defaultMessage": "我本来可以把时间用来为资源制造祸害，而是选择明智地投入我的资金。 GreatFrontEnd 被证明是精心设计的学习计划中的一种奇妙的资源。 交互式练习问答和指南，涵盖您所有典型的大科技面试需求。 他们的测验题目有助于我在面试前几天回顾我的知识。 我特别赞赏《系统设计指南》，其中包括一系列前端设计题目，以及易于记住和适用于任何题目类型的框架。",
     "description": "Larry Almeida's testimonial"
   },
   "s3LMhK": {
@@ -2580,7 +2592,7 @@
     "description": "Label for button that changes the layout of the coding workspace"
   },
   "tNAIsO": {
-    "defaultMessage": "Javascript 题目",
+    "defaultMessage": "JavaScript 题目",
     "description": "JavaScript questions category long title"
   },
   "tO/Ph4": {
@@ -2823,6 +2835,10 @@
     "defaultMessage": "终极前端面试准备平台。",
     "description": "Description of GreatFrontEnd page"
   },
+  "xbmWBx": {
+    "defaultMessage": "框架",
+    "description": "Question framework"
+  },
   "xjHSyF": {
     "defaultMessage": "所有日志级别",
     "description": "Select label for all log levels in console filter"
@@ -2930,6 +2946,10 @@
   "zs7+sC": {
     "defaultMessage": "确认链接已发送到新的电子邮箱地址。在访问确认链接之前，电子邮箱将不会被更改。",
     "description": "Message shown after an email change request is successful."
+  },
+  "zw0Ov8": {
+    "defaultMessage": "困难",
+    "description": "Hard question difficulty"
   }
 }
 

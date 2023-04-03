@@ -2043,6 +2043,10 @@
     "defaultMessage": "Hide DevTool",
     "description": "Label for button to collapse the DevTool"
   },
+  "gtouN7": {
+    "defaultMessage": "Medium",
+    "description": "Medium question difficulty"
+  },
   "h38yCs": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
@@ -2303,6 +2307,10 @@
     "defaultMessage": "Behavioral Interview Guidebook",
     "description": "Sidebar label for Behavioral Interview Guidebook page"
   },
+  "ldOgfx": {
+    "defaultMessage": "Easy",
+    "description": "Easy question difficulty"
+  },
   "lfY3AI": {
     "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
@@ -2486,6 +2494,10 @@
   "q4xRCW": {
     "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
     "description": "Anonymous Front End Engineer's testimonial"
+  },
+  "q9FxEg": {
+    "defaultMessage": "Language",
+    "description": "Question programming language"
   },
   "qAxlQN": {
     "defaultMessage": "Sign in with magic link",
@@ -2823,6 +2835,10 @@
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
   },
+  "xbmWBx": {
+    "defaultMessage": "Framework",
+    "description": "Question framework"
+  },
   "xjHSyF": {
     "defaultMessage": "Todos os níveis de log",
     "description": "Select label for all log levels in console filter"
@@ -2930,6 +2946,10 @@
   "zs7+sC": {
     "defaultMessage": "A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.",
     "description": "Message shown after an email change request is successful."
+  },
+  "zw0Ov8": {
+    "defaultMessage": "Hard",
+    "description": "Hard question difficulty"
   }
 }
 

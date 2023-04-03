@@ -11,7 +11,6 @@ import Tooltip from '~/components/ui/Tooltip';
 import { FireIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
-  children?: React.ReactNode;
   showIcon?: boolean;
   value: QuestionDifficulty;
   variant?: TextVariant;
@@ -24,13 +23,29 @@ const DifficultyLabelClasses: Record<QuestionDifficulty, string> = {
 };
 
 export default function QuestionDifficultyLabel({
-  children,
   showIcon = false,
   value,
   variant = 'body3',
 }: Props) {
   const intl = useIntl();
   const id = useId();
+  const labels: Record<QuestionDifficulty, string> = {
+    easy: intl.formatMessage({
+      defaultMessage: 'Easy',
+      description: 'Easy question difficulty',
+      id: 'ldOgfx',
+    }),
+    hard: intl.formatMessage({
+      defaultMessage: 'Hard',
+      description: 'Hard question difficulty',
+      id: 'zw0Ov8',
+    }),
+    medium: intl.formatMessage({
+      defaultMessage: 'Medium',
+      description: 'Medium question difficulty',
+      id: 'gtouN7',
+    }),
+  };
 
   return (
     <Tooltip
@@ -58,7 +73,7 @@ export default function QuestionDifficultyLabel({
           className={clsx(DifficultyLabelClasses[value])}
           color="inherit"
           variant={variant}>
-          {children ?? upperFirst(value)}
+          {labels[value]}
         </Text>
       </div>
     </Tooltip>
