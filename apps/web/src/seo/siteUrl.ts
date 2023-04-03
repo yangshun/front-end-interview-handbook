@@ -4,6 +4,8 @@ export function getSiteUrl(): string {
   }
 
   return `https://${
-    process.env.NEXT_PUBLIC_VERCEL_URL || 'www.greatfrontend.com'
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+      ? 'www.greatfrontend.com'
+      : process.env.NEXT_PUBLIC_VERCEL_URL
   }`;
 }

@@ -7,7 +7,7 @@ const changefreq = 'daily';
 
 /** @type {import('next-sitemap').IConfig} */
 export default {
-  siteUrl: `https://${process.env.VERCEL_URL || 'www.greatfrontend.com'}`,
+  siteUrl: `https://www.greatfrontend.com`,
   exclude: [
     '/dev__/*',
     '/logout',
