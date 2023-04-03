@@ -3,6 +3,7 @@ import i18nMetadata, { parseCanonical } from './i18nMetadata';
 describe('parseCanonical', () => {
   test('URL object input', () => {
     expect(parseCanonical(new URL('https://www.example.com/about'))).toEqual({
+      canonical: new URL('https://www.example.com/about'),
       pathname: '/about',
       type: 'url',
     });
@@ -10,6 +11,7 @@ describe('parseCanonical', () => {
 
   test('full URL string input', () => {
     expect(parseCanonical('https://www.example.com/about')).toEqual({
+      canonical: 'https://www.example.com/about',
       pathname: '/about',
       type: 'url_string',
     });
@@ -17,6 +19,7 @@ describe('parseCanonical', () => {
 
   test('relative pathname input', () => {
     expect(parseCanonical('/about')).toEqual({
+      canonical: '/about',
       pathname: '/about',
       type: 'relative_pathname',
     });
@@ -24,6 +27,7 @@ describe('parseCanonical', () => {
 
   test('relative pathname input with query parameters', () => {
     expect(parseCanonical('/about?param=value')).toEqual({
+      canonical: '/about?param=value',
       pathname: '/about?param=value',
       type: 'relative_pathname',
     });
@@ -31,6 +35,7 @@ describe('parseCanonical', () => {
 
   test('invalid URL string input', () => {
     expect(parseCanonical('invalid-url')).toEqual({
+      canonical: 'invalid-url',
       pathname: 'invalid-url',
       type: 'relative_pathname',
     });
@@ -115,6 +120,54 @@ describe('i18nMetadata', () => {
               "fr-FR": "https://example.com/fr/products",
               "x-default": "https://example.com/products",
               "zh-CN": "https://example.com/zh-CN/products",
+            },
+          },
+        }
+      `);
+    });
+
+    test('Alternate link descriptor', () => {
+      expect(
+        i18nMetadata({
+          alternates: {
+            canonical: {
+              title: 'Foo',
+              url: 'https://example.com/products',
+            },
+          },
+        }),
+      ).toMatchInlineSnapshot(`
+        {
+          "alternates": {
+            "canonical": {
+              "title": "Foo",
+              "url": "https://example.com/products",
+            },
+            "languages": {
+              "en-US": [
+                {
+                  "title": "Foo",
+                  "url": "/products",
+                },
+              ],
+              "fr-FR": [
+                {
+                  "title": "Foo",
+                  "url": "/fr/products",
+                },
+              ],
+              "x-default": [
+                {
+                  "title": "Foo",
+                  "url": "/products",
+                },
+              ],
+              "zh-CN": [
+                {
+                  "title": "Foo",
+                  "url": "/zh-CN/products",
+                },
+              ],
             },
           },
         }
