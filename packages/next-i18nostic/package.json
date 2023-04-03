@@ -26,7 +26,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "next": "^13.2.x",
+    "next": "*",
     "react": "^15.x || ^16.x || ^17.x || ^18.x"
   },
   "jest": {
