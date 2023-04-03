@@ -1415,6 +1415,10 @@
     "defaultMessage": "Yelp",
     "description": "Company name for Yelp"
   },
+  "UCAeM0": {
+    "defaultMessage": "UI / Components",
+    "description": "User interface component questions"
+  },
   "UCt/lF": {
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
@@ -2395,6 +2399,10 @@
     "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
   },
+  "qXxpdK": {
+    "defaultMessage": "Quiz",
+    "description": "Quiz questions"
+  },
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
@@ -2790,6 +2798,10 @@
   "zUR/Om": {
     "defaultMessage": "The page you requested could not be found",
     "description": "Description of 404 page"
+  },
+  "zXN8kB": {
+    "defaultMessage": "System Design",
+    "description": "System Design question"
   },
   "zaEg+y": {
     "defaultMessage": "Pay once, own it forever",

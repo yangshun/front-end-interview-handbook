@@ -19,24 +19,41 @@ import GoogleLogo from '../icons/GoogleLogo';
 import MetaLogo from '../icons/MetaLogo';
 import type { QuestionJavaScript } from '../questions/common/QuestionsTypes';
 
-const tabs = [
-  {
-    label: 'JavaScript',
-    value: 'javascript',
-  },
-  {
-    label: 'System Design',
-    value: 'system-design',
-  },
-  {
-    label: 'UI / Components',
-    value: 'user-interface',
-  },
-  {
-    label: 'Quiz',
-    value: 'quiz',
-  },
-];
+function useTabs() {
+  const intl = useIntl();
+  const tabs = [
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'UI / Components',
+        description: 'User interface component questions',
+        id: 'UCAeM0',
+      }),
+      value: 'user-interface',
+    },
+    {
+      label: 'JavaScript',
+      value: 'javascript',
+    },
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'System Design',
+        description: 'System Design question',
+        id: 'zXN8kB',
+      }),
+      value: 'system-design',
+    },
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'Quiz',
+        description: 'Quiz questions',
+        id: 'qXxpdK',
+      }),
+      value: 'quiz',
+    },
+  ];
+
+  return tabs;
+}
 
 export default function MarketingHeroNew({
   javaScriptEmbedExample,
@@ -45,6 +62,7 @@ export default function MarketingHeroNew({
   javaScriptEmbedExample: QuestionJavaScript;
   uiEmbedExample: EmbedUIQuestion;
 }>) {
+  const tabs = useTabs();
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
   const intl = useIntl();
 
