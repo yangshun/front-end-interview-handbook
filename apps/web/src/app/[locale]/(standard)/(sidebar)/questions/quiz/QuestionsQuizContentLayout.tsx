@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useI18nPathname } from 'next-i18nostic';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
@@ -11,6 +10,8 @@ import type { QuestionQuizMetadata } from '~/components/questions/common/Questio
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   children: React.ReactNode;

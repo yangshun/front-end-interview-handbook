@@ -1,7 +1,5 @@
 'use client';
 
-import { useI18nRouter } from 'next-i18nostic';
-
 import TextPairing from '~/components/common/TextPairing';
 import PromoBanner from '~/components/global/PromoBanner';
 import type {
@@ -18,6 +16,8 @@ import type { QuestionListCategory } from '~/components/questions/listings/types
 import useScrollToElement from '~/components/questions/listings/useScrollToElement';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 // The higher the more important.
 const codingFormatRankingForNonJavaScript: Record<
@@ -125,7 +125,7 @@ export default function QuestionsCategoryPage({
   return (
     <>
       <PromoBanner sticky={true} />
-      <Container className="grid gap-y-10 py-8 md:py-12" variant="normal">
+      <Container className="grid gap-y-10 py-12 pt-6" variant="normal">
         <Section>
           <QuestionCategoryTitleSection category={category} />
         </Section>

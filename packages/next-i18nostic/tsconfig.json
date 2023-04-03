@@ -1,8 +1,0 @@
-{
-  "extends": "@gfe/tsconfig/react-library.json",
-  "include": ["."],
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "exclude": ["dist", "build", "node_modules"]
-}

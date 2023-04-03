@@ -1,9 +1,10 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { i18nMiddleware } from 'next-i18nostic';
 import { v4 as uuidv4 } from 'uuid';
 
 import { currentExperiment } from '~/components/experiments';
+
+import { i18nMiddleware } from '~/next-i18nostic/src';
 
 function upsertCookie(request: NextRequest, response: NextResponse) {
   if (

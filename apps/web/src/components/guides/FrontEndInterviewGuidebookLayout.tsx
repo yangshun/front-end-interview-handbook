@@ -1,6 +1,6 @@
 'use client';
 
-import { useI18nPathname } from 'next-i18nostic';
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesArticle from './GuidesArticle';
 import GuidesArticleJsonLd from './GuidesArticleJsonLd';

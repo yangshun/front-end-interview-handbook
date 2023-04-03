@@ -1,9 +1,10 @@
 'use client';
 
-import { useI18nPathname } from 'next-i18nostic';
 import { Fragment, useRef } from 'react';
 
 import Section from '~/components/ui/Heading/HeadingContext';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
 import type { GuideNavigation } from './GuidesLayoutSidebar';

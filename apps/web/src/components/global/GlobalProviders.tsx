@@ -1,6 +1,5 @@
 'use client';
 
-import { I18nProvider } from 'next-i18nostic';
 import nextI18nosticConfig from 'next-i18nostic/config';
 import { useState } from 'react';
 import { IntlProvider } from 'react-intl';
@@ -8,6 +7,7 @@ import { IntlProvider } from 'react-intl';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
 import type { IntlMessages } from '~/i18n';
+import { I18nProvider } from '~/next-i18nostic/src';
 import type { Database } from '~/supabase/database.types';
 
 import AppContextProvider from './AppContextProvider';

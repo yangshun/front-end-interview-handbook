@@ -1,7 +1,6 @@
 'use client';
 
 import axios from 'axios';
-import { useI18nRouter } from 'next-i18nostic';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
@@ -11,6 +10,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { CreditCardIcon } from '@heroicons/react/24/outline';
 

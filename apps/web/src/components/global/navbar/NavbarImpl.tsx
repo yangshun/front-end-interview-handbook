@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useI18nRouter } from 'next-i18nostic';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -22,6 +21,8 @@ import type {
   NavbarPrimaryItem,
   NavLinkItem,
 } from '~/components/ui/Navbar/NavTypes';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import NavProfileIcon from './NavProfileIcon';
 import LogoLink from '../Logo';

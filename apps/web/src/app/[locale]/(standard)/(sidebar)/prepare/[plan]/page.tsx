@@ -1,5 +1,4 @@
 import type { Metadata } from 'next/types';
-import { generateStaticParamsWithLocale } from 'next-i18nostic';
 import { CourseJsonLd } from 'next-seo';
 
 import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
@@ -11,6 +10,7 @@ import {
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 

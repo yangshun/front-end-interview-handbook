@@ -1,7 +1,6 @@
 import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
-import { generateStaticParamsWithLocale } from 'next-i18nostic';
 import path from 'path';
 
 import BehavioralInterviewGuidebookLayout from '~/components/guides/BehavioralInterviewGuidebookLayout';
@@ -10,6 +9,7 @@ import MDXComponents from '~/components/mdx/MDXComponents';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{

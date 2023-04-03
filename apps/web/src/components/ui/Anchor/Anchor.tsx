@@ -2,12 +2,13 @@
 
 import clsx from 'clsx';
 import type { LinkProps } from 'next/link';
-import { I18nLink } from 'next-i18nostic';
 import type { ForwardedRef, HTMLAttributeAnchorTarget } from 'react';
 import { forwardRef } from 'react';
 import React from 'react';
 
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
+
+import { I18nLink } from '~/next-i18nostic/src';
 
 type AnchorVariant = 'default' | 'flat' | 'light' | 'muted' | 'unstyled';
 type AnchorFontWeight = 'medium' | 'regular';

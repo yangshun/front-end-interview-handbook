@@ -1,7 +1,7 @@
-import { useI18nPathname } from 'next-i18nostic';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 import logEvent from '~/logging/logEvent';
+import { useI18nPathname } from '~/next-i18nostic/src';
 import type { Database } from '~/supabase/database.types';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 

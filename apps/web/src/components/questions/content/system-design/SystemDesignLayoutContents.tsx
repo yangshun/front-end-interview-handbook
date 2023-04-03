@@ -1,11 +1,11 @@
 'use client';
 
-import { useI18nPathname } from 'next-i18nostic';
-
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigationItems';
 import { useSystemDesignNavigation } from '~/components/questions/content/system-design/SystemDesignNavigation';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import SystemDesignPaywall from './SystemDesignPaywall';
 

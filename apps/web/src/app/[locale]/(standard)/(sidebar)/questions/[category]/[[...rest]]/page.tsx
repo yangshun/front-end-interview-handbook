@@ -1,5 +1,4 @@
 import type { Metadata } from 'next/types';
-import { generateStaticParamsWithLocale } from 'next-i18nostic';
 
 import {
   filterQuestions,
@@ -18,6 +17,7 @@ import {
   fetchQuestionsListQuiz,
 } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import QuestionsCategoryPage from './QuestionsCategoryPage';

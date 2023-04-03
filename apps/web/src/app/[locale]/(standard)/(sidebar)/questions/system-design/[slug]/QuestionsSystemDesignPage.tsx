@@ -1,7 +1,6 @@
 'use client';
 
 import { getMDXExport } from 'mdx-bundler/client';
-import { useI18nPathname } from 'next-i18nostic';
 
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
@@ -16,6 +15,8 @@ import {
 import SystemDesignPaywall from '~/components/questions/content/system-design/SystemDesignPaywall';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

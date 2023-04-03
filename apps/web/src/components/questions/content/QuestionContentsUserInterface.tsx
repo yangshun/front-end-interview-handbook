@@ -1,4 +1,3 @@
-import { useI18nRouter } from 'next-i18nostic';
 import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
@@ -7,6 +6,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Select from '~/components/ui/Select';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import QuestionCompanies from './QuestionCompanies';
 import QuestionContentProse from './QuestionContentProse';

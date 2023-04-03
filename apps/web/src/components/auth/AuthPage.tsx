@@ -1,7 +1,6 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useI18nRouter } from 'next-i18nostic';
 import { useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -9,6 +8,7 @@ import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
 
+import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';

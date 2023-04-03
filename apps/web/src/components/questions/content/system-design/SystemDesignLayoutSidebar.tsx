@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useI18nPathname } from 'next-i18nostic';
 import { FormattedMessage } from 'react-intl';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
@@ -16,6 +15,8 @@ import {
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import { LockClosedIcon } from '@heroicons/react/24/solid';

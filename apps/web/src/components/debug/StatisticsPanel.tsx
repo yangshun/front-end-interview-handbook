@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
-import { useI18nPathname } from 'next-i18nostic';
 import { useEffect } from 'react';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   className?: string;

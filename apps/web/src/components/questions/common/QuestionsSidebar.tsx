@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useI18nPathname } from 'next-i18nostic';
 import type { ReactNode, SVGProps } from 'react';
 import { Fragment } from 'react';
 import { useIntl } from 'react-intl';
@@ -10,6 +9,8 @@ import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { Popover, Transition } from '@headlessui/react';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';

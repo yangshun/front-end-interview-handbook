@@ -1,10 +1,11 @@
 'use client';
 
 import Script from 'next/script';
-import { useI18nPathname } from 'next-i18nostic';
 import { useEffect } from 'react';
 
 import fbq from '~/lib/fbq';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 export default function MetaPixel() {
   const { pathname } = useI18nPathname();

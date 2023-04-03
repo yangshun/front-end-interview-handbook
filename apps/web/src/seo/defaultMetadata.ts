@@ -1,7 +1,8 @@
 import 'server-only';
 
 import type { Metadata } from 'next/types';
-import { i18nMetadata } from 'next-i18nostic';
+
+import { i18nMetadata } from '~/next-i18nostic/src';
 
 import { getSiteUrl } from './siteUrl';
 

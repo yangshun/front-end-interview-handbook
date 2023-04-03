@@ -32,7 +32,7 @@ export default function QuestionsFrameworkPage({
   return (
     <>
       <PromoBanner />
-      <Container className="grid gap-y-10 py-8 md:py-12" variant="normal">
+      <Container className="grid gap-y-10 py-12 pt-6" variant="normal">
         <Section>
           <QuestionCategoryTitleSection category="react" />
         </Section>

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next/types';
-import { generateStaticParamsWithLocale } from 'next-i18nostic';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/common/QuestionsProcessor';
@@ -8,6 +7,7 @@ import QuestionQuizContents from '~/components/questions/content/quiz/QuestionQu
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 
