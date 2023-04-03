@@ -1,5 +1,7 @@
 'use client';
 
+import { useIntl } from 'react-intl';
+
 import PromoBanner from '~/components/global/PromoBanner';
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
@@ -15,6 +17,7 @@ type Props = Readonly<{
 }>;
 
 export default function PrepareCodingQuestionsPage({ questions }: Props) {
+  const intl = useIntl();
   const codingQuestionListGuideItems = useCodingQuestionListGuideItems();
 
   return (
@@ -22,17 +25,29 @@ export default function PrepareCodingQuestionsPage({ questions }: Props) {
       <PromoBanner />
       <Container className="grid gap-y-12 py-8 md:py-12" variant="normal">
         <Heading className="sr-only">
-          Front End Interview Preparation — Coding
+          {intl.formatMessage({
+            defaultMessage: 'Front End Interview Preparation — Coding',
+            description: 'Prepare for front end interview coding questions',
+            id: '7H/tqa',
+          })}
         </Heading>
         <Section>
           <QuestionFormatTitleSection format="coding" />
           <QuestionsGuidesGrid
             items={codingQuestionListGuideItems}
-            title="Coding Study Guides"
+            title={intl.formatMessage({
+              defaultMessage: 'Coding Study Guides',
+              description: 'Coding interview study guides',
+              id: 'tW2p7C',
+            })}
           />
           <div className="grid gap-4">
             <Heading className="text-lg font-semibold text-slate-900">
-              Coding Practice Questions
+              {intl.formatMessage({
+                defaultMessage: 'Coding Practice Questions',
+                description: 'Coding question list title',
+                id: 'ihSYR4',
+              })}
             </Heading>
             <Section>
               <QuestionsCodingListWithFilters questions={questions} />

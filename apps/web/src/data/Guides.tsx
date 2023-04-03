@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl';
+
 import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 
@@ -21,30 +23,56 @@ type GuideData = Readonly<{
 }>;
 
 export function useGuidesData() {
+  const intl = useIntl();
+
   const items: Record<GuideType, GuideData> = {
     'behavioral-interview-guidebook': {
-      description:
-        'Efficient strategies to prepare and ace behavioral interviews.',
+      description: intl.formatMessage({
+        defaultMessage:
+          'Efficient strategies to prepare and ace behavioral interviews.',
+        description: 'Behavioral interview guidebook description',
+        id: 'drvlbZ',
+      }),
       href: behavioralInterviewGuidebookBasePath,
       icon: ChatBubbleLeftIcon,
       key: 'big',
-      name: 'Behavioral Interview Guidebook',
+      name: intl.formatMessage({
+        defaultMessage: 'Behavioral Interview Guidebook',
+        description: 'Title for behavioral interview guidebook',
+        id: '6fAxyB',
+      }),
     },
     'front-end-interview-guidebook': {
-      description:
-        'The definitive guide to front end / web developer interviews.',
+      description: intl.formatMessage({
+        defaultMessage:
+          'The definitive guide to front end / web developer interviews.',
+        description: 'Front end interview guidebook description',
+        id: 'ee862n',
+      }),
       href: frontEndInterviewGuidebookBasePath,
       icon: BookOpenIcon,
       key: 'feig',
-      name: 'Front End Interview Guidebook',
+      name: intl.formatMessage({
+        defaultMessage: 'Front End Interview Guidebook',
+        description: 'Front End Interview Guidebook title',
+        id: 'w0Gmne',
+      }),
     },
     'front-end-system-design-guidebook': {
-      description:
-        'Guide to preparing for Front End-focused System Design questions in front end / web developer interviews',
+      description: intl.formatMessage({
+        defaultMessage:
+          'Guide to preparing for Front End-focused System Design questions in front end / web developer interviews',
+        description: 'Front end system design guidebook description',
+        id: 'bWymcE',
+      }),
       href: '/system-design',
       icon: CubeIcon,
       key: 'fesdg',
-      name: 'Front End System Design Guidebook',
+      name: intl.formatMessage({
+        defaultMessage: 'Front End System Design Guidebook',
+        description: 'Front end system design guidebook title',
+        id: 'NdDD5W',
+      }),
     },
   };
 

@@ -1,5 +1,7 @@
 'use client';
 
+import { useIntl } from 'react-intl';
+
 import PromoBanner from '~/components/global/PromoBanner';
 import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
@@ -15,6 +17,7 @@ type Props = Readonly<{
 }>;
 
 export default function PrepareQuizQuestionsPage({ questions }: Props) {
+  const intl = useIntl();
   const quizSectionItem = useQuizSectionItem();
 
   return (
@@ -22,18 +25,30 @@ export default function PrepareQuizQuestionsPage({ questions }: Props) {
       <PromoBanner />
       <Container className="grid gap-y-12 py-8 md:py-12" variant="normal">
         <Heading className="sr-only">
-          Front End Interview Preparation — Quiz Questions
+          {intl.formatMessage({
+            defaultMessage: 'Front End Interview Preparation — Quiz',
+            description: 'Prepare for front end interview quiz questions',
+            id: 'w5fdO4',
+          })}
         </Heading>
         <Section>
           <QuestionFormatTitleSection format="quiz" />
           <QuestionsGuidesGrid
             columns={3}
             items={[quizSectionItem]}
-            title="Quiz Study Guides"
+            title={intl.formatMessage({
+              defaultMessage: 'Quiz Study Guides',
+              description: 'Quiz interview study guides',
+              id: '2m5u4b',
+            })}
           />
           <div className="grid gap-4">
             <Heading className="text-lg font-semibold text-slate-900">
-              Quiz Practice Questions
+              {intl.formatMessage({
+                defaultMessage: 'Quiz Practice Questions',
+                description: 'Quiz question list title',
+                id: 'UuC2xb',
+              })}
             </Heading>
             <Section>
               <QuestionsQuizListWithFilters questions={questions} />

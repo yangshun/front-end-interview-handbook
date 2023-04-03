@@ -20,51 +20,11 @@ import {
   fetchQuestionsListQuiz,
 } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
+import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import QuestionsCategoryPage from './QuestionsCategoryPage';
-
-const CategoryStrings: Record<
-  QuestionListCategory,
-  Readonly<{
-    description: (count: number) => string;
-    logo: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    pageTitle: (count: number) => string;
-    seoTitle: (count: number) => string;
-  }>
-> = {
-  css: {
-    description: (count: number) =>
-      `${roundQuestionCountToNearestTen(
-        count,
-      )}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.`,
-    logo: CSS3Logo,
-    pageTitle: () => 'CSS Questions',
-    seoTitle: () =>
-      'Practice Top CSS Front End Interview Questions with Solutions',
-  },
-  html: {
-    description: (count: number) =>
-      `${roundQuestionCountToNearestTen(
-        count,
-      )}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.`,
-    logo: HTML5Logo,
-    pageTitle: () => 'HTML Questions',
-    seoTitle: () =>
-      'Practice Top HTML Front End Interview Questions with Solutions',
-  },
-  js: {
-    description: (count: number) =>
-      `${roundQuestionCountToNearestTen(
-        count,
-      )}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.`,
-    logo: JavaScriptLogo,
-    pageTitle: () => 'JavaScript Questions',
-    seoTitle: () =>
-      'Practice Top JavaScript Front End Interview Questions with Solutions',
-  },
-};
 
 const CATEGORY_TO_LANGUAGE: Record<QuestionListCategory, QuestionLanguage> = {
   css: 'css',
@@ -165,6 +125,103 @@ export async function generateStaticParams() {
 
 async function processParams(params: Props['params']) {
   const { category = 'js', rest, locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
+  const CategoryStrings: Record<
+    QuestionListCategory,
+    Readonly<{
+      description: (count: number) => string;
+      logo: (props: React.ComponentProps<'svg'>) => JSX.Element;
+      pageTitle: (count: number) => string;
+      seoTitle: (count: number) => string;
+    }>
+  > = {
+    css: {
+      description: (count: number) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.',
+            description: 'Subtitle for CSS questions list page',
+            id: 'ZYtAFY',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(count),
+          },
+        ),
+      logo: CSS3Logo,
+      pageTitle: () =>
+        intl.formatMessage({
+          defaultMessage: 'CSS Questions',
+          description: 'CSS Questions list page title',
+          id: 'LYxZLx',
+        }),
+      seoTitle: () =>
+        intl.formatMessage({
+          defaultMessage:
+            'Practice Top CSS Front End Interview Questions with Solutions',
+          description: 'SEO title for CSS questions list page',
+          id: 'MyaXLl',
+        }),
+    },
+    html: {
+      description: (count: number) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.',
+            description: 'Subtitle for HTML questions list page',
+            id: 'NPBHO+',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(count),
+          },
+        ),
+      logo: HTML5Logo,
+      pageTitle: () =>
+        intl.formatMessage({
+          defaultMessage: 'HTML Questions',
+          description: 'HTML Questions list page title',
+          id: 'c7lcjj',
+        }),
+      seoTitle: () =>
+        intl.formatMessage({
+          defaultMessage:
+            'Practice Top HTML Front End Interview Questions with Solutions',
+          description: 'SEO title for HTML questions list page',
+          id: '7wqhjF',
+        }),
+    },
+    js: {
+      description: (count: number) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
+            description: 'Subtitle for JavaScript questions list page',
+            id: 'fktOy2',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(count),
+          },
+        ),
+      logo: JavaScriptLogo,
+      pageTitle: () =>
+        intl.formatMessage({
+          defaultMessage: 'JavaScript Questions',
+          description: 'JavaScript Questions list page title',
+          id: 'CsuGzS',
+        }),
+      seoTitle: () =>
+        intl.formatMessage({
+          defaultMessage:
+            'Practice Top JavaScript Front End Interview Questions with Solutions',
+          description: 'SEO title for JavaScript questions list page',
+          id: 'gAOQDT',
+        }),
+    },
+  };
 
   const format: QuestionUserFacingFormat | null =
     (rest?.[0] as QuestionUserFacingFormat) ?? null;

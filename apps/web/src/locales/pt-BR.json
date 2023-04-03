@@ -1,150 +1,150 @@
 {
   "+/N6q+": {
-    "defaultMessage": "处理广泛的行为面试领域的策略，特别是针对社会福利教育的策略",
+    "defaultMessage": "Estratégias para lidar com o amplo domínio das entrevistas comportamentais, específicas para SWE",
     "description": "Description for behavioral interview stage"
   },
   "+4N+iX": {
-    "defaultMessage": "真实面试模拟",
+    "defaultMessage": "Simulação de entrevista real",
     "description": "Table row header for real interview simulation feature"
   },
   "+59/34": {
-    "defaultMessage": "(面试结束) 要问的问题",
+    "defaultMessage": "Perguntas a fazer (Fim da Entrevista)",
     "description": "Best questions to ask at the end of a behavioral interviews"
   },
   "+5JohH": {
-    "defaultMessage": "关于我们",
+    "defaultMessage": "Sobre",
     "description": "Link to company's about page"
   },
   "+7Wuw5": {
-    "defaultMessage": "软件工程师，印度金奈。",
+    "defaultMessage": "Engenheiro de Software, Chennai, Índia",
     "description": "Gouse Basha's job title"
   },
   "+JhlMu": {
-    "defaultMessage": "恭喜您完成了这个题目！登录您的帐户或免费注册以保存您的进度！",
+    "defaultMessage": "Parabéns por concluir a pergunta! Entre na sua conta ou cadastre-se gratuitamente para salvar o seu progresso!",
     "description": "Message shown when user completes a question"
   },
   "+OVTKu": {
-    "defaultMessage": "账单|个人资料",
+    "defaultMessage": "Faturamento | Perfil",
     "description": "Title of Profile Billing page"
   },
   "+eHFYh": {
-    "defaultMessage": "接受面试",
+    "defaultMessage": "Conseguindo a Entrevista",
     "description": "Getting the front end interview"
   },
   "+pieds": {
-    "defaultMessage": "注册以订阅我们的简报并加入我们热情的 <span>前端工程师</span> 社区。",
+    "defaultMessage": "Cadastre-se para receber nossa newsletter e participe da nossa comunidade de <span>Engenheiros Front End</span> apaixonados.",
     "description": "Subtitle text for newsletter sign up section"
   },
   "+wR7CJ": {
-    "defaultMessage": "法律声明",
+    "defaultMessage": "Informações Legais",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
   },
   "+ywzSI": {
-    "defaultMessage": "目前有测验题目、JavaScript编码题目、用户界面编码题目和系统设计内容。",
+    "defaultMessage": "Atualmente, existem perguntas de quiz, perguntas de codificação em JavaScript, perguntas de codificação de Interface do Usuário e conteúdo de Design de Sistema.",
     "description": "Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
   },
   "/06NwY": {
-    "defaultMessage": "企业题库",
+    "defaultMessage": "Perguntas relacionadas a empresa",
     "description": "Title for company-tagged questions feature"
   },
   "/4g12b": {
-    "defaultMessage": "系统设计学习指南",
+    "defaultMessage": "System Design Study Guides",
     "description": "System design interview study guides"
   },
   "/Q1sUc": {
-    "defaultMessage": "使用自带测试用例的浏览器编码工作区 - 不需要任何设置！",
+    "defaultMessage": "Área de trabalho de codificação no navegador com casos de teste - não é necessário para qualquer configuração!",
     "description": "Table cell content for real interview simulation feature comparison in GFE."
   },
   "/ftlBv": {
-    "defaultMessage": "撤消",
+    "defaultMessage": "Desfazer",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
   },
   "/jCLBS": {
-    "defaultMessage": "3 个简单步骤开始赚钱",
+    "defaultMessage": "3 passos simples para começar a ganhar",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
   "032cio": {
-    "defaultMessage": "向上移动一行",
+    "defaultMessage": "Mover linha para cima",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
   },
   "035J/P": {
-    "defaultMessage": "练习React面试题及解答",
+    "defaultMessage": "Pratique Perguntas de Entrevistas em React com Soluções",
     "description": "Title of React Interview Questions page"
   },
   "03oqt6": {
-    "defaultMessage": "概览",
+    "defaultMessage": "Visão Geral",
     "description": "Front End User Interface interviews overview"
   },
   "0BbsyI": {
-    "defaultMessage": "前端编码面试需要的算法概念",
+    "defaultMessage": "Conceitos de algoritmos para abordar e dicas para ter sucesso",
     "description": "Algorithm concepts needed in front end coding interviews"
   },
   "0D9NcL": {
-    "defaultMessage": "数据结构和算法",
+    "defaultMessage": "Estruturas de Dados e Algoritmos",
     "description": "Data structures and algorithm questions"
   },
   "0GjR/X": {
-    "defaultMessage": "合作题目",
+    "defaultMessage": "Questões de colaboração",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
   },
   "0IALGm": {
-    "defaultMessage": "您好 {userEmail}！",
+    "defaultMessage": "Olá, {userEmail}!",
     "description": "Title of AuthPage when logged in"
   },
   "0JrrHl": {
-    "defaultMessage": "获取所有高级内容，包括解答和公司。",
+    "defaultMessage": "Acesso a todo o conteúdo premium, incluindo soluções e empresas.",
     "description": "Feature of annual pricing plan"
   },
   "0Nq65E": {
-    "defaultMessage": "账单",
+    "defaultMessage": "Faturamento",
     "description": "Screenreader text for subscription billing."
   },
   "0RaY4p": {
-    "defaultMessage": "购买 GreatFrontEnd 对我有什么好处？",
+    "defaultMessage": "O que eu ganho comprando o GreatFrontEnd?",
     "description": "Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
   },
   "0dqqyE": {
-    "defaultMessage": "学习精心编写的解答是通过面试的最有效的方法之一。 我们的平台可以保证我们解答的质量，因为这些解答都是由我们编写的，即前 FAANG 高级前端工程师。",
+    "defaultMessage": "Estudar soluções bem escritas é um dos métodos mais eficazes para se destacar na entrevista. Nossa plataforma garante a qualidade de nossas soluções porque todas elas são escritas por nós, ex-engenheiros sênior de front-end da FAANG.",
     "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 1"
   },
   "0hdhAz": {
-    "defaultMessage": "低",
+    "defaultMessage": "Baixo",
     "description": "Label for low question importance"
   },
   "0mKzkX": {
-    "defaultMessage": "按框架或语言练习题目",
+    "defaultMessage": "Pratique perguntas por framework ou idioma",
     "description": "Title for question framework category links in navbar"
   },
   "0nGuf2": {
-    "defaultMessage": "UI 组件 API 设计原则",
+    "defaultMessage": "Princípios de design de API de componentes na UI",
     "description": "User Interface components API design principles"
   },
   "15O0qb": {
-    "defaultMessage": "快速上手",
+    "defaultMessage": "Introdução",
     "description": "Link to get started page"
   },
   "1AGOZJ": {
-    "defaultMessage": "终身享受面试平台的更新。",
+    "defaultMessage": "Acesse atualizações da plataforma de entrevistas para toda a vida.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
   },
   "1FbA4H": {
-    "defaultMessage": "您的平台上有哪些类型的题目？",
+    "defaultMessage": "Que tipos de perguntas você tem na sua plataforma?",
     "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
   },
   "1IbtLx": {
-    "defaultMessage": "系统设计资源几乎不存在。",
+    "defaultMessage": "Conteúdo de célula de tabela para comparação de recursos de design de sistema de front end em outras plataformas.",
     "description": "Table cell content for front end system design feature comparison in other platforms."
   },
   "1PHE0Y": {
-    "defaultMessage": "最完整的全套前端面试筹备工作。",
+    "defaultMessage": "Preparação mais completa para entrevistas de front end, tudo em um só lugar.",
     "description": "Short description for 3 months study plan"
   },
   "1gkgr4": {
-    "defaultMessage": "登录",
+    "defaultMessage": "Texto do botão de Entrar na página de Login de Email",
     "description": "Label of Sign In button on Email Sign In page"
   },
   "1mtNyQ": {
-    "defaultMessage": "想要不提交的情况下测试您的函数，请在声明下方调用函数。",
+    "defaultMessage": "Texto no console da área de trabalho de codificação para informar aos usuários que eles precisam chamar a função eles mesmos para testar.",
     "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
   },
   "2OmfN2": {
@@ -152,47 +152,47 @@
     "description": "React questions category short title"
   },
   "2XFmzP": {
-    "defaultMessage": "<link>查看题目列表 <span>→</span></link>",
+    "defaultMessage": "<link>Ver a lista de questões <span>→</span></link>",
     "description": "View question list link"
   },
   "2YMuJe": {
-    "defaultMessage": "“终生访问权限”是什么意思？",
+    "defaultMessage": "O que significa \"acesso vitalício\"?",
     "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
   },
   "2a4of9": {
-    "defaultMessage": "切换到水平模式",
+    "defaultMessage": "Mudar para horizontal",
     "description": "Tooltip for changing to horizontal layout for coding workspace"
   },
   "2m5u4b": {
-    "defaultMessage": "测验学习指南",
+    "defaultMessage": "Quiz Study Guides",
     "description": "Quiz interview study guides"
   },
   "2sIcqn": {
-    "defaultMessage": "限时活动，我们正在提供 {symbol}{unitCostLocalizedInCurrency} 的终生访问权限。 同时，您的面试奖励可能是 <strong>数十万</strong> 全额补偿。",
+    "defaultMessage": "Por tempo limitado, estamos oferecendo acesso vitalício por {symbol}{unitCostLocalizedInCurrency}. Enquanto isso, a recompensa por se destacar em suas entrevistas pode ser de <strong>centenas de milhares</strong> em compensação total.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "32cQk/": {
-    "defaultMessage": "热身题目",
+    "defaultMessage": "Questão Aquecimento",
     "description": "Label for warm up questions"
   },
   "37Ttml": {
-    "defaultMessage": "安全",
+    "defaultMessage": "Segurança",
     "description": "Title for Security section on profile page"
   },
   "3AfCoE": {
-    "defaultMessage": "最少 6 个字符",
+    "defaultMessage": "Mínimo 6 caracteres",
     "description": "Description of password field indicating minimum character count, on Change Password page"
   },
   "3HUfI+": {
-    "defaultMessage": "你正在为前端社区做很好的事情。 尤其是对于像我这样的初级工程师来说，涉及前端发展各个方面的先进解答起到了很大的帮助作用。 感谢团队。",
+    "defaultMessage": "Você está fazendo coisas incríveis pela comunidade Front End. Especialmente para aqueles que são engenheiros juniores como eu, soluções avançadas que abrangem vários aspectos do desenvolvimento Front End ajudam muito. Agradeço à equipe pelo trabalho realizado.",
     "description": "Anonymous Software Engineer's testimonial"
   },
   "3WHiQS": {
-    "defaultMessage": "速查表",
+    "defaultMessage": "Folha informativa",
     "description": "One-page summary sheet for front end system design interviews"
   },
   "3aPvGu": {
-    "defaultMessage": "前端面试指南",
+    "defaultMessage": "Guia de entrevista para Front End",
     "description": "Sidebar label for Front End Interview Guidebook page"
   },
   "3du5bC": {
@@ -200,259 +200,259 @@
     "description": "Company name for Toptal"
   },
   "3iv+7q": {
-    "defaultMessage": "GreaterFrontEnd 很好地帮助我准备了前端面试。集中在 JavaScript 工具和 React/Vanilla 实现上。 在面试中问到的系统设计题目与在前端面试中略有不同，在 GreaterFrontEnd 这里能真正看到。 我将继续使用这个令人惊叹的平台！",
+    "defaultMessage": "O GreatFrontEnd tem sido uma grande ajuda para mim na preparação de entrevistas focadas em Front End. Há muito foco em utilitários JavaScript e implementações React / Vanilla. As perguntas de design de sistema feitas em entrevistas são ligeiramente diferentes em entrevistas de Front End e o GreatFrontEnd se destaca nesse ponto. Continuarei usando esta plataforma incrível!",
     "description": "Anand Dharne's testimonial"
   },
   "3lEE1N": {
-    "defaultMessage": "新",
+    "defaultMessage": "Novo",
     "description": "Label for new questions ribbon"
   },
   "3lWGUg": {
-    "defaultMessage": "未完成",
+    "defaultMessage": "Não concluído",
     "description": "Label for Not completed status on quiz quqestions list"
   },
   "3v5v1K": {
-    "defaultMessage": "快速开始",
+    "defaultMessage": "Comece em minutos",
     "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
   },
   "3y3F8i": {
-    "defaultMessage": "操作失败",
+    "defaultMessage": "Ocorreu um erro",
     "description": "Error message when there is error fetching question progress or list."
   },
   "3z2LJp": {
-    "defaultMessage": "练习",
+    "defaultMessage": "Praticar",
     "description": "Section heading in footer for links to practice question pages"
   },
   "3zMEIO": {
-    "defaultMessage": "准备简历",
+    "defaultMessage": "Preparação de Currículo",
     "description": "Preparing a resume for front end interviews"
   },
   "4/GKns": {
-    "defaultMessage": "未找到",
+    "defaultMessage": "Não encontrado",
     "description": "Title of 404 page"
   },
   "434fyX": {
-    "defaultMessage": "RADIO 框架",
+    "defaultMessage": "Framework RADIO",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
   },
   "44kz/c": {
-    "defaultMessage": "Greater FrontEnd 使用的是与 Visual Studio Code (VS Code) 相同的代码编辑器 Monaco 。 VS 代码中的大多数快捷方式在这里都生效。你可以参考以下常见快捷方式列表：",
+    "defaultMessage": "O GreatFrontEnd utiliza o Monaco Editor, o mesmo editor de código usado no Visual Studio Code (VS Code). A maioria dos atalhos do editor no VS Code também deve funcionar aqui. Aqui está uma lista de atalhos comuns para sua referência:",
     "description": "Description within code editor shortcuts"
   },
   "4Bt00L": {
-    "defaultMessage": "还没有帐户？ <link>免费注册</link>",
+    "defaultMessage": "Não tem uma conta? <link>Cadastre-se gratuitamente</link>",
     "description": "Prompt for account creation on Email Sign In page"
   },
   "4WUroS": {
-    "defaultMessage": "高效专注于最重要的概念",
+    "defaultMessage": "Foque eficientemente nos conceitos mais importantes",
     "description": "Short description for one week study plan"
   },
   "4cjRbk": {
-    "defaultMessage": "信息",
+    "defaultMessage": "Informações",
     "description": "Select label for info log level in console filter"
   },
   "4zNzv1": {
-    "defaultMessage": "在开发工具中选择导航项",
+    "defaultMessage": "Selecione item de navegação no DevTool",
     "description": "Label for tabs in the coding workspace DevTool"
   },
   "50kzzq": {
-    "defaultMessage": "选择题目形式",
+    "defaultMessage": "Selecionar formato de pergunta",
     "description": "Label for tabs to select sample interview question format"
   },
   "51w4r4": {
-    "defaultMessage": "快速上手",
+    "defaultMessage": "Introdução",
     "description": "Title of Sign Up page"
   },
   "55uCRp": {
-    "defaultMessage": "高级会员",
+    "defaultMessage": "Premium",
     "description": "Tooltip for Premium questions label"
   },
   "5A3y/o": {
-    "defaultMessage": "留下您的反馈信息。",
+    "defaultMessage": "Deixe mais feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
   },
   "5QmCPt": {
-    "defaultMessage": "学习计划和进度跟踪",
+    "defaultMessage": "Planos de estudo e rastreamento de progresso",
     "description": "Table row header for study plans feature"
   },
   "5RlLAP": {
-    "defaultMessage": "清空控制台",
+    "defaultMessage": "Limpar o Console",
     "description": "Button tooltip to clear the console in the coding workspace"
   },
   "5dwMRE": {
-    "defaultMessage": "面试指南",
+    "defaultMessage": "Guias de Entrevista",
     "description": "Sidebar label for Interview Guides category"
   },
   "5hTR16": {
-    "defaultMessage": "个人资料",
+    "defaultMessage": "Perfil",
     "description": "Title of Profile page"
   },
   "5usorl": {
-    "defaultMessage": "React 题目",
+    "defaultMessage": "Perguntas de React",
     "description": "React questions category long title"
   },
   "641P5n": {
-    "defaultMessage": "登出",
+    "defaultMessage": "Sair",
     "description": "Link label to the sign out page"
   },
   "68EGSg": {
-    "defaultMessage": "查看所有题目",
+    "defaultMessage": "Ver Todas as Questões",
     "description": "Link label to the list of all System Design questions"
   },
   "6IwcDT": {
-    "defaultMessage": "显示",
+    "defaultMessage": "Mostrar",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
   },
   "6UytmZ": {
-    "defaultMessage": "出了点问题",
+    "defaultMessage": "Algo deu errado",
     "description": "Text that appears when the solution fails to load"
   },
   "6e1+nl": {
-    "defaultMessage": "前端面试的形式多种多样。 您可能被要求写一个 JavaScript 功能，构建一个界面，设计一个系统，甚至解决 LeetCode 风格的算法题目。",
+    "defaultMessage": "As entrevistas de front end vêm em vários formatos diferentes. Você pode ser solicitado a escrever funções JavaScript, construir uma interface do usuário, projetar um sistema ou até mesmo resolver questões de algoritmos no estilo LeetCode.",
     "description": "Subtitle of Second section on homepage - first paragraph"
   },
   "6fAxyB": {
-    "defaultMessage": "行为面试指南",
+    "defaultMessage": "Guia de entrevista comportamental",
     "description": "Title for behavioral interview guidebook"
   },
   "6kLEK7": {
-    "defaultMessage": "您应避免的常见错误。",
+    "defaultMessage": "Erros comuns que você deve evitar.",
     "description": "Comon mistakes to avoid during system design interviews"
   },
   "6w1Z0V": {
-    "defaultMessage": "练习题目",
+    "defaultMessage": "Perguntas para Praticar",
     "description": "Section title for links to question lists by category and format"
   },
   "6yAWpI": {
-    "defaultMessage": "有 {QuestionCount} 多个由高级前端工程师管理的练习题目，你可以获得准备好的全方位覆盖范围——HTML， CS、JavaScript、算法、DOM API、可访问性、性能、前端基础等等。",
+    "defaultMessage": "Com mais de {QuestionCount} questões práticas selecionadas por engenheiros front end sênior, você terá cobertura abrangente para sua preparação - HTML, CSS, JavaScript, algoritmos, APIs do DOM, acessibilidade, desempenho, fundamentos de front end e muito mais.",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
   },
   "72GwzV": {
-    "defaultMessage": "在 {frameworkLabel} 中可用",
+    "defaultMessage": "Disponível no {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"
   },
   "73vnK2": {
-    "defaultMessage": "中等",
+    "defaultMessage": "Média",
     "description": "Label for medium question importance"
   },
   "7H/tqa": {
-    "defaultMessage": "前端面试准备——编码",
+    "defaultMessage": "Front End Interview Preparation — Coding",
     "description": "Prepare for front end interview coding questions"
   },
   "7HLv+l": {
-    "defaultMessage": "下一个试试这些题目",
+    "defaultMessage": "Experimente estas perguntas a seguir",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
   },
   "7Hng1e": {
-    "defaultMessage": "已经有帐户？ <link>登录</link>",
+    "defaultMessage": "Já tem uma conta? <link>Entrar</link>",
     "description": "Prompt for sign in on Email Sign Up page"
   },
   "7Iapcq": {
-    "defaultMessage": "为期三个月的前端面试准备学习计划",
+    "defaultMessage": "Plano de estudos para se preparar para entrevistas de front end em 3 meses",
     "description": "Title of 3 Months Preparation Plan page"
   },
   "7Korc4": {
-    "defaultMessage": "成长心态题目",
+    "defaultMessage": "Questions para uma Mentalidade de Crescimento",
     "description": "Title for growth mindset collaboration questions"
   },
   "7OxMtC": {
-    "defaultMessage": "重要性",
+    "defaultMessage": "Importância",
     "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
   "7Po5ci": {
-    "defaultMessage": "了解您的基础",
+    "defaultMessage": "Conheça os seus fundamentos",
     "description": "Label for an example list of Quiz Questions on marketing pages"
   },
   "7Wsapt": {
-    "defaultMessage": "测验",
+    "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
   },
   "7gb9hK": {
-    "defaultMessage": "您所需要的一切内容",
+    "defaultMessage": "Tudo que você precisa",
     "description": "Label for an example list of JavaScript Questions on marketing pages"
   },
   "7kN2mI": {
-    "defaultMessage": "进度",
+    "defaultMessage": "Progresso",
     "description": "Completion status"
   },
   "7wqhjF": {
-    "defaultMessage": "练习前端HTML面试题目及解答",
+    "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
   },
   "7xAtDI": {
-    "defaultMessage": "实现重要的数据结构与算法",
+    "defaultMessage": "Implementar Estruturas de Dados e Algoritmos importantes",
     "description": "Description of data structures and algorithm questions"
   },
   "8+Ezk6": {
-    "defaultMessage": "直接与我们聊天！",
+    "defaultMessage": "Converse conosco diretamente!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
   },
   "8/l1dM": {
-    "defaultMessage": "{questionCount}+ 不同面试形式常见题目 - <strong>系统设计、UI、JavaScript、测验</strong>",
+    "defaultMessage": "{questionCount}+ perguntas frequentemente feitas em todos os formatos de entrevista - <strong>Design de sistemas, UI, JavaScript, quizzes</strong>",
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
   "8GTfgf": {
-    "defaultMessage": "欢迎回来",
+    "defaultMessage": "Bem-vindo de volta",
     "description": "Title of Sign In page"
   },
   "8KFYWs": {
-    "defaultMessage": "测验题目介绍",
+    "defaultMessage": "Introdução às perguntas do quiz",
     "description": "Introduction to front end quiz questions"
   },
   "8KNiXb": {
-    "defaultMessage": "前端面试准备——系统设计",
+    "defaultMessage": "Front End Interview Preparation — System Design",
     "description": "Prepare for front end interview system design questions"
   },
   "8MHkPL": {
-    "defaultMessage": "给我们您的反馈/建议，并有机会获得折扣/返现！",
+    "defaultMessage": "Dê-nos seu feedback/sugestões e tenha a chance de receber um desconto/cashback!",
     "description": "Feedback widget textarea description"
   },
   "8Nm9WZ": {
-    "defaultMessage": "沃尔玛",
+    "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
   },
   "8Ti6rm": {
-    "defaultMessage": "您的密码已经更新",
+    "defaultMessage": "Sua senha foi atualizada",
     "description": "Message indicating a successful password update"
   },
   "8UEoLG": {
-    "defaultMessage": "您需要学习和练习的一切，以便进行全面准备前端面试。",
+    "defaultMessage": "Tudo o que você precisa para estudar e praticar para entrevistas de front end para uma preparação completa.",
     "description": "Description of 3 Months Preparation Plan page"
   },
   "8aQEL8": {
-    "defaultMessage": "您现有的代码将被丢弃，您确定吗？",
+    "defaultMessage": "O seu código existente será descartado, tem certeza disso?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
   },
   "8iiFM+": {
-    "defaultMessage": "联系我们",
+    "defaultMessage": "Fale Conosco",
     "description": "Link to contact us page"
   },
   "8k78Jb": {
-    "defaultMessage": "涵盖最重要的题目，适应不同时间，已经验证的学习计划。",
+    "defaultMessage": "Planos de estudo comprovados com as perguntas mais importantes para praticar em vários períodos de preparação.",
     "description": "Table cell content for study plans feature comparison in GFE."
   },
   "8klsso": {
-    "defaultMessage": "学习计划",
+    "defaultMessage": "Planos de estudo",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
   "8q3l4q": {
-    "defaultMessage": "终极 <span>前端面试</span> <span2>准备平台</span2>。",
+    "defaultMessage": "A <span2>plataforma definitiva de preparação </span2> para <span>entrevistas de Front End</span>.",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
   "8ulBJI": {
-    "defaultMessage": "所有题目及解答都是由前 FAANG 高级前端工程师编写的。",
+    "defaultMessage": "Todas as perguntas vêm com soluções escritas por engenheiros experientes em Front End, ex-FAANG.",
     "description": "Subtitle for high quality solutions feature"
   },
   "8vjTks": {
-    "defaultMessage": "选择当前行",
+    "defaultMessage": "Selecionar linha atual",
     "description": "Text describing command to select current line in the coding workspace shortcuts menu"
   },
   "8yQk1V": {
-    "defaultMessage": "最常见的题目",
+    "defaultMessage": "Perguntas Mais Comuns",
     "description": "Most common behavioral interview questions"
   },
   "94oFfy": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "Label indicating that the question has been completed by the user"
   },
   "9DlLF1": {
@@ -460,451 +460,451 @@
     "description": "Title of GreatFrontEnd page"
   },
   "9KrOcn": {
-    "defaultMessage": "唯一有前端系统设计题目并由资深工程师编写正式解答的平台。",
+    "defaultMessage": "A única plataforma com perguntas de design de sistemas front end com soluções oficiais escritas por engenheiros sênior.",
     "description": "Subtitle for front end system design feature"
   },
   "9LT8eh": {
-    "defaultMessage": "电子邮箱",
+    "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
   "9jbYus": {
-    "defaultMessage": "支付一次, 获得全部<span>永久</span>访问权.",
+    "defaultMessage": "Pague uma vez, tenha acesso total <span>para sempre</span>.",
     "description": "Title on Pricing section of Homepage or Pricing page"
   },
   "A+H3cR": {
-    "defaultMessage": "练习 Vanilla 面试题及解答",
+    "defaultMessage": "Pratique perguntas de entrevista JavaScript Vanilla com Soluções",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
   },
   "A+qESm": {
-    "defaultMessage": "创建时间：由新到旧",
+    "defaultMessage": "Criação: do mais novo ao mais antigo",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
   },
   "A592IF": {
-    "defaultMessage": "使用浅色控制台主题",
+    "defaultMessage": "Usar tema claro no console",
     "description": "Button label to use light console theme"
   },
   "AGwpnL": {
-    "defaultMessage": "我们帮助你通过 <strong>掌握你的基础</strong>进行每次前端面试。 <span>由</span> 前FAANG 高级前端工程师构建。",
+    "defaultMessage": "Ajudamos você a avaliar todas as entrevistas de front-end <strong>dominando seus fundamentos</strong>. <span>Construído por</span> engenheiros sênior de Front End ex-FAANG.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
   "ATwxZX": {
-    "defaultMessage": "立即购买",
+    "defaultMessage": "Compre agora",
     "description": "Purchase button label"
   },
   "AYkO94": {
-    "defaultMessage": "题目列表",
+    "defaultMessage": "Lista de perguntas",
     "description": "Screenreader text for quiz questions list"
   },
   "Aa86vz": {
-    "defaultMessage": "免费",
+    "defaultMessage": "Grátis",
     "description": "Label to indicate the item is free"
   },
   "Ai0ech": {
-    "defaultMessage": "构建用户界面的最佳做法",
+    "defaultMessage": "Melhores Práticas para Construir Interfaces de Usuário",
     "description": "Best practices for building UI during front end interviews"
   },
   "AmBMf9": {
-    "defaultMessage": "无题目",
+    "defaultMessage": "Sem Perguntas",
     "description": "Title for empty state when application of filters return no results"
   },
   "Axiomj": {
-    "defaultMessage": "题库",
+    "defaultMessage": "Perguntas",
     "description": "Sidebar label for Questions Bank page"
   },
   "B6qk8B": {
-    "defaultMessage": "隐藏侧边菜单",
+    "defaultMessage": "Esconder o menu lateral",
     "description": "Screenreader text for the button that expands the side menu"
   },
   "B7d1jK": {
-    "defaultMessage": "前端工程师，印度",
+    "defaultMessage": "Engenheiro Front End, Índia",
     "description": "Anonymous Front End Engineer's job title"
   },
   "B82jFj": {
-    "defaultMessage": "指导手册",
+    "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
   },
   "B9449h": {
-    "defaultMessage": "暂不可用",
+    "defaultMessage": "Não disponível.",
     "description": "Not available."
   },
   "BGn++d": {
-    "defaultMessage": "测验题",
+    "defaultMessage": "Perguntas do Quiz",
     "description": "Title for an example list of Quiz Questions on marketing pages"
   },
   "BNUAPJ": {
-    "defaultMessage": "未完成",
+    "defaultMessage": "Não concluído",
     "description": "Incomplete status for a question"
   },
   "BPE/qv": {
-    "defaultMessage": "高级版功能",
+    "defaultMessage": "Recurso Premium",
     "description": "Title for paywall over information about companies that asked the question"
   },
   "BgJTSk": {
-    "defaultMessage": "搜索系统设计题目",
+    "defaultMessage": "Pesquisar questões de design de sistema",
     "description": "Placeholder for search input of system design question list"
   },
   "BhmpD2": {
-    "defaultMessage": "系统设计题目的结构化方法",
+    "defaultMessage": "Uma maneira estruturada de abordar questões de design de sistema",
     "description": "Sidebar link for front end system design interview"
   },
   "BtCbN4": {
-    "defaultMessage": "推荐时长",
+    "defaultMessage": "Duração Recomendada",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
   },
   "BwHkBU": {
-    "defaultMessage": "个人资料",
+    "defaultMessage": "Perfil",
     "description": "Link label to the profile page"
   },
   "C+WlY+": {
-    "defaultMessage": "请创建一个免费帐户以购买高级计划。",
+    "defaultMessage": "Por favor, crie uma conta gratuita para comprar os planos premium.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
   },
   "C34sRh": {
-    "defaultMessage": "账户设置",
+    "defaultMessage": "Configurações de Conta",
     "description": "Screenreader text for account settings."
   },
   "C7tiFm": {
-    "defaultMessage": "为什么加入我们？",
+    "defaultMessage": "Por que se juntar a nós?",
     "description": "Section label for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
   "C8/0hU": {
-    "defaultMessage": "分页",
+    "defaultMessage": "Paginação",
     "description": "Screenreader text for the pagination component"
   },
   "CAMERn": {
-    "defaultMessage": "Javascript 题目",
+    "defaultMessage": "Perguntas de JavaScript",
     "description": "Front End JavaScript questions"
   },
   "CBU+k0": {
-    "defaultMessage": "公司",
+    "defaultMessage": "Empresa",
     "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
   },
   "CBhQ13": {
-    "defaultMessage": "1 个月计划",
+    "defaultMessage": "Plano de 1 mês",
     "description": "Link to one month study plan"
   },
   "CDrriz": {
-    "defaultMessage": "密码登录",
+    "defaultMessage": "Entrar com senha",
     "description": "Label of link to go to Password Sign In Page on Magic Link Sign In page"
   },
   "CNjnh0": {
-    "defaultMessage": "此题目没有数据。",
+    "defaultMessage": "Não foi escrito para esta questão.",
     "description": "Text that apppears if a solution has not been written for the question"
   },
   "CQOAJS": {
-    "defaultMessage": "学习计划和时间安排实践",
+    "defaultMessage": "Pratique com planos de estudo e cronogramas",
     "description": "Section title for study plans"
   },
   "CXs8z4": {
-    "defaultMessage": "练习前端测验面试题及解答",
+    "defaultMessage": "Pratique Perguntas de Quiz de Entrevista de Front End com Soluções",
     "description": "Title of Interview Preparation Quiz page"
   },
   "CqG3Op": {
-    "defaultMessage": "已完成的题目",
+    "defaultMessage": "Questões Concluídas",
     "description": "Heading for list of completed questions."
   },
   "CrNgUe": {
-    "defaultMessage": "题目列表",
+    "defaultMessage": "Lista de Perguntas",
     "description": "Screenreader text for question list"
   },
   "CsuGzS": {
-    "defaultMessage": "JavaScript 题目",
+    "defaultMessage": "JavaScript Questions",
     "description": "JavaScript Questions list page title"
   },
   "Cw8cK4": {
-    "defaultMessage": "{completedQuestions} / {totalQuestions} 已完成",
+    "defaultMessage": "{completedQuestions} de {totalQuestions} concluídos",
     "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "CyhMLj": {
-    "defaultMessage": "在一个月内准备前端面试。 全面的覆盖，一定会将您的前端面试技巧提升到更高的水平。",
+    "defaultMessage": "Prepare-se para suas entrevistas de front-end em um mês. Cobertura completa que certamente elevará suas habilidades de entrevista de front-end para o próximo nível.",
     "description": "Description for one month study plan"
   },
   "D0Hpsv": {
-    "defaultMessage": "添加了 {questionCount}+ <clink>编码</clink> 和 <qlink>测验</qlink> 的面试题目以及新题目。",
+    "defaultMessage": "{questionCount}+ perguntas de entrevista em formatos de <clink>codificação</clink> e <qlink>questionários</qlink>, com novas perguntas sendo adicionadas constantemente.",
     "description": "Subtitle for huge question bank feature"
   },
   "D3YhsE": {
-    "defaultMessage": "学习和练习您准备在一周内进行前端面试所需的确切题目和概念",
+    "defaultMessage": "Estude e pratique as questões e os conceitos exatos que você precisa para se preparar para entrevistas de front end dentro de uma semana",
     "description": "Description of 1 Week Preparation Plan page"
   },
   "D5IZKC": {
-    "defaultMessage": "问题解决题目",
+    "defaultMessage": "Questões de Resolução de Problemas",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
   },
   "DAqJ87": {
-    "defaultMessage": "购买高级版以解锁对题目的完全访问，包括高质量的解答和出题公司。",
+    "defaultMessage": "Compre a versão premium para desbloquear acesso total à questão, incluindo soluções de alta qualidade e empresas que fazem essa pergunta.",
     "description": "Subtitle on question paywall displayed on premium question's pages"
   },
   "DCBQiM": {
-    "defaultMessage": "如果您正在寻找前端面试，Greater FrontEnd 将为您服务。 它有各种各样的编码题目，从HTML、CSS、JavaScript到React。 它还包括函数、算法、用户界面、测验等形式。 如果你想进入高科技公司来做前端角色，Greater FrontEnd 对你来说是最好的。",
+    "defaultMessage": "Se você está procurando por entrevistas de front end, o GreatFrontEnd é para você. Ele tem uma ampla variedade de perguntas de codificação que vão desde HTML, CSS, JavaScript até React. Ele também abrange formatos como funções, algoritmos, interface do usuário, quizzes etc. Se você deseja ingressar nas principais empresas de tecnologia para cargos de front end, o GreatFrontEnd é o melhor para você.",
     "description": "Gouse Basha's testimonial"
   },
   "DDJTQX": {
-    "defaultMessage": "编程简介",
+    "defaultMessage": "Introdução à Rodada de Codificação",
     "description": "Introduction to front end coding interview"
   },
   "DtDE8k": {
-    "defaultMessage": "如何准备",
+    "defaultMessage": "Como se Preparar",
     "description": "How to prepare for front end system design interviews"
   },
   "Dynazi": {
-    "defaultMessage": "(保存 {discountPercentage}%对每月)",
+    "defaultMessage": "(Economize {discountPercentage}% comparado ao pagamento mensal)",
     "description": "Save more compared to monthly plan."
   },
   "E6yHUQ": {
-    "defaultMessage": "评估准则",
+    "defaultMessage": "Eixos de Avaliação",
     "description": "Evaluation axes in front end system design interviews"
   },
   "EHPx/Z": {
-    "defaultMessage": "解决常见题目",
+    "defaultMessage": "Resolvendo questões comuns",
     "description": "Title for solving common behavioral questions section"
   },
   "EJRNjL": {
-    "defaultMessage": "1个月",
+    "defaultMessage": "1 Mês",
     "description": "Short label for one month study plan"
   },
   "ENNKyg": {
-    "defaultMessage": "查看订阅计划",
+    "defaultMessage": "Ver planos de assinatura",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
   },
   "EjbpUe": {
-    "defaultMessage": "打开导航资料菜单",
+    "defaultMessage": "Abrir menu de perfil de navegação",
     "description": "Screenreader text to open the profile menu"
   },
   "ExWrYc": {
-    "defaultMessage": "在这里练习一切。",
+    "defaultMessage": "Pratique tudo por aqui.",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
   "F2QRYu": {
-    "defaultMessage": "如果您需要购买发票，请通过 <link>contact@greatfrontend.com</link> 联系我们。",
+    "defaultMessage": "Por favor, entre em contato conosco em <link>contact@greatfrontend.com</link> se você precisar de uma fatura de compra.",
     "description": "Text describing contact method for purchase invoice."
   },
   "F5oV3L": {
-    "defaultMessage": "删除行",
+    "defaultMessage": "Apagar linha",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
   },
   "F74ozi": {
-    "defaultMessage": "团队和日益增长的社区提供实时支助。",
+    "defaultMessage": "Suporte em tempo real da equipe e da comunidade em expansão.",
     "description": "Lifetime membership feature of real-time support."
   },
   "FAArTO": {
-    "defaultMessage": "当其他人通过你购买GreatFontEnd 时，赚取被动佣金。",
+    "defaultMessage": "Ganhe comissões passivas quando outras pessoas comprarem o GreatFrontEnd por meio de você.",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
   },
   "FAtaOX": {
-    "defaultMessage": "语言",
+    "defaultMessage": "Idiomas",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
   "FIQIm5": {
-    "defaultMessage": "学习最好的解答。",
+    "defaultMessage": "Aprenda com as melhores soluções.",
     "description": "Title of the 'Learn from the best solutions' section on Homepage"
   },
   "FInmLy": {
-    "defaultMessage": "重置为初始代码",
+    "defaultMessage": "Redefinir para o código inicial",
     "description": "Label for button that allows users to reset their coding workspace to the initial code"
   },
   "FLKG3X": {
-    "defaultMessage": "剪切行(空选中)",
+    "defaultMessage": "Recortar linha (seleção vazia)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
   },
   "FkGppk": {
-    "defaultMessage": "提交",
+    "defaultMessage": "Enviar",
     "description": "Label for button to submit code for testing within coding workspace"
   },
   "FonVOb": {
-    "defaultMessage": "所有题目进度都已重置。",
+    "defaultMessage": "Todas as progressões nas questões foram redefinidas.",
     "description": "Message shown when question reset progress action succeeds."
   },
   "G9r7uh": {
-    "defaultMessage": "编码题目支持 Vanilla JavaScript 和 React ，未来将支持更多的库！",
+    "defaultMessage": "Questões de codificação suportadas em Vanilla JavaScript e React, com suporte para mais bibliotecas em breve!",
     "description": "Subtitle for bringing your own framework feature"
   },
   "GHQ8sO": {
-    "defaultMessage": "随时取消",
+    "defaultMessage": "Cancele a qualquer momento.",
     "description": "Cancel the subscription anytime."
   },
   "GJB3/X": {
-    "defaultMessage": "电子邮箱地址",
+    "defaultMessage": "Endereço de Email",
     "description": "Label for email address input field"
   },
   "GJt7KQ": {
-    "defaultMessage": "在 JavaScript 框架中构建用户界面应用和组件",
+    "defaultMessage": "Construa aplicativos e componentes de interface de usuário em frameworks JavaScript",
     "description": "Description of front end user interface questions"
   },
   "GM9dpG": {
-    "defaultMessage": "重置进度失败。请重试。",
+    "defaultMessage": "Falha ao redefinir o progresso. Por favor, tente novamente.",
     "description": "Message shown when question reset progress action fails."
   },
   "GObvI2": {
-    "defaultMessage": "适合于短期求职。",
+    "defaultMessage": "Perfeito para caçadas a emprego de curta duração.",
     "description": "Supporting statement for a monthly pricing plan"
   },
   "GP3q80": {
-    "defaultMessage": "优质的解答供学习",
+    "defaultMessage": "Soluções de qualidade para aprender",
     "description": "Table row header for quality solutions feature"
   },
   "GQhit1": {
-    "defaultMessage": "独家系统设计指南，包括解答框架，快捷表和评估准则。",
+    "defaultMessage": "Guias exclusivos de design de sistemas, incluindo estrutura de solução, cheatsheet e eixos de avaliação.",
     "description": "Table cell content for front end system design feature comparison in GFE."
   },
   "GVHds/": {
-    "defaultMessage": "高级版功能",
+    "defaultMessage": "Recurso Premium",
     "description": "Title on question paywall appearing on the question pages of premium questions"
   },
   "GYwmPt": {
-    "defaultMessage": "限时活动，我们正在提供终生折扣。 这将使您能够立即访问我们的庞大问答库、指南和学习计划。 今后对我们面试准备平台的所有更新也将完全免费给您。",
+    "defaultMessage": "Por tempo limitado, estamos oferecendo acesso vitalício com desconto, o que lhe dará acesso imediato ao nosso enorme banco de questões, guias e planos de estudo. Todas as atualizações futuras da nossa plataforma de preparação para entrevistas também serão completamente gratuitas para você.",
     "description": "Answer to 'What does buying GreatFrontEnd get me' on Homepage's FAQ sections"
   },
   "GZnl60": {
-    "defaultMessage": "在自我介绍中留下强烈的第一个印象的提示",
+    "defaultMessage": "Dicas para causar uma boa primeira impressão em sua apresentação",
     "description": "How to make strong first impressions during self introductions"
   },
   "Gi1TRd": {
-    "defaultMessage": "筛选器",
+    "defaultMessage": "Filtros",
     "description": "Screenreader text for Filters"
   },
   "GiSp0E": {
-    "defaultMessage": "中等",
+    "defaultMessage": "Médio",
     "description": "Medium difficulty question"
   },
   "Gjy+Iy": {
-    "defaultMessage": "准备指南",
+    "defaultMessage": "Guia de Preparação",
     "description": "Front End interview preparation guide"
   },
   "Gv0+LY": {
-    "defaultMessage": "真棒！你完成了题目！",
+    "defaultMessage": "Uhuu! Você concluiu a pergunta!",
     "description": "Toast congratulating user once they mark a question as complete"
   },
   "GyDKzV": {
-    "defaultMessage": "筛选器",
+    "defaultMessage": "Filtros",
     "description": "Screenreader text indicating the filters component on question list pages"
   },
   "H+BRfg": {
-    "defaultMessage": "你还没有完成任何题目",
+    "defaultMessage": "Não há perguntas concluídas",
     "description": "Text shown when no questions are completed."
   },
   "H/u+cg": {
-    "defaultMessage": "指南",
+    "defaultMessage": "Guides",
     "description": "Guides navbar item"
   },
   "H39M2g": {
-    "defaultMessage": "前端系统设计面试需要什么",
+    "defaultMessage": "O que esperar nas entrevistas de Design de Sistemas Front End",
     "description": "Sidebar link title for front end system design interviews"
   },
   "H94EnK": {
-    "defaultMessage": "<strong>注意</strong>: 我们有一些关于联盟公司行为的基本策略。请在注册过程中仔细阅读协议。",
+    "defaultMessage": "<strong>Nota</strong>: Temos algumas políticas básicas sobre conduta de afiliados. Por favor, leia o acordo cuidadosamente no processo de inscrição.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
   },
   "HDsjyG": {
-    "defaultMessage": "基本前端技能的细节题目",
+    "defaultMessage": "Perguntas de estilo trivia sobre conhecimentos essenciais de front end",
     "description": "Description of quiz questions"
   },
   "HEQbsp": {
-    "defaultMessage": "创建时间：由旧到新",
+    "defaultMessage": "Criado: Mais Antigo para mais Recente",
     "description": "Sorting option on question list page to sort by creation time, from oldest to newest"
   },
   "HHJYxM": {
-    "defaultMessage": "加载编码题目失败",
+    "defaultMessage": "Falha ao carregar questões de codificação",
     "description": "Error message when the questions failed to load"
   },
   "HOCjPY": {
-    "defaultMessage": "实现流行的 JavaScript 库和实用功能",
+    "defaultMessage": "Implementar bibliotecas populares e funções utilitárias em JavaScript",
     "description": "Description of JavaScript utility function questions"
   },
   "HUP0Fq": {
-    "defaultMessage": "限时活动",
+    "defaultMessage": "Enquanto a Oferta Durar",
     "description": "Label to indicate lifetime plan is a limited time offering"
   },
   "HcBvYZ": {
-    "defaultMessage": "学习回答\"告诉我一段时间...\"合作题目",
+    "defaultMessage": "Aprenda a responder perguntas de colaboração do tipo \"Fale-me sobre um momento em que...\"",
     "description": "How to answer collaboration situation questions in behavioral interviews"
   },
   "Hj6BTz": {
-    "defaultMessage": "发生错误。请稍后重试，如果错误仍然存在，请联系支持。",
+    "defaultMessage": "Um erro ocorreu. Por favor, tente novamente mais tarde e entre em contato com o suporte se o erro persistir.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
   },
   "HlRbK4": {
-    "defaultMessage": "高质量的解答",
+    "defaultMessage": "Soluções de alta qualidade",
     "description": "Title for high quality solutions feature"
   },
   "I5MeD9": {
-    "defaultMessage": "注册成功",
+    "defaultMessage": "Registrado com sucesso",
     "description": "Title of alert indicating a successful email sign up"
   },
   "I5iXtu": {
-    "defaultMessage": "{questionTitle} 的 {questionFramework} 解答| 前端面试用户界面编码题目",
+    "defaultMessage": "Solução para {questionTitle} em {questionFramework} | Perguntas de Codificação de UI para Entrevistas de Front End com Soluções",
     "description": "Title of Front End Interview UI Coding Questions solution page"
   },
   "I619Rj": {
-    "defaultMessage": "个人资料头像",
+    "defaultMessage": "Imagem de perfil",
     "description": "Alt text for user profile image"
   },
   "IBP/D0": {
-    "defaultMessage": "如果你想要我们跟你跟进，请告诉我们你的电子邮箱。",
+    "defaultMessage": "Informe seu endereço de e-mail se desejar que entremos em contato com você posteriormente.",
     "description": "Feedback widget text to request for optional email input for following up"
   },
   "IK98yM": {
-    "defaultMessage": "尚未确信？ <link>请尝试产品 (免费) →</link>",
+    "defaultMessage": "Ainda não está convencido? <link>Experimente o produto (é grátis) →</link>",
     "description": "Call-to-action"
   },
   "IQnWm4": {
-    "defaultMessage": "编码",
+    "defaultMessage": "Programação",
     "description": "Coding interviews stage label"
   },
   "ITq0p4": {
-    "defaultMessage": "隐私政策",
+    "defaultMessage": "Política de Privacidade",
     "description": "Link to privacy policy page"
   },
   "IUYG0x": {
-    "defaultMessage": "这是 <strong>一次性购买，没有定期订阅</strong>。 您可以永远访问GreatFrontend面试平台中的所有内容以及任何未来的更新。 这对今后所有寻找工作都是有益和相关的。",
+    "defaultMessage": "É uma compra <strong>única, sem assinatura recorrente</strong>. Você tem acesso a todo o conteúdo na plataforma de entrevistas do GreatFrontEnd para sempre, juntamente com quaisquer atualizações futuras. Isso será útil e relevante para todas as futuras caçadas a trabalhos.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
   },
   "IhJAk8": {
-    "defaultMessage": "产品内容",
+    "defaultMessage": "O que Está Incluso",
     "description": "Section label for features included in a pricing plan"
   },
   "IiZazG": {
-    "defaultMessage": "公司",
+    "defaultMessage": "Empresa",
     "description": "Header for company filters"
   },
   "Im9sPX": {
-    "defaultMessage": "我们还在寻求包含更多针对具体框架的题目，如React、Vue、Angular等。",
+    "defaultMessage": "Também estamos trabalhando para incluir mais perguntas específicas de frameworks, como React, Vue, Angular, etc.",
     "description": "Question base section subtitle - second paragraph"
   },
   "IuWsYS": {
-    "defaultMessage": "此外，由于市场上用于前端面试准备工作的资源不足， 我们的平台上有最多的题目是由先前来自FAANG的有经验的高级前端工程师撰写的解答，他们也是前面试官。",
+    "defaultMessage": "Além disso, dentre os recursos disponíveis no mercado para a preparação de entrevistas de Front End, nossa plataforma conta com o maior número de perguntas com soluções escritas por experientes Engenheiros Sênior de Front End, que já trabalharam em empresas como FAANG e que também já atuaram como entrevistadores.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "Iz2KAM": {
-    "defaultMessage": "总共{numberOfTotalTests}",
+    "defaultMessage": "Total de {numberOfTotalTests}",
     "description": "Line in DevTools showing the total number of test cases for this question"
   },
   "JEcwe6": {
-    "defaultMessage": "解答",
+    "defaultMessage": "Solução",
     "description": "Header for question solution section in coding workspace"
   },
   "JFHL5z": {
-    "defaultMessage": "获取所有高级内容，包括解答和公司。",
+    "defaultMessage": "Acesso a todo o conteúdo premium, incluindo soluções e empresas.",
     "description": "Feature of quarterly pricing plan"
   },
   "JJ0V4Y": {
-    "defaultMessage": "持续时间：从低到高",
+    "defaultMessage": "Preço: Menor para Maior",
     "description": "Sorting option for question list - sort by duration from low to high"
   },
   "JKBRGr": {
-    "defaultMessage": "输入您的电子邮箱",
+    "defaultMessage": "Digite seu email",
     "description": "Placeholder text for email input field"
   },
   "JLf/Lc": {
-    "defaultMessage": "Vanilla JS",
+    "defaultMessage": "JS Vanilla",
     "description": "Label for Vanilla JavaScript framework"
   },
   "JOj1C3": {
-    "defaultMessage": "3 个月",
+    "defaultMessage": "3 Meses",
     "description": "Title of quarterly pricing plan"
   },
   "JP4Wie": {
-    "defaultMessage": "<p>每个题目都有一个深入的解答和内联解释。</p> <p>解答包含 <strong>可扩展性、可访问性和性能</strong> 的考虑。</p>",
+    "defaultMessage": "<p>Cada pergunta possui uma solução detalhada com explicações inline.</p> <p>As soluções incorporam considerações de <strong>escalabilidade, acessibilidade e desempenho</strong>.</p>",
     "description": "Table cell content for quality solutions feature comparison in GFE."
   },
   "JPbOCy": {
@@ -912,71 +912,71 @@
     "description": "Vue questions category short title"
   },
   "JQa3Or": {
-    "defaultMessage": "找不到你想要的答案吗？ <link>联系我们！</link>",
+    "defaultMessage": "Não encontrou a resposta que está procurando? <link>Entre em contato conosco!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
   },
   "JdOpbg": {
-    "defaultMessage": "解答很难找到或不完全，通常是表面的。",
+    "defaultMessage": "Soluções difíceis de encontrar ou incompletas, geralmente superficiais.",
     "description": "Table cell content for quality solutions feature comparison in other platforms."
   },
   "JhZ/aF": {
-    "defaultMessage": "测验题",
+    "defaultMessage": "Perguntas do Quiz",
     "description": "Quiz questions long title"
   },
   "Ji3Y+i": {
-    "defaultMessage": "测验题",
+    "defaultMessage": "Perguntas do Quiz",
     "description": "Front end quiz interview questions"
   },
   "Jlr/Yy": {
-    "defaultMessage": "如果您想要升级您的计划，请<link>联系我们</link>。",
+    "defaultMessage": "<link>Entre em contato conosco</link> se você gostaria de atualizar seu plano.",
     "description": "Call to action text to uppgrade plan."
   },
   "JrmA6j": {
-    "defaultMessage": "有超过 {numberOfQuestions} 个题目, 这是你梦寐以求的最完整的前端面试准备工作。",
+    "defaultMessage": "Com mais de {numberOfQuestions} perguntas, esta é a preparação mais completa de entrevistas de front end que você pode imaginar.",
     "description": "Long description for three months study plan"
   },
   "K/Nz6V": {
-    "defaultMessage": "{questionCount} 个最热门的前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
+    "defaultMessage": "As principais {questionCount} perguntas de codificação de entrevistas de front end para praticar, com soluções detalhadas e explicações de ex-entrevistadores da FAANG.",
     "description": "Description of Interview Preparation Quiz page"
   },
   "K08edE": {
-    "defaultMessage": "只显示失败的测试",
+    "defaultMessage": "Mostrar apenas testes com falha",
     "description": "Checkbox for whether to show only failed test cases"
   },
   "KDDzWX": {
-    "defaultMessage": "使用 {questionFramework} 的 {questionExcerpt}",
+    "defaultMessage": "{questionExcerpt} usando {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
   "KY8GB9": {
-    "defaultMessage": "标记题目完成失败。请重试",
+    "defaultMessage": "Falha ao marcar a pergunta como concluída. Por favor, tente novamente",
     "description": "Error message shown when a question has failed to mark as complete"
   },
   "KaGCVb": {
-    "defaultMessage": "选择题目类型",
+    "defaultMessage": "Selecionar seção de perguntas",
     "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
   },
   "Kdmu8e": {
-    "defaultMessage": "使用浅色控制台主题",
+    "defaultMessage": "Usar tema claro no console",
     "description": "Button tooltip to use light console theme"
   },
   "KdzvRx": {
-    "defaultMessage": "用一页纸总结的所有重要的事情",
+    "defaultMessage": "Resumo de todas as coisas importantes em uma página",
     "description": "Summary of important things in front end system design interviews"
   },
   "KjD2cI": {
-    "defaultMessage": "持续时间：从高到低",
+    "defaultMessage": "Duração: Maior para Menor",
     "description": "Sorting option for question list - sort by duration from high to low"
   },
   "KmiBbk": {
-    "defaultMessage": "我想注册GreatFrontend的简报以接收面试提示和题目更新",
+    "defaultMessage": "Eu gostaria de me inscrever na newsletter do GreatFrontEnd para receber dicas de entrevistas e atualizações de perguntas",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
   },
   "KtYnhS": {
-    "defaultMessage": "创建新帐户",
+    "defaultMessage": "Criar uma nova conta",
     "description": "Subtitle of Sign Up page"
   },
   "Ku1Crp": {
-    "defaultMessage": "答案错误",
+    "defaultMessage": "Resposta incorreta",
     "description": "Status label for incorrect answer given"
   },
   "Ku3VdX": {
@@ -984,63 +984,63 @@
     "description": "Company name for Uber"
   },
   "Kv46h1": {
-    "defaultMessage": "独家终生 <strong>Discord 频道访问权</strong>。",
+    "defaultMessage": "Acesso exclusivo ao <strong>canal do Discord</strong> por tempo vitalício.",
     "description": "Lifetime membership feature of Discord channel access."
   },
   "KzFlkU": {
-    "defaultMessage": "测验",
+    "defaultMessage": "Quizzes",
     "description": "Quiz interviews stage label"
   },
   "L/BHun": {
-    "defaultMessage": "给我们发信息",
+    "defaultMessage": "Envie-nos uma mensagem",
     "description": "Title for send us a feedback modal"
   },
   "L0IePi": {
-    "defaultMessage": "因为前端面试基本上是 <span>基础知识</span>。",
+    "defaultMessage": "Porque as entrevistas de front end são sobre <span>fundamentos</span>.",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
   "L7Fz5f": {
-    "defaultMessage": "滚动到底部",
+    "defaultMessage": "Rolar para Baixo",
     "description": "Button tooltip to scroll to bottom of the console logs"
   },
   "LK0JHB": {
-    "defaultMessage": "常见问题",
+    "defaultMessage": "Perguntas Frequentes.",
     "description": "Frequently Asked Questions"
   },
   "LNBK2M": {
-    "defaultMessage": "我们的服务在您所在的地点不可用。",
+    "defaultMessage": "Nossos serviços não estão disponíveis em sua localização.",
     "description": "Message explaining that the website does not transact with the user's location."
   },
   "LNK1eb": {
-    "defaultMessage": "高级版功能",
+    "defaultMessage": "Recurso Premium",
     "description": "Header on paywall over company tags on question list pages"
   },
   "LPfKTO": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "Label to indicate that a question has been completed"
   },
   "LYxZLx": {
-    "defaultMessage": "CSS 题目",
+    "defaultMessage": "CSS Questions",
     "description": "CSS Questions list page title"
   },
   "Ldysd3": {
-    "defaultMessage": "学习回答\"告诉我一段时间...\"成长心态题目",
+    "defaultMessage": "Aprenda a responder perguntas de mentalidade de crescimento \"Conte-me sobre um momento em que...\"",
     "description": "How to answer growth mindset collaboration questions"
   },
   "LeyIrf": {
-    "defaultMessage": "系统设计",
+    "defaultMessage": "Design de Sistema",
     "description": "System design interviews stage label"
   },
   "LfcLVQ": {
-    "defaultMessage": "发现错误或有改进建议给一个题目吗？ 如果您可以在 <link>GitHub</link> 上创建一个 Issue，我们会更喜欢。",
+    "defaultMessage": "Encontrou um bug ou tem uma melhoria para sugerir em uma pergunta? Preferiríamos se você pudesse criar uma issue no <link>GitHub</link>.",
     "description": "Sentence to report bug on GitHub"
   },
   "Ll7iob": {
-    "defaultMessage": "快速上手",
+    "defaultMessage": "Introdução",
     "description": "Title of Get Started page"
   },
   "LnN52b": {
-    "defaultMessage": "前端面试准备——行为面谈",
+    "defaultMessage": "Front End Interview Preparation — Behavioral Interviews",
     "description": "Prepare for front end interview behavioral questions"
   },
   "LnzTdG": {
@@ -1048,99 +1048,99 @@
     "description": "CSS questions category short title"
   },
   "M2rIUU": {
-    "defaultMessage": "练习 Vanilla 面试题及解答",
+    "defaultMessage": "Pratique perguntas de entrevistas de UI e JavaScript com Soluções",
     "description": "Title of Interview Preparation Coding page"
   },
   "M7x/vv": {
-    "defaultMessage": "准备前端面试的最佳方式",
+    "defaultMessage": "A melhor maneira de se preparar para entrevistas de Front End",
     "description": "Title of GreatFrontEnd standard page"
   },
   "M9z02W": {
-    "defaultMessage": "爱彼迎",
+    "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
   },
   "MF21p5": {
-    "defaultMessage": "系统设计",
+    "defaultMessage": "Design do Sistema",
     "description": "System design questions short title"
   },
   "MHz32F": {
-    "defaultMessage": "概览",
+    "defaultMessage": "Visão Geral",
     "description": "Overview section for front end system design interviews"
   },
   "MKfy+9": {
-    "defaultMessage": "价格",
+    "defaultMessage": "Preços",
     "description": "Section label on Pricing section of Homepage or Pricing page"
   },
   "MNRS6S": {
-    "defaultMessage": "准备阶段",
+    "defaultMessage": "Estágio de Preparação",
     "description": "Preparation page title"
   },
   "MNgJK6": {
-    "defaultMessage": "简单",
+    "defaultMessage": "Fácil",
     "description": "Easy difficulty question"
   },
   "MWe9uf": {
-    "defaultMessage": "回答有关你加入该职位动机的问题的技巧",
+    "defaultMessage": "Dicas para responder perguntas sobre sua motivação para começar no cargo",
     "description": "How to answer motivation questions in behavioral interviews"
   },
   "MYi0uz": {
-    "defaultMessage": "上一页",
+    "defaultMessage": "Anterior",
     "description": "Button to go back to the previous page"
   },
   "MdGGzJ": {
-    "defaultMessage": "用户界面题目",
+    "defaultMessage": "Perguntas de Interface do Usuário",
     "description": "Front End User Interface interview questions"
   },
   "MeV/ww": {
-    "defaultMessage": "微软",
+    "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
   },
   "MkjGJD": {
-    "defaultMessage": "最热门的 React 前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
+    "defaultMessage": "As principais perguntas de codificação de entrevistas de Front End usando React para praticar, com soluções detalhadas e explicações de ex-entrevistadores da FAANG.",
     "description": "Description of React Interview Questions page"
   },
   "MstQla": {
-    "defaultMessage": "首次准备前端面试吗？了解我们 <link>前端面试指南</link> 中的预期内容",
+    "defaultMessage": "Preparando-se para entrevistas de Front End pela primeira vez? Descubra o que esperar em nosso <link>Guia de Entrevistas de Front End</link>",
     "description": "Link to front end interview guidebook"
   },
   "MyaXLl": {
-    "defaultMessage": "练习前端CSS面试题目及解答",
+    "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
     "description": "SEO title for CSS questions list page"
   },
   "N4F6al": {
-    "defaultMessage": "FAANG前面试官制定的结构化学习计划。准备在一个月内进行前端面试。",
+    "defaultMessage": "Plano de estudo estruturado desenvolvido por ex-entrevistadores da FAANG. Prepare-se holisticamente para entrevistas de front end em um mês",
     "description": "Description of 1 Month Preparation Plan page"
   },
   "NAkpAg": {
-    "defaultMessage": "跳转到匹配的括号",
+    "defaultMessage": "Pular para colchete correspondente",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
   },
   "NMKLAX": {
-    "defaultMessage": "控制台",
+    "defaultMessage": "Console",
     "description": "Label for Console tab on the coding workspace"
   },
   "NPBHO+": {
-    "defaultMessage": "{questionCount}+ HTML 面试问题，包括知识问答题和HTML编码问题。",
+    "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
     "description": "Subtitle for HTML questions list page"
   },
   "NZo2FG": {
-    "defaultMessage": "描述",
+    "defaultMessage": "Descrição",
     "description": "Header for the question description section"
   },
   "NdDD5W": {
-    "defaultMessage": "前端系统设计指南",
+    "defaultMessage": "Guia de Design de Sistemas de Front End",
     "description": "Front end system design guidebook title"
   },
   "NgxUnY": {
-    "defaultMessage": "难度",
+    "defaultMessage": "Dificuldade",
     "description": "Question difficulty label"
   },
   "Nidjwh": {
-    "defaultMessage": "系统设计简介",
+    "defaultMessage": "Introdução a Design de Sistemas",
     "description": "Introduction to front end system design"
   },
   "Nt+P5A": {
-    "defaultMessage": "模拟真实面试条件，不需要任何设置！",
+    "defaultMessage": "Simule condições reais de entrevista, sem a necessidade de qualquer configuração!",
     "description": "Subtitle for in-browser coding workspace feature"
   },
   "O+NT3M": {
@@ -1148,67 +1148,67 @@
     "description": "Angular questions category short title"
   },
   "O4XAXC": {
-    "defaultMessage": "如果存在关联的帐户，电子邮箱将发送到上述地址",
+    "defaultMessage": "Um e-mail será enviado para o endereço acima se uma conta associada existir",
     "description": "Message indicating a successful password reset request"
   },
   "O7MAvX": {
-    "defaultMessage": "为期一个月的前端面试准备学习计划",
+    "defaultMessage": "Plano de estudo para se preparar para entrevistas de front end em 1 mês",
     "description": "Title of 1 Month Preparation Plan page"
   },
   "OGpZxl": {
-    "defaultMessage": "最热门的前端系统设计面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
+    "defaultMessage": "As principais perguntas de design de sistema de entrevista de front end para praticar, com soluções detalhadas e explicações feitas por ex-entrevistadores da FAANG.",
     "description": "Description of Interview Preparation System Design page"
   },
   "OL9m/V": {
-    "defaultMessage": "最完整的全套前端面试筹备平台。",
+    "defaultMessage": "A plataforma mais completa de preparação para entrevistas de front-end em um só lugar.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
   },
   "ONV44/": {
-    "defaultMessage": "使用深色控制台主题",
+    "defaultMessage": "Usar tema escuro no console",
     "description": "Button tooltip to use dark console theme"
   },
   "OWKf+S": {
-    "defaultMessage": "概览",
+    "defaultMessage": "Visão Geral",
     "description": "Overview of behavioral interview"
   },
   "OX/Imk": {
-    "defaultMessage": "很少涵盖系统设计或编码题目。",
+    "defaultMessage": "Raramente cobrem questões de design de sistemas ou codificação.",
     "description": "Table cell content for large and curated question bank feature comparison in other platforms."
   },
   "OcBA+t": {
-    "defaultMessage": "“免费更新”包含哪些内容？",
+    "defaultMessage": "O que está incluído em \"atualizações gratuitas\"?",
     "description": "Question on Homepage's FAQ section - on the scope of complimentary updates to the GreatFrontEnd interview platform"
   },
   "OkgtcI": {
-    "defaultMessage": "改为垂直模式",
+    "defaultMessage": "Mudar para vertical",
     "description": "Tooltip for changing to vertical layout for coding workspace"
   },
   "Ol7K0w": {
-    "defaultMessage": "您正在使用 <bold>季度</bold> 计划。",
+    "defaultMessage": "Você está no plano <bold>Trimestral</bold>.",
     "description": "Text describing user's subscription plan."
   },
   "OtRu2B": {
-    "defaultMessage": "你们总是可以依靠我们的解答来包括多种方法，强化基础知识、模式和技术，并包括许多实际考虑。 如果没有，请给我们留下一条信息！",
+    "defaultMessage": "Você sempre pode contar com nossas soluções para incluir várias abordagens, reforçar fundamentos, padrões e técnicas, além de incluir um grande número de considerações práticas. Se não for o caso, deixe uma mensagem para nós!",
     "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
   },
   "Ou1LIp": {
-    "defaultMessage": "标记题目为已完成",
+    "defaultMessage": "Pergunta marcada como concluída",
     "description": "Success message shown when a question was marked as complete"
   },
   "OugnPX": {
-    "defaultMessage": "获取完整访问权限",
+    "defaultMessage": "Obtenha Acesso Total",
     "description": "Link label to the pricing page"
   },
   "P/sSbP": {
-    "defaultMessage": "获取所有高级内容，包括解答和公司。",
+    "defaultMessage": "Acesso a todo o conteúdo premium, incluindo soluções e empresas.",
     "description": "Feature of monthly pricing plan"
   },
   "P/tvlV": {
-    "defaultMessage": "Codeney Pte Ltd. 版权所有。",
+    "defaultMessage": "Codeney Pte Ltd. Todos os direitos reservados.",
     "description": "Footer copyright text containing the company name"
   },
   "P2baTC": {
-    "defaultMessage": "代码格式",
+    "defaultMessage": "Formato de Codificação",
     "description": "Front end coding interview questions"
   },
   "P4Or/u": {
@@ -1216,71 +1216,71 @@
     "description": "CSS topic for quiz questions"
   },
   "P4yQWv": {
-    "defaultMessage": "在所有的面试中都会问到的前端细节题目",
+    "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
     "description": "Description for quiz interview stage"
   },
   "P99cBr": {
-    "defaultMessage": "各种题目形式概述",
+    "defaultMessage": "Overview of various question formats",
     "description": "Overview of front end system design interview question formats"
   },
   "PB+rpp": {
-    "defaultMessage": "重置进度",
+    "defaultMessage": "Redefinir Progresso",
     "description": "Label for button to reset progress"
   },
   "PFRVpF": {
-    "defaultMessage": "获取完整访问权限",
+    "defaultMessage": "Obtenha Acesso Total",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
   },
   "PGFsFr": {
-    "defaultMessage": "3 个月计划",
+    "defaultMessage": "Plano de 3 Meses",
     "description": "Link to three months study plan"
   },
   "PWyAGW": {
-    "defaultMessage": "购买高级版以解锁通过公司筛选题目。",
+    "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
   },
   "PeXK7/": {
-    "defaultMessage": "价格",
+    "defaultMessage": "Preços",
     "description": "Title of Pricing page"
   },
   "PfOyMR": {
-    "defaultMessage": "{duration} 分钟",
+    "defaultMessage": "{duration} mins",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
   },
   "Pohz4K": {
-    "defaultMessage": "{currencySymbol}{price} 按年计费。",
+    "defaultMessage": "{currencySymbol}{price} billed yearly.",
     "description": "Description of billing frequency for annual plan"
   },
   "Ptmnjq": {
-    "defaultMessage": "免费持续更新",
+    "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
   },
   "PyDwDF": {
-    "defaultMessage": "关闭",
+    "defaultMessage": "Fechar",
     "description": "Close button label"
   },
   "Q1WOVj": {
-    "defaultMessage": "管理订阅",
+    "defaultMessage": "Manage Subscription",
     "description": "Label for button to manage subscription"
   },
   "Q2pP1Q": {
-    "defaultMessage": "测试用例",
+    "defaultMessage": "Casos de Teste",
     "description": "Header for question test cases section in coding workspace"
   },
   "Q7EpE5": {
-    "defaultMessage": "HTML 题目",
+    "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
   },
   "QHtJPS": {
-    "defaultMessage": "全方位练习",
+    "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
   },
   "QIRY6V": {
-    "defaultMessage": "前端系统设计资源几乎不存在。 这是你唯一能够找到深入解决前端系统设计题目的办法以及我们已经证明的解答框架。",
+    "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
   "QJaxVF": {
-    "defaultMessage": "我们目前的重点是扩大我们的题目数量。每周都在平台上添加新的编码和系统设计题目。",
+    "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
   },
   "QVh3mt": {
@@ -1288,39 +1288,39 @@
     "description": "Company name for Dropbox"
   },
   "Qf/RU+": {
-    "defaultMessage": "React 编码题目",
+    "defaultMessage": "React Coding Questions",
     "description": "Description for React questions title"
   },
   "QggKKV": {
-    "defaultMessage": "它是如何工作的？",
+    "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
   "QjhN+w": {
-    "defaultMessage": "前端系统设计",
+    "defaultMessage": "Front end system design",
     "description": "Title for front end system design feature"
   },
   "R1ji0N": {
-    "defaultMessage": "正在登出。再见！",
+    "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
   },
   "R5FPug": {
-    "defaultMessage": "联系我们",
+    "defaultMessage": "Fale Conosco",
     "description": "Title of Contact Us page"
   },
   "R79mq9": {
-    "defaultMessage": "检查解答范例:",
+    "defaultMessage": "Check out sample solutions:",
     "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
   },
   "R99Y8S": {
-    "defaultMessage": "在GreatFrontend, 我们的重点是将前端面试抽象成可重复的模式和基本概念。 你需要做的只是通过我们的题目和学习计划！",
+    "defaultMessage": "At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!",
     "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
   },
   "RDQ253": {
-    "defaultMessage": "登录以保存您的进度",
+    "defaultMessage": "Sign in to save progress",
     "description": "Message shown when user completes a question without signing in"
   },
   "RIhdqg": {
-    "defaultMessage": "登录",
+    "defaultMessage": "Entrar",
     "description": "Title of Login page"
   },
   "RMBCok": {
@@ -1328,7 +1328,7 @@
     "description": "Company name for Snap"
   },
   "RQRPBv": {
-    "defaultMessage": "软件工程师最常见的 20 个面试题目",
+    "defaultMessage": "Top 20+ common behavioral interview questions for SWE",
     "description": "Most common behavioral interview questions for software engineers"
   },
   "RTBOas": {
@@ -1336,91 +1336,91 @@
     "description": "Label for JavaScript language"
   },
   "RTwyWd": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "Label for completed status on quiz quqestions list"
   },
   "RWMcHN": {
-    "defaultMessage": "测验主题",
+    "defaultMessage": "Tópicos do Quiz",
     "description": "Screenreader text indicating component for quiz question topics"
   },
   "RXqyFg": {
-    "defaultMessage": "尝试您的第一个免费题目",
+    "defaultMessage": "Try your first free question",
     "description": "Header for section prompting user to try their first question"
   },
   "Rdi/Kx": {
-    "defaultMessage": "包年",
+    "defaultMessage": "Anual",
     "description": "Title of annual pricing plan"
   },
   "RhV5e8": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "The question has been completed"
   },
   "Rhpldj": {
-    "defaultMessage": "标记为已完成",
+    "defaultMessage": "Marcar como concluído",
     "description": "Mark quetion as complete"
   },
   "RnHcaK": {
-    "defaultMessage": "购买高级版需要一个帐户",
+    "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
   "RxZwQ9": {
-    "defaultMessage": "购买高级版以解锁通过公司筛选题目。",
+    "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle on paywall over company tags on question list pages"
   },
   "S+6OOS": {
-    "defaultMessage": "免费",
+    "defaultMessage": "Grátis",
     "description": "Free-of-charge label"
   },
   "S21xBI": {
-    "defaultMessage": "登录以跟踪您的进度并访问高级版",
+    "defaultMessage": "Login to track your progress and access premium",
     "description": "Description of Login page"
   },
   "SAFY5p": {
-    "defaultMessage": "GreatFrontend 值得买吗？",
+    "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
   },
   "SId1Gq": {
-    "defaultMessage": "全方位的覆盖，让你更上一层楼。",
+    "defaultMessage": "All rounded coverage to bring you to the next level.",
     "description": "Short description for one month study plan"
   },
   "SKsPOw": {
-    "defaultMessage": "会员专属内容",
+    "defaultMessage": "Conteúdo Premium",
     "description": "Premium system design questions content"
   },
   "SO8lrv": {
-    "defaultMessage": "前端工程师，印度德里",
+    "defaultMessage": "Front End Engineer, Delhi, India",
     "description": "Anonymous Front End Engineer's job title"
   },
   "SUjf8L": {
-    "defaultMessage": "未订阅",
+    "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
   },
   "SWOTIA": {
-    "defaultMessage": "重置为初始代码",
+    "defaultMessage": "Reset to initial code",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
   },
   "SdXQye": {
-    "defaultMessage": "将下一个匹配的结果添加到选区",
+    "defaultMessage": "Add selection to next find match",
     "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
   },
   "Se6J8o": {
-    "defaultMessage": "标记为已完成",
+    "defaultMessage": "Mark as Complete",
     "description": "Mark the question as complete"
   },
   "T1UibH": {
-    "defaultMessage": "往往是由社区提供的。",
+    "defaultMessage": "Often community-sourced.",
     "description": "Table cell content for large and curated question bank feature comparison in other platforms."
   },
   "T5ZDDU": {
-    "defaultMessage": "大规模和精心策划的题库",
+    "defaultMessage": "Large and curated question bank",
     "description": "Table row header for large and curated question bank feature"
   },
   "TAajQb": {
-    "defaultMessage": "培养你的基本功是每次都能完美通过面试的唯一方法。",
+    "defaultMessage": "Building your fundamentals is the only way to rock the interview every single time.",
     "description": "Subtitle of Second section on homepage - second paragraph"
   },
   "TB8vuT": {
-    "defaultMessage": "关闭侧边菜单栏",
+    "defaultMessage": "Collapse side menu",
     "description": "Screenreader text for the button that collapses the side menu"
   },
   "TDzLXK": {
@@ -1428,27 +1428,27 @@
     "description": "Company name for Lyft"
   },
   "THblGQ": {
-    "defaultMessage": "新年促销！使用代码NEWYEAR2023，额外优惠年度和终生计划20%。 <link>今天获取您的折扣！</link>",
+    "defaultMessage": "New Year Sale! Additional 20% off annual and lifetime plans with the code NEWYEAR2023. <link>Grab your discount today!</link>",
     "description": "Text on Promo Banner appearing almost on all application pages to inform user of New Year discount"
   },
   "TQLJ/G": {
-    "defaultMessage": "所有级别的工程师都可以从GreatFrontEnd中学到一些东西。初级工程师将能够巩固他们的基础知识，并学习他们从未了解过的技术。中级工程师将从国际化、可访问性和性能等更高级的概念中受益。高级工程师将从传授架构概念的系统设计题目中获益最大。",
+    "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
   },
   "TaIXVz": {
-    "defaultMessage": "购买高级版以解锁对独家系统设计内容的完全访问，包括高质量的解答和出题公司。",
+    "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
   "Tc2C+b": {
-    "defaultMessage": "免费",
+    "defaultMessage": "Grátis",
     "description": "Label for free questions"
   },
   "TcVgOJ": {
-    "defaultMessage": "登录",
+    "defaultMessage": "Entrar",
     "description": "Title of Magic Link Sign In page"
   },
   "TeTJmh": {
-    "defaultMessage": "如果这些基础知识已经为你抽象化了呢？",
+    "defaultMessage": "What if those fundamentals were already abstracted for you?",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
   "U022No": {
@@ -1456,7 +1456,7 @@
     "description": "Company name for Palantir"
   },
   "U9XHwD": {
-    "defaultMessage": "学习在面试结束时提出有见地的问题",
+    "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
   },
   "UBPrBM": {
@@ -1464,207 +1464,207 @@
     "description": "Company name for Yelp"
   },
   "UCAeM0": {
-    "defaultMessage": "UI / 组件",
+    "defaultMessage": "UI / Components",
     "description": "User interface component questions"
   },
   "UCt/lF": {
-    "defaultMessage": "编码题目",
+    "defaultMessage": "Pergunta de Programação",
     "description": "Coding questions long title"
   },
   "UHZyhq": {
-    "defaultMessage": "电子邮箱",
+    "defaultMessage": "Email",
     "description": "Label of email field on Magic Link Sign In page"
   },
   "ULuy8I": {
-    "defaultMessage": "难度",
+    "defaultMessage": "Dificuldade",
     "description": "Question difficulty"
   },
   "UM4r2s": {
-    "defaultMessage": "其他平台",
+    "defaultMessage": "Outras Plataformas",
     "description": "Table column header for other platforms"
   },
   "UQh7Xv": {
-    "defaultMessage": "按日志级别筛选",
+    "defaultMessage": "Filtrar por nível de log",
     "description": "Select label to filter console log by level"
   },
   "UiHdWK": {
-    "defaultMessage": "为期一周的前端面试准备学习计划",
+    "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
     "description": "Title of 1 Week Preparation Plan page"
   },
   "UltF1J": {
-    "defaultMessage": "已经是联盟会员？ <link>访问控制面板</link>",
+    "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
   },
   "UotwsL": {
-    "defaultMessage": "登录中…",
+    "defaultMessage": "Logging you in...",
     "description": "Subtitle of AuthPage when logged in"
   },
   "Us7Uly": {
-    "defaultMessage": "向我们咨询它",
+    "defaultMessage": "Pergunte-nos sobre isso",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
   },
   "UuC2xb": {
-    "defaultMessage": "问答练习题目",
+    "defaultMessage": "Quiz Practice Questions",
     "description": "Quiz question list title"
   },
   "V0hPhI": {
-    "defaultMessage": "注册",
+    "defaultMessage": "Cadastre-se",
     "description": "Title of Sign Up page"
   },
   "V3Zz1V": {
-    "defaultMessage": "Vue 题目",
+    "defaultMessage": "Questões Vue",
     "description": "Vue questions category long title"
   },
   "V5x4wO": {
-    "defaultMessage": "系统设计内容将以滚动方式发布。 购买高级版以解锁专用系统设计内容的全部访问权限，包括面试指南、高质量的解答和出题公司。",
+    "defaultMessage": "System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
   "VCvG/R": {
-    "defaultMessage": "您正在使用 <bold>年度</bold> 计划。",
+    "defaultMessage": "You are on the <bold>Annual</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
   "VJ8xZy": {
-    "defaultMessage": "随着网站增加更多内容，价格将会提高。",
+    "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
   },
   "VJf77h": {
-    "defaultMessage": "常见错误",
+    "defaultMessage": "Erros Comuns",
     "description": "Common mistakes made during front end system design interviews"
   },
   "VLFSw7": {
-    "defaultMessage": "最热门的 Vanilla JavaScript 前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
+    "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
   },
   "VQ9c4+": {
-    "defaultMessage": "反馈成功",
+    "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
   },
   "VQfbK1": {
-    "defaultMessage": "编码",
+    "defaultMessage": "Programação",
     "description": "Coding questions short title"
   },
   "VVf84T": {
-    "defaultMessage": "密码",
+    "defaultMessage": "Senha",
     "description": "Label of password field on Change Password page"
   },
   "VYWqtL": {
-    "defaultMessage": "系统设计题目",
+    "defaultMessage": "System Design Questions",
     "description": "Label for system design questions"
   },
   "VYrdoZ": {
-    "defaultMessage": "使用深色控制台主题",
+    "defaultMessage": "Use dark console theme",
     "description": "Button label to use dark console theme"
   },
   "VcLkXG": {
-    "defaultMessage": "免费",
+    "defaultMessage": "Grátis",
     "description": "Label to indicate that the item is free of charge"
   },
   "VlLGKt": {
-    "defaultMessage": "支付成功",
+    "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
   },
   "VlrCm6": {
-    "defaultMessage": "定价",
+    "defaultMessage": "Preços",
     "description": "Link label to the pricing page"
   },
   "VoNloX": {
-    "defaultMessage": "{numberOfFailedTests} 个失败",
+    "defaultMessage": "{numberOfFailedTests} failed",
     "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
   },
   "Vqt5YP": {
-    "defaultMessage": "美国西雅图高级软件工程师",
+    "defaultMessage": "Senior Software Engineer, Seattle, WA, USA",
     "description": "Ryan Van Valkenburg's job title"
   },
   "Vvc37/": {
-    "defaultMessage": "注册一个帐户",
+    "defaultMessage": "Criar uma conta",
     "description": "Title of Email Sign Up page"
   },
   "W7BkGp": {
-    "defaultMessage": "阶段 {stageNumber}",
+    "defaultMessage": "Stage {stageNumber}",
     "description": "Preparation stage number"
   },
   "WDJgWl": {
-    "defaultMessage": "题库",
+    "defaultMessage": "Questões",
     "description": "Front end system design interviews questions"
   },
   "WJ/3Qn": {
-    "defaultMessage": "前端面试的完整准备平台。 {questionCount}+ 练习题目(有答案) 跨系统设计，UI 等。由前FAANG 面试官提供。",
+    "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
   },
   "WzDhJE": {
-    "defaultMessage": "由Clearbit提供的标志",
+    "defaultMessage": "Logos fornecidos por Clearbit",
     "description": "Attribution text that company logos were provided by Clearbit"
   },
   "X/axGA": {
-    "defaultMessage": "联盟会员计划",
+    "defaultMessage": "Programa de Afiliados",
     "description": "Title of Affiliate Program page"
   },
   "X1UVMv": {
-    "defaultMessage": "我们不时添加更多的题目和指南，免费提供给高级订阅者。",
+    "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
   },
   "X55xMA": {
-    "defaultMessage": "高级版功能",
+    "defaultMessage": "Recurso Premium",
     "description": "Header for paywall over company tagging"
   },
   "XS6Jyn": {
-    "defaultMessage": "加入联署营销计划",
+    "defaultMessage": "Torne-se um Afiliado",
     "description": "Link to affiliate marketing program page"
   },
   "XUWY7n": {
-    "defaultMessage": "前端系统设计",
+    "defaultMessage": "Design de sistemas front end",
     "description": "Table row header for front end system design feature"
   },
   "XVPYZg": {
-    "defaultMessage": "忘记密码？",
+    "defaultMessage": "Esqueceu a sua senha?",
     "description": "Label of forget password button on Email Sign In page"
   },
   "XdezZk": {
-    "defaultMessage": "会发生什么，会在哪些环节发生，以及如何准备",
+    "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
   },
   "Xka4d3": {
-    "defaultMessage": "提示：许多用户将GreatFrontEnd 高级版作为公司弹性福利或学习和培训预算的一部分进行报销。",
+    "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
   },
   "XwbyU0": {
-    "defaultMessage": "UI题目的类型、要涵盖的概念和评分标准",
+    "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
     "description": "Front End User Interface interview questions, concepts and rubrics"
   },
   "XygrPg": {
-    "defaultMessage": "<code>console.log()</code> 语句将显示在此处。",
+    "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
   },
   "Y6CFPM": {
-    "defaultMessage": "通过继续，您同意 GreatFrontend 的 <tos>服务条款</tos> 和 <pp>隐私政策</pp>。",
+    "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
   "YB06jW": {
-    "defaultMessage": "高级会员",
+    "defaultMessage": "Premium",
     "description": "Label for premium questions"
   },
   "YIsqrq": {
-    "defaultMessage": "快捷方式的完整列表可以在 <Anchor>Visual Studio Code 官网</Anchor> 上找到。",
+    "defaultMessage": "Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
   },
   "YJmwAv": {
-    "defaultMessage": "或者通过这些渠道联系我们",
+    "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
   },
   "YM1bnf": {
-    "defaultMessage": "发生了一个错误",
+    "defaultMessage": "Ocorreu um erro",
     "description": "Title of alert indicating an error on Email Sign In/Up Page"
   },
   "YMfxks": {
-    "defaultMessage": "我们的终身访问计划的费用低于一个普通前端工程师的1小时的工资。同时，在面试中取得优异成绩的回报可能是增加总计数十万的报酬。",
+    "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "YWz2ko": {
-    "defaultMessage": "经过验证的准备计划",
+    "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
   },
   "YXs0ZC": {
-    "defaultMessage": "取消",
+    "defaultMessage": "Cancelar",
     "description": "Cancel and close the sign in modal"
   },
   "Yb2e9Q": {
@@ -1672,95 +1672,95 @@
     "description": "HTML topic for quiz questions"
   },
   "YbRLG7": {
-    "defaultMessage": "搜索测验题目",
+    "defaultMessage": "Buscar perguntas do quiz",
     "description": "Placeholder for search input of quiz question list"
   },
   "Z5P0Gp": {
-    "defaultMessage": "在编程和提示中期望什么会成功",
+    "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
   },
   "Z9Wr7g": {
-    "defaultMessage": "查看全部",
+    "defaultMessage": "Ver tudo",
     "description": "Label for see all button that brings user to the full question list for that question format"
   },
   "ZB+f95": {
-    "defaultMessage": "按题目类型进行准备",
+    "defaultMessage": "Preparation by Question Type",
     "description": "Preparing by front end interview question format"
   },
   "ZCTrb8": {
-    "defaultMessage": "登录您的账号",
+    "defaultMessage": "Sign in to your account",
     "description": "Title of Email Sign In page"
   },
   "ZCmkG3": {
-    "defaultMessage": "找不到你想要的答案吗？ <link>联系我们！</link>",
+    "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
   },
   "ZLXgL9": {
-    "defaultMessage": "<span>前端</span> <inline>面试 <colour>及更多</colour></inline> 的所有基本内容。",
+    "defaultMessage": "<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>.",
     "description": "Key features section heading"
   },
   "ZN/wJM": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "Completed status for a question"
   },
   "ZX2n3I": {
-    "defaultMessage": "重要性：由低至高",
+    "defaultMessage": "Importance: Low to High",
     "description": "Sorting option on quiz questions page - from Low to High"
   },
   "ZYFcYD": {
-    "defaultMessage": "报告题目",
+    "defaultMessage": "Reportar um problema",
     "description": "Label for reporting an issue"
   },
   "ZYtAFY": {
-    "defaultMessage": "{questionCount}+ CSS 面试问题，包括知识问答题和CSS编码问题。",
+    "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
     "description": "Subtitle for CSS questions list page"
   },
   "Znv3Y6": {
-    "defaultMessage": "保存变更",
+    "defaultMessage": "Salvar Alterações",
     "description": "Label for button to save changes to user account email"
   },
   "ZpZ8tp": {
-    "defaultMessage": "软件工程师--前端，Perch，美国",
+    "defaultMessage": "Software Engineer — Front End, Perch, USA",
     "description": "Anand Dharne's job title"
   },
   "a6L95B": {
-    "defaultMessage": "请检查您电子邮箱中的确认链接。",
+    "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
   },
   "a8ETQr": {
-    "defaultMessage": "Meta 图标",
+    "defaultMessage": "Logo da Meta",
     "description": "Meta company logo"
   },
   "aBlEic": {
-    "defaultMessage": "{currencySymbol}{price} 按月计费。",
+    "defaultMessage": "{currencySymbol}{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
   },
   "aE1FCD": {
-    "defaultMessage": "/月",
+    "defaultMessage": "/mês",
     "description": "Per month"
   },
   "aPfuzs": {
-    "defaultMessage": "重置密码",
+    "defaultMessage": "Redefinir senha",
     "description": "Title of Password Reset page"
   },
   "aQKVD4": {
-    "defaultMessage": "由就职于以下公司的前面试官贡献",
+    "defaultMessage": "Contributed by ex-interviewers at",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
   },
   "aZqFm4": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "Tooltip for Completed questions label"
   },
   "akHBWv": {
-    "defaultMessage": "减少缩进",
+    "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
   },
   "am2rVD": {
-    "defaultMessage": "尝试更改过滤器",
+    "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
   },
   "aqK/Gm": {
-    "defaultMessage": "可用的框架",
+    "defaultMessage": "Available Frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
   },
   "au4m82": {
@@ -1768,67 +1768,67 @@
     "description": "JavaScript questions category long title"
   },
   "b0OofK": {
-    "defaultMessage": "前端编码面试有多种形式的题目——练习编写JavaScript函数、数据结构和算法。",
+    "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
   },
   "b2csyI": {
-    "defaultMessage": "下一页",
+    "defaultMessage": "Próximo",
     "description": "Label for button leading to the next page"
   },
   "bE90WW": {
-    "defaultMessage": "撤销",
+    "defaultMessage": "Refazer",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
   "bGwCko": {
-    "defaultMessage": "GreatFrontEnd是在不断变化的前端世界中进行准备和继续工作的一个伟大资源。它让我能够温习基础知识，磨练新的概念和实践，使我在技术能力和信心方面达到最佳状态，从而能够获得面试和录用。",
+    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
   },
   "bO2ju9": {
-    "defaultMessage": "标记题目为未完成失败。请重试",
+    "defaultMessage": "Failed to mark question as incomplete. Please try again",
     "description": "Error message shown when the question cannot be marked incomplete"
   },
   "bQ3XUx": {
-    "defaultMessage": "暂无测试",
+    "defaultMessage": "Nenhum Teste",
     "description": "Label indicating that no test cases are available for this question"
   },
   "bWymcE": {
-    "defaultMessage": "前端/网络开发者前端系统设计面试准备指南",
+    "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
     "description": "Front end system design guidebook description"
   },
   "bZFghR": {
-    "defaultMessage": "推特",
+    "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
   },
   "bfMxFC": {
-    "defaultMessage": "Stripe 客户 ID：",
+    "defaultMessage": "Stripe Customer ID:",
     "description": "Label for Stripe customer ID."
   },
   "bxZm1S": {
-    "defaultMessage": "用户界面题目",
+    "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
   "c12AhV": {
-    "defaultMessage": "面包屑",
+    "defaultMessage": "Breadcrumb",
     "description": "Screenreader text to indicate breadcrumb component"
   },
   "c2hcfm": {
-    "defaultMessage": "提交",
+    "defaultMessage": "Enviar",
     "description": "Feedback widget submit button label"
   },
   "c4SvsG": {
-    "defaultMessage": "我得到了一个面试的机会，在一个在线零售巨头的关键前端团队中担任一个梦幻般的角色，该团队拥有超过5000万客户，每天的渲染量超过50亿。这是一个让我的事业更上一层楼的好机会。问题是--我还没有准备好去面试!",
+    "defaultMessage": "I got an opportunity to interview for a dream role with a critical frontend team of an online retail giant with over 50m customers and > 5 billion renders per day. A great opportunity to take my career to the next level. The problem — I wasn't ready to interview!",
     "description": "Larry Almeida's testimonial"
   },
   "c7lcjj": {
-    "defaultMessage": "HTML 题目",
+    "defaultMessage": "HTML Questions",
     "description": "HTML Questions list page title"
   },
   "cB23kJ": {
-    "defaultMessage": "安全 | 个人资料",
+    "defaultMessage": "Segurança | Perfil",
     "description": "Title of Profile Security page"
   },
   "cU6AYV": {
-    "defaultMessage": "访问不断更新的题库。",
+    "defaultMessage": "Access to continuously updating question library.",
     "description": "Feature of quarterly pricing plan"
   },
   "cZVPou": {
@@ -1836,395 +1836,395 @@
     "description": "Label for HTML language"
   },
   "caYk+w": {
-    "defaultMessage": "准备所有类型的准备时间表 — <owlink>1 周</owlink>, <omlink>1 个月</omlink>, <tmlink>3个月</tmlink>",
+    "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
   "cgpi3r": {
-    "defaultMessage": "前端面试准备",
+    "defaultMessage": "Front End Interview Preparation",
     "description": "Front end interview preparation pages title"
   },
   "cjgzTz": {
-    "defaultMessage": "阅读如何使用 {questionFramework} 解决 {questionTitle}",
+    "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
   "cqEIAI": {
-    "defaultMessage": "{questionTitle} | 前端测验的面试题目及解答",
+    "defaultMessage": "{questionTitle} | Quiz de Perguntas de Entrevista de Front End com Soluções",
     "description": "Title of quiz question page"
   },
   "cuNbpf": {
-    "defaultMessage": "前端系统设计指南",
+    "defaultMessage": "Front End System Design Guidebook",
     "description": "Header for front end system design guidebook on the system design sidebar"
   },
   "cxU8W8": {
-    "defaultMessage": "给我们更多的用户来赚取15%的订单佣金",
+    "defaultMessage": "Refer more users to us and earn 15% commission of the first order",
     "description": "Description of Affiliate Program page"
   },
   "cxo3yi": {
-    "defaultMessage": "创建您自己的框架",
+    "defaultMessage": "Bring your own framework",
     "description": "Title for bring your own framework feature"
   },
   "d+wYSW": {
-    "defaultMessage": "注册免费的 Greater FrontEnd 帐户来跟踪您的进度和访问高级版",
+    "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
   },
   "d1vCxb": {
-    "defaultMessage": "越南软件工程师",
+    "defaultMessage": "Software Engineer, Vietnam",
     "description": "Anonymous Software Engineer's job title"
   },
   "d3GL1v": {
-    "defaultMessage": "向下复制行",
+    "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
   },
   "d8XKhi": {
-    "defaultMessage": "修改密码",
+    "defaultMessage": "Change password",
     "description": "Label of Change Password button on Change Password page"
   },
   "dAHBqv": {
-    "defaultMessage": "主题",
+    "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
   },
   "dFz30c": {
-    "defaultMessage": "重置",
+    "defaultMessage": "Resetar",
     "description": "Label for button to confirm progress reset"
   },
   "dJf+5S": {
-    "defaultMessage": "Javascript 题目",
+    "defaultMessage": "Perguntas de JavaScript",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
   "dSaXF6": {
-    "defaultMessage": "全面准备所有类型的前端面试题目和环节。指南和 {QuestionCount}+练习题目都包括在内。",
+    "defaultMessage": "Prepare holistically for all types of front end interview questions and rounds. Guides and {QuestionCount}+ practice questions included.",
     "description": "Preparation page subtitle"
   },
   "da4RLj": {
-    "defaultMessage": "谷歌图标",
+    "defaultMessage": "Logo do Google",
     "description": "Google company logo"
   },
   "dfAvc7": {
-    "defaultMessage": "页脚",
+    "defaultMessage": "Footer",
     "description": "Footer section heading"
   },
   "dk2vXq": {
-    "defaultMessage": "服务条款",
+    "defaultMessage": "Termos de Serviço",
     "description": "Title of Terms of Service page"
   },
   "drvlbZ": {
-    "defaultMessage": "准备行为面试的有效战略。",
+    "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
     "description": "Behavioral interview guidebook description"
   },
   "dxwKBt": {
-    "defaultMessage": "全栈工程师",
+    "defaultMessage": "Full Stack Engineer",
     "description": "Full Stack Engineer job title"
   },
   "dz24ro": {
-    "defaultMessage": "发送重置密码指令",
+    "defaultMessage": "Send reset password instructions",
     "description": "Label of password reset button on Password Reset page"
   },
   "e+03Yz": {
-    "defaultMessage": "尝试一些前端题目！",
+    "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
   },
   "eBp6vh": {
-    "defaultMessage": "重置进度",
+    "defaultMessage": "Redefinir Progresso",
     "description": "Title for reset progress confirmation dialog"
   },
   "eFGHLB": {
-    "defaultMessage": "你不会在其他地方找到同样的深度和质量。",
+    "defaultMessage": "You won't find the same depth and quality elsewhere.",
     "description": "Key features section subheading"
   },
   "ePyk/V": {
-    "defaultMessage": "获取关于新的前端资源、面试技巧和练习题目的简报",
+    "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
     "description": "Title for newsletter sign up section"
   },
   "eQwU0l": {
-    "defaultMessage": "向上复制行",
+    "defaultMessage": "Copiar linha acima",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
   },
   "eVJIGT": {
-    "defaultMessage": "系统设计题目",
+    "defaultMessage": "System Design Questions",
     "description": "Front End system design interview questions"
   },
   "ee862n": {
-    "defaultMessage": "前端/网络开发者面试指定指南。",
+    "defaultMessage": "The definitive guide to front end / web developer interviews.",
     "description": "Front end interview guidebook description"
   },
   "eeWLAW": {
-    "defaultMessage": "框架",
+    "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
   },
   "ekSPPz": {
-    "defaultMessage": "答题卡形式",
+    "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"
   },
   "eyLjDz": {
-    "defaultMessage": "有问题、 反馈或想说的吗？",
+    "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
   },
   "f3e84v": {
-    "defaultMessage": "已接受",
+    "defaultMessage": "Aceito",
     "description": "Status label for question answered correctly"
   },
   "f89otf": {
-    "defaultMessage": "算法题目",
+    "defaultMessage": "Questões de Algoritmo",
     "description": "Algorithm Coding Interview Questions"
   },
   "fH+NAA": {
-    "defaultMessage": "帐户 | 个人资料",
+    "defaultMessage": "Conta | Perfil",
     "description": "Title of Profile Account page"
   },
   "fHpn67": {
-    "defaultMessage": "谷歌",
+    "defaultMessage": "Google",
     "description": "Company name for Google"
   },
   "fQHORb": {
-    "defaultMessage": "显示开发者工具",
+    "defaultMessage": "Show DevTool",
     "description": "Label for button to expand the DevTool"
   },
   "fSn4nv": {
-    "defaultMessage": "作为一个接受过大量面试的人，我可以说Greater FrontEnd 是一只迷人的金矿。 我强烈建议正在准备前端面试的任何人或只想学习一些新概念的任何人来Greater FrontEnd。 内容组织严密，存在一些非常实用的编码挑战，系统设计部分很惊人！！！",
+    "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
     "description": "Anonymous Front End Engineer's testimonial"
   },
   "fXNw/d": {
-    "defaultMessage": "您的电子邮箱",
+    "defaultMessage": "Seu Email",
     "description": "Feedback widget email input field label"
   },
   "fevC5W": {
-    "defaultMessage": "免费",
+    "defaultMessage": "Grátis",
     "description": "Label indicating that quiz questions are free"
   },
   "fktOy2": {
-    "defaultMessage": "{questionCount}+ JavaScript 面试问题，从实现通用库 API，实用功能，算法，到构建界面组件等等。",
+    "defaultMessage": "{questionCount}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
     "description": "Subtitle for JavaScript questions list page"
   },
   "fnVJCv": {
-    "defaultMessage": "进度总览",
+    "defaultMessage": "Progress Overview",
     "description": "Header for progress overview section which tells user the progress they have made on questions practice on the platform"
   },
   "frl+Af": {
-    "defaultMessage": "上一页",
+    "defaultMessage": "Ant",
     "description": "Label for button leading to the previous page"
   },
   "ftr2lo": {
-    "defaultMessage": "没有标签的公司",
+    "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
   },
   "fvztbG": {
-    "defaultMessage": "提交您的代码来检查测试情况。",
+    "defaultMessage": "Submit your code to check against the tests.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
   },
   "fy/E4B": {
-    "defaultMessage": "独家终生Discord频道访问权。从团队和社区获得实时支持。",
+    "defaultMessage": "Exclusive lifetime Discord channel access. Get real-time support from the team and the community.",
     "description": "Feature of annual pricing plan"
   },
   "g3PJQr": {
-    "defaultMessage": "领英",
+    "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
   },
   "g65B9h": {
-    "defaultMessage": "3 个月计划",
+    "defaultMessage": "3 Months Plan",
     "description": "Short label for 3 months study plan"
   },
   "gAOQDT": {
-    "defaultMessage": "练习前端JavaScript面试题目及解答",
+    "defaultMessage": "Practice Top JavaScript Front End Interview Questions with Solutions",
     "description": "SEO title for JavaScript questions list page"
   },
   "gDAVYm": {
-    "defaultMessage": "报告问题",
+    "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
   },
   "gZL62Q": {
-    "defaultMessage": "更改 {userEmail} 的密码",
+    "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
   },
   "gdGavv": {
-    "defaultMessage": "高级版题目",
+    "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
   },
   "geCoTi": {
-    "defaultMessage": "隐藏开发者工具",
+    "defaultMessage": "Hide DevTool",
     "description": "Label for button to collapse the DevTool"
   },
   "h38yCs": {
-    "defaultMessage": "题目列表",
+    "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
   },
   "h63G52": {
-    "defaultMessage": "典型的求职持续时间的折扣率。",
+    "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
   "hESyRg": {
-    "defaultMessage": "期望什么以及如何最有效地准备工作",
+    "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
   },
   "hNQSH/": {
-    "defaultMessage": "苹果",
+    "defaultMessage": "Apple",
     "description": "Company name for Apple"
   },
   "hOEGb+": {
-    "defaultMessage": "滚动到底部",
+    "defaultMessage": "Rolar para Baixo",
     "description": "Button label to scroll to bottom of the console logs"
   },
   "hQa+4K": {
-    "defaultMessage": "为什么成为 Greater FrontEnd 联盟会员？",
+    "defaultMessage": "Por que ser um afiliado GreatFrontEnd?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
   "hXf/Wl": {
-    "defaultMessage": "从JS 实用程序到React用户界面的所有编码循环题目",
+    "defaultMessage": "All types of coding round questions from JS utilities to React user interfaces",
     "description": "Description for coding interview stage"
   },
   "hhbPlp": {
-    "defaultMessage": "支付一次, 永久访问面试平台, 包括更新。",
+    "defaultMessage": "Pay once, get access to the interview platform forever, including updates.",
     "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "hoQUfU": {
-    "defaultMessage": "重要性：从高到低",
+    "defaultMessage": "Importância: Maior para Menor",
     "description": "Sorting option on quiz questions page - from High to Low"
   },
   "huof8A": {
-    "defaultMessage": "{questionFramework} 之 {questionTitle} | 前端面试用户界面编码题目",
+    "defaultMessage": "{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions practice page"
   },
   "i4MSQe": {
-    "defaultMessage": "1 周计划",
+    "defaultMessage": "Plano de 1 Semana",
     "description": "Link to one week study plan"
   },
   "i7u7fD": {
-    "defaultMessage": "标记为未完成",
+    "defaultMessage": "Marcar como incompleto",
     "description": "Mark the question as incomplete"
   },
   "iAXU/e": {
-    "defaultMessage": "登录/注册",
+    "defaultMessage": "Sign In / Sign Up",
     "description": "Sign in or up for the platform"
   },
   "iCRUOb": {
-    "defaultMessage": "回答“为什么在这里工作”",
+    "defaultMessage": "Answering \"Why Work Here\"",
     "description": "How to answer the \"why work here\" question in behavioral interviews"
   },
   "iElBQT": {
-    "defaultMessage": "计划定价",
+    "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
   },
   "iIQL6V": {
-    "defaultMessage": "已完成",
+    "defaultMessage": "Concluído",
     "description": "Label indicating that the question has been completed"
   },
   "iLx/BQ": {
-    "defaultMessage": "亚马逊",
+    "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
   },
   "iOfgIz": {
-    "defaultMessage": "系统设计练习题目",
+    "defaultMessage": "System Design Practice Questions",
     "description": "Coding question list title"
   },
   "iSDQh3": {
-    "defaultMessage": "公司",
+    "defaultMessage": "Empresas",
     "description": "Title for section on question that shows which companies asked the question"
   },
   "iSFCj/": {
-    "defaultMessage": "正在登出",
+    "defaultMessage": "Encerrando a Sessão",
     "description": "Title of Logout page"
   },
   "ihSYR4": {
-    "defaultMessage": "编码练习题目",
+    "defaultMessage": "Coding Practice Questions",
     "description": "Coding question list title"
   },
   "iqc+V7": {
-    "defaultMessage": "访问不断更新的题库。",
+    "defaultMessage": "Access to continuously updating question library.",
     "description": "Feature of monthly pricing plan"
   },
   "iqz/fo": {
-    "defaultMessage": "JS题目的类型、要涵盖的概念和评分标准",
+    "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
   "ivmSx0": {
-    "defaultMessage": "我们正在招聘!",
+    "defaultMessage": "Estamos Contratando",
     "description": "Link to careers page"
   },
   "j+MqYO": {
-    "defaultMessage": "高级内容即将到来",
+    "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
   },
   "j3EFJn": {
-    "defaultMessage": "前端工程师",
+    "defaultMessage": "Engenheiro Front End",
     "description": "Front End Engineer job title"
   },
   "j5W1/P": {
-    "defaultMessage": "顶级React编码面试题目以构建最常见的前端界面组件和应用。",
+    "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for React questions page"
   },
   "jEYebN": {
-    "defaultMessage": "查看订阅计划",
+    "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
   },
   "jGQnYd": {
-    "defaultMessage": "搜索编码题目",
+    "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
   },
   "jIpXy+": {
-    "defaultMessage": "敬请期待",
+    "defaultMessage": "Em Breve",
     "description": "Coming soon label indicating that a feature will be launched soon"
   },
   "jKk5c3": {
-    "defaultMessage": "CSS 题目",
+    "defaultMessage": "Questões CSS",
     "description": "CSS questions category long title"
   },
   "jN6xqZ": {
-    "defaultMessage": "1 周计划",
+    "defaultMessage": "Plano de 1 Semana",
     "description": "Long label for one week study plan"
   },
   "jNXBSj": {
-    "defaultMessage": "如果您使用 OAuth 登录(例如GitHub)，您可以在此设置密码来使用电子邮箱和密码登录。",
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
   },
   "jTXr+7": {
-    "defaultMessage": "行为环节简介",
+    "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
   },
   "jVSwXw": {
-    "defaultMessage": "购买高级版以解锁题目的全部访问权限。",
+    "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
   },
   "jbJq96": {
-    "defaultMessage": "获得高级版以解锁 <bold>所有题目和解答</bold>！",
+    "defaultMessage": "Get premium to unlock <bold>full access to all questions and solutions</bold>!",
     "description": "Call to action text for premium upgrade."
   },
   "jblvez": {
-    "defaultMessage": "标题：由Z至A",
+    "defaultMessage": "Titulo: Z a A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
   "jcGC9r": {
-    "defaultMessage": "预置仪表盘",
+    "defaultMessage": "Painel de Preparação",
     "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
   "jgIdRC": {
-    "defaultMessage": "密码",
+    "defaultMessage": "Senha",
     "description": "Label of password field on Sign In/Up page"
   },
   "jgldKV": {
-    "defaultMessage": "选择题目类型",
+    "defaultMessage": "Selecionar seção de perguntas",
     "description": "Label for tabs within coding workspace"
   },
   "jlTtgt": {
-    "defaultMessage": "如果您有任何其他需求，请 <link>给我们发送一封电子邮箱</link> 。我们会很乐意讨论这些需求！",
+    "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
   },
   "jnV/ZP": {
-    "defaultMessage": "系统设计题目",
+    "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
   },
   "jtuJQk": {
-    "defaultMessage": "关于我们",
+    "defaultMessage": "Sobre Nós",
     "description": "Title of About Us page"
   },
   "jxXMtj": {
-    "defaultMessage": "价格以 {currency} 显示。",
+    "defaultMessage": "Prices shown are in {currency}.",
     "description": "Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
   },
   "jzVpyI": {
-    "defaultMessage": "Greater FrontEnd 是否针对具有特定资历的工程师？",
+    "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
   },
   "k2Oi+j": {
-    "defaultMessage": "筛选器",
+    "defaultMessage": "Filtros",
     "description": "Label for filters button"
   },
   "k964KU": {
@@ -2232,227 +2232,227 @@
     "description": "CSS questions category short title"
   },
   "kCkca8": {
-    "defaultMessage": "错误",
+    "defaultMessage": "Erros",
     "description": "Select label for error log level in console filter"
   },
   "kEhkCv": {
-    "defaultMessage": "敬请期待",
+    "defaultMessage": "Em Breve",
     "description": "Tooltip for Coming Soon questions label"
   },
   "kF3Llo": {
-    "defaultMessage": "知识就是力量。超过 {count} 个有答案的短题目来构建和巩固您的前端基础。",
+    "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
   },
   "kGgqDu": {
-    "defaultMessage": "Angular 题目",
+    "defaultMessage": "Questões de Angular",
     "description": "Angular questions category long title"
   },
   "kHB06P": {
-    "defaultMessage": "我得到了一份工作，并且获得了很好的投资回报率!",
+    "defaultMessage": "I got the job and a great ROI!",
     "description": "Larry Almeida's testimonial"
   },
   "kL0yEH": {
-    "defaultMessage": "你在其他地方找不到",
+    "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
   "kjdLiy": {
-    "defaultMessage": "公司的实践题目",
+    "defaultMessage": "Practice questions by companies",
     "description": "Table row header for practice questions by companies feature"
   },
   "kmEY/r": {
-    "defaultMessage": "{currencySymbol}{price} 按季度计费。",
+    "defaultMessage": "{currencySymbol}{price} billed every 3 months.",
     "description": "Description of billing frequency for quarterly plan"
   },
   "kn+R8V": {
-    "defaultMessage": "有疑问，反馈，或者说什么？让我们知道，我们将尽快回复。",
+    "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
     "description": "Description of Contact Us page"
   },
   "knfvnJ": {
-    "defaultMessage": "过滤器",
+    "defaultMessage": "Filtros",
     "description": "Screenreader text to indicate filters component on quiz questions list"
   },
   "koTXam": {
-    "defaultMessage": "浏览器内编码工作区",
+    "defaultMessage": "In-browser coding workspace",
     "description": "Title for in-browser coding workspace feature"
   },
   "kvLlxS": {
-    "defaultMessage": "安全",
+    "defaultMessage": "Security",
     "description": "Security topic for quiz questions"
   },
   "kwblYW": {
-    "defaultMessage": "性能",
+    "defaultMessage": "Performance",
     "description": "Performance topic for quiz questions"
   },
   "kx0gZt": {
-    "defaultMessage": "查看题目",
+    "defaultMessage": "View questions",
     "description": "Label for button to view questions"
   },
   "l9OWsu": {
-    "defaultMessage": "测试",
+    "defaultMessage": "Testing",
     "description": "Testing topic for quiz questions"
   },
   "lJupPX": {
-    "defaultMessage": "查看所有题目",
+    "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
   },
   "lTQM7o": {
-    "defaultMessage": "想要看到更多的解答吗？ <link>探索我们的产品 -></link>",
+    "defaultMessage": "Want to see more solutions? <link>Explore our product →</link>",
     "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
   },
   "lVmhzW": {
-    "defaultMessage": "行为面试指南",
+    "defaultMessage": "Behavioral Interview Guidebook",
     "description": "Sidebar label for Behavioral Interview Guidebook page"
   },
   "lfY3AI": {
-    "defaultMessage": "传播信息并获得奖励",
+    "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
   },
   "lkCg86": {
-    "defaultMessage": "描述",
+    "defaultMessage": "Description",
     "description": "Header for question description section in coding workspace"
   },
   "lmBDjV": {
-    "defaultMessage": "测验题",
+    "defaultMessage": "Perguntas do Quiz",
     "description": "Header for quiz questions"
   },
   "loCbaG": {
-    "defaultMessage": "<link>查看我们的免费系统设计指南<span>→</span></link>",
+    "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
     "description": "System design link"
   },
   "lyjVwD": {
-    "defaultMessage": "1 个月计划",
+    "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"
   },
   "m+nWg0": {
-    "defaultMessage": "未完成",
+    "defaultMessage": "Not Completed",
     "description": "Tooltip for questions Not Completed label"
   },
   "mNb3b2": {
-    "defaultMessage": "困难",
+    "defaultMessage": "Difícil",
     "description": "Hard difficulty question"
   },
   "mOk1w0": {
-    "defaultMessage": "准备对端到端的前端面试",
+    "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
   "mVXHy8": {
-    "defaultMessage": "高级软件工程师--前端，Zalando，德国柏林",
+    "defaultMessage": "Senior Software Engineer — Front End, Zalando, Berlin, Germany",
     "description": "Larry Almeida's job title"
   },
   "mb7erW": {
-    "defaultMessage": "重要性",
+    "defaultMessage": "Importância",
     "description": "Label for question importance - how important it is to practice this question"
   },
   "mt2ON4": {
-    "defaultMessage": "了解更多关于 Greater FrontEnd 创始团队的信息，以及我们为什么做这件事",
+    "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
     "description": "Description of About Us page"
   },
   "n0mDHU": {
-    "defaultMessage": "作者",
+    "defaultMessage": "Autor",
     "description": "Author of the question"
   },
   "nFYr2a": {
-    "defaultMessage": "您先前的代码已经恢复。 <Anchor>重置为默认</Anchor>",
+    "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
   "nId6NF": {
-    "defaultMessage": "访问不断更新的题库。",
+    "defaultMessage": "Access to continuously updating question library.",
     "description": "Feature of annual pricing plan"
   },
   "nOvXhk": {
-    "defaultMessage": "你将获得每一个新题目和我们未来增加的任何指南。随着新技术和新趋势的出现，我们会更新我们的题目，并可能增加新的题目/形式，以跟上趋势，你将获得所有这些题目。",
+    "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
     "description": "Answer to 'What does free updates include?' on Homepage's FAQ sections"
   },
   "nPkj31": {
-    "defaultMessage": "为便于您参考，这些是您的代码将要运行的 Jest 测试。",
+    "defaultMessage": "For your reference, these are the Jest tests that your code will run against.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
   },
   "nTu2nu": {
-    "defaultMessage": "隐私政策",
+    "defaultMessage": "Política de Privacidade",
     "description": "Title of Privacy Policy page"
   },
   "nai6YT": {
-    "defaultMessage": "Amazon 图标",
+    "defaultMessage": "Logo da Amazon",
     "description": "Amazon company logo"
   },
   "npvgQq": {
-    "defaultMessage": "在一周内准备您的前端面试。通过很好的编码和测验题目组合，高效率地注重最重要的概念。",
+    "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
   },
   "nuO9Ny": {
-    "defaultMessage": "在此尝试我们的题目：",
+    "defaultMessage": "Try our questions here:",
     "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
   },
   "nxJioH": {
-    "defaultMessage": "警告",
+    "defaultMessage": "Alertas",
     "description": "Select label for warning log level in console filter"
   },
   "nzauMv": {
-    "defaultMessage": "编译错误",
+    "defaultMessage": "Erro de Compilação",
     "description": "Status label for compilation error when code is run"
   },
   "o+1cag": {
-    "defaultMessage": "清空控制台",
+    "defaultMessage": "Limpar o Console",
     "description": "Button label to clear the console in the coding workspace"
   },
   "o2xbIW": {
-    "defaultMessage": "您正在使用 <bold>终生</bold> 计划。",
+    "defaultMessage": "Você está no plano <bold>Vitalício</bold>.",
     "description": "Text describing user's subscription plan."
   },
   "o4toU7": {
-    "defaultMessage": "唯一能够深入解决最常见系统设计题目的平台。",
+    "defaultMessage": "Only platform with in-depth solutions to the most commonly asked system design questions.",
     "description": "Table cell content for front end system design feature comparison in GFE."
   },
   "oE3TMf": {
-    "defaultMessage": "测验题",
+    "defaultMessage": "Perguntas do Quiz",
     "description": "Label for quiz questions"
   },
   "oNMAi3": {
-    "defaultMessage": "难度：由易到难",
+    "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
   },
   "oNbAS2": {
-    "defaultMessage": "回答“自我介绍”",
+    "defaultMessage": "Answering \"Tell Me About Yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
   },
   "oQiKcl": {
-    "defaultMessage": "排序方式",
+    "defaultMessage": "Ordenar Por",
     "description": "Label for sort button"
   },
   "oR0ECI": {
-    "defaultMessage": "标记题目为未完成",
+    "defaultMessage": "Marked question as incomplete",
     "description": "Success message shown when a question is marked as complete"
   },
   "oXHJcG": {
-    "defaultMessage": "编码题目",
+    "defaultMessage": "Coding Questions",
     "description": "Label for button that opens slideout of question list on coding workspace"
   },
   "oieVuW": {
-    "defaultMessage": "话题",
+    "defaultMessage": "Tópico",
     "description": "Question quiz topic"
   },
   "ojtNa2": {
-    "defaultMessage": "3 个月",
+    "defaultMessage": "3 Meses",
     "description": "Short label for 3 months study plan"
   },
   "ozQHOy": {
-    "defaultMessage": "隐藏此会话的小部件",
+    "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
   },
   "p97ubP": {
-    "defaultMessage": "敬请期待",
+    "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
   },
   "pM/ZPq": {
-    "defaultMessage": "网络",
+    "defaultMessage": "Rede",
     "description": "Network topic for quiz questions"
   },
   "pRCMpc": {
-    "defaultMessage": "查看计划",
+    "defaultMessage": "Ver planos",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
   },
   "pcXH8p": {
-    "defaultMessage": "JavaScript 实用工具",
+    "defaultMessage": "Utilitários JavaScript",
     "description": "Front end JavaScript utility functions"
   },
   "phh5/0": {
@@ -2460,79 +2460,79 @@
     "description": "Table column header for GFE"
   },
   "pp1TOt": {
-    "defaultMessage": "复制行(空选中)",
+    "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
   },
   "px5rU7": {
-    "defaultMessage": "解答",
+    "defaultMessage": "Solução",
     "description": "Header for the question solution section"
   },
   "q0+3Lk": {
-    "defaultMessage": "无障碍",
+    "defaultMessage": "Acessibilidade",
     "description": "Accessibility topic for quiz questions"
   },
   "q0J0CA": {
-    "defaultMessage": "使用 {authProviderLabel} 继续",
+    "defaultMessage": "Continue with {authProviderLabel}",
     "description": "Label of social media sign in button on Social Sign In page"
   },
   "q0mkGb": {
-    "defaultMessage": "学习回答\"告诉我一段时间...\"解决问题的题目",
+    "defaultMessage": "Learn to answer \"Tell me about a time..\" problem solving questions",
     "description": "How to answer problem solving situation questions in behavioral interviews"
   },
   "q3MA2w": {
-    "defaultMessage": "登录/注册",
+    "defaultMessage": "Sign In / Up",
     "description": "Link label to the sign in / up page"
   },
   "q4xRCW": {
-    "defaultMessage": "看到如此全面的前端开发面试资源令人惊讶。我来自一个更传统的后端角色，我发现这个网站是一个知识的宝库，它真的把你从一个初学者带到高级水平。",
+    "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
     "description": "Anonymous Front End Engineer's testimonial"
   },
   "qAxlQN": {
-    "defaultMessage": "使用 Magic 链接登录",
+    "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
   },
   "qXxpdK": {
-    "defaultMessage": "问答样式",
+    "defaultMessage": "Quiz",
     "description": "Quiz questions"
   },
   "qcjD4a": {
-    "defaultMessage": "编码题目",
+    "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
   },
   "qfX/3p": {
-    "defaultMessage": "测试",
+    "defaultMessage": "Testes",
     "description": "Label for Tests tab on the coding workspace"
   },
   "qjKLfH": {
-    "defaultMessage": "给我们发电子邮箱 <email>contact@greaterfrontend.com</email> 或使用下面的选项之一。我们通常在一两天内回复。",
+    "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
   },
   "qwP4CA": {
-    "defaultMessage": "巨型题库",
+    "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
   },
   "qzKA9Y": {
-    "defaultMessage": "没有多少人有写高质量指南的经验。",
+    "defaultMessage": "Not many have experience to write quality guides.",
     "description": "Table cell content for front end system design feature comparison in other platforms."
   },
   "rXnAi2": {
-    "defaultMessage": "我们仍在扩大我们的题库。",
+    "defaultMessage": "We're still growing our question base.",
     "description": "Question base section title"
   },
   "rfI2w+": {
-    "defaultMessage": "取消",
+    "defaultMessage": "Cancelar",
     "description": "Label for button to cancel action"
   },
   "ryCcOP": {
-    "defaultMessage": "通知我",
+    "defaultMessage": "Notifique-me",
     "description": "Button label for a newsletter subscription section"
   },
   "s0GXXm": {
-    "defaultMessage": "我本来可以把时间用来为资源制造祸害，而是选择明智地投入我的资金。 Greater FrontEnd 被证明是精心设计的学习计划中的一种奇妙的资源。 交互式练习问答和指南，涵盖您所有典型的大科技面试需求。 他们的测验题目有助于我在面试前几天回顾我的知识。 我特别赞赏《系统设计指南》，其中包括一系列前端设计题目，以及易于记住和适用于任何题目类型的框架。",
+    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
   },
   "s3LMhK": {
-    "defaultMessage": "主页",
+    "defaultMessage": "Home",
     "description": "Home button on breadcrumb component"
   },
   "s51Pgd": {
@@ -2540,139 +2540,139 @@
     "description": "Label for React framework"
   },
   "s7CwKz": {
-    "defaultMessage": "行为面试学习指南",
+    "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
   },
   "sGF5oQ": {
-    "defaultMessage": "题目类型",
+    "defaultMessage": "Tipos de Questões",
     "description": "Types of front end system design interview questions"
   },
   "sa8B3r": {
-    "defaultMessage": "系统设计题目",
+    "defaultMessage": "System Design Questions",
     "description": "System design questions long title"
   },
   "slAmNi": {
-    "defaultMessage": "常见前端应用的设计、构建和优化决定",
+    "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
     "description": "Description for system design interview stage"
   },
   "sn/P86": {
-    "defaultMessage": "指南",
+    "defaultMessage": "Guides",
     "description": "Section heading in footer for links to interview guides"
   },
   "snLKzs": {
-    "defaultMessage": "管理订阅",
+    "defaultMessage": "Manage Subscription",
     "description": "Manage user membership subscription button label"
   },
   "srrlrR": {
-    "defaultMessage": "练习前端系统设计面试题及解答",
+    "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
     "description": "Title of Interview Preparation System Design page"
   },
   "t5L0yE": {
-    "defaultMessage": "价格",
+    "defaultMessage": "Pricing",
     "description": "Link to pricing plans page"
   },
   "tDJ0XN": {
-    "defaultMessage": "难度：由难到易",
+    "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
   },
   "tJIZWT": {
-    "defaultMessage": "布局",
+    "defaultMessage": "Layout",
     "description": "Label for button that changes the layout of the coding workspace"
   },
   "tNAIsO": {
-    "defaultMessage": "Javascript 题目",
+    "defaultMessage": "JavaScript Questions",
     "description": "JavaScript questions category long title"
   },
   "tO/Ph4": {
-    "defaultMessage": "活动 | 个人资料",
+    "defaultMessage": "Activity | Profile",
     "description": "Title of Profile Activity page"
   },
   "tP5+Am": {
-    "defaultMessage": "注册",
+    "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
   },
   "tU2J/q": {
-    "defaultMessage": "前端系统设计指南",
+    "defaultMessage": "Front End System Design Guidebook",
     "description": "Sidebar label for Front End System Design Guidebook page"
   },
   "tW2p7C": {
-    "defaultMessage": "编码研究指南",
+    "defaultMessage": "Coding Study Guides",
     "description": "Coding interview study guides"
   },
   "taVYcT": {
-    "defaultMessage": "请检查您电子邮箱中的 Magic 链接。",
+    "defaultMessage": "Check your email for the magic link",
     "description": "Message indicating a successful magic link request"
   },
   "td80TL": {
-    "defaultMessage": "对于认真寻找工作或长期寻找工作。",
+    "defaultMessage": "For serious job seekers or longer term job hunts.",
     "description": "Supporting statement for an annual pricing plan"
   },
   "tmvC1S": {
-    "defaultMessage": "解锁所有高级内容，包括官方解答、公司和学习计划。",
+    "defaultMessage": "Unlock all premium content including official solutions, companies, and study plans.",
     "description": "Lifetime membership feature of unlocking premium content."
   },
   "tnHfa2": {
-    "defaultMessage": "向下移动一行",
+    "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
   },
   "tonRki": {
-    "defaultMessage": "国际化",
+    "defaultMessage": "Internacionalização",
     "description": "Internationalization topic for quiz questions"
   },
   "tsVEh8": {
-    "defaultMessage": "标题：由A至Z",
+    "defaultMessage": "Title: A to Z",
     "description": "Sorting option for question list - sort titles from A to Z"
   },
   "tuaXhc": {
-    "defaultMessage": "缩进行",
+    "defaultMessage": "Indent line",
     "description": "Text describing indent line in the coding workspace shortcuts menu"
   },
   "twAHPt": {
-    "defaultMessage": "面试官在寻找什么",
+    "defaultMessage": "What interviewers are looking for",
     "description": "What front end system design interviewer are looking for"
   },
   "u0dndi": {
-    "defaultMessage": "查看所有题目",
+    "defaultMessage": "Ver Todas as Questões",
     "description": "Link label to the list of all Quiz coding questions"
   },
   "uCbhIG": {
-    "defaultMessage": "返回以登录",
+    "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
   },
   "uDUEmN": {
-    "defaultMessage": "JS 函数、算法、构建组件等。",
+    "defaultMessage": "JS functions, algorithms, building components, etc.",
     "description": "Description of coding questions"
   },
   "uM5kA8": {
-    "defaultMessage": "切换行注释",
+    "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
   },
   "uawqxS": {
-    "defaultMessage": "您已完成此计划的 <span>{completionProgressPercentage}%</span> <span2> ({completedQuestions} of {totalQuestions})</span2>",
+    "defaultMessage": "You have completed <span>{completionProgressPercentage}%</span> of this plan <span2> ({completedQuestions} of {totalQuestions})</span2>",
     "description": "Line describing completion status of the study plan"
   },
   "ugHQqC": {
-    "defaultMessage": "通过以下方式继续",
+    "defaultMessage": "Ou continue com",
     "description": "Label of divider preceding third party providers on Sign In page"
   },
   "ujL9EM": {
-    "defaultMessage": "{questionTitle} | 前端系统设计的面试题目及解答",
+    "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
     "description": "Title of system design question page"
   },
   "ukvoec": {
-    "defaultMessage": "从今天开始这个准备计划！",
+    "defaultMessage": "Start on this preparation plan today!",
     "description": "Call-to-Action that asks user to try out a study plan"
   },
   "ul1/lo": {
-    "defaultMessage": "U.P. {currencySymbol}{price} <span>({discountPercentage}% 优惠)</span>",
+    "defaultMessage": "U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>",
     "description": "Usual price of the item and the discount off"
   },
   "uogn1k": {
-    "defaultMessage": "在您选择的框架内练习构建所有类型的用户界面：组件、应用、游戏等。",
+    "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
   "urvIL3": {
-    "defaultMessage": "登录您的账号",
+    "defaultMessage": "Entrar na sua conta",
     "description": "Subtitle of Sign In page"
   },
   "uz7f93": {
@@ -2680,19 +2680,19 @@
     "description": "Company name for Salesforce"
   },
   "v+Q+mM": {
-    "defaultMessage": "您正在使用 <bold>月度</bold> 计划。",
+    "defaultMessage": "You are on the <bold>Monthly</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
   "v2TGFl": {
-    "defaultMessage": "高",
+    "defaultMessage": "Alta",
     "description": "Label for high question importance"
   },
   "v4ChUi": {
-    "defaultMessage": "开始GreatFrontend的学习计划或练习超过 {questionCount} 个题目的所有前端面试形式",
+    "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
     "description": "Description of Get Started page"
   },
   "v4Z+0r": {
-    "defaultMessage": "练习 <strong>Google、Facebook、Amazon、Apple、Airbnb、LinkedIn等</strong>询问的面试题目。",
+    "defaultMessage": "Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>.",
     "description": "Table cell content for practice questions by companies feature comparison in GFE."
   },
   "v7xpbV": {
@@ -2700,55 +2700,55 @@
     "description": "Company name for Stripe"
   },
   "vO1Ejd": {
-    "defaultMessage": "隐藏详情",
+    "defaultMessage": "Ocultar Detalhes",
     "description": "Label for button that allows users to collapse details of the code execution in the coding workspace"
   },
   "vaKldd": {
-    "defaultMessage": "终生",
+    "defaultMessage": "Vitalício",
     "description": "Title of lifetime pricing plan"
   },
   "vfVwh2": {
-    "defaultMessage": "1 周",
+    "defaultMessage": "1 Semana",
     "description": "Short label for one week study plan"
   },
   "vi10y1": {
-    "defaultMessage": "仪表板",
+    "defaultMessage": "Dashboard",
     "description": "Link to dashboard page"
   },
   "vp4zbB": {
-    "defaultMessage": "购买高级版以查看出题公司。",
+    "defaultMessage": "Purchase premium to see companies which ask this question.",
     "description": "Subtitle for paywall over information about companies that asked the question"
   },
   "vqKJ0D": {
-    "defaultMessage": "前端应用程序的设计模式和结构",
+    "defaultMessage": "Design patterns and architecture of front end apps",
     "description": "Description of system design questions"
   },
   "vqL6fD": {
-    "defaultMessage": "开始使用优秀产品赚取被动佣金",
+    "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
   },
   "vqTecf": {
-    "defaultMessage": "正在根据代码评估测试...",
+    "defaultMessage": "Evaluating tests against code...",
     "description": "Loading text that appears when the tests cases are running (after the user submits their code in the coding workspace)"
   },
   "vrK3ev": {
-    "defaultMessage": "准备前端行为面试",
+    "defaultMessage": "Prepare for Front End Behavioral Interviews",
     "description": "Title of Behavioral Interview Preparation page"
   },
   "vx/nPL": {
-    "defaultMessage": "电子邮箱",
+    "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
   },
   "w0Gmne": {
-    "defaultMessage": "前端面试指南",
+    "defaultMessage": "Front End Interview Guidebook",
     "description": "Front End Interview Guidebook title"
   },
   "w0h58l": {
-    "defaultMessage": "高效率地准备前端/网络开发者/软件工程师的行为面试， 与大型技术评价标准指南、准备策略和常见行为面试题目。",
+    "defaultMessage": "Efficiently prepare for behavioral interviews for front end / web developers / software engineers, with guides about evaluation criteria at big tech, preparation strategies, and common behavioral interview questions.",
     "description": "Description of Behavioral Interview Preparation page"
   },
   "w1iJ0L": {
-    "defaultMessage": "终生会员",
+    "defaultMessage": "Lifetime Membership",
     "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "w22UH7": {
@@ -2756,171 +2756,171 @@
     "description": "JavaScript topic for quiz questions"
   },
   "w3T2Ld": {
-    "defaultMessage": "编辑器快捷键",
+    "defaultMessage": "Atalhos do Editor",
     "description": "Tooltip for button to open code editor shortcuts"
   },
   "w3pn1B": {
-    "defaultMessage": "选择您的框架",
+    "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
   },
   "w5fdO4": {
-    "defaultMessage": "前端面试准备——问答题",
+    "defaultMessage": "Front End Interview Preparation — Quiz",
     "description": "Prepare for front end interview quiz questions"
   },
   "wAOHw9": {
-    "defaultMessage": "相似题目",
+    "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
   },
   "wMMGUk": {
-    "defaultMessage": "行为",
+    "defaultMessage": "Comportamental",
     "description": "Behavioral interviews stage label"
   },
   "wVEJye": {
-    "defaultMessage": "学习计划",
+    "defaultMessage": "Planos de Estudo",
     "description": "Sidebar label for Study Plans category"
   },
   "wY7F08": {
-    "defaultMessage": "<link>查看学习计划 <span>→</span></link>",
+    "defaultMessage": "<link>View study plans <span>→</span></link>",
     "description": "Study plans link"
   },
   "wbjMPn": {
-    "defaultMessage": "发送 Magic 链接",
+    "defaultMessage": "Enviar link mágico",
     "description": "Label of send magic link button on Magic Link Sign In page"
   },
   "wdlzwm": {
-    "defaultMessage": "您的消息",
+    "defaultMessage": "Sua Messagem",
     "description": "Feedback widget textarea title"
   },
   "wmvMT1": {
-    "defaultMessage": "根据你的需求定制的定价计划。今天就以30%的折扣抢购我们的全能终生计划吧!",
+    "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",
     "description": "Description of Pricing page"
   },
   "wqIwvv": {
-    "defaultMessage": "{questionTitle} | JavaScript 前端的面试题目及解答",
+    "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
   },
   "wzQGxj": {
-    "defaultMessage": "在几分钟内开始",
+    "defaultMessage": "Começe em minutos",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
   },
   "x1nxve": {
-    "defaultMessage": "选择控制台字体大小",
+    "defaultMessage": "Choose console font size",
     "description": "Select label to choose console font size"
   },
   "x8+4jJ": {
-    "defaultMessage": "{questionCount} 个最热门的前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
+    "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Coding page"
   },
   "xEvm93": {
-    "defaultMessage": "功能介绍",
+    "defaultMessage": "Recursos",
     "description": "Link to features page"
   },
   "xS31qX": {
-    "defaultMessage": "如果您使用 OAuth 登录(例如GitHub)，您可以在此更改电子邮箱来使用电子邮箱和密码登录。",
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
     "description": "Subtext above email settings."
   },
   "xWAt8Q": {
-    "defaultMessage": "终极前端面试准备平台。",
+    "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
   },
   "xjHSyF": {
-    "defaultMessage": "所有日志级别",
+    "defaultMessage": "Todos os níveis de log",
     "description": "Select label for all log levels in console filter"
   },
   "xq16Hq": {
-    "defaultMessage": "我们正在招聘!",
+    "defaultMessage": "Estamos Contratando",
     "description": "Link label to the hiring page"
   },
   "y16Lzt": {
-    "defaultMessage": "了解公司向他们的候选人提出了什么题目。",
+    "defaultMessage": "Find out what questions companies are asking their candidates.",
     "description": "Subtitle for company-tagged questions feature"
   },
   "y3aYKb": {
-    "defaultMessage": "用户界面",
+    "defaultMessage": "Interface de Usuário",
     "description": "Front end user interface questions"
   },
   "y7sRet": {
-    "defaultMessage": "月付",
+    "defaultMessage": "Mensal",
     "description": "Title of monthly pricing plan"
   },
   "y8zzVx": {
-    "defaultMessage": "电子邮箱",
+    "defaultMessage": "Email",
     "description": "Email"
   },
   "yM3vbW": {
-    "defaultMessage": "编辑器快捷键",
+    "defaultMessage": "Atalhos do Editor",
     "description": "Label for slideout for code editor shortcuts"
   },
   "yRjuKv": {
-    "defaultMessage": "网页开发者",
+    "defaultMessage": "Desenvolvedor Web",
     "description": "Web Developer job title"
   },
   "yXh24P": {
-    "defaultMessage": "由Clearbit提供的标志",
+    "defaultMessage": "Logos provided by Clearbit",
     "description": "Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
   },
   "yeGTq1": {
-    "defaultMessage": "重置密码",
+    "defaultMessage": "Redefinir Senha",
     "description": "Title of Password Reset page"
   },
   "yeLNWe": {
-    "defaultMessage": "字节跳动",
+    "defaultMessage": "ByteDance",
     "description": "Company name for ByteDance"
   },
   "yhHx9e": {
-    "defaultMessage": "您的所有题目进度将被重置。这是一个不可逆转的操作，您确定要继续吗？",
+    "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
   },
   "yrC3kR": {
-    "defaultMessage": "编辑器快捷键",
+    "defaultMessage": "Atalhos do Editor",
     "description": "Label for button to open code editor shortcuts"
   },
   "z+5YJV": {
-    "defaultMessage": "查看所有题目",
+    "defaultMessage": "View All Questions",
     "description": "Link label to the list of all User Interface coding questions"
   },
   "zDt/bH": {
-    "defaultMessage": "下一页",
+    "defaultMessage": "Próximo",
     "description": "Button to go to the next page"
   },
   "zIQsmk": {
-    "defaultMessage": "服务条款",
+    "defaultMessage": "Terms of Service",
     "description": "Link to terms of service page"
   },
   "zIthEX": {
-    "defaultMessage": "额外提示",
+    "defaultMessage": "Dicas Adicionais",
     "description": "Additional tips for front end interviews"
   },
   "zRNA7X": {
-    "defaultMessage": "编码题目",
+    "defaultMessage": "Pergunta de Programação",
     "description": "Label for coding questions"
   },
   "zSySsj": {
-    "defaultMessage": "题目形式",
+    "defaultMessage": "Formatos das Questões",
     "description": "Label for tabs for question formats"
   },
   "zUR/Om": {
-    "defaultMessage": "你所请求的页面不存在！",
+    "defaultMessage": "The page you requested could not be found",
     "description": "Description of 404 page"
   },
   "zXN8kB": {
-    "defaultMessage": "系统设计",
+    "defaultMessage": "System Design",
     "description": "System Design question"
   },
   "zaEg+y": {
-    "defaultMessage": "一次购买，永久解锁。",
+    "defaultMessage": "Pay once, own it forever",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "zn3iWx": {
-    "defaultMessage": "重复密码",
+    "defaultMessage": "Repetir Senha",
     "description": "Label of confirm password field on Change Password page"
   },
   "zo65Ck": {
-    "defaultMessage": "所有练习题目",
+    "defaultMessage": "All Practice Questions",
     "description": "Header for all practice questions section in study plans"
   },
   "zpxxHX": {
-    "defaultMessage": "{numberOfPassedTests} 已通过",
+    "defaultMessage": "{numberOfPassedTests} passed",
     "description": "Line in DevTools showing the number of test cases passed when running the code submitted by the user"
   },
   "zqNjnp": {
@@ -2928,7 +2928,7 @@
     "description": "Label for CSS language"
   },
   "zs7+sC": {
-    "defaultMessage": "确认链接已发送到新的电子邮箱地址。在访问确认链接之前，电子邮箱将不会被更改。",
+    "defaultMessage": "A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.",
     "description": "Message shown after an email change request is successful."
   }
 }

@@ -95,6 +95,7 @@ function useStageItems() {
 }
 
 export default function QuestionFormatTitleSection({ format }: Props) {
+  const intl = useIntl();
   const stages = useStageItems();
 
   return (
@@ -144,7 +145,11 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                 </div>
               }
               size="lg"
-              title="Front End Interview Preparation"
+              title={intl.formatMessage({
+                defaultMessage: 'Front End Interview Preparation',
+                description: 'Front end interview preparation pages title',
+                id: 'cgpi3r',
+              })}
             />
           </div>
           <div>
@@ -186,7 +191,16 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                         ? 'md:bg-brand-500 md:text-white'
                         : 'md:bg-slate-100 md:group-hover:bg-slate-200',
                     )}>
-                    <span className="font-medium">Stage {index + 1}</span>
+                    <span className="font-medium">
+                      <FormattedMessage
+                        defaultMessage="Stage {stageNumber}"
+                        description="Preparation stage number"
+                        id="W7BkGp"
+                        values={{
+                          stageNumber: index + 1,
+                        }}
+                      />
+                    </span>
                   </p>
                   <Heading className="md:mt-4">
                     <Anchor

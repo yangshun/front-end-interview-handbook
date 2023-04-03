@@ -171,7 +171,11 @@ function useNavLinks(
             href: questionFormatLists.coding.href,
             icon: PlayIcon,
             itemKey: questionFormatLists.coding.key,
-            label: 'Practice end-to-end',
+            label: intl.formatMessage({
+              defaultMessage: 'Practice end-to-end',
+              description: 'Practice questions for all stages',
+              id: 'QHtJPS',
+            }),
             type: 'link',
           },
           type: 'popover-list',
@@ -435,11 +439,19 @@ function useNavLinks(
               type: 'popover-link',
             },
           ],
-          label: 'Guidebooks',
+          label: intl.formatMessage({
+            defaultMessage: 'Guidebooks',
+            description: 'Guidebooks category',
+            id: 'B82jFj',
+          }),
           type: 'popover-list',
         },
       ],
-      label: 'Guides',
+      label: intl.formatMessage({
+        defaultMessage: 'Guides',
+        description: 'Guides navbar item',
+        id: 'H/u+cg',
+      }),
       onClick: () => {
         gtag.event({
           action: `nav.guides.click`,

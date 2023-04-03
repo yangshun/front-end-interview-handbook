@@ -47,6 +47,10 @@
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
   },
+  "/4g12b": {
+    "defaultMessage": "System Design Study Guides",
+    "description": "System design interview study guides"
+  },
   "/Q1sUc": {
     "defaultMessage": "In-browser coding workspace with test cases - no need for any setup!",
     "description": "Table cell content for real interview simulation feature comparison in GFE."
@@ -158,6 +162,10 @@
   "2a4of9": {
     "defaultMessage": "Change to horizontal",
     "description": "Tooltip for changing to horizontal layout for coding workspace"
+  },
+  "2m5u4b": {
+    "defaultMessage": "Quiz Study Guides",
+    "description": "Quiz interview study guides"
   },
   "2sIcqn": {
     "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
@@ -327,6 +335,10 @@
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
   },
+  "7H/tqa": {
+    "defaultMessage": "Front End Interview Preparation — Coding",
+    "description": "Prepare for front end interview coding questions"
+  },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
@@ -363,6 +375,10 @@
     "defaultMessage": "Progress",
     "description": "Completion status"
   },
+  "7wqhjF": {
+    "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
+    "description": "SEO title for HTML questions list page"
+  },
   "7xAtDI": {
     "defaultMessage": "Implement important Data Structures & Algorithms",
     "description": "Description of data structures and algorithm questions"
@@ -382,6 +398,10 @@
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
+  },
+  "8KNiXb": {
+    "defaultMessage": "Front End Interview Preparation — System Design",
+    "description": "Prepare for front end interview system design questions"
   },
   "8MHkPL": {
     "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive a discount/cashback!",
@@ -499,6 +519,10 @@
     "defaultMessage": "Front End Engineer, India",
     "description": "Anonymous Front End Engineer's job title"
   },
+  "B82jFj": {
+    "defaultMessage": "Guidebooks",
+    "description": "Guidebooks category"
+  },
   "B9449h": {
     "defaultMessage": "Not available.",
     "description": "Not available."
@@ -582,6 +606,10 @@
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
+  },
+  "CsuGzS": {
+    "defaultMessage": "JavaScript Questions",
+    "description": "JavaScript Questions list page title"
   },
   "Cw8cK4": {
     "defaultMessage": "{completedQuestions} of {totalQuestions} completed",
@@ -754,6 +782,10 @@
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
+  },
+  "H/u+cg": {
+    "defaultMessage": "Guides",
+    "description": "Guides navbar item"
   },
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
@@ -987,6 +1019,10 @@
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
   },
+  "LYxZLx": {
+    "defaultMessage": "CSS Questions",
+    "description": "CSS Questions list page title"
+  },
   "Ldysd3": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" growth mindset questions",
     "description": "How to answer growth mindset collaboration questions"
@@ -1002,6 +1038,10 @@
   "Ll7iob": {
     "defaultMessage": "Get Started",
     "description": "Title of Get Started page"
+  },
+  "LnN52b": {
+    "defaultMessage": "Front End Interview Preparation — Behavioral Interviews",
+    "description": "Prepare for front end interview behavioral questions"
   },
   "LnzTdG": {
     "defaultMessage": "CSS",
@@ -1063,6 +1103,10 @@
     "defaultMessage": "First time preparing for front end interviews? Find out what to expect in our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
   },
+  "MyaXLl": {
+    "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
+    "description": "SEO title for CSS questions list page"
+  },
   "N4F6al": {
     "defaultMessage": "Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month",
     "description": "Description of 1 Month Preparation Plan page"
@@ -1074,6 +1118,10 @@
   "NMKLAX": {
     "defaultMessage": "Console",
     "description": "Label for Console tab on the coding workspace"
+  },
+  "NPBHO+": {
+    "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
+    "description": "Subtitle for HTML questions list page"
   },
   "NZo2FG": {
     "defaultMessage": "Description",
@@ -1222,6 +1270,10 @@
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
+  },
+  "QHtJPS": {
+    "defaultMessage": "Practice end-to-end",
+    "description": "Practice questions for all stages"
   },
   "QIRY6V": {
     "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
@@ -1451,6 +1503,10 @@
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
   },
+  "UuC2xb": {
+    "defaultMessage": "Quiz Practice Questions",
+    "description": "Quiz question list title"
+  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -1522,6 +1578,10 @@
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
     "description": "Title of Email Sign Up page"
+  },
+  "W7BkGp": {
+    "defaultMessage": "Stage {stageNumber}",
+    "description": "Preparation stage number"
   },
   "WDJgWl": {
     "defaultMessage": "Questions",
@@ -1651,6 +1711,10 @@
     "defaultMessage": "Report an issue",
     "description": "Label for reporting an issue"
   },
+  "ZYtAFY": {
+    "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
+    "description": "Subtitle for CSS questions list page"
+  },
   "Znv3Y6": {
     "defaultMessage": "Save Changes",
     "description": "Label for button to save changes to user account email"
@@ -1727,6 +1791,10 @@
     "defaultMessage": "No Tests",
     "description": "Label indicating that no test cases are available for this question"
   },
+  "bWymcE": {
+    "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
+    "description": "Front end system design guidebook description"
+  },
   "bZFghR": {
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
@@ -1751,6 +1819,10 @@
     "defaultMessage": "I got an opportunity to interview for a dream role with a critical frontend team of an online retail giant with over 50m customers and > 5 billion renders per day. A great opportunity to take my career to the next level. The problem — I wasn't ready to interview!",
     "description": "Larry Almeida's testimonial"
   },
+  "c7lcjj": {
+    "defaultMessage": "HTML Questions",
+    "description": "HTML Questions list page title"
+  },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
@@ -1766,6 +1838,10 @@
   "caYk+w": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
+  },
+  "cgpi3r": {
+    "defaultMessage": "Front End Interview Preparation",
+    "description": "Front end interview preparation pages title"
   },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
@@ -1831,6 +1907,10 @@
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
   },
+  "drvlbZ": {
+    "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
+    "description": "Behavioral interview guidebook description"
+  },
   "dxwKBt": {
     "defaultMessage": "Full Stack Engineer",
     "description": "Full Stack Engineer job title"
@@ -1862,6 +1942,10 @@
   "eVJIGT": {
     "defaultMessage": "System Design Questions",
     "description": "Front End system design interview questions"
+  },
+  "ee862n": {
+    "defaultMessage": "The definitive guide to front end / web developer interviews.",
+    "description": "Front end interview guidebook description"
   },
   "eeWLAW": {
     "defaultMessage": "Framework",
@@ -1907,6 +1991,10 @@
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
   },
+  "fktOy2": {
+    "defaultMessage": "{questionCount}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
+    "description": "Subtitle for JavaScript questions list page"
+  },
   "fnVJCv": {
     "defaultMessage": "Progress Overview",
     "description": "Header for progress overview section which tells user the progress they have made on questions practice on the platform"
@@ -1934,6 +2022,10 @@
   "g65B9h": {
     "defaultMessage": "3 Months Plan",
     "description": "Short label for 3 months study plan"
+  },
+  "gAOQDT": {
+    "defaultMessage": "Practice Top JavaScript Front End Interview Questions with Solutions",
+    "description": "SEO title for JavaScript questions list page"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -2019,6 +2111,10 @@
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
   },
+  "iOfgIz": {
+    "defaultMessage": "System Design Practice Questions",
+    "description": "Coding question list title"
+  },
   "iSDQh3": {
     "defaultMessage": "Companies",
     "description": "Title for section on question that shows which companies asked the question"
@@ -2026,6 +2122,10 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
+  },
+  "ihSYR4": {
+    "defaultMessage": "Coding Practice Questions",
+    "description": "Coding question list title"
   },
   "iqc+V7": {
     "defaultMessage": "Access to continuously updating question library.",
@@ -2439,6 +2539,10 @@
     "defaultMessage": "React",
     "description": "Label for React framework"
   },
+  "s7CwKz": {
+    "defaultMessage": "Behavioral Interview Study Guides",
+    "description": "Behavioral interview study guides"
+  },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
     "description": "Types of front end system design interview questions"
@@ -2490,6 +2594,10 @@
   "tU2J/q": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Sidebar label for Front End System Design Guidebook page"
+  },
+  "tW2p7C": {
+    "defaultMessage": "Coding Study Guides",
+    "description": "Coding interview study guides"
   },
   "taVYcT": {
     "defaultMessage": "Check your email for the magic link",
@@ -2654,6 +2762,10 @@
   "w3pn1B": {
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
+  },
+  "w5fdO4": {
+    "defaultMessage": "Front End Interview Preparation — Quiz",
+    "description": "Prepare for front end interview quiz questions"
   },
   "wAOHw9": {
     "defaultMessage": "Similar Questions",
