@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
@@ -124,7 +125,7 @@ export default function QuestionJavaScriptCodingWorkspacePage({
   return (
     <>
       <style>{`@media (min-width:1024px) {
-        #container { height: calc(100dvh - var(--navbar-height)); }
+        #container { height: ${FooterlessContainerHeight} }
         #js-coding-left-section { width: ${leftPaneWidth}px; }
       }`}</style>
       <div

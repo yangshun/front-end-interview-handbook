@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSidebarCollapser';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
@@ -32,7 +33,7 @@ export default function QuestionsQuizContentLayout({
       <div
         className="sticky flex"
         style={{
-          height: `calc(100dvh - var(--navbar-height))`,
+          height: FooterlessContainerHeight,
           top: `var(--navbar-height)`,
         }}>
         {showSidebar && (

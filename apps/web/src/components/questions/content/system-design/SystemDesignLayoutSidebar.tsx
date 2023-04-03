@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSidebarCollapser';
@@ -39,7 +40,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
         <div
           className="sticky hidden lg:flex"
           style={{
-            height: `calc(100dvh - var(--navbar-height))`,
+            height: FooterlessContainerHeight,
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (

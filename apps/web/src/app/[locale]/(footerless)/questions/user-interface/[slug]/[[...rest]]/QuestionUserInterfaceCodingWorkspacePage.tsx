@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
@@ -429,7 +430,7 @@ export default function QuestionUserInterfaceCodingWorkspacePage({
   return (
     <>
       <style>{`@media (min-width:1024px) {
-        #container { height: calc(100dvh - var(--navbar-height)); }
+        #container { height: ${FooterlessContainerHeight} }
         #left-section { width: ${leftPaneWidth}px; }
       }`}</style>
       <div

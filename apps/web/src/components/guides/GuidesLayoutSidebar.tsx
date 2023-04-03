@@ -11,6 +11,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import FooterlessContainerHeight from '../common/FooterlessContainerHeight';
 import QuestionsSidebarCollapser from '../questions/common/QuestionsSidebarCollapser';
 
 export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
@@ -99,7 +100,7 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
         <div
           className="sticky hidden lg:flex"
           style={{
-            height: `calc(100dvh - var(--navbar-height))`,
+            height: FooterlessContainerHeight,
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (

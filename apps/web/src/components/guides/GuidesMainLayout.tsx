@@ -11,6 +11,7 @@ import type { GuideNavigation } from './GuidesLayoutSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
+import FooterlessContainerHeight from '../common/FooterlessContainerHeight';
 import QuestionPagination from '../questions/content/QuestionPagination';
 
 type Props = Readonly<{
@@ -64,7 +65,7 @@ export default function GuidesMainLayout({
               key={currentItem?.href}
               className="hidden xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
               style={{
-                height: `calc(100dvh - var(--navbar-height))`,
+                height: FooterlessContainerHeight,
                 top: `var(--navbar-height)`,
               }}>
               <GuidesTableOfContents tableOfContents={tableOfContents} />

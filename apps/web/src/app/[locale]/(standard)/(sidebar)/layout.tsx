@@ -1,3 +1,4 @@
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import QuestionsSidebar from '~/components/questions/common/QuestionsSidebar';
 
 type Props = Readonly<{
@@ -10,7 +11,7 @@ export default function SidebarLayout({ children }: Props) {
       <aside
         className="sticky z-20 hidden w-24 shrink-0 overflow-visible md:block"
         style={{
-          height: `calc(100dvh - var(--navbar-height))`,
+          height: FooterlessContainerHeight,
           top: `var(--navbar-height)`,
         }}>
         <QuestionsSidebar />
