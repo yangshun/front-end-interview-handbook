@@ -2,6 +2,9 @@ import path from 'path';
 
 export const QUESTIONS_SRC_DIR_JAVASCRIPT = path.join(
   process.cwd(),
+  '..',
+  '..',
+  'packages',
   'questions',
   'javascript',
 );

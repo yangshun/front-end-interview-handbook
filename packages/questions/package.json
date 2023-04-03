@@ -1,0 +1,17 @@
+{
+  "name": "@gfe/questions",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest --env=jsdom"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@gfe/jest-presets": "*",
+    "@gfe/tsconfig": "*",
+    "babel-jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  }
+}

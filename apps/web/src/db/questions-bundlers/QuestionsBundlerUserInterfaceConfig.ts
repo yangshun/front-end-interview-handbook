@@ -2,6 +2,9 @@ import path from 'path';
 
 export const QUESTIONS_SRC_DIR_USER_INTERFACE = path.join(
   process.cwd(),
+  '..',
+  '..',
+  'packages',
   'questions',
   'user-interface',
 );
@@ -22,7 +25,7 @@ export function getQuestionOutPathUserInterface(slug: string) {
 
 export function getQuestionsListOutFilenameUserInterface(_locale: string) {
   return path.join(
-  QUESTIONS_OUT_DIR_USER_INTERFACE,
-  'UserInterfaceQuestionsList.json',
-);
+    QUESTIONS_OUT_DIR_USER_INTERFACE,
+    'UserInterfaceQuestionsList.json',
+  );
 }

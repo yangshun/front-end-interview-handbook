@@ -2,6 +2,9 @@ import path from 'path';
 
 export const QUESTIONS_SRC_DIR_SYSTEM_DESIGN = path.join(
   process.cwd(),
+  '..',
+  '..',
+  'packages',
   'questions',
   'system-design',
 );
