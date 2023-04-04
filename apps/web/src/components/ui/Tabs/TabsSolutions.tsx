@@ -27,7 +27,7 @@ export default function Tabs<T>({ label, tabs, value, onSelect }: Props<T>) {
                 className: clsx(
                   isSelected
                     ? 'border-brand-500 text-brand-600 font-medium'
-                    : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300',
+                    : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-200',
                   'py-4 px-6 border-b-2 text-sm sm:text-base xl:text-xl text-center w-1/2',
                 ),
                 onClick:

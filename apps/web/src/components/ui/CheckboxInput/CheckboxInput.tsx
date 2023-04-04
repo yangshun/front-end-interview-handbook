@@ -48,7 +48,7 @@ function CheckboxInput(
             aria-describedby={description != null ? descriptionId : undefined}
             checked={value}
             className={clsx(
-              'h-4 w-4 rounded border-slate-300',
+              'h-4 w-4 rounded border-slate-200',
               disabled
                 ? 'bg-slate-50 text-slate-400'
                 : 'text-brand-600 focus:ring-brand-500',

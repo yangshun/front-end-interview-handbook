@@ -66,7 +66,7 @@ export default function Select<T>({
         aria-label={isLabelHidden ? label : undefined}
         className={clsx(
           display === 'block' && 'block w-full',
-          'focus:border-brand-500 focus:ring-brand-500 rounded-md border-slate-300 focus:outline-none',
+          'focus:border-brand-500 focus:ring-brand-500 rounded-md border-slate-200 focus:outline-none',
           paddingSizeClasses[size],
           textSizeClasses[size].label,
         )}

@@ -63,7 +63,7 @@ export default function Tabs<T>({
                 className: clsx(
                   isSelected
                     ? 'border-brand-500 text-brand-600'
-                    : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300',
+                    : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-200',
                   'whitespace-nowrap border-b-2 font-medium',
                   tabItemSize,
                   textSize,

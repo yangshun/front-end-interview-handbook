@@ -54,7 +54,7 @@ export default function QuestionCompanies({
         ) : companies.length > 0 ? (
           companies.map((company) => (
             <Fragment key={company}>
-              <span className="relative inline-flex items-center rounded-full border border-slate-300 px-3 py-0.5">
+              <span className="relative inline-flex items-center rounded-full border border-slate-200 px-3 py-0.5">
                 <Text color="secondary" variant="body3">
                   {companyNames[company].label}
                 </Text>

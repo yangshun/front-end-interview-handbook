@@ -55,7 +55,7 @@ const stateClasses: Record<
   },
   normal: {
     textArea:
-      'border-slate-300 focus:border-brand-500 focus:ring-brand-500 placeholder:text-slate-400',
+      'border-slate-200 focus:border-brand-500 focus:ring-brand-500 placeholder:text-slate-400',
   },
 };
 
