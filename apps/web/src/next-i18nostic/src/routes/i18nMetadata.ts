@@ -154,12 +154,33 @@ export default function i18nMetadata(
       ? i18nHref(canonical, locale)
       : i18nHref(canonical.url, locale);
 
+  const { robots } = nextMetadata;
+
+  if (typeof robots === 'string') {
+    throw 'Cannot specify metadata.robots as string';
+  }
+
+  const googleBot = robots?.googleBot;
+
+  if (typeof googleBot === 'string') {
+    throw 'Cannot specify metadata.robots.googleBot as string';
+  }
+
   return {
     ...nextMetadata,
     alternates: {
       ...nextMetadata.alternates,
       canonical: i18nCanonical.toString(),
       languages: createLanguages(canonical),
+    },
+    robots: {
+      ...(robots ?? {}),
+      googleBot: {
+        ...googleBot,
+        // To disable Google Chrome from automatically offering to translate
+        // to locales that already have dedicated translated versions.
+        notranslate: nextI18nosticConfig.defaultLocale !== locale,
+      },
     },
   };
 }

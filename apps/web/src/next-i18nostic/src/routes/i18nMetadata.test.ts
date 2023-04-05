@@ -84,6 +84,11 @@ describe('i18nMetadata', () => {
               "zh-CN": "/zh-CN/products",
             },
           },
+          "robots": {
+            "googleBot": {
+              "notranslate": false,
+            },
+          },
         }
       `);
     });
@@ -109,6 +114,11 @@ describe('i18nMetadata', () => {
               "zh-CN": "https://example.com/zh-CN/products",
             },
           },
+          "robots": {
+            "googleBot": {
+              "notranslate": false,
+            },
+          },
         }
       `);
     });
@@ -132,6 +142,11 @@ describe('i18nMetadata', () => {
               "fr-FR": "https://example.com/fr/products",
               "x-default": "https://example.com/products",
               "zh-CN": "https://example.com/zh-CN/products",
+            },
+          },
+          "robots": {
+            "googleBot": {
+              "notranslate": false,
             },
           },
         }
@@ -182,6 +197,11 @@ describe('i18nMetadata', () => {
               ],
             },
           },
+          "robots": {
+            "googleBot": {
+              "notranslate": false,
+            },
+          },
         }
       `);
     });
@@ -208,7 +228,86 @@ describe('i18nMetadata', () => {
             "zh-CN": "/zh-CN/products",
           },
         },
+        "robots": {
+          "googleBot": {
+            "notranslate": true,
+          },
+        },
       }
     `);
+  });
+
+  describe('googlebot notranslate', () => {
+    test('notranslate should not be added for default locale', () => {
+      expect(
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: '/products',
+            },
+            robots: {
+              googleBot: {
+                index: true,
+              },
+            },
+          },
+          'en',
+        ),
+      ).toMatchInlineSnapshot(`
+        {
+          "alternates": {
+            "canonical": "/products",
+            "languages": {
+              "en-US": "/products",
+              "fr-FR": "/fr/products",
+              "x-default": "/products",
+              "zh-CN": "/zh-CN/products",
+            },
+          },
+          "robots": {
+            "googleBot": {
+              "index": true,
+              "notranslate": false,
+            },
+          },
+        }
+      `);
+    });
+
+    test('notranslate should be added for non-default locale', () => {
+      expect(
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: '/products',
+            },
+            robots: {
+              googleBot: {
+                index: true,
+              },
+            },
+          },
+          'zh-CN',
+        ),
+      ).toMatchInlineSnapshot(`
+        {
+          "alternates": {
+            "canonical": "/zh-CN/products",
+            "languages": {
+              "en-US": "/products",
+              "fr-FR": "/fr/products",
+              "x-default": "/products",
+              "zh-CN": "/zh-CN/products",
+            },
+          },
+          "robots": {
+            "googleBot": {
+              "index": true,
+              "notranslate": true,
+            },
+          },
+        }
+      `);
+    });
   });
 });
