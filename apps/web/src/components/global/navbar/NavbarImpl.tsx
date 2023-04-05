@@ -24,6 +24,7 @@ import type {
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
@@ -601,6 +602,7 @@ export default function NavbarImpl() {
   const endAddOnItems = (
     <>
       {/* <SearchButton /> */}
+      <NavLocaleDropdown />
       {!isPremium && (
         <Button
           href="/pricing"
