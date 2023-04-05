@@ -267,6 +267,10 @@
     "defaultMessage": "高级会员",
     "description": "Tooltip for Premium questions label"
   },
+  "58dfbv": {
+    "defaultMessage": "语言",
+    "description": "Change site language button label"
+  },
   "5A3y/o": {
     "defaultMessage": "留下您的反馈信息。",
     "description": "Feedback widget button label to leave more feedback before the session closes"

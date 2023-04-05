@@ -267,6 +267,10 @@
     "defaultMessage": "Premium",
     "description": "Tooltip for Premium questions label"
   },
+  "58dfbv": {
+    "defaultMessage": "Idioma",
+    "description": "Change site language button label"
+  },
   "5A3y/o": {
     "defaultMessage": "Deixe mais feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"

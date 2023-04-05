@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 
+import i18nLabelOptions from '~/i18n/i18nLabelOptions';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { Menu, Transition } from '@headlessui/react';
@@ -39,20 +40,7 @@ export default function NavLocaleDropdown() {
         leaveTo="transform opacity-0 scale-95">
         <Menu.Items className="absolute right-0 z-10 mt-2 w-44 origin-top-right rounded-lg bg-white shadow-lg focus:outline-none">
           <div className="py-1">
-            {[
-              {
-                label: 'English (US)',
-                locale: 'en',
-              },
-              {
-                label: '中文（中国）',
-                locale: 'zh-CN',
-              },
-              {
-                label: 'Português (Brasil)',
-                locale: 'pt-BR',
-              },
-            ].map(({ locale, label }) => (
+            {i18nLabelOptions.map(({ locale, label }) => (
               <Menu.Item key={locale}>
                 {({ active }) => (
                   <Anchor
