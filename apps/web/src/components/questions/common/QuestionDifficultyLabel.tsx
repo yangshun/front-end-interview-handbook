@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { upperFirst } from 'lodash-es';
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 

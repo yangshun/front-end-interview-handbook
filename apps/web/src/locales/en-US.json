@@ -1259,6 +1259,10 @@
     "defaultMessage": "{duration} mins",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
   },
+  "PiwdUd": {
+    "defaultMessage": "Beta",
+    "description": "Beta version"
+  },
   "Pohz4K": {
     "defaultMessage": "{currencySymbol}{price} billed yearly.",
     "description": "Description of billing frequency for annual plan"
