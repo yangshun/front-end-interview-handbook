@@ -8,6 +8,8 @@ export type IntlMessages = ResolvedIntlConfig['messages'];
 // We also get the default import for cleaner types
 const locales = {
   en: () => import('../locales/en-US.json').then((module) => module.default),
+  'pt-BR': () =>
+    import('../locales/pt-BR.json').then((module) => module.default),
   'zh-CN': () =>
     import('../locales/zh-CN.json').then((module) => module.default),
 };
