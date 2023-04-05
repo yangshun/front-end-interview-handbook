@@ -6,6 +6,7 @@ import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
+import I18nBetaBanner from '~/components/global/I18nBetaBanner';
 
 import type { IntlMessages } from '~/i18n';
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <FirstPromoter />
           <SentryInit />
           <WebVitals />
+          <I18nBetaBanner />
         </GlobalProviders>
       </body>
     </html>

@@ -51,6 +51,10 @@
     "defaultMessage": "系统设计学习指南",
     "description": "System design interview study guides"
   },
+  "/FyqAR": {
+    "defaultMessage": "{locale}的翻译是测试版，可能不准确。 如果您有兴趣帮助翻译，请提供反馈或<link>联系我们</link>！",
+    "description": "Banner about beta locale version"
+  },
   "/Q1sUc": {
     "defaultMessage": "使用自带测试用例的浏览器编码工作区 - 不需要任何设置！",
     "description": "Table cell content for real interview simulation feature comparison in GFE."
@@ -292,7 +296,7 @@
     "description": "Title of Profile page"
   },
   "5rd3TN": {
-    "defaultMessage": "Companies",
+    "defaultMessage": "公司",
     "description": "Companies section label"
   },
   "5usorl": {
@@ -608,7 +612,7 @@
     "description": "Title of Interview Preparation Quiz page"
   },
   "Cjz59k": {
-    "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
+    "defaultMessage": "点击这里尝试实际的工作区。",
     "description": "Button label within embed"
   },
   "CqG3Op": {
@@ -980,7 +984,7 @@
     "description": "Sorting option for question list - sort by duration from high to low"
   },
   "KmiBbk": {
-    "defaultMessage": "我想注册GreatFrontend的简报以接收面试提示和题目更新",
+    "defaultMessage": "我想注册GreatFrontEnd的简报以接收面试提示和题目更新",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
   },
   "KtYnhS": {
@@ -1260,7 +1264,7 @@
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
   },
   "PiwdUd": {
-    "defaultMessage": "Beta",
+    "defaultMessage": "测试版",
     "description": "Beta version"
   },
   "Pohz4K": {
@@ -1328,7 +1332,7 @@
     "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
   },
   "R99Y8S": {
-    "defaultMessage": "GreatFrontend已经将前端面试分解成重复出现的模块和知识点，你只需要按照我们的学习计划和练习题轻松掌握考点！",
+    "defaultMessage": "在GreatFrontEnd, 我们的重点是将前端面试抽象成可重复的模式和基本概念。 你需要做的只是通过我们的题目和学习计划！",
     "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
   },
   "RDQ253": {
@@ -1856,7 +1860,7 @@
     "description": "Subtitle for proven preparation plans feature"
   },
   "cgTXiW": {
-    "defaultMessage": "Design a News Feed (e.g. Facebook)",
+    "defaultMessage": "设计新闻提要(例如脸书)",
     "description": "System design question title"
   },
   "cgpi3r": {
@@ -1960,7 +1964,7 @@
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
   },
   "eT2mrq": {
-    "defaultMessage": "View the full solution and other System Design guides.",
+    "defaultMessage": "查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
   },
   "eVJIGT": {
@@ -2360,7 +2364,7 @@
     "description": "Tooltip for questions Not Completed label"
   },
   "m9168P": {
-    "defaultMessage": "All Questions",
+    "defaultMessage": "全部题目",
     "description": "Link label to access all questions"
   },
   "mNb3b2": {
@@ -2648,7 +2652,7 @@
     "description": "Supporting statement for an annual pricing plan"
   },
   "thqnR6": {
-    "defaultMessage": "Click here to view the full solution and other System Design guides.",
+    "defaultMessage": "点击这里查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
   },
   "tmvC1S": {

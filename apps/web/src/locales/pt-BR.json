@@ -51,6 +51,10 @@
     "defaultMessage": "Guias de Estudo de Design de Sistemas",
     "description": "System design interview study guides"
   },
+  "/FyqAR": {
+    "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
+    "description": "Banner about beta locale version"
+  },
   "/Q1sUc": {
     "defaultMessage": "Área de trabalho de programação no navegador com casos de teste - não é necessário para qualquer configuração!",
     "description": "Table cell content for real interview simulation feature comparison in GFE."
