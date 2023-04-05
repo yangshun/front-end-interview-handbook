@@ -16,7 +16,7 @@
     "description": "Link to company's about page"
   },
   "+7Wuw5": {
-    "defaultMessage": "软件工程师，印度金奈。",
+    "defaultMessage": "软件工程师，印度金奈",
     "description": "Gouse Basha's job title"
   },
   "+JhlMu": {
@@ -128,11 +128,11 @@
     "description": "Lifetime membership feature of accessing updates to interview platforms"
   },
   "1FbA4H": {
-    "defaultMessage": "您的平台上有哪些类型的题目？",
+    "defaultMessage": "这个平台上有哪些类型的题目？",
     "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
   },
   "1IbtLx": {
-    "defaultMessage": "系统设计资源几乎不存在。",
+    "defaultMessage": "几乎找不到任何系统设计的学习资料。",
     "description": "Table cell content for front end system design feature comparison in other platforms."
   },
   "1PHE0Y": {
@@ -168,7 +168,7 @@
     "description": "Quiz interview study guides"
   },
   "2sIcqn": {
-    "defaultMessage": "限时活动，我们正在提供 {symbol}{unitCostLocalizedInCurrency} 的终生访问权限。 同时，您的面试奖励可能是 <strong>数十万</strong> 全额奖励。",
+    "defaultMessage": "我们正在限时开放 {symbol}{unitCostLocalizedInCurrency} 的终生访问权限的购买活动。 此外， <strong>百万年薪</strong> 也会是您通过面试的最好的奖励。",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "32cQk/": {
@@ -348,7 +348,7 @@
     "description": "Prepare for front end interview coding questions"
   },
   "7HLv+l": {
-    "defaultMessage": "下一个试试这些题目",
+    "defaultMessage": "接下来试试这些题目",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
   },
   "7Hng1e": {
@@ -396,7 +396,7 @@
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
   },
   "8/l1dM": {
-    "defaultMessage": "{questionCount}+ 不同面试形式常见题目 - <strong>系统设计、UI、JavaScript、测验</strong>",
+    "defaultMessage": "{questionCount}+ 不同形式的常见面试题目 - <strong>系统设计、UI、JavaScript、问答</strong>",
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
   "8GTfgf": {
@@ -444,7 +444,7 @@
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
   "8q3l4q": {
-    "defaultMessage": "终极 <span>前端面试</span> <span2>准备平台</span2>。",
+    "defaultMessage": "终极<span>前端面试</span><span2>准备平台</span2>",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
   "8ulBJI": {
@@ -492,7 +492,7 @@
     "description": "Button label to use light console theme"
   },
   "AGwpnL": {
-    "defaultMessage": "我们通过让你<strong>掌握基础知识</strong>帮助你在每一次前端面试中都表现出色。 <span>由</span>前 FAANG 高级前端工程师<span>构建</span>。",
+    "defaultMessage": "由前FAANG高级前端工程师打造的最佳前端面试准备平台，<span>通过帮你<strong>掌握基础知识</strong>，</span>让你在每一次前端面试都拔得头筹。",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
   "ATwxZX": {
@@ -532,7 +532,7 @@
     "description": "Guidebooks category"
   },
   "B9449h": {
-    "defaultMessage": "暂不可用",
+    "defaultMessage": "缺少此功能",
     "description": "Not available."
   },
   "BGn++d": {
@@ -752,7 +752,7 @@
     "description": "Supporting statement for a monthly pricing plan"
   },
   "GP3q80": {
-    "defaultMessage": "优质的解答供学习",
+    "defaultMessage": "优质的权威解答",
     "description": "Table row header for quality solutions feature"
   },
   "GQhit1": {
@@ -764,7 +764,7 @@
     "description": "Title on question paywall appearing on the question pages of premium questions"
   },
   "GYwmPt": {
-    "defaultMessage": "限时活动，我们正在提供终生折扣。 这将使您能够立即访问我们的庞大问答库、指南和学习计划。 今后对我们面试准备平台的所有更新也将完全免费给您。",
+    "defaultMessage": "我们正在限时提供终生折扣的活动。 您将能够立即访问我们的庞大问答库、指南和学习计划。 今后我们面试准备平台的所有更新也将对您完全免费。",
     "description": "Answer to 'What does buying GreatFrontEnd get me' on Homepage's FAQ sections"
   },
   "GZnl60": {
@@ -856,7 +856,7 @@
     "description": "Feedback widget text to request for optional email input for following up"
   },
   "IK98yM": {
-    "defaultMessage": "尚未确信？ <link>请尝试产品 (免费) →</link>",
+    "defaultMessage": "还在犹豫？ <link>不如来试一试 (是免费的!) →</link>",
     "description": "Call-to-action"
   },
   "IQnWm4": {
@@ -916,7 +916,7 @@
     "description": "Title of quarterly pricing plan"
   },
   "JP4Wie": {
-    "defaultMessage": "<p>每个题目都有一个深入的解答和内联解释。</p> <p>解答包含 <strong>可扩展性、可访问性和性能</strong> 的考虑。</p>",
+    "defaultMessage": "<p>每个题目都配有深度解析。</p> <p>我们不仅提供解法，还详细阐述 <strong>可扩展性、可访问性和性能</strong> 等考虑。</p>",
     "description": "Table cell content for quality solutions feature comparison in GFE."
   },
   "JPbOCy": {
@@ -928,7 +928,7 @@
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
   },
   "JdOpbg": {
-    "defaultMessage": "解答很难找到或不完全，通常是表面的。",
+    "defaultMessage": "很难找到解答，即使找到了，也大多不全面或者过时了。",
     "description": "Table cell content for quality solutions feature comparison in other platforms."
   },
   "JhZ/aF": {
@@ -1008,7 +1008,7 @@
     "description": "Title for send us a feedback modal"
   },
   "L0IePi": {
-    "defaultMessage": "因为前端面试基本上是 <span>基础知识</span>。",
+    "defaultMessage": "<span>夯实基础</span>是决胜前端面试的重中之重。\n",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
   "L7Fz5f": {
@@ -1259,6 +1259,10 @@
     "defaultMessage": "{duration} 分钟",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
   },
+  "PiwdUd": {
+    "defaultMessage": "Beta",
+    "description": "Beta version"
+  },
   "Pohz4K": {
     "defaultMessage": "{currencySymbol}{price} 按年计费。",
     "description": "Description of billing frequency for annual plan"
@@ -1288,7 +1292,7 @@
     "description": "Practice questions for all stages"
   },
   "QIRY6V": {
-    "defaultMessage": "前端系统设计资源几乎不存在。 这是你唯一能够找到深入解决前端系统设计题目的办法以及我们已经证明的解答框架。",
+    "defaultMessage": "前端系统设计资源几乎不存在。 这是你唯一能找到的提供深度且专业的前端系统设计题目解析的平台。",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
   "QJaxVF": {
@@ -1324,7 +1328,7 @@
     "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
   },
   "R99Y8S": {
-    "defaultMessage": "在GreatFrontend, 我们的重点是将前端面试抽象成可重复的模式和基本概念。 你需要做的只是通过我们的题目和学习计划！",
+    "defaultMessage": "GreatFrontend已经将前端面试分解成重复出现的模块和知识点，你只需要按照我们的学习计划和练习题轻松掌握考点！",
     "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
   },
   "RDQ253": {
@@ -1424,11 +1428,11 @@
     "description": "Table cell content for large and curated question bank feature comparison in other platforms."
   },
   "T5ZDDU": {
-    "defaultMessage": "大规模和精心策划的题库",
+    "defaultMessage": "精心挑选的庞大题库",
     "description": "Table row header for large and curated question bank feature"
   },
   "TAajQb": {
-    "defaultMessage": "培养你的基本功是每次都能完美通过面试的唯一方法。",
+    "defaultMessage": "系统地学习基础是完美通过每次面试的唯一秘诀。",
     "description": "Subtitle of Second section on homepage - second paragraph"
   },
   "TB8vuT": {
@@ -1440,7 +1444,7 @@
     "description": "Company name for Lyft"
   },
   "THblGQ": {
-    "defaultMessage": "新年促销！使用代码NEWYEAR2023，额外优惠年度和终生计划20%。 <link>今天获取您的折扣！</link>",
+    "defaultMessage": "新年促销！使用代码NEWYEAR2023，额外20%优惠年度和永久计划。 <link>立刻获取折扣！</link>",
     "description": "Text on Promo Banner appearing almost on all application pages to inform user of New Year discount"
   },
   "TQLJ/G": {
@@ -1460,7 +1464,7 @@
     "description": "Title of Magic Link Sign In page"
   },
   "TeTJmh": {
-    "defaultMessage": "如果这些基础知识已经为你抽象化了呢？",
+    "defaultMessage": "而我们抽丝剥茧，帮你在最短时间内全面掌握面试体系。\n",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
   "U022No": {
@@ -1504,7 +1508,7 @@
     "description": "Title of 1 Week Preparation Plan page"
   },
   "UltF1J": {
-    "defaultMessage": "已经是联盟会员？ <link>访问控制面板</link>",
+    "defaultMessage": "已经是会员？ <link>访问用户主页</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
   },
   "UotwsL": {
@@ -1708,7 +1712,7 @@
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
   },
   "ZLXgL9": {
-    "defaultMessage": "<span>前端</span> <inline>面试 <colour>及更多</colour></inline> 的所有基本内容。",
+    "defaultMessage": "<span>前端</span>、<inline>面试 ，我们<colour>应有尽有</colour></inline> 。",
     "description": "Key features section heading"
   },
   "ZN/wJM": {
@@ -1756,7 +1760,7 @@
     "description": "Title of Password Reset page"
   },
   "aQKVD4": {
-    "defaultMessage": "由就职于以下公司的前面试官贡献",
+    "defaultMessage": "由就职于以下公司的前面试官倾情打造",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
   },
   "aZqFm4": {
@@ -2216,7 +2220,7 @@
     "description": "Sorting option for question list - sort titles from Z to A"
   },
   "jcGC9r": {
-    "defaultMessage": "仪表盘",
+    "defaultMessage": "主页",
     "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
   "jgIdRC": {
@@ -2264,7 +2268,7 @@
     "description": "Tooltip for Coming Soon questions label"
   },
   "kF3Llo": {
-    "defaultMessage": "知识就是力量。超过 {count} 个有答案的短题目来构建和巩固您的前端基础。",
+    "defaultMessage": "知识就是力量！通过超过 {count} 个有解答的练习短题，构建和巩固您的前端基础。",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
   },
   "kGgqDu": {
@@ -2276,11 +2280,11 @@
     "description": "Larry Almeida's testimonial"
   },
   "kL0yEH": {
-    "defaultMessage": "你在其他地方找不到",
+    "defaultMessage": "独家资源",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
   "kjdLiy": {
-    "defaultMessage": "公司的实践题目",
+    "defaultMessage": "公司的真经面题",
     "description": "Table row header for practice questions by companies feature"
   },
   "kmEY/r": {
@@ -2432,7 +2436,7 @@
     "description": "Text describing user's subscription plan."
   },
   "o4toU7": {
-    "defaultMessage": "唯一能够深入解决最常见系统设计题目的平台。",
+    "defaultMessage": "唯一深度解析系统设计题目的平台。",
     "description": "Table cell content for front end system design feature comparison in GFE."
   },
   "oE3TMf": {
@@ -2528,7 +2532,7 @@
     "description": "Label of magic link sign in button on Email Sign In page"
   },
   "qXxpdK": {
-    "defaultMessage": "问答样式",
+    "defaultMessage": "问答题",
     "description": "Quiz questions"
   },
   "qcjD4a": {
@@ -2732,7 +2736,7 @@
     "description": "Description of Get Started page"
   },
   "v4Z+0r": {
-    "defaultMessage": "练习 <strong>Google、Facebook、Amazon、Apple、Airbnb、LinkedIn等</strong>询问的面试题目。",
+    "defaultMessage": "练习 <strong>Google、Facebook、Amazon、Apple、Airbnb、LinkedIn等</strong>出过的面试题目。",
     "description": "Table cell content for practice questions by companies feature comparison in GFE."
   },
   "v7xpbV": {
@@ -2752,7 +2756,7 @@
     "description": "Short label for one week study plan"
   },
   "vi10y1": {
-    "defaultMessage": "仪表板",
+    "defaultMessage": "主页",
     "description": "Link to dashboard page"
   },
   "vp4zbB": {
@@ -2860,7 +2864,7 @@
     "description": "Subtext above email settings."
   },
   "xWAt8Q": {
-    "defaultMessage": "终极前端面试准备平台。",
+    "defaultMessage": "终极前端面试准备平台",
     "description": "Description of GreatFrontEnd page"
   },
   "xbmWBx": {

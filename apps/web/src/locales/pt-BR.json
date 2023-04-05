@@ -292,7 +292,7 @@
     "description": "Title of Profile page"
   },
   "5rd3TN": {
-    "defaultMessage": "Companies",
+    "defaultMessage": "Empresas",
     "description": "Companies section label"
   },
   "5usorl": {
@@ -444,7 +444,7 @@
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
   "8q3l4q": {
-    "defaultMessage": "A <span2>plataforma definitiva de preparação </span2> para <span>entrevistas de Front End</span>.",
+    "defaultMessage": "A plataforma definitiva de preparação para <span>entrevistas de Front End</span>.",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
   "8ulBJI": {
@@ -1258,6 +1258,10 @@
   "PfOyMR": {
     "defaultMessage": "{duration} minutos",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
+  },
+  "PiwdUd": {
+    "defaultMessage": "Beta",
+    "description": "Beta version"
   },
   "Pohz4K": {
     "defaultMessage": "{currencySymbol}{price} cobrados anualmente.",
@@ -2356,7 +2360,7 @@
     "description": "Tooltip for questions Not Completed label"
   },
   "m9168P": {
-    "defaultMessage": "All Questions",
+    "defaultMessage": "Todas as Perguntas",
     "description": "Link label to access all questions"
   },
   "mNb3b2": {
