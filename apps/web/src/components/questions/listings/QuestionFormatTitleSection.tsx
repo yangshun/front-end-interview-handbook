@@ -124,19 +124,23 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                 />
               }
               sectionLabel={
-                <div className="flex gap-x-2">
+                <div>
                   <FormattedMessage
                     defaultMessage="Front End Engineer"
                     description="Front End Engineer job title"
                     id="j3EFJn"
                   />
-                  <span>&middot;</span>
+                  <span aria-hidden={true} className="mx-2">
+                    &middot;
+                  </span>
                   <FormattedMessage
                     defaultMessage="Web Developer"
                     description="Web Developer job title"
                     id="yRjuKv"
                   />
-                  <span>&middot;</span>
+                  <span aria-hidden={true} className="mx-2">
+                    &middot;
+                  </span>
                   <FormattedMessage
                     defaultMessage="Full Stack Engineer"
                     description="Full Stack Engineer job title"
