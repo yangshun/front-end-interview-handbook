@@ -291,6 +291,10 @@
     "defaultMessage": "Perfil",
     "description": "Title of Profile page"
   },
+  "5rd3TN": {
+    "defaultMessage": "Companies",
+    "description": "Companies section label"
+  },
   "5usorl": {
     "defaultMessage": "Perguntas de React",
     "description": "React questions category long title"
@@ -602,6 +606,10 @@
   "CXs8z4": {
     "defaultMessage": "Pratique Perguntas de Quiz de Entrevista de Front End com Soluções",
     "description": "Title of Interview Preparation Quiz page"
+  },
+  "Cjz59k": {
+    "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
+    "description": "Button label within embed"
   },
   "CqG3Op": {
     "defaultMessage": "Questões Concluídas",
@@ -1843,6 +1851,10 @@
     "defaultMessage": "Planos de preparação para todos os tipos de prazos de preparação — <owlink>1 semana</owlink>, <omlink>1 mês</omlink>, <tmlink>3 meses</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "cgTXiW": {
+    "defaultMessage": "Design a News Feed (e.g. Facebook)",
+    "description": "System design question title"
+  },
   "cgpi3r": {
     "defaultMessage": "Preparação para Entrevista de Front End",
     "description": "Front end interview preparation pages title"
@@ -1942,6 +1954,10 @@
   "eQwU0l": {
     "defaultMessage": "Copiar linha acima",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
+  },
+  "eT2mrq": {
+    "defaultMessage": "View the full solution and other System Design guides.",
+    "description": "Button label within embed"
   },
   "eVJIGT": {
     "defaultMessage": "Perguntas de Design de Sistemas",
@@ -2339,6 +2355,10 @@
     "defaultMessage": "Não Concluído",
     "description": "Tooltip for questions Not Completed label"
   },
+  "m9168P": {
+    "defaultMessage": "All Questions",
+    "description": "Link label to access all questions"
+  },
   "mNb3b2": {
     "defaultMessage": "Difícil",
     "description": "Hard difficulty question"
@@ -2622,6 +2642,10 @@
   "td80TL": {
     "defaultMessage": "Para candidatos a empregos sólidos ou busca de empregos de longo prazo.",
     "description": "Supporting statement for an annual pricing plan"
+  },
+  "thqnR6": {
+    "defaultMessage": "Click here to view the full solution and other System Design guides.",
+    "description": "Button label within embed"
   },
   "tmvC1S": {
     "defaultMessage": "Desbloqueie todo o conteúdo premium, incluindo soluções oficiais, empresas e planos de estudo.",

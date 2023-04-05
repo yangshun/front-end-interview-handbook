@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
@@ -27,6 +28,7 @@ export default function MarketingEmbedJavaScriptQuestion({
 }: Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
 }>) {
+  const intl = useIntl();
   const { startDrag, size: leftPaneWidth } = useResizablePaneDivider(400);
   const [selectedSection, setSelectedSection] =
     useState<QuestionContentsSection>('description');
@@ -85,11 +87,26 @@ export default function MarketingEmbedJavaScriptQuestion({
                         />
                         <div className="space-y-2">
                           <div className="text-base font-medium sm:text-lg">
-                            Companies
+                            {intl.formatMessage({
+                              defaultMessage: 'Companies',
+                              description: 'Companies section label',
+                              id: '5rd3TN',
+                            })}
                           </div>
                           <QuestionPaywallSmall
-                            subtitle="Purchase premium to see companies which ask this question."
-                            title="Premium Feature"
+                            subtitle={intl.formatMessage({
+                              defaultMessage:
+                                'Purchase premium to see companies which ask this question.',
+                              description:
+                                'Subtitle for paywall over information about companies that asked the question',
+                              id: 'vp4zbB',
+                            })}
+                            title={intl.formatMessage({
+                              defaultMessage: 'Premium Feature',
+                              description:
+                                'Title for paywall over information about companies that asked the question',
+                              id: 'BPE/qv',
+                            })}
                           />
                         </div>
                       </div>
@@ -117,7 +134,11 @@ export default function MarketingEmbedJavaScriptQuestion({
               addonPosition="start"
               href="/prepare/coding"
               icon={ListBulletIcon}
-              label="All Questions"
+              label={intl.formatMessage({
+                defaultMessage: 'All Questions',
+                description: 'Link label to access all questions',
+                id: 'm9168P',
+              })}
               size="sm"
               variant="tertiary"
             />
@@ -152,7 +173,12 @@ export default function MarketingEmbedJavaScriptQuestion({
           });
         }}>
         <Banner size="xs">
-          Click here to try out the actual workspace instead of this embed.
+          {intl.formatMessage({
+            defaultMessage:
+              'Click here to try out the actual workspace instead of this embed.',
+            description: 'Button label within embed',
+            id: 'Cjz59k',
+          })}
         </Banner>
       </Anchor>
     </div>

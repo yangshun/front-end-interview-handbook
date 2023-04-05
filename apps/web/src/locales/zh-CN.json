@@ -291,6 +291,10 @@
     "defaultMessage": "个人资料",
     "description": "Title of Profile page"
   },
+  "5rd3TN": {
+    "defaultMessage": "Companies",
+    "description": "Companies section label"
+  },
   "5usorl": {
     "defaultMessage": "React 题目",
     "description": "React questions category long title"
@@ -328,7 +332,7 @@
     "description": "Section title for links to question lists by category and format"
   },
   "6yAWpI": {
-    "defaultMessage": "有 {QuestionCount} 多个由高级前端工程师管理的练习题目，你可以获得准备好的全方位覆盖范围——HTML， CS、JavaScript、算法、DOM API、可访问性、性能、前端基础等等。",
+    "defaultMessage": "有 {QuestionCount} 多个由高级前端工程师管理的练习题目，你可以获得准备好的全方位覆盖范围——HTML、CSS、JavaScript、算法、DOM API、可访问性、性能、前端基础等等。",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
   },
   "72GwzV": {
@@ -603,6 +607,10 @@
     "defaultMessage": "练习前端测验面试题及解答",
     "description": "Title of Interview Preparation Quiz page"
   },
+  "Cjz59k": {
+    "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
+    "description": "Button label within embed"
+  },
   "CqG3Op": {
     "defaultMessage": "已完成的题目",
     "description": "Heading for list of completed questions."
@@ -860,7 +868,7 @@
     "description": "Link to privacy policy page"
   },
   "IUYG0x": {
-    "defaultMessage": "这是 <strong>一次性购买，没有定期订阅</strong>。 您可以永远访问GreatFrontend面试平台中的所有内容以及任何未来的更新。 这对今后所有寻找工作都是有益和相关的。",
+    "defaultMessage": "这是 <strong>一次性购买，没有定期订阅</strong>。 您可以永远访问GreatFrontEnd面试平台中的所有内容以及任何未来的更新。 这对今后所有寻找工作都是有益和相关的。",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
   },
   "IhJAk8": {
@@ -1380,7 +1388,7 @@
     "description": "Description of Login page"
   },
   "SAFY5p": {
-    "defaultMessage": "GreatFrontend 值得买吗？",
+    "defaultMessage": "GreatFrontEnd 值得买吗？",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
   },
   "SId1Gq": {
@@ -1640,7 +1648,7 @@
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
   },
   "Y6CFPM": {
-    "defaultMessage": "通过继续，您同意 GreatFrontend 的 <tos>服务条款</tos> 和 <pp>隐私政策</pp>。",
+    "defaultMessage": "通过继续，您同意 GreatFrontEnd 的 <tos>服务条款</tos> 和 <pp>隐私政策</pp>。",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
   "YB06jW": {
@@ -1843,6 +1851,10 @@
     "defaultMessage": "准备所有类型的准备时间表 — <owlink>1 周</owlink>, <omlink>1 个月</omlink>, <tmlink>3个月</tmlink>",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "cgTXiW": {
+    "defaultMessage": "Design a News Feed (e.g. Facebook)",
+    "description": "System design question title"
+  },
   "cgpi3r": {
     "defaultMessage": "前端面试准备",
     "description": "Front end interview preparation pages title"
@@ -1942,6 +1954,10 @@
   "eQwU0l": {
     "defaultMessage": "向上复制行",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
+  },
+  "eT2mrq": {
+    "defaultMessage": "View the full solution and other System Design guides.",
+    "description": "Button label within embed"
   },
   "eVJIGT": {
     "defaultMessage": "系统设计题目",
@@ -2339,6 +2355,10 @@
     "defaultMessage": "未完成",
     "description": "Tooltip for questions Not Completed label"
   },
+  "m9168P": {
+    "defaultMessage": "All Questions",
+    "description": "Link label to access all questions"
+  },
   "mNb3b2": {
     "defaultMessage": "困难",
     "description": "Hard difficulty question"
@@ -2623,6 +2643,10 @@
     "defaultMessage": "对于认真寻找工作或长期寻找工作。",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "thqnR6": {
+    "defaultMessage": "Click here to view the full solution and other System Design guides.",
+    "description": "Button label within embed"
+  },
   "tmvC1S": {
     "defaultMessage": "解锁所有高级内容，包括官方解答、公司和学习计划。",
     "description": "Lifetime membership feature of unlocking premium content."
@@ -2704,7 +2728,7 @@
     "description": "Label for high question importance"
   },
   "v4ChUi": {
-    "defaultMessage": "开始GreatFrontend的学习计划或练习超过 {questionCount} 个题目的所有前端面试形式",
+    "defaultMessage": "开始GreatFrontEnd的学习计划或练习超过 {questionCount} 个题目的所有前端面试形式",
     "description": "Description of Get Started page"
   },
   "v4Z+0r": {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
@@ -53,6 +54,7 @@ const previewPartPercentage = 100 - editorPartPercentage;
 const height = '100%';
 
 export default function MarketingEmbedUIQuestion({ question }: Props) {
+  const intl = useIntl();
   const [framework, setFramework] = useState<QuestionFramework>('react');
 
   const [selectedSection, setSelectedSection] =
@@ -95,10 +97,27 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
             <QuestionContentProse contents={writeup} />
             <hr />
             <div className="space-y-2">
-              <div className="text-base font-medium sm:text-lg">Companies</div>
+              <div className="text-base font-medium sm:text-lg">
+                {intl.formatMessage({
+                  defaultMessage: 'Companies',
+                  description: 'Companies section label',
+                  id: '5rd3TN',
+                })}
+              </div>
               <QuestionPaywallSmall
-                subtitle="Purchase premium to see companies which ask this question."
-                title="Premium Feature"
+                subtitle={intl.formatMessage({
+                  defaultMessage:
+                    'Purchase premium to see companies which ask this question.',
+                  description:
+                    'Subtitle for paywall over information about companies that asked the question',
+                  id: 'vp4zbB',
+                })}
+                title={intl.formatMessage({
+                  defaultMessage: 'Premium Feature',
+                  description:
+                    'Title for paywall over information about companies that asked the question',
+                  id: 'BPE/qv',
+                })}
               />
             </div>
           </div>
@@ -184,7 +203,12 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
           });
         }}>
         <Banner size="xs">
-          Click here to try out the actual workspace instead of this embed.
+          {intl.formatMessage({
+            defaultMessage:
+              'Click here to try out the actual workspace instead of this embed.',
+            description: 'Button label within embed',
+            id: 'Cjz59k',
+          })}
         </Banner>
       </Anchor>
     </div>

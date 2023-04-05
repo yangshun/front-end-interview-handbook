@@ -291,6 +291,10 @@
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
   },
+  "5rd3TN": {
+    "defaultMessage": "Companies",
+    "description": "Companies section label"
+  },
   "5usorl": {
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
@@ -602,6 +606,10 @@
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
+  },
+  "Cjz59k": {
+    "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
+    "description": "Button label within embed"
   },
   "CqG3Op": {
     "defaultMessage": "Completed Questions",
@@ -1843,6 +1851,10 @@
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "cgTXiW": {
+    "defaultMessage": "Design a News Feed (e.g. Facebook)",
+    "description": "System design question title"
+  },
   "cgpi3r": {
     "defaultMessage": "Front End Interview Preparation",
     "description": "Front end interview preparation pages title"
@@ -1942,6 +1954,10 @@
   "eQwU0l": {
     "defaultMessage": "Copy line up",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
+  },
+  "eT2mrq": {
+    "defaultMessage": "View the full solution and other System Design guides.",
+    "description": "Button label within embed"
   },
   "eVJIGT": {
     "defaultMessage": "System Design Questions",
@@ -2339,6 +2355,10 @@
     "defaultMessage": "Not Completed",
     "description": "Tooltip for questions Not Completed label"
   },
+  "m9168P": {
+    "defaultMessage": "All Questions",
+    "description": "Link label to access all questions"
+  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
@@ -2622,6 +2642,10 @@
   "td80TL": {
     "defaultMessage": "For serious job seekers or longer term job hunts.",
     "description": "Supporting statement for an annual pricing plan"
+  },
+  "thqnR6": {
+    "defaultMessage": "Click here to view the full solution and other System Design guides.",
+    "description": "Button label within embed"
   },
   "tmvC1S": {
     "defaultMessage": "Unlock all premium content including official solutions, companies, and study plans.",

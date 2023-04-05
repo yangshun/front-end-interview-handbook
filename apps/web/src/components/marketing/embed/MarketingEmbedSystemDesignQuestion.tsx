@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
@@ -15,6 +16,8 @@ import Tabs from '~/components/ui/Tabs';
 import logEvent from '~/logging/logEvent';
 
 function ReadFullQuestionAlert() {
+  const intl = useIntl();
+
   return (
     <div className="rounded-md bg-cyan-50 p-4 text-xs">
       Like what you are reading?{' '}
@@ -26,16 +29,19 @@ function ReadFullQuestionAlert() {
           gtag.event({
             action: `homepage.hero.embed.system_design.try_out.click`,
             category: 'engagement',
-            label:
-              'Click here to view the full solution and other System Design guides.',
+            label: 'View the full solution and other System Design guides.',
           });
           logEvent('click', {
             element: 'Homepage System Design questions embed (Try out button)',
-            label:
-              'Click here to view the full solution and other System Design guides.',
+            label: 'View the full solution and other System Design guides.',
           });
         }}>
-        View the full solution and other System Design guides.
+        {intl.formatMessage({
+          defaultMessage:
+            'View the full solution and other System Design guides.',
+          description: 'Button label within embed',
+          id: 'eT2mrq',
+        })}
       </Anchor>
     </div>
   );
@@ -516,6 +522,7 @@ const questionMetadata: QuestionMetadata = {
 };
 
 export default function MarketingEmbedSystemDesignQuestion() {
+  const intl = useIntl();
   const [selectedTab, setSelectedTab] = useState('architecture');
   const { startDrag, size: leftPaneWidth } = useResizablePaneDivider(450);
 
@@ -528,15 +535,36 @@ export default function MarketingEmbedSystemDesignQuestion() {
         <div className="shrink-0 overflow-y-auto" id="left-section">
           <div className="space-y-4 py-4 px-4">
             <div className="text-xl font-semibold sm:text-2xl">
-              Design a News Feed (e.g. Facebook)
+              {intl.formatMessage({
+                defaultMessage: 'Design a News Feed (e.g. Facebook)',
+                description: 'System design question title',
+                id: 'cgTXiW',
+              })}
             </div>
             <QuestionMetadataSection metadata={questionMetadata} />
             <hr />
             <div className="space-y-2">
-              <div className="text-base font-medium sm:text-lg">Companies</div>
+              <div className="text-base font-medium sm:text-lg">
+                {intl.formatMessage({
+                  defaultMessage: 'Companies',
+                  description: 'Companies section label',
+                  id: '5rd3TN',
+                })}
+              </div>
               <QuestionPaywallSmall
-                subtitle="Purchase premium to see companies which ask this question."
-                title="Premium Feature"
+                subtitle={intl.formatMessage({
+                  defaultMessage:
+                    'Purchase premium to see companies which ask this question.',
+                  description:
+                    'Subtitle for paywall over information about companies that asked the question',
+                  id: 'vp4zbB',
+                })}
+                title={intl.formatMessage({
+                  defaultMessage: 'Premium Feature',
+                  description:
+                    'Title for paywall over information about companies that asked the question',
+                  id: 'BPE/qv',
+                })}
               />
             </div>
             <hr />
@@ -597,7 +625,12 @@ export default function MarketingEmbedSystemDesignQuestion() {
           });
         }}>
         <Banner size="xs">
-          Click here to view the full solution and other System Design guides.
+          {intl.formatMessage({
+            defaultMessage:
+              'Click here to view the full solution and other System Design guides.',
+            description: 'Button label within embed',
+            id: 'thqnR6',
+          })}
         </Banner>
       </Anchor>
     </div>
