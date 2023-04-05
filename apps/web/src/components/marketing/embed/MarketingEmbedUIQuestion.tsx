@@ -75,11 +75,16 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               </div>
               <Select
                 isLabelHidden={true}
-                label="Framework"
+                label={intl.formatMessage({
+                  defaultMessage: 'Framework',
+                  description: 'Question framework',
+                  id: 'xbmWBx',
+                })}
                 options={question.metadata.frameworks.map((frameworkItem) => ({
                   label: QuestionFrameworkLabels[frameworkItem.framework],
                   value: frameworkItem.framework,
                 }))}
+                size="sm"
                 value={framework}
                 onChange={(value) => {
                   setFramework(value as QuestionFramework);

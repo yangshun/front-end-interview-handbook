@@ -127,6 +127,7 @@ export default function QuestionContentsUserInterface({
               label: questionFrameworkLabels[frameworkItem.framework],
               value: frameworkItem.framework,
             }))}
+            size="sm"
             value={question.framework}
             onChange={(value) => {
               const frameworkValue = value as QuestionFramework;

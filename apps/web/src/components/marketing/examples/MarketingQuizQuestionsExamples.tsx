@@ -46,14 +46,16 @@ export default function MarketingQuizQuestionsExamples({
             description="Title for an example list of Quiz Questions on marketing pages"
             id="BGn++d"
           />
-          <Badge
-            label={intl.formatMessage({
-              defaultMessage: 'Free',
-              description: 'Label indicating that quiz questions are free',
-              id: 'fevC5W',
-            })}
-            variant="success"
-          />
+          <div>
+            <Badge
+              label={intl.formatMessage({
+                defaultMessage: 'Free',
+                description: 'Label indicating that quiz questions are free',
+                id: 'fevC5W',
+              })}
+              variant="success"
+            />
+          </div>
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
