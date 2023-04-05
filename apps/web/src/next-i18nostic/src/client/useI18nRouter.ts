@@ -14,7 +14,12 @@ type I18nNavigateOptions = NavigateOptions & {
   locale?: Locale;
 };
 
-export default function useI18nRouter(): AppRouterInstance {
+type I18nAppRouterInstance = AppRouterInstance & {
+  push: (href: string, options?: I18nNavigateOptions) => void;
+  replace: (href: string, options?: I18nNavigateOptions) => void;
+};
+
+export default function useI18nRouter(): I18nAppRouterInstance {
   const router = useRouter();
   const { locale: contextLocale } = useI18n();
 

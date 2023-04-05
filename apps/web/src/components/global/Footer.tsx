@@ -10,7 +10,11 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
+
+import i18nLabelOptions from '~/i18n/i18nLabelOptions';
+import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import LogoLink from './Logo';
 
@@ -221,6 +225,8 @@ function FooterSection({
 export default function Footer() {
   const intl = useIntl();
   const navigation = useFooterNavigation();
+  const { locale, pathname } = useI18nPathname();
+  const router = useI18nRouter();
 
   return (
     <footer
@@ -236,7 +242,7 @@ export default function Footer() {
       <Section>
         <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16">
           <div className="xl:grid xl:grid-cols-4 xl:gap-8">
-            <div className="space-y-4 xl:col-span-1">
+            <div className="flex flex-col gap-y-4 xl:col-span-1">
               <div>
                 <LogoLink size="xl" />
               </div>
@@ -247,6 +253,31 @@ export default function Footer() {
                   id="OL9m/V"
                 />
               </p>
+              <div>
+                <Select
+                  isLabelHidden={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Language',
+                    description: 'Change site language button label',
+                    id: '58dfbv',
+                  })}
+                  options={i18nLabelOptions.map(
+                    ({ label, locale: localeValue }) => ({
+                      label,
+                      value: localeValue,
+                    }),
+                  )}
+                  size="sm"
+                  value={locale}
+                  onChange={(newLocale: string) => {
+                    if (pathname == null) {
+                      return;
+                    }
+
+                    router.push(pathname, { locale: newLocale });
+                  }}
+                />
+              </div>
             </div>
             <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-3 xl:mt-0">
               <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-8">
