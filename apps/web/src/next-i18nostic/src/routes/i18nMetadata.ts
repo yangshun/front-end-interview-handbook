@@ -3,6 +3,7 @@ import type { AlternateLinkDescriptor } from 'next/dist/lib/metadata/types/alter
 import nextI18nosticConfig from 'next-i18nostic/config';
 
 import type { Locale } from '../types';
+import i18nHref from '../utils/i18nHref';
 import stripTrailingSlashDependingOnConfig from '../utils/stripTrailingSlashDependingOnConfig';
 
 type UrlType =
@@ -137,7 +138,10 @@ function createLanguages(
  * @param Metadata
  * @returns Metadata
  */
-export default function i18nMetadata(nextMetadata: Metadata): Metadata {
+export default function i18nMetadata(
+  nextMetadata: Metadata,
+  locale: string,
+): Metadata {
   if (!nextMetadata.alternates?.canonical) {
     throw new Error(
       'Canonical field has to provided to generate languages field',
@@ -145,11 +149,16 @@ export default function i18nMetadata(nextMetadata: Metadata): Metadata {
   }
 
   const canonical = nextMetadata.alternates?.canonical;
+  const i18nCanonical =
+    typeof canonical === 'string' || canonical instanceof URL
+      ? i18nHref(canonical, locale)
+      : i18nHref(canonical.url, locale);
 
   return {
     ...nextMetadata,
     alternates: {
       ...nextMetadata.alternates,
+      canonical: i18nCanonical.toString(),
       languages: createLanguages(canonical),
     },
   };

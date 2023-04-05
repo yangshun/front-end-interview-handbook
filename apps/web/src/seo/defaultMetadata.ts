@@ -19,32 +19,35 @@ export default function defaultMetadata({
   pathname,
   title,
 }: PageMetadata): Metadata {
-  return i18nMetadata({
-    alternates: {
-      canonical: pathname,
-    },
-    description,
-    metadataBase: new URL(getSiteUrl()),
-    openGraph: {
+  return i18nMetadata(
+    {
+      alternates: {
+        canonical: pathname,
+      },
       description,
-      images: '/img/seo/og.jpg',
-      locale,
-      siteName: 'GreatFrontEnd',
-      title,
-      type: 'website',
-      url: pathname,
+      metadataBase: new URL(getSiteUrl()),
+      openGraph: {
+        description,
+        images: '/img/seo/og.jpg',
+        locale,
+        siteName: 'GreatFrontEnd',
+        title,
+        type: 'website',
+        url: pathname,
+      },
+      title: {
+        default: title,
+        template: '%s | GreatFrontEnd',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        creator: '@greatfrontend',
+        description,
+        images: '/img/seo/og.jpg',
+        site: '@greatfrontend',
+        title,
+      },
     },
-    title: {
-      default: title,
-      template: '%s | GreatFrontEnd',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      creator: '@greatfrontend',
-      description,
-      images: '/img/seo/og.jpg',
-      site: '@greatfrontend',
-      title,
-    },
-  });
+    locale,
+  );
 }

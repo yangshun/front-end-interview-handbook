@@ -44,17 +44,20 @@ describe('parseCanonical', () => {
 
 describe('i18nMetadata', () => {
   test('throws if canonical is not provided', () => {
-    expect(() => i18nMetadata({})).toThrow();
+    expect(() => i18nMetadata({}, 'en')).toThrow();
   });
 
   describe('should throw if the canonical field is not an absolute URL starting with a /', () => {
     test('non-absolute URL', () => {
       expect(() =>
-        i18nMetadata({
-          alternates: {
-            canonical: 'products',
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: 'products',
+            },
           },
-        }),
+          'en',
+        ),
       ).toThrow();
     });
   });
@@ -62,11 +65,14 @@ describe('i18nMetadata', () => {
   describe('should generate the languages field', () => {
     test('relative URL', () => {
       expect(
-        i18nMetadata({
-          alternates: {
-            canonical: '/products',
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: '/products',
+            },
           },
-        }),
+          'en',
+        ),
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
@@ -84,11 +90,14 @@ describe('i18nMetadata', () => {
 
     test('URL string', () => {
       expect(
-        i18nMetadata({
-          alternates: {
-            canonical: 'https://example.com/products',
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: 'https://example.com/products',
+            },
           },
-        }),
+          'en',
+        ),
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
@@ -106,11 +115,14 @@ describe('i18nMetadata', () => {
 
     test('URL object', () => {
       expect(
-        i18nMetadata({
-          alternates: {
-            canonical: new URL('https://example.com/products'),
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: new URL('https://example.com/products'),
+            },
           },
-        }),
+          'en',
+        ),
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
@@ -128,21 +140,21 @@ describe('i18nMetadata', () => {
 
     test('Alternate link descriptor', () => {
       expect(
-        i18nMetadata({
-          alternates: {
-            canonical: {
-              title: 'Foo',
-              url: 'https://example.com/products',
+        i18nMetadata(
+          {
+            alternates: {
+              canonical: {
+                title: 'Foo',
+                url: 'https://example.com/products',
+              },
             },
           },
-        }),
+          'en',
+        ),
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": {
-              "title": "Foo",
-              "url": "https://example.com/products",
-            },
+            "canonical": "https://example.com/products",
             "languages": {
               "en-US": [
                 {
@@ -173,5 +185,30 @@ describe('i18nMetadata', () => {
         }
       `);
     });
+  });
+
+  test('Canonical should be localized', () => {
+    expect(
+      i18nMetadata(
+        {
+          alternates: {
+            canonical: '/products',
+          },
+        },
+        'zh-CN',
+      ),
+    ).toMatchInlineSnapshot(`
+      {
+        "alternates": {
+          "canonical": "/zh-CN/products",
+          "languages": {
+            "en-US": "/products",
+            "fr-FR": "/fr/products",
+            "x-default": "/products",
+            "zh-CN": "/zh-CN/products",
+          },
+        },
+      }
+    `);
   });
 });
