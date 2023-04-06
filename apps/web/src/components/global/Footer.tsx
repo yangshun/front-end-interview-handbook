@@ -254,7 +254,7 @@ export default function Footer() {
               </p>
               <div>
                 <I18nSelect
-                  locale={locale ?? 'en'}
+                  locale={locale ?? 'en-US'}
                   onChange={(newLocale: string) => {
                     if (pathname == null) {
                       return;

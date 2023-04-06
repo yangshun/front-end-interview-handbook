@@ -30,7 +30,7 @@ async function readQuestionJavaScriptTests(slug: string): Promise<string> {
 
 async function readQuestionMetadataJavaScript(
   slug: string,
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<QuestionMetadata> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
 
@@ -54,14 +54,14 @@ async function readQuestionMetadataJavaScript(
 
 async function readQuestionMetadataWithFallbackJavaScript(
   slug: string,
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
   let loadedLocale = requestedLocale;
   const metadata = await (async () => {
     try {
       return await readQuestionMetadataJavaScript(slug, requestedLocale);
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       return await readQuestionMetadataJavaScript(slug, loadedLocale);
     }
@@ -75,7 +75,7 @@ async function readQuestionMetadataWithFallbackJavaScript(
 
 export async function readQuestionJavaScript(
   slug: string,
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<QuestionJavaScript> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const [metadata, description, solution, skeleton, tests] = await Promise.all([
@@ -97,7 +97,7 @@ export async function readQuestionJavaScript(
 }
 
 export async function readQuestionListMetadataJavaScript(
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_JAVASCRIPT, {

@@ -5,7 +5,7 @@ import type {
   GuideNavigation,
 } from '~/components/guides/GuidesLayoutSidebar';
 
-import SystemDesignQuestionList from '~/__generated__/questions/system-design/list.en.json';
+import SystemDesignQuestionList from '~/__generated__/questions/system-design/list.en-US.json';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 

@@ -1,6 +1,6 @@
 const localeConfig = {
-  defaultLocale: 'en',
-  locales: ['en', 'zh-CN'],
+  defaultLocale: 'en-US',
+  locales: ['en-US', 'zh-CN'],
 };
 
 export default localeConfig;

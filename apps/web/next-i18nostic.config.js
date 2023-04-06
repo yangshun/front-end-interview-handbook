@@ -1,8 +1,8 @@
 const config = {
-  defaultLocale: 'en',
-  locales: ['en', 'zh-CN', 'pt-BR'],
+  defaultLocale: 'en-US',
+  locales: ['en-US', 'zh-CN', 'pt-BR'],
   localeHrefLangs: {
-    en: 'en-US',
+    'en-US': 'en-US',
     'zh-CN': 'zh-CN',
     'pt-BR': 'pt-BR',
   },

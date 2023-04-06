@@ -22,7 +22,7 @@ import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsB
 
 export function readQuestionJavaScriptContents(
   slug: string,
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
   question: QuestionJavaScript;
@@ -37,7 +37,7 @@ export function readQuestionJavaScriptContents(
         ),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(
@@ -54,7 +54,7 @@ export function readQuestionJavaScriptContents(
 
 export function readQuestionQuizContents(
   slug: string,
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
   question: QuestionQuiz;
@@ -66,7 +66,7 @@ export function readQuestionQuizContents(
         path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(
@@ -83,7 +83,7 @@ export function readQuestionQuizContents(
 
 export function readQuestionSystemDesignContents(
   slug: string,
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
   question: QuestionSystemDesign;
@@ -98,7 +98,7 @@ export function readQuestionSystemDesignContents(
         ),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(

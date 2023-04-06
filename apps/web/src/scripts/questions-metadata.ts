@@ -15,7 +15,7 @@ import { getQuestionsListOutFilenameUserInterface } from '../db/questions-bundle
 async function generateQuestionsMetadata(
   genFn: (locale_: string) => Promise<ReadonlyArray<QuestionMetadata>>,
   outPath: string,
-  locale = 'en',
+  locale = 'en-US',
 ) {
   const metadataList = await genFn(locale);
   const dir = path.dirname(outPath);
@@ -24,7 +24,7 @@ async function generateQuestionsMetadata(
   fs.writeFileSync(outPath, JSON.stringify(metadataList, null, 2));
 }
 
-async function codingQuestionsMetadata(outPath: string, locale = 'en') {
+async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
   const [javaScriptQuestions, userInterfaceQuestions] = await Promise.all([
     readQuestionListMetadataJavaScript(locale),
     readQuestionListMetadataUserInterface(locale),
@@ -49,7 +49,7 @@ async function codingQuestionsMetadata(outPath: string, locale = 'en') {
 }
 
 export async function generateAllMetadata() {
-  const locale = 'en';
+  const locale = 'en-US';
 
   return await Promise.all([
     generateQuestionsMetadata(

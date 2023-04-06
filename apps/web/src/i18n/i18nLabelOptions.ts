@@ -6,11 +6,11 @@ const i18nLabelOptions: ReadonlyArray<{
   {
     isBeta: false,
     label: 'English (US)',
-    locale: 'en',
+    locale: 'en-US',
   },
   {
     isBeta: true,
-    label: '中文（中国）',
+    label: '中文 (简体)',
     locale: 'zh-CN',
   },
   {

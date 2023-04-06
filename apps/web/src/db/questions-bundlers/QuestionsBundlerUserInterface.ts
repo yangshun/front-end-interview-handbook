@@ -12,7 +12,7 @@ import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 export async function readQuestionMetadataUserInterface(
   slug: string,
-  _locale = 'en',
+  _locale = 'en-US',
 ) {
   const questionPath = getQuestionSrcPathUserInterface(slug);
 
@@ -32,7 +32,7 @@ export async function readQuestionMetadataUserInterface(
 }
 
 export async function readQuestionListMetadataUserInterface(
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_USER_INTERFACE, {

@@ -17,7 +17,7 @@ import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 async function readQuestionMetadataQuiz(
   slug: string,
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<QuestionQuizMetadata> {
   const questionPath = getQuestionSrcPathQuiz(slug);
 
@@ -45,14 +45,14 @@ async function readQuestionMetadataQuiz(
 
 async function readQuestionMetadataWithFallbackQuiz(
   slug: string,
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Promise<{ loadedLocale: string; metadata: QuestionQuizMetadata }> {
   let loadedLocale = requestedLocale;
   const metadata = await (async () => {
     try {
       return await readQuestionMetadataQuiz(slug, requestedLocale);
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       return await readQuestionMetadataQuiz(slug, loadedLocale);
     }
@@ -66,7 +66,7 @@ async function readQuestionMetadataWithFallbackQuiz(
 
 export async function readQuestionQuiz(
   slug: string,
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<QuestionQuiz> {
   const questionPath = getQuestionSrcPathQuiz(slug);
 
@@ -84,7 +84,7 @@ export async function readQuestionQuiz(
 }
 
 export async function readQuestionListMetadataQuiz(
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionQuizMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_QUIZ, {

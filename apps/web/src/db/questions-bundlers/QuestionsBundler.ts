@@ -33,7 +33,7 @@ export async function readMDXFileWithLocaleFallback(
     );
   } catch {
     // Fallback to English.
-    return await readMDXFile(path.join(directoryPath, `en.mdx`), options);
+    return await readMDXFile(path.join(directoryPath, `en-US.mdx`), options);
   }
 }
 

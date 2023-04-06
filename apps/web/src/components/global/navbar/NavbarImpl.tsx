@@ -646,7 +646,7 @@ export default function NavbarImpl() {
         <div className="px-4 pt-2">
           <I18nSelect
             display="block"
-            locale={locale ?? 'en'}
+            locale={locale ?? 'en-US'}
             onChange={(newLocale: string) => {
               if (pathname == null) {
                 return;

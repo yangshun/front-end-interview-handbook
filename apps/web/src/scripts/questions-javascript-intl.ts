@@ -23,7 +23,7 @@ async function restructureQuestion(dirPath: string, slug: string) {
     JSON.stringify(frontMatter, null, 2),
   );
 
-  const descriptionPath = path.join(dirPath, 'description', 'en.mdx');
+  const descriptionPath = path.join(dirPath, 'description', 'en-US.mdx');
 
   fs.mkdirSync(dirname(descriptionPath), { recursive: true });
 
@@ -37,7 +37,7 @@ async function restructureQuestion(dirPath: string, slug: string) {
   fs.unlinkSync(path.join(dirPath, 'index.mdx'));
 
   const oldSolutionPath = path.join(dirPath, 'solution', 'index.mdx');
-  const newSolutionPath = path.join(dirPath, 'solution', 'en.mdx');
+  const newSolutionPath = path.join(dirPath, 'solution', 'en-US.mdx');
 
   // Solution.
   fs.renameSync(oldSolutionPath, newSolutionPath);

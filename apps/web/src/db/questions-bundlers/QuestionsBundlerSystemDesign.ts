@@ -16,7 +16,7 @@ import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 async function readQuestionMetadataSystemDesign(
   slug: string,
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<QuestionMetadata> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
@@ -38,14 +38,14 @@ async function readQuestionMetadataSystemDesign(
 
 async function readQuestionMetadataWithFallbackSystemDesign(
   slug: string,
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
   let loadedLocale = requestedLocale;
   const metadata = await (async () => {
     try {
       return await readQuestionMetadataSystemDesign(slug, requestedLocale);
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       return await readQuestionMetadataSystemDesign(slug, loadedLocale);
     }
@@ -59,7 +59,7 @@ async function readQuestionMetadataWithFallbackSystemDesign(
 
 export async function readQuestionSystemDesign(
   slug: string,
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<QuestionSystemDesign> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
@@ -80,7 +80,7 @@ export async function readQuestionSystemDesign(
 }
 
 export async function readQuestionListMetadataSystemDesign(
-  locale = 'en',
+  locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_SYSTEM_DESIGN, {

@@ -18,7 +18,9 @@ import { getQuestionsListOutFilenameQuiz } from './questions-bundlers/QuestionsB
 import { getQuestionsListOutFilenameSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { getQuestionsListOutFilenameUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
-export async function fetchQuestionsListQuiz(requestedLocale = 'en'): Promise<
+export async function fetchQuestionsListQuiz(
+  requestedLocale = 'en-US',
+): Promise<
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionQuizMetadata>;
@@ -29,7 +31,7 @@ export async function fetchQuestionsListQuiz(requestedLocale = 'en'): Promise<
     try {
       return fs.readFileSync(getQuestionsListOutFilenameQuiz(requestedLocale));
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(getQuestionsListOutFilenameQuiz(loadedLocale));
@@ -45,7 +47,7 @@ export async function fetchQuestionsListQuiz(requestedLocale = 'en'): Promise<
 }
 
 export async function fetchQuestionsListJavaScript(
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
@@ -59,7 +61,7 @@ export async function fetchQuestionsListJavaScript(
         getQuestionsListOutFilenameJavaScript(requestedLocale),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(
@@ -75,7 +77,7 @@ export async function fetchQuestionsListJavaScript(
 }
 
 export async function fetchQuestionsListUserInterface(
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
@@ -89,7 +91,7 @@ export async function fetchQuestionsListUserInterface(
         getQuestionsListOutFilenameUserInterface(requestedLocale),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(
@@ -104,7 +106,9 @@ export async function fetchQuestionsListUserInterface(
   };
 }
 
-export async function fetchQuestionsListCoding(requestedLocale = 'en'): Promise<
+export async function fetchQuestionsListCoding(
+  requestedLocale = 'en-US',
+): Promise<
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
@@ -117,7 +121,7 @@ export async function fetchQuestionsListCoding(requestedLocale = 'en'): Promise<
         getQuestionsListOutFilenameCoding(requestedLocale),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(getQuestionsListOutFilenameCoding(loadedLocale));
@@ -131,7 +135,7 @@ export async function fetchQuestionsListCoding(requestedLocale = 'en'): Promise<
 }
 
 export async function fetchQuestionsListSystemDesign(
-  requestedLocale = 'en',
+  requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
@@ -145,7 +149,7 @@ export async function fetchQuestionsListSystemDesign(
         getQuestionsListOutFilenameSystemDesign(requestedLocale),
       );
     } catch {
-      loadedLocale = 'en';
+      loadedLocale = 'en-US';
 
       // Fallback to English.
       return fs.readFileSync(

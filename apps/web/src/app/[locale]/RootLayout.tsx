@@ -23,7 +23,7 @@ type Props = Readonly<{
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
-      lang={locale}
+      lang={locale.split('-')[0]}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
       <body>
