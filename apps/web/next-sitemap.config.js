@@ -1,6 +1,6 @@
 // @ts-check
 
-import codingQuestionsList from './src/__generated__/questions/coding/list.en.json' assert { type: 'json' };
+import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' assert { type: 'json' };
 
 const priority = 0.7;
 const changefreq = 'daily';
