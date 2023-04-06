@@ -52,7 +52,7 @@
     "description": "System design interview study guides"
   },
   "/FyqAR": {
-    "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
+    "defaultMessage": "As traduções do {locale} estão em beta e podem não ser precisas. Dê feedback ou <link>entre em contato conosco</link> se estiver interessado em ajudar a traduzir!",
     "description": "Banner about beta locale version"
   },
   "/Q1sUc": {
@@ -612,7 +612,7 @@
     "description": "Title of Interview Preparation Quiz page"
   },
   "Cjz59k": {
-    "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
+    "defaultMessage": "Clique aqui para experimentar o espaço de trabalho real em vez deste incorporado.",
     "description": "Button label within embed"
   },
   "CqG3Op": {
@@ -1296,7 +1296,7 @@
     "description": "Practice questions for all stages"
   },
   "QIRY6V": {
-    "defaultMessage": "Os recursos de design de sistemas de front-end são praticamente inexistentes. Este é o único lugar onde você encontrará soluções detalhadas para perguntas de design de sistemas de front-end, juntamente com o nosso comprovado framework de resposta.",
+    "defaultMessage": "Os recursos de design de sistemas de front end são praticamente inexistentes. Este é o único lugar onde você encontrará soluções detalhadas para perguntas de design de sistemas de front-end, juntamente com o nosso comprovado framework de resposta.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
   "QJaxVF": {
@@ -1788,7 +1788,7 @@
     "description": "JavaScript questions category long title"
   },
   "b0OofK": {
-    "defaultMessage": "As perguntas de entrevista de programação front end vêm em muitas formas — pratique escrevendo funções JavaScript, estruturas de dados e algoritmos.",
+    "defaultMessage": "As perguntas de entrevista de programação front end são diversas — pratique escrevendo funções JavaScript, estruturas de dados e algoritmos.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
   },
   "b2csyI": {
@@ -1860,7 +1860,7 @@
     "description": "Subtitle for proven preparation plans feature"
   },
   "cgTXiW": {
-    "defaultMessage": "Design a News Feed (e.g. Facebook)",
+    "defaultMessage": "Crie um Feed de Notícias (por exemplo, Facebook)",
     "description": "System design question title"
   },
   "cgpi3r": {
@@ -1964,7 +1964,7 @@
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
   },
   "eT2mrq": {
-    "defaultMessage": "View the full solution and other System Design guides.",
+    "defaultMessage": "Veja a solução completa e outros guias do Design do Sistema.",
     "description": "Button label within embed"
   },
   "eVJIGT": {
@@ -2080,7 +2080,7 @@
     "description": "Screenreader text indicating the question list component on question list pages"
   },
   "h63G52": {
-    "defaultMessage": "Taxa com desconto para a duração típica de busca de emprego.",
+    "defaultMessage": "Preço com desconto para quanto tempo normalmente dura uma busca de emprego.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
   "hESyRg": {
@@ -2272,7 +2272,7 @@
     "description": "Tooltip for Coming Soon questions label"
   },
   "kF3Llo": {
-    "defaultMessage": "O conhecimento é poder. Mais de {count} perguntas curtas com respostas para construir e solidificar seus fundamentos de front end.",
+    "defaultMessage": "Conhecimento é poder. Mais de {count} perguntas curtas com respostas para construir e solidificar seus fundamentos de front end.",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
   },
   "kGgqDu": {
@@ -2652,7 +2652,7 @@
     "description": "Supporting statement for an annual pricing plan"
   },
   "thqnR6": {
-    "defaultMessage": "Click here to view the full solution and other System Design guides.",
+    "defaultMessage": "Clique aqui para ver a solução completa e outros guias de Design de Sistemas.",
     "description": "Button label within embed"
   },
   "tmvC1S": {
