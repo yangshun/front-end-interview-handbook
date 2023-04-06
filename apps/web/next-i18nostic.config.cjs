@@ -9,4 +9,4 @@ const config = {
   trailingSlash: false,
 };
 
-export default config;
+module.exports = config;

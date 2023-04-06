@@ -4,7 +4,7 @@ export default function nextI18nostic() {
       // TODO: Derive from NextJsWebpackConfig.
       webpack(config, options) {
         config.resolve.alias['next-i18nostic/config'] = [
-          'private-next-root-dir/next-i18nostic.config',
+          'private-next-root-dir/next-i18nostic.config.cjs',
         ];
 
         if (typeof nextConfig.webpack === 'function') {
