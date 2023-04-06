@@ -1,6 +1,6 @@
 {
   "+/N6q+": {
-    "defaultMessage": "Estratégias para lidar com o amplo domínio das entrevistas comportamentais, específicas para SWE",
+    "defaultMessage": "Estratégias para enfrentar o amplo domínio das entrevistas comportamentais, específicas para SWE",
     "description": "Description for behavioral interview stage"
   },
   "+4N+iX": {
@@ -448,7 +448,7 @@
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
   "8q3l4q": {
-    "defaultMessage": "A plataforma definitiva de preparação para <span>entrevistas de Front End</span>.",
+    "defaultMessage": "A plataforma definitiva de preparação para <span>entrevistas de Front End</span>",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
   "8ulBJI": {
@@ -496,7 +496,7 @@
     "description": "Button label to use light console theme"
   },
   "AGwpnL": {
-    "defaultMessage": "Ajudamos você a avaliar todas as entrevistas de front-end <strong>dominando seus fundamentos</strong>. <span>Construído por</span> engenheiros sênior de Front End ex-FAANG.",
+    "defaultMessage": "Ajudamos você a se sair bem em todas entrevistas de front end <strong>dominando seus fundamentos</strong>. <span>Desenvolvido por</span> ex-engenheiros Senior de Front End da FAANG.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
   "ATwxZX": {
@@ -1232,7 +1232,7 @@
     "description": "CSS topic for quiz questions"
   },
   "P4yQWv": {
-    "defaultMessage": "Perguntas de estilo trivia a serem feitas em todas as rodadas de entrevistas",
+    "defaultMessage": "Perguntas no estilo trivia que são feitas em todas as rodadas das entrevistas",
     "description": "Description for quiz interview stage"
   },
   "P99cBr": {
@@ -1468,7 +1468,7 @@
     "description": "Title of Magic Link Sign In page"
   },
   "TeTJmh": {
-    "defaultMessage": "E se esses fundamentos já foram abstraídos para você?",
+    "defaultMessage": "E se esses fundamentos já fossem abstraídos para você?",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
   "U022No": {
@@ -1764,7 +1764,7 @@
     "description": "Title of Password Reset page"
   },
   "aQKVD4": {
-    "defaultMessage": "Contribuído por ex-entrevistadores no",
+    "defaultMessage": "Contribuído por ex-entrevistadores do",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
   },
   "aZqFm4": {
@@ -2100,7 +2100,7 @@
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
   "hXf/Wl": {
-    "defaultMessage": "Todos os tipos de perguntas de rodadas de programação, desde utilitários JS até interfaces de usuário com React",
+    "defaultMessage": "Todos os tipos das perguntas de rodadas de programação, desde utilitários JS até interfaces de usuário com React",
     "description": "Description for coding interview stage"
   },
   "hhbPlp": {
@@ -2284,7 +2284,7 @@
     "description": "Larry Almeida's testimonial"
   },
   "kL0yEH": {
-    "defaultMessage": "Você não pode encontrar isso em outro lugar",
+    "defaultMessage": "Você não vai encontrar isso em outro lugar",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
   "kjdLiy": {
@@ -2596,7 +2596,7 @@
     "description": "System design questions long title"
   },
   "slAmNi": {
-    "defaultMessage": "Decisões de design, arquitetura e otimização para aplicativos front-end comuns",
+    "defaultMessage": "Decisões de design, arquitetura e otimização para apps front end populares",
     "description": "Description for system design interview stage"
   },
   "sn/P86": {
