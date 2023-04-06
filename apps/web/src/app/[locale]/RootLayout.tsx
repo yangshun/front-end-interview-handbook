@@ -1,3 +1,5 @@
+import nextI18nConfig from 'next-i18nostic/config';
+
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
@@ -20,7 +22,10 @@ type Props = Readonly<{
 
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      // So that browsers don't offer translations for a supported locale.
+      translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
       <body>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
