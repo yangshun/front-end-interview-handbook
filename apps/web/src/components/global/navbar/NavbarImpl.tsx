@@ -13,6 +13,7 @@ import {
   useQuestionFormatLists,
 } from '~/data/QuestionFormats';
 
+import I18nSelect from '~/components/i18n/I18nSelect';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -22,7 +23,7 @@ import type {
   NavLinkItem,
 } from '~/components/ui/Navbar/NavTypes';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
+import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
@@ -598,6 +599,8 @@ export default function NavbarImpl() {
   const isPremium = userProfile?.isPremium ?? false;
   const links = useNavLinks(isLoggedIn, isPremium);
   const userNavigationLinks = useUserNavigationLinks();
+  const { locale, pathname } = useI18nPathname();
+  const router = useI18nRouter();
 
   const endAddOnItems = (
     <>
@@ -640,6 +643,19 @@ export default function NavbarImpl() {
   }>) {
     return (
       <>
+        <div className="px-4 pt-2">
+          <I18nSelect
+            display="block"
+            locale={locale ?? 'en'}
+            onChange={(newLocale: string) => {
+              if (pathname == null) {
+                return;
+              }
+
+              router.push(pathname, { locale: newLocale });
+            }}
+          />
+        </div>
         {isLoggedIn && (
           <div className="space-y-1 px-2">
             {userNavigationLinks.map((props) => (

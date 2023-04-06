@@ -10,13 +10,12 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 
-import i18nLabelOptions from '~/i18n/i18nLabelOptions';
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import LogoLink from './Logo';
+import I18nSelect from '../i18n/I18nSelect';
 
 type FooterLink = Readonly<{
   href: string;
@@ -254,21 +253,8 @@ export default function Footer() {
                 />
               </p>
               <div>
-                <Select
-                  isLabelHidden={true}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Language',
-                    description: 'Change site language button label',
-                    id: '58dfbv',
-                  })}
-                  options={i18nLabelOptions.map(
-                    ({ label, locale: localeValue }) => ({
-                      label,
-                      value: localeValue,
-                    }),
-                  )}
-                  size="sm"
-                  value={locale}
+                <I18nSelect
+                  locale={locale ?? 'en'}
                   onChange={(newLocale: string) => {
                     if (pathname == null) {
                       return;

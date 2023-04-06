@@ -6,7 +6,7 @@ export type SelectItem<T> = Readonly<{
   value: T;
 }>;
 
-type SelectDisplay = 'block' | 'inline';
+export type SelectDisplay = 'block' | 'inline';
 type SelectSize = 'md' | 'sm';
 
 type Props<T> = Readonly<{
