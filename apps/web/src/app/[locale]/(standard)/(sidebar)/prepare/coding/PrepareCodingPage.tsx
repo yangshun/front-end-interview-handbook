@@ -50,7 +50,10 @@ export default function PrepareCodingQuestionsPage({ questions }: Props) {
               })}
             </Heading>
             <Section>
-              <QuestionsCodingListWithFilters questions={questions} />
+              <QuestionsCodingListWithFilters
+                category="coding"
+                questions={questions}
+              />
             </Section>
           </div>
         </Section>

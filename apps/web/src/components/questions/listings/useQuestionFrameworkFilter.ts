@@ -1,7 +1,9 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
+
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionCategory } from './types';
 import type { QuestionFramework } from '../common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '../common/QuestionsTypes';
 
@@ -10,14 +12,17 @@ const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
   'vanilla',
 ];
 
-export default function useQuestionFrameworkFilter(): [
-  Set<QuestionFramework>,
-  QuestionFilter<QuestionFramework>,
-] {
+type Props = Readonly<{
+  category: QuestionCategory;
+}>;
+
+export default function useQuestionFrameworkFilter({
+  category,
+}: Props): [Set<QuestionFramework>, QuestionFilter<QuestionFramework>] {
   const intl = useIntl();
-  const [frameworkFilters, setFrameworkFilters] = useState<
+  const [frameworkFilters, setFrameworkFilters] = useUserPreferencesState<
     Set<QuestionFramework>
-  >(new Set());
+  >(`${category}FrameworkFilters`, new Set());
 
   const frameworkFilterOptions: QuestionFilter<QuestionFramework> = {
     id: 'Framework',

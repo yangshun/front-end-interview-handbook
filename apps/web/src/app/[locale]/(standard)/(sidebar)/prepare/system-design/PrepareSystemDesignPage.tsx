@@ -47,7 +47,7 @@ export default function PrepareSystemDesignQuestionsPage() {
               })}
             </Heading>
             <Section>
-              <QuestionsSystemDesignListWithFilters />
+              <QuestionsSystemDesignListWithFilters category="systemDesign" />
             </Section>
           </div>
         </Section>

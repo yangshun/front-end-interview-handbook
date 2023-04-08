@@ -1,24 +1,28 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
+
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionCategory } from './types';
 import type { QuestionCodingFormat } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
+  category: QuestionCategory;
   filter?: (format: QuestionCodingFormat) => boolean;
   initialValue?: ReadonlyArray<QuestionCodingFormat>;
   order?: (a: QuestionCodingFormat, b: QuestionCodingFormat) => number;
 }>;
 
 export default function useQuestionCodingFormatFilter({
+  category,
   initialValue = [],
   filter,
   order,
 }: Props): [Set<QuestionCodingFormat>, QuestionFilter<QuestionCodingFormat>] {
   const intl = useIntl();
-  const [codingFormatFilters, setCodingFormatFilters] = useState<
+  const [codingFormatFilters, setCodingFormatFilters] = useUserPreferencesState<
     Set<QuestionCodingFormat>
-  >(new Set(initialValue));
+  >(`${category}CodingFormatFilters`, new Set(initialValue));
   let options: ReadonlyArray<{
     label: string;
     tooltip: string;

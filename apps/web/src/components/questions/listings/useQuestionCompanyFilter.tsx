@@ -1,9 +1,11 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
 
+import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
+
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionCategory } from './types';
 import type { QuestionCompany } from '../common/QuestionsTypes';
 
 const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
@@ -14,15 +16,18 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'linkedin',
 ];
 
-export default function useQuestionCompanyFilter(): [
-  Set<QuestionCompany>,
-  QuestionFilter<QuestionCompany>,
-] {
+type Props = Readonly<{
+  category: QuestionCategory;
+}>;
+
+export default function useQuestionCompanyFilter({
+  category,
+}: Props): [Set<QuestionCompany>, QuestionFilter<QuestionCompany>] {
   const intl = useIntl();
   const companyNames = useCompanyNames();
-  const [companyFilters, setCompanyFilters] = useState<Set<QuestionCompany>>(
-    new Set(),
-  );
+  const [companyFilters, setCompanyFilters] = useUserPreferencesState<
+    Set<QuestionCompany>
+  >(`${category}CompanyFilters`, new Set());
   const CompanyFilterOptions: QuestionFilter<QuestionCompany> = {
     id: 'company',
     name: intl.formatMessage({

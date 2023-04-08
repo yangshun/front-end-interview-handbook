@@ -31,15 +31,18 @@ import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
+import type { QuestionCategory } from './types';
 import { allSystemDesignQuestions } from '../content/system-design/SystemDesignNavigation';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 type Props = Readonly<{
+  category: QuestionCategory;
   layout?: 'embedded' | 'full';
 }>;
 
 export default function QuestionsSystemDesignListWithFilters({
+  category,
   layout = 'full',
 }: Props) {
   const intl = useIntl();
@@ -49,10 +52,12 @@ export default function QuestionsSystemDesignListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter();
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter();
+    useQuestionDifficultyFilter({ category });
+  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
+    category,
+  });
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter();
+    useQuestionCompletionStatusFilter({ category });
 
   function makeDropdownItemProps(
     label: string,

@@ -1,7 +1,9 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
+
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionCategory } from './types';
 import type { QuestionLanguage } from '../common/QuestionsTypes';
 
 const LANGUAGE_OPTIONS: ReadonlyArray<{
@@ -13,14 +15,17 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{
   { label: 'JavaScript', value: 'js' },
 ];
 
-export default function useQuestionLanguageFilter(): [
-  Set<QuestionLanguage>,
-  QuestionFilter<QuestionLanguage>,
-] {
+type Props = Readonly<{
+  category: QuestionCategory;
+}>;
+
+export default function useQuestionLanguageFilter({
+  category,
+}: Props): [Set<QuestionLanguage>, QuestionFilter<QuestionLanguage>] {
   const intl = useIntl();
-  const [languageFilters, setLanguageFilters] = useState<Set<QuestionLanguage>>(
-    new Set(),
-  );
+  const [languageFilters, setLanguageFilters] = useUserPreferencesState<
+    Set<QuestionLanguage>
+  >(`${category}LanguageFilters`, new Set());
 
   const LanguageFilterOptions: QuestionFilter<QuestionLanguage> = {
     id: 'language',

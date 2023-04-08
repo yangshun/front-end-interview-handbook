@@ -1,7 +1,9 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
+
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionCategory } from './types';
 import type { QuestionQuizTopic } from '../common/QuestionsTypes';
 import useQuestionQuizTopicLabels from '../content/quiz/useQuestionQuizTopicLabels';
 
@@ -18,15 +20,19 @@ const topicRanks: Record<QuestionQuizTopic, number> = {
   testing: 99,
 };
 
-export default function useQuestionQuizTopicFilter(): [
-  Set<QuestionQuizTopic>,
-  QuestionFilter<QuestionQuizTopic>,
-] {
+type Props = Readonly<{
+  category: QuestionCategory;
+}>;
+
+export default function useQuestionQuizTopicFilter({
+  category,
+}: Props): [Set<QuestionQuizTopic>, QuestionFilter<QuestionQuizTopic>] {
   const intl = useIntl();
   const topicLabels = useQuestionQuizTopicLabels();
-  const [topicFilters, setTopicFilters] = useState<Set<QuestionQuizTopic>>(
-    new Set(),
-  );
+  const [topicFilters, setTopicFilters] = useUserPreferencesState<
+    Set<QuestionQuizTopic>
+  >(`${category}TopicFilters`, new Set());
+
   const topicFilterOptions: QuestionFilter<QuestionQuizTopic> = {
     id: 'topic',
     name: intl.formatMessage({

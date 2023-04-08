@@ -27,16 +27,19 @@ import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
+import type { QuestionCategory } from './types';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 type Props = Readonly<{
+  category: QuestionCategory;
   layout?: 'embedded' | 'full';
   mode?: 'default' | 'topic';
   questions: ReadonlyArray<QuestionQuizMetadata>;
 }>;
 
 export default function QuestionsQuizListWithFilters({
+  category,
   layout = 'full',
   mode = 'default',
   questions,
@@ -46,10 +49,11 @@ export default function QuestionsQuizListWithFilters({
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
-  const [quizTopicFilters, quizTopicFilterOptions] =
-    useQuestionQuizTopicFilter();
+  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionQuizTopicFilter(
+    { category },
+  );
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter();
+    useQuestionCompletionStatusFilter({ category });
   const { data: questionProgress } = useQueryQuestionProgressAll();
 
   function makeDropdownItemProps(
