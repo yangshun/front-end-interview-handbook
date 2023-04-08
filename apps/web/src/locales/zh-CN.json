@@ -123,6 +123,10 @@
     "defaultMessage": "UI 组件 API 设计原则",
     "description": "User Interface components API design principles"
   },
+  "0p6dRS": {
+    "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
+    "description": "Title of question examples section on getting started page"
+  },
   "15O0qb": {
     "defaultMessage": "快速上手",
     "description": "Link to get started page"
@@ -371,6 +375,10 @@
     "defaultMessage": "重要性",
     "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
+  "7P0wF0": {
+    "defaultMessage": "Get Full Access",
+    "description": "Get full access button label"
+  },
   "7Po5ci": {
     "defaultMessage": "了解您的基础",
     "description": "Label for an example list of Quiz Questions on marketing pages"
@@ -403,6 +411,10 @@
     "defaultMessage": "{questionCount}+ 不同形式的常见面试题目 - <strong>系统设计、UI、JavaScript、问答</strong>",
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
+  "81i+95": {
+    "defaultMessage": "Profile",
+    "description": "Profile page title"
+  },
   "8GTfgf": {
     "defaultMessage": "欢迎回来",
     "description": "Title of Sign In page"
@@ -430,6 +442,10 @@
   "8UEoLG": {
     "defaultMessage": "您需要学习和练习的一切，以便进行全面准备前端面试。",
     "description": "Description of 3 Months Preparation Plan page"
+  },
+  "8UZ9q3": {
+    "defaultMessage": "See plan",
+    "description": "Link to view study plan details"
   },
   "8aQEL8": {
     "defaultMessage": "您现有的代码将被丢弃，您确定吗？",
@@ -895,6 +911,10 @@
     "defaultMessage": "总共{numberOfTotalTests}",
     "description": "Line in DevTools showing the total number of test cases for this question"
   },
+  "J90fcx": {
+    "defaultMessage": "Preparation Plans",
+    "description": "Preparation plans section title"
+  },
   "JEcwe6": {
     "defaultMessage": "解答",
     "description": "Header for question solution section in coding workspace"
@@ -986,6 +1006,10 @@
   "KmiBbk": {
     "defaultMessage": "我想注册GreatFrontEnd的简报以接收面试提示和题目更新",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
+  },
+  "KsoiBa": {
+    "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
+    "description": "Study plans paywall description"
   },
   "KtYnhS": {
     "defaultMessage": "创建新帐户",
@@ -1079,6 +1103,10 @@
     "defaultMessage": "系统设计",
     "description": "System design questions short title"
   },
+  "MHO54p": {
+    "defaultMessage": "Billing",
+    "description": "Profile billing tab title"
+  },
   "MHz32F": {
     "defaultMessage": "概览",
     "description": "Overview section for front end system design interviews"
@@ -1150,6 +1178,10 @@
   "NgxUnY": {
     "defaultMessage": "难度",
     "description": "Question difficulty label"
+  },
+  "Nh3PP/": {
+    "defaultMessage": "练习题目",
+    "description": "Title of question examples section on getting started page"
   },
   "Nidjwh": {
     "defaultMessage": "系统设计简介",
@@ -1371,6 +1403,10 @@
     "defaultMessage": "包年",
     "description": "Title of annual pricing plan"
   },
+  "Rdi3ic": {
+    "defaultMessage": "活动",
+    "description": "Profile activity tab title"
+  },
   "RhV5e8": {
     "defaultMessage": "已完成",
     "description": "The question has been completed"
@@ -1503,6 +1539,10 @@
     "defaultMessage": "其他平台",
     "description": "Table column header for other platforms"
   },
+  "UOhk7j": {
+    "defaultMessage": "学习计划",
+    "description": "Study plans page mini title"
+  },
   "UQh7Xv": {
     "defaultMessage": "按日志级别筛选",
     "description": "Select label to filter console log by level"
@@ -1611,6 +1651,10 @@
     "defaultMessage": "前端面试的完整准备平台。 {questionCount}+ 练习题目(有答案) 跨系统设计，UI 等。由前FAANG 面试官提供。",
     "description": "Description of GreatFrontEnd standard page"
   },
+  "WRQRec": {
+    "defaultMessage": "无论准备时间多长，都有一个为你制定的计划。",
+    "description": "Preparation plans section subtitle"
+  },
   "WzDhJE": {
     "defaultMessage": "图标由 Clearbit 提供",
     "description": "Attribution text that company logos were provided by Clearbit"
@@ -1646,6 +1690,10 @@
   "Xka4d3": {
     "defaultMessage": "提示：许多用户将GreatFrontEnd 高级版作为公司弹性福利或学习和培训预算的一部分进行报销。",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
+  "XuVGsX": {
+    "defaultMessage": "帐户",
+    "description": "Profile account tab title"
   },
   "XwbyU0": {
     "defaultMessage": "UI题目的类型、涵盖的概念和评分标准",
@@ -1714,6 +1762,10 @@
   "ZCmkG3": {
     "defaultMessage": "找不到你想要的答案吗？ <link>联系我们！</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZHuDIg": {
+    "defaultMessage": "注册于 {date}",
+    "description": "Date the user joined the service"
   },
   "ZLXgL9": {
     "defaultMessage": "<span>前端</span>、<inline>面试 ，我们<colour>应有尽有</colour></inline> ",
@@ -1871,6 +1923,10 @@
     "defaultMessage": "阅读如何使用 {questionFramework} 解决 {questionTitle}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
+  "cktXm2": {
+    "defaultMessage": "快速上手",
+    "description": "Title of get started page"
+  },
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | 前端测验的面试题目及解答",
     "description": "Title of quiz question page"
@@ -2018,6 +2074,10 @@
   "fevC5W": {
     "defaultMessage": "免费",
     "description": "Label indicating that quiz questions are free"
+  },
+  "fevxJB": {
+    "defaultMessage": "高级会员",
+    "description": "Premium badge on profile page"
   },
   "fktOy2": {
     "defaultMessage": "{questionCount}+ JavaScript 面试问题，从实现通用库 API，实用功能，算法，到构建界面组件等等。",
@@ -2318,6 +2378,10 @@
   "kx0gZt": {
     "defaultMessage": "查看题目",
     "description": "Label for button to view questions"
+  },
+  "l1ZqoW": {
+    "defaultMessage": "加入 Discord",
+    "description": "Join Discord channel"
   },
   "l9OWsu": {
     "defaultMessage": "测试",
@@ -2651,6 +2715,10 @@
     "defaultMessage": "对于认真寻找工作或长期寻找工作。",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "tfonOP": {
+    "defaultMessage": "付费学习计划",
+    "description": "Study plans paywall title"
+  },
   "thqnR6": {
     "defaultMessage": "点击这里查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
@@ -2882,6 +2950,10 @@
   "xq16Hq": {
     "defaultMessage": "我们正在招聘!",
     "description": "Link label to the hiring page"
+  },
+  "xsLz0P": {
+    "defaultMessage": "安全",
+    "description": "Profile security tab title"
   },
   "y16Lzt": {
     "defaultMessage": "了解公司向他们的候选人提出了什么题目。",

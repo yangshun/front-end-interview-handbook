@@ -2,11 +2,11 @@ import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import type { ReactNode } from 'react';
 
+import ProfileShell from '~/components/profile/ProfileShell';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
-
-import ProfileShell from './ProfileShell';
 
 type Props = Readonly<{
   children: ReactNode;

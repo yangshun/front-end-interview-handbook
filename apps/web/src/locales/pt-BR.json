@@ -123,6 +123,10 @@
     "defaultMessage": "Princípios de design de API de componentes na UI",
     "description": "User Interface components API design principles"
   },
+  "0p6dRS": {
+    "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
+    "description": "Title of question examples section on getting started page"
+  },
   "15O0qb": {
     "defaultMessage": "Introdução",
     "description": "Link to get started page"
@@ -371,6 +375,10 @@
     "defaultMessage": "Importância",
     "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
+  "7P0wF0": {
+    "defaultMessage": "Get Full Access",
+    "description": "Get full access button label"
+  },
   "7Po5ci": {
     "defaultMessage": "Conheça os seus fundamentos",
     "description": "Label for an example list of Quiz Questions on marketing pages"
@@ -403,6 +411,10 @@
     "defaultMessage": "{questionCount}+ perguntas frequentemente feitas em todos os formatos de entrevista - <strong>Design de sistemas, UI, JavaScript, quizzes</strong>",
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
+  "81i+95": {
+    "defaultMessage": "Profile",
+    "description": "Profile page title"
+  },
   "8GTfgf": {
     "defaultMessage": "Bem-vindo de volta",
     "description": "Title of Sign In page"
@@ -430,6 +442,10 @@
   "8UEoLG": {
     "defaultMessage": "Tudo o que você precisa para estudar e praticar para entrevistas de front end para uma preparação completa.",
     "description": "Description of 3 Months Preparation Plan page"
+  },
+  "8UZ9q3": {
+    "defaultMessage": "See plan",
+    "description": "Link to view study plan details"
   },
   "8aQEL8": {
     "defaultMessage": "O seu código existente será descartado, tem certeza disso?",
@@ -592,7 +608,7 @@
     "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
   },
   "CBhQ13": {
-    "defaultMessage": "Plano de 1 mês",
+    "defaultMessage": "Plano de 1 Mês",
     "description": "Link to one month study plan"
   },
   "CDrriz": {
@@ -752,7 +768,7 @@
     "description": "Message shown when question reset progress action fails."
   },
   "GObvI2": {
-    "defaultMessage": "Perfeito para caçadas a emprego de curta duração.",
+    "defaultMessage": "Perfeito para encontrar empregos de curta duração.",
     "description": "Supporting statement for a monthly pricing plan"
   },
   "GP3q80": {
@@ -895,6 +911,10 @@
     "defaultMessage": "Total de {numberOfTotalTests}",
     "description": "Line in DevTools showing the total number of test cases for this question"
   },
+  "J90fcx": {
+    "defaultMessage": "Preparation Plans",
+    "description": "Preparation plans section title"
+  },
   "JEcwe6": {
     "defaultMessage": "Solução",
     "description": "Header for question solution section in coding workspace"
@@ -986,6 +1006,10 @@
   "KmiBbk": {
     "defaultMessage": "Eu gostaria de me inscrever na newsletter do GreatFrontEnd para receber dicas de entrevistas e atualizações de perguntas",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
+  },
+  "KsoiBa": {
+    "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
+    "description": "Study plans paywall description"
   },
   "KtYnhS": {
     "defaultMessage": "Criar uma nova conta",
@@ -1079,6 +1103,10 @@
     "defaultMessage": "Design do Sistema",
     "description": "System design questions short title"
   },
+  "MHO54p": {
+    "defaultMessage": "Billing",
+    "description": "Profile billing tab title"
+  },
   "MHz32F": {
     "defaultMessage": "Visão Geral",
     "description": "Overview section for front end system design interviews"
@@ -1150,6 +1178,10 @@
   "NgxUnY": {
     "defaultMessage": "Dificuldade",
     "description": "Question difficulty label"
+  },
+  "Nh3PP/": {
+    "defaultMessage": "Practice Questions",
+    "description": "Title of question examples section on getting started page"
   },
   "Nidjwh": {
     "defaultMessage": "Introdução a Design de Sistemas",
@@ -1371,6 +1403,10 @@
     "defaultMessage": "Anual",
     "description": "Title of annual pricing plan"
   },
+  "Rdi3ic": {
+    "defaultMessage": "Activity",
+    "description": "Profile activity tab title"
+  },
   "RhV5e8": {
     "defaultMessage": "Concluído",
     "description": "The question has been completed"
@@ -1488,7 +1524,7 @@
     "description": "User interface component questions"
   },
   "UCt/lF": {
-    "defaultMessage": "Pergunta de Programação",
+    "defaultMessage": "Perguntas de Programação",
     "description": "Coding questions long title"
   },
   "UHZyhq": {
@@ -1502,6 +1538,10 @@
   "UM4r2s": {
     "defaultMessage": "Outras Plataformas",
     "description": "Table column header for other platforms"
+  },
+  "UOhk7j": {
+    "defaultMessage": "Study Plans",
+    "description": "Study plans page mini title"
   },
   "UQh7Xv": {
     "defaultMessage": "Filtrar por nível de log",
@@ -1611,6 +1651,10 @@
     "defaultMessage": "A plataforma de preparação completa para entrevistas de front-end. {questionCount}+ questões de prática (com respostas) abrangendo design de sistemas, UI e mais. Por ex-entrevistadores de empresas FAANG.",
     "description": "Description of GreatFrontEnd standard page"
   },
+  "WRQRec": {
+    "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
+    "description": "Preparation plans section subtitle"
+  },
   "WzDhJE": {
     "defaultMessage": "Logos fornecidos por Clearbit",
     "description": "Attribution text that company logos were provided by Clearbit"
@@ -1646,6 +1690,10 @@
   "Xka4d3": {
     "defaultMessage": "Dica: Muitos usuários tiveram o reembolso do GreatFrontEnd Premium como parte do pacote de benefícios flexíveis ou orçamento de aprendizado e treinamento de suas empresas.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
+  "XuVGsX": {
+    "defaultMessage": "Account",
+    "description": "Profile account tab title"
   },
   "XwbyU0": {
     "defaultMessage": "Tipos de perguntas de UI, conceitos a serem cobertos e critérios de avaliação",
@@ -1714,6 +1762,10 @@
   "ZCmkG3": {
     "defaultMessage": "Não encontrou a resposta que procura? <link>Entre em contato conosco!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZHuDIg": {
+    "defaultMessage": "Joined on {date}",
+    "description": "Date the user joined the service"
   },
   "ZLXgL9": {
     "defaultMessage": "<span>Todos os elementos essenciais para entrevistas</span> <inline>de front-end <colour>e mais</colour></inline>.",
@@ -1800,7 +1852,7 @@
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
   "bGwCko": {
-    "defaultMessage": "GreatFrontEnd tem sido um ótimo recurso para me preparar e continuar no mundo em constante mudança do front-end. Me permitindo revisar os fundamentos, aprimorar novos conceitos e práticas para apresentar minha melhor habilidade técnica e confiança para poder conseguir entrevistas E ofertas.",
+    "defaultMessage": "GreatFrontEnd tem sido um ótimo aliado para me preparar e continuar nesse mundo em constante mudança do front-end. Me permitindo revisar os fundamentos, aprimorar novos conceitos e práticas para apresentar minha melhor habilidade técnica e confiança para poder conseguir entrevistas E ofertas.",
     "description": "Ryan Van Valkenburg's testimonial"
   },
   "bO2ju9": {
@@ -1870,6 +1922,10 @@
   "cjgzTz": {
     "defaultMessage": "Leia como resolver {questionTitle} usando {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
+  },
+  "cktXm2": {
+    "defaultMessage": "Get Started",
+    "description": "Title of get started page"
   },
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | Quiz de Perguntas de Entrevista de Front End com Soluções",
@@ -2018,6 +2074,10 @@
   "fevC5W": {
     "defaultMessage": "Grátis",
     "description": "Label indicating that quiz questions are free"
+  },
+  "fevxJB": {
+    "defaultMessage": "PREMIUM",
+    "description": "Premium badge on profile page"
   },
   "fktOy2": {
     "defaultMessage": "{questionCount}+ perguntas de entrevista sobre JavaScript, desde a implementação de APIs de bibliotecas comuns, funções utilitárias, algoritmos, até a construção de componentes de interface do usuário e muito mais.",
@@ -2316,8 +2376,12 @@
     "description": "Performance topic for quiz questions"
   },
   "kx0gZt": {
-    "defaultMessage": "Ver Todas as questões",
+    "defaultMessage": "Ver perguntas",
     "description": "Label for button to view questions"
+  },
+  "l1ZqoW": {
+    "defaultMessage": "Join Discord",
+    "description": "Join Discord channel"
   },
   "l9OWsu": {
     "defaultMessage": "Testando",
@@ -2651,6 +2715,10 @@
     "defaultMessage": "Para candidatos a empregos sólidos ou busca de empregos de longo prazo.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "tfonOP": {
+    "defaultMessage": "Premium Study Plans",
+    "description": "Study plans paywall title"
+  },
   "thqnR6": {
     "defaultMessage": "Clique aqui para ver a solução completa e outros guias de Design de Sistemas.",
     "description": "Button label within embed"
@@ -2882,6 +2950,10 @@
   "xq16Hq": {
     "defaultMessage": "Estamos Contratando",
     "description": "Link label to the hiring page"
+  },
+  "xsLz0P": {
+    "defaultMessage": "Security",
+    "description": "Profile security tab title"
   },
   "y16Lzt": {
     "defaultMessage": "Descubra quais perguntas as empresas estão fazendo aos seus candidatos.",

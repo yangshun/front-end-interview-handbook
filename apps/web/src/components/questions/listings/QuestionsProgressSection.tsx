@@ -78,7 +78,7 @@ export default function QuestionsProgressSection({
                       <span className="text-brand-300 font-bold">{chunks}</span>
                     ),
                     span2: (chunks) => (
-                      <span className="text-sm text-slate-400">{chunks}</span>
+                      <span className="text-slate-400">{chunks}</span>
                     ),
                     totalQuestions,
                   }}

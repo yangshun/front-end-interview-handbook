@@ -123,6 +123,10 @@
     "defaultMessage": "UI Components API Design Principles",
     "description": "User Interface components API design principles"
   },
+  "0p6dRS": {
+    "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
+    "description": "Title of question examples section on getting started page"
+  },
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
@@ -371,6 +375,10 @@
     "defaultMessage": "Importance",
     "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
+  "7P0wF0": {
+    "defaultMessage": "Get Full Access",
+    "description": "Get full access button label"
+  },
   "7Po5ci": {
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
@@ -403,6 +411,10 @@
     "defaultMessage": "{questionCount}+ commonly asked questions across every interview format - <strong>System design, UI, JavaScript, Quizzes</strong>",
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
+  "81i+95": {
+    "defaultMessage": "Profile",
+    "description": "Profile page title"
+  },
   "8GTfgf": {
     "defaultMessage": "Welcome Back",
     "description": "Title of Sign In page"
@@ -430,6 +442,10 @@
   "8UEoLG": {
     "defaultMessage": "Everything you need to study and practice for front end interviews for a complete preparation.",
     "description": "Description of 3 Months Preparation Plan page"
+  },
+  "8UZ9q3": {
+    "defaultMessage": "See plan",
+    "description": "Link to view study plan details"
   },
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
@@ -895,6 +911,10 @@
     "defaultMessage": "{numberOfTotalTests} total",
     "description": "Line in DevTools showing the total number of test cases for this question"
   },
+  "J90fcx": {
+    "defaultMessage": "Preparation Plans",
+    "description": "Preparation plans section title"
+  },
   "JEcwe6": {
     "defaultMessage": "Solution",
     "description": "Header for question solution section in coding workspace"
@@ -986,6 +1006,10 @@
   "KmiBbk": {
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
+  },
+  "KsoiBa": {
+    "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
+    "description": "Study plans paywall description"
   },
   "KtYnhS": {
     "defaultMessage": "Create a new account",
@@ -1079,6 +1103,10 @@
     "defaultMessage": "System Design",
     "description": "System design questions short title"
   },
+  "MHO54p": {
+    "defaultMessage": "Billing",
+    "description": "Profile billing tab title"
+  },
   "MHz32F": {
     "defaultMessage": "Overview",
     "description": "Overview section for front end system design interviews"
@@ -1150,6 +1178,10 @@
   "NgxUnY": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty label"
+  },
+  "Nh3PP/": {
+    "defaultMessage": "Practice Questions",
+    "description": "Title of question examples section on getting started page"
   },
   "Nidjwh": {
     "defaultMessage": "Intro to System Design",
@@ -1371,6 +1403,10 @@
     "defaultMessage": "Annual",
     "description": "Title of annual pricing plan"
   },
+  "Rdi3ic": {
+    "defaultMessage": "Activity",
+    "description": "Profile activity tab title"
+  },
   "RhV5e8": {
     "defaultMessage": "Completed",
     "description": "The question has been completed"
@@ -1503,6 +1539,10 @@
     "defaultMessage": "Other Platforms",
     "description": "Table column header for other platforms"
   },
+  "UOhk7j": {
+    "defaultMessage": "Study Plans",
+    "description": "Study plans page mini title"
+  },
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
@@ -1611,6 +1651,10 @@
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
   },
+  "WRQRec": {
+    "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
+    "description": "Preparation plans section subtitle"
+  },
   "WzDhJE": {
     "defaultMessage": "Logos provided by Clearbit",
     "description": "Attribution text that company logos were provided by Clearbit"
@@ -1646,6 +1690,10 @@
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
+  "XuVGsX": {
+    "defaultMessage": "Account",
+    "description": "Profile account tab title"
   },
   "XwbyU0": {
     "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
@@ -1714,6 +1762,10 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZHuDIg": {
+    "defaultMessage": "Joined on {date}",
+    "description": "Date the user joined the service"
   },
   "ZLXgL9": {
     "defaultMessage": "<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>.",
@@ -1871,6 +1923,10 @@
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
+  "cktXm2": {
+    "defaultMessage": "Get Started",
+    "description": "Title of get started page"
+  },
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
     "description": "Title of quiz question page"
@@ -2018,6 +2074,10 @@
   "fevC5W": {
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
+  },
+  "fevxJB": {
+    "defaultMessage": "PREMIUM",
+    "description": "Premium badge on profile page"
   },
   "fktOy2": {
     "defaultMessage": "{questionCount}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
@@ -2318,6 +2378,10 @@
   "kx0gZt": {
     "defaultMessage": "View questions",
     "description": "Label for button to view questions"
+  },
+  "l1ZqoW": {
+    "defaultMessage": "Join Discord",
+    "description": "Join Discord channel"
   },
   "l9OWsu": {
     "defaultMessage": "Testing",
@@ -2651,6 +2715,10 @@
     "defaultMessage": "For serious job seekers or longer term job hunts.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "tfonOP": {
+    "defaultMessage": "Premium Study Plans",
+    "description": "Study plans paywall title"
+  },
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
@@ -2882,6 +2950,10 @@
   "xq16Hq": {
     "defaultMessage": "We're Hiring",
     "description": "Link label to the hiring page"
+  },
+  "xsLz0P": {
+    "defaultMessage": "Security",
+    "description": "Profile security tab title"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",

@@ -1,5 +1,7 @@
 'use client';
 
+import { useIntl } from 'react-intl';
+
 import usePreparationPlans from '~/data/PreparationPlans';
 
 import TextPairing from '~/components/common/TextPairing';
@@ -35,6 +37,7 @@ export default function PreparationPlanPage({
   systemDesignQuestions,
   plan,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { data: questionProgressParam } = useQueryQuestionProgressAll();
   const questionsProgressAll = categorizeQuestionsProgress(
@@ -43,7 +46,6 @@ export default function PreparationPlanPage({
   const preparationPlans = usePreparationPlans();
 
   const preparationPlan = preparationPlans[plan];
-  const title = `${preparationPlan.title} Preparation Plan`;
 
   // Quiz questions are dynamically populated based on the following.
   const quizQuestions = quizQuestionsParam.filter(({ importance }) => {
@@ -76,9 +78,13 @@ export default function PreparationPlanPage({
           <TextPairing
             description={preparationPlan.description}
             mode="dark"
-            sectionLabel="Study Plans"
+            sectionLabel={intl.formatMessage({
+              defaultMessage: 'Study Plans',
+              description: 'Study plans page mini title',
+              id: 'UOhk7j',
+            })}
             size="lg"
-            title={title}
+            title={preparationPlan.longTitle}
           />
         </Container>
       </div>
@@ -108,8 +114,17 @@ export default function PreparationPlanPage({
           <Container>
             <div className="relative">
               <QuestionPaywall
-                subtitle="Purchase premium to unlock full access to the study plans and all questions with high quality solutions"
-                title="Premium Study Plans"
+                subtitle={intl.formatMessage({
+                  defaultMessage:
+                    'Purchase premium to unlock full access to the study plans and all questions with high quality solutions',
+                  description: 'Study plans paywall description',
+                  id: 'KsoiBa',
+                })}
+                title={intl.formatMessage({
+                  defaultMessage: 'Premium Study Plans',
+                  description: 'Study plans paywall title',
+                  id: 'tfonOP',
+                })}
               />
             </div>
           </Container>

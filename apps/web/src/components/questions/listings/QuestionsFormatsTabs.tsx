@@ -39,7 +39,7 @@ export default function QuestionsFormatTabs({
               description: 'Label for coding questions',
               id: 'zRNA7X',
             }) +
-              ` (${progressSummary.coding.completed}/${progressSummary.coding.total})`
+              ` (${progressSummary.coding.completed} / ${progressSummary.coding.total})`
           : intl.formatMessage({
               defaultMessage: `Coding Questions`,
               description: 'Label for coding questions',
@@ -52,7 +52,7 @@ export default function QuestionsFormatTabs({
               description: 'Label for quiz questions',
               id: 'oE3TMf',
             }) +
-              ` (${progressSummary.quiz.completed}/${progressSummary.quiz.total})`
+              ` (${progressSummary.quiz.completed} / ${progressSummary.quiz.total})`
           : intl.formatMessage({
               defaultMessage: `Quiz Questions`,
               description: 'Label for quiz questions',
@@ -65,7 +65,7 @@ export default function QuestionsFormatTabs({
               description: 'Label for system design questions',
               id: 'VYWqtL',
             }) +
-              ` (${progressSummary['system-design'].completed}/${progressSummary['system-design'].total})`
+              ` (${progressSummary['system-design'].completed} / ${progressSummary['system-design'].total})`
           : intl.formatMessage({
               defaultMessage: `System Design Questions`,
               description: 'Label for system design questions',

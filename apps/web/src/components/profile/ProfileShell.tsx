@@ -1,6 +1,7 @@
 'use client';
 
 import { useSelectedLayoutSegment } from 'next/navigation';
+import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import DiscordIcon from '~/components/icons/DiscordIcon';
@@ -32,27 +33,66 @@ type ProfileTabItemData = Readonly<{
   value: ProfileTabItem;
 }>;
 
-const TabsData: Record<ProfileTabItem, ProfileTabItemData> = {
-  account: { href: '/profile/account', label: 'Account', value: 'account' },
-  activity: { href: '/profile', label: 'Activity', value: 'activity' },
-  billing: { href: '/profile/billing', label: 'Billing', value: 'billing' },
-  security: { href: '/profile/security', label: 'Security', value: 'security' },
-};
-
-const TabsList: ReadonlyArray<ProfileTabItemData> = [
-  TabsData.activity,
-  TabsData.account,
-  TabsData.billing,
-  TabsData.security,
-];
-
 export default function ProfileShell({ user, children }: Props) {
+  const intl = useIntl();
   const segment = useSelectedLayoutSegment() ?? 'activity';
   const { userProfile, isUserProfileLoading } = useUserProfile();
 
+  const tabsData: Record<ProfileTabItem, ProfileTabItemData> = {
+    account: {
+      href: '/profile/account',
+      label: intl.formatMessage({
+        defaultMessage: 'Account',
+        description: 'Profile account tab title',
+        id: 'XuVGsX',
+      }),
+      value: 'account',
+    },
+    activity: {
+      href: '/profile',
+      label: intl.formatMessage({
+        defaultMessage: 'Activity',
+        description: 'Profile activity tab title',
+        id: 'Rdi3ic',
+      }),
+      value: 'activity',
+    },
+    billing: {
+      href: '/profile/billing',
+      label: intl.formatMessage({
+        defaultMessage: 'Billing',
+        description: 'Profile billing tab title',
+        id: 'MHO54p',
+      }),
+      value: 'billing',
+    },
+    security: {
+      href: '/profile/security',
+      label: intl.formatMessage({
+        defaultMessage: 'Security',
+        description: 'Profile security tab title',
+        id: 'xsLz0P',
+      }),
+      value: 'security',
+    },
+  };
+
+  const tabsList: ReadonlyArray<ProfileTabItemData> = [
+    tabsData.activity,
+    tabsData.account,
+    tabsData.billing,
+    tabsData.security,
+  ];
+
   return (
     <>
-      <Heading className="sr-only">Profile</Heading>
+      <Heading className="sr-only">
+        {intl.formatMessage({
+          defaultMessage: 'Profile',
+          description: 'Profile page title',
+          id: '81i+95',
+        })}
+      </Heading>
       <Section>
         {/* 3 column wrapper */}
         <div className="mx-auto w-full max-w-6xl flex-grow border-slate-200 lg:flex lg:border-x">
@@ -94,14 +134,23 @@ export default function ProfileShell({ user, children }: Props) {
                                   className="text-white-400 h-5 w-5 shrink-0"
                                 />
                                 <Text variant="body3" weight="bold">
-                                  PREMIUM
+                                  {intl.formatMessage({
+                                    defaultMessage: 'PREMIUM',
+                                    description:
+                                      'Premium badge on profile page',
+                                    id: 'fevxJB',
+                                  })}
                                 </Text>
                               </span>
                             ) : (
                               <Button
                                 display="block"
                                 href="/pricing"
-                                label="Get Full Access"
+                                label={intl.formatMessage({
+                                  defaultMessage: 'Get Full Access',
+                                  description: 'Get full access button label',
+                                  id: '7P0wF0',
+                                })}
                                 size="sm"
                                 variant="special"
                               />
@@ -134,10 +183,19 @@ export default function ProfileShell({ user, children }: Props) {
                                 className="h-5 w-5 shrink-0 text-slate-400"
                               />
                               <Text color="secondary" variant="body2">
-                                Joined{' '}
-                                {new Date(
-                                  userProfile?.createdAt,
-                                ).toLocaleDateString()}
+                                {intl.formatMessage(
+                                  {
+                                    defaultMessage: 'Joined on {date}',
+                                    description:
+                                      'Date the user joined the service',
+                                    id: 'ZHuDIg',
+                                  },
+                                  {
+                                    date: new Date(
+                                      userProfile?.createdAt,
+                                    ).toLocaleDateString(),
+                                  },
+                                )}
                               </Text>
                             </div>
                           )}
@@ -166,7 +224,11 @@ export default function ProfileShell({ user, children }: Props) {
                               />
                               <Text color="secondary" variant="body2">
                                 <Anchor href="https://discord.gg/8suTg77xXz">
-                                  Join Discord
+                                  {intl.formatMessage({
+                                    defaultMessage: 'Join Discord',
+                                    description: 'Join Discord channel',
+                                    id: 'l1ZqoW',
+                                  })}
                                 </Anchor>
                               </Text>
                             </div>
@@ -183,7 +245,7 @@ export default function ProfileShell({ user, children }: Props) {
                 <div className="flex items-center">
                   <Tabs
                     label="Select navigation item"
-                    tabs={TabsList}
+                    tabs={tabsList}
                     value={segment}
                   />
                 </div>
