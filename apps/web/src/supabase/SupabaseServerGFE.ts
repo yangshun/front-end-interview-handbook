@@ -36,14 +36,12 @@ export function createSupabaseAdminClientGFE() {
 }
 
 export async function fetchUser(authToken?: string): Promise<User | null> {
-  const supabaseAdmin = createSupabaseAdminClientGFE();
-
   try {
     let supabaseAuthToken = authToken;
 
     if (supabaseAuthToken == null) {
-      // TODO: Reading cookie manually because cookies() crashes when used in
-      // both edge and dynamic API routes.
+      // TODO: Allow cookie to be passed in as a param because cookies()
+      // crashes when used in serverless API routes.
       // Remove authToken param when fixed.
       // https://github.com/vercel/next.js/issues/46356
       const cookieStore = cookies();
@@ -61,6 +59,7 @@ export async function fetchUser(authToken?: string): Promise<User | null> {
       return null;
     }
 
+    const supabaseAdmin = createSupabaseAdminClientGFE();
     const {
       data: { user },
     } = await supabaseAdmin.auth.getUser(tokens.accessToken);
