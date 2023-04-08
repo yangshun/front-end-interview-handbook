@@ -1,6 +1,6 @@
 'use client';
 
-import PromoBanner from '~/components/global/PromoBanner';
+import PromoBanner from '~/components/global/banners/PromoBanner';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
 import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';

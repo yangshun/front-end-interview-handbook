@@ -7,7 +7,7 @@ import gtag from '~/lib/gtag';
 
 import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 
-import PromoBanner from '~/components/global/PromoBanner';
+import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingJavaScriptQuestionsExamples from '~/components/marketing/examples/MarketingJavaScriptQuestionsExamples';
 import MarketingQuizQuestionsExamples from '~/components/marketing/examples/MarketingQuizQuestionsExamples';
 import MarketingSystemDesignQuestionsExamples from '~/components/marketing/examples/MarketingSystemDesignQuestionsExamples';

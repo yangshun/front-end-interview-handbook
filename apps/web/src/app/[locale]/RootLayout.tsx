@@ -6,9 +6,9 @@ import MetaPixel from '~/components/global/analytics/MetaPixel';
 import SentryInit from '~/components/global/analytics/SentryInit';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
+import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
-import I18nBetaBanner from '~/components/global/I18nBetaBanner';
 
 import type { IntlMessages } from '~/i18n';
 

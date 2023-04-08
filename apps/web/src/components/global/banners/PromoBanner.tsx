@@ -8,8 +8,8 @@ import Banner from '~/components/ui/Banner';
 
 import logEvent from '~/logging/logEvent';
 
-import { useUserPreferences } from './UserPreferencesProvider';
-import { useUserProfile } from './UserProfileProvider';
+import { useUserPreferences } from '../UserPreferencesProvider';
+import { useUserProfile } from '../UserProfileProvider';
 
 export default function PromoBanner({
   variant = 'special',
@@ -26,7 +26,7 @@ export default function PromoBanner({
   return (
     <div
       className={clsx(
-        'z-10 w-full transition-opacity duration-500',
+        'z-20 w-full transition-opacity duration-500',
         sticky && 'lg:sticky',
         isInvisible && 'opacity-0',
       )}

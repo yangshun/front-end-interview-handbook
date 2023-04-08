@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react';
 
-import PromoBanner from '~/components/global/PromoBanner';
+import PromoBanner from '~/components/global/banners/PromoBanner';
 import type {
   QuestionFramework,
   QuestionMetadata,

@@ -10,7 +10,7 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
-import PromoBanner from '~/components/global/PromoBanner';
+import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
 import MarketingPricingSection from '~/components/marketing/MarketingPricingSection';
 import MarketingTestimonial from '~/components/marketing/MarketingTestimonial';

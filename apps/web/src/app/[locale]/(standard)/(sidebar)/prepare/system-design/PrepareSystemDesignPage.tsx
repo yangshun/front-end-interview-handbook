@@ -2,7 +2,7 @@
 
 import { useIntl } from 'react-intl';
 
-import PromoBanner from '~/components/global/PromoBanner';
+import PromoBanner from '~/components/global/banners/PromoBanner';
 import { useSystemDesignLearningContent } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import QuestionFormatTitleSection from '~/components/questions/listings/QuestionFormatTitleSection';
 import QuestionsGuidesGrid from '~/components/questions/listings/QuestionsGuidesGrid';

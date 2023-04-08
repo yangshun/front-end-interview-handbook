@@ -2,7 +2,7 @@
 
 import { useIntl } from 'react-intl';
 
-import PromoBanner from '~/components/global/PromoBanner';
+import PromoBanner from '~/components/global/banners/PromoBanner';
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFormatTitleSection from '~/components/questions/listings/QuestionFormatTitleSection';
