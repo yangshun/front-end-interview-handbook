@@ -86,9 +86,8 @@ Things to note are:
   - Object.create(Parent.prototype);
   - Object.create(new Parent(null));
   - Object.create(objLiteral);
-  - Currently, `child.constructor` is pointing to the `Parent`:
 
-If we'd like to correct this, one option would be to do:
+- Currently, `child.constructor` is pointing to the `Parent`. If we'd like to correct this, one option would be to do:
 
 ```js
 function Parent() {
