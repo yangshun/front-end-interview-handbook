@@ -35,3 +35,6 @@ yarn-error.log*
 
 # build
 dist
+
+# i18n
+crowdin.yml

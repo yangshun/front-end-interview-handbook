@@ -41,6 +41,3 @@ yarn-error.log*
 # vercel
 .vercel
 tsconfig.tsbuildinfo
-
-# i18n
-crowdin.yml
