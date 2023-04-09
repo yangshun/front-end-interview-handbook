@@ -124,7 +124,7 @@
     "description": "User Interface components API design principles"
   },
   "0p6dRS": {
-    "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
+    "defaultMessage": "实践使之完美。 我们收藏了超过 {count} 个前端问题, 你可以获得你准备的全套封面 — HTML, CS、JavaScript、算法、DOM API、可访问性、性能和前端基础等。",
     "description": "Title of question examples section on getting started page"
   },
   "15O0qb": {
@@ -376,7 +376,7 @@
     "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
   "7P0wF0": {
-    "defaultMessage": "Get Full Access",
+    "defaultMessage": "拥有完整权限",
     "description": "Get full access button label"
   },
   "7Po5ci": {
@@ -412,7 +412,7 @@
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
   "81i+95": {
-    "defaultMessage": "Profile",
+    "defaultMessage": "个人资料",
     "description": "Profile page title"
   },
   "8GTfgf": {
@@ -444,7 +444,7 @@
     "description": "Description of 3 Months Preparation Plan page"
   },
   "8UZ9q3": {
-    "defaultMessage": "See plan",
+    "defaultMessage": "查看计划",
     "description": "Link to view study plan details"
   },
   "8aQEL8": {
@@ -912,7 +912,7 @@
     "description": "Line in DevTools showing the total number of test cases for this question"
   },
   "J90fcx": {
-    "defaultMessage": "Preparation Plans",
+    "defaultMessage": "准备计划",
     "description": "Preparation plans section title"
   },
   "JEcwe6": {
@@ -1008,7 +1008,7 @@
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
   },
   "KsoiBa": {
-    "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
+    "defaultMessage": "购买高级版以解锁学习计划和高质量解决方案所有问题的完整权限",
     "description": "Study plans paywall description"
   },
   "KtYnhS": {
@@ -1104,7 +1104,7 @@
     "description": "System design questions short title"
   },
   "MHO54p": {
-    "defaultMessage": "Billing",
+    "defaultMessage": "账单",
     "description": "Profile billing tab title"
   },
   "MHz32F": {
