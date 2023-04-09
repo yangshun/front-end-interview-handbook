@@ -124,7 +124,7 @@
     "description": "User Interface components API design principles"
   },
   "0p6dRS": {
-    "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
+    "defaultMessage": "A prática leva à perfeição. Com nossa coleção de mais de {count} perguntas de front end, você terá uma cobertura completa para se preparar — HTML, CSS, JavaScript, algoritmos, APIs DOM, acessibilidade, desempenho, fundamentos de front end e muito mais.",
     "description": "Title of question examples section on getting started page"
   },
   "15O0qb": {
@@ -148,7 +148,7 @@
     "description": "Short description for 3 months study plan"
   },
   "1gkgr4": {
-    "defaultMessage": "Texto do botão de Entrar na página de Login de Email",
+    "defaultMessage": "Entrar",
     "description": "Label of Sign In button on Email Sign In page"
   },
   "1mtNyQ": {
@@ -376,7 +376,7 @@
     "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
   "7P0wF0": {
-    "defaultMessage": "Get Full Access",
+    "defaultMessage": "Obtenha Acesso Total",
     "description": "Get full access button label"
   },
   "7Po5ci": {
@@ -404,7 +404,7 @@
     "description": "Description of data structures and algorithm questions"
   },
   "8+Ezk6": {
-    "defaultMessage": "Converse conosco diretamente!",
+    "defaultMessage": "Converse diretamente conosco!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
   },
   "8/l1dM": {
@@ -412,7 +412,7 @@
     "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
   "81i+95": {
-    "defaultMessage": "Profile",
+    "defaultMessage": "Perfil",
     "description": "Profile page title"
   },
   "8GTfgf": {
@@ -444,7 +444,7 @@
     "description": "Description of 3 Months Preparation Plan page"
   },
   "8UZ9q3": {
-    "defaultMessage": "See plan",
+    "defaultMessage": "Ver plano",
     "description": "Link to view study plan details"
   },
   "8aQEL8": {
@@ -912,7 +912,7 @@
     "description": "Line in DevTools showing the total number of test cases for this question"
   },
   "J90fcx": {
-    "defaultMessage": "Preparation Plans",
+    "defaultMessage": "Planos de Preparação",
     "description": "Preparation plans section title"
   },
   "JEcwe6": {
@@ -1008,7 +1008,7 @@
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
   },
   "KsoiBa": {
-    "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
+    "defaultMessage": "Compre o premium para desbloquear o acesso total aos planos de estudo e todas as questões com soluções de alta qualidade",
     "description": "Study plans paywall description"
   },
   "KtYnhS": {
@@ -1104,7 +1104,7 @@
     "description": "System design questions short title"
   },
   "MHO54p": {
-    "defaultMessage": "Billing",
+    "defaultMessage": "Faturamento",
     "description": "Profile billing tab title"
   },
   "MHz32F": {
@@ -1180,7 +1180,7 @@
     "description": "Question difficulty label"
   },
   "Nh3PP/": {
-    "defaultMessage": "Practice Questions",
+    "defaultMessage": "Perguntas para Praticar",
     "description": "Title of question examples section on getting started page"
   },
   "Nidjwh": {
@@ -1324,7 +1324,7 @@
     "description": "HTML questions category long title"
   },
   "QHtJPS": {
-    "defaultMessage": "Prática de ponta a ponta",
+    "defaultMessage": "Pratique de ponta a ponta",
     "description": "Practice questions for all stages"
   },
   "QIRY6V": {
@@ -1404,7 +1404,7 @@
     "description": "Title of annual pricing plan"
   },
   "Rdi3ic": {
-    "defaultMessage": "Activity",
+    "defaultMessage": "Atividade",
     "description": "Profile activity tab title"
   },
   "RhV5e8": {
@@ -1540,7 +1540,7 @@
     "description": "Table column header for other platforms"
   },
   "UOhk7j": {
-    "defaultMessage": "Study Plans",
+    "defaultMessage": "Planos de Estudo",
     "description": "Study plans page mini title"
   },
   "UQh7Xv": {
@@ -1652,7 +1652,7 @@
     "description": "Description of GreatFrontEnd standard page"
   },
   "WRQRec": {
-    "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
+    "defaultMessage": "Independentemente do tempo de preparação, temos um plano para você.",
     "description": "Preparation plans section subtitle"
   },
   "WzDhJE": {
@@ -1688,11 +1688,11 @@
     "description": "What to expect in front end quiz interviews"
   },
   "Xka4d3": {
-    "defaultMessage": "Dica: Muitos usuários tiveram o reembolso do GreatFrontEnd Premium como parte do pacote de benefícios flexíveis ou orçamento de aprendizado e treinamento de suas empresas.",
+    "defaultMessage": "Dica: Muitos usuários conseguiram reembolso do GreatFrontEnd Premium como parte do pacote de benefícios ou orçamento de aprendizado e treinamento de suas empresas.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
   },
   "XuVGsX": {
-    "defaultMessage": "Account",
+    "defaultMessage": "Conta",
     "description": "Profile account tab title"
   },
   "XwbyU0": {
@@ -1764,7 +1764,7 @@
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
   },
   "ZHuDIg": {
-    "defaultMessage": "Joined on {date}",
+    "defaultMessage": "Entrou em {date}",
     "description": "Date the user joined the service"
   },
   "ZLXgL9": {
@@ -1924,7 +1924,7 @@
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
   "cktXm2": {
-    "defaultMessage": "Get Started",
+    "defaultMessage": "Começar",
     "description": "Title of get started page"
   },
   "cqEIAI": {
@@ -2380,7 +2380,7 @@
     "description": "Label for button to view questions"
   },
   "l1ZqoW": {
-    "defaultMessage": "Join Discord",
+    "defaultMessage": "Entrar no Discord",
     "description": "Join Discord channel"
   },
   "l9OWsu": {
@@ -2648,7 +2648,7 @@
     "description": "Label for React framework"
   },
   "s7CwKz": {
-    "defaultMessage": "Guias de estudo para entrevistas comportamentais",
+    "defaultMessage": "Guias de Estudo para a Entrevista Comportamental",
     "description": "Behavioral interview study guides"
   },
   "sGF5oQ": {
@@ -2716,7 +2716,7 @@
     "description": "Supporting statement for an annual pricing plan"
   },
   "tfonOP": {
-    "defaultMessage": "Premium Study Plans",
+    "defaultMessage": "Planos de Estudo Premium",
     "description": "Study plans paywall title"
   },
   "thqnR6": {
@@ -2952,7 +2952,7 @@
     "description": "Link label to the hiring page"
   },
   "xsLz0P": {
-    "defaultMessage": "Security",
+    "defaultMessage": "Segurança",
     "description": "Profile security tab title"
   },
   "y16Lzt": {
