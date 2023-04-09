@@ -60,12 +60,16 @@ export default async function logEvent(
     return;
   }
 
-  await fetch('/api/logging/events', {
-    body,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    keepalive: true,
-    method: 'POST',
-  });
+  try {
+    await fetch('/api/logging/events', {
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      keepalive: true,
+      method: 'POST',
+    });
+  } catch (err) {
+    console.error(err);
+  }
 }
