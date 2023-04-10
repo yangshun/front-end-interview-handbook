@@ -1,40 +1,26 @@
-import type {
-  QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
-} from '../common/QuestionsTypes';
+import type { QuestionJavaScript } from '../common/QuestionsTypes';
 
-function makeQuestionKey(
-  question: QuestionJavaScript,
-  language: QuestionCodingWorkingLanguage,
-): string {
-  switch (language) {
-    case 'js':
-      return `gfe:javascript:${question.metadata.slug}`;
-    case 'ts':
-      return `gfe:javascript:${question.metadata.slug}:ts`;
-  }
+function makeQuestionKey(question: QuestionJavaScript): string {
+  return `gfe:javascript:${question.metadata.slug}`;
 }
 
 type Payload = Readonly<{
   code: string;
-  format: 'javascript';
-  language: QuestionCodingWorkingLanguage;
+  type: 'javascript';
   version: 'v1';
 }>;
 
 export default function useJavaScriptQuestionCode(
   question: QuestionJavaScript,
-  language: QuestionCodingWorkingLanguage,
 ) {
   let loadedCodeFromClientStorage = false;
-  const questionKey = makeQuestionKey(question, language);
+  const questionKey = makeQuestionKey(question);
 
   function saveCode(code: string) {
     setTimeout(() => {
       const savePayload: Payload = {
         code,
-        format: 'javascript',
-        language,
+        type: 'javascript',
         version: 'v1',
       };
 
@@ -49,7 +35,7 @@ export default function useJavaScriptQuestionCode(
   }
 
   const code = (() => {
-    const defaultCode = question.skeleton?.[language] ?? '';
+    const defaultCode = question.skeleton;
 
     try {
       if (typeof window === 'undefined') {

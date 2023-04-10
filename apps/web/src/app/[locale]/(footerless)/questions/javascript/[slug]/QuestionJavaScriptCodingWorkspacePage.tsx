@@ -1,8 +1,6 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { useIntl } from 'react-intl';
-import { useLocalStorage } from 'usehooks-ts';
 
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
@@ -12,7 +10,6 @@ import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivid
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import QuestionsListingBreadcrumbs from '~/components/questions/common/QuestionsListingBreadcrumbs';
 import type {
-  QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
@@ -29,8 +26,6 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import { ListBulletIcon } from '@heroicons/react/24/outline';
 
 function LeftPane({
-  language,
-  onChangeLanguage,
   canViewPremiumContent,
   questionProgress,
   isQuestionLocked,
@@ -41,15 +36,12 @@ function LeftPane({
 }: Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
-  language: QuestionCodingWorkingLanguage;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  onChangeLanguage: (lang: QuestionCodingWorkingLanguage) => void;
   question: QuestionJavaScript;
   questionProgress: QuestionProgress | null;
   serverDuration: number;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
-  const intl = useIntl();
   const [showQuestionsSlideOut, setShowQuestionsSlideOut] = useState(false);
 
   return (
@@ -58,11 +50,7 @@ function LeftPane({
         links={[
           {
             href: '/questions/js/coding',
-            label: intl.formatMessage({
-              defaultMessage: 'Coding Questions',
-              description: 'Coding questions breadcrumbs',
-              id: '6OE1Qp',
-            }),
+            label: 'Coding Questions',
           },
         ]}
       />
@@ -72,11 +60,9 @@ function LeftPane({
           canViewPremiumContent={canViewPremiumContent}
           hasCompletedQuestion={questionProgress?.status === 'complete'}
           isQuestionLocked={isQuestionLocked}
-          language={language}
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
-          onChangeLanguage={onChangeLanguage}
         />
         <StatisticsPanel className="mt-4" serverDuration={serverDuration} />
       </div>
@@ -118,8 +104,6 @@ export default function QuestionJavaScriptCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [language, setLanguage] =
-    useLocalStorage<QuestionCodingWorkingLanguage>('gfe:coding:language', 'js');
 
   const { data: questionProgress } = useQueryQuestionProgress(
     question.metadata,
@@ -155,13 +139,11 @@ export default function QuestionJavaScriptCodingWorkspacePage({
           <LeftPane
             canViewPremiumContent={canViewPremiumContent}
             isQuestionLocked={isQuestionLocked}
-            language={language}
             nextQuestions={nextQuestions}
             question={question}
             questionProgress={questionProgress}
             serverDuration={serverDuration}
             similarQuestions={similarQuestions}
-            onChangeLanguage={setLanguage}
           />
         </section>
         <Section>
@@ -172,8 +154,6 @@ export default function QuestionJavaScriptCodingWorkspacePage({
             </section>
           ) : (
             <JavaScriptWorkspace
-              key={question.metadata.slug + '/' + language}
-              language={language}
               layout={layout}
               nextQuestions={nextQuestions}
               question={question}

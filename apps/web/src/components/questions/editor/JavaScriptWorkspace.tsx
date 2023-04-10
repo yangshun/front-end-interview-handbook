@@ -10,7 +10,6 @@ import { useToast } from '~/components/global/toasts/ToastsProvider';
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type {
-  QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
@@ -57,7 +56,6 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useUser } from '@supabase/auth-helpers-react';
 
 function Contents({
-  language,
   question,
   questionProgress,
   persistCode = true,
@@ -71,7 +69,6 @@ function Contents({
   nextQuestions,
 }: Readonly<{
   deleteCodeFromClientStorage: () => void;
-  language: QuestionCodingWorkingLanguage;
   layout: CodingWorkspaceLayout;
   loadedCodeFromClientStorage: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -195,7 +192,7 @@ function Contents({
       return;
     }
     setShowLoadedPreviousCode(false);
-    updateCode(question.skeleton?.[language] ?? '');
+    updateCode(question.skeleton || '');
     deleteCodeFromClientStorage();
   }
 
@@ -406,7 +403,6 @@ function Contents({
 }
 
 export default function JavaScriptWorkspace({
-  language,
   layout = 'vertical',
   onChangeLayout,
   persistCode = true,
@@ -416,7 +412,6 @@ export default function JavaScriptWorkspace({
   showToolbar = true,
   nextQuestions = [],
 }: Readonly<{
-  language: QuestionCodingWorkingLanguage;
   layout?: CodingWorkspaceLayout;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   onChangeLayout?: (newLayout: CodingWorkspaceLayout) => void;
@@ -431,17 +426,14 @@ export default function JavaScriptWorkspace({
     saveCode,
     deleteCodeFromClientStorage,
     loadedCodeFromClientStorage,
-  } = useJavaScriptQuestionCode(question, language);
+  } = useJavaScriptQuestionCode(question);
 
   return (
     <SandpackProvider
       customSetup={customSetup}
       files={makeJavaScriptQuestionSandpackSetup(
-        language,
         question.metadata.slug,
-        persistCode
-          ? code
-          : question.skeleton?.[language] ?? question.skeleton?.js ?? '',
+        persistCode ? code : question.skeleton,
         question.tests,
       )}
       options={{
@@ -455,7 +447,6 @@ export default function JavaScriptWorkspace({
       template="vanilla-ts">
       <Contents
         deleteCodeFromClientStorage={deleteCodeFromClientStorage}
-        language={language}
         layout={layout}
         loadedCodeFromClientStorage={loadedCodeFromClientStorage}
         nextQuestions={nextQuestions}

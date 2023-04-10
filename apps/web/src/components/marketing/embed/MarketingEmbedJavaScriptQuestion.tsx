@@ -7,12 +7,8 @@ import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 import QuestionMetadataSection from '~/components/questions/common/QuestionMetadataSection';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
-import type {
-  QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionJavaScript } from '~/components/questions/common/QuestionsTypes';
 import JavaScriptTestCodesEmitter from '~/components/questions/content/JavaScriptTestCodesEmitter';
-import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import type { QuestionContentsSection } from '~/components/questions/content/QuestionContentsSectionTabs';
@@ -32,7 +28,6 @@ export default function MarketingEmbedJavaScriptQuestion({
 }: Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
 }>) {
-  const [language, setLanguage] = useState<QuestionCodingWorkingLanguage>('js');
   const intl = useIntl();
   const { startDrag, size: leftPaneWidth } = useResizablePaneDivider(400);
   const [selectedSection, setSelectedSection] =
@@ -68,16 +63,8 @@ export default function MarketingEmbedJavaScriptQuestion({
           className="overflow-y-scroll border-slate-200 md:border-r"
           id="left-section">
           <div className="space-y-4 py-4 px-4">
-            <div className="flex justify-between">
-              <div className="text-xl font-semibold sm:text-2xl">
-                {javaScriptEmbedExample.metadata.title}
-              </div>
-              <QuestionCodingWorkingLanguageSelect
-                value={language}
-                onChange={(value) => {
-                  setLanguage(value);
-                }}
-              />
+            <div className="text-xl font-semibold sm:text-2xl">
+              {javaScriptEmbedExample.metadata.title}
             </div>
             <QuestionMetadataSection
               metadata={javaScriptEmbedExample.metadata}
@@ -159,8 +146,6 @@ export default function MarketingEmbedJavaScriptQuestion({
         </div>
         <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
         <JavaScriptWorkspace
-          key={language}
-          language={language}
           layout="horizontal"
           // Don't need show next questions for embed.
           nextQuestions={[]}
