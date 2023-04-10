@@ -279,7 +279,7 @@ export default function QuestionsSystemDesignListWithFilters({
                   'Placeholder for search input of system design question list',
                 id: 'BgJTSk',
               })}
-              size="xs"
+              size="sm"
               startIcon={MagnifyingGlassIcon}
               value={query}
               onChange={(value) => setQuery(value)}

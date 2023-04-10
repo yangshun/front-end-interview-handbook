@@ -167,7 +167,7 @@ export default function JavaScriptConsole({
               description: 'Placeholder for filter input of console logs',
               id: '7solt2',
             })}
-            size="xs"
+            size="sm"
             startIcon={MagnifyingGlassIcon}
             value={query}
             onChange={(value) => setQuery(value)}

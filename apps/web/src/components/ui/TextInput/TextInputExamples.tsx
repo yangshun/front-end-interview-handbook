@@ -40,9 +40,9 @@ export default function TextInputExamples() {
         type="text"
       />
       <TextInput
-        label="Extra Small"
+        label="Small"
         placeholder="you@example.com"
-        size="xs"
+        size="sm"
         startIcon={EnvelopeIcon}
         type="email"
       />

@@ -35,8 +35,8 @@ const textSizeClasses: Record<
 };
 
 const paddingSizeClasses: Record<SelectSize, string> = {
-  md: 'py-2 pl-3 pr-10 ',
-  sm: 'py-1.5 pl-2 pr-10 ',
+  md: 'py-2 pl-3 pr-10',
+  sm: 'py-1.5 pl-2 pr-10',
 };
 
 export default function Select<T>({

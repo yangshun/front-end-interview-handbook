@@ -254,7 +254,7 @@ export default function QuestionsQuizListWithFilters({
                       'Placeholder for search input of quiz question list',
                     id: 'YbRLG7',
                   })}
-                  size="xs"
+                  size="sm"
                   startIcon={MagnifyingGlassIcon}
                   value={query}
                   onChange={(value) => setQuery(value)}

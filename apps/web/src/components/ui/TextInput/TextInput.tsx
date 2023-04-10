@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { ChangeEvent } from 'react';
 import React, { useId } from 'react';
 
-export type TextInputSize = 'sm' | 'xs';
+export type TextInputSize = 'md' | 'sm';
 
 type Props = Readonly<{
   autoComplete?: string;
@@ -34,12 +34,17 @@ const stateClasses: Record<State, string> = {
 };
 
 const fontSizeClasses: Record<TextInputSize, string> = {
-  sm: 'text-sm',
-  xs: 'text-xs',
+  md: 'text-sm',
+  sm: 'text-xs',
 };
 const iconSizeClasses: Record<TextInputSize, string> = {
-  sm: 'h-5 w-5',
-  xs: 'h-4 w-4',
+  md: 'h-5 w-5',
+  sm: 'h-4 w-4',
+};
+
+const verticalPaddingSizeClasses: Record<TextInputSize, string> = {
+  md: 'py-2',
+  sm: 'py-1.5',
 };
 
 export default function TextInput({
@@ -55,7 +60,7 @@ export default function TextInput({
   label,
   name,
   placeholder,
-  size = 'sm',
+  size = 'md',
   startIcon: StartIcon,
   type = 'text',
   value,
@@ -68,6 +73,7 @@ export default function TextInput({
   const state = hasError ? 'error' : 'normal';
   const fontSizeClass = fontSizeClasses[size];
   const iconSizeClass = iconSizeClasses[size];
+  const verticalPaddingSizeClass = verticalPaddingSizeClasses[size];
 
   return (
     <div>
@@ -105,6 +111,7 @@ export default function TextInput({
           className={clsx(
             'block w-full rounded-md',
             fontSizeClass,
+            verticalPaddingSizeClass,
             StartIcon && 'pl-10',
             EndIcon && 'pr-10',
             stateClasses[state],

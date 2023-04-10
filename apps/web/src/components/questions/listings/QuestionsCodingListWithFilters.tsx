@@ -409,7 +409,7 @@ export default function QuestionsCodingListWithFilters({
                   'Placeholder for search input of coding question list',
                 id: 'jGQnYd',
               })}
-              size="xs"
+              size="sm"
               startIcon={MagnifyingGlassIcon}
               value={query}
               onChange={(value) => setQuery(value)}
