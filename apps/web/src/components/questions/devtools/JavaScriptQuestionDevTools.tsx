@@ -1,5 +1,6 @@
 import { useIntl } from 'react-intl';
 
+import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
@@ -30,8 +31,11 @@ export default function JavaScriptQuestionDevTools({
   showExplicitInvocationMessage,
   onChangeMode,
 }: Props) {
+  const { consoleShouldPreserveLogs, setConsoleShouldPreserveLogs } =
+    useCodingPreferences();
+
   const { logs, reset } = useSandpackConsole({
-    resetOnPreviewRestart: false,
+    resetOnPreviewRestart: !consoleShouldPreserveLogs,
     showSyntaxError: false,
   });
 
@@ -85,10 +89,10 @@ export default function JavaScriptQuestionDevTools({
               return (
                 <JavaScriptConsole
                   logs={logs}
+                  shouldPreserveLogs={consoleShouldPreserveLogs}
                   showExplicitInvocationMessage={showExplicitInvocationMessage}
-                  onClear={() => {
-                    reset();
-                  }}
+                  onClear={reset}
+                  onShouldPreserveLogsChange={setConsoleShouldPreserveLogs}
                 />
               );
             case 'tests':

@@ -52,7 +52,11 @@ import {
   useActiveCode,
   useSandpack,
 } from '@codesandbox/sandpack-react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import { useUser } from '@supabase/auth-helpers-react';
 
 function Contents({
@@ -300,7 +304,7 @@ function Contents({
             </div>
             {isMounted() && showLoadedPreviousCode && (
               <div
-                className="bg-brand-50 shrink-0 border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
+                className="bg-brand-50 flex shrink-0 items-center justify-between border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
                 suppressHydrationWarning={true}>
                 <Text variant="body3">
                   <FormattedMessage
@@ -320,6 +324,22 @@ function Contents({
                     }}
                   />
                 </Text>
+                <Button
+                  className="-mr-2"
+                  icon={XMarkIcon}
+                  isLabelHidden={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Dismiss',
+                    description:
+                      'Label for dismiss button of previously restored prompt that appears under the coding workspace when user has previously worked on this problem and we restored their code',
+                    id: '562PkG',
+                  })}
+                  size="sm"
+                  variant="flat"
+                  onClick={() => {
+                    setShowLoadedPreviousCode(false);
+                  }}
+                />
               </div>
             )}
             <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">

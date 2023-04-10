@@ -271,9 +271,17 @@
     "defaultMessage": "Get Started",
     "description": "Title of Sign Up page"
   },
+  "54g6sz": {
+    "defaultMessage": "Preserve logs",
+    "description": "Checkbox label to preserve logs in the console in the coding workspace"
+  },
   "55uCRp": {
     "defaultMessage": "Premium",
     "description": "Tooltip for Premium questions label"
+  },
+  "562PkG": {
+    "defaultMessage": "Dismiss",
+    "description": "Label for dismiss button of previously restored prompt that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
   "58dfbv": {
     "defaultMessage": "Language",
@@ -395,6 +403,10 @@
     "defaultMessage": "Progress",
     "description": "Completion status"
   },
+  "7solt2": {
+    "defaultMessage": "Filter logs",
+    "description": "Placeholder for filter input of console logs"
+  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -506,10 +518,6 @@
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
-  },
-  "A592IF": {
-    "defaultMessage": "Use light console theme",
-    "description": "Button label to use light console theme"
   },
   "AGwpnL": {
     "defaultMessage": "We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers.",
@@ -847,6 +855,10 @@
     "defaultMessage": "While Offer Lasts",
     "description": "Label to indicate lifetime plan is a limited time offering"
   },
+  "HaIAzk": {
+    "defaultMessage": "Light",
+    "description": "Select label for light console theme in console settings"
+  },
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
     "description": "How to answer collaboration situation questions in behavioral interviews"
@@ -991,10 +1003,6 @@
     "defaultMessage": "Select question section",
     "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
   },
-  "Kdmu8e": {
-    "defaultMessage": "Use light console theme",
-    "description": "Button tooltip to use light console theme"
-  },
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
     "description": "Summary of important things in front end system design interviews"
@@ -1038,10 +1046,6 @@
   "L0IePi": {
     "defaultMessage": "Because front end interviews are about <span>fundamentals</span>.",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
-  },
-  "L7Fz5f": {
-    "defaultMessage": "Scroll to Bottom",
-    "description": "Button tooltip to scroll to bottom of the console logs"
   },
   "LK0JHB": {
     "defaultMessage": "FAQs.",
@@ -1139,6 +1143,10 @@
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
   },
+  "Mgs3RU": {
+    "defaultMessage": "Console settings",
+    "description": "Title for console settings dialog"
+  },
   "MkjGJD": {
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
@@ -1210,10 +1218,6 @@
   "OL9m/V": {
     "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
-  },
-  "ONV44/": {
-    "defaultMessage": "Use dark console theme",
-    "description": "Button tooltip to use dark console theme"
   },
   "OWKf+S": {
     "defaultMessage": "Overview",
@@ -1611,10 +1615,6 @@
     "defaultMessage": "System Design Questions",
     "description": "Label for system design questions"
   },
-  "VYrdoZ": {
-    "defaultMessage": "Use dark console theme",
-    "description": "Button label to use dark console theme"
-  },
   "VcLkXG": {
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
@@ -1642,6 +1642,10 @@
   "W7BkGp": {
     "defaultMessage": "Stage {stageNumber}",
     "description": "Preparation stage number"
+  },
+  "WBKQzA": {
+    "defaultMessage": "Dark",
+    "description": "Select label for dark console theme in console settings"
   },
   "WDJgWl": {
     "defaultMessage": "Questions",
@@ -1822,6 +1826,10 @@
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
+  },
+  "aeeTOy": {
+    "defaultMessage": "Font size",
+    "description": "Select label to choose console font size"
   },
   "akHBWv": {
     "defaultMessage": "Outdent line",
@@ -2391,6 +2399,10 @@
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
   },
+  "lMXh4f": {
+    "defaultMessage": "Theme",
+    "description": "Select label to choose console theme in console settings"
+  },
   "lTQM7o": {
     "defaultMessage": "Want to see more solutions? <link>Explore our product →</link>",
     "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
@@ -2470,6 +2482,10 @@
   "nPkj31": {
     "defaultMessage": "For your reference, these are the Jest tests that your code will run against.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
+  },
+  "nSDLrS": {
+    "defaultMessage": "More settings",
+    "description": "Button label to show more settings for the console in the coding workspace"
   },
   "nTu2nu": {
     "defaultMessage": "Privacy Policy",
@@ -2918,10 +2934,6 @@
   "wzQGxj": {
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
-  },
-  "x1nxve": {
-    "defaultMessage": "Choose console font size",
-    "description": "Select label to choose console font size"
   },
   "x8+4jJ": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
