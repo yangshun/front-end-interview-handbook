@@ -617,7 +617,8 @@
     "href": "/questions/javascript/flatten",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "todo-list",

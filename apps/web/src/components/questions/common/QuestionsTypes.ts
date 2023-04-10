@@ -20,11 +20,12 @@ export type QuestionCompany =
   | 'uber'
   | 'walmart'
   | 'yelp';
-export type QuestionLanguage = 'css' | 'html' | 'js';
+export type QuestionLanguage = 'css' | 'html' | 'js' | 'ts';
 export const QuestionLanguageLabels: Record<QuestionLanguage, string> = {
   css: 'CSS',
   html: 'HTML',
   js: 'JavaScript',
+  ts: 'TypeScript',
 };
 
 export type QuestionDifficulty = 'easy' | 'hard' | 'medium';
