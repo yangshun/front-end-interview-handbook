@@ -319,6 +319,10 @@
     "defaultMessage": "Show",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
   },
+  "6OE1Qp": {
+    "defaultMessage": "Coding Questions",
+    "description": "Coding questions breadcrumbs"
+  },
   "6UytmZ": {
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
@@ -890,6 +894,10 @@
   "IUYG0x": {
     "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
+  "IXT5w0": {
+    "defaultMessage": "Question Language",
+    "description": "Coding question language"
   },
   "IhJAk8": {
     "defaultMessage": "What's Included",

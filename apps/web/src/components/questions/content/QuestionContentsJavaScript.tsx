@@ -6,6 +6,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import JavaScriptTestCodesEmitter from './JavaScriptTestCodesEmitter';
+import QuestionCodingWorkingLanguageSelect from './QuestionCodingWorkingLanguageSelect';
 import QuestionCompanies from './QuestionCompanies';
 import QuestionContentProse from './QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from './QuestionContentsJavaScriptTestsCode';
@@ -15,6 +16,7 @@ import QuestionNextQuestions from './QuestionNextQuestions';
 import QuestionSimilarQuestions from './QuestionSimilarQuestions';
 import QuestionMetadataSection from '../common/QuestionMetadataSection';
 import type {
+  QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionMetadata,
 } from '../common/QuestionsTypes';
@@ -24,13 +26,17 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   hasCompletedQuestion: boolean;
   isQuestionLocked: boolean;
+  language: QuestionCodingWorkingLanguage;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onChangeLanguage: (lang: QuestionCodingWorkingLanguage) => void;
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function QuestionContentsJavaScript({
   canViewPremiumContent,
+  language,
+  onChangeLanguage,
   hasCompletedQuestion,
   isQuestionLocked,
   similarQuestions,
@@ -66,7 +72,7 @@ export default function QuestionContentsJavaScript({
   return (
     <div ref={copyRef} className="space-y-8">
       <section className="mt-8 flex h-full min-w-0 flex-1 flex-col lg:order-last">
-        <header>
+        <header className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Heading className="text-3xl font-bold leading-6 text-slate-900">
               <span>{metadata.title}</span>
@@ -83,6 +89,15 @@ export default function QuestionContentsJavaScript({
               />
             )}
           </div>
+          {/* Only render if there's a TypeScript skeleton available */}
+          {question.skeleton?.js && question.skeleton?.ts && (
+            <QuestionCodingWorkingLanguageSelect
+              value={language}
+              onChange={(value) => {
+                onChangeLanguage(value);
+              }}
+            />
+          )}
         </header>
       </section>
       <Section>

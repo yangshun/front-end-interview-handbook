@@ -14,7 +14,7 @@ type Props<T> = Readonly<{
   isLabelHidden?: boolean;
   label: string;
   name?: string;
-  onChange: (value: string) => void;
+  onChange: (value: T) => void;
   options: ReadonlyArray<SelectItem<T>>;
   size?: SelectSize;
   value: T;
@@ -74,7 +74,14 @@ export default function Select<T>({
         name={name ?? undefined}
         value={String(value)}
         onChange={(event) => {
-          onChange(event.target.value);
+          const selectedOption = options.find(
+            ({ value: optionValue }) =>
+              optionValue === String(event.target.value),
+          );
+
+          if (selectedOption != null) {
+            onChange(selectedOption.value);
+          }
         }}>
         {options.map(({ label: optionLabel, value: optionValue }) => (
           <option key={String(optionValue)} value={String(optionValue)}>

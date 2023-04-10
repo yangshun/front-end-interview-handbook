@@ -101,8 +101,12 @@ export type QuestionBase = {
 
 export type QuestionSystemDesign = QuestionBase;
 
+export type QuestionCodingWorkingLanguage = 'js' | 'ts';
 export type QuestionJavaScript = QuestionBase & {
-  readonly skeleton: string | null;
+  readonly skeleton: {
+    js: string;
+    ts: string | null;
+  } | null;
   readonly tests: string | null;
 };
 

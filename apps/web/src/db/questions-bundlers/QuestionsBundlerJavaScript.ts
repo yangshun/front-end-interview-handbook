@@ -13,11 +13,24 @@ import type {
   QuestionMetadata,
 } from '../../components/questions/common/QuestionsTypes';
 
-async function readQuestionJavaScriptSkeleton(slug: string): Promise<string> {
+async function readQuestionJavaScriptSkeletonJS(slug: string): Promise<string> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const skeletonPath = path.join(questionPath, 'src', `${slug}.skeleton.js`);
 
   return fs.readFileSync(skeletonPath).toString().trim();
+}
+
+async function readQuestionJavaScriptSkeletonTS(
+  slug: string,
+): Promise<string | null> {
+  try {
+    const questionPath = getQuestionSrcPathJavaScript(slug);
+    const skeletonPath = path.join(questionPath, 'src', `${slug}.skeleton.ts`);
+
+    return fs.readFileSync(skeletonPath).toString().trim();
+  } catch {
+    return null;
+  }
 }
 
 async function readQuestionJavaScriptTests(slug: string): Promise<string> {
@@ -78,19 +91,24 @@ export async function readQuestionJavaScript(
   locale = 'en-US',
 ): Promise<QuestionJavaScript> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
-  const [metadata, description, solution, skeleton, tests] = await Promise.all([
-    readQuestionMetadataJavaScript(slug, locale),
-    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
-    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
-    readQuestionJavaScriptSkeleton(slug),
-    readQuestionJavaScriptTests(slug),
-  ]);
+  const [metadata, description, solution, skeletonJS, skeletonTS, tests] =
+    await Promise.all([
+      readQuestionMetadataJavaScript(slug, locale),
+      readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
+      readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
+      readQuestionJavaScriptSkeletonJS(slug),
+      readQuestionJavaScriptSkeletonTS(slug),
+      readQuestionJavaScriptTests(slug),
+    ]);
 
   return {
     description,
     format: 'javascript',
     metadata,
-    skeleton,
+    skeleton: {
+      js: skeletonJS,
+      ts: skeletonTS,
+    },
     solution,
     tests,
   };
