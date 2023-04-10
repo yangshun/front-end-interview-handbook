@@ -1,7 +1,7 @@
 {
   "slug": "breadth-first-search",
   "created": "2023-03-26T00:00:00.000Z",
-  "languages": ["js"],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": false,
   "duration": 15,

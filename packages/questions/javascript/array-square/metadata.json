@@ -1,20 +1,12 @@
 {
   "slug": "array-square",
   "created": "2022-05-18T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
-  "companies": [
-    "bytedance"
-  ],
+  "languages": ["js", "ts"],
+  "companies": ["bytedance"],
   "premium": true,
   "duration": 10,
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": [
-    "array-filter",
-    "array-map",
-    "array-reduce"
-  ]
+  "similar_questions": ["array-filter", "array-map", "array-reduce"]
 }

@@ -1,7 +1,7 @@
 {
   "slug": "classnames",
   "created": "2022-05-02T00:00:00.000Z",
-  "languages": ["css", "js"],
+  "languages": ["css", "js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 20,

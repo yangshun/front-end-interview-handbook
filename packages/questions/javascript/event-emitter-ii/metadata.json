@@ -1,7 +1,7 @@
 {
   "slug": "event-emitter-ii",
   "created": "2022-12-02T00:00:00.000Z",
-  "languages": ["js"],
+  "languages": ["js", "ts"],
   "companies": ["google", "lyft"],
   "premium": true,
   "duration": 20,

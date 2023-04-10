@@ -158,7 +158,8 @@
     "href": "/questions/javascript/array-filter",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "array-map",
@@ -192,7 +193,8 @@
     "href": "/questions/javascript/array-map",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "contact-form",
@@ -227,7 +229,8 @@
     "href": "/questions/javascript/array-reduce",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "array-filter",
@@ -260,7 +263,8 @@
     "href": "/questions/javascript/array-square",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -288,7 +292,8 @@
     "href": "/questions/javascript/binary-search",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "selection-sort",
@@ -318,7 +323,8 @@
     "href": "/questions/javascript/breadth-first-search",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": false,
@@ -344,7 +350,8 @@
     "href": "/questions/javascript/camel-case-keys",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -372,7 +379,8 @@
     "importance": "mid",
     "languages": [
       "css",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -476,7 +484,8 @@
     "href": "/questions/javascript/curry",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "flatten",
@@ -507,7 +516,8 @@
     "href": "/questions/javascript/curry-ii",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "curry-iii"
@@ -535,7 +545,8 @@
     "href": "/questions/javascript/curry-iii",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -564,7 +575,8 @@
     "href": "/questions/javascript/data-selection",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -596,7 +608,8 @@
     "href": "/questions/javascript/debounce",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "throttle",
@@ -633,7 +646,8 @@
     "href": "/questions/javascript/debounce-ii",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "throttle"
@@ -662,7 +676,8 @@
     "href": "/questions/javascript/deep-clone",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "todo-list",
@@ -693,7 +708,8 @@
     "href": "/questions/javascript/deep-clone-ii",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -719,7 +735,8 @@
     "href": "/questions/javascript/deep-equal",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -746,7 +763,8 @@
     "href": "/questions/javascript/depth-first-search",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": false,
@@ -812,7 +830,8 @@
     "href": "/questions/javascript/event-emitter",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "event-emitter-ii"
@@ -844,7 +863,8 @@
     "href": "/questions/javascript/event-emitter-ii",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "jquery-class-manipulation"
@@ -908,7 +928,8 @@
     "href": "/questions/javascript/function-bind",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -970,7 +991,8 @@
     "href": "/questions/javascript/get",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1001,7 +1023,8 @@
     "languages": [
       "html",
       "css",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1028,7 +1051,8 @@
     "importance": "low",
     "languages": [
       "html",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1087,7 +1111,8 @@
     "href": "/questions/javascript/heap-sort",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "quick-sort"

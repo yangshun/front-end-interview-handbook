@@ -1,7 +1,7 @@
 {
   "slug": "debounce-ii",
   "created": "2022-12-10T00:00:00.000Z",
-  "languages": ["js"],
+  "languages": ["js", "ts"],
   "companies": ["flipkart", "google", "lyft", "walmart", "yelp"],
   "premium": true,
   "duration": 20,

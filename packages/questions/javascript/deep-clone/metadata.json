@@ -2,22 +2,13 @@
   "slug": "deep-clone",
   "author": "zhenghao",
   "created": "2022-05-21T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": false,
   "duration": 25,
   "published": true,
   "importance": "high",
   "difficulty": "medium",
-  "similar_questions": [
-    "deep-equal",
-    "deep-clone-ii"
-  ],
-  "next_questions": [
-    "todo-list",
-    "deep-equal",
-    "deep-clone-ii"
-  ]
+  "similar_questions": ["deep-equal", "deep-clone-ii"],
+  "next_questions": ["todo-list", "deep-equal", "deep-clone-ii"]
 }

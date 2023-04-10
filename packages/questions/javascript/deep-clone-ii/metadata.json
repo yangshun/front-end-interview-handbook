@@ -2,16 +2,12 @@
   "slug": "deep-clone-ii",
   "author": "zhenghao",
   "created": "2022-05-22T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 40,
   "published": true,
   "importance": "mid",
   "difficulty": "hard",
-  "similar_questions": [
-    "deep-clone"
-  ]
+  "similar_questions": ["deep-clone"]
 }

@@ -2,16 +2,12 @@
   "slug": "function-bind",
   "author": "zhenghao",
   "created": "2022-06-26T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 15,
   "published": true,
   "importance": "mid",
   "difficulty": "easy",
-  "similar_questions": [
-    "curry"
-  ]
+  "similar_questions": ["curry"]
 }

@@ -1,26 +1,13 @@
 {
   "slug": "array-reduce",
   "created": "2022-05-16T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
-  "companies": [
-    "amazon",
-    "apple",
-    "sprinklr"
-  ],
+  "languages": ["js", "ts"],
+  "companies": ["amazon", "apple", "sprinklr"],
   "premium": true,
   "duration": 15,
   "published": true,
   "importance": "mid",
   "difficulty": "easy",
-  "similar_questions": [
-    "array-square",
-    "array-map",
-    "array-filter"
-  ],
-  "next_questions": [
-    "array-filter",
-    "array-map"
-  ]
+  "similar_questions": ["array-square", "array-map", "array-filter"],
+  "next_questions": ["array-filter", "array-map"]
 }
