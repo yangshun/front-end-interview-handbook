@@ -1,3 +1,5 @@
+import type { QuestionCodingWorkingLanguage } from '../common/QuestionsTypes';
+
 import type { SandpackSetup } from '@codesandbox/sandpack-react';
 
 export const customSetup: SandpackSetup = {
@@ -9,7 +11,13 @@ export const customSetup: SandpackSetup = {
   entry: '/index.ts',
 };
 
+const solutionFile: Record<QuestionCodingWorkingLanguage, string> = {
+  js: '/solution.js',
+  ts: '/solution.ts',
+};
+
 export function makeJavaScriptQuestionSandpackSetup(
+  language: QuestionCodingWorkingLanguage,
   slug: string,
   code: string | null,
   tests: string | null,
@@ -43,8 +51,7 @@ ${(tests ?? '')
       hidden: true,
       readOnly: true,
     },
-    // TODO: Change to Typescript once Typescript support is added
-    '/solution.js': {
+    [solutionFile[language]]: {
       active: true,
       code: (code ?? '').trim(),
     },

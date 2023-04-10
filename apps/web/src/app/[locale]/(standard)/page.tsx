@@ -47,20 +47,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Custom skeleton example.
-const FLATTEN_SKELETON = `/**
+const FLATTEN_SKELETON_JS = `/**
  * @param {Array<*|Array>} value
  * @return {Array}
  */
-export default function flatten(array) {
+export default function flatten(value) {
   // Add a return to the next line
   // to pass the tests!
-  array.reduce(
+  value.reduce(
     (acc, curr) => acc.concat(
       Array.isArray(curr) ?
         flatten(curr) : curr),
     [],
   );
 }`;
+
+const FLATTEN_SKELETON_TS = `type ArrayValue = any | Array<ArrayValue>;
+
+export default function flatten(
+  value: Array<ArrayValue>
+): Array<any> {
+  // Add a return to the next line
+  // to pass the tests!
+  value.reduce(
+    (acc, curr) => acc.concat(
+      Array.isArray(curr) ?
+        flatten(curr) : curr),
+    [],
+  );
+}
+`;
 
 const QUESTIONS_TO_SHOW = 6;
 
@@ -96,7 +112,10 @@ export default async function Page({ params }: Props) {
     <MarketingHomePage
       javaScriptEmbedExample={{
         ...javaScriptEmbedExample,
-        skeleton: FLATTEN_SKELETON,
+        skeleton: {
+          js: FLATTEN_SKELETON_JS,
+          ts: FLATTEN_SKELETON_TS,
+        },
       }}
       javaScriptQuestions={sortQuestions(
         javaScriptQuestions.filter((question) => question.featured),
