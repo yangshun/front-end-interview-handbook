@@ -13,7 +13,7 @@
     ],
     "files": {
       "/App.js": {
-        "code": "import './styles.css';\n\nexport default function App() {\n  return (\n    <div>\n      <button>Clicks: 0</button>\n    </div>\n  );\n}\n"
+        "code": "import { useState } from 'react';\n\nimport './styles.css';\n\n// This is a warm up question to help you\n// get familiar with the editor.\n// Most of the code has been filled in for you.\nexport default function App() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <button\n        onClick={() => {\n          // Fix the bug in the next line\n          // to complete the question.\n          setCount(count - 1);\n        }}>\n        Clicks: {count}\n      </button>\n    </div>\n  );\n}\n"
       },
       "/index.js": {
         "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
