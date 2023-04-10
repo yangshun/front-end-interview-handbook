@@ -6,6 +6,7 @@ export const customSetup: SandpackSetup = {
     'jest-circus': '22.1.4',
     react: '18.2.0',
   },
+  entry: '/index.ts',
 };
 
 export function makeJavaScriptQuestionSandpackSetup(
@@ -14,19 +15,17 @@ export function makeJavaScriptQuestionSandpackSetup(
   tests: string | null,
 ) {
   return {
-    '/index.html': {
-      code: indexHTMLCode,
-      hidden: true,
-    },
-    '/src/circus.js': {
+    '/circus.ts': {
       code: circusCode,
       hidden: true,
+      readOnly: true,
     },
-    '/src/index.js': {
-      code: indexCode,
+    '/index.html': {
+      code: '',
       hidden: true,
+      readOnly: true,
     },
-    '/src/index.test.js': `
+    '/index.test.ts': `
 import {
   afterEach,
   beforeEach,
@@ -39,7 +38,13 @@ ${(tests ?? '')
   .replace(`./${slug}`, './solution')
   .replace('describe(', 'export default function runTest() {\n  describe(')}}
 `.trim(),
-    '/src/solution.js': {
+    '/index.ts': {
+      code: indexCode,
+      hidden: true,
+      readOnly: true,
+    },
+    // TODO: Change to Typescript once Typescript support is added
+    '/solution.js': {
       active: true,
       code: (code ?? '').trim(),
     },
@@ -258,16 +263,4 @@ export {
   run,
   resetTestState,
 };
-`.trim();
-
-const indexHTMLCode = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-</head>
-<body>
-  <script src="src/index.js"></script>
-</body>
-</html>
 `.trim();

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import useIsMounted from '~/hooks/useIsMounted';
@@ -81,8 +81,8 @@ function Contents({
   showToolbar?: boolean;
 }>) {
   const intl = useIntl();
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const { sandpack } = useSandpack();
+  const containerRef = sandpack.lazyAnchorRef; // Required because of https://github.com/codesandbox/sandpack/issues/851
   const { code, updateCode } = useActiveCode();
   const [result, setResult] = useState<CodingQuestionSubmissionResult | null>(
     null,
@@ -291,7 +291,6 @@ function Contents({
               )}>
               <JavaScriptQuestionDevTools
                 availableModes={['console', 'tests']}
-                isRunningCode={isRunningCode}
                 mode={devToolsMode}
                 result={result}
                 runAttempt={runAttempt}
@@ -445,7 +444,7 @@ export default function JavaScriptWorkspace({
           ),
         },
       }}
-      template="vanilla">
+      template="vanilla-ts">
       <Contents
         deleteCodeFromClientStorage={deleteCodeFromClientStorage}
         layout={layout}

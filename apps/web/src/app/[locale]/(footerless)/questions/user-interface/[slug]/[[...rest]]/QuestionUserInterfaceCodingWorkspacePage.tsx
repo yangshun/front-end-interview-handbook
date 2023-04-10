@@ -135,7 +135,9 @@ function MiddleRightPaneContents({
 
   return (
     <CodingPreferencesProvider>
-      <div className="flex w-full flex-col lg:h-full">
+      <div
+        ref={sandpack.lazyAnchorRef} // Required because of https://github.com/codesandbox/sandpack/issues/851
+        className="flex w-full flex-col lg:h-full">
         <style>{`@media (min-width: 1024px) {
         #right-section { width: ${rightPaneWidth}px; }
       }`}</style>

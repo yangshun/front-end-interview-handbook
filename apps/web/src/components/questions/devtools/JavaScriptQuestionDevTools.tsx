@@ -31,6 +31,7 @@ export default function JavaScriptQuestionDevTools({
   onChangeMode,
 }: Props) {
   const { logs, reset } = useSandpackConsole({
+    resetOnPreviewRestart: false,
     showSyntaxError: false,
   });
 

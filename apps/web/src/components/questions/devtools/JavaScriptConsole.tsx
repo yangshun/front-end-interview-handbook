@@ -14,7 +14,7 @@ import Text from '~/components/ui/Text';
 
 import useConsoleStyles from './useConsoleStyles';
 
-import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/types/components/Console/utils/getType';
+import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/components/Console/utils/getType';
 import {
   ArrowSmallDownIcon,
   CommandLineIcon,
