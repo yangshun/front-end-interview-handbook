@@ -813,7 +813,8 @@
     "importance": "low",
     "languages": [
       "html",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -840,7 +841,8 @@
     "importance": "low",
     "languages": [
       "html",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -866,7 +868,8 @@
     "href": "/questions/javascript/insertion-sort",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "quick-sort"
@@ -896,7 +899,8 @@
     "languages": [
       "html",
       "css",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -924,7 +928,8 @@
     "languages": [
       "html",
       "css",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -952,7 +957,8 @@
     "href": "/questions/javascript/json-stringify",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -978,7 +984,8 @@
     "href": "/questions/javascript/limit",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1006,7 +1013,8 @@
     "href": "/questions/javascript/list-format",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1030,7 +1038,8 @@
     "href": "/questions/javascript/merge-sort",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": false,
@@ -1056,7 +1065,8 @@
     "href": "/questions/javascript/once",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "limit"
@@ -1086,7 +1096,8 @@
     "href": "/questions/javascript/promise-all",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "flatten",
@@ -1118,7 +1129,8 @@
     "href": "/questions/javascript/promise-all-settled",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1146,7 +1158,8 @@
     "href": "/questions/javascript/promise-any",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1174,7 +1187,8 @@
     "href": "/questions/javascript/promise-race",
     "importance": "mid",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1202,7 +1216,8 @@
     "href": "/questions/javascript/queue",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": false,
@@ -1228,7 +1243,8 @@
     "href": "/questions/javascript/quick-sort",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": false,
@@ -1254,7 +1270,8 @@
     "href": "/questions/javascript/selection-sort",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "quick-sort"
@@ -1282,7 +1299,8 @@
     "href": "/questions/javascript/squash-object",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1309,7 +1327,8 @@
     "href": "/questions/javascript/stack",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "queue"
@@ -1339,7 +1358,8 @@
     "href": "/questions/javascript/sum",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1369,7 +1389,8 @@
     "importance": "mid",
     "languages": [
       "html",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1394,7 +1415,8 @@
     "importance": "mid",
     "languages": [
       "html",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "flatten",
@@ -1425,7 +1447,8 @@
     "importance": "low",
     "languages": [
       "html",
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1455,7 +1478,8 @@
     "href": "/questions/javascript/throttle",
     "importance": "high",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,
@@ -1481,7 +1505,8 @@
     "href": "/questions/javascript/topological-sort",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "quick-sort"
@@ -1509,7 +1534,8 @@
     "href": "/questions/javascript/type-utilities",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "type-utilities-ii"
@@ -1535,7 +1561,8 @@
     "href": "/questions/javascript/type-utilities-ii",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [
       "deep-clone",
@@ -1564,7 +1591,8 @@
     "href": "/questions/javascript/unique-array",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
     "nextQuestions": [],
     "premium": true,

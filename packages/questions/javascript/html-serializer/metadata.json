@@ -2,17 +2,12 @@
   "slug": "html-serializer",
   "author": "zhenghao",
   "created": "2022-06-12T00:00:00.000Z",
-  "languages": [
-    "html",
-    "js"
-  ],
+  "languages": ["html", "js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 20,
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": [
-    "json-stringify"
-  ]
+  "similar_questions": ["json-stringify"]
 }

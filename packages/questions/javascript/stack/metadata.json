@@ -1,19 +1,13 @@
 {
   "slug": "stack",
   "created": "2022-12-03T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": false,
   "duration": 10,
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": [
-    "queue"
-  ],
-  "next_questions": [
-    "queue"
-  ]
+  "similar_questions": ["queue"],
+  "next_questions": ["queue"]
 }

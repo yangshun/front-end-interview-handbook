@@ -2,7 +2,7 @@
   "slug": "identical-dom-trees",
   "author": "zhenghao",
   "created": "2022-04-14T00:00:00.000Z",
-  "languages": ["html", "js"],
+  "languages": ["html", "js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 20,

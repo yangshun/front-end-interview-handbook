@@ -1,18 +1,12 @@
 {
   "slug": "promise-race",
   "created": "2022-06-19T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 15,
   "published": true,
   "importance": "mid",
   "difficulty": "easy",
-  "similar_questions": [
-    "promise-all",
-    "promise-all-settled",
-    "promise-any"
-  ]
+  "similar_questions": ["promise-all", "promise-all-settled", "promise-any"]
 }

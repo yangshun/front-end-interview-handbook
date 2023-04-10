@@ -8,7 +8,7 @@ export default function $(selector) {
   return {
     /**
      * @param {string} className
-     * @param {boolean} state
+     * @param {boolean} [state]
      * @return {Object|void}
      */
     toggleClass: function (className, state) {

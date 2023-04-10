@@ -1,7 +1,8 @@
 /**
- * @callback func
+ * @param {T} func
  * @param {number} n
- * @return {Function}
+ * @return {T}
+ * @template {Function} T
  */
 export default function limit(func, n) {
   throw 'Not implemented!';

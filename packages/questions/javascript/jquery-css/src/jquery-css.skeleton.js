@@ -3,5 +3,5 @@
  * @return {{css: Function}}
  */
 export default function $(selector) {
-  throw 'Not implemented';
+  throw 'Not implemented!';
 }

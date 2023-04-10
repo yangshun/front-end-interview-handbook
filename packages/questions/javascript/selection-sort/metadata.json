@@ -1,19 +1,13 @@
 {
   "slug": "selection-sort",
   "created": "2022-12-22T00:00:00.000Z",
-  "languages": [
-    "js"
-  ],
+  "languages": ["js", "ts"],
   "companies": [],
   "premium": true,
   "duration": 10,
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": [
-    "insertion-sort"
-  ],
-  "next_questions": [
-    "quick-sort"
-  ]
+  "similar_questions": ["insertion-sort"],
+  "next_questions": ["quick-sort"]
 }
