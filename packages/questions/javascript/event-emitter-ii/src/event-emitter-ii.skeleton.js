@@ -5,4 +5,21 @@ export default class EventEmitter {
   constructor() {
     throw 'Not implemented!';
   }
+
+  /**
+   * @param {string} eventName
+   * @param {Function} listener
+   * @returns {EventEmitter & {off: Function}}}
+   */
+  on(eventName, listener) {
+    throw 'Not implemented!';
+  }
+
+  /**
+   * @param {string} eventName
+   * @param {...any} args
+   */
+  emit(eventName, ...args) {
+    throw 'Not implemented!';
+  }
 }

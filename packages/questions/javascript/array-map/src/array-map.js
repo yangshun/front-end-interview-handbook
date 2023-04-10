@@ -1,7 +1,8 @@
 /**
- * @callback callbackFn
- * @param {object} [thisArg]
- * @return {Array}
+ * @template T, U
+ * @param { (value: T) => U } callbackFn
+ * @param {any} [thisArg]
+ * @return {Array<U>}
  */
 Array.prototype.myMap = function (callbackFn, thisArg) {
   const len = this.length;

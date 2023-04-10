@@ -10,7 +10,7 @@ function setHasOverlap(setA, setB) {
 }
 
 /**
- * @param {Array<{{user: number, duration: number, equipment: Array<string>}}>} sessions
+ * @param {Array<{user: number, duration: number, equipment: Array<string>}>} sessions
  * @param {{user?: number, minDuration?: number, equipment?: Array<string>, merge?: boolean}} [options]
  * @return {Array}
  */

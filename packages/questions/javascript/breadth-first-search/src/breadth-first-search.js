@@ -1,6 +1,6 @@
 /**
- * @param {Object} graph Node to array of neighboring nodes.
- * @param {string} source Source node to start traversal from. Has to be a valid node if graph is non-empty.
+ * @param {Record<string, Array<string>} graph The adjacency list representing the graph.
+ * @param {string} source The source node to start traversal from. Has to be a valid node if graph is non-empty.
  * @return {Array<string>} A BFS-traversed order of nodes.
  */
 export default function breadthFirstSearch(graph, source) {
@@ -75,7 +75,7 @@ class Queue {
     const newNode = new Node(item);
     if (this.isEmpty()) {
       this.head = newNode;
-    } else {
+    } else if (this.tail) {
       this.tail.next = newNode;
     }
     this.tail = newNode;
@@ -83,7 +83,7 @@ class Queue {
   }
 
   dequeue() {
-    if (this.isEmpty()) {
+    if (this.isEmpty() || !this.head) {
       return null;
     } else {
       const removedNode = this.head;

@@ -13,20 +13,21 @@ function camelCase(str) {
 }
 
 /**
- * @param {Object} object
- * @return {Object}
+ * @template {Record<string, unknown>|Array<unknown>} T
+ * @param {T} object
+ * @return {T}
  */
-export default function camelCaseKeys(obj) {
-  if (Array.isArray(obj)) {
-    return obj.map((item) => camelCaseKeys(item));
+export default function camelCaseKeys(object) {
+  if (Array.isArray(object)) {
+    return object.map((item) => camelCaseKeys(item));
   }
 
-  if (typeof obj !== 'object' || obj === null) {
-    return obj;
+  if (typeof object !== 'object' || object === null) {
+    return object;
   }
 
   return Object.fromEntries(
-    Object.entries(obj).map(([key, value]) => [
+    Object.entries(object).map(([key, value]) => [
       camelCase(key),
       camelCaseKeys(value),
     ]),

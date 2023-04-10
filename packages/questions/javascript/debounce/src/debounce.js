@@ -1,5 +1,5 @@
 /**
- * @callback func
+ * @param {Function} func
  * @param {number} wait
  * @return {Function}
  */

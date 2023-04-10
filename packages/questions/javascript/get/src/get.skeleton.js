@@ -1,7 +1,7 @@
 /**
  * @param {Object} object
  * @param {string|Array<string>} path
- * @param {*} defaultValue
+ * @param {*} [defaultValue]
  * @return {*}
  */
 export default function get(object, path, defaultValue) {

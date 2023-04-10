@@ -1,5 +1,5 @@
 /**
- * @callback func
+ * @param {Function} func
  * @return {Function}
  */
 export default function curry(func) {
