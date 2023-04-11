@@ -79,7 +79,3 @@ Freezing an object does not allow new properties to be added to an object and pr
 - Complex to create yourself: Naive implementations of immutable data structures and its operations can result in extremely poor performance because new objects are created each time. It is recommended to use libraries for efficient immutable data structures and operations that leverage on structural sharing.
 - Potential negative performance: Allocation (and deallocation) of many small objects rather than modifying existing ones can cause a performance impact. The complexity of either the allocator or the garbage collector usually depends on the number of objects on the heap.
 - Complexity for cyclic data structures: Cyclic data structures such as graphs are difficult to build. If you have two objects which can't be modified after initialization, how can you get them to point to each other?
-
-## References
-
-- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/javascript-questions)

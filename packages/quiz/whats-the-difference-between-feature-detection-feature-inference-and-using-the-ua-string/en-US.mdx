@@ -31,7 +31,3 @@ This is not really recommended. Feature detection is more foolproof.
 ## UA String
 
 This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
-
-## References
-
-- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/javascript-questions)

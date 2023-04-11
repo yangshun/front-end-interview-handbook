@@ -14,7 +14,3 @@ If the client's resolution is 1x, 1.5625 is the closest, and `500w` correspondin
 If the resolution is retina (2x), the browser will use the closest resolution above the minimum. Meaning it will not choose the 500w (1.5625) because it is greater than 1 and the image might look bad. The browser would then choose the image with a resulting ratio closer to 2 which is 1000w (3.125).
 
 `srcset`s solve the problem whereby you want to serve smaller image files to narrow screen devices, as they don't need huge images like desktop displays do — and also optionally that you want to serve different resolution images to high density/low-density screens.
-
-## References
-
-- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions)

@@ -17,7 +17,3 @@ However, in modern SPAs, client-side rendering is used instead. The browser load
 - Heavier initial page load due to the loading of framework, app code, and assets required for multiple pages.
 - There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
 - SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
-
-## References
-
-- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/javascript-questions)
