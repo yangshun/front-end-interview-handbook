@@ -499,7 +499,7 @@ function Optimizations() {
 }
 
 const questionMetadata: QuestionMetadata = {
-  author: null,
+  author: 'yangshun',
   companies: ['twitter'],
   created: Math.floor(Date.now() / 1000),
   difficulty: 'medium',

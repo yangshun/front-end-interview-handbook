@@ -37,7 +37,7 @@ const authors: Record<string, Author> = {
     imageUrl: 'https://github.com/yangshun.png',
     name: 'Yangshun Tay',
     role: 'Staff Software Engineer, ex-Meta, Grab',
-    subtitle: 'Ex-Meta, Grab',
+    subtitle: 'Ex-Meta Staff Engineer',
   },
   zhenghao: {
     bio: (
@@ -51,7 +51,7 @@ const authors: Record<string, Author> = {
     imageUrl: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
     role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',
-    subtitle: 'Ex-Amazon, Instacart',
+    subtitle: 'Senior Engineer, Ex-Amazon',
   },
 };
 
