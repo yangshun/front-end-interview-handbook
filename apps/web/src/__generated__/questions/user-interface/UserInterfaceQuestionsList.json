@@ -5,7 +5,7 @@
     "created": 1671580800,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "Build an accordion component that a displays a list of vertically stacked sections that each contain a title and content snippet",
+    "excerpt": "Build an accordion component that a displays a list of vertically stacked sections with each containing a title and content snippet",
     "featured": false,
     "format": "user-interface",
     "frameworkDefault": "react",
