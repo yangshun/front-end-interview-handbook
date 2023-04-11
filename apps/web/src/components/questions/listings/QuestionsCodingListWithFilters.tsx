@@ -36,14 +36,12 @@ import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
-import type { QuestionCategory } from './types';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import { DSAQuestions } from '../common/QuestionsCodingDataStructuresAlgorithms';
 import type { QuestionFramework } from '../common/QuestionsTypes';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
-
 type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (
     format: QuestionCodingFormat,
@@ -52,26 +50,15 @@ type Props = Readonly<{
     a: QuestionCodingFormat,
     b: QuestionCodingFormat,
   ) => number;
+  framework?: QuestionFramework;
   initialCodingFormat?: QuestionCodingFormat | null;
   layout?: 'embedded' | 'full';
+  mode?: 'default' | 'framework';
   questions: ReadonlyArray<QuestionMetadata>;
   sideColumnAddOn?: ReactNode;
-}> &
-  (
-    | Readonly<{
-        category: QuestionCategory;
-        framework?: undefined;
-        mode?: 'default';
-      }>
-    | Readonly<{
-        category?: undefined;
-        framework: QuestionFramework;
-        mode: 'framework';
-      }>
-  );
+}>;
 
 export default function QuestionsCodingListWithFilters({
-  category: questionCategory,
   initialCodingFormat = null,
   framework,
   layout = 'full',
@@ -80,7 +67,6 @@ export default function QuestionsCodingListWithFilters({
   codingFormatFiltersFilterPredicate,
   codingFormatFiltersOrderComparator,
 }: Props) {
-  const category = questionCategory ?? framework;
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -88,21 +74,15 @@ export default function QuestionsCodingListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ category });
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    category,
-  });
-  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    category,
-  });
-  const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
-    { category },
-  );
+    useQuestionDifficultyFilter();
+  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter();
+  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter();
+  const [frameworkFilters, frameworkFilterOptions] =
+    useQuestionFrameworkFilter();
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ category });
+    useQuestionCompletionStatusFilter();
   const [codingFormatFilters, codingFormatFilterOptions] =
     useQuestionCodingFormatFilter({
-      category,
       filter: codingFormatFiltersFilterPredicate,
       initialValue: initialCodingFormat == null ? [] : [initialCodingFormat],
       order: codingFormatFiltersOrderComparator,

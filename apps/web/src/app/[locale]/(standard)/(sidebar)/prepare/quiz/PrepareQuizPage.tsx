@@ -51,10 +51,7 @@ export default function PrepareQuizQuestionsPage({ questions }: Props) {
               })}
             </Heading>
             <Section>
-              <QuestionsQuizListWithFilters
-                category="quiz"
-                questions={questions}
-              />
+              <QuestionsQuizListWithFilters questions={questions} />
             </Section>
           </div>
         </Section>

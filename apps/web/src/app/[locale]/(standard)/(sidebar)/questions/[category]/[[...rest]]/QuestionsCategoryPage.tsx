@@ -93,15 +93,10 @@ function QuestionsList({
         />
       </div>
       {format === 'quiz' && (
-        <QuestionsQuizListWithFilters
-          category={categoryParam}
-          mode="topic"
-          questions={quizQuestions}
-        />
+        <QuestionsQuizListWithFilters mode="topic" questions={quizQuestions} />
       )}
       {format === 'coding' && (
         <QuestionsCodingListWithFilters
-          category={categoryParam}
           codingFormatFiltersFilterPredicate={
             CategoryFilters[category].filterPredicate
           }

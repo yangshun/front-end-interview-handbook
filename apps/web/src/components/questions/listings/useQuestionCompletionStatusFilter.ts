@@ -1,18 +1,10 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
-
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionCategory } from './types';
 type QuestionCompletionStatus = 'completed' | 'incomplete';
 
-type Props = Readonly<{
-  category: QuestionCategory;
-}>;
-
-export default function useQuestionCompletionStatusFilter({
-  category,
-}: Props): [
+export default function useQuestionCompletionStatusFilter(): [
   Set<QuestionCompletionStatus>,
   QuestionFilter<QuestionCompletionStatus>,
 ] {
@@ -39,12 +31,9 @@ export default function useQuestionCompletionStatusFilter({
     },
   ];
 
-  const [completionStatusFilters, setCompletionStatusFilters] =
-    useUserPreferencesState<Set<QuestionCompletionStatus>>(
-      `${category}CompletionStatusFilters`,
-      new Set(),
-    );
-
+  const [completionStatusFilters, setCompletionStatusFilters] = useState<
+    Set<QuestionCompletionStatus>
+  >(new Set());
   const completionStatusFilterOptions: QuestionFilter<QuestionCompletionStatus> =
     {
       id: 'completion',

@@ -1,20 +1,13 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import { useUserPreferencesState } from '~/components/global/UserPreferencesProvider';
-
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionCategory } from './types';
-import type {
-  QuestionDifficulty,
-} from '../common/QuestionsTypes';
+import type { QuestionDifficulty } from '../common/QuestionsTypes';
 
-type Props = Readonly<{
-  category: QuestionCategory;
-}>;
-
-export default function useQuestionDifficultyFilter({
-  category,
-}: Props): [Set<QuestionDifficulty>, QuestionFilter<QuestionDifficulty>] {
+export default function useQuestionDifficultyFilter(): [
+  Set<QuestionDifficulty>,
+  QuestionFilter<QuestionDifficulty>,
+] {
   const intl = useIntl();
   const DIFFICULTY_OPTIONS: ReadonlyArray<{
     label: string;
@@ -45,10 +38,9 @@ export default function useQuestionDifficultyFilter({
       value: 'hard',
     },
   ];
-  const [difficultyFilters, setDifficultyFilters] = useUserPreferencesState<
+  const [difficultyFilters, setDifficultyFilters] = useState<
     Set<QuestionDifficulty>
-  >(`${category}DifficultyFilters`, new Set());
-
+  >(new Set());
   const difficultyFilterOptions: QuestionFilter<QuestionDifficulty> = {
     id: 'difficulty',
     name: intl.formatMessage({
