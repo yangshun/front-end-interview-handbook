@@ -1,7 +1,3 @@
-Array.prototype.myReduce = function (callbackFn, initialValue) {
-  throw 'Not implemented!';
-};
-
 interface Array<T> {
   myReduce<U>(
     callbackFn: (
@@ -13,3 +9,7 @@ interface Array<T> {
     initialValue?: U,
   ): U;
 }
+
+Array.prototype.myReduce = function (callbackFn, initialValue) {
+  throw 'Not implemented!';
+};
