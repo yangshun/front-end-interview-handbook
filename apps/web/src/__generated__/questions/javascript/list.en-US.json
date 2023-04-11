@@ -249,7 +249,7 @@
     "title": "Classnames"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655510400,
     "difficulty": "medium",
@@ -281,7 +281,7 @@
     "title": "Curry"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655510400,
     "difficulty": "medium",
@@ -310,7 +310,7 @@
     "title": "Curry II"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1670630400,
     "difficulty": "hard",
@@ -367,7 +367,7 @@
     "title": "Data Selection"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "flipkart",
       "google",
@@ -405,7 +405,7 @@
     "title": "Debounce"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "flipkart",
       "google",
@@ -683,7 +683,7 @@
     "title": "Function.prototype.bind"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1649894400,
     "difficulty": "easy",
@@ -710,7 +710,7 @@
     "title": "Get"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "dropbox",
       "linkedin"
@@ -742,7 +742,7 @@
     "title": "getElementsByClassName"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655251200,
     "difficulty": "medium",
@@ -884,7 +884,7 @@
     "title": "Insertion Sort"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655510400,
     "difficulty": "medium",
@@ -913,7 +913,7 @@
     "title": "jQuery Class Manipulation"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1654992000,
     "difficulty": "easy",
@@ -971,7 +971,7 @@
     "title": "JSON.stringify"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1670803200,
     "difficulty": "medium",
@@ -998,7 +998,7 @@
     "title": "Limit"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "dropbox"
     ],
@@ -1052,7 +1052,7 @@
     "title": "Merge Sort"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1670803200,
     "difficulty": "easy",
@@ -1079,7 +1079,7 @@
     "title": "Once"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "bytedance",
       "lyft",
@@ -1116,7 +1116,7 @@
     "title": "Promise.all"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655337600,
     "difficulty": "medium",
@@ -1145,7 +1145,7 @@
     "title": "Promise.allSettled"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655596800,
     "difficulty": "medium",
@@ -1174,7 +1174,7 @@
     "title": "Promise.any"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655596800,
     "difficulty": "easy",
@@ -1203,7 +1203,7 @@
     "title": "Promise.race"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1670457600,
     "difficulty": "medium",
@@ -1314,7 +1314,7 @@
     "title": "Squash Object"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1670025600,
     "difficulty": "easy",
@@ -1343,7 +1343,7 @@
     "title": "Stack"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "amazon"
     ],
@@ -1373,7 +1373,7 @@
     "title": "Sum"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "google"
     ],
@@ -1461,7 +1461,7 @@
     "title": "Text Search II"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [
       "google",
       "walmart",
@@ -1521,7 +1521,7 @@
     "title": "Topological Sort"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1649894400,
     "difficulty": "easy",
@@ -1548,7 +1548,7 @@
     "title": "Type Utilities"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1649894400,
     "difficulty": "easy",
@@ -1578,7 +1578,7 @@
     "title": "Type Utilities II"
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
     "created": 1655164800,
     "difficulty": "easy",

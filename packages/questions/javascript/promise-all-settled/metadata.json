@@ -1,5 +1,6 @@
 {
   "slug": "promise-all-settled",
+  "author": "yangshun",
   "created": "2022-06-16T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": [],

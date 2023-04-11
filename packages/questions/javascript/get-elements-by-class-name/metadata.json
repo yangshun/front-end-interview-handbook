@@ -1,5 +1,6 @@
 {
   "slug": "get-elements-by-class-name",
+  "author": "yangshun",
   "created": "2022-06-16T00:00:00.000Z",
   "languages": ["html", "css", "js", "ts"],
   "companies": ["dropbox", "linkedin"],
