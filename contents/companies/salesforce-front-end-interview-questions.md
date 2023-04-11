@@ -5,7 +5,7 @@ sidebar_label: Salesforce interview questions
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare).
 
 :::
 

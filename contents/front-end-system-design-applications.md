@@ -6,7 +6,7 @@ sidebar_label: Applications
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions).
 
 :::
 
@@ -22,11 +22,11 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 ## Framework
 
-1. Requirements clarifications/alignment
+1. Requirements exploration
 1. Architecture
 1. Data model
-1. API design
-1. Deep dive
+1. Interface definition (API)
+1. Optimizations and deep dive
    - User experience (UX)
    - Performance
    - Accessibility (a11y)
@@ -34,7 +34,7 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
    - Multi-device support
    - Security
 
-### Requirements clarification
+### Requirements exploration
 
 Every system design interview should start with clarifying requirements about the question, which is usually left vague intentionally. Some considerations:
 
@@ -44,7 +44,7 @@ Every system design interview should start with clarifying requirements about th
 - Do we need to support internationalization?
 - Does the app need to work offline?
 
-### Architecture
+### Architecture / High-level design
 
 Architecture for front end interviews are typically focused on the client-side architecture, and not on large scale distributed systems where databases, load balancers and servers are involved.
 
@@ -60,11 +60,11 @@ For applications, common architectures include Model-View-Controller, Model-View
 
 Client app state, which is a combination of server state (database) and true client state (non-persisted to the server).
 
-### API design
+### Interface definition (API)
 
 API design for applications will refer to the HTTP/network API parameters and the shape of the responses.
 
-### Deep dives
+### Optimization and deep dives
 
 With the architectural basics of the application covered, we can dive into specific areas which the application might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
 

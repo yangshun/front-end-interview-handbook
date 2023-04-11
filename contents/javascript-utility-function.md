@@ -6,7 +6,7 @@ sidebar_label: JavaScript coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript).
 
 :::
 
@@ -16,7 +16,7 @@ Almost all existing utility functions you will be asked exist within the JavaScr
 
 :::info Practice JavaScript coding questions on GreatFrontEnd
 
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities?fpr=frontendinterviewhandbook). Start practicing today!
+Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities). Start practicing today!
 
 :::
 
@@ -47,7 +47,7 @@ Advanced questions are usually given to more senior candidates and expect around
 
 :::info Practice JavaScript coding questions on GreatFrontEnd
 
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities?fpr=frontendinterviewhandbook). Start practicing today!
+Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities). Start practicing today!
 
 :::
 

@@ -44,6 +44,10 @@ html[data-theme='dark'] {
   --ifm-footer-padding-vertical: 3rem;
 }
 
+.navbar {
+  font-size: 0.875rem;
+}
+
 .footer__links {
   margin-bottom: 3rem;
 }

@@ -4,7 +4,7 @@ title: Introduction
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook).
 
 :::
 
@@ -90,7 +90,7 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 :::info Be interview-ready with GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has questions and answers for all kind of front end interview questions, [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook), and a [huge question bank](https://www.greatfrontend.com/prepare/coding?fpr=frontendinterviewhandbook)!
+[GreatFrontEnd](https://www.greatfrontend.com) has questions and answers for all kind of front end interview questions, [study plans](https://www.greatfrontend.com/get-started), and a [huge question bank](https://www.greatfrontend.com/prepare/coding)!
 
 :::
 

@@ -6,7 +6,7 @@ sidebar_label: Algorithms coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms).
 
 :::
 
@@ -22,7 +22,7 @@ The [Tech Interview Handbook](https://www.techinterviewhandbook.org/algorithms/s
 
 ### GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) provides [**free** questions for you to practice implementing Data Structures and Algorithms in JavaScript](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?fpr=frontendinterviewhandbook). You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)).
+[GreatFrontEnd](https://www.greatfrontend.com) provides [**free** questions for you to practice implementing Data Structures and Algorithms in JavaScript](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms). You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)).
 
 
 ## Algorithm courses
@@ -47,6 +47,6 @@ If you want more structured algorithms practice which are targeted at JavaScript
 
 :::info Practice Data Structures and Algorithms coding questions on GreatFrontEnd
 
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?fpr=frontendinterviewhandbook). Start practicing today!
+Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms). Start practicing today!
 
 :::

@@ -6,7 +6,7 @@ sidebar_label: User interface coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface).
 
 :::
 
@@ -39,7 +39,7 @@ Companies that ask such questions usually ask candidates to code in one of these
 
 :::info Practice UI coding questions on GreatFrontEnd
 
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface?fpr=frontendinterviewhandbook). Start practicing today!
+Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface). Start practicing today!
 
 :::
 
@@ -98,6 +98,6 @@ Lastly, mention how you would do things differently if you had more time and wer
 
 :::info Practice UI coding questions on GreatFrontEnd
 
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) has front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface?fpr=frontendinterviewhandbook). Start practicing today!
+Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface). Start practicing today!
 
 :::

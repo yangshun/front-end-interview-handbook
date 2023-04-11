@@ -27,7 +27,25 @@ module.exports = {
       },
       items: [
         {to: 'introduction', label: 'Start reading', position: 'left'},
-        {to: 'coding', label: 'Coding', position: 'left'},
+         {
+          type: 'dropdown',
+          position: 'left',
+          label: 'Practice',
+          items: [
+            {
+              label: 'Coding Questions',
+              href: 'https://www.greatfrontend.com/prepare/coding'
+            },
+            {
+              label: 'System Design',
+              href: 'https://www.greatfrontend.com/prepare/system-design'
+            },
+            {
+              label: 'Quiz Questions',
+              href: 'https://www.greatfrontend.com/prepare/quiz'
+            },
+          ]
+        },
         {
           to: 'front-end-system-design',
           label: 'System design',
@@ -133,6 +151,10 @@ module.exports = {
           title: 'More',
           items: [
             {
+              label: 'GreatFrontEnd',
+              href: 'https://www.greatfrontend.com',
+            },
+            {
               label: 'GitHub',
               href: 'https://github.com/yangshun/front-end-interview-handbook',
             },
@@ -142,11 +164,11 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/yangshunz',
+              href: 'https://twitter.com/greatfrontend',
             },
             {
               label: 'Contact us',
-              href: 'mailto:contact@techinterviewhandbook.org',
+              href: 'mailto:contact@greatfrontend.com',
             },
           ],
         },

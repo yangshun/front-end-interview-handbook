@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz).
 
 :::
 
@@ -26,7 +26,7 @@ Trivia questions are meant to test how well candidates understand the theory beh
 
 :::info Best place to prepare for Front End interviews.
 
-[GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook) provides front end interview [study plans](https://www.greatfrontend.com/get-started?fpr=frontendinterviewhandbook) and a [huge question bank of trivia questions and answers](https://www.greatfrontend.com/prepare/quiz?fpr=frontendinterviewhandbook). Start studying today!
+[GreatFrontEnd](https://www.greatfrontend.com) provides front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of trivia questions and answers](https://www.greatfrontend.com/prepare/quiz). Start studying today!
 
 :::
 

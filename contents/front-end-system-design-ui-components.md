@@ -6,7 +6,7 @@ sidebar_label: UI components
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com/?fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions).
 
 :::
 
@@ -26,15 +26,16 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 ## Framework
 
-In system design interviews, candidates are supposed to lead the conversation. Here's a framework you can use to give an outline to the interviewer as to what you are going to cover. This framework is called **RADAD** and it is made up of the first character of each step. You can write this structure down on the whiteboard/online editor so that you don't forget.
+In system design interviews, candidates are supposed to lead the conversation. Here's a framework you can use to give an outline to the interviewer as to what you are going to cover. This framework is called **RADIO** and it is made up of the first character of each step. You can write this structure down on the whiteboard/online editor so that you don't forget.
 
-1. **<u>R</u>equirements clarifications/alignment** - Ask about the requirements of the system.
-1. **<u>A</u>rchitecture** - Outline the architecture of the subcomponents in the component, where relevant.
-1. **<u>D</u>ata model** - How would the component store any data passed into it? What data structures are used?
-1. **<u>A</u>PI design** - What's the API for using this component? What options will be allowed on the component?
-1. **<u>D</u>eep dive** - User Experience (UX), Performance, Accessibility (a11y), Internationalization (i18n), Multi-device support, Security
+1. **<u>R</u>equirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
+1. **<u>A</u>rchitecture / High-level design**: Identify the key components of the product and how they are related to each other.
+1. **<u>D</u>ata model**: Describe the various data entities, the fields they contain and which component(s) they belong to.
+1. **<u>I</u>nterface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
+1. **<u>O</u>ptimizations and deep dive**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
 
-### Requirements clarification
+
+### Requirements exploration
 
 Every system design interview (even for non-front end as well) should start with requirements gathering/clarifying requirements about the question, which is usually left underspecified on purpose. You are recommended to spend at least a few minutes clarifying the requirements. Do not start drawing the architecture before you are clear about the requirements!
 
@@ -48,7 +49,7 @@ Some considerations:
 - Do we need to support internationalization?
 - How much styling customization do we want to allow?
 
-### Architecture
+### Architecture / High-level design
 
 Architecture for front end interviews are typically focused on the client-side architecture, and not on large scale distributed systems where databases, load balancers and servers are involved.
 
@@ -79,7 +80,7 @@ Deciding what data to put in state is essential to doing well for this portion. 
 - Components are easier to reason about (read/understand) the fewer the fields there are in the state. We should strive to reduce the amount of state needed. If a component uses a value which can be derived from another piece of state, then that value should most likely not be part of the state. For example if your component is rendering a list of items and you want to display a message when there are no items to render, there shouldn't be an additional `isEmpty` state because it can be derived from the length of the `items`.
 - If a component has multiple subcomponents, it'll be best if it's possible to consolidate the state within the top level and the rest of the components are pure and stateless.
 
-### API design
+### Interface definition (API)
 
 The key idea behind components is for them to be reused and abstract complexities. Good components are designed well such that they can be reused in multiple scenarios and users do not have to know how they work internally before using them. For components, API refers to configuration options which would the component developer would expose to other developers to specify.
 
@@ -98,7 +99,7 @@ The key idea behind components is for them to be reused and abstract complexitie
 
 :::
 
-### Deep dives
+### Optimization and deep dives
 
 With the basics of the component covered, we can dive into specific areas where the component might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
 
