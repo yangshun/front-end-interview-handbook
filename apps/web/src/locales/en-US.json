@@ -31,6 +31,10 @@
     "defaultMessage": "Getting the Interview",
     "description": "Getting the front end interview"
   },
+  "+p6rsI": {
+    "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
+    "description": "SEO title for JavaScript questions list page"
+  },
   "+pieds": {
     "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
     "description": "Subtitle text for newsletter sign up section"
@@ -651,10 +655,6 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
   },
-  "CsuGzS": {
-    "defaultMessage": "JavaScript Questions",
-    "description": "JavaScript Questions list page title"
-  },
   "Cw8cK4": {
     "defaultMessage": "{completedQuestions} of {totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -686,6 +686,10 @@
   "DDJTQX": {
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
+  },
+  "DLky7V": {
+    "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
+    "description": "Title of Interview Preparation Coding page"
   },
   "DtDE8k": {
     "defaultMessage": "How to Prepare",
@@ -1098,10 +1102,6 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
-  },
-  "M2rIUU": {
-    "defaultMessage": "Practice UI and JavaScript Interview Questions with Solutions",
-    "description": "Title of Interview Preparation Coding page"
   },
   "M7x/vv": {
     "defaultMessage": "The best way to prepare for Front End Interviews",
@@ -2087,6 +2087,10 @@
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
   },
+  "fcYNb3": {
+    "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
+    "description": "Subtitle for JavaScript questions list page"
+  },
   "fevC5W": {
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
@@ -2094,10 +2098,6 @@
   "fevxJB": {
     "defaultMessage": "PREMIUM",
     "description": "Premium badge on profile page"
-  },
-  "fktOy2": {
-    "defaultMessage": "{questionCount}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
-    "description": "Subtitle for JavaScript questions list page"
   },
   "fnVJCv": {
     "defaultMessage": "Progress Overview",
@@ -2126,10 +2126,6 @@
   "g65B9h": {
     "defaultMessage": "3 Months Plan",
     "description": "Short label for 3 months study plan"
-  },
-  "gAOQDT": {
-    "defaultMessage": "Practice Top JavaScript Front End Interview Questions with Solutions",
-    "description": "SEO title for JavaScript questions list page"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -2474,6 +2470,10 @@
   "n0mDHU": {
     "defaultMessage": "Author",
     "description": "Author of the question"
+  },
+  "n4tPZM": {
+    "defaultMessage": "JavaScript and TypeScript Questions",
+    "description": "JavaScript Questions list page title"
   },
   "nFYr2a": {
     "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",

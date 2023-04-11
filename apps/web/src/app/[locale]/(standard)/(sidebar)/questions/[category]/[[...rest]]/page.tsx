@@ -198,9 +198,9 @@ async function processParams(params: Props['params']) {
         intl.formatMessage(
           {
             defaultMessage:
-              '{questionCount}+ JavaScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
+              '{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
             description: 'Subtitle for JavaScript questions list page',
-            id: 'fktOy2',
+            id: 'fcYNb3',
           },
           {
             questionCount: roundQuestionCountToNearestTen(count),
@@ -209,16 +209,16 @@ async function processParams(params: Props['params']) {
       logo: JavaScriptLogo,
       pageTitle: () =>
         intl.formatMessage({
-          defaultMessage: 'JavaScript Questions',
+          defaultMessage: 'JavaScript and TypeScript Questions',
           description: 'JavaScript Questions list page title',
-          id: 'CsuGzS',
+          id: 'n4tPZM',
         }),
       seoTitle: () =>
         intl.formatMessage({
           defaultMessage:
-            'Practice Top JavaScript Front End Interview Questions with Solutions',
+            'Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions',
           description: 'SEO title for JavaScript questions list page',
-          id: 'gAOQDT',
+          id: '+p6rsI',
         }),
     },
   };

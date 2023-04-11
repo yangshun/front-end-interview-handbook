@@ -31,6 +31,10 @@
     "defaultMessage": "接受面试",
     "description": "Getting the front end interview"
   },
+  "+p6rsI": {
+    "defaultMessage": "练习前端JavaScript和TypeScript面试题目及解答",
+    "description": "SEO title for JavaScript questions list page"
+  },
   "+pieds": {
     "defaultMessage": "注册以订阅我们的简报并加入我们热情的 <span>前端工程师</span> 社区。",
     "description": "Subtitle text for newsletter sign up section"
@@ -271,9 +275,17 @@
     "defaultMessage": "快速上手",
     "description": "Title of Sign Up page"
   },
+  "54g6sz": {
+    "defaultMessage": "保留日志",
+    "description": "Checkbox label to preserve logs in the console in the coding workspace"
+  },
   "55uCRp": {
     "defaultMessage": "高级会员",
     "description": "Tooltip for Premium questions label"
+  },
+  "562PkG": {
+    "defaultMessage": "关闭",
+    "description": "Label for dismiss button of previously restored prompt that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
   "58dfbv": {
     "defaultMessage": "语言",
@@ -318,6 +330,10 @@
   "6IwcDT": {
     "defaultMessage": "显示",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
+  },
+  "6OE1Qp": {
+    "defaultMessage": "编码题目",
+    "description": "Coding questions breadcrumbs"
   },
   "6UytmZ": {
     "defaultMessage": "出了点问题",
@@ -394,6 +410,10 @@
   "7kN2mI": {
     "defaultMessage": "进度",
     "description": "Completion status"
+  },
+  "7solt2": {
+    "defaultMessage": "过滤日志",
+    "description": "Placeholder for filter input of console logs"
   },
   "7wqhjF": {
     "defaultMessage": "练习前端HTML面试题目及解答",
@@ -506,10 +526,6 @@
   "A+qESm": {
     "defaultMessage": "创建时间：由新到旧",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
-  },
-  "A592IF": {
-    "defaultMessage": "使用浅色控制台主题",
-    "description": "Button label to use light console theme"
   },
   "AGwpnL": {
     "defaultMessage": "由前FAANG高级前端工程师打造的最佳前端面试准备平台，<span>通过帮你<strong>掌握基础知识</strong>，</span>让你在每一次前端面试都拔得头筹。",
@@ -639,10 +655,6 @@
     "defaultMessage": "题目列表",
     "description": "Screenreader text for question list"
   },
-  "CsuGzS": {
-    "defaultMessage": "JavaScript 题目",
-    "description": "JavaScript Questions list page title"
-  },
   "Cw8cK4": {
     "defaultMessage": "{completedQuestions} / {totalQuestions} 已完成",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -674,6 +686,10 @@
   "DDJTQX": {
     "defaultMessage": "编程简介",
     "description": "Introduction to front end coding interview"
+  },
+  "DLky7V": {
+    "defaultMessage": "练习用户界面和JavaScript/TypeScript面试问题及解答",
+    "description": "Title of Interview Preparation Coding page"
   },
   "DtDE8k": {
     "defaultMessage": "如何准备",
@@ -847,6 +863,10 @@
     "defaultMessage": "限时活动",
     "description": "Label to indicate lifetime plan is a limited time offering"
   },
+  "HaIAzk": {
+    "defaultMessage": "亮模式",
+    "description": "Select label for light console theme in console settings"
+  },
   "HcBvYZ": {
     "defaultMessage": "学习回答\"告诉我一段时间...\"合作题目",
     "description": "How to answer collaboration situation questions in behavioral interviews"
@@ -890,6 +910,10 @@
   "IUYG0x": {
     "defaultMessage": "这是 <strong>一次性购买，没有定期订阅</strong>。 您可以永远访问GreatFrontEnd面试平台中的所有内容以及任何未来的更新。 这对今后所有寻找工作都是有益和相关的。",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
+  "IXT5w0": {
+    "defaultMessage": "题目语言",
+    "description": "Coding question language"
   },
   "IhJAk8": {
     "defaultMessage": "产品内容",
@@ -991,10 +1015,6 @@
     "defaultMessage": "选择题目类型",
     "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
   },
-  "Kdmu8e": {
-    "defaultMessage": "使用浅色控制台主题",
-    "description": "Button tooltip to use light console theme"
-  },
   "KdzvRx": {
     "defaultMessage": "用一页纸总结的所有重要的事情",
     "description": "Summary of important things in front end system design interviews"
@@ -1039,10 +1059,6 @@
     "defaultMessage": "<span>夯实基础</span>是决胜前端面试的重中之重。\n",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
-  "L7Fz5f": {
-    "defaultMessage": "滚动到底部",
-    "description": "Button tooltip to scroll to bottom of the console logs"
-  },
   "LK0JHB": {
     "defaultMessage": "常见问题",
     "description": "Frequently Asked Questions"
@@ -1086,10 +1102,6 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
-  },
-  "M2rIUU": {
-    "defaultMessage": "练习 Vanilla 面试题及解答",
-    "description": "Title of Interview Preparation Coding page"
   },
   "M7x/vv": {
     "defaultMessage": "准备前端面试的最佳方式",
@@ -1138,6 +1150,10 @@
   "MeV/ww": {
     "defaultMessage": "微软",
     "description": "Company name for Microsoft"
+  },
+  "Mgs3RU": {
+    "defaultMessage": "控制台设置",
+    "description": "Title for console settings dialog"
   },
   "MkjGJD": {
     "defaultMessage": "最热门的 React 前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
@@ -1210,10 +1226,6 @@
   "OL9m/V": {
     "defaultMessage": "最完整的全套前端面试筹备平台。",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
-  },
-  "ONV44/": {
-    "defaultMessage": "使用深色控制台主题",
-    "description": "Button tooltip to use dark console theme"
   },
   "OWKf+S": {
     "defaultMessage": "概览",
@@ -1611,10 +1623,6 @@
     "defaultMessage": "系统设计题目",
     "description": "Label for system design questions"
   },
-  "VYrdoZ": {
-    "defaultMessage": "使用深色控制台主题",
-    "description": "Button label to use dark console theme"
-  },
   "VcLkXG": {
     "defaultMessage": "免费",
     "description": "Label to indicate that the item is free of charge"
@@ -1642,6 +1650,10 @@
   "W7BkGp": {
     "defaultMessage": "阶段 {stageNumber}",
     "description": "Preparation stage number"
+  },
+  "WBKQzA": {
+    "defaultMessage": "暗模式",
+    "description": "Select label for dark console theme in console settings"
   },
   "WDJgWl": {
     "defaultMessage": "题库",
@@ -1822,6 +1834,10 @@
   "aZqFm4": {
     "defaultMessage": "已完成",
     "description": "Tooltip for Completed questions label"
+  },
+  "aeeTOy": {
+    "defaultMessage": "字体大小",
+    "description": "Select label to choose console font size"
   },
   "akHBWv": {
     "defaultMessage": "减少缩进",
@@ -2071,6 +2087,10 @@
     "defaultMessage": "您的电子邮箱",
     "description": "Feedback widget email input field label"
   },
+  "fcYNb3": {
+    "defaultMessage": "{questionCount}+ JavaScript和TypeScript面试问题，从实现通用库 API，实用功能，算法，到构建界面组件等等。",
+    "description": "Subtitle for JavaScript questions list page"
+  },
   "fevC5W": {
     "defaultMessage": "免费",
     "description": "Label indicating that quiz questions are free"
@@ -2078,10 +2098,6 @@
   "fevxJB": {
     "defaultMessage": "高级会员",
     "description": "Premium badge on profile page"
-  },
-  "fktOy2": {
-    "defaultMessage": "{questionCount}+ JavaScript 面试问题，从实现通用库 API，实用功能，算法，到构建界面组件等等。",
-    "description": "Subtitle for JavaScript questions list page"
   },
   "fnVJCv": {
     "defaultMessage": "进度总览",
@@ -2110,10 +2126,6 @@
   "g65B9h": {
     "defaultMessage": "3 个月计划",
     "description": "Short label for 3 months study plan"
-  },
-  "gAOQDT": {
-    "defaultMessage": "练习前端JavaScript面试题目及解答",
-    "description": "SEO title for JavaScript questions list page"
   },
   "gDAVYm": {
     "defaultMessage": "报告问题",
@@ -2391,6 +2403,10 @@
     "defaultMessage": "查看所有题目",
     "description": "Link label to the list of all JavaScript coding questions"
   },
+  "lMXh4f": {
+    "defaultMessage": "界面主题",
+    "description": "Select label to choose console theme in console settings"
+  },
   "lTQM7o": {
     "defaultMessage": "想要看到更多的解答吗？ <link>探索我们的产品 -></link>",
     "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
@@ -2455,6 +2471,10 @@
     "defaultMessage": "作者",
     "description": "Author of the question"
   },
+  "n4tPZM": {
+    "defaultMessage": "JavaScript 和 TypeScript 问题",
+    "description": "JavaScript Questions list page title"
+  },
   "nFYr2a": {
     "defaultMessage": "您先前的代码已经恢复。 <Anchor>重置为默认</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -2470,6 +2490,10 @@
   "nPkj31": {
     "defaultMessage": "为便于您参考，这些是您的代码将要运行的 Jest 测试。",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
+  },
+  "nSDLrS": {
+    "defaultMessage": "更多设置",
+    "description": "Button label to show more settings for the console in the coding workspace"
   },
   "nTu2nu": {
     "defaultMessage": "隐私政策",
@@ -2918,10 +2942,6 @@
   "wzQGxj": {
     "defaultMessage": "在几分钟内开始",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
-  },
-  "x1nxve": {
-    "defaultMessage": "选择控制台字体大小",
-    "description": "Select label to choose console font size"
   },
   "x8+4jJ": {
     "defaultMessage": "{questionCount} 个最热门的前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",

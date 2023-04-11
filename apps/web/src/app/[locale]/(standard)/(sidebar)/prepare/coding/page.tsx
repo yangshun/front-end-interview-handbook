@@ -38,9 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: '/prepare/coding',
     title: intl.formatMessage({
       defaultMessage:
-        'Practice UI and JavaScript Interview Questions with Solutions',
+        'Practice UI and JavaScript/TypeScript Interview Questions with Solutions',
       description: 'Title of Interview Preparation Coding page',
-      id: 'M2rIUU',
+      id: 'DLky7V',
     }),
   });
 }

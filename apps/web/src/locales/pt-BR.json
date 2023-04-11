@@ -31,6 +31,10 @@
     "defaultMessage": "Conseguindo a Entrevista",
     "description": "Getting the front end interview"
   },
+  "+p6rsI": {
+    "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
+    "description": "SEO title for JavaScript questions list page"
+  },
   "+pieds": {
     "defaultMessage": "Cadastre-se para receber nossa newsletter e participe da nossa comunidade de <span>Engenheiros Front End</span> apaixonados.",
     "description": "Subtitle text for newsletter sign up section"
@@ -271,9 +275,17 @@
     "defaultMessage": "Introdução",
     "description": "Title of Sign Up page"
   },
+  "54g6sz": {
+    "defaultMessage": "Preserve logs",
+    "description": "Checkbox label to preserve logs in the console in the coding workspace"
+  },
   "55uCRp": {
     "defaultMessage": "Premium",
     "description": "Tooltip for Premium questions label"
+  },
+  "562PkG": {
+    "defaultMessage": "Dismiss",
+    "description": "Label for dismiss button of previously restored prompt that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
   "58dfbv": {
     "defaultMessage": "Idioma",
@@ -318,6 +330,10 @@
   "6IwcDT": {
     "defaultMessage": "Mostrar",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
+  },
+  "6OE1Qp": {
+    "defaultMessage": "Coding Questions",
+    "description": "Coding questions breadcrumbs"
   },
   "6UytmZ": {
     "defaultMessage": "Algo deu errado",
@@ -394,6 +410,10 @@
   "7kN2mI": {
     "defaultMessage": "Progresso",
     "description": "Completion status"
+  },
+  "7solt2": {
+    "defaultMessage": "Filter logs",
+    "description": "Placeholder for filter input of console logs"
   },
   "7wqhjF": {
     "defaultMessage": "Pratique as principais perguntas de entrevista de Front End em HTML com soluções",
@@ -506,10 +526,6 @@
   "A+qESm": {
     "defaultMessage": "Criação: do mais novo ao mais antigo",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
-  },
-  "A592IF": {
-    "defaultMessage": "Usar tema claro no console",
-    "description": "Button label to use light console theme"
   },
   "AGwpnL": {
     "defaultMessage": "Ajudamos você a se sair bem em todas entrevistas de front end <strong>dominando seus fundamentos</strong>. <span>Desenvolvido por</span> ex-engenheiros Senior de Front End da FAANG.",
@@ -639,10 +655,6 @@
     "defaultMessage": "Lista de Perguntas",
     "description": "Screenreader text for question list"
   },
-  "CsuGzS": {
-    "defaultMessage": "Perguntas de JavaScript",
-    "description": "JavaScript Questions list page title"
-  },
   "Cw8cK4": {
     "defaultMessage": "{completedQuestions} de {totalQuestions} concluídos",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -674,6 +686,10 @@
   "DDJTQX": {
     "defaultMessage": "Introdução à Rodada de Programação",
     "description": "Introduction to front end coding interview"
+  },
+  "DLky7V": {
+    "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
+    "description": "Title of Interview Preparation Coding page"
   },
   "DtDE8k": {
     "defaultMessage": "Como se Preparar",
@@ -847,6 +863,10 @@
     "defaultMessage": "Enquanto a Oferta Durar",
     "description": "Label to indicate lifetime plan is a limited time offering"
   },
+  "HaIAzk": {
+    "defaultMessage": "Light",
+    "description": "Select label for light console theme in console settings"
+  },
   "HcBvYZ": {
     "defaultMessage": "Aprenda a responder perguntas de colaboração do tipo \"Fale-me sobre um momento em que...\"",
     "description": "How to answer collaboration situation questions in behavioral interviews"
@@ -890,6 +910,10 @@
   "IUYG0x": {
     "defaultMessage": "É uma compra <strong>única, sem assinatura recorrente</strong>. Você tem acesso a todo o conteúdo na plataforma de entrevistas do GreatFrontEnd para sempre, juntamente com quaisquer atualizações futuras. Isso será útil e relevante para todas as futuras caçadas a trabalhos.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
+  "IXT5w0": {
+    "defaultMessage": "Question Language",
+    "description": "Coding question language"
   },
   "IhJAk8": {
     "defaultMessage": "O que Está Incluso",
@@ -991,10 +1015,6 @@
     "defaultMessage": "Selecionar seção de perguntas",
     "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
   },
-  "Kdmu8e": {
-    "defaultMessage": "Usar tema claro no console",
-    "description": "Button tooltip to use light console theme"
-  },
   "KdzvRx": {
     "defaultMessage": "Resumo de todas as coisas importantes em uma página",
     "description": "Summary of important things in front end system design interviews"
@@ -1039,10 +1059,6 @@
     "defaultMessage": "Porque as entrevistas de front end são sobre <span>fundamentos</span>.",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
-  "L7Fz5f": {
-    "defaultMessage": "Rolar para Baixo",
-    "description": "Button tooltip to scroll to bottom of the console logs"
-  },
   "LK0JHB": {
     "defaultMessage": "Perguntas Frequentes.",
     "description": "Frequently Asked Questions"
@@ -1086,10 +1102,6 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
-  },
-  "M2rIUU": {
-    "defaultMessage": "Pratique perguntas de entrevistas de UI e JavaScript com Soluções",
-    "description": "Title of Interview Preparation Coding page"
   },
   "M7x/vv": {
     "defaultMessage": "A melhor maneira de se preparar para entrevistas de Front End",
@@ -1138,6 +1150,10 @@
   "MeV/ww": {
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
+  },
+  "Mgs3RU": {
+    "defaultMessage": "Console settings",
+    "description": "Title for console settings dialog"
   },
   "MkjGJD": {
     "defaultMessage": "As principais perguntas de programação de entrevistas de Front End usando React para praticar, com soluções detalhadas e explicações de ex-entrevistadores da FAANG.",
@@ -1210,10 +1226,6 @@
   "OL9m/V": {
     "defaultMessage": "A plataforma mais completa de preparação para entrevistas de front-end em um só lugar.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
-  },
-  "ONV44/": {
-    "defaultMessage": "Usar tema escuro no console",
-    "description": "Button tooltip to use dark console theme"
   },
   "OWKf+S": {
     "defaultMessage": "Visão Geral",
@@ -1611,10 +1623,6 @@
     "defaultMessage": "Perguntas de Design de Sistema",
     "description": "Label for system design questions"
   },
-  "VYrdoZ": {
-    "defaultMessage": "Usar tema escuro no console",
-    "description": "Button label to use dark console theme"
-  },
   "VcLkXG": {
     "defaultMessage": "Grátis",
     "description": "Label to indicate that the item is free of charge"
@@ -1642,6 +1650,10 @@
   "W7BkGp": {
     "defaultMessage": "Etapa {stageNumber}",
     "description": "Preparation stage number"
+  },
+  "WBKQzA": {
+    "defaultMessage": "Dark",
+    "description": "Select label for dark console theme in console settings"
   },
   "WDJgWl": {
     "defaultMessage": "Questões",
@@ -1822,6 +1834,10 @@
   "aZqFm4": {
     "defaultMessage": "Concluído",
     "description": "Tooltip for Completed questions label"
+  },
+  "aeeTOy": {
+    "defaultMessage": "Font size",
+    "description": "Select label to choose console font size"
   },
   "akHBWv": {
     "defaultMessage": "Deslocar linha",
@@ -2071,6 +2087,10 @@
     "defaultMessage": "Seu Email",
     "description": "Feedback widget email input field label"
   },
+  "fcYNb3": {
+    "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
+    "description": "Subtitle for JavaScript questions list page"
+  },
   "fevC5W": {
     "defaultMessage": "Grátis",
     "description": "Label indicating that quiz questions are free"
@@ -2078,10 +2098,6 @@
   "fevxJB": {
     "defaultMessage": "PREMIUM",
     "description": "Premium badge on profile page"
-  },
-  "fktOy2": {
-    "defaultMessage": "{questionCount}+ perguntas de entrevista sobre JavaScript, desde a implementação de APIs de bibliotecas comuns, funções utilitárias, algoritmos, até a construção de componentes de interface do usuário e muito mais.",
-    "description": "Subtitle for JavaScript questions list page"
   },
   "fnVJCv": {
     "defaultMessage": "Visão geral do progresso",
@@ -2110,10 +2126,6 @@
   "g65B9h": {
     "defaultMessage": "Plano de 3 Meses",
     "description": "Short label for 3 months study plan"
-  },
-  "gAOQDT": {
-    "defaultMessage": "Pratique as principais perguntas de entrevista de Front End JavaScript com soluções",
-    "description": "SEO title for JavaScript questions list page"
   },
   "gDAVYm": {
     "defaultMessage": "Reportar um problema",
@@ -2220,7 +2232,7 @@
     "description": "Coding question list title"
   },
   "iqc+V7": {
-    "defaultMessage": "Access to continuously updating question library.",
+    "defaultMessage": "Acesso à biblioteca de perguntas em constante atualização.",
     "description": "Feature of monthly pricing plan"
   },
   "iqz/fo": {
@@ -2391,6 +2403,10 @@
     "defaultMessage": "Ver Todas as Questões",
     "description": "Link label to the list of all JavaScript coding questions"
   },
+  "lMXh4f": {
+    "defaultMessage": "Theme",
+    "description": "Select label to choose console theme in console settings"
+  },
   "lTQM7o": {
     "defaultMessage": "Quer ver mais soluções? <link>Explore nosso produto →</link>",
     "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
@@ -2455,6 +2471,10 @@
     "defaultMessage": "Autor",
     "description": "Author of the question"
   },
+  "n4tPZM": {
+    "defaultMessage": "JavaScript and TypeScript Questions",
+    "description": "JavaScript Questions list page title"
+  },
   "nFYr2a": {
     "defaultMessage": "Seu código anterior foi restaurado. <Anchor>Redefinir para o padrão</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -2470,6 +2490,10 @@
   "nPkj31": {
     "defaultMessage": "Para sua referência, estes são os testes Jest que serão executados em seu código.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
+  },
+  "nSDLrS": {
+    "defaultMessage": "More settings",
+    "description": "Button label to show more settings for the console in the coding workspace"
   },
   "nTu2nu": {
     "defaultMessage": "Política de Privacidade",
@@ -2918,10 +2942,6 @@
   "wzQGxj": {
     "defaultMessage": "Começe em minutos",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
-  },
-  "x1nxve": {
-    "defaultMessage": "Escolha o tamanho da fonte do console",
-    "description": "Select label to choose console font size"
   },
   "x8+4jJ": {
     "defaultMessage": "As principais {questionCount} perguntas de programação de entrevistas de front end para praticar, com soluções detalhadas e explicações de ex-entrevistadores da FAANG.",
