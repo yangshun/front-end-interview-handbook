@@ -1,0 +1,3 @@
+[submodule "front-end-interview-handbook"]
+	path = front-end-interview-handbook
+	url = https://github.com/yangshun/front-end-interview-handbook

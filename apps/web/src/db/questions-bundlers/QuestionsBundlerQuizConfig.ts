@@ -4,8 +4,8 @@ export const QUESTIONS_SRC_DIR_QUIZ = path.join(
   process.cwd(),
   '..',
   '..',
+  'front-end-interview-handbook',
   'packages',
-  'questions',
   'quiz',
 );
 export const QUESTIONS_OUT_DIR_QUIZ = path.join(
