@@ -62,10 +62,10 @@ function LinksList({
 
   return (
     <ul
-      className="mt-2 space-y-2 border-l-2 border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200"
+      className="mt-2 space-y-2 border-l border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200"
       role="list">
       {items.map((link) => (
-        <li key={link.href} className="relative">
+        <li key={link.href} className="font-sm relative">
           <Anchor
             className={clsx(
               'flex w-full items-center space-x-2 pl-3.5',
@@ -104,7 +104,7 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
-            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-sm xl:w-[300px] 2xl:w-96">
+            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-xs xl:w-[300px] 2xl:w-96">
               <Heading className="text-base font-medium text-slate-700">
                 {navigation.title}
               </Heading>
@@ -113,7 +113,7 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
                   <ul className="space-y-8" role="list">
                     {navigation.items.map((section) => (
                       <li key={section.title}>
-                        <Heading className="font-medium text-slate-900">
+                        <Heading className="font-sm font-medium text-slate-900">
                           {section.title}
                         </Heading>
                         <Section>
