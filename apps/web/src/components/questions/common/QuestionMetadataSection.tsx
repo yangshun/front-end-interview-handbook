@@ -6,37 +6,48 @@ import QuestionDurationLabel from './QuestionDurationLabel';
 import QuestionLanguages from './QuestionLanguages';
 import type { QuestionMetadata } from './QuestionsTypes';
 
+type MetadataElement = 'author' | 'difficulty' | 'duration' | 'languages';
+
 type Props = Readonly<{
+  elements?: ReadonlyArray<MetadataElement>;
   metadata: QuestionMetadata;
-  showAuthor?: boolean;
   variant?: TextVariant;
 }>;
 
+const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
+  'author',
+  'languages',
+  'difficulty',
+  'duration',
+];
+
 export default function QuestionMetadataSection({
   metadata,
-  showAuthor = true,
+  elements = DEFAULT_ELEMENTS,
   variant = 'body3',
 }: Props) {
   return (
-    <section className="flex items-center space-x-6">
-      {showAuthor && metadata.author && (
+    <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
+      {elements.includes('author') && metadata.author && (
         <QuestionAuthor author={metadata.author} variant={variant} />
       )}
-      {metadata.languages && metadata.languages.length > 0 && (
-        <QuestionLanguages
-          languages={metadata.languages}
-          showIcon={true}
-          variant={variant}
-        />
-      )}
-      {metadata.difficulty && (
+      {elements.includes('languages') &&
+        metadata.languages &&
+        metadata.languages.length > 0 && (
+          <QuestionLanguages
+            languages={metadata.languages}
+            showIcon={true}
+            variant={variant}
+          />
+        )}
+      {elements.includes('difficulty') && metadata.difficulty && (
         <QuestionDifficultyLabel
           showIcon={true}
           value={metadata.difficulty}
           variant={variant}
         />
       )}
-      {metadata.duration && (
+      {elements.includes('duration') && metadata.duration && (
         <QuestionDurationLabel
           mins={metadata.duration}
           showIcon={true}

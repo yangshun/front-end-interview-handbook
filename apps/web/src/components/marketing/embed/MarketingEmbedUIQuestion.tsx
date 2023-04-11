@@ -91,7 +91,10 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                 }}
               />
             </div>
-            <QuestionMetadataSection metadata={question.metadata} />
+            <QuestionMetadataSection
+              elements={['author', 'languages']}
+              metadata={question.metadata}
+            />
             <div className="mt-3 sm:mt-4">
               <QuestionContentsSectionTabs
                 sections={['description', 'solution']}

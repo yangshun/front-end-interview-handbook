@@ -541,7 +541,10 @@ export default function MarketingEmbedSystemDesignQuestion() {
                 id: 'cgTXiW',
               })}
             </div>
-            <QuestionMetadataSection metadata={questionMetadata} />
+            <QuestionMetadataSection
+              elements={['author', 'difficulty', 'duration']}
+              metadata={questionMetadata}
+            />
             <hr />
             <div className="space-y-2">
               <div className="text-base font-medium sm:text-lg">

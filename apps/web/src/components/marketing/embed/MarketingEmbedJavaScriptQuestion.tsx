@@ -80,8 +80,8 @@ export default function MarketingEmbedJavaScriptQuestion({
               />
             </div>
             <QuestionMetadataSection
+              elements={['author', 'languages']}
               metadata={javaScriptEmbedExample.metadata}
-              showAuthor={false}
             />
             <div className="mt-3 sm:mt-4">
               <QuestionContentsSectionTabs

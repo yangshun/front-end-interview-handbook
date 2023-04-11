@@ -7,6 +7,7 @@ type Author = Readonly<{
   imageUrl: string;
   name: string;
   role: string;
+  subtitle?: string;
   twitterUrl?: string;
   websiteUrl?: string;
 }>;
@@ -24,6 +25,20 @@ const authors: Record<string, Author> = {
     name: 'Brian Lee',
     role: 'Senior Front End Engineer, ex-Google',
   },
+  yangshun: {
+    bio: (
+      <>
+        Yangshun was previously a Staff Front End Engineer at Meta. He also
+        created Blind 75, Tech Interview Handbook, and Docusaurus 2. He hangs
+        out mostly on{' '}
+        <Anchor href="https://www.github.com/yangshun">GitHub</Anchor>.
+      </>
+    ),
+    imageUrl: 'https://github.com/yangshun.png',
+    name: 'Yangshun Tay',
+    role: 'Staff Software Engineer, ex-Meta, Grab',
+    subtitle: 'Ex-Meta, Grab',
+  },
   zhenghao: {
     bio: (
       <>
@@ -35,7 +50,8 @@ const authors: Record<string, Author> = {
     ),
     imageUrl: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
-    role: 'Senior Software Engineer at Instacart, ex-Amazon',
+    role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',
+    subtitle: 'Ex-Amazon, Instacart',
   },
 };
 
