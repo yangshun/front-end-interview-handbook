@@ -1,0 +1,55 @@
+---
+title: What kind of things must you be wary of when designing or developing for multilingual sites?
+---
+
+Designing and developing for multilingual sites is part of internationalization (i18n).
+
+## Search Engine Optimization
+
+- Use the `lang` attribute on the `<html>` tag.
+- Include the locale in the URL (e.g en_US, zh_CN, etc).
+- Webpages should use `<link rel="alternate" hreflang="other_locale" href="url_for_other_locale">` to tell search engines that there is another page at the specified `href` with the same content but for another language/locale.
+
+## Understanding the difference between locale vs language
+
+Locale settings control how numbers, dates, and times display for your region: which may be a country, or a portion of country or may not even honor country boundaries.
+
+## Language can differ between countries
+
+Certain languages, especially the widely-spoken languages have different "flavors" in different countries (grammar rules, spelling, characters). It's important to differentiate languages for the target country and not assume/force one country's version of a language for all countries which speak the language. Examples:
+
+- `en`: `en-US` (American English), `en-GB` (British English)
+- `zh`: `zh-CN` (Chinese (Simplified)), `zh-TW` (Chinese (Traditional))
+
+## Predict locale but don't restrict
+
+Servers can determine the locale/language of visitors via a combination of HTTP `Accept-Language` headers and IPs. With these, visitors can automatically select the best locale for the visitor. However, predictions are not foolproof (especially if visitors are using VPNs) and visitors should still be allowed to change their country/language easily without hassle.
+
+## Consider differences in the length of text in different languages
+
+Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments. For example, some languages, such as German and French, tend to use longer words and sentences than English, which can cause layout issues if you do not take this into account.
+
+## Language reading direction
+
+Languages like English and French are written from left-to-right, top-to-bottom. However some languages, such as Hebrew and Arabic, are written from right to left. This can affect the layout of your site and the placement of elements on the page, so you must be careful to design your site in a way that accommodates different text directions.
+
+## Do not concatenate translated strings
+
+Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
+
+## Formatting dates and currencies
+
+Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
+
+## Do not put text in images
+
+Putting text in raster-based images (e.g. png, gif, jpg, etc.), is not a scalable approach. Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to support image text translation other languages, there needs to be a separate image created for each language which is not a scalable workflow for designers.
+
+## Be mindful of how colors are perceived
+
+Colors are perceived differently across languages and cultures. The design should use color appropriately.
+
+## References
+
+- [The Differences between Locales and Languages](https://devblogs.microsoft.com/setup/the-differences-between-locales-and-languages)
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions)

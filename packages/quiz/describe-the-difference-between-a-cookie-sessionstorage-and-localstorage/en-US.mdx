@@ -1,0 +1,28 @@
+---
+title: Describe the difference between a cookie, `sessionStorage` and `localStorage`.
+---
+
+## Similarities
+
+Cookies, `localStorage`, and `sessionStorage`, are all:
+
+- Storage mechanisms on the client side. This means the clients can read and modify the values.
+- Key-value based storage.
+- They are only able to store values as strings. Objects will have to be serialized into a string (`JSON.stringify()`) in order to be stored.
+
+## Differences
+
+|  | Cookie | `localStorage` | `sessionStorage` |
+| --- | --- | --- | --- |
+| Initiator | Client or server. Server can use `Set-Cookie` header | Client | Client |
+| Expiry | Manually set | Forever | On tab close |
+| Persistent across browser sessions | Depends on whether expiration is set | Yes | No |
+| Sent to server with every HTTP request | Cookies are automatically being sent via `Cookie` header | No | No |
+| Capacity (per domain) | 4kb | 5MB | 5MB |
+| Access | Any window | Any window | Same tab |
+
+There are also other client-side storage mechanisms like [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) which is more powerful than the above-mentioned technologies but more complicated to use.
+
+## References
+
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions)

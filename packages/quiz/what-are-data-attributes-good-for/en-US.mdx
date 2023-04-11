@@ -1,0 +1,23 @@
+---
+title: What are `data-` attributes good for?
+---
+
+Before JavaScript frameworks became popular, developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for when there are no more appropriate attributes or elements.
+
+Another common use case for `data-` attributes is to store information used by third-party libraries or frameworks. For example, the Bootstrap library uses data attributes to cause `<button>`s to trigger actions on a modal elsewhere on the page ([example](https://getbootstrap.com/docs/5.2/components/modal/#via-data-attributes)).
+
+```html
+<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+  Launch modal
+</button>
+...
+<div class="modal fade" id="myModal">Modal contents</div>
+```
+
+These days, using `data-` attributes is generally not encouraged. One reason is that users can modify the data attribute easily by using "inspect element" in the browser. The data model is better stored within JavaScript environment and have them kept in-sync with the DOM via virtual DOM reconciliation or two-way data binding possibly through a library or a framework.
+
+However, one perfectly valid use of data attributes, is to add an identifier for **end-to-end** testing frameworks (e.g. Playwright, Puppeteer, Selenium), without adding classes or ID attributes just for tests which are primarily for other purposes. The element needs a way to be selected and something like `data-test-id="my-element"` is a valid way to do so without convoluting the semantic markup otherwise.
+
+## References
+
+- [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions)
