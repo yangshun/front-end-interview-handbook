@@ -7,6 +7,8 @@ import gtag from '~/lib/gtag';
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
+import DiscordIcon from '~/components/icons/DiscordIcon';
+import GitHubIcon from '~/components/icons/GitHubIcon';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -16,13 +18,15 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import LogoLink from './Logo';
 import I18nSelect from '../i18n/I18nSelect';
+import TwitterIcon from '../icons/TwitterIcon';
 
 type FooterLink = Readonly<{
   href: string;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   name: string;
 }>;
-type FooterLinks = ReadonlyArray<FooterLink | null>;
+type FooterLinks = ReadonlyArray<FooterLink>;
 
 function useFooterNavigation() {
   const intl = useIntl();
@@ -171,6 +175,26 @@ function useFooterNavigation() {
         }),
       },
     ],
+    social: [
+      {
+        href: 'https://www.twitter.com/greatfrontend',
+        icon: TwitterIcon,
+        key: 'twitter',
+        name: 'Twitter',
+      },
+      {
+        href: 'https://discord.gg/NDFx8f6P6B',
+        icon: DiscordIcon,
+        key: 'discord',
+        name: 'Discord',
+      },
+      {
+        href: 'https://www.github.com/greatfrontend',
+        icon: GitHubIcon,
+        key: 'github',
+        name: 'GitHub',
+      },
+    ],
   };
 
   return navigation;
@@ -252,6 +276,18 @@ export default function Footer() {
                   id="OL9m/V"
                 />
               </p>
+              <div className="flex space-x-6">
+                {navigation.social.map(({ key, href, name, icon: Icon }) => (
+                  <Anchor
+                    key={key}
+                    className="hover:text-brand-500 text-slate-500"
+                    href={href}
+                    variant="unstyled">
+                    <span className="sr-only">{name}</span>
+                    {Icon && <Icon aria-hidden="true" className="h-6 w-6" />}
+                  </Anchor>
+                ))}
+              </div>
               <div>
                 <I18nSelect
                   locale={locale ?? 'en-US'}
