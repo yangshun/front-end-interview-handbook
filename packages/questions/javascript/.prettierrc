@@ -1,0 +1,5 @@
+{
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "parser": "typescript"
+}
