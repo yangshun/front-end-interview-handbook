@@ -2536,6 +2536,38 @@
     "title": "Type Utilities II"
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1681257600,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a counter with a history of the values and ability to undo/redo actions",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/undoable-counter/react"
+      }
+    ],
+    "href": "/questions/user-interface/undoable-counter",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "counter"
+    ],
+    "slug": "undoable-counter",
+    "title": "Undoable Counter"
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1655164800,

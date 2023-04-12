@@ -1,0 +1,22 @@
+## Test Cases
+
+- Verify that the counter starts at 0.
+- Click the "/2", "-1", "+1", "x2" buttons multiple times. Observe that:
+  - The counter should update with the correct value after performing the operation.
+  - The history table should have a row added to the top showing the operation, count before the operation and the count after.
+- Click the "Undo" button multiple times. Observe that:
+  - The counter should update with the correct "old" value.
+  - The top row is removed from the history table.
+- Click the "Redo" button multiple times. Observe that:
+  - The counter should update with the correct "new" value.
+  - The history table should have the redo-ed row added back to it.
+- Click the "Reset" button. Observe that:
+  - The "Undo" and "Redo" buttons should be disabled.
+  - The history table should have nothing in it.
+  - The counter should reset to 0.
+- Click the "/2", "-1", "+1", "x2" buttons after undoing some actions.
+  - The undo-ed actions can no longer do redo-ed.
+  - The "Redo" button should be disabled.
+- a11y
+  - Use Tab to cycle through the buttons.
+  - Be able to use both Spacebar and Enter to interact with the page.

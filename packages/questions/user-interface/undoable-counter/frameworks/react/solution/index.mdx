@@ -1,0 +1,36 @@
+import Notes from '../../../notes.mdx';
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### State
+
+- `counter`: The current value for the counter.
+- `history`: An array that contains the history of actions. The list of actions are in reverse chronological order.
+- `undoHistory`: An array that contains the history of actions have have been undo-ed. The list of actions are in reverse chronological order.
+
+### `performOperation`
+
+The `performOperation` function is used to apply an operation to a counter value. It takes two parameters: `counter` and `operationLabel`. `counter` is the current value of the counter, and `operationLabel` is a string that specifies which operation to perform.
+
+The `OPERATIONS` object is a dictionary that maps operation labels to objects that describe the operation. Each operation object has a type property that specifies the type of operation (increment, decrement, multiply, or divide) and a number property that specifies the operand for the operation.
+
+The `performOperation` function looks up the operation object for the specified operation label from the `OPERATIONS` object. For example, if operationLabel is `'+1'`, performOperation will look up the object `{ type: 'increment', number: 1 }` from the `OPERATIONS` object and add 1 to the counter.
+
+### `onUndo`
+
+This function that is called when the "Undo" button is clicked. It is responsible for undoing the last performed operation and updating the counter and the history accordingly.
+
+More specifically, `onUndo` removes the first item from the history array, and sets the counter value to the old counter value of the removed item. The removed item is then added to the undoHistory array, which stores the list of undone operations.
+
+### `onRedo`
+
+This function is used to redo the last action that was undone by the onUndo function.
+
+When `onRedo` is called, it retrieves the most recently undone action from the undoHistory state and sets the counter to the `newCounter` value of that action. It then removes the undone action from the undoHistory state and adds it back to the history state, effectively reapplying the action.
+
+### `onReset`
+
+This function resets everything back to the initial state.
+
+<TestCases />

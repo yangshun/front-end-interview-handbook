@@ -1,0 +1,32 @@
+{
+  "sandpack": {
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^4.0.0"
+    },
+    "entry": "/index.js",
+    "environment": "create-react-app",
+    "main": "/App.js",
+    "visibleFiles": [
+      "/App.js",
+      "/styles.css"
+    ],
+    "activeFile": "/App.js",
+    "files": {
+      "/App.js": {
+        "code": "import './styles.css';\n\nexport default function App() {\n  return <div>Hello World</div>;\n}\n"
+      },
+      "/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/public/index.html": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "/styles.css": {
+        "code": "body {\n  font-family: sans-serif;\n}\n"
+      }
+    }
+  },
+  "writeup": "var Component=(()=>{var b=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var j=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),_=(n,e)=>{for(var o in e)r(n,o,{get:e[o],enumerable:!0})},l=(n,e,o,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of x(e))!y.call(n,i)&&i!==o&&r(n,i,{get:()=>e[i],enumerable:!(c=f(e,i))||c.enumerable});return n};var u=(n,e,o)=>(o=n!=null?b(g(n)):{},l(e||!n||!n.__esModule?r(o,\"default\",{value:n,enumerable:!0}):o,n)),w=n=>l(r({},\"__esModule\",{value:!0}),n);var s=j((v,d)=>{d.exports=_jsx_runtime});var M={};_(M,{default:()=>D});var a=u(s());var t=u(s());function h(n){let e=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Build a counter with a history of the changes and ability to undo/redo actions.\"}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/undoable-counter/undoable-counter-example.png\",alt:\"Undoable Counter Example\"})}),`\n`,(0,t.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"The counter starts at 0.\"}),`\n`,(0,t.jsxs)(e.li,{children:['There buttons \"/2\", \"-1\", \"+1\", \"x2\" apply the respective operations to the current count.',`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"A row is added to the history table, showing the operation, count before the operation, count after.\"}),`\n`]}),`\n`]}),`\n`,(0,t.jsx)(e.li,{children:'The \"Undo\" button undoes the last action and updates the count.'}),`\n`,(0,t.jsx)(e.li,{children:'The \"Redo\" button applies the last undo-ed action, if any.'}),`\n`,(0,t.jsx)(e.li,{children:\"Clicking on the modification buttons should clear any undo-ed actions and they cannot be redo-ed.\"}),`\n`,(0,t.jsx)(e.li,{children:'The \"Reset\" button resets the counter to 0 and clears all history.'}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Source\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"This question is a variant of \",(0,t.jsx)(e.a,{href:\"https://frontendeval.com/questions/undoable-counter?tab=question\",children:\"FrontendEval's Undoable Counter\"}),\".\"]})]})}function C(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var m=C;function p(n){return(0,a.jsx)(m,{})}function q(n={}){let{wrapper:e}=n.components||{};return e?(0,a.jsx)(e,Object.assign({},n,{children:(0,a.jsx)(p,n)})):p(n)}var D=q;return w(M);})();\n;return Component;"
+}
