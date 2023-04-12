@@ -48,73 +48,84 @@ export async function preprocessJavaScriptQuestions() {
   );
 }
 
+async function preprocessRawFile(
+  rawFile: string,
+  prettierConfig: prettier.Options,
+) {
+  const tsPath = rawFile.replace('.raw.ts', '.ts');
+  const jsPath = rawFile.replace('.raw.ts', '.js');
+
+  // Read the contents of source file
+  const srcContent = fs.readFileSync(rawFile, 'utf-8');
+
+  const tsContent = stripComments(srcContent);
+
+  // Write the contents of source file to destination file
+  fs.writeFileSync(tsPath, tsContent, 'utf-8');
+
+  const tsFileName = path.basename(tsPath);
+
+  console.info(chalk.green(`Generated ${tsFileName}`));
+
+  const jsFile = createProgram([rawFile], {
+    moduleResolution: ModuleResolutionKind.NodeNext,
+    outFile: jsPath,
+    removeComments: false,
+    target: ScriptTarget.ESNext,
+  });
+
+  const jsFileName = path.basename(jsPath);
+
+  const emitResult = jsFile.emit();
+
+  if (emitResult.emitSkipped) {
+    const diagnostics = getPreEmitDiagnostics(jsFile);
+
+    throw new Error(
+      `Failed to generate ${jsFileName}: ${formatDiagnosticsWithColorAndContext(
+        diagnostics,
+        createCompilerHost({}),
+      )}`,
+    );
+  }
+
+  // Format the generated JS file
+  const jsContent = fs.readFileSync(jsPath, 'utf-8');
+
+  const formattedJsContent = prettier.format(jsContent, prettierConfig);
+
+  fs.writeFileSync(jsPath, formattedJsContent, 'utf-8');
+
+  console.info(chalk.green(`Generated ${jsFileName}`));
+}
+
 export async function preprocessJavaScriptQuestion(
   slug: string,
   prettierConfig: prettier.Options,
 ) {
   const questionPath = getQuestionSrcPathJavaScript(slug);
-  const sourceSkeletonPath = path.join(
-    questionPath,
-    'src',
-    `${slug}.skeleton.src.ts`,
-  );
 
-  const tsSkeletonPath = path.join(questionPath, 'src', `${slug}.skeleton.ts`);
+  // Read files which have a .raw.ts in {questionPath}/src.
+  const rawFiles = fs
+    .readdirSync(path.join(questionPath, 'src'))
+    .filter((fileName) => fileName.endsWith('.raw.ts'));
 
-  // Check if source file exists
-  if (fs.existsSync(sourceSkeletonPath)) {
-    // Read the contents of source file
-    const srcSkeletonContent = fs.readFileSync(sourceSkeletonPath, 'utf-8');
-
-    const tsSkeletonContent = stripComments(srcSkeletonContent);
-
-    // Write the contents of source file to destination file
-    fs.writeFileSync(tsSkeletonPath, tsSkeletonContent, 'utf-8');
-
-    console.info(chalk.green(`Generated TS skeleton for ${slug}`));
-
-    const jsSkeleton = createProgram([sourceSkeletonPath], {
-      moduleResolution: ModuleResolutionKind.NodeNext,
-      outFile: path.join(questionPath, 'src', `${slug}.skeleton.js`),
-      removeComments: false,
-      target: ScriptTarget.ESNext,
-    });
-
-    const emitResult = jsSkeleton.emit();
-
-    if (emitResult.emitSkipped) {
-      const diagnostics = getPreEmitDiagnostics(jsSkeleton);
-
-      throw new Error(
-        `Failed to compile JS skeleton for ${slug}: ${formatDiagnosticsWithColorAndContext(
-          diagnostics,
-          createCompilerHost({}),
-        )}`,
-      );
-    }
-
-    // Format the generated JS file
-    const jsSkeletonPath = path.join(
-      questionPath,
-      'src',
-      `${slug}.skeleton.js`,
+  if (rawFiles.length === 0) {
+    console.info(
+      chalk.yellow(`Skipping ${slug}, no raw.ts files present.`),
     );
 
-    const jsSkeletonContent = fs.readFileSync(jsSkeletonPath, 'utf-8');
-
-    const formattedJsSkeletonContent = prettier.format(
-      jsSkeletonContent,
-      prettierConfig,
-    );
-
-    fs.writeFileSync(jsSkeletonPath, formattedJsSkeletonContent, 'utf-8');
-
-    console.info(chalk.green(`Generated JS skeleton for ${slug}`));
-  } else {
-    console.error(
-      chalk.yellow(`Skipping ${slug}, skeleton.src.ts does not exist.`),
-    );
+    return;
   }
+
+  await Promise.all(
+    rawFiles.map(async (rawFile) => {
+      preprocessRawFile(
+        path.join(questionPath, 'src', rawFile),
+        prettierConfig,
+      );
+    }),
+  );
 }
 
 async function loadPrettierConfig() {
