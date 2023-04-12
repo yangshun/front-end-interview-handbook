@@ -10,7 +10,7 @@ Part of the complexity of building a component is designing the API for it. The 
 - `items`: A list of item objects. Each item is an object with the fields:
   - `value`: A unique identifier for the tab item.
   - `label`: The text label to show in the tab item.
-  - `details`: The contents to show in the tab panel when the item is active.
+  - `panel`: The contents to show in the tab panel when the item is active.
 - `defaultValue`: The default tab item/panel to show. In case the `defaultValue` is not provided, we'll use the first item as the value. This is assuming that `items` is non-empty.
 
 The `tabs` function maintains the selected tab value in the `state` object, and it uses the `DOM` object to store references to the tab bar and tab panel elements.
