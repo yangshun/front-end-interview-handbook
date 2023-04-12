@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import type { ReactNode, RefObject } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -14,17 +14,41 @@ type TooltipLabelProps = Readonly<{
   alignment: TooltipAlignment;
   children: ReactNode;
   position: TooltipPosition;
-  triggerRect?: DOMRect;
+  triggerRef: RefObject<HTMLSpanElement>;
 }>;
 
 function TooltipLabel({
   children,
   position,
   alignment,
-  triggerRect,
+  triggerRef,
 }: TooltipLabelProps) {
   const shouldUseXAlignment = position === 'above' || position === 'below';
   const shouldUseYAlignment = position === 'start' || position === 'end';
+
+  const [triggerRect, setTriggerRect] = useState(
+    triggerRef.current?.getBoundingClientRect(),
+  );
+
+  useEffect(() => {
+    const moveOnScroll = () => {
+      setTriggerRect(triggerRef.current?.getBoundingClientRect());
+    };
+
+    window.addEventListener('scroll', moveOnScroll);
+
+    return () => window.removeEventListener('scroll', moveOnScroll);
+  });
+
+  useEffect(() => {
+    const moveOnWindowResize = () => {
+      setTriggerRect(triggerRef.current?.getBoundingClientRect());
+    };
+
+    window.addEventListener('resize', moveOnWindowResize);
+
+    return () => window.removeEventListener('resize', moveOnWindowResize);
+  });
 
   if (!triggerRect) {
     return null;
@@ -44,7 +68,10 @@ function TooltipLabel({
         : alignment === 'start'
         ? triggerLeft
         : undefined,
-    right: alignment === 'end' ? window.innerWidth - triggerRight : undefined,
+    right:
+      alignment === 'end'
+        ? document.body.clientWidth - triggerRight
+        : undefined,
   };
   const yAlignmentStyle = {
     bottom:
@@ -57,7 +84,7 @@ function TooltipLabel({
         : undefined,
   };
   const startPositionStyle = {
-    right: window.innerWidth - triggerLeft,
+    right: document.body.clientWidth - triggerLeft,
     ...yAlignmentStyle,
   };
   const endPositionStyle = {
@@ -117,20 +144,7 @@ export default function Tooltip({
   const [triggerSource, setTriggerSource] =
     useState<TooltipTriggerSource | null>(null);
   const [isShown, setIsShown] = useState(false);
-  const itemRef = useRef<HTMLSpanElement>(null);
-  const [triggerRect, setTriggerRect] = useState(
-    itemRef.current?.getBoundingClientRect(),
-  );
-
-  useEffect(() => {
-    const moveOnScroll = () => {
-      setTriggerRect(itemRef.current?.getBoundingClientRect());
-    };
-
-    window.addEventListener('scroll', moveOnScroll);
-
-    return () => window.removeEventListener('scroll', moveOnScroll);
-  }, []);
+  const triggerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     function dismissOnEscape(event: KeyboardEvent) {
@@ -167,7 +181,7 @@ export default function Tooltip({
 
   return (
     <span
-      ref={itemRef}
+      ref={triggerRef}
       className={clsx('pointer-events-auto relative inline-block', className)}
       onBlur={() => {
         if (triggerSource !== 'focus') {
@@ -207,7 +221,7 @@ export default function Tooltip({
           <TooltipLabel
             alignment={alignment}
             position={position}
-            triggerRect={triggerRect}>
+            triggerRef={triggerRef}>
             {label}
           </TooltipLabel>,
           document.body,
