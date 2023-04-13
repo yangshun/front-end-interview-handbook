@@ -159,6 +159,10 @@
     "defaultMessage": "To test your function without submitting, call the function below the declaration.",
     "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
   },
+  "1wrVTx": {
+    "defaultMessage": "Edit on GitHub",
+    "description": "Edit on GitHub button"
+  },
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
