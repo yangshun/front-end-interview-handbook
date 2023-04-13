@@ -39,6 +39,11 @@ export default function HydrationFailureLogging() {
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
           });
+          ${
+            process.env.NODE_ENV === 'production'
+              ? 'window.location.reload();'
+              : ''
+          }
         }, 10000);
       })(window);
     `,
