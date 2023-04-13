@@ -2,13 +2,16 @@
 
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
+
+import { useI18n } from '~/next-i18nostic/src';
 
 import QuestionQuizBottomNav from './QuestionQuizBottomNav';
 import QuestionPagination from '../QuestionPagination';
@@ -21,10 +24,35 @@ import type {
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 
+import { PencilSquareIcon } from '@heroicons/react/24/outline';
+
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionQuizMetadata>;
 }>;
+
+function GitHubEditButton({
+  question,
+}: Readonly<{
+  question: QuestionQuiz;
+}>) {
+  const intl = useIntl();
+  const { locale } = useI18n();
+
+  return (
+    <Button
+      href={`https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/${question.metadata.slug}/${locale}.mdx`}
+      icon={PencilSquareIcon}
+      label={intl.formatMessage({
+        defaultMessage: 'Edit on GitHub',
+        description: 'Edit on GitHub button',
+        id: '1wrVTx',
+      })}
+      size="sm"
+      variant="tertiary"
+    />
+  );
+}
 
 export default function QuestionQuizContents({
   question,
@@ -84,6 +112,7 @@ export default function QuestionQuizContents({
                       />
                       <QuestionQuizTopics topics={question.metadata.topics} />
                     </div>
+                    <GitHubEditButton question={question} />
                   </div>
                 </header>
                 <Section>
@@ -115,6 +144,7 @@ export default function QuestionQuizContents({
             showTooltip={false}
             title={question.metadata.title}
           />
+          <GitHubEditButton question={question} />
         </div>
         <QuestionPagination
           currentHref={question.metadata.href}

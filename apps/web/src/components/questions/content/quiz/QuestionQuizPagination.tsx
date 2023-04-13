@@ -58,6 +58,7 @@ export default function QuestionQuizPagination({
             description: 'Label for button leading to the previous page',
             id: 'frl+Af',
           })}
+          size="sm"
           variant="tertiary"
         />
         <div className="flex items-center px-6">
@@ -75,6 +76,7 @@ export default function QuestionQuizPagination({
             description: 'Label for button leading to the next page',
             id: 'b2csyI',
           })}
+          size="sm"
           variant="tertiary"
         />
       </div>
