@@ -8,6 +8,7 @@ import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
 import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
+import HoverCardExamples from '~/components/ui/Hovercard/HovercardExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
@@ -33,6 +34,7 @@ export default function UILibraryPage() {
         <BadgeExamples />
         <DropdownMenuExamples />
         <TooltipExamples />
+        <HoverCardExamples />
         <SlideOutExamples />
         <DialogExamples />
         <EmptyStateExamples />
