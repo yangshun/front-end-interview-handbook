@@ -73,3 +73,7 @@ foo = 'bar';
 const baz = 'baz';
 baz = 'qux';
 ```
+
+## Notes
+
+- Since most browsers support `let` and `const` these days, using `var` is no longer recommended. If you need to target older browsers, write your code using `let`, and use a transpiler like Babel to compile your code to older syntax.

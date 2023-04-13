@@ -12,7 +12,7 @@ The CSS box model is responsible for calculating:
 
 ## Box Model Rules
 
-- The dimensions of a block element are calculated by `width`, `height`, `padding`, `border`s.
+- The dimensions of a block element are calculated by `width`, `height`, `padding`s, and `border`s.
 - If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats, for which, see [describe floats and how they work](/questions/quiz/describe-floats-and-how-they-work)).
 - If no `width` is specified, a non-`float`-ed block element will expand to fit the width of its parent minus the `padding`, unless it has a `max-width` property set, in which case it will be no wider than the specified maximum width.
   - Some block-level elements (e.g. `table`, `figure`, and `input`) have inherent or default width values, and may not expand to fill the full width of their parent container.
@@ -28,7 +28,7 @@ Note that `margin`s are not counted towards the actual size of the box. It affec
 Look up the `box-sizing` property, which affects how the total heights and widths of elements are calculated.
 
 - `box-sizing: content-box`: This is the default value of `box-sizing` and adheres to the rules above.
-- `box-sizing: border-box`: The `width` and `height` will include the content, padding and border, but not including the margin. This is a much more intuitive way to think about boxes and hence many CSS frameworks set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default. See the [question on `box-sizing: border-box`](/questions/css/what-does-box-sizing-border-box-do-what-are-its-advantages) for more information.
+- `box-sizing: border-box`: The `width` and `height` will include the content, padding and border, but not including the margin. This is a much more intuitive way to think about boxes and hence many CSS frameworks (e.g. Bootstrap, Tailwind, Bulma) set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default. See the [question on `box-sizing: border-box`](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages) for more information.
 
 ## References
 
