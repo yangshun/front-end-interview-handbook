@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import ErrorMessageBlock from '~/components/global/error/ErrorMessageBlock';
+
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
@@ -34,10 +36,7 @@ export default function GlobalError({
     <html lang="en">
       <title>Error</title>
       <body>
-        <h1>Something went wrong!</h1>
-        <button type="button" onClick={() => reset()}>
-          Try again
-        </button>
+        <ErrorMessageBlock onReloadClick={reset} />
       </body>
     </html>
   );

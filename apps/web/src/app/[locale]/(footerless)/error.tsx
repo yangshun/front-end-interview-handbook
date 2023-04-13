@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+import ErrorMessageBlock from '~/components/global/error/ErrorMessageBlock';
+
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
@@ -29,17 +31,5 @@ export default function Error({
     });
   }, [error]);
 
-  return (
-    <div>
-      <h1>Something went wrong...</h1>
-      <button
-        type="button"
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }>
-        Try again
-      </button>
-    </div>
-  );
+  return <ErrorMessageBlock onReloadClick={reset} />;
 }
