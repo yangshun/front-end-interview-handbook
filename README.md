@@ -1,4 +1,7 @@
-<h1 align="center">Front End Interview Handbook</h1>
+<div align="center">
+  <h1>Front End Interview Handbook</h1>
+  <p>By <a href="https://www.greatfrontend.com">GreatFrontEnd</a></p>
+</div>
 
 <div align="center">
   <a href="https://dribbble.com/shots/4263961-Front-End-Interview-Scroll">
@@ -9,7 +12,7 @@
     <a href="https://www.frontendinterviewhandbook.com">Read on the website</a>
   </h3>
   <p>
-    Join/follow us on <a href="https://discord.com/invite/BZuXW2gJy9" target="_blank">Discord</a> | <a href="https://twitter.com/greatfrontend" target="_blank">Twitter</a> | <a href="https://t.me/techinterviewhandbook" target="_blank" >Telegram</a> |  <a href="https://facebook.com/techinterviewhandbook" target="_blank">Facebook</a>
+    Join/follow us on <a href="https://discord.gg/NDFx8f6P6B" target="_blank">Discord</a> | <a href="https://twitter.com/greatfrontend" target="_blank">Twitter</a> | <a href="https://facebook.com/greatfrontend" target="_blank">Facebook</a>
   </p>
 </div>
 
@@ -67,7 +70,7 @@ You might be interested in the [Tech Interview Handbook](https://www.techintervi
 
 ## Related
 
-If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It's meant for reference and studying purposes, not really for production use.
+If you are interested in how data structures are implemented, check out [Lago](https://github.com/yangshun/lago), a Data Structures and Algorithms library for JavaScript. It's meant for reference and studying purposes, not for production use.
 
 ## Contributing
 
@@ -85,6 +88,3 @@ Many hours of hard work have gone into this project. Your support will be very a
 
 All projects and packages in this repository are [MIT licensed](/LICENSE).
 
-## Disclaimer
-
-I am providing code in the repository to you under an open source license. Because this is my personal repository, the license you receive to my code is from me and not my employer (Facebook).
