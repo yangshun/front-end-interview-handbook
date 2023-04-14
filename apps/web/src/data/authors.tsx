@@ -6,6 +6,7 @@ type Author = Readonly<{
   bio: React.ReactNode;
   imageUrl: string;
   name: string;
+  profileUrl: string;
   role: string;
   subtitle?: string;
   twitterUrl?: string;
@@ -13,17 +14,13 @@ type Author = Readonly<{
 }>;
 
 const authors: Record<string, Author> = {
-  brianlee: {
-    bio: (
-      <>
-        Experienced engineer with a passion for building great products. Writes
-        code to paint rectangles on your screen. Was terrible at CSS, now decent
-        with it, but still thinks CSS is a horribly-designed language.
-      </>
-    ),
-    imageUrl: '/img/team/brian.jpg',
-    name: 'Brian Lee',
-    role: 'Senior Front End Engineer, ex-Google',
+  'sunny-dhillon': {
+    bio: <>TODO</>,
+    imageUrl: '/img/team/sunny.jpg',
+    name: 'Sunny Dhillon',
+    profileUrl: 'https://www.linkedin.com/in/dhillons/',
+    role: 'Senior Staff Software Engineer, Google',
+    subtitle: 'Senior Staff Engineer, Google',
   },
   yangshun: {
     bio: (
@@ -36,6 +33,7 @@ const authors: Record<string, Author> = {
     ),
     imageUrl: 'https://github.com/yangshun.png',
     name: 'Yangshun Tay',
+    profileUrl: 'https://www.github.com/yangshun',
     role: 'Staff Software Engineer, ex-Meta, Grab',
     subtitle: 'Ex-Meta Staff Engineer',
   },
@@ -50,6 +48,7 @@ const authors: Record<string, Author> = {
     ),
     imageUrl: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
+    profileUrl: 'https://www.zhenghao.io',
     role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',
     subtitle: 'Senior Engineer, Ex-Amazon',
   },

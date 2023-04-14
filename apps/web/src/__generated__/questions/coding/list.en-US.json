@@ -1453,6 +1453,36 @@
     "title": "Merge Sort"
   },
   {
+    "author": "sunny-dhillon",
+    "companies": [],
+    "created": 1681430400,
+    "difficulty": "easy",
+    "duration": 20,
+    "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "vanilla",
+    "frameworks": [
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/mortgage-calculator/vanilla"
+      }
+    ],
+    "href": "/questions/user-interface/mortgage-calculator",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "mortgage-calculator",
+    "title": "Mortgage Calculator"
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1670803200,
