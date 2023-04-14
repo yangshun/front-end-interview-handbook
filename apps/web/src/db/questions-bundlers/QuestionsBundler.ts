@@ -55,6 +55,7 @@ export async function readMDXFile(
         options.loader = {
           ...options.loader,
           '.js': 'text',
+          '.ts': 'text',
         };
       }
 
