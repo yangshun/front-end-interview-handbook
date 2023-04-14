@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 
 import type { ToastMessage } from './Toast';
 import Toast from './Toast';
@@ -35,9 +35,15 @@ export function useToast() {
 export default function ToastsProvider({ children }: Props) {
   const [toasts, setToasts] = useState<Array<ToastData>>([]);
 
-  function showToast({ title, subtitle, variant }: ToastMessage) {
-    setToasts([{ id: getID(), subtitle, title, variant }, ...toasts]);
-  }
+  const showToast = useCallback(
+    ({ title, subtitle, variant, duration }: ToastMessage) => {
+      setToasts((oldToasts) => [
+        { duration, id: getID(), subtitle, title, variant },
+        ...oldToasts,
+      ]);
+    },
+    [],
+  );
 
   function closeToast(id: number) {
     setToasts((oldToasts) => {
@@ -52,7 +58,7 @@ export default function ToastsProvider({ children }: Props) {
       {children}
       <div
         aria-live="assertive"
-        className="pointer-events-none fixed inset-0 z-10 flex items-end px-4 py-6 sm:p-6">
+        className="pointer-events-none fixed inset-0 z-20 flex items-end px-4 py-6 sm:p-6">
         <div className="flex w-full flex-col items-center space-y-4 sm:items-start">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
           {toasts.map(({ id, title, subtitle, variant }) => (

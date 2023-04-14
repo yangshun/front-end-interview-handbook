@@ -1,24 +1,26 @@
+import type { ReactNode } from 'react';
 import { Fragment, useEffect, useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 
 import { Transition } from '@headlessui/react';
-import { CheckIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, StarIcon } from '@heroicons/react/24/outline';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-type ToastVariant = 'failure' | 'success';
 
-export type ToastMessage = {
-  subtitle?: string;
-  title: string;
-  variant: ToastVariant;
-};
-type Props = Readonly<{
-  onClose: () => void;
-  subtitle?: string;
-  title: string;
+type ToastVariant = 'failure' | 'special' | 'success';
+
+export type ToastMessage = Readonly<{
+  duration?: number;
+  subtitle?: ReactNode;
+  title: ReactNode;
   variant: ToastVariant;
 }>;
+
+type Props = Readonly<{
+  onClose: () => void;
+}> &
+  ToastMessage;
 
 function ToastIcon({
   variant,
@@ -32,10 +34,18 @@ function ToastIcon({
       );
     case 'failure':
       return <XMarkIcon aria-hidden="true" className="h-6 w-6 text-rose-500" />;
+    case 'special':
+      return <StarIcon aria-hidden="true" className="text-brand-500 h-6 w-6" />;
   }
 }
 
-export default function Toast({ title, subtitle, variant, onClose }: Props) {
+export default function Toast({
+  duration = 4000,
+  title,
+  subtitle,
+  variant,
+  onClose,
+}: Props) {
   const timer = useRef<number | null>(null);
 
   function clearTimer() {
@@ -50,10 +60,11 @@ export default function Toast({ title, subtitle, variant, onClose }: Props) {
     onClose();
     clearTimer();
   }
+
   useEffect(() => {
     timer.current = window.setTimeout(() => {
       close();
-    }, 3000);
+    }, duration);
 
     return () => {
       clearTimer();
