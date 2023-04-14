@@ -1611,6 +1611,10 @@
     "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
   },
+  "VMIoK4": {
+    "defaultMessage": "Users Completed",
+    "description": "Number of users who completed the question"
+  },
   "VQ9c4+": {
     "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
@@ -2958,6 +2962,10 @@
   "xS31qX": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
     "description": "Subtext above email settings."
+  },
+  "xVsq55": {
+    "defaultMessage": "{numUsers} completed",
+    "description": "Number of users who completed the question"
   },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
