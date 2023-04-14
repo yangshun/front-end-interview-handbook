@@ -111,10 +111,6 @@ export async function preprocessJavaScriptQuestion(
     .filter((fileName) => fileName.endsWith('.raw.ts'));
 
   if (rawFiles.length === 0) {
-    console.info(
-      chalk.yellow(`Skipping ${slug}, no raw.ts files present.`),
-    );
-
     return;
   }
 
