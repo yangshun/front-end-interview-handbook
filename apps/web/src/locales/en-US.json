@@ -3067,6 +3067,10 @@
     "defaultMessage": "Pay once, own it forever",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
+  "zfigye": {
+    "defaultMessage": "{name} from {country} subscribed to <link>Premium</link> recently",
+    "description": "Marketing toast to show that someone has subscribed"
+  },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
     "description": "Label of confirm password field on Change Password page"
