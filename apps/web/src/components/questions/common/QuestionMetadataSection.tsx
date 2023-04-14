@@ -5,8 +5,14 @@ import QuestionDifficultyLabel from './QuestionDifficultyLabel';
 import QuestionDurationLabel from './QuestionDurationLabel';
 import QuestionLanguages from './QuestionLanguages';
 import type { QuestionMetadata } from './QuestionsTypes';
+import QuestionUsersCompletedLabel from './QuestionUsersCompletedLabel';
 
-type MetadataElement = 'author' | 'difficulty' | 'duration' | 'languages';
+type MetadataElement =
+  | 'author'
+  | 'difficulty'
+  | 'duration'
+  | 'languages'
+  | 'users_completed';
 
 type Props = Readonly<{
   elements?: ReadonlyArray<MetadataElement>;
@@ -19,6 +25,7 @@ const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
   'languages',
   'difficulty',
   'duration',
+  'users_completed',
 ];
 
 export default function QuestionMetadataSection({
@@ -53,6 +60,9 @@ export default function QuestionMetadataSection({
           showIcon={true}
           variant={variant}
         />
+      )}
+      {elements.includes('users_completed') && metadata.duration && (
+        <QuestionUsersCompletedLabel metadata={metadata} showIcon={true} />
       )}
     </section>
   );
