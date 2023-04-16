@@ -735,7 +735,7 @@
     "created": 1670976000,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Build a tabs component that a displays a list of tab elements and one associated panel of content at a time",
+    "excerpt": "Build a tabs component that displays a list of tab elements and one associated panel of content at a time",
     "featured": true,
     "format": "user-interface",
     "frameworkDefault": "react",
