@@ -356,7 +356,7 @@ function LeftPane({
       <QuestionsListingBreadcrumbs
         links={[
           {
-            href: '/questions/js/coding',
+            href: '/prepare/coding',
             label: 'Coding Questions',
           },
         ]}

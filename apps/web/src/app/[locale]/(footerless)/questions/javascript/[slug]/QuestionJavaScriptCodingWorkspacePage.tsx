@@ -57,7 +57,7 @@ function LeftPane({
       <QuestionsListingBreadcrumbs
         links={[
           {
-            href: '/questions/js/coding',
+            href: '/prepare/coding',
             label: intl.formatMessage({
               defaultMessage: 'Coding Questions',
               description: 'Coding questions breadcrumbs',

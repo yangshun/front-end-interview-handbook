@@ -49,7 +49,7 @@ export default function QuestionsListingBreadcrumbs({ links }: Props) {
             <div className="flex items-center">
               <svg
                 aria-hidden="true"
-                className="h-full w-6 flex-shrink-0 text-slate-200"
+                className="h-full w-5 flex-shrink-0 text-slate-200"
                 fill="currentColor"
                 preserveAspectRatio="none"
                 viewBox="0 0 24 44"
@@ -58,7 +58,7 @@ export default function QuestionsListingBreadcrumbs({ links }: Props) {
               </svg>
               <Anchor
                 aria-current={item.isCurrent ? 'page' : undefined}
-                className="ml-4 text-sm font-medium text-slate-500 hover:text-slate-700"
+                className="ml-4 text-xs font-medium text-slate-500 hover:text-slate-700"
                 href={item.href}
                 variant="unstyled">
                 {item.label}
