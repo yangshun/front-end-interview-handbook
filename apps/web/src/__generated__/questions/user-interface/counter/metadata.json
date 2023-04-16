@@ -9,15 +9,15 @@
   "excerpt": "Build a simple counter which increments whenever a button is clicked",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/counter/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/counter/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/counter/vanilla"
     }
   ],
   "href": "/questions/user-interface/counter",

@@ -11,15 +11,15 @@
   "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/star-rating/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/star-rating/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/star-rating/vanilla"
     }
   ],
   "href": "/questions/user-interface/star-rating",

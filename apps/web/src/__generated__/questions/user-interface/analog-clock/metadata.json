@@ -9,15 +9,15 @@
   "excerpt": "Build an analog clock where the hands update and move like a real clock",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/analog-clock/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/analog-clock/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/analog-clock/vanilla"
     }
   ],
   "href": "/questions/user-interface/analog-clock",

@@ -10,15 +10,15 @@
   "excerpt": "Build a stopwatch widget which can measure how much time has passed",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/stopwatch/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/stopwatch/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/stopwatch/vanilla"
     }
   ],
   "href": "/questions/user-interface/stopwatch",

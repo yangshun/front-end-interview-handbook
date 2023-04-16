@@ -7,15 +7,15 @@
   "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
   "featured": true,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/holy-grail/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/holy-grail/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/holy-grail/vanilla"
     }
   ],
   "href": "/questions/user-interface/holy-grail",

@@ -12,12 +12,12 @@
   "frameworkDefault": "react",
   "frameworks": [
     {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/tabs/vanilla"
-    },
-    {
       "framework": "react",
       "href": "/questions/user-interface/tabs/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/tabs/vanilla"
     }
   ],
   "href": "/questions/user-interface/tabs",

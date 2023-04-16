@@ -9,7 +9,7 @@
   "excerpt": "Generate a table of numbers given the rows and columns",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
     {
       "framework": "react",

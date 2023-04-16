@@ -9,15 +9,15 @@
   "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/traffic-light/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/traffic-light/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/traffic-light/vanilla"
     }
   ],
   "href": "/questions/user-interface/traffic-light",

@@ -10,12 +10,12 @@
   "frameworkDefault": "react",
   "frameworks": [
     {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/accordion/vanilla"
-    },
-    {
       "framework": "react",
       "href": "/questions/user-interface/accordion/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/accordion/vanilla"
     }
   ],
   "href": "/questions/user-interface/accordion",

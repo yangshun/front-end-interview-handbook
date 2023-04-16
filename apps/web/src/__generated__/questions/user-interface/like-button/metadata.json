@@ -9,15 +9,15 @@
   "excerpt": "Build a Like button that changes appearance based on the states",
   "featured": true,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/like-button/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/like-button/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/like-button/vanilla"
     }
   ],
   "href": "/questions/user-interface/like-button",

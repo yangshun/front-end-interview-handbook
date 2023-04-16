@@ -9,15 +9,15 @@
   "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
   "featured": true,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/contact-form/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/contact-form/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/contact-form/vanilla"
     }
   ],
   "href": "/questions/user-interface/contact-form",

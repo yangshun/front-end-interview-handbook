@@ -10,15 +10,15 @@
   "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
   "featured": true,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/todo-list/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/todo-list/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/todo-list/vanilla"
     }
   ],
   "href": "/questions/user-interface/todo-list",

@@ -9,15 +9,15 @@
   "excerpt": "Build a progress bar component which shows the percentage completion of an operation",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/progress-bar/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/progress-bar/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/progress-bar/vanilla"
     }
   ],
   "href": "/questions/user-interface/progress-bar",

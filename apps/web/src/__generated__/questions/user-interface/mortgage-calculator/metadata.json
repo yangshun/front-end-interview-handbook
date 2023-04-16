@@ -7,15 +7,15 @@
   "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/mortgage-calculator/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/mortgage-calculator/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/mortgage-calculator/vanilla"
     }
   ],
   "href": "/questions/user-interface/mortgage-calculator",

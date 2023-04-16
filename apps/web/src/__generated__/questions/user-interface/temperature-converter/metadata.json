@@ -7,15 +7,15 @@
   "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
   "featured": false,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/temperature-converter/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/temperature-converter/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/temperature-converter/vanilla"
     }
   ],
   "href": "/questions/user-interface/temperature-converter",

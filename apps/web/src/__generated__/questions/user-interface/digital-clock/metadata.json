@@ -9,15 +9,15 @@
   "excerpt": "Build a 7-segment digital clock which shows the current time",
   "featured": true,
   "format": "user-interface",
-  "frameworkDefault": "vanilla",
+  "frameworkDefault": "react",
   "frameworks": [
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/digital-clock/vanilla"
-    },
     {
       "framework": "react",
       "href": "/questions/user-interface/digital-clock/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/digital-clock/vanilla"
     }
   ],
   "href": "/questions/user-interface/digital-clock",

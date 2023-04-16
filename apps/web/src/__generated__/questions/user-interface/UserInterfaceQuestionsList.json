@@ -11,12 +11,12 @@
     "frameworkDefault": "react",
     "frameworks": [
       {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/accordion/vanilla"
-      },
-      {
         "framework": "react",
         "href": "/questions/user-interface/accordion/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/accordion/vanilla"
       }
     ],
     "href": "/questions/user-interface/accordion",
@@ -48,12 +48,12 @@
     "frameworkDefault": "react",
     "frameworks": [
       {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/accordion-ii/vanilla"
-      },
-      {
         "framework": "react",
         "href": "/questions/user-interface/accordion-ii/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/accordion-ii/vanilla"
       }
     ],
     "href": "/questions/user-interface/accordion-ii",
@@ -113,15 +113,15 @@
     "excerpt": "Build an analog clock where the hands update and move like a real clock",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/analog-clock/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/analog-clock/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/analog-clock/vanilla"
       }
     ],
     "href": "/questions/user-interface/analog-clock",
@@ -152,15 +152,15 @@
     "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
     "featured": true,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/contact-form/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/contact-form/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/contact-form/vanilla"
       }
     ],
     "href": "/questions/user-interface/contact-form",
@@ -193,15 +193,15 @@
     "excerpt": "Build a simple counter which increments whenever a button is clicked",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/counter/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/counter/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/counter/vanilla"
       }
     ],
     "href": "/questions/user-interface/counter",
@@ -236,15 +236,15 @@
     "excerpt": "Build a 7-segment digital clock which shows the current time",
     "featured": true,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/digital-clock/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/digital-clock/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/digital-clock/vanilla"
       }
     ],
     "href": "/questions/user-interface/digital-clock",
@@ -273,7 +273,7 @@
     "excerpt": "Generate a table of numbers given the rows and columns",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
       {
         "framework": "react",
@@ -340,15 +340,15 @@
     "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
     "featured": true,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/holy-grail/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/holy-grail/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/holy-grail/vanilla"
       }
     ],
     "href": "/questions/user-interface/holy-grail",
@@ -382,15 +382,15 @@
     "excerpt": "Build a Like button that changes appearance based on the states",
     "featured": true,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/like-button/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/like-button/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/like-button/vanilla"
       }
     ],
     "href": "/questions/user-interface/like-button",
@@ -417,15 +417,15 @@
     "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/mortgage-calculator/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/mortgage-calculator/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/mortgage-calculator/vanilla"
       }
     ],
     "href": "/questions/user-interface/mortgage-calculator",
@@ -453,15 +453,15 @@
     "excerpt": "Build a progress bar component which shows the percentage completion of an operation",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/progress-bar/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/progress-bar/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/progress-bar/vanilla"
       }
     ],
     "href": "/questions/user-interface/progress-bar",
@@ -671,15 +671,15 @@
     "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/star-rating/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/star-rating/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/star-rating/vanilla"
       }
     ],
     "href": "/questions/user-interface/star-rating",
@@ -711,15 +711,15 @@
     "excerpt": "Build a stopwatch widget which can measure how much time has passed",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/stopwatch/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/stopwatch/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/stopwatch/vanilla"
       }
     ],
     "href": "/questions/user-interface/stopwatch",
@@ -753,12 +753,12 @@
     "frameworkDefault": "react",
     "frameworks": [
       {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/tabs/vanilla"
-      },
-      {
         "framework": "react",
         "href": "/questions/user-interface/tabs/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tabs/vanilla"
       }
     ],
     "href": "/questions/user-interface/tabs",
@@ -792,12 +792,12 @@
     "frameworkDefault": "react",
     "frameworks": [
       {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/tabs-ii/vanilla"
-      },
-      {
         "framework": "react",
         "href": "/questions/user-interface/tabs-ii/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tabs-ii/vanilla"
       }
     ],
     "href": "/questions/user-interface/tabs-ii",
@@ -858,15 +858,15 @@
     "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/temperature-converter/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/temperature-converter/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/temperature-converter/vanilla"
       }
     ],
     "href": "/questions/user-interface/temperature-converter",
@@ -897,15 +897,15 @@
     "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
     "featured": true,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/todo-list/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/todo-list/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/todo-list/vanilla"
       }
     ],
     "href": "/questions/user-interface/todo-list",
@@ -939,15 +939,15 @@
     "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/traffic-light/vanilla"
-      },
       {
         "framework": "react",
         "href": "/questions/user-interface/traffic-light/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/traffic-light/vanilla"
       }
     ],
     "href": "/questions/user-interface/traffic-light",
