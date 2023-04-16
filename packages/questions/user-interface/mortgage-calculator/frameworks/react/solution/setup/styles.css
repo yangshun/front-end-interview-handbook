@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+}
+
+.mortgage-calculator {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.mortgage-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mortgage-calculator-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

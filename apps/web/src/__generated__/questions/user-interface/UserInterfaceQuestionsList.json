@@ -414,6 +414,10 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/mortgage-calculator/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/mortgage-calculator/react"
       }
     ],
     "href": "/questions/user-interface/mortgage-calculator",
