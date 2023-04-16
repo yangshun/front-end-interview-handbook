@@ -1144,6 +1144,10 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/holy-grail/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/holy-grail/react"
       }
     ],
     "href": "/questions/user-interface/holy-grail",

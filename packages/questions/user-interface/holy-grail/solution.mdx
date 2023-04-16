@@ -1,0 +1,21 @@
+## Solution
+
+The most widely-supported solution is a Flexbox-based one. It has great browser support and is easiest to understand. A Grid-based approach is also getting popular these days but isn't as well-supported as Flexbox.
+
+There are a few main parts to achieving the specifications using flexbox. Let's dive into each.
+
+### Sticky footer
+
+The Holy Grail layout problem also encompasses another classic problem: making a footer stick to the bottom of the screen when there is not enough content to fill up the page.
+
+This can be solved by adding `min-height: 100vh` to the container of the page's contents. Since the direct children will be laid out in a vertical fashion, we add `display: flex` and `flex-direction: column` to that element as well.
+
+The header and footers are fixed heights and the columns are variable height and is meant to fill up any remaining space. To achieve this, `flex-grow: 1` is added to the `<div>` wrapping the columns.
+
+### Columns
+
+The requirement to make all the columns equal-height is also trivially solved with Flexbox. By adding `display: flex` to the `div` wrapper of the columns, this requirement is met.
+
+Like before, the flexible-width `<main>` content section can be achieved using `flex-grow: 1` and it will fill up any horizontal space available.
+
+`flex-shrink: 0` has to be added to `<nav>` and `<aside>` so that they don't shrink when the content in `<main>` is too wide.
