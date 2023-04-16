@@ -29,7 +29,7 @@ function MarketingRecentPurchasesImpl() {
     }
 
     showToast({
-      duration: 6000,
+      duration: 8000,
       title: (
         <FormattedMessage
           defaultMessage="{name} from {country} subscribed to <link>Premium</link> recently"
@@ -42,12 +42,12 @@ function MarketingRecentPurchasesImpl() {
           }}
         />
       ),
-      variant: 'special',
+      variant: 'plain',
     });
 
     const timer = setTimeout(() => {
       setIndex((curr) => curr + 1);
-    }, 20000);
+    }, 30000);
 
     return () => {
       clearTimeout(timer);

@@ -8,7 +8,7 @@ import { Transition } from '@headlessui/react';
 import { CheckIcon, StarIcon } from '@heroicons/react/24/outline';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 
-type ToastVariant = 'failure' | 'special' | 'success';
+type ToastVariant = 'failure' | 'plain' | 'special' | 'success';
 
 export type ToastMessage = Readonly<{
   duration?: number;
@@ -36,6 +36,8 @@ function ToastIcon({
       return <XMarkIcon aria-hidden="true" className="h-6 w-6 text-rose-500" />;
     case 'special':
       return <StarIcon aria-hidden="true" className="text-brand-500 h-6 w-6" />;
+    case 'plain':
+      return null;
   }
 }
 
