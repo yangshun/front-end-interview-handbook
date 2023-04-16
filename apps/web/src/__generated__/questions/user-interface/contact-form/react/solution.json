@@ -1,23 +1,34 @@
 {
   "sandpack": {
-    "dependencies": {},
-    "entry": "/src/index.js",
-    "environment": "parcel",
-    "main": "/src/index.js",
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^4.0.0"
+    },
+    "entry": "/index.js",
+    "environment": "create-react-app",
+    "main": "/App.js",
     "visibleFiles": [
-      "/index.html",
-      "/src/index.js",
-      "/src/styles.css"
+      "/App.js",
+      "/styles.css",
+      "/submitForm.js"
     ],
+    "activeFile": "/App.js",
     "files": {
-      "/index.html": {
-        "code": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <form\n      action=\"https://www.greatfrontend.com/api/questions/contact-form\"\n      method=\"post\">\n      <div>\n        <label for=\"name-input\">Name</label>\n        <input id=\"name-input\" name=\"name\" type=\"text\" />\n      </div>\n      <div>\n        <label for=\"email-input\">Email</label>\n        <input id=\"email-input\" name=\"email\" type=\"email\" />\n      </div>\n      <div>\n        <label for=\"message-input\">Message</label>\n        <textarea id=\"message-input\" name=\"message\">\n        </textarea>\n      </div>\n      <div>\n        <button>Send</button>\n      </div>\n    </form>\n    <!-- You can ignore this file, it is only used by GFE to\n      intercept the form submission event. -->\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+      "/App.js": {
+        "code": "import './styles.css';\nimport submitForm from './submitForm';\n\nexport default function App() {\n  return (\n    <form\n      // Ignore the onSubmit prop, it's used by GFE to\n      // intercept the form submit event to check your solution.\n      onSubmit={submitForm}\n      action=\"https://www.greatfrontend.com/api/questions/contact-form\"\n      method=\"post\">\n      <div>\n        <label htmlFor=\"name-input\">Name</label>\n        <input id=\"name-input\" name=\"name\" type=\"text\" />\n      </div>\n      <div>\n        <label htmlFor=\"email-input\">Email</label>\n        <input id=\"email-input\" name=\"email\" type=\"email\" />\n      </div>\n      <div>\n        <label htmlFor=\"message-input\">Message</label>\n        <textarea\n          id=\"message-input\"\n          name=\"message\"></textarea>\n      </div>\n      <div>\n        <button>Send</button>\n      </div>\n    </form>\n  );\n}\n"
       },
-      "/src/index.js": {
-        "code": "import './styles.css';\n\n(() => {\n  const $form = document.querySelector('form');\n  $form.addEventListener('submit', async (event) => {\n    event.preventDefault();\n\n    if ($form.action !== URL) {\n      alert('Incorrect form action value');\n      return;\n    }\n\n    if ($form.method?.toLowerCase() !== 'post') {\n      alert('Incorrect form method value');\n      return;\n    }\n\n    try {\n      const formData = new FormData($form);\n      const response = await fetch(\n        'https://www.greatfrontend.com/api/questions/contact-form',\n        {\n          method: 'POST',\n          headers: {\n            'Content-Type': 'application/json',\n          },\n          body: JSON.stringify({\n            name: formData.get('name'),\n            email: formData.get('email'),\n            message: formData.get('message'),\n          }),\n        },\n      );\n\n      const text = await response.text();\n      alert(text);\n    } catch (_) {\n      alert('Error submitting form!');\n    }\n  });\n})();\n"
+      "/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
       },
-      "/src/styles.css": {
+      "/public/index.html": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "/styles.css": {
         "code": "body {\n  font-family: sans-serif;\n}\n\nform {\n  display: flex;\n  flex-direction: column;\n  row-gap: 12px;\n}\n\nlabel {\n  font-size: 12px;\n}\n\ninput,\ntextarea {\n  display: block;\n}\n"
+      },
+      "/submitForm.js": {
+        "code": "const URL =\n  'https://www.greatfrontend.com/api/questions/contact-form';\n\nexport default async function submitForm(event) {\n  event.preventDefault();\n  const form = event.target;\n\n  try {\n    if (form.action !== URL) {\n      alert('Incorrect form action value');\n      return;\n    }\n\n    if (form.method?.toLowerCase() !== 'post') {\n      alert('Incorrect form method value');\n      return;\n    }\n\n    const formData = new FormData(form);\n    const response = await fetch(\n      'https://www.greatfrontend.com/api/questions/contact-form',\n      {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify({\n          name: formData.get('name'),\n          email: formData.get('email'),\n          message: formData.get('message'),\n        }),\n      },\n    );\n\n    const text = await response.text();\n    alert(text);\n  } catch (_) {\n    alert('Error submitting form!');\n  }\n}\n"
       }
     }
   },

@@ -157,6 +157,10 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/contact-form/vanilla"
+      },
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/contact-form/react"
       }
     ],
     "href": "/questions/user-interface/contact-form",

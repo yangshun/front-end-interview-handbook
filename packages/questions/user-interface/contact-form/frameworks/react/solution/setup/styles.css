@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+label {
+  font-size: 12px;
+}
+
+input,
+textarea {
+  display: block;
+}

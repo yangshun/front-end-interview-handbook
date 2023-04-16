@@ -5,10 +5,19 @@ import './styles.css';
   $form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    if ($form.action !== URL) {
+      alert('Incorrect form action value');
+      return;
+    }
+
+    if ($form.method?.toLowerCase() !== 'post') {
+      alert('Incorrect form method value');
+      return;
+    }
+
     try {
       const formData = new FormData($form);
       const response = await fetch(
-        // TODO: Change to URL from env.
         'https://www.greatfrontend.com/api/questions/contact-form',
         {
           method: 'POST',
