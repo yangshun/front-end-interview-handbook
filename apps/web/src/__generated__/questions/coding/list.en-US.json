@@ -2497,8 +2497,12 @@
     "excerpt": "Build a component that resembles a Tweet from Twitter",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": "vanilla",
+    "frameworkDefault": "react",
     "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tweet/react"
+      },
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/tweet/vanilla"
