@@ -2,17 +2,13 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/common/QuestionsProcessor';
-import type {
-  QuestionMetadata,
-  QuestionUserInterface,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/questions/common/QuestionUserInterfacePath';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
-import { genQuestionProgress } from '~/db/QuestionsProgressUniversal';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
@@ -138,17 +134,11 @@ export default async function Page({ params }: Props) {
     readQuestionUserInterface(slug, parsedFramework, codeId),
   ]);
 
-  let questionProgress = null;
   let canViewPremiumContent = false;
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
   if (user != null) {
-    [questionProgress, canViewPremiumContent] = await Promise.all([
-      genQuestionProgress(
-        supabaseAdmin,
-        user,
-        question.metadata as QuestionMetadata,
-      ),
+    canViewPremiumContent = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
@@ -158,7 +148,7 @@ export default async function Page({ params }: Props) {
 
         return profile?.premium ?? false;
       })(),
-    ]);
+    );
   }
 
   const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
@@ -229,7 +219,6 @@ export default async function Page({ params }: Props) {
           solution: isQuestionLocked ? null : question.solution,
           solutionSetup: isQuestionLocked ? null : question.solutionSetup,
         }}
-        questionProgress={questionProgress}
         serverDuration={performance.now() - t0}
         similarQuestions={similarQuestions}
       />

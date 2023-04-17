@@ -1,5 +1,7 @@
 'use client';
 
+import { trpc } from '~/hooks/trpc';
+
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -7,12 +9,8 @@ import type {
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
-import type {
-  QuestionProgress,
-  QuestionProgressStatus,
-} from './QuestionsProgressTypes';
+import type { QuestionProgressStatus } from './QuestionsProgressTypes';
 import {
-  genQuestionProgress,
   genQuestionProgressAdd,
   genQuestionProgressAll,
   genQuestionProgressDelete,
@@ -39,36 +37,10 @@ export function useQueryQuestionProgressAll() {
   });
 }
 
-export function useQueryQuestionProgress(
-  question: QuestionMetadata,
-  initialData?: QuestionProgress | null,
-) {
-  const user = useUser();
-  const supabaseClient = useSupabaseClientGFE();
-
-  return useQuery(
-    ['questionProgress', question, user],
-    ({ queryKey }) => {
-      // TODO: Let queryKey type be inferred.
-      const user_ = queryKey[2] as User | null;
-
-      if (user_ == null) {
-        return null;
-      }
-
-      return genQuestionProgress(supabaseClient, user_, question);
-    },
-    initialData != null
-      ? {
-          initialData,
-        }
-      : undefined,
-  );
-}
-
 export function useMutationQuestionProgressAdd() {
   const queryClient = useQueryClient();
   const supabaseClient = useSupabaseClientGFE();
+  const context = trpc.useContext();
 
   return useMutation(
     async ({
@@ -81,9 +53,9 @@ export function useMutationQuestionProgressAdd() {
       user: User;
     }>) => genQuestionProgressAdd(supabaseClient, user, question, status),
     {
-      onSuccess: (data, { question, user }) => {
+      onSuccess: (data, { question }) => {
         queryClient.invalidateQueries(['questionProgressAll']);
-        queryClient.setQueryData(['questionProgress', question, user], data);
+        context.questionProgress.get.setData({ question }, data);
       },
     },
   );
@@ -92,6 +64,7 @@ export function useMutationQuestionProgressAdd() {
 export function useMutationQuestionProgressDelete() {
   const queryClient = useQueryClient();
   const supabaseClient = useSupabaseClientGFE();
+  const context = trpc.useContext();
 
   return useMutation(
     async ({
@@ -100,9 +73,9 @@ export function useMutationQuestionProgressDelete() {
     }: Readonly<{ question: QuestionMetadata; user: User }>) =>
       genQuestionProgressDelete(supabaseClient, user, question),
     {
-      onSuccess: (_, { question, user }) => {
+      onSuccess: (_, { question }) => {
         queryClient.invalidateQueries(['questionProgressAll']);
-        queryClient.setQueryData(['questionProgress', question, user], null);
+        context.questionProgress.get.setData({ question }, null);
       },
     },
   );

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { trpc } from '~/hooks/trpc';
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
@@ -40,7 +41,6 @@ import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import type { SandpackFile } from '@codesandbox/sandpack-react';
@@ -398,7 +398,6 @@ type Props = Readonly<{
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
-  questionProgress: QuestionProgress | null;
   serverDuration: number;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
@@ -406,7 +405,6 @@ type Props = Readonly<{
 export default function QuestionUserInterfaceCodingWorkspacePage({
   canViewPremiumContent,
   serverDuration,
-  questionProgress: questionProgressInitial,
   isQuestionLocked,
   mode,
   question,
@@ -424,10 +422,9 @@ export default function QuestionUserInterfaceCodingWorkspacePage({
     0.333,
     () => window.innerWidth,
   );
-  const { data: questionProgress } = useQueryQuestionProgress(
-    question.metadata,
-    questionProgressInitial,
-  );
+  const { data: questionProgress } = trpc.questionProgress.get.useQuery({
+    question: question.metadata,
+  });
 
   return (
     <>
@@ -445,7 +442,7 @@ export default function QuestionUserInterfaceCodingWorkspacePage({
           mode={mode}
           nextQuestions={nextQuestions}
           question={question}
-          questionProgress={questionProgress}
+          questionProgress={questionProgress ?? null}
           serverDuration={serverDuration}
           similarQuestions={similarQuestions}
         />
@@ -468,7 +465,7 @@ export default function QuestionUserInterfaceCodingWorkspacePage({
                 mode={mode}
                 nextQuestions={nextQuestions}
                 question={question}
-                questionProgress={questionProgress}
+                questionProgress={questionProgress ?? null}
               />
             </div>
           )}

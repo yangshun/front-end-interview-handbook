@@ -2,11 +2,9 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/common/QuestionsProcessor';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 
 import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
-import { genQuestionProgress } from '~/db/QuestionsProgressUniversal';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
@@ -50,16 +48,10 @@ export default async function Page({ params }: Props) {
   const user = await fetchUser();
   const { question } = readQuestionJavaScriptContents(slug, locale);
 
-  let questionProgress = null;
   let canViewPremiumContent = false;
 
   if (user != null) {
-    [questionProgress, canViewPremiumContent] = await Promise.all([
-      genQuestionProgress(
-        supabaseAdmin,
-        user,
-        question.metadata as QuestionMetadata,
-      ),
+    canViewPremiumContent = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
@@ -69,7 +61,7 @@ export default async function Page({ params }: Props) {
 
         return profile?.premium ?? false;
       })(),
-    ]);
+    );
   }
 
   const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
@@ -135,7 +127,6 @@ export default async function Page({ params }: Props) {
           solution: isQuestionLocked ? null : question.solution,
           tests: isQuestionLocked ? null : question.tests,
         }}
-        questionProgress={questionProgress}
         serverDuration={performance.now() - t0}
         similarQuestions={similarQuestions}
       />

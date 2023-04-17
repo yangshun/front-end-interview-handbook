@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import QuestionCompanies from '../QuestionCompanies';
 import QuestionContentProse from '../QuestionContentProse';
@@ -35,7 +35,7 @@ export default function QuestionContentsSystemDesign({
   const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
   const { description, metadata, solution } = question;
   const { data: questionProgress, isSuccess } =
-    useQueryQuestionProgress(metadata);
+    trpc.questionProgress.get.useQuery({ question: metadata });
 
   return (
     <article ref={copyRef} className="space-y-8">

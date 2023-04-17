@@ -12,39 +12,6 @@ import type { SupabaseClientGFE } from '../supabase/SupabaseServerGFE';
 
 import type { User } from '@supabase/supabase-js';
 
-export async function genQuestionProgress(
-  client: SupabaseClientGFE,
-  user: User,
-  question: QuestionMetadata,
-): Promise<QuestionProgress | null> {
-  const { data: questionProgress, error } = await client
-    .from('QuestionProgress')
-    .select('id, format, slug, status, createdAt')
-    .eq('userId', user.id)
-    .eq('format', question.format)
-    .eq('slug', question.slug)
-    .order('createdAt', { ascending: false })
-    // User can have multiple progress for one question, we just take the latest one.
-    .limit(1);
-  // Don't use maybeSingle(), PostgreREST returns HTTP 406 if no rows found.
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  if (questionProgress.length === 0) {
-    return null;
-  }
-
-  const questionProgressItem = questionProgress[0];
-
-  return {
-    ...questionProgressItem,
-    format: questionProgressItem.format as QuestionFormat,
-    status: questionProgressItem.status as QuestionProgressStatus,
-  };
-}
-
 export async function genQuestionProgressAdd(
   client: SupabaseClientGFE,
   user: User,

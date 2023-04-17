@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
+import { trpc } from '~/hooks/trpc';
 
-import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
+import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
 
 import QuestionQuizPagination from './QuestionQuizPagination';
 import type {
@@ -20,9 +20,8 @@ export default function QuestionQuizBottomNav({
   question,
   questionList,
 }: Props) {
-  const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
-    question.metadata,
-  );
+  const { data: questionProgress, isSuccess } =
+    trpc.questionProgress.get.useQuery({ question: question.metadata });
 
   return (
     <div className="sticky inset-x-0 bottom-0">
