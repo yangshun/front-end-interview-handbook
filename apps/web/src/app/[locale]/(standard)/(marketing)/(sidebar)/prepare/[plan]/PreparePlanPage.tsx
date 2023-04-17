@@ -2,6 +2,8 @@
 
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import usePreparationPlans from '~/data/PreparationPlans';
 
 import TextPairing from '~/components/common/TextPairing';
@@ -18,7 +20,6 @@ import QuestionTryFirstFreeSection from '~/components/questions/listings/Questio
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import {
   categorizeQuestionsProgress,
   filterQuestionsProgressByPlan,
@@ -39,7 +40,8 @@ export default function PreparationPlanPage({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const { data: questionProgressParam } = useQueryQuestionProgressAll();
+  const { data: questionProgressParam } =
+    trpc.questionProgress.getAll.useQuery();
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );

@@ -53,6 +53,33 @@ export const questionProgressRouter = router({
         status: questionProgress.status as QuestionProgressStatus,
       };
     }),
+  getAll: publicProcedure.query(async ({ ctx: { user } }) => {
+    if (!user) {
+      return null;
+    }
+
+    const questionProgressList = await prisma.questionProgress.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        createdAt: true,
+        format: true,
+        id: true,
+        slug: true,
+        status: true,
+      },
+      where: {
+        userId: user.id,
+      },
+    });
+
+    return questionProgressList.map((questionProgress) => ({
+      ...questionProgress,
+      format: questionProgress.format as QuestionFormat,
+      status: questionProgress.status as QuestionProgressStatus,
+    }));
+  }),
   globalCompleted: publicProcedure
     .input(
       z.object({

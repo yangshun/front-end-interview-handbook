@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import {
   filterQuestions,
   sortQuestionsMultiple,
@@ -23,7 +25,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
-import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
@@ -50,7 +51,7 @@ export default function QuestionsQuizListWithFilters({
     useQuestionQuizTopicFilter();
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter();
-  const { data: questionProgress } = useQueryQuestionProgressAll();
+  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
 
   function makeDropdownItemProps(
     label: string,

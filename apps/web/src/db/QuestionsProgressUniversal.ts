@@ -5,7 +5,6 @@ import type {
 
 import type {
   QuestionProgress,
-  QuestionProgressList,
   QuestionProgressStatus,
 } from './QuestionsProgressTypes';
 import type { SupabaseClientGFE } from '../supabase/SupabaseServerGFE';
@@ -63,25 +62,4 @@ export async function genQuestionProgressDeleteAll(
   user: User,
 ) {
   return await client.from('QuestionProgress').delete().eq('userId', user.id);
-}
-
-export async function genQuestionProgressAll(
-  client: SupabaseClientGFE,
-  user: User,
-): Promise<QuestionProgressList | null> {
-  const { data: questionProgressList, error } = await client
-    .from('QuestionProgress')
-    .select('id, format, slug, status, createdAt')
-    .eq('userId', user.id)
-    .order('createdAt', { ascending: false });
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return questionProgressList.map((questionProgress) => ({
-    ...questionProgress,
-    format: questionProgress.format as QuestionFormat,
-    status: questionProgress.status as QuestionProgressStatus,
-  }));
 }

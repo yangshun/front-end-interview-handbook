@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
@@ -32,7 +34,6 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
@@ -103,7 +104,7 @@ export default function QuestionsCodingListWithFilters({
     };
   }
 
-  const { data: questionProgress } = useQueryQuestionProgressAll();
+  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
   const completedQuestions = new Set(
     (questionProgress ?? []).map(({ format, slug }) =>
       hashQuestion(format, slug),

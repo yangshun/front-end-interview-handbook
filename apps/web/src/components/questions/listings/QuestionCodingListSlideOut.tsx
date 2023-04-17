@@ -1,12 +1,13 @@
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import EmptyState from '~/components/ui/EmptyState';
 import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
 
 import { useQueryQuestionListCoding } from '~/db/QuestionsListQuery';
-import { useQueryQuestionProgressAll } from '~/db/QuestionsProgressClient';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsCodingListBrief from './QuestionsCodingListBrief';
@@ -26,7 +27,7 @@ function Contents() {
     data: codingQuestions,
     isSuccess,
   } = useQueryQuestionListCoding();
-  const { data: questionProgress } = useQueryQuestionProgressAll();
+  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
   const completedQuestions = new Set(
     (questionProgress ?? []).map(({ format, slug }) =>
       hashQuestion(format, slug),

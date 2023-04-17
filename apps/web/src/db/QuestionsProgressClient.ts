@@ -12,7 +12,6 @@ import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 import type { QuestionProgressStatus } from './QuestionsProgressTypes';
 import {
   genQuestionProgressAdd,
-  genQuestionProgressAll,
   genQuestionProgressDelete,
   genQuestionProgressDeleteAll,
 } from './QuestionsProgressUniversal';
@@ -20,22 +19,6 @@ import {
 import { useUser } from '@supabase/auth-helpers-react';
 import type { User } from '@supabase/supabase-js';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-
-export function useQueryQuestionProgressAll() {
-  const supabaseClient = useSupabaseClientGFE();
-  const user = useUser();
-
-  return useQuery(['questionProgressAll', user], ({ queryKey }) => {
-    // TODO: Let queryKey type be inferred.
-    const user_ = queryKey[1] as User | null;
-
-    if (user_ == null) {
-      return null;
-    }
-
-    return genQuestionProgressAll(supabaseClient, user_);
-  });
-}
 
 export function useMutationQuestionProgressAdd() {
   const queryClient = useQueryClient();

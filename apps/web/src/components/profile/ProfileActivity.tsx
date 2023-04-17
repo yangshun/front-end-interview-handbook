@@ -2,6 +2,8 @@
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import QuestionLanguages from '~/components/questions/common/QuestionLanguages';
 import type { QuestionLanguage } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
@@ -12,10 +14,7 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import { useQueryQuestionListCoding } from '~/db/QuestionsListQuery';
-import {
-  getQuestionMetadata,
-  useQueryQuestionProgressAll,
-} from '~/db/QuestionsProgressClient';
+import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
 
@@ -68,7 +67,7 @@ export default function ProfileActivity({ user }: Props) {
     data: questionProgress,
     isLoading: isFetchingQuestionProgress,
     isError: isErrorQuestionProgress,
-  } = useQueryQuestionProgressAll();
+  } = trpc.questionProgress.getAll.useQuery();
   const {
     data: questionList,
     isLoading: isFetchingQuestionList,
