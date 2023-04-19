@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { trpc } from '~/hooks/trpc';
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
@@ -41,6 +40,7 @@ import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import type { SandpackFile } from '@codesandbox/sandpack-react';
@@ -422,9 +422,9 @@ export default function QuestionUserInterfaceCodingWorkspacePage({
     0.333,
     () => window.innerWidth,
   );
-  const { data: questionProgress } = trpc.questionProgress.get.useQuery({
-    question: question.metadata,
-  });
+  const { data: questionProgress } = useQueryQuestionProgress(
+    question.metadata,
+  );
 
   return (
     <>

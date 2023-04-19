@@ -7,6 +7,15 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 
+export function useQueryQuestionProgress(metadata: QuestionMetadata) {
+  return trpc.questionProgress.get.useQuery({
+    question: {
+      format: metadata.format,
+      slug: metadata.slug,
+    },
+  });
+}
+
 export function useMutationQuestionProgressAdd() {
   const context = trpc.useContext();
 

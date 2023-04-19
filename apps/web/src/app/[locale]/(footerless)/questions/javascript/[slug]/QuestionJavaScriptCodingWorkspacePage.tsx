@@ -4,7 +4,6 @@ import { useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { trpc } from '~/hooks/trpc';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
@@ -24,6 +23,7 @@ import QuestionCodingListSlideOut from '~/components/questions/listings/Question
 import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import { ListBulletIcon } from '@heroicons/react/24/outline';
@@ -119,9 +119,9 @@ export default function QuestionJavaScriptCodingWorkspacePage({
   const [language, setLanguage] =
     useLocalStorage<QuestionCodingWorkingLanguage>('gfe:coding:language', 'js');
 
-  const { data: questionProgress } = trpc.questionProgress.get.useQuery({
-    question: question.metadata,
-  });
+  const { data: questionProgress } = useQueryQuestionProgress(
+    question.metadata,
+  );
   const [layout, setLayout] = useCodingWorkspaceLayout('vertical');
   const {
     startDrag,
