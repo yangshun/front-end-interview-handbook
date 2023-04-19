@@ -2,6 +2,7 @@ import { feedbackRouter } from './feedback';
 import { marketingRouter } from './marketing';
 import { purchasesRouter } from './purchases';
 import { questionProgressRouter } from './question-progress';
+import { questionsRouter } from './questions';
 import { router } from '../trpc';
 
 export const appRouter = router({
@@ -9,6 +10,7 @@ export const appRouter = router({
   marketing: marketingRouter,
   purchases: purchasesRouter,
   questionProgress: questionProgressRouter,
+  questions: questionsRouter,
 });
 
 // Export type definition of API

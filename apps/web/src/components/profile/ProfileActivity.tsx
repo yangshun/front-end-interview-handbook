@@ -13,7 +13,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import { useQueryQuestionListCoding } from '~/db/QuestionsListQuery';
 import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
@@ -72,7 +71,7 @@ export default function ProfileActivity({ user }: Props) {
     data: questionList,
     isLoading: isFetchingQuestionList,
     isError: isErrorQuestionList,
-  } = useQueryQuestionListCoding();
+  } = trpc.questions.coding.useQuery();
 
   if (isFetchingQuestionProgress || isFetchingQuestionList) {
     return (

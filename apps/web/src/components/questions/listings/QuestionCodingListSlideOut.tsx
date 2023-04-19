@@ -7,7 +7,6 @@ import EmptyState from '~/components/ui/EmptyState';
 import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
 
-import { useQueryQuestionListCoding } from '~/db/QuestionsListQuery';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsCodingListBrief from './QuestionsCodingListBrief';
@@ -26,7 +25,7 @@ function Contents() {
     isLoading,
     data: codingQuestions,
     isSuccess,
-  } = useQueryQuestionListCoding();
+  } = trpc.questions.coding.useQuery();
   const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
   const completedQuestions = new Set(
     (questionProgress ?? []).map(({ format, slug }) =>
