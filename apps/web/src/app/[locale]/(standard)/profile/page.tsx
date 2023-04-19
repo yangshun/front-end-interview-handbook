@@ -36,5 +36,5 @@ export default async function ProfileActivityPage() {
     return redirect(`/login?next=${encodeURIComponent('/profile')}`);
   }
 
-  return <ProfileActivity user={user} />;
+  return <ProfileActivity />;
 }

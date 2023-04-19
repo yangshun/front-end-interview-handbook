@@ -18,7 +18,6 @@ import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
 
 import { RectangleStackIcon } from '@heroicons/react/24/outline';
-import type { User } from '@supabase/supabase-js';
 
 function NoCompletedQuestions() {
   const intl = useIntl();
@@ -57,11 +56,7 @@ function NoCompletedQuestions() {
   );
 }
 
-type Props = Readonly<{
-  user: User;
-}>;
-
-export default function ProfileActivity({ user }: Props) {
+export default function ProfileActivity() {
   const {
     data: questionProgress,
     isLoading: isFetchingQuestionProgress,
@@ -117,7 +112,7 @@ export default function ProfileActivity({ user }: Props) {
           description="Heading for list of completed questions."
           id="CqG3Op"
         />
-        <ProfileActivityResetProgressButton user={user} />
+        <ProfileActivityResetProgressButton />
       </Heading>
       <Section>
         <ul

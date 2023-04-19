@@ -11,6 +11,84 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const questionProgressRouter = router({
+  add: publicProcedure
+    .input(
+      z.object({
+        format: z.string(),
+        progressId: z.string().optional(),
+        slug: z.string(),
+        status: z.string(),
+      }),
+    )
+    .mutation(
+      async ({
+        input: { format, slug, status, progressId },
+        ctx: { user },
+      }) => {
+        if (!user) {
+          return null;
+        }
+
+        const createData = {
+          format,
+          slug,
+          status,
+          userId: user.id,
+        };
+        let questionProgress = null;
+
+        if (!progressId) {
+          questionProgress = await prisma.questionProgress.create({
+            data: createData,
+          });
+        } else {
+          questionProgress = await prisma.questionProgress.upsert({
+            create: createData,
+            update: {
+              status,
+            },
+            where: {
+              id: progressId,
+            },
+          });
+        }
+
+        return {
+          ...questionProgress,
+          format: questionProgress.format as QuestionFormat,
+          status: questionProgress.status as QuestionProgressStatus,
+        };
+      },
+    ),
+  delete: publicProcedure
+    .input(
+      z.object({
+        format: z.string(),
+        slug: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { slug, format }, ctx: { user } }) => {
+      if (!user) {
+        return;
+      }
+      await prisma.questionProgress.deleteMany({
+        where: {
+          format,
+          slug,
+          userId: user.id,
+        },
+      });
+    }),
+  deleteAll: publicProcedure.mutation(async ({ ctx: { user } }) => {
+    if (!user) {
+      return;
+    }
+    await prisma.questionProgress.deleteMany({
+      where: {
+        userId: user.id,
+      },
+    });
+  }),
   get: publicProcedure
     .input(
       z.object({

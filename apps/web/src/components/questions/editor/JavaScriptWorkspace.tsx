@@ -159,9 +159,10 @@ function Contents({
               // Mark as completed in database for logged-in users.
               if (user != null && questionProgress?.status !== 'complete') {
                 addProgressMutation.mutate({
-                  question: question.metadata,
+                  format: question.metadata.format,
+                  progressId: questionProgress?.id,
+                  slug: question.metadata.slug,
                   status: 'complete',
-                  user,
                 });
               }
             }

@@ -120,7 +120,7 @@ export default function QuestionProgressAction({
         variant="success"
         onClick={() => {
           deleteProgressMutation.mutate(
-            { question: question.metadata, user },
+            { format: question.metadata.format, slug: question.metadata.slug },
             {
               onError: () => {
                 showToast({
@@ -165,7 +165,12 @@ export default function QuestionProgressAction({
       variant="tertiary"
       onClick={() => {
         addProgressMutation.mutate(
-          { question: question.metadata, status: 'complete', user },
+          {
+            format: question.metadata.format,
+            progressId: questionProgress?.id,
+            slug: question.metadata.slug,
+            status: 'complete',
+          },
           {
             onError: () => {
               showToast({

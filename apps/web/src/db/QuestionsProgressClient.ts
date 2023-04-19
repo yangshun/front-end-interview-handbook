@@ -7,77 +7,37 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 
-import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
-import type { QuestionProgressStatus } from './QuestionsProgressTypes';
-import {
-  genQuestionProgressAdd,
-  genQuestionProgressDelete,
-  genQuestionProgressDeleteAll,
-} from './QuestionsProgressUniversal';
-
-import { useUser } from '@supabase/auth-helpers-react';
-import type { User } from '@supabase/supabase-js';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-
 export function useMutationQuestionProgressAdd() {
-  const queryClient = useQueryClient();
-  const supabaseClient = useSupabaseClientGFE();
   const context = trpc.useContext();
 
-  return useMutation(
-    async ({
-      question,
-      user,
-      status,
-    }: Readonly<{
-      question: QuestionMetadata;
-      status: QuestionProgressStatus;
-      user: User;
-    }>) => genQuestionProgressAdd(supabaseClient, user, question, status),
-    {
-      onSuccess: (data, { question }) => {
-        queryClient.invalidateQueries(['questionProgressAll']);
-        context.questionProgress.get.setData({ question }, data);
-      },
+  return trpc.questionProgress.add.useMutation({
+    onSuccess: (data, variables) => {
+      context.questionProgress.getAll.invalidate();
+      context.questionProgress.get.setData({ question: variables }, data);
     },
-  );
+  });
 }
 
 export function useMutationQuestionProgressDelete() {
-  const queryClient = useQueryClient();
-  const supabaseClient = useSupabaseClientGFE();
   const context = trpc.useContext();
 
-  return useMutation(
-    async ({
-      question,
-      user,
-    }: Readonly<{ question: QuestionMetadata; user: User }>) =>
-      genQuestionProgressDelete(supabaseClient, user, question),
-    {
-      onSuccess: (_, { question }) => {
-        queryClient.invalidateQueries(['questionProgressAll']);
-        context.questionProgress.get.setData({ question }, null);
-      },
+  return trpc.questionProgress.delete.useMutation({
+    onSuccess: (_, variables) => {
+      context.questionProgress.getAll.invalidate();
+      context.questionProgress.get.setData({ question: variables }, null);
     },
-  );
+  });
 }
 
 export function useMutationQuestionProgressDeleteAll() {
-  const queryClient = useQueryClient();
-  const supabaseClient = useSupabaseClientGFE();
+  const context = trpc.useContext();
 
-  return useMutation(
-    async ({ user }: Readonly<{ user: User }>) =>
-      genQuestionProgressDeleteAll(supabaseClient, user),
-    {
-      onSuccess: (_, { user }) => {
-        queryClient.invalidateQueries(['questionProgressAll']);
-        queryClient.setQueryData(['questionProgressAll', user], null);
-      },
+  return trpc.questionProgress.deleteAll.useMutation({
+    onSuccess: () => {
+      context.questionProgress.getAll.invalidate();
+      context.questionProgress.getAll.setData(undefined, null);
     },
-  );
+  });
 }
 
 export function getQuestionMetadata(

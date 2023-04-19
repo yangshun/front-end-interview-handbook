@@ -8,13 +8,7 @@ import Text from '~/components/ui/Text';
 
 import { useMutationQuestionProgressDeleteAll } from '~/db/QuestionsProgressClient';
 
-import type { User } from '@supabase/supabase-js';
-
-type Props = Readonly<{
-  user: User;
-}>;
-
-export default function ProfileActivityResetProgressButton({ user }: Props) {
+export default function ProfileActivityResetProgressButton() {
   const intl = useIntl();
 
   const { showToast } = useToast();
@@ -24,34 +18,31 @@ export default function ProfileActivityResetProgressButton({ user }: Props) {
   const resetProgressMutation = useMutationQuestionProgressDeleteAll();
 
   const resetProgress = () => {
-    resetProgressMutation.mutate(
-      { user },
-      {
-        onError: () => {
-          showToast({
-            title: intl.formatMessage({
-              defaultMessage: 'Failed to reset progress. Please try again.',
-              description:
-                'Message shown when question reset progress action fails.',
-              id: 'GM9dpG',
-            }),
-            variant: 'failure',
-          });
-        },
-        onSuccess: () => {
-          setIsResetProgressDialogShown(false);
-          showToast({
-            title: intl.formatMessage({
-              defaultMessage: 'All question progress has been reset.',
-              description:
-                'Message shown when question reset progress action succeeds.',
-              id: 'FonVOb',
-            }),
-            variant: 'success',
-          });
-        },
+    resetProgressMutation.mutate(undefined, {
+      onError: () => {
+        showToast({
+          title: intl.formatMessage({
+            defaultMessage: 'Failed to reset progress. Please try again.',
+            description:
+              'Message shown when question reset progress action fails.',
+            id: 'GM9dpG',
+          }),
+          variant: 'failure',
+        });
       },
-    );
+      onSuccess: () => {
+        setIsResetProgressDialogShown(false);
+        showToast({
+          title: intl.formatMessage({
+            defaultMessage: 'All question progress has been reset.',
+            description:
+              'Message shown when question reset progress action succeeds.',
+            id: 'FonVOb',
+          }),
+          variant: 'success',
+        });
+      },
+    });
   };
 
   return (
