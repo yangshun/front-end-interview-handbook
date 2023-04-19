@@ -1,10 +1,22 @@
 'use client';
 
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
-type AppContextType = null;
+import { trpc } from '~/hooks/trpc';
 
-const AppContext = createContext<AppContextType>(null);
+type AppContextType = Readonly<{
+  // Server SHA and client SHA differ.
+  serverMismatch: boolean;
+}>;
+
+const clientCommit: string =
+  process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '';
+
+const defaultContextValue: AppContextType = Object.freeze({
+  serverMismatch: false,
+});
+
+const AppContext = createContext<AppContextType>(defaultContextValue);
 
 export function useAppContext() {
   return useContext(AppContext);
@@ -15,5 +27,18 @@ type Props = Readonly<{
 }>;
 
 export default function AppContextProvider({ children }: Props) {
-  return <AppContext.Provider value={null}>{children}</AppContext.Provider>;
+  const { data: serverCommit } = trpc.dev.serverCommit.useQuery(undefined, {
+    refetchOnWindowFocus: true,
+  });
+
+  const contextValue = useMemo(
+    () => ({
+      serverMismatch: clientCommit !== serverCommit,
+    }),
+    [serverCommit],
+  );
+
+  return (
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+  );
 }

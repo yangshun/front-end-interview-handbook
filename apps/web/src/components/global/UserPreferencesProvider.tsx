@@ -17,7 +17,7 @@ const DEFAULT_SHOW_SIDEBAR = true;
 const DEFAULT_SHOW_FEEDBACK_WIDGET = true;
 const DEFAULT_SHOW_PROMO_BANNER = true;
 
-const UserProfileContext = createContext<UserPreferencesContextType>({
+const UserPreferencesContext = createContext<UserPreferencesContextType>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowFeedbackWidget: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -30,7 +30,7 @@ const UserProfileContext = createContext<UserPreferencesContextType>({
 });
 
 export function useUserPreferences() {
-  return useContext(UserProfileContext);
+  return useContext(UserPreferencesContext);
 }
 
 export default function UserPreferencesProvider({ children }: Props) {
@@ -43,7 +43,7 @@ export default function UserPreferencesProvider({ children }: Props) {
   );
 
   return (
-    <UserProfileContext.Provider
+    <UserPreferencesContext.Provider
       value={{
         setShowFeedbackWidget,
         setShowPromoBanner,
@@ -53,6 +53,6 @@ export default function UserPreferencesProvider({ children }: Props) {
         showSidebar,
       }}>
       {children}
-    </UserProfileContext.Provider>
+    </UserPreferencesContext.Provider>
   );
 }

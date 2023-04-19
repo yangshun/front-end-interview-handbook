@@ -6,6 +6,7 @@ import type { ForwardedRef, HTMLAttributeAnchorTarget } from 'react';
 import { forwardRef } from 'react';
 import React from 'react';
 
+import { useAppContext } from '~/components/global/AppContextProvider';
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
 
 import { I18nLink } from '~/next-i18nostic/src';
@@ -43,6 +44,7 @@ function Anchor(
   }: Props,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
+  const { serverMismatch } = useAppContext();
   const { setShouldScrollToTop } = useScrollManagement();
   const isExternalURL =
     typeof href === 'string' ? /^(http|mailto)/.test(href ?? '') : false;
@@ -65,10 +67,12 @@ function Anchor(
   );
   const target = targetProp ?? isExternalURL ? '_blank' : undefined;
 
-  // TODO: <Link> when used in app directory with an anchor href causes
-  // a redirect to the homepage. Let's use a vanilla <a> for now.
   if (
+    // Do a hard navigation when client and server versions mismatch.
+    serverMismatch ||
     isExternalURL ||
+    // TODO: <Link> when used in app directory with an anchor href causes
+    // a redirect to the homepage. Let's use a vanilla <a> for now.
     (typeof finalHref === 'string' && finalHref.startsWith('#'))
   ) {
     return (

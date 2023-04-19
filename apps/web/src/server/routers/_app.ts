@@ -1,3 +1,4 @@
+import { devRouter } from './dev';
 import { feedbackRouter } from './feedback';
 import { marketingRouter } from './marketing';
 import { purchasesRouter } from './purchases';
@@ -6,6 +7,7 @@ import { questionsRouter } from './questions';
 import { router } from '../trpc';
 
 export const appRouter = router({
+  dev: devRouter,
   feedback: feedbackRouter,
   marketing: marketingRouter,
   purchases: purchasesRouter,
