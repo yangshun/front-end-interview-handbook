@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -47,7 +48,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
+  const [{ questions: quizQuestions }, questionCompletionCount] =
+    await Promise.all([
+      fetchQuestionsListQuiz(locale),
+      fetchQuestionCompletionCount(['user-interface', 'javascript']),
+    ]);
 
-  return <PrepareQuizPage questions={quizQuestions} />;
+  return (
+    <PrepareQuizPage
+      questionCompletionCount={questionCompletionCount}
+      questions={quizQuestions}
+    />
+  );
 }

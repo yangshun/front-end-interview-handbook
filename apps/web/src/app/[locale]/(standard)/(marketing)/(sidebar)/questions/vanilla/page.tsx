@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 import type { QuestionFramework } from '~/components/questions/common/QuestionsTypes';
 import QuestionsFrameworkPage from '~/components/questions/listings/QuestionsFrameworkPage';
 
+import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -42,12 +43,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const questionList = await fetchCodingQuestionsForFramework(framework);
+  const [questionList, questionCompletionCount] = await Promise.all([
+    fetchCodingQuestionsForFramework(framework),
+    fetchQuestionCompletionCount(['user-interface']),
+  ]);
 
   return (
     <QuestionsFrameworkPage
       description="Top Vanilla JavaScript UI coding interview questions."
       framework={framework}
+      questionCompletionCount={questionCompletionCount}
       questionList={questionList}
       title="Vanilla JavaScript User Interface Questions"
     />

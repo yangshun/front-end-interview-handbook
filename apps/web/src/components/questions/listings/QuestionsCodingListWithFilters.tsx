@@ -34,6 +34,7 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
@@ -43,6 +44,7 @@ import type { QuestionFramework } from '../common/QuestionsTypes';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+
 type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (
     format: QuestionCodingFormat,
@@ -55,6 +57,7 @@ type Props = Readonly<{
   initialCodingFormat?: QuestionCodingFormat | null;
   layout?: 'embedded' | 'full';
   mode?: 'default' | 'framework';
+  questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
   sideColumnAddOn?: ReactNode;
 }>;
@@ -65,6 +68,7 @@ export default function QuestionsCodingListWithFilters({
   layout = 'full',
   mode = 'default',
   questions,
+  questionCompletionCount,
   codingFormatFiltersFilterPredicate,
   codingFormatFiltersOrderComparator,
 }: Props) {
@@ -432,6 +436,7 @@ export default function QuestionsCodingListWithFilters({
                   hasCompletedQuestion(completedQuestions, question)
                 }
                 framework={framework}
+                questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}
                 showChevron={true}
               />

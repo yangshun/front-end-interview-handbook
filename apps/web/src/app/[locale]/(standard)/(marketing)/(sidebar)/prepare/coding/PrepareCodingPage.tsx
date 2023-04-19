@@ -12,11 +12,17 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+
 type Props = Readonly<{
+  questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function PrepareCodingQuestionsPage({ questions }: Props) {
+export default function PrepareCodingQuestionsPage({
+  questions,
+  questionCompletionCount,
+}: Props) {
   const intl = useIntl();
   const codingQuestionListGuideItems = useCodingQuestionListGuideItems();
 
@@ -50,7 +56,10 @@ export default function PrepareCodingQuestionsPage({ questions }: Props) {
               })}
             </Heading>
             <Section>
-              <QuestionsCodingListWithFilters questions={questions} />
+              <QuestionsCodingListWithFilters
+                questionCompletionCount={questionCompletionCount}
+                questions={questions}
+              />
             </Section>
           </div>
         </Section>

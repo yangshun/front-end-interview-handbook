@@ -5,7 +5,7 @@ import QuestionDifficultyLabel from './QuestionDifficultyLabel';
 import QuestionDurationLabel from './QuestionDurationLabel';
 import QuestionLanguages from './QuestionLanguages';
 import type { QuestionMetadata } from './QuestionsTypes';
-import QuestionUsersCompletedLabel from './QuestionUsersCompletedLabel';
+import QuestionUsersCompletedLabelWithFetching from './QuestionUsersCompletedLabelWithFetching';
 
 type MetadataElement =
   | 'author'
@@ -62,7 +62,10 @@ export default function QuestionMetadataSection({
         />
       )}
       {elements.includes('users_completed') && metadata.duration && (
-        <QuestionUsersCompletedLabel metadata={metadata} showIcon={true} />
+        <QuestionUsersCompletedLabelWithFetching
+          metadata={metadata}
+          showIcon={true}
+        />
       )}
     </section>
   );

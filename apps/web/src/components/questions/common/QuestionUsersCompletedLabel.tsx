@@ -1,32 +1,24 @@
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
-
-import type { QuestionMetadata } from './QuestionsTypes';
 
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
+  count?: number;
+  isLoading?: boolean;
   showIcon?: boolean;
 }>;
 
 export default function QuestionUsersCompletedLabel({
+  isLoading,
+  count,
   showIcon = false,
-  metadata,
 }: Props) {
   const id = useId();
   const intl = useIntl();
-
-  const { data: count, isLoading } =
-    trpc.questionProgress.globalCompleted.useQuery({
-      format: metadata.format,
-      slug: metadata.slug,
-    });
 
   return (
     <Tooltip

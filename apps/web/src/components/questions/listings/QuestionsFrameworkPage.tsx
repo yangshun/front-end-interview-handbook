@@ -11,12 +11,15 @@ import QuestionsCodingListWithFilters from '~/components/questions/listings/Ques
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+
 import QuestionCategoryTitleSection from './QuestionCategoryTitleSection';
 
 type Props = Readonly<{
   description: string;
   framework: QuestionFramework;
   logo?: ReactNode;
+  questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
   title: string;
 }>;
@@ -25,6 +28,7 @@ export default function QuestionsFrameworkPage({
   description,
   framework,
   logo,
+  questionCompletionCount,
   questionList,
   title,
 }: Props) {
@@ -42,6 +46,7 @@ export default function QuestionsFrameworkPage({
           <QuestionsCodingListWithFilters
             framework={framework}
             mode="framework"
+            questionCompletionCount={questionCompletionCount}
             questions={questionList}
           />
         </Section>

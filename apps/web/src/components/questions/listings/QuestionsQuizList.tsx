@@ -6,15 +6,19 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+
 import QuestionImportanceLabel from '../common/QuestionImportanceLabel';
 import QuestionQuizTopics from '../common/QuestionQuizTopics';
 import type { QuestionQuizMetadata } from '../common/QuestionsTypes';
+import QuestionUsersCompletedLabel from '../common/QuestionUsersCompletedLabel';
 
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { CheckIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   checkIfCompletedQuestion: (question: QuestionQuizMetadata) => boolean;
+  questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionQuizMetadata>;
   showChevron?: boolean;
   showProgress?: boolean;
@@ -24,6 +28,7 @@ type Props = Readonly<{
 export default function QuestionsQuizList({
   checkIfCompletedQuestion,
   questions,
+  questionCompletionCount,
   showChevron = false,
   showTimeline = false,
   showProgress = true,
@@ -138,6 +143,22 @@ export default function QuestionsQuizList({
                   value={question.importance}
                 />
                 <QuestionQuizTopics topics={question.topics} />
+                {(() => {
+                  const count =
+                    questionCompletionCount?.[question.format]?.[question.slug];
+
+                  if (count == null) {
+                    return null;
+                  }
+
+                  return (
+                    <QuestionUsersCompletedLabel
+                      count={count}
+                      isLoading={false}
+                      showIcon={true}
+                    />
+                  );
+                })()}
               </div>
             </div>
             {showChevron && (

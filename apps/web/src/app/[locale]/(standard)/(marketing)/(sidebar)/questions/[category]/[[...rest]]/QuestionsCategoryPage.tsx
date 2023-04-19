@@ -17,6 +17,7 @@ import type { QuestionListCategory } from '~/components/questions/listings/types
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 // The higher the more important.
@@ -62,6 +63,7 @@ type Props = Readonly<{
   format: QuestionUserFacingFormat | null;
   logo: ReactNode;
   pageTitle: string;
+  questionCompletionCount?: QuestionCompletionCount;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
 }>;
 
@@ -71,6 +73,7 @@ function QuestionsList({
   category: categoryParam,
   codingQuestions,
   quizQuestions,
+  questionCompletionCount,
 }: Props) {
   // Set defaults here since rewrites from don't work properly
   // in Next.js 13 and some params can be missing if it's from
@@ -93,7 +96,11 @@ function QuestionsList({
         />
       </div>
       {format === 'quiz' && (
-        <QuestionsQuizListWithFilters mode="topic" questions={quizQuestions} />
+        <QuestionsQuizListWithFilters
+          mode="topic"
+          questionCompletionCount={questionCompletionCount}
+          questions={quizQuestions}
+        />
       )}
       {format === 'coding' && (
         <QuestionsCodingListWithFilters
@@ -104,6 +111,7 @@ function QuestionsList({
             CategoryFilters[category].orderComparator
           }
           initialCodingFormat={codingFormat}
+          questionCompletionCount={questionCompletionCount}
           questions={codingQuestions}
         />
       )}
@@ -120,6 +128,7 @@ export default function QuestionsCategoryPage({
   description,
   codingQuestions,
   quizQuestions,
+  questionCompletionCount,
 }: Props) {
   return (
     <>
@@ -141,6 +150,7 @@ export default function QuestionsCategoryPage({
             format={format}
             logo={logo}
             pageTitle={pageTitle}
+            questionCompletionCount={questionCompletionCount}
             quizQuestions={quizQuestions}
           />
         </Section>

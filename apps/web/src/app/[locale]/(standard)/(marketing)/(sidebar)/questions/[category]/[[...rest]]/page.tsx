@@ -15,6 +15,7 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionListCategory } from '~/components/questions/listings/types';
 
+import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
@@ -232,11 +233,15 @@ async function processParams(params: Props['params']) {
   const language = CATEGORY_TO_LANGUAGE[category];
   const quizTopic = CATEGORY_TO_QUIZ_TOPIC[category];
 
-  const [{ questions: quizQuestionsAll }, { questions: codingQuestionsAll }] =
-    await Promise.all([
-      fetchQuestionsListQuiz(locale),
-      fetchQuestionsListCoding(locale),
-    ]);
+  const [
+    { questions: quizQuestionsAll },
+    { questions: codingQuestionsAll },
+    questionCompletionCount,
+  ] = await Promise.all([
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListCoding(locale),
+    fetchQuestionCompletionCount(['user-interface', 'javascript', 'quiz']),
+  ]);
 
   const quizQuestions = filterQuestions(quizQuestionsAll, [
     (question) => question.topics.includes(quizTopic),
@@ -262,6 +267,7 @@ async function processParams(params: Props['params']) {
     locale,
     logo,
     pageTitle,
+    questionCompletionCount,
     quizQuestions,
     seoTitle,
     totalQuestions,
@@ -299,6 +305,7 @@ export default async function Page({ params }: Props) {
     logo: Logo,
     pageTitle,
     quizQuestions,
+    questionCompletionCount,
   } = await processParams(params);
 
   return (
@@ -310,6 +317,7 @@ export default async function Page({ params }: Props) {
       format={format}
       logo={<Logo className="h-24 w-24" />}
       pageTitle={pageTitle}
+      questionCompletionCount={questionCompletionCount}
       quizQuestions={sortQuestions(quizQuestions, 'importance', false)}
     />
   );

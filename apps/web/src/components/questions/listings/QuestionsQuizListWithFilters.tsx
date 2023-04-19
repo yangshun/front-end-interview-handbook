@@ -25,15 +25,18 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+
 type Props = Readonly<{
   layout?: 'embedded' | 'full';
   mode?: 'default' | 'topic';
+  questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionQuizMetadata>;
 }>;
 
@@ -41,6 +44,7 @@ export default function QuestionsQuizListWithFilters({
   layout = 'full',
   mode = 'default',
   questions,
+  questionCompletionCount,
 }: Props) {
   const intl = useIntl();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -275,6 +279,7 @@ export default function QuestionsQuizListWithFilters({
               checkIfCompletedQuestion={(question) =>
                 hasCompletedQuestion(completedQuestions, question)
               }
+              questionCompletionCount={questionCompletionCount}
               questions={processedQuestions}
               showChevron={true}
             />

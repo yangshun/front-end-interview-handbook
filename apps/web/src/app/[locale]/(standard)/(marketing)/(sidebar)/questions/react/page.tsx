@@ -4,6 +4,7 @@ import ReactLogo from '~/components/icons/ReactLogo';
 import type { QuestionFramework } from '~/components/questions/common/QuestionsTypes';
 import QuestionsFrameworkPage from '~/components/questions/listings/QuestionsFrameworkPage';
 
+import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -42,8 +43,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const questionList = await fetchCodingQuestionsForFramework(framework);
-  const intl = await getIntlServerOnly(locale);
+  const [questionList, intl, questionCompletionCount] = await Promise.all([
+    fetchCodingQuestionsForFramework(framework),
+    getIntlServerOnly(locale),
+    fetchQuestionCompletionCount(['user-interface']),
+  ]);
 
   return (
     <QuestionsFrameworkPage
@@ -60,6 +64,7 @@ export default async function Page({ params }: Props) {
           style={{ fill: 'rgb(20, 158, 202)' }}
         />
       }
+      questionCompletionCount={questionCompletionCount}
       questionList={questionList}
       title={intl.formatMessage({
         defaultMessage: 'React Coding Questions',

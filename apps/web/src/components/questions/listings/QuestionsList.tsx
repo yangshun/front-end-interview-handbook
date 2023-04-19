@@ -8,16 +8,17 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionDifficultyLabel from '../common/QuestionDifficultyLabel';
-import QuestionDurationLabel from '../common/QuestionDurationLabel';
 import QuestionFrameworks from '../common/QuestionFrameworks';
 import QuestionLanguages from '../common/QuestionLanguages';
 import type {
   QuestionFramework,
   QuestionMetadata,
 } from '../common/QuestionsTypes';
+import QuestionUsersCompletedLabel from '../common/QuestionUsersCompletedLabel';
 import { ReadyQuestions } from '../content/system-design/SystemDesignNavigation';
 
 import {
@@ -25,10 +26,12 @@ import {
   EllipsisHorizontalIcon,
 } from '@heroicons/react/24/outline';
 import { CheckIcon, LockClosedIcon } from '@heroicons/react/24/solid';
+
 type Props = Readonly<{
   checkIfCompletedQuestion: (question: QuestionMetadata) => boolean;
   columns?: 1 | 2;
   framework?: QuestionFramework;
+  questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
   showChevron?: boolean;
   showProgress?: boolean;
@@ -56,6 +59,7 @@ function QuestionTag({
       />
     );
   }
+
   if (question.premium) {
     return (
       <Badge
@@ -116,6 +120,7 @@ export default function QuestionsList({
   checkIfCompletedQuestion,
   columns = 1,
   questions,
+  questionCompletionCount,
   showChevron = false,
   showTimeline = false,
   showProgress = true,
@@ -264,17 +269,27 @@ export default function QuestionsList({
                     value={question.difficulty}
                   />
                 </span>
-                <span className="hidden min-w-[50px] sm:inline-flex">
-                  <QuestionDurationLabel
-                    mins={question.duration}
-                    showIcon={true}
-                  />
-                </span>
                 {question.frameworks.length === 0 ? (
                   <QuestionLanguages languages={question.languages} />
                 ) : (
                   <QuestionFrameworks frameworks={question.frameworks} />
                 )}
+                {(() => {
+                  const count =
+                    questionCompletionCount?.[question.format]?.[question.slug];
+
+                  if (count == null) {
+                    return null;
+                  }
+
+                  return (
+                    <QuestionUsersCompletedLabel
+                      count={count}
+                      isLoading={false}
+                      showIcon={true}
+                    />
+                  );
+                })()}
               </div>
             </div>
             {showChevron && (
