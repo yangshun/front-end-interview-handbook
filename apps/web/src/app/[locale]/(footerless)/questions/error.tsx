@@ -17,7 +17,6 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
     Sentry.captureException(error);
     logMessage({
@@ -31,5 +30,5 @@ export default function Error({
     });
   }, [error]);
 
-  return <ErrorMessageBlock onReloadClick={reset} />;
+  return <ErrorMessageBlock />;
 }

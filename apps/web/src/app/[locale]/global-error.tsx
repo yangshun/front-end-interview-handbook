@@ -17,7 +17,6 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    // TODO: Log the error to an error reporting service
     console.error(error);
     Sentry.captureException(error);
     logMessage({
@@ -36,7 +35,7 @@ export default function GlobalError({
     <html lang="en">
       <title>Error</title>
       <body>
-        <ErrorMessageBlock onReloadClick={reset} />
+        <ErrorMessageBlock />
       </body>
     </html>
   );
