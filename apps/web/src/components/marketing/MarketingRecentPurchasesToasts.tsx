@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { useSessionStorage } from 'usehooks-ts';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -11,14 +11,28 @@ import Anchor from '~/components/ui/Anchor';
 import { useToast } from '../global/toasts/ToastsProvider';
 import { useUserProfile } from '../global/UserProfileProvider';
 
-function MarketingRecentPurchasesImpl() {
+const ONE_DAY_IN_SECONDS = 24 * 60 * 60 * 1_000;
+const ONE_WEEK_IN_SECONDS = 7 * ONE_DAY_IN_SECONDS;
+const MARKETING_TOAST_INDEX = 'gfe:marketing.purchases.toast.index';
+
+function MarketingRecentPurchasesImpl({
+  setLastShown,
+}: Readonly<{
+  setLastShown: (lastShown: number) => void;
+}>) {
   const { showToast } = useToast();
   const { data } = trpc.purchases.recent.useQuery();
 
-  const [index, setIndex] = useSessionStorage('marketing.purchases.toast', 0);
+  const [index, setIndex] = useLocalStorage(MARKETING_TOAST_INDEX, 0);
 
   useEffect(() => {
     if (data == null) {
+      return;
+    }
+
+    if (index >= data.length) {
+      setLastShown(Date.now());
+
       return;
     }
 
@@ -30,6 +44,10 @@ function MarketingRecentPurchasesImpl() {
 
     showToast({
       duration: 8000,
+      onClose: () => {
+        setIndex(data.length);
+        setLastShown(Date.now());
+      },
       title: (
         <FormattedMessage
           defaultMessage="{name} from {country} subscribed to <link>Premium</link> recently"
@@ -52,7 +70,7 @@ function MarketingRecentPurchasesImpl() {
     return () => {
       clearTimeout(timer);
     };
-  }, [index, data, showToast]);
+  }, [index, data, showToast, setLastShown, setIndex]);
 
   return null;
 }
@@ -60,9 +78,26 @@ function MarketingRecentPurchasesImpl() {
 export default function MarketingRecentPurchases() {
   const { isUserProfileLoading, userProfile } = useUserProfile();
 
+  const [lastShown, setLastShown] = useLocalStorage<number | null>(
+    'gfe:marketing.purchases.toast.last_shown',
+    null,
+  );
+
   if (isUserProfileLoading || userProfile?.isPremium) {
     return null;
   }
 
-  return <MarketingRecentPurchasesImpl />;
+  if (lastShown != null) {
+    const currentDate = new Date().getTime();
+    const lastShownDate = new Date(lastShown).getTime();
+
+    // If shown recently, don't show again.
+    if (Math.abs(currentDate - lastShownDate) < ONE_WEEK_IN_SECONDS) {
+      return null;
+    }
+
+    localStorage.removeItem(MARKETING_TOAST_INDEX);
+  }
+
+  return <MarketingRecentPurchasesImpl setLastShown={setLastShown} />;
 }

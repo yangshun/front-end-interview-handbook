@@ -36,9 +36,9 @@ export default function ToastsProvider({ children }: Props) {
   const [toasts, setToasts] = useState<Array<ToastData>>([]);
 
   const showToast = useCallback(
-    ({ title, subtitle, variant, duration }: ToastMessage) => {
+    ({ title, subtitle, variant, duration, onClose }: ToastMessage) => {
       setToasts((oldToasts) => [
-        { duration, id: getID(), subtitle, title, variant },
+        { duration, id: getID(), onClose, subtitle, title, variant },
         ...oldToasts,
       ]);
     },
@@ -61,13 +61,17 @@ export default function ToastsProvider({ children }: Props) {
         className="pointer-events-none fixed inset-0 z-20 flex items-end px-4 py-6 sm:p-6">
         <div className="flex w-full flex-col items-center space-y-4 sm:items-start">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
-          {toasts.map(({ id, title, subtitle, variant }) => (
+          {toasts.map(({ id, title, subtitle, variant, onClose }) => (
             <Toast
               key={id}
               subtitle={subtitle}
               title={title}
               variant={variant}
               onClose={() => {
+                onClose?.();
+                closeToast(id);
+              }}
+              onExpire={() => {
                 closeToast(id);
               }}
             />

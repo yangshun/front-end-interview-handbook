@@ -12,13 +12,14 @@ type ToastVariant = 'failure' | 'plain' | 'special' | 'success';
 
 export type ToastMessage = Readonly<{
   duration?: number;
+  onClose?: () => void;
   subtitle?: ReactNode;
   title: ReactNode;
   variant: ToastVariant;
 }>;
 
 type Props = Readonly<{
-  onClose: () => void;
+  onExpire: () => void;
 }> &
   ToastMessage;
 
@@ -47,6 +48,7 @@ export default function Toast({
   subtitle,
   variant,
   onClose,
+  onExpire,
 }: Props) {
   const timer = useRef<number | null>(null);
 
@@ -59,13 +61,13 @@ export default function Toast({
   }
 
   function close() {
-    onClose();
+    onClose?.();
     clearTimer();
   }
 
   useEffect(() => {
     timer.current = window.setTimeout(() => {
-      close();
+      onExpire();
     }, duration);
 
     return () => {
