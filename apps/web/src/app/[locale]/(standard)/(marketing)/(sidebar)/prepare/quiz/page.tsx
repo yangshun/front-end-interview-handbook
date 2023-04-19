@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
   const [{ questions: quizQuestions }, questionCompletionCount] =
     await Promise.all([
       fetchQuestionsListQuiz(locale),
-      fetchQuestionCompletionCount(['user-interface', 'javascript']),
+      fetchQuestionCompletionCount(['quiz']),
     ]);
 
   return (
