@@ -59,7 +59,7 @@ export default function QuestionContentsSystemDesign({
         </header>
         <div className="flex justify-between">
           <Section>
-            <QuestionMetadataSection metadata={metadata} variant="body" />
+            <QuestionMetadataSection metadata={metadata} />
             <QuestionReportIssueButton
               format={question.format}
               isLabelHidden={false}
