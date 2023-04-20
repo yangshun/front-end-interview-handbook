@@ -299,6 +299,7 @@ function Contents({
               )}>
               <JavaScriptQuestionDevTools
                 availableModes={['console', 'tests']}
+                isRunningCode={isRunningCode}
                 mode={devToolsMode}
                 result={result}
                 runAttempt={runAttempt}
