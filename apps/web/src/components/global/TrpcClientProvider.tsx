@@ -24,7 +24,7 @@ const queryClient = new QueryClient({
 const trpcClient = trpc.createClient({
   links: [
     loggerLink({
-      enabled: () => true,
+      enabled: () => process.env.NODE_ENV === 'development',
     }),
     httpBatchLink({
       url: `${getSiteUrl()}/api/trpc`,
