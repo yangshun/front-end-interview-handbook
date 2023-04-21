@@ -23,10 +23,10 @@ function runMiddleware(
 }
 
 type FormBody = Readonly<{
-  email?: string;
-  message?: string;
-  name?: string;
+  otp?: string;
 }>;
+
+const VALID_OTP = '123456';
 
 export default async function handler(
   req: NextApiRequest,
@@ -38,22 +38,13 @@ export default async function handler(
     return res.status(405).send('Only POST requests allowed');
   }
 
-  const { name, email, message }: FormBody = req.body;
+  const { otp }: FormBody = req.body;
 
-  // Perform simple field validations, as long as they are not empty.
-  if (!name) {
-    return res.status(422).send('Name cannot be empty');
+  if (otp !== VALID_OTP) {
+    return res
+      .status(403)
+      .send(`Invalid OTP. The correct OTP is ${VALID_OTP} ;)`);
   }
 
-  if (!email) {
-    return res.status(422).send('Email cannot be empty');
-  }
-
-  if (!message) {
-    return res.status(422).send('Message cannot be empty');
-  }
-
-  res
-    .status(200)
-    .send(`Thank you ${name}, your message was received successfully!`);
+  res.status(200).send('Successfully verified OTP!');
 }

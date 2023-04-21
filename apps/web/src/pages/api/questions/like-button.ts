@@ -39,14 +39,16 @@ export default async function handler(
   const { action }: FormBody = req.body;
 
   if (action !== 'like' && action !== 'unlike') {
-    return res.status(422).send('Invalid action');
+    return res.status(422).send({
+      message: 'Invalid action',
+    });
   }
 
   const willFail = Math.random() > 0.5;
 
   if (willFail) {
     return res.status(500).json({
-      error: `Error during attempted ${action}. Please try again later.`,
+      message: `Error during attempted ${action}. Please try again later.`,
     });
   }
 
