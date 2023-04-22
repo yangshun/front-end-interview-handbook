@@ -7,7 +7,6 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import AuthorsCardSection from './AuthorsCardsSection';
 import type { QuestionUserFacingFormat } from '../common/QuestionsTypes';
 import TextPairing from '../../common/TextPairing';
 
@@ -109,8 +108,8 @@ export default function QuestionFormatTitleSection({ format }: Props) {
         />
       </Heading>
       <Section>
-        <div className="grid gap-6 xl:grid-cols-8">
-          <div className="grid gap-y-6 xl:col-span-4">
+        <div className="grid gap-6 xl:grid-cols-4">
+          <div className="col-span-3 grid gap-y-6">
             <TextPairing
               description={
                 <FormattedMessage
@@ -157,8 +156,24 @@ export default function QuestionFormatTitleSection({ format }: Props) {
               })}
             />
           </div>
-          <div className="xl:col-span-3 xl:col-start-6">
-            <AuthorsCardSection />
+          <div>
+            <p className="bg-brand-100 text-brand-600 border p-3 text-xs">
+              <FormattedMessage
+                defaultMessage="First time preparing for front end interviews? Find out what to
+              expect in our <link>Front End Interview Guidebook</link>"
+                description="Link to front end interview guidebook"
+                id="MstQla"
+                values={{
+                  link: (chunk) => (
+                    <Anchor
+                      href="/front-end-interview-guidebook"
+                      underline={true}>
+                      {chunk}
+                    </Anchor>
+                  ),
+                }}
+              />
+            </p>
           </div>
         </div>
         <div className="mt-8 flex overflow-y-auto md:mt-12 lg:block">

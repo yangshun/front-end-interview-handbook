@@ -8,7 +8,6 @@ import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import ReactLogo from '~/components/icons/ReactLogo';
 import Anchor from '~/components/ui/Anchor';
 
-import AuthorsCardSection from './AuthorsCardsSection';
 import type { QuestionListCategory } from './types';
 
 type CategoryValue = QuestionListCategory | 'react';
@@ -54,8 +53,7 @@ export default function QuestionCategoryTitleSection({
   title,
 }: Props) {
   return (
-    <div className="grid gap-6 xl:grid-cols-8">
-      <div className="flex flex-col gap-y-8 xl:col-span-4">
+    <div className="flex flex-col gap-y-8">
         <div className="relative flex flex-wrap gap-3">
           {items.map(({ icon: Icon, label, value }) => (
             <Anchor
@@ -82,9 +80,5 @@ export default function QuestionCategoryTitleSection({
           <TextPairing description={description} size="lg" title={title} />
         </div>
       </div>
-      <div className="flex items-end xl:col-span-3 xl:col-start-6">
-        <AuthorsCardSection />
-      </div>
-    </div>
   );
 }
