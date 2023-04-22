@@ -679,6 +679,10 @@
     "defaultMessage": "Problem Solving Questions",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
   },
+  "D6iXh1": {
+    "defaultMessage": "GitHub profile link",
+    "description": "Link to GitHub profile"
+  },
   "DAqJ87": {
     "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
     "description": "Subtitle on question paywall displayed on premium question's pages"
@@ -943,6 +947,10 @@
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
   },
+  "JCFm+V": {
+    "defaultMessage": "Authors",
+    "description": "description"
+  },
   "JEcwe6": {
     "defaultMessage": "Solution",
     "description": "Header for question solution section in coding workspace"
@@ -1163,10 +1171,6 @@
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
   },
-  "MstQla": {
-    "defaultMessage": "First time preparing for front end interviews? Find out what to expect in our <link>Front End Interview Guidebook</link>",
-    "description": "Link to front end interview guidebook"
-  },
   "MyaXLl": {
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
     "description": "SEO title for CSS questions list page"
@@ -1230,6 +1234,10 @@
   "OL9m/V": {
     "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
+  },
+  "OPwgMT": {
+    "defaultMessage": "Twitter profile link",
+    "description": "Link to Twitter profile"
   },
   "OWKf+S": {
     "defaultMessage": "Overview",
@@ -2407,6 +2415,10 @@
     "defaultMessage": "Testing",
     "description": "Testing topic for quiz questions"
   },
+  "l9vVXY": {
+    "defaultMessage": "LinkedIn profile link",
+    "description": "Link to LinkedIn profile"
+  },
   "lJupPX": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -2730,6 +2742,10 @@
   "tP5+Am": {
     "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
+  },
+  "tR0TIm": {
+    "defaultMessage": "Meet our top authors:",
+    "description": "Authors section title"
   },
   "tU2J/q": {
     "defaultMessage": "Front End System Design Guidebook",

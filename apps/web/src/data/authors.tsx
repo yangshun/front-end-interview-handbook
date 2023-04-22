@@ -4,7 +4,10 @@ import Anchor from '~/components/ui/Anchor';
 
 type Author = Readonly<{
   bio: React.ReactNode;
+  companyIconUrl?: string;
+  gitHubUrl?: string;
   imageUrl: string;
+  linkedInUrl?: string;
   name: string;
   profileUrl: string;
   role: string;
@@ -15,8 +18,17 @@ type Author = Readonly<{
 
 const authors: Record<string, Author> = {
   'sunny-dhillon': {
-    bio: <>TODO</>,
+    bio: (
+      <>
+        Sunny is a Senior Staff Software Engineer at Google and has over a
+        decade of experience managing teams on Google Search, Gmail, Google
+        Chat, Google Maps, and more. He joined Google in 2011 when his startup
+        TalkBin (YC W11), was acquired.
+      </>
+    ),
+    companyIconUrl: '/img/marketing/google-g-icon.svg',
     imageUrl: '/img/team/sunny.jpg',
+    linkedInUrl: 'https://www.linkedin.com/in/dhillons/',
     name: 'Sunny Dhillon',
     profileUrl: 'https://www.linkedin.com/in/dhillons/',
     role: 'Senior Staff Software Engineer, Google',
@@ -25,32 +37,39 @@ const authors: Record<string, Author> = {
   yangshun: {
     bio: (
       <>
-        Yangshun was previously a Staff Front End Engineer at Meta. He also
-        created Blind 75, Tech Interview Handbook, and Docusaurus 2. He hangs
-        out mostly on{' '}
-        <Anchor href="https://www.github.com/yangshun">GitHub</Anchor>.
+        Yangshun is an ex-Meta Staff Front End Engineer and the author of "Blind
+        75" and "Front End Interview Handbook". At Meta, he created Docusaurus 2
+        and led engineering teams to build www.meta.com and www.oculus.com.
       </>
     ),
+    companyIconUrl: '/img/marketing/meta-icon.svg',
+    gitHubUrl: 'https://www.github.com/yangshun',
     imageUrl: 'https://github.com/yangshun.png',
+    linkedInUrl: 'https://www.linkedin.com/in/yangshun',
     name: 'Yangshun Tay',
     profileUrl: 'https://www.github.com/yangshun',
-    role: 'Staff Software Engineer, ex-Meta, Grab',
+    role: 'Staff Front End Engineer, ex-Meta',
     subtitle: 'Ex-Meta Staff Engineer',
+    twitterUrl: 'https://www.twitter.com/yangshunz',
   },
   zhenghao: {
     bio: (
       <>
-        Zhenghao has a track record of being able to develop large-scale web
-        apps with modern web tech stack. He writes about software development
-        and web technologies on{' '}
+        Zhenghao is a Senior Software Engineer at DocuSign and was previously
+        from Instacart and Amazon. He has a track record of being developing
+        multiple modern large-scale web apps and writes about software
+        development and web technologies on{' '}
         <Anchor href="https://www.zhenghao.io/">zhenghao.io</Anchor>.
       </>
     ),
+    companyIconUrl: '/img/marketing/amazon-icon.svg',
     imageUrl: '/img/team/zhenghao.jpg',
+    linkedInUrl: 'https://www.linkedin.com/in/zhenghao-he-720510117/',
     name: 'Zhenghao He',
     profileUrl: 'https://www.zhenghao.io',
     role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',
     subtitle: 'Senior Engineer, Ex-Amazon',
+    twitterUrl: 'https://twitter.com/he_zhenghao',
   },
 };
 

@@ -159,6 +159,10 @@
     "defaultMessage": "想要不提交的情况下测试您的函数，请在声明下方调用函数。",
     "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
   },
+  "1wrVTx": {
+    "defaultMessage": "在GitHub上编辑",
+    "description": "Edit on GitHub button"
+  },
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
@@ -675,6 +679,10 @@
     "defaultMessage": "问题解决题目",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
   },
+  "D6iXh1": {
+    "defaultMessage": "GitHub 资料",
+    "description": "Link to GitHub profile"
+  },
   "DAqJ87": {
     "defaultMessage": "购买高级版以解锁对题目的完全访问，包括高质量的解答和出题公司。",
     "description": "Subtitle on question paywall displayed on premium question's pages"
@@ -939,6 +947,10 @@
     "defaultMessage": "准备计划",
     "description": "Preparation plans section title"
   },
+  "JCFm+V": {
+    "defaultMessage": "作者",
+    "description": "description"
+  },
   "JEcwe6": {
     "defaultMessage": "解答",
     "description": "Header for question solution section in coding workspace"
@@ -1159,10 +1171,6 @@
     "defaultMessage": "最热门的 React 前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
     "description": "Description of React Interview Questions page"
   },
-  "MstQla": {
-    "defaultMessage": "首次准备前端面试吗？了解我们 <link>前端面试指南</link> 中的预期内容",
-    "description": "Link to front end interview guidebook"
-  },
   "MyaXLl": {
     "defaultMessage": "练习前端CSS面试题目及解答",
     "description": "SEO title for CSS questions list page"
@@ -1226,6 +1234,10 @@
   "OL9m/V": {
     "defaultMessage": "最完整的全套前端面试筹备平台。",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
+  },
+  "OPwgMT": {
+    "defaultMessage": "Twitter 个人资料",
+    "description": "Link to Twitter profile"
   },
   "OWKf+S": {
     "defaultMessage": "概览",
@@ -1606,6 +1618,10 @@
   "VLFSw7": {
     "defaultMessage": "最热门的 Vanilla JavaScript 前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
+  },
+  "VMIoK4": {
+    "defaultMessage": "用户已完成",
+    "description": "Number of users who completed the question"
   },
   "VQ9c4+": {
     "defaultMessage": "反馈成功",
@@ -2399,6 +2415,10 @@
     "defaultMessage": "测试",
     "description": "Testing topic for quiz questions"
   },
+  "l9vVXY": {
+    "defaultMessage": "LinkedIn 资料",
+    "description": "Link to LinkedIn profile"
+  },
   "lJupPX": {
     "defaultMessage": "查看所有题目",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -2723,6 +2743,10 @@
     "defaultMessage": "注册",
     "description": "Label of Sign Up button on Email Sign Up page"
   },
+  "tR0TIm": {
+    "defaultMessage": "会见我们的顶级作者：",
+    "description": "Authors section title"
+  },
   "tU2J/q": {
     "defaultMessage": "前端系统设计指南",
     "description": "Sidebar label for Front End System Design Guidebook page"
@@ -2955,6 +2979,10 @@
     "defaultMessage": "如果您使用 OAuth 登录(例如GitHub)，您可以在此更改电子邮箱来使用电子邮箱和密码登录。",
     "description": "Subtext above email settings."
   },
+  "xVsq55": {
+    "defaultMessage": "{numUsers} 已完成",
+    "description": "Number of users who completed the question"
+  },
   "xWAt8Q": {
     "defaultMessage": "终极前端面试准备平台",
     "description": "Description of GreatFrontEnd page"
@@ -3054,6 +3082,10 @@
   "zaEg+y": {
     "defaultMessage": "一次购买，永久解锁。",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "zfigye": {
+    "defaultMessage": "来自{country}的{name}最近购买了<link>高级版</link> ",
+    "description": "Marketing toast to show that someone has subscribed"
   },
   "zn3iWx": {
     "defaultMessage": "重复密码",

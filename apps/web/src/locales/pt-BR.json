@@ -159,6 +159,10 @@
     "defaultMessage": "Texto no console da área de trabalho de codificação para informar aos usuários que eles precisam chamar a função eles mesmos para testar.",
     "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
   },
+  "1wrVTx": {
+    "defaultMessage": "Edit on GitHub",
+    "description": "Edit on GitHub button"
+  },
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
@@ -675,6 +679,10 @@
     "defaultMessage": "Questões de Resolução de Problemas",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
   },
+  "D6iXh1": {
+    "defaultMessage": "GitHub profile link",
+    "description": "Link to GitHub profile"
+  },
   "DAqJ87": {
     "defaultMessage": "Compre a versão premium para desbloquear acesso total à questão, incluindo soluções de alta qualidade e empresas que fazem essa pergunta.",
     "description": "Subtitle on question paywall displayed on premium question's pages"
@@ -939,6 +947,10 @@
     "defaultMessage": "Planos de Preparação",
     "description": "Preparation plans section title"
   },
+  "JCFm+V": {
+    "defaultMessage": "Authors",
+    "description": "description"
+  },
   "JEcwe6": {
     "defaultMessage": "Solução",
     "description": "Header for question solution section in coding workspace"
@@ -1159,10 +1171,6 @@
     "defaultMessage": "As principais perguntas de programação de entrevistas de Front End usando React para praticar, com soluções detalhadas e explicações de ex-entrevistadores da FAANG.",
     "description": "Description of React Interview Questions page"
   },
-  "MstQla": {
-    "defaultMessage": "Preparando-se para entrevistas de Front End pela primeira vez? Descubra o que esperar em nosso <link>Guia de Entrevistas de Front End</link>",
-    "description": "Link to front end interview guidebook"
-  },
   "MyaXLl": {
     "defaultMessage": "Pratique as Principais Perguntas de Entrevista de Front End em CSS com Soluções",
     "description": "SEO title for CSS questions list page"
@@ -1226,6 +1234,10 @@
   "OL9m/V": {
     "defaultMessage": "A plataforma mais completa de preparação para entrevistas de front-end em um só lugar.",
     "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
+  },
+  "OPwgMT": {
+    "defaultMessage": "Twitter profile link",
+    "description": "Link to Twitter profile"
   },
   "OWKf+S": {
     "defaultMessage": "Visão Geral",
@@ -1606,6 +1618,10 @@
   "VLFSw7": {
     "defaultMessage": "Principais questões de programação`para entrevistas de front end em UI com Vanilla JavaScript para praticar, com soluções detalhadas e explicações por ex-entrevistadores de empresas FAANG.",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
+  },
+  "VMIoK4": {
+    "defaultMessage": "Users Completed",
+    "description": "Number of users who completed the question"
   },
   "VQ9c4+": {
     "defaultMessage": "Feedback recebido com sucesso.",
@@ -2399,6 +2415,10 @@
     "defaultMessage": "Testando",
     "description": "Testing topic for quiz questions"
   },
+  "l9vVXY": {
+    "defaultMessage": "LinkedIn profile link",
+    "description": "Link to LinkedIn profile"
+  },
   "lJupPX": {
     "defaultMessage": "Ver Todas as Questões",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -2723,6 +2743,10 @@
     "defaultMessage": "Cadastre-se",
     "description": "Label of Sign Up button on Email Sign Up page"
   },
+  "tR0TIm": {
+    "defaultMessage": "Meet our top authors:",
+    "description": "Authors section title"
+  },
   "tU2J/q": {
     "defaultMessage": "Guia de Design de Sistemas de Front End",
     "description": "Sidebar label for Front End System Design Guidebook page"
@@ -2955,6 +2979,10 @@
     "defaultMessage": "Se você estiver conectado com o OAuth (por exemplo, GitHub), você pode alterar seu e-mail aqui para usar e-mail e senha para fazer login em vez disso.",
     "description": "Subtext above email settings."
   },
+  "xVsq55": {
+    "defaultMessage": "{numUsers} completed",
+    "description": "Number of users who completed the question"
+  },
   "xWAt8Q": {
     "defaultMessage": "A plataforma definitiva de preparação para entrevistas de Front End.",
     "description": "Description of GreatFrontEnd page"
@@ -3054,6 +3082,10 @@
   "zaEg+y": {
     "defaultMessage": "Pague uma vez, desbloqueie para sempre",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "zfigye": {
+    "defaultMessage": "{name} from {country} subscribed to <link>Premium</link> recently",
+    "description": "Marketing toast to show that someone has subscribed"
   },
   "zn3iWx": {
     "defaultMessage": "Repetir Senha",
