@@ -22,8 +22,8 @@ const authors: Record<string, Author> = {
       <>
         Sunny is a Senior Staff Software Engineer at Google and has over a
         decade of experience managing teams on Google Search, Gmail, Google
-        Chat, Google Maps, and more. He joined Google in 2011 when his startup
-        TalkBin (YC W11), was acquired.
+        Chat, Google Maps, and more. He joined Google in 2011 when they acquired
+        his startup, TalkBin (YC W11).
       </>
     ),
     companyIconUrl: '/img/marketing/google-g-icon.svg',
@@ -56,9 +56,8 @@ const authors: Record<string, Author> = {
     bio: (
       <>
         Zhenghao is a Senior Software Engineer at DocuSign and was previously
-        from Instacart and Amazon. He has a track record of being developing
-        multiple modern large-scale web apps and writes about software
-        development and web technologies on{' '}
+        from Instacart and Amazon. He has developed multiple modern large-scale
+        web apps and writes about software development and web technologies on{' '}
         <Anchor href="https://www.zhenghao.io/">zhenghao.io</Anchor>.
       </>
     ),
