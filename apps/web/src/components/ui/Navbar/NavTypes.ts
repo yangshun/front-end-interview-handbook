@@ -7,6 +7,7 @@ export type NavBaseItem = Readonly<{
 export type NavLinkItem = NavBaseItem &
   Readonly<{
     href: string;
+    labelAddon?: React.ReactNode;
     type: 'link';
   }>;
 

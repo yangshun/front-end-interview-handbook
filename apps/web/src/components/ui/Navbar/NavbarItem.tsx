@@ -17,12 +17,12 @@ export default function NavbarItem({
   if (props.type === 'link') {
     return (
       <Anchor
-        className="hover:text-brand-500 cursor-pointer whitespace-nowrap px-3 py-1 text-xs font-medium text-slate-900"
+        className="hover:text-brand-500 flex cursor-pointer gap-2 whitespace-nowrap px-3 py-1 text-xs font-medium text-slate-900"
         href={props.href}
         suppressHydrationWarning={true}
         variant="unstyled"
         onClick={onClick}>
-        {label}
+        {label} {props.labelAddon}
       </Anchor>
     );
   }

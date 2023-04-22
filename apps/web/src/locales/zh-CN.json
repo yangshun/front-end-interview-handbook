@@ -503,6 +503,10 @@
     "defaultMessage": "最常见的题目",
     "description": "Most common behavioral interview questions"
   },
+  "94Tw3Z": {
+    "defaultMessage": "简历审核",
+    "description": "Link label to the hiring page"
+  },
   "94oFfy": {
     "defaultMessage": "已完成",
     "description": "Label indicating that the question has been completed by the user"
@@ -726,6 +730,10 @@
   "EjbpUe": {
     "defaultMessage": "打开导航资料菜单",
     "description": "Screenreader text to open the profile menu"
+  },
+  "Epnwgh": {
+    "defaultMessage": "新!",
+    "description": "New service label"
   },
   "ExWrYc": {
     "defaultMessage": "在这里练习一切。",
@@ -2994,10 +3002,6 @@
   "xjHSyF": {
     "defaultMessage": "所有日志级别",
     "description": "Select label for all log levels in console filter"
-  },
-  "xq16Hq": {
-    "defaultMessage": "我们正在招聘!",
-    "description": "Link label to the hiring page"
   },
   "xsLz0P": {
     "defaultMessage": "安全",

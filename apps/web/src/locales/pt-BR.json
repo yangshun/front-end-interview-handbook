@@ -503,6 +503,10 @@
     "defaultMessage": "Perguntas Mais Comuns",
     "description": "Most common behavioral interview questions"
   },
+  "94Tw3Z": {
+    "defaultMessage": "Resume Review",
+    "description": "Link label to the hiring page"
+  },
   "94oFfy": {
     "defaultMessage": "Concluído",
     "description": "Label indicating that the question has been completed by the user"
@@ -726,6 +730,10 @@
   "EjbpUe": {
     "defaultMessage": "Abrir menu de perfil de navegação",
     "description": "Screenreader text to open the profile menu"
+  },
+  "Epnwgh": {
+    "defaultMessage": "New!",
+    "description": "New service label"
   },
   "ExWrYc": {
     "defaultMessage": "Pratique tudo por aqui.",
@@ -2994,10 +3002,6 @@
   "xjHSyF": {
     "defaultMessage": "Todos os níveis de log",
     "description": "Select label for all log levels in console filter"
-  },
-  "xq16Hq": {
-    "defaultMessage": "Estamos Contratando",
-    "description": "Link label to the hiring page"
   },
   "xsLz0P": {
     "defaultMessage": "Segurança",
