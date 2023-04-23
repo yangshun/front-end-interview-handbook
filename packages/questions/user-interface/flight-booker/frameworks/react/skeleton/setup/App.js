@@ -1,5 +1,9 @@
 import './styles.css';
 
 export default function App() {
-  return <div>Hello World</div>;
+  return (
+    <form>
+      <input type="date" />
+    </form>
+  );
 }

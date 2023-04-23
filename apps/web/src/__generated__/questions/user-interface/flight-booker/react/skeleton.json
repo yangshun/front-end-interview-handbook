@@ -15,7 +15,7 @@
     "activeFile": "/App.js",
     "files": {
       "/App.js": {
-        "code": "import './styles.css';\n\nexport default function App() {\n  return <div>Hello World</div>;\n}\n"
+        "code": "import './styles.css';\n\nexport default function App() {\n  return (\n    <form>\n      <input type=\"date\" />\n    </form>\n  );\n}\n"
       },
       "/index.js": {
         "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
