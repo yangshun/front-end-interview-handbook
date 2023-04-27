@@ -1,0 +1,15 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import difference from '../src/difference';
+
+## Solution
+
+<MDXCodeBlock>{difference}</MDXCodeBlock>
+
+## Edge Cases
+
+To handle sparse arrays such as `[1, ,3]`, the `in` operator is used check if the index `i` is present in the `array` before checking if the value at index i is undefined. This ensures that sparse arrays are handled correctly.
+
+## Resources
+
+- [Lodash `_.difference`](https://lodash.com/docs/#difference)
