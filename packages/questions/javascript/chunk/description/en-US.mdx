@@ -1,0 +1,32 @@
+---
+title: Chunk
+excerpt: Implement a function to create an array of elements split into groups the length of size.
+---
+
+## Lodash's Chunk method
+
+Write a function chunk that emulates the functionality of the Lodash utility function `_.chunk(array, [size=1])`.
+The function split the input array into chunks of size length and return a new array of these chunks.
+Note that your `chunk` function should not modify the original input array.
+
+```js
+chunk(array, [size=1]);
+```
+- `array`: The array to split.
+- `size`: The chunk size. A positive integer.
+
+
+## Examples
+
+```js
+chunk(['a', 'b', 'c', 'd']); // => [['a'], ['b'], ['c'], ['d']]
+chunk([1, 2, 3, 'd'], 2); // => [[1, 2], [3, 'd']]
+```
+
+When the length is not divisible by size, the final chunk will be the remaining elements.
+
+```js
+chunk(['a', 'b', 'c', 'd'], 3); // => [['a', 'b', 'c'], ['d']]
+```
+
+The function should return empty array if argument `array` is empty.
