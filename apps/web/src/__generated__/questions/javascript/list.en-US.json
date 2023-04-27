@@ -225,6 +225,33 @@
   {
     "author": null,
     "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that creates an array of elements split into smaller groups of a specified size.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/chunk",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get"
+    ],
+    "slug": "chunk",
+    "title": "Chunk"
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1651449600,
     "difficulty": "medium",
     "duration": 20,
@@ -247,6 +274,34 @@
     "similarQuestions": [],
     "slug": "classnames",
     "title": "Classnames"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that removes all falsey values.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compact",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get",
+      "chunk"
+    ],
+    "slug": "compact",
+    "title": "Compact"
   },
   {
     "author": "yangshun",
@@ -556,6 +611,89 @@
   },
   {
     "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that finds the difference in values between two arrays",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/difference",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get",
+      "compact",
+      "chunk"
+    ],
+    "slug": "difference",
+    "title": "Difference"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that excludes elements from the end of an array until the predicate returns false",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/drop-right-while",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "drop-while"
+    ],
+    "slug": "drop-right-while",
+    "title": "Drop Right While"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that excludes elements from the beginning of an array until the predicate returns false",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/drop-while",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "drop-right-while"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "drop-while",
+    "title": "Drop While"
+  },
+  {
+    "author": null,
     "companies": [
       "google",
       "lyft"
@@ -619,6 +757,31 @@
     ],
     "slug": "event-emitter-ii",
     "title": "Event Emitter II"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that fills an array with values within specified indices",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/fill",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "fill",
+    "title": "Fill"
   },
   {
     "author": "zhenghao",

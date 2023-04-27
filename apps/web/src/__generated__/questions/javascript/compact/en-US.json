@@ -1,0 +1,38 @@
+{
+  "description": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),g=(n,e)=>{for(var c in e)o(n,c,{get:e[c],enumerable:!0})},r=(n,e,c,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of m(e))!f.call(n,t)&&t!==c&&o(n,t,{get:()=>e[t],enumerable:!(l=u(e,t))||l.enumerable});return n};var v=(n,e,c)=>(c=n!=null?h(p(n)):{},r(e||!n||!n.__esModule?o(c,\"default\",{value:n,enumerable:!0}):c,n)),y=n=>r(o({},\"__esModule\",{value:!0}),n);var i=x((L,s)=>{s.exports=_jsx_runtime});var b={};g(b,{default:()=>w,frontmatter:()=>j});var a=v(i()),j={title:\"Compact\",excerpt:\"Implement a function that removes all falsey values.\"};function d(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\"},n.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.h2,{children:\"Lodash's Compact method\"}),`\n`,(0,a.jsxs)(e.p,{children:[\"In JavaScript, the Lodash library provides a utility function called compact, which removes falsey values (i.e., values that evaluate to false in a boolean context) from an array. Falsey values include \",(0,a.jsx)(e.code,{children:\"false\"}),\", \",(0,a.jsx)(e.code,{children:\"null\"}),\", \",(0,a.jsx)(e.code,{children:\"0\"}),\", \",(0,a.jsx)(e.code,{children:'\"\"'}),\", \",(0,a.jsx)(e.code,{children:\"undefined\"}),\", and \",(0,a.jsx)(e.code,{children:\"NaN\"}),\" (you should know this by heart!).\"]}),`\n`,(0,a.jsxs)(e.p,{children:[\"Let's write our own version as a \",(0,a.jsx)(e.code,{children:\"compact\"}),\" function. The function has the following signature:\"]}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-js\",children:`compact(array);\n`})}),`\n`,(0,a.jsx)(e.h2,{children:\"Examples\"}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-js\",children:`compact([0, 1, false, 2, '', 3, null]); // => [1, 2, 3]\ncompact(['hello', 123, [], {}, function () {}]); // => ['hello', 123, [], {}, function() {}]\n`})})]})}function _(n={}){let{wrapper:e}=n.components||{};return e?(0,a.jsx)(e,Object.assign({},n,{children:(0,a.jsx)(d,n)})):d(n)}var w=_;return y(b);})();\n;return Component;",
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that removes all falsey values.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compact",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get",
+      "chunk"
+    ],
+    "slug": "compact",
+    "title": "Compact"
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Array} array: The array to compact.\n * @return {Array} Returns the new array of filtered values.\n */\nexport default function compact(array) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function compact<T>(\n  array: Array<T | null | undefined | false | 0 | ''>,\n): T {\n  throw 'Not implemented!';\n}"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var j=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),v=(r,e)=>{for(var n in e)o(r,n,{get:e[n],enumerable:!0})},l=(r,e,n,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of f(e))!y.call(r,a)&&a!==n&&o(r,a,{get:()=>e[a],enumerable:!(c=p(e,a))||c.enumerable});return r};var _=(r,e,n)=>(n=r!=null?m(x(r)):{},l(e||!r||!r.__esModule?o(n,\"default\",{value:r,enumerable:!0}):n,r)),g=r=>l(o({},\"__esModule\",{value:!0}),r);var i=j((b,s)=>{s.exports=_jsx_runtime});var D={};v(D,{default:()=>k});var t=_(i());var u=MDXCodeBlock;var d=`/**\n * @param {Array} array: The array to compact.\n * @return {Array} Returns the new array of filtered values.\n */\nexport default function compact(array) {\n  const result = [];\n\n  for (let i = 0; i < array.length; i++) {\n    const value = array[i];\n\n    // Skip falsey values\n    if (value) {\n      result.push(value);\n    }\n  }\n\n  return result;\n}\n`;function h(r){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,t.jsx)(e.p,{children:\"The solution is to make use the conditional evaluation of Javascript.\"}),`\n`,(0,t.jsx)(u,{children:d}),`\n`,(0,t.jsx)(e.h2,{children:\"Edge Cases\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"Objects such as \",(0,t.jsx)(e.code,{children:\"{}\"}),\" are evaluated to \",(0,t.jsx)(e.code,{children:\"true\"}),\".\"]}),`\n`,(0,t.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsxs)(e.a,{href:\"https://lodash.com/docs/#compact\",children:[\"Lodash \",(0,t.jsx)(e.code,{children:\"_.compact\"})]})}),`\n`]})]})}function M(r={}){let{wrapper:e}=r.components||{};return e?(0,t.jsx)(e,Object.assign({},r,{children:(0,t.jsx)(h,r)})):h(r)}var k=M;return g(D);})();\n;return Component;",
+  "tests": "import compact from './compact';\n\n/* eslint-disable no-undef */\ndescribe('compact', () => {\n  it('should remove all falsey values from the input array', () => {\n    const input = [0, 1, false, 2, '', 3];\n    const output = compact(input);\n    expect(output).toEqual([1, 2, 3]);\n  });\n\n  it('should handle arrays with only falsey values', () => {\n    const input = [null, undefined, NaN, 0, false, '', ''];\n    const output = compact(input);\n    expect(output).toEqual([]);\n  });\n\n  it('should handle arrays with no falsey values', () => {\n    const input = ['hello', true, 123, [], {}, function () {}];\n    const output = compact(input);\n    expect(output).toEqual(input);\n  });\n\n  it('should handle empty arrays', () => {\n    const input = [];\n    const output = compact(input);\n    expect(output).toEqual([]);\n  });\n\n  it('should not modify the original input array', () => {\n    const input = [0, 1, false, 2, '', 3];\n    compact(input);\n    expect(input).toEqual([0, 1, false, 2, '', 3]);\n  });\n\n  it('should handle arrays with holes', () => {\n    const input = [1, , 2, , 3];\n    const output = compact(input);\n    expect(output).toEqual([1, 2, 3]);\n  });\n\n  it('should handle sparse arrays', () => {\n    const input = new Array(3);\n    input[1] = 'hello';\n    const output = compact(input);\n    expect(output).toEqual(['hello']);\n  });\n});"
+}

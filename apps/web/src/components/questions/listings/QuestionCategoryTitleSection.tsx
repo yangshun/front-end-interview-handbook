@@ -54,31 +54,31 @@ export default function QuestionCategoryTitleSection({
 }: Props) {
   return (
     <div className="flex flex-col gap-y-8">
-        <div className="relative flex flex-wrap gap-3">
-          {items.map(({ icon: Icon, label, value }) => (
-            <Anchor
-              key={value}
+      <div className="relative flex flex-wrap gap-3">
+        {items.map(({ icon: Icon, label, value }) => (
+          <Anchor
+            key={value}
+            className={clsx(
+              'group flex items-center gap-x-2 rounded-full border border-slate-200 px-8 py-2 text-xs font-medium sm:text-sm',
+              value === category ? 'bg-brand-100' : 'hover:bg-slate-50',
+            )}
+            href={`/questions/${value}`}
+            variant="unstyled">
+            <Icon
               className={clsx(
-                'group flex items-center gap-x-2 rounded-full border border-slate-200 px-8 py-2 text-xs font-medium sm:text-sm',
-                value === category ? 'bg-brand-100' : 'hover:bg-slate-50',
+                'h-4 w-4',
+                value !== category &&
+                  'opacity-50 grayscale transition-colors group-hover:opacity-100 group-hover:grayscale-0',
               )}
-              href={`/questions/${value}`}
-              variant="unstyled">
-              <Icon
-                className={clsx(
-                  'h-4 w-4',
-                  value !== category &&
-                    'opacity-50 grayscale transition-colors group-hover:opacity-100 group-hover:grayscale-0',
-                )}
-              />{' '}
-              {label}
-            </Anchor>
-          ))}
-        </div>
-        <div className="flex gap-6">
-          {logo}
-          <TextPairing description={description} size="lg" title={title} />
-        </div>
+            />{' '}
+            {label}
+          </Anchor>
+        ))}
       </div>
+      <div className="flex gap-6">
+        {logo}
+        <TextPairing description={description} size="lg" title={title} />
+      </div>
+    </div>
   );
 }

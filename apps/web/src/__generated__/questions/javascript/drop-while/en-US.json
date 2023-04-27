@@ -1,0 +1,37 @@
+{
+  "description": "var Component=(()=>{var s=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),y=(t,e)=>{for(var r in e)a(t,r,{get:e[r],enumerable:!0})},l=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of p(e))!f.call(t,i)&&i!==r&&a(t,i,{get:()=>e[i],enumerable:!(o=u(e,i))||o.enumerable});return t};var x=(t,e,r)=>(r=t!=null?s(m(t)):{},l(e||!t||!t.__esModule?a(r,\"default\",{value:t,enumerable:!0}):r,t)),v=t=>l(a({},\"__esModule\",{value:!0}),t);var d=g((k,c)=>{c.exports=_jsx_runtime});var w={};y(w,{default:()=>W,frontmatter:()=>b});var n=x(d()),b={title:\"Drop While\",excerpt:\"Implement a function that excludes elements from the beginning of an array until the predicate returns false\"};function h(t){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",ul:\"ul\",li:\"li\",h2:\"h2\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Lodash provides a utility called \",(0,n.jsx)(e.code,{children:\"dropWhile\"}),\" that creates a slice of an array with elements dropped from the beginning until the predicate function returns falsey.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Your task is to implement a JavaScript function \",(0,n.jsx)(e.code,{children:\"dropWhile\"}),\" that behaves like Lodash's \",(0,n.jsx)(e.code,{children:\"dropWhile\"}),\" utility using the following function signature:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`dropWhile(array, predicate);\n`})}),`\n`,(0,n.jsx)(e.p,{children:\"The function takes two arguments:\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"array\"}),\": The array to iterate over.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"predicate\"}),\": The predicate is invoked with three arguments: (value, index, array) and returns a \",(0,n.jsx)(e.code,{children:\"boolean\"}),\" value.\"]}),`\n`]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Your function should drop elements from the beginning of the array until the predicate function returns \",(0,n.jsx)(e.code,{children:\"falsey\"}),\", and return the remaining elements as a new array. Your function should not modify the original array.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Examples\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`dropWhile([1, 2, 3, 4, 5], (value) => value < 3); // => [3, 4, 5]\ndropWhile([1, 2, 3], (value) => value < 6); // => []\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"Note that Lodash's \",(0,n.jsx)(e.code,{children:\"dropWhile\"}),\" utility also allows you to pass an optional \",(0,n.jsx)(e.code,{children:\"thisArg\"}),\" parameter to bind \",(0,n.jsx)(e.code,{children:\"this\"}),\" inside the predicate function, but for this exercise, you can ignore that parameter.\"]})]})}function j(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var W=j;return v(w);})();\n;return Component;",
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that excludes elements from the beginning of an array until the predicate returns false",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/drop-while",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "drop-right-while"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "drop-while",
+    "title": "Drop While"
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Array} array - The array to iterate over.\n * @param {Function} predicate - The function invoked per iteration.\n * @return {Array} Returns the slice of `array`.\n */\nexport default function dropWhile(array, predicate) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function dropWhile<T>(\n  array: Array<T>,\n  predicate: (value?: T) => boolean,\n): T {\n  throw 'Not implemented!';\n}"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var C=(e,r)=>()=>(r||e((r={exports:{}}).exports,r),r.exports),_=(e,r)=>{for(var n in r)a(e,n,{get:r[n],enumerable:!0})},c=(e,r,n,i)=>{if(r&&typeof r==\"object\"||typeof r==\"function\")for(let t of f(r))!x.call(e,t)&&t!==n&&a(e,t,{get:()=>r[t],enumerable:!(i=m(r,t))||i.enumerable});return e};var j=(e,r,n)=>(n=e!=null?p(y(e)):{},c(r||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),g=e=>c(a({},\"__esModule\",{value:!0}),e);var l=C((F,d)=>{d.exports=_jsx_runtime});var X={};_(X,{default:()=>W});var o=j(l());var h=MDXCodeBlock;var s=`/**\n * @param {Array} array - The array to iterate over.\n * @param {Function} predicate - The function invoked per iteration.\n * @return {Array} Returns the slice of \\`array\\`.\n */\nexport default function dropWhile(array, predicate) {\n  let dropCount = 0;\n\n  while (\n    dropCount < array.length &&\n    predicate(array[dropCount], dropCount, array)\n  ) {\n    dropCount++;\n  }\n\n  return array.slice(dropCount);\n}\n`;function u(e){let r=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\",code:\"code\"},e.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(r.h2,{children:\"Solution\"}),`\n`,(0,o.jsx)(h,{children:s}),`\n`,(0,o.jsx)(r.h2,{children:\"Resources\"}),`\n`,(0,o.jsxs)(r.ul,{children:[`\n`,(0,o.jsx)(r.li,{children:(0,o.jsxs)(r.a,{href:\"https://lodash.com/docs/#dropWhile\",children:[\"Lodash \",(0,o.jsx)(r.code,{children:\"_.dropWhile\"})]})}),`\n`]})]})}function D(e={}){let{wrapper:r}=e.components||{};return r?(0,o.jsx)(r,Object.assign({},e,{children:(0,o.jsx)(u,e)})):u(e)}var W=D;return g(X);})();\n;return Component;",
+  "tests": "import dropWhile from './drop-while';\n\n/* eslint-disable no-undef */\ndescribe('dropWhile', () => {\n  test('should drop elements until predicate returns falsey', () => {\n    const array = [1, 2, 3, 4, 5];\n    const predicate = (value) => value < 3;\n    const result = dropWhile(array, predicate);\n    expect(result).toEqual([3, 4, 5]);\n  });\n\n  test('should return empty array if predicate always returns truthy', () => {\n    const array = [1, 2, 3, 4, 5];\n    const predicate = () => true;\n    const result = dropWhile(array, predicate);\n    expect(result).toEqual([]);\n  });\n\n  test('should return entire array if predicate always returns falsey', () => {\n    const array = [1, 2, 3, 4, 5];\n    const predicate = () => false;\n    const result = dropWhile(array, predicate);\n    expect(result).toEqual([1, 2, 3, 4, 5]);\n  });\n\n  test('should handle sparse arrays', () => {\n    const array = [1, , 3, 4, 5];\n    const predicate = (value) => value === undefined;\n    const result = dropWhile(array, predicate);\n    expect(result).toEqual([1, , 3, 4, 5]);\n  });\n});"
+}

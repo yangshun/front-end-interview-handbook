@@ -1,6 +1,6 @@
 ---
 title: Difference
-excerpt: Creates an array of values not included in given values
+excerpt: Implement a function that finds the difference in values between two arrays
 ---
 
 The Lodash `_.difference()` function is used to remove a single element or the array of elements from the original array. This function works pretty much same as the core function of JavaScript i.e filter.
@@ -17,12 +17,12 @@ difference(array, [values]);
 ## Examples
 
 ```js
-difference(["a", 2, 3], [2, 3]); // => ["a"]
-difference([1, , 3], [1]) // => [3]
+difference(['a', 2, 3], [2, 3]); // => ["a"]
+difference([1, , 3], [1]); // => [3]
 ```
 
 The function should return the original array if the value array is empty array.
 
 ```js
-difference(["a", 2, 3], []); // => ["a", 2, 3]
+difference(['a', 2, 3], []); // => ["a", 2, 3]
 ```

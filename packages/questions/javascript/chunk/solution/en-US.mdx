@@ -6,12 +6,11 @@ import chunk from '../src/chunk';
 
 <MDXCodeBlock>{chunk}</MDXCodeBlock>
 
-
 ## Note
 
 Regarding the edge case of modifying the array while iterating over it, Lodash will operate on a shallow copy of the array to avoid modifying the original array while iterating over it.
 
-Just FYI, if you would like to modify the array while iterating through it:
+If you would like to modify the array while iterating through it:
 
 ```js
 for (let i = 0; i < array.length; i += size) {
@@ -23,8 +22,6 @@ for (let i = 0; i < array.length; i += size) {
   array = array.slice();
   array.splice(i, size, ...chunk);
 }
-
-
 ```
 
 ## Resources
