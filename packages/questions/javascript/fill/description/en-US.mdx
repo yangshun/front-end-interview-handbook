@@ -1,0 +1,27 @@
+---
+title: Fill
+excerpt: Fills elements of array with value from start up to, but not including, the end.
+---
+
+Let's write a `fill` function, which fills elements of array with value from start up to, but not including, end:
+
+```js
+fill(array, value, [start=0], [end=array.length])
+```
+
+- `array` (Array): The array to fill.
+- `value` (*): The value to fill array with.
+- `start` (number): The start position (default 0).
+- `end` (number): The end position (default array.length).
+
+Make sure to mutate the original array instead of creating a shallow copy.
+
+## Example
+
+```js
+const array = [1, 2, 3];
+fill(array, 'a'); // => ['a', 'a', 'a']
+fill([4, 6, 8, 10], '*', 1, 3); // => [4, '*', '*', 10]
+```
+
+Make sure to handle negative indices and out of range indices.
