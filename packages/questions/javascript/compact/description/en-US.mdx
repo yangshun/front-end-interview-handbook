@@ -1,0 +1,20 @@
+---
+title: Compact
+excerpt: Implement a function to filter out falsey values.
+---
+
+## Lodash's Compact method
+In JavaScript, the Lodash library provides a utility function called compact, which removes falsey values (i.e., values that evaluate to false in a boolean context) from an array. The values false, null, 0, "", undefined, and NaN are falsey.
+
+Let's write our own version as a `compact` function. The function has the following signature:
+
+```js
+compact(array);
+```
+
+## Examples
+
+```js
+compact([0, 1, false, 2, '', 3, null]); // => [1, 2, 3]
+compact(['hello', 123, [], {}, function() {}]) // => ['hello', 123, [], {}, function() {}]
+```
