@@ -1,0 +1,26 @@
+---
+title: Drop Right While
+excerpt: Creates a slice of an array with elements dropped from the end until the predicate returns falsey
+---
+
+Lodash provides a utility called `dropRightWhile` that creates a slice of an array with elements dropped from the end until the predicate function returns `falsey`.
+
+Your task is to implement a JavaScript function `dropRightWhile` that behaves like Lodash's `dropRightWhile` utility using the following function signature:
+
+```js
+dropWhile(array, predicate);
+```
+
+The function takes two arguments:
+
+- `array`: The array to iterate over.
+- `predicate`: The predicate is invoked with three arguments: (value, index, array) and returns a `boolean` value.
+
+Your function should drop elements from the end of the array until the predicate function returns `falsey`, and return the remaining elements as a new array. Your function should not modify the original array.
+
+## Examples
+
+```js
+dropRightWhile([1, 2, 3, 4, 5], (value) => value < 3); // => [1, 2, 3]
+dropRightWhile([1, 2, 3], (value) => value > 6); // => []
+```
