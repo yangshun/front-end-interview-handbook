@@ -88,7 +88,7 @@ export default function FeedbackDialog({
     data: feedbackId,
     isLoading: isSubmitLoading,
     failureReason: submitFailureReason,
-    mutate: submitFeeback,
+    mutate: submitFeedback,
   } = trpc.feedback.submitFeedback.useMutation({
     onSuccess: () => {
       setFeedbackState('email');
@@ -124,15 +124,19 @@ export default function FeedbackDialog({
               event.stopPropagation();
 
               const data = new FormData(event.target as HTMLFormElement);
+              const message = (data.get('message') ?? '')?.toString();
 
-              logMessage({
-                level: 'info',
-                message: (data.get('message') ?? '')?.toString(),
-                title: 'User Feedback',
-              });
+              // Only log if the message contains something.
+              if (message.length > 10) {
+                logMessage({
+                  level: 'info',
+                  message: (data.get('message') ?? '')?.toString(),
+                  title: 'User Feedback',
+                });
+              }
 
-              submitFeeback({
-                message: (data.get('message') ?? '')?.toString(),
+              submitFeedback({
+                message,
               });
             }}>
             <TextArea
