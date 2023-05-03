@@ -1935,10 +1935,6 @@
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
   },
-  "c4SvsG": {
-    "defaultMessage": "I got an opportunity to interview for a dream role with a critical frontend team of an online retail giant with over 50m customers and > 5 billion renders per day. A great opportunity to take my career to the next level. The problem — I wasn't ready to interview!",
-    "description": "Larry Almeida's testimonial"
-  },
   "c7lcjj": {
     "defaultMessage": "HTML Questions",
     "description": "HTML Questions list page title"
@@ -2490,6 +2486,10 @@
   "mOk1w0": {
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
+  },
+  "mST7/q": {
+    "defaultMessage": "We have helped thousands of Software Engineers",
+    "description": "Testimonial section subtitle"
   },
   "mVXHy8": {
     "defaultMessage": "Senior Software Engineer — Front End, Zalando, Berlin, Germany",
