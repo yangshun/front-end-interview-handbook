@@ -16,16 +16,11 @@ export const purchasesRouter = router({
     });
 
     const purchases = charges.data.map((charge) => {
-      const firstNameTokens = (charge.billing_details.name ?? '')
-        .trim()
-        .split(/(\s+)/);
-
       const countryCode = (charge.billing_details.address?.country ??
         'US') as keyof typeof countryNames;
 
       return {
         country: countryNames[countryCode],
-        name: firstNameTokens.length > 0 ? firstNameTokens[0] : 'Someone',
       };
     });
 

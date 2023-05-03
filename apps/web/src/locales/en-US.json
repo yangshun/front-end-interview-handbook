@@ -311,6 +311,10 @@
     "defaultMessage": "Interview Guides",
     "description": "Sidebar label for Interview Guides category"
   },
+  "5gqGca": {
+    "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
+    "description": "Marketing toast to show that someone has subscribed"
+  },
   "5hTR16": {
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
@@ -3090,10 +3094,6 @@
   "zaEg+y": {
     "defaultMessage": "Pay once, own it forever",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-  },
-  "zfigye": {
-    "defaultMessage": "{name} from {country} subscribed to <link>Premium</link> recently",
-    "description": "Marketing toast to show that someone has subscribed"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",

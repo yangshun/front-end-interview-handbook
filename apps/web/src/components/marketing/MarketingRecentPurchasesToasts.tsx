@@ -50,13 +50,12 @@ function MarketingRecentPurchasesImpl({
       },
       title: (
         <FormattedMessage
-          defaultMessage="{name} from {country} subscribed to <link>Premium</link> recently"
+          defaultMessage="Someone from {country} subscribed to <link>Premium</link> recently"
           description="Marketing toast to show that someone has subscribed"
-          id="zfigye"
+          id="5gqGca"
           values={{
             country: currentPurchase.country,
             link: (chunks) => <Anchor href="/pricing">{chunks}</Anchor>,
-            name: currentPurchase.name,
           }}
         />
       ),
