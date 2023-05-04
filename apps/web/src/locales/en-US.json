@@ -1255,6 +1255,10 @@
     "defaultMessage": "Twitter profile link",
     "description": "Link to Twitter profile"
   },
+  "OQHvfy": {
+    "defaultMessage": "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
+    "description": "Luke Fiji's testimonial"
+  },
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
@@ -1490,6 +1494,10 @@
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
+  },
+  "SVRodZ": {
+    "defaultMessage": "Seattle, WA, USA",
+    "description": "Luke Fiji's job title"
   },
   "SWOTIA": {
     "defaultMessage": "Reset to initial code",
