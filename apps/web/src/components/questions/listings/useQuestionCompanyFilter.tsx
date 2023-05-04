@@ -12,6 +12,9 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'apple',
   'airbnb',
   'linkedin',
+  'lyft',
+  'uber',
+  'dropbox',
 ];
 
 export default function useQuestionCompanyFilter(): [
