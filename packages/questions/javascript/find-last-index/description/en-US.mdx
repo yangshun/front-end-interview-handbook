@@ -1,0 +1,49 @@
+---
+title: Find Last Index
+excerpt: Implement a function that returns the index of the last element in the array that satisfies the provided testing function.
+---
+
+Write a function named `findLastIndex` that takes an array of values, a function predicate, and an optional fromIndex number argument, and returns the index of the last element in the array that satisfies the provided testing function predicate.
+
+```js
+findLastIndex(array, predicate, [(fromIndex = array.length - 1)]);
+```
+
+- `array`: The array to iterate over.
+- `predicate`: The function invoked per iteration. It is called with three arguments: (value, index, array).
+- `fromIndex`: The index after which the searching starts. If from Index is not given then by default it is n-1 where n is the length of the array.
+
+Returns the index of the found element. If no element satisfies the predicate function, the function should return -1.
+
+Your function needs to handle negative index. If the index is out of range, start search from the closest index that is within the range.
+
+## Examples
+
+```js
+const arr = [5, 4, 3, 2, 1];
+
+// Search for the last number in the array that is greater than 3
+findLastIndex(arr, (num) => num > 3); // Returns index 1
+
+// Start searching from index 3 (inclusive)
+findLastIndex(arr, (num) => num > 1, 3); // Returns index 3
+
+findLastIndex(arr, (num) => num < 1, 3); // Returns index -1
+```
+
+## Edge cases
+
+Your function needs to handle negative `fromIndex`.
+
+If `index > array.length`, start from the last index. Also, if `index < - array.length`, start searching from index 0.
+
+```js
+const arr = [5, 4, 3, 2, 1];
+findLastIndex(arr, (num) => num > 2, -3); // Returns index 2
+
+// Start from the last index
+findLastIndex(arr, (num) => num > 0, 10); // Returns index 4
+
+// Start from 0 if fromIndex < -(array.length)
+findLastIndex(arr, (num) => num > 2, -10); // Returns index 1
+```
