@@ -1871,6 +1871,10 @@
     "defaultMessage": "Contributed by ex-interviewers at",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
   },
+  "aTebw8": {
+    "defaultMessage": "Software Developer Intern, Vidyard, Ontario, Canada",
+    "description": "Nafis Hasnain's job title"
+  },
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
@@ -2122,6 +2126,10 @@
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
+  },
+  "fYyYBk": {
+    "defaultMessage": "GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!",
+    "description": "Nafis Hasnain's testimonial"
   },
   "fcYNb3": {
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",

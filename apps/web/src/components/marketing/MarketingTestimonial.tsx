@@ -69,6 +69,21 @@ function useTestimonials() {
       }),
     },
     {
+      key: 'vietnam',
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team."
+          description="Anonymous Software Engineer's testimonial"
+          id="3HUfI+"
+        />
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Software Engineer, Vietnam',
+        description: "Anonymous Software Engineer's job title",
+        id: 'd1vCxb',
+      }),
+    },
+    {
       authorThumbnailUrl: '/img/testimonials/luke-fiji.jpg',
       authorUrl: 'https://www.linkedin.com/in/lukefiji/',
       key: 'luke-fiji',
@@ -146,6 +161,24 @@ function useTestimonials() {
       }),
     },
     {
+      authorThumbnailUrl: '/img/testimonials/nafis-hasnain.jpg',
+      authorUrl: 'https://www.linkedin.com/in/nhasnain/',
+      key: 'nafis-hasnain',
+      name: 'Nafis Hasnain',
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!"
+          description="Nafis Hasnain's testimonial"
+          id="fYyYBk"
+        />
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Software Developer Intern, Vidyard, Ontario, Canada',
+        description: "Nafis Hasnain's job title",
+        id: 'aTebw8',
+      }),
+    },
+    {
       authorUrl: 'https://www.linkedin.com/in/gouse-basha-7a0902191/',
       key: 'india-2',
       name: 'Gouse Basha',
@@ -160,21 +193,6 @@ function useTestimonials() {
         defaultMessage: 'Software Engineer, Chennai, India',
         description: "Gouse Basha's job title",
         id: '+7Wuw5',
-      }),
-    },
-    {
-      key: 'vietnam',
-      testimonial: (
-        <FormattedMessage
-          defaultMessage="You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team."
-          description="Anonymous Software Engineer's testimonial"
-          id="3HUfI+"
-        />
-      ),
-      title: intl.formatMessage({
-        defaultMessage: 'Software Engineer, Vietnam',
-        description: "Anonymous Software Engineer's job title",
-        id: 'd1vCxb',
       }),
     },
   ];
