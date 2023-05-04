@@ -2739,9 +2739,9 @@
     "author": "yangshun",
     "companies": [],
     "created": 1682208000,
-    "difficulty": "hard",
+    "difficulty": "medium",
     "duration": 30,
-    "excerpt": "Build an app that allows transferring of items between two lists",
+    "excerpt": "Build a component that allows transferring of items between two lists",
     "featured": false,
     "format": "user-interface",
     "frameworkDefault": "react",
@@ -2758,7 +2758,9 @@
       "css",
       "js"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "transfer-list-ii"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
@@ -2767,6 +2769,40 @@
     ],
     "slug": "transfer-list",
     "title": "Transfer List"
+  },
+  {
+    "author": "yangshun",
+    "companies": [],
+    "created": 1683158400,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Build a component that allows transferring of items between two lists, bulk selection/unselection of items, and adding of new items",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/transfer-list-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/transfer-list-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "todo-list",
+      "transfer-list"
+    ],
+    "slug": "transfer-list-ii",
+    "title": "Transfer List II"
   },
   {
     "author": "yangshun",

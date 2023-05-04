@@ -20,38 +20,8 @@ function CheckboxItem({ onChange, label, checked }) {
 }
 
 function ItemList({ items, setItems }) {
-  const [newItem, setNewItem] = useState('');
-
   return (
     <div className="transfer-list__section">
-      <form
-        onSubmit={(event) => {
-          // Prevent page reload on form submission.
-          event.preventDefault();
-
-          // Trim value.
-          const newItemValue = newItem.trim();
-
-          // No-op if input is empty.
-          if (newItemValue === '') {
-            return;
-          }
-
-          // Add new item to list.
-          const newItems = new Map(items);
-          newItems.set(newItem, false);
-          setItems(newItems);
-
-          setNewItem('');
-        }}>
-        <input
-          type="text"
-          value={newItem}
-          onChange={(event) => {
-            setNewItem(event.target.value);
-          }}
-        />
-      </form>
       <ul className="transfer-list__section__items">
         {Array.from(items.entries()).map(
           ([label, checked]) => (
