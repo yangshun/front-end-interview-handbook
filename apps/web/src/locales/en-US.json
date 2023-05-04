@@ -15,10 +15,6 @@
     "defaultMessage": "About",
     "description": "Link to company's about page"
   },
-  "+7Wuw5": {
-    "defaultMessage": "Software Engineer, Chennai, India",
-    "description": "Gouse Basha's job title"
-  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -475,6 +471,10 @@
     "defaultMessage": "See plan",
     "description": "Link to view study plan details"
   },
+  "8WkU/A": {
+    "defaultMessage": "Senior Software Engineer — Seattle, WA, USA",
+    "description": "Ryan Van Valkenburg's job title"
+  },
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -570,10 +570,6 @@
   "B6qk8B": {
     "defaultMessage": "Hide side menu",
     "description": "Screenreader text for the button that expands the side menu"
-  },
-  "B7d1jK": {
-    "defaultMessage": "Front End Engineer, India",
-    "description": "Anonymous Front End Engineer's job title"
   },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
@@ -898,6 +894,10 @@
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
+  },
+  "HsuAKu": {
+    "defaultMessage": "Front End Engineer — Delhi, India",
+    "description": "Anonymous Front End Engineer's job title"
   },
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
@@ -1243,6 +1243,10 @@
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
   },
+  "OBnflX": {
+    "defaultMessage": "Software Engineer — Vietnam",
+    "description": "Anonymous Software Engineer's job title"
+  },
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation System Design page"
@@ -1487,10 +1491,6 @@
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
   },
-  "SO8lrv": {
-    "defaultMessage": "Front End Engineer, Delhi, India",
-    "description": "Anonymous Front End Engineer's job title"
-  },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
@@ -1510,6 +1510,10 @@
   "Se6J8o": {
     "defaultMessage": "Mark as Complete",
     "description": "Mark the question as complete"
+  },
+  "SnsdiS": {
+    "defaultMessage": "Software Engineer — New York, NY, USA",
+    "description": "Jacky Liang's job title"
   },
   "T1UibH": {
     "defaultMessage": "Often community-sourced.",
@@ -1679,10 +1683,6 @@
     "defaultMessage": "{numberOfFailedTests} failed",
     "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
   },
-  "Vqt5YP": {
-    "defaultMessage": "Senior Software Engineer, Seattle, WA, USA",
-    "description": "Ryan Van Valkenburg's job title"
-  },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
     "description": "Title of Email Sign Up page"
@@ -1706,6 +1706,10 @@
   "WRQRec": {
     "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
     "description": "Preparation plans section subtitle"
+  },
+  "WWRfWH": {
+    "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
+    "description": "Jacky Liang's testimonial"
   },
   "WzDhJE": {
     "defaultMessage": "Logos provided by Clearbit",
@@ -1871,10 +1875,6 @@
     "defaultMessage": "Contributed by ex-interviewers at",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
   },
-  "aTebw8": {
-    "defaultMessage": "Software Developer Intern, Vidyard, Ontario, Canada",
-    "description": "Nafis Hasnain's job title"
-  },
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
@@ -2003,10 +2003,6 @@
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
   },
-  "d1vCxb": {
-    "defaultMessage": "Software Engineer, Vietnam",
-    "description": "Anonymous Software Engineer's job title"
-  },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
@@ -2086,6 +2082,10 @@
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
     "description": "Front end interview guidebook description"
+  },
+  "eePDwP": {
+    "defaultMessage": "Front End Engineer — India",
+    "description": "Anonymous Front End Engineer's job title"
   },
   "eeWLAW": {
     "defaultMessage": "Framework",
@@ -2358,6 +2358,10 @@
   "jnV/ZP": {
     "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
+  },
+  "js0Pb/": {
+    "defaultMessage": "Software Developer Intern — Vidyard, Ontario, Canada",
+    "description": "Nafis Hasnain's job title"
   },
   "jtuJQk": {
     "defaultMessage": "About Us",
@@ -2750,6 +2754,10 @@
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
     "description": "Title of Interview Preparation System Design page"
+  },
+  "srsq7K": {
+    "defaultMessage": "Software Engineer — Chennai, India",
+    "description": "Gouse Basha's job title"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",
