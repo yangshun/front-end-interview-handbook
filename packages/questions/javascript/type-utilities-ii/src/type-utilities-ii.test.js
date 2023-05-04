@@ -81,6 +81,7 @@ describe('Type utilities for non-primitives', () => {
       expect(isObject(Object('a'))).toBe(true);
       expect(isObject(new Set())).toBe(true);
       expect(isObject(new Map())).toBe(true);
+      expect(isObject(() => {})).toBe(true);
     });
 
     test('class instance', () => {

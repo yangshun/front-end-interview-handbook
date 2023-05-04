@@ -33,7 +33,7 @@ export function isPlainObject(value) {
   }
 
   const prototype = Object.getPrototypeOf(value);
-  return prototype === null || prototype.constructor === Object;
+  return prototype === null || prototype === Object.prototype;
 }
 
 // Alternative to isPlainObject, Lodash's implementation.
