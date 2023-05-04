@@ -54,18 +54,36 @@ function useTestimonials() {
       }),
     },
     {
-      key: 'india',
+      key: 'delhi',
       testimonial: (
         <FormattedMessage
-          defaultMessage="Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level."
+          defaultMessage="As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!"
           description="Anonymous Front End Engineer's testimonial"
-          id="q4xRCW"
+          id="fSn4nv"
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Front End Engineer, India',
+        defaultMessage: 'Front End Engineer, Delhi, India',
         description: "Anonymous Front End Engineer's job title",
-        id: 'B7d1jK',
+        id: 'SO8lrv',
+      }),
+    },
+    {
+      authorThumbnailUrl: '/img/testimonials/luke-fiji.jpg',
+      authorUrl: 'https://www.linkedin.com/in/lukefiji/',
+      key: 'luke-fiji',
+      name: 'Luke Fiji',
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!"
+          description="Luke Fiji's testimonial"
+          id="OQHvfy"
+        />
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Seattle, WA, USA',
+        description: "Luke Fiji's job title",
+        id: 'SVRodZ',
       }),
     },
     {
@@ -90,20 +108,19 @@ function useTestimonials() {
         id: 'ZpZ8tp',
       }),
     },
-
     {
-      key: 'delhi',
+      key: 'india',
       testimonial: (
         <FormattedMessage
-          defaultMessage="As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!"
+          defaultMessage="Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level."
           description="Anonymous Front End Engineer's testimonial"
-          id="fSn4nv"
+          id="q4xRCW"
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Front End Engineer, Delhi, India',
+        defaultMessage: 'Front End Engineer, India',
         description: "Anonymous Front End Engineer's job title",
-        id: 'SO8lrv',
+        id: 'B7d1jK',
       }),
     },
     {
