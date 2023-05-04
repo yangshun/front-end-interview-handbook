@@ -1,0 +1,45 @@
+---
+title: Find Index
+excerpt: Implement a function that returns the index of the first element in the array that satisfies the provided testing function.
+---
+
+Write a function named findIndex that takes an array of values, a function predicate, and an optional fromIndex number argument, and returns the index of the first element in the array that satisfies the provided testing function predicate.
+
+```js
+findIndex(array, predicate, [(fromIndex = 0)]);
+```
+
+- `array`: The array to iterate over.
+- `predicate`: The function invoked per iteration. It is called with three arguments: (value, index, array).
+- `fromIndex`: The index to start the search from. If no index provided, start searching from index 0.
+
+Returns the index of the found element, else -1.
+
+## Examples
+
+```js
+const arr = [1, 2, 3, 4, 5];
+
+// Search for the first number in the array that is greater than 3
+findIndex(arr, (num) => num > 3); // Returns index 3
+
+// Start searching from index 3 (inclusive)
+findIndex(arr, (num) => num > 3, 4); // Returns index 4
+
+findIndex(arr, (num) => num > 10, 3); // Returns index -1
+```
+
+## Edge cases
+
+Your function needs to handle negative `fromIndex`. Also, if `index < - array.length`, start searching from index 0.
+
+```js
+const arr = [1, 2, 3, 4, 5];
+
+findIndex(arr, (num) => num > 2, -3); // Returns index 2
+
+findIndex(arr, (num) => num > 2, 10); // Returns index -1
+
+// Start from 0 if fromIndex < -(array.length)
+findIndex(arr, (num) => num > 2, -10); // Returns index 1
+```
