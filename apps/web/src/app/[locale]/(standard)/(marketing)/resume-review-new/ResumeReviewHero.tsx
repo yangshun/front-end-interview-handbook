@@ -53,7 +53,7 @@ const featuredReviews = [
     ),
     profileLink: 'Title',
     review:
-      'This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!',
+      'The Resume Review service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. FTL was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering. In short, I recommend the service. Thanks for your help, FTL!',
     reviewerName: '',
   },
 ];
@@ -152,7 +152,7 @@ export default function ResumeReviewHero() {
                 </div>
               </div>
             </div>
-            <div className="hidden w-full lg:ml-auto lg:block lg:w-1/3 lg:flex-shrink-0">
+            <div className="hidden w-full lg:ml-auto lg:block lg:w-2/5 lg:flex-shrink-0">
               {featuredReviews.map((review) => (
                 <figure
                   key={review.reviewerName}
