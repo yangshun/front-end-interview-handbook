@@ -1,5 +1,5 @@
 interface IEventEmitter {
-  on(eventName: string, listener: Function): IEventEmitter & { off: Function };
+  on(eventName: string, listener: Function): { off: () => void };
   emit(eventName: string, ...args: any[]): void;
 }
 
@@ -11,7 +11,7 @@ export default class EventEmitter implements IEventEmitter {
     throw 'Not implemented!';
   }
 
-  on(eventName: string, listener: Function): EventEmitter & { off: Function } {
+  on(eventName: string, listener: Function): { off: () => void } {
     throw 'Not implemented!';
   }
 

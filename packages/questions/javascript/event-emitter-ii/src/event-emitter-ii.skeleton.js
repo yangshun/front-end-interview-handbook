@@ -9,7 +9,7 @@ export default class EventEmitter {
   /**
    * @param {string} eventName
    * @param {Function} listener
-   * @returns {EventEmitter & {off: Function}}}
+   * @returns {{off: Function}}
    */
   on(eventName, listener) {
     throw 'Not implemented!';

@@ -997,7 +997,7 @@
     "created": 1669939200,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "Implement a class that can subscribe to and emit events which triggers attached callback functions. Susbcription objects are returned and can unsubscribe itself",
+    "excerpt": "Implement a class that can subscribe to and emit events which triggers attached callback functions. Subcription objects are returned and can unsubscribe itself",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
