@@ -174,7 +174,7 @@ export default function ResumeReviewHero() {
             </div>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:max-w-7xl">
-            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-sm leading-7 text-gray-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
               {summaryFeatures.map((feature) => (
                 <div key={feature.name} className="relative pl-11">
                   <dt className=" font-semibold text-white">
