@@ -15,6 +15,10 @@
     "defaultMessage": "关于我们",
     "description": "Link to company's about page"
   },
+  "+IQinv": {
+    "defaultMessage": "Toronto, Canada",
+    "description": "Prashanth Reddy's location"
+  },
   "+JhlMu": {
     "defaultMessage": "恭喜您完成了这个题目！登录您的帐户或免费注册以保存您的进度！",
     "description": "Message shown when user completes a question"
@@ -170,6 +174,10 @@
   "2YMuJe": {
     "defaultMessage": "“终生访问权限”是什么意思？",
     "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
+  },
+  "2Zjh+z": {
+    "defaultMessage": "Ontario, Canada",
+    "description": "Nafis Hasnain's location"
   },
   "2a4of9": {
     "defaultMessage": "切换到水平模式",
@@ -471,10 +479,6 @@
     "defaultMessage": "查看计划",
     "description": "Link to view study plan details"
   },
-  "8WkU/A": {
-    "defaultMessage": "高级软件工程师—美国西雅图",
-    "description": "Ryan Van Valkenburg's job title"
-  },
   "8aQEL8": {
     "defaultMessage": "您现有的代码将被丢弃，您确定吗？",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -542,6 +546,10 @@
   "AGwpnL": {
     "defaultMessage": "由前FAANG高级前端工程师打造的最佳前端面试准备平台，<span>通过帮你<strong>掌握基础知识</strong>，</span>让你在每一次前端面试都拔得头筹。",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
+  },
+  "AJSVim": {
+    "defaultMessage": "Seattle, WA, USA",
+    "description": "Seattle in USA"
   },
   "ATwxZX": {
     "defaultMessage": "立即购买",
@@ -895,10 +903,6 @@
     "defaultMessage": "高质量的解答",
     "description": "Title for high quality solutions feature"
   },
-  "HsuAKu": {
-    "defaultMessage": "前端工程师—印度德里",
-    "description": "Anonymous Front End Engineer's job title"
-  },
   "I5MeD9": {
     "defaultMessage": "注册成功",
     "description": "Title of alert indicating a successful email sign up"
@@ -914,6 +918,10 @@
   "IBP/D0": {
     "defaultMessage": "如果你想要我们跟你跟进，请告诉我们你的电子邮箱。",
     "description": "Feedback widget text to request for optional email input for following up"
+  },
+  "IGPTRv": {
+    "defaultMessage": "Join Discord (Premium)",
+    "description": "Join Discord channel"
   },
   "IK98yM": {
     "defaultMessage": "还在犹豫？ <link>不如来试一试 (是免费的!) →</link>",
@@ -1083,6 +1091,10 @@
     "defaultMessage": "<span>夯实基础</span>是决胜前端面试的重中之重。\n",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
+  "LAWtL6": {
+    "defaultMessage": "Software Engineer",
+    "description": "Jacky Liang's job title"
+  },
   "LK0JHB": {
     "defaultMessage": "常见问题",
     "description": "Frequently Asked Questions"
@@ -1242,10 +1254,6 @@
   "O7MAvX": {
     "defaultMessage": "为期一个月的前端面试准备学习计划",
     "description": "Title of 1 Month Preparation Plan page"
-  },
-  "OBnflX": {
-    "defaultMessage": "软件工程师—越南",
-    "description": "Anonymous Software Engineer's job title"
   },
   "OGpZxl": {
     "defaultMessage": "最热门的前端系统设计面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
@@ -1495,10 +1503,6 @@
     "defaultMessage": "未订阅",
     "description": "Text describing user's subscription status."
   },
-  "SVRodZ": {
-    "defaultMessage": "美国西雅图市",
-    "description": "Luke Fiji's job title"
-  },
   "SWOTIA": {
     "defaultMessage": "重置为初始代码",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
@@ -1510,10 +1514,6 @@
   "Se6J8o": {
     "defaultMessage": "标记为已完成",
     "description": "Mark the question as complete"
-  },
-  "SnsdiS": {
-    "defaultMessage": "软件工程师—纽约，美国",
-    "description": "Jacky Liang's job title"
   },
   "T1UibH": {
     "defaultMessage": "往往是由社区提供的。",
@@ -1534,6 +1534,10 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
+  },
+  "TFzrBC": {
+    "defaultMessage": "越南",
+    "description": "Vietname country"
   },
   "THblGQ": {
     "defaultMessage": "新年促销！使用代码NEWYEAR2023，额外20%优惠年度和永久计划。 <link>立刻获取折扣！</link>",
@@ -1559,9 +1563,17 @@
     "defaultMessage": "而我们抽丝剥茧，帮你在最短时间内全面掌握面试体系。\n",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
+  "Tvr6Mn": {
+    "defaultMessage": "高级软件工程师",
+    "description": "Ryan Van Valkenburg's job title"
+  },
   "U022No": {
     "defaultMessage": "Palantir",
     "description": "Company name for Palantir"
+  },
+  "U3qfpb": {
+    "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
+    "description": "Prashanth Reddy's testimonial"
   },
   "U9XHwD": {
     "defaultMessage": "学习在面试结束时提出有见地的问题",
@@ -1598,6 +1610,10 @@
   "UQh7Xv": {
     "defaultMessage": "按日志级别筛选",
     "description": "Select label to filter console log by level"
+  },
+  "UXNTcT": {
+    "defaultMessage": "印度",
+    "description": "India country"
   },
   "UiHdWK": {
     "defaultMessage": "为期一周的前端面试准备学习计划",
@@ -1847,10 +1863,6 @@
     "defaultMessage": "保存变更",
     "description": "Label for button to save changes to user account email"
   },
-  "ZpZ8tp": {
-    "defaultMessage": "软件工程师--前端，Perch，美国",
-    "description": "Anand Dharne's job title"
-  },
   "a6L95B": {
     "defaultMessage": "请检查您电子邮箱中的确认链接。",
     "description": "Content of alert indicating a successful email sign up"
@@ -1975,6 +1987,10 @@
     "defaultMessage": "前端面试准备",
     "description": "Front end interview preparation pages title"
   },
+  "cicVHX": {
+    "defaultMessage": "印度德里",
+    "description": "Anonymous Front End Engineer's location"
+  },
   "cjgzTz": {
     "defaultMessage": "阅读如何使用 {questionFramework} 解决 {questionTitle}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
@@ -2006,6 +2022,10 @@
   "d3GL1v": {
     "defaultMessage": "向下复制行",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
+  },
+  "d7gVP2": {
+    "defaultMessage": "钦奈，印度",
+    "description": "Chennai in India"
   },
   "d8XKhi": {
     "defaultMessage": "修改密码",
@@ -2082,10 +2102,6 @@
   "ee862n": {
     "defaultMessage": "前端/网络开发者面试指定指南。",
     "description": "Front end interview guidebook description"
-  },
-  "eePDwP": {
-    "defaultMessage": "前端工程师—印度",
-    "description": "Anonymous Front End Engineer's job title"
   },
   "eeWLAW": {
     "defaultMessage": "框架",
@@ -2191,6 +2207,10 @@
     "defaultMessage": "中等",
     "description": "Medium question difficulty"
   },
+  "gwrYNC": {
+    "defaultMessage": "软件工程师",
+    "description": "Anonymous Software Engineer's job title"
+  },
   "h38yCs": {
     "defaultMessage": "题目列表",
     "description": "Screenreader text indicating the question list component on question list pages"
@@ -2255,6 +2275,10 @@
     "defaultMessage": "已完成",
     "description": "Label indicating that the question has been completed"
   },
+  "iLr1LJ": {
+    "defaultMessage": "纽约，美国",
+    "description": "Jacky Liang's location"
+  },
   "iLx/BQ": {
     "defaultMessage": "亚马逊",
     "description": "Company name for Amazon"
@@ -2315,6 +2339,10 @@
     "defaultMessage": "CSS 题目",
     "description": "CSS questions category long title"
   },
+  "jLTDtP": {
+    "defaultMessage": "软件工程师--前端，Perch",
+    "description": "Anand Dharne's job title"
+  },
   "jN6xqZ": {
     "defaultMessage": "1 周计划",
     "description": "Long label for one week study plan"
@@ -2358,10 +2386,6 @@
   "jnV/ZP": {
     "defaultMessage": "系统设计题目",
     "description": "Title for an example list of System Design Questions on marketing pages"
-  },
-  "js0Pb/": {
-    "defaultMessage": "软件开发实习—Vidyard，安大略，加拿大",
-    "description": "Nafis Hasnain's job title"
   },
   "jtuJQk": {
     "defaultMessage": "关于我们",
@@ -2439,6 +2463,10 @@
     "defaultMessage": "查看题目",
     "description": "Label for button to view questions"
   },
+  "l+OESW": {
+    "defaultMessage": "美国西雅图市",
+    "description": "Seattle location"
+  },
   "l1ZqoW": {
     "defaultMessage": "加入 Discord",
     "description": "Join Discord channel"
@@ -2491,6 +2519,10 @@
     "defaultMessage": "1 个月计划",
     "description": "Long label for one month study plan"
   },
+  "lztLqo": {
+    "defaultMessage": "前端工程师",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "m+nWg0": {
     "defaultMessage": "未完成",
     "description": "Tooltip for questions Not Completed label"
@@ -2510,10 +2542,6 @@
   "mST7/q": {
     "defaultMessage": "我们帮助了成千上万的软件开发者",
     "description": "Testimonial section subtitle"
-  },
-  "mVXHy8": {
-    "defaultMessage": "高级软件工程师--前端，Zalando，德国柏林",
-    "description": "Larry Almeida's job title"
   },
   "mb7erW": {
     "defaultMessage": "重要性",
@@ -2567,6 +2595,10 @@
     "defaultMessage": "即刻尝鲜：",
     "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
   },
+  "nwtLb2": {
+    "defaultMessage": "高级软件工程师—前端",
+    "description": "Larry Almeida's job title"
+  },
   "nxJioH": {
     "defaultMessage": "警告",
     "description": "Select label for warning log level in console filter"
@@ -2611,6 +2643,10 @@
     "defaultMessage": "编码题目",
     "description": "Label for button that opens slideout of question list on coding workspace"
   },
+  "obU6+a": {
+    "defaultMessage": "软件工程师",
+    "description": "Gouse Basha's job title"
+  },
   "oieVuW": {
     "defaultMessage": "话题",
     "description": "Question quiz topic"
@@ -2622,6 +2658,14 @@
   "ozQHOy": {
     "defaultMessage": "隐藏此会话的小部件",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
+  },
+  "p0uvxa": {
+    "defaultMessage": "Zalando, Berlin, 德国",
+    "description": "Larry Almeida's location"
+  },
+  "p42Bxa": {
+    "defaultMessage": "美国",
+    "description": "Anand Dharne's location"
   },
   "p97ubP": {
     "defaultMessage": "敬请期待",
@@ -2699,6 +2743,10 @@
     "defaultMessage": "海量题库",
     "description": "Title for huge question bank feature"
   },
+  "qyEq1P": {
+    "defaultMessage": "软件开发实习生，Vidyard",
+    "description": "Nafis Hasnain's job title"
+  },
   "qzKA9Y": {
     "defaultMessage": "没有多少人有写高质量指南的经验。",
     "description": "Table cell content for front end system design feature comparison in other platforms."
@@ -2754,10 +2802,6 @@
   "srrlrR": {
     "defaultMessage": "练习前端系统设计面试题及解答",
     "description": "Title of Interview Preparation System Design page"
-  },
-  "srsq7K": {
-    "defaultMessage": "软件工程师—印度金奈",
-    "description": "Gouse Basha's job title"
   },
   "t5L0yE": {
     "defaultMessage": "价格",
@@ -2878,6 +2922,10 @@
   "urvIL3": {
     "defaultMessage": "登录您的账号",
     "description": "Subtitle of Sign In page"
+  },
+  "usTItb": {
+    "defaultMessage": "高级软件工程师——前端，UserTesting",
+    "description": "Prashanth Reddy's job title"
   },
   "uz7f93": {
     "defaultMessage": "Salesforce",

@@ -9,9 +9,10 @@ type Testimonial = Readonly<{
   authorThumbnailUrl?: string;
   authorUrl?: string;
   key: string;
+  location: string;
   name?: string;
   testimonial: ReactNode;
-  title: string;
+  title?: string;
 }>;
 
 function useTestimonials() {
@@ -21,6 +22,11 @@ function useTestimonials() {
       authorThumbnailUrl: '/img/testimonials/larry-almeida.jpg',
       authorUrl: 'https://www.linkedin.com/in/larrydalmeida/',
       key: 'larry-almedia',
+      location: intl.formatMessage({
+        defaultMessage: 'Zalando, Berlin, Germany',
+        description: "Larry Almeida's location",
+        id: 'p0uvxa',
+      }),
       name: 'Larry Almeida',
       testimonial: (
         <>
@@ -47,64 +53,20 @@ function useTestimonials() {
         </>
       ),
       title: intl.formatMessage({
-        defaultMessage:
-          'Senior Software Engineer — Front End, Zalando, Berlin, Germany',
+        defaultMessage: 'Senior Software Engineer — Front End',
         description: "Larry Almeida's job title",
-        id: 'mVXHy8',
-      }),
-    },
-    {
-      key: 'delhi',
-      testimonial: (
-        <FormattedMessage
-          defaultMessage="As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!"
-          description="Anonymous Front End Engineer's testimonial"
-          id="fSn4nv"
-        />
-      ),
-      title: intl.formatMessage({
-        defaultMessage: 'Front End Engineer — Delhi, India',
-        description: "Anonymous Front End Engineer's job title",
-        id: 'HsuAKu',
-      }),
-    },
-    {
-      key: 'vietnam',
-      testimonial: (
-        <FormattedMessage
-          defaultMessage="You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team."
-          description="Anonymous Software Engineer's testimonial"
-          id="3HUfI+"
-        />
-      ),
-      title: intl.formatMessage({
-        defaultMessage: 'Software Engineer — Vietnam',
-        description: "Anonymous Software Engineer's job title",
-        id: 'OBnflX',
-      }),
-    },
-    {
-      authorThumbnailUrl: '/img/testimonials/luke-fiji.jpg',
-      authorUrl: 'https://www.linkedin.com/in/lukefiji/',
-      key: 'luke-fiji',
-      name: 'Luke Fiji',
-      testimonial: (
-        <FormattedMessage
-          defaultMessage="I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!"
-          description="Luke Fiji's testimonial"
-          id="OQHvfy"
-        />
-      ),
-      title: intl.formatMessage({
-        defaultMessage: 'Seattle, WA, USA',
-        description: "Luke Fiji's job title",
-        id: 'SVRodZ',
+        id: 'nwtLb2',
       }),
     },
     {
       authorThumbnailUrl: '/img/testimonials/nafis-hasnain.jpg',
       authorUrl: 'https://www.linkedin.com/in/nhasnain/',
       key: 'nafis-hasnain',
+      location: intl.formatMessage({
+        defaultMessage: 'Ontario, Canada',
+        description: "Nafis Hasnain's location",
+        id: '2Zjh+z',
+      }),
       name: 'Nafis Hasnain',
       testimonial: (
         <FormattedMessage
@@ -114,14 +76,80 @@ function useTestimonials() {
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Software Developer Intern — Vidyard, Ontario, Canada',
+        defaultMessage: 'Software Developer Intern, Vidyard',
         description: "Nafis Hasnain's job title",
-        id: 'js0Pb/',
+        id: 'qyEq1P',
+      }),
+    },
+    {
+      key: 'delhi',
+      location: intl.formatMessage({
+        defaultMessage: 'Delhi, India',
+        description: "Anonymous Front End Engineer's location",
+        id: 'cicVHX',
+      }),
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!"
+          description="Anonymous Front End Engineer's testimonial"
+          id="fSn4nv"
+        />
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Front End Engineer',
+        description: "Anonymous Front End Engineer's job title",
+        id: 'lztLqo',
+      }),
+    },
+    {
+      authorThumbnailUrl: '/img/testimonials/luke-fiji.jpg',
+      authorUrl: 'https://www.linkedin.com/in/lukefiji/',
+      key: 'luke-fiji',
+      location: intl.formatMessage({
+        defaultMessage: 'Seattle, WA, USA',
+        description: 'Seattle in USA',
+        id: 'AJSVim',
+      }),
+      name: 'Luke Fiji',
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!"
+          description="Luke Fiji's testimonial"
+          id="OQHvfy"
+        />
+      ),
+    },
+    {
+      authorThumbnailUrl: '/img/testimonials/jacky-liang.jpg',
+      authorUrl: 'https://www.linkedin.com/in/mrjackyliang/',
+      key: 'jacky-liang',
+      location: intl.formatMessage({
+        defaultMessage: 'New York, NY, USA',
+        description: "Jacky Liang's location",
+        id: 'iLr1LJ',
+      }),
+      name: 'Jacky Liang',
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!"
+          description="Jacky Liang's testimonial"
+          id="WWRfWH"
+        />
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Software Engineer',
+        description: "Jacky Liang's job title",
+        id: 'LAWtL6',
       }),
     },
     {
       authorUrl: 'https://www.linkedin.com/in/ananddharne/',
       key: 'anand-dharne',
+      location: intl.formatMessage({
+        defaultMessage: 'USA',
+        description: "Anand Dharne's location",
+        id: 'p42Bxa',
+      }),
       name: 'Anand Dharne',
       testimonial: (
         <FormattedMessage
@@ -136,15 +164,40 @@ function useTestimonials() {
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Software Engineer — Front End, Perch, USA',
+        defaultMessage: 'Software Engineer — Front End, Perch',
         description: "Anand Dharne's job title",
-        id: 'ZpZ8tp',
+        id: 'jLTDtP',
+      }),
+    },
+    {
+      key: 'vietnam',
+      location: intl.formatMessage({
+        defaultMessage: 'Vietnam',
+        description: 'Vietname country',
+        id: 'TFzrBC',
+      }),
+      testimonial: (
+        <FormattedMessage
+          defaultMessage="You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team."
+          description="Anonymous Software Engineer's testimonial"
+          id="3HUfI+"
+        />
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Software Engineer',
+        description: "Anonymous Software Engineer's job title",
+        id: 'gwrYNC',
       }),
     },
     {
       authorThumbnailUrl: '/img/testimonials/ryanlvv.jpg',
       authorUrl: 'https://www.linkedin.com/in/ryanlvv/',
       key: 'ryanlvv',
+      location: intl.formatMessage({
+        defaultMessage: 'Seattle, WA, USA',
+        description: 'Seattle location',
+        id: 'l+OESW',
+      }),
       name: 'Ryan Van Valkenburg',
       testimonial: (
         <FormattedMessage
@@ -158,33 +211,42 @@ function useTestimonials() {
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Senior Software Engineer — Seattle, WA, USA',
+        defaultMessage: 'Senior Software Engineer',
         description: "Ryan Van Valkenburg's job title",
-        id: '8WkU/A',
+        id: 'Tvr6Mn',
       }),
     },
-
     {
-      authorThumbnailUrl: '/img/testimonials/jacky-liang.jpg',
-      authorUrl: 'https://www.linkedin.com/in/mrjackyliang/',
-      key: 'jacky-liang',
-      name: 'Jacky Liang',
+      authorThumbnailUrl: '/img/testimonials/prashanth-reddy.jpg',
+      authorUrl: 'https://www.linkedin.com/in/prshnthrddy/',
+      key: 'prashanth-reddy',
+      location: intl.formatMessage({
+        defaultMessage: 'Toronto, Canada',
+        description: "Prashanth Reddy's location",
+        id: '+IQinv',
+      }),
+      name: 'Prashanth Reddy',
       testimonial: (
         <FormattedMessage
-          defaultMessage="If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!"
-          description="Jacky Liang's testimonial"
-          id="WWRfWH"
+          defaultMessage="As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it."
+          description="Prashanth Reddy's testimonial"
+          id="U3qfpb"
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Software Engineer — New York, NY, USA',
-        description: "Jacky Liang's job title",
-        id: 'SnsdiS',
+        defaultMessage: 'Senior Software Engineer — Front End, UserTesting',
+        description: "Prashanth Reddy's job title",
+        id: 'usTItb',
       }),
     },
     {
       authorUrl: 'https://www.linkedin.com/in/gouse-basha-7a0902191/',
       key: 'gouse-basha',
+      location: intl.formatMessage({
+        defaultMessage: 'Chennai, India',
+        description: 'Chennai in India',
+        id: 'd7gVP2',
+      }),
       name: 'Gouse Basha',
       testimonial: (
         <FormattedMessage
@@ -194,13 +256,18 @@ function useTestimonials() {
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Software Engineer — Chennai, India',
+        defaultMessage: 'Software Engineer',
         description: "Gouse Basha's job title",
-        id: 'srsq7K',
+        id: 'obU6+a',
       }),
     },
     {
       key: 'india',
+      location: intl.formatMessage({
+        defaultMessage: 'India',
+        description: 'India country',
+        id: 'UXNTcT',
+      }),
       testimonial: (
         <FormattedMessage
           defaultMessage="Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level."
@@ -209,9 +276,9 @@ function useTestimonials() {
         />
       ),
       title: intl.formatMessage({
-        defaultMessage: 'Front End Engineer — India',
+        defaultMessage: 'Front End Engineer',
         description: "Anonymous Front End Engineer's job title",
-        id: 'eePDwP',
+        id: 'lztLqo',
       }),
     },
   ];
@@ -274,7 +341,9 @@ export default function MarketingTestimonial() {
                             return nameEl;
                           })()}
                         <div className="text-xs text-slate-600">
-                          {testimonial.title}
+                          {[testimonial.title, testimonial.location]
+                            .filter(Boolean)
+                            .join(', ')}
                         </div>
                       </div>
                     </figcaption>

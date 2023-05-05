@@ -15,6 +15,10 @@
     "defaultMessage": "About",
     "description": "Link to company's about page"
   },
+  "+IQinv": {
+    "defaultMessage": "Toronto, Canada",
+    "description": "Prashanth Reddy's location"
+  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -170,6 +174,10 @@
   "2YMuJe": {
     "defaultMessage": "What does \"lifetime access\" mean?",
     "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
+  },
+  "2Zjh+z": {
+    "defaultMessage": "Ontario, Canada",
+    "description": "Nafis Hasnain's location"
   },
   "2a4of9": {
     "defaultMessage": "Change to horizontal",
@@ -471,10 +479,6 @@
     "defaultMessage": "See plan",
     "description": "Link to view study plan details"
   },
-  "8WkU/A": {
-    "defaultMessage": "Senior Software Engineer — Seattle, WA, USA",
-    "description": "Ryan Van Valkenburg's job title"
-  },
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -542,6 +546,10 @@
   "AGwpnL": {
     "defaultMessage": "We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
+  },
+  "AJSVim": {
+    "defaultMessage": "Seattle, WA, USA",
+    "description": "Seattle in USA"
   },
   "ATwxZX": {
     "defaultMessage": "Buy Now",
@@ -895,10 +903,6 @@
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
   },
-  "HsuAKu": {
-    "defaultMessage": "Front End Engineer — Delhi, India",
-    "description": "Anonymous Front End Engineer's job title"
-  },
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
     "description": "Title of alert indicating a successful email sign up"
@@ -1087,6 +1091,10 @@
     "defaultMessage": "Because front end interviews are about <span>fundamentals</span>.",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
+  "LAWtL6": {
+    "defaultMessage": "Software Engineer",
+    "description": "Jacky Liang's job title"
+  },
   "LK0JHB": {
     "defaultMessage": "FAQs.",
     "description": "Frequently Asked Questions"
@@ -1246,10 +1254,6 @@
   "O7MAvX": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
-  },
-  "OBnflX": {
-    "defaultMessage": "Software Engineer — Vietnam",
-    "description": "Anonymous Software Engineer's job title"
   },
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -1499,10 +1503,6 @@
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
   },
-  "SVRodZ": {
-    "defaultMessage": "Seattle, WA, USA",
-    "description": "Luke Fiji's job title"
-  },
   "SWOTIA": {
     "defaultMessage": "Reset to initial code",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
@@ -1514,10 +1514,6 @@
   "Se6J8o": {
     "defaultMessage": "Mark as Complete",
     "description": "Mark the question as complete"
-  },
-  "SnsdiS": {
-    "defaultMessage": "Software Engineer — New York, NY, USA",
-    "description": "Jacky Liang's job title"
   },
   "T1UibH": {
     "defaultMessage": "Often community-sourced.",
@@ -1538,6 +1534,10 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
+  },
+  "TFzrBC": {
+    "defaultMessage": "Vietnam",
+    "description": "Vietname country"
   },
   "THblGQ": {
     "defaultMessage": "New Year Sale! Additional 20% off annual and lifetime plans with the code NEWYEAR2023. <link>Grab your discount today!</link>",
@@ -1563,9 +1563,17 @@
     "defaultMessage": "What if those fundamentals were already abstracted for you?",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
+  "Tvr6Mn": {
+    "defaultMessage": "Senior Software Engineer",
+    "description": "Ryan Van Valkenburg's job title"
+  },
   "U022No": {
     "defaultMessage": "Palantir",
     "description": "Company name for Palantir"
+  },
+  "U3qfpb": {
+    "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
+    "description": "Prashanth Reddy's testimonial"
   },
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
@@ -1602,6 +1610,10 @@
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
+  },
+  "UXNTcT": {
+    "defaultMessage": "India",
+    "description": "India country"
   },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
@@ -1851,10 +1863,6 @@
     "defaultMessage": "Save Changes",
     "description": "Label for button to save changes to user account email"
   },
-  "ZpZ8tp": {
-    "defaultMessage": "Software Engineer — Front End, Perch, USA",
-    "description": "Anand Dharne's job title"
-  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -1979,6 +1987,10 @@
     "defaultMessage": "Front End Interview Preparation",
     "description": "Front end interview preparation pages title"
   },
+  "cicVHX": {
+    "defaultMessage": "Delhi, India",
+    "description": "Anonymous Front End Engineer's location"
+  },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
@@ -2010,6 +2022,10 @@
   "d3GL1v": {
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
+  },
+  "d7gVP2": {
+    "defaultMessage": "Chennai, India",
+    "description": "Chennai in India"
   },
   "d8XKhi": {
     "defaultMessage": "Change password",
@@ -2086,10 +2102,6 @@
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
     "description": "Front end interview guidebook description"
-  },
-  "eePDwP": {
-    "defaultMessage": "Front End Engineer — India",
-    "description": "Anonymous Front End Engineer's job title"
   },
   "eeWLAW": {
     "defaultMessage": "Framework",
@@ -2195,6 +2207,10 @@
     "defaultMessage": "Medium",
     "description": "Medium question difficulty"
   },
+  "gwrYNC": {
+    "defaultMessage": "Software Engineer",
+    "description": "Anonymous Software Engineer's job title"
+  },
   "h38yCs": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
@@ -2259,6 +2275,10 @@
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
   },
+  "iLr1LJ": {
+    "defaultMessage": "New York, NY, USA",
+    "description": "Jacky Liang's location"
+  },
   "iLx/BQ": {
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
@@ -2319,6 +2339,10 @@
     "defaultMessage": "CSS Questions",
     "description": "CSS questions category long title"
   },
+  "jLTDtP": {
+    "defaultMessage": "Software Engineer — Front End, Perch",
+    "description": "Anand Dharne's job title"
+  },
   "jN6xqZ": {
     "defaultMessage": "1 Week Plan",
     "description": "Long label for one week study plan"
@@ -2362,10 +2386,6 @@
   "jnV/ZP": {
     "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
-  },
-  "js0Pb/": {
-    "defaultMessage": "Software Developer Intern — Vidyard, Ontario, Canada",
-    "description": "Nafis Hasnain's job title"
   },
   "jtuJQk": {
     "defaultMessage": "About Us",
@@ -2443,6 +2463,10 @@
     "defaultMessage": "View questions",
     "description": "Label for button to view questions"
   },
+  "l+OESW": {
+    "defaultMessage": "Seattle, WA, USA",
+    "description": "Seattle location"
+  },
   "l1ZqoW": {
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
@@ -2495,6 +2519,10 @@
     "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"
   },
+  "lztLqo": {
+    "defaultMessage": "Front End Engineer",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "m+nWg0": {
     "defaultMessage": "Not Completed",
     "description": "Tooltip for questions Not Completed label"
@@ -2514,10 +2542,6 @@
   "mST7/q": {
     "defaultMessage": "We have helped thousands of Software Engineers",
     "description": "Testimonial section subtitle"
-  },
-  "mVXHy8": {
-    "defaultMessage": "Senior Software Engineer — Front End, Zalando, Berlin, Germany",
-    "description": "Larry Almeida's job title"
   },
   "mb7erW": {
     "defaultMessage": "Importance",
@@ -2571,6 +2595,10 @@
     "defaultMessage": "Try our questions here:",
     "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
   },
+  "nwtLb2": {
+    "defaultMessage": "Senior Software Engineer — Front End",
+    "description": "Larry Almeida's job title"
+  },
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
@@ -2615,6 +2643,10 @@
     "defaultMessage": "Coding Questions",
     "description": "Label for button that opens slideout of question list on coding workspace"
   },
+  "obU6+a": {
+    "defaultMessage": "Software Engineer",
+    "description": "Gouse Basha's job title"
+  },
   "oieVuW": {
     "defaultMessage": "Topic",
     "description": "Question quiz topic"
@@ -2626,6 +2658,14 @@
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
+  },
+  "p0uvxa": {
+    "defaultMessage": "Zalando, Berlin, Germany",
+    "description": "Larry Almeida's location"
+  },
+  "p42Bxa": {
+    "defaultMessage": "USA",
+    "description": "Anand Dharne's location"
   },
   "p97ubP": {
     "defaultMessage": "Coming Soon",
@@ -2703,6 +2743,10 @@
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
   },
+  "qyEq1P": {
+    "defaultMessage": "Software Developer Intern, Vidyard",
+    "description": "Nafis Hasnain's job title"
+  },
   "qzKA9Y": {
     "defaultMessage": "Not many have experience to write quality guides.",
     "description": "Table cell content for front end system design feature comparison in other platforms."
@@ -2758,10 +2802,6 @@
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
     "description": "Title of Interview Preparation System Design page"
-  },
-  "srsq7K": {
-    "defaultMessage": "Software Engineer — Chennai, India",
-    "description": "Gouse Basha's job title"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",
@@ -2882,6 +2922,10 @@
   "urvIL3": {
     "defaultMessage": "Sign in to your account",
     "description": "Subtitle of Sign In page"
+  },
+  "usTItb": {
+    "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
+    "description": "Prashanth Reddy's job title"
   },
   "uz7f93": {
     "defaultMessage": "Salesforce",
