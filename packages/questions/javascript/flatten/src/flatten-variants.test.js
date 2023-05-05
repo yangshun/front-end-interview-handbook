@@ -3,7 +3,6 @@ import flattenFlatMap from './flattenFlatMap';
 import flattenIter from './flattenIter';
 import flattenIterSome from './flattenIterSome';
 
-/* eslint-disable no-undef */
 // TODO: Test generator.
 describe.each([
   ['recursive', flattenRecursive],

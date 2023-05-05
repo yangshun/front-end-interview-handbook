@@ -1,6 +1,5 @@
 import deepClone from './deep-clone';
 
-/* eslint-disable no-undef */
 describe('deepClone', () => {
   test('Single primitive value', () => {
     expect(deepClone('foo')).toEqual('foo');

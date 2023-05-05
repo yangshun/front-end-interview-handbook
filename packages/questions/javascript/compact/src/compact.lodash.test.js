@@ -1,6 +1,5 @@
 import { compact } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('compact', () => {
   it('should remove all falsey values from the input array', () => {
     const input = [0, 1, false, 2, '', 3];

@@ -1,6 +1,5 @@
 import { difference } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('difference', () => {
   test('returns an empty array when the input array is empty', () => {
     expect(difference([], [1, 2, 3])).toEqual([]);

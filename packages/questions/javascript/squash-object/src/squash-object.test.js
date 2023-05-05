@@ -1,6 +1,5 @@
 import squashObject from './squash-object';
 
-/* eslint-disable no-undef */
 describe('squashObject', () => {
   test('empty object', () => {
     expect(squashObject({})).toEqual({});

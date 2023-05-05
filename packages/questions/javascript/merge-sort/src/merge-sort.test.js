@@ -1,6 +1,5 @@
 import sort from './merge-sort';
 
-/* eslint-disable no-undef */
 describe('sort', () => {
   test('empty', () => {
     expect(sort([])).toEqual([]);

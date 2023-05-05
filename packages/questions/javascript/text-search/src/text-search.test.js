@@ -1,6 +1,5 @@
 import textSearch from './text-search';
 
-/* eslint-disable no-undef */
 describe('textSearch', () => {
   test('empty string', () => {
     expect(textSearch('', '')).toBe('');

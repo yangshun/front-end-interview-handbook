@@ -1,6 +1,5 @@
 import isSameTree from './identical-dom-trees';
 
-/* eslint-disable no-undef */
 describe('isSameTree', () => {
   test('single nodes', () => {
     const treeA = document.createElement('div');

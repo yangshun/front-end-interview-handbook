@@ -1,6 +1,5 @@
 import $ from './jquery-css';
 
-/* eslint-disable no-undef */
 describe('jQuery.css', () => {
   describe('get property', () => {
     beforeEach(() => {

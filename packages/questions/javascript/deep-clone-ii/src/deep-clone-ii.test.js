@@ -1,7 +1,5 @@
 import deepClone from './deep-clone-ii';
 
-/* eslint-disable no-undef */
-
 // TODO: Change tests to test for non-serializable properties in Jest.
 describe('deepClone', () => {
   it('single primitive value', () => {

@@ -5,7 +5,6 @@ import {
   isPlainObject,
 } from './type-utilities-ii';
 
-/* eslint-disable no-undef */
 describe('Type utilities for non-primitives', () => {
   describe('isArray', () => {
     test('array', () => {

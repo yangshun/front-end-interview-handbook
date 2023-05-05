@@ -7,7 +7,6 @@ function sum(...numbers) {
   return numbers.reduce((a, b) => a + b, 0);
 }
 
-/* eslint-disable no-undef */
 describe('curry', () => {
   test('returns function', () => {
     const curried = curry(multiply);

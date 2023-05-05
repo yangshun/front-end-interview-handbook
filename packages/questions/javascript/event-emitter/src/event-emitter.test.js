@@ -1,6 +1,5 @@
 import EventEmitter from './event-emitter';
 
-/* eslint-disable no-undef */
 describe('EventEmitter', () => {
   test('constructor', () => {
     const emitter = new EventEmitter();

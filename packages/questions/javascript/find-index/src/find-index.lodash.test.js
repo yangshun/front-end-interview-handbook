@@ -1,6 +1,5 @@
-import {findIndex} from 'lodash';
+import { findIndex } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('findIndex', () => {
   const arr = [5, 12, 8, 130, 44];
 

@@ -1,6 +1,5 @@
 import Stack from './stack';
 
-/* eslint-disable no-undef */
 describe('Stack', () => {
   test('constructor', () => {
     const s = new Stack();

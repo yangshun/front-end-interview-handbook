@@ -1,6 +1,5 @@
 import { dropWhile } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('dropWhile', () => {
   test('should drop elements until predicate returns falsey', () => {
     const array = [1, 2, 3, 4, 5];

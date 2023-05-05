@@ -7,7 +7,6 @@ const sumOfSquares = (prev, curr, index, array) => prev + curr * array[index];
 const combineObj = (prev, curr) => ({ ...prev, ...curr });
 const combineArr = (prev, curr) => [...prev, curr];
 
-/* eslint-disable no-undef */
 describe('Array.prototype.myReduce', () => {
   test('empty array equals initial value', () => {
     expect([].myReduce(add, 0)).toEqual(0);

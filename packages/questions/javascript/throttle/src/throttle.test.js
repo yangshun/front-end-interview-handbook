@@ -1,6 +1,5 @@
 import throttle from './throttle';
 
-/* eslint-disable no-undef */
 describe('throttle', () => {
   test('can be initialized', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function

@@ -1,6 +1,5 @@
 import once from './once';
 
-/* eslint-disable no-undef */
 describe('once', () => {
   test('returns function', () => {
     const onced = once(() => {});

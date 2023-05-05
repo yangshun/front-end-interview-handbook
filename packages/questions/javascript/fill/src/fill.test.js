@@ -1,6 +1,5 @@
 import fill from './fill';
 
-/* eslint-disable no-undef */
 describe('fill', () => {
   test('empty array', () => {
     expect(fill([], '*')).toEqual([]);

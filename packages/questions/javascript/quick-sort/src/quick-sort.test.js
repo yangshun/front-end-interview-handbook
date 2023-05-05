@@ -1,6 +1,5 @@
 import sort from './quick-sort';
 
-/* eslint-disable no-undef */
 describe('sort', () => {
   test('empty', () => {
     expect(sort([])).toEqual([]);

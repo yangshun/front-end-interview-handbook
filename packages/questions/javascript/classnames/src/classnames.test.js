@@ -1,6 +1,5 @@
 import classNames from './classnames';
 
-/* eslint-disable no-undef */
 describe('classNames', () => {
   test('empty values', () => {
     expect(classNames([])).toEqual('');

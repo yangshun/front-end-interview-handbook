@@ -10,7 +10,6 @@ const dataSmall = [
   { user: 2, duration: 200, equipment: ['bike'] },
 ];
 
-/* eslint-disable no-undef */
 describe('selectData', () => {
   test('empty data', () => {
     expect(selectData([])).toEqual([]);

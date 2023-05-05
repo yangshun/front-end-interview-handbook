@@ -1,6 +1,5 @@
 import { chunk } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('chunk', () => {
   test('splits an array into chunks of the given size', () => {
     const input = [1, 2, 3, 4, 5, 6, 7, 'A', 'B', 'C'];

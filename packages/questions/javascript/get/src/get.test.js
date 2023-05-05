@@ -1,6 +1,5 @@
 import get from './get';
 
-/* eslint-disable no-undef */
 describe('get', () => {
   test('empty object', () => {
     expect(get({}, 'a')).toEqual(undefined);

@@ -1,6 +1,5 @@
 import sort from './heap-sort';
 
-/* eslint-disable no-undef */
 describe('heapSort', () => {
   test('empty', () => {
     expect(sort([])).toEqual([]);

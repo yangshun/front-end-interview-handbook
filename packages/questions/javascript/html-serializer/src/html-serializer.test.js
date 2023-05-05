@@ -1,6 +1,5 @@
 import serializeNode from './html-serializer';
 
-/* eslint-disable no-undef */
 describe('HTML serializer', () => {
   describe('single tag', () => {
     test('single children', () => {

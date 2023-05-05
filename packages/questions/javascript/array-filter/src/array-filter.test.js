@@ -13,7 +13,6 @@ const isThisProductEven = function (element) {
 };
 const isThisProductEvenArrowFn = (element) => (element * this) % 2 === 0;
 
-/* eslint-disable no-undef */
 describe('Array.prototype.myFilter', () => {
   test('empty array', () => {
     expect([].myFilter(isEven)).toStrictEqual([]);

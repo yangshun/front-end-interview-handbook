@@ -1,6 +1,5 @@
 import { fill } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('fill', () => {
   test('empty array', () => {
     expect(fill([], '*')).toEqual([]);

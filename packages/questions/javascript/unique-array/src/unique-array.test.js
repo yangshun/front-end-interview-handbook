@@ -1,6 +1,5 @@
 import uniqueArray from './unique-array';
 
-/* eslint-disable no-undef */
 describe('uniqueArray', () => {
   test('empty array', () => {
     expect(uniqueArray([])).toEqual([]);

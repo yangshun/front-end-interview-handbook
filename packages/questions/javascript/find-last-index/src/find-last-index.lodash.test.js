@@ -1,6 +1,5 @@
 import { findLastIndex } from 'lodash';
 
-/* eslint-disable no-undef */
 describe('findLastIndex', () => {
   const array = [1, 2, 3, 4, 5];
 

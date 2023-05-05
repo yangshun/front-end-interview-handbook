@@ -1,6 +1,5 @@
 import debounce from './debounce-ii';
 
-/* eslint-disable no-undef */
 describe('debounce', () => {
   test('can be initialized', () => {
     const increment = debounce(() => 1, 50);

@@ -1,6 +1,5 @@
 import debounce from './debounce';
 
-/* eslint-disable no-undef */
 describe('debounce', () => {
   test('can be initialized', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function

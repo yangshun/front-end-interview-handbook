@@ -1,7 +1,6 @@
 import promiseRace from './promise-race';
 // import promiseRace from './solution/promiseRaceThen';
 
-/* eslint-disable no-undef */
 describe('promiseRace', () => {
   test('empty input array', (done) => {
     expect.assertions(1);

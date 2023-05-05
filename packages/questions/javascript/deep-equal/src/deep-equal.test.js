@@ -1,6 +1,5 @@
 import deepEqual from './deep-equal';
 
-/* eslint-disable no-undef */
 describe('deepEqual', () => {
   test('primitive values', () => {
     expect(deepEqual(0, 0)).toEqual(true);

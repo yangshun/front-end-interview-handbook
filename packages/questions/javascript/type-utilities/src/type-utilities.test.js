@@ -7,7 +7,6 @@ import {
   isUndefined,
 } from './type-utilities';
 
-/* eslint-disable no-undef */
 describe('Type utilities for primitives', () => {
   describe('isBoolean', () => {
     test('true', () => {

@@ -1,6 +1,5 @@
 import binarySearch from './binary-search';
 
-/* eslint-disable no-undef */
 describe('binarySearch', () => {
   test('empty', () => {
     expect(binarySearch([], 1)).toBe(-1);

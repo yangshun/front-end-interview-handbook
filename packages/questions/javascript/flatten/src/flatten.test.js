@@ -1,6 +1,5 @@
 import flatten from './flatten';
 
-/* eslint-disable no-undef */
 describe('flatten array', () => {
   test('empty array', () => {
     expect(flatten([])).toEqual([]);

@@ -1,6 +1,5 @@
 import './function-bind';
 
-/* eslint-disable no-undef */
 describe('Function.prototype.myBind', () => {
   const person = {
     name: 'John',

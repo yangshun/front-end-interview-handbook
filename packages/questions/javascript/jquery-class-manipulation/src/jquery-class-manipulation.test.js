@@ -1,6 +1,5 @@
 import $ from './jquery-class-manipulation';
 
-/* eslint-disable no-undef */
 describe('jQuery', () => {
   beforeEach(() => {
     document.body.innerHTML = '<button class="foo bar baz">Click me</button>';

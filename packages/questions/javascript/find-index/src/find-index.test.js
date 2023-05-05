@@ -1,6 +1,5 @@
 import findIndex from './find-index';
 
-/* eslint-disable no-undef */
 describe('findIndex', () => {
   const arr = [5, 12, 8, 130, 44];
 

@@ -1,6 +1,5 @@
 import sum from './sum';
 
-/* eslint-disable no-undef */
 describe('sum', () => {
   test('one number', () => {
     expect(sum(1)()).toBe(1);

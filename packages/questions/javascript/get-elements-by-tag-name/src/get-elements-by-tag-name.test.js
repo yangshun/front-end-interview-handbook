@@ -1,6 +1,5 @@
 import getElementsByTagName from './get-elements-by-tag-name';
 
-/* eslint-disable no-undef */
 describe('getElementsByTagName', () => {
   function checkResults(expected, received) {
     expect(received.length).toBe(expected.length);

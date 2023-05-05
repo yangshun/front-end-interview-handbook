@@ -1,6 +1,5 @@
 import topologicalSort from './topological-sort';
 
-/* eslint-disable no-undef */
 describe('topologicalSort', () => {
   test('empty graph', () => {
     expect(topologicalSort({})).toEqual([]);

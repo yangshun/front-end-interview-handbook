@@ -1,6 +1,5 @@
 import jsonStringify from './json-stringify';
 
-/* eslint-disable no-undef */
 describe('jsonStringify', () => {
   test('single primitive value', () => {
     expect(jsonStringify()).toEqual(undefined);

@@ -1,6 +1,5 @@
 import getElementsByClassName from './get-elements-by-class-name';
 
-/* eslint-disable no-undef */
 describe('getElementsByClassName', () => {
   function checkResults(expected, received) {
     expect(received.length).toBe(expected.length);

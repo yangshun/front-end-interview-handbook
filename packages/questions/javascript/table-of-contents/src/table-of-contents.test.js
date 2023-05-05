@@ -1,6 +1,5 @@
 import tableOfContents from './table-of-contents';
 
-/* eslint-disable no-undef */
 describe('tableOfContents', () => {
   test('empty', () => {
     const doc = new DOMParser().parseFromString(

@@ -1,6 +1,5 @@
 import dropRightWhile from './drop-right-while';
 
-/* eslint-disable no-undef */
 describe('dropRightWhile', () => {
   test('should drop elements from the right until predicate returns falsey', () => {
     const array = [1, 2, 3, 4, 5];

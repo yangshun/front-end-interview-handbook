@@ -1,6 +1,5 @@
 import limit from './limit';
 
-/* eslint-disable no-undef */
 describe('limit', () => {
   test('returns function', () => {
     const limited = limit(() => {}, 1);

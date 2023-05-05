@@ -9,7 +9,6 @@ const usesThis = function (element) {
 };
 const usesThisArrowFn = (element) => element * this;
 
-/* eslint-disable no-undef */
 describe('Array.prototype.myMap', () => {
   test('empty array', () => {
     expect([].myMap(identity)).toEqual([]);

@@ -1,6 +1,5 @@
 import Queue from './queue';
 
-/* eslint-disable no-undef */
 describe('Queue', () => {
   test('constructor', () => {
     const q = new Queue();

@@ -1,6 +1,5 @@
 import './array-square';
 
-/* eslint-disable no-undef */
 describe('Array.prototype.square', () => {
   test('empty array', () => {
     expect([].square()).toEqual([]);

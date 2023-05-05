@@ -1,6 +1,5 @@
 import listFormat from './list-format';
 
-/* eslint-disable no-undef */
 describe('listFormat', () => {
   test('empty case', () => {
     expect(listFormat()).toEqual('');

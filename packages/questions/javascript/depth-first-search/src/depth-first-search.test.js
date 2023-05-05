@@ -1,6 +1,5 @@
 import depthFirstSearch from './depth-first-search';
 
-/* eslint-disable no-undef */
 describe('depthFirstSearch', () => {
   test('empty graph', () => {
     expect(depthFirstSearch({}, null)).toEqual([]);

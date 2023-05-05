@@ -1,7 +1,6 @@
 import promiseAllSettled from './promise-all-settled';
 // import promiseAllSettled from './solution/promiseAllSettledThen';
 
-/* eslint-disable no-undef */
 describe('promiseAllSettled', () => {
   test('empty input array', async () => {
     expect.assertions(1);

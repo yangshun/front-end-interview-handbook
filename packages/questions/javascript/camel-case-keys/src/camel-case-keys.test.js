@@ -1,6 +1,5 @@
 import camelCaseKeys from './camel-case-keys';
 
-/* eslint-disable no-undef */
 describe('camelCaseKeys', () => {
   test('simple object', () => {
     expect(camelCaseKeys({ foo_bar: true })).toStrictEqual({
