@@ -215,19 +215,36 @@ export default function ProfileShell({ user, children }: Props) {
                                 </Text>
                               </div>
                             )}
+                          <div className="flex items-center space-x-2">
+                            <DiscordIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 shrink-0 text-slate-400"
+                            />
+                            <Text color="secondary" variant="body2">
+                              <Anchor href="https://discord.gg/NDFx8f6P6B">
+                                {intl.formatMessage({
+                                  defaultMessage: 'Join Discord',
+                                  description: 'Join Discord channel',
+                                  id: 'l1ZqoW',
+                                })}
+                              </Anchor>
+                            </Text>
+                          </div>
                           {(userProfile?.plan === 'lifetime' ||
                             userProfile?.plan === 'year') && (
                             <div className="flex items-center space-x-2">
                               <DiscordIcon
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-slate-400"
+                                className="h-5 w-5 shrink-0 text-pink-500"
                               />
                               <Text color="secondary" variant="body2">
-                                <Anchor href="https://discord.gg/8suTg77xXz">
+                                <Anchor
+                                  className="text-pink-500"
+                                  href="https://discord.gg/8suTg77xXz">
                                   {intl.formatMessage({
-                                    defaultMessage: 'Join Discord',
+                                    defaultMessage: 'Join Discord (Premium)',
                                     description: 'Join Discord channel',
-                                    id: 'l1ZqoW',
+                                    id: 'IGPTRv',
                                   })}
                                 </Anchor>
                               </Text>
