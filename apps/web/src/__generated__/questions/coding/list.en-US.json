@@ -841,7 +841,7 @@
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that finds the difference in values between two arrays",
+    "excerpt": "Implement a function that finds the difference in values between arrays",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
