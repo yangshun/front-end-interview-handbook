@@ -15,10 +15,6 @@
     "defaultMessage": "关于我们",
     "description": "Link to company's about page"
   },
-  "+7Wuw5": {
-    "defaultMessage": "软件工程师，印度金奈",
-    "description": "Gouse Basha's job title"
-  },
   "+JhlMu": {
     "defaultMessage": "恭喜您完成了这个题目！登录您的帐户或免费注册以保存您的进度！",
     "description": "Message shown when user completes a question"
@@ -311,6 +307,10 @@
     "defaultMessage": "面试指南",
     "description": "Sidebar label for Interview Guides category"
   },
+  "5gqGca": {
+    "defaultMessage": "来自{country}的顾客最近购买了<link>高级版</link> ",
+    "description": "Marketing toast to show that someone has subscribed"
+  },
   "5hTR16": {
     "defaultMessage": "个人资料",
     "description": "Title of Profile page"
@@ -471,6 +471,10 @@
     "defaultMessage": "查看计划",
     "description": "Link to view study plan details"
   },
+  "8WkU/A": {
+    "defaultMessage": "高级软件工程师—美国西雅图",
+    "description": "Ryan Van Valkenburg's job title"
+  },
   "8aQEL8": {
     "defaultMessage": "您现有的代码将被丢弃，您确定吗？",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -566,10 +570,6 @@
   "B6qk8B": {
     "defaultMessage": "隐藏侧边菜单",
     "description": "Screenreader text for the button that expands the side menu"
-  },
-  "B7d1jK": {
-    "defaultMessage": "前端工程师，印度",
-    "description": "Anonymous Front End Engineer's job title"
   },
   "B82jFj": {
     "defaultMessage": "指导手册",
@@ -895,6 +895,10 @@
     "defaultMessage": "高质量的解答",
     "description": "Title for high quality solutions feature"
   },
+  "HsuAKu": {
+    "defaultMessage": "前端工程师—印度德里",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "I5MeD9": {
     "defaultMessage": "注册成功",
     "description": "Title of alert indicating a successful email sign up"
@@ -1179,6 +1183,10 @@
     "defaultMessage": "最热门的 React 前端面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
     "description": "Description of React Interview Questions page"
   },
+  "MstQla": {
+    "defaultMessage": "首次准备前端面试吗？了解我们 <link>前端面试指南</link> 中的预期内容",
+    "description": "Link to front end interview guidebook"
+  },
   "MyaXLl": {
     "defaultMessage": "练习前端CSS面试题目及解答",
     "description": "SEO title for CSS questions list page"
@@ -1235,6 +1243,10 @@
     "defaultMessage": "为期一个月的前端面试准备学习计划",
     "description": "Title of 1 Month Preparation Plan page"
   },
+  "OBnflX": {
+    "defaultMessage": "软件工程师—越南",
+    "description": "Anonymous Software Engineer's job title"
+  },
   "OGpZxl": {
     "defaultMessage": "最热门的前端系统设计面试编码题目可以练习，还有前 FAANG 面试官详细的解答和解释。",
     "description": "Description of Interview Preparation System Design page"
@@ -1246,6 +1258,10 @@
   "OPwgMT": {
     "defaultMessage": "Twitter 个人资料",
     "description": "Link to Twitter profile"
+  },
+  "OQHvfy": {
+    "defaultMessage": "我一直在寻找可以帮助我提升作为前端工程师的技能的资源。 我可以满怀信心地说，GreatFrontEnd在这方面满足了我的需求。 这是我看过最全面的前线面试平台。 他们帮助加强了我的基本要素，并给我信心我能够成功地寻找工作。 此外，平台背后的人很容易接近并对反馈做出反应―非常感谢他们！",
+    "description": "Luke Fiji's testimonial"
   },
   "OWKf+S": {
     "defaultMessage": "概览",
@@ -1475,13 +1491,13 @@
     "defaultMessage": "会员专属内容",
     "description": "Premium system design questions content"
   },
-  "SO8lrv": {
-    "defaultMessage": "前端工程师，印度德里",
-    "description": "Anonymous Front End Engineer's job title"
-  },
   "SUjf8L": {
     "defaultMessage": "未订阅",
     "description": "Text describing user's subscription status."
+  },
+  "SVRodZ": {
+    "defaultMessage": "美国西雅图市",
+    "description": "Luke Fiji's job title"
   },
   "SWOTIA": {
     "defaultMessage": "重置为初始代码",
@@ -1494,6 +1510,10 @@
   "Se6J8o": {
     "defaultMessage": "标记为已完成",
     "description": "Mark the question as complete"
+  },
+  "SnsdiS": {
+    "defaultMessage": "软件工程师—纽约，美国",
+    "description": "Jacky Liang's job title"
   },
   "T1UibH": {
     "defaultMessage": "往往是由社区提供的。",
@@ -1663,10 +1683,6 @@
     "defaultMessage": "{numberOfFailedTests} 个失败",
     "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
   },
-  "Vqt5YP": {
-    "defaultMessage": "高级软件工程师，美国西雅图",
-    "description": "Ryan Van Valkenburg's job title"
-  },
   "Vvc37/": {
     "defaultMessage": "注册一个帐户",
     "description": "Title of Email Sign Up page"
@@ -1690,6 +1706,10 @@
   "WRQRec": {
     "defaultMessage": "无论准备时间多长，都有一个为你制定的计划。",
     "description": "Preparation plans section subtitle"
+  },
+  "WWRfWH": {
+    "defaultMessage": "如果你是一个想在前端领域突出的软件开发者或工程师，GreatFrontEnd是一个很好的资源。 在工程界实践LeetCode样式问题非常常见，但很少有人谈论系统设计和行为问题。 这是我加入GFE最大的原因之一！它充满挑战、有趣，而且还有一个关心您的社区！",
+    "description": "Jacky Liang's testimonial"
   },
   "WzDhJE": {
     "defaultMessage": "图标由 Clearbit 提供",
@@ -1927,10 +1947,6 @@
     "defaultMessage": "提交",
     "description": "Feedback widget submit button label"
   },
-  "c4SvsG": {
-    "defaultMessage": "我得到了一个面试的机会，在一个在线零售巨头的关键前端团队中担任一个梦幻般的角色，该团队拥有超过5000万客户，每天的渲染量超过50亿。这是一个让我的事业更上一层楼的好机会。问题是--我还没有准备好去面试!",
-    "description": "Larry Almeida's testimonial"
-  },
   "c7lcjj": {
     "defaultMessage": "HTML 题目",
     "description": "HTML Questions list page title"
@@ -1986,10 +2002,6 @@
   "d+wYSW": {
     "defaultMessage": "注册免费的 GreatFrontEnd 帐户来跟踪您的进度和访问高级版",
     "description": "Description of Sign Up page"
-  },
-  "d1vCxb": {
-    "defaultMessage": "软件工程师，越南",
-    "description": "Anonymous Software Engineer's job title"
   },
   "d3GL1v": {
     "defaultMessage": "向下复制行",
@@ -2071,6 +2083,10 @@
     "defaultMessage": "前端/网络开发者面试指定指南。",
     "description": "Front end interview guidebook description"
   },
+  "eePDwP": {
+    "defaultMessage": "前端工程师—印度",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "eeWLAW": {
     "defaultMessage": "框架",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
@@ -2110,6 +2126,10 @@
   "fXNw/d": {
     "defaultMessage": "您的电子邮箱",
     "description": "Feedback widget email input field label"
+  },
+  "fYyYBk": {
+    "defaultMessage": "GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!",
+    "description": "Nafis Hasnain's testimonial"
   },
   "fcYNb3": {
     "defaultMessage": "{questionCount}+ JavaScript和TypeScript面试问题，从实现通用库 API，实用功能，算法，到构建界面组件等等。",
@@ -2339,6 +2359,10 @@
     "defaultMessage": "系统设计题目",
     "description": "Title for an example list of System Design Questions on marketing pages"
   },
+  "js0Pb/": {
+    "defaultMessage": "软件开发实习—Vidyard，安大略，加拿大",
+    "description": "Nafis Hasnain's job title"
+  },
   "jtuJQk": {
     "defaultMessage": "关于我们",
     "description": "Title of About Us page"
@@ -2482,6 +2506,10 @@
   "mOk1w0": {
     "defaultMessage": "准备对端到端的前端面试",
     "description": "Title for question format category links in navbar"
+  },
+  "mST7/q": {
+    "defaultMessage": "我们帮助了成千上万的软件开发者",
+    "description": "Testimonial section subtitle"
   },
   "mVXHy8": {
     "defaultMessage": "高级软件工程师--前端，Zalando，德国柏林",
@@ -2726,6 +2754,10 @@
   "srrlrR": {
     "defaultMessage": "练习前端系统设计面试题及解答",
     "description": "Title of Interview Preparation System Design page"
+  },
+  "srsq7K": {
+    "defaultMessage": "软件工程师—印度金奈",
+    "description": "Gouse Basha's job title"
   },
   "t5L0yE": {
     "defaultMessage": "价格",
@@ -3086,10 +3118,6 @@
   "zaEg+y": {
     "defaultMessage": "一次购买，永久解锁。",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-  },
-  "zfigye": {
-    "defaultMessage": "来自{country}的{name}最近购买了<link>高级版</link> ",
-    "description": "Marketing toast to show that someone has subscribed"
   },
   "zn3iWx": {
     "defaultMessage": "重复密码",

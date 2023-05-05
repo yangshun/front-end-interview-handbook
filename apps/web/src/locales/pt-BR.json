@@ -15,10 +15,6 @@
     "defaultMessage": "Sobre",
     "description": "Link to company's about page"
   },
-  "+7Wuw5": {
-    "defaultMessage": "Engenheiro de Software, Chennai, Índia",
-    "description": "Gouse Basha's job title"
-  },
   "+JhlMu": {
     "defaultMessage": "Parabéns por concluir a pergunta! Entre na sua conta ou cadastre-se gratuitamente para salvar o seu progresso!",
     "description": "Message shown when user completes a question"
@@ -311,6 +307,10 @@
     "defaultMessage": "Guias de Entrevista",
     "description": "Sidebar label for Interview Guides category"
   },
+  "5gqGca": {
+    "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
+    "description": "Marketing toast to show that someone has subscribed"
+  },
   "5hTR16": {
     "defaultMessage": "Perfil",
     "description": "Title of Profile page"
@@ -471,6 +471,10 @@
     "defaultMessage": "Ver plano",
     "description": "Link to view study plan details"
   },
+  "8WkU/A": {
+    "defaultMessage": "Senior Software Engineer — Seattle, WA, USA",
+    "description": "Ryan Van Valkenburg's job title"
+  },
   "8aQEL8": {
     "defaultMessage": "O seu código existente será descartado, tem certeza disso?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -566,10 +570,6 @@
   "B6qk8B": {
     "defaultMessage": "Esconder o menu lateral",
     "description": "Screenreader text for the button that expands the side menu"
-  },
-  "B7d1jK": {
-    "defaultMessage": "Engenheiro Front End, Índia",
-    "description": "Anonymous Front End Engineer's job title"
   },
   "B82jFj": {
     "defaultMessage": "Guias de referência",
@@ -895,6 +895,10 @@
     "defaultMessage": "Soluções de alta qualidade",
     "description": "Title for high quality solutions feature"
   },
+  "HsuAKu": {
+    "defaultMessage": "Front End Engineer — Delhi, India",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "I5MeD9": {
     "defaultMessage": "Registrado com sucesso",
     "description": "Title of alert indicating a successful email sign up"
@@ -1179,6 +1183,10 @@
     "defaultMessage": "As principais perguntas de programação de entrevistas de Front End usando React para praticar, com soluções detalhadas e explicações de ex-entrevistadores da FAANG.",
     "description": "Description of React Interview Questions page"
   },
+  "MstQla": {
+    "defaultMessage": "First time preparing for front end interviews? Find out what to expect in our <link>Front End Interview Guidebook</link>",
+    "description": "Link to front end interview guidebook"
+  },
   "MyaXLl": {
     "defaultMessage": "Pratique as Principais Perguntas de Entrevista de Front End em CSS com Soluções",
     "description": "SEO title for CSS questions list page"
@@ -1235,6 +1243,10 @@
     "defaultMessage": "Plano de estudo para se preparar para entrevistas de front end em 1 mês",
     "description": "Title of 1 Month Preparation Plan page"
   },
+  "OBnflX": {
+    "defaultMessage": "Software Engineer — Vietnam",
+    "description": "Anonymous Software Engineer's job title"
+  },
   "OGpZxl": {
     "defaultMessage": "As principais perguntas de design de sistema de entrevista de front end para praticar, com soluções detalhadas e explicações feitas por ex-entrevistadores da FAANG.",
     "description": "Description of Interview Preparation System Design page"
@@ -1246,6 +1258,10 @@
   "OPwgMT": {
     "defaultMessage": "Twitter profile link",
     "description": "Link to Twitter profile"
+  },
+  "OQHvfy": {
+    "defaultMessage": "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
+    "description": "Luke Fiji's testimonial"
   },
   "OWKf+S": {
     "defaultMessage": "Visão Geral",
@@ -1475,13 +1491,13 @@
     "defaultMessage": "Conteúdo Premium",
     "description": "Premium system design questions content"
   },
-  "SO8lrv": {
-    "defaultMessage": "Engenheiro Front-End, Delhi, Índia",
-    "description": "Anonymous Front End Engineer's job title"
-  },
   "SUjf8L": {
     "defaultMessage": "Não Inscrito",
     "description": "Text describing user's subscription status."
+  },
+  "SVRodZ": {
+    "defaultMessage": "Seattle, WA, USA",
+    "description": "Luke Fiji's job title"
   },
   "SWOTIA": {
     "defaultMessage": "Redefinir para o código inicial",
@@ -1494,6 +1510,10 @@
   "Se6J8o": {
     "defaultMessage": "Marcar como Concluída",
     "description": "Mark the question as complete"
+  },
+  "SnsdiS": {
+    "defaultMessage": "Software Engineer — New York, NY, USA",
+    "description": "Jacky Liang's job title"
   },
   "T1UibH": {
     "defaultMessage": "Frequentemente de origem comunitária.",
@@ -1663,10 +1683,6 @@
     "defaultMessage": "{numberOfFailedTests} falhou",
     "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
   },
-  "Vqt5YP": {
-    "defaultMessage": "Engenheiro de Software Sênior, Seattle, WA, EUA",
-    "description": "Ryan Van Valkenburg's job title"
-  },
   "Vvc37/": {
     "defaultMessage": "Criar uma conta",
     "description": "Title of Email Sign Up page"
@@ -1690,6 +1706,10 @@
   "WRQRec": {
     "defaultMessage": "Independentemente do tempo de preparação, temos um plano para você.",
     "description": "Preparation plans section subtitle"
+  },
+  "WWRfWH": {
+    "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
+    "description": "Jacky Liang's testimonial"
   },
   "WzDhJE": {
     "defaultMessage": "Logos fornecidos por Clearbit",
@@ -1927,10 +1947,6 @@
     "defaultMessage": "Enviar",
     "description": "Feedback widget submit button label"
   },
-  "c4SvsG": {
-    "defaultMessage": "Eu tive uma oportunidade de entrevista para um papel dos sonhos com uma equipe crítica de frontend de um gigante varejista online com mais de 50 milhões de clientes e mais de 5 bilhões de renderizações por dia. Uma ótima oportunidade para levar minha carreira para o próximo nível. O problema — eu não estava pronto para a entrevista!",
-    "description": "Larry Almeida's testimonial"
-  },
   "c7lcjj": {
     "defaultMessage": "Questões HTML",
     "description": "HTML Questions list page title"
@@ -1986,10 +2002,6 @@
   "d+wYSW": {
     "defaultMessage": "Cadastre-se para uma conta gratuita no GreatFrontEnd para acompanhar seu progresso e acessar conteúdo premium",
     "description": "Description of Sign Up page"
-  },
-  "d1vCxb": {
-    "defaultMessage": "Engenheiro de Software, Vietnã",
-    "description": "Anonymous Software Engineer's job title"
   },
   "d3GL1v": {
     "defaultMessage": "Copiar linha para baixo",
@@ -2071,6 +2083,10 @@
     "defaultMessage": "O guia definitivo para entrevistas de desenvolvedor front-end/web.",
     "description": "Front end interview guidebook description"
   },
+  "eePDwP": {
+    "defaultMessage": "Front End Engineer — India",
+    "description": "Anonymous Front End Engineer's job title"
+  },
   "eeWLAW": {
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
@@ -2110,6 +2126,10 @@
   "fXNw/d": {
     "defaultMessage": "Seu Email",
     "description": "Feedback widget email input field label"
+  },
+  "fYyYBk": {
+    "defaultMessage": "GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!",
+    "description": "Nafis Hasnain's testimonial"
   },
   "fcYNb3": {
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
@@ -2339,6 +2359,10 @@
     "defaultMessage": "Perguntas de Design de Sistemas",
     "description": "Title for an example list of System Design Questions on marketing pages"
   },
+  "js0Pb/": {
+    "defaultMessage": "Software Developer Intern — Vidyard, Ontario, Canada",
+    "description": "Nafis Hasnain's job title"
+  },
   "jtuJQk": {
     "defaultMessage": "Sobre Nós",
     "description": "Title of About Us page"
@@ -2482,6 +2506,10 @@
   "mOk1w0": {
     "defaultMessage": "Prepare-se de ponta a ponta para entrevistas de front end",
     "description": "Title for question format category links in navbar"
+  },
+  "mST7/q": {
+    "defaultMessage": "We have helped thousands of Software Engineers",
+    "description": "Testimonial section subtitle"
   },
   "mVXHy8": {
     "defaultMessage": "Engenheiro de Software Sênior — Front End, Zalando, Berlim, Alemanha",
@@ -2726,6 +2754,10 @@
   "srrlrR": {
     "defaultMessage": "Pratique Perguntas de Entrevista de Design de Sistemas Front End com Soluções",
     "description": "Title of Interview Preparation System Design page"
+  },
+  "srsq7K": {
+    "defaultMessage": "Software Engineer — Chennai, India",
+    "description": "Gouse Basha's job title"
   },
   "t5L0yE": {
     "defaultMessage": "Preços",
@@ -3086,10 +3118,6 @@
   "zaEg+y": {
     "defaultMessage": "Pague uma vez, desbloqueie para sempre",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-  },
-  "zfigye": {
-    "defaultMessage": "{name} from {country} subscribed to <link>Premium</link> recently",
-    "description": "Marketing toast to show that someone has subscribed"
   },
   "zn3iWx": {
     "defaultMessage": "Repetir Senha",
