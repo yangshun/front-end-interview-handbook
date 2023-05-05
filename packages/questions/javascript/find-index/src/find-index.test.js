@@ -24,7 +24,7 @@ describe('findIndex', () => {
     expect(result).toBe(3);
   });
 
-  test('handles negative fromIndex', () => {
+  test('handles negative start index', () => {
     const result = findIndex(arr, (num) => num > 3, -2);
     expect(result).toEqual(3);
   });

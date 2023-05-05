@@ -21,16 +21,16 @@ describe('findLastIndex', () => {
 
   test('starts the search from the given index', () => {
     const predicate = (value) => value < 4;
-    expect(findLastIndex(array, predicate, 3)).toEqual(-1);
+    expect(findLastIndex(array, predicate, 3)).toEqual(2);
   });
 
   test('handles negative fromIndex', () => {
     const predicate = (value) => value > 3;
-    expect(findLastIndex(array, predicate, -2)).toEqual(4);
+    expect(findLastIndex(array, predicate, -2)).toEqual(3);
   });
 
   test('handles out of range index', () => {
     expect(findLastIndex(array, (value) => value > 3, 10)).toEqual(4);
-    expect(findLastIndex(array, (value) => value % 2 == 0, -10)).toEqual(3);
+    expect(findLastIndex(array, (value) => value % 2 === 0, -10)).toEqual(-1);
   });
 });

@@ -12,18 +12,19 @@ export default function findLastIndex(
   predicate,
   fromIndex = array.length - 1,
 ) {
-  let endIndex =
+  let startIndex =
     fromIndex < 0
       ? Math.max(array.length + fromIndex, 0)
       : Math.min(fromIndex, array.length - 1);
 
-  let index = array.length - 1;
-
-  while (index >= endIndex) {
+  let index = startIndex;
+  // Iterate from the right.
+  while (index >= 0) {
     if (predicate(array[index], index, array)) {
       return index;
     }
     index--;
   }
+
   return -1;
 }
