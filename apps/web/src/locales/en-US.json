@@ -915,6 +915,10 @@
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
   },
+  "IGPTRv": {
+    "defaultMessage": "Join Discord (Premium)",
+    "description": "Join Discord channel"
+  },
   "IK98yM": {
     "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
     "description": "Call-to-action"
