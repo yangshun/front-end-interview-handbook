@@ -3,10 +3,10 @@
 
 // Or use ChatGPT
 
-import TODO_REPLACE_ME from './TODO_REPLACE_ME';
+import todoReplaceMe from './todo-replace-me';
 
-describe('TODO_REPLACE_ME', () => {
+describe('todoReplaceMe', () => {
   test('foo', () => {
-    expect(TODO_REPLACE_ME(1)).toBe(1);
+    expect(todoReplaceMe(1)).toBe(1);
   });
 });
