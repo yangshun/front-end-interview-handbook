@@ -19,6 +19,7 @@
       "ts"
     ],
     "nextQuestions": [
+      "is-empty",
       "deep-clone",
       "deep-equal"
     ],

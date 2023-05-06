@@ -1559,6 +1559,31 @@
     "title": "Insertion Sort"
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function to check if a value is an empty object, collection, map, or set",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/is-empty",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "is-empty",
+    "title": "Is Empty"
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1655510400,
@@ -2941,6 +2966,7 @@
       "ts"
     ],
     "nextQuestions": [
+      "is-empty",
       "deep-clone",
       "deep-equal"
     ],

@@ -1,0 +1,32 @@
+---
+title: Is Empty
+excerpt: Implement a function to check if a value is an empty object, collection, map, or set
+---
+
+Implement a function `isEmpty(value)` to check if a value is an empty object, collection, map, or set.
+
+Array-like values such as `arguments` objects, arrays, buffers, strings, or jQuery-like collections are considered empty if they have a `length` of `0`. Similarly, maps and sets are considered empty if they have a `size` of `0`.
+
+However for this question, we only need to consider arrays, buffers, strings, objects, maps and sets.
+
+## Arguments
+
+1. `value` _(\*)_: The value to check.
+
+## Returns
+
+_(boolean)_: Returns `true` if `value` is empty, else `false`.
+
+## Example
+
+```js
+_.isEmpty(null); // => true
+_.isEmpty(true); // => true
+_.isEmpty(1); // => true
+_.isEmpty([1, 2, 3]); // => false
+_.isEmpty({ a: 1 }); // => false
+```
+
+## Resources
+
+- [Lodash `_.isEmpty`](https://lodash.com/docs/#isEmpty)
