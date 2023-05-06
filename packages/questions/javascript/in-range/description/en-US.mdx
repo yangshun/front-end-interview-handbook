@@ -1,0 +1,32 @@
+---
+title: In Range
+excerpt: Implement a function to check if a number falls between two numbers
+---
+
+Implement a function `inRange(value, [start=0], end)` to check if a number `value` is between `start` and up to, but not including, `end`. If `end` is not specified, the `start` argument becomes `end` and `start` is set to `0`. If `start` is greater than `end` the parameters are swapped to support negative ranges.
+
+## Arguments
+
+1. `value` _(number)_: The number to check.
+1. `[start=0]` _(number)_: The start of the range.
+1. `end` _(number)_: The end of the range (not including).
+
+## Returns
+
+_(boolean)_: Returns `true` if `value` is in the range, else `false`.
+
+## Example
+
+```js
+inRange(3, 2, 4); // => true
+inRange(4, 8); // => true
+inRange(4, 2); // => false
+inRange(2, 2); // => false
+inRange(1.2, 2); // => true
+inRange(5.2, 4); // => false
+inRange(-3, -2, -6); // => true
+```
+
+## Resources
+
+- [Lodash `_.inRange`](https://lodash.com/docs/#inRange)

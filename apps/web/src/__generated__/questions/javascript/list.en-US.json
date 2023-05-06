@@ -1099,6 +1099,31 @@
   {
     "author": null,
     "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function to check if a number falls between two numbers",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/in-range",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "in-range",
+    "title": "In Range"
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1671667200,
     "difficulty": "easy",
     "duration": 15,
