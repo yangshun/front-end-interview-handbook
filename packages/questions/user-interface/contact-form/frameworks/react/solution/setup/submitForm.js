@@ -1,4 +1,4 @@
-const URL =
+const SUBMIT_URL =
   'https://www.greatfrontend.com/api/questions/contact-form';
 
 export default async function submitForm(event) {
@@ -6,7 +6,7 @@ export default async function submitForm(event) {
   const form = event.target;
 
   try {
-    if (form.action !== URL) {
+    if (form.action !== SUBMIT_URL) {
       alert('Incorrect form action value');
       return;
     }
@@ -17,20 +17,17 @@ export default async function submitForm(event) {
     }
 
     const formData = new FormData(form);
-    const response = await fetch(
-      'https://www.greatfrontend.com/api/questions/contact-form',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
-          message: formData.get('message'),
-        }),
+    const response = await fetch(SUBMIT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+      }),
+    });
 
     const text = await response.text();
     alert(text);
