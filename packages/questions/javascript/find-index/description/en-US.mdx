@@ -3,43 +3,51 @@ title: Find Index
 excerpt: Implement a function that returns the index of the first element in the array that satisfies the provided testing function.
 ---
 
-Write a function named findIndex that takes an array of values, a function predicate, and an optional fromIndex number argument, and returns the index of the first element in the array that satisfies the provided testing function predicate.
+Implement a function `findIndex(array, predicate, [fromIndex=0])` that takes an array of values, a function `predicate`, and an optional `fromIndex` number argument, and returns the index of the first element in the array that satisfies the provided testing function `predicate`.
 
 ```js
 findIndex(array, predicate, [(fromIndex = 0)]);
 ```
 
-- `array`: The array to iterate over.
-- `predicate`: The function invoked per iteration. It is called with three arguments: (value, index, array).
-- `fromIndex`: The index to start the search from. If no index provided, start searching from index 0.
+## Arguments
 
-Returns the index of the found element, else -1.
+1. `array` _(Array)_: The array to inspect.
+1. `predicate` _(Function)_: The function invoked per iteration.
+1. `[fromIndex=0]` _(number)_: The index to search from.
 
-## Examples
+## Returns
+
+_(number)_: Returns the index of the found element, else `-1`.
+
+## Example
 
 ```js
 const arr = [1, 2, 3, 4, 5];
 
 // Search for the first number in the array that is greater than 3
-findIndex(arr, (num) => num > 3); // Returns index 3
+findIndex(arr, (num) => num > 3); // => 3
 
 // Start searching from index 3 (inclusive)
-findIndex(arr, (num) => num > 3, 4); // Returns index 4
+findIndex(arr, (num) => num > 3, 4); // => 4
 
-findIndex(arr, (num) => num > 10, 3); // Returns index -1
+findIndex(arr, (num) => num > 10, 3); // => -1
 ```
 
 ## Edge cases
 
-Your function needs to handle negative `fromIndex`. Also, if `index < - array.length`, start searching from index 0.
+Your function needs to handle negative `fromIndex`. Also, if `index < - array.length`, start searching from index `0`.
 
 ```js
 const arr = [1, 2, 3, 4, 5];
 
-findIndex(arr, (num) => num > 2, -3); // Returns index 2
+findIndex(arr, (num) => num > 2, -3); // => 2
 
-findIndex(arr, (num) => num > 2, 10); // Returns index -1
+findIndex(arr, (num) => num > 2, 10); // => -1
 
 // Start from 0 if fromIndex < -(array.length)
-findIndex(arr, (num) => num > 2, -10); // Returns index 1
+findIndex(arr, (num) => num > 2, -10); // => 1
 ```
+
+## Resources
+
+- [Lodash `_.findIndex`](https://lodash.com/docs/#findIndex)

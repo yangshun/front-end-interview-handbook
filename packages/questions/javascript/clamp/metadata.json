@@ -8,6 +8,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": [],
-  "next_questions": []
+  "similar_questions": ["in-range"],
+  "next_questions": ["in-range"]
 }

@@ -5,26 +5,27 @@ excerpt: Implement a function that creates an array of elements split into small
 
 ## Lodash's Chunk method
 
-Implement a function `chunk` that emulates the functionality of the Lodash utility function `_.chunk(array, [size=1])`. The function splits the input array into smaller arrays of length `size` and returns them within a **new** array. The function should not modify the original input array.
+Implement a function `chunk(array, [size=1])` that splits the input array into groups of length `size` and returns them within a **new** array. If array can't be split evenly, the final chunk will be the remaining elements. The function should not modify the original input array.
 
-```js
-chunk(array, [(size = 1)]);
-```
+## Arguments
 
-- `array`: The array to split.
-- `size`: The chunk size. A positive integer.
+1. `array` _(Array)_: The array to process.
+1. `[size=1]` _(number)_: The length of each chunk.
 
-## Examples
+## Returns
+
+_(Array)_: Returns the new array of chunks.
+
+## Example
 
 ```js
 chunk(['a', 'b', 'c', 'd']); // => [['a'], ['b'], ['c'], ['d']]
 chunk([1, 2, 3, 4], 2); // => [[1, 2], [3, 4]]
-```
-
-If the length is not divisible by the `size`, the final chunk will contain the remaining elements.
-
-```js
-chunk(['a', 'b', 'c', 'd'], 3); // => [['a', 'b', 'c'], ['d']]
+chunk([1, 2, 3, 4], 3); // => [[1, 2, 3], [4]]
 ```
 
 The function should return an empty array if the `array` argument is empty.
+
+## Resources
+
+- [Lodash `_.chunk`](https://lodash.com/docs/#chunk)

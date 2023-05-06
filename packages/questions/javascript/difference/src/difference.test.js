@@ -2,6 +2,7 @@ import difference from './difference';
 
 describe('difference', () => {
   test('returns an empty array when the input array is empty', () => {
+    expect(difference([], [])).toEqual([]);
     expect(difference([], [1, 2, 3])).toEqual([]);
   });
 
@@ -26,8 +27,7 @@ describe('difference', () => {
   });
 
   test('handles input arrays with holes (i.e., sparse arrays)', () => {
-    const array = [1, , 3];
-    expect(difference(array, [2])).toEqual([1, 3]);
+    expect(difference([1, , 3], [2])).toEqual([1, 3]);
   });
 
   test('handles input arrays containing NaN values', () => {

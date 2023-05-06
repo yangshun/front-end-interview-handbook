@@ -266,11 +266,15 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "in-range"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "in-range"
+    ],
     "slug": "clamp",
     "title": "Clamp"
   },
@@ -306,7 +310,7 @@
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that removes all falsey values.",
+    "excerpt": "Implement a function that creates an array with all falsey values removed.",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -1117,7 +1121,9 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "clamp"
+    ],
     "slug": "in-range",
     "title": "In Range"
   },

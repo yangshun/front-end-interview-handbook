@@ -1,27 +1,29 @@
 import dropRightWhile from './drop-right-while';
 
 describe('dropRightWhile', () => {
-  test('should drop elements from the right until predicate returns falsey', () => {
-    const array = [1, 2, 3, 4, 5];
-    const predicate = (value) => value > 3;
-    expect(dropRightWhile(array, predicate)).toEqual([1, 2, 3]);
+  test('empty array', () => {
+    expect(dropRightWhile([], (value) => value > 3)).toEqual([]);
   });
 
-  test('should return original array if predicate always returns falsey', () => {
-    const array = [1, 2, 3, 4, 5];
-    const predicate = (value) => value < 0;
-    expect(dropRightWhile(array, predicate)).toEqual([1, 2, 3, 4, 5]);
+  test('drop elements from the right until predicate returns falsey', () => {
+    expect(dropRightWhile([1, 2, 3, 4, 5], (value) => value > 3)).toEqual([
+      1, 2, 3,
+    ]);
   });
 
-  test('should return empty array if predicate always returns truthy', () => {
-    const array = [1, 2, 3, 4, 5];
-    const predicate = (value) => value < 6;
-    expect(dropRightWhile(array, predicate)).toEqual([]);
+  test('predicate always returns falsey', () => {
+    expect(dropRightWhile([1, 2, 3, 4, 5], (value) => value < 0)).toEqual([
+      1, 2, 3, 4, 5,
+    ]);
   });
 
-  test('should return an empty array if array is empty', () => {
-    const array = [];
-    const predicate = (value) => value > 3;
-    expect(dropRightWhile(array, predicate)).toEqual([]);
+  test('predicate always returns truthy', () => {
+    expect(dropRightWhile([1, 2, 3, 4, 5], (value) => value < 6)).toEqual([]);
+  });
+
+  test('should not modify the original input array', () => {
+    const array = [1, 2, 3, 4, 5];
+    dropRightWhile(array, (value) => value > 3);
+    expect(array).toEqual([1, 2, 3, 4, 5]);
   });
 });

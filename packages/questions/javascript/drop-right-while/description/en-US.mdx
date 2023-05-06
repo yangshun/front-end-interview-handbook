@@ -3,25 +3,25 @@ title: Drop Right While
 excerpt: Implement a function that excludes elements from the end of an array until the predicate returns false
 ---
 
-Lodash provides a utility called `dropRightWhile` that creates a slice of an array with elements dropped from the end until the `predicate` function returns falsey.
+Implement a function `dropRightWhile(array, predicate)` that creates a slice of `array` excluding elements dropped from the end. Elements are dropped until `predicate` returns falsey. The predicate is invoked with three arguments: _(value, index, array)_. Your function should not modify the original array.
 
-Implement a function `dropRightWhile` that behaves like Lodash's `dropRightWhile` utility using the following function signature:
+#### Arguments
 
-```js
-dropRightWhile(array, predicate);
-```
+1. `array` _(Array)_: The array to query.
+1. `predicate` _(Function)_: The function invoked per iteration.
 
-The function takes two arguments:
+#### Returns
 
-- `array (Array)`: The array to iterate over.
-- `predicate (Function)`: The predicate is invoked with three arguments: (value, index, array) and returns a `boolean` value.
+_(Array)_: Returns the slice of `array`.
 
-Your function should drop elements from the end of the array until the predicate function returns `falsey`, and return the remaining elements as a new array. Your function should not modify the original array.
-
-## Examples
+## Example
 
 ```js
 dropRightWhile([1, 2, 3, 4, 5], (value) => value > 3); // => [1, 2, 3]
 dropRightWhile([1, 2, 3], (value) => value < 6); // => []
 dropRightWhile([1, 2, 3, 4, 5], (value) => value > 6); // => [1, 2, 3, 4, 5]
 ```
+
+## Resources
+
+- [Lodash `_.dropRightWhile`](https://lodash.com/docs/#dropRightWhile)

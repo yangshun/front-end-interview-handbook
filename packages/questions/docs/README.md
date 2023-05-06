@@ -22,3 +22,5 @@ If the function takes in an array, add tests for empty arrays, single-element ar
 If the function takes in indices, add tests for negative indices. If the function takes in multiple indices, add tests for a mix of all combinations of positive and negative indices.
 If the function takes in objects, add tests for empty objects, objects with a single key, two keys, multiple keys.
 ```
+
+If the function behaves exactly the same as the Lodash

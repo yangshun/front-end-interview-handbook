@@ -3,20 +3,16 @@ title: Difference
 excerpt: Implement a function that finds the difference in values between arrays
 ---
 
-Implement a function that creates an array of `array` values not included in the other given arrays using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) for equality comparisons. The order and references of result values are determined by the first array.
-
-```js
-difference(array, [values]);
-```
+Implement a function `difference(array, [values])` that creates an array of `array` values not included in the other given arrays using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) for equality comparisons. The order and references of result values are determined by the first array.
 
 ## Arguments
 
-- `array (Array)`: The array to inspect.
-- `values (...Array)`: The values to exclude.
+1. `array` _(Array)_: The array to inspect.
+1. `[values]` _(...Array)_: The values to exclude.
 
 ## Returns
 
-- `(Array)`: Returns the new array of filtered values.
+_(Array)_: Returns the new array of filtered values.
 
 ## Example
 
@@ -32,3 +28,7 @@ The function should return the original array values if `values` is empty.
 ```js
 difference([1, 2, 3], []); // => [1, 2, 3]
 ```
+
+## Resources
+
+- [Lodash `_.difference`](https://lodash.com/docs/#difference)

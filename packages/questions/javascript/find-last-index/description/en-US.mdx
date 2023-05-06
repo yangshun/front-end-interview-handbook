@@ -3,21 +3,17 @@ title: Find Last Index
 excerpt: Implement a function that returns the index of the last element in the array that satisfies the provided testing function.
 ---
 
-Implement a function `findLastIndex` that takes an array of values, a function predicate, and an optional `fromIndex` number argument, and returns the index of the last element in the array that satisfies the provided testing function predicate. It iterates over elements of the `array` from **right to left**.
-
-```js
-findLastIndex(array, predicate, [(fromIndex = array.length - 1)]);
-```
+Implement a function `findIndex(array, predicate, [fromIndex=array.length-1])` that takes an array of values, a function `predicate`, and an optional `fromIndex` number argument, and returns the index of the last element in the array that satisfies the provided testing function `predicate`. It iterates over elements of the `array` from **right to left**.
 
 ## Arguments
 
-- `array`: The array to iterate over.
-- `predicate`: The function invoked per iteration. It is called with three arguments: `(value, index, array)`.
-- `fromIndex`: The index after which the searching starts. If `fromIndex` is not given then by default value is `array.length - 1`.
+1. `array` _(Array)_: The array to inspect.
+2. `predicate` _(Function)_: The function invoked per iteration.
+3. `[fromIndex=array.length-1]` _(number)_: The index to search from.
 
 ## Returns
 
-Returns the index of the found element. If no element satisfies the predicate function, return `-1`.
+_(number)_: Returns the index of the found element, else `-1`.
 
 **Note:** Your function should handle negative indices. If the index is out of range, start searching from the closest index that is within the range.
 
@@ -52,3 +48,7 @@ findLastIndex(arr, (num) => num > 0, 10); // => 4
 // Start from 0 if fromIndex < -(array.length)
 findLastIndex(arr, (num) => num > 2, -10); // => -1
 ```
+
+## Resources
+
+- [Lodash `_.findLastIndex`](https://lodash.com/docs/#findLastIndex)

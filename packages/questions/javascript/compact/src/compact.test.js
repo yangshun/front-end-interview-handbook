@@ -1,46 +1,48 @@
 import compact from './compact';
 
 describe('compact', () => {
-  it('should remove all falsey values from the input array', () => {
-    const input = [0, 1, false, 2, '', 3];
-    const output = compact(input);
-    expect(output).toEqual([1, 2, 3]);
+  test('empty array', () => {
+    expect(compact([])).toEqual([]);
   });
 
-  it('should handle arrays with only falsey values', () => {
-    const input = [null, undefined, NaN, 0, false, '', ''];
-    const output = compact(input);
-    expect(output).toEqual([]);
+  test('single-element array', () => {
+    expect(compact([1])).toEqual([1]);
+    expect(compact([null])).toEqual([]);
   });
 
-  it('should handle arrays with no falsey values', () => {
-    const input = ['hello', true, 123, [], {}, function () {}];
-    const output = compact(input);
-    expect(output).toEqual(input);
+  test('two-element array', () => {
+    expect(compact([1, 2])).toEqual([1, 2]);
+    expect(compact([null, 1])).toEqual([1]);
+    expect(compact([1, null])).toEqual([1]);
+    expect(compact([false, null])).toEqual([]);
   });
 
-  it('should handle empty arrays', () => {
-    const input = [];
-    const output = compact(input);
-    expect(output).toEqual([]);
+  test('remove all falsey values from the input array', () => {
+    expect(compact([0, 1, false, 2, '', 3])).toEqual([1, 2, 3]);
   });
 
-  it('should not modify the original input array', () => {
+  test('only falsey values', () => {
+    expect(compact([null, undefined, NaN, 0, false, '', ''])).toEqual([]);
+  });
+
+  test('no falsey values', () => {
+    expect(compact(['hello', true, 123, [], {}])).toEqual([
+      'hello',
+      true,
+      123,
+      [],
+      {},
+    ]);
+  });
+
+  test('sparse arrays', () => {
+    expect(compact([1, , 2, , 3])).toEqual([1, 2, 3]);
+    expect(compact([1, , null, 2, , 3])).toEqual([1, 2, 3]);
+  });
+
+  test('should not modify the original input array', () => {
     const input = [0, 1, false, 2, '', 3];
     compact(input);
     expect(input).toEqual([0, 1, false, 2, '', 3]);
-  });
-
-  it('should handle arrays with holes', () => {
-    const input = [1, , 2, , 3];
-    const output = compact(input);
-    expect(output).toEqual([1, 2, 3]);
-  });
-
-  it('should handle sparse arrays', () => {
-    const input = new Array(3);
-    input[1] = 'hello';
-    const output = compact(input);
-    expect(output).toEqual(['hello']);
   });
 });

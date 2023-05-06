@@ -3,24 +3,20 @@ title: Fill
 excerpt: Implement a function that fills an array with values within specified indices
 ---
 
-Implement a `fill` function that fills an array with values from `start` up to, but not including, `end`.
-
-```js
-fill(array, value, [(start = 0)], [(end = array.length)]);
-```
+Implement a function `fill(array, value, [start=0], [end=array.length])` that fills an array with values from `start` up to, but not including, `end`.
 
 **Note**: This method mutates `array`.
 
 ## Arguments
 
-- `array (Array)`: The array to fill.
-- `value (*)`: The value to fill `array` with.
-- `[start=0] (number)`: The start position.
-- `[end=array.length] (number)`: The end position.
+1. `array` _(Array)_: The array to fill.
+2. `value` _(\*)_: The value to fill `array` with.
+3. `[start=0]` _(number)_: The start position.
+4. `[end=array.length]` _(number)_: The end position.
 
 ## Returns
 
-- `(Array)`: Returns `array`.
+_(Array)_: Returns `array`.
 
 ## Example
 
@@ -31,3 +27,7 @@ fill([4, 6, 8, 10, 12], '*', -3, -1); // [4, '*', '*', '*', 12]
 ```
 
 Make sure to handle negative indices and out of range indices.
+
+## Resources
+
+- [Lodash `_.fill`](https://lodash.com/docs/#fill)
