@@ -1,13 +1,19 @@
+import ResumeReviewFAQs from './ResumeReviewFAQs';
 import ResumeReviewHero from './ResumeReviewHero';
-import ResumeReviewTeam from './ResumeReviewTeam';
+import ResumeReviewLogoWall from './ResumeReviewLogoWall';
+import ResumeReviewPricing from './ResumeReviewPricing';
+import ResumeReviewProcess from './ResumeReviewProcess';
 import ResumeReviewTestimonials from './ResumeReviewTestimonials';
 
 export default function ResumeReviewPage() {
   return (
     <main>
       <ResumeReviewHero />
-      <ResumeReviewTeam />
+      <ResumeReviewLogoWall />
+      <ResumeReviewProcess />
       <ResumeReviewTestimonials />
+      <ResumeReviewPricing />
+      <ResumeReviewFAQs />
     </main>
   );
 }

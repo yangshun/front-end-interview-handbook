@@ -1,9 +1,20 @@
+import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
+import Container from '~/components/ui/Container';
+
 const testimonials = [
   {
     id: 'chaitanya',
+    location: <>Dubai, United Arab Emirates</>,
+    logo: (
+      <img
+        alt="BharatX logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/bharatx-logomark.png"
+      />
+    ),
     name: (
       <a
-        className="text-brand-500 hover:underline"
+        className="text-brand-400 hover:underline"
         href="https://www.linkedin.com/in/chaitannah/"
         rel="noreferrer noopener"
         target="_blank">
@@ -12,20 +23,28 @@ const testimonials = [
     ),
     quote: (
       <>
-        Yangshun helped me take my resume from good to great. Improvements that
-        could make the difference between a shortlist or otherwise were brought
-        to my notice. The thing I loved the most, was the active effort he took
-        to understand my professional experience and goals and tailor my resume
+        GFE helped me take my resume from good to great. Improvements that could
+        make the difference between a shortlist or otherwise were brought to my
+        notice. The thing I loved the most, was the active effort he took to
+        understand my professional experience and goals and tailor my resume
         accordingly. Highly recommended.
       </>
     ),
-    title: <>Software Engineer, Dubai, United Arab Emirates</>,
+    title: <>Now Software Engineer Intern at BharatX</>,
   },
   {
     id: 'bryant-chan',
+    location: <>Auckland, New Zealand</>,
+    logo: (
+      <img
+        alt="Koda Web logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/kodaweb-logomark.jpeg"
+      />
+    ),
     name: (
       <a
-        className="text-brand-500 hover:underline"
+        className="text-brand-400 hover:underline"
         href="https://www.linkedin.com/in/bryantandk/"
         rel="noreferrer noopener"
         target="_blank">
@@ -39,134 +58,183 @@ const testimonials = [
         this service to my friends!
       </>
     ),
-    title: <>Front End Engineer, Auckland, New Zealand</>,
+    title: <>Now Senior Front End Engineer at Koda Web</>,
   },
   {
     id: 'dallas-tx',
+    location: <>Dallas, Texas</>,
+    logo: (
+      <img
+        alt="Microsoft logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/microsoft-logomark.png"
+      />
+    ),
     quote: (
       <>
-        I enjoyed working with Yangshun to give my resume the boost it
-        desperately needed. Through the process, I learned what makes a resume
-        stand out when targeting FAANG companies, which was very helpful. I was
-        very impressed with how thorough the review was and how he even gave me
-        some advice to make my resume much stronger. As an aspiring Android
-        Engineer, it was great to have those tips on how to improve my skills
-        through side projects. Yangshun does more than just resume review, he
-        really cares about your career growth and development!
+        I enjoyed working with GFE to give my resume the boost it desperately
+        needed. Through the process, I learned what makes a resume stand out
+        when targeting FAANG companies, which was very helpful. I was very
+        impressed with how thorough the review was and how he even gave me some
+        advice to make my resume much stronger. As an aspiring Android Engineer,
+        it was great to have those tips on how to improve my skills through side
+        projects. GFE does more than just resume review, he really cares about
+        your career growth and development!
       </>
     ),
-    title: <>Software Engineer, Dallas, Texas</>,
+    title: <>Now Software Engineer at Microsoft</>,
   },
   {
     id: 'sunnyvale-ca',
+    location: <>Sunnyvale, California</>,
+    logo: (
+      <img
+        alt="Amazon logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/amazon-logomark.png"
+      />
+    ),
     quote: (
       <>
-        Yangshun clarified a lot of misconceptions I had about the internship
-        search & hiring process. He also provided invaluable insights of what
-        FAANG hiring managers look for when considering promising candidates.
-        Their rapid response times, combined with their concise answers, helped
-        me perfect my resume in mere days and land a SDE internship at{' '}
+        GFE clarified a lot of misconceptions I had about the internship search
+        & hiring process. He also provided invaluable insights of what FAANG
+        hiring managers look for when considering promising candidates. Their
+        rapid response times, combined with their concise answers, helped me
+        perfect my resume in mere days and land a SDE internship at{' '}
         <strong>Amazon</strong>. His service certainly stands out among the
         rest!
       </>
     ),
-    title: <>Software Engineer Intern, Sunnyvale, California</>,
+    title: <>Now Software Engineer Intern at Amazon</>,
   },
   {
     id: 'cerritos-ca',
+    location: <>Cerritos, California</>,
+    logo: (
+      <img
+        alt="Meta logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/meta-logomark.png"
+      />
+    ),
     quote: (
       <>
         This service was super helpful and well worth the investment! Not only
-        did Yangshun help me address glaring issues with my old resume, but he
-        also gave me comprehensive suggestions on how to improve my overall
-        profile and land more FAANG interviews. My application-to-interview rate
-        has never been higher!
+        did GFE help me address glaring issues with my old resume, but he also
+        gave me comprehensive suggestions on how to improve my overall profile
+        and land more FAANG interviews. My application-to-interview rate has
+        never been higher!
       </>
     ),
-    title: <>Software Engineer, Cerritos, California</>,
+    title: <>Now Software Engineer at Meta</>,
   },
   {
     id: 'san-diego-ca',
+    location: <>San Diego, California</>,
+    logo: (
+      <img
+        alt="Credit Karma logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/creditkarma-logomark.png"
+      />
+    ),
     quote: (
       <>
-        The Resume Review service was instrumental in improving my resume to
-        better highlight my significant work experience. It has come a long way
-        from my previous version. Yangshun was very friendly and helpful from
-        the moment we first started communicating and even gave valuable career
-        advice on Software Engineering. In short, I recommend the service.
-        Thanks for your help, Yangshun!
+        This service was instrumental in improving my resume to better highlight
+        my significant work experience. It has come a long way from my previous
+        version. The reviewer was very friendly and helpful from the moment we
+        first started communicating and even gave valuable career advice on
+        Software Engineering. In short, I recommend the service. Thanks for your
+        help, GFE!
       </>
     ),
-    title: <>Software Engineer, San Diego, California</>,
+    title: <>Now Senior Software Engineer at Credit Karma</>,
   },
   {
     id: 'london-uk',
+    location: <>London, UK</>,
+    logo: (
+      <img
+        alt="JPMorgan logo mark"
+        className="h-8 w-8 flex-none rounded-full"
+        src="/img/company-logos/jpmorgan-logomark.jpg"
+      />
+    ),
     quote: (
       <>
-        Yangshun made my resume a lot clearer and more detailed, he also
-        explained the ideas behind each section of my resume. Prompt revision,
-        excellent service, super worthy!
+        GFE made my resume a lot clearer and more detailed, he also explained
+        the ideas behind each section of my resume. Prompt revision, excellent
+        service, super worthy!
       </>
     ),
-    title: <>Software Engineer Intern, London, UK</>,
+    title: <>Now Software Engineer Intern at JPMorgan Chase & Co</>,
   },
   {
     id: 'toronto-ca',
+    location: <>Toronto, Canada</>,
     quote: (
       <>
-        Yangshun transformed my previously lacklustre resume into a
-        well-structured one with impactful skill showcases. His tailored advice,
-        practical strategies and tips, brought a new level of appeal to my
-        resume. I've learned a lot from their approach to resume review, and I
-        believe it will continue to benefit me in my future job search.
+        GFE transformed my previously lacklustre resume into a well-structured
+        one with impactful skill showcases. His tailored advice, practical
+        strategies and tips, brought a new level of appeal to my resume. I've
+        learned a lot from their approach to resume review, and I believe it
+        will continue to benefit me in my future job search.
       </>
     ),
-    title: <>Software Engineer Intern, Toronto, Canada</>,
+    title: <>Software Engineer Intern</>,
   },
 ];
 
 export default function ResumeReviewTestimonials() {
   return (
-    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-2xl lg:max-w-none">
-        <p className="text-brand-500 block text-sm font-semibold sm:text-base lg:text-sm xl:text-base">
-          User Reviews
-        </p>
-        <h2 className="mt-1 text-3xl font-bold text-slate-900 sm:text-4xl sm:leading-none sm:tracking-tight">
-          Hear from satisfied users
-        </h2>
-        <div className="mt-16 space-y-16 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16 lg:space-y-0">
-          {testimonials.map((testimonial) => (
-            <blockquote key={testimonial.id} className="sm:flex lg:block">
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 text-slate-300"
-                height={18}
-                viewBox="0 0 24 18"
-                width={24}
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z"
-                  fill="currentColor"
-                />
-              </svg>
-              <div className="mt-4 space-y-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-                <p className="text-lg text-slate-600">{testimonial.quote}</p>
-                <div className="space-y-1">
-                  {testimonial.name && (
-                    <div className="text-base font-semibold">
-                      {testimonial.name}
+    <div className="bg-gray-900">
+      <Container>
+        <div className="mx-auto max-w-2xl py-32 lg:max-w-none xl:py-40">
+          <p className="text-brand-400 pb-6 text-base font-semibold leading-7">
+            Testimonials
+          </p>
+          <h2 className="mt-1 text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
+            Hear from our users
+          </h2>
+          <div className="mt-16 space-y-16 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16 lg:space-y-0">
+            {testimonials.map((testimonial) => (
+              <blockquote key={testimonial.id} className="sm:flex lg:block">
+                <svg
+                  aria-hidden="true"
+                  className="flex-shrink-0 text-slate-300"
+                  height={18}
+                  viewBox="0 0 24 18"
+                  width={24}
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <div className="mt-4 space-y-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+                  <p className="text-lg text-gray-300">{testimonial.quote}</p>
+                  <div className="flex gap-x-4">
+                    {testimonial.logo}
+                    <div className="space-y-1">
+                      {testimonial.name && (
+                        <div className="text-base font-semibold">
+                          {testimonial.name}
+                        </div>
+                      )}
+                      <div>
+                        <span className="block not-italic text-gray-400">
+                          {testimonial.title}
+                        </span>
+                        <p className="text-gray-400">{testimonial.location}</p>
+                      </div>
                     </div>
-                  )}
-                  <cite className="block not-italic text-slate-900">
-                    {testimonial.title}
-                  </cite>
+                  </div>
                 </div>
-              </div>
-            </blockquote>
-          ))}
+              </blockquote>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </div>
   );
 }

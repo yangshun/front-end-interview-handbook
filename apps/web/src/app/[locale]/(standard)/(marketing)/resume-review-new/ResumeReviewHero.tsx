@@ -5,7 +5,11 @@ import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
 import Container from '~/components/ui/Container';
 
-import { DocumentCheckIcon } from '@heroicons/react/24/outline';
+import {
+  ChartBarIcon,
+  DocumentCheckIcon,
+  UsersIcon,
+} from '@heroicons/react/24/outline';
 
 const summaryFeatures = [
   {
@@ -16,44 +20,42 @@ const summaryFeatures = [
   },
   {
     description:
-      'The entire presentation of your portfolio - including github, resume and portfolio website, will be reviewed',
-    icon: DocumentCheckIcon,
-    name: 'End to end review',
+      'Get personalized and insightful guidance from ex-interviewers',
+    icon: UsersIcon,
+    name: '1:1 personalized guidance',
   },
   {
     description:
-      'The entire presentation of your portfolio - including github, resume and portfolio website, will be reviewed',
-    icon: DocumentCheckIcon,
-    name: 'End to end review',
+      'Our users now work at companies like Airbnb, Amazon, Meta and Lyft',
+    icon: ChartBarIcon,
+    name: 'High success rate',
   },
 ];
 const featuredReviews = [
   {
-    designation: 'Software Engineer, Cerritos, California',
+    designation: 'Now Software Engineer at Meta',
     pic: (
       <img
-        alt=""
+        alt="Meta logo mark"
         className="h-6 w-6 flex-none rounded-full"
-        src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        src="/img/company-logos/meta-logomark.png"
       />
     ),
-    profileLink: 'Title',
     review:
       'This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!',
     reviewerName: '',
   },
   {
-    designation: 'Software Engineer, Cerritos, California',
+    designation: 'Now Senior Software Engineer at Credit Karma',
     pic: (
       <img
-        alt=""
+        alt="Credit karma logo mark"
         className="h-6 w-6 flex-none rounded-full"
-        src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        src="/img/company-logos/creditkarma-logomark.png"
       />
     ),
-    profileLink: 'Title',
     review:
-      'The Resume Review service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. FTL was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering. In short, I recommend the service. Thanks for your help, FTL!',
+      'This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering.',
     reviewerName: '',
   },
 ];
@@ -100,7 +102,7 @@ export default function ResumeReviewHero() {
             }}
           />
         </div>
-        <div className="pb-40">
+        <div className="pb-10 xl:pb-20">
           <div className="mx-auto lg:flex ">
             <div>
               <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl ">
@@ -146,17 +148,16 @@ export default function ResumeReviewHero() {
                   <a
                     className="text-sm font-semibold leading-6 text-white"
                     href="#">
-                    See examples of reviews{' '}
-                    <span className="text-gray-400">{'->'}</span>
+                    Pricing <span className="text-gray-400">{'->'}</span>
                   </a>
                 </div>
               </div>
             </div>
-            <div className="hidden w-full lg:ml-auto lg:block lg:w-2/5 lg:flex-shrink-0">
+            <div className="hidden w-full pt-6 lg:ml-auto lg:block lg:w-2/6 lg:flex-shrink-0">
               {featuredReviews.map((review) => (
                 <figure
                   key={review.reviewerName}
-                  className="mt-16 border-l border-gray-500 pl-8 text-gray-500">
+                  className="mt-16 border-l border-gray-500 pl-8 text-gray-300">
                   <blockquote className="text-sm leading-6">
                     <p>{review.review}</p>
                   </blockquote>
@@ -173,14 +174,14 @@ export default function ResumeReviewHero() {
               ))}
             </div>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:max-w-7xl">
-            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-sm leading-7 text-gray-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+          <div className="mx-auto mt-16 max-w-2xl lg:mt-24 lg:max-w-7xl xl:sm:mt-28">
+            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
               {summaryFeatures.map((feature) => (
-                <div key={feature.name} className="relative pl-11">
+                <div key={feature.name} className="relative pl-12">
                   <dt className=" font-semibold text-white">
                     <feature.icon
                       aria-hidden="true"
-                      className="absolute left-1 top-1 h-7 w-7 text-indigo-400"
+                      className="absolute left-1 top-1 h-8 w-8 text-indigo-400"
                     />
                     {feature.name}
                   </dt>{' '}
