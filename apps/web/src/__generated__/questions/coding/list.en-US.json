@@ -394,6 +394,31 @@
   {
     "author": null,
     "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function to clamp a number within the inclusive lower and upper bounds.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/clamp",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "clamp",
+    "title": "Clamp"
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1651449600,
     "difficulty": "medium",
     "duration": 20,
