@@ -4,10 +4,10 @@
   "languages": ["js", "ts"],
   "companies": [],
   "premium": true,
-  "duration": 10,
+  "duration": 15,
   "published": true,
   "importance": "low",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "similar_questions": [],
   "next_questions": []
 }
