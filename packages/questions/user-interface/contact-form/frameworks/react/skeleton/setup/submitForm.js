@@ -11,7 +11,7 @@ export default async function submitForm(event) {
       return;
     }
 
-    if (form.method?.toLowerCase() !== 'post') {
+    if (form.method.toLowerCase() !== 'post') {
       alert('Incorrect form method value');
       return;
     }

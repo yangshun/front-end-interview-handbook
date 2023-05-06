@@ -1,9 +1,9 @@
 import './styles.css';
 
-const SUBMIT_URL =
-  'https://www.greatfrontend.com/api/questions/contact-form';
-
 (() => {
+  const SUBMIT_URL =
+    'https://www.greatfrontend.com/api/questions/contact-form';
+
   const $form = document.querySelector('form');
   $form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -13,7 +13,7 @@ const SUBMIT_URL =
       return;
     }
 
-    if ($form.method?.toLowerCase() !== 'post') {
+    if ($form.method.toLowerCase() !== 'post') {
       alert('Incorrect form method value');
       return;
     }
