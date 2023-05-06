@@ -8,12 +8,22 @@ import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/solid';
 const faqs = [
   {
     answer: (
-      <>
-        We will communicate primarily online via email and Google Docs. Upon
-        purchase, an email will be sent to you requesting information like your
-        resume and relevant links. The full process can be seen at the "How it
-        works" section.
-      </>
+      <ul className="list-inside list-disc space-y-2">
+        <li>
+          Upon purchase, you will be sent an email with a preliminary
+          questionnaire on your career goals, ideal company profile, background
+          and roles.
+        </li>
+        <li>
+          Please answer them and send a copy of your resume and relevant links
+          (github, portfolio website) as appropriate
+        </li>
+        <li>
+          The portfolio review will occur over email as well as collaborative
+          software like Google Docs, up to the number of revisions as per your
+          plan.
+        </li>
+      </ul>
     ),
     id: 'how-it-works',
     question: <>Which medium will the portfolio review be conducted?</>,
