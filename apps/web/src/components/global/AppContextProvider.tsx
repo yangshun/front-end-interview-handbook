@@ -28,7 +28,7 @@ type Props = Readonly<{
 
 export default function AppContextProvider({ children }: Props) {
   const { data: serverCommit } = trpc.dev.serverCommit.useQuery(undefined, {
-    refetchOnWindowFocus: true,
+    refetchOnWindowFocus: process.env.NODE_ENV === 'production',
   });
 
   const contextValue = useMemo(
