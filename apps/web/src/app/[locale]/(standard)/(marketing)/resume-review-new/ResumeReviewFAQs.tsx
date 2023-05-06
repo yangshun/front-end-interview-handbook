@@ -64,7 +64,7 @@ export default function ResumeReviewFAQs() {
   return (
     <div className="bg-gray-900">
       <Container>
-        <div className="mx-auto max-w-4xl divide-y divide-white/10 pt-28 pb-72 lg:max-w-none xl:pt-32 xl:pb-80">
+        <div className="mx-auto max-w-2xl divide-y divide-white/10 py-32 lg:max-w-none xl:py-40 ">
           <h2 className="text-2xl font-bold leading-10 tracking-tight text-white">
             Frequently asked questions
           </h2>

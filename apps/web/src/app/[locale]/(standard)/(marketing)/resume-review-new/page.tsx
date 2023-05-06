@@ -1,3 +1,4 @@
+import ResumeReviewContact from './ResumeReviewContact';
 import ResumeReviewFAQs from './ResumeReviewFAQs';
 import ResumeReviewHero from './ResumeReviewHero';
 import ResumeReviewLogoWall from './ResumeReviewLogoWall';
@@ -14,6 +15,7 @@ export default function ResumeReviewPage() {
       <ResumeReviewTestimonials />
       <ResumeReviewPricing />
       <ResumeReviewFAQs />
+      <ResumeReviewContact />
     </main>
   );
 }
