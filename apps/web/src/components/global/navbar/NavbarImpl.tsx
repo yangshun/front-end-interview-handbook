@@ -465,29 +465,18 @@ function useNavLinks(
       type: 'popover',
     },
     {
-      href: '/resume-review',
-      itemKey: 'resume-review',
+      href: '/hiring',
+      itemKey: 'hiring',
       label: intl.formatMessage({
-        defaultMessage: 'Resume Review',
+        defaultMessage: "We're Hiring",
         description: 'Link label to the hiring page',
-        id: '94Tw3Z',
+        id: 'xq16Hq',
       }),
-      labelAddon: (
-        <Badge
-          label={intl.formatMessage({
-            defaultMessage: 'New!',
-            description: 'New service label',
-            id: 'Epnwgh',
-          })}
-          size="sm"
-          variant="success"
-        />
-      ),
       onClick: () => {
         gtag.event({
-          action: `nav.resume_review.click`,
+          action: `nav.hiring.click`,
           category: 'engagement',
-          label: 'Resume Review',
+          label: "We're Hiring",
         });
       },
       position: 'end',

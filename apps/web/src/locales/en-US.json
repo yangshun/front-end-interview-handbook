@@ -511,10 +511,6 @@
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
   },
-  "94Tw3Z": {
-    "defaultMessage": "Resume Review",
-    "description": "Link label to the hiring page"
-  },
   "94oFfy": {
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed by the user"
@@ -738,10 +734,6 @@
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
-  },
-  "Epnwgh": {
-    "defaultMessage": "New!",
-    "description": "New service label"
   },
   "ExWrYc": {
     "defaultMessage": "Practice everything here.",
@@ -3082,6 +3074,10 @@
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
+  },
+  "xq16Hq": {
+    "defaultMessage": "We're Hiring",
+    "description": "Link label to the hiring page"
   },
   "xsLz0P": {
     "defaultMessage": "Security",
