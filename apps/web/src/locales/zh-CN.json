@@ -16,7 +16,7 @@
     "description": "Link to company's about page"
   },
   "+IQinv": {
-    "defaultMessage": "Toronto, Canada",
+    "defaultMessage": "加拿大多伦多",
     "description": "Prashanth Reddy's location"
   },
   "+JhlMu": {
@@ -176,7 +176,7 @@
     "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
   },
   "2Zjh+z": {
-    "defaultMessage": "Ontario, Canada",
+    "defaultMessage": "加拿大安大略省",
     "description": "Nafis Hasnain's location"
   },
   "2a4of9": {
@@ -511,10 +511,6 @@
     "defaultMessage": "最常见的题目",
     "description": "Most common behavioral interview questions"
   },
-  "94Tw3Z": {
-    "defaultMessage": "简历审核",
-    "description": "Link label to the hiring page"
-  },
   "94oFfy": {
     "defaultMessage": "已完成",
     "description": "Label indicating that the question has been completed by the user"
@@ -548,7 +544,7 @@
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
   "AJSVim": {
-    "defaultMessage": "Seattle, WA, USA",
+    "defaultMessage": "美国西雅图市",
     "description": "Seattle in USA"
   },
   "ATwxZX": {
@@ -739,10 +735,6 @@
     "defaultMessage": "打开导航资料菜单",
     "description": "Screenreader text to open the profile menu"
   },
-  "Epnwgh": {
-    "defaultMessage": "新!",
-    "description": "New service label"
-  },
   "ExWrYc": {
     "defaultMessage": "在这里练习一切。",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -920,7 +912,7 @@
     "description": "Feedback widget text to request for optional email input for following up"
   },
   "IGPTRv": {
-    "defaultMessage": "Join Discord (Premium)",
+    "defaultMessage": "加入 Discord (高级版)",
     "description": "Join Discord channel"
   },
   "IK98yM": {
@@ -1092,8 +1084,12 @@
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
   },
   "LAWtL6": {
-    "defaultMessage": "Software Engineer",
+    "defaultMessage": "软件工程师",
     "description": "Jacky Liang's job title"
+  },
+  "LJKTGq": {
+    "defaultMessage": "夏季特卖！使用代码SUMMERSALE23，额外20%优惠年度和永久计划。 <link>立刻获取折扣！</link>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "LK0JHB": {
     "defaultMessage": "常见问题",
@@ -1538,10 +1534,6 @@
   "TFzrBC": {
     "defaultMessage": "越南",
     "description": "Vietname country"
-  },
-  "THblGQ": {
-    "defaultMessage": "新年促销！使用代码NEWYEAR2023，额外20%优惠年度和永久计划。 <link>立刻获取折扣！</link>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of New Year discount"
   },
   "TQLJ/G": {
     "defaultMessage": "所有级别的工程师都可以从GreatFrontEnd中学到一些东西。初级工程师将能够巩固他们的基础知识，并学习他们从未了解过的技术。中级工程师将从国际化、可访问性和性能等更高级的概念中受益。高级工程师将从传授架构概念的系统设计题目中获益最大。",
@@ -3082,6 +3074,10 @@
   "xjHSyF": {
     "defaultMessage": "所有日志级别",
     "description": "Select label for all log levels in console filter"
+  },
+  "xq16Hq": {
+    "defaultMessage": "我们正在招聘!",
+    "description": "Link label to the hiring page"
   },
   "xsLz0P": {
     "defaultMessage": "安全",

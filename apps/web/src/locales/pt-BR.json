@@ -511,10 +511,6 @@
     "defaultMessage": "Perguntas Mais Comuns",
     "description": "Most common behavioral interview questions"
   },
-  "94Tw3Z": {
-    "defaultMessage": "Resume Review",
-    "description": "Link label to the hiring page"
-  },
   "94oFfy": {
     "defaultMessage": "Concluído",
     "description": "Label indicating that the question has been completed by the user"
@@ -738,10 +734,6 @@
   "EjbpUe": {
     "defaultMessage": "Abrir menu de perfil de navegação",
     "description": "Screenreader text to open the profile menu"
-  },
-  "Epnwgh": {
-    "defaultMessage": "New!",
-    "description": "New service label"
   },
   "ExWrYc": {
     "defaultMessage": "Pratique tudo por aqui.",
@@ -1094,6 +1086,10 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
+  },
+  "LJKTGq": {
+    "defaultMessage": "Summer Sale! Additional 20% off annual and lifetime plans with the code SUMMERSALE23. <link>Grab your discount today!</link>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "LK0JHB": {
     "defaultMessage": "Perguntas Frequentes.",
@@ -1538,10 +1534,6 @@
   "TFzrBC": {
     "defaultMessage": "Vietnam",
     "description": "Vietname country"
-  },
-  "THblGQ": {
-    "defaultMessage": "Promoção de Ano Novo! Mais 20% de desconto nos planos anuais e vitalícios com o código NEWYEAR2023. <link>Pegue seu desconto hoje!</link>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of New Year discount"
   },
   "TQLJ/G": {
     "defaultMessage": "Tem algo para aprender com o GreatFrontEnd para engenheiros de todos os níveis de senioridade. Os engenheiros junior serão capazes de solidificar seus fundamentos e aprender técnicas que nunca souberam. Os engenheiros de nível intermediário se beneficiarão de conceitos mais avançados como internacionalização, acessibilidade e desempenho. Os engenheiros sênior se beneficiarão principalmente das perguntas de design de sistemas, que transmitem conceitos arquiteturais.",
@@ -3082,6 +3074,10 @@
   "xjHSyF": {
     "defaultMessage": "Todos os níveis de log",
     "description": "Select label for all log levels in console filter"
+  },
+  "xq16Hq": {
+    "defaultMessage": "We're Hiring",
+    "description": "Link label to the hiring page"
   },
   "xsLz0P": {
     "defaultMessage": "Segurança",

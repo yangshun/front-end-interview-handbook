@@ -39,9 +39,9 @@ export default function PromoBanner({
           setShowPromoBanner(false);
         }}>
         <FormattedMessage
-          defaultMessage="New Year Sale! Additional 20% off annual and lifetime plans with the code NEWYEAR2023. <link>Grab your discount today!</link>"
-          description="Text on Promo Banner appearing almost on all application pages to inform user of New Year discount"
-          id="THblGQ"
+          defaultMessage="Summer Sale! Additional 20% off annual and lifetime plans with the code SUMMERSALE23. <link>Grab your discount today!</link>"
+          description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+          id="LJKTGq"
           values={{
             link: (chunks) => (
               <Anchor
@@ -51,7 +51,7 @@ export default function PromoBanner({
                 variant="flat"
                 onClick={() => {
                   gtag.event({
-                    action: `global.banner.new_year_2023_discount.click`,
+                    action: `global.banner.discount.click`,
                     category: 'engagement',
                     label: 'Grab your discount today',
                   });
