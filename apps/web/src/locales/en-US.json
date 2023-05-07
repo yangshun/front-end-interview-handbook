@@ -2647,6 +2647,10 @@
     "defaultMessage": "3 Months",
     "description": "Short label for 3 months study plan"
   },
+  "oo7GzR": {
+    "defaultMessage": "Menu",
+    "description": "Guides navbar menu button label"
+  },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"

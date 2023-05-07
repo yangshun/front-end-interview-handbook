@@ -1,6 +1,7 @@
 'use client';
 
 import GuidesLayoutSidebar from '~/components/guides/GuidesLayoutSidebar';
+import GuidesNavbar from '~/components/guides/GuidesNavbar';
 import { useFrontEndInterviewGuidebookNavigation } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 
 type Props = Readonly<{
@@ -11,8 +12,11 @@ export default function FrontEndInterviewGuidebookLayout({ children }: Props) {
   const navigation = useFrontEndInterviewGuidebookNavigation();
 
   return (
-    <GuidesLayoutSidebar navigation={navigation}>
-      {children}
-    </GuidesLayoutSidebar>
+    <>
+      <GuidesNavbar navigation={navigation} />
+      <GuidesLayoutSidebar navigation={navigation}>
+        {children}
+      </GuidesLayoutSidebar>
+    </>
   );
 }
