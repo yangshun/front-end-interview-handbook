@@ -5,16 +5,8 @@
  * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
  */
 export default function inRange(value, startParam, endParam) {
-  let start = startParam;
-  let end = endParam;
-  if (end === undefined) {
-    end = start;
-    start = 0;
-  }
+  const [start, end] =
+    endParam !== undefined ? [startParam, endParam] : [0, startParam];
 
-  if (start < end) {
-    return value >= start && value < end;
-  }
-
-  return value >= end && value < start;
+  return value >= Math.min(start, end) && value < Math.max(start, end);
 }
