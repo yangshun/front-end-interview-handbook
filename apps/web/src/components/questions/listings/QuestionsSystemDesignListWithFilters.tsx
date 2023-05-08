@@ -50,10 +50,12 @@ export default function QuestionsSystemDesignListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter();
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter();
+    useQuestionDifficultyFilter({ userFacingFormat: 'system-design' });
+  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
+    userFacingFormat: 'system-design',
+  });
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter();
+    useQuestionCompletionStatusFilter({ userFacingFormat: 'system-design' });
 
   function makeDropdownItemProps(
     label: string,

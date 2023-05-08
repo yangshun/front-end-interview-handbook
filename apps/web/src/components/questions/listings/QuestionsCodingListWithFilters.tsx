@@ -79,18 +79,31 @@ export default function QuestionsCodingListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter();
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter();
-  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter();
-  const [frameworkFilters, frameworkFilterOptions] =
-    useQuestionFrameworkFilter();
+    useQuestionDifficultyFilter({
+      userFacingFormat: 'coding',
+    });
+
+  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
+    userFacingFormat: 'coding',
+  });
+  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
+    userFacingFormat: 'coding',
+  });
+  const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
+    {
+      userFacingFormat: 'coding',
+    },
+  );
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter();
+    useQuestionCompletionStatusFilter({
+      userFacingFormat: 'coding',
+    });
   const [codingFormatFilters, codingFormatFilterOptions] =
     useQuestionCodingFormatFilter({
       filter: codingFormatFiltersFilterPredicate,
       initialValue: initialCodingFormat == null ? [] : [initialCodingFormat],
       order: codingFormatFiltersOrderComparator,
+      userFacingFormat: 'coding',
     });
 
   function makeDropdownItemProps(

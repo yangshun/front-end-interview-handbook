@@ -1,8 +1,12 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionQuizTopic } from '../common/QuestionsTypes';
+import type {
+  QuestionQuizTopic,
+  QuestionUserFacingFormat,
+} from '../common/QuestionsTypes';
 import useQuestionQuizTopicLabels from '../content/quiz/useQuestionQuizTopicLabels';
 
 // The lower the earlier it appears.
@@ -18,15 +22,20 @@ const topicRanks: Record<QuestionQuizTopic, number> = {
   testing: 99,
 };
 
-export default function useQuestionQuizTopicFilter(): [
-  Set<QuestionQuizTopic>,
-  QuestionFilter<QuestionQuizTopic>,
-] {
+type Props = Readonly<{
+  userFacingFormat: QuestionUserFacingFormat;
+}>;
+
+export default function useQuestionQuizTopicFilter({
+  userFacingFormat,
+}: Props): [Set<QuestionQuizTopic>, QuestionFilter<QuestionQuizTopic>] {
   const intl = useIntl();
   const topicLabels = useQuestionQuizTopicLabels();
-  const [topicFilters, setTopicFilters] = useState<Set<QuestionQuizTopic>>(
-    new Set(),
-  );
+  const [topicFilters, setTopicFilters] =
+    useSessionStorageForSets<QuestionQuizTopic>(
+      `gfe:${userFacingFormat}:topic-filter`,
+      new Set(),
+    );
   const topicFilterOptions: QuestionFilter<QuestionQuizTopic> = {
     id: 'topic',
     name: intl.formatMessage({

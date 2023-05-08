@@ -1,10 +1,13 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
+import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionCompany } from '../common/QuestionsTypes';
+import type {
+  QuestionCompany,
+  QuestionUserFacingFormat,
+} from '../common/QuestionsTypes';
 
 const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'google',
@@ -17,15 +20,20 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'dropbox',
 ];
 
-export default function useQuestionCompanyFilter(): [
-  Set<QuestionCompany>,
-  QuestionFilter<QuestionCompany>,
-] {
+type Props = Readonly<{
+  userFacingFormat: QuestionUserFacingFormat;
+}>;
+
+export default function useQuestionCompanyFilter({
+  userFacingFormat,
+}: Props): [Set<QuestionCompany>, QuestionFilter<QuestionCompany>] {
   const intl = useIntl();
   const companyNames = useCompanyNames();
-  const [companyFilters, setCompanyFilters] = useState<Set<QuestionCompany>>(
-    new Set(),
-  );
+  const [companyFilters, setCompanyFilters] =
+    useSessionStorageForSets<QuestionCompany>(
+      `gfe:${userFacingFormat}:company-filter`,
+      new Set(),
+    );
   const CompanyFilterOptions: QuestionFilter<QuestionCompany> = {
     id: 'company',
     name: intl.formatMessage({

@@ -1,13 +1,20 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionDifficulty } from '../common/QuestionsTypes';
+import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
-export default function useQuestionDifficultyFilter(): [
-  Set<QuestionDifficulty>,
-  QuestionFilter<QuestionDifficulty>,
-] {
+import type { QuestionFilter } from './QuestionFilterType';
+import type {
+  QuestionDifficulty,
+  QuestionUserFacingFormat,
+} from '../common/QuestionsTypes';
+
+type Props = Readonly<{
+  userFacingFormat: QuestionUserFacingFormat;
+}>;
+
+export default function useQuestionDifficultyFilter({
+  userFacingFormat,
+}: Props): [Set<QuestionDifficulty>, QuestionFilter<QuestionDifficulty>] {
   const intl = useIntl();
   const DIFFICULTY_OPTIONS: ReadonlyArray<{
     label: string;
@@ -38,9 +45,11 @@ export default function useQuestionDifficultyFilter(): [
       value: 'hard',
     },
   ];
-  const [difficultyFilters, setDifficultyFilters] = useState<
-    Set<QuestionDifficulty>
-  >(new Set());
+  const [difficultyFilters, setDifficultyFilters] =
+    useSessionStorageForSets<QuestionDifficulty>(
+      `gfe:${userFacingFormat}:difficulty-filter`,
+      new Set(),
+    );
   const difficultyFilterOptions: QuestionFilter<QuestionDifficulty> = {
     id: 'difficulty',
     name: intl.formatMessage({

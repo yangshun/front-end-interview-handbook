@@ -1,8 +1,12 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionLanguage } from '../common/QuestionsTypes';
+import type {
+  QuestionLanguage,
+  QuestionUserFacingFormat,
+} from '../common/QuestionsTypes';
 
 const LANGUAGE_OPTIONS: ReadonlyArray<{
   label: string;
@@ -13,14 +17,19 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{
   { label: 'JavaScript', value: 'js' },
 ];
 
-export default function useQuestionLanguageFilter(): [
-  Set<QuestionLanguage>,
-  QuestionFilter<QuestionLanguage>,
-] {
+type Props = Readonly<{
+  userFacingFormat: QuestionUserFacingFormat;
+}>;
+
+export default function useQuestionLanguageFilter({
+  userFacingFormat,
+}: Props): [Set<QuestionLanguage>, QuestionFilter<QuestionLanguage>] {
   const intl = useIntl();
-  const [languageFilters, setLanguageFilters] = useState<Set<QuestionLanguage>>(
-    new Set(),
-  );
+  const [languageFilters, setLanguageFilters] =
+    useSessionStorageForSets<QuestionLanguage>(
+      `gfe:${userFacingFormat}:language-filter`,
+      new Set(),
+    );
 
   const LanguageFilterOptions: QuestionFilter<QuestionLanguage> = {
     id: 'language',

@@ -1,10 +1,18 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionUserFacingFormat } from '../common/QuestionsTypes';
 type QuestionCompletionStatus = 'completed' | 'incomplete';
 
-export default function useQuestionCompletionStatusFilter(): [
+type Props = Readonly<{
+  userFacingFormat: QuestionUserFacingFormat;
+}>;
+
+export default function useQuestionCompletionStatusFilter({
+  userFacingFormat,
+}: Props): [
   Set<QuestionCompletionStatus>,
   QuestionFilter<QuestionCompletionStatus>,
 ] {
@@ -31,9 +39,11 @@ export default function useQuestionCompletionStatusFilter(): [
     },
   ];
 
-  const [completionStatusFilters, setCompletionStatusFilters] = useState<
-    Set<QuestionCompletionStatus>
-  >(new Set());
+  const [completionStatusFilters, setCompletionStatusFilters] =
+    useSessionStorageForSets<QuestionCompletionStatus>(
+      `gfe:${userFacingFormat}:completion-status-filter`,
+      new Set(),
+    );
   const completionStatusFilterOptions: QuestionFilter<QuestionCompletionStatus> =
     {
       id: 'completion',

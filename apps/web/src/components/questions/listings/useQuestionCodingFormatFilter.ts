@@ -1,24 +1,32 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionCodingFormat } from '../common/QuestionsTypes';
+import type {
+  QuestionCodingFormat,
+  QuestionUserFacingFormat,
+} from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   filter?: (format: QuestionCodingFormat) => boolean;
   initialValue?: ReadonlyArray<QuestionCodingFormat>;
   order?: (a: QuestionCodingFormat, b: QuestionCodingFormat) => number;
+  userFacingFormat: QuestionUserFacingFormat;
 }>;
 
 export default function useQuestionCodingFormatFilter({
   initialValue = [],
   filter,
+  userFacingFormat,
   order,
 }: Props): [Set<QuestionCodingFormat>, QuestionFilter<QuestionCodingFormat>] {
   const intl = useIntl();
-  const [codingFormatFilters, setCodingFormatFilters] = useState<
-    Set<QuestionCodingFormat>
-  >(new Set(initialValue));
+  const [codingFormatFilters, setCodingFormatFilters] =
+    useSessionStorageForSets<QuestionCodingFormat>(
+      `gfe:${userFacingFormat}:coding-format-filter`,
+      new Set(initialValue),
+    );
   let options: ReadonlyArray<{
     label: string;
     tooltip: string;

@@ -51,10 +51,11 @@ export default function QuestionsQuizListWithFilters({
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
-  const [quizTopicFilters, quizTopicFilterOptions] =
-    useQuestionQuizTopicFilter();
+  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionQuizTopicFilter(
+    { userFacingFormat: 'quiz' },
+  );
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter();
+    useQuestionCompletionStatusFilter({ userFacingFormat: 'quiz' });
   const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
 
   function makeDropdownItemProps(
