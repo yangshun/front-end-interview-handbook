@@ -6,7 +6,7 @@
   "created": 1671321600,
   "difficulty": "hard",
   "duration": 25,
-  "excerpt": "Build a list of progress bars which fill up gradually concurrently, up to a limit of 3 and allows for pausing and resuming",
+  "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3 and allows for pausing and resuming",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",

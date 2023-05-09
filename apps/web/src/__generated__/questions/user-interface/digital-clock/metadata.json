@@ -6,7 +6,7 @@
   "created": 1656892800,
   "difficulty": "medium",
   "duration": 25,
-  "excerpt": "Build a 7-segment digital clock which shows the current time",
+  "excerpt": "Build a 7-segment digital clock that shows the current time",
   "featured": true,
   "format": "user-interface",
   "frameworkDefault": "react",

@@ -7,7 +7,7 @@
   "created": 1670889600,
   "difficulty": "medium",
   "duration": 30,
-  "excerpt": "Build a stopwatch widget which can measure how much time has passed",
+  "excerpt": "Build a stopwatch widget that can measure how much time has passed",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
