@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
@@ -21,6 +20,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import { LockClosedIcon } from '@heroicons/react/24/solid';
+
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
@@ -30,7 +30,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
   const { pathname } = useI18nPathname();
   const { userProfile } = useUserProfile();
   const isPremiumUser = userProfile?.isPremium ?? false;
-  const { items: systemDesignNavigation } = useSystemDesignNavigation();
+  const { title, items: systemDesignNavigation } = useSystemDesignNavigation();
 
   useScrollToTop([pathname]);
 
@@ -46,11 +46,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
           {showSidebar && (
             <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-xs xl:w-[300px] 2xl:w-96">
               <Heading className="text-base font-medium text-slate-700">
-                <FormattedMessage
-                  defaultMessage="Front End System Design Guidebook"
-                  description="Header for front end system design guidebook on the system design sidebar"
-                  id="cuNbpf"
-                />
+                {title}
               </Heading>
               <Section>
                 <nav>

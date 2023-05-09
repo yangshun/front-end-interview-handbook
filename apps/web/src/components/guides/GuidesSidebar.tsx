@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 
-import useScrollToTop from '~/hooks/useScrollToTop';
-
 import Anchor from '~/components/ui/Anchor';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -12,8 +12,6 @@ import type {
   GuideNavigation,
   GuideNavigationLinks,
 } from './GuidesLayoutSidebar';
-import Heading from '../ui/Heading';
-import Section from '../ui/Heading/HeadingContext';
 
 function LinksList({
   items,
@@ -23,12 +21,14 @@ function LinksList({
   const { pathname } = useI18nPathname();
 
   return (
-    <ul className="mt-2 space-y-4 border-l-2 border-slate-200" role="list">
+    <ul
+      className="mt-4 flex flex-col gap-y-4 border-l border-slate-200"
+      role="list">
       {items.map((link) => (
-        <li key={link.href} className="font-sm relative text-sm">
+        <li key={link.href} className="relative text-xs">
           <Anchor
             className={clsx(
-              'flex w-full items-center space-x-2 pl-3.5 font-medium',
+              'flex w-full items-center gap-x-2 pl-3.5 font-medium',
               pathname === link.href
                 ? 'text-brand-500 font-medium'
                 : 'text-slate-500',
@@ -49,36 +49,24 @@ function LinksList({
 }
 
 type GuidesSidebarProps = Readonly<{
-  children?: React.ReactNode;
   navigation: GuideNavigation;
 }>;
 
 export function GuidesSidebar({ navigation }: GuidesSidebarProps) {
-  const { pathname } = useI18nPathname();
-
-  useScrollToTop([pathname]);
-
   return (
-    <div className="flex w-full flex-col overflow-y-auto p-4">
-      <Heading className="pt-2 pb-6 text-base font-medium text-slate-700">
-        {navigation.title}
-      </Heading>
-      <Section>
-        <nav>
-          <ul className="space-y-8" role="list">
-            {navigation.items.map((section) => (
-              <li key={section.title}>
-                <Heading className="text-sm font-medium text-slate-900">
-                  {section.title}
-                </Heading>
-                <Section>
-                  <LinksList items={section.links} />
-                </Section>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </Section>
-    </div>
+    <nav>
+      <ul className="flex flex-col gap-y-8" role="list">
+        {navigation.items.map((section) => (
+          <li key={section.title}>
+            <Heading className="text-xs font-medium text-slate-900">
+              {section.title}
+            </Heading>
+            <Section>
+              <LinksList items={section.links} />
+            </Section>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
