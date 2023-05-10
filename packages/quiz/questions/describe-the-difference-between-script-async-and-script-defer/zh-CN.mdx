@@ -2,15 +2,15 @@
 title: 描述`<script>`、`<script async>`和`<script defer> `之间的差异
 ---
 
-<script> 标签用于在网页上包含 JavaScript 。 "async" 和 `defer` 属性用于更改脚本加载和执行的方式/时机。
+`<script>` 标签用于在网页上包含 JavaScript 。 "async" 和 `defer` 属性用于更改脚本加载和执行的方式/时机。
 
 ## 普通`<script>`
 
-对于普通的<script>标签，在遇到它们时没有任何`async` 或 `defer`。 HTML解析被阻止，脚本会被下载并立即执行。 脚本执行后HTML解析恢复。
+对于普通的`<script>`标签，在遇到它们时没有任何`async` 或 `defer`。 HTML解析被阻止，脚本会被下载并立即执行。 脚本执行后HTML解析恢复。
 
 ## `<script async>`
 
-在"<script async>"中，脚本将与HTML解析并行获取，并在其可用时立即执行（可能在HTML解析完成之前），而且不一定按照HTML文档中的顺序执行。 当脚本独立于页面上的任何其他脚本时使用 "async" ，比如分析。
+在`<script async>`中，脚本将与HTML解析并行获取，并在其可用时立即执行（可能在HTML解析完成之前），而且不一定按照HTML文档中的顺序执行。 当脚本独立于页面上的任何其他脚本时使用 `async` ，比如分析。
 
 ## `<script defer>`
 
