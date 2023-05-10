@@ -48,15 +48,23 @@ async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
   );
 }
 
+async function generateQuizMetadata() {
+  return await Promise.all(
+    ['en-US', 'pt-BR', 'zh-CN'].map((locale) =>
+      generateQuestionsMetadata(
+        readQuestionListMetadataQuiz,
+        getQuestionsListOutFilenameQuiz(locale),
+        locale,
+      ),
+    ),
+  );
+}
+
 export async function generateAllMetadata() {
   const locale = 'en-US';
 
   return await Promise.all([
-    generateQuestionsMetadata(
-      readQuestionListMetadataQuiz,
-      getQuestionsListOutFilenameQuiz(locale),
-      locale,
-    ),
+    generateQuizMetadata(),
     generateQuestionsMetadata(
       readQuestionListMetadataSystemDesign,
       getQuestionsListOutFilenameSystemDesign(locale),
