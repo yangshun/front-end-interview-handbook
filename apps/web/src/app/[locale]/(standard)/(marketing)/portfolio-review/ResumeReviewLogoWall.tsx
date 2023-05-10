@@ -68,9 +68,9 @@ const logos = [
 
 export default function ResumeReviewLogoWall() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-32 xl:py-40">
-      <Container>
-        <div className="mx-auto flex max-w-2xl flex-col  bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:items-center ">
+    <div className="relative isolate overflow-hidden bg-pink-600 py-16 lg:py-24 xl:py-32">
+      <Container variant="narrow">
+        <div className="mx-auto flex max-w-2xl flex-col bg-pink-500 px-6 pt-12 pb-16 ring-1 ring-white/10 sm:rounded-3xl sm:px-8 lg:mx-0 lg:max-w-none lg:items-center">
           <h2 className="text-center text-lg font-semibold leading-8 text-white">
             Our users now work at these amazing companies
           </h2>

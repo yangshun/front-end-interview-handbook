@@ -8,7 +8,6 @@ import {
   ComputerDesktopIcon,
   DocumentCheckIcon,
   IdentificationIcon,
-  UsersIcon,
 } from '@heroicons/react/20/solid';
 
 const features = [
@@ -16,7 +15,7 @@ const features = [
     description:
       'We will start with an overarching understanding of your current front end skills, experiences and career aspirations to recommend steps you can take to progress your career',
     icon: IdentificationIcon,
-    name: 'In-depth profile assessment',
+    name: 'In-depth Profile Assessment',
     subfeatures: [
       'Front-end specific recommendations from seniors',
       'Tailored to your current skills, experiences and goals',
@@ -28,7 +27,7 @@ const features = [
     description:
       'We will conduct a detailed review of your resume and help you present your profile in the best way possible',
     icon: DocumentCheckIcon,
-    name: 'Resume review',
+    name: 'Resume Review',
     subfeatures: [
       'First impressions from experienced interviewers',
       'Suggestions customized to industry and experience level',
@@ -38,13 +37,13 @@ const features = [
   },
   {
     description:
-      'We will conduct a review of your Github profile and conduct a critique of your top 3 pinned projects',
+      'We will conduct a review of your GitHub profile and conduct a critique of your top 3 pinned projects',
     icon: GitHubIcon,
-    name: 'Github review',
+    name: 'GitHub Review',
     subfeatures: [
       'First impressions from experienced interviewers',
       'Suggestions customized to industry and experience level',
-      'Examples of good Github profiles',
+      'Examples of good GitHub profiles',
       "Assessment of top 3 projects' presentation and code quality",
     ],
   },
@@ -52,7 +51,7 @@ const features = [
     description:
       'If you have a portfolio website, we will review the presentation and code quality of it',
     icon: ComputerDesktopIcon,
-    name: 'Portfolio website review',
+    name: 'Portfolio Website Review',
     subfeatures: [
       'First impressions from experienced interviewers',
       'Suggestions customized to industry and experience level',
@@ -64,7 +63,9 @@ const features = [
 
 export default function ResumeReviewProcess() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900">
+    <div
+      className="relative isolate overflow-hidden bg-slate-900 py-16 lg:py-24 xl:py-32"
+      id="whats-included">
       <img
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover"
@@ -82,59 +83,56 @@ export default function ResumeReviewProcess() {
             }}
           />
         </div>
-        <Container>
-          <div className="mx-auto max-w-2xl py-32 lg:max-w-none xl:py-40">
-            <div className="mx-auto text-left">
-              <p className="text-brand-400 pb-6 text-base font-semibold leading-7">
-                What is included
-              </p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                We go beyond your portfolio to help you grow
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Our feedback is tailored for career progression, not just 1
-                one-time job search. We combine years of experience screening
-                candidates with a detailed understanding of your skillsets and
-                goals to derive impactful recommendations.
-              </p>
-            </div>
-
-            <div>
-              <div className="lg:gap-y-18 mt-12 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-1 lg:mt-16 lg:grid-cols-2 lg:gap-x-16">
-                {features.map((feature) => (
-                  <div key={feature.name}>
-                    <div>
-                      <span className="flex h-12 w-12 items-center justify-center rounded-md bg-white bg-opacity-10">
-                        <feature.icon
-                          aria-hidden="true"
-                          className="h-6 w-6 text-white"
-                        />
-                      </span>
-                    </div>
-                    <div className="mt-6">
-                      <h3 className="text-lg font-semibold text-white">
-                        {feature.name}
-                      </h3>
-                      <p className="mt-2 text-base leading-7 text-gray-300 ">
-                        {feature.description}
-                      </p>
-                    </div>
-                    <ul
-                      className="mt-8 space-y-3 text-base leading-6 text-gray-300 xl:mt-10"
-                      role="list">
-                      {feature.subfeatures.map((subfeature) => (
-                        <li key={subfeature} className="flex gap-x-3">
-                          <CheckIcon
-                            aria-hidden="true"
-                            className="h-6 w-5 flex-none text-white"
-                          />
-                          {subfeature}
-                        </li>
-                      ))}
-                    </ul>
+        <Container variant="narrow">
+          <div className="mx-auto text-left">
+            <p className="pb-6 text-base font-semibold leading-7 text-pink-500">
+              What's Included
+            </p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              We go beyond your portfolio to help you grow
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              Our feedback is tailored for career progression, not just 1
+              one-time job search. We combine years of experience screening
+              candidates with a detailed understanding of your skillsets and
+              goals to derive impactful recommendations.
+            </p>
+          </div>
+          <div>
+            <div className="lg:gap-y-18 mt-12 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-1 lg:mt-16 lg:grid-cols-2 lg:gap-x-16">
+              {features.map((feature) => (
+                <div key={feature.name}>
+                  <div>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-md bg-white bg-opacity-10">
+                      <feature.icon
+                        aria-hidden="true"
+                        className="h-6 w-6 text-white"
+                      />
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <div className="mt-6">
+                    <h3 className="text-lg font-semibold text-white">
+                      {feature.name}
+                    </h3>
+                    <p className="mt-2 text-base leading-7 text-slate-300 ">
+                      {feature.description}
+                    </p>
+                  </div>
+                  <ul
+                    className="mt-8 space-y-3 text-base leading-6 text-slate-300 xl:mt-10"
+                    role="list">
+                    {feature.subfeatures.map((subfeature) => (
+                      <li key={subfeature} className="flex gap-x-3">
+                        <CheckIcon
+                          aria-hidden="true"
+                          className="h-6 w-5 flex-none text-pink-500"
+                        />
+                        {subfeature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </Container>

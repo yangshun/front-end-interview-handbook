@@ -1,5 +1,3 @@
-'use client';
-
 import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
@@ -14,9 +12,9 @@ import {
 const summaryFeatures = [
   {
     description:
-      'The entire presentation of your portfolio - including github, resume and portfolio website, will be reviewed',
+      'Your entire portfolio - including GitHub, resume and portfolio website, projects will be reviewed',
     icon: DocumentCheckIcon,
-    name: 'End to end review',
+    name: 'End-to-end review',
   },
   {
     description:
@@ -62,7 +60,7 @@ const featuredReviews = [
 
 export default function ResumeReviewHero() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900">
+    <div className="relative isolate overflow-hidden bg-slate-900">
       <Container>
         <svg
           aria-hidden="true"
@@ -78,7 +76,7 @@ export default function ResumeReviewHero() {
               <path d="M.5 200V.5H200" fill="none" />
             </pattern>
           </defs>
-          <svg className="overflow-visible fill-gray-800/20" x="50%" y={-1}>
+          <svg className="overflow-visible fill-slate-800/20" x="50%" y={-1}>
             <path
               d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
               strokeWidth={0}
@@ -105,11 +103,11 @@ export default function ResumeReviewHero() {
         <div className="pb-10 xl:pb-20">
           <div className="mx-auto lg:flex ">
             <div>
-              <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl ">
+              <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl">
                 <div className="mt-24 sm:mt-32 lg:mt-16">
                   <a className="inline-flex space-x-6" href="#">
-                    <span className="bg-brand-500/10 text-brand-400 ring-brand-500/20 rounded-full px-3 py-1 text-sm font-semibold leading-6 ring-1 ring-inset">
-                      Front end portfolio review
+                    <span className="rounded-full bg-slate-300/10 px-3 py-1 text-sm font-semibold leading-6 text-slate-300 ring-1 ring-inset ring-slate-300/20">
+                      Front End Portfolio Review
                     </span>
                   </a>
                 </div>
@@ -118,37 +116,34 @@ export default function ResumeReviewHero() {
                 </h1>
                 <div className="sm:text-md space-y-4 py-8 pb-6 text-left text-sm font-medium text-slate-400 ">
                   <p>By ex-interviewers at</p>
-                  <span className="justify-left flex items-center space-x-6 ">
+                  <span className="justify-left flex items-center gap-x-6 opacity-75">
                     <GoogleLogo
-                      className="h-[1.5rem] text-slate-500 "
+                      className="h-[1.5rem] text-white"
                       title="Google logo"
                     />
                     <AmazonLogo
-                      className="mt-1 h-5 text-slate-500 "
+                      className="mt-2 h-5 text-white"
                       title="Amazon logo"
                     />
-                    <MetaLogo
-                      className="h-4 text-slate-500 "
-                      title="Meta logo"
-                    />
+                    <MetaLogo className="h-4 text-white" title="Meta logo" />
                   </span>
                 </div>
-                <p className="mt-2 text-lg leading-8 text-gray-300">
+                <p className="mt-2 text-lg leading-8 text-slate-300">
                   Having reviewed over 100+ candidates (each) at various big
                   tech companies, we know what to look out for and how to
                   improve your chances at getting shortlisted.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
-                    className="bg-brand-500 hover:bg-brand-400 focus-visible:outline-brand-400 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                    href="#">
+                    className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-400"
+                    href="#whats-included">
                     What is included{' '}
-                    <span className="text-gray-200">{'->'}</span>
+                    <span className="text-slate-200">{'->'}</span>
                   </a>
                   <a
                     className="text-sm font-semibold leading-6 text-white"
-                    href="#">
-                    Pricing <span className="text-gray-400">{'->'}</span>
+                    href="#pricing">
+                    Pricing <span className="text-slate-400">{'->'}</span>
                   </a>
                 </div>
               </div>
@@ -157,14 +152,14 @@ export default function ResumeReviewHero() {
               {featuredReviews.map((review) => (
                 <figure
                   key={review.reviewerName}
-                  className="mt-16 border-l border-gray-500 pl-8 text-gray-300">
+                  className="mt-16 border-l border-white pl-8 text-slate-300">
                   <blockquote className="text-sm leading-6">
                     <p>{review.review}</p>
                   </blockquote>
                   <figcaption className="mt-6 flex gap-x-4 text-sm leading-6">
                     {review.pic}
                     <div>
-                      <span className="font-semibold text-gray-900">
+                      <span className="font-semibold text-slate-900">
                         {review.reviewerName}
                       </span>{' '}
                       – {review.designation}
@@ -175,13 +170,13 @@ export default function ResumeReviewHero() {
             </div>
           </div>
           <div className="mx-auto mt-16 max-w-2xl lg:mt-24 lg:max-w-7xl xl:sm:mt-28">
-            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-slate-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
               {summaryFeatures.map((feature) => (
                 <div key={feature.name} className="relative pl-12">
                   <dt className=" font-semibold text-white">
                     <feature.icon
                       aria-hidden="true"
-                      className="absolute left-1 top-1 h-8 w-8 text-indigo-400"
+                      className="absolute left-1 top-1 h-8 w-8 text-pink-300"
                     />
                     {feature.name}
                   </dt>{' '}

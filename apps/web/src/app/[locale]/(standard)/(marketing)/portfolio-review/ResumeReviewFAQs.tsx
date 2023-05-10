@@ -8,7 +8,7 @@ import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/solid';
 const faqs = [
   {
     answer: (
-      <ul className="list-inside list-disc space-y-2">
+      <ul className="list-disc space-y-2 pl-4">
         <li>
           Upon purchase, you will be sent an email with a preliminary
           questionnaire on your career goals, ideal company profile, background
@@ -16,7 +16,7 @@ const faqs = [
         </li>
         <li>
           Please answer them and send a copy of your resume and relevant links
-          (github, portfolio website) as appropriate
+          (GitHub, portfolio website) as appropriate
         </li>
         <li>
           The portfolio review will occur over email as well as collaborative
@@ -47,8 +47,8 @@ const faqs = [
   {
     answer: (
       <>
-        Yes; we have provided mentorship to help individuals transit from other
-        fields into the front end domain.
+        Yes; we have provided mentorship to help individuals transition from
+        other fields into the front end domain.
       </>
     ),
     id: 'why-should-i-buy',
@@ -62,11 +62,11 @@ const faqs = [
 
 export default function ResumeReviewFAQs() {
   return (
-    <div className="bg-gray-900">
-      <Container>
-        <div className="mx-auto max-w-2xl divide-y divide-white/10 py-32 lg:max-w-none xl:py-40 ">
-          <h2 className="text-2xl font-bold leading-10 tracking-tight text-white">
-            Frequently asked questions
+    <div className="bg-slate-900 py-16 lg:py-24 xl:py-32">
+      <Container variant="3xl">
+        <div className="divide-y divide-white/10">
+          <h2 className="text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
+            Frequently Asked Questions
           </h2>
           <dl className="mt-10 space-y-6 divide-y divide-white/10">
             {faqs.map((faq) => (
@@ -75,7 +75,7 @@ export default function ResumeReviewFAQs() {
                   <>
                     <dt>
                       <Disclosure.Button className="flex w-full items-start justify-between text-left text-white">
-                        <span className="text-base font-semibold leading-7">
+                        <span className="text-lg font-medium leading-7">
                           {faq.question}
                         </span>
                         <span className="ml-6 flex h-7 items-center">
@@ -93,8 +93,8 @@ export default function ResumeReviewFAQs() {
                         </span>
                       </Disclosure.Button>
                     </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                      <p className="text-base leading-7 text-gray-300">
+                    <Disclosure.Panel as="dd" className="mt-4 pr-12">
+                      <p className="text-base leading-7 text-slate-300">
                         {faq.answer}
                       </p>
                     </Disclosure.Panel>
