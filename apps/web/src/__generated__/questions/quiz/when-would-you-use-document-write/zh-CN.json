@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/when-would-you-use-document-write",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "when-would-you-use-document-write",
+    "title": "您什么时候使用 `document.write()`？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),x=(t,e)=>{for(var c in e)o(t,c,{get:e[c],enumerable:!0})},d=(t,e,c,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!w.call(t,r)&&r!==c&&o(t,r,{get:()=>e[r],enumerable:!(i=m(e,r))||i.enumerable});return t};var _=(t,e,c)=>(c=t!=null?l(p(t)):{},d(e||!t||!t.__esModule?o(c,\"default\",{value:t,enumerable:!0}):c,t)),j=t=>d(o({},\"__esModule\",{value:!0}),t);var s=g((k,a)=>{a.exports=_jsx_runtime});var v={};x(v,{default:()=>M,frontmatter:()=>f});var n=_(s()),f={title:\"\\u60A8\\u4EC0\\u4E48\\u65F6\\u5019\\u4F7F\\u7528 `document.write()`\\uFF1F\"};function h(t){let e=Object.assign({p:\"p\",code:\"code\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"document.write()\"}),\"\\u5C06\\u4E00\\u4E32\\u6587\\u672C\\u5199\\u5165\\u7531\",(0,n.jsx)(e.code,{children:\"document.open()\"}),\"\\u6253\\u5F00\\u7684\\u6587\\u6863\\u6D41\\u3002 \\u5F53\",(0,n.jsx)(e.code,{children:\"document.write()\"}),\"\\u5728\\u9875\\u9762\\u52A0\\u8F7D\\u540E\\u88AB\\u6267\\u884C\\u65F6\\uFF0C\\u5B83\\u5C06\\u8C03\\u7528\",(0,n.jsx)(e.code,{children:\"document.open\"}),\"\\u6765\\u6E05\\u9664\\u6574\\u4E2A\\u6587\\u6863\\uFF08\",(0,n.jsx)(e.code,{children:\"<head>\"}),\"\\u548C\",(0,n.jsx)(e.code,{children:\"<body>\"}),\"\\u88AB\\u79FB\\u9664\\uFF01\\uFF09\\u3002 \\u5E76\\u7528\\u7ED9\\u5B9A\\u7684\\u53C2\\u6570\\u503C\\u66FF\\u6362\\u5185\\u5BB9\\u3002 \\u56E0\\u6B64\\uFF0C\\u5B83\\u901A\\u5E38\\u88AB\\u8BA4\\u4E3A\\u662F\\u5371\\u9669\\u7684\\uFF0C\\u5BB9\\u6613\\u88AB\\u6EE5\\u7528\\u3002\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u7F51\\u4E0A\\u6709\\u4E00\\u4E9B\\u7B54\\u6848\\uFF0C\\u89E3\\u91CA\\u8BF4\",(0,n.jsx)(e.code,{children:\"document.write()\"}),\"\\u88AB\\u7528\\u4E8E\\u5206\\u6790\\u4EE3\\u7801\\u6216\",(0,n.jsx)(e.a,{href:\"https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html\",children:\"\\u5F53\\u4F60\\u60F3\\u5305\\u62EC\\u53EA\\u6709\\u5728\\u542F\\u7528JavaScript\\u7684\\u60C5\\u51B5\\u4E0B\\u624D\\u5E94\\u8BE5\\u5DE5\\u4F5C\\u7684\\u6837\\u5F0F\"}),\"\\u3002 \\u5B83\\u751A\\u81F3\\u88AB\\u7528\\u4E8EHTML5\\u6A21\\u677F\\u4E2D\\uFF0C\\u4EE5\",(0,n.jsx)(e.a,{href:\"https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag\",children:\"\\u5E76\\u884C\\u52A0\\u8F7D\\u811A\\u672C\\u5E76\\u4FDD\\u7559\\u6267\\u884C\\u987A\\u5E8F\"}),\"! \\u7136\\u800C\\uFF0C\\u8FD9\\u4E9B\\u539F\\u56E0\\u53EF\\u80FD\\u5DF2\\u7ECF\\u8FC7\\u65F6\\uFF0C\\u5728\\u8FD9\\u4E2A\\u65F6\\u4EE3\\uFF0C\\u53EF\\u4EE5\\u5728\\u6CA1\\u6709\\u4F7F\\u7528\\u201Cdocument.write()\\u201D\\u7684\\u60C5\\u51B5\\u4E0B\\u5B9E\\u73B0\\u3002\"]})]})}function b(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var M=b;return j(v);})();\n;return Component;"
+}

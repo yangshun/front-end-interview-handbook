@@ -1,0 +1,34 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "linkedin"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-event-delegation",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-event-delegation",
+    "title": "解释事件委托",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "html"
+    ]
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),p=(t,n)=>{for(var r in n)c(t,r,{get:n[r],enumerable:!0})},o=(t,n,r,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let s of d(n))!_.call(t,s)&&s!==r&&c(t,s,{get:()=>n[s],enumerable:!(i=x(n,s))||i.enumerable});return t};var f=(t,n,r)=>(r=t!=null?m(j(t)):{},o(n||!t||!t.__esModule?c(r,\"default\",{value:t,enumerable:!0}):r,t)),g=t=>o(c({},\"__esModule\",{value:!0}),t);var a=h((F,l)=>{l.exports=_jsx_runtime});var b={};p(b,{default:()=>O,frontmatter:()=>M});var e=f(a()),M={title:\"\\u89E3\\u91CA\\u4E8B\\u4EF6\\u59D4\\u6258\"};function u(t){let n=Object.assign({p:\"p\",ul:\"ul\",li:\"li\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.p,{children:\"\\u4E8B\\u4EF6\\u59D4\\u6258\\u662F\\u4E00\\u79CD\\u6280\\u672F\\uFF0C\\u6D89\\u53CA\\u5C06\\u4E8B\\u4EF6\\u76D1\\u542C\\u5668\\u6DFB\\u52A0\\u5230\\u7236\\u5143\\u7D20\\uFF0C\\u800C\\u4E0D\\u662F\\u5C06\\u4E8B\\u4EF6\\u76D1\\u542C\\u5668\\u6DFB\\u52A0\\u5230\\u5B50\\u5143\\u7D20\\u3002 \\u7531\\u4E8E\\u4E8B\\u4EF6\\u5728DOM\\u4E0A\\u5192\\u6CE1\\uFF0C\\u6BCF\\u5F53\\u4E8B\\u4EF6\\u5728\\u540E\\u4EE3\\u5143\\u7D20\\u4E0A\\u88AB\\u89E6\\u53D1\\u65F6\\uFF0C\\u76D1\\u542C\\u5668\\u5C31\\u4F1A\\u542F\\u52A8\\u3002 \\u8FD9\\u79CD\\u6280\\u672F\\u7684\\u597D\\u5904\\u662F\\uFF1A\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:\"\\u5185\\u5B58\\u5360\\u7528\\u51CF\\u5C11\\uFF0C\\u56E0\\u4E3A\\u7236\\u5143\\u7D20\\u53EA\\u9700\\u8981\\u4E00\\u4E2A\\u5355\\u4E2A\\u5904\\u7406\\u7A0B\\u5E8F\\uFF0C\\u800C\\u4E0D\\u5FC5\\u9644\\u52A0\\u6BCF\\u4E2A\\u540E\\u4EE3\\u7684\\u4E8B\\u4EF6\\u5904\\u7406\\u7A0B\\u5E8F\\u3002\"}),`\n`,(0,e.jsx)(n.li,{children:\"\\u6CA1\\u6709\\u5FC5\\u8981\\u4ECE\\u5DF2\\u5220\\u9664\\u7684\\u5143\\u7D20\\u4E2D\\u89E3\\u7ED1\\u5904\\u7406\\u5668\\u3001\\u5C06\\u4E8B\\u4EF6\\u7ED1\\u5B9A\\u5230\\u65B0\\u5143\\u7D20\\u3002\"}),`\n`]})]})}function D(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(u,t)})):u(t)}var O=D;return g(b);})();\n;return Component;"
+}

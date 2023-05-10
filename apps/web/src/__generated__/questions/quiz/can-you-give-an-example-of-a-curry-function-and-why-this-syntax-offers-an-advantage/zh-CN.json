@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
+    "title": "您能提供一个柯里化函数的例子，以及为什么这个语法会有优势？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var f=Object.create;var d=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),_=(n,e)=>{for(var t in e)d(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of m(e))!l.call(n,c)&&c!==t&&d(n,c,{get:()=>e[c],enumerable:!(a=g(e,c))||a.enumerable});return n};var x=(n,e,t)=>(t=n!=null?f(p(n)):{},u(e||!n||!n.__esModule?d(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>u(d({},\"__esModule\",{value:!0}),n);var s=h((y,i)=>{i.exports=_jsx_runtime});var w={};_(w,{default:()=>b,frontmatter:()=>v});var r=x(s()),v={title:\"\\u60A8\\u80FD\\u63D0\\u4F9B\\u4E00\\u4E2A\\u67EF\\u91CC\\u5316\\u51FD\\u6570\\u7684\\u4F8B\\u5B50\\uFF0C\\u4EE5\\u53CA\\u4E3A\\u4EC0\\u4E48\\u8FD9\\u4E2A\\u8BED\\u6CD5\\u4F1A\\u6709\\u4F18\\u52BF\\uFF1F\"};function o(n){let e=Object.assign({p:\"p\",pre:\"pre\",code:\"code\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.p,{children:\"\\u67EF\\u91CC\\u5316\\u662F\\u4E00\\u79CD\\u6A21\\u5F0F\\uFF0C\\u5373\\u4E00\\u4E2A\\u6709\\u591A\\u4E2A\\u53C2\\u6570\\u7684\\u51FD\\u6570\\u88AB\\u5206\\u89E3\\u6210\\u591A\\u4E2A\\u51FD\\u6570\\uFF0C\\u5F53\\u88AB\\u4E32\\u8054\\u8C03\\u7528\\u65F6\\uFF0C\\u5C06\\u4E00\\u6B21\\u79EF\\u7D2F\\u6240\\u6709\\u9700\\u8981\\u7684\\u53C2\\u6570\\u3002 \\u8FD9\\u79CD\\u6280\\u672F\\u6709\\u52A9\\u4E8E\\u4F7F\\u4EE5\\u51FD\\u6570\\u5F0F\\u98CE\\u683C\\u7684\\u4EE3\\u7801\\u66F4\\u5BB9\\u6613\\u9605\\u8BFB\\u548C\\u7EC4\\u5408\\u3002 \\u503C\\u5F97\\u6CE8\\u610F\\u7684\\u662F\\uFF0C\\u8981\\u4F7F\\u4E00\\u4E2A\\u51FD\\u6570\\u88AB\\u67EF\\u91CC\\u5316\\uFF0C\\u5B83\\u9700\\u8981\\u4ECE\\u4E00\\u4E2A\\u51FD\\u6570\\u5F00\\u59CB\\uFF0C\\u7136\\u540E\\u5206\\u89E3\\u6210\\u4E00\\u8FDE\\u4E32\\u7684\\u51FD\\u6570\\uFF0C\\u6BCF\\u4E2A\\u51FD\\u6570\\u63A5\\u53D7\\u4E00\\u4E2A\\u53C2\\u6570\\u3002\"}),`\n`,(0,r.jsx)(e.pre,{children:(0,r.jsx)(e.code,{className:\"language-js\",children:`function curry(fn) {\n  if (fn.length === 0) {\n    return fn;\n  }\n\n  function _curried(depth, args) {\n    return function (newArgument) {\n      if (depth - 1 === 0) {\n        return fn(...args, newArgument);\n      }\n      return _curried(depth - 1, [...args, newArgument]);\n    };\n  }\n\n  return _curried(fn.length, []);\n}\n\nfunction add(a, b) {\n  return a + b;\n}\n\nvar curriedAdd = curry(add);\nvar addFive = curriedAdd(5);\n\nvar result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]\n`})})]})}function A(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(o,n)})):o(n)}var b=A;return j(w);})();\n;return Component;"
+}

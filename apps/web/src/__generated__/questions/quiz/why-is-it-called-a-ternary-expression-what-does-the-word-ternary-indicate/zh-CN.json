@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate",
+    "title": "为什么它被称为三元表达？\"三元 \"一词表示什么？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),d=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of f(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var h=(t,n,e)=>(e=t!=null?u(j(t)):{},a(n||!t||!t.__esModule?r(e,\"default\",{value:t,enumerable:!0}):e,t)),M=t=>a(r({},\"__esModule\",{value:!0}),t);var m=_((X,i)=>{i.exports=_jsx_runtime});var D={};d(D,{default:()=>C,frontmatter:()=>b});var c=h(m()),b={title:'\\u4E3A\\u4EC0\\u4E48\\u5B83\\u88AB\\u79F0\\u4E3A\\u4E09\\u5143\\u8868\\u8FBE\\uFF1F\"\\u4E09\\u5143 \"\\u4E00\\u8BCD\\u8868\\u793A\\u4EC0\\u4E48\\uFF1F'};function p(t){let n=Object.assign({p:\"p\"},t.components);return(0,c.jsx)(n.p,{children:'\"\\u4E09\\u5143 \"\\u8868\\u793A\\u4E09\\uFF0C\\u4E09\\u5143\\u8868\\u8FBE\\u5F0F\\u63A5\\u53D7\\u4E09\\u4E2A\\u64CD\\u4F5C\\u6570\\uFF0C\\u5373\\u6D4B\\u8BD5\\u6761\\u4EF6\\u3001\"then\" \\u8868\\u8FBE\\u5F0F\\u548C \"else\" \\u8868\\u8FBE\\u5F0F\\u3002 \\u4E09\\u5143\\u8868\\u8FBE\\u5F0F\\u4E0D\\u662FJavaScript\\u7279\\u6709\\u7684\\uFF0C\\u6211\\u4E0D\\u77E5\\u9053\\u4E3A\\u4EC0\\u4E48\\u5B83\\u751A\\u81F3\\u5728\\u8FD9\\u4E2A\\u5217\\u8868\\u4E2D\\u3002'})}function g(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,Object.assign({},t,{children:(0,c.jsx)(p,t)})):p(t)}var C=g;return M(D);})();\n;return Component;"
+}

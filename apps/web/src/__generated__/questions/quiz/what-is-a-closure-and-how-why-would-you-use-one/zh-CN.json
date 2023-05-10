@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "amazon",
+      "linkedin",
+      "microsoft",
+      "salesforce"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-a-closure-and-how-why-would-you-use-one",
+    "title": "什么是闭包？ 你如何/为何使用？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var x=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),f=(t,n)=>{for(var r in n)c(t,r,{get:n[r],enumerable:!0})},i=(t,n,r,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let s of m(n))!j.call(t,s)&&s!==r&&c(t,s,{get:()=>n[s],enumerable:!(a=p(n,s))||a.enumerable});return t};var _=(t,n,r)=>(r=t!=null?h(u(t)):{},i(n||!t||!t.__esModule?c(r,\"default\",{value:t,enumerable:!0}):r,t)),b=t=>i(c({},\"__esModule\",{value:!0}),t);var l=x((D,o)=>{o.exports=_jsx_runtime});var M={};f(M,{default:()=>v,frontmatter:()=>g});var e=_(l()),g={title:\"\\u4EC0\\u4E48\\u662F\\u95ED\\u5305\\uFF1F \\u4F60\\u5982\\u4F55/\\u4E3A\\u4F55\\u4F7F\\u7528\\uFF1F\"};function d(t){let n=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.p,{children:\"\\u95ED\\u5305\\u662F\\u4E00\\u4E2A\\u51FD\\u6570\\u548C\\u58F0\\u660E\\u8BE5\\u51FD\\u6570\\u7684\\u8BCD\\u6CD5\\u73AF\\u5883\\u7684\\u7EC4\\u5408\\u3002 \\u201C\\u8BCD\\u6CD5\\u201D\\u6307\\u7684\\u662F\\uFF0C\\u8BCD\\u6CD5\\u8303\\u56F4\\u4F7F\\u7528\\u53D8\\u91CF\\u5728\\u6E90\\u4EE3\\u7801\\u4E2D\\u7684\\u58F0\\u660E\\u4F4D\\u7F6E\\u6765\\u786E\\u5B9A\\u8BE5\\u53D8\\u91CF\\u5728\\u54EA\\u91CC\\u53EF\\u7528\\u3002 \\u95ED\\u5305\\u662F\\u53EF\\u4EE5\\u8BBF\\u95EE\\u5916\\u5C42\\uFF08\\u5305\\u56F4\\uFF09\\u51FD\\u6570\\u7684\\u53D8\\u91CF\\u8303\\u56F4\\u94FE\\u7684\\u51FD\\u6570\\uFF0C\\u5373\\u4F7F\\u5728\\u5916\\u5C42\\u51FD\\u6570\\u8FD4\\u56DE\\u4E4B\\u540E\\u3002\"}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u4F60\\u4E3A\\u4EC0\\u4E48\\u8981\\u4F7F\\u7528\\uFF1F\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[\"\\u6570\\u636E\\u9690\\u79C1/\\u7528\\u95ED\\u5305\\u6A21\\u62DF\\u79C1\\u6709\\u65B9\\u6CD5\\u3002 \\u5E38\\u89C1\\u4E8E\",(0,e.jsx)(n.a,{href:\"https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript\",children:\"\\u6A21\\u5757\\u6A21\\u5F0F\"}),\"\\u3002\"]}),`\n`,(0,e.jsxs)(n.li,{children:[\"[\\u90E8\\u5206\\u5E94\\u7528\\u7A0B\\u5E8F\\u6216\\u67EF\\u91CC\\u5316](\",(0,e.jsx)(n.a,{href:\"https://med.com/javascript-scene/curry-or\",children:\"https://med.com/javascript-scene/curry-or\"}),\" partial-application-8150044c78b8#.l4b6l1i3x)\\u3002\"]}),`\n`]})]})}function y(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(d,t)})):d(t)}var v=y;return b(M);})();\n;return Component;"
+}

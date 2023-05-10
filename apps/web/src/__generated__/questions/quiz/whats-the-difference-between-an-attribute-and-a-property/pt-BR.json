@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-an-attribute-and-a-property",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-an-attribute-and-a-property",
+    "title": "Qual é a diferença entre um \"atributo\" e uma \"propriedade\"?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of m(e))!x.call(n,a)&&a!==t&&r(n,a,{get:()=>e[a],enumerable:!(s=p(e,a))||s.enumerable});return n};var j=(n,e,t)=>(t=n!=null?u(g(n)):{},i(e||!n||!n.__esModule?r(t,\"default\",{value:n,enumerable:!0}):t,n)),M=n=>i(r({},\"__esModule\",{value:!0}),n);var c=f((y,l)=>{l.exports=_jsx_runtime});var H={};h(H,{default:()=>v,frontmatter:()=>_});var o=j(c()),_={title:'Qual \\xE9 a diferen\\xE7a entre um \"atributo\" e uma \"propriedade\"?'};function d(n){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(e.p,{children:[\"Atributos s\\xE3o definidos na marca\\xE7\\xE3o HTML, mas as propriedades s\\xE3o definidas no DOM. Para ilustrar a diferen\\xE7a, imagine que temos esse campo de texto em nosso HTML: \",(0,o.jsx)(e.code,{children:'<input type=\"text\" value=\"Hello\">'}),\".\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const input = document.querySelector('input');\nconsole.log(input.getAttribute('value')); // Hello\nconsole.log(input.value); // Hello\n`})}),`\n`,(0,o.jsx)(e.p,{children:'Mas depois de alterar o valor do campo de texto adicionando \"Mundo!\" a ele, isso se torna:'}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`console.log(input.getAttribute('value')); // Ol\\xE1\nconsole.log(input.value); // Ol\\xE1 Mundo!\n`})})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(d,n)})):d(n)}var v=b;return M(H);})();\n;return Component;"
+}

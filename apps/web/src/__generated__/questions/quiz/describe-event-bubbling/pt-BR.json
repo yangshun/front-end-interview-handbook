@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-event-bubbling",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-event-bubbling",
+    "title": "Descreva a propagação de eventos",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "html"
+    ]
+  },
+  "solution": "var Component=(()=>{var i=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var g=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports),j=(e,o)=>{for(var t in o)s(e,t,{get:o[t],enumerable:!0})},c=(e,o,t,r)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let a of l(o))!v.call(e,a)&&a!==t&&s(e,a,{get:()=>o[a],enumerable:!(r=u(o,a))||r.enumerable});return e};var _=(e,o,t)=>(t=e!=null?i(x(e)):{},c(o||!e||!e.__esModule?s(t,\"default\",{value:e,enumerable:!0}):t,e)),f=e=>c(s({},\"__esModule\",{value:!0}),e);var p=g((C,d)=>{d.exports=_jsx_runtime});var O={};j(O,{default:()=>M,frontmatter:()=>h});var n=_(p()),h={title:\"Descreva a propaga\\xE7\\xE3o de eventos\"};function m(e){let o=Object.assign({p:\"p\",code:\"code\"},e.components);return(0,n.jsxs)(o.p,{children:[\"Quando um evento \\xE9 disparado em um elemento do DOM, ele tentar\\xE1 manipular o evento se houver um ouvinte anexado, ent\\xE3o o evento \\xE9 propagado para seu pai e a mesma coisa acontece. Essa propaga\\xE7\\xE3o ocorre pelos ancestrais do elemento at\\xE9 o \",(0,n.jsx)(o.code,{children:\"document\"}),\". A propaga\\xE7\\xE3o de eventos \\xE9 o mecanismo por tr\\xE1s da delega\\xE7\\xE3o de eventos.\"]})}function D(e={}){let{wrapper:o}=e.components||{};return o?(0,n.jsx)(o,Object.assign({},e,{children:(0,n.jsx)(m,e)})):m(e)}var M=D;return f(O);})();\n;return Component;"
+}

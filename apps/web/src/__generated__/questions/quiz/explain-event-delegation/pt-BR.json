@@ -1,0 +1,34 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "linkedin"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-event-delegation",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-event-delegation",
+    "title": "Explique delegação do evento",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "html"
+    ]
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var v=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),f=(n,e)=>{for(var t in e)a(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of v(e))!x.call(n,s)&&s!==t&&a(n,s,{get:()=>e[s],enumerable:!(i=u(e,s))||i.enumerable});return n};var g=(n,e,t)=>(t=n!=null?m(p(n)):{},d(e||!n||!n.__esModule?a(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>d(a({},\"__esModule\",{value:!0}),n);var c=h((D,r)=>{r.exports=_jsx_runtime});var M={};f(M,{default:()=>O,frontmatter:()=>q});var o=g(c()),q={title:\"Explique delega\\xE7\\xE3o do evento\"};function l(n){let e=Object.assign({p:\"p\",ul:\"ul\",li:\"li\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.p,{children:\"A delega\\xE7\\xE3o do evento \\xE9 uma t\\xE9cnica que envolve adicionar ouvintes de eventos a um elemento pai em vez de adicionar os ouvintes do evento aos elementos descendentes. O ouvinte ser\\xE1 disparado sempre que o evento for acionado nos elementos descendentes, devido \\xE0 propaga\\xE7\\xE3o do evento atrav\\xE9s do DOM. Os benef\\xEDcios desta t\\xE9cnica s\\xE3o:\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:\"A quantia de mem\\xF3ria diminui porque somente um \\xFAnico handler \\xE9 necess\\xE1rio no elemento pai, em vez de ter que anexar manipuladores de eventos em cada elemento descendente.\"}),`\n`,(0,o.jsx)(e.li,{children:\"N\\xE3o h\\xE1 necessidade de desvincular o manipulador dos elementos que s\\xE3o removidos e vincular o evento para novos elementos.\"}),`\n`]})]})}function _(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(l,n)})):l(n)}var O=_;return j(M);})();\n;return Component;"
+}

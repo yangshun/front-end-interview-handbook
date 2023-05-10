@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-ajax-in-as-much-detail-as-possible",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-ajax-in-as-much-detail-as-possible",
+    "title": "尽可能详细地解释Ajax",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "network"
+    ]
+  },
+  "solution": "var Component=(()=>{var j=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),_=(e,t)=>{for(var c in t)o(e,c,{get:t[c],enumerable:!0})},s=(e,t,c,a)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of m(t))!u.call(e,r)&&r!==c&&o(e,r,{get:()=>t[r],enumerable:!(a=p(t,r))||a.enumerable});return e};var f=(e,t,c)=>(c=e!=null?j(l(e)):{},s(t||!e||!e.__esModule?o(c,\"default\",{value:e,enumerable:!0}):c,e)),A=e=>s(o({},\"__esModule\",{value:!0}),e);var x=h((O,i)=>{i.exports=_jsx_runtime});var J={};_(J,{default:()=>g,frontmatter:()=>M});var n=f(x()),M={title:\"\\u5C3D\\u53EF\\u80FD\\u8BE6\\u7EC6\\u5730\\u89E3\\u91CAAjax\"};function d(e){let t=Object.assign({p:\"p\",code:\"code\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Ajax (\\u5F02\\u6B65 JavaScript \\u548C XML) \\u662F\\u4E00\\u5957\\u7F51\\u7EDC\\u5F00\\u53D1\\u6280\\u672F\\uFF0C\\u5728\\u5BA2\\u6237\\u7AEF\\u4F7F\\u7528\\u8BB8\\u591A\\u7F51\\u7EDC\\u6280\\u672F\\u521B\\u5EFA\\u5F02\\u6B65\\u7F51\\u7EDC\\u5E94\\u7528\\u7A0B\\u5E8F\\u3002 \\u4F7F\\u7528 Ajax\\uFF0C Web \\u5E94\\u7528\\u7A0B\\u5E8F\\u53EF\\u4EE5\\u5C06\\u6570\\u636E\\u5F02\\u6B65\\u5730\\u53D1\\u9001\\u5230\\u670D\\u52A1\\u5668\\uFF08\\u540E\\u7AEF\\uFF09\\u5E76\\u4ECE\\u670D\\u52A1\\u5668\\u4E0A\\u68C0\\u7D22\\uFF0C\\u800C\\u4E0D\\u5E72\\u6270\\u73B0\\u6709\\u9875\\u9762\\u7684\\u663E\\u793A\\u548C\\u884C\\u4E3A\\u3002 \\u901A\\u8FC7\\u5C06\\u6570\\u636E\\u4EA4\\u6362\\u5C42\\u4E0E\\u8868\\u73B0\\u5C42\\u89E3\\u8026\\uFF0CAjax\\u5141\\u8BB8\\u7F51\\u9875\\uFF0C\\u4EE5\\u53CA\\u6269\\u5C55\\u7684\\u7F51\\u9875\\u5E94\\u7528\\u7A0B\\u5E8F\\uFF0C\\u52A8\\u6001\\u5730\\u6539\\u53D8\\u5185\\u5BB9\\uFF0C\\u800C\\u4E0D\\u9700\\u8981\\u91CD\\u65B0\\u52A0\\u8F7D\\u6574\\u4E2A\\u9875\\u9762\\u3002 \\u5B9E\\u9645\\u4E0A\\uFF0C\\u73B0\\u4EE3\\u5B9E\\u73B0\\u901A\\u5E38\\u4F7F\\u7528JSON\\u800C\\u4E0D\\u662FXML\\uFF0C\\u56E0\\u4E3AJSON\\u662FJavaScript\\u7684\\u539F\\u751F\\u4F18\\u52BF\\u3002\"}),`\n`,(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.code,{children:\"XMLHttpRequest\"}),\" API\\u6216\\u5982\\u4ECA\\u7684 \",(0,n.jsx)(t.code,{children:\"fetch\"}),\" API\\u7ECF\\u5E38\\u7528\\u4E8E\\u5F02\\u6B65\\u901A\\u4FE1\\u3002\"]})]})}function X(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(d,e)})):d(e)}var g=X;return A(J);})();\n;return Component;"
+}

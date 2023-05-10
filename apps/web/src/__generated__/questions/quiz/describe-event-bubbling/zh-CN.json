@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-event-bubbling",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-event-bubbling",
+    "title": "描述事件冒泡过程",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "html"
+    ]
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var j=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var f=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)s(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,r)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of j(n))!_.call(t,c)&&c!==e&&s(t,c,{get:()=>n[c],enumerable:!(r=u(n,c))||r.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(p(t)):{},i(n||!t||!t.__esModule?s(e,\"default\",{value:t,enumerable:!0}):e,t)),h=t=>i(s({},\"__esModule\",{value:!0}),t);var d=f((X,a)=>{a.exports=_jsx_runtime});var g={};l(g,{default:()=>b,frontmatter:()=>D});var o=M(d()),D={title:\"\\u63CF\\u8FF0\\u4E8B\\u4EF6\\u5192\\u6CE1\\u8FC7\\u7A0B\"};function x(t){let n=Object.assign({p:\"p\",code:\"code\"},t.components);return(0,o.jsxs)(n.p,{children:[\"\\u5F53\\u4E8B\\u4EF6\\u89E6\\u53D1 DOM \\u5143\\u7D20\\u65F6\\uFF0C\\u5982\\u679C\\u6709\\u76D1\\u542C\\u5668\\uFF0C\\u5B83\\u4F1A\\u5C1D\\u8BD5\\u5904\\u7406\\u4E8B\\u4EF6\\uFF0C \\u7136\\u540E\\u4E8B\\u4EF6\\u4F1A\\u5411\\u4E0A\\u5192\\u6CE1\\u5E76\\u53D1\\u751F\\u540C\\u6837\\u7684\\u4E8B\\u4EF6\\u3002 \\u8FD9\\u79CD\\u5192\\u6CE1\\u53D1\\u751F\\u5728\\u5143\\u7D20\\u7684\\u7956\\u5148\\u4E0A\\uFF0C\\u4E00\\u76F4\\u5230\",(0,o.jsx)(n.code,{children:\"document\"}),\"\\u3002 \\u4E8B\\u4EF6\\u5192\\u6CE1\\u662F\\u6D3B\\u52A8\\u6388\\u6743\\u80CC\\u540E\\u7684\\u673A\\u5236\\u3002\"]})}function O(t={}){let{wrapper:n}=t.components||{};return n?(0,o.jsx)(n,Object.assign({},t,{children:(0,o.jsx)(x,t)})):x(t)}var b=O;return h(g);})();\n;return Component;"
+}

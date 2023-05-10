@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-definition-of-a-higher-order-function",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-the-definition-of-a-higher-order-function",
+    "title": "Qual é a definição de uma função de ordem superior?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var g=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),x=(a,e)=>{for(var r in e)s(a,r,{get:e[r],enumerable:!0})},t=(a,e,r,m)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of l(e))!h.call(a,n)&&n!==r&&s(a,n,{get:()=>e[n],enumerable:!(m=p(e,n))||m.enumerable});return a};var j=(a,e,r)=>(r=a!=null?d(f(a)):{},t(e||!a||!a.__esModule?s(r,\"default\",{value:a,enumerable:!0}):r,a)),N=a=>t(s({},\"__esModule\",{value:!0}),a);var u=g((_,c)=>{c.exports=_jsx_runtime});var A={};x(A,{default:()=>y,frontmatter:()=>U});var o=j(u()),U={title:\"Qual \\xE9 a defini\\xE7\\xE3o de uma fun\\xE7\\xE3o de ordem superior?\"};function i(a){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",pre:\"pre\"},a.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(e.p,{children:[\"Uma fun\\xE7\\xE3o de ordem superior \\xE9 qualquer fun\\xE7\\xE3o que recebe uma ou mais fun\\xE7\\xF5es como argumentos, que ela usa para operar em algum dado e/ou retorna uma fun\\xE7\\xE3o como resultado. As fun\\xE7\\xF5es de ordem superior t\\xEAm como objetivo abstrair alguma opera\\xE7\\xE3o que \\xE9 realizada repetidamente. O exemplo cl\\xE1ssico disso \\xE9 o map, que recebe como argumentos um array e uma fun\\xE7\\xE3o. O map ent\\xE3o usa essa fun\\xE7\\xE3o para transformar cada item no array, retornando um novo array com os dados transformados. Outros exemplos populares em JavaScript s\\xE3o \",(0,o.jsx)(e.code,{children:\"forEach, \"}),\"filter\",(0,o.jsx)(e.code,{children:\"e\"}),\"reduce\",(0,o.jsx)(e.code,{children:\". Uma fun\\xE7\\xE3o de ordem superior n\\xE3o precisa apenas manipular arrays, pois h\\xE1 muitos casos de uso para retornar uma fun\\xE7\\xE3o de outra fun\\xE7\\xE3o. \"}),\"Function.prototype.bind` \\xE9 um exemplo desse tipo em JavaScript.\"]}),`\n`,(0,o.jsx)(e.h2,{children:\"Map\"}),`\n`,(0,o.jsx)(e.p,{children:\"Vamos supor que temos um array de nomes no qual precisamos transformar cada string em mai\\xFAsculas.\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const names = ['irish', 'daisy', 'anna'];\n`})}),`\n`,(0,o.jsx)(e.p,{children:\"A maneira imperativa seria assim:\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const transformNamesToUppercase = function (nomes) {\n  const results = [];\n  for (let i = 0; i < nomes. comprimento; i++) {\n    resultados. ush(names[i].toUpperCase());\n  }\n  return resultados;\n};\ntransformNamesToUppercase(nomes); // ['IRISH', 'DAISY', 'ANNA']\n`})}),`\n`,(0,o.jsxs)(e.p,{children:[\"Use \",(0,o.jsx)(e.code,{children:\".map(transformerFn)\"}),\" torna o c\\xF3digo mais curto e mais declarativo.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const transformNamesToUppercase = function (nomes) {\n  return names.map((name) => name.toUpperCase());\n};\ntransformNamesToUppercase(nomes); // ['IRISH', 'DAISY', 'ANNA']\n`})})]})}function q(a={}){let{wrapper:e}=a.components||{};return e?(0,o.jsx)(e,Object.assign({},a,{children:(0,o.jsx)(i,a)})):i(a)}var y=q;return N(A);})();\n;return Component;"
+}

@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-same-origin-policy-with-regards-to-javascript",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
+    "title": "解释与JavaScript有关的同源策略。",
+    "subtitle": null,
+    "topics": [
+      "javascript",
+      "network"
+    ]
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var d=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=x(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?u(j(t)):{},s(n||!t||!t.__esModule?r(e,\"default\",{value:t,enumerable:!0}):e,t)),b=t=>s(r({},\"__esModule\",{value:!0}),t);var p=d((J,i)=>{i.exports=_jsx_runtime});var C={};l(C,{default:()=>v,frontmatter:()=>g});var c=M(p()),g={title:\"\\u89E3\\u91CA\\u4E0EJavaScript\\u6709\\u5173\\u7684\\u540C\\u6E90\\u7B56\\u7565\\u3002\"};function m(t){let n=Object.assign({p:\"p\"},t.components);return(0,c.jsx)(n.p,{children:\"\\u540C\\u6E90\\u7B56\\u7565\\u963B\\u6B62JavaScript\\u8DE8\\u57DF\\u53D1\\u51FA\\u8BF7\\u6C42\\u3002 \\u4E00\\u4E2A\\u6E90\\u88AB\\u5B9A\\u4E49\\u4E3AURI \\u534F\\u8BAE\\u3001\\u4E3B\\u673A\\u540D\\u548C\\u7AEF\\u53E3\\u53F7\\u7684\\u7EC4\\u5408\\u3002 \\u8FD9\\u9879\\u653F\\u7B56\\u9632\\u6B62\\u4E00\\u4E2A\\u9875\\u9762\\u4E0A\\u7684\\u6076\\u610F\\u811A\\u672C\\u901A\\u8FC7\\u8BE5\\u9875\\u9762\\u7684\\u6587\\u6863\\u5BF9\\u8C61\\u6A21\\u578B\\u8BBF\\u95EE\\u53E6\\u4E00\\u4E2A\\u7F51\\u9875\\u4E0A\\u7684\\u654F\\u611F\\u6570\\u636E\\u3002\"})}function h(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,Object.assign({},t,{children:(0,c.jsx)(m,t)})):m(t)}var v=h;return b(C);})();\n;return Component;"
+}

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills",
+    "title": "你对Promise和/或其polyfills的经验有多少？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),_=(e,n)=>{for(var o in n)s(e,o,{get:n[o],enumerable:!0})},c=(e,n,o,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of p(n))!x.call(e,r)&&r!==o&&s(e,r,{get:()=>n[r],enumerable:!(i=f(n,r))||i.enumerable});return e};var g=(e,n,o)=>(o=e!=null?a(u(e)):{},c(n||!e||!e.__esModule?s(o,\"default\",{value:e,enumerable:!0}):o,e)),h=e=>c(s({},\"__esModule\",{value:!0}),e);var d=j((D,l)=>{l.exports=_jsx_runtime});var M={};_(M,{default:()=>b,frontmatter:()=>P});var t=g(d()),P={title:\"\\u4F60\\u5BF9Promise\\u548C/\\u6216\\u5176polyfills\\u7684\\u7ECF\\u9A8C\\u6709\\u591A\\u5C11\\uFF1F\"};function m(e){let n=Object.assign({p:\"p\",code:\"code\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.p,{children:\"\\u5BF9\\u6B64\\u4E86\\u89E3\\u591A\\u5C11\\u3002 \\u4E00\\u4E2APromise\\u662F\\u4E00\\u4E2A\\u5BF9\\u8C61\\uFF0C\\u5B83\\u53EF\\u80FD\\u5728\\u672A\\u6765\\u7684\\u67D0\\u4E2A\\u65F6\\u5019\\u4EA7\\u751F\\u4E00\\u4E2A\\u5355\\u4E00\\u7684\\u503C\\uFF1A\\u8981\\u4E48\\u662F\\u4E00\\u4E2A\\u5DF2\\u89E3\\u51B3\\u7684\\u503C\\uFF0C\\u8981\\u4E48\\u662F\\u4E00\\u4E2A\\u672A\\u89E3\\u51B3\\u7684\\u539F\\u56E0\\uFF08\\u4F8B\\u5982\\uFF0C\\u53D1\\u751F\\u4E86\\u4E00\\u4E2A\\u7F51\\u7EDC\\u9519\\u8BEF\\uFF09\\u3002 \\u4E00\\u4E2APromise\\u53EF\\u80FD\\u5C5E\\u4E8E\\u4E09\\u79CD\\u60C5\\u51B5\\u4E4B\\u4E00\\uFF1Afulfilled, rejected \\u6216 pending\\u3002 Promise\\u7528\\u6237\\u53EF\\u4EE5\\u9644\\u52A0\\u56DE\\u8C03\\uFF0C\\u4EE5\\u5904\\u7406\\u6EE1\\u8DB3\\u7684\\u503C\\u6216\\u62D2\\u7EDD\\u7684\\u539F\\u56E0\\u3002\"}),`\n`,(0,t.jsxs)(n.p,{children:[\"\\u4E00\\u4E9B\\u5E38\\u89C1\\u7684polyfills\\u662F\",(0,t.jsx)(n.code,{children:\"$.deferred\"}),\"\\uFF0CQ\\u548CBluebird\\uFF0C\\u4F46\\u4E0D\\u662F\\u6240\\u6709\\u7684\\u90FD\\u7B26\\u5408\\u89C4\\u8303\\u3002 ES2015\\u652F\\u6301\\u5F00\\u7BB1\\u5373\\u7528\\u7684Promise\\uFF0C\\u73B0\\u5728\\u4E00\\u822C\\u4E0D\\u9700\\u8981polyfills\\u4E86\\u3002\"]})]})}function y(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(m,e)})):m(e)}var b=y;return h(M);})();\n;return Component;"
+}

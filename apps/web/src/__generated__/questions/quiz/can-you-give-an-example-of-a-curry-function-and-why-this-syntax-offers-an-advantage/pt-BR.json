@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
+    "title": "Você pode dar um exemplo de uma função de curry e por que essa sintaxe oferece uma vantagem?",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var u=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),v=(e,n)=>{for(var a in n)u(e,a,{get:n[a],enumerable:!0})},d=(e,n,a,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let t of f(n))!g.call(e,t)&&t!==a&&u(e,t,{get:()=>n[t],enumerable:!(o=p(n,t))||o.enumerable});return e};var x=(e,n,a)=>(a=e!=null?m(l(e)):{},d(n||!e||!e.__esModule?u(a,\"default\",{value:e,enumerable:!0}):a,e)),_=e=>d(u({},\"__esModule\",{value:!0}),e);var s=h((w,c)=>{c.exports=_jsx_runtime});var y={};v(y,{default:()=>b,frontmatter:()=>j});var r=x(s()),j={title:\"Voc\\xEA pode dar um exemplo de uma fun\\xE7\\xE3o de curry e por que essa sintaxe oferece uma vantagem?\"};function i(e){let n=Object.assign({p:\"p\",pre:\"pre\",code:\"code\"},e.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(n.p,{children:\"Currying \\xE9 um padr\\xE3o em que uma fun\\xE7\\xE3o com mais de um par\\xE2metro \\xE9 dividida em v\\xE1rias fun\\xE7\\xF5es que, quando chamadas em s\\xE9rie, acumular\\xE3o todos os par\\xE2metros necess\\xE1rios um de cada vez. Essa t\\xE9cnica pode ser \\xFAtil para tornar o c\\xF3digo escrito em um estilo funcional mais f\\xE1cil de ler e compor. \\xC9 importante observar que, para que uma fun\\xE7\\xE3o seja curried, ela precisa come\\xE7ar como uma fun\\xE7\\xE3o e, em seguida, ser dividida em uma sequ\\xEAncia de fun\\xE7\\xF5es que cada uma aceita um par\\xE2metro.\"}),`\n`,(0,r.jsx)(n.pre,{children:(0,r.jsx)(n.code,{className:\"language-js\",children:`function curry(fn) {\n  if (fn.length === 0) {\n    return fn;\n  }\n\n  function _curried(depth, args) {\n    return function (newArgument) {\n      if (depth - 1 === 0) {\n        return fn(...args, newArgument);\n      }\n      return _curried(depth - 1, [...args, newArgument]);\n    };\n  }\n\n  return _curried(fn.length, []);\n}\n\nfunction add(a, b) {\n  return a + b;\n}\n\nvar curriedAdd = curry(add);\nvar addFive = curriedAdd(5);\n\nvar result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]\n`})})]})}function q(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,Object.assign({},e,{children:(0,r.jsx)(i,e)})):i(e)}var b=q;return _(y);})();\n;return Component;"
+}

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/are-you-familiar-with-styling-svg",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "are-you-familiar-with-styling-svg",
+    "title": "Você conhece o estilo SVG?",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var b=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var s in e)r(o,s,{get:e[s],enumerable:!0})},i=(o,e,s,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!f.call(o,t)&&t!==s&&r(o,t,{get:()=>e[t],enumerable:!(a=u(e,t))||a.enumerable});return o};var g=(o,e,s)=>(s=o!=null?m(h(o)):{},i(e||!o||!o.__esModule?r(s,\"default\",{value:o,enumerable:!0}):s,o)),v=o=>i(r({},\"__esModule\",{value:!0}),o);var d=b((_,c)=>{c.exports=_jsx_runtime});var y={};x(y,{default:()=>q,frontmatter:()=>S});var n=g(d()),S={title:\"Voc\\xEA conhece o estilo SVG?\"};function l(o){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",em:\"em\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Se voc\\xEA usa alguma ferramenta de an\\xE1lise est\\xE1tica em seu fluxo de trabalho (por exemplo, ESLint, TypeScript Compiler), geralmente ela tamb\\xE9m pode verificar se voc\\xEA est\\xE1 referenciando vari\\xE1veis n\\xE3o declaradas. A maioria dos SVGs que voc\\xEA encontra na web usa CSS inline, mas existem vantagens e desvantagens associadas a cada tipo.\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A colora\\xE7\\xE3o b\\xE1sica pode ser feita definindo dois atributos no n\\xF3: \",(0,n.jsx)(e.code,{children:\"fill\"}),\" e \",(0,n.jsx)(e.code,{children:\"stroke\"}),\". \",(0,n.jsx)(e.code,{children:\"fill\"}),\" define a cor dentro do objeto e \",(0,n.jsx)(e.code,{children:\"stroke\"}),\" define a cor da linha desenhada ao redor do objeto. Voc\\xEA pode usar os mesmos esquemas de nomenclatura de cores CSS que voc\\xEA usa em HTML, independentemente de serem nomes de cores (que \\xE9 \",(0,n.jsx)(e.code,{children:\"red\"}),\"), Valores RGB (que s\\xE3o \",(0,n.jsx)(e.code,{children:\"rgb(255,0,0)\"}),\"), valores de Hex, valores RGBA, etc.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-html\",children:`<rect\n  x=\"10\"\n  y=\"10\"\n  width=\"100\"\n  height=\"100\"\n  stroke=\"blue\"\n  fill=\"purple\"\n  fill-opacity=\"0.5\"\n  stroke-opacity=\"0.8\" />\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"O \",(0,n.jsx)(e.code,{children:'fill=\"purple\"'}),\" acima \\xE9 um exemplo de um \",(0,n.jsx)(e.em,{children:\"atributo apresentacional\"}),\". Curiosamente, e ao contr\\xE1rio de estilos embutidos como \",(0,n.jsx)(e.code,{children:'style=\"preenche: roxo\"'}),\" que tamb\\xE9m \\xE9 um atributo, os atributos de apresenta\\xE7\\xE3o podem ser [sobrescritos pelo CSS](\",(0,n.jsx)(e.a,{href:\"https://css-tricks\",children:\"https://css-tricks\"}),\". estilos de om/presentation-attributes-vs-inline-styles/) definidos em uma folha de estilos. Da\\xED se voc\\xEA fez algo como \",(0,n.jsx)(e.code,{children:\"svg { fill: blue; }\"}),\" ele ir\\xE1 substituir o preenchimento roxo que foi definido.\"]})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(l,o)})):l(o)}var q=j;return v(y);})();\n;return Component;"
+}

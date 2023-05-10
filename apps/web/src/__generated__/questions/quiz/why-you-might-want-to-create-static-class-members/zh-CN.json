@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/why-you-might-want-to-create-static-class-members",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "why-you-might-want-to-create-static-class-members",
+    "title": "为什么你想要创建静态类成员？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var d=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=p(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(j(t)):{},i(n||!t||!t.__esModule?r(e,\"default\",{value:t,enumerable:!0}):e,t)),b=t=>i(r({},\"__esModule\",{value:!0}),t);var m=d((X,a)=>{a.exports=_jsx_runtime});var D={};l(D,{default:()=>C,frontmatter:()=>g});var c=M(m()),g={title:\"\\u4E3A\\u4EC0\\u4E48\\u4F60\\u60F3\\u8981\\u521B\\u5EFA\\u9759\\u6001\\u7C7B\\u6210\\u5458\\uFF1F\"};function u(t){let n=Object.assign({p:\"p\"},t.components);return(0,c.jsx)(n.p,{children:\"\\u9759\\u6001\\u7C7B\\u6210\\u5458 (\\u5C5E\\u6027/\\u65B9\\u6CD5) \\u4E0D\\u4E0E\\u67D0\\u7C7B\\u7684\\u5177\\u4F53\\u5B9E\\u4F8B\\u7ED1\\u5B9A\\uFF0C\\u5E76\\u4E14\\u5177\\u6709\\u76F8\\u540C\\u7684\\u503C\\uFF0C\\u4E0D\\u7BA1\\u662F\\u6307\\u54EA\\u4E2A\\u5B9E\\u4F8B\\u3002 \\u9759\\u6001\\u5C5E\\u6027\\u901A\\u5E38\\u662F\\u914D\\u7F6E\\u53D8\\u91CF\\uFF0C\\u800C\\u9759\\u6001\\u65B9\\u6CD5\\u901A\\u5E38\\u662F\\u7EAF\\u7CB9\\u7684\\u5B9E\\u7528\\u51FD\\u6570\\uFF0C\\u4E0D\\u53D6\\u51B3\\u4E8E\\u5B9E\\u4F8B\\u7684\\u72B6\\u6001\\u3002\"})}function h(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,Object.assign({},t,{children:(0,c.jsx)(u,t)})):u(t)}var C=h;return b(D);})();\n;return Component;"
+}

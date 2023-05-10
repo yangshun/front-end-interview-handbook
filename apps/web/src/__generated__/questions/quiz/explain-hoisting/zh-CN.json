@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-hoisting",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-hoisting",
+    "title": "解释“（变量）提升”",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var f=Object.create;var l=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var m=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),x=(e,n)=>{for(var c in n)l(e,c,{get:n[c],enumerable:!0})},a=(e,n,c,t)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of g(n))!p.call(e,r)&&r!==c&&l(e,r,{get:()=>n[r],enumerable:!(t=u(n,r))||t.enumerable});return e};var O=(e,n,c)=>(c=e!=null?f(h(e)):{},a(n||!e||!e.__esModule?l(c,\"default\",{value:e,enumerable:!0}):c,e)),j=e=>a(l({},\"__esModule\",{value:!0}),e);var s=m((y,i)=>{i.exports=_jsx_runtime});var v={};x(v,{default:()=>_,frontmatter:()=>F});var o=O(s()),F={title:\"\\u89E3\\u91CA\\u201C\\uFF08\\u53D8\\u91CF\\uFF09\\u63D0\\u5347\\u201D\"};function d(e){let n=Object.assign({p:\"p\",code:\"code\",pre:\"pre\"},e.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(n.p,{children:[\"\\u63D0\\u5347\\u662F\\u7528\\u4E8E\\u89E3\\u91CA\\u4F60\\u4EE3\\u7801\\u4E2D\\u53D8\\u91CF\\u58F0\\u660E\\u884C\\u4E3A\\u7684\\u4E00\\u4E2A\\u672F\\u8BED\\u3002 \\u4F7F\\u7528\",(0,o.jsx)(n.code,{children:\"var\"}),\"\\u5173\\u952E\\u5B57\\u58F0\\u660E\\u6216\\u521D\\u59CB\\u5316\\u7684\\u53D8\\u91CF\\u5C06\\u4F1A\\u5C06\\u5176\\u58F0\\u660E\\u201C\\u79FB\\u52A8\\u201D\\u5230\\u5176\\u6A21\\u5757/\\u51FD\\u6570\\u7EA7\\u522B\\u8303\\u56F4\\u7684\\u9876\\u7AEF\\u3002 \\u6211\\u4EEC\\u628A\\u5B83\\u6210\\u4E3A\\u53D8\\u91CF\\u63D0\\u5347\\u3002 \\u7136\\u800C\\uFF0C\\u53EA\\u6709\\u58F0\\u660E\\u88AB\\u63D0\\u5347\\uFF0C\\u8D4B\\u503C\\uFF08\\u5982\\u679C\\u6709\\u7684\\u8BDD\\uFF09\\u5C06\\u7559\\u5728\\u539F\\u5730\\u3002\"]}),`\n`,(0,o.jsx)(n.p,{children:\"\\u8BF7\\u6CE8\\u610F\\uFF0C\\u58F0\\u660E\\u5B9E\\u9645\\u4E0A\\u5E76\\u6CA1\\u6709\\u88AB\\u79FB\\u52A8--JavaScript\\u5F15\\u64CE\\u5728\\u7F16\\u8BD1\\u8FC7\\u7A0B\\u4E2D\\u89E3\\u6790\\u4E86\\u58F0\\u660E\\uFF0C\\u5E76\\u610F\\u8BC6\\u5230\\u4E86\\u58F0\\u660E\\u53CA\\u5176\\u4F5C\\u7528\\u57DF\\u3002 \\u901A\\u8FC7\\u89C6\\u89C9\\u5C06\\u58F0\\u660E\\u7F6E\\u4E8E\\u5176\\u4F5C\\u7528\\u57DF\\u4E4B\\u9996\\uFF0C\\u66F4\\u5BB9\\u6613\\u7406\\u89E3\\u8FD9\\u79CD\\u884C\\u4E3A\\u3002 \\u8BA9\\u6211\\u4EEC\\u7528\\u51E0\\u4E2A\\u4F8B\\u5B50\\u6765\\u89E3\\u91CA\\u3002\"}),`\n`,(0,o.jsx)(n.pre,{children:(0,o.jsx)(n.code,{className:\"language-js\",children:`console.log(foo); // undefined\nvar foo = 1;\nconsole.log(foo); // 1\n`})}),`\n`,(0,o.jsx)(n.p,{children:\"\\u51FD\\u6570\\u58F0\\u660E\\u7684\\u4E3B\\u4F53\\u63D0\\u5347\\u5230\\u9876\\u7AEF\\uFF0C\\u800C\\u51FD\\u6570\\u8868\\u8FBE\\u5F0F(\\u4EE5\\u53D8\\u91CF\\u58F0\\u660E\\u7684\\u5F62\\u5F0F\\u5199\\u6210) \\u53EA\\u6709\\u53D8\\u91CF\\u58F0\\u660E\\u88AB\\u63D0\\u5347\\u5230\\u9876\\u7AEF\\u3002\"}),`\n`,(0,o.jsx)(n.pre,{children:(0,o.jsx)(n.code,{className:\"language-js\",children:`// Function Declaration\nconsole.log(foo); // [Function: foo]\nfoo(); // 'FOOOOO'\nfunction foo() {\n  console.log('FOOOOO');\n}\nconsole.log(foo); // [Function: foo]\n\n// Function Expression\nconsole.log(bar); // undefined\nbar(); // Uncaught TypeError: bar is not a function\nvar bar = function () {\n  console.log('BARRRR');\n};\nconsole.log(bar); // [Function: bar]\n`})}),`\n`,(0,o.jsxs)(n.p,{children:[\"\\u901A\\u8FC7 \",(0,o.jsx)(n.code,{children:\"let\"}),\" \\u548C \",(0,o.jsx)(n.code,{children:\"const\"}),\" \\u58F0\\u660E\\u7684\\u53D8\\u91CF\\u4E5F\\u88AB\\u63D0\\u5347\\u3002 \\u7136\\u800C\\uFF0C\\u4E0E\",(0,o.jsx)(n.code,{children:\"var\"}),\" \\u548C \",(0,o.jsx)(n.code,{children:\"function\"}),\"\\u4E0D\\u540C\\u7684\\u662F\\uFF0C\\u5728\\u58F0\\u660E\\u5BFC\\u81F4\",(0,o.jsx)(n.code,{children:\"ReferenceError\"}),\" \\u4F8B\\u5916\\u4E4B\\u524D\\uFF0C\\u5B83\\u4EEC\\u6CA1\\u6709\\u521D\\u59CB\\u5316\\u5E76\\u8BBF\\u95EE\\u5B83\\u4EEC\\u3002 \\u8BE5\\u53D8\\u91CF\\u5904\\u4E8E\\u4ECE\\u4EE3\\u7801\\u5757\\u5F00\\u59CB\\u76F4\\u5230\\u58F0\\u660E\\u88AB\\u5904\\u7406\\u65F6\\u7684\\u4E00\\u4E2A\\u201C\\u6682\\u65F6\\u6027\\u6B7B\\u533A\\u201D\\u3002\"]}),`\n`,(0,o.jsx)(n.pre,{children:(0,o.jsx)(n.code,{className:\"language-js\",children:`x; // undefined\ny; // Reference error: y is not defined\n\nvar x = 'local';\nlet y = 'local';\n`})})]})}function b(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,Object.assign({},e,{children:(0,o.jsx)(d,e)})):d(e)}var _=b;return j(v);})();\n;return Component;"
+}

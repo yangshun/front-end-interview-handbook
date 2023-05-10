@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [
+      "microsoft"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 1,
+    "similarQuestions": [],
+    "slug": "what-are-the-differences-between-variables-created-using-let-var-or-const",
+    "title": "使用`let`、`var`或`const`创建的变量之间有什么差异？",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var b=Object.create;var a=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),z=(o,e)=>{for(var c in e)a(o,c,{get:e[c],enumerable:!0})},i=(o,e,c,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of f(e))!g.call(o,r)&&r!==c&&a(o,r,{get:()=>e[r],enumerable:!(l=h(e,r))||l.enumerable});return o};var p=(o,e,c)=>(c=o!=null?b(u(o)):{},i(e||!o||!o.__esModule?a(c,\"default\",{value:o,enumerable:!0}):c,o)),m=o=>i(a({},\"__esModule\",{value:!0}),o);var s=x((_,d)=>{d.exports=_jsx_runtime});var E={};z(E,{default:()=>q,frontmatter:()=>v});var n=p(s()),v={title:\"\\u4F7F\\u7528`let`\\u3001`var`\\u6216`const`\\u521B\\u5EFA\\u7684\\u53D8\\u91CF\\u4E4B\\u95F4\\u6709\\u4EC0\\u4E48\\u5DEE\\u5F02\\uFF1F\"};function t(o){let e=Object.assign({p:\"p\",code:\"code\",em:\"em\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"\\u4F7F\\u7528\",(0,n.jsx)(e.code,{children:\"var\"}),\"\\u5173\\u952E\\u5B57\\u58F0\\u660E\\u7684\\u53D8\\u91CF\\u7684\\u4F5C\\u7528\\u8303\\u56F4\\u662F\\u521B\\u5EFA\\u8FD9\\u4E9B\\u53D8\\u91CF\\u7684\\u51FD\\u6570\\u3002 \\u6216\\u8005\\u5982\\u679C\\u662F\\u5728\\u4EFB\\u4F55\\u51FD\\u6570\\u4E4B\\u5916\\u521B\\u5EFA\\u7684\\uFF0C\\u5219\\u662F\\u5168\\u5C40\\u5BF9\\u8C61\\u3002 \",(0,n.jsx)(e.code,{children:\"let\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"const\"}),\" \\u662F \",(0,n.jsx)(e.em,{children:\"block scoped\"}),\", \\u610F\\u601D\\u662F\\u5B83\\u4EEC\\u53EA\\u80FD\\u5728\\u6700\\u8FD1\\u7684\\u4E00\\u7EC4\\u5927\\u62EC\\u53F7\\u5185(\\u51FD\\u6570, if-else \\u5757, \\u6216\\u5FAA\\u73AF\\u5757)\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`function foo() {\n  // All variables are accessible within functions.\n  var bar = 'bar';\n  let baz = 'baz';\n  const qux = 'qux';\n\n  console.log(bar); // bar\n  console.log(baz); // baz\n  console.log(qux); // qux\n}\n\nconsole.log(bar); // ReferenceError: bar is not defined\nconsole.log(baz); // ReferenceError: baz is not defined\nconsole.log(qux); // ReferenceError: qux is not defined\n`})}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`if (true) {\n  var bar = 'bar';\n  let baz = 'baz';\n  const qux = 'qux';\n}\n\n// var declared variables are accessible anywhere in the function scope.\nconsole.log(bar); // bar\n// let and const defined variables are not accessible outside of the block they were defined in.\nconsole.log(baz); // ReferenceError: baz is not defined\nconsole.log(qux); // ReferenceError: qux is not defined\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"var\"}),\"\\u5141\\u8BB8\\u53D8\\u91CF\\u88AB\\u63D0\\u5347\\uFF0C\\u8FD9\\u610F\\u5473\\u7740\\u5B83\\u4EEC\\u53EF\\u4EE5\\u5728\\u58F0\\u660E\\u4E4B\\u524D\\u7528\\u4EE3\\u7801\\u5F15\\u7528\\u3002 \",(0,n.jsx)(e.code,{children:\"let\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"const\"}),\" \\u5C06\\u4E0D\\u5141\\u8BB8\\u8FD9\\u6837\\u505A\\uFF0C\\u800C\\u662F\\u629B\\u51FA\\u4E00\\u4E2A\\u9519\\u8BEF\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`console.log(foo); // undefined\n\nvar foo = 'foo';\n\nconsole.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization\n\nlet baz = 'baz';\n\nconsole.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization\n\nconst bar = 'bar';\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u7528 \",(0,n.jsx)(e.code,{children:\"var\"}),\" \\u91CD\\u65B0\\u58F0\\u660E\\u53D8\\u91CF\\u4E0D\\u4F1A\\u4EA7\\u751F\\u9519\\u8BEF\\uFF0C\\u800C \",(0,n.jsx)(e.code,{children:\"let\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"const\"}),\" \\u4F1A\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`var foo = 'foo';\nvar foo = 'bar';\nconsole.log(foo); // \"bar\"\n\nlet baz = 'baz';\nlet baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"let\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"const\"}),\" \\u4E0D\\u540C\\u4E8E\",(0,n.jsx)(e.code,{children:\"let\"}),\" \\u5141\\u8BB8\\u91CD\\u65B0\\u5206\\u914D\\u53D8\\u91CF\\u7684\\u503C\\uFF0C\\u800C\",(0,n.jsx)(e.code,{children:\"const\"}),\" \\u4E0D\\u5141\\u8BB8\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// This is fine.\nlet foo = 'foo';\nfoo = 'bar';\n\n// This causes an exception.\nconst baz = 'baz';\nbaz = 'qux';\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u5907\\u6CE8\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"\\u7531\\u4E8E\\u5927\\u591A\\u6570\\u6D4F\\u89C8\\u5668\\u5728\\u73B0\\u5982\\u4ECA\\u90FD\\u652F\\u6301 \",(0,n.jsx)(e.code,{children:\"let\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"const\"}),\" \\uFF0C\\u56E0\\u6B64\\u4E0D\\u518D\\u63A8\\u8350\\u4F7F\\u7528 \",(0,n.jsx)(e.code,{children:\"var\"}),' \\u3002 \\u5982\\u679C\\u60A8\\u9700\\u8981\\u9488\\u5BF9\\u8F83\\u65E7\\u7684\\u6D4F\\u89C8\\u5668\\uFF0C\\u8BF7\\u4F7F\\u7528 \"let\" \\u5199\\u4EE3\\u7801\\uFF0C\\u5E76\\u4F7F\\u7528\\u50CFBabel \\u8FD9\\u6837\\u7684\\u8F6C\\u8BD1\\u5668\\u5C06\\u60A8\\u7684\\u4EE3\\u7801\\u7F16\\u8BD1\\u6210\\u65E7\\u7684\\u8BED\\u6CD5\\u3002']}),`\n`]})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(t,o)})):t(o)}var q=j;return m(E);})();\n;return Component;"
+}

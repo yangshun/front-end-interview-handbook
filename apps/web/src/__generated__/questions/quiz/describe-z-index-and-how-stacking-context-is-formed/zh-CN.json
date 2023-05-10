@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-z-index-and-how-stacking-context-is-formed",
+    "importance": "mid",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-z-index-and-how-stacking-context-is-formed",
+    "title": "描述“z-index”和堆叠上下文是如何形成的。",
+    "subtitle": null,
+    "topics": [
+      "css"
+    ]
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var g=(c,e)=>()=>(e||c((e={exports:{}}).exports,e),e.exports),f=(c,e)=>{for(var t in e)i(c,t,{get:e[t],enumerable:!0})},r=(c,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let d of m(e))!_.call(c,d)&&d!==t&&i(c,d,{get:()=>e[d],enumerable:!(o=x(e,d))||o.enumerable});return c};var S=(c,e,t)=>(t=c!=null?a(p(c)):{},r(e||!c||!c.__esModule?i(t,\"default\",{value:c,enumerable:!0}):t,c)),u=c=>r(i({},\"__esModule\",{value:!0}),c);var l=g((B,s)=>{s.exports=_jsx_runtime});var M={};f(M,{default:()=>j,frontmatter:()=>z});var n=S(l()),z={title:\"\\u63CF\\u8FF0\\u201Cz-index\\u201D\\u548C\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\u662F\\u5982\\u4F55\\u5F62\\u6210\\u7684\\u3002\"};function h(c){let e=Object.assign({p:\"p\",code:\"code\",em:\"em\",strong:\"strong\",a:\"a\"},c.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"CSS\\u4E2D\\u7684\",(0,n.jsx)(e.code,{children:\"z-index\"}),\"\\u5C5E\\u6027\\u53EF\\u4EE5\\u63A7\\u5236\\u91CD\\u53E0\\u5143\\u7D20\\u7684\\u5782\\u76F4\\u5806\\u53E0\\u987A\\u5E8F\\u3002 \",(0,n.jsx)(e.code,{children:\"z-index\"}),\"\\u53EA\\u5F71\\u54CD\\u5B9A\\u4F4D\\u5143\\u7D20(\",(0,n.jsx)(e.code,{children:\"position\"}),\"\\u503C\\u4E0D\\u662F\",(0,n.jsx)(e.code,{children:\"static\"}),\"\\u7684\\u5143\\u7D20) \\u53CA\\u5176\\u540E\\u4EE3\\u6216 flex item\\u3002\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u5728\\u6CA1\\u6709\\u4EFB\\u4F55\",(0,n.jsx)(e.code,{children:\"z-index\"}),\"\\u503C\\u7684\\u60C5\\u51B5\\u4E0B\\uFF0C\\u5143\\u7D20\\u6309\\u7167\\u5B83\\u4EEC\\u5728DOM\\u4E2D\\u51FA\\u73B0\\u7684\\u987A\\u5E8F\\u5806\\u53E0\\uFF08\\u540C\\u4E00\\u5C42\\u6B21\\u4E2D\\u6700\\u4F4E\\u7684\\u4E00\\u4E2A\\u51FA\\u73B0\\u5728\\u4E0A\\u9762\\uFF09\\u3002 \\u5177\\u6709\\u975E\",(0,n.jsx)(e.code,{children:\"static\"}),\"\\u5B9A\\u4F4D(\\u53CA\\u5176\\u5B50\\u4F4D\\u7F6E) \\u7684\\u5143\\u7D20\\u603B\\u662F\\u4F1A\\u51FA\\u73B0\\u5728\\u9ED8\\u8BA4\",(0,n.jsx)(e.code,{children:\"static\"}),\"\\u4F4D\\u7F6E\\u7684\\u5143\\u7D20\\u4E4B\\u4E0A\\uFF0C\\u4E0D\\u8BBAHTML\\u5C42\\u6B21\\u7ED3\\u6784\\u5982\\u4F55\\u3002\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\u662F\\u4E00\\u4E2A\\u5305\\u542B\\u4E00\\u7EC4\\u56FE\\u5C42\\u7684\\u5143\\u7D20\\u3002 \\u5728\\u4E00\\u4E2A\\u5C40\\u90E8\\u5806\\u53E0\\u73AF\\u5883\\u4E2D\\uFF0C\\u5176\\u5B50\\u5143\\u7D20\\u7684\",(0,n.jsx)(e.code,{children:\"z-index\"}),\"\\u503C\\u662F\\u76F8\\u5BF9\\u4E8E\\u8BE5\\u5143\\u7D20\\u800C\\u4E0D\\u662F\\u6839document\\u8BBE\\u7F6E\\u7684\\u3002 \\u8BE5\\u4E0A\\u4E0B\\u6587\\u4E4B\\u5916\\u7684\\u5C42--\\u5373\\u5C40\\u90E8\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\u7684\\u540C\\u7EA7\\u5143\\u7D20--\\u4E0D\\u80FD\\u4F4D\\u4E8E\\u5B83\\u7684\\u5C42\\u4E4B\\u95F4\\u3002 \\u5982\\u679C\\u4E00\\u4E2A\\u5143\\u7D20B\\u4F4D\\u4E8E\\u5143\\u7D20A\\u7684\\u4E0A\\u9762\\uFF0C\\u5143\\u7D20A\\u7684\\u4E00\\u4E2A\\u5B50\\u5143\\u7D20C\\u6C38\\u8FDC\\u4E0D\\u4F1A\\u9AD8\\u4E8E\\u5143\\u7D20B\\uFF0C\\u5373\\u4F7F\\u5143\\u7D20C\\u7684\",(0,n.jsx)(e.code,{children:\"z-index\"}),\"\\u6BD4\\u5143\\u7D20B\\u9AD8\\u3002\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u6BCF\\u4E2A\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\u90FD\\u662F\\u81EA\\u6210\\u4E00\\u4F53\\u7684--\\u5728\\u5143\\u7D20\\u7684\\u5185\\u5BB9\\u88AB\\u5806\\u53E0\\u540E\\uFF0C\\u6574\\u4E2A\\u5143\\u7D20\\u88AB\\u8BA4\\u4E3A\\u662F\\u6309\\u7167\\u7236\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\u7684\\u5806\\u53E0\\u987A\\u5E8F\\u3002 \\u5C11\\u6570CSS \\u5C5E\\u6027\\u4F1A\\u89E6\\u53D1\\u4E00\\u4E2A\\u65B0\\u7684\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\uFF0C\\u5982\\u5C0F\\u4E8E1\\u7684 \",(0,n.jsx)(e.code,{children:\"opacity\"}),\" \\u3001\",(0,n.jsx)(e.code,{children:\"filter\"}),\" \\u4E0D\\u662F \",(0,n.jsx)(e.code,{children:\"none\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"transform\"}),\" \\u4E0D\\u662F \",(0,n.jsx)(e.code,{children:\"none\"}),\" \\u3002\"]}),`\n`,(0,n.jsx)(e.p,{children:(0,n.jsxs)(e.em,{children:[(0,n.jsx)(e.strong,{children:\"\\u6CE8\\u610F\"}),\"\\uFF1A\\u7A76\\u7ADF\\u662F\\u4EC0\\u4E48\\u8BA9\\u4E00\\u4E2A\\u5143\\u7D20\\u6709\\u8D44\\u683C\\u521B\\u5EFA\\u4E00\\u4E2A\\u5806\\u53E0\\u4E0A\\u4E0B\\u6587\\uFF0C\\u5728\\u8FD9\\u4E00\\u957F\\u4E32\",(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context\",children:\"\\u89C4\\u5219\"}),\"\\u4E2D\\u5217\\u51FA\\u3002\"]})})]})}function C(c={}){let{wrapper:e}=c.components||{};return e?(0,n.jsx)(e,Object.assign({},c,{children:(0,n.jsx)(h,c)})):h(c)}var j=C;return u(M);})();\n;return Component;"
+}

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-the-difference-between-synchronous-and-asynchronous-functions",
+    "title": "解释同步函数和异步函数之间的差异",
+    "subtitle": null,
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var j=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,d=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),f=(t,n)=>{for(var r in n)o(t,r,{get:n[r],enumerable:!0})},a=(t,n,r,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let s of u(n))!d.call(t,s)&&s!==r&&o(t,s,{get:()=>n[s],enumerable:!(c=p(n,s))||c.enumerable});return t};var g=(t,n,r)=>(r=t!=null?j(_(t)):{},a(n||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),h=t=>a(o({},\"__esModule\",{value:!0}),t);var m=l((O,i)=>{i.exports=_jsx_runtime});var D={};f(D,{default:()=>C,frontmatter:()=>M});var e=g(m()),M={title:\"\\u89E3\\u91CA\\u540C\\u6B65\\u51FD\\u6570\\u548C\\u5F02\\u6B65\\u51FD\\u6570\\u4E4B\\u95F4\\u7684\\u5DEE\\u5F02\"};function x(t){let n=Object.assign({p:\"p\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.p,{children:\"\\u540C\\u6B65\\u51FD\\u6570\\u662F\\u963B\\u585E\\u7684\\uFF0C\\u800C\\u5F02\\u6B65\\u51FD\\u6570\\u5219\\u4E0D\\u662F\\u3002 \\u5728\\u540C\\u6B65\\u51FD\\u6570\\u4E2D\\uFF0C\\u8BED\\u53E5\\u5728\\u8FD0\\u884C\\u4E0B\\u4E00\\u4E2A\\u8BED\\u53E5\\u4E4B\\u524D\\u5B8C\\u6210\\u3002 \\u5728\\u8FD9\\u79CD\\u60C5\\u51B5\\u4E0B\\uFF0C \\u8BE5\\u7A0B\\u5E8F\\u6B63\\u662F\\u6309\\u7167\\u8BED\\u53E5\\u7684\\u987A\\u5E8F\\u8FDB\\u884C\\u6267\\u884C\\uFF0C\\u5982\\u679C\\u5176\\u4E2D\\u4E00\\u4E2A\\u8BED\\u53E5\\u9700\\u8981\\u5F88\\u957F\\u65F6\\u95F4\\uFF0C\\u5219\\u8BE5\\u7A0B\\u5E8F\\u7684\\u6267\\u884C\\u5C06\\u6682\\u505C\\u3002\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u5F02\\u6B65\\u51FD\\u6570\\u901A\\u5E38\\u63A5\\u53D7\\u56DE\\u8C03\\u4F5C\\u4E3A\\u53C2\\u6570\\uFF0C\\u5E76\\u5728\\u8C03\\u7528\\u5F02\\u6B65\\u51FD\\u6570\\u540E\\u7ACB\\u5373\\u5728\\u4E0B\\u4E00\\u884C\\u7EE7\\u7EED\\u6267\\u884C\\u3002 \\u56DE\\u8C03\\u53EA\\u6709\\u5728\\u5F02\\u6B65\\u64CD\\u4F5C\\u5B8C\\u6210\\u4E14\\u8C03\\u7528\\u6808\\u4E3A\\u7A7A\\u65F6\\u624D\\u4F1A\\u88AB\\u8C03\\u7528\\u3002 \\u91CD\\u578B\\u64CD\\u4F5C\\uFF0C\\u4F8B\\u5982\\u4ECE\\u7F51\\u7EDC\\u670D\\u52A1\\u5668\\u4E0A\\u52A0\\u8F7D\\u6570\\u636E\\u6216\\u67E5\\u8BE2\\u6570\\u636E\\u5E93\\u5E94\\u8BE5\\u5F02\\u6B65\\u8FDB\\u884C\\uFF0C\\u4EE5\\u4FBF\\u4E3B\\u7EBF\\u7A0B\\u80FD\\u591F\\u7EE7\\u7EED\\u6267\\u884C\\u5176\\u4ED6\\u64CD\\u4F5C\\uFF0C\\u800C\\u4E0D\\u662F\\u7B49\\u5230\\u90A3\\u4E2A\\u6F2B\\u957F\\u7684\\u963B\\u585E\\u64CD\\u4F5C\\u5B8C\\u6210(\\u5728\\u6D4F\\u89C8\\u5668\\u7684\\u60C5\\u51B5\\u4E0B\\uFF0C\\u754C\\u9762\\u5C06\\u51BB\\u7ED3)\\u3002\"})]})}function b(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(x,t)})):x(t)}var C=b;return h(D);})();\n;return Component;"
+}
