@@ -1,0 +1,18 @@
+---
+title: '"attribute" 和 "property" 之间有什么区别？'
+---
+
+"attribute"定义在 HTML 标记上，但"property"定义在 DOM 上。 为了说明不同之处，请想象我们在HTML中有这个Input：<input type="text" value="Hello">\`.
+
+```js
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
+console.log(input.value); // Hello
+```
+
+但在你通过添加 "World!" 来改变文本字段的值后，这就变成了：
+
+```js
+console.log(input.getAttribute('value')); // Hello
+console.log(input.value); // Hello World!
+```

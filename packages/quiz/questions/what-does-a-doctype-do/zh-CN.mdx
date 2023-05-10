@@ -1,0 +1,11 @@
+---
+title: "`DOCTYPE` 是做什么的？"
+---
+
+**DOCTYPE** 是**文档类型**的缩写。 DOCTYPE 始终与**DTD**——**文档类型定义**相关。
+
+DTD定义了某种类型的文档应该如何结构化(例如，“button”可以包含“span”，但不能包含“div”)，而DOCTYPE声明了文档应该遵循的DTD(例如，该文档遵循HTML DTD)。
+
+对于网页，需要DOCTYPE声明。 它用于告诉用户代理人您的文档遵循的 HTML 规格的版本。 一旦用户代理识别了一个正确的DOCTYPE，它将触发与此DOCTYPE相匹配的**无询问模式**来读取文档。 如果用户代理无法识别正确的DOCTYPE，它将触发**查询模式**。
+
+HTML5标准的DOCTYPE声明是 `<!DOCTYPE html>` 。

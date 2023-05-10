@@ -1,0 +1,48 @@
+---
+title: Explique como funciona a herança de protótipos
+---
+
+Essa é uma pergunta extremamente comum em entrevistas de JavaScript. Todos os objetos JavaScript têm uma propriedade `__proto__` com exceção de objetos criados com `object.create(null)`, ou seja, uma referência a outro objeto, que é chamado de "protótipo" do objeto. Quando uma propriedade é acessada em um objeto e se a propriedade não é encontrada nesse objeto, o motor de JavaScript olha para o objeto `__proto__`, e o `__proto__`**proto**`e assim por diante, até que encontre a propriedade definida em um dos`**proto**\`s ou até chegar ao final da cadeia de protótipos. Este comportamento simula a herança clássica, mas é realmente mais de [delegação do que herança](https://davidwalsh.name/javascript-objects).
+
+## Exemplo de Herança de Protótipos
+
+```js
+// Construtor de objeto pai.
+function Animal(name) {
+  this.name = name;
+}
+
+// Adiciona um método ao protótipo do objeto pai.
+Animal.prototype.makeSound = function () {
+  console.log('The ' + this.constructor.name + ' makes a sound.');
+};
+
+// Criança objeto construtor.
+function Dog(name) {
+  Animal.call(this, name); // Chama o construtor pai.
+}
+
+// Define o protótipo do objeto filho para ser uma nova instância do objeto pai.
+Dog.prototype = Object.create(Animal.prototype);
+
+// Adiciona um método ao protótipo do objeto filho.
+Dog.prototype.bark = function () {
+  console.log('Woof!');
+};
+
+// Criar uma nova instância do Cachorro.
+const bolt = new Dog('Bolt');
+
+// Chama métodos no objeto filho.
+console.log(bolt.name); // "Bolt"
+bolt.makeSound(); // "O cão faz um som."
+bolt.bark(); // "Woof!"
+```
+
+As coisas a observar são:
+
+-   `.makeSound` não está definido em `Dog`, então o motor aumenta a cadeia de protótipos e encontra `.makeSound` para fora do `Animal` herdado.
+-   Precisamos chamar `Object.create` de uma das seguintes maneiras para os métodos do protótipo serem herdados:
+    -   `Object.create(Parent.prototype)`
+    -   `Object.create(new Parent(null))`
+    -   `Object.create(objLiteral)`

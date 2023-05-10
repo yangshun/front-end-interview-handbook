@@ -1,0 +1,33 @@
+---
+title: Qual é a diferença entre detecção de recurso, inferência de recurso e uso da string UA?
+---
+
+## Detecção de Recursos
+
+A detecção de recursos envolve descobrir se um navegador suporta um determinado bloco de código e executar códigos diferentes dependendo se ele suporta (ou não), para que o navegador possa sempre fornecer uma experiência funcional em vez de travar/gerar erros em alguns navegadores. Por exemplo:
+
+```js
+if ('geolocation' in navigator) {
+  // Pode usar navigator.geolocation
+} else {
+  // Manipula a falta de recurso
+}
+```
+
+[Modernizr](https://modernizr.com/) é uma ótima biblioteca para lidar com a detecção de recursos.
+
+## Inferência de Recursos
+
+A inferência de recursos verifica a existência de um recurso assim como a detecção de recursos, mas usa outra função porque presume que ela também existirá, por exemplo:
+
+```js
+if (document.getElementsByTagName) {
+  element = document.getElementById(id);
+}
+```
+
+Isso não é muito recomendado. A detecção de recursos é mais à prova de falhas.
+
+## UA String
+
+Esta é uma string relatada pelo navegador que permite aos pares do protocolo de rede identificar o tipo de aplicativo, sistema operacional, fornecedor de software ou versão do software do agente de usuário solicitante. Ele pode ser acessado via `navigator.userAgent`. No entanto, a string é difícil de analisar e pode ser falsificada. Por exemplo, o Chrome informa como Chrome e Safari. Então, para detectar o Safari, você precisa verificar a presença da string do Safari e a ausência da string do Chrome. Evite este método.

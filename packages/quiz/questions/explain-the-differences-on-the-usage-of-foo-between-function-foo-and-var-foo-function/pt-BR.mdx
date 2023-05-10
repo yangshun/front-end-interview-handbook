@@ -1,0 +1,23 @@
+---
+title: Explique as diferenças no uso de `foo` entre `function foo() {}` e `var foo = function() {}`
+---
+
+O primeiro é uma declaração de funções, enquanto o segundo é uma expressão de funções. A diferença chave é que as declarações de funções tem seu corpo hoisted, mas os corpos das expressões de função não são (elas têm o mesmo comportamento hoisting que as variáveis). Para obter mais explicações sobre o hoisting, consulte a pergunta sobre [hoisting](/questions/quiz/explain-hoisting). Se você tentar invocar uma expressão de função antes de ela ser definida, você receberá um erro `Uncaught TypeError: XXX não é um erro de função`.
+
+## Declaração de Função
+
+```js
+foo(); // 'FOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+## Expressão de Função
+
+```js
+foo(); // Uncaught TypeError: foo não é uma função
+var foo = function () {
+  console.log('FOOOOO');
+};
+```

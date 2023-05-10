@@ -1,0 +1,21 @@
+---
+title: 您是否熟悉SVG样式？
+---
+
+有这么几种方法可以为形状（Shapes）着色（包括在对象上指定属性），使用内联的CSS、嵌入的CSS部分或外部CSS文件。 您在网页上找到的大多数SVG都使用内联CSS，但是每种类型都有优劣之处。
+
+可以通过在节点上设置两个属性来做基本着色：`fill` 和 `stroke` 。 `fill`设置对象内的颜色，`stroke`设置对象周围绘制的线的颜色。 你可以使用在 HTML 中的 CSS 颜色命名方案定义它们的颜色，比如说颜色名（像red这种）、rgb 值（像 rgb(255,0,0) 这种）、十六进制值、rgba 值，等等。
+
+```html
+<rect
+  x="10"
+  y="10"
+  width="100"
+  height="100"
+  stroke="blue"
+  fill="purple"
+  fill-opacity="0.5"
+  stroke-opacity="0.8" />
+```
+
+上述`fill="purple"`是一个 _呈现属性_ 的示例。 有趣的是，与内部样式不同的是，像`style="fill: purple"` (它恰巧也是一个属性)，呈现属性可以被[样式表中定义的CSS样式](https://css-tricks.com/presentation-attributes-vs-inline-styles/)所覆盖。 因此，如果你做了类似于`svg { fill: blue; }`的事情，它将覆盖已定义的紫色填充。

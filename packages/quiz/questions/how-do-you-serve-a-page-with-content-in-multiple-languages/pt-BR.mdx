@@ -1,0 +1,16 @@
+---
+title: Como se serve uma página com conteúdo em vários idiomas?
+---
+
+> Suposição: A pergunta é sobre como servir uma página com conteúdo disponível em vários idiomas e o conteúdo dentro da página deve ser exibido apenas em um idioma consistente.
+
+Servir uma página em diferentes idiomas é um dos aspectos da internacionalização (i18n).
+
+Quando uma solicitação HTTP é feita para um servidor, o agente de usuário que faz a solicitação geralmente envia informações sobre as preferências de idioma, como no cabeçalho `Accept-Language`. O servidor pode então usar essa informação para retornar uma versão do documento no idioma apropriado se tal alternativa estiver disponível. O documento HTML retornado também deve declarar o atributo lang na tag `<html>,` como por exemplo `<html lang="en">...</html>`.
+
+Para permitir que um mecanismo de busca saiba que o mesmo conteúdo está disponível em diferentes idiomas, as tags `<link>` com os atributos `rel="alternate"` e `hreflang="..."` devem ser usadas. Ex. `<link rel="alternate" hreflang="de" href="http://de.example.com/page.html" />`.
+
+## Renderização
+
+-   **Renderização no servidor:** O HTML conterá espaços reservados para strings e o conteúdo para o idioma específico será obtido a partir de configurações no código ou de um serviço de tradução. O servidor então gera dinamicamente a página HTML com o conteúdo nesse idioma específico.
+-   **Renderização do lado cliente:** As strings de localização apropriadas serão obtidas e combinadas com as visualizações baseadas em JavaScript.

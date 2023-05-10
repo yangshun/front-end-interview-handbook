@@ -1,0 +1,8 @@
+---
+title: Explique delegação do evento
+---
+
+A delegação do evento é uma técnica que envolve adicionar ouvintes de eventos a um elemento pai em vez de adicionar os ouvintes do evento aos elementos descendentes. O ouvinte será disparado sempre que o evento for acionado nos elementos descendentes, devido à propagação do evento através do DOM. Os benefícios desta técnica são:
+
+-   A quantia de memória diminui porque somente um único handler é necessário no elemento pai, em vez de ter que anexar manipuladores de eventos em cada elemento descendente.
+-   Não há necessidade de desvincular o manipulador dos elementos que são removidos e vincular o evento para novos elementos.

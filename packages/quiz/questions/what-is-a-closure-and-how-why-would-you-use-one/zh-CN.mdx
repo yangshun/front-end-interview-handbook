@@ -1,0 +1,10 @@
+---
+title: 什么是闭包？ 你如何/为何使用？
+---
+
+闭包是一个函数和声明该函数的词法环境的组合。 “词法”指的是，词法范围使用变量在源代码中的声明位置来确定该变量在哪里可用。 闭包是可以访问外层（包围）函数的变量范围链的函数，即使在外层函数返回之后。
+
+## 你为什么要使用？
+
+-   数据隐私/用闭包模拟私有方法。 常见于[模块模式](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)。
+-   [部分应用程序或柯里化]\(https://med.com/javascript-scene/curry-or partial-application-8150044c78b8#.l4b6l1i3x)。

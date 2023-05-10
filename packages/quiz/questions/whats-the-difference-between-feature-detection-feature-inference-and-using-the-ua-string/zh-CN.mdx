@@ -1,0 +1,33 @@
+---
+title: 功能检测、功能推断和使用UA字符串之间有什么区别？
+---
+
+## 功能检测
+
+功能检测包括找出一个浏览器是否支持某个代码块，并根据它是否支持（或不支持）运行不同的代码，从而使浏览器能够始终提供一个良好的体验，而不是在某些浏览器中崩溃/出错。 例如：
+
+```js
+if ('geolocation' in navigator) {
+  // Can use navigator.geolocation
+} else {
+  // Handle lack of feature
+}
+```
+
+[Modernizr](https://modelr.com/) 是一个处理功能检测的优秀库。
+
+## 功能推断
+
+功能推断就像功能检测一样检查一个功能，但使用另一个函数，因为它假设它也会存在，例如：
+
+```js
+if (document.getElementsByTagName) {
+  element = document.getElementById(id);
+}
+```
+
+真不推荐这样做。 功能检测才是万无一失的。
+
+## UA字符串
+
+这是一个浏览器报告的字符串，允许网络协议对等者识别请求软件用户代理的应用程序类型、操作系统、软件供应商或软件版本。 它可以通过 `navigator.userAgent` 访问。 然而，该字符串解析起来很棘手，可以被欺骗。 例如，Chrome同时报告为Chrome和Safari。 所以要检测Safari，你必须检查Safari字符串和Chrome字符串的缺失。 避免使用此方法。

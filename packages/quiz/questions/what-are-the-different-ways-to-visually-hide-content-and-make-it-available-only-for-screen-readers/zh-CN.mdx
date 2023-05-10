@@ -1,0 +1,74 @@
+---
+title: 有哪些不同的方法可以在视觉上隐藏内容（并使其仅对屏幕阅读器可用）？
+---
+
+这些技术与无障碍（a11y）有关。
+
+## 小/零尺寸
+
+`width: 1px; height: 1px`和使用CSS clip 的组合，使该元素在屏幕上根本不占（几乎不占）空间。
+
+不建议使用 "width: 0; height; 0"，因为搜索引擎可能会认为它有恶意的意图，比如关键词的填充，而对其进行惩罚。
+
+## 绝对定位
+
+`position: absolute; left: -99999px` 会将元素放置在屏幕之外。 但是，根据[WebAIM的文章](https://webaim.org/techniques/css/invisiblecontent/)：
+
+> 导航元素，例如链接和表单控制，不应隐藏在屏幕外。 视力正常的键盘用户仍然可以浏览它们，但对他们来说是不可见的，除非它们被设计成在收到键盘焦点时变得可见。
+
+仅当你的内容只包含文本时才使用它。
+
+## 文本缩进
+
+`text-indent: -9999px`. 这只适用于`block`元素中的文本。 与上面的绝对定位技术类似，被赋予这种风格的可聚焦元素仍将是可聚焦的，这给使用键盘导航的视力正常的用户造成了混乱。
+
+## 不正确的方法
+
+以下方式是不正确的，因为它们隐藏了用户**和**屏幕阅读器中的内容， 如果目的是只向屏幕阅读器曝光，则是不正确的。
+
+-   `display: none`
+-   `visibility: hidden`
+-   `hidden`属性
+
+## 野路子技术
+
+理想的情况是，建议将上述办法结合起来，以确保它在所有浏览器中正常运作。
+
+与其自己实现从渲染树和a11y树中删除一个元素的方法，我们建议你使用以下成熟的CSS框架中的一种方法，这些方法已经在许多网站上经过了实战检验。
+
+### Tailwind CSS
+
+```css
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+```
+
+### Bootstrap CSS
+
+```css
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+```
+
+## 参考资料
+
+-   [CSS in Action - 屏幕阅读器用户的隐身内容](https://webaim.org/techniques/css/invisiblecontent/)

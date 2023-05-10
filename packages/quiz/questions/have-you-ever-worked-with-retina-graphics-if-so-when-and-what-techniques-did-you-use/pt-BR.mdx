@@ -1,0 +1,32 @@
+---
+title: Você já trabalhou com gráficos de retina?
+subtitle: Em caso afirmativo, quando e que técnicas utilizou?
+---
+
+_Retina_ é apenas um termo de marketing usado para se referir a telas de alta resolução com uma proporção de pixels maior do que 1. O ponto chave a saber é que o uso de uma taxa de pixels significa que essas telas estão emulando uma tela de resolução mais baixa para mostrar elementos com o mesmo tamanho. Hoje em dia, consideramos todos os dispositivos móveis _retina_ por padrão.
+
+Os navegadores, por padrão, renderizam elementos do DOM de acordo com a resolução do dispositivo, exceto para imagens.
+
+Para ter gráficos nítidos e com boa aparência que aproveitem ao máximo as telas retina, precisamos usar imagens de alta resolução sempre que possível. No entanto, usar sempre imagens com a maior resolução terá um impacto no desempenho, já que mais bytes precisarão ser enviados pela rede.
+
+Para superar esse problema, podemos usar imagens responsivas, como especificado no HTML5. Ele requer disponibilizar diferentes arquivos de resolução da mesma imagem para o navegador e deixá-lo decidir qual imagem é a melhor, usando o atributo html `srcset` e opcionalmente `sizes`, por exemplo:
+
+```html
+<div responsive-background-image>
+  <img
+    src="/images/test-1600.jpg"
+    sizes="
+      (min-width: 768px) 50vw,
+      (min-width: 1024px) 66vw,
+      100vw"
+    srcset="
+      /images/test-400.jpg   400w,
+      /images/test-800.jpg   800w,
+      /images/test-1200.jpg 1200w
+    " />
+</div>
+```
+
+É importante notar que os navegadores que não suportam o `srcset` do HTML5 (ou seja, IE11) vão ignorá-lo e usar o `src` em vez disso. Se realmente precisarmos oferecer suporte ao IE11 e quisermos fornecer esse recurso por motivos de desempenho, podemos usar um polyfill JavaScript, como o Picturefill (link nas referências).
+
+Para ícones, é recomendado usar SVGs sempre que possível, pois eles são renderizados com muita nitidez independentemente da resolução.

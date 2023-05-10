@@ -1,0 +1,16 @@
+---
+title: Por que você usaria um atributo 'srcset' em uma tag de imagem?
+subtitle: Explique o processo que o navegador usa ao avaliar o conteúdo deste atributo.
+---
+
+Você usaria o atributo `srcset` quando desejar fornecer imagens diferentes aos usuários, dependendo da largura da tela de seus dispositivos - fornecer imagens de alta qualidade para dispositivos com tela Retina melhora a experiência do usuário, enquanto fornecer imagens de resolução mais baixa para dispositivos de baixo desempenho aumenta o desempenho e diminui o desperdício de dados (pois fornecer uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para exibir o gráfico pequeno, médio ou grande `.jpg` dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para uma largura de dispositivo de 320px, são feitos os seguintes cálculos:
+
+-   500 / 320 = 1.5625
+-   1000 / 320 = 3.125
+-   2000 / 320 = 6.25
+
+Se a resolução do cliente for 1x, a 1.5625 é a mais próxima e a opção `500w` correspondente a `small.jpg` será selecionada pelo navegador.
+
+Se a resolução for retina (2x), o navegador usará a resolução mais próxima acima do mínimo. Isso significa que ele não escolherá o 500w (1.5625) porque é maior que 1 e a imagem pode ficar ruim. O navegador escolheria a imagem com uma taxa resultante mais próxima de 2, que é 1000w (3.125).
+
+`srcset`s resolvem o problema de você querer fornecer arquivos de imagem menores para dispositivos de tela estreita, já que eles não precisam de imagens grandes como as telas de desktop - e também opcionalmente que você deseja fornecer imagens de resolução diferente para telas de alta densidade/baixa densidade.

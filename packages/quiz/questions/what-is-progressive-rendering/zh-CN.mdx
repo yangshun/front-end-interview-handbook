@@ -1,0 +1,28 @@
+---
+title: 什么是渐进式渲染？
+---
+
+渐进式渲染是用于提高网页性能（特别是提高感知的加载时间）的技术的名称，以尽可能快地渲染内容进行显示。
+
+在没有宽带互联网的时代，它曾经更加普遍，但在现代发展中，它仍然被使用，因为移动数据连接正变得越来越流行（而且不可靠）！这就是为什么它被认为是最受欢迎的！
+
+## 懒加载图像
+
+页面上的图像没有一次性全部加载。 只有当用户滚动到/靠近显示图像的页面部分时才加载图像。
+
+-   <img loading="lazy">是指示浏览器推迟加载屏幕外图像直到用户滚动附近的现代方法。
+-   使用 JavaScript 监听滚动位置，并在图像即将进入屏幕时加载图像(通过将图像坐标与滚动位置进行比较)。
+
+## 优先考虑可见内容（或正面渲染）。
+
+只包括必要的最小的CSS/内容/脚本，以便在用户浏览器中首先呈现尽可能快的页面量，然后你可以使用延迟脚本或监听`DOMContentLoaded`/`load`事件来加载其他资源和内容。
+
+## 异步HTML 片段
+
+在后端构建页面时，将HTML的部分内容刷新到浏览器。 关于这一技术的更多详情可查阅 [这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-reinding-progressive-html-rendering-with-marko/)。
+
+## 其他现代技术
+
+-   [渐进式水合](https://www.patterns.dev/posts/progressive-hydration/)
+-   [流式SSR](https://www.patterns.dev/posts/ssr/)
+-   [选择性水合](https://www.patterns.dev/posts/react-selective-hydration/)

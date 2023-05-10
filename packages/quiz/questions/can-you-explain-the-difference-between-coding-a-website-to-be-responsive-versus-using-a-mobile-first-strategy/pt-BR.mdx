@@ -1,0 +1,37 @@
+---
+title: Você pode explicar a diferença entre codificar um site para ser responsivo e usar uma estratégia mobile-first?
+---
+
+Estas duas abordagens não se excluem mutuamente. Tornar um site responsivo significa que alguns elementos irão responder adaptando seu tamanho ou outras funcionalidades de acordo com o tamanho da tela do dispositivo, normalmente a largura da viewport, através de media queries CSS, por exemplo, tornando o tamanho da fonte menor em dispositivos menores.
+
+```css
+@media (min-width: 768px) {
+  . y-class {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  . y-class {
+    font-size: 12px;
+  }
+}
+```
+
+Uma estratégia mobile-first também é responsiva, no entanto, ela define todos os estilos para dispositivos móveis como padrão e adiciona regras específicas para dispositivos maiores posteriormente. Seguindo o exemplo anterior:
+
+```css
+.min-classe {
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .my-class {
+    font-size: 24px;
+  }
+```
+
+Uma estratégia mobile-first tem as seguintes principais vantagens:
+
+-   É mais performático em dispositivos móveis, já que todas as regras aplicadas para eles não precisam ser validadas em relação a nenhuma media query.
+-   Designs mobile-first são mais propensos a ser utilizáveis em dispositivos maiores (apenas aparecerão mais esticados, mas ainda utilizáveis). No entanto, o inverso não é verdadeiro.

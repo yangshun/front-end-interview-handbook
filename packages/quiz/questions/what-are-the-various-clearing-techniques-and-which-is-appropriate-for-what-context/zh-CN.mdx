@@ -1,0 +1,9 @@
+---
+title: 有哪些不同的清浮动技术，哪些适合什么情况？
+---
+
+-   空 `div` 法: `<div style="clear:both;"></div>`.
+-   Clearfix 法：参考上面的`.clearfix` 类。
+-   `overflow: auto` 或 `overflow: hidden` 法: 父级将创建一个新的块格式化上下文并扩展到包含其浮动子项。
+
+在大型项目中，具有实用的`.clearfix`类将非常有用。 如果子元素比父元素的更高，`overflow: hidden` 可能会剪切子元素，不是很理想。

@@ -1,0 +1,8 @@
+---
+title: O que é o loop de eventos?
+subtitle: Qual é a diferença entre call stack e task queue?
+---
+
+O loop de eventos é um laço de execução única (single-threaded) que monitora a pilha de chamadas e verifica se há algum trabalho a ser feito na fila de tarefas. Se a pilha de chamadas estiver vazia e houver funções de retorno de chamada (callback) na fila de tarefas, uma função é desenfileirada e colocada na pilha de chamadas para ser executada.
+
+Se você ainda não conferiu as [palestras sobre o loop de eventos](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-heck-is-the-event-loop-anyway.html), você deveria. É um dos vídeos mais vistos de JavaScript.

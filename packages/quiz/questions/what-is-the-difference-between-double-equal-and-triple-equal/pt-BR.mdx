@@ -1,0 +1,22 @@
+---
+title: Qual é a diferença entre `==` e `===`?
+---
+
+`==` é o operador de igualdade abstrato enquanto `===` é o operador de igualdade rigoroso. O operador `==` será comparado para a igualdade após fazer quaisquer conversões de tipo necessárias. O operador `===` não fará conversão de tipo, então se dois valores não forem do mesmo tipo `===` simplesmente retornará `false`. Ao usar `==`, coisas engraçadas podem acontecer, tais como:
+
+```js
+1 == '1'; // true
+1 == [1]; // true
+1 == true; // true
+0 == ''; // true
+0 == '0'; // true
+0 == false; // true
+```
+
+Como regra geral, nunca use o operador `==`, exceto por conveniência ao comparar com `null` ou `undefined`, onde `a == null` retornará `true` se a for `null` ou undefined.
+
+```js
+var a = null;
+console.log(a == null); // true
+console.log(a == undefined); // true
+```

@@ -1,0 +1,7 @@
+---
+title: Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?
+---
+
+`translate()` é um valor possível da propriedade CSS `transform`. Ao usar `traduzir()`, o elemento ainda ocupa seu espaço original (mais ou menos como o `position: relative`). Mas ao mudar o posicionamento absoluto dos elementos, os elementos são removidos do fluxo da página e o posicionamento dos elementos ao redor será afetado. Portanto, o layout da página terá que ser recalculado.
+
+Mudar `transform` ou `opacity` não aciona reflows ou repaints no navegador, mas aciona composições; Por outro lado, mudar o posicionamento absoluto aciona um `reflow`. `transform` faz com que o navegador crie uma camada GPU para o elemento, mas mudar as propriedades de posicionamento absoluto usa a CPU. Portanto, `translate()` é mais eficiente e resultará em tempos de pintura mais curtos para animações mais suaves.

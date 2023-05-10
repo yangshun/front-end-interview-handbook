@@ -1,0 +1,17 @@
+---
+title: 使用CSS 预处理器的优点/缺点是什么？
+---
+
+## 优点
+
+-   CSS 更易维护。
+-   更容易写入嵌套选择器。
+-   具有一致性主题的变量。 可以在不同项目之间共享主题文件。 这不一定适用于 CSS 自定义属性(通常称为CSS 变量)。
+-   用于生成重复的 CSS 的 Mixins
+-   Sass 和Less的功能，如循环、List和Map可以使配置变得更加容易和更加详细。
+-   在开发过程中将你的代码分割成多个文件。 CSS 文件也可以拆分，但这样做将需要一个 HTTP 请求下载每个CSS 文件。
+
+## 缺点
+
+-   需要预处理工具。 重新编译时间可能较慢。
+-   无法写入当前可用的 CSS 例如，通过使用 [postcss-loader](https://github.com/postcss/postcss-loader) 与 [webpack](https://github.com/postcss/postcss-loader) 你可以写入潜在的未来兼容的 CSS, 允许你使用诸如CSS 变量而不是Sass变量。 因此，你正在学习新的语法，如果/当它们成为标准化的时候，可能会得到回报。

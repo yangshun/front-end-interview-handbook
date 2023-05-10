@@ -1,0 +1,33 @@
+---
+title: 描述“浮动”及其工作方式。
+---
+
+Float 是一个 CSS 定位属性。 浮动元素仍然是文档流的一部分，将影响到其他元素的定位（如： 文本将环绕在浮动元素周围）。不同于`position: absolute` 元素，它们将从文档流中删除。
+
+CSS `clear` 属性可以放置在 `left`/`right`/`both` 浮动元素之下。
+
+如果父元素只包含浮动元素，它的高度将被折叠为零。 可以通过在容器中的浮动元素之后但在关闭容器之前清除浮动来解决。
+
+## 清浮动技巧
+
+`.clearfix` 用一个聪明的 CSS [伪元素]\(/questions/quiz/sign-pseudo-elements-and-discussions-what they-are-used-for) (`:after `) 来清除浮动。 不要在父级设置溢出，而是对它应用一个额外的类 `clearfix` 。 然后应用此 CSS ：
+
+```css
+.clearfix::after {
+  content: ' ';
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+```
+
+或者，， 给`overflow: auto` 或 `overflow: hidden` 属性到父元素, 它将在子元素中建立一个新的块格式化环境, 它将扩展到包含它的子元素.
+
+## 琐事
+
+在过去的好日子里，Bootstrap 2等CSS框架使用`float`属性来实现其网格系统。 然而，随着这些日子的 CSS Flexbox 和 Grid，已不再需要使用 `float` 属性。
+
+## 参考资料
+
+-   [清浮动: 网页开发的演变课程](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/)

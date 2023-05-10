@@ -1,0 +1,35 @@
+---
+title: 解释您对盒模型的理解，以及您如何告诉浏览器在 CSS 中渲染您在不同盒模型中的布局。
+---
+
+CSS 盒模型描述了为文档树中的元素生成的矩形方形盒，并根据视觉格式模型显示。 每个盒都有一个内容区域(例如文本、图片等) 和可选的 `padding`、`border`、`border`和`margin `区域。
+
+CSS 盒模型负责计算：
+
+-   一个块级元素占用多少空间。
+-   边框和/或外边距是否重叠，或折叠。
+-   盒子的尺寸
+
+## 盒模型规则
+
+-   块级元素的尺寸用`width`、`height `、`padding`和`border`来计算。
+-   如果没有指定 `height` ，块元素将会像它所包含的内容那么高，加上`padding` (除非有浮点，见[描述浮点及其工作方式]\(/questions/quiz/design-floats-and-how -they-work))。
+-   如果没有指定`width`，则非`float` 块级元素将展开以适应其父元素缩减`padding`的宽度， 除非它有一个 `max-width` 属性设置，在这种情况下，它不会大于指定的最大宽度。
+    -   某些块级元素 (例如“table”、“figure”和“input”)具有内在或默认的宽限值，不能扩展到填充其母容器的全宽。
+    -   注意：`spring` 是一个内联元素，没有默认宽度，所以它不会扩展到合适的宽度。
+-   元素的`height `是由内容的`height `计算的。
+-   元素的 `width` 是由内容的 `width` 计算的。
+-   默认情况(`box-sizing: content-box`), `padding` 和 `border` 都不是元素`width`和`height`的一部分。
+
+请注意，`margin`不算在盒子的实际尺寸中。 它影响盒子在页面上所占的总空间，但只影响盒子外的空间。 盒子的区域止于 `border`，它不延伸到`margin`。
+
+## 其他
+
+查找`box-sizing`属性，它会影响元素的总高度和宽度。
+
+-   `box-sizing: content-box`：这是`box-sizing`的默认值，并遵守上面的规则。
+-   `box-sizing: border-box`: `width` 和 `height` 将包括内容、内边距和边框，但不包括外边距。 这是一种更直观的思考盒子的方式，因此许多CSS框架（例如Bootstrap、Tailwind、Bulma）在全局范围内设置`* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。 请参阅[关于`box-sizing: border-box`的问题](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages) 了解更多信息。
+
+## 参考资料
+
+-   [盒模型 | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#the_standard_css_box_model)
