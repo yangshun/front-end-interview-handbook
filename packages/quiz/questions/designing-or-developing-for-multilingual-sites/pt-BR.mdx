@@ -35,7 +35,7 @@ Idiomas como inglês e francês são escritos da esquerda para a direita, de cim
 
 ## Não concatene strings traduzidas
 
-Não faça nada como `"A data de hoje é " + data`. Isso pode causar problemas em idiomas com ordens de palavras diferentes. Use uma string de modelo com substituição de parâmetros para cada idioma em vez disso. Por exemplo, observe as duas frases a seguir em inglês e chinês, respectivamente: I will travel on {% date %} e {% date %} 我会出发. Observe que a posição da variável é diferente devido às regras gramaticais do idioma.
+Não faça nada como `"A data de hoje é " + data`. Isso pode causar problemas em idiomas com ordens de palavras diferentes. Use uma string de modelo com substituição de parâmetros para cada idioma em vez disso. Por exemplo, observe as duas frases a seguir em inglês e chinês, respectivamente: `I will travel on {% date %}` e `{% date %} 我会出发`. Observe que a posição da variável é diferente devido às regras gramaticais do idioma.
 
 ## Formatação de datas e moedas
 

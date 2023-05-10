@@ -38,6 +38,6 @@ var sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
 
-O principal tirada aqui é que \`this pode ser alterado para uma função normal, mas o contexto sempre permanece o mesmo para uma arrow function. Então, mesmo que você esteja passando pela arrow function para diferentes partes do seu aplicativo, você não precisaria se preocupar com a mudança de contexto.
+O principal tirada aqui é que `this` pode ser alterado para uma função normal, mas o contexto sempre permanece o mesmo para uma arrow function. Então, mesmo que você esteja passando pela arrow function para diferentes partes do seu aplicativo, você não precisaria se preocupar com a mudança de contexto.
 
 Isso pode ser particularmente útil em componentes de classe React. Se você definir um método de classe para algo como um manipulador de cliques usando uma função normal, e, em seguida, você passa que clica manipulando em um componente filho como uma propriedade, você também precisará vincular o `this` no construtor do componente pai. Se você ao invés disso usar uma arrow function, não há necessidade de vincular também "this", como o método irá automaticamente obter seu valor "this" no contexto léxico que está encapsulado. (Veja esse artigo para uma excelente demonstração e código de amostra: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)

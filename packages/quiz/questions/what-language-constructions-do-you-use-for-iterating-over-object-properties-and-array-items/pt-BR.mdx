@@ -86,11 +86,11 @@ for (let elemento of arr) {
 }
 ```
 
-ES2015 introduz uma nova forma de iterar, o laço `para`, que permite repetir o loop sobre objetos que estejam em conformidade com o [protocolo iterável]\(https://developer. ozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) como `String`, `Array`, `Set`, etc. Ele combina as vantagens do loop `for` e do método `forEach()`. A vantagem do laço `para` é que você pode parar dele, e a vantagem de `forEach()` é que ele é mais conciso que o laço `for` porque você não precisa de uma variável contadora. Com a declaração `para...of`, você obtém a capacidade de quebrar de um laço e uma sintaxe mais concisa.
+ES2015 introduz uma nova forma de iterar, o laço `para`, que permite repetir o loop sobre objetos que estejam em conformidade com o [protocolo iterável](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) como `String`, `Array`, `Set`, etc. Ele combina as vantagens do loop `for` e do método `forEach()`. A vantagem do laço `para` é que você pode parar dele, e a vantagem de `forEach()` é que ele é mais conciso que o laço `for` porque você não precisa de uma variável contadora. Com a declaração `para...of`, você obtém a capacidade de quebrar de um laço e uma sintaxe mais concisa.
 
 A maioria das vezes, prefira o método `.forEach`, mas realmente depende do que você está tentando fazer. Antes do ES2015, usamos laços `for` quando precisávamos encerrar prematuramente o laço usando `break`. Mas agora com ES2015, podemos fazer isso com a declaração `for...of`. Use laços `for` quando você precisar de mais flexibilidade, como incrementar o iterador mais de uma vez por laço.
 
-Além disso, ao usar o `for...of` declaração, se você precisar acessar o índice e o valor de cada elemento de matriz, você pode fazer isso com ES2015 `Array. método rototype.entries()`:
+Além disso, ao usar o `for...of` declaração, se você precisar acessar o índice e o valor de cada elemento de matriz, você pode fazer isso com ES2015 `Array.prototype.entries()`:
 
 ```js
 const arr = ['a', 'b', 'c'];
