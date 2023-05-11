@@ -1,0 +1,36 @@
+{
+  "author": null,
+  "companies": [
+    "google",
+    "amazon",
+    "microsoft",
+    "twitter"
+  ],
+  "created": 1683763200,
+  "difficulty": "hard",
+  "duration": 40,
+  "excerpt": "Build an N x N tic-tac-toe game that requires M consecutive marks to win",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/tic-tac-toe-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/tic-tac-toe-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "tic-tac-toe-ii",
+  "title": "Tic-tac-toe II"
+}

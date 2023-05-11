@@ -1,0 +1,7 @@
+## Accessibility
+
+The code includes some accessibility features to ensure a better user experience for people using assistive technologies:
+
+1. The `aria-label` attribute is set on each cell button. It describes the action that will be performed when the cell is clicked, indicating which cell will be marked as `'X'` or `'O'`.
+2. The `aria-live` attribute is set to `"polite"` on the `<div>` element containing the status message. It indicates that the content of the element may be updated dynamically and should be announced by screen readers.
+3. The `<span>` element inside each cell button has the `aria-hidden` attribute set to `true`. This hides the cell mark (X or O) from screen readers, as the mark is already announced using the `aria-label` attribute on the button itself. This avoids redundant or confusing information for users of assistive technologies.

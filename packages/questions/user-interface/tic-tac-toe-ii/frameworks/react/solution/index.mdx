@@ -1,0 +1,32 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+The following explanation assumes you have a good understanding of [Tic-tac-toe's React solution](/questions/user-interface/tic-tac-toe/react/solution).
+
+The standard tic-tac-toe game uses N = 3 and M = 3. In general it is a good practice to parameterize the app/components you're building, however the general version of tic-tac-toe takes significantly longer to implement. If you are sure you don't need to build a general version, then it's recommended to stick with the [basic Tic-tac-toe implementation](/questions/user-interface/tic-tac-toe/solution).
+
+### Rendering
+
+Since the dimensions of the board is not fixed and can only be determined at runtime, we have to use inline styles to generate the required `grid-template-columns` property value.
+
+### State
+
+Other than the two core pieces of state as per 3 x 3 Tic-tac-toe, we now include a new `winner` state to track the state of the winning mark of the board. Strictly speaking, the `winner` is derived state and can be determined by processing the `board`, which is the approach taken by the 3 x 3 version. However, for N x N boards where N and M can be very large, we determine the winner only after every turn and store it in state, which is a more efficient approach as compared to determining on every render.
+
+### `determineWinner`
+
+In the 3 x 3 version, we call this function for every render. But for an N x N board, we'll call this function after every turn as a winner can only emerge after a turn.
+
+The `determineWinner` function takes four parameters: `board` (the current state of the game board), `i` (the index of the last marked cell), `n` (the size of the board), and `m` (the number of consecutive marks required to win).
+
+It firstly generates four arrays representing the winning `lines`:
+
+- `rowLine`: Contains the indices of all the cells in the same row as the last marked cell.
+- `colLine`: Contains the indices of all the cells in the same column as the last marked cell.
+- `leftToRightDiagonalLine`: Contains the indices of all the cells in the left-to-right diagonal that includes the last marked cell.
+- `rightToLeftDiagonalLine`: Contains the indices of all the cells in the right-to-left diagonal that includes the last marked cell.
+
+For each line in `lines`, it then counts if there are `m` consecutive cells with the same mark and returns the mark if there is, otherwise it returns `null`, indicating there's no winner for the board yet.
+
+<TestCases />

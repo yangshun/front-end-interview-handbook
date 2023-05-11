@@ -2706,6 +2706,78 @@
     "title": "Throttle"
   },
   {
+    "author": null,
+    "companies": [
+      "google",
+      "amazon",
+      "microsoft",
+      "twitter"
+    ],
+    "created": 1683763200,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "Build a tic-tac-toe game that is playable by two players",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tic-tac-toe/react"
+      }
+    ],
+    "href": "/questions/user-interface/tic-tac-toe",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tic-tac-toe",
+    "title": "Tic-tac-toe"
+  },
+  {
+    "author": null,
+    "companies": [
+      "google",
+      "amazon",
+      "microsoft",
+      "twitter"
+    ],
+    "created": 1683763200,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Build an N x N tic-tac-toe game that requires M consecutive marks to win",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tic-tac-toe-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/tic-tac-toe-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tic-tac-toe-ii",
+    "title": "Tic-tac-toe II"
+  },
+  {
     "author": "yangshun",
     "companies": [
       "grab",

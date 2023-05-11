@@ -1,0 +1,31 @@
+## Test Cases
+
+1. Initial Board State
+   - Verify that the game board is displayed correctly with N x N empty cells.
+   - Verify that the status message indicates it's player X's turn.
+1. Marking Cells
+   - Click on an empty cell.
+   - Verify that the cell is marked with an "X" and the turn switches to player O.
+   - Click on another empty cell.
+   - Verify that the second cell is marked with an "O" and the turn switches back to player X.
+   - Repeat this process for a few more cells to ensure the marks are placed correctly and the turn alternates between players.
+1. Winning Conditions
+   - Create a winning line for player X or player O by marking M cells in a row, column, or diagonal.
+   - Verify that the status message displays the winning player's message correctly.
+   - Verify that no further marks can be made after the game is won.
+   - Click on the "Reset" button.
+   - Verify that the board is cleared and the game restarts with player X's turn.
+1. Draw Condition
+   - Fill all the cells on the board without creating a winning line.
+   - Verify that the status message displays a draw message correctly.
+   - Verify that no further marks can be made after the draw.
+   - Click on the "Reset" button.
+   - Verify that the board is cleared, and the game restarts with player X's turn.
+1. Accessibility
+   - Use a screen reader to navigate and interact with the game.
+   - Verify that the status message, cell markings, and buttons are announced correctly by the screen reader.
+   - Verify that the game can be played and reset using only keyboard navigation.
+1. Responsive Design
+   - Test the game on different screen sizes, such as desktop, tablet, and mobile devices.
+   - Verify that the game board and cells adjust correctly to different screen sizes.
+   - Ensure that the game remains playable and visually appealing on smaller screens.
