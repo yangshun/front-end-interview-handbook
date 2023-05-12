@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f6f6ef;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 16px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6600;
+  margin-bottom: 24px;
+}
+
+.jobs {
+  display: grid;
+  row-gap: 16px;
+}
+
+.post {
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  padding: 16px;
+  display: grid;
+  row-gap: 8px;
+}
+
+.post__title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.post__metadata {
+  font-size: 14px;
+  color: #444;
+}
+
+.loading {
+  color: #4d4d4d;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.load-more-button {
+  background-color: #ff6600;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 20px;
+  padding: 8px 12px;
+}
+
+.load-more-button:not(:disabled) {
+  cursor: pointer;
+}
+
+.load-more-button:hover {
+  background-color: #e65c00;
+}

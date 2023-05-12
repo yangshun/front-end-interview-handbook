@@ -1,0 +1,31 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1683849600,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build a job board that displays the latest job postings from Hacker News",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/job-board/react"
+    }
+  ],
+  "href": "/questions/user-interface/job-board",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "job-board",
+  "title": "Job Board"
+}

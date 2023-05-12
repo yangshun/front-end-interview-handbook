@@ -1,0 +1,8 @@
+## Test Cases
+
+1. Initial Loading: Verify that when the page loads, the message "Loading..." is displayed until the job IDs are fetched from the Hacker News API.
+1. Job Postings: Once the job IDs are fetched, check that the job postings are rendered correctly. Verify that the job title, poster, and timestamp are displayed accurately for each job posting.
+1. Click on a job title and ensure that it opens the correct URL in a new tab or window if there's a `url` field in the job details.
+1. Pagination: Click the "Load more" button and verify that additional job postings are fetched and displayed. Repeat this step multiple times to ensure that pagination works correctly.
+1. Button State: Check that the "Load more" button is disabled while job details are being fetched to prevent multiple requests. Verify that the button becomes enabled again once the fetching process is complete.
+1. Keyboard Navigation: Use only the keyboard to navigate through the job postings and interact with the "Load more" button. Ensure that all interactive elements are accessible and usable without requiring a mouse.

@@ -1,0 +1,32 @@
+{
+  "sandpack": {
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^4.0.0"
+    },
+    "entry": "/index.js",
+    "environment": "create-react-app",
+    "main": "/App.js",
+    "visibleFiles": [
+      "/App.js",
+      "/styles.css"
+    ],
+    "activeFile": "/App.js",
+    "files": {
+      "/App.js": {
+        "code": "import './styles.css';\n\nexport default function App() {\n  return <div>Hello World</div>;\n}\n"
+      },
+      "/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/public/index.html": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "/styles.css": {
+        "code": "body {\n  font-family: sans-serif;\n}\n"
+      }
+    }
+  },
+  "writeup": "var Component=(()=>{var b=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var j=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),x=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},c=(t,e,i,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of j(e))!w.call(t,o)&&o!==i&&r(t,o,{get:()=>e[o],enumerable:!(a=f(e,o))||a.enumerable});return t};var h=(t,e,i)=>(i=t!=null?b(g(t)):{},c(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),k=t=>c(r({},\"__esModule\",{value:!0}),t);var l=y((M,d)=>{d.exports=_jsx_runtime});var D={};x(D,{default:()=>C});var s=h(l());var n=h(l());function m(t){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",h3:\"h3\",a:\"a\",code:\"code\",pre:\"pre\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Build a job board that displays the latest job postings from Hacker News with information like job title, author, and date posted.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The page should show 6 jobs on initial load with a button to load more postings.\"}),`\n`,(0,n.jsx)(e.li,{children:`Clicking on the \"Load more\" button will load the next page of 6 postings. This until there aren't any more postings.`}),`\n`,(0,n.jsx)(e.li,{children:\"When a user clicks on a job title, they should be taken to the link in the job posting.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Timestamp can be formatted in any format you like.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"API\"}),`\n`,(0,n.jsx)(e.p,{children:\"Hacker News has a public API to fetch jobs by YCombinator companies:\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Job Stories\"}),`\n`,(0,n.jsx)(e.p,{children:\"Fetches a list of job posting IDs.\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"URL: \",(0,n.jsx)(e.a,{href:\"https://hacker-news.firebaseio.com/v0/jobstories.json\",children:\"https://hacker-news.firebaseio.com/v0/jobstories.json\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"HTTP Method: \",(0,n.jsx)(e.code,{children:\"GET\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Content Type: \",(0,n.jsx)(e.code,{children:\"json\"})]}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"Sample response:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`[35908337, 35904973, 35900922, 35893439, 35890114, 35880345, ...]\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Job Details\"}),`\n`,(0,n.jsx)(e.p,{children:\"Fetches job posting details given its ID.\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"URL: \",(0,n.jsx)(e.code,{children:\"https://hacker-news.firebaseio.com/v0/item/{id}.json\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"HTTP Method: \",(0,n.jsx)(e.code,{children:\"GET\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Content Type: \",(0,n.jsx)(e.code,{children:\"json\"})]}),`\n`]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Sample response for \",(0,n.jsx)(e.a,{href:\"https://hacker-news.firebaseio.com/v0/item/35908337.json\",children:\"https://hacker-news.firebaseio.com/v0/item/35908337.json\"}),\":\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-json\",children:`{\n  \"by\": \"jamilbk\",\n  \"id\": 35908337,\n  \"score\": 1,\n  \"time\": 1683838872,\n  \"title\": \"Firezone (YC W22) is hiring Elixir and Rust engineers\",\n  \"type\": \"job\",\n  \"url\": \"https://www.ycombinator.com/companies/firezone/jobs\"\n}\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Notes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The focus of this question is on functionality and not on styling, but feel free to beautify the page.\"}),`\n`,(0,n.jsx)(e.li,{children:\"To improve the user experience and avoid overfetching, you may want to limit the number of job details fetched to the number of jobs visible on the page.\"}),`\n`]})]})}function T(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(m,t)})):m(t)}var p=T;function u(t){return(0,s.jsx)(p,{})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,Object.assign({},t,{children:(0,s.jsx)(u,t)})):u(t)}var C=v;return k(D);})();\n;return Component;"
+}

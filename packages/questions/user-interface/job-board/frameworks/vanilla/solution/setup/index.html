@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="app">
+      <h1 class="title">Hacker News Jobs Board</h1>
+      <p class="loading">Loading...</p>
+      <div id="job-list-container" hidden>
+        <div class="jobs" role="list"></div>
+        <button class="load-more-button"></button>
+      </div>
+    </div>
+    <template id="job-posting-template">
+      <div class="post" role="listitem">
+        <h2 class="post__title"></h2>
+        <p class="post__metadata">
+          By <span class="post__author"></span> &middot;
+          <span class="post__timestamp"></span>
+        </p>
+      </div>
+    </template>
+    <script src="src/index.js"></script>
+  </body>
+</html>
