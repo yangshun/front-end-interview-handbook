@@ -52,5 +52,5 @@ export default async function handler(
     });
   }
 
-  return res.status(204).json({ message: 'Success!' });
+  return res.status(200).json({ message: 'Success!' });
 }
