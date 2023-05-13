@@ -47,7 +47,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other",
-    "title": "你能描述一个 \".forEach\" 循环和 \".map()\" 循环之间的主要差异吗？",
+    "title": "你能描述一个 `.forEach` 循环和 `.map()` 循环之间的主要差异吗？",
     "subtitle": "这两者你会如何选择？",
     "topics": [
       "javascript"
@@ -203,7 +203,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5",
-    "title": "创建一个for循环，迭代到`100`，同时在`3`的倍数上输出**\"fizz \"**，在`5`的倍数上输出**\"buzz \"**，在`3`和`5`的公倍数上输出`fizzbuzz \"**。",
+    "title": "创建一个for循环，迭代到`100`，同时在`3`的倍数上输出**\"fizz \"**，在`5`的倍数上输出**\"buzz\"**，在`3`和`5`的公倍数上输出**\"fizzbuzz\"**。",
     "subtitle": null,
     "topics": [
       "javascript"
@@ -229,7 +229,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "css-link-between-head-and-js-script-just-before-body",
-    "title": "为什么一般来说，将CSS`<link>`放在`<head></head>`之间，将JS`<script>`放在`<3>`之前是个好主意？",
+    "title": "为什么一般来说，将CSS`<link>`放在`<head></head>`之间，将JS`<script>`放在`</body>`之前是个好主意？",
     "subtitle": "您是否知道任何例外情况？",
     "topics": [
       "html",
@@ -443,7 +443,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-z-index-and-how-stacking-context-is-formed",
-    "title": "描述“z-index”和堆叠上下文是如何形成的。",
+    "title": "描述 `z-index` 和堆叠上下文是如何形成的。",
     "subtitle": null,
     "topics": [
       "css"
@@ -657,7 +657,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-function-prototype-bind",
-    "title": "解释 `function.prototype.bind`",
+    "title": "解释 `Function.prototype.bind`",
     "subtitle": null,
     "topics": [
       "javascript"
