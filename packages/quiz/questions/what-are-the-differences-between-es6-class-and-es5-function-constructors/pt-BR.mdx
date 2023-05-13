@@ -7,13 +7,13 @@ Vamos primeiro olhar o exemplo de cada um deles:
 ```js
 // Constructor de função ES5
 function Person(name) {
-  this. name = name;
+  this.name = name;
 }
 
 // ES2015 Class
 class Person {
   constructor(name) {
-    this. name= name;
+    this.name= name;
   }
 }
 ```
@@ -25,8 +25,7 @@ A principal diferença no construtor vem quando se usa herança. Se quisermos cr
 ```js
 // Construtor de função ES5
 function Student(name, studentId) {
-  // Chamar o construtor da superclasse para inicializar membros derivados da 
-  superclasse.
+  // Chamar o construtor da superclasse para inicializar membros derivados da superclasse.
   Person.call(this, name);
 
   // Inicializar os próprios membros da subclasse.

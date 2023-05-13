@@ -47,7 +47,7 @@ No modo não restrito, a criação de `b` falha silenciosamente. No modo estrito
 
 ### Proteção
 
-`Object.seal()` cria um objeto "selado", o que significa que recebe um objeto existente e basicamente chama `objeto. reventExtensões ()` nele, mas também marca todas as suas propriedades existentes como `configurable: false`.
+`Object.seal()` cria um objeto "selado", o que significa que recebe um objeto existente e basicamente chama `Object.preventExtensions()` nele, mas também marca todas as suas propriedades existentes como `configurable: false`.
 
 Então, não só você não pode adicionar mais propriedades, mas você também não pode reconfigurar ou apagar quaisquer propriedades existentes (embora você ainda possa modificar seus valores).
 

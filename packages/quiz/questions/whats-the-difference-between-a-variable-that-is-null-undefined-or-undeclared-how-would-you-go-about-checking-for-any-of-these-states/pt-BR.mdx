@@ -7,7 +7,7 @@ Variáveis **não declaradas** são criadas quando você atribui um valor a um i
 
 ```js
 function foo() {
-  x = 1; // Lança um erro de referência em modo estrito
+  x = 1; // Lança um erro de referência em modo strict
 }
 
 foo();
@@ -36,7 +36,7 @@ var foo = null;
 console.log(foo === null); // verdadeiro
 console.log(typeof foo === 'object'); // verdadeiro
 
-console.log(foo == undefined); // true. Errg, não use isto para verificar!
+console.log(foo == undefined); // true. Errado, não use isto para verificar!
 ```
 
 Como bom hábito, nunca deixe suas variáveis não declaradas ou não atribuídas. Atribua explicitamente `null` a elas depois de declará-las, se você não pretende usá-las ainda. Se você usa alguma ferramenta de análise estática em seu fluxo de trabalho (por exemplo, ESLint, TypeScript Compiler), geralmente ela também pode verificar se você está referenciando variáveis não declaradas.

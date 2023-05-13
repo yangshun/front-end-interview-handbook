@@ -7,7 +7,7 @@ Não há uma explicação simples para `this`; ela é um dos conceitos mais conf
 1.  Se a palavra-chave `new` é usada ao chamar a função, `new` dentro da função é um objeto totalmente novo.
 2.  Se `apply`, `call`, ou `bind` forem usados para chamar/criar uma função, `this` dentro da função é o objeto passado como o argumento.
 3.  Se uma função é chamada como um método, como `obj.method()` — `this` é o objeto do qual a função é uma propriedade.
-4.  Se uma função é chamada como uma chamada de função livre, significando que ele foi invocado sem nenhuma das condições presentes acima, `this` é o objeto global. Em um navegador, é o objeto `window`. Se em modo rigoroso (`'usar strict'`), `this` será `undefined` em vez do objeto global.
+4.  Se uma função é chamada como uma chamada de função livre, significando que ele foi invocado sem nenhuma das condições presentes acima, `this` é o objeto global. Em um navegador, é o objeto `window`. Se em modo estrito (`'use strict'`), `this` será `undefined` em vez do objeto global.
 5.  Se se aplicarem múltiplas das regras acima, a regra que é maior ganha e definirá o valor `this`.
 6.  Se a função é uma arrow function ES2015, ela ignora todas as regras acima e recebe o valor `this` do seu escopo circundante no momento em que ele é criado.
 
@@ -15,4 +15,4 @@ Para uma explicação aprofundada, confira o [artigo na Medium](https://codeburs
 
 #### Você pode dar um exemplo de uma das maneiras como o trabalho com "this" mudou no ES2015?
 
-ES2015 permite que você use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) que usa o [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). Isso geralmente é conveniente, mas impede quem chamou de controlar o contexto através de `.call` ou `. pply`—as consequências são que uma biblioteca como `jQuery` não irá vincular corretamente o `this` em suas funções de manipulador de eventos. Portanto, é importante ter isso em mente ao refatorar grandes aplicações legadas.
+ES2015 permite que você use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) que usa o [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). Isso geralmente é conveniente, mas impede quem chamou de controlar o contexto através de `.call` ou `.apply`—as consequências são que uma biblioteca como `jQuery` não irá vincular corretamente o `this` em suas funções de manipulador de eventos. Portanto, é importante ter isso em mente ao refatorar grandes aplicações legadas.

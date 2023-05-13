@@ -1,12 +1,12 @@
 ---
-title: 解释 `function.prototype.bind`
+title: 解释 `Function.prototype.bind`
 ---
 
 > `bind()`方法创建了一个新的函数，在被调用时，它有`this`关键字设置为提供的值。 具有在调用新函数时所提供的任何参数之前的特定序列。
 
 _资料来源：[Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)_
 
-`bind()` 对于绑定你想要传递到其他类的函数值非常有用。 这通常是在React类组件方法中做的，而这些方法没有使用箭头函数来定义。
+`bind()` 对于在要传递给其他函数的类的方法中绑定 `this` 的值非常有用。 这通常是在React类组件方法中做的，而这些方法没有使用箭头函数来定义。
 
 ```js
 const john = {

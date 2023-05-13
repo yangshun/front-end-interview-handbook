@@ -16,20 +16,20 @@ As declarações de função têm o corpo hoisted enquanto as expressões da fun
 
 ```js
 // Declaração de função
-console.log(foo); // [Função: foo]
-foo(); // 'FOOOO'
+console.log(foo); // [Function: foo]
+foo(); // 'FOOOOO'
 function foo() {
-  console. og('FOOOO');
+  console.log('FOOOOO');
 }
-console.log(foo); // [Função: foo]
+console.log(foo); // [Function: foo]
 
-// console
-de Expressão de Função. og(bar); // indefinido
-bar(); // Uncaught TypeError: bar não é uma função
+// Function Expression
+console.log(bar); // undefined
+bar(); // Uncaught TypeError: bar is not a function
 var bar = function () {
-  console. og('BARRRR');
+  console.log('BARRRR');
 };
-console.log(bar); // [Função: bar]
+console.log(bar); // [Function: bar]
 ```
 
 Variáveis declaradas via `let` e `const` também sofrem o hoisted. No entanto, ao contrário de `var` e `function`, eles não são inicializados e acessá-los antes que a declaração resulte em uma exceção `ReferenceError`. A variável está em uma "zona temporária morta" desde o início do bloco até que a declaração seja processada.

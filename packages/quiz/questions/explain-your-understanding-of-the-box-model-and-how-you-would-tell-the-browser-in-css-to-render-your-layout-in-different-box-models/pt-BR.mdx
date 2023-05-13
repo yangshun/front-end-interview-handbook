@@ -13,7 +13,7 @@ O modelo da caixa CSS é responsável por calcular:
 ## Regras do Modelo da Caixa
 
 -   As dimensões de um elemento de bloco são calculadas por meio de `width`, `height`, `padding`s e `border`s.
--   Se nenhum `height` for especificado, um elemento do bloco será tão alto quanto o conteúdo que ele contém, mais `padding` (a menos que existam floats, para quem, veja [descreva flutuantes e como funcionam](/questions/quiz/describe-floats-and-how-they-work)).
+-   Se nenhum `height` for especificado, um elemento do bloco será tão alto quanto o conteúdo que ele contém, mais `padding` (a menos que existam floats, veja [descreva flutuantes e como funcionam](/questions/quiz/describe-floats-and-how-they-work)).
 -   Se nenhum `width` for especificado, um elemento não-`float` do bloco será expandido para caber a largura do seu pai menos o `padding`, a não ser que tenha uma propriedade definida para 'max-width', neste caso não será maior do que a largura máxima especificada.
     -   Alguns elementos de nível de bloco (por exemplo, `table`, `figure` e `input`) têm valores de largura inerentes ou padrão, e podem não expandir para preencher a largura total do seu recipiente pai.
     -   Nota: `span` é um elemento em nível inline e não tem largura padrão, então ele não se expandirá para se ajustar.

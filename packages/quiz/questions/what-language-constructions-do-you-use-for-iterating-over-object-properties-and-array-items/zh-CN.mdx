@@ -74,7 +74,7 @@ arr.forEach((element, index) => {
 });
 ```
 
-如果你不需要使用 "索引"，只需要单个数组元素，那么`Array.prototype.forEach()`方法有时会更方便。 然而，缺点是你不能中途停止迭代，提供的函数将在元素上执行一次。 如果你需要更精确地控制迭代，`for...of`语句就更具有相关性。
+如果你不需要使用 "索引"，只需要单个数组元素，那么`Array.prototype.forEach()`方法有时会更方便。 然而，缺点是你不能中途停止迭代，提供的函数将在元素上执行一次。 如果你需要更精确地控制迭代，一个 `for` 循环或 `for...of` 语句就更具有相关性。
 
 _参考资料: [Array.prototype.forEach() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)_
 
@@ -88,7 +88,7 @@ for (let element of arr) {
 
 ES2015引入了一种新的迭代方式，即`for-of`循环，它允许你在符合[可迭代协议](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol)的对象上循环，如`String`、`Array`、`Map`、`Set`等。 它将`for` 循环和 `forEach()` 方法的优点结合起来。 “for”循环的优点是你可以从中断开，而 "forEach() "的优点是它比 "for "循环更简明，因为你不需要一个计数器变量。 使用 "for...of "语句，你可以获得从循环中打断的能力和更简洁的语法。
 
-大多数时候，更推荐使用`.forEach`方法，但这真的取决于你想做什么。 在 ES2015 之前，当我们需要使用 `break` 提前终止循环时，我们使用了"for" 循环。 但现在有了ES2015，我们可以通过`for..of`语句来做到这一点。 当您需要更多的灵活性时，使用 "for" 循环，例如每个循环多次递增迭代器。
+大多数时候，更推荐使用`.forEach`方法，但这真的取决于你想做什么。 在 ES2015 之前，当我们需要使用 `break` 提前终止循环时，我们使用了 `for` 循环。 但现在有了ES2015，我们可以通过 `for...of` 语句来做到这一点。 当您需要更多的灵活性时，使用 "for" 循环，例如每个循环多次递增迭代器。
 
 另外，在使用`for...of`语句时，如果你需要同时访问每个数组元素的索引和值，你可以用ES2015的`Array.prototype. entries()`方法来实现：
 

@@ -2,7 +2,7 @@
 title: Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?
 ---
 
-Variáveis declaradas usando a palavra-chave `var` têm escopo à função na qual foram criadas, ou se criadas fora de qualquer função, ao objeto global. `let` and `const` are _block scoped_, o que significa que eles só são acessíveis dentro do conjunto mais próximo de chaves (função, if-else bloco ou for-loop).
+Variáveis declaradas usando a palavra-chave `var` têm escopo à função na qual foram criadas, ou se criadas fora de qualquer função, ao objeto global. `let` and `const` são _block scoped_, o que significa que eles só são acessíveis dentro do conjunto mais próximo de chaves (função, if-else bloco ou for-loop).
 
 ```js
 function foo() {
@@ -11,13 +11,13 @@ function foo() {
   let baz = 'baz';
   const qux = 'qux';
 
-  console. og(bar); // bar
+  console.log(bar); // bar
   console.log(baz); // baz
-  console. og(qux); // qux
+  console.log(qux); // qux
 }
 
 console.log(bar); // ReferenceError: bar não é o console
-console. og(baz); // ReferenceError: baz não é definido
+console.log(baz); // ReferenceError: baz não é definido
 console.log(qux); // ReferenceError: qux não é definido
 ```
 
@@ -29,7 +29,7 @@ if (true) {
 }
 
 // var variáveis declaradas são acessíveis em qualquer lugar do escopo da função.
-console. og(bar); // bar
+console.log(bar); // bar
 // let e const defined variáveis não são acessíveis fora do bloco no qual eles foram definidos.
 console.log(baz); // Referência: baz não está definido
 console.log(qux); // Referência: qux não está definido
@@ -46,7 +46,7 @@ console.log(baz); // ReferenceError: não pôde acessar o console da declaraçã
 
 let baz = 'baz';
 
-og(bar); // ReferenceError: não é possível acessar a declaração léxico 'bar' antes da inicialização
+console.log(bar); // ReferenceError: não é possível acessar a declaração léxico 'bar' antes da inicialização
 
 const bar = 'bar';
 ```
@@ -56,10 +56,10 @@ Redeclarar uma variável com `var` não causará um erro, mas `let` e `const` ir
 ```js
 var foo = 'foo';
 var foo = 'bar';
-console. og(foo); // "bar"
+console.log(foo); // "bar"
 
 let baz = 'baz';
-let baz = 'qux'; // SyntaxError: Identifier 'baz' já foi declarado
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' já foi declarado
 ```
 
 `let` e `const` diferem que `let` permite reatribuir o valor da variável enquanto `const` não.

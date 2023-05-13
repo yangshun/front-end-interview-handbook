@@ -10,7 +10,7 @@ CSS `clear` 属性可以放置在 `left`/`right`/`both` 浮动元素之下。
 
 ## 清浮动技巧
 
-`.clearfix` 用一个聪明的 CSS [伪元素]\(/questions/quiz/sign-pseudo-elements-and-discussions-what they-are-used-for) (`:after `) 来清除浮动。 不要在父级设置溢出，而是对它应用一个额外的类 `clearfix` 。 然后应用此 CSS ：
+`.clearfix` 用一个聪明的 CSS [伪元素]\(/questions/quiz/sign-pseudo-elements-and-discussions-what they-are-used-for) (`::after `) 来清除浮动。 不要在父级设置溢出，而是对它应用一个额外的类 `clearfix` 。 然后应用此 CSS ：
 
 ```css
 .clearfix::after {

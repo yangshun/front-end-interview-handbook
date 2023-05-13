@@ -15,21 +15,21 @@ const names = ['irish', 'daisy', 'anna'];
 A maneira imperativa seria assim:
 
 ```js
-const transformNamesToUppercase = function (nomes) {
+const transformNamesToUppercase = function (names) {
   const results = [];
-  for (let i = 0; i < nomes. comprimento; i++) {
-    resultados. ush(names[i].toUpperCase());
+  for (let i = 0; i < names.length; i++) {
+    results.push(names[i].toUpperCase());
   }
-  return resultados;
+  return results;
 };
-transformNamesToUppercase(nomes); // ['IRISH', 'DAISY', 'ANNA']
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 Use `.map(transformerFn)` torna o código mais curto e mais declarativo.
 
 ```js
-const transformNamesToUppercase = function (nomes) {
+const transformNamesToUppercase = function (names) {
   return names.map((name) => name.toUpperCase());
 };
-transformNamesToUppercase(nomes); // ['IRISH', 'DAISY', 'ANNA']
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
