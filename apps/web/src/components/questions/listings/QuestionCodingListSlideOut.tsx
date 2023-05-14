@@ -1,22 +1,76 @@
+import { useId, useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useQuestionFormatLists } from '~/data/QuestionFormats';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';
 import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
+import TextInput from '~/components/ui/TextInput';
 
-import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
-
+import type { QuestionFilter } from './QuestionFilterType';
+import questionMatchesTextQuery from './questionMatchesTextQuery';
 import QuestionsCodingListBrief from './QuestionsCodingListBrief';
-import { sortQuestionsMultiple } from '../common/QuestionsProcessor';
-import type { QuestionSortField } from '../common/QuestionsTypes';
+import useQuestionCodingFormatFilter from './useQuestionCodingFormatFilter';
+import useQuestionCompanyFilter from './useQuestionCompanyFilter';
+import useQuestionCompletionStatusFilter from './useQuestionCompletionStatusFilter';
+import useQuestionDifficultyFilter from './useQuestionDifficultyFilter';
+import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
+import useQuestionLanguageFilter from './useQuestionLanguageFilter';
+import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
+import {
+  filterQuestions,
+  sortQuestionsMultiple,
+} from '../common/QuestionsProcessor';
+import type {
+  QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
+  QuestionSortField,
+} from '../common/QuestionsTypes';
+
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
 }>;
+
+function FilterSection<T extends string, Q extends QuestionMetadata>({
+  filters,
+  filterOptions,
+}: Readonly<{
+  filterOptions: QuestionFilter<T, Q>;
+  filters: Set<T>;
+}>) {
+  const sectionId = useId();
+
+  return (
+    <div className="flex gap-x-4">
+      <label className="w-24 shrink-0 text-xs font-medium text-slate-900">
+        {filterOptions.name}
+      </label>
+      <div
+        aria-labelledby={sectionId}
+        className="flex flex-wrap gap-x-4 gap-y-2 text-xs">
+        {filterOptions.options.map((option) => (
+          <CheckboxInput
+            key={option.value}
+            label={option.label as string}
+            size="xs"
+            value={filters.has(option.value)}
+            onChange={() => {
+              filterOptions.onChange(option.value);
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Contents() {
   const intl = useIntl();
@@ -26,11 +80,8 @@ function Contents() {
     data: codingQuestions,
     isSuccess,
   } = trpc.questions.coding.useQuery();
-  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
-  const completedQuestions = new Set(
-    (questionProgress ?? []).map(({ format, slug }) =>
-      hashQuestion(format, slug),
-    ),
+  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+    codingQuestions ?? [],
   );
   const defaultSortFields: ReadonlyArray<{
     field: QuestionSortField;
@@ -44,8 +95,91 @@ function Contents() {
     isAscendingOrder: boolean;
   }> = [{ field: 'premium', isAscendingOrder: true }];
 
+  const [query, setQuery] = useState('');
+  const questionFormatLists = useQuestionFormatLists();
+  const { searchPlaceholder } = questionFormatLists.coding;
+
+  const [difficultyFilters, difficultyFilterOptions] =
+    useQuestionDifficultyFilter({ userFacingFormat: 'coding' });
+  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
+    userFacingFormat: 'coding',
+  });
+  const [completionStatusFilters, completionStatusFilterOptions] =
+    useQuestionCompletionStatusFilter({
+      userFacingFormat: 'coding',
+    });
+  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
+    userFacingFormat: 'coding',
+  });
+  const [codingFormatFilters, codingFormatFilterOptions] =
+    useQuestionCodingFormatFilter({ userFacingFormat: 'coding' });
+  const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
+    { userFacingFormat: 'coding' },
+  );
+
+  const filters: ReadonlyArray<
+    [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
+  > = [
+    // Query.
+    [0, (question) => questionMatchesTextQuery(question, query)],
+    // Difficulty.
+    [difficultyFilters.size, difficultyFilterOptions.matches],
+    // Company.
+    [companyFilters.size, companyFilterOptions.matches],
+    // Language.
+    [languageFilters.size, languageFilterOptions.matches],
+    // Coding Format.
+    [codingFormatFilters.size, codingFormatFilterOptions.matches],
+    // Framework.
+    [frameworkFilters.size, frameworkFilterOptions.matches],
+    // Completion Status.
+    [completionStatusFilters.size, completionStatusFilterOptions.matches],
+  ];
+
   return (
-    <div className="p-4">
+    <div className="flex flex-col gap-y-4 p-4">
+      <form
+        className="flex flex-col gap-4 rounded-md bg-slate-100 p-3"
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}>
+        <div className="grid grid-cols-1 gap-y-4">
+          <FilterSection
+            filterOptions={difficultyFilterOptions}
+            filters={difficultyFilters}
+          />
+          <FilterSection
+            filterOptions={codingFormatFilterOptions}
+            filters={codingFormatFilters}
+          />
+          <FilterSection
+            filterOptions={frameworkFilterOptions}
+            filters={frameworkFilters}
+          />
+          {userProfile != null && (
+            <FilterSection
+              filterOptions={completionStatusFilterOptions}
+              filters={completionStatusFilters}
+            />
+          )}
+          {userProfile?.isPremium && (
+            <FilterSection
+              filterOptions={companyFilterOptions}
+              filters={companyFilters}
+            />
+          )}
+        </div>
+        <TextInput
+          autoComplete="off"
+          isLabelHidden={true}
+          label={searchPlaceholder}
+          placeholder={searchPlaceholder}
+          size="sm"
+          startIcon={MagnifyingGlassIcon}
+          value={query}
+          onChange={(value) => setQuery(value)}
+        />
+      </form>
       {(() => {
         if (isLoading) {
           return (
@@ -69,19 +203,21 @@ function Contents() {
         }
 
         const sortedQuestions = sortQuestionsMultiple(
-          codingQuestions,
+          questionsWithCompletionStatus,
           userProfile?.isPremium
             ? defaultSortFields
             : // Show free questions first if user is not a premium user.
               defaultSortFields.concat(premiumSortFields),
         );
+        const processedQuestions = filterQuestions(
+          sortedQuestions,
+          filters.map(([_, filterFn]) => filterFn),
+        );
 
         return (
           <QuestionsCodingListBrief
-            checkIfCompletedQuestion={(question) =>
-              hasCompletedQuestion(completedQuestions, question)
-            }
-            questions={sortedQuestions}
+            checkIfCompletedQuestion={(question) => question.isCompleted}
+            questions={processedQuestions}
           />
         );
       })()}
@@ -93,19 +229,14 @@ export default function QuestionCodingListSlideOut({
   isShown,
   onClose,
 }: Props) {
-  const intl = useIntl();
+  const questionFormatLists = useQuestionFormatLists();
 
   return (
     <SlideOut
       enterFrom="start"
       isShown={isShown}
       size="xl"
-      title={intl.formatMessage({
-        defaultMessage: 'Coding Questions',
-        description:
-          'Label for button that opens slideout of question list on coding workspace',
-        id: 'oXHJcG',
-      })}
+      title={questionFormatLists.coding.longName}
       onClose={onClose}>
       {isShown && <Contents />}
     </SlideOut>

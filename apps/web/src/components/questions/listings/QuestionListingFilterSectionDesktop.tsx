@@ -1,14 +1,18 @@
 import clsx from 'clsx';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionMetadata } from '../common/QuestionsTypes';
 
-export default function QuestionListingFilterSectionDesktop<T extends string>({
+export default function QuestionListingFilterSectionDesktop<
+  T extends string,
+  Q extends QuestionMetadata,
+>({
   isFirstSection = false,
   section,
   values,
 }: Readonly<{
   isFirstSection?: boolean;
-  section: QuestionFilter<T>;
+  section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
   return (

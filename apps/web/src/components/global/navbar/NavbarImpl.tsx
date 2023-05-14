@@ -9,8 +9,8 @@ import gtag from '~/lib/gtag';
 import { useGuidesData } from '~/data/Guides';
 import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 import {
-  useQuestionCategoryLists,
   useQuestionFormatLists,
+  useQuestionTechnologyLists,
 } from '~/data/QuestionFormats';
 
 import I18nSelect from '~/components/i18n/I18nSelect';
@@ -39,7 +39,7 @@ function useNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const intl = useIntl();
-  const questionCategoryLists = useQuestionCategoryLists();
+  const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
   const preparationPlansExtra = usePreparationPlansUI();
   const guides = useGuidesData();
@@ -187,10 +187,10 @@ function useNavLinks(
           itemKey: 'language-framework',
           items: [
             {
-              href: questionCategoryLists.javascript.href,
-              icon: questionCategoryLists.javascript.icon,
-              itemKey: questionCategoryLists.javascript.key,
-              label: questionCategoryLists.javascript.longName,
+              href: questionTechnologyLists.js.href,
+              icon: questionTechnologyLists.js.icon,
+              itemKey: questionTechnologyLists.js.key,
+              label: questionTechnologyLists.js.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.javascript.click`,
@@ -201,10 +201,10 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
-              href: questionCategoryLists.html.href,
-              icon: questionCategoryLists.html.icon,
-              itemKey: questionCategoryLists.html.key,
-              label: questionCategoryLists.html.longName,
+              href: questionTechnologyLists.html.href,
+              icon: questionTechnologyLists.html.icon,
+              itemKey: questionTechnologyLists.html.key,
+              label: questionTechnologyLists.html.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.html.click`,
@@ -215,10 +215,10 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
-              href: questionCategoryLists.css.href,
-              icon: questionCategoryLists.css.icon,
-              itemKey: questionCategoryLists.css.key,
-              label: questionCategoryLists.css.longName,
+              href: questionTechnologyLists.css.href,
+              icon: questionTechnologyLists.css.icon,
+              itemKey: questionTechnologyLists.css.key,
+              label: questionTechnologyLists.css.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.css.click`,
@@ -229,10 +229,10 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
-              href: questionCategoryLists.react.href,
-              icon: questionCategoryLists.react.icon,
-              itemKey: questionCategoryLists.react.key,
-              label: questionCategoryLists.react.longName,
+              href: questionTechnologyLists.react.href,
+              icon: questionTechnologyLists.react.icon,
+              itemKey: questionTechnologyLists.react.key,
+              label: questionTechnologyLists.react.longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.react.click`,
@@ -243,9 +243,9 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
-              icon: questionCategoryLists.angular.icon,
-              itemKey: questionCategoryLists.angular.key,
-              label: questionCategoryLists.angular.name,
+              icon: questionTechnologyLists.angular.icon,
+              itemKey: questionTechnologyLists.angular.key,
+              label: questionTechnologyLists.angular.name,
               labelAddon: (
                 <Badge
                   label={intl.formatMessage({
@@ -268,9 +268,9 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
-              icon: questionCategoryLists.vue.icon,
-              itemKey: questionCategoryLists.vue.key,
-              label: questionCategoryLists.vue.name,
+              icon: questionTechnologyLists.vue.icon,
+              itemKey: questionTechnologyLists.vue.key,
+              label: questionTechnologyLists.vue.name,
               labelAddon: (
                 <Badge
                   label={intl.formatMessage({

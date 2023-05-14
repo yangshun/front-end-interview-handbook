@@ -1,10 +1,11 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { useIntl } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
+
+import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
@@ -49,20 +50,17 @@ function LeftPane({
   serverDuration: number;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
-  const intl = useIntl();
   const [showQuestionsSlideOut, setShowQuestionsSlideOut] = useState(false);
+
+  const questionFormatLists = useQuestionFormatLists();
 
   return (
     <div className="flex h-full shrink-0 flex-col">
       <QuestionsListingBreadcrumbs
         links={[
           {
-            href: '/prepare/coding',
-            label: intl.formatMessage({
-              defaultMessage: 'Coding Questions',
-              description: 'Coding questions breadcrumbs',
-              id: '6OE1Qp',
-            }),
+            href: questionFormatLists.coding.href,
+            label: questionFormatLists.coding.longName,
           },
         ]}
       />

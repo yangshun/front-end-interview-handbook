@@ -1,15 +1,19 @@
 import clsx from 'clsx';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionMetadata } from '../common/QuestionsTypes';
 
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
-export default function QuestionFilterSectionMobile<T extends string>({
+export default function QuestionFilterSectionMobile<
+  T extends string,
+  Q extends QuestionMetadata,
+>({
   section,
   values,
 }: Readonly<{
-  section: QuestionFilter<T>;
+  section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
   return (

@@ -6,6 +6,7 @@ import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
+import type { QuestionUserFacingFormat } from '~/components/questions/common/QuestionsTypes';
 
 import {
   CodeBracketIcon,
@@ -20,12 +21,13 @@ type QuestionListLink = Readonly<{
   key: string;
   longName: string;
   name: string;
+  searchPlaceholder: string;
 }>;
-type QuestionFormatLists = Record<string, QuestionListLink>;
+type QuestionFormatLists<C extends string> = Record<C, QuestionListLink>;
 
 export function useQuestionFormatLists() {
   const intl = useIntl();
-  const questionFormatLists: QuestionFormatLists = {
+  const questionFormatLists: QuestionFormatLists<QuestionUserFacingFormat> = {
     coding: {
       description: intl.formatMessage({
         defaultMessage: 'JS functions, algorithms, building components, etc.',
@@ -44,6 +46,11 @@ export function useQuestionFormatLists() {
         defaultMessage: 'Coding',
         description: 'Coding questions short title',
         id: 'VQfbK1',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search coding questions',
+        description: 'Placeholder for search input of coding question list',
+        id: 'jGQnYd',
       }),
     },
     quiz: {
@@ -66,6 +73,11 @@ export function useQuestionFormatLists() {
         description: 'Quiz questions short title',
         id: '7Wsapt',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search quiz questions',
+        description: 'Placeholder for search input of quiz question list',
+        id: 'YbRLG7',
+      }),
     },
     'system-design': {
       description: intl.formatMessage({
@@ -86,14 +98,22 @@ export function useQuestionFormatLists() {
         description: 'System design questions short title',
         id: 'MF21p5',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search system design questions',
+        description:
+          'Placeholder for search input of system design question list',
+        id: 'BgJTSk',
+      }),
     },
   };
 
   return questionFormatLists;
 }
-export function useQuestionCategoryLists() {
+export function useQuestionTechnologyLists() {
   const intl = useIntl();
-  const questionCategoryLists: QuestionFormatLists = {
+  const questionTechnologyLists: QuestionFormatLists<
+    'angular' | 'css' | 'html' | 'js' | 'react' | 'vanilla' | 'vue'
+  > = {
     angular: {
       href: '/questions/angular',
       icon: AngularLogo,
@@ -107,6 +127,11 @@ export function useQuestionCategoryLists() {
         defaultMessage: 'Angular',
         description: 'Angular questions category short title',
         id: 'O+NT3M',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Angular questions',
+        description: 'Placeholder for search input of Angular question list',
+        id: '0ivjRp',
       }),
     },
     css: {
@@ -123,6 +148,11 @@ export function useQuestionCategoryLists() {
         description: 'CSS questions category short title',
         id: 'LnzTdG',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search CSS questions',
+        description: 'Placeholder for search input of CSS question list',
+        id: 'trXVQB',
+      }),
     },
     html: {
       href: '/questions/html',
@@ -138,11 +168,16 @@ export function useQuestionCategoryLists() {
         description: 'CSS questions category short title',
         id: 'k964KU',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search HTML questions',
+        description: 'Placeholder for search input of HTML question list',
+        id: 'hxKyEy',
+      }),
     },
-    javascript: {
+    js: {
       href: '/questions/js',
       icon: JavaScriptLogoMonochrome,
-      key: 'javascript',
+      key: 'js',
       longName: intl.formatMessage({
         defaultMessage: 'JavaScript Questions',
         description: 'JavaScript questions category long title',
@@ -152,6 +187,11 @@ export function useQuestionCategoryLists() {
         defaultMessage: 'JavaScript',
         description: 'JavaScript questions category long title',
         id: 'au4m82',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search JavaScript questions',
+        description: 'Placeholder for search input of JavaScript question list',
+        id: 'OGvytR',
       }),
     },
     react: {
@@ -168,6 +208,31 @@ export function useQuestionCategoryLists() {
         description: 'React questions category short title',
         id: '2OmfN2',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search React questions',
+        description: 'Placeholder for search input of React question list',
+        id: '+xshpk',
+      }),
+    },
+    vanilla: {
+      href: '/questions/vanilla',
+      icon: HTML5LogoMonochrome,
+      key: 'vanilla',
+      longName: intl.formatMessage({
+        defaultMessage: 'Vanilla JS Questions',
+        description: 'Vanilla JS questions category long title',
+        id: '680b8U',
+      }),
+      name: intl.formatMessage({
+        defaultMessage: 'Vanilla JS',
+        description: 'Vanilla JS questions category short title',
+        id: 'Js4axe',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Vanilla JS questions',
+        description: 'Placeholder for search input of Vanilla JS question list',
+        id: 'IhvVOB',
+      }),
     },
     vue: {
       href: '/questions/vue',
@@ -183,8 +248,13 @@ export function useQuestionCategoryLists() {
         description: 'Vue questions category short title',
         id: 'JPbOCy',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Vue questions',
+        description: 'Placeholder for search input of Vue question list',
+        id: 'N9hGOq',
+      }),
     },
   };
 
-  return questionCategoryLists;
+  return questionTechnologyLists;
 }

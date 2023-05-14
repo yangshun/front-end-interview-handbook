@@ -2,13 +2,16 @@ import type { CSSProperties } from 'react';
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
+
+import AngularLogo from '~/components/icons/AngularLogo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
 import ReactLogo from '~/components/icons/ReactLogo';
+import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFramework } from './QuestionsTypes';
-import useQuestionFrameworkLabels from './useQuestionFrameworkLabels';
 
 type Props = Readonly<{
   frameworks: ReadonlyArray<
@@ -26,13 +29,15 @@ const frameworkIcons: Record<
     style?: CSSProperties;
   }>
 > = {
+  angular: { icon: AngularLogo },
   react: { icon: ReactLogo, style: { fill: 'rgb(20, 158, 202)' } },
   vanilla: { icon: HTML5Logo },
+  vue: { icon: VueLogoMonochrome },
 };
 
 export default function QuestionFrameworks({ frameworks }: Props) {
   const id = useId();
-  const frameworkLabel = useQuestionFrameworkLabels();
+  const questionTechnologyLists = useQuestionTechnologyLists();
   const intl = useIntl();
 
   return (
@@ -59,12 +64,12 @@ export default function QuestionFrameworks({ frameworks }: Props) {
                   id: '72GwzV',
                 },
                 {
-                  frameworkLabel: frameworkLabel[framework],
+                  frameworkLabel: questionTechnologyLists[framework].name,
                 },
               )}
               position="above">
               <Anchor
-                aria-label={frameworkLabel[framework]}
+                aria-label={questionTechnologyLists[framework].name}
                 href={href}
                 variant="unstyled"
                 onClick={(event) => {

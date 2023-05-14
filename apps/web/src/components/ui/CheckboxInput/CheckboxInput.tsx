@@ -3,6 +3,8 @@ import type { ChangeEvent } from 'react';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useId } from 'react';
 
+type CheckboxSize = 'sm' | 'xs';
+
 type Props = Readonly<{
   defaultValue?: boolean;
   description?: string;
@@ -14,8 +16,14 @@ type Props = Readonly<{
     value: boolean,
     event: ChangeEvent<HTMLInputElement>,
   ) => undefined | void;
+  size?: CheckboxSize;
   value?: boolean;
 }>;
+
+const checkboxSizeClasses: Record<CheckboxSize, string> = {
+  sm: 'ml-3 text-sm',
+  xs: 'ml-2 text-xs',
+};
 
 function CheckboxInput(
   {
@@ -25,6 +33,7 @@ function CheckboxInput(
     errorMessage,
     label,
     name,
+    size = 'sm',
     value,
     onChange,
   }: Props,
@@ -67,7 +76,7 @@ function CheckboxInput(
             }}
           />
         </div>
-        <div className="ml-3 text-sm">
+        <div className={checkboxSizeClasses[size]}>
           <label
             className={clsx(
               'block font-medium',

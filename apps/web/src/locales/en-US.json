@@ -43,6 +43,10 @@
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
   },
+  "+xshpk": {
+    "defaultMessage": "Search React questions",
+    "description": "Placeholder for search input of React question list"
+  },
   "+ywzSI": {
     "defaultMessage": "There are currently quiz questions, JavaScript coding questions, User Interface coding questions and System Design content.",
     "description": "Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
@@ -118,6 +122,10 @@
   "0hdhAz": {
     "defaultMessage": "Low",
     "description": "Label for low question importance"
+  },
+  "0ivjRp": {
+    "defaultMessage": "Search Angular questions",
+    "description": "Placeholder for search input of Angular question list"
   },
   "0mKzkX": {
     "defaultMessage": "Practice questions by framework or language",
@@ -335,6 +343,10 @@
     "defaultMessage": "Sign Out",
     "description": "Link label to the sign out page"
   },
+  "680b8U": {
+    "defaultMessage": "Vanilla JS Questions",
+    "description": "Vanilla JS questions category long title"
+  },
   "68EGSg": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all System Design questions"
@@ -342,10 +354,6 @@
   "6IwcDT": {
     "defaultMessage": "Show",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
-  },
-  "6OE1Qp": {
-    "defaultMessage": "Coding Questions",
-    "description": "Coding questions breadcrumbs"
   },
   "6UytmZ": {
     "defaultMessage": "Something went wrong",
@@ -943,6 +951,10 @@
     "defaultMessage": "What's Included",
     "description": "Section label for features included in a pricing plan"
   },
+  "IhvVOB": {
+    "defaultMessage": "Search Vanilla JS questions",
+    "description": "Placeholder for search input of Vanilla JS question list"
+  },
   "IiZazG": {
     "defaultMessage": "Company",
     "description": "Header for company filters"
@@ -983,10 +995,6 @@
     "defaultMessage": "Enter your email",
     "description": "Placeholder text for email input field"
   },
-  "JLf/Lc": {
-    "defaultMessage": "Vanilla JS",
-    "description": "Label for Vanilla JavaScript framework"
-  },
   "JOj1C3": {
     "defaultMessage": "3 Months",
     "description": "Title of quarterly pricing plan"
@@ -1022,6 +1030,10 @@
   "JrmA6j": {
     "defaultMessage": "With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.",
     "description": "Long description for three months study plan"
+  },
+  "Js4axe": {
+    "defaultMessage": "Vanilla JS",
+    "description": "Vanilla JS questions category short title"
   },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -1207,6 +1219,10 @@
     "defaultMessage": "Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month",
     "description": "Description of 1 Month Preparation Plan page"
   },
+  "N9hGOq": {
+    "defaultMessage": "Search Vue questions",
+    "description": "Placeholder for search input of Vue question list"
+  },
   "NAkpAg": {
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
@@ -1258,6 +1274,10 @@
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation System Design page"
+  },
+  "OGvytR": {
+    "defaultMessage": "Search JavaScript questions",
+    "description": "Placeholder for search input of JavaScript question list"
   },
   "OL9m/V": {
     "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
@@ -2247,6 +2267,10 @@
     "defaultMessage": "{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions practice page"
   },
+  "hxKyEy": {
+    "defaultMessage": "Search HTML questions",
+    "description": "Placeholder for search input of HTML question list"
+  },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
     "description": "Link to one week study plan"
@@ -2635,10 +2659,6 @@
     "defaultMessage": "Marked question as incomplete",
     "description": "Success message shown when a question is marked as complete"
   },
-  "oXHJcG": {
-    "defaultMessage": "Coding Questions",
-    "description": "Label for button that opens slideout of question list on coding workspace"
-  },
   "obU6+a": {
     "defaultMessage": "Software Engineer",
     "description": "Gouse Basha's job title"
@@ -2771,10 +2791,6 @@
     "defaultMessage": "Home",
     "description": "Home button on breadcrumb component"
   },
-  "s51Pgd": {
-    "defaultMessage": "React",
-    "description": "Label for React framework"
-  },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
@@ -2866,6 +2882,10 @@
   "tonRki": {
     "defaultMessage": "Internationalization",
     "description": "Internationalization topic for quiz questions"
+  },
+  "trXVQB": {
+    "defaultMessage": "Search CSS questions",
+    "description": "Placeholder for search input of CSS question list"
   },
   "tsVEh8": {
     "defaultMessage": "Title: A to Z",

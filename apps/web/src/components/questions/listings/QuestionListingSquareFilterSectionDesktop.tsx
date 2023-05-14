@@ -3,19 +3,21 @@ import clsx from 'clsx';
 import Tooltip from '~/components/ui/Tooltip/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionMetadata } from '../common/QuestionsTypes';
 
 import { CheckIcon } from '@heroicons/react/24/solid';
 
-type Props<T extends string> = Readonly<{
+type Props<T extends string, Q extends QuestionMetadata> = Readonly<{
   itemsPerRow?: 2 | 3 | 4 | 5 | 6;
   limit?: number;
-  section: QuestionFilter<T>;
+  section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>;
 
 export default function QuestionListingSquareFilterSectionDesktop<
   T extends string,
->({ limit = Infinity, itemsPerRow = 4, section, values }: Props<T>) {
+  Q extends QuestionMetadata,
+>({ limit = Infinity, itemsPerRow = 4, section, values }: Props<T, Q>) {
   return (
     <fieldset>
       <legend className="sr-only">{section.name}</legend>

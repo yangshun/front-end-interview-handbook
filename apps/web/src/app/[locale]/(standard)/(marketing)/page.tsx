@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';
 import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
 import { QuestionCount } from '~/components/questions/listings/QuestionCount';
 
@@ -132,29 +133,32 @@ export default async function Page({ params }: Props) {
         'ranking',
         true,
       ).slice(0, QUESTIONS_TO_SHOW)}
-      uiCodingQuestion={{
-        metadata: todoListReactSolutionBundle.metadata,
-        react: {
-          skeleton: {
-            sandpack: todoListReactSolutionBundle.skeletonSetup!,
-            writeup: todoListReactSolutionBundle.description,
+      uiCodingQuestion={
+        {
+          metadata: todoListReactSolutionBundle.metadata,
+          react: {
+            skeleton: {
+              sandpack: todoListReactSolutionBundle.skeletonSetup!,
+              writeup: todoListReactSolutionBundle.description,
+            },
+            solution: {
+              sandpack: todoListReactSolutionBundle.solutionSetup!,
+              writeup: todoListReactSolutionBundle.solution,
+            },
           },
-          solution: {
-            sandpack: todoListReactSolutionBundle.solutionSetup!,
-            writeup: todoListReactSolutionBundle.solution,
+          vanilla: {
+            skeleton: {
+              sandpack: todoListVanillaSolutionBundle.skeletonSetup!,
+              writeup: todoListVanillaSolutionBundle.description,
+            },
+            solution: {
+              sandpack: todoListVanillaSolutionBundle.solutionSetup!,
+              writeup: todoListVanillaSolutionBundle.solution,
+            },
           },
-        },
-        vanilla: {
-          skeleton: {
-            sandpack: todoListVanillaSolutionBundle.skeletonSetup!,
-            writeup: todoListVanillaSolutionBundle.description,
-          },
-          solution: {
-            sandpack: todoListVanillaSolutionBundle.solutionSetup!,
-            writeup: todoListVanillaSolutionBundle.solution,
-          },
-        },
-      }}
+          // TODO: Add angular and vue
+        } as EmbedUIQuestion // TODO: Remove this after adding angular and vue
+      }
       userInterfaceQuestions={sortQuestions(
         userInterfaceQuestions.filter((question) => question.featured),
         'importance',

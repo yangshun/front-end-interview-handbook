@@ -3,6 +3,8 @@ import { useIntl } from 'react-intl';
 import useCompanyNames from '~/hooks/useCompanyNames';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
+
 import type { QuestionFilter } from './QuestionFilterType';
 import type {
   QuestionCompany,
@@ -28,6 +30,7 @@ export default function useQuestionCompanyFilter({
   userFacingFormat,
 }: Props): [Set<QuestionCompany>, QuestionFilter<QuestionCompany>] {
   const intl = useIntl();
+  const { userProfile } = useUserProfile();
   const companyNames = useCompanyNames();
   const [companyFilters, setCompanyFilters] =
     useSessionStorageForSets<QuestionCompany>(
@@ -36,6 +39,10 @@ export default function useQuestionCompanyFilter({
     );
   const CompanyFilterOptions: QuestionFilter<QuestionCompany> = {
     id: 'company',
+    matches: (question) =>
+      companyFilters.size === 0 ||
+      !userProfile?.isPremium ||
+      question.companies.some((company) => companyFilters.has(company)),
     name: intl.formatMessage({
       defaultMessage: 'Company',
       description: 'Header for company filters',
@@ -51,7 +58,7 @@ export default function useQuestionCompanyFilter({
     },
     options: COMPANY_OPTIONS.map((company) => ({
       label: (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <img
             alt={companyNames[company].label}
             className="h-[16px] 2xl:h-[18px]"

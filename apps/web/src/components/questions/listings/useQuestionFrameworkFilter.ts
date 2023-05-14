@@ -30,6 +30,11 @@ export default function useQuestionFrameworkFilter({
 
   const frameworkFilterOptions: QuestionFilter<QuestionFramework> = {
     id: 'Framework',
+    matches: (question) =>
+      frameworkFilters.size === 0 ||
+      question.frameworks.some((frameworkItem) =>
+        frameworkFilters.has(frameworkItem.framework),
+      ),
     name: intl.formatMessage({
       defaultMessage: 'Framework',
       description: 'Question framework',

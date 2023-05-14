@@ -34,12 +34,20 @@ import {
 import { ListBulletIcon } from '@heroicons/react/24/outline';
 
 export type EmbedUIQuestion = Readonly<{
+  angular: Readonly<{
+    skeleton: QuestionUserInterfaceBundle;
+    solution: QuestionUserInterfaceBundle;
+  }>;
   metadata: QuestionMetadata;
   react: Readonly<{
     skeleton: QuestionUserInterfaceBundle;
     solution: QuestionUserInterfaceBundle;
   }>;
   vanilla: Readonly<{
+    skeleton: QuestionUserInterfaceBundle;
+    solution: QuestionUserInterfaceBundle;
+  }>;
+  vue: Readonly<{
     skeleton: QuestionUserInterfaceBundle;
     solution: QuestionUserInterfaceBundle;
   }>;

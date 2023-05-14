@@ -27,12 +27,12 @@ import {
 } from '@heroicons/react/24/outline';
 import { CheckIcon, LockClosedIcon } from '@heroicons/react/24/solid';
 
-type Props = Readonly<{
-  checkIfCompletedQuestion: (question: QuestionMetadata) => boolean;
+type Props<Q extends QuestionMetadata> = Readonly<{
+  checkIfCompletedQuestion: (question: Q) => boolean;
   columns?: 1 | 2;
   framework?: QuestionFramework;
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<Q>;
   showChevron?: boolean;
   showProgress?: boolean;
   showTimeline?: boolean;
@@ -115,7 +115,7 @@ function QuestionNewLabel({
   );
 }
 
-export default function QuestionsList({
+export default function QuestionsList<Q extends QuestionMetadata>({
   framework,
   checkIfCompletedQuestion,
   columns = 1,
@@ -124,7 +124,7 @@ export default function QuestionsList({
   showChevron = false,
   showTimeline = false,
   showProgress = true,
-}: Props) {
+}: Props<Q>) {
   const { userProfile } = useUserProfile();
   const intl = useIntl();
 

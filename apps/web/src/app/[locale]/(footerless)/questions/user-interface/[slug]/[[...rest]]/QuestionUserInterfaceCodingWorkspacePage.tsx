@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
+import { useQuestionFormatLists } from '~/data/QuestionFormats';
+
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -341,6 +343,8 @@ function LeftPane({
   serverDuration: number;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
+  const questionFormatLists = useQuestionFormatLists();
+
   const [showQuestionsSlideOut, setShowQuestionsSlideOut] = useState(false);
 
   const modeToSection: Record<
@@ -356,8 +360,8 @@ function LeftPane({
       <QuestionsListingBreadcrumbs
         links={[
           {
-            href: '/prepare/coding',
-            label: 'Coding Questions',
+            href: questionFormatLists.coding.href,
+            label: questionFormatLists.coding.longName,
           },
         ]}
       />

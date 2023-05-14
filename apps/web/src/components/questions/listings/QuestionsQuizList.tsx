@@ -16,23 +16,23 @@ import QuestionUsersCompletedLabel from '../common/QuestionUsersCompletedLabel';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { CheckIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/solid';
 
-type Props = Readonly<{
-  checkIfCompletedQuestion: (question: QuestionQuizMetadata) => boolean;
+type Props<Q extends QuestionQuizMetadata> = Readonly<{
+  checkIfCompletedQuestion: (question: Q) => boolean;
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionQuizMetadata>;
+  questions: ReadonlyArray<Q>;
   showChevron?: boolean;
   showProgress?: boolean;
   showTimeline?: boolean;
 }>;
 
-export default function QuestionsQuizList({
+export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
   checkIfCompletedQuestion,
   questions,
   questionCompletionCount,
   showChevron = false,
   showTimeline = false,
   showProgress = true,
-}: Props) {
+}: Props<Q>) {
   const intl = useIntl();
 
   if (questions.length === 0) {

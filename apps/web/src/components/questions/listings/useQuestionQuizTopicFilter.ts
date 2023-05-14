@@ -4,6 +4,7 @@ import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type {
+  QuestionQuizMetadata,
   QuestionQuizTopic,
   QuestionUserFacingFormat,
 } from '../common/QuestionsTypes';
@@ -28,7 +29,10 @@ type Props = Readonly<{
 
 export default function useQuestionQuizTopicFilter({
   userFacingFormat,
-}: Props): [Set<QuestionQuizTopic>, QuestionFilter<QuestionQuizTopic>] {
+}: Props): [
+  Set<QuestionQuizTopic>,
+  QuestionFilter<QuestionQuizTopic, QuestionQuizMetadata>,
+] {
   const intl = useIntl();
   const topicLabels = useQuestionQuizTopicLabels();
   const [topicFilters, setTopicFilters] =
@@ -36,8 +40,14 @@ export default function useQuestionQuizTopicFilter({
       `gfe:${userFacingFormat}:topic-filter`,
       new Set(),
     );
-  const topicFilterOptions: QuestionFilter<QuestionQuizTopic> = {
+  const topicFilterOptions: QuestionFilter<
+    QuestionQuizTopic,
+    QuestionQuizMetadata
+  > = {
     id: 'topic',
+    matches: (question) =>
+      topicFilters.size === 0 ||
+      question.topics.some((topic) => topicFilters.has(topic)),
     name: intl.formatMessage({
       defaultMessage: 'Topic',
       description: 'Question quiz topic',

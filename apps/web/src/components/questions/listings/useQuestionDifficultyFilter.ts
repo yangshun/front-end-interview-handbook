@@ -52,6 +52,9 @@ export default function useQuestionDifficultyFilter({
     );
   const difficultyFilterOptions: QuestionFilter<QuestionDifficulty> = {
     id: 'difficulty',
+    matches: (question) =>
+      difficultyFilters.size === 0 ||
+      difficultyFilters.has(question.difficulty),
     name: intl.formatMessage({
       defaultMessage: 'Difficulty',
       description: 'Question difficulty',

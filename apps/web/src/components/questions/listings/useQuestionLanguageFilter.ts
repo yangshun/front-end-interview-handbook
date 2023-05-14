@@ -33,6 +33,9 @@ export default function useQuestionLanguageFilter({
 
   const LanguageFilterOptions: QuestionFilter<QuestionLanguage> = {
     id: 'language',
+    matches: (question) =>
+      languageFilters.size === 0 ||
+      question.languages.some((language) => languageFilters.has(language)),
     name: intl.formatMessage({
       defaultMessage: 'Language',
       description: 'Question programming language',

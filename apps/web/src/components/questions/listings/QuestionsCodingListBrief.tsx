@@ -10,15 +10,15 @@ import QuestionDifficultyLabel from '../common/QuestionDifficultyLabel';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
 import { CheckIcon } from '@heroicons/react/24/solid';
-type Props = Readonly<{
-  checkIfCompletedQuestion?: (question: QuestionMetadata) => boolean;
-  questions: ReadonlyArray<QuestionMetadata>;
+type Props<Q extends QuestionMetadata> = Readonly<{
+  checkIfCompletedQuestion?: (question: Q) => boolean;
+  questions: ReadonlyArray<Q>;
 }>;
 
-export default function QuestionsCodingListBrief({
+export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
   questions,
-}: Props) {
+}: Props<Q>) {
   const intl = useIntl();
 
   if (questions.length === 0) {

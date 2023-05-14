@@ -43,6 +43,13 @@ const DEFAULT_FRAMEWORK_SETUPS: Record<
     visibleFiles?: Array<string>;
   }>
 > = {
+  // TODO: Add angular properly
+  angular: {
+    dependencies: {},
+    entry: '',
+    environment: 'angular-cli',
+    main: '',
+  },
   react: {
     dependencies: {
       react: '^18.2.0',
@@ -58,6 +65,13 @@ const DEFAULT_FRAMEWORK_SETUPS: Record<
     entry: '/src/index.js',
     environment: 'parcel',
     main: '/src/index.js',
+  },
+  // TODO: Add vue properly
+  vue: {
+    dependencies: {},
+    entry: '',
+    environment: 'vue-cli',
+    main: '',
   },
 };
 

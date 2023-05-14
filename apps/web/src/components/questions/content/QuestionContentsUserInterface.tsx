@@ -1,5 +1,7 @@
 import { useIntl } from 'react-intl';
 
+import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
+
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -19,7 +21,6 @@ import type {
   QuestionMetadata,
   QuestionUserInterface,
 } from '../common/QuestionsTypes';
-import useQuestionFrameworkLabels from '../common/useQuestionFrameworkLabels';
 import useQuestionLogEventCopyContents from '../common/useQuestionLogEventCopyContents';
 
 type Props = Readonly<{
@@ -63,7 +64,7 @@ export default function QuestionContentsUserInterface({
 }: Props) {
   const intl = useIntl();
   const router = useI18nRouter();
-  const questionFrameworkLabels = useQuestionFrameworkLabels();
+  const questionTechnologyLists = useQuestionTechnologyLists();
   const { description, framework, metadata, solution } = question;
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const SECTIONS: ReadonlyArray<TabItem<QuestionContentsUserInterfaceSection>> =
@@ -124,7 +125,7 @@ export default function QuestionContentsUserInterface({
               id: 'eeWLAW',
             })}
             options={question.metadata.frameworks.map((frameworkItem) => ({
-              label: questionFrameworkLabels[frameworkItem.framework],
+              label: questionTechnologyLists[frameworkItem.framework].name,
               value: frameworkItem.framework,
             }))}
             size="sm"

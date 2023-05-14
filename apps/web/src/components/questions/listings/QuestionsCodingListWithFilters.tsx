@@ -3,8 +3,6 @@ import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
@@ -14,6 +12,7 @@ import {
 import type {
   QuestionCodingFormat,
   QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionListingFilterSectionDesktop from '~/components/questions/listings/QuestionListingFilterSectionDesktop';
@@ -35,11 +34,10 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
-import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
-import { DSAQuestions } from '../common/QuestionsCodingDataStructuresAlgorithms';
+import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import type { QuestionFramework } from '../common/QuestionsTypes';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
@@ -121,12 +119,6 @@ export default function QuestionsCodingListWithFilters({
     };
   }
 
-  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
-  const completedQuestions = new Set(
-    (questionProgress ?? []).map(({ format, slug }) =>
-      hashQuestion(format, slug),
-    ),
-  );
   const defaultSortFields: ReadonlyArray<{
     field: QuestionSortField;
     isAscendingOrder: boolean;
@@ -138,81 +130,34 @@ export default function QuestionsCodingListWithFilters({
     field: QuestionSortField;
     isAscendingOrder: boolean;
   }> = [{ field: 'premium', isAscendingOrder: true }];
+
+  const questionsWithCompletionStatus =
+    useQuestionsWithCompletionStatus(questions);
+
   const sortedQuestions = sortQuestionsMultiple(
-    questions,
+    questionsWithCompletionStatus,
     userProfile?.isPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),
   );
   const filters: ReadonlyArray<
-    [number, (question: QuestionMetadata) => boolean]
+    [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
   > = [
     // Query.
     [0, (question) => questionMatchesTextQuery(question, query)],
     // Difficulty.
-    [
-      difficultyFilters.size,
-      (question) =>
-        difficultyFilters.size === 0 ||
-        difficultyFilters.has(question.difficulty),
-    ],
+    [difficultyFilters.size, difficultyFilterOptions.matches],
     // Company.
-    [
-      companyFilters.size,
-      (question) =>
-        companyFilters.size === 0 ||
-        !userProfile?.isPremium ||
-        question.companies.some((company) => companyFilters.has(company)),
-    ],
+    [companyFilters.size, companyFilterOptions.matches],
     // Language.
-    [
-      languageFilters.size,
-      (question) =>
-        languageFilters.size === 0 ||
-        question.languages.some((language) => languageFilters.has(language)),
-    ],
+    [languageFilters.size, languageFilterOptions.matches],
     // Coding Format.
-    [
-      codingFormatFilters.size,
-      (question) => {
-        if (codingFormatFilters.size === 0) {
-          return true;
-        }
-        if (codingFormatFilters.has('data-structures-algorithms')) {
-          return DSAQuestions.has(question.slug);
-        }
-        if (codingFormatFilters.has('utilities')) {
-          return (
-            question.format === 'javascript' && !DSAQuestions.has(question.slug)
-          );
-        }
-        if (codingFormatFilters.has('user-interface')) {
-          return question.format === 'user-interface';
-        }
-
-        return false;
-      },
-    ],
+    [codingFormatFilters.size, codingFormatFilterOptions.matches],
     // Framework.
-    [
-      frameworkFilters.size,
-      (question) =>
-        frameworkFilters.size === 0 ||
-        question.frameworks.some((frameworkItem) =>
-          frameworkFilters.has(frameworkItem.framework),
-        ),
-    ],
+    [frameworkFilters.size, frameworkFilterOptions.matches],
     // Completion Status.
-    [
-      completionStatusFilters.size,
-      (question) =>
-        completionStatusFilters.size === 0 ||
-        (completionStatusFilters.has('completed') &&
-          hasCompletedQuestion(completedQuestions, question)) ||
-        (completionStatusFilters.has('incomplete') &&
-          !hasCompletedQuestion(completedQuestions, question)),
-    ],
+    [completionStatusFilters.size, completionStatusFilterOptions.matches],
   ];
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
   const processedQuestions = filterQuestions(
@@ -445,9 +390,7 @@ export default function QuestionsCodingListWithFilters({
             </Heading>
             <Section>
               <QuestionsList
-                checkIfCompletedQuestion={(question) =>
-                  hasCompletedQuestion(completedQuestions, question)
-                }
+                checkIfCompletedQuestion={(question) => question.isCompleted}
                 framework={framework}
                 questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}

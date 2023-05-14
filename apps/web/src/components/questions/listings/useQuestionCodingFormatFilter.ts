@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import { DSAQuestions } from '../common/QuestionsCodingDataStructuresAlgorithms';
 import type {
   QuestionCodingFormat,
   QuestionUserFacingFormat,
@@ -84,6 +85,24 @@ export default function useQuestionCodingFormatFilter({
 
   const codingFormatFilterOptions: QuestionFilter<QuestionCodingFormat> = {
     id: 'coding-format',
+    matches: (question) => {
+      if (codingFormatFilters.size === 0) {
+        return true;
+      }
+      if (codingFormatFilters.has('data-structures-algorithms')) {
+        return DSAQuestions.has(question.slug);
+      }
+      if (codingFormatFilters.has('utilities')) {
+        return (
+          question.format === 'javascript' && !DSAQuestions.has(question.slug)
+        );
+      }
+      if (codingFormatFilters.has('user-interface')) {
+        return question.format === 'user-interface';
+      }
+
+      return false;
+    },
     name: intl.formatMessage({
       defaultMessage: 'Coding Format',
       description: 'Front end coding interview questions',

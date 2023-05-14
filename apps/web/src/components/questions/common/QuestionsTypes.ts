@@ -48,10 +48,12 @@ export type QuestionCodingFormat =
   | 'data-structures-algorithms'
   | 'user-interface'
   | 'utilities';
-export type QuestionFramework = 'react' | 'vanilla';
+export type QuestionFramework = 'angular' | 'react' | 'vanilla' | 'vue';
 export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
+  angular: 'Angular',
   react: 'React',
   vanilla: 'Vanilla JS',
+  vue: 'Vue',
 };
 
 export type QuestionUserInterfaceSetupType = 'skeleton' | 'solution';
@@ -119,6 +121,10 @@ export type QuestionUserInterface = QuestionBase & {
 export type QuestionQuizMetadata = QuestionMetadata & {
   readonly subtitle: string | null;
   readonly topics: ReadonlyArray<QuestionQuizTopic>;
+};
+
+export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {
+  readonly isCompleted: boolean;
 };
 
 export type QuestionQuizTopic =

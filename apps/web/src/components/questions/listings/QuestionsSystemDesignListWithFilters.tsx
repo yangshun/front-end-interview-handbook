@@ -12,6 +12,7 @@ import {
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
   QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionListingFilterSectionDesktop from '~/components/questions/listings/QuestionListingFilterSectionDesktop';
@@ -29,9 +30,10 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
+import { hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
+import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import { allSystemDesignQuestions } from '../content/system-design/SystemDesignNavigation';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
@@ -89,43 +91,34 @@ export default function QuestionsSystemDesignListWithFilters({
     field: QuestionSortField;
     isAscendingOrder: boolean;
   }> = [{ field: 'premium', isAscendingOrder: true }];
-  const sortedQuestions = sortQuestionsMultiple(
+
+  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     allSystemDesignQuestions,
+  );
+
+  const sortedQuestions = sortQuestionsMultiple(
+    questionsWithCompletionStatus,
     userProfile?.isPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),
   );
   const filters: ReadonlyArray<
-    [number, (question: QuestionMetadata) => boolean]
+    [
+      number,
+      (
+        question: QuestionMetadata & QuestionMetadataWithCompletedStatus,
+      ) => boolean,
+    ]
   > = [
     // Query.
     [0, (question) => questionMatchesTextQuery(question, query)],
     // Difficulty.
-    [
-      difficultyFilters.size,
-      (question) =>
-        difficultyFilters.size === 0 ||
-        difficultyFilters.has(question.difficulty),
-    ],
+    [difficultyFilters.size, difficultyFilterOptions.matches],
     // Company.
-    [
-      companyFilters.size,
-      (question) =>
-        companyFilters.size === 0 ||
-        !userProfile?.isPremium ||
-        question.companies.some((company) => companyFilters.has(company)),
-    ],
+    [companyFilters.size, companyFilterOptions.matches],
     // Completion Status.
-    [
-      completionStatusFilters.size,
-      (question) =>
-        completionStatusFilters.size === 0 ||
-        (completionStatusFilters.has('completed') &&
-          hasCompletedQuestion(completedQuestions, question)) ||
-        (completionStatusFilters.has('incomplete') &&
-          !hasCompletedQuestion(completedQuestions, question)),
-    ],
+    [completionStatusFilters.size, completionStatusFilterOptions.matches],
   ];
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
   const processedQuestions = filterQuestions(
@@ -310,9 +303,7 @@ export default function QuestionsSystemDesignListWithFilters({
             </Heading>
             <Section>
               <QuestionsList
-                checkIfCompletedQuestion={(question) =>
-                  hasCompletedQuestion(completedQuestions, question)
-                }
+                checkIfCompletedQuestion={(question) => question.isCompleted}
                 questions={processedQuestions}
                 showChevron={true}
               />

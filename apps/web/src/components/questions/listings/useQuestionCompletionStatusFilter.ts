@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionMetadataWithCompletedStatus } from '../common/QuestionsTypes';
 import type { QuestionUserFacingFormat } from '../common/QuestionsTypes';
 type QuestionCompletionStatus = 'completed' | 'incomplete';
 
@@ -14,7 +15,7 @@ export default function useQuestionCompletionStatusFilter({
   userFacingFormat,
 }: Props): [
   Set<QuestionCompletionStatus>,
-  QuestionFilter<QuestionCompletionStatus>,
+  QuestionFilter<QuestionCompletionStatus, QuestionMetadataWithCompletedStatus>,
 ] {
   const intl = useIntl();
   const COMPLETION_STATUS_OPTIONS: ReadonlyArray<{
@@ -44,24 +45,31 @@ export default function useQuestionCompletionStatusFilter({
       `gfe:${userFacingFormat}:completion-status-filter`,
       new Set(),
     );
-  const completionStatusFilterOptions: QuestionFilter<QuestionCompletionStatus> =
-    {
-      id: 'completion',
-      name: intl.formatMessage({
-        defaultMessage: 'Progress',
-        description: 'Completion status',
-        id: '7kN2mI',
-      }),
-      onChange: (value) => {
-        const newCompletion = new Set(completionStatusFilters);
 
-        newCompletion.has(value)
-          ? newCompletion.delete(value)
-          : newCompletion.add(value);
-        setCompletionStatusFilters(newCompletion);
-      },
-      options: COMPLETION_STATUS_OPTIONS,
-    };
+  const completionStatusFilterOptions: QuestionFilter<
+    QuestionCompletionStatus,
+    QuestionMetadataWithCompletedStatus
+  > = {
+    id: 'completion',
+    matches: (question) =>
+      completionStatusFilters.size === 0 ||
+      (completionStatusFilters.has('completed') && question.isCompleted) ||
+      (completionStatusFilters.has('incomplete') && !question.isCompleted),
+    name: intl.formatMessage({
+      defaultMessage: 'Progress',
+      description: 'Completion status',
+      id: '7kN2mI',
+    }),
+    onChange: (value) => {
+      const newCompletion = new Set(completionStatusFilters);
+
+      newCompletion.has(value)
+        ? newCompletion.delete(value)
+        : newCompletion.add(value);
+      setCompletionStatusFilters(newCompletion);
+    },
+    options: COMPLETION_STATUS_OPTIONS,
+  };
 
   return [completionStatusFilters, completionStatusFilterOptions];
 }

@@ -9,6 +9,7 @@ import {
   sortQuestionsMultiple,
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
+  QuestionMetadataWithCompletedStatus,
   QuestionQuizMetadata,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
@@ -26,9 +27,9 @@ import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
-import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
+import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 
 import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
@@ -56,7 +57,6 @@ export default function QuestionsQuizListWithFilters({
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({ userFacingFormat: 'quiz' });
-  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
 
   function makeDropdownItemProps(
     label: string,
@@ -73,37 +73,27 @@ export default function QuestionsQuizListWithFilters({
     };
   }
 
-  const completedQuestions = new Set(
-    (questionProgress ?? []).map(({ format, slug }) =>
-      hashQuestion(format, slug),
-    ),
-  );
-  const sortedQuestions = sortQuestionsMultiple(questions, [
+  const questionsWithCompletionStatus =
+    useQuestionsWithCompletionStatus(questions);
+
+  const sortedQuestions = sortQuestionsMultiple(questionsWithCompletionStatus, [
     { field: 'ranking', isAscendingOrder: true },
     { field: sortField, isAscendingOrder },
   ]);
   const filters: ReadonlyArray<
-    [number, (question: QuestionQuizMetadata) => boolean]
+    [
+      number,
+      (
+        question: QuestionMetadataWithCompletedStatus & QuestionQuizMetadata,
+      ) => boolean,
+    ]
   > = [
     // Query.
     [0, (question) => questionMatchesTextQuery(question, query)],
     // Topics.
-    [
-      quizTopicFilters.size,
-      (question) =>
-        quizTopicFilters.size === 0 ||
-        question.topics.some((topic) => quizTopicFilters.has(topic)),
-    ],
+    [quizTopicFilters.size, quizTopicFilterOptions.matches],
     // Completion Status.
-    [
-      completionStatusFilters.size,
-      (question) =>
-        completionStatusFilters.size === 0 ||
-        (completionStatusFilters.has('completed') &&
-          hasCompletedQuestion(completedQuestions, question)) ||
-        (completionStatusFilters.has('incomplete') &&
-          !hasCompletedQuestion(completedQuestions, question)),
-    ],
+    [completionStatusFilters.size, completionStatusFilterOptions.matches],
   ];
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
   const processedQuestions = filterQuestions(
@@ -277,9 +267,7 @@ export default function QuestionsQuizListWithFilters({
           </Heading>
           <Section>
             <QuestionsQuizList
-              checkIfCompletedQuestion={(question) =>
-                hasCompletedQuestion(completedQuestions, question)
-              }
+              checkIfCompletedQuestion={(question) => question.isCompleted}
               questionCompletionCount={questionCompletionCount}
               questions={processedQuestions}
               showChevron={true}
