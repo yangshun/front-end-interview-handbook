@@ -49,13 +49,13 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
   const sectionId = useId();
 
   return (
-    <div className="flex gap-x-4">
-      <label className="w-24 shrink-0 text-xs font-medium text-slate-900">
+    <div className="flex flex-col gap-y-1">
+      <label className="text-xs font-medium text-slate-500" id={sectionId}>
         {filterOptions.name}
       </label>
       <div
         aria-labelledby={sectionId}
-        className="flex flex-wrap gap-x-4 gap-y-2 text-xs">
+        className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
         {filterOptions.options.map((option) => (
           <CheckboxInput
             key={option.value}
@@ -139,11 +139,11 @@ function Contents() {
   return (
     <div className="flex flex-col gap-y-4 p-4">
       <form
-        className="flex flex-col gap-4 rounded-md bg-slate-100 p-3"
+        className="flex flex-col gap-4"
         onSubmit={(event) => {
           event.preventDefault();
         }}>
-        <div className="grid grid-cols-1 gap-y-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-6">
           <FilterSection
             filterOptions={difficultyFilterOptions}
             filters={difficultyFilters}
@@ -163,10 +163,12 @@ function Contents() {
             />
           )}
           {userProfile?.isPremium && (
-            <FilterSection
-              filterOptions={companyFilterOptions}
-              filters={companyFilters}
-            />
+            <div className="col-span-2">
+              <FilterSection
+                filterOptions={companyFilterOptions}
+                filters={companyFilters}
+              />
+            </div>
           )}
         </div>
         <TextInput
