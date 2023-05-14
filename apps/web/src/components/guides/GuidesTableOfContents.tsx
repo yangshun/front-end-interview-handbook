@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { Ref } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import useScrollIntoView from '~/hooks/useScrollIntoView';
 import useScrollParent from '~/hooks/useScrollParent';
@@ -93,7 +94,11 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
           <Heading
             className="font-display text-sm font-medium text-slate-900"
             id={titleId}>
-            On This Page
+            <FormattedMessage
+              defaultMessage="On This Page"
+              description="Title of the table of contents for a guidebook page."
+              id="A5oI/E"
+            />
           </Heading>
           <Section>
             <div className="mt-4">

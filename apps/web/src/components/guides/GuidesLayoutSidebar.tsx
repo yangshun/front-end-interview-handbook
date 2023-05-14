@@ -62,31 +62,28 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
   useScrollToTop([pathname]);
 
   return (
-    <>
-      <GuidesNavbar navigation={navigation} />
-      <div className="flex w-full">
-        <Section>
-          <div
-            className="sticky hidden lg:flex"
-            style={{
-              height: FooterlessContainerHeight,
-              top: `var(--navbar-height)`,
-            }}>
-            {showSidebar && (
-              <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-xs xl:w-[300px] 2xl:w-96">
-                <Heading className="text-base font-medium text-slate-700">
-                  {navigation.title}
-                </Heading>
-                <Section>
-                  <GuidesSidebar navigation={navigation} />
-                </Section>
-              </div>
-            )}
-            <QuestionsSidebarCollapser />
-          </div>
-        </Section>
-        {children}
-      </div>
-    </>
+    <div className="flex w-full">
+      <Section>
+        <div
+          className="sticky hidden lg:flex"
+          style={{
+            height: FooterlessContainerHeight,
+            top: `var(--navbar-height)`,
+          }}>
+          {showSidebar && (
+            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-xs xl:w-[300px] 2xl:w-96">
+              <Heading className="text-base font-medium text-slate-700">
+                {navigation.title}
+              </Heading>
+              <Section>
+                <GuidesSidebar navigation={navigation} />
+              </Section>
+            </div>
+          )}
+          <QuestionsSidebarCollapser />
+        </div>
+      </Section>
+      {children}
+    </div>
   );
 }

@@ -539,6 +539,10 @@
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
   },
+  "A5oI/E": {
+    "defaultMessage": "On This Page",
+    "description": "Title of the table of contents for a guidebook page."
+  },
   "AGwpnL": {
     "defaultMessage": "We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
@@ -1718,6 +1722,10 @@
   "WWRfWH": {
     "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
     "description": "Jacky Liang's testimonial"
+  },
+  "WZy7m4": {
+    "defaultMessage": "Table of Contents",
+    "description": "Guides table of contents menu button label"
   },
   "WzDhJE": {
     "defaultMessage": "Logos provided by Clearbit",
