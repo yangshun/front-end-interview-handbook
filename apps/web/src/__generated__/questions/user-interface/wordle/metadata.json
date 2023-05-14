@@ -1,0 +1,31 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1683158400,
+  "difficulty": "hard",
+  "duration": 60,
+  "excerpt": "Build Wordle, the word-guessing game that took the world by storm",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/wordle/react"
+    }
+  ],
+  "href": "/questions/user-interface/wordle",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "wordle",
+  "title": "Wordle"
+}

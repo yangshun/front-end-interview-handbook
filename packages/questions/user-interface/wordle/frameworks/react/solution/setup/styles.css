@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --indeterminate: #d3d6da;
+  --correct: #6aaa64;
+  --present: #c9b458;
+  --absent: #787c7e;
+
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.root {
+  display: grid;
+  outline: none;
+  row-gap: 16px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.grid-section {
+  --size: 50px;
+
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+}
+
+.grid-cell {
+  --fill-color: transparent;
+  --background-color: #fff;
+  --border-color: var(--indeterminate);
+  --color: #000;
+
+  border-color: var(--border-color);
+  background-color: var(--background-color);
+  border-width: 2px;
+  border-style: solid;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.grid-cell--filled {
+  animation: scale-on-fill 50ms ease-in;
+}
+
+@keyframes scale-on-fill {
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.grid-cell--final {
+  color: var(--color);
+  transition-property: color background-color border-color;
+  transition-duration: 50ms;
+}
+
+.keyboard-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard-row__button {
+  --background-color: var(--indeterminate);
+  --color: #000;
+
+  border: none;
+  background-color: var(--background-color);
+  color: var(--color);
+  height: 40px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 30px;
+  margin-inline: 0.25rem;
+}
+
+.guess--absent {
+  --background-color: var(--absent);
+  --border-color: var(--absent);
+  --color: #fff;
+}
+
+.guess--correct {
+  --background-color: var(--correct);
+  --border-color: var(--correct);
+  --color: #fff;
+}
+
+.guess--present {
+  --background-color: var(--present);
+  --border-color: var(--present);
+  --color: #fff;
+}
+
+.result-row {
+  display: flex;
+  column-gap: 8px;
+  justify-content: center;
+}
+
+.reset-button {
+  cursor: pointer;
+}

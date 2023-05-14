@@ -1,0 +1,32 @@
+## Test Cases
+
+- Basic User Input
+  - Typing letters anywhere on the screen will add letters.
+  - Hitting "Enter"
+    - Checks the word when the row is full.
+    - Does nothing when the row is not full.
+  - Hitting "Backspace"
+    - Erases a letter for the current row.
+    - Does nothing when the row is empty.
+  - Virtual keyboard can be used.
+- Word Checking
+  - Target word = "FEAST", correct on first try:
+    1. Guess "FEAST". All letters should be green.
+  - Target word = "FEAST", multiple tries:
+    1. Guess "TASTY". "A", "S", "T" should be yellow, "Y" should be dark gray.
+    1. Guess "BEAST". "E", "A", "S", "T" should be green, "B" should be dark gray.
+    1. Guess "FEAST". All letters should be green.
+  - Target word = "PAINT, multiple tries:
+    1. Guess "TOWER". "T" should be yellow, the other letters should be dark gray.
+    1. Guess "PLANT". "P", "N" and "T" should be green, "A" should be yellow, "L" should be dark gray. The "T" in the keyboard should now be green.
+  - Target word = "APPLE", multiple tries:
+    1. Guess "PLANT". "P", "L", "A" should be yellow, the other letters should be dark gray.
+    1. Guess "PAPER". The first "P", "A", "E" should be yellow, the second "P" should be green, "R" should be dark gray. The "P" in the keyboard should now be green.
+  - Target word = "APPLE", guess a word that has multiple "L"s:
+    1. Guess "HELLO". The second "L" should be green, "E" should be yellow, the other letters should be dark gray. The first "L" should be dark gray because "APPLE" only has one "L" and the second "L" is in the correct position.
+- Game End
+  - If guessed correctly, a congratulatory message is shown.
+  - If all guesses were used up, the word of the day is shown.
+  - "Reset" button is shown.
+- Reset
+  - Grid and keyboard states are cleared and a new game session is started.
