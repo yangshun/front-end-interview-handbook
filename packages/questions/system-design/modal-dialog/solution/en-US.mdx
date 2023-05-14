@@ -245,7 +245,7 @@ Here's an example in React:
 
 Possibly the most complicated aspect of implementing a modal is focus management. Contents within modals are meant to be treated like a separate document; using the <kbd>Tab</kbd> key cycles through focusable elements within the dialog only and focus can never be on elements outside of the component for as long as the modal is shown. This behavior/phenomenon is known as "focus trapping".
 
-When a modal opens, focus moves to an element inside the modal. Generally, focus is set on the first focusable element, but there are some exceptions as mentioned in [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+When a modal opens, focus moves to an element inside the modal. Generally, focus is set on the first focusable element, but there are some exceptions as mentioned in [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
 When a modal closes, focus returns to the element that opened the modal (unless the element no longer exists, then focus on another reasonable element).
 
@@ -264,7 +264,7 @@ In practice, focus trapping can be done via or [focus-trap](https://focus-trap.g
 
 #### Keyboard Interactions
 
-The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
 | Key | Description |
 | --- | --- |
@@ -276,7 +276,7 @@ Focus trapping is essential for the required <kbd>Tab</kbd>-ing behavior, otherw
 
 #### WAI-ARIA Roles, States, and Properties
 
-The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
 - The element that serves as the modal container has a role of `dialog`.
 - All elements required to operate the modal are descendants of the element that has role `dialog`.
@@ -284,7 +284,7 @@ The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/
 - The modal has either:
   - A value set for the `aria-labelledby` property that refers to a visible modal title.
   - A label specified by `aria-label`.
-- Optional `aria-describedby` property is set on the element with the `dialog` role to indicate which element or elements in the dialog contain content that describes the primary purpose or message of the dialog. Read the full guidance at [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+- Optional `aria-describedby` property is set on the element with the `dialog` role to indicate which element or elements in the dialog contain content that describes the primary purpose or message of the dialog. Read the full guidance at [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
 #### `<dialog>` Element
 
@@ -358,5 +358,5 @@ It is possible for modal contents to contain triggers that present even more mod
   - [Dialog (Modal) — Reach UI](https://reach.tech/dialog)
   - [Dialog (Modal) - Headless UI](https://headlessui.com/react/dialog)
 - Aria Authoring Practices Guide (APG)
-  - [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/)
+  - [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
   - [Alert and Message Dialogs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/)
