@@ -474,6 +474,37 @@
     "title": "Like Button"
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1684108800,
+    "difficulty": "medium",
+    "duration": 40,
+    "excerpt": "Build a memory game where the player needs to match pairs of cards.",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/memory-game/react"
+      }
+    ],
+    "href": "/questions/user-interface/memory-game",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "memory-game",
+    "title": "Memory Game"
+  },
+  {
     "author": "sunny-dhillon",
     "companies": [],
     "created": 1681430400,

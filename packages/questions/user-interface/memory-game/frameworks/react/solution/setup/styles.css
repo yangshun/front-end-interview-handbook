@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.grid {
+  --size: 60px;
+
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 6px;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #eee;
+  overflow: hidden;
+  position: relative;
+}
+
+.card:disabled {
+  color: #000;
+}
+
+.card--revealed {
+  background: transparent;
+  border-color: transparent;
+}

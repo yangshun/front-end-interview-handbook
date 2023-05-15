@@ -1,0 +1,41 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### Props
+
+The default memory game shown in the diagram is 4 x 4 and the goal is to match pairs. In order to make the game customizable, we can introduce the following props:
+
+- `rows`: Number of rows.
+- `cols`: Number of columns.
+- `matchCount`: How many of the same images there are. The default is 2 but making it a parameter is a positive signal.
+- `delay`: Delay before selected non-matching cards are flipped back over.
+
+Since these parameters can be combined in ways that make the game unplayable, we can do a basic check of whether the total number of cells is divisible by the match count.
+
+### State
+
+- `cards`: The game board can be represented as a one-dimensional array called `cards`, containing the correct number of groups of unique emojis. On a 4 x 4 board, the array has a length of 16 and `cards[4]` will correspond to row 2 column 1. This array is generated during initialization and not modified throughout the duration of the game. It's only regenerated when the user chooses to play again.
+- `flipped`: An array of indices to track which cards are flipped. This array excludes matched cards.
+- `matched`: A set of images (emojis) that have been matched.
+- `waitTimer`: A ref to track the timer ID for whether to automatically flip back the cards after `delay` duration.
+- `gameCompleted`: Boolean value to represent whether the game is completed.
+
+### Rendering
+
+CSS grid is used to render the cards in a 2-dimensional format. It's a great choice because you can render the cards as a single list of DOM elements but with the right CSS grid settings, they can be displayed in a rows x cols layout.
+
+### Card Generation
+
+The following process can be used for generating the cards:
+
+1. Make N groups of `matchCount` emojis where N = total cells / `matchCount` in a single array.
+1. Shuffle the array.
+
+### `onFlip`
+
+For the most part, `onFlip` adds cards to the `selected` array. If there aren't enough cards to make a decision whether there's a match yet, the function terminates. When enough cards are selected, check whether all the selected cards are similar. If so, we can add the selected emoji to the `matched` set and reset `selected` to be empty so that the player can continue with the game. If there isn't a match, we wait for `delay` duration to pass before flipping the selected cards back over. We use a `useRef` for `waitTimer` so that we can access the same timerID value in the `setTimeout` callback. If we used `useState`, we could be accessing stale timer ID value due to closures. This is an extremely common source of bugs when using `setTimeout` or `setInterval` within React components, read [this post by Dan Abramov](https://overreacted.io/making-setinterval-declarative-with-react-hooks/) to learn more.
+
+Another scenario we have to handle is when the user selects more cards before the `delay` has passed. `waitTimer` has to be cleared and the currently unmatched open cards have to be flipped back.
+
+<TestCases />
