@@ -1,0 +1,22 @@
+## Test Cases
+
+1. Game Start
+   - Verify that the round starts when the "Start" button is clicked.
+   - Check that the timer starts counting down from the specified time limit.
+   - Ensure that moles start appearing randomly in the holes.
+1. Whacking Moles
+   - Test that `molesAtOnce` moles appear every `molesAppearingInterval`.
+   - Click on a visible mole and verify that the mole disappears.
+   - Confirm that the score increases by one when a mole is successfully "whacked".
+   - Ensure that clicking a hole that is not visible does not affect the score.
+1. Game End
+   - Verify that the round ends when the timer reaches zero.
+   - Check that the moles stop appearing once the game ends.
+   - Ensure that the final score is displayed correctly.
+   - Test that the "Play Again" button shows up after the game ends and clicking on it starts a new round.
+1. Game Logic
+   - Verify that moles appear and disappear randomly from different holes.
+   - Test the time limit functionality by setting different time limits and verifying that the game ends accordingly.
+   - Verify that hitting a mole adds one to the score and missing a mole does not affect the score.
+1. Edge Cases
+   - Test the game behavior when unexpected input or invalid actions occur, such as clicking rapidly on multiple holes.

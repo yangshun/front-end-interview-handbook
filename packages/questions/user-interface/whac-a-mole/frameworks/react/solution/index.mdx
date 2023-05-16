@@ -1,0 +1,48 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Props
+
+The default whac-a-mole game shown in the diagram is 3 x 3 with predefined durations for the round and how long the mole appears for. In order to make the game customizable, we can introduce the following props:
+
+- `rows`: Number of rows.
+- `cols`: Number of columns.
+- `roundDuration`: How long the round lasts.
+- `molesAtOnce`: How many moles appear at once. In arcades, there could be multiple moles appearing at the same time for increased difficulty levels.
+- `molesAppearingInterval`: How long the moles show up for.
+
+### State
+
+The game board can be represented as a one-dimensional array of indices. On a 3 x 3 board, the array has a length of 9 and index 3 will correspond to row 2 column 1.
+
+- `visible`: A set of indices determining the positions of the visible moles. This is generated every `molesAppearingInterval`.
+- `score`: Current score.
+- `running`: Whether the game is in progress.
+- `timeLeft`: Time left for the current round, in seconds.
+
+### Rendering
+
+CSS grid is used to render the cells in a 2-dimensional format. It's a great choice because you can render the cells as a single list of DOM elements but with the right CSS grid settings, they can be displayed in a `rows` x `cols` layout.
+
+### Generating Moles
+
+Every `molesAppearingInterval`, regardless of how many moles are visible on the page, we should generate positions for the next set of `molesAtOnce` moles. We can can randomly generate indices `molesAtOnce` times, but when `molesAtOnce` > 1, there's a slim chance that that the generated indices are repeated and you need to randomly generate again.
+
+An elegant way to generate unique indices is to create an array of indices, shuffling the array, and taking the first `molesAtOnce` values. It requires O(N) space but this approach is arguably simpler to understand and implement correctly.
+
+When using `setInterval` within React components, an extremely common source of bugs is accessing stale prop/state values. Hence the dependent variables are used in the `useEffect` dependency array to re-run the intervals when dependent variables are updated. Read [this post by Dan Abramov](https://overreacted.io/making-setinterval-declarative-with-react-hooks/) to learn more.
+
+### `startGame`
+
+This function is called at the start of a new round and a countdown timer is started. It starts an interval timer that runs every second, decrementing the `currTimeLeft` by 1 every second until `currTimeLeft` reaches 0.
+
+Note that the timer should also be cleared upon unmounting, hence we can assign the timerId to a `countdownTimerId` ref and clear it when the component unmounts. Otherwise the timer could be still running and attempting to update component state even when the component is no longer on-screen.
+
+### `whackMole`
+
+This function removes indices from the `visible` set when the correct cells are clicked, if they are present in the set, and increments the score by 1.
+
+<TestCases />
+<Notes />

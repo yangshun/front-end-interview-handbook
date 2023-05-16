@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  --background-color: salmon;
+
+  background-color: var(--background-color);
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+.app {
+  box-sizing: border-box;
+  padding-block: 16px;
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.header {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.round-information {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.start-button {
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.grid {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  justify-content: center;
+}
+
+.grid__cell {
+  border: none;
+  background-color: var(--background-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid__cell-contents {
+  --width: 0;
+  --height: 0;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--width);
+  height: var(--height);
+  user-select: none;
+}
+
+.mole-hill {
+  --width: 100%;
+  --height: 30%;
+  transform: translate(-50%, 10px);
+}
+
+.mole-head {
+  --width: 100%;
+  --height: 70%;
+
+  transform: translate(-50%, 100%);
+  transition: transform 100ms ease-in;
+  cursor: pointer;
+}
+
+.mole-head--visible {
+  transform: translate(-50%, 0%);
+}
