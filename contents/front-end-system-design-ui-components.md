@@ -82,7 +82,7 @@ Deciding what data to put in state is essential to doing well for this portion. 
 
 ### Interface definition (API)
 
-The key idea behind components is for them to be reused and abstract complexities. Good components are designed well such that they can be reused in multiple scenarios and users do not have to know how they work internally before using them. For components, API refers to configuration options which would the component developer would expose to other developers to specify.
+The key idea behind components is for them to be reused and abstract complexities. Good components are designed in a way that they can be reused in multiple scenarios, and users do not have to know how they work internally before using them. In the case of components, API refers to configuration options that the component developer would expose to other developers for specification.
 
 - What are the configuration options you would allow for the component? (`props` in React). What would be reasonable defaults?
 - Follow the [Open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) - the component should be open for extension but closed for modification.
@@ -101,7 +101,7 @@ The key idea behind components is for them to be reused and abstract complexitie
 
 ### Optimization and deep dives
 
-With the basics of the component covered, we can dive into specific areas where the component might need special attention to. Note that there almost definitely won't be enough time to cover every area, and not every area will be very relevant to the component at hand.
+With the basics of the component covered, we can now delve into specific areas that may require special attention. It is important to note that due to time constraints, it may not be possible to cover every area, and not all areas may be highly relevant to the specific component at hand.
 
 Showing knowledge about these areas and being able to dive deep into them are traits of senior front end engineers.
 
