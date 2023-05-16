@@ -42,6 +42,7 @@ Amazon is known to focus a lot on behavioral questions and their Leadership Prin
 - Implement a star rating widget.
   - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/star-rating)
 - Implement tic-tac-toe.
+  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
 - Recreate an adaptive layout with flexbox. Ensure accessibility.
 - Implement a chess board with movable pieces.
 - How do you render text on a banner image?

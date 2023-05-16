@@ -33,6 +33,7 @@ Refer to the [full official Google Interview Preparation Guide for Front End Sof
 
 - Design a slider component.
 - Design a Tic-Tac-Toe game/design an algorithm for Tic-Tac-Toe game.
+  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
 - Implement nested checkboxes (when the parent is checked, children are checked and vice versa. Use `<input type="checkbox">`). Similar to [Indeterminate checkboxes](https://css-tricks.com/indeterminate-checkboxes/).
 - Design a webpage which can auto load new posts when you reach the bottom of the page by using JavaScript. You may use AJAX and JavaScript event listeners.
 - Write a UI using HTML, CSS, JavaScript that allows uses to enter the number of rows and columns in text input fields within a form and renders a table.
@@ -44,7 +45,6 @@ Refer to the [full official Google Interview Preparation Guide for Front End Sof
 | 2   | 7   | 10  | 15  | 18  |
 | 3   | 6   | 11  | 14  | 19  |
 | 4   | 5   | 12  | 13  | 20  |
-
 
 ## Trivia
 

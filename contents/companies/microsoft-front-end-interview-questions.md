@@ -12,6 +12,7 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## JavaScript
 
 - Tic-tac-toe implementation using vanilla JavaScript, HTML and CSS.
+  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
 - Create a chat interface like Microsoft teams.
 - Use OOP to implement a Chess game.
 

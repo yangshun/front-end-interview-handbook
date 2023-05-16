@@ -13,6 +13,7 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 - Implement a typeahead. [Source](https://leetcode.com/discuss/interview-question/1220887/Twitter-Frontend-Phone-Screen)
 - Add features to a tic-tac-toe game.
+  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
 
 ## Trivia
 
