@@ -26,6 +26,7 @@ describe('findIndex', () => {
   });
 
   test('handles out of range index', () => {
+    expect(findIndex([5, 12, 8, 130, 44], (value) => value >= 12, 5)).toBe(-1);
     expect(findIndex([5, 12, 8, 130, 44], (value) => value >= 12, 10)).toBe(-1);
     expect(findIndex([5, 12, 8, 130, 44], (value) => value >= 12, -10)).toBe(1);
   });
