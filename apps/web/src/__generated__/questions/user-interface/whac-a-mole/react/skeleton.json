@@ -15,7 +15,7 @@
     "activeFile": "/App.js",
     "files": {
       "/App.js": {
-        "code": "import './styles.css';\n\nexport default function App() {\n  return (\n    <div>\n      {/* Optional: you can use emojis 🐻 or any alphabets instead. */}\n      <img src=\"https://www.greatfrontend.com/img/questions/whack-a-mole/mole-head.png\" />\n      <img src=\"https://www.greatfrontend.com/img/questions/whack-a-mole/mole-hill.png\" />\n    </div>\n  );\n}\n"
+        "code": "import './styles.css';\n\nexport default function App() {\n  return (\n    <div>\n      {/* Optional: you can use emojis 🐻 or any alphabets instead. */}\n      <img src=\"https://www.greatfrontend.com/img/questions/whac-a-mole/mole-head.png\" />\n      <img src=\"https://www.greatfrontend.com/img/questions/whac-a-mole/mole-hill.png\" />\n    </div>\n  );\n}\n"
       },
       "/index.js": {
         "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"

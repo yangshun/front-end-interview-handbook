@@ -4,7 +4,7 @@
   "created": 1684108800,
   "difficulty": "medium",
   "duration": 40,
-  "excerpt": "Build a memory game where the player needs to match pairs of cards.",
+  "excerpt": "Build a memory game where the player needs to match pairs of cards",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
