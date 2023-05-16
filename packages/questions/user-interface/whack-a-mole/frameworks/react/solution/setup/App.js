@@ -143,7 +143,7 @@ function WhackAMole({
                 key={index}
                 onClick={() => whackMole(index)}>
                 <img
-                  src="https://www.greatfrontend.com/img/questions/whac-a-mole/mole-head.png"
+                  src="https://www.greatfrontend.com/img/questions/whack-a-mole/mole-head.png"
                   alt="Mole head"
                   className={[
                     'grid__cell-contents',
@@ -155,7 +155,7 @@ function WhackAMole({
                     .join(' ')}
                 />
                 <img
-                  src="https://www.greatfrontend.com/img/questions/whac-a-mole/mole-hill.png"
+                  src="https://www.greatfrontend.com/img/questions/whack-a-mole/mole-hill.png"
                   alt="Mole hill"
                   className="grid__cell-contents mole-hill"
                 />

@@ -3191,10 +3191,10 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/user-interface/whac-a-mole/react"
+        "href": "/questions/user-interface/whack-a-mole/react"
       }
     ],
-    "href": "/questions/user-interface/whac-a-mole",
+    "href": "/questions/user-interface/whack-a-mole",
     "importance": "low",
     "languages": [
       "html",
@@ -3208,8 +3208,8 @@
     "similarQuestions": [
       "memory-game"
     ],
-    "slug": "whac-a-mole",
-    "title": "Whac-a-Mole"
+    "slug": "whack-a-mole",
+    "title": "whack-a-mole"
   },
   {
     "author": null,
