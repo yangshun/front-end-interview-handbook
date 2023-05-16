@@ -16,7 +16,7 @@ Com os template literals, agora você pode criar a mesma saída assim:
 
 ```js
 const person = {name: 'Tyler', age: 28};
-console.log(`Oi, meu nome é ${person.name} e tenho ${person.age} anos!);
+console.log(`Oi, meu nome é ${person.name} e tenho ${person.age} anos!`);
 // 'Oi, meu nome é Tyler e eu tenho 28 anos!'
 ```
 
@@ -33,7 +33,7 @@ console.log('Esta é a linha um.\nEsta é a linha dois.');
 Ou se você quisesse dividi-lo em várias linhas no seu código, para que você não tenha que rolar até a direita no seu editor de texto para ler uma longa string, você também poderia escrever assim:
 
 ```js
-console.log('Esta é a linha um.\nEsta é a linha dois.');
+console.log('Esta é a linha um.\n' + 'Esta é a linha dois.');
 // Esta é a linha um.
 // Esta é a linha dois.
 ```

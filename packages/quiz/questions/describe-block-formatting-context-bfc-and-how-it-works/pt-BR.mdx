@@ -4,7 +4,7 @@ title: Descrever o contexto de formatação de bloco (BFC) e como ele funciona.
 
 Um Contexto de Formatação de Bloco (BFC) é parte da renderização visual do CSS em uma página da web, no qual os blocos são organizados. Elementos flutuantes, posicionados absolutamente, `inline-blocks`, `table-cells`, `table-captions` e elementos com `overflow` diferente de `visible` (exceto quando esse valor foi propagado para a área visível) estabelecem novos contextos de formatação de bloco.
 
-Saber estabelecer um contexto de formatação de blocos é importante, porque sem fazer isso, a caixa de contenção não conterá [contém filhos flutuados](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). Isso é semelhante ao colapso das margens, mas mais insidioso, pois você encontrará caixas inteiras colapsando de maneiras estranhas.
+Saber estabelecer um contexto de formatação de blocos é importante, porque sem fazer isso, a caixa de contenção não [conterá filhos floated](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). Isso é semelhante ao colapso das margens, mas mais insidioso, pois você encontrará caixas inteiras colapsando de maneiras estranhas.
 
 Um BFC é uma caixa HTML que atende pelo menos uma das seguintes condições:
 

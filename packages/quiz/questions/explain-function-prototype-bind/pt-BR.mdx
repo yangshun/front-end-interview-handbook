@@ -2,7 +2,7 @@
 title: Explique `Function.prototype.bind`
 ---
 
-> O método `bind()` cria uma nova função que, quando chamada, tem sua palavra-chave this definida para o valor fornecido, com uma determinada sequência de argumentos precedendo qualquer um fornecido quando a nova função é chamada.
+> O método `bind()` cria uma nova função que, quando chamada, tem sua palavra-chave `this` definida para o valor fornecido, com uma determinada sequência de argumentos precedendo qualquer um fornecido quando a nova função é chamada.
 
 _Source: [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)_
 
@@ -29,9 +29,9 @@ const boundGetAgeMary = john.getAge.bind(mary);
 console.log(boundGetAgeMary()); // 21
 ```
 
-No exemplo acima, quando o método `getAge` é chamado sem um objeto chamado (como `unboundGetAge`), o valor é 'indefinido' porque o valor 'this' dentro de 'getAge()' se torna o objeto global. `boundGetAge()` tem seu `this` ligado a `john`, portanto pode obter o `idade` de `john`.
+No exemplo acima, quando o método `getAge` é chamado sem um objeto chamado (como `unboundGetAge`), o valor é 'indefinido' porque o valor 'this' dentro de `getAge()` se torna o objeto global. `boundGetAge()` tem seu `this` ligado a `john`, portanto pode obter o `idade` de `john`.
 
-Podemos até usar `getAge` em outro objeto que não é `john`! `boundGetAgeMary` retorna a `idade` de `mary`.
+Podemos até usar `getAge` em outro objeto que não é `john`! `boundGetAgeMary` retorna o `age` (idade) de `mary`.
 
 ## Prática
 

@@ -13,11 +13,11 @@ Para entender as diferenças entre os dois, vamos ver o que cada função faz.
 
 ```js
 const a = [1, 2, 3];
-const doubled = a. orEach((num, index) => {
+const doubled = a.forEach((num, index) => {
   // Faça algo com num e/ou índice.
 });
 
-// doubled = indefinido
+// doubled = undefined
 ```
 
 ## `map`
@@ -27,7 +27,7 @@ const doubled = a. orEach((num, index) => {
 
 ```js
 const a = [1, 2, 3];
-const doubled = a. ap((num) => {
+const doubled = a.map((num) => {
   return num * 2;
 });
 

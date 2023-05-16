@@ -7,7 +7,7 @@ O navegador determina quais estilos mostrar em um elemento, dependendo da especi
 1.  `a` é se estilos inline estão sendo usados. Se a declaração de propriedade é um estilo embutido no elemento, `a` é 1, senão 0.
 2.  `b` é o número de seletores de ID.
 3.  `c` é o número de classes, atributos e seletores de pseudo-classes.
-4.  'd' é o número de tags e seletores de pseudo-elementos.
+4.  `d` é o número de tags e seletores de pseudo-elementos.
 
 A especificidade resultante não é uma única pontuação numérica, mas uma matriz de valores que podem ser comparados por coluna. Ao comparar seletores para determinar qual tem a especificidade mais alta, olhar da esquerda para a direita e comparar o maior valor em cada coluna. Portanto, um valor na coluna 'b' irá substituir valores em colunas 'c' e 'd', não importa o que eles possam ser. Como tal, especificidade de `0, 1, 0, 0` seria maior que um de `0, 0, 10, 10`.
 

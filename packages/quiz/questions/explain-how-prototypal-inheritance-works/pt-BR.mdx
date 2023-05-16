@@ -2,7 +2,7 @@
 title: Explique como funciona a herança de protótipos
 ---
 
-Essa é uma pergunta extremamente comum em entrevistas de JavaScript. Todos os objetos JavaScript têm uma propriedade `__proto__` com exceção de objetos criados com `object.create(null)`, ou seja, uma referência a outro objeto, que é chamado de "protótipo" do objeto. Quando uma propriedade é acessada em um objeto e se a propriedade não é encontrada nesse objeto, o motor de JavaScript olha para o objeto `__proto__`, e o `__proto__` do **proto**`e assim por diante, até que encontre a propriedade definida em um dos`**proto**\`s ou até chegar ao final da cadeia de protótipos. Este comportamento simula a herança clássica, mas é realmente mais de [delegação do que herança](https://davidwalsh.name/javascript-objects).
+Essa é uma pergunta extremamente comum em entrevistas de JavaScript. Todos os objetos JavaScript têm uma propriedade `__proto__` com exceção de objetos criados com `object.create(null)`, ou seja, uma referência a outro objeto, que é chamado de "protótipo" do objeto. Quando uma propriedade é acessada em um objeto e se a propriedade não é encontrada nesse objeto, o motor de JavaScript olha para o objeto `__proto__`, e o `__proto__` do `__proto__` e assim por diante, até que encontre a propriedade definida em um dos `__proto__`s ou até chegar ao final da cadeia de protótipos. Este comportamento simula a herança clássica, mas é realmente mais de [delegação do que herança](https://davidwalsh.name/javascript-objects).
 
 ## Exemplo de Herança de Protótipos
 

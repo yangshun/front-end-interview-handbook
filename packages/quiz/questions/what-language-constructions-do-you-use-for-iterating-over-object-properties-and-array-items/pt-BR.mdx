@@ -28,13 +28,13 @@ Observe que `obj.hasOwnProperty()` não é recomendado porque não funciona para
 
 ```js
 Object.keys(obj).forEach((property) => {
-  console.log(propriedade);
+  console.log(property);
 });
 ```
 
 `Object.keys()` é um método estático que retornará um array com todos os nomes de propriedade enumerados do objeto que você passa. Uma vez que `Object.keys()` retorna um array, você também pode usar as abordagens de iteração de matriz listadas abaixo para iterar através dele.
 
-_Referência: [Object.keys() - JavaScript ├MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)_
+_Referência: [Object.keys() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)_
 
 ### `Object.getOwnPropertyNames()`
 
@@ -46,7 +46,7 @@ Object.getOwnPropertyNames(obj).forEach((property) => {
 
 `Object.getOwnPropertyNames()` é um método estático que listará todas as propriedades enumeradas e não-enumeráveis do objeto que você passou. Uma vez que `Object.getOwnPropertyNames()` retorna uma matriz, você também pode usar as abordagens de iteração de matriz listadas abaixo para percorrer a matriz.
 
-_Referência: [Object.keys() - JavaScript ├MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames)_
+_Referência: [Object.keys() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames)_
 
 ## Arrays
 
@@ -76,17 +76,17 @@ arr.forEach((element, index) => {
 
 O método `Array.prototype.forEach()` pode ser mais conveniente em algumas situações se você não precisar usar o índice e só precisar dos elementos individuais do array. No entanto, o lado negativo é que não se pode parar a iteração a meio do caminho e a função fornecida será executada uma vez nos elementos. Um laço `for` ou uma declaração `for...of` são mais relevantes quando é necessário um controle mais preciso sobre a iteração.
 
-_Referência: [Object.keys() - JavaScript ├MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)_
+_Referência: [Object.keys() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)_
 
 ### declaração `for...of`
 
 ```js
-for (let elemento of arr) {
+for (let element of arr) {
   console.log(element);
 }
 ```
 
-ES2015 introduz uma nova forma de iterar, o laço `para`, que permite repetir o loop sobre objetos que estejam em conformidade com o [protocolo iterável](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) como `String`, `Array`, `Set`, etc. Ele combina as vantagens do loop `for` e do método `forEach()`. A vantagem do laço `para` é que você pode parar dele, e a vantagem de `forEach()` é que ele é mais conciso que o laço `for` porque você não precisa de uma variável contadora. Com a declaração `para...of`, você obtém a capacidade de quebrar de um laço e uma sintaxe mais concisa.
+ES2015 introduz uma nova forma de iterar, o laço `para`, que permite repetir o loop sobre objetos que estejam em conformidade com o [protocolo iterável](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) como `String`, `Array`, `Set`, etc. Ele combina as vantagens do loop `for` e do método `forEach()`. A vantagem do laço `para` é que você pode parar dele, e a vantagem de `forEach()` é que ele é mais conciso que o laço `for` porque você não precisa de uma variável contadora. Com a declaração `for...of`, você obtém a capacidade de quebrar de um laço e uma sintaxe mais concisa.
 
 A maioria das vezes, prefira o método `.forEach`, mas realmente depende do que você está tentando fazer. Antes do ES2015, usamos laços `for` quando precisávamos encerrar prematuramente o laço usando `break`. Mas agora com ES2015, podemos fazer isso com a declaração `for...of`. Use laços `for` quando você precisar de mais flexibilidade, como incrementar o iterador mais de uma vez por laço.
 
