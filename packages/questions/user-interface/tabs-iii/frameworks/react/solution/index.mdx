@@ -6,7 +6,7 @@ The following explanation assumes you have a good understanding of [Tabs II's Re
 
 ### Listening for Keyboard Events
 
-Firstly it's crucial to know the difference between the `keypress` vs the `keydown` event. The `keypress` event is only fired when a key that produces a character value is pressed down. This would exclude the <kbd>Left</kbd>, <kbd>Right</kbd>, <kbd>Home</kbd>, and <kbd>End</kbd> keys which are requirements of this question. The `keypress` event is also deprecated and shouldn't be used. For these reasons, we should be using the `keydown` event. We'll add the `onKeyPress` prop to `<div role="tablist">`.
+Firstly it's crucial to know the difference between the `keypress` vs the `keydown` event. The `keypress` event is only fired when a key that produces a character value is pressed down. This would exclude the <kbd>Left</kbd>, <kbd>Right</kbd>, <kbd>Home</kbd>, and <kbd>End</kbd> keys which are requirements of this question. The `keypress` event is also deprecated and shouldn't be used. For these reasons, we should be using the `keydown` event. We'll add the `onKeyDown` prop to `<div role="tablist">`.
 
 To know which key is being pressed, we can use `event.key` or `event.code` on the event passed to `onKeyPress`'s callback. There are some [differences between `event.key` vs `event.code`](https://javascript.info/keyboard-events) but for the purposes of this question it doesn't make a difference and can be ignored. We'll just use `event.code`.
 
