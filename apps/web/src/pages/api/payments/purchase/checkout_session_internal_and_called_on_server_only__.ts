@@ -71,6 +71,7 @@ export default async function handler(
       stripe,
       planDetails,
       currency,
+      countryCode,
       unitAmountInStripeFormat,
       firstPromoterTrackingId,
     );
@@ -108,6 +109,7 @@ async function processSubscriptionPlan(
   stripe: Stripe,
   plan: PricingPlanDetails,
   currency: string,
+  countryCode: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
 ) {
@@ -115,8 +117,8 @@ async function processSubscriptionPlan(
 
   let priceObject: Stripe.Price | null = null;
 
-  // Only reuse price if in USD since it's our stable value.
-  if (currency === 'usd') {
+  // Only reuse US prices since most buyers come from there.
+  if (currency === 'usd' && countryCode === 'US') {
     const prices = await stripe.prices.search({
       query: `active:"true"
           AND product:"${productId}"
