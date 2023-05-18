@@ -71,7 +71,6 @@ export default async function handler(
       stripe,
       planDetails,
       currency,
-      countryCode,
       unitAmountInStripeFormat,
       firstPromoterTrackingId,
     );
@@ -109,53 +108,20 @@ async function processSubscriptionPlan(
   stripe: Stripe,
   plan: PricingPlanDetails,
   currency: string,
-  countryCode: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
 ) {
-  const { priceType, recurring } = plan;
+  const { recurring } = plan;
 
-  let priceObject: Stripe.Price | null = null;
-
-  // Only reuse US prices since most buyers come from there.
-  if (currency === 'usd' && countryCode === 'US') {
-    const prices = await stripe.prices.search({
-      query: `active:"true"
-          AND product:"${productId}"
-          AND currency:"${currency}"
-          AND type:"${priceType}"`,
-    });
-
-    priceObject =
-      prices.data.find(
-        (priceItem) =>
-          priceItem.recurring?.interval === recurring?.interval &&
-          priceItem.recurring?.interval_count === recurring?.count,
-      ) ?? null;
-  }
-
-  if (priceObject == null) {
-    console.info(
-      `Creating new price for ${recurring?.count} ${recurring?.interval} in ${currency}.`,
-    );
-    // No price found, creating new price.
-    priceObject = await stripe.prices.create({
-      currency,
-      product: productId,
-      recurring: {
-        interval: recurring!.interval!,
-        interval_count: recurring?.count,
-      },
-      unit_amount: unitAmountInCurrency,
-    });
-  } else {
-    console.info(
-      `Found existing price for ${recurring?.count} ${recurring?.interval} in ${currency}`,
-      priceObject,
-    );
-  }
-
-  const priceIdToUse: string = priceObject.id;
+  const priceObject = await stripe.prices.create({
+    currency,
+    product: productId,
+    recurring: {
+      interval: recurring!.interval!,
+      interval_count: recurring?.count,
+    },
+    unit_amount: unitAmountInCurrency,
+  });
 
   const { cancelUrl, successUrl } = checkoutSessionUrls(req, plan);
   const session = await stripe.checkout.sessions.create({
@@ -166,7 +132,7 @@ async function processSubscriptionPlan(
     customer: stripeCustomerId,
     line_items: [
       {
-        price: priceIdToUse,
+        price: priceObject.id,
         quantity: 1,
       },
     ],
