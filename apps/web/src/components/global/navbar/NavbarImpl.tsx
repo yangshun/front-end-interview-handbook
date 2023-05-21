@@ -465,18 +465,29 @@ function useNavLinks(
       type: 'popover',
     },
     {
-      href: '/hiring',
-      itemKey: 'hiring',
+      href: '/portfolio-review',
+      itemKey: 'portfolio-review',
       label: intl.formatMessage({
-        defaultMessage: "We're Hiring",
-        description: 'Link label to the hiring page',
-        id: 'xq16Hq',
+        defaultMessage: 'Portfolio Review',
+        description: 'Link label to the portfolio review page',
+        id: 'aQR8H4',
       }),
+      labelAddon: (
+        <Badge
+          label={intl.formatMessage({
+            defaultMessage: 'New!',
+            description: 'New service label',
+            id: 'Epnwgh',
+          })}
+          size="sm"
+          variant="success"
+        />
+      ),
       onClick: () => {
         gtag.event({
-          action: `nav.hiring.click`,
+          action: `nav.portfolio_review.click`,
           category: 'engagement',
-          label: "We're Hiring",
+          label: 'Portfolio Review',
         });
       },
       position: 'end',

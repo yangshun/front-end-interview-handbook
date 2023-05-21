@@ -747,6 +747,10 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
+  "Epnwgh": {
+    "defaultMessage": "New!",
+    "description": "New service label"
+  },
   "ExWrYc": {
     "defaultMessage": "Practice everything here.",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -1906,6 +1910,10 @@
   "aQKVD4": {
     "defaultMessage": "Contributed by ex-interviewers at",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
+  },
+  "aQR8H4": {
+    "defaultMessage": "Portfolio Review",
+    "description": "Link label to the portfolio review page"
   },
   "aZqFm4": {
     "defaultMessage": "Completed",
@@ -3102,10 +3110,6 @@
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
-  },
-  "xq16Hq": {
-    "defaultMessage": "We're Hiring",
-    "description": "Link label to the hiring page"
   },
   "xsLz0P": {
     "defaultMessage": "Security",
