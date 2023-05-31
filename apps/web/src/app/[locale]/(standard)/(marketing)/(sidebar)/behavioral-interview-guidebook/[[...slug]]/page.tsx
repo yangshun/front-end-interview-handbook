@@ -48,9 +48,10 @@ function requestToPaths({ params }: Props): Readonly<{
     process.cwd(),
     '..',
     '..',
+    'front-end-interview-handbook',
     'packages',
-    'guides',
     'behavioral-interview-guidebook',
+    'contents',
     routeToFile[mdxPath],
   );
   const pathname = `/behavioral-interview-guidebook/${mdxPath}`;
