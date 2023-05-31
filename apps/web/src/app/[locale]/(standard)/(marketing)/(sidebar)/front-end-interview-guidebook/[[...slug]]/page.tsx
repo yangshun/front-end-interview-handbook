@@ -28,9 +28,9 @@ const routeToFile: Record<string, string> = {
   resume: 'resume',
   'system-design': 'system-design',
   'user-interface': 'user-interface',
-  'user-interface-best-practices': 'user-interface-best-practices',
   'user-interface-components-api-design-principles':
     'user-interface-components-api-design-principles',
+  'user-interface-questions-cheatsheet': 'user-interface-questions-cheatsheet',
 };
 
 export async function generateStaticParams() {

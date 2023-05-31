@@ -571,10 +571,6 @@
     "defaultMessage": "Free",
     "description": "Label to indicate the item is free"
   },
-  "Ai0ech": {
-    "defaultMessage": "Best Practices for Building User Interfaces",
-    "description": "Best practices for building UI during front end interviews"
-  },
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
@@ -3143,6 +3139,10 @@
     "defaultMessage": "Logos provided by Clearbit",
     "description": "Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
   },
+  "yXzFuf": {
+    "defaultMessage": "UI Questions Cheatsheet",
+    "description": "Best practices for building UI during front end interviews"
+  },
   "yeGTq1": {
     "defaultMessage": "Reset Password",
     "description": "Title of Password Reset page"
@@ -3170,10 +3170,6 @@
   "zIQsmk": {
     "defaultMessage": "Terms of Service",
     "description": "Link to terms of service page"
-  },
-  "zIthEX": {
-    "defaultMessage": "Additional Tips",
-    "description": "Additional tips for front end interviews"
   },
   "zRNA7X": {
     "defaultMessage": "Coding Questions",

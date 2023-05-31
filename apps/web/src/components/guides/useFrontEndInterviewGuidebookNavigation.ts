@@ -106,6 +106,25 @@ function useCodingSectionFormatItems() {
         id: 'MdGGzJ',
       }),
     },
+    {
+      href: `${basePath}/user-interface-questions-cheatsheet`,
+      slug: 'user-interface-questions-cheatsheet',
+      title: intl.formatMessage({
+        defaultMessage: 'UI Questions Cheatsheet',
+        description:
+          'Best practices for building UI during front end interviews',
+        id: 'yXzFuf',
+      }),
+    },
+    {
+      href: `${basePath}/user-interface-components-api-design-principles`,
+      slug: 'user-interface-components-api-design-principles',
+      title: intl.formatMessage({
+        defaultMessage: 'UI Components API Design Principles',
+        description: 'User Interface components API design principles',
+        id: '0nGuf2',
+      }),
+    },
   ];
 
   return codingSectionFormatItems;
@@ -186,34 +205,6 @@ export function useFrontEndInterviewGuidebookNavigation() {
           defaultMessage: 'Preparation by Question Type',
           description: 'Preparing by front end interview question format',
           id: 'ZB+f95',
-        }),
-      },
-      {
-        links: [
-          {
-            href: `${basePath}/user-interface-best-practices`,
-            slug: 'user-interface-best-practices',
-            title: intl.formatMessage({
-              defaultMessage: 'Best Practices for Building User Interfaces',
-              description:
-                'Best practices for building UI during front end interviews',
-              id: 'Ai0ech',
-            }),
-          },
-          {
-            href: `${basePath}/user-interface-components-api-design-principles`,
-            slug: 'user-interface-components-api-design-principles',
-            title: intl.formatMessage({
-              defaultMessage: 'UI Components API Design Principles',
-              description: 'User Interface components API design principles',
-              id: '0nGuf2',
-            }),
-          },
-        ],
-        title: intl.formatMessage({
-          defaultMessage: 'Additional Tips',
-          description: 'Additional tips for front end interviews',
-          id: 'zIthEX',
         }),
       },
     ],
