@@ -1,0 +1,160 @@
+---
+title: Front End User Interface Questions Cheatsheet
+description: Top tips to improve the user interfaces you have to build during front end / web developer interviews - Code structure, managing state, accessibility and more.
+---
+
+Here are some tips you can use to improve the user interfaces you have to build/design during front end interviews. These can be applied to both [User Interface Coding Interviews](/front-end-interview-guidebook/user-interface) and [Front End System Design Interviews](/system-design/types-of-questions).
+
+## General
+
+- **Break down the problem**: Break down the problem into stages/milestones that build on top of each other and write your code progressively.
+- **Test frequently**: Test the UI in the browser after you complete every feature so that you can catch bugs early. Bugs caught earlier are easier to fix. Make sure the current feature is working before moving on to the next feature.
+- **Use JavaScript frameworks if possible**: Your life will be very hard if you choose to build complicated UI using Vanilla JavaScript as the code can get very long and messy quickly. We recommend building apps and games using a framework if possible.
+- **Think ahead and plan accordingly**: Think about what features your interviewer might ask you to add next. Design your code in a way that makes it easy for new features to be added.
+
+## Component Organization
+
+How do you structure your code?
+
+- **Adopt the [Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern/)**: To achieve good decoupling, rendering code should be agnostic to the source of data. Separate components into an outer one that provides the data and an inner stateless one that renders the view based on the data. This makes it easy for the view to switch from local component/app state to data loaded from the network and vice versa, you only have to change the outer component and the inner component can be used as-is.
+- **Break down the app into subcomponents**: If the UI has multiple parts, break the UI into smaller components and identify the props/state needed by each component.
+- **Minimal API surface area**: Don't pass excess data to inner components which don't need them.
+- **Component instantiation**: When asked to build UI components, define APIs (usually functions) to allow creating multiple independent instances of the components along with configurable options and defaults. Avoid writing code (e.g. relying on global variables) that prevents separate UI component instances from being created.
+  - **Vanilla JavaScript**: Create a function that takes in a DOM element (the container element) and an options object. Within the function you can dynamically create DOM elements and append to the container element. Another source of inspiration for a component API is [jQuery UI](https://jqueryui.com), but that has a dependency on jQuery.
+  - **Other JavaScript UI frameworks**: Most modern JavaScript UI frameworks like React forces you to think in terms of components by default.
+
+## State Design
+
+State is data that changes over time in your UI, commonly due to user interactions or background events (network request response, passing of time, WebSocket events).
+
+Most UI questions in interviews will require state and designing the state well is paramount.
+
+- **Determine the minimum state needed in your UI**: The smaller the state, the easier it is to read and understand the code -> lower likelihood for bugs.
+  - Identify essential state vs derived state. Derived state is state that can be calculated from essential state.
+- **Separate rendering code vs data management code**: Make the UI a function of your data and separate your code into two groups (rendering code and data management code) for better readability. If you use JavaScript frameworks such as React, you will more or less be forced to do so.
+- **Use the state-reducer pattern for complex state interactions**: If the question requires many state fields and certain actions require changing multiple fields at once, use a [reducer to consolidate state update logic](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer). First popularized by Redux, the state-reducer pattern encourages you to determine the state of your UI, actions that can be taken, and how to combine actions with state to derive the next state. If you are using React, you can achieve this pattern via the [`useReducer` React hook](https://reactjs.org/docs/hooks-reference.html#usereducer). Redux is usually overkill for interviews and `useReducer` should be sufficient.
+
+[React's](https://beta.reactjs.org) docs on ["Managing State"](https://beta.reactjs.org/learn/managing-state) is an excellent resource on how to design and use component state correctly. Some of the ideas mentioned aren't specific to React and can be applied to any UI frameworks.
+
+## JavaScript
+
+Is your JavaScript using modern language syntax and good practices while avoiding bad practices?
+
+- **Use a style guide**: Use a JavaScript style guide like [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). During development, static analysis tools like [ESLint](https://eslint.org) can help you to enforce some of these good practices. However, these tools might not be available during interviews. Try to get accustomed to writing code with good coding style without help from a tool.
+- **Leave the global environment alone**: This applies to Vanilla JavaScript scenarios. Avoid polluting global scope by declaring global variables and global functions. Write an Immediately-Invoked Function Expression (IIFE) and put all custom code within it.
+
+## HTML
+
+Are you writing semantic HTML with the right attributes?
+
+- **Semantic tags**: Use heading tags for titles, button tags for interactive elements, list tags for sequential elements, and so on. Don't use `<div>`s for everything!
+- **Heading hierarchy**: Ensure heading tags have a hierarchy and there's not more than one `<h1>` in the DOM.
+- **Interactive elements**: Use `<button>` for elements that require interaction. Resist adding click handlers to `<div>` and `<span>`s.
+
+### Forms
+
+Forms are complex on its own and deserves its own section.
+
+- **Link labels and inputs**: `<input>`s should be linked to `<label>`s using `id` and `for`.
+- **Wrap inputs in a form**: `<input>`s should be wrapped in a `<form>` so that clicking on buttons and hitting Enter will submit the form. Remember to add `event.preventDefault()` if the network request is meant to be made using Ajax.
+- **Inputs should have appropriate types**: `<input>`s should have appropriate `type` like `email`, `password`, `number`, etc.
+- **Leverage native HTML form validation**: Where possible, use the `required` attribute combined with other attributes like `pattern`, `min`, `max`, and so on.
+
+## CSS/Styling
+
+Is your CSS written in a scalable and easy-to-understand manner?
+
+- **Write Vanilla CSS**: Learn to write CSS without reliance on preprocessors like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/). Not all environments will allow using processors and interview questions are likely small and do not really benefit from the features CSS preprocessors bring. The most useful feature of CSS processors is the use of variables, which is available natively via CSS custom properties (variables).
+- **Adopt a CSS naming convention**: Consider adopting a CSS naming methodology like [Block Element Modifier](https://getbem.com) when writing your classes.
+- **Avoid `#id` selectors in components**: When building UI components meant to be reused (e.g. buttons, tabs, menus, modals, etc), avoid using `#id` selectors in the HTML as `id`s are meant to be globally unique but you can have multiple instances of the component.
+- **Organize your CSS**: Read about how to [organize your CSS in big projects](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing) and how to have a [Scalable and Modular Architecture for CSS](http://smacss.com/).
+
+## User Experience
+
+Does your UI provide a great user experience?
+
+- **Mobile-friendliness**: Check if you need to make your UI work well on mobile.
+  - CSS media queries can be used to render a different layout on mobile.
+  - Make interactive elements like buttons large enough to be pressed (recommend at least 44 x 44 px) and spaced widely enough.
+- **Error states**: Reflect errors promptly and clearly — form validation errors, network request errors.
+- **Handle rendering images of different dimensions**: Make your UI work for rendering images of all sizes/dimensions yet preserving the original aspect ratios.
+  - Use CSS `background-image` together with `background-position: contain` so that the image fits within your defined area. If it is ok for the image to be cropped off (e.g. for gradient backgrounds), use `background-position: cover`.
+  - `<img>` tags have a similar `object-fit` property with `contain` and `cover` values.
+- **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
+
+## Network
+
+Does your UI handle the unpredictable nature of network requests and conditions?
+
+- **Reflect network request states**: If the UI involves making network requests, clearly show the pending/success/failure state of the requests
+  - **Pending**: Disable fields/buttons, show a spinner.
+  - **Error**: Show an error message.
+  - **Success**: Update the UI and/or show a success message.
+- **Race conditions**: A common reason is due to parallel network requests where the response order is not guaranteed. A request made later could receive a response earlier. If your UI is susceptible to this, you can keep track of the latest requests and ignore the results from the earlier ones. Alternatively, make it such that your UI cannot fire multiple network requests at once, e.g. by disabling elements which trigger network requests after they're clicked.
+- **Prevent duplicate requests**: Buttons should be disabled after submission to avoid making duplicate network requests.
+- **Consolidating requests**: If the UI is making too many network requests, you can:
+  - **Debounce/throttle**: Rate limit the number of network requests fired.
+  - **Batch requests**: Group requests together and make only one single request. This requires the server side to support such a format.
+- **Caching**: If a request with the same parameters has been made recently, can you reuse the previous response and save on a network round trip?
+- **Request timeouts**: You might want to artificially show that the request has failed (timed out) if the request doesn't receive a response after a stipulated duration.
+- **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
+
+## Accessibility (a11y)
+
+Handling accessibility in UI is a huge plus and in some cases a requirement for senior engineers.
+
+- Can you use the UI with the keyboard only?
+- Can you use your UI component with a screen reader?
+- Can your UI component work without color?
+- Can your UI component work without sound?
+
+Source: [Accessible UI Components for the web](https://medium.com/@addyosmani/accessible-ui-components-for-the-web-39e727101a67)
+
+- **Screen readers, ARIA roles, states, and properties**:
+  - Add the right `aria-role`s for custom built elements not built using custom HTML tags.
+  - Use `aria-label`s to describe elements where text is not shown (e.g. icon-only buttons).
+  - Link error messages elements with the elements responsible for them via `aria-describedby`/`aria-errormessage`.
+  - **Image `alt` text**: Add `alt` attribute to `<img>` elements so that screen readers can describe the image.
+- **Keyboard interactions**
+  - Add the `tabindex` attribute to elements you want to be focusable via keyboard tabbing.
+  - Elements can be triggered via keyboard.
+  - Check that the focus order makes sense.
+- **Visual issues**
+  - **Color contrast**: Sufficient color contrast between text/images and the background.
+  - **Size of elements**: font size, interactive element size should be large enough for their intended medium.
+
+web.dev by Google has a [free in-depth course on accessibility](https://web.dev/learn/accessibility/) which we highly recommend.
+
+## Edge Cases
+
+There's probably not enough time to handle all edge cases scenarios in your code during the interview, but it'd be good to mention them to the interviewer for brownie points.
+
+- **Handle long strings**: Strings in UI (e.g. headings/button labels) can cause the UI to behave weirdly such as overflowing and affect the position of surrounding elements. Long strings can be a result of user input or translations.
+- **Empty states**: Show an empty state message/placeholder to indicate absence of contents e.g. when the list is empty. Showing nothing might make the user think that there's a pending network request and that data is still being fetched.
+- **Too many items in a list**: Showing too many items on a single page can lead to poor UX (user has to scroll a lot) and poor performance in terms of responsiveness and memory consumption.
+  - **Pagination**: Break up a long list of items into multiple pages.
+  - [**Virtual lists**](https://www.patterns.dev/posts/virtual-lists): Rendering only visible rows of content in a dynamic list instead of the entire list.
+  - Truncate the excess content and show an ellipsis. The `word-break` CSS property will come in handy useful.
+  - Limit the content to the first X characters/words and hide the excess content behind a "Show More" button.
+
+## Performance
+
+- **Throttle/debounce**: Throttle and debounce are rate limiting techniques to prevent unnecessary operations. This technique can be used for operations which aren't super time-sensitive like network requests and scroll/resizing event callbacks.
+- **Caching**: The results of duplicate computations / network requests can be cached in browser memory/storage and not repeated.
+- **On demand loading**: Lazy load data/component code only when they are needed, instead of loading all at the start.
+- **Prefetch/preload data**: Reduce network latency by prefetching/preloading data right before it is needed so that updates appear instantly.
+- **Too many items in a list**: Refer to the point under "Edge Cases" above.
+
+## Security
+
+- **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- **Output encoding for "URL Contexts"**: If user-supplied input can be used in URL query parameters, use `encodeURIComponent` to prevent unintended values from becoming part of the URL (e.g. extra query parameters).
+- **Cross Site Request Forgery**: Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).
+
+## Internationalization (i18n)
+
+Does your UI work for multiple languages? How easy is it to add support for more languages?
+
+- **Avoid hardcoding of labels in a certain language**: Some UI components have label strings within them (e.g. image carousel has labels for prev/next buttons). It'd be good to allow customization of these label strings by making them part of component props/options.
+- **UI can render long strings**: Refer to the section above on rendering long strings.
+- **Right-to-left languages**: Some languages (e.g. Arabic, Hebrew) are read from right-to-left and the UI has to be flipped horizontally. Use [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) to make your layout work for different [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes).
