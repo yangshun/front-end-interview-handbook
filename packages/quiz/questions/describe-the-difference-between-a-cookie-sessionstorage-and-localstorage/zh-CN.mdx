@@ -2,13 +2,19 @@
 title: 描述cookie、 `sessionStorage` 和 `localStorage` 之间的差异。
 ---
 
+Local storage is useful for storing data that the user will need to access later, such as offline data, because it stores the data in the browser and the system. This data will persist even if the user closes and reopens the browser and is accessible by other sites. 
+
+Session storage is a great way to improve the performance of your web applications. It stores data locally on the browser but is specific to (and only accessible by) the respective site/browser tab and is only available while the user is on the site/tab. This is a more secure storage method due to the restrictive access and promotes better site performance due to reduced data transfer between server and client. 
+
+Cookies are a good choice for storing data that should not be persisted for a long time, such as session IDs. Cookies allow you to set an expiry time at which point it would be deleted. Cookies can only be smaller sized data compared to the other two storage methods.
+
 ## 相似性
 
 Cookies、`localStorage`和`sessionStorage`都是:
 
 -   客户端的存储机制。 这意味着客户端可以阅读和修改这些值。
 -   基于键值的存储。
--   他们只能存储作为字符串的值。 对象必须序列化为字符串 (`JSONstringify()`) 才能存储。
+-   他们只能存储作为字符串的值。 对象必须序列化为字符串 (`JSON.stringify()`) 才能存储。
 
 ## 差异
 
