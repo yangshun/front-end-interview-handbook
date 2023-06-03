@@ -9,4 +9,5 @@ export const DSAQuestions = new Set([
   'selection-sort',
   'binary-search',
   'depth-first-search',
+  'breadth-first-search',
 ]);

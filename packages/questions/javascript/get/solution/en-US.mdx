@@ -6,7 +6,7 @@ The tricky part of the question is to see that some form of iteration/recursion 
 
 ## Solution
 
-The first step is to split up the path by the delimiter, which is a period. Then we have to recursively traverse the object given each token in the path, which can be done either with `while`/`for` loops or recursions. The looping should stop when a `null`-ish value is occurred.
+The first step is to split up the path by the delimiter, which is a period. Then we have to recursively traverse the object given each token in the path, which can be done either with `while`/`for` loops or recursions. The looping should stop when a `null`-ish value is encountered.
 
 Array index accessing doesn't require special handling and can be treated like accessing string-based fields on objects.
 

@@ -363,7 +363,7 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
-    "title": "Descreva a diferença entre um cookie, `sessionStorage` e `localStorage`.",
+    "title": "Descreva a diferença entre cookie, `sessionStorage` e `localStorage`.",
     "subtitle": null,
     "topics": [
       "html",
@@ -1957,7 +1957,7 @@
     "similarQuestions": [],
     "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
     "title": "O que é `\"use strict\";`?",
-    "subtitle": "Quais são as vantagens e desvantagens de usar o Ajax?",
+    "subtitle": "Quais são as vantagens e desvantagens de usa-lo?",
     "topics": [
       "javascript"
     ]
@@ -2062,7 +2062,7 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
-    "title": "Qual é a diferença entre um elemento `relative`, `fixed`, `absolute` e `static`-ally posicionado?",
+    "title": "Qual é a diferença entre um elemento com posicionamento `relative`, `fixed`, `absolute` e `static`?",
     "subtitle": null,
     "topics": [
       "css"
@@ -2192,7 +2192,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-host-objects-and-native-objects",
-    "title": "Qual é a diferença entre objetos hospedeiros e objetos nativos?",
+    "title": "Qual é a diferença entre objetos do host e objetos nativos?",
     "subtitle": null,
     "topics": [
       "javascript"
@@ -2375,7 +2375,7 @@
     "similarQuestions": [],
     "slug": "why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
     "title": "Por que você usaria algo como o evento `load`?",
-    "subtitle": "Este evento tem desvantagens? Você conhece alguma alternativa, e por que usaria essas?",
+    "subtitle": "Este evento tem desvantagens? Você conhece alguma alternativa, e por que as usaria?",
     "topics": [
       "javascript"
     ]
@@ -2400,7 +2400,7 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-you-might-want-to-create-static-class-members",
-    "title": "Por que você pode querer criar alunos estáticos?",
+    "title": "Por que você pode querer criar membros de classe estáticos?",
     "subtitle": null,
     "topics": [
       "javascript"

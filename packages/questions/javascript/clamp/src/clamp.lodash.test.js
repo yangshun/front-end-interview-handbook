@@ -25,7 +25,7 @@ describe('clamp', () => {
     });
   });
 
-  describe('out of range', () => {
+  describe('out of bound', () => {
     test('should clamp negative numbers', () => {
       expect(clamp(-10, -5, 5)).toBe(-5);
       expect(clamp(-10.2, -5.5, 5.5)).toBe(-5.5);

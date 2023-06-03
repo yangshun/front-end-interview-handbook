@@ -60,7 +60,7 @@ describe('fill', () => {
         ]);
       });
 
-      test('out of range indices are provided', () => {
+      test('out of bound indices are provided', () => {
         expect(fill([1, 2, 3], '*', 1, 10)).toEqual([1, '*', '*']);
       });
     });
