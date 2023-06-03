@@ -27,6 +27,7 @@ import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import MarketingSectionTitleLabel from './MarketingSectionTitleLabel';
+import PricingBlockCard from '../pricing/PricingBlockCard';
 import { priceRoundToNearestNiceNumber } from '../pricing/pricingUtils';
 
 import { CheckIcon } from '@heroicons/react/20/solid';
@@ -455,105 +456,50 @@ export default function MarketingPricingSectionNew({
             <div className="relative">
               <div className="absolute inset-0 h-1/2 bg-slate-900" />
               <Container className="relative" variant="narrow">
-                <div className="mx-auto max-w-lg overflow-hidden rounded-lg shadow-md lg:flex lg:max-w-none">
-                  <div className="flex-1 bg-white px-6 py-8 lg:p-12">
-                    <Heading
-                      className="flex items-center gap-x-2 text-2xl font-bold text-slate-900 sm:text-3xl sm:tracking-tight"
-                      id="tier-lifetime">
-                      <FormattedMessage
-                        defaultMessage="Lifetime Membership"
-                        description="Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-                        id="w1iJ0L"
-                      />
-                      <Badge
-                        label={intl.formatMessage({
-                          defaultMessage: 'While Offer Lasts',
-                          description:
-                            'Label to indicate lifetime plan is a limited time offering',
-                          id: 'HUP0Fq',
-                        })}
-                        variant="special"
-                      />
-                    </Heading>
-                    <Section>
-                      <p className="mt-6 text-base text-slate-500">
-                        <FormattedMessage
-                          defaultMessage="Pay once, get access to the interview platform forever, including updates."
-                          description="Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-                          id="hhbPlp"
-                        />
-                      </p>
-                      <div className="mt-8">
-                        <div className="flex items-center">
-                          <h4 className="text-brand-600 flex-shrink-0 bg-white pr-4 text-base font-semibold">
-                            <FormattedMessage
-                              defaultMessage="What's Included"
-                              description="Section label for features included in a pricing plan"
-                              id="IhJAk8"
-                            />
-                          </h4>
-                          <div className="flex-1 border-t-2 border-slate-200" />
-                        </div>
-                        <ul
-                          className="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0"
-                          role="list">
-                          {[
-                            intl.formatMessage({
-                              defaultMessage:
-                                'Unlock all premium content including official solutions, companies, and study plans.',
-                              description:
-                                'Lifetime membership feature of unlocking premium content.',
-                              id: 'tmvC1S',
-                            }),
-                            intl.formatMessage({
-                              defaultMessage:
-                                'Access updates to the interview platform for life.',
-                              description:
-                                'Lifetime membership feature of accessing updates to interview platforms',
-                              id: '1AGOZJ',
-                            }),
-                            <FormattedMessage
-                              key="tkN0s+"
-                              defaultMessage="Exclusive lifetime <strong>Discord channel access</strong>."
-                              description="Lifetime membership feature of Discord channel access."
-                              id="Kv46h1"
-                              values={{
-                                strong: (chunks) => (
-                                  <strong className="font-medium">
-                                    {chunks}
-                                  </strong>
-                                ),
-                              }}
-                            />,
-                            intl.formatMessage({
-                              defaultMessage:
-                                'Real-time support from the team and the growing community.',
-                              description:
-                                'Lifetime membership feature of real-time support.',
-                              id: 'F74ozi',
-                            }),
-                          ].map((feature, idx) => (
-                            <li
-                              // eslint-disable-next-line react/no-array-index-key
-                              key={idx}
-                              className="flex items-start lg:col-span-1">
-                              <div className="flex-shrink-0">
-                                <CheckIcon
-                                  aria-hidden="true"
-                                  className="h-5 w-5 text-emerald-400"
-                                />
-                              </div>
-                              <p className="ml-3 text-sm text-slate-700">
-                                {feature}
-                              </p>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </Section>
-                  </div>
-                  <Section>
-                    <div className="bg-slate-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
+                <PricingBlockCard
+                  features={[
+                    intl.formatMessage({
+                      defaultMessage:
+                        'Unlock all premium content including official solutions, companies, and study plans.',
+                      description:
+                        'Lifetime membership feature of unlocking premium content.',
+                      id: 'tmvC1S',
+                    }),
+                    intl.formatMessage({
+                      defaultMessage:
+                        'Access updates to the interview platform for life.',
+                      description:
+                        'Lifetime membership feature of accessing updates to interview platforms',
+                      id: '1AGOZJ',
+                    }),
+                    <FormattedMessage
+                      key="tkN0s+"
+                      defaultMessage="Exclusive lifetime <strong>Discord channel access</strong>."
+                      description="Lifetime membership feature of Discord channel access."
+                      id="Kv46h1"
+                      values={{
+                        strong: (chunks) => (
+                          <strong className="font-medium">{chunks}</strong>
+                        ),
+                      }}
+                    />,
+                    intl.formatMessage({
+                      defaultMessage:
+                        'Real-time support from the team and the growing community.',
+                      description:
+                        'Lifetime membership feature of real-time support.',
+                      id: 'F74ozi',
+                    }),
+                  ]}
+                  featuresSectionTitle={
+                    <FormattedMessage
+                      defaultMessage="What's Included"
+                      description="Section label for features included in a pricing plan"
+                      id="IhJAk8"
+                    />
+                  }
+                  rightSectionContents={
+                    <>
                       <p className="text-lg font-medium leading-6 text-slate-900">
                         <FormattedMessage
                           defaultMessage="Pay once, own it forever"
@@ -604,9 +550,34 @@ export default function MarketingPricingSectionNew({
                           plan={lifetimePlan}
                         />
                       </div>
-                    </div>
-                  </Section>
-                </div>
+                    </>
+                  }
+                  subtitle={
+                    <FormattedMessage
+                      defaultMessage="Pay once, get access to the interview platform forever, including updates."
+                      description="Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+                      id="hhbPlp"
+                    />
+                  }
+                  title={
+                    <>
+                      <FormattedMessage
+                        defaultMessage="Lifetime Membership"
+                        description="Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+                        id="w1iJ0L"
+                      />
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'While Offer Lasts',
+                          description:
+                            'Label to indicate lifetime plan is a limited time offering',
+                          id: 'HUP0Fq',
+                        })}
+                        variant="special"
+                      />
+                    </>
+                  }
+                />
               </Container>
             </div>
           </div>

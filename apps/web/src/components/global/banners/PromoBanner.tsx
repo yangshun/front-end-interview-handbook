@@ -28,7 +28,7 @@ export default function PromoBanner({
       className={clsx(
         'z-20 w-full transition-opacity duration-500',
         sticky && 'lg:sticky',
-        isInvisible && 'opacity-0',
+        isInvisible && 'select-none opacity-0',
       )}
       style={{ top: `var(--navbar-height)` }}
       suppressHydrationWarning={true}>
