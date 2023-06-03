@@ -1,12 +1,12 @@
 'use client';
 
-import copy from 'copy-text-to-clipboard';
 import type { Language } from 'prism-react-renderer';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import codeTheme from 'prism-react-renderer/themes/dracula';
 import type { ComponentProps, ReactElement } from 'react';
-import { useCallback, useRef, useState } from 'react';
+import { useState } from 'react';
 
+import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 import useHoverState from '~/hooks/useHoverState';
 
 import Button from '~/components/ui/Button';
@@ -33,19 +33,7 @@ type Props = ComponentProps<'pre'> &
   }>;
 
 function CopyButton({ contents }: Readonly<{ contents: string }>) {
-  const [isCopied, setIsCopied] = useState(false);
-  const copyTimeout = useRef<number | null>(null);
-  const handleCopyCode = useCallback(() => {
-    if (isCopied) {
-      return false;
-    }
-
-    copy(contents);
-    setIsCopied(true);
-    copyTimeout.current = window.setTimeout(() => {
-      setIsCopied(false);
-    }, 1000);
-  }, [contents, isCopied]);
+  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
 
   return (
     <Button
@@ -55,7 +43,7 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
       label={isCopied ? 'Copied!' : 'Copy code to clipboard'}
       size="sm"
       variant="tertiary"
-      onClick={handleCopyCode}
+      onClick={() => onCopy(contents)}
     />
   );
 }

@@ -52,7 +52,6 @@
     "clsx": "^1.2.1",
     "console-feed": "3.3.0",
     "cookie": "^0.5.0",
-    "copy-text-to-clipboard": "^3.0.1",
     "cors": "^2.8.5",
     "esbuild": "^0.17.8",
     "framer-motion": "^9.0.4",
