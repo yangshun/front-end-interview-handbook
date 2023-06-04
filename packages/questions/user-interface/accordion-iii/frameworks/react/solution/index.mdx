@@ -17,7 +17,7 @@ Note that these keyboard events should only be responded to if the focus is curr
 Next we read the `event.code` property and respond with custom code depending on its value. A `switch` case is suitable for such a situation:
 
 - `ArrowUp`: Focus on the previous header or "wrap around" to the last one if the focus was on the first header. We first find the index of the currently focused header, decrease it by one, and use modulo arithmetic to elegantly handle the "wrap around".
-- `ArrowRight`: Focus on the next header or "wrap around" to the first one if the focus was on the last. We first find the index of the currently focused header, increase it by one, and use modulo arithmetic to elegantly handle the "wrap around".
+- `ArrowDown`: Focus on the next header or "wrap around" to the first one if the focus was on the last. We first find the index of the currently focused header, increase it by one, and use modulo arithmetic to elegantly handle the "wrap around".
 - `Home`: Focus on the first header.
 - `End`: Focus on the last header.
 
