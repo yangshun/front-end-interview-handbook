@@ -191,7 +191,7 @@ function StudentDiscountCard() {
                 link: (chunks) => (
                   <Anchor
                     className="text-brand-600 hover:text-brand-500 mx-auto justify-center whitespace-nowrap font-medium"
-                    href="https://docs.google.com/document/d/1fsvr4SYzX8PUzryt8t1RDYV_BSAzisifARQXO8XcBqk/edit?usp=sharing"
+                    href="/legal/student-discount"
                     variant="unstyled">
                     {chunks}
                   </Anchor>
@@ -323,7 +323,7 @@ function ReviewCashbackCard() {
                 link: (chunks) => (
                   <Anchor
                     className="text-brand-600 hover:text-brand-500 mx-auto justify-center whitespace-nowrap font-medium"
-                    href="https://docs.google.com/document/d/1nnddMhSsPqw8b5QadCfWQzMUHJEkDsKkUHd_tkzCPtA/edit?usp=sharing"
+                    href="/legal/review-cashback"
                     variant="unstyled">
                     {chunks}
                   </Anchor>

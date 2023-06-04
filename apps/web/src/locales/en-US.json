@@ -1879,6 +1879,10 @@
     "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "YRVMeX": {
+    "defaultMessage": "Review Cashback Terms and Conditions",
+    "description": "Title of legal page"
+  },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
@@ -2626,6 +2630,10 @@
   "loCbaG": {
     "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
     "description": "System design link"
+  },
+  "lt1xn6": {
+    "defaultMessage": "Student Discount Terms and Conditions",
+    "description": "Title of legal page"
   },
   "lyjVwD": {
     "defaultMessage": "1 Month Plan",

@@ -6,7 +6,7 @@ import Prose from '~/components/ui/Prose';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import PrivacyPolicy from './privacy-policy.mdx';
+import Terms from './terms.mdx';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/legal/privacy-policy',
+    pathname: '/legal/student-discount',
     title: intl.formatMessage({
-      defaultMessage: 'Privacy Policy',
-      description: 'Title of Privacy Policy page',
-      id: 'nTu2nu',
+      defaultMessage: 'Student Discount Terms and Conditions',
+      description: 'Title of legal page',
+      id: 'lt1xn6',
     }),
   });
 }
@@ -35,7 +35,7 @@ export default function Page() {
     <Container variant="4xl">
       <Prose>
         <div className="my-20">
-          <PrivacyPolicy />
+          <Terms />
         </div>
       </Prose>
     </Container>
