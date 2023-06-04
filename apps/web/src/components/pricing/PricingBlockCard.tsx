@@ -8,12 +8,14 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 type Props = Readonly<{
   features: ReadonlyArray<React.ReactNode>;
   featuresSectionTitle: React.ReactNode;
+  footer?: React.ReactNode;
   rightSectionContents: React.ReactNode;
   subtitle: React.ReactNode;
   title: React.ReactNode;
 }>;
 
 export default function PricingBlockCard({
+  footer,
   title,
   subtitle,
   featuresSectionTitle,
@@ -23,10 +25,10 @@ export default function PricingBlockCard({
   const id = useId();
 
   return (
-    <div className="mx-auto max-w-lg overflow-hidden rounded-lg shadow-md lg:flex lg:max-w-none">
+    <div className="mx-auto max-w-lg overflow-hidden rounded-lg border border-slate-200 lg:flex lg:max-w-none">
       <div className="flex-1 bg-white px-6 py-8 lg:p-12">
         <Heading
-          className="flex items-center gap-x-2 text-2xl font-bold text-slate-900 sm:text-3xl sm:tracking-tight"
+          className="text-2xl font-bold text-slate-900 sm:text-3xl sm:tracking-tight"
           id={id}>
           {title}
         </Heading>
@@ -58,10 +60,11 @@ export default function PricingBlockCard({
               ))}
             </ul>
           </div>
+          {footer && <div className="pt-8">{footer}</div>}
         </Section>
       </div>
       <Section>
-        <div className="bg-slate-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
+        <div className="min-w-[300px] bg-slate-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
           {rightSectionContents}
         </div>
       </Section>

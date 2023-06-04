@@ -39,11 +39,11 @@ export default function PromoBanner({
           setShowPromoBanner(false);
         }}>
         <FormattedMessage
-          defaultMessage="Summer Sale! Additional 20% off annual and lifetime plans with the code SUMMERSALE23. <link>Grab your discount today!</link>"
+          defaultMessage="Summer Sale! Additional 20% off annual plan with the code SUMMERSALE23, <discount>grab your discount today!</discount>. Check out other <promotion>promotions</promotion>"
           description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-          id="LJKTGq"
+          id="QRPpZB"
           values={{
-            link: (chunks) => (
+            discount: (chunks) => (
               <Anchor
                 className="whitespace-nowrap font-medium"
                 href="/pricing"
@@ -58,6 +58,26 @@ export default function PromoBanner({
                   logEvent('click', {
                     element: 'Promo banner',
                     label: 'Grab your discount today',
+                  });
+                }}>
+                {chunks}
+              </Anchor>
+            ),
+            promotion: (chunks) => (
+              <Anchor
+                className="whitespace-nowrap font-medium"
+                href="/promotions"
+                underline={true}
+                variant="flat"
+                onClick={() => {
+                  gtag.event({
+                    action: `global.banner.promotions.click`,
+                    category: 'engagement',
+                    label: 'promotions',
+                  });
+                  logEvent('click', {
+                    element: 'Promo banner',
+                    label: 'Promotions',
                   });
                 }}>
                 {chunks}

@@ -560,7 +560,7 @@ export default function MarketingPricingSectionNew({
                     />
                   }
                   title={
-                    <>
+                    <div className="flex items-center gap-x-2">
                       <FormattedMessage
                         defaultMessage="Lifetime Membership"
                         description="Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
@@ -570,12 +570,12 @@ export default function MarketingPricingSectionNew({
                         label={intl.formatMessage({
                           defaultMessage: 'While Offer Lasts',
                           description:
-                            'Label to indicate lifetime plan is a limited time offering',
-                          id: 'HUP0Fq',
+                            'Label to indicate offer is a limited time deal',
+                          id: 'vNa4Wc',
                         })}
                         variant="special"
                       />
-                    </>
+                    </div>
                   }
                 />
               </Container>

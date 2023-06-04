@@ -279,6 +279,10 @@
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
   },
+  "4kQ6Kr": {
+    "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
+    "description": "Condition for promotion"
+  },
   "4zNzv1": {
     "defaultMessage": "Select navigation item in DevTool",
     "description": "Label for tabs in the coding workspace DevTool"
@@ -319,6 +323,10 @@
     "defaultMessage": "Clear Console",
     "description": "Button tooltip to clear the console in the coding workspace"
   },
+  "5XwjUN": {
+    "defaultMessage": "Facing trouble? <link>Email us</link>",
+    "description": "Section label for seasonal promotion details"
+  },
   "5dwMRE": {
     "defaultMessage": "Interview Guides",
     "description": "Sidebar label for Interview Guides category"
@@ -355,9 +363,17 @@
     "defaultMessage": "Show",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
   },
+  "6KA0W1": {
+    "defaultMessage": "Summer Discount",
+    "description": "Promotion title"
+  },
   "6UytmZ": {
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
+  },
+  "6almL5": {
+    "defaultMessage": "Check on eligibility or submit proof",
+    "description": "Instruction to check for review cashback"
   },
   "6e1+nl": {
     "defaultMessage": "Front end interviews come in so many formats. You could be asked to write JavaScript functions, build a UI, design a system, or even solve LeetCode-style algorithm questions.",
@@ -378,6 +394,10 @@
   "6yAWpI": {
     "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
+  },
+  "7/y6bz": {
+    "defaultMessage": "Terms and Conditions",
+    "description": "Section label for promotion details"
   },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
@@ -563,6 +583,10 @@
     "defaultMessage": "Buy Now",
     "description": "Purchase button label"
   },
+  "AYjkR4": {
+    "defaultMessage": "COPIED!",
+    "description": "Indication that text has been copied"
+  },
   "AYkO94": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for quiz questions list"
@@ -570,6 +594,10 @@
   "Aa86vz": {
     "defaultMessage": "Free",
     "description": "Label to indicate the item is free"
+  },
+  "Ad94JV": {
+    "defaultMessage": "Use code at checkout",
+    "description": "Instruction to apply discount"
   },
   "AmBMf9": {
     "defaultMessage": "No questions",
@@ -795,6 +823,10 @@
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
   },
+  "GDgFZ0": {
+    "defaultMessage": "GreatFrontEnd Annual",
+    "description": "GFE annual plan"
+  },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
@@ -867,6 +899,10 @@
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
   },
+  "H8hr3R": {
+    "defaultMessage": "Must have a personal website or other acceptable channel where you can publish the review. Please email us to check channel eligibility before posting.",
+    "description": "Condition for promotion"
+  },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
@@ -886,10 +922,6 @@
   "HOCjPY": {
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
-  },
-  "HUP0Fq": {
-    "defaultMessage": "While Offer Lasts",
-    "description": "Label to indicate lifetime plan is a limited time offering"
   },
   "HaIAzk": {
     "defaultMessage": "Light",
@@ -1103,10 +1135,6 @@
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
   },
-  "LJKTGq": {
-    "defaultMessage": "Summer Sale! Additional 20% off annual and lifetime plans with the code SUMMERSALE23. <link>Grab your discount today!</link>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-  },
   "LK0JHB": {
     "defaultMessage": "FAQs.",
     "description": "Frequently Asked Questions"
@@ -1147,9 +1175,17 @@
     "defaultMessage": "Front End Interview Preparation — Behavioral Interviews",
     "description": "Prepare for front end interview behavioral questions"
   },
+  "Lnj3bs": {
+    "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
+    "description": "Condition for promotion"
+  },
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
+  },
+  "M0TkWc": {
+    "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
+    "description": "Condition for promotion"
   },
   "M7x/vv": {
     "defaultMessage": "The best way to prepare for Front End Interviews",
@@ -1311,6 +1347,10 @@
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
+  "OoOyEp": {
+    "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
+    "description": "Link for discount terms and conditions"
+  },
   "OtRu2B": {
     "defaultMessage": "You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!",
     "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
@@ -1411,6 +1451,10 @@
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
   },
+  "QRPpZB": {
+    "defaultMessage": "Summer Sale! Additional 20% off annual plan with the code SUMMERSALE23, <discount>grab your discount today!</discount>. Check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
@@ -1442,6 +1486,10 @@
   "R99Y8S": {
     "defaultMessage": "At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!",
     "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
+  },
+  "RBApo9": {
+    "defaultMessage": "Promotions",
+    "description": "Promotions on the platform"
   },
   "RDQ253": {
     "defaultMessage": "Sign in to save progress",
@@ -1591,6 +1639,10 @@
     "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
     "description": "Prashanth Reddy's testimonial"
   },
+  "U4Yu1B": {
+    "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan. We were once students and you have our support in your learning journey!",
+    "description": "Subtitle of discount promotion card"
+  },
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
@@ -1659,6 +1711,10 @@
     "defaultMessage": "Vue Questions",
     "description": "Vue questions category long title"
   },
+  "V5oBr9": {
+    "defaultMessage": "Can only be redeemed once per eligible user; duplicate accounts prohibited.",
+    "description": "Condition for promotion"
+  },
   "V5x4wO": {
     "defaultMessage": "System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
@@ -1702,6 +1758,10 @@
   "VcLkXG": {
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
+  },
+  "VfNkH+": {
+    "defaultMessage": "CASHBACK",
+    "description": "Amount cashback/discount"
   },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
@@ -1971,9 +2031,17 @@
     "defaultMessage": "Stripe Customer ID:",
     "description": "Label for Stripe customer ID."
   },
+  "bsCmcK": {
+    "defaultMessage": "Email Us",
+    "description": "Button label to send to a support email"
+  },
   "bxZm1S": {
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
+  },
+  "bz1Gh7": {
+    "defaultMessage": "Send us an email using your school email with proof that you're currently enrolled in an educational institution.",
+    "description": "Condition for promotion"
   },
   "c12AhV": {
     "defaultMessage": "Breadcrumb",
@@ -2002,6 +2070,10 @@
   "caYk+w": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
+  },
+  "cgIBe4": {
+    "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
+    "description": "Condition for promotion"
   },
   "cgTXiW": {
     "defaultMessage": "Design a News Feed (e.g. Facebook)",
@@ -2095,6 +2167,10 @@
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
   },
+  "e6PFI+": {
+    "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. If GreatFrontEnd helped you get a job, you can share your success story too!",
+    "description": "Subtitle of discount promotion card"
+  },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
@@ -2139,6 +2215,10 @@
     "defaultMessage": "Accepted",
     "description": "Status label for question answered correctly"
   },
+  "f5UO3s": {
+    "defaultMessage": "Review Cashback",
+    "description": "Promotion title"
+  },
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
@@ -2178,6 +2258,10 @@
   "fevxJB": {
     "defaultMessage": "PREMIUM",
     "description": "Premium badge on profile page"
+  },
+  "fmPah2": {
+    "defaultMessage": "on your first order amount",
+    "description": "GFE discount"
   },
   "fnVJCv": {
     "defaultMessage": "Progress Overview",
@@ -2426,6 +2510,10 @@
   "k2Oi+j": {
     "defaultMessage": "Filters",
     "description": "Label for filters button"
+  },
+  "k64L83": {
+    "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
+    "description": "Subtitle of discount promotion card"
   },
   "k964KU": {
     "defaultMessage": "HTML",
@@ -2711,6 +2799,10 @@
     "defaultMessage": "GreatFrontEnd",
     "description": "Table column header for GFE"
   },
+  "piqimi": {
+    "defaultMessage": "OFF",
+    "description": "Amount cashback/discount"
+  },
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
@@ -2730,6 +2822,10 @@
   "q0mkGb": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" problem solving questions",
     "description": "How to answer problem solving situation questions in behavioral interviews"
+  },
+  "q2NV/N": {
+    "defaultMessage": "Must have completed at least {quantity} coding or system design questions (to ensure sufficient experience before reviewing).",
+    "description": "Condition for promotion"
   },
   "q3MA2w": {
     "defaultMessage": "Sign In / Up",
@@ -2822,6 +2918,10 @@
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
     "description": "Title of Interview Preparation System Design page"
+  },
+  "t+g7fF": {
+    "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
+    "description": "Link for discount terms and conditions"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",
@@ -2975,6 +3075,10 @@
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
   },
+  "vNa4Wc": {
+    "defaultMessage": "While Offer Lasts",
+    "description": "Label to indicate offer is a limited time deal"
+  },
   "vO1Ejd": {
     "defaultMessage": "Hide Details",
     "description": "Label for button that allows users to collapse details of the code execution in the coding workspace"
@@ -3110,6 +3214,10 @@
   "xsLz0P": {
     "defaultMessage": "Security",
     "description": "Profile security tab title"
+  },
+  "xsaQ0d": {
+    "defaultMessage": "Student Discount",
+    "description": "Promotion title"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
