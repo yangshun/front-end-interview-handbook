@@ -110,9 +110,13 @@ What happens if the user makes changes to the query while there's a pending netw
 To know which request's response we should use display, we could:
 
 1. Attach a timestamp to each request to determine the latest request and only display the results of the latest request (not the latest response!). Discard the response of irrelevant queries.
-2. Save the results in an object/map, keyed by the search query string and only present the results corresponding to the input value in the search input.
+1. Save the results in an object/map, keyed by the search query string and only present the results corresponding to the input value in the search input.
 
-Which option is better? Given we have a cache that remembers the responses of each search query, option 2 is clearly better. We should not discard responses since the data is already given back to us anyway. Refer to the cache section below.
+Which option is better? Given we have a cache that remembers the responses of each search query, option 2 is clearly better. Refer to the cache section details for more details.
+
+It's not advisable to abort requests (via `AbortController`) or discard responses since the server would have received and processed the request and returned the data back to the client.
+
+Saving the responses for historical keystrokes is useful for cases where users accidentally typed an extra character. "f' -> "fo" -> "foo" -> meant to type "t" but mistyped an extra "r" due to fat fingers -> "foot" -> "footr" -> deletes extra "r" -> "foot" (results for "foot" can be displayed immediately it is already in the cache). If there's debounce, then the requests for "foot" might not have fired immediately and there's no response for "foot" to cache, so this mainly benefits autocomplete components without debounce or people who type slower than the debounce duration.
 
 #### Failed requests and retries
 
