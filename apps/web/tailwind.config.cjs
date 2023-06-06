@@ -11,11 +11,13 @@ module.exports = {
     './questions/**/*.{js,jsx,ts,tsx,md,mdx}',
   ],
   theme: {
+    typography: require('./typography.cjs'),
     extend: {
       fontSize: {
-        xxs: ['0.6rem', '0.9rem'],
-        '1.5xl': ['1.36rem', '1.9rem'],
-        '4.5xl': ['2.35rem', '3.2rem'],
+        '2xs': ['0.625rem', { lineHeight: '1rem' }],
+      },
+      boxShadow: {
+        glow: '0 0 4px rgb(0 0 0 / 0.1)',
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
@@ -23,9 +25,11 @@ module.exports = {
       colors: {
         brand: colors.indigo,
       },
-      fontWeight: {
-        lightnormal: 320,
-        heavymedium: 550,
+      opacity: {
+        1: '0.01',
+        2.5: '0.025',
+        7.5: '0.075',
+        15: '0.15',
       },
     },
   },

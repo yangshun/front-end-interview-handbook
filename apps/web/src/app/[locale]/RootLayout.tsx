@@ -26,7 +26,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
       lang={locale.split('-')[0]}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
-      <body>
+      <body className="antialiased">
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
