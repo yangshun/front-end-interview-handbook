@@ -12,7 +12,7 @@ export type TextColor =
   | 'success';
 export type TextDisplay = 'block' | 'inline';
 export type TextVariant = 'body' | 'body2' | 'body3';
-export type TextWeight = 'bold' | 'normal';
+export type TextWeight = 'bold' | 'medium' | 'normal';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -30,7 +30,8 @@ const variantClasses: Record<TextVariant, string> = {
 };
 
 const weightClasses: Record<TextWeight, string> = {
-  bold: 'font-medium',
+  bold: 'font-semibold',
+  medium: 'font-medium',
   normal: 'font-normal',
 };
 

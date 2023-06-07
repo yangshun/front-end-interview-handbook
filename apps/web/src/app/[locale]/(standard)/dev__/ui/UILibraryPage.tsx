@@ -14,6 +14,7 @@ import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
 import TabsExamples from '~/components/ui/Tabs/TabsExamples';
 import TextExamples from '~/components/ui/Text/TextExamples';
+import TypographyExamples from '~/components/ui/Text/TypographyExamples';
 import TextAreaExamples from '~/components/ui/TextArea/TextAreaExamples';
 import TextInputExamples from '~/components/ui/TextInput/TextInputExamples';
 import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
@@ -22,6 +23,7 @@ export default function UILibraryPage() {
   return (
     <Container>
       <div className="space-y-24 py-12 lg:py-24">
+        <TypographyExamples />
         <TextExamples />
         <ButtonExamples />
         <SpinnerExamples />
