@@ -1,7 +1,13 @@
 type LoggingAction =
   | 'auth.password.change'
+  | 'auth.password.reset.fail'
+  | 'auth.password.reset.success'
   | 'auth.password.reset'
+  | 'auth.sign_in.fail'
+  | 'auth.sign_in.success'
   | 'auth.sign_in'
+  | 'auth.sign_up.fail'
+  | 'auth.sign_up.success'
   | 'auth.sign_up'
   | 'checkout.attempt.not_logged_in'
   | 'checkout.attempt'

@@ -9,6 +9,7 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
+import logMessage from '~/logging/logMessage';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
@@ -43,19 +44,36 @@ export default function SupabaseAuthForgottenPassword({
         redirectTo: window.location.origin + '/password/reset',
       });
 
+    setLoading(false);
     if (resetError) {
       setError(resetError.message);
-    } else {
-      setMessage(
-        intl.formatMessage({
-          defaultMessage:
-            'An email will be sent to the address above if an associated account exists',
-          description: 'Message indicating a successful password reset request',
-          id: 'O4XAXC',
-        }),
-      );
+      logMessage({
+        level: 'error',
+        message: resetError.message,
+        title: 'Reset password error',
+        userIdentifier: email,
+      });
+      logEvent('auth.password.reset.fail', {
+        email,
+        message: resetError.message,
+        type: 'email',
+      });
+
+      return;
     }
-    setLoading(false);
+
+    logEvent('auth.password.reset.success', {
+      email,
+      type: 'email',
+    });
+    setMessage(
+      intl.formatMessage({
+        defaultMessage:
+          'An email will be sent to the address above if an associated account exists',
+        description: 'Message indicating a successful password reset request',
+        id: 'O4XAXC',
+      }),
+    );
   }
 
   return (
