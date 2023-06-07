@@ -49,7 +49,7 @@ export default function Auth({
       <div className={className}>
         <div className="space-y-8">
           <div className="flex flex-col gap-2 text-center">
-            <Heading className="text-3xl font-bold text-slate-900">
+            <Heading level="heading4">
               {authView === 'sign_in' ? (
                 <FormattedMessage
                   defaultMessage="Welcome Back"

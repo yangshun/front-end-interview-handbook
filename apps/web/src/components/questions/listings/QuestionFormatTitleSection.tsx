@@ -100,7 +100,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
 
   return (
     <div>
-      <Heading className="sr-only">
+      <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Preparation Stages"
           description="Preparation page title"
@@ -206,7 +206,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                       />
                     </span>
                   </p>
-                  <Heading className="md:mt-4">
+                  <Heading className="md:mt-4" level="custom">
                     <Anchor
                       className={clsx(
                         'text-sm font-semibold md:text-base md:leading-7',

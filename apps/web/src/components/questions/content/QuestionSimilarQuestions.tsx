@@ -13,7 +13,7 @@ export default function QuestionSimilarQuestions({
 }>) {
   return (
     <div className="grid gap-y-4">
-      <Heading className="font-semibold">
+      <Heading className="font-semibold" level="custom">
         <FormattedMessage
           defaultMessage="Similar Questions"
           description="Header for similar questions to the current question"

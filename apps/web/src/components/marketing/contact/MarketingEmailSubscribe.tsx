@@ -44,7 +44,10 @@ export default function MarketingEmailSubscribe() {
         </div>
         <div className="relative">
           <div className="sm:text-center">
-            <Heading className="mx-auto max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <Heading
+              className="mx-auto max-w-3xl"
+              color="light"
+              level="heading3">
               <FormattedMessage
                 defaultMessage="Get notified about new front end resources, interview tips and practice questions"
                 description="Title for newsletter sign up section"

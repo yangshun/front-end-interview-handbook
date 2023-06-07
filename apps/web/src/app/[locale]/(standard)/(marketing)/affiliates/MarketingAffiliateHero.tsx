@@ -78,7 +78,7 @@ export default function MarketingAffiliateHero() {
                   </div>
                 </div>
                 <div>
-                  <Heading className="text-center text-4xl font-bold tracking-tight sm:text-6xl">
+                  <Heading className="text-center" level="heading1">
                     <FormattedMessage
                       defaultMessage="Spread the word and get rewarded"
                       description="Title of the Hero section of the 'Become An Affiliate' page"

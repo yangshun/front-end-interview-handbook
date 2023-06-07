@@ -45,7 +45,10 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
           }}>
           {showSidebar && (
             <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-slate-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
-              <Heading className="mt-4 text-base font-semibold text-slate-700">
+              <Heading
+                className="mt-4 text-base font-semibold text-zinc-700"
+                color="custom"
+                level="custom">
                 {title}
               </Heading>
               <Section>
@@ -53,7 +56,10 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                   <ul className="flex flex-col gap-y-6" role="list">
                     {systemDesignNavigation.map((section) => (
                       <li key={section.title}>
-                        <Heading className="text-[0.8125rem] font-semibold leading-6 text-zinc-900">
+                        <Heading
+                          className="text-[0.8125rem] font-semibold leading-6 text-zinc-900"
+                          color="custom"
+                          level="custom">
                           {section.title}
                         </Heading>
                         <Section>

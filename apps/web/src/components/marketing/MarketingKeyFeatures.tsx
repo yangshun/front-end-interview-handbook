@@ -405,7 +405,10 @@ export default function MarketingKeyFeaturesNew() {
                 'relative transition-opacity duration-1000 ease-in-out',
                 titleIsInView ? 'opacity-100' : 'opacity-0',
               )}>
-              <Heading className="my-2 text-center text-3xl font-bold leading-8 tracking-tight text-white sm:text-4xl md:text-4xl lg:text-5xl">
+              <Heading
+                className="my-2 text-center"
+                color="light"
+                level="heading2">
                 <FormattedMessage
                   defaultMessage="<span>All the essentials for front end</span>
                   <inline>interviews <colour>and more</colour></inline>."

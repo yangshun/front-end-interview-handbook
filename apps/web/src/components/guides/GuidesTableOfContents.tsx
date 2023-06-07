@@ -91,9 +91,7 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
     <nav ref={navRef} aria-labelledby={titleId} className="w-56">
       {tableOfContents.length > 0 && (
         <>
-          <Heading
-            className="font-display text-sm font-medium text-slate-900"
-            id={titleId}>
+          <Heading className="text-sm font-medium" id={titleId} level="custom">
             <FormattedMessage
               defaultMessage="On This Page"
               description="Title of the table of contents for a guidebook page."

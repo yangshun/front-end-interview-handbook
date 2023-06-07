@@ -5,7 +5,6 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Prose from '~/components/ui/Prose';
 
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
@@ -16,7 +15,7 @@ const faqs = [
     answer: (
       <>
         To apply, you must:
-        <ul>
+        <ul className="list-outside list-disc pl-8">
           <li>
             Have an established audience through at least 1{' '}
             <strong className="font-medium">active</strong> channel that you
@@ -50,12 +49,14 @@ const faqs = [
   {
     answer: (
       <>
-        Once accepted into the affiliate program, you will receive a unique
-        reference handle and affiliate link which will be used to track all your
-        referrals.{' '}
+        <p>
+          Once accepted into the affiliate program, you will receive a unique
+          reference handle and affiliate link which will be used to track all
+          your referrals.
+        </p>
         <p>
           When sharing about GreatFrontEnd with your audience, always use your
-          unique affiliate link.{' '}
+          unique affiliate link.
         </p>
         <p>
           If users use your affiliate link to access our website, an attribution
@@ -110,7 +111,7 @@ export default function FrequentlyAskedQuestions() {
             'relative py-24 transition-opacity duration-[1500ms] ease-in-out lg:pt-16',
           )}>
           <div>
-            <Heading className="text-center text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Heading className="text-center" level="heading2">
               <FormattedMessage
                 defaultMessage="FAQs."
                 description="Frequently Asked Questions"
@@ -163,11 +164,9 @@ export default function FrequentlyAskedQuestions() {
                           </Disclosure.Button>
                         </dt>
                         <Disclosure.Panel as="dd" className="mt-8 pr-12">
-                          <Prose>
-                            <div className="text-base text-slate-500 sm:text-lg md:text-xl">
-                              {faq.answer}
-                            </div>
-                          </Prose>
+                          <div className="grid gap-y-4 text-base text-slate-500 sm:text-lg md:text-xl">
+                            {faq.answer}
+                          </div>
                         </Disclosure.Panel>
                       </>
                     )}

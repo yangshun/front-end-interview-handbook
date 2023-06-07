@@ -24,7 +24,7 @@ export default function QuestionsGuidesGrid({
 }: Props) {
   return (
     <div className="grid gap-4">
-      <Heading className="text-lg font-semibold text-slate-900">
+      <Heading className="text-lg font-semibold" level="custom">
         {title}
       </Heading>
       <Section>
@@ -53,7 +53,9 @@ export default function QuestionsGuidesGrid({
                 </span>
               </div>
               <div className="flex w-full flex-col gap-1">
-                <Heading className="text-xs font-medium md:w-full md:text-center md:text-sm">
+                <Heading
+                  className="text-xs font-medium md:w-full md:text-center md:text-sm"
+                  level="custom">
                   {guide.cardTitle ?? guide.title}
                 </Heading>
                 {guide.description && (

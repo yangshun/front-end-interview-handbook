@@ -26,6 +26,7 @@ import {
   ChevronRightIcon,
 } from '@heroicons/react/24/solid';
 
+/* TODO: i18n */
 const links = [
   {
     description: 'Get started with study plans and questions',
@@ -136,12 +137,17 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
               className="h-16 w-16 text-emerald-500"
             />
           </div>
-          <Heading className="text-center text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl sm:tracking-tight">
-            Welcome to the Premium Club!{' '}
+          <Heading className="text-center" level="heading4">
+            {/* TODO: i18n */}
+            Welcome to the Premium Club!
           </Heading>
           <Section>
             <div className="mt-12">
-              <Heading className="text-base font-semibold text-slate-500">
+              <Heading
+                className="text-base font-semibold text-slate-500"
+                color="custom"
+                level="custom">
+                {/* TODO: i18n */}
                 Next Steps
               </Heading>
               <Section>
@@ -161,7 +167,10 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                         </span>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <Heading className="text-base font-medium text-slate-900">
+                        {/* TODO: i18n */}
+                        <Heading
+                          className="text-base font-medium"
+                          level="custom">
                           <span className="focus-within:ring-brand-500 rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                             <Anchor
                               className="focus:outline-none"

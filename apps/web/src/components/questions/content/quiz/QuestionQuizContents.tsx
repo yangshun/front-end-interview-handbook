@@ -91,8 +91,9 @@ export default function QuestionQuizContents({
               <div className="min-h-0 flex-1">
                 <header className="grid gap-y-4 border-b border-slate-200 pb-10">
                   <Heading
-                    className="pb-4 text-xl font-semibold text-slate-900 sm:text-2xl"
-                    id="question-title">
+                    className="pb-4"
+                    id="question-title"
+                    level="heading5">
                     {question.metadata.title}
                   </Heading>
                   {question.metadata.subtitle && (

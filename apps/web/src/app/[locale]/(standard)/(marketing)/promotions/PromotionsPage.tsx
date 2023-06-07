@@ -407,7 +407,7 @@ export default function PromotionsPage() {
     <Container
       className="my-12 flex flex-col gap-y-8 md:my-24 md:gap-y-16"
       variant="narrow">
-      <Heading className="text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+      <Heading level="heading2">
         <FormattedMessage
           defaultMessage="Promotions"
           description="Promotions on the platform"

@@ -27,9 +27,7 @@ export default function PricingBlockCard({
   return (
     <div className="mx-auto max-w-lg overflow-hidden rounded-lg border border-slate-200 lg:flex lg:max-w-none">
       <div className="flex-1 bg-white px-6 py-8 lg:p-12">
-        <Heading
-          className="text-2xl font-bold text-slate-900 sm:text-3xl sm:tracking-tight"
-          id={id}>
+        <Heading className="text-2xl" id={id} level="heading4">
           {title}
         </Heading>
         <Section>

@@ -137,9 +137,7 @@ export default function MarketingAffiliateWhySections() {
               </span>
             </div>
             <div className="mt-6">
-              <Heading className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-                {reason.title}
-              </Heading>
+              <Heading level="heading4">{reason.title}</Heading>
               <Section>
                 <p className="mt-4 text-lg text-slate-500 lg:text-xl">
                   {reason.subtitle}

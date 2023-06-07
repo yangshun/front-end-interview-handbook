@@ -55,7 +55,7 @@ export default function ProfileAccount({ user }: Props) {
 
   return (
     <div className="flex flex-col gap-y-6 md:max-w-md">
-      <Heading className="sr-only">
+      <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Account Settings"
           description="Screenreader text for account settings."

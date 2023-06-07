@@ -34,7 +34,7 @@ export default function MarketingAffiliateHowDoesItWork() {
                 id="QggKKV"
               />
             </MarketingSectionTitleLabel>
-            <Heading className="max-w-4xl text-3xl font-bold leading-10 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Heading className="max-w-4xl" level="heading2">
               <FormattedMessage
                 defaultMessage="3 simple steps to start earning"
                 description="Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"

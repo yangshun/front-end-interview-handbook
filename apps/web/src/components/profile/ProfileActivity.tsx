@@ -25,7 +25,7 @@ function NoCompletedQuestions() {
   return (
     <div className="py-12 text-center">
       <RectangleStackIcon className="mx-auto h-12 w-12 text-slate-400" />
-      <Heading className="mt-2 text-sm font-medium text-slate-900">
+      <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="No completed questions"
           description="Text shown when no questions are completed."
@@ -106,7 +106,9 @@ export default function ProfileActivity() {
 
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading className="flex flex-row justify-between border-b border-slate-200 pb-4 text-xl font-semibold">
+      <Heading
+        className="flex flex-row justify-between border-b border-slate-200 pb-4"
+        level="heading6">
         <FormattedMessage
           defaultMessage="Completed Questions"
           description="Heading for list of completed questions."
@@ -122,7 +124,7 @@ export default function ProfileActivity() {
             <li key={createdAt} className="relative py-5 sm:py-6">
               <div className="flex items-center justify-between space-x-4">
                 <div className="flex w-3/4 flex-col space-y-1 sm:flex-row sm:items-center sm:space-x-3">
-                  <Heading className="text-md w-1/2 font-medium">
+                  <Heading className="text-md w-1/2 font-medium" level="custom">
                     <Anchor href={metadata?.href} variant="flat">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {metadata!.title}

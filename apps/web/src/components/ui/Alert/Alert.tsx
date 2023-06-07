@@ -76,7 +76,10 @@ export default function Alert({ children, title, variant }: Props) {
         </div>
         <div className="ml-3 space-y-2">
           {title && (
-            <Heading className={clsx('text-base font-medium', titleClass)}>
+            <Heading
+              className={clsx('text-base font-medium', titleClass)}
+              color="custom"
+              level="custom">
               {title}
             </Heading>
           )}

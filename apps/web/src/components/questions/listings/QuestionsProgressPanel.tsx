@@ -32,7 +32,9 @@ export default function QuestionsProgressPanel({
       <div className="ml-4 w-0 flex-1">
         <div className="flex items-center justify-between space-x-4">
           <div>
-            <Heading className="truncate text-sm font-medium text-slate-900 lg:text-base">
+            <Heading
+              className="truncate text-sm font-medium lg:text-base"
+              level="custom">
               {title}
             </Heading>
             {!hideCount && totalQuestions > 0 && (

@@ -68,7 +68,10 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
           }}>
           {showSidebar && (
             <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-slate-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
-              <Heading className="mt-4 text-base font-semibold text-slate-700">
+              <Heading
+                className="mt-4 text-base font-semibold text-slate-700"
+                color="custom"
+                level="custom">
                 {navigation.title}
               </Heading>
               <Section>

@@ -55,7 +55,7 @@ export default function SupabaseAuthUpdatePassword() {
   return (
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-2">
-        <Heading className="flex-1 text-xl font-semibold">
+        <Heading className="flex-1" level="heading6">
           <FormattedMessage
             defaultMessage="Change password for {userEmail}"
             description="Title of Change Password page"

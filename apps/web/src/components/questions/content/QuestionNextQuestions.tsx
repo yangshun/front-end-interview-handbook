@@ -13,7 +13,7 @@ export default function QuestionNextQuestions({
 }>) {
   return (
     <div className="grid gap-y-4">
-      <Heading className="font-semibold">
+      <Heading className="font-semibold" level="custom">
         <FormattedMessage
           defaultMessage="Try these questions next"
           description="Text above suggested questions to indicate to the user that they can try those questions next"

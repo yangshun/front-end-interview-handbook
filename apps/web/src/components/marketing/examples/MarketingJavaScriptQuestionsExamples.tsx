@@ -39,7 +39,7 @@ export default function MarketingJavaScriptQuestionsExamples({
             id="7gb9hK"
           />
         </p>
-        <Heading className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-4xl">
+        <Heading className="mt-2" level="heading3">
           <FormattedMessage
             defaultMessage="JavaScript Questions"
             description="Title for an example list of JavaScript Questions on marketing pages"

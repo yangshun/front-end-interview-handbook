@@ -403,7 +403,7 @@ export default function MarketingPricingSectionNew({
                   id="MKfy+9"
                 />
               </MarketingSectionTitleLabel>
-              <Heading className="text-center text-3xl font-bold leading-8 tracking-tight text-white sm:text-4xl md:text-4xl lg:text-5xl">
+              <Heading className="text-center" color="light" level="heading2">
                 <FormattedMessage
                   defaultMessage="Pay once, get full access <span>forever</span>."
                   description="Title on Pricing section of Homepage or Pricing page"
@@ -584,7 +584,7 @@ export default function MarketingPricingSectionNew({
           <div className="bg-white">
             <div className="relative">
               <Container className="relative" variant="narrow">
-                <Heading className="sr-only">
+                <Heading className="sr-only" level="custom">
                   <FormattedMessage
                     defaultMessage="Pricing Plans"
                     description="Screen reader text referring to the Pricing Plan cards"
@@ -608,9 +608,7 @@ export default function MarketingPricingSectionNew({
                             key={plan.planType}
                             className="flex flex-col divide-y divide-slate-200 rounded-lg border border-slate-200 shadow-sm">
                             <div className="grow p-6 md:grow-0">
-                              <Heading
-                                className="text-lg font-medium leading-6 text-slate-900"
-                                id={id}>
+                              <Heading id={id} level="heading6">
                                 {pricingPlanLabels[plan.planType]}
                               </Heading>
                               <Section>
@@ -707,7 +705,9 @@ export default function MarketingPricingSectionNew({
                             </div>
                             <Section>
                               <div className="px-6 pt-6 pb-8">
-                                <Heading className="text-sm font-medium text-slate-900">
+                                <Heading
+                                  className="text-sm font-medium"
+                                  level="custom">
                                   <FormattedMessage
                                     defaultMessage="What's Included"
                                     description="Section label for features included in a pricing plan"

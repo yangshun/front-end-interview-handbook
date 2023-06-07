@@ -37,7 +37,7 @@ function PreparationPlansSection() {
   return (
     <div>
       <div className="space-y-4">
-        <Heading className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <Heading level="heading4">
           {intl.formatMessage({
             defaultMessage: 'Preparation Plans',
             description: 'Preparation plans section title',
@@ -72,7 +72,7 @@ function PreparationPlansSection() {
                   className={clsx('h-8 w-8', plan.iconClass)}
                 />
               </div>
-              <Heading className="text-xl font-semibold text-white">
+              <Heading className="text-white" level="heading6">
                 {plan.longName}
               </Heading>
               <Section>
@@ -124,7 +124,7 @@ function PracticeQuestionsSection({
   return (
     <div className="space-y-12 lg:space-y-16">
       <div className="space-y-4">
-        <Heading className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <Heading level="heading4">
           {intl.formatMessage({
             defaultMessage: 'Practice Questions',
             description:
@@ -174,7 +174,7 @@ export default function GetStartedPage({
       <PromoBanner />
       <Container>
         <div className="space-y-12 py-12 lg:space-y-16 lg:py-16">
-          <Heading className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <Heading level="heading3">
             {intl.formatMessage({
               defaultMessage: 'Get Started',
               description: 'Title of get started page',

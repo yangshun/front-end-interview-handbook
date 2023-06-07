@@ -58,7 +58,10 @@ export function GuidesSidebar({ navigation }: GuidesSidebarProps) {
       <ul className="flex flex-col gap-y-6" role="list">
         {navigation.items.map((section) => (
           <li key={section.title}>
-            <Heading className="text-[0.8125rem] font-semibold leading-6 text-zinc-900">
+            <Heading
+              className="text-[0.8125rem] font-semibold leading-6 text-zinc-900"
+              color="custom"
+              level="custom">
               {section.title}
             </Heading>
             <Section>

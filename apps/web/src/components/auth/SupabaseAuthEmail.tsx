@@ -186,7 +186,7 @@ export default function SupabaseAuthEmail({
     <form id={id} onSubmit={handleSubmit}>
       <div className="space-y-6">
         {showTitle && (
-          <Heading className="text-3xl font-bold text-slate-900">
+          <Heading level="heading4">
             {authView === 'sign_in' ? (
               <FormattedMessage
                 defaultMessage="Sign in to your account"

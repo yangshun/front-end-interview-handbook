@@ -98,7 +98,7 @@ export default function QuestionContentsUserInterface({
       <section className="mt-8 flex h-full min-w-0 flex-1 flex-col lg:order-last">
         <header className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Heading className="text-2xl font-bold leading-6 text-slate-900">
+            <Heading level="heading5">
               <span>
                 {metadata.title}
                 {section === 'solution' && ' Solution'}

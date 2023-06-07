@@ -42,7 +42,7 @@ export default function QuestionContentsSystemDesign({
     <article ref={copyRef} className="space-y-8">
       <div className="space-y-8">
         <header className="mb-9">
-          <Heading className="font-display flex items-center space-x-2 text-3xl font-bold leading-6 tracking-tight text-slate-900 sm:text-4xl">
+          <Heading className="flex items-center gap-x-2" level="heading3">
             <span>{metadata.title}</span>
             {hasCompletedQuestion && (
               <Badge

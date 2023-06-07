@@ -67,7 +67,9 @@ export default function EmptyState({
         aria-hidden="true"
         className={clsx('mx-auto h-12 w-12', colors[variant])}
       />
-      <Heading className="mt-2 font-medium text-slate-900">{title}</Heading>
+      <Heading className="mt-2 font-medium" level="custom">
+        {title}
+      </Heading>
       <Section>
         {subtitle && <p className="mt-1 text-sm text-slate-500">{subtitle}</p>}
         {action && <div className="mt-6">{action}</div>}

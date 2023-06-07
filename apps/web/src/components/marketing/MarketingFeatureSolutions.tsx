@@ -77,7 +77,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
             isInView ? 'opacity-100' : 'opacity-0',
           )}>
           <div className="pb-10 lg:pb-12">
-            <Heading className="text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Heading level="heading2">
               <FormattedMessage
                 defaultMessage="Learn from the best solutions."
                 description="Title of the 'Learn from the best solutions' section on Homepage"

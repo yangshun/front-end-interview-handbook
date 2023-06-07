@@ -135,7 +135,7 @@ export default function FrequentlyAskedQuestions() {
       <Container variant="narrow">
         <div className="relative space-y-10 py-24 lg:py-40">
           <div>
-            <Heading className="text-center text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Heading className="text-center" level="heading2">
               <FormattedMessage
                 defaultMessage="FAQs."
                 description="Frequently Asked Questions"

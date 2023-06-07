@@ -46,7 +46,10 @@ export default function QuestionsQuizContentLayout({
                     'relative flex h-full flex-col border-r border-slate-200',
                     !showSidebar && 'hidden',
                   )}>
-                  <Heading className="sr-only">Quiz Questions</Heading>
+                  <Heading className="sr-only" level="custom">
+                    {/* TODO: i18n */}
+                    Quiz Questions
+                  </Heading>
                   <div className="min-h-0 flex-1 overflow-y-auto">
                     <ul
                       className="divide-y divide-slate-200 border-b border-slate-200"

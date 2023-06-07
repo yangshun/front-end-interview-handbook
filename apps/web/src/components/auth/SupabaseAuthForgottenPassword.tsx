@@ -80,7 +80,7 @@ export default function SupabaseAuthForgottenPassword({
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
       <div className="space-y-8">
         {showTitle && (
-          <Heading className="text-3xl font-bold text-slate-900">
+          <Heading level="heading4">
             <FormattedMessage
               defaultMessage="Reset password"
               description="Title of Password Reset page"

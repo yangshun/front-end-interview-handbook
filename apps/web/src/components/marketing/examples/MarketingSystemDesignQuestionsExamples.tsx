@@ -39,7 +39,7 @@ export default function MarketingSystemDesignQuestionsExamples({
             id="kL0yEH"
           />
         </p>
-        <Heading className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-4xl">
+        <Heading className="mt-2" level="heading3">
           <FormattedMessage
             defaultMessage="System Design Questions"
             description="Title for an example list of System Design Questions on marketing pages"

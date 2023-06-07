@@ -86,7 +86,7 @@ export default function ProfileShell({ user, children }: Props) {
 
   return (
     <>
-      <Heading className="sr-only">
+      <Heading className="sr-only" level="custom">
         {intl.formatMessage({
           defaultMessage: 'Profile',
           description: 'Profile page title',

@@ -35,7 +35,7 @@ export default function QuestionsPlansList({
 
   return (
     <div className="space-y-4 pt-6">
-      <Heading className="text-lg font-bold tracking-tight">
+      <Heading className="text-lg font-bold tracking-tight" level="custom">
         <FormattedMessage
           defaultMessage="All Practice Questions"
           description="Header for all practice questions section in study plans"

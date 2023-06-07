@@ -50,7 +50,7 @@ export default function MarketingContactUs() {
           <Container className="relative" variant="narrow">
             <div className="space-y-10 py-6 md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <Heading className="text-3xl font-bold text-slate-900 sm:text-4xl sm:tracking-tight">
+                <Heading level="heading3">
                   <FormattedMessage
                     defaultMessage="Have questions, feedback or anything to say?"
                     description="Title for contact us section"

@@ -294,7 +294,7 @@ export default function QuestionsSystemDesignListWithFilters({
           />
         ) : (
           <div>
-            <Heading className="sr-only">
+            <Heading className="sr-only" level="custom">
               <FormattedMessage
                 defaultMessage="Questions List"
                 description="Screenreader text for question list"
@@ -322,7 +322,7 @@ export default function QuestionsSystemDesignListWithFilters({
       </section>
       {layout === 'full' && (
         <aside className="h-full lg:col-span-3">
-          <Heading className="sr-only">
+          <Heading className="sr-only" level="custom">
             <FormattedMessage
               defaultMessage="Filters"
               description="Screenreader text for Filters"

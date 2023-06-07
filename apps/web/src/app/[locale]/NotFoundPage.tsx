@@ -76,12 +76,15 @@ export default function NotFoundPage() {
       <div className="bg-white">
         <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl py-12 sm:py-16">
-            <Heading className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl sm:tracking-tight">
+            <Heading className="text-center" level="heading3">
               This page does not exist
             </Heading>
             <Section>
               <div className="mt-12">
-                <Heading className="text-base font-semibold text-slate-500">
+                <Heading
+                  className="text-base font-semibold text-slate-500"
+                  color="custom"
+                  level="custom">
                   You might be interested in
                 </Heading>
                 <Section>
@@ -101,7 +104,9 @@ export default function NotFoundPage() {
                           </span>
                         </div>
                         <div className="min-w-0 flex-1">
-                          <Heading className="text-base font-medium text-slate-900">
+                          <Heading
+                            className="text-base font-medium"
+                            level="custom">
                             <span className="focus-within:ring-brand-500 rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                               <Anchor
                                 className="focus:outline-none"

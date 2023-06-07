@@ -76,7 +76,7 @@ export default function MarketingFeatureQuestionsNew({
               titleIsInView ? 'opacity-100' : 'opacity-0',
             )}>
             <div ref={titleMarkerRef} />
-            <Heading className="text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Heading level="heading2">
               <FormattedMessage
                 defaultMessage="Practice everything here."
                 description="Title of the 'Practice Everything Here' marketing section on Homepage"

@@ -149,7 +149,7 @@ function NoBillingPlan() {
   return (
     <div className="py-12 text-center">
       <CreditCardIcon className="mx-auto h-12 w-12 text-slate-400" />
-      <Heading className="mt-2 text-sm font-medium text-slate-900">
+      <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="Not Subscribed"
           description="Text describing user's subscription status."
@@ -196,7 +196,7 @@ export default function ProfileBilling() {
 
   return (
     <div className="space-y-4">
-      <Heading className="sr-only">
+      <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Billing"
           description="Screenreader text for subscription billing."

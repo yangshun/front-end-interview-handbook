@@ -7,7 +7,7 @@ export default function UIExamplesGroup({
 }: Readonly<{ children: React.ReactNode; title: string }>) {
   return (
     <div className="space-y-4">
-      <Heading className="text-2xl font-bold leading-7 text-slate-900 sm:truncate sm:text-3xl">
+      <Heading className="sm:truncate" level="heading4">
         {title}
       </Heading>
       <Section>

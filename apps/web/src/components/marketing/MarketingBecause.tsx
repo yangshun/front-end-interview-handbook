@@ -24,7 +24,9 @@ export default function MarketingBecause() {
               'relative transition-opacity duration-[1500ms] ease-in-out',
               titleIsInView ? 'opacity-100' : 'opacity-0',
             )}>
-            <Heading className="my-2 mx-auto space-y-2 text-center text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl lg:max-w-2xl lg:text-5xl">
+            <Heading
+              className="my-2 mx-auto space-y-2 text-center"
+              level="heading2">
               <FormattedMessage
                 defaultMessage="Because front end interviews are about <span>fundamentals</span>."
                 description="Title of Second section on homepage - serving to hook users with identification of their pain points"

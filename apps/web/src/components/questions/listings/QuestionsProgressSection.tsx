@@ -47,7 +47,7 @@ export default function QuestionsProgressSection({
   return (
     <div>
       <div>
-        <Heading className="sr-only text-lg font-medium leading-6">
+        <Heading className="sr-only" level="custom">
           <FormattedMessage
             defaultMessage="Progress Overview"
             description="Header for progress overview section which tells user the progress they have made on questions practice on the platform"

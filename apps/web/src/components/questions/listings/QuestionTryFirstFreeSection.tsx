@@ -15,7 +15,7 @@ export default function QuestionTryFirstFreeSection({
 }: Props) {
   return (
     <div className="space-y-6 rounded-lg bg-white p-6 shadow">
-      <Heading className="text-xl font-bold tracking-tight sm:text-2xl">
+      <Heading level="heading5">
         <FormattedMessage
           defaultMessage="Try your first free question"
           description="Header for section prompting user to try their first question"

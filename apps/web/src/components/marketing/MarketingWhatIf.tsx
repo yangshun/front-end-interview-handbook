@@ -36,7 +36,7 @@ export default function MarketingWhatIfNew() {
                 'relative transition-opacity duration-[1500ms] ease-in-out',
                 titleIsInView ? 'opacity-100' : 'opacity-0',
               )}>
-              <Heading className="my-2 mx-auto space-y-2 text-center text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl lg:max-w-3xl lg:text-5xl">
+              <Heading className="my-2 mx-auto text-center" level="heading2">
                 <FormattedMessage
                   defaultMessage="What if those fundamentals were already abstracted for you?"
                   description="Title of section on Homepage to hook users with an engaging key benefit of the product"

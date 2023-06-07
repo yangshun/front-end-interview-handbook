@@ -323,7 +323,10 @@ export default function MarketingTestimonial() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Heading className="sr-only">Testimonials</Heading>
+          <Heading className="sr-only" level="custom">
+            {/* TODO: i18n */}
+            Testimonials
+          </Heading>
           <p className="text-center text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
             <FormattedMessage
               defaultMessage="We have helped thousands of Software Engineers"

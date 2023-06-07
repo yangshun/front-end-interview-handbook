@@ -118,9 +118,7 @@ export default function MarketingHeroNew({
                 />
               </span>
             </div>
-            <Heading
-              className="mx-auto max-w-6xl text-4xl tracking-tight text-slate-900 sm:text-5xl lg:text-6xl 2xl:text-5xl"
-              style={{ fontWeight: 700 }}>
+            <Heading className="mx-auto max-w-7xl" level="heading1">
               <FormattedMessage
                 defaultMessage="The ultimate <span>Front End Interview</span> <span2>preparation platform</span2>."
                 description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."

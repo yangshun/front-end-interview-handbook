@@ -40,13 +40,15 @@ export default function MarketingQuizQuestionsExamples({
             id="7Po5ci"
           />
         </p>
-        <Heading className="mt-2 flex gap-4 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-4xl">
-          <FormattedMessage
-            defaultMessage="Quiz Questions"
-            description="Title for an example list of Quiz Questions on marketing pages"
-            id="BGn++d"
-          />
-          <div>
+        <Heading className="mt-2 flex items-center gap-4" level="heading3">
+          <span>
+            <FormattedMessage
+              defaultMessage="Quiz Questions"
+              description="Title for an example list of Quiz Questions on marketing pages"
+              id="BGn++d"
+            />
+          </span>
+          <div className="flex items-center">
             <Badge
               label={intl.formatMessage({
                 defaultMessage: 'Free',

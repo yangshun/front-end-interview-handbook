@@ -30,7 +30,7 @@ export default function PrepareQuizQuestionsPage({
     <>
       <PromoBanner />
       <Container className="grid gap-y-12 py-8 md:py-12" variant="normal">
-        <Heading className="sr-only">
+        <Heading className="sr-only" level="custom">
           {intl.formatMessage({
             defaultMessage: 'Front End Interview Preparation — Quiz',
             description: 'Prepare for front end interview quiz questions',
@@ -49,7 +49,7 @@ export default function PrepareQuizQuestionsPage({
             })}
           />
           <div className="grid gap-4">
-            <Heading className="text-lg font-semibold text-slate-900">
+            <Heading level="heading6">
               {intl.formatMessage({
                 defaultMessage: 'Quiz Practice Questions',
                 description: 'Quiz question list title',

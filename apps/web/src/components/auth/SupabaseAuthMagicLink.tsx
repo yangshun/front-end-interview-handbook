@@ -63,7 +63,7 @@ export default function SupabaseAuthMagicLink({
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
       <div className="space-y-8">
         {showTitle && (
-          <Heading className="text-3xl font-bold text-slate-900">
+          <Heading level="heading4">
             <FormattedMessage
               defaultMessage="Sign in"
               description="Title of Magic Link Sign In page"

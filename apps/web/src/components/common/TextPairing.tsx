@@ -2,16 +2,24 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
+import type { HeadingLevel } from '~/components/ui/Heading';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
+type TextPairingSize = 'lg' | 'md' | 'xl';
 type Props = Readonly<{
   description?: ReactNode;
   mode?: 'dark' | 'light';
   sectionLabel?: ReactNode;
-  size?: 'lg' | 'md' | 'xl';
+  size?: TextPairingSize;
   title?: string;
 }>;
+
+const headingMap: Record<TextPairingSize, HeadingLevel> = {
+  lg: 'heading4',
+  md: 'heading5',
+  xl: 'heading3',
+};
 
 export default function TextPairing({
   description,
@@ -27,13 +35,10 @@ export default function TextPairing({
       )}
       <Heading
         className={clsx(
-          'font-bold tracking-tight text-slate-900',
           mode === 'light' && 'text-slate-900',
           mode === 'dark' && 'text-white',
-          size === 'md' && 'text-xl md:text-2xl',
-          size === 'lg' && 'text-2xl md:text-3xl',
-          size === 'xl' && 'text-3xl md:text-4xl',
-        )}>
+        )}
+        level={headingMap[size]}>
         {title}
       </Heading>
       {description && (

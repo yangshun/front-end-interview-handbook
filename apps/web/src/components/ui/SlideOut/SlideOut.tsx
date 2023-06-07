@@ -81,7 +81,7 @@ export default function SlideOut({
                 sizeClasses[size],
               )}>
               <div className="flex items-center justify-between px-4">
-                <Heading className="text-lg font-medium text-slate-900">
+                <Heading className="text-lg font-medium" level="custom">
                   {title}
                 </Heading>
                 <button

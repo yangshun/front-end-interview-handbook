@@ -19,7 +19,7 @@ export default function PrepareBehavioralInterviewPage() {
     <>
       <PromoBanner />
       <Container className="grid gap-y-12 py-8 md:py-12" variant="normal">
-        <Heading className="sr-only">
+        <Heading className="sr-only" level="custom">
           {intl.formatMessage({
             defaultMessage:
               'Front End Interview Preparation — Behavioral Interviews',

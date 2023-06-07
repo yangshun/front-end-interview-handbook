@@ -10,7 +10,7 @@ export default function ResumeReviewContact() {
   return (
     <div className="bg-pink-600 py-16 lg:py-24 xl:py-32">
       <Container className="text-center" variant="narrow">
-        <Heading className="text-3xl font-bold text-white sm:text-4xl sm:tracking-tight">
+        <Heading color="light" level="heading3">
           Have questions, feedback or anything to say?
         </Heading>
         <div className="mt-4">

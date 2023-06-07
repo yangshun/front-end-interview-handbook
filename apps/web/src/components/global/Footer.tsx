@@ -209,7 +209,10 @@ function FooterSection({
 }>) {
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+      <Heading
+        className="text-sm font-medium uppercase tracking-wider text-slate-400"
+        color="custom"
+        level="custom">
         {title}
       </Heading>
       <Section>
@@ -255,7 +258,7 @@ export default function Footer() {
     <footer
       aria-labelledby="footer-heading"
       className="border-t border-slate-200 bg-white">
-      <Heading className="sr-only" id="footer-heading">
+      <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
           description="Footer section heading"

@@ -258,7 +258,7 @@ export default function QuestionsQuizListWithFilters({
           </>
         )}
         <div>
-          <Heading className="sr-only">
+          <Heading className="sr-only" level="custom">
             <FormattedMessage
               defaultMessage="Questions List"
               description="Screenreader text for quiz questions list"
@@ -277,7 +277,7 @@ export default function QuestionsQuizListWithFilters({
       </section>
       {layout === 'full' && (
         <aside className="hidden h-full flex-col gap-y-8 border-l border-slate-200 pl-8 lg:col-span-3 lg:flex">
-          <Heading className="sr-only">
+          <Heading className="sr-only" level="custom">
             <FormattedMessage
               defaultMessage="Filters"
               description="Screenreader text to indicate filters component on quiz questions list"

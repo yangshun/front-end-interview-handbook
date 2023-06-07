@@ -27,7 +27,7 @@ export default function QuestionCompanies({
 
   return (
     <div className="space-y-4">
-      <Heading className="text-base font-semibold">
+      <Heading className="text-base font-semibold" level="custom">
         <FormattedMessage
           defaultMessage="Companies"
           description="Title for section on question that shows which companies asked the question"

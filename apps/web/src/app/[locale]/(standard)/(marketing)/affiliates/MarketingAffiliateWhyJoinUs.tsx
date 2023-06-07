@@ -33,7 +33,7 @@ export default function MarketingAffiliateWhyJoinUs() {
                 id="C7tiFm"
               />
             </MarketingSectionTitleLabel>
-            <Heading className="max-w-4xl text-3xl font-bold leading-10 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Heading className="max-w-4xl" level="heading2">
               <FormattedMessage
                 defaultMessage="Why be a GreatFrontEnd Affiliate?"
                 description="Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"

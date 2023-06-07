@@ -175,7 +175,10 @@ export default function MarketingFeatures() {
 
   return (
     <Container variant="narrow">
-      <Heading className="sr-only">Features</Heading>
+      <Heading className="sr-only" level="custom">
+        {/* TODO: i18n */}
+        Features
+      </Heading>
       <Section>
         <dl className="space-y-10 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 sm:space-y-0 lg:gap-x-8">
           {features.map((feature) => (
@@ -184,7 +187,9 @@ export default function MarketingFeatures() {
                 <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
                   <feature.icon aria-hidden="true" className="h-6 w-6" />
                 </div>
-                <Heading className="ml-16 text-lg font-medium leading-6 text-slate-900">
+                <Heading
+                  className="ml-16 text-lg font-medium leading-6"
+                  level="custom">
                   {feature.name}
                 </Heading>
               </dt>
