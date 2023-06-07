@@ -1,45 +1,65 @@
+// Base typography from Protocol-template: https://protocol.tailwindui.com/
+const fontSize = {
+  '2xs': ['0.75rem', { lineHeight: '1.25rem' }],
+  xs: ['0.8125rem', { lineHeight: '1.5rem' }],
+  sm: ['0.875rem', { lineHeight: '1.5rem' }],
+  base: ['1rem', { lineHeight: '1.75rem' }],
+  lg: ['1.125rem', { lineHeight: '1.75rem' }],
+  xl: ['1.25rem', { lineHeight: '1.75rem' }],
+  '2xl': ['1.5rem', { lineHeight: '2rem' }],
+  '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+  '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+  '5xl': ['3rem', { lineHeight: '1' }],
+  '6xl': ['3.75rem', { lineHeight: '1' }],
+  '7xl': ['4.5rem', { lineHeight: '1' }],
+  '8xl': ['6rem', { lineHeight: '1' }],
+  '9xl': ['8rem', { lineHeight: '1' }],
+};
+
 module.exports = ({ theme }) => ({
   DEFAULT: {
     css: {
-      '--tw-prose-body': theme('colors.slate.700'),
-      '--tw-prose-headings': theme('colors.slate.900'),
+      '--tw-prose-body': theme('colors.zinc.700'),
+      '--tw-prose-headings': theme('colors.zinc.900'),
       '--tw-prose-links': theme('colors.brand.500'),
       '--tw-prose-links-hover': theme('colors.brand.600'),
       '--tw-prose-links-underline': theme('colors.brand.500 / 0.3'),
-      '--tw-prose-bold': theme('colors.slate.900'),
-      '--tw-prose-counters': theme('colors.slate.500'),
-      '--tw-prose-bullets': theme('colors.slate.300'),
-      '--tw-prose-hr': theme('colors.slate.900 / 0.05'),
-      '--tw-prose-quotes': theme('colors.slate.900'),
-      '--tw-prose-quote-borders': theme('colors.slate.200'),
-      '--tw-prose-captions': theme('colors.slate.500'),
-      '--tw-prose-code': theme('colors.slate.900'),
-      '--tw-prose-code-bg': theme('colors.slate.100'),
-      '--tw-prose-code-ring': theme('colors.slate.300'),
-      '--tw-prose-th-borders': theme('colors.slate.300'),
-      '--tw-prose-td-borders': theme('colors.slate.200'),
+      '--tw-prose-bold': theme('colors.zinc.900'),
+      '--tw-prose-counters': theme('colors.zinc.500'),
+      '--tw-prose-bullets': theme('colors.zinc.300'),
+      '--tw-prose-hr': theme('colors.zinc.900 / 0.05'),
+      '--tw-prose-quotes': theme('colors.zinc.900'),
+      '--tw-prose-quote-borders': theme('colors.zinc.200'),
+      '--tw-prose-captions': theme('colors.zinc.500'),
+      '--tw-prose-code': theme('colors.zinc.900'),
+      '--tw-prose-code-bg': theme('colors.zinc.100'),
+      '--tw-prose-code-bg-hover': theme('colors.zinc.100 / 0.5'),
+      '--tw-prose-code-ring': theme('colors.zinc.300'),
+      '--tw-prose-th-borders': theme('colors.zinc.300'),
+      '--tw-prose-td-borders': theme('colors.zinc.200'),
 
-      '--tw-prose-invert-body': theme('colors.slate.400'),
+      '--tw-prose-invert-body': theme('colors.zinc.400'),
       '--tw-prose-invert-headings': theme('colors.white'),
       '--tw-prose-invert-links': theme('colors.brand.400'),
       '--tw-prose-invert-links-hover': theme('colors.brand.500'),
       '--tw-prose-invert-links-underline': theme('colors.brand.500 / 0.3'),
       '--tw-prose-invert-bold': theme('colors.white'),
-      '--tw-prose-invert-counters': theme('colors.slate.400'),
-      '--tw-prose-invert-bullets': theme('colors.slate.600'),
+      '--tw-prose-invert-counters': theme('colors.zinc.400'),
+      '--tw-prose-invert-bullets': theme('colors.zinc.600'),
       '--tw-prose-invert-hr': theme('colors.white / 0.05'),
-      '--tw-prose-invert-quotes': theme('colors.slate.100'),
-      '--tw-prose-invert-quote-borders': theme('colors.slate.700'),
-      '--tw-prose-invert-captions': theme('colors.slate.400'),
+      '--tw-prose-invert-quotes': theme('colors.zinc.100'),
+      '--tw-prose-invert-quote-borders': theme('colors.zinc.700'),
+      '--tw-prose-invert-captions': theme('colors.zinc.400'),
       '--tw-prose-invert-code': theme('colors.white'),
-      '--tw-prose-invert-code-bg': theme('colors.slate.700 / 0.15'),
+      '--tw-prose-invert-code-bg': theme('colors.zinc.700 / 0.15'),
+      '--tw-prose-invert-code-bg-hover': theme('colors.zinc.700 / 0.10'),
       '--tw-prose-invert-code-ring': theme('colors.white / 0.1'),
-      '--tw-prose-invert-th-borders': theme('colors.slate.600'),
-      '--tw-prose-invert-td-borders': theme('colors.slate.700'),
+      '--tw-prose-invert-th-borders': theme('colors.zinc.600'),
+      '--tw-prose-invert-td-borders': theme('colors.zinc.700'),
 
       // Base
       color: 'var(--tw-prose-body)',
-      fontSize: theme('fontSize.sm')[0],
+      fontSize: fontSize.sm[0],
       lineHeight: theme('lineHeight.7'),
 
       // Layout
@@ -60,8 +80,10 @@ module.exports = ({ theme }) => ({
         marginBottom: theme('spacing.6'),
       },
       '[class~="lead"]': {
-        fontSize: theme('fontSize.base')[0],
+        fontSize: fontSize.base[0],
         ...theme('fontSize.base')[1],
+        ...fontSize.base[1],
+        marginBottom: theme('spacing.10'),
       },
 
       // Lists
@@ -143,19 +165,9 @@ module.exports = ({ theme }) => ({
       hr: {
         borderColor: 'var(--tw-prose-hr)',
         borderTopWidth: 1,
-        marginTop: theme('spacing.16'),
-        marginBottom: theme('spacing.16'),
+        marginTop: theme('spacing.8'),
+        marginBottom: theme('spacing.8'),
         maxWidth: 'none',
-        marginLeft: `calc(-1 * ${theme('spacing.4')})`,
-        marginRight: `calc(-1 * ${theme('spacing.4')})`,
-        '@screen sm': {
-          marginLeft: `calc(-1 * ${theme('spacing.6')})`,
-          marginRight: `calc(-1 * ${theme('spacing.6')})`,
-        },
-        '@screen lg': {
-          marginLeft: `calc(-1 * ${theme('spacing.8')})`,
-          marginRight: `calc(-1 * ${theme('spacing.8')})`,
-        },
       },
 
       // Quotes
@@ -181,25 +193,37 @@ module.exports = ({ theme }) => ({
       h1: {
         color: 'var(--tw-prose-headings)',
         fontWeight: '700',
-        fontSize: theme('fontSize.2xl')[0],
+        fontSize: fontSize['2xl'][0],
         ...theme('fontSize.2xl')[1],
+        ...fontSize['2xl'][1],
         marginBottom: theme('spacing.2'),
       },
       h2: {
         color: 'var(--tw-prose-headings)',
         fontWeight: '600',
-        fontSize: theme('fontSize.lg')[0],
-        ...theme('fontSize.lg')[1],
-        marginTop: theme('spacing.16'),
+        fontSize: fontSize.xl[0],
+        ...theme('fontSize.xl')[1],
+        ...fontSize.xl[1],
+        marginTop: theme('spacing.12'),
         marginBottom: theme('spacing.2'),
       },
       h3: {
         color: 'var(--tw-prose-headings)',
-        fontSize: theme('fontSize.base')[0],
-        ...theme('fontSize.base')[1],
+        fontSize: fontSize.lg[0],
+        ...theme('fontSize.lg')[1],
+        ...fontSize.lg[1],
         fontWeight: '600',
         marginTop: theme('spacing.10'),
         marginBottom: theme('spacing.2'),
+      },
+      h4: {
+        color: 'var(--tw-prose-headings)',
+        fontSize: fontSize.base[0],
+        ...theme('fontSize.base')[1],
+        ...fontSize.base[1],
+        fontWeight: '600',
+        marginTop: theme('spacing.8'),
+        marginBottom: theme('spacing.1'),
       },
 
       // Media
@@ -213,8 +237,9 @@ module.exports = ({ theme }) => ({
       },
       figcaption: {
         color: 'var(--tw-prose-captions)',
-        fontSize: theme('fontSize.xs')[0],
+        fontSize: fontSize.xs[0],
         ...theme('fontSize.xs')[1],
+        ...fontSize.xs[1],
         marginTop: theme('spacing.2'),
       },
 
@@ -223,8 +248,8 @@ module.exports = ({ theme }) => ({
         width: '100%',
         tableLayout: 'auto',
         textAlign: 'left',
-        marginTop: theme('spacing.8'),
-        marginBottom: theme('spacing.8'),
+        marginTop: theme('spacing.4'),
+        marginBottom: theme('spacing.4'),
         lineHeight: theme('lineHeight.6'),
       },
       thead: {
@@ -287,8 +312,11 @@ module.exports = ({ theme }) => ({
           color: 'var(--tw-prose-links-hover)',
           textDecorationColor: 'var(--tw-prose-links-underline)',
         },
+        '&:has(code)': {
+          textDecoration: 'none !important',
+        },
       },
-      ':is(h1, h2, h3) a': {
+      ':is(h1, h2, h3, h4, h5, h6) a': {
         fontWeight: 'inherit',
       },
       strong: {
@@ -307,22 +335,45 @@ module.exports = ({ theme }) => ({
         paddingLeft: theme('padding[1.5]'),
         boxShadow: 'inset 0 0 0 1px var(--tw-prose-code-ring)',
         backgroundColor: 'var(--tw-prose-code-bg)',
-        fontSize: theme('fontSize.2xs'),
+        fontSize: fontSize['2xs'][0],
+        ...fontSize['2xs'][1],
       },
-      ':is(a, h1, h2, h3, blockquote, thead th) code': {
+      ':is(a, h1, h2, h3, h4, h5, h6, blockquote, thead th) code': {
         color: 'inherit',
       },
+      ':is(a) code:hover': {
+        backgroundColor: 'var(--tw-prose-code-bg-hover)',
+      },
+      'h1 code': {
+        fontSize: fontSize['2xl'][0],
+        fontWeight: 'inherit',
+      },
       'h2 code': {
-        fontSize: theme('fontSize.base')[0],
+        fontSize: fontSize.xl[0],
         fontWeight: 'inherit',
       },
       'h3 code': {
-        fontSize: theme('fontSize.sm')[0],
+        fontSize: fontSize.lg[0],
         fontWeight: 'inherit',
+      },
+      'h4 code': {
+        fontSize: fontSize.base[0],
+        fontWeight: 'inherit',
+      },
+      'h5 code': {
+        fontSize: fontSize.base[0],
+        fontWeight: 'inherit',
+      },
+      pre: {
+        padding: theme('padding.4'),
+        borderRadius: theme('borderRadius.xl'),
+        overflowX: 'auto',
+        fontSize: theme('fontSize.xs')[0],
+        ...theme('fontSize.xs')[1],
       },
 
       // Overrides
-      ':is(h1, h2, h3) + *': {
+      ':is(h1, h2, h3, h4, h5) + *': {
         marginTop: '0',
       },
       '> :first-child': {

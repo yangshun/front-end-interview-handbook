@@ -571,7 +571,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
               />
             </div>
             <hr />
-            <Prose textSize="sm">
+            <Prose>
               <p>
                 Design a news feed application that contains a list of feed
                 posts users can interact with.
@@ -598,7 +598,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
             value={selectedTab}
             onSelect={setSelectedTab}
           />
-          <Prose textSize="sm">
+          <Prose>
             {selectedTab === 'requirements' && <Requirements />}
             {selectedTab === 'architecture' && <Architecture />}
             {selectedTab === 'data-model' && <DataModel />}

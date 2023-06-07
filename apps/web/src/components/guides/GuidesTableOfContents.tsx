@@ -44,7 +44,7 @@ function ListItems({
               className={clsx(
                 'hover:text-brand-700 motion-safe:transition-all',
                 activeId === section.id
-                  ? 'text-brand-500 font-semibold'
+                  ? 'text-brand-600'
                   : 'font-normal text-slate-500',
               )}
               href={`#${section.id}`}

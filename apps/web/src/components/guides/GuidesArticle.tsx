@@ -14,9 +14,10 @@ type Props = PropsWithChildren<
 const GuidesArticle = forwardRef<HTMLDivElement, Props>(
   ({ title, description, children }: Props, ref) => {
     return (
-      <Prose ref={ref} textSize="xl">
+      <Prose ref={ref}>
         <h1>{title}</h1>
         <Abstract>{description}</Abstract>
+        <hr />
         {children}
       </Prose>
     );

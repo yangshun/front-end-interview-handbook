@@ -48,7 +48,7 @@ export default function GuidesMainLayout({
         <div className="flex grow">
           <div className="mx-auto w-full max-w-xl space-y-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
             {currentItem && (
-              <div className="-mb-4 flex flex-wrap gap-x-2 text-sm text-slate-500">
+              <div className="-mb-4 flex flex-wrap gap-x-2 text-xs text-slate-500">
                 {currentItem.breadcrumbs.map((breadcrumb, index) => (
                   <Fragment key={breadcrumb}>
                     {index > 0 && <span>/</span>}

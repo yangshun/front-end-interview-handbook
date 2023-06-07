@@ -50,7 +50,7 @@ const variantClasses: Record<
 
 const sizeClasses: Record<BadgeSize, string> = {
   md: 'px-3 py-1 text-xs',
-  sm: 'px-2 py-0.5 text-xxs',
+  sm: 'px-2 py-0.5 text-2xs',
 };
 
 export default function Badge({ label, size = 'md', variant }: Props) {

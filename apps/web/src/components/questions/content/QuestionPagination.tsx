@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
+
 type PaginationItem = Readonly<{
   href: string;
   title: string;
@@ -31,10 +32,10 @@ export default function QuestionPagination({ currentHref, items }: Props) {
   }
 
   return (
-    <dl className="sm:text-1.5xl flex flex-col gap-6 border-t border-slate-200 py-6 text-xl lg:flex-row">
+    <dl className="sm:text-1.5xl flex flex-col gap-6 border-t border-slate-200 py-6 lg:flex-row">
       <div className={clsx('grow basis-1', !prevQuestion && 'hidden')}>
         {prevQuestion && (
-          <div className="focus-within:ring-brand-500 relative border border-slate-200 p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50">
+          <div className="focus-within:ring-brand-500 relative rounded-lg border border-slate-200 p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50">
             <dt>
               <Text color="secondary" variant="body2" weight="bold">
                 <span aria-hidden="true">←</span>{' '}
@@ -47,9 +48,9 @@ export default function QuestionPagination({ currentHref, items }: Props) {
             </dt>
             <dd className="mt-1">
               <Anchor
-                className="line-clamp-1 focus:outline-none"
+                className="line-clamp-1 text-base font-semibold text-zinc-900 hover:text-zinc-600 focus:outline-none"
                 href={prevQuestion.href}
-                variant="flat">
+                variant="unstyled">
                 {/* Extend touch target to entire panel */}
                 <span aria-hidden="true" className="absolute inset-0" />
                 {prevQuestion.title}
@@ -60,7 +61,7 @@ export default function QuestionPagination({ currentHref, items }: Props) {
       </div>
       <div className="grow basis-1 text-right">
         {nextQuestion && (
-          <div className="focus-within:ring-brand-500 relative border border-slate-200 p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50">
+          <div className="focus-within:ring-brand-500 relative rounded-lg border border-slate-200 p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50">
             <dt>
               <Text color="secondary" variant="body2" weight="bold">
                 <FormattedMessage
@@ -73,9 +74,9 @@ export default function QuestionPagination({ currentHref, items }: Props) {
             </dt>
             <dd className="mt-1">
               <Anchor
-                className="line-clamp-1 focus:outline-none"
+                className="line-clamp-1 text-base font-semibold text-zinc-900 hover:text-zinc-600 focus:outline-none"
                 href={nextQuestion.href}
-                variant="flat">
+                variant="unstyled">
                 {/* Extend touch target to entire panel */}
                 <span aria-hidden="true" className="absolute inset-0" />
                 {nextQuestion.title}

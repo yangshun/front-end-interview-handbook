@@ -104,7 +104,7 @@ function QuestionNewLabel({
   return (
     <span className="absolute right-0 top-0 h-12 w-12">
       <span className="border-brand-600 absolute block h-12 w-12 border-[24px] !border-l-transparent !border-b-transparent" />
-      <span className="text-xxs absolute right-1 top-2 rotate-45 font-medium uppercase text-white">
+      <span className="text-2xs absolute right-1 top-2 rotate-45 font-medium uppercase text-white">
         <FormattedMessage
           defaultMessage="New"
           description="Label for new questions ribbon"

@@ -32,11 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function Page() {
   return (
-    <Container variant="4xl">
+    <Container className="my-20" variant="4xl">
       <Prose>
-        <div className="my-20">
-          <PrivacyPolicy />
-        </div>
+        <PrivacyPolicy />
       </Prose>
     </Container>
   );

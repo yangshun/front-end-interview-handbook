@@ -1,12 +1,8 @@
 'use client';
 
-import clsx from 'clsx';
-
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import GuidesNavbar from '~/components/guides/GuidesNavbar';
-import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -71,8 +67,8 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
-            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-xs xl:w-[300px] 2xl:w-96">
-              <Heading className="text-base font-medium text-slate-700">
+            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-slate-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
+              <Heading className="mt-4 text-base font-semibold text-slate-700">
                 {navigation.title}
               </Heading>
               <Section>

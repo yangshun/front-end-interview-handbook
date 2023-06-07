@@ -76,16 +76,12 @@ export default function QuestionQuizContents({
     <div>
       <div className="mx-auto w-full max-w-xl space-y-6 px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
         <div>
-          <div className="mb-2 flex justify-between space-x-2 text-slate-500">
-            <div className="space-x-2 text-slate-500">
-              <span>
-                <FormattedMessage
-                  defaultMessage="Quiz Questions"
-                  description="Header for quiz questions"
-                  id="lmBDjV"
-                />
-              </span>
-            </div>
+          <div className="mb-1 flex justify-between gap-x-2 text-sm text-slate-500">
+            <FormattedMessage
+              defaultMessage="Quiz Questions"
+              description="Header for quiz questions"
+              id="lmBDjV"
+            />
           </div>
           {/* Question solution */}
           <div
@@ -93,9 +89,9 @@ export default function QuestionQuizContents({
             className="relative mx-auto flex min-w-0 flex-1 flex-col">
             <article aria-labelledby="question-title" className="grow">
               <div className="min-h-0 flex-1">
-                <header className="space-y-4 border-b border-slate-200 pt-4 pb-10 ">
+                <header className="grid gap-y-4 border-b border-slate-200 pb-10">
                   <Heading
-                    className="pb-4 text-2xl font-medium !leading-10 text-slate-900 sm:text-3xl"
+                    className="pb-4 text-xl font-semibold text-slate-900 sm:text-2xl"
                     id="question-title">
                     {question.metadata.title}
                   </Heading>
@@ -127,7 +123,7 @@ export default function QuestionQuizContents({
                         />
                       </div>
                     ) : (
-                      <Prose textSize="lg">
+                      <Prose>
                         <Solution components={MDXComponents} />
                       </Prose>
                     )}

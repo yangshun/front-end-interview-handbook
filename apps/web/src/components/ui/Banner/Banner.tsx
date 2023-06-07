@@ -24,7 +24,7 @@ export default function Banner({
         variant === 'special' && 'bg-slate-900 text-white',
         size === 'md' && 'text-xs sm:text-sm md:text-base',
         size === 'sm' && 'text-xs md:text-sm',
-        size === 'xs' && 'text-xxs md:text-xs',
+        size === 'xs' && 'text-2xs md:text-xs',
       )}>
       <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
         <div className="pr-16 sm:px-16 sm:text-center">

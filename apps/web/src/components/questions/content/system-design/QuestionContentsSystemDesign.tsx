@@ -86,7 +86,6 @@ export default function QuestionContentsSystemDesign({
           <QuestionContentProse
             contents={description}
             isContentsHidden={isQuestionLocked}
-            textSize="xl"
           />
         </div>
         <hr />
@@ -94,7 +93,6 @@ export default function QuestionContentsSystemDesign({
           <QuestionContentProse
             contents={solution}
             isContentsHidden={isQuestionLocked}
-            textSize="xl"
           />
         </div>
         <div className="flex justify-between">

@@ -44,57 +44,61 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
-            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto bg-slate-50 p-6 text-xs xl:w-[300px] 2xl:w-96">
-              <Heading className="text-base font-medium text-slate-700">
+            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-slate-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
+              <Heading className="mt-4 text-base font-semibold text-slate-700">
                 {title}
               </Heading>
               <Section>
                 <nav>
-                  <ul className="space-y-8" role="list">
+                  <ul className="flex flex-col gap-y-6" role="list">
                     {systemDesignNavigation.map((section) => (
                       <li key={section.title}>
-                        <Heading className="font-medium text-slate-900">
+                        <Heading className="text-[0.8125rem] font-semibold leading-6 text-zinc-900">
                           {section.title}
                         </Heading>
                         <Section>
-                          <ul
-                            className="mt-2 space-y-2 border-l border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200"
-                            role="list">
-                            {section.links.map((link) => (
-                              <li key={link.href} className="relative">
-                                <Anchor
-                                  className={clsx(
-                                    'flex w-full items-center space-x-2 pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full',
-                                    pathname === link.href
-                                      ? 'text-brand-500 before:bg-brand-500'
-                                      : 'text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block',
-                                  )}
-                                  href={link.href}
-                                  variant="unstyled">
-                                  <span>{link.title}</span>
-                                  {(() => {
-                                    if (!isPremiumUser) {
-                                      if (link.premium) {
+                          <div className="pl-2">
+                            <ul
+                              className="mt-3 flex flex-col gap-y-2 border-l border-slate-200"
+                              role="list">
+                              {section.links.map((link) => (
+                                <li
+                                  key={link.href}
+                                  className="relative text-sm leading-6">
+                                  <Anchor
+                                    className={clsx(
+                                      'flex w-full items-center gap-x-2 pl-4',
+                                      pathname === link.href
+                                        ? 'text-brand-500'
+                                        : 'text-zinc-500 hover:text-zinc-800',
+                                    )}
+                                    href={link.href}
+                                    variant="unstyled">
+                                    <span>{link.title}</span>
+                                    {(() => {
+                                      if (!isPremiumUser) {
+                                        if (link.premium) {
+                                          return (
+                                            <LockClosedIcon className="h-4 w-4 shrink-0" />
+                                          );
+                                        }
+                                      }
+                                      if (
+                                        link.type === 'question' &&
+                                        !ReadyQuestions.includes(link.slug)
+                                      ) {
                                         return (
-                                          <LockClosedIcon className="h-4 w-4 shrink-0" />
+                                          <ExclamationTriangleIcon className="h-4 w-4 shrink-0" />
                                         );
                                       }
-                                    }
-                                    if (
-                                      link.type === 'question' &&
-                                      !ReadyQuestions.includes(link.slug)
-                                    ) {
-                                      return (
-                                        <ExclamationTriangleIcon className="h-4 w-4 shrink-0" />
-                                      );
-                                    }
 
-                                    return null;
-                                  })()}
-                                </Anchor>
-                              </li>
-                            ))}
-                          </ul>
+                                      return null;
+                                    })()}
+                                  </Anchor>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </Section>
                       </li>
                     ))}
