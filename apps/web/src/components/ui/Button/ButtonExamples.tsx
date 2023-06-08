@@ -23,7 +23,7 @@ const tooltipPositions: ReadonlyArray<TooltipPosition> = [
 
 export default function ButtonExamples() {
   return (
-    <UIExamplesGroup title="Buttons">
+    <UIExamplesGroup title="Button">
       {variants.map((variant) => (
         <div key={variant} className="space-x-4">
           {sizes.map((size) => (

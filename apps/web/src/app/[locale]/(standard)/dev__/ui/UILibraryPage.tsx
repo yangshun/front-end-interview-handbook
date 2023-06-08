@@ -8,6 +8,7 @@ import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
 import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
+import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
 import HoverCardExamples from '~/components/ui/Hovercard/HovercardExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
@@ -24,6 +25,7 @@ export default function UILibraryPage() {
     <Container>
       <div className="space-y-24 py-12 lg:py-24">
         <TypographyExamples />
+        <HeadingExamples />
         <TextExamples />
         <ButtonExamples />
         <SpinnerExamples />
