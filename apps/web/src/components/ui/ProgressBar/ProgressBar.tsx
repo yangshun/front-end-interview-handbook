@@ -30,7 +30,7 @@ export default function ProgressBar({
         <div
           className="absolute -top-2 z-10 flex h-8 w-8 -translate-x-4 items-center justify-center rounded-full bg-slate-100 drop-shadow-lg"
           style={{ left: `calc(${(completed / total) * 100}%)` }}>
-          <div className="h-4 w-4 rounded-full bg-green-500" />
+          <div className="bg-success h-4 w-4 rounded-full" />
         </div>
       )}
       <div
@@ -44,7 +44,7 @@ export default function ProgressBar({
           aria-valuemin={0}
           aria-valuenow={completed}
           className={clsx(
-            'h-full w-full origin-left bg-green-500 transition-transform duration-500',
+            'bg-success h-full w-full origin-left transition-transform duration-500',
             size === 'md' && 'rounded-lg',
             size === 'lg' && 'rounded-xl',
           )}

@@ -40,7 +40,7 @@ function ProductSection() {
           )}>
           <CheckIcon
             aria-hidden={true}
-            className="-ml-1 h-4 w-4 text-emerald-500"
+            className="text-success -ml-1 h-4 w-4"
           />
           {feature}
         </div>

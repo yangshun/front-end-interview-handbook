@@ -49,7 +49,7 @@ const colors: Record<EmptyStateVariant, string> = {
   exit: 'text-slate-400',
   login: 'text-slate-400',
   not_subscribed: 'text-slate-400',
-  success: 'text-emerald-500',
+  success: 'text-success',
   under_construction: 'text-slate-400',
 };
 

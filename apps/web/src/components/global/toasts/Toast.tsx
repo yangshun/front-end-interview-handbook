@@ -30,9 +30,7 @@ function ToastIcon({
 }>) {
   switch (variant) {
     case 'success':
-      return (
-        <CheckIcon aria-hidden="true" className="h-6 w-6 text-emerald-500" />
-      );
+      return <CheckIcon aria-hidden="true" className="text-success h-6 w-6" />;
     case 'failure':
       return <XMarkIcon aria-hidden="true" className="h-6 w-6 text-rose-500" />;
     case 'special':

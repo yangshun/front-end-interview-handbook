@@ -64,7 +64,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                     className={clsx(
                       'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                       hasCompletedQuestion
-                        ? 'border-green-500 bg-green-500 text-white'
+                        ? 'border-success bg-success text-white'
                         : 'border-slate-200 bg-white',
                     )}>
                     {hasCompletedQuestion && (

@@ -180,7 +180,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                     userCannotViewQuestion || !hasCompletedQuestion
                       ? 'border-slate-200 bg-white'
-                      : 'border-green-500 bg-green-500 text-white',
+                      : 'border-success bg-success text-white',
                   )}>
                   {question.premium && !userProfile?.isPremium ? (
                     <Tooltip

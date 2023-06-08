@@ -80,7 +80,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   secondary:
     'border-transparent text-brand-700 bg-brand-100 hover:bg-brand-200',
   special: 'border-slate-900 text-white bg-slate-900 hover:bg-slate-700',
-  success: 'border-transparent text-white bg-emerald-600 hover:bg-emerald-500',
+  success: 'border-transparent text-white bg-success-dark hover:bg-success',
   tertiary: 'border-slate-200 text-slate-700 bg-white hover:bg-slate-50',
 };
 

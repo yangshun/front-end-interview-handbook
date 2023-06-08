@@ -9,7 +9,7 @@ import type { QuestionLanguage } from './QuestionsTypes';
 const LanguageLabelClasses: Record<QuestionLanguage, string> = {
   css: 'bg-sky-500 text-white',
   html: 'bg-orange-600 text-white',
-  js: 'bg-yellow-400 text-black',
+  js: 'bg-yellow text-black',
   ts: 'bg-[#3178c6] text-white',
 };
 

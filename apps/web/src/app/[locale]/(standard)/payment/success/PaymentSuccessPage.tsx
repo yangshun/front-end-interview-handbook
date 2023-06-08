@@ -134,7 +134,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
           <div className="mb-2 flex justify-center">
             <CheckBadgeIcon
               aria-hidden={true}
-              className="h-16 w-16 text-emerald-500"
+              className="text-success h-16 w-16"
             />
           </div>
           <Heading className="text-center" level="heading4">

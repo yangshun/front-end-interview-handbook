@@ -721,7 +721,7 @@ export default function MarketingPricingSectionNew({
                                       <li key={idx} className={newLocal}>
                                         <CheckIcon
                                           aria-hidden="true"
-                                          className="h-5 w-5 flex-shrink-0 text-emerald-500"
+                                          className="h-5 w-5 flex-shrink-0 text-success"
                                         />
                                         <span className="text-sm text-slate-500">
                                           {feature}

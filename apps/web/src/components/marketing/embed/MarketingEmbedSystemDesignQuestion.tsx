@@ -19,7 +19,7 @@ function ReadFullQuestionAlert() {
   const intl = useIntl();
 
   return (
-    <div className="rounded-md bg-cyan-50 p-4 text-xs">
+    <div className="bg-info-lighter rounded-md p-4 text-xs">
       Like what you are reading?{' '}
       <Anchor
         href={questionMetadata.href}

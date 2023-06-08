@@ -10,7 +10,6 @@ type Props = Readonly<{
   primaryButton?: React.ReactNode;
   secondaryButton?: React.ReactNode;
   title: string;
-  topIcon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
 }>;
 
 export default function DialogImpl({
@@ -18,7 +17,6 @@ export default function DialogImpl({
   isShown,
   primaryButton,
   title,
-  topIcon: TopIcon,
   secondaryButton,
   onClose,
 }: Props) {
@@ -53,14 +51,6 @@ export default function DialogImpl({
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div>
-                  {TopIcon != null && (
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                      <TopIcon
-                        aria-hidden="true"
-                        className="h-6 w-6 text-green-600"
-                      />
-                    </div>
-                  )}
                   <div>
                     <Dialog.Title
                       as="h2"

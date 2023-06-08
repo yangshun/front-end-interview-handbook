@@ -80,7 +80,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                   className={clsx(
                     'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                     hasCompletedQuestion
-                      ? 'border-green-500 bg-green-500 text-white'
+                      ? 'border-green bg-green text-white'
                       : 'border-slate-200 bg-white',
                   )}>
                   {hasCompletedQuestion ? (
@@ -88,8 +88,8 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                       label={intl.formatMessage({
                         defaultMessage: 'Completed',
                         description:
-                          'Label for completed status on quiz quqestions list',
-                        id: 'RTwyWd',
+                          'Label for completed status on quiz questions list',
+                        id: 'fIu2R9',
                       })}
                       position="above">
                       <CheckIcon
@@ -102,8 +102,8 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                       label={intl.formatMessage({
                         defaultMessage: 'Not Completed',
                         description:
-                          'Label for Not completed status on quiz quqestions list',
-                        id: '3lWGUg',
+                          'Label for Not completed status on quiz questions list',
+                        id: 'bTsT6Y',
                       })}
                       position="above">
                       <EllipsisHorizontalIcon

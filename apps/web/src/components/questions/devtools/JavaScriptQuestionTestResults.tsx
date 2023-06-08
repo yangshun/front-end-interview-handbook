@@ -91,7 +91,7 @@ function TestResultItem({
         {result.status === 'pass' && (
           <CheckIcon
             aria-hidden={true}
-            className="h-5 w-5 shrink-0 text-green-500"
+            className="text-success h-5 w-5 shrink-0"
           />
         )}
         {result.status === 'fail' && (

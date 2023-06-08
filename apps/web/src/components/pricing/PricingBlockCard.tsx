@@ -50,7 +50,7 @@ export default function PricingBlockCard({
                   <div className="flex-shrink-0">
                     <CheckIcon
                       aria-hidden="true"
-                      className="h-5 w-5 text-emerald-400"
+                      className="text-success-light h-5 w-5"
                     />
                   </div>
                   <p className="ml-3 text-sm text-slate-700">{feature}</p>

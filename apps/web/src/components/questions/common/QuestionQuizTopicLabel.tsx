@@ -7,15 +7,15 @@ import type { QuestionQuizTopic } from './QuestionsTypes';
 import useQuestionQuizTopicLabels from '../content/quiz/useQuestionQuizTopicLabels';
 
 const TopicLabelClasses: Record<QuestionQuizTopic, string> = {
-  a11y: 'bg-blue-400 text-white',
+  a11y: 'bg-blue text-white',
   css: 'bg-sky-600 text-white',
   html: 'bg-orange-600 text-white',
   i18n: 'bg-slate-700 text-white',
-  javascript: 'bg-yellow-400 text-black',
+  javascript: 'bg-yellow text-black',
   network: 'bg-teal-400 text-white',
   performance: 'bg-indigo-500 text-white',
-  security: 'bg-amber-400 text-black',
-  testing: 'bg-green-400 text-white',
+  security: 'bg-red text-white',
+  testing: 'bg-green-dark text-white',
 };
 
 export default function QuestionQuizTopicLabel({

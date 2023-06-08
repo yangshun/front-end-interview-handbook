@@ -43,7 +43,7 @@ const colorClasses: Record<TextColor, string> = {
   inherit: '',
   placeholder: 'text-slate-400',
   secondary: 'text-gray-500',
-  success: 'text-emerald-500',
+  success: 'text-success',
 };
 
 export default function Text({

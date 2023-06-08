@@ -3,6 +3,38 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
+const green = {
+  lighter: colors.green['100'],
+  light: colors.green['400'],
+  DEFAULT: colors.green['500'],
+  dark: colors.green['600'],
+  darker: colors.green['700'],
+};
+
+const blue = {
+  lighter: colors.sky['100'],
+  light: colors.sky['400'],
+  DEFAULT: colors.sky['500'],
+  dark: colors.sky['600'],
+  darker: colors.sky['700'],
+};
+
+const red = {
+  lighter: colors.red['100'],
+  light: colors.red['400'],
+  DEFAULT: colors.red['500'],
+  dark: colors.red['600'],
+  darker: colors.red['700'],
+};
+
+const yellow = {
+  lighter: colors.amber['100'],
+  light: colors.amber['400'],
+  DEFAULT: colors.amber['500'],
+  dark: colors.amber['600'],
+  darker: colors.amber['700'],
+};
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -25,6 +57,14 @@ module.exports = {
       },
       colors: {
         brand: colors.indigo,
+        green,
+        success: green,
+        blue,
+        info: blue,
+        red,
+        danger: red,
+        yellow,
+        warning: yellow,
       },
       opacity: {
         1: '0.01',

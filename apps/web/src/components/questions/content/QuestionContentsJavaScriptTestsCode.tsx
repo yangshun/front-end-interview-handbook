@@ -48,7 +48,7 @@ function highlightElement(
   });
   setTimeout(() => {
     const highlightClassTokens = [
-      '!bg-yellow-300',
+      '!bg-amber-300',
       '!text-slate-900',
       'transition-colors',
     ];
