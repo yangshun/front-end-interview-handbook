@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
+import Text from '../Text';
 
 import {
   CheckCircleIcon,
@@ -23,39 +24,34 @@ const classes: Record<
   AlertVariant,
   Readonly<{
     backgroundClass: string;
-    bodyClass: string;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     iconClass: string;
     titleClass: string;
   }>
 > = {
   danger: {
-    backgroundClass: 'bg-rose-50',
-    bodyClass: 'text-rose-700',
+    backgroundClass: 'bg-danger-lighter',
     icon: XCircleIcon,
-    iconClass: 'text-rose-400',
-    titleClass: 'text-rose-800',
+    iconClass: 'text-danger',
+    titleClass: 'text-danger',
   },
   info: {
-    backgroundClass: 'bg-sky-50',
-    bodyClass: 'text-sky-700',
+    backgroundClass: 'bg-info-lighter',
     icon: InformationCircleIcon,
-    iconClass: 'text-sky-400',
-    titleClass: 'text-sky-800',
+    iconClass: 'text-info',
+    titleClass: 'text-info',
   },
   success: {
-    backgroundClass: 'bg-emerald-50',
-    bodyClass: 'text-emerald-700',
+    backgroundClass: 'bg-success-lighter',
     icon: CheckCircleIcon,
-    iconClass: 'text-emerald-400',
-    titleClass: 'text-emerald-800',
+    iconClass: 'text-success',
+    titleClass: 'text-success',
   },
   warning: {
-    backgroundClass: 'bg-amber-50',
-    bodyClass: 'text-amber-700',
+    backgroundClass: 'bg-warning-lighter',
     icon: ExclamationTriangleIcon,
-    iconClass: 'text-amber-400',
-    titleClass: 'text-amber-800',
+    iconClass: 'text-warning',
+    titleClass: 'text-warning',
   },
 };
 
@@ -64,29 +60,31 @@ export default function Alert({ children, title, variant }: Props) {
     backgroundClass,
     iconClass,
     titleClass,
-    bodyClass,
     icon: Icon,
   } = classes[variant];
 
   return (
-    <div className={clsx('rounded-md p-4', backgroundClass)}>
-      <div className="flex">
+    <div className={clsx('rounded-lg p-4', backgroundClass)}>
+      <div className="flex gap-x-2">
         <div className="flex-shrink-0">
-          <Icon aria-hidden="true" className={clsx('h-5 w-5', iconClass)} />
+          <Icon
+            aria-hidden="true"
+            className={clsx('mt-0.5 h-5 w-5', iconClass)}
+          />
         </div>
-        <div className="ml-3 space-y-2">
+        <div className="grid gap-y-1">
           {title && (
             <Heading
-              className={clsx('text-base font-medium', titleClass)}
+              className={clsx('text-base font-semibold', titleClass)}
               color="custom"
               level="custom">
               {title}
             </Heading>
           )}
           <Section>
-            <div className={clsx('text-base', bodyClass)}>
-              <p>{children}</p>
-            </div>
+            <Text color="secondary" display="block" variant="body">
+              {children}
+            </Text>
           </Section>
         </div>
       </div>

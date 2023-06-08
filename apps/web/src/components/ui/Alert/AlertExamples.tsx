@@ -13,7 +13,7 @@ export default function AlertExamples() {
           A new software update is available. See what's new in version 2.0.4.
         </Alert>
         <Alert title="Warning!" variant="warning">
-          Doing that are not advisable, you are recommended to stay away from
+          Doing that is not advisable, you are recommended to stay away from
           such practices.
         </Alert>
         <Alert title="Errors submitting" variant="danger">
