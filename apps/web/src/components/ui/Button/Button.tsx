@@ -8,7 +8,7 @@ import Tooltip from '../Tooltip';
 import type { TooltipAlignment } from '../Tooltip/Tooltip';
 
 export type ButtonDisplay = 'block' | 'inline';
-export type ButtonSize = 'lg' | 'md' | 'sm';
+export type ButtonSize = 'lg' | 'md' | 'sm' | 'xl';
 export type ButtonVariant =
   | 'flat'
   | 'primary'
@@ -38,40 +38,53 @@ type Props = Readonly<{
   variant: ButtonVariant;
 }>;
 
-const sizeClasses: Record<ButtonSize, string> = {
-  lg: 'px-5 py-2.5',
-  md: 'px-4 py-2',
-  sm: 'px-2.5 py-1.5',
+const horizontalPaddingClasses: Record<ButtonSize, string> = {
+  lg: 'px-4',
+  md: 'px-3',
+  sm: 'px-2',
+  xl: 'px-5',
 };
 
-const iconOnlySizeClasses: Record<ButtonSize, string> = {
-  lg: 'p-3',
-  md: 'p-2',
-  sm: 'p-1.5',
+const heightClasses: Record<ButtonSize, string> = {
+  lg: 'h-9',
+  md: 'h-8',
+  sm: 'h-7',
+  xl: 'h-10',
 };
 
-const baseClasses: Record<ButtonSize, string> = {
-  lg: 'text-base rounded-lg',
-  md: 'text-sm rounded-lg',
-  sm: 'text-xs rounded-md',
+const widthClasses: Record<ButtonSize, string> = {
+  lg: 'w-9',
+  md: 'w-8',
+  sm: 'w-7',
+  xl: 'w-10',
 };
 
-const sizeIconSpacingEndClasses: Record<ButtonSize, string> = {
-  lg: 'ml-3 -mr-1 ',
-  md: 'ml-2 -mr-1 ',
-  sm: 'ml-2 -mr-0.5',
+const fontSizeClasses: Record<ButtonSize, string> = {
+  lg: 'text-sm',
+  md: 'text-xs',
+  sm: 'text-xs',
+  xl: 'text-base',
 };
 
-const sizeIconSpacingStartClasses: Record<ButtonSize, string> = {
-  lg: 'mr-3 -ml-1 ',
-  md: 'mr-2 -ml-1 ',
-  sm: 'mr-2 -ml-0.5',
+const borderRadiusClasses: Record<ButtonSize, string> = {
+  lg: 'rounded',
+  md: 'rounded',
+  sm: 'rounded',
+  xl: 'rounded',
+};
+
+const spacingClasses: Record<ButtonSize, string> = {
+  lg: 'gap-x-1',
+  md: 'gap-x-1',
+  sm: 'gap-x-1',
+  xl: 'gap-x-2',
 };
 
 const sizeIconClasses: Record<ButtonSize, string> = {
-  lg: '!h-5 !w-5',
-  md: '!h-5 !w-5',
+  lg: '!h-4 !w-4',
+  md: '!h-4 !w-4',
   sm: '!h-4 !w-4',
+  xl: '!h-4 !w-4',
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -113,16 +126,7 @@ export default function Button({
   variant,
   onClick,
 }: Props) {
-  const iconSpacingClass = (() => {
-    if (!isLabelHidden && addonPosition === 'start') {
-      return sizeIconSpacingStartClasses[size];
-    }
-
-    if (!isLabelHidden && addonPosition === 'end') {
-      return sizeIconSpacingEndClasses[size];
-    }
-  })();
-  const addOnClass = clsx(iconSpacingClass, sizeIconClasses[size]);
+  const addOnClass = sizeIconClasses[size];
 
   const addOn = isLoading ? (
     <Spinner className={addOnClass} color="inherit" size="xs" />
@@ -143,12 +147,15 @@ export default function Button({
     'aria-label': isLabelHidden ? label : undefined,
     children,
     className: clsx(
-      display === 'block' ? 'flex w-full justify-center' : 'inline-flex',
-      'whitespace-nowrap items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors',
+      display === 'block' ? 'flex w-full' : 'inline-flex',
+      'whitespace-nowrap items-center justify-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors',
       isDisabled ? variantDisabledClasses[variant] : variantClasses[variant],
       isDisabled && 'pointer-events-none',
-      isLabelHidden ? iconOnlySizeClasses[size] : sizeClasses[size],
-      baseClasses[size],
+      heightClasses[size],
+      isLabelHidden ? widthClasses[size] : horizontalPaddingClasses[size],
+      fontSizeClasses[size],
+      borderRadiusClasses[size],
+      spacingClasses[size],
       className,
     ),
     disabled: isDisabled,
