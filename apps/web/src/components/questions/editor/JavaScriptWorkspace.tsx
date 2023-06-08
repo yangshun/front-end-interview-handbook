@@ -339,7 +339,7 @@ function Contents({
                       'Label for dismiss button of previously restored prompt that appears under the coding workspace when user has previously worked on this problem and we restored their code',
                     id: '562PkG',
                   })}
-                  size="sm"
+                  size="xs"
                   variant="tertiary"
                   onClick={() => {
                     setShowLoadedPreviousCode(false);
@@ -367,7 +367,7 @@ function Contents({
                             id: 'fQHORb',
                           })
                     }
-                    size="sm"
+                    size="xs"
                     variant="secondary"
                     onClick={() => {
                       setShowDevToolsPane(!showDevToolsPane);
@@ -399,7 +399,7 @@ function Contents({
                       'Label for button to submit code for testing within coding workspace',
                     id: 'FkGppk',
                   })}
-                  size="sm"
+                  size="xs"
                   variant="special"
                   onClick={async () => {
                     setIsRunningCode(true);

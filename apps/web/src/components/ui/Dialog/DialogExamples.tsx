@@ -24,7 +24,7 @@ export default function DialogExamples() {
           <Button
             display="block"
             label="Cancel"
-            variant="tertiary"
+            variant="secondary"
             onClick={() => setIsShown(false)}
           />
         }

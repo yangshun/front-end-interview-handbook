@@ -95,7 +95,7 @@ export default function SupabaseAuthMagicLink({
                   'Label of send magic link button on Magic Link Sign In page',
                 id: 'wbjMPn',
               })}
-              size="lg"
+              size="md"
               type="submit"
               variant="secondary"
             />

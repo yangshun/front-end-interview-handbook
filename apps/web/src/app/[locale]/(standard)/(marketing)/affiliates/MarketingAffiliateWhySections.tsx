@@ -147,7 +147,7 @@ export default function MarketingAffiliateWhySections() {
                     <Button
                       href={reason.action.href}
                       label={reason.action.label}
-                      size="lg"
+                      size="md"
                       variant="primary"
                     />
                   )}
@@ -155,7 +155,7 @@ export default function MarketingAffiliateWhySections() {
                     <Button
                       href={reason.secondaryAction.href}
                       label={reason.secondaryAction.label}
-                      size="lg"
+                      size="md"
                       variant="secondary"
                     />
                   )}

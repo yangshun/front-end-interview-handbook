@@ -219,7 +219,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           description: 'Label for button to open code editor shortcuts',
           id: 'yrC3kR',
         })}
-        size="sm"
+        size="xs"
         tooltip={intl.formatMessage({
           defaultMessage: 'Editor shortcuts',
           description: 'Tooltip for button to open code editor shortcuts',

@@ -51,7 +51,7 @@ export default function QuestionPaywallSmall({
             'Button displayed on paywall on premium question pages, leading to our pricing plans',
           id: 'pRCMpc',
         })}
-        size="sm"
+        size="xs"
         variant="special"
       />
     </div>

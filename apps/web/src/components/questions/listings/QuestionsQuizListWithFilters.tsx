@@ -112,7 +112,7 @@ export default function QuestionsQuizListWithFilters({
               id: 'k2Oi+j',
             }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
           }
-          size="sm"
+          size="xs"
           type="button"
           variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}

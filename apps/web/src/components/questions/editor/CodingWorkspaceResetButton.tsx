@@ -20,7 +20,7 @@ export default function CodingWorkspaceResetButton({ onClick }: Props) {
           'Label for button that allows users to reset their coding workspace to the initial code',
         id: 'FInmLy',
       })}
-      size="sm"
+      size="xs"
       tooltip={intl.formatMessage({
         defaultMessage: 'Reset to initial code',
         description:

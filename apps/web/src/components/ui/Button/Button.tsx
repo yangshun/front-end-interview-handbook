@@ -8,7 +8,7 @@ import Tooltip from '../Tooltip';
 import type { TooltipAlignment } from '../Tooltip/Tooltip';
 
 export type ButtonDisplay = 'block' | 'inline';
-export type ButtonSize = 'lg' | 'md' | 'sm' | 'xl';
+export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs';
 export type ButtonVariant =
   | 'primary'
   | 'secondary'
@@ -38,52 +38,52 @@ type Props = Readonly<{
 }>;
 
 const horizontalPaddingClasses: Record<ButtonSize, string> = {
-  lg: 'px-4',
-  md: 'px-3',
-  sm: 'px-2',
-  xl: 'px-5',
+  lg: 'px-5',
+  md: 'px-4',
+  sm: 'px-3',
+  xs: 'px-2',
 };
 
 const heightClasses: Record<ButtonSize, string> = {
-  lg: 'h-9',
-  md: 'h-8',
-  sm: 'h-7',
-  xl: 'h-10',
+  lg: 'h-10',
+  md: 'h-9',
+  sm: 'h-8',
+  xs: 'h-7',
 };
 
 const widthClasses: Record<ButtonSize, string> = {
-  lg: 'w-9',
-  md: 'w-8',
-  sm: 'w-7',
-  xl: 'w-10',
+  lg: 'w-10',
+  md: 'w-9',
+  sm: 'w-8',
+  xs: 'w-7',
 };
 
 const fontSizeClasses: Record<ButtonSize, string> = {
-  lg: 'text-sm',
-  md: 'text-xs',
+  lg: 'text-base',
+  md: 'text-sm',
   sm: 'text-xs',
-  xl: 'text-base',
+  xs: 'text-xs',
 };
 
 const borderRadiusClasses: Record<ButtonSize, string> = {
   lg: 'rounded',
   md: 'rounded',
   sm: 'rounded',
-  xl: 'rounded',
+  xs: 'rounded',
 };
 
 const spacingClasses: Record<ButtonSize, string> = {
-  lg: 'gap-x-1',
+  lg: 'gap-x-2',
   md: 'gap-x-1',
   sm: 'gap-x-1',
-  xl: 'gap-x-2',
+  xs: 'gap-x-1',
 };
 
 const sizeIconClasses: Record<ButtonSize, string> = {
   lg: '!h-4 !w-4',
   md: '!h-4 !w-4',
   sm: '!h-4 !w-4',
-  xl: '!h-4 !w-4',
+  xs: '!h-4 !w-4',
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -118,7 +118,7 @@ export default function Button({
   isLabelHidden = false,
   isLoading = false,
   label,
-  size = 'md',
+  size = 'sm',
   target,
   tooltip,
   tooltipAlignment,

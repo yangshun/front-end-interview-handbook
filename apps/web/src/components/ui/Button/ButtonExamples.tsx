@@ -5,7 +5,7 @@ import type { TooltipPosition } from '../Tooltip/Tooltip';
 
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
 
-const sizes: ReadonlyArray<ButtonSize> = ['sm', 'md', 'lg', 'xl'];
+const sizes: ReadonlyArray<ButtonSize> = ['xs', 'sm', 'md', 'lg'];
 const variants: ReadonlyArray<ButtonVariant> = [
   'primary',
   'secondary',
@@ -36,7 +36,7 @@ export default function ButtonExamples() {
           <Button
             isDisabled={true}
             label="Button text"
-            size="lg"
+            size="md"
             variant={variant}
           />
         </div>
@@ -55,7 +55,7 @@ export default function ButtonExamples() {
           isDisabled={true}
           isLoading={true}
           label="Button text"
-          size="lg"
+          size="md"
           variant="primary"
         />
       </div>
@@ -73,7 +73,7 @@ export default function ButtonExamples() {
           icon={EnvelopeIcon}
           isDisabled={true}
           label="Button text"
-          size="lg"
+          size="md"
           variant="primary"
         />
       </div>
@@ -93,7 +93,7 @@ export default function ButtonExamples() {
           icon={EnvelopeIcon}
           isDisabled={true}
           label="Button text"
-          size="lg"
+          size="md"
           variant="primary"
         />
       </div>
@@ -113,7 +113,7 @@ export default function ButtonExamples() {
           isDisabled={true}
           isLabelHidden={true}
           label="Button text"
-          size="lg"
+          size="md"
           variant="secondary"
         />
       </div>
@@ -134,7 +134,7 @@ export default function ButtonExamples() {
           <Button
             key={position}
             label={`Tooltip ${position}`}
-            size="lg"
+            size="md"
             tooltip="Hello World"
             tooltipPosition={position}
             variant="primary"

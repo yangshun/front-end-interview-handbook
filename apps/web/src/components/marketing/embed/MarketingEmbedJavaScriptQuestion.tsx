@@ -152,7 +152,7 @@ export default function MarketingEmbedJavaScriptQuestion({
                 description: 'Link label to access all questions',
                 id: 'm9168P',
               })}
-              size="sm"
+              size="xs"
               variant="secondary"
             />
           </div>

@@ -62,7 +62,7 @@ export default function GuidesNavbar({
             description: 'Guides navbar menu button label',
             id: 'oo7GzR',
           })}
-          size="sm"
+          size="xs"
           variant="secondary"
           onClick={() => {
             setIsLeftSidebarOpen(true);
@@ -77,7 +77,7 @@ export default function GuidesNavbar({
               description: 'Guides table of contents menu button label',
               id: 'WZy7m4',
             })}
-            size="sm"
+            size="xs"
             variant="secondary"
             onClick={() => {
               setIsRightSidebarOpen(true);

@@ -112,7 +112,7 @@ export default function SupabaseAuthForgottenPassword({
                   'Label of password reset button on Password Reset page',
                 id: 'dz24ro',
               })}
-              size="lg"
+              size="md"
               type="submit"
               variant="primary"
               onClick={() => {

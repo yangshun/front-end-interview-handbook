@@ -53,7 +53,7 @@ export default function ProfileActivityResetProgressButton() {
           description: 'Label for button to reset progress',
           id: 'PB+rpp',
         })}
-        size="sm"
+        size="xs"
         variant="secondary"
         onClick={() => setIsResetProgressDialogShown(true)}
       />

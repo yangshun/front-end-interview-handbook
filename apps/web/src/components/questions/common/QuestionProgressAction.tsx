@@ -46,7 +46,7 @@ export default function QuestionProgressAction({
             description: 'Mark quetion as complete',
             id: 'Rhpldj',
           })}
-          size="sm"
+          size="xs"
           variant="primary"
           onClick={() => setIsLoginDialogShown(true)}
         />
@@ -110,7 +110,7 @@ export default function QuestionProgressAction({
           description: 'The question has been completed',
           id: 'RhV5e8',
         })}
-        size="sm"
+        size="xs"
         tooltip={intl.formatMessage({
           defaultMessage: 'Mark as incomplete',
           description: 'Mark the question as incomplete',
@@ -161,7 +161,7 @@ export default function QuestionProgressAction({
         description: 'Mark the question as complete',
         id: 'Se6J8o',
       })}
-      size="sm"
+      size="xs"
       variant="secondary"
       onClick={() => {
         addProgressMutation.mutate(

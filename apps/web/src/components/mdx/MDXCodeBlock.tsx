@@ -41,7 +41,7 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
       icon={isCopied ? CheckIcon : Square2StackIcon}
       isLabelHidden={true}
       label={isCopied ? 'Copied!' : 'Copy code to clipboard'}
-      size="sm"
+      size="xs"
       variant="secondary"
       onClick={() => onCopy(contents)}
     />

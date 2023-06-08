@@ -60,7 +60,7 @@ export default function QuestionsProgressPanel({
                   'Label for see all button that brings user to the full question list for that question format',
                 id: 'Z9Wr7g',
               })}
-              size="sm"
+              size="xs"
               variant="secondary"
             />
           </div>

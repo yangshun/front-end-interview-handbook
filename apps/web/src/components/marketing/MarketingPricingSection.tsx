@@ -90,7 +90,7 @@ function PricingButton({
       isDisabled={isLoading || isDisabled}
       isLoading={isLoading}
       label={label}
-      size="lg"
+      size="md"
       type="button"
       variant="special"
       onClick={onClick}
@@ -721,7 +721,7 @@ export default function MarketingPricingSectionNew({
                                       <li key={idx} className={newLocal}>
                                         <CheckIcon
                                           aria-hidden="true"
-                                          className="h-5 w-5 flex-shrink-0 text-success"
+                                          className="text-success h-5 w-5 flex-shrink-0"
                                         />
                                         <span className="text-sm text-slate-500">
                                           {feature}

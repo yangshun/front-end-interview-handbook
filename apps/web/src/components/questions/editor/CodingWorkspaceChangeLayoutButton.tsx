@@ -33,7 +33,7 @@ export default function CodingWorkspaceChangeLayoutButton({
           'Label for button that changes the layout of the coding workspace',
         id: 'tJIZWT',
       })}
-      size="sm"
+      size="xs"
       tooltip={
         layout === 'horizontal'
           ? intl.formatMessage({

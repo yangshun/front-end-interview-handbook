@@ -106,7 +106,7 @@ function SeasonalDiscountCard() {
                     })
                   : seasonalSaleCode
               }
-              size="lg"
+              size="md"
               type="button"
               variant="special"
               onClick={() => {
@@ -235,7 +235,7 @@ function StudentDiscountCard() {
                 description: 'Button label to send to a support email',
                 id: 'bsCmcK',
               })}
-              size="lg"
+              size="md"
               type="button"
               variant="special"
             />
@@ -367,7 +367,7 @@ function ReviewCashbackCard() {
                 description: 'Button label to send to a support email',
                 id: 'bsCmcK',
               })}
-              size="lg"
+              size="md"
               type="button"
               variant="special"
             />

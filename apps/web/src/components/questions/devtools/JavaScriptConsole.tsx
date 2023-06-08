@@ -140,7 +140,7 @@ export default function JavaScriptConsole({
               'Button label to clear the console in the coding workspace',
             id: 'o+1cag',
           })}
-          size="sm"
+          size="xs"
           tooltip={intl.formatMessage({
             defaultMessage: 'Clear Console',
             description:
@@ -231,7 +231,7 @@ export default function JavaScriptConsole({
               'Button label to show more settings for the console in the coding workspace',
             id: 'nSDLrS',
           })}
-          size="sm"
+          size="xs"
           tooltip={intl.formatMessage({
             defaultMessage: 'More settings',
             description:
@@ -354,7 +354,7 @@ export default function JavaScriptConsole({
                 'Button label to scroll to bottom of the console logs',
               id: 'hOEGb+',
             })}
-            size="sm"
+            size="xs"
             variant="secondary"
             onClick={scrollToBottom}
           />

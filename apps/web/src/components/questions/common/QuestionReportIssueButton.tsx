@@ -48,7 +48,7 @@ export default function QuestionReportIssueButton({
           description: 'Label for reporting an issue',
           id: 'ZYFcYD',
         })}
-        size="sm"
+        size="xs"
         tooltip={
           showTooltip
             ? intl.formatMessage({

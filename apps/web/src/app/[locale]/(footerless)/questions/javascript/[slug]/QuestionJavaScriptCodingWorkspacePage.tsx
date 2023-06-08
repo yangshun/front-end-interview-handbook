@@ -83,7 +83,7 @@ function LeftPane({
           addonPosition="start"
           icon={ListBulletIcon}
           label="All Questions"
-          size="sm"
+          size="xs"
           variant="secondary"
           onClick={() => setShowQuestionsSlideOut(true)}
         />

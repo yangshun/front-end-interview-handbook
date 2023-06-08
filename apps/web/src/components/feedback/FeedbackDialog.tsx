@@ -250,7 +250,7 @@ export default function FeedbackDialog({
                   'Feedback widget button label to hide the feedback widget for their current session',
                 id: 'ozQHOy',
               })}
-              size="sm"
+              size="xs"
               variant="tertiary"
               onClick={onHideWidgetForSession}
             />

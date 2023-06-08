@@ -626,7 +626,7 @@ export default function NavbarImpl() {
               'Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase',
             id: 'PFRVpF',
           })}
-          size="sm"
+          size="xs"
           variant="special"
           onClick={() => {
             gtag.event({

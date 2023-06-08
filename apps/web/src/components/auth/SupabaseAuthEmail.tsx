@@ -310,7 +310,7 @@ export default function SupabaseAuthEmail({
                       id: 'tP5+Am',
                     })
               }
-              size="lg"
+              size="md"
               type="submit"
               variant="primary"
               onClick={() => {

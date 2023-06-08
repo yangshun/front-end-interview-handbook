@@ -13,7 +13,7 @@ export default function BannerExamples() {
     <UIExamplesGroup title="Banner">
       <div className="space-y-4">
         <Banner>This notice is going to change your life.</Banner>
-        <Banner size="sm">
+        <Banner size="xs">
           This smaller notice is going to change your life.
         </Banner>
         <Banner size="xs">
@@ -25,7 +25,7 @@ export default function BannerExamples() {
           </Banner>
         )}
         {isShown2 && (
-          <Banner size="sm" onHide={() => setIsShown2(false)}>
+          <Banner size="xs" onHide={() => setIsShown2(false)}>
             This smaller notice is going to change your life unless you close
             it.
           </Banner>

@@ -151,7 +151,7 @@ export default function ProfileShell({ user, children }: Props) {
                                   description: 'Get full access button label',
                                   id: '7P0wF0',
                                 })}
-                                size="sm"
+                                size="xs"
                                 variant="special"
                               />
                             )}

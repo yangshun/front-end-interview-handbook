@@ -48,7 +48,7 @@ function GitHubEditButton({
         description: 'Edit on GitHub button',
         id: '1wrVTx',
       })}
-      size="sm"
+      size="xs"
       variant="secondary"
     />
   );

@@ -41,7 +41,7 @@ export default function AuthorsCardSection() {
                   author_.name !== author.name && 'text-slate-500',
                 )}
                 label={author_.name}
-                size="sm"
+                size="xs"
                 variant="tertiary"
                 onClick={() => {
                   setAuthor(author_);
