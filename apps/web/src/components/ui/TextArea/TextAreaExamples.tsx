@@ -3,7 +3,7 @@ import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export default function TextAreaExamples() {
   return (
-    <UIExamplesGroup title="Text Area">
+    <UIExamplesGroup gapSize="lg" title="Text Area">
       <TextArea label="Email" placeholder="john.doe@email.com" />
       <TextArea
         description="Enter your name, anything you want"

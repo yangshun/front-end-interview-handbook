@@ -103,7 +103,7 @@ function TextArea(
         className={clsx(
           isLabelHidden
             ? 'sr-only'
-            : 'mb-1 block text-sm font-medium text-slate-700',
+            : 'mb-2 block text-sm font-medium text-slate-700',
         )}
         htmlFor={id}>
         {label}
@@ -127,7 +127,7 @@ function TextArea(
           }
           aria-invalid={hasError ? true : undefined}
           className={clsx(
-            'block w-full rounded-md disabled:bg-slate-50 disabled:text-slate-500',
+            'block w-full rounded px-3 py-1.5 disabled:bg-slate-50 disabled:text-slate-500',
             fontSizeClasses[fontSize],
             stateClasses[state].textArea,
             resizeClasses[resize],
@@ -135,7 +135,6 @@ function TextArea(
           defaultValue={defaultValue}
           disabled={disabled}
           id={id}
-          name="comment"
           required={required}
           value={value != null ? value : undefined}
           onChange={(event) => {
@@ -154,7 +153,7 @@ function TextArea(
           color="error"
           display="block"
           id={messageId}
-          variant="body2">
+          variant="body3">
           {errorMessage}
         </Text>
       )}
