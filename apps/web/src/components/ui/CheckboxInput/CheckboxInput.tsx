@@ -3,6 +3,8 @@ import type { ChangeEvent } from 'react';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useId } from 'react';
 
+import Text from '../Text';
+
 type CheckboxSize = 'sm' | 'xs';
 
 type Props = Readonly<{
@@ -98,9 +100,14 @@ function CheckboxInput(
         </div>
       </div>
       {errorMessage && (
-        <p className="mt-2 text-sm text-rose-600" id={errorId}>
+        <Text
+          className="mt-2"
+          color="error"
+          display="block"
+          id={errorId}
+          variant="body2">
           {errorMessage}
-        </p>
+        </Text>
       )}
     </div>
   );

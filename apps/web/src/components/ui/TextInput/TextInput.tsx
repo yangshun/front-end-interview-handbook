@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import type { ChangeEvent } from 'react';
 import React, { useId } from 'react';
 
+import Text from '../Text/Text';
+
 export type TextInputSize = 'md' | 'sm';
 
 type Props = Readonly<{
@@ -28,7 +30,7 @@ type State = 'error' | 'normal';
 
 const stateClasses: Record<State, string> = {
   error:
-    'border-rose-300 text-rose-900 placeholder-rose-300 focus:outline-none focus:ring-rose-500 focus:border-rose-500',
+    'border-danger-light focus:ring-danger focus:border-danger text-danger-darker placeholder-danger-light',
   normal:
     'placeholder:text-slate-300 focus:ring-brand-500 focus:border-brand-500 border-slate-200',
 };
@@ -142,9 +144,14 @@ export default function TextInput({
         )}
       </div>
       {errorMessage && (
-        <p className={clsx('mt-2 text-rose-600', fontSizeClass)} id={messageId}>
+        <Text
+          className="mt-2"
+          color="error"
+          display="block"
+          id={messageId}
+          variant="body2">
           {errorMessage}
-        </p>
+        </Text>
       )}
     </div>
   );

@@ -13,7 +13,7 @@ type Props = Readonly<{
 }>;
 
 const ImportanceLabelClasses: Record<QuestionImportance, string> = {
-  high: 'text-rose-500',
+  high: 'text-red',
   low: 'text-yellow',
   mid: 'text-orange-500',
 };

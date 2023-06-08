@@ -32,7 +32,7 @@ function ToastIcon({
     case 'success':
       return <CheckIcon aria-hidden="true" className="text-success h-6 w-6" />;
     case 'failure':
-      return <XMarkIcon aria-hidden="true" className="h-6 w-6 text-rose-500" />;
+      return <XMarkIcon aria-hidden="true" className="text-danger h-6 w-6" />;
     case 'special':
       return <StarIcon aria-hidden="true" className="text-brand-500 h-6 w-6" />;
     case 'plain':

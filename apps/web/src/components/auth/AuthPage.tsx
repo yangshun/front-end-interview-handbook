@@ -12,6 +12,7 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
+import Text from '../ui/Text';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
@@ -48,7 +49,11 @@ export default function AuthPage({ view }: Props) {
     <div className="mx-auto max-w-lg space-y-6 bg-white px-4 py-8 sm:px-6 md:px-8 lg:py-16">
       {!user ? (
         <>
-          {error && <p className="text-rose-500">{error.message}</p>}
+          {error && (
+            <Text color="error" display="block">
+              {error.message}
+            </Text>
+          )}
           <SupabaseAuth
             preBodyContents={
               nextSearchParam === '/pricing' &&

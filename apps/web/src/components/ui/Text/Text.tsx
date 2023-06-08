@@ -19,6 +19,7 @@ type Props = Readonly<{
   className?: string;
   color?: TextColor;
   display?: TextDisplay;
+  id?: string;
   variant?: TextVariant;
   weight?: TextWeight;
 }>;
@@ -39,7 +40,7 @@ const colorClasses: Record<TextColor, string> = {
   active: 'text-brand-500',
   default: 'text-slate-900',
   disabled: 'text-slate-400',
-  error: 'text-rose-500',
+  error: 'text-danger',
   inherit: '',
   placeholder: 'text-slate-400',
   secondary: 'text-gray-500',
@@ -53,6 +54,7 @@ export default function Text({
   display = 'inline',
   variant = 'body',
   weight = 'normal',
+  ...props
 }: Props) {
   return (
     <span
@@ -62,7 +64,8 @@ export default function Text({
         colorClasses[color],
         variantClasses[variant],
         className,
-      )}>
+      )}
+      {...props}>
       {children}
     </span>
   );

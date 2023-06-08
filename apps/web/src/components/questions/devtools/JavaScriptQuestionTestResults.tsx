@@ -97,7 +97,7 @@ function TestResultItem({
         {result.status === 'fail' && (
           <XMarkIcon
             aria-hidden={true}
-            className="h-5 w-5 shrink-0 text-rose-500"
+            className="text-danger h-5 w-5 shrink-0"
           />
         )}
         <Text className="flex flex-wrap items-center gap-1" variant="body2">

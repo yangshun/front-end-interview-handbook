@@ -7,6 +7,8 @@ import type {
 } from 'react';
 import React, { forwardRef, useId } from 'react';
 
+import Text from '../Text/Text';
+
 type Attributes = Pick<
   TextareaHTMLAttributes<HTMLTextAreaElement>,
   | 'autoComplete'
@@ -51,7 +53,7 @@ const stateClasses: Record<
 > = {
   error: {
     textArea:
-      'border-rose-300 focus:ring-rose-500 focus:border-rose-500 text-rose-900 placeholder-rose-300',
+      'border-danger-light focus:ring-danger focus:border-danger text-danger-darker placeholder-danger-light',
   },
   normal: {
     textArea:
@@ -106,7 +108,7 @@ function TextArea(
         htmlFor={id}>
         {label}
         {required && (
-          <span aria-hidden="true" className="text-rose-500">
+          <span aria-hidden="true" className="text-danger">
             {' '}
             *
           </span>
@@ -147,9 +149,14 @@ function TextArea(
         />
       </div>
       {errorMessage && (
-        <p className={clsx('mt-2 text-xs text-rose-600')} id={messageId}>
+        <Text
+          className="mt-2"
+          color="error"
+          display="block"
+          id={messageId}
+          variant="body2">
           {errorMessage}
-        </p>
+        </Text>
       )}
     </div>
   );

@@ -45,7 +45,7 @@ const icons: Record<
 };
 const colors: Record<EmptyStateVariant, string> = {
   empty: 'text-slate-400',
-  error: 'text-rose-400',
+  error: 'text-danger',
   exit: 'text-slate-400',
   login: 'text-slate-400',
   not_subscribed: 'text-slate-400',
