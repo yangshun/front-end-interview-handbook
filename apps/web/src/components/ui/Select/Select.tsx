@@ -1,6 +1,9 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 
+import type { TextVariant } from '../Text';
+import Text from '../Text';
+
 export type SelectItem<T> = Readonly<{
   label: string;
   value: T;
@@ -22,21 +25,21 @@ type Props<T> = Readonly<{
 
 const textSizeClasses: Record<
   SelectSize,
-  Readonly<{ label: string; option: string }>
+  Readonly<{ label: TextVariant; option: string }>
 > = {
   md: {
-    label: 'text-sm',
+    label: 'body2',
     option: 'sm:text-sm',
   },
   sm: {
-    label: 'text-xs',
+    label: 'body3',
     option: 'sm:text-xs',
   },
 };
 
-const paddingSizeClasses: Record<SelectSize, string> = {
-  md: 'py-2 pl-3 pr-10',
-  sm: 'py-1.5 pl-2 pr-10',
+const heightClasses: Record<SelectSize, string> = {
+  md: 'h-9',
+  sm: 'h-8',
 };
 
 export default function Select<T>({
@@ -55,20 +58,27 @@ export default function Select<T>({
     <div>
       <label
         className={clsx(
-          'mb-1 block font-medium text-slate-700',
-          textSizeClasses[size].label,
+          'mb-2 block text-slate-700',
           isLabelHidden && 'sr-only',
         )}
-        htmlFor={id ?? undefined}>
-        {label}
+        htmlFor={id}>
+        <Text
+          display="block"
+          variant={textSizeClasses[size].label}
+          weight="medium">
+          {label}
+        </Text>
       </label>
       <select
         aria-label={isLabelHidden ? label : undefined}
         className={clsx(
           display === 'block' && 'block w-full',
-          'focus:border-brand-500 focus:ring-brand-500 rounded-md border-slate-200 focus:outline-none',
-          paddingSizeClasses[size],
-          textSizeClasses[size].label,
+          'flex items-center',
+          'rounded border-slate-200',
+          'focus:border-brand-500 focus:ring-brand-500 focus:outline-none',
+          heightClasses[size],
+          // PaddingSizeClasses[size],
+          textSizeClasses[size].option,
         )}
         id={id}
         name={name ?? undefined}

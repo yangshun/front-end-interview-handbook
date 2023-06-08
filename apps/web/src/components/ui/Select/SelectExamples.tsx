@@ -3,6 +3,25 @@ import { useState } from 'react';
 import Select from './Select';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
+const options = [
+  {
+    label: 'JavaScript',
+    value: 'javascript',
+  },
+  {
+    label: 'React',
+    value: 'react',
+  },
+  {
+    label: 'Vue',
+    value: 'vue',
+  },
+  {
+    label: 'Angular',
+    value: 'angular',
+  },
+];
+
 export default function SelectExamples() {
   const [value, setValue] = useState('javascript');
 
@@ -11,16 +30,7 @@ export default function SelectExamples() {
       <div className="flex gap-x-4">
         <Select
           label="Framework"
-          options={[
-            {
-              label: 'JavaScript',
-              value: 'javascript',
-            },
-            {
-              label: 'React',
-              value: 'react',
-            },
-          ]}
+          options={options}
           value={value}
           onChange={(val) => {
             setValue(val);
@@ -28,16 +38,7 @@ export default function SelectExamples() {
         />
         <Select
           label="Framework"
-          options={[
-            {
-              label: 'JavaScript',
-              value: 'javascript',
-            },
-            {
-              label: 'React',
-              value: 'react',
-            },
-          ]}
+          options={options}
           size="sm"
           value={value}
           onChange={(val) => {
