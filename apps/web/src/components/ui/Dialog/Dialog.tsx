@@ -1,6 +1,11 @@
 import clsx from 'clsx';
 import { Fragment, useRef } from 'react';
 
+import Heading from '~/components/ui/Heading/Heading';
+
+import Section from '../Heading/HeadingContext';
+import Text from '../Text';
+
 import { Dialog, Transition } from '@headlessui/react';
 
 type Props = Readonly<{
@@ -49,23 +54,24 @@ export default function DialogImpl({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                <div>
-                  <div>
-                    <Dialog.Title
-                      as="h2"
-                      className="text-2xl font-bold leading-6 text-slate-900">
-                      {title}
-                    </Dialog.Title>
-                    <div className="my-4">
-                      <div className="text-sm">{children}</div>
-                    </div>
-                  </div>
+              <Dialog.Panel
+                className={clsx(
+                  'relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-sm',
+                )}>
+                <div className="grid gap-y-2.5 px-6 pt-6 pb-4">
+                  <Dialog.Title as="div">
+                    <Heading level="heading6">{title}</Heading>
+                  </Dialog.Title>
+                  <Section>
+                    <Text display="block" variant="body2">
+                      {children}
+                    </Text>
+                  </Section>
                 </div>
                 {primaryButton && (
                   <div
                     className={clsx(
-                      'mt-5 grid gap-3 sm:mt-6 sm:grid-flow-row-dense',
+                      'flex justify-end gap-2 py-4 px-4',
                       secondaryButton != null && 'sm:grid-cols-2',
                     )}>
                     {secondaryButton}

@@ -14,26 +14,27 @@ export default function DialogExamples() {
         isShown={isShown}
         primaryButton={
           <Button
-            display="block"
-            label="OK"
+            label="Primary Action"
+            size="md"
             variant="primary"
             onClick={() => setIsShown(false)}
           />
         }
         secondaryButton={
           <Button
-            display="block"
-            label="Cancel"
+            label="Secondary Action"
+            size="md"
             variant="secondary"
             onClick={() => setIsShown(false)}
           />
         }
-        title="Hey you gotta pay attention to this"
+        title="Modal title"
         onClose={() => setIsShown(false)}>
         <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius aliquam
-          laudantium explicabo pariatur iste dolorem animi vitae error totam. At
-          sapiente aliquam accusamus facere veritatis.
+          One morning, when Gregor Samsa woke from troubled dreams, he found
+          himself transformed in his bed into a horrible vermin. He lay on his
+          armour-like back, and if he lifted his head a little he could see his
+          brown belly, slightly domed and divided by arches into stiff sections.
         </div>
       </Dialog>
     </UIExamplesGroup>
