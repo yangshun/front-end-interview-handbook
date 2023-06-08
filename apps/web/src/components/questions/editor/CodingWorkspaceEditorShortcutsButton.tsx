@@ -226,7 +226,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           id: 'w3T2Ld',
         })}
         tooltipPosition="start"
-        variant="tertiary"
+        variant="secondary"
         onClick={() => {
           setShowInformation(true);
         }}

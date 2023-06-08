@@ -42,7 +42,7 @@ export default function AuthorsCardSection() {
                 )}
                 label={author_.name}
                 size="sm"
-                variant="flat"
+                variant="tertiary"
                 onClick={() => {
                   setAuthor(author_);
                 }}

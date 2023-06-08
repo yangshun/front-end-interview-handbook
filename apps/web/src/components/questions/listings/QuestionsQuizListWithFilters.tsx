@@ -114,7 +114,7 @@ export default function QuestionsQuizListWithFilters({
           }
           size="sm"
           type="button"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>

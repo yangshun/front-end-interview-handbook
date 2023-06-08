@@ -63,7 +63,7 @@ export default function GuidesNavbar({
             id: 'oo7GzR',
           })}
           size="sm"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => {
             setIsLeftSidebarOpen(true);
           }}
@@ -78,7 +78,7 @@ export default function GuidesNavbar({
               id: 'WZy7m4',
             })}
             size="sm"
-            variant="tertiary"
+            variant="secondary"
             onClick={() => {
               setIsRightSidebarOpen(true);
             }}

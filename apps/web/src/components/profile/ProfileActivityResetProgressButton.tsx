@@ -54,7 +54,7 @@ export default function ProfileActivityResetProgressButton() {
           id: 'PB+rpp',
         })}
         size="sm"
-        variant="tertiary"
+        variant="secondary"
         onClick={() => setIsResetProgressDialogShown(true)}
       />
       <Dialog
@@ -83,7 +83,7 @@ export default function ProfileActivityResetProgressButton() {
               description: 'Label for button to cancel action',
               id: 'rfI2w+',
             })}
-            variant="tertiary"
+            variant="secondary"
             onClick={() => setIsResetProgressDialogShown(false)}
           />
         }

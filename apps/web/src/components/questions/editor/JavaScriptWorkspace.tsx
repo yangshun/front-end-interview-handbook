@@ -340,7 +340,7 @@ function Contents({
                     id: '562PkG',
                   })}
                   size="sm"
-                  variant="flat"
+                  variant="tertiary"
                   onClick={() => {
                     setShowLoadedPreviousCode(false);
                   }}
@@ -368,7 +368,7 @@ function Contents({
                           })
                     }
                     size="sm"
-                    variant="tertiary"
+                    variant="secondary"
                     onClick={() => {
                       setShowDevToolsPane(!showDevToolsPane);
                       onChangeLayout?.('vertical');

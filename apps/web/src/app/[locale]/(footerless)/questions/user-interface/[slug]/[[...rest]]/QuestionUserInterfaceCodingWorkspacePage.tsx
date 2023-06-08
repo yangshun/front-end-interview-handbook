@@ -235,7 +235,7 @@ function MiddleRightPaneContents({
                   icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
                   label={showDevToolsPane ? 'Hide DevTool' : 'Show DevTool'}
                   size="sm"
-                  variant="tertiary"
+                  variant="secondary"
                   onClick={() => {
                     setShowDevToolsPane(!showDevToolsPane);
                   }}
@@ -384,7 +384,7 @@ function LeftPane({
           icon={ListBulletIcon}
           label="All Questions"
           size="sm"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => setShowQuestionsSlideOut(true)}
         />
       </div>

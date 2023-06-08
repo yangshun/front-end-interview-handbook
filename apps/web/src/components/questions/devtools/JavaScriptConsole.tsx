@@ -148,7 +148,7 @@ export default function JavaScriptConsole({
             id: '5RlLAP',
           })}
           tooltipPosition="end"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => {
             onClear();
           }}
@@ -239,7 +239,7 @@ export default function JavaScriptConsole({
             id: 'nSDLrS',
           })}
           tooltipPosition="start"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => {
             setShowAdvancedOptions(!showAdvancedOptions);
           }}
@@ -355,7 +355,7 @@ export default function JavaScriptConsole({
               id: 'hOEGb+',
             })}
             size="sm"
-            variant="tertiary"
+            variant="secondary"
             onClick={scrollToBottom}
           />
         </div>

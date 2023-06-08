@@ -50,7 +50,7 @@ export default function CodingWorkspaceChangeLayoutButton({
             })
       }
       tooltipPosition="start"
-      variant="tertiary"
+      variant="secondary"
       onClick={() => {
         onChangeLayout(layout === 'horizontal' ? 'vertical' : 'horizontal');
       }}

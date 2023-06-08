@@ -49,7 +49,7 @@ function GitHubEditButton({
         id: '1wrVTx',
       })}
       size="sm"
-      variant="tertiary"
+      variant="secondary"
     />
   );
 }

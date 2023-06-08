@@ -84,7 +84,7 @@ function LeftPane({
           icon={ListBulletIcon}
           label="All Questions"
           size="sm"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => setShowQuestionsSlideOut(true)}
         />
       </div>

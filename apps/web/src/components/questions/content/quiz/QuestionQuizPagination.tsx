@@ -59,7 +59,7 @@ export default function QuestionQuizPagination({
             id: 'frl+Af',
           })}
           size="sm"
-          variant="tertiary"
+          variant="secondary"
         />
         <div className="flex items-center px-6">
           <p className="text-sm text-slate-700">
@@ -77,7 +77,7 @@ export default function QuestionQuizPagination({
             id: 'b2csyI',
           })}
           size="sm"
-          variant="tertiary"
+          variant="secondary"
         />
       </div>
     </nav>

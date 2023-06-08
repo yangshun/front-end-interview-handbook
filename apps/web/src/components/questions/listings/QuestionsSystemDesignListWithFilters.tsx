@@ -140,7 +140,7 @@ export default function QuestionsSystemDesignListWithFilters({
           }
           size="sm"
           type="button"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>

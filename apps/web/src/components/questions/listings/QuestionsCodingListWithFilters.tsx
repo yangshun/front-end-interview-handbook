@@ -179,7 +179,7 @@ export default function QuestionsCodingListWithFilters({
           }
           size="sm"
           type="button"
-          variant="tertiary"
+          variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>

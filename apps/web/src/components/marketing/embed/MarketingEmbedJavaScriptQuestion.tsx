@@ -153,7 +153,7 @@ export default function MarketingEmbedJavaScriptQuestion({
                 id: 'm9168P',
               })}
               size="sm"
-              variant="tertiary"
+              variant="secondary"
             />
           </div>
         </div>

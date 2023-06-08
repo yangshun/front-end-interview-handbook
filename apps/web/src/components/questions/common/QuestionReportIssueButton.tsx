@@ -59,7 +59,7 @@ export default function QuestionReportIssueButton({
             : undefined
         }
         tooltipPosition={showTooltip ? tooltipPosition : undefined}
-        variant="tertiary"
+        variant="secondary"
         onClick={() => setIsOpen(true)}
       />
       <FeedbackDialog

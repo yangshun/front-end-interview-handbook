@@ -144,7 +144,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               icon={ListBulletIcon}
               label="All Questions"
               size="sm"
-              variant="tertiary"
+              variant="secondary"
             />
           </div>
         </div>

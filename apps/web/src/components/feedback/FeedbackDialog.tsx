@@ -233,7 +233,7 @@ export default function FeedbackDialog({
                   'Feedback widget button label to leave more feedback before the session closes',
                 id: '5A3y/o',
               })}
-              variant="tertiary"
+              variant="secondary"
               onClick={() => {
                 setFeedbackState('message');
               }}
@@ -251,7 +251,7 @@ export default function FeedbackDialog({
                 id: 'ozQHOy',
               })}
               size="sm"
-              variant="flat"
+              variant="tertiary"
               onClick={onHideWidgetForSession}
             />
           </div>

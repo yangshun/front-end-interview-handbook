@@ -8,11 +8,10 @@ import { EnvelopeIcon } from '@heroicons/react/24/solid';
 const sizes: ReadonlyArray<ButtonSize> = ['sm', 'md', 'lg', 'xl'];
 const variants: ReadonlyArray<ButtonVariant> = [
   'primary',
-  'success',
   'secondary',
   'tertiary',
   'special',
-  'flat',
+  'success',
 ];
 const tooltipPositions: ReadonlyArray<TooltipPosition> = [
   'above',
@@ -106,7 +105,7 @@ export default function ButtonExamples() {
             isLabelHidden={true}
             label="Button text"
             size={size}
-            variant="tertiary"
+            variant="secondary"
           />
         ))}
         <Button
@@ -115,7 +114,7 @@ export default function ButtonExamples() {
           isLabelHidden={true}
           label="Button text"
           size="lg"
-          variant="tertiary"
+          variant="secondary"
         />
       </div>
       <div className="space-y-4">

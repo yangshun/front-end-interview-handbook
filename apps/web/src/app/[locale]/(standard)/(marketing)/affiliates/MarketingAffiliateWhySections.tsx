@@ -156,7 +156,7 @@ export default function MarketingAffiliateWhySections() {
                       href={reason.secondaryAction.href}
                       label={reason.secondaryAction.label}
                       size="lg"
-                      variant="tertiary"
+                      variant="secondary"
                     />
                   )}
                 </div>

@@ -130,7 +130,7 @@ export default function SupabaseAuthSocial({
                   },
                 )}
                 size={socialButtonSize}
-                variant="tertiary"
+                variant="secondary"
                 onClick={() => {
                   logEvent('auth.sign_in', {
                     element: 'Auth page OAuth sign in button',

@@ -130,7 +130,7 @@ function ManageSubscriptionButton({
               description: 'Label for button to manage subscription',
               id: 'Q1WOVj',
             })}
-            variant="tertiary"
+            variant="secondary"
             onClick={loadPortal}
           />
         </div>

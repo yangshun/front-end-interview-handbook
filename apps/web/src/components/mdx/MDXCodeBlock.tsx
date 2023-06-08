@@ -42,7 +42,7 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
       isLabelHidden={true}
       label={isCopied ? 'Copied!' : 'Copy code to clipboard'}
       size="sm"
-      variant="tertiary"
+      variant="secondary"
       onClick={() => onCopy(contents)}
     />
   );

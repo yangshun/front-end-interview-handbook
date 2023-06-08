@@ -75,7 +75,7 @@ export default function QuestionProgressAction({
                 description: 'Cancel and close the sign in modal',
                 id: 'YXs0ZC',
               })}
-              variant="tertiary"
+              variant="secondary"
               onClick={() => setIsLoginDialogShown(false)}
             />
           }
@@ -162,7 +162,7 @@ export default function QuestionProgressAction({
         id: 'Se6J8o',
       })}
       size="sm"
-      variant="tertiary"
+      variant="secondary"
       onClick={() => {
         addProgressMutation.mutate(
           {
