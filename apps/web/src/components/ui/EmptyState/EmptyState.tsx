@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
+import Text from '../Text';
 
 import {
   ArrowLeftOnRectangleIcon,
@@ -65,13 +66,23 @@ export default function EmptyState({
     <div className="mx-auto max-w-md py-6 text-center sm:py-12">
       <Icon
         aria-hidden="true"
-        className={clsx('mx-auto h-12 w-12', colors[variant])}
+        className={clsx('mx-auto h-10 w-10 shrink-0', colors[variant])}
       />
-      <Heading className="mt-2 font-medium" level="custom">
-        {title}
+      <Heading className="mt-4" level="custom">
+        <Text display="block" variant="body" weight="medium">
+          {title}
+        </Text>
       </Heading>
       <Section>
-        {subtitle && <p className="mt-1 text-sm text-slate-500">{subtitle}</p>}
+        {subtitle && (
+          <Text
+            className="mt-1"
+            color="secondary"
+            display="block"
+            variant="body2">
+            {subtitle}
+          </Text>
+        )}
         {action && <div className="mt-6">{action}</div>}
       </Section>
     </div>
