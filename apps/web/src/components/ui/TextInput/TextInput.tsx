@@ -37,7 +37,7 @@ const stateClasses: Record<State, string> = {
 
 const fontSizeClasses: Record<TextInputSize, string> = {
   md: 'text-sm',
-  sm: 'text-xs',
+  sm: 'text-sm',
 };
 const iconSizeClasses: Record<TextInputSize, string> = {
   md: 'h-5 w-5',
@@ -47,6 +47,16 @@ const iconSizeClasses: Record<TextInputSize, string> = {
 const verticalPaddingSizeClasses: Record<TextInputSize, string> = {
   md: 'py-2',
   sm: 'py-1.5',
+};
+
+const horizontalPaddingSizeClasses: Record<TextInputSize, string> = {
+  md: 'px-3',
+  sm: 'px-3',
+};
+
+const heightClasses: Record<TextInputSize, string> = {
+  md: 'h-9',
+  sm: 'h-8',
 };
 
 export default function TextInput({
@@ -75,13 +85,12 @@ export default function TextInput({
   const state = hasError ? 'error' : 'normal';
   const fontSizeClass = fontSizeClasses[size];
   const iconSizeClass = iconSizeClasses[size];
-  const verticalPaddingSizeClass = verticalPaddingSizeClasses[size];
 
   return (
     <div>
       <label
         className={clsx(
-          isLabelHidden ? 'sr-only' : 'mb-1 block font-medium text-slate-700',
+          isLabelHidden ? 'sr-only' : 'mb-2 block font-medium text-slate-700',
           fontSizeClass,
         )}
         htmlFor={id}>
@@ -111,12 +120,14 @@ export default function TextInput({
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           className={clsx(
-            'block w-full rounded-md',
+            'block w-full rounded',
             fontSizeClass,
-            verticalPaddingSizeClass,
-            StartIcon && 'pl-10',
-            EndIcon && 'pr-10',
+            verticalPaddingSizeClasses[size],
+            horizontalPaddingSizeClasses[size],
+            StartIcon && 'pl-9',
+            EndIcon && 'pr-9',
             stateClasses[state],
+            heightClasses[size],
             isDisabled && 'bg-slate-100',
           )}
           defaultValue={defaultValue}
@@ -149,7 +160,7 @@ export default function TextInput({
           color="error"
           display="block"
           id={messageId}
-          variant="body2">
+          variant="body3">
           {errorMessage}
         </Text>
       )}

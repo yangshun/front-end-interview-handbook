@@ -8,7 +8,7 @@ import {
 
 export default function TextInputExamples() {
   return (
-    <UIExamplesGroup title="Text Input">
+    <UIExamplesGroup gapSize="lg" title="Text Input">
       <TextInput label="Email" placeholder="john.doe@email.com" type="email" />
       <TextInput
         errorMessage="Incorrect password!"
