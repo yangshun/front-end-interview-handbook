@@ -74,82 +74,85 @@ export default function QuestionQuizContents({
 
   return (
     <div>
-      <div className="mx-auto w-full max-w-xl space-y-6 px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
-        <div>
-          <div className="mb-1 flex justify-between gap-x-2 text-sm text-slate-500">
-            <FormattedMessage
-              defaultMessage="Quiz Questions"
-              description="Header for quiz questions"
-              id="lmBDjV"
-            />
-          </div>
-          {/* Question solution */}
-          <div
-            key={question.metadata.slug}
-            className="relative mx-auto flex min-w-0 flex-1 flex-col">
-            <article aria-labelledby="question-title" className="grow">
-              <div className="min-h-0 flex-1">
-                <header className="grid gap-y-4 border-b border-slate-200 pb-10">
-                  <Heading
-                    className="pb-4"
-                    id="question-title"
-                    level="heading5">
-                    {question.metadata.title}
-                  </Heading>
-                  {question.metadata.subtitle && (
-                    <p className="pb-4 text-lg text-slate-900 sm:text-xl">
-                      {question.metadata.subtitle}
-                    </p>
-                  )}
-                  <div className="mt-3 flex items-center justify-between">
-                    <div className="flex space-x-8">
-                      <QuestionImportanceLabel
-                        showIcon={true}
-                        value={question.metadata.importance}
-                      />
-                      <QuestionQuizTopics topics={question.metadata.topics} />
-                    </div>
-                    <GitHubEditButton question={question} />
-                  </div>
-                </header>
-                <Section>
-                  {/* Contents section*/}
-                  <div ref={copyRef} className="space-y-2 py-8">
-                    {Solution == null ? (
-                      <div>
-                        <FormattedMessage
-                          defaultMessage="Something went wrong"
-                          description="Text that appears when the solution fails to load"
-                          id="6UytmZ"
-                        />
-                      </div>
-                    ) : (
-                      <Prose>
-                        <Solution components={MDXComponents} />
-                      </Prose>
+      <div className="mx-auto w-full max-w-xl px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
+        <div className="grid gap-y-6">
+          <div>
+            <div className="mb-1 flex justify-between gap-x-2 text-sm text-slate-500">
+              <FormattedMessage
+                defaultMessage="Quiz Questions"
+                description="Header for quiz questions"
+                id="lmBDjV"
+              />
+            </div>
+            {/* Question solution */}
+            <div
+              key={question.metadata.slug}
+              className="relative mx-auto flex min-w-0 flex-1 flex-col">
+              <article aria-labelledby="question-title" className="grow">
+                <div className="min-h-0 flex-1">
+                  <header className="grid gap-y-4 border-b border-slate-200 pb-10">
+                    <Heading
+                      className="pb-4"
+                      id="question-title"
+                      level="heading5">
+                      {question.metadata.title}
+                    </Heading>
+                    {question.metadata.subtitle && (
+                      <p className="pb-4 text-lg text-slate-900 sm:text-xl">
+                        {question.metadata.subtitle}
+                      </p>
                     )}
-                  </div>
-                </Section>
-              </div>
-            </article>
+                    <div className="mt-3 flex items-center justify-between">
+                      <div className="flex space-x-8">
+                        <QuestionImportanceLabel
+                          showIcon={true}
+                          value={question.metadata.importance}
+                        />
+                        <QuestionQuizTopics topics={question.metadata.topics} />
+                      </div>
+                      <GitHubEditButton question={question} />
+                    </div>
+                  </header>
+                  <Section>
+                    {/* Contents section*/}
+                    <div ref={copyRef} className="space-y-2 py-8">
+                      {Solution == null ? (
+                        <div>
+                          <FormattedMessage
+                            defaultMessage="Something went wrong"
+                            description="Text that appears when the solution fails to load"
+                            id="6UytmZ"
+                          />
+                        </div>
+                      ) : (
+                        <Prose>
+                          <Solution components={MDXComponents} />
+                        </Prose>
+                      )}
+                    </div>
+                  </Section>
+                </div>
+              </article>
+            </div>
           </div>
-        </div>
-        <div className="flex justify-between">
-          <QuestionReportIssueButton
-            format={question.format}
-            isLabelHidden={false}
-            showTooltip={false}
-            title={question.metadata.title}
+          <div className="flex justify-between">
+            <QuestionReportIssueButton
+              format={question.format}
+              isLabelHidden={false}
+              showTooltip={false}
+              title={question.metadata.title}
+            />
+            <GitHubEditButton question={question} />
+          </div>
+          <hr />
+          <QuestionPagination
+            currentHref={question.metadata.href}
+            items={questionList.map(({ title: titleParam, href }) => ({
+              href,
+              title: titleParam,
+            }))}
           />
-          <GitHubEditButton question={question} />
         </div>
-        <QuestionPagination
-          currentHref={question.metadata.href}
-          items={questionList.map(({ title: titleParam, href }) => ({
-            href,
-            title: titleParam,
-          }))}
-        />
       </div>
       <QuestionQuizBottomNav question={question} questionList={questionList} />
     </div>

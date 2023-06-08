@@ -46,7 +46,7 @@ export default function GuidesMainLayout({
           tableOfContents={tableOfContents}
         />
         <div className="flex grow">
-          <div className="mx-auto w-full max-w-xl space-y-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
+          <div className="mx-auto grid w-full max-w-xl gap-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
             {currentItem && (
               <div className="-mb-4 flex flex-wrap gap-x-2 text-xs text-slate-500">
                 {currentItem.breadcrumbs.map((breadcrumb, index) => (
@@ -59,10 +59,12 @@ export default function GuidesMainLayout({
             )}
             <div ref={articleContainerRef}>{children}</div>
             <Section>
-              <QuestionPagination
-                currentHref={pathname ?? ''}
-                items={flatNavigationItems}
-              />
+              <div className="mt-8">
+                <QuestionPagination
+                  currentHref={pathname ?? ''}
+                  items={flatNavigationItems}
+                />
+              </div>
             </Section>
           </div>
           {tableOfContents && (
