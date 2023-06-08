@@ -91,9 +91,7 @@ export default function GuidesNavbar({
         size="sm"
         title={navigation.title}
         onClose={() => setIsLeftSidebarOpen(false)}>
-        <div className="p-4">
-          <GuidesSidebar navigation={navigation} />
-        </div>
+        <GuidesSidebar navigation={navigation} />
       </SlideOut>
       {tableOfContents && (
         <SlideOut
@@ -101,9 +99,7 @@ export default function GuidesNavbar({
           isShown={isRightSidebarOpen}
           size="sm"
           onClose={() => setIsRightSidebarOpen(false)}>
-          <div className="p-4">
-            <GuidesTableOfContents tableOfContents={tableOfContents} />
-          </div>
+          <GuidesTableOfContents tableOfContents={tableOfContents} />
         </SlideOut>
       )}
     </div>

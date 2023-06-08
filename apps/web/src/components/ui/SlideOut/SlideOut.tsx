@@ -3,11 +3,12 @@ import { Fragment } from 'react';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
+import Text from '../Text';
 
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl';
+type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 type SlideOutEnterFrom = 'end' | 'start';
 
 type Props = Readonly<{
@@ -15,6 +16,8 @@ type Props = Readonly<{
   enterFrom?: SlideOutEnterFrom;
   isShown?: boolean;
   onClose?: () => void;
+  primaryButton?: React.ReactNode;
+  secondaryButton?: React.ReactNode;
   size: SlideOutSize;
   title?: string;
 }>;
@@ -24,6 +27,7 @@ const sizeClasses: Record<SlideOutSize, string> = {
   md: 'max-w-md',
   sm: 'max-w-sm',
   xl: 'max-w-xl',
+  xs: 'max-w-xs',
 };
 
 const enterFromClasses: Record<
@@ -47,7 +51,9 @@ export default function SlideOut({
   enterFrom = 'end',
   isShown = false,
   size,
+  primaryButton,
   title,
+  secondaryButton,
   onClose,
 }: Props) {
   const enterFromClass = enterFromClasses[enterFrom];
@@ -76,14 +82,14 @@ export default function SlideOut({
             leaveTo={enterFromClass.hidden}>
             <Dialog.Panel
               className={clsx(
-                'relative flex h-full w-full max-w-lg flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl',
+                'relative flex h-full w-full flex-col bg-white shadow-xl',
                 enterFromClass.position,
                 sizeClasses[size],
               )}>
-              <div className="flex items-center justify-between px-4">
-                <Heading className="text-lg font-medium" level="custom">
-                  {title}
-                </Heading>
+              <div className="flex items-center justify-between gap-x-4 px-6 py-6">
+                <Dialog.Title as="div">
+                  <Heading level="heading5">{title}</Heading>
+                </Dialog.Title>
                 <button
                   className="focus:ring-brand-500 -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset"
                   type="button"
@@ -92,7 +98,23 @@ export default function SlideOut({
                   <XMarkIcon aria-hidden="true" className="h-6 w-6" />
                 </button>
               </div>
-              <Section>{children}</Section>
+              <div className="grow overflow-y-auto px-6">
+                <Section>
+                  <Text display="block" variant="body2">
+                    {children}
+                  </Text>
+                </Section>
+              </div>
+              {primaryButton && (
+                <div
+                  className={clsx(
+                    'flex justify-end gap-2 py-4 px-4',
+                    secondaryButton != null && 'sm:grid-cols-2',
+                  )}>
+                  {secondaryButton}
+                  {primaryButton}
+                </div>
+              )}
             </Dialog.Panel>
           </Transition.Child>
         </div>

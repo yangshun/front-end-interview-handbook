@@ -23,8 +23,8 @@ export default function QuestionFilterSectionMobile<
       className="border-t border-slate-200 pt-4 pb-4">
       {({ open }) => (
         <fieldset>
-          <legend className="w-full px-2">
-            <Disclosure.Button className="focus:ring-brand-500 flex w-full items-center justify-between p-2 text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset">
+          <legend className="w-full">
+            <Disclosure.Button className="focus:ring-brand-500 flex w-full items-center justify-between text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset">
               <span className="text-sm font-medium text-slate-900">
                 {section.name}
               </span>
@@ -39,7 +39,7 @@ export default function QuestionFilterSectionMobile<
               </span>
             </Disclosure.Button>
           </legend>
-          <Disclosure.Panel className="px-4 pt-4 pb-2">
+          <Disclosure.Panel className="pt-4 pb-2">
             <div className="space-y-6">
               {section.options.map((option, optionIdx) => (
                 <div key={option.value} className="flex items-center">

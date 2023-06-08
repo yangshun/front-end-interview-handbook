@@ -88,7 +88,7 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
 
   return (
     // TODO: Replace the labelledby
-    <nav ref={navRef} aria-labelledby={titleId} className="w-56">
+    <nav ref={navRef} aria-labelledby={titleId}>
       {tableOfContents.length > 0 && (
         <>
           <Heading className="text-sm font-medium" id={titleId} level="custom">

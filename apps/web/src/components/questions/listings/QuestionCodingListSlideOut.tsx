@@ -137,7 +137,7 @@ function Contents() {
   ];
 
   return (
-    <div className="flex flex-col gap-y-4 p-4">
+    <div className="flex flex-col gap-y-4">
       <form
         className="flex flex-col gap-4"
         onSubmit={(event) => {

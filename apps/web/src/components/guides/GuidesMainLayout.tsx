@@ -71,7 +71,7 @@ export default function GuidesMainLayout({
             <Section>
               <div
                 key={currentItem?.href}
-                className="hidden xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
+                className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
                 style={{
                   height: FooterlessContainerHeight,
                   top: `var(--navbar-height)`,

@@ -241,7 +241,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           id: 'yM3vbW',
         })}
         onClose={() => setShowInformation(false)}>
-        <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4">
           <Text display="block" variant="body2">
             <FormattedMessage
               defaultMessage="GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:"
