@@ -39,13 +39,22 @@ export default function TextInputExamples() {
         placeholder="John Doe"
         type="text"
       />
-      <TextInput
-        label="Small"
-        placeholder="you@example.com"
-        size="sm"
-        startIcon={EnvelopeIcon}
-        type="email"
-      />
+      <div className="flex gap-x-24">
+        <TextInput
+          label="Small Input"
+          placeholder="you@example.com"
+          size="sm"
+          startIcon={EnvelopeIcon}
+          type="email"
+        />
+        <TextInput
+          label="Extra Small Input"
+          placeholder="you@example.com"
+          size="xs"
+          startIcon={EnvelopeIcon}
+          type="email"
+        />
+      </div>
     </UIExamplesGroup>
   );
 }

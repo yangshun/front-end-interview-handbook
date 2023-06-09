@@ -4,7 +4,7 @@ import React, { useId } from 'react';
 
 import Text from '../Text/Text';
 
-export type TextInputSize = 'md' | 'sm';
+export type TextInputSize = 'md' | 'sm' | 'xs';
 
 type Props = Readonly<{
   autoComplete?: string;
@@ -38,25 +38,31 @@ const stateClasses: Record<State, string> = {
 const fontSizeClasses: Record<TextInputSize, string> = {
   md: 'text-sm',
   sm: 'text-sm',
+  xs: 'text-xs',
 };
+
 const iconSizeClasses: Record<TextInputSize, string> = {
   md: 'h-5 w-5',
   sm: 'h-4 w-4',
+  xs: 'h-4 w-4',
 };
 
 const verticalPaddingSizeClasses: Record<TextInputSize, string> = {
   md: 'py-2',
   sm: 'py-1.5',
+  xs: 'py-1',
 };
 
 const horizontalPaddingSizeClasses: Record<TextInputSize, string> = {
   md: 'px-3',
   sm: 'px-3',
+  xs: 'px-3',
 };
 
 const heightClasses: Record<TextInputSize, string> = {
   md: 'h-9',
   sm: 'h-8',
+  xs: 'h-7',
 };
 
 export default function TextInput({
