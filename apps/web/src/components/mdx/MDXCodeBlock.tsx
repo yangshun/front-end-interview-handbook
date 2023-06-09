@@ -115,7 +115,7 @@ export default function MDXCodeBlock({
       {Object.keys(allLanguages).length > 1 && (
         <Tabs
           label="Selected language"
-          size="sm"
+          size="xs"
           tabs={(Object.keys(allLanguages) as Array<Language>).map((lng) => ({
             label: languagesLabel[lng] ?? lng,
             value: lng,

@@ -3,11 +3,18 @@ import { useState } from 'react';
 import Tabs from './Tabs';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
+import {
+  BanknotesIcon,
+  BuildingLibraryIcon,
+  UserCircleIcon,
+  UserGroupIcon,
+} from '@heroicons/react/24/solid';
+
 const tabs = [
-  { label: 'My Account', value: 'my-account' },
-  { label: 'Company', value: 'company' },
-  { label: 'Team Members', value: 'team' },
-  { label: 'Billing', value: 'billing' },
+  { icon: UserCircleIcon, label: 'Account', value: 'account' },
+  { icon: BuildingLibraryIcon, label: 'Company', value: 'company' },
+  { icon: UserGroupIcon, label: 'Team Members', value: 'team' },
+  { icon: BanknotesIcon, label: 'Billing', value: 'billing' },
 ];
 
 export default function TabsExamples() {
@@ -15,21 +22,26 @@ export default function TabsExamples() {
 
   return (
     <UIExamplesGroup title="Tabs">
-      <div className="space-y-4">
-        <Tabs
-          label="Select navigation item"
-          tabs={tabs}
-          value={selectedTab}
-          onSelect={setSelectedTab}
-        />
-        <Tabs
-          label="Select navigation item"
-          size="sm"
-          tabs={tabs}
-          value={selectedTab}
-          onSelect={setSelectedTab}
-        />
-      </div>
+      <Tabs
+        label="Select navigation item"
+        tabs={tabs}
+        value={selectedTab}
+        onSelect={setSelectedTab}
+      />
+      <Tabs
+        label="Select navigation item"
+        size="sm"
+        tabs={tabs}
+        value={selectedTab}
+        onSelect={setSelectedTab}
+      />
+      <Tabs
+        label="Select navigation item"
+        size="xs"
+        tabs={tabs}
+        value={selectedTab}
+        onSelect={setSelectedTab}
+      />
     </UIExamplesGroup>
   );
 }

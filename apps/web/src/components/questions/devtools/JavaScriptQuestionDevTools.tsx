@@ -69,14 +69,14 @@ export default function JavaScriptQuestionDevTools({
 
   return (
     <div className="flex h-full flex-col">
-      <div className="shrink px-4 sm:px-6 lg:px-2">
+      <div className="shrink px-4 pt-2 sm:px-6 lg:px-2">
         <Tabs
           label={intl.formatMessage({
             defaultMessage: 'Select navigation item in DevTool',
             description: 'Label for tabs in the coding workspace DevTool',
             id: '4zNzv1',
           })}
-          size="sm"
+          size="xs"
           tabs={tabs}
           value={mode}
           onSelect={onChangeMode}
