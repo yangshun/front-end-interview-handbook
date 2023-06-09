@@ -53,7 +53,6 @@ const classes: Record<
   },
   plain: {
     backgroundClass: 'bg-slate-900',
-    icon: XCircleIcon,
   },
   special: {
     backgroundClass: 'bg-brand-500',

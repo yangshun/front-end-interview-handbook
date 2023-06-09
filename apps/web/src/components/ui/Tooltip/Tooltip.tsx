@@ -20,9 +20,9 @@ type TooltipLabelProps = Readonly<{
 }>;
 
 function TooltipLabel({
+  alignment,
   children,
   position,
-  alignment,
   triggerRef,
 }: TooltipLabelProps) {
   const shouldUseXAlignment = position === 'above' || position === 'below';

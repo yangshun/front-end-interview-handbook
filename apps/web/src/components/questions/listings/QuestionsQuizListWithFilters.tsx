@@ -112,7 +112,7 @@ export default function QuestionsQuizListWithFilters({
               id: 'k2Oi+j',
             }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
           }
-          size="xs"
+          size="sm"
           type="button"
           variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
@@ -229,7 +229,7 @@ export default function QuestionsQuizListWithFilters({
           </div>
         ) : (
           <>
-            <div className="flex flex-col justify-end gap-4 border-b border-slate-200 pb-4 sm:flex-row sm:items-center">
+            <div className="flex flex-col justify-end gap-2 border-b border-slate-200 pb-4 sm:flex-row sm:items-center">
               <div className="flex-1">
                 <TextInput
                   autoComplete="off"

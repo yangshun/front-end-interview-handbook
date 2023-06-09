@@ -138,7 +138,7 @@ export default function QuestionsSystemDesignListWithFilters({
               id: 'k2Oi+j',
             }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
           }
-          size="xs"
+          size="sm"
           type="button"
           variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
@@ -253,7 +253,7 @@ export default function QuestionsSystemDesignListWithFilters({
         layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
       )}>
       <section className="space-y-6 lg:col-span-7 lg:mt-0">
-        <div className="flex flex-col justify-end gap-4 pb-4 sm:flex-row sm:items-center">
+        <div className="flex flex-col justify-end gap-2 pb-4 sm:flex-row sm:items-center">
           <div className="flex-1">
             <TextInput
               autoComplete="off"
