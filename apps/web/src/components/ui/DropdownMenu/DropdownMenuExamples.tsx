@@ -98,6 +98,18 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
+        <DropdownMenu icon={BarsArrowDownIcon} label="Sort By" size="xs">
+          {menuItems.map(({ label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
       </div>
     </UIExamplesGroup>
   );

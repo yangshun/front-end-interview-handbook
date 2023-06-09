@@ -9,7 +9,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
 export type DropdownMenuAlignment = 'end' | 'start';
-export type DropdownMenuSize = 'md' | 'sm';
+export type DropdownMenuSize = 'md' | 'sm' | 'xs';
 
 type Props = Readonly<{
   align?: DropdownMenuAlignment;
@@ -29,21 +29,25 @@ const alignmentClasses: Record<DropdownMenuAlignment, string> = {
 const heightClasses: Record<DropdownMenuSize, string> = {
   md: 'h-9',
   sm: 'h-8',
+  xs: 'h-7',
 };
 
 const textSizeVariants: Record<DropdownMenuSize, TextVariant> = {
   md: 'body2',
   sm: 'body3',
+  xs: 'body3',
 };
 
 const spacingClasses: Record<DropdownMenuSize, string> = {
   md: 'gap-x-1',
   sm: 'gap-x-1',
+  xs: 'gap-x-1',
 };
 
 const sizeIconClasses: Record<DropdownMenuSize, string> = {
   md: 'h-4 w-4',
   sm: 'h-4 w-4',
+  xs: 'h-4 w-4',
 };
 
 export default function DropdownMenu({
