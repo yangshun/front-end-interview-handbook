@@ -19,6 +19,7 @@ import TextExamples from '~/components/ui/Text/TextExamples';
 import TypographyExamples from '~/components/ui/Text/TypographyExamples';
 import TextAreaExamples from '~/components/ui/TextArea/TextAreaExamples';
 import TextInputExamples from '~/components/ui/TextInput/TextInputExamples';
+import ToastExamples from '~/components/ui/Toast/ToastExamples';
 import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
 
 export default function UILibraryPage() {
@@ -42,11 +43,13 @@ export default function UILibraryPage() {
         <BannerExamples />
         <AlertExamples />
         <BadgeExamples />
+        <EmptyStateExamples />
+        {/* Layer */}
         <TooltipExamples />
         <HoverCardExamples />
         <SlideOutExamples />
         <DialogExamples />
-        <EmptyStateExamples />
+        <ToastExamples />
       </div>
     </Container>
   );

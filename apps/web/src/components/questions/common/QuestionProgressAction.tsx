@@ -131,7 +131,7 @@ export default function QuestionProgressAction({
                       'Error message shown when the question cannot be marked incomplete',
                     id: 'bO2ju9',
                   }),
-                  variant: 'failure',
+                  variant: 'danger',
                 });
               },
               onSuccess: () => {
@@ -181,7 +181,7 @@ export default function QuestionProgressAction({
                     'Error message shown when a question has failed to mark as complete',
                   id: 'KY8GB9',
                 }),
-                variant: 'failure',
+                variant: 'danger',
               });
             },
             onSuccess: () => {

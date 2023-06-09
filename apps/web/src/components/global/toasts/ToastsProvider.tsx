@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 
-import type { ToastMessage } from './Toast';
-import Toast from './Toast';
+import type { ToastMessage } from '~/components/ui/Toast/Toast';
+import Toast from '~/components/ui/Toast/Toast';
 
 type Context = Readonly<{
   showToast: (message: ToastMessage) => void;

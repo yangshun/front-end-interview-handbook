@@ -27,7 +27,7 @@ export default function ProfileActivityResetProgressButton() {
               'Message shown when question reset progress action fails.',
             id: 'GM9dpG',
           }),
-          variant: 'failure',
+          variant: 'danger',
         });
       },
       onSuccess: () => {
