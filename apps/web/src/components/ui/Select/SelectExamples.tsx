@@ -45,6 +45,15 @@ export default function SelectExamples() {
             setValue(val);
           }}
         />
+        <Select
+          label="Framework"
+          options={options}
+          size="xs"
+          value={value}
+          onChange={(val) => {
+            setValue(val);
+          }}
+        />
       </div>
     </UIExamplesGroup>
   );

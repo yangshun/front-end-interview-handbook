@@ -10,7 +10,7 @@ export type SelectItem<T> = Readonly<{
 }>;
 
 export type SelectDisplay = 'block' | 'inline';
-type SelectSize = 'md' | 'sm';
+type SelectSize = 'md' | 'sm' | 'xs';
 
 type Props<T> = Readonly<{
   display?: SelectDisplay;
@@ -29,17 +29,22 @@ const textSizeClasses: Record<
 > = {
   md: {
     label: 'body2',
-    option: 'sm:text-sm',
+    option: 'text-sm',
   },
   sm: {
     label: 'body3',
-    option: 'sm:text-xs',
+    option: 'text-xs',
+  },
+  xs: {
+    label: 'body3',
+    option: 'text-xs',
   },
 };
 
 const heightClasses: Record<SelectSize, string> = {
   md: 'h-9',
   sm: 'h-8',
+  xs: 'h-7',
 };
 
 export default function Select<T>({
@@ -57,10 +62,7 @@ export default function Select<T>({
   return (
     <div>
       <label
-        className={clsx(
-          'mb-2 block text-slate-700',
-          isLabelHidden && 'sr-only',
-        )}
+        className={clsx('mb-2 block', isLabelHidden && 'sr-only')}
         htmlFor={id}>
         <Text
           display="block"
@@ -73,7 +75,7 @@ export default function Select<T>({
         aria-label={isLabelHidden ? label : undefined}
         className={clsx(
           display === 'block' && 'block w-full',
-          'flex items-center',
+          'flex items-center py-0',
           'rounded border-slate-200',
           'focus:border-brand-500 focus:ring-brand-500 focus:outline-none',
           heightClasses[size],

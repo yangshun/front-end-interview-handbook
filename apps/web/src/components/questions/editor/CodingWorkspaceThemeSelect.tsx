@@ -22,7 +22,7 @@ export default function CodingWorkspaceThemeSelect() {
         label: themeList[id as keyof typeof themeList],
         value: id,
       }))}
-      size="sm"
+      size="xs"
       value={themeKey}
       onChange={(value) => {
         setThemeKey(value as keyof typeof themeList);

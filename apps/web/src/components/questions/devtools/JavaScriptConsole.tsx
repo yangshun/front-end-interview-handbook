@@ -167,7 +167,7 @@ export default function JavaScriptConsole({
               description: 'Placeholder for filter input of console logs',
               id: '7solt2',
             })}
-            size="sm"
+            size="xs"
             startIcon={MagnifyingGlassIcon}
             value={query}
             onChange={(value) => setQuery(value)}
@@ -218,7 +218,7 @@ export default function JavaScriptConsole({
               value: 'error',
             },
           ]}
-          size="sm"
+          size="xs"
           value={logLevelFilter}
           onChange={(v) => setLogLevelFilter(v as LogLevelFilter)}
         />
