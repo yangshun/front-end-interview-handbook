@@ -1603,10 +1603,6 @@
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
   },
-  "TFzrBC": {
-    "defaultMessage": "Vietnam",
-    "description": "Vietname country"
-  },
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
@@ -2687,6 +2683,10 @@
     "defaultMessage": "Access to continuously updating question library.",
     "description": "Feature of annual pricing plan"
   },
+  "nJYzIr": {
+    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
+    "description": "Larry Almeida's testimonial"
+  },
   "nOvXhk": {
     "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
     "description": "Answer to 'What does free updates include?' on Homepage's FAQ sections"
@@ -2891,10 +2891,6 @@
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
   },
-  "s0GXXm": {
-    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
-    "description": "Larry Almeida's testimonial"
-  },
   "s3LMhK": {
     "defaultMessage": "Home",
     "description": "Home button on breadcrumb component"
@@ -3074,6 +3070,10 @@
   "v4ChUi": {
     "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
     "description": "Description of Get Started page"
+  },
+  "v4Ssos": {
+    "defaultMessage": "Vietnam",
+    "description": "Vietnam country"
   },
   "v4Z+0r": {
     "defaultMessage": "Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>.",
