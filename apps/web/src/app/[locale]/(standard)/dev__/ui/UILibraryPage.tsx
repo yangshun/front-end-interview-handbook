@@ -4,6 +4,7 @@ import AlertExamples from '~/components/ui/Alert/AlertExamples';
 import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
 import ButtonExamples from '~/components/ui/Button/ButtonExamples';
+import CheckboxInputExamples from '~/components/ui/CheckboxInput/CheckboxInputExamples';
 import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
@@ -24,19 +25,23 @@ export default function UILibraryPage() {
   return (
     <Container>
       <div className="space-y-24 py-12 lg:py-24">
+        {/* Basics */}
         <TypographyExamples />
         <HeadingExamples />
         <TextExamples />
+        {/* Form */}
         <ButtonExamples />
-        <SpinnerExamples />
-        <TabsExamples />
-        <SelectExamples />
         <TextInputExamples />
         <TextAreaExamples />
+        <SelectExamples />
+        <DropdownMenuExamples />
+        <CheckboxInputExamples />
+        {/* Others */}
+        <TabsExamples />
+        <SpinnerExamples />
         <BannerExamples />
         <AlertExamples />
         <BadgeExamples />
-        <DropdownMenuExamples />
         <TooltipExamples />
         <HoverCardExamples />
         <SlideOutExamples />

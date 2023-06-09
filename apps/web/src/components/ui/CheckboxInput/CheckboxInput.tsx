@@ -3,9 +3,10 @@ import type { ChangeEvent } from 'react';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useId } from 'react';
 
+import type { TextVariant } from '../Text';
 import Text from '../Text';
 
-type CheckboxSize = 'sm' | 'xs';
+type CheckboxSize = 'md' | 'sm';
 
 type Props = Readonly<{
   defaultValue?: boolean;
@@ -23,8 +24,13 @@ type Props = Readonly<{
 }>;
 
 const checkboxSizeClasses: Record<CheckboxSize, string> = {
-  sm: 'ml-3 text-sm',
-  xs: 'ml-2 text-xs',
+  md: 'ml-3',
+  sm: 'ml-2',
+};
+
+const textSizeVariants: Record<CheckboxSize, TextVariant> = {
+  md: 'body2',
+  sm: 'body3',
 };
 
 function CheckboxInput(
@@ -35,7 +41,7 @@ function CheckboxInput(
     errorMessage,
     label,
     name,
-    size = 'sm',
+    size = 'md',
     value,
     onChange,
   }: Props,
@@ -50,8 +56,8 @@ function CheckboxInput(
       <div
         className={clsx(
           'relative flex',
-          // Vertically center only when there's no description.
-          description == null && 'items-center',
+          // Vertically center only when there's only the label to render.
+          description == null && errorMessage == null && 'items-center',
         )}>
         <div className="flex h-5 items-center">
           <input
@@ -59,7 +65,8 @@ function CheckboxInput(
             aria-describedby={description != null ? descriptionId : undefined}
             checked={value}
             className={clsx(
-              'h-4 w-4 rounded border-slate-200',
+              'h-4 w-4',
+              'rounded border-slate-200',
               disabled
                 ? 'bg-slate-50 text-slate-400'
                 : 'text-brand-600 focus:ring-brand-500',
@@ -78,37 +85,30 @@ function CheckboxInput(
             }}
           />
         </div>
-        <div className={checkboxSizeClasses[size]}>
-          <label
-            className={clsx(
-              'block font-medium',
-              disabled ? 'text-slate-400' : 'text-slate-700',
-            )}
-            htmlFor={id}>
-            {label}
+        <div className={clsx('grid gap-1', checkboxSizeClasses[size])}>
+          <label className={clsx('block')} htmlFor={id}>
+            <Text
+              color={disabled ? 'disabled' : 'default'}
+              display="block"
+              variant={textSizeVariants[size]}>
+              {label}
+            </Text>
           </label>
           {description && (
-            <p
-              className={clsx(
-                'text-xs',
-                disabled ? 'text-slate-400' : 'text-slate-500',
-              )}
-              id={descriptionId}>
+            <Text
+              color={disabled ? 'disabled' : 'secondary'}
+              display="block"
+              variant="body3">
               {description}
-            </p>
+            </Text>
+          )}
+          {errorMessage && (
+            <Text color="error" display="block" id={errorId} variant="body3">
+              {errorMessage}
+            </Text>
           )}
         </div>
       </div>
-      {errorMessage && (
-        <Text
-          className="mt-2"
-          color="error"
-          display="block"
-          id={errorId}
-          variant="body2">
-          {errorMessage}
-        </Text>
-      )}
     </div>
   );
 }

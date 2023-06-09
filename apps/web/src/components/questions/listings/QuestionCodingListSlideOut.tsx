@@ -60,7 +60,7 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
           <CheckboxInput
             key={option.value}
             label={option.label as string}
-            size="xs"
+            size="sm"
             value={filters.has(option.value)}
             onChange={() => {
               filterOptions.onChange(option.value);
