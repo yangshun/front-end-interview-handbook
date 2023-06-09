@@ -2,12 +2,14 @@ import clsx from 'clsx';
 import React, { Fragment } from 'react';
 
 import DropdownMenuItem from './DropdownMenuItem';
+import type { TextVariant } from '../Text';
+import Text from '../Text';
 
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
 export type DropdownMenuAlignment = 'end' | 'start';
-export type DropdownMenuSize = 'inherit' | 'regular' | 'sm';
+export type DropdownMenuSize = 'md' | 'sm';
 
 type Props = Readonly<{
   align?: DropdownMenuAlignment;
@@ -24,11 +26,31 @@ const alignmentClasses: Record<DropdownMenuAlignment, string> = {
   start: 'origin-top-left left-0',
 };
 
+const heightClasses: Record<DropdownMenuSize, string> = {
+  md: 'h-9',
+  sm: 'h-8',
+};
+
+const textSizeVariants: Record<DropdownMenuSize, TextVariant> = {
+  md: 'body2',
+  sm: 'body3',
+};
+
+const spacingClasses: Record<DropdownMenuSize, string> = {
+  md: 'gap-x-1',
+  sm: 'gap-x-1',
+};
+
+const sizeIconClasses: Record<DropdownMenuSize, string> = {
+  md: 'h-4 w-4',
+  sm: 'h-4 w-4',
+};
+
 export default function DropdownMenu({
   align = 'start',
   children,
   label,
-  size = 'regular',
+  size = 'md',
   icon: Icon,
 }: Props) {
   return (
@@ -36,21 +58,31 @@ export default function DropdownMenu({
       <div className="flex">
         <Menu.Button
           className={clsx(
-            'group inline-flex items-center justify-center rounded-md border border-slate-200 py-1.5 px-2.5 font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
-            size === 'regular' && 'text-sm',
-            size === 'sm' && 'text-xs',
+            'group inline-flex items-center px-2.5',
+            'rounded border border-slate-200 transition-colors',
+            'hover:bg-slate-50',
+            'focus:ring-brand-500 focus:outline-none focus:ring-2 focus:ring-offset-2',
+            heightClasses[size],
           )}>
-          {Icon != null && (
-            <Icon
+          <Text
+            className={clsx(
+              'flex items-center justify-center',
+              spacingClasses[size],
+            )}
+            variant={textSizeVariants[size]}
+            weight="medium">
+            {Icon != null && (
+              <Icon
+                aria-hidden="true"
+                className={clsx('flex-shrink-0', sizeIconClasses[size])}
+              />
+            )}
+            {label}
+            <ChevronDownIcon
               aria-hidden="true"
-              className="mr-2 h-4 w-4 flex-shrink-0 text-slate-400 group-hover:text-slate-500"
+              className={clsx('flex-shrink-0', sizeIconClasses[size])}
             />
-          )}
-          <div>{label}</div>
-          <ChevronDownIcon
-            aria-hidden="true"
-            className="-mr-1 ml-1 h-4 w-4 flex-shrink-0 text-slate-400 group-hover:text-slate-500"
-          />
+          </Text>
         </Menu.Button>
       </div>
       <Transition
@@ -64,9 +96,16 @@ export default function DropdownMenu({
         <Menu.Items
           className={clsx(
             alignmentClasses[align],
-            'ring-brand-500 absolute z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-opacity-5 focus:outline-none',
+            'absolute z-10 mt-2 w-48',
+            'ring-brand-500 rounded bg-white shadow-lg ring-1 ring-opacity-5 focus:outline-none',
           )}>
-          <div className="py-1">{children}</div>
+          <Text
+            className="p-2"
+            display="block"
+            variant={textSizeVariants[size]}
+            weight="medium">
+            {children}
+          </Text>
         </Menu.Items>
       </Transition>
     </Menu>

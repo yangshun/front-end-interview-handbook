@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import Text from '../Text';
+
 import { Menu } from '@headlessui/react';
 
 type Props = Readonly<{
@@ -20,11 +22,18 @@ export default function DropdownMenuItem({
     <Menu.Item>
       {({ active }) => {
         const props = {
-          children: label,
+          children: (
+            <Text
+              color={isSelected ? undefined : 'secondary'}
+              display="block"
+              // TODO: Use smaller variant for smaller size.
+              variant="body2">
+              {label}
+            </Text>
+          ),
           className: clsx(
-            isSelected ? 'font-medium text-slate-900' : 'text-slate-500',
+            'block px-2 py-1.5 text-sm w-full text-left rounded',
             active && 'bg-slate-100',
-            'block px-4 py-2 text-sm w-full text-left',
           ),
           onClick,
         };
