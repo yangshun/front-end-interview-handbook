@@ -235,10 +235,6 @@
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
   },
-  "3lWGUg": {
-    "defaultMessage": "Not Completed",
-    "description": "Label for Not completed status on quiz quqestions list"
-  },
   "3v5v1K": {
     "defaultMessage": "Get started in minutes",
     "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
@@ -606,10 +602,6 @@
   "Axiomj": {
     "defaultMessage": "Questions",
     "description": "Sidebar label for Questions Bank page"
-  },
-  "B6qk8B": {
-    "defaultMessage": "Hide side menu",
-    "description": "Screenreader text for the button that expands the side menu"
   },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
@@ -1095,6 +1087,10 @@
     "defaultMessage": "Duration: High to Low",
     "description": "Sorting option for question list - sort by duration from high to low"
   },
+  "KlEAfS": {
+    "defaultMessage": "Show side menu",
+    "description": "Screenreader text for the button that expands the side menu"
+  },
   "KmiBbk": {
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
@@ -1510,10 +1506,6 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
-  },
-  "RTwyWd": {
-    "defaultMessage": "Completed",
-    "description": "Label for completed status on quiz quqestions list"
   },
   "RWMcHN": {
     "defaultMessage": "Quiz Topics",
@@ -2019,6 +2011,10 @@
     "defaultMessage": "No Tests",
     "description": "Label indicating that no test cases are available for this question"
   },
+  "bTsT6Y": {
+    "defaultMessage": "Not Completed",
+    "description": "Label for Not completed status on quiz questions list"
+  },
   "bWymcE": {
     "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
     "description": "Front end system design guidebook description"
@@ -2230,6 +2226,10 @@
   "fHpn67": {
     "defaultMessage": "Google",
     "description": "Company name for Google"
+  },
+  "fIu2R9": {
+    "defaultMessage": "Completed",
+    "description": "Label for completed status on quiz questions list"
   },
   "fQHORb": {
     "defaultMessage": "Show DevTool",

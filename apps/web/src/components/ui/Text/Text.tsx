@@ -11,7 +11,14 @@ export type TextColor =
   | 'secondary'
   | 'success'
   | 'white';
-export type TextDisplay = 'block' | 'inline';
+export type TextDisplay =
+  | 'block'
+  | 'flex'
+  | 'grid'
+  | 'inline-block'
+  | 'inline-flex'
+  | 'inline-grid'
+  | 'inline';
 export type TextVariant = 'body' | 'body2' | 'body3';
 export type TextWeight = 'bold' | 'medium' | 'normal';
 
@@ -61,7 +68,7 @@ export default function Text({
   return (
     <span
       className={clsx(
-        display === 'block' && 'block',
+        display,
         weightClasses[weight],
         colorClasses[color],
         variantClasses[variant],

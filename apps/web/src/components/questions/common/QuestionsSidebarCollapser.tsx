@@ -15,10 +15,10 @@ export default function QuestionsSidebarCollapser() {
         id: 'TB8vuT',
       })
     : intl.formatMessage({
-        defaultMessage: 'Hide side menu',
+        defaultMessage: 'Show side menu',
         description:
           'Screenreader text for the button that expands the side menu',
-        id: 'B6qk8B',
+        id: 'KlEAfS',
       });
 
   return (

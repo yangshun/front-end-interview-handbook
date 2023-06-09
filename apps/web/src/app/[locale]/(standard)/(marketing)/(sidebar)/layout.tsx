@@ -1,5 +1,4 @@
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
-import QuestionsSidebar from '~/components/questions/common/QuestionsSidebar';
+import SidebarContainer from './SidebarLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -8,14 +7,7 @@ type Props = Readonly<{
 export default function SidebarLayout({ children }: Props) {
   return (
     <div className="flex">
-      <aside
-        className="sticky z-20 hidden w-24 shrink-0 overflow-visible md:block"
-        style={{
-          height: FooterlessContainerHeight,
-          top: `var(--navbar-height)`,
-        }}>
-        <QuestionsSidebar />
-      </aside>
+      <SidebarContainer />
       <div className="relative w-0 grow">{children}</div>
     </div>
   );
