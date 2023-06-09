@@ -9,7 +9,8 @@ export type TextColor =
   | 'inherit'
   | 'placeholder'
   | 'secondary'
-  | 'success';
+  | 'success'
+  | 'white';
 export type TextDisplay = 'block' | 'inline';
 export type TextVariant = 'body' | 'body2' | 'body3';
 export type TextWeight = 'bold' | 'medium' | 'normal';
@@ -45,6 +46,7 @@ const colorClasses: Record<TextColor, string> = {
   placeholder: 'text-slate-400',
   secondary: 'text-gray-500',
   success: 'text-success',
+  white: 'text-white',
 };
 
 export default function Text({

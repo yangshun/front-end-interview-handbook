@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import Text from '../Text';
+
 export type TooltipPosition = 'above' | 'below' | 'end' | 'start';
 export type TooltipAlignment = 'bottom' | 'center' | 'end' | 'start' | 'top';
 
@@ -109,17 +111,19 @@ function TooltipLabel({
   return (
     <span
       className={clsx(
-        'fixed z-40 whitespace-nowrap rounded-md bg-slate-800 px-2 py-1 text-xs text-white drop-shadow',
-        position === 'above' && 'mb-1',
-        position === 'below' && 'mt-1',
-        position === 'start' && 'mr-1',
-        position === 'end' && 'ml-1',
+        'fixed z-40 whitespace-nowrap rounded bg-slate-800 px-3 py-2',
+        position === 'above' && 'mb-1.5',
+        position === 'below' && 'mt-1.5',
+        position === 'start' && 'mr-1.5',
+        position === 'end' && 'ml-1.5',
         shouldUseXAlignment && alignment === 'center' && '-translate-x-1/2',
         shouldUseYAlignment && alignment === 'center' && '-translate-y-1/2',
       )}
       role="tooltip"
       style={styleMap[position]}>
-      {children}
+      <Text color="white" variant="body2" weight="medium">
+        {children}
+      </Text>
     </span>
   );
 }
