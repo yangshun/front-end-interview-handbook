@@ -1,3 +1,4 @@
+import type { TextInputSize } from './TextInput';
 import TextInput from './TextInput';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
@@ -6,10 +7,22 @@ import {
   QuestionMarkCircleIcon,
 } from '@heroicons/react/24/solid';
 
+const sizes: ReadonlyArray<TextInputSize> = ['md', 'sm', 'xs'];
+
 export default function TextInputExamples() {
   return (
     <UIExamplesGroup gapSize="lg" title="Text Input">
-      <TextInput label="Email" placeholder="john.doe@email.com" type="email" />
+      <div className="flex gap-x-24">
+        {sizes.map((size) => (
+          <TextInput
+            key={size}
+            label="Email"
+            placeholder="john.doe@example.com"
+            size={size}
+            type="email"
+          />
+        ))}
+      </div>
       <TextInput
         errorMessage="Incorrect password!"
         label="Password"
@@ -21,40 +34,36 @@ export default function TextInputExamples() {
         placeholder="John Doe"
         type="text"
       />
-      <TextInput
-        label="Email"
-        placeholder="you@example.com"
-        startIcon={EnvelopeIcon}
-        type="email"
-      />
-      <TextInput
-        endIcon={QuestionMarkCircleIcon}
-        label="Account number"
-        placeholder="000-00-0000"
-        type="text"
-      />
+      <div className="flex gap-x-24">
+        {sizes.map((size) => (
+          <TextInput
+            key={size}
+            label="Email"
+            placeholder="you@example.com"
+            size={size}
+            startIcon={EnvelopeIcon}
+            type="email"
+          />
+        ))}
+      </div>
+      <div className="flex gap-x-24">
+        {sizes.map((size) => (
+          <TextInput
+            key={size}
+            endIcon={QuestionMarkCircleIcon}
+            label="Account number"
+            placeholder="000-00-0000"
+            size={size}
+            type="text"
+          />
+        ))}
+      </div>
       <TextInput
         isDisabled={true}
         label="Disabled input"
         placeholder="John Doe"
         type="text"
       />
-      <div className="flex gap-x-24">
-        <TextInput
-          label="Small Input"
-          placeholder="you@example.com"
-          size="sm"
-          startIcon={EnvelopeIcon}
-          type="email"
-        />
-        <TextInput
-          label="Extra Small Input"
-          placeholder="you@example.com"
-          size="xs"
-          startIcon={EnvelopeIcon}
-          type="email"
-        />
-      </div>
     </UIExamplesGroup>
   );
 }
