@@ -27,7 +27,9 @@ function NavbarPopoverLink({
           <p className="flex items-center gap-2 text-sm font-medium text-slate-900">
             <span>{label}</span> {labelAddon}
           </p>
-          {sublabel && <p className="mt-1 text-sm text-gray-500">{sublabel}</p>}
+          {sublabel && (
+            <p className="mt-1 text-sm text-slate-500">{sublabel}</p>
+          )}
         </div>
       </div>
     ) : (

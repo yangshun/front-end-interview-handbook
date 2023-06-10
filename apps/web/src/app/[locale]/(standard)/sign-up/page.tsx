@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function SignUpPage() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-slate-50">
       <AuthPage view="sign_up" />
     </div>
   );
