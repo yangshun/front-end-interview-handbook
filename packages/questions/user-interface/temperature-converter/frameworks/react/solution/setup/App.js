@@ -29,7 +29,7 @@ export default function App() {
         <label className="temperature-converter-column">
           <input
             className="temperature-converter-column-top-row"
-            type="text"
+            type="number"
             value={celsius}
             onChange={(event) => {
               const newValue = event.target.value;
@@ -54,7 +54,7 @@ export default function App() {
         <label className="temperature-converter-column">
           <input
             className="temperature-converter-column-top-row"
-            type="text"
+            type="number"
             value={fahrenheit}
             onChange={(event) => {
               const newValue = event.target.value;
