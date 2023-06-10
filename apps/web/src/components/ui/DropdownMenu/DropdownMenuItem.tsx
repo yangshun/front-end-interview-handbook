@@ -32,8 +32,10 @@ export default function DropdownMenuItem({
             </Text>
           ),
           className: clsx(
-            'block px-2 py-1.5 text-sm w-full text-left rounded',
-            active && 'bg-slate-100',
+            'block px-2 py-1.5',
+            'text-sm w-full text-left',
+            'rounded',
+            active && 'bg-slate-100 dark:bg-slate-700',
           ),
           onClick,
         };

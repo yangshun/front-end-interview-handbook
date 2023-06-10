@@ -34,46 +34,6 @@ export default function DropdownMenuExamples() {
   return (
     <UIExamplesGroup gapSize="lg" title="Dropdown Menu">
       <div className="flex gap-x-24">
-        <DropdownMenu label="Sort By">
-          {menuItems.map(({ label, value }) => (
-            <DropdownMenu.Item
-              key={value}
-              isSelected={value === selectedValue}
-              label={label}
-              onClick={() => {
-                setSelectedValue(value);
-              }}
-            />
-          ))}
-        </DropdownMenu>
-        <DropdownMenu align="end" label="Sort By">
-          {menuItems.map(({ label, value }) => (
-            <DropdownMenu.Item
-              key={value}
-              isSelected={value === selectedValue}
-              label={label}
-              onClick={() => {
-                setSelectedValue(value);
-              }}
-            />
-          ))}
-        </DropdownMenu>
-      </div>
-      <div>
-        <DropdownMenu label="Sort By" size="sm">
-          {menuItems.map(({ label, value }) => (
-            <DropdownMenu.Item
-              key={value}
-              isSelected={value === selectedValue}
-              label={label}
-              onClick={() => {
-                setSelectedValue(value);
-              }}
-            />
-          ))}
-        </DropdownMenu>
-      </div>
-      <div className="flex gap-x-24">
         <DropdownMenu icon={BarsArrowDownIcon} label="Sort By">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
@@ -99,6 +59,32 @@ export default function DropdownMenuExamples() {
           ))}
         </DropdownMenu>
         <DropdownMenu icon={BarsArrowDownIcon} label="Sort By" size="xs">
+          {menuItems.map(({ label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+      </div>
+      <div className="flex gap-x-24">
+        <DropdownMenu label="Sort By">
+          {menuItems.map(({ label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+        <DropdownMenu align="end" label="Sort By">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
               key={value}

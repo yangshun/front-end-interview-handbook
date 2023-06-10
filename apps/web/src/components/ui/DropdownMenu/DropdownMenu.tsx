@@ -63,9 +63,11 @@ export default function DropdownMenu({
         <Menu.Button
           className={clsx(
             'group inline-flex items-center px-2.5',
-            'rounded border border-slate-200 transition-colors',
-            'hover:bg-slate-50',
-            'focus:ring-brand-500 focus:outline-none focus:ring-2 focus:ring-offset-2',
+            'rounded',
+            'transition-colors',
+            'border border-slate-200 dark:border-slate-800',
+            'bg-transparent hover:bg-slate-50 dark:hover:bg-slate-700',
+            'focus:border-brand-500 focus:outline-brand-500 focus:outline-2 focus:outline-offset-2 focus:ring-0',
             heightClasses[size],
           )}>
           <Text
@@ -101,7 +103,10 @@ export default function DropdownMenu({
           className={clsx(
             alignmentClasses[align],
             'absolute z-10 mt-2 w-48',
-            'ring-brand-500 rounded bg-white shadow-lg ring-1 ring-opacity-5 focus:outline-none',
+            'rounded',
+            'bg-white dark:bg-slate-800',
+            'shadow-lg',
+            'ring-brand-500 ring-1 ring-opacity-5 focus:outline-none',
           )}>
           <Text
             className="p-2"
