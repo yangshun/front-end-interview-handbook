@@ -1,5 +1,7 @@
 export default class Queue<T> {
-  constructor() {}
+  constructor() {
+    throw 'Not implemented!';
+  }
 
   /**
    * Adds an item to the back of the queue.
@@ -11,7 +13,7 @@ export default class Queue<T> {
   }
 
   /**
-   * Remove an item from the front of the queue.
+   * Removes an item from the front of the queue.
    * @return {T | undefined} The item at the front of the queue if it is not empty, `undefined` otherwise.
    */
   dequeue(): T | undefined {
@@ -35,7 +37,7 @@ export default class Queue<T> {
   }
 
   /**
-   * Returns the item at the back of the queue without removing it from the queue it.
+   * Returns the item at the back of the queue without removing it from the queue.
    * @return {T | undefined} The item at the back of the queue if it is not empty, `undefined` otherwise.
    */
   back(): T | undefined {

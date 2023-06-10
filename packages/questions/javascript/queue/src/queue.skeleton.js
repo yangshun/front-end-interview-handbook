@@ -13,7 +13,7 @@ export default class Queue {
   }
 
   /**
-   * Remove an item from the front of the queue.
+   * Removes an item from the front of the queue.
    * @return {*} The item at the front of the queue if it is not empty, `undefined` otherwise.
    */
   dequeue() {
@@ -37,7 +37,7 @@ export default class Queue {
   }
 
   /**
-   * Returns the item at the back of the queue without removing it from the queue it.
+   * Returns the item at the back of the queue without removing it from the queue.
    * @return {*} The item at the back of the queue if it is not empty, `undefined` otherwise.
    */
   back() {
