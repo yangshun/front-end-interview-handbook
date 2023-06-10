@@ -66,10 +66,11 @@ function CheckboxInput(
             checked={value}
             className={clsx(
               'h-4 w-4',
-              'rounded border-slate-200',
-              disabled
-                ? 'bg-slate-50 text-slate-400'
-                : 'text-brand-600 focus:ring-brand-500',
+              'rounded',
+              'text-brand-600 dark:text-brand-400',
+              'border-slate-200 dark:border-slate-800',
+              'disabled:bg-slate-20 dark:disabled:bg-slate-800',
+              'focus:ring-brand-500',
             )}
             defaultChecked={defaultValue}
             disabled={disabled}
