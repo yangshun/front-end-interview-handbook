@@ -53,7 +53,8 @@ export default function CodeEditor({ value, filePath, onChange }: Props) {
       defaultLanguage={language}
       options={{
         minimap: {
-          enabled: true,
+          // TODO: Make it customizable.
+          enabled: false,
         },
       }}
       theme={themeKey}
