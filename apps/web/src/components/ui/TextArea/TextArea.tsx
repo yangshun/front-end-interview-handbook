@@ -14,6 +14,7 @@ type Attributes = Pick<
   | 'autoComplete'
   | 'autoFocus'
   | 'disabled'
+  | 'id'
   | 'maxLength'
   | 'minLength'
   | 'name'
@@ -25,7 +26,7 @@ type Attributes = Pick<
   | 'rows'
 >;
 
-export type TextAreaFontSize = 'sm' | 'xs';
+export type TextAreaFontSize = 'md' | 'sm' | 'xs';
 export type TextAreaResize = 'both' | 'horizontal' | 'none' | 'vertical';
 
 type Props = Readonly<{
@@ -33,7 +34,6 @@ type Props = Readonly<{
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   fontSize?: TextAreaFontSize;
-  id?: string;
   isLabelHidden?: boolean;
   label: string;
   onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
@@ -45,20 +45,19 @@ type Props = Readonly<{
 
 type State = 'error' | 'normal';
 
-const stateClasses: Record<
-  State,
-  Readonly<{
-    textArea: string;
-  }>
-> = {
-  error: {
-    textArea:
-      'border-danger-light focus:ring-danger focus:border-danger text-danger-darker placeholder-danger-light',
-  },
-  normal: {
-    textArea:
-      'border-slate-200 focus:border-brand-500 focus:ring-brand-500 placeholder:text-slate-400',
-  },
+const stateClasses: Record<State, string> = {
+  error: clsx(
+    'text-slate-700 dark:text-slate-300',
+    'border-danger-light',
+    'placeholder-danger-light',
+    'focus:ring-danger focus:border-danger',
+  ),
+  normal: clsx(
+    'text-slate-700 dark:text-slate-300',
+    'border-slate-200 dark:border-slate-800',
+    'placeholder:text-slate-400 dark:placeholder:text-slate-600',
+    'focus:ring-brand-500 focus:border-brand-500',
+  ),
 };
 
 const resizeClasses: Record<TextAreaResize, string> = {
@@ -69,8 +68,21 @@ const resizeClasses: Record<TextAreaResize, string> = {
 };
 
 const fontSizeClasses: Record<TextAreaFontSize, string> = {
+  md: 'text-sm',
   sm: 'text-sm',
   xs: 'text-xs',
+};
+
+const verticalPaddingSizeClasses: Record<TextAreaFontSize, string> = {
+  md: 'py-2',
+  sm: 'py-1.5',
+  xs: 'py-1',
+};
+
+const horizontalPaddingSizeClasses: Record<TextAreaFontSize, string> = {
+  md: 'px-3',
+  sm: 'px-3',
+  xs: 'px-3',
 };
 
 function TextArea(
@@ -100,13 +112,11 @@ function TextArea(
   return (
     <div>
       <label
-        className={clsx(
-          isLabelHidden
-            ? 'sr-only'
-            : 'mb-2 block text-sm font-medium text-slate-700',
-        )}
+        className={clsx(isLabelHidden ? 'sr-only' : 'mb-2 block')}
         htmlFor={id}>
-        {label}
+        <Text variant="body2" weight="medium">
+          {label}
+        </Text>
         {required && (
           <span aria-hidden="true" className="text-danger">
             {' '}
@@ -115,9 +125,14 @@ function TextArea(
         )}
       </label>
       {!hasError && description && (
-        <p className={clsx('my-2 text-xs text-slate-500')} id={messageId}>
+        <Text
+          className="my-2"
+          color="secondary"
+          display="block"
+          id={messageId}
+          variant="body3">
           {description}
-        </p>
+        </Text>
       )}
       <div>
         <textarea
@@ -127,9 +142,15 @@ function TextArea(
           }
           aria-invalid={hasError ? true : undefined}
           className={clsx(
-            'block w-full rounded px-3 py-1.5 disabled:bg-slate-50 disabled:text-slate-500',
+            'block w-full',
+            'bg-transparent',
+            'disabled:bg-slate-200 disabled:text-slate-300',
+            'dark:disabled:bg-slate-800 dark:disabled:text-slate-700',
+            'rounded',
             fontSizeClasses[fontSize],
-            stateClasses[state].textArea,
+            verticalPaddingSizeClasses[fontSize],
+            horizontalPaddingSizeClasses[fontSize],
+            stateClasses[state],
             resizeClasses[resize],
           )}
           defaultValue={defaultValue}
