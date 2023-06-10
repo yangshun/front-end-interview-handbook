@@ -82,7 +82,9 @@ export default function SlideOut({
             leaveTo={enterFromClass.hidden}>
             <Dialog.Panel
               className={clsx(
-                'relative flex h-full w-full flex-col bg-white shadow-xl',
+                'relative flex h-full w-full flex-col',
+                'bg-white dark:bg-slate-800',
+                'shadow-xl',
                 enterFromClass.position,
                 sizeClasses[size],
               )}>
@@ -94,6 +96,7 @@ export default function SlideOut({
                   className="focus:ring-brand-500 -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset"
                   type="button"
                   onClick={() => onClose?.()}>
+                  {/* TODO: i18n */}
                   <span className="sr-only">Close menu</span>
                   <XMarkIcon aria-hidden="true" className="h-6 w-6" />
                 </button>
@@ -106,11 +109,7 @@ export default function SlideOut({
                 </Section>
               </div>
               {primaryButton && (
-                <div
-                  className={clsx(
-                    'flex justify-end gap-2 py-4 px-4',
-                    secondaryButton != null && 'sm:grid-cols-2',
-                  )}>
+                <div className={clsx('flex justify-end gap-2 py-4 px-6')}>
                   {secondaryButton}
                   {primaryButton}
                 </div>
