@@ -414,7 +414,7 @@ Before rendering the message, the string can be parsed for hashtags and mentions
 
 ##### **Popular Rich Text Editor Format**
 
-[Draft.js](https://draftjs.org) is a popular rich text editor by Facebook for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines its a custom Draft.js editor state format which is being used by the Draft.js editor.
+[Draft.js](https://draftjs.org) is a popular rich text editor by Facebook for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines its a custom Draft.js editor state format which is being used by the Draft.js editor. In 2022, Facebook released [Lexical](https://lexical.dev/), a successor to Draft.js and is using Lexical for rich text editing and displaying rich text entities on facebook.com. The underlying formats are similar and we will discuss Draft.js' format.
 
 Draft.js is just one example of a rich text format, there are many out there to choose from. The editor state resembles an Abstract Syntax Tree and can be serialized into a JSON string to be stored. The benefits of using a popular rich text format is that you don't have to write custom parsing code and can easily extend to more types of rich text entities in future. However, these formats tend to be longer strings than a custom syntax version and will result in larger network payload size and require more disk space to store.
 
