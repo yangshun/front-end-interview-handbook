@@ -24,14 +24,14 @@ const variantClasses: Record<
   }>
 > = {
   danger: {
-    backgroundClass: 'bg-danger-lighter',
-    borderClass: 'border-danger',
-    textClass: 'text-danger',
+    backgroundClass: 'bg-danger-lighter dark:bg-danger-darker',
+    borderClass: 'border-danger dark:border-danger-lighter',
+    textClass: 'text-danger dark:text-danger-lighter',
   },
   info: {
-    backgroundClass: 'bg-info-lighter',
-    borderClass: 'border-info',
-    textClass: 'text-info',
+    backgroundClass: 'bg-info-lighter dark:bg-info-darker',
+    borderClass: 'border-info dark:border-info-lighter',
+    textClass: 'text-info dark:text-info-lighter',
   },
   primary: {
     backgroundClass: 'bg-brand-100',
@@ -44,14 +44,14 @@ const variantClasses: Record<
     textClass: 'text-white',
   },
   success: {
-    backgroundClass: 'bg-success-lighter',
-    borderClass: 'border-success',
-    textClass: 'text-success',
+    backgroundClass: 'bg-success-lighter dark:bg-success-darker',
+    borderClass: 'border-success dark:border-success-light',
+    textClass: 'text-success dark:text-success-light',
   },
   warning: {
-    backgroundClass: 'bg-warning-lighter',
-    borderClass: 'border-warning-dark',
-    textClass: 'text-warning-dark',
+    backgroundClass: 'bg-warning-lighter dark:bg-warning-darker',
+    borderClass: 'border-warning-dark dark:border-warning-light',
+    textClass: 'text-warning-dark dark:text-warning-light',
   },
 };
 
