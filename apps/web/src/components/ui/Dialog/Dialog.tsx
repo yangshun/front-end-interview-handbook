@@ -56,7 +56,11 @@ export default function DialogImpl({
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
               <Dialog.Panel
                 className={clsx(
-                  'relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-sm',
+                  'relative transform overflow-hidden',
+                  'rounded-lg',
+                  'bg-white dark:bg-slate-800',
+                  'sm:w-full sm:max-w-sm',
+                  'text-left shadow-xl transition-all',
                 )}>
                 <div className="grid gap-y-2.5 px-6 pt-6 pb-4">
                   <Dialog.Title as="div">
@@ -69,11 +73,7 @@ export default function DialogImpl({
                   </Section>
                 </div>
                 {primaryButton && (
-                  <div
-                    className={clsx(
-                      'flex justify-end gap-2 py-4 px-4',
-                      secondaryButton != null && 'sm:grid-cols-2',
-                    )}>
+                  <div className={clsx('flex justify-end gap-2 py-4 px-6')}>
                     {secondaryButton}
                     {primaryButton}
                   </div>
