@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Fragment, useEffect, useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import type { TextColor } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 
 import { Transition } from '@headlessui/react';
@@ -41,30 +42,44 @@ const classes: Record<
   Readonly<{
     backgroundClass: string;
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    iconClass: string;
+    textColor: TextColor;
   }>
 > = {
   danger: {
     backgroundClass: 'bg-danger-dark',
     icon: XCircleIcon,
+    iconClass: 'text-white focus:ring-white-500',
+    textColor: 'white',
   },
   info: {
     backgroundClass: 'bg-info-dark',
     icon: InformationCircleIcon,
+    iconClass: 'text-white focus:ring-white-500',
+    textColor: 'white',
   },
   plain: {
-    backgroundClass: 'bg-slate-900',
+    backgroundClass: 'bg-slate-900 dark:bg-white',
+    iconClass: 'text-slate-900 focus:ring-slate-500',
+    textColor: 'invert',
   },
   special: {
     backgroundClass: 'bg-brand-500',
     icon: StarIcon,
+    iconClass: 'text-white focus:ring-white-500',
+    textColor: 'white',
   },
   success: {
     backgroundClass: 'bg-success-dark',
     icon: CheckCircleIcon,
+    iconClass: 'text-white focus:ring-white-500',
+    textColor: 'white',
   },
   warning: {
     backgroundClass: 'bg-warning-dark',
     icon: ExclamationTriangleIcon,
+    iconClass: 'text-white focus:ring-white-500',
+    textColor: 'white',
   },
 };
 
@@ -102,7 +117,12 @@ export default function Toast({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { icon: Icon, backgroundClass } = classes[variant];
+  const {
+    icon: Icon,
+    backgroundClass,
+    iconClass,
+    textColor,
+  } = classes[variant];
 
   return (
     <Transition
@@ -116,24 +136,31 @@ export default function Toast({
       show={true}>
       <div
         className={clsx(
-          'pointer-events-auto w-full max-w-sm overflow-hidden rounded shadow-lg ring-1 ring-black ring-opacity-5',
+          'pointer-events-auto w-full max-w-sm overflow-hidden rounded shadow-lg',
           backgroundClass,
         )}>
         <div className="flex w-full items-start gap-x-2 py-2 px-3">
-          {Icon && <Icon className="h-5 w-5 shrink-0 text-white" />}
+          {Icon && <Icon className={clsx('h-5 w-5 shrink-0', iconClass)} />}
           <div className="w-0 grow space-y-1">
-            <Text color="white" display="block" variant="body2" weight="medium">
+            <Text
+              color={textColor}
+              display="block"
+              variant="body2"
+              weight="medium">
               {title}
             </Text>
             {subtitle && (
-              <Text color="white" display="block" variant="body3">
+              <Text color={textColor} display="block" variant="body3">
                 {subtitle}
               </Text>
             )}
           </div>
           <div className="flex shrink-0">
             <button
-              className="focus:ring-white-500 inline-flex items-center justify-center rounded text-white hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              className={clsx(
+                'inline-flex items-center justify-center rounded hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2',
+                iconClass,
+              )}
               type="button"
               onClick={close}>
               <span className="sr-only">
