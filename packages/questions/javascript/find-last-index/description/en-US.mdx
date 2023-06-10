@@ -3,12 +3,12 @@ title: Find Last Index
 excerpt: Implement a function that returns the index of the last element in the array that satisfies the provided testing function
 ---
 
-Implement a function `findIndex(array, predicate, [fromIndex=array.length-1])` that takes an array of values, a function `predicate`, and an optional `fromIndex` number argument, and returns the index of the last element in the array that satisfies the provided testing function `predicate`. It iterates over elements of the `array` from **right to left**.
+Implement a function `findIndex(array, predicate, [fromIndex=array.length-1])` that takes an array of values, a function `predicate`, and an optional `fromIndex` number argument, and returns the index of the last element in the array that satisfies the provided testing function `predicate`. The elements of the `array` are iterated from **right to left**.
 
 ## Arguments
 
 1. `array` _(Array)_: The array to inspect.
-1. `predicate` _(Function)_: The function invoked per iteration.
+1. `predicate` _(Function)_: The function invoked per iteration. The function is invoked with three arguments: _(value, index, array)_.
 1. `[fromIndex=array.length-1]` _(number)_: The index to search from.
 
 ## Returns

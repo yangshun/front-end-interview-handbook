@@ -3,12 +3,12 @@ title: Drop While
 excerpt: Implement a function that excludes elements from the beginning of an array until the predicate returns false
 ---
 
-Implement a function `dropWhile(array, predicate)` that creates a slice of `array` excluding elements dropped from the beginning. Elements are dropped until `predicate` returns falsey. The predicate is invoked with three arguments: _(value, index, array)_. Your function should not modify the original array.
+Implement a function `dropWhile(array, predicate)` that creates a slice of `array` excluding elements dropped from the beginning. Elements are dropped until `predicate` returns falsey. Your function should not modify the original array.
 
 #### Arguments
 
 1. `array` _(Array)_: The array to query.
-1. `predicate` _(Function)_: The function invoked per iteration.
+1. `predicate` _(Function)_: The function invoked per iteration. The function is invoked with three arguments: _(value, index, array)_.
 
 #### Returns
 
