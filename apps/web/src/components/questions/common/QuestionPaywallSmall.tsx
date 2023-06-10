@@ -52,7 +52,7 @@ export default function QuestionPaywallSmall({
           id: 'pRCMpc',
         })}
         size="xs"
-        variant="special"
+        variant="primary"
       />
     </div>
   );

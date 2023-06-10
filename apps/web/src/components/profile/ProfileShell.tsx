@@ -152,7 +152,7 @@ export default function ProfileShell({ user, children }: Props) {
                                   id: '7P0wF0',
                                 })}
                                 size="xs"
-                                variant="special"
+                                variant="primary"
                               />
                             )}
                           </div>

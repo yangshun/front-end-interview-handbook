@@ -75,7 +75,7 @@ export default function MarketingEmbedQuizQuestion() {
           href="/questions/quiz/describe-the-difference-between-script-async-and-script-defer"
           label="Show full question"
           target="_blank"
-          variant="special"
+          variant="primary"
           onClick={() => {
             gtag.event({
               action: `homepage.hero.embed.quiz.show_full_question.click`,

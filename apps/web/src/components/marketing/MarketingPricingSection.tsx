@@ -92,7 +92,7 @@ function PricingButton({
       label={label}
       size="md"
       type="button"
-      variant="special"
+      variant="primary"
       onClick={onClick}
     />
   );

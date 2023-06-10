@@ -627,7 +627,7 @@ export default function NavbarImpl() {
             id: 'PFRVpF',
           })}
           size="xs"
-          variant="special"
+          variant="primary"
           onClick={() => {
             gtag.event({
               action: `nav.get_full_access.click`,

@@ -10,7 +10,6 @@ const variants: ReadonlyArray<ButtonVariant> = [
   'primary',
   'secondary',
   'tertiary',
-  'special',
   'success',
 ];
 const tooltipPositions: ReadonlyArray<TooltipPosition> = [

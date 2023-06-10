@@ -400,7 +400,7 @@ function Contents({
                     id: 'FkGppk',
                   })}
                   size="xs"
-                  variant="special"
+                  variant="primary"
                   onClick={async () => {
                     setIsRunningCode(true);
                     setShowDevToolsPane(true);

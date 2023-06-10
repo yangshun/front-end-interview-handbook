@@ -108,7 +108,7 @@ function SeasonalDiscountCard() {
               }
               size="md"
               type="button"
-              variant="special"
+              variant="primary"
               onClick={() => {
                 onCopy(seasonalSaleCode);
               }}
@@ -237,7 +237,7 @@ function StudentDiscountCard() {
               })}
               size="md"
               type="button"
-              variant="special"
+              variant="primary"
             />
           </div>
         </>
@@ -369,7 +369,7 @@ function ReviewCashbackCard() {
               })}
               size="md"
               type="button"
-              variant="special"
+              variant="primary"
             />
           </div>
           <p className="mt-2 text-xs text-slate-500">
