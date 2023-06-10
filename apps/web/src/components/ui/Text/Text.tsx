@@ -55,7 +55,7 @@ const colorClasses: Record<TextColor, string> = {
   inherit: '',
   invert: 'text-white dark:text-slate-900',
   placeholder: 'text-slate-400 dark:text-slate-600',
-  secondary: 'text-gray-500',
+  secondary: 'text-slate-600 dark:text-slate-400',
   success: 'text-success',
   white: 'text-white',
 };
