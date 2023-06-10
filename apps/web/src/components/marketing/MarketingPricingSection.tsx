@@ -388,7 +388,7 @@ export default function MarketingPricingSectionNew({
 
   return (
     <div className="bg-white pb-24">
-      <div className="bg-slate-900 pt-24">
+      <div className="bg-neutral-900 pt-24">
         <div className="mx-auto px-4 sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl">
           <Container className="text-center">
             <div
@@ -418,7 +418,7 @@ export default function MarketingPricingSectionNew({
                 />
               </Heading>
               <div ref={titleMarkerRef} />
-              <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-slate-400 md:text-xl lg:mt-10">
+              <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-neutral-400 md:text-xl lg:mt-10">
                 <FormattedMessage
                   defaultMessage="For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
                   description="Subtitle of Pricing section on Homepage or Pricing page"
@@ -454,7 +454,7 @@ export default function MarketingPricingSectionNew({
             ref={pricingCardMarkerRef}
             className="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20">
             <div className="relative">
-              <div className="absolute inset-0 h-1/2 bg-slate-900" />
+              <div className="absolute inset-0 h-1/2 bg-neutral-900" />
               <Container className="relative" variant="narrow">
                 <PricingBlockCard
                   features={[
@@ -500,17 +500,17 @@ export default function MarketingPricingSectionNew({
                   }
                   rightSectionContents={
                     <>
-                      <p className="text-lg font-medium leading-6 text-slate-900">
+                      <p className="text-lg font-medium leading-6 text-neutral-900">
                         <FormattedMessage
                           defaultMessage="Pay once, own it forever"
                           description="Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
                           id="zaEg+y"
                         />
                       </p>
-                      <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-slate-900">
+                      <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
                         <span
                           className={clsx(
-                            'inline-flex items-center px-3 text-4xl tracking-tight text-slate-900',
+                            'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900',
                             lifetimePlan.unitCostLocalizedInCurrency < 1000 &&
                               'sm:text-6xl',
                           )}>
@@ -522,12 +522,12 @@ export default function MarketingPricingSectionNew({
                           </span>
                         </span>
                         {lifetimePlan.symbol === '$' && (
-                          <span className="ml-3 text-xl font-medium tracking-normal text-slate-500">
+                          <span className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
                             {lifetimePlan.currency.toLocaleUpperCase()}
                           </span>
                         )}
                       </div>
-                      <p className="mt-4 text-sm font-medium text-slate-500">
+                      <p className="mt-4 text-sm font-medium text-neutral-500">
                         <FormattedMessage
                           defaultMessage="U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>"
                           description="Usual price of the item and the discount off"
@@ -606,24 +606,24 @@ export default function MarketingPricingSectionNew({
                         return (
                           <div
                             key={plan.planType}
-                            className="flex flex-col divide-y divide-slate-200 rounded-lg border border-slate-200 shadow-sm">
+                            className="flex flex-col divide-y divide-neutral-200 rounded-lg border border-neutral-200 shadow-sm">
                             <div className="grow p-6 md:grow-0">
                               <Heading id={id} level="heading6">
                                 {pricingPlanLabels[plan.planType]}
                               </Heading>
                               <Section>
-                                <p className="mt-4 text-sm text-slate-500 md:min-h-[40px]">
+                                <p className="mt-4 text-sm text-neutral-500 md:min-h-[40px]">
                                   {description}
                                 </p>
                                 <p className="mt-8">
-                                  <span className="text-4xl font-bold tracking-tight text-slate-900">
+                                  <span className="text-4xl font-bold tracking-tight text-neutral-900">
                                     {plan.symbol}
                                     {priceRoundToNearestNiceNumber(
                                       plan.unitCostLocalizedInCurrency /
                                         numberOfMonths,
                                     )}
                                   </span>{' '}
-                                  <span className="text-base font-medium text-slate-500">
+                                  <span className="text-base font-medium text-neutral-500">
                                     <FormattedMessage
                                       defaultMessage="/month"
                                       description="Per month"
@@ -631,7 +631,7 @@ export default function MarketingPricingSectionNew({
                                     />
                                   </span>
                                 </p>
-                                <p className="pt-4 text-xs text-slate-500 md:min-h-[32px]">
+                                <p className="pt-4 text-xs text-neutral-500 md:min-h-[32px]">
                                   {(() => {
                                     switch (plan.planType) {
                                       case 'monthly':
@@ -723,7 +723,7 @@ export default function MarketingPricingSectionNew({
                                           aria-hidden="true"
                                           className="text-success h-5 w-5 flex-shrink-0"
                                         />
-                                        <span className="text-sm text-slate-500">
+                                        <span className="text-sm text-neutral-500">
                                           {feature}
                                         </span>
                                       </li>

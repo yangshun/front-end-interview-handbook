@@ -44,7 +44,7 @@ function PreparationPlansSection() {
             id: 'J90fcx',
           })}
         </Heading>
-        <p className="text-lg text-slate-500">
+        <p className="text-lg text-neutral-500">
           {intl.formatMessage({
             defaultMessage:
               "Regardless of preparation timeline, there's a plan for you.",
@@ -76,7 +76,7 @@ function PreparationPlansSection() {
                 {plan.longName}
               </Heading>
               <Section>
-                <p className="mt-4 text-base text-slate-50">
+                <p className="mt-4 text-base text-neutral-50">
                   {plan.description}
                 </p>
                 <I18nLink
@@ -132,7 +132,7 @@ function PracticeQuestionsSection({
             id: 'Nh3PP/',
           })}
         </Heading>
-        <p className="text-lg text-slate-500">
+        <p className="text-lg text-neutral-500">
           {intl.formatMessage(
             {
               defaultMessage:

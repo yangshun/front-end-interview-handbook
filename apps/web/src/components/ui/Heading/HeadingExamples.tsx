@@ -16,7 +16,7 @@ const levels: ReadonlyArray<HeadingLevel> = [
 
 export default function HeadingExamples() {
   return (
-    <UIExamplesGroup title="Heading">
+    <UIExamplesGroup darkMode="horizontal" title="Heading">
       {levels.map((level) => (
         <Heading key={level} level={level}>
           {capitalize(level)}

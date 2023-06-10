@@ -65,8 +65,8 @@ export default function DropdownMenu({
             'group inline-flex items-center px-2.5',
             'rounded',
             'transition-colors',
-            'border border-slate-200 dark:border-slate-800',
-            'bg-transparent hover:bg-slate-50 dark:hover:bg-slate-700',
+            'border border-neutral-200 dark:border-neutral-800',
+            'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
             'focus:border-brand-500 focus:outline-brand-500 focus:outline-2 focus:outline-offset-2 focus:ring-0',
             heightClasses[size],
           )}>
@@ -104,7 +104,7 @@ export default function DropdownMenu({
             alignmentClasses[align],
             'absolute z-10 mt-2 w-48',
             'rounded',
-            'bg-white dark:bg-slate-800',
+            'bg-white dark:bg-neutral-800',
             'shadow-lg',
             'ring-brand-500 ring-1 ring-opacity-5 focus:outline-none',
           )}>

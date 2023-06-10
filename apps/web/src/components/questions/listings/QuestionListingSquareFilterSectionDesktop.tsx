@@ -36,7 +36,7 @@ export default function QuestionListingSquareFilterSectionDesktop<
               className={clsx(
                 values.has(option.value)
                   ? 'border-brand-600 text-brand-600 hover:border-brand-500 hover:bg-brand-50 hover:text-brand-500'
-                  : 'bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-600',
+                  : 'bg-white text-neutral-700 hover:bg-neutral-50 hover:text-neutral-600',
                 'focus:ring-brand-600 group relative block w-full truncate border px-3 py-2 text-sm font-medium shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
               )}
               type="button"

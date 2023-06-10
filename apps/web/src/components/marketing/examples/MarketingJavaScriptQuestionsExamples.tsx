@@ -48,7 +48,7 @@ export default function MarketingJavaScriptQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="space-y-2 py-10 text-lg text-slate-500 md:text-xl">
+          <div className="space-y-2 py-10 text-lg text-neutral-500 md:text-xl">
             <FormattedMessage
               defaultMessage="Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms."
               description="Subtitle for an example list of JavaScript Questions on marketing pages"

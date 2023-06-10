@@ -24,10 +24,10 @@ export default function NavLocaleDropdown() {
             description: 'Change site language button label',
             id: '58dfbv',
           })}
-          className="focus:ring-brand-500 inline-flex w-full justify-center gap-x-1.5 rounded-md border border-slate-300 bg-white px-2 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2">
+          className="focus:ring-brand-500 inline-flex w-full justify-center gap-x-1.5 rounded-md border border-neutral-300 bg-white px-2 py-1.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2">
           <LanguageIcon
             aria-hidden="true"
-            className="-mr-1 h-4 w-4 text-slate-900"
+            className="-mr-1 h-4 w-4 text-neutral-900"
           />
         </Menu.Button>
       </div>
@@ -47,8 +47,8 @@ export default function NavLocaleDropdown() {
                   <Anchor
                     className={clsx(
                       active || locale === localeItem
-                        ? 'bg-slate-100 text-slate-900'
-                        : 'text-slate-700',
+                        ? 'bg-neutral-100 text-neutral-900'
+                        : 'text-neutral-700',
                       'flex items-center justify-between px-4 py-2 text-xs font-medium',
                     )}
                     href={pathname ?? '/'}

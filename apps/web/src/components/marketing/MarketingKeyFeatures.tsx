@@ -36,7 +36,7 @@ function useFeatures() {
               values={{
                 questionCount: QuestionCount,
                 strong: (chunks) => (
-                  <strong className="font-medium text-slate-100">
+                  <strong className="font-medium text-neutral-100">
                     {chunks}
                   </strong>
                 ),
@@ -113,7 +113,9 @@ function useFeatures() {
             values={{
               p: (chunks) => <p>{chunks}</p>,
               strong: (chunks) => (
-                <strong className="font-medium text-slate-100">{chunks}</strong>
+                <strong className="font-medium text-neutral-100">
+                  {chunks}
+                </strong>
               ),
             }}
           />
@@ -284,7 +286,7 @@ function useFeatures() {
               id="v4Z+0r"
               values={{
                 strong: (chunks) => (
-                  <strong className="font-medium text-slate-100">
+                  <strong className="font-medium text-neutral-100">
                     {chunks}
                   </strong>
                 ),
@@ -363,19 +365,19 @@ function TableRow({ gfe, name, otherPlatforms }: Feature) {
       )}>
       <td
         className={clsx(
-          'hidden py-8 pr-8 align-top text-base font-semibold text-slate-100 sm:flex sm:text-lg lg:pb-32 lg:pt-8 lg:text-2xl',
+          'hidden py-8 pr-8 align-top text-base font-semibold text-neutral-100 sm:flex sm:text-lg lg:pb-32 lg:pt-8 lg:text-2xl',
         )}>
         {name}
       </td>
       <td
         className={clsx(
-          'w-5/12 py-8 px-4 align-top text-base text-slate-400 sm:text-lg lg:px-8 lg:pb-32 lg:pt-8 lg:text-xl',
+          'w-5/12 py-8 px-4 align-top text-base text-neutral-400 sm:text-lg lg:px-8 lg:pb-32 lg:pt-8 lg:text-xl',
         )}>
         {gfe}
       </td>
       <td
         className={clsx(
-          'w-4/12 py-8 px-4 align-top text-base text-slate-400 sm:text-lg lg:px-8 lg:pb-32 lg:pt-8 lg:text-xl',
+          'w-4/12 py-8 px-4 align-top text-base text-neutral-400 sm:text-lg lg:px-8 lg:pb-32 lg:pt-8 lg:text-xl',
         )}>
         {otherPlatforms}
       </td>
@@ -395,7 +397,7 @@ export default function MarketingKeyFeaturesNew() {
   });
 
   return (
-    <div className="bg-slate-900">
+    <div className="bg-neutral-900">
       <Container>
         <div className="mx-auto max-w-xl py-24 sm:max-w-3xl md:max-w-4xl lg:max-w-5xl lg:py-48">
           <div className="pb-4 sm:pb-16 ">
@@ -427,7 +429,7 @@ export default function MarketingKeyFeaturesNew() {
                   }}
                 />
               </Heading>
-              <p className="mx-auto mt-6 max-w-2xl text-center text-lg  text-slate-400 md:text-xl lg:mt-10 ">
+              <p className="mx-auto mt-6 max-w-2xl text-center text-lg  text-neutral-400 md:text-xl lg:mt-10 ">
                 <FormattedMessage
                   defaultMessage="You won't find the same depth and quality elsewhere."
                   description="Key features section subheading"
@@ -443,21 +445,21 @@ export default function MarketingKeyFeaturesNew() {
                   <table
                     ref={tableMarkerRef}
                     className={clsx(
-                      'table-fixed divide-y divide-slate-700 text-base transition-opacity duration-1000 ease-in-out sm:text-lg lg:text-2xl',
+                      'table-fixed divide-y divide-neutral-700 text-base transition-opacity duration-1000 ease-in-out sm:text-lg lg:text-2xl',
                       tableIsInView ? 'opacity-100' : 'opacity-0',
                     )}>
                     <thead
                       className={clsx(
-                        'sticky top-14 bg-slate-900 transition-opacity duration-1000 ease-in-out',
+                        'sticky top-14 bg-neutral-900 transition-opacity duration-1000 ease-in-out',
                         tableIsInView ? 'opacity-100' : 'opacity-0',
                       )}>
                       <tr>
                         <th
-                          className="hidden py-8 text-left font-semibold text-slate-100 sm:flex lg:pb-10"
+                          className="hidden py-8 text-left font-semibold text-neutral-100 sm:flex lg:pb-10"
                           scope="col"
                         />
                         <th
-                          className="w-1/2 py-8 px-4 text-left font-semibold text-slate-100 sm:w-5/12 lg:px-8 lg:pb-8"
+                          className="w-1/2 py-8 px-4 text-left font-semibold text-neutral-100 sm:w-5/12 lg:px-8 lg:pb-8"
                           scope="col">
                           <FormattedMessage
                             defaultMessage="GreatFrontEnd"
@@ -466,7 +468,7 @@ export default function MarketingKeyFeaturesNew() {
                           />
                         </th>
                         <th
-                          className="w-1/2 py-8 px-4 text-left font-semibold text-slate-100 sm:w-4/12 lg:px-8 lg:pb-8"
+                          className="w-1/2 py-8 px-4 text-left font-semibold text-neutral-100 sm:w-4/12 lg:px-8 lg:pb-8"
                           scope="col">
                           <FormattedMessage
                             defaultMessage="Other Platforms"
@@ -476,7 +478,7 @@ export default function MarketingKeyFeaturesNew() {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-700">
+                    <tbody className="divide-y divide-neutral-700">
                       {useFeatures().map(({ key, ...others }) => (
                         <TableRow key={key} {...others} />
                       ))}

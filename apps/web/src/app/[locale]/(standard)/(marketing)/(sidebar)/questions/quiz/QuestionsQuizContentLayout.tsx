@@ -43,7 +43,7 @@ export default function QuestionsQuizContentLayout({
               <aside className="relative h-full lg:flex-shrink-0 xl:order-first">
                 <div
                   className={clsx(
-                    'relative flex h-full flex-col border-r border-slate-200',
+                    'relative flex h-full flex-col border-r border-neutral-200',
                     !showSidebar && 'hidden',
                   )}>
                   <Heading className="sr-only" level="custom">
@@ -52,14 +52,14 @@ export default function QuestionsQuizContentLayout({
                   </Heading>
                   <div className="min-h-0 flex-1 overflow-y-auto">
                     <ul
-                      className="divide-y divide-slate-200 border-b border-slate-200"
+                      className="divide-y divide-neutral-200 border-b border-neutral-200"
                       role="list">
                       {questionList.map(({ slug, href, title: titleParam }) => (
                         <li
                           key={slug}
                           className={clsx(
-                            'focus-within:ring-brand-600 relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50 2xl:h-[90px]',
-                            pathname === href ? '!bg-slate-100' : 'bg-white',
+                            'focus-within:ring-brand-600 relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50 2xl:h-[90px]',
+                            pathname === href ? '!bg-neutral-100' : 'bg-white',
                           )}>
                           <div className="flex justify-between space-x-3">
                             <div className="min-w-0 flex-1">

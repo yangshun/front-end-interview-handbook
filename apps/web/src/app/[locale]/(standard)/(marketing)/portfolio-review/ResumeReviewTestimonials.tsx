@@ -186,7 +186,7 @@ const testimonials = [
 
 export default function ResumeReviewTestimonials() {
   return (
-    <div className="bg-slate-900 py-16 lg:py-24 xl:py-32">
+    <div className="bg-neutral-900 py-16 lg:py-24 xl:py-32">
       <Container variant="narrow">
         <p className="pb-6 text-base font-semibold leading-7 text-pink-400">
           Testimonials
@@ -199,7 +199,7 @@ export default function ResumeReviewTestimonials() {
             <blockquote key={testimonial.id} className="sm:flex lg:block">
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 text-slate-300"
+                className="flex-shrink-0 text-neutral-300"
                 height={18}
                 viewBox="0 0 24 18"
                 width={24}
@@ -210,7 +210,7 @@ export default function ResumeReviewTestimonials() {
                 />
               </svg>
               <div className="mt-4 space-y-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-                <p className="text-lg text-slate-300">{testimonial.quote}</p>
+                <p className="text-lg text-neutral-300">{testimonial.quote}</p>
                 <div className="flex gap-x-4">
                   {testimonial.logo}
                   <div className="flex flex-col gap-y-1 text-sm">
@@ -220,10 +220,10 @@ export default function ResumeReviewTestimonials() {
                       </div>
                     )}
                     <div>
-                      <span className="block not-italic text-slate-400">
+                      <span className="block not-italic text-neutral-400">
                         {testimonial.title}
                       </span>
-                      <p className="text-slate-400">{testimonial.location}</p>
+                      <p className="text-neutral-400">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>

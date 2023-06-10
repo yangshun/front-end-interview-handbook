@@ -194,7 +194,7 @@ export default function MarketingFeatures() {
                 </Heading>
               </dt>
               <Section>
-                <dd className="mt-2 ml-16 text-base text-slate-500">
+                <dd className="mt-2 ml-16 text-base text-neutral-500">
                   {feature.description}
                 </dd>
               </Section>

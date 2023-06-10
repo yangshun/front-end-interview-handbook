@@ -9,6 +9,8 @@ import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
 import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
 import HoverCardExamples from '~/components/ui/Hovercard/HovercardExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
@@ -24,31 +26,36 @@ import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
 
 export default function UILibraryPage() {
   return (
-    <div className="space-y-24 py-12 lg:py-24">
-      {/* Basics */}
-      <TypographyExamples />
-      <HeadingExamples />
-      <TextExamples />
-      {/* Form */}
-      <ButtonExamples />
-      <TextInputExamples />
-      <TextAreaExamples />
-      <SelectExamples />
-      <DropdownMenuExamples />
-      <CheckboxInputExamples />
-      {/* Others */}
-      <TabsExamples />
-      <SpinnerExamples />
-      <BannerExamples />
-      <AlertExamples />
-      <BadgeExamples />
-      <EmptyStateExamples />
-      {/* Layer */}
-      <TooltipExamples />
-      <HoverCardExamples />
-      <SlideOutExamples />
-      <DialogExamples />
-      <ToastExamples />
+    <div className="grid gap-y-24 py-12 lg:py-24">
+      <Container>
+        <Heading level="heading1">Design System</Heading>
+      </Container>
+      <Section>
+        {/* Basics */}
+        <TypographyExamples />
+        <HeadingExamples />
+        <TextExamples />
+        {/* Form */}
+        <ButtonExamples />
+        <TextInputExamples />
+        <TextAreaExamples />
+        <SelectExamples />
+        <DropdownMenuExamples />
+        <CheckboxInputExamples />
+        {/* Others */}
+        <TabsExamples />
+        <SpinnerExamples />
+        <BannerExamples />
+        <AlertExamples />
+        <BadgeExamples />
+        <EmptyStateExamples />
+        {/* Layer */}
+        <TooltipExamples />
+        <HoverCardExamples />
+        <SlideOutExamples />
+        <DialogExamples />
+        <ToastExamples />
+      </Section>
     </div>
   );
 }

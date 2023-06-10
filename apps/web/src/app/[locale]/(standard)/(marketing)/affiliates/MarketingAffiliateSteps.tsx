@@ -45,7 +45,7 @@ export default function MarketingAffiliateSteps() {
               </div>
             </div>
             <div className="flex grow flex-col pt-2">
-              <p className="grow text-xl text-slate-500 md:text-lg">
+              <p className="grow text-xl text-neutral-500 md:text-lg">
                 {step.subtitle}
               </p>
               <div className="mt-12 flex grow">

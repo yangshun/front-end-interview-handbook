@@ -178,7 +178,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
         </div>
         <div className="mt-8 flex overflow-y-auto md:mt-12 lg:block">
           <div className="min-w-full flex-none pb-4 md:pb-8">
-            <div className="grid grid-cols-4 gap-x-4 border-t border-slate-200 md:gap-x-6 lg:gap-x-8">
+            <div className="grid grid-cols-4 gap-x-4 border-t border-neutral-200 md:gap-x-6 lg:gap-x-8">
               {stages.map(({ description, href, label, value }, index) => (
                 <div
                   key={value}
@@ -190,10 +190,10 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                   )}>
                   <p
                     className={clsx(
-                      'text-sm leading-6 text-slate-600 md:rounded-full md:px-2 md:text-xs md:font-semibold md:leading-7',
+                      'text-sm leading-6 text-neutral-600 md:rounded-full md:px-2 md:text-xs md:font-semibold md:leading-7',
                       format === value
                         ? 'md:bg-brand-500 md:text-white'
-                        : 'md:bg-slate-100 md:group-hover:bg-slate-200',
+                        : 'md:bg-neutral-100 md:group-hover:bg-neutral-200',
                     )}>
                     <span className="font-medium">
                       <FormattedMessage
@@ -210,7 +210,9 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                     <Anchor
                       className={clsx(
                         'text-sm font-semibold md:text-base md:leading-7',
-                        format === value ? 'text-brand-600' : 'text-slate-900',
+                        format === value
+                          ? 'text-brand-600'
+                          : 'text-neutral-900',
                       )}
                       href={href}
                       variant="unstyled">
@@ -218,7 +220,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                       {label}
                     </Anchor>
                   </Heading>
-                  <p className="mt-2 hidden text-sm leading-6 text-slate-700 md:block">
+                  <p className="mt-2 hidden text-sm leading-6 text-neutral-700 md:block">
                     {description}
                   </p>
                 </div>

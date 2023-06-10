@@ -10,7 +10,7 @@ const TopicLabelClasses: Record<QuestionQuizTopic, string> = {
   a11y: 'bg-blue text-white',
   css: 'bg-sky-600 text-white',
   html: 'bg-orange-600 text-white',
-  i18n: 'bg-slate-700 text-white',
+  i18n: 'bg-neutral-700 text-white',
   javascript: 'bg-yellow text-black',
   network: 'bg-teal-400 text-white',
   performance: 'bg-indigo-500 text-white',

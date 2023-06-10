@@ -13,6 +13,7 @@ type SlideOutEnterFrom = 'end' | 'start';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  dark?: boolean;
   enterFrom?: SlideOutEnterFrom;
   isShown?: boolean;
   onClose?: () => void;
@@ -48,6 +49,7 @@ const enterFromClasses: Record<
 
 export default function SlideOut({
   children,
+  dark = false,
   enterFrom = 'end',
   isShown = false,
   size,
@@ -60,7 +62,10 @@ export default function SlideOut({
 
   return (
     <Transition.Root as={Fragment} show={isShown}>
-      <Dialog as="div" className="relative z-40" onClose={() => onClose?.()}>
+      <Dialog
+        as="div"
+        className={clsx('relative z-40', dark && 'dark')}
+        onClose={() => onClose?.()}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
@@ -83,7 +88,7 @@ export default function SlideOut({
             <Dialog.Panel
               className={clsx(
                 'relative flex h-full w-full flex-col',
-                'bg-white dark:bg-slate-800',
+                'bg-white dark:bg-neutral-800',
                 'shadow-xl',
                 enterFromClass.position,
                 sizeClasses[size],
@@ -93,7 +98,7 @@ export default function SlideOut({
                   <Heading level="heading5">{title}</Heading>
                 </Dialog.Title>
                 <button
-                  className="focus:ring-brand-500 -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset"
+                  className="focus:ring-brand-500 -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
                   type="button"
                   onClick={() => onClose?.()}>
                   {/* TODO: i18n */}

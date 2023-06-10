@@ -65,20 +65,20 @@ function SeasonalDiscountCard() {
         />
       }
       footer={
-        <p className="flex justify-end text-xs text-slate-700">
+        <p className="flex justify-end text-xs text-neutral-700">
           <EmailUsLink />
         </p>
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-slate-900">
+          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
             <span
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight text-slate-900 sm:text-6xl',
+                'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900 sm:text-6xl',
               )}>
               <span className="font-bold">20%</span>
             </span>
-            <span className="ml-3 text-xl font-medium tracking-normal text-slate-500">
+            <span className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
               <FormattedMessage
                 defaultMessage="OFF"
                 description="Amount cashback/discount"
@@ -86,7 +86,7 @@ function SeasonalDiscountCard() {
               />
             </span>
           </div>
-          <p className="mt-4 text-sm font-medium text-slate-500">
+          <p className="mt-4 text-sm font-medium text-neutral-500">
             <FormattedMessage
               defaultMessage="GreatFrontEnd Annual"
               description="GFE annual plan"
@@ -114,7 +114,7 @@ function SeasonalDiscountCard() {
               }}
             />
           </div>
-          <p className="mt-2 text-xs text-slate-500">
+          <p className="mt-2 text-xs text-neutral-500">
             <FormattedMessage
               defaultMessage="Use code at checkout"
               description="Instruction to apply discount"
@@ -181,7 +181,7 @@ function StudentDiscountCard() {
         />
       }
       footer={
-        <p className="flex justify-between text-xs text-slate-700">
+        <p className="flex justify-between text-xs text-neutral-700">
           <span>
             <FormattedMessage
               defaultMessage="More on <link>Students Discount Terms and Conditions</link>"
@@ -204,14 +204,14 @@ function StudentDiscountCard() {
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-slate-900">
+          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
             <span
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight text-slate-900 sm:text-6xl',
+                'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900 sm:text-6xl',
               )}>
               <span className="font-bold">40%</span>
             </span>
-            <span className="ml-3 text-xl font-medium tracking-normal text-slate-500">
+            <span className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
               <FormattedMessage
                 defaultMessage="OFF"
                 description="Amount cashback/discount"
@@ -219,7 +219,7 @@ function StudentDiscountCard() {
               />
             </span>
           </div>
-          <p className="mt-4 text-sm font-medium text-slate-500">
+          <p className="mt-4 text-sm font-medium text-neutral-500">
             <FormattedMessage
               defaultMessage="GreatFrontEnd Annual"
               description="GFE annual plan"
@@ -313,7 +313,7 @@ function ReviewCashbackCard() {
         />
       }
       footer={
-        <p className="flex justify-between text-xs text-slate-700">
+        <p className="flex justify-between text-xs text-neutral-700">
           <span>
             <FormattedMessage
               defaultMessage="More on <link>Review Cashback Discount Terms and Conditions</link>"
@@ -336,22 +336,22 @@ function ReviewCashbackCard() {
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-slate-900">
+          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
             <span
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight text-slate-900 sm:text-6xl',
+                'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900 sm:text-6xl',
               )}>
               <span className="font-bold">40%</span>
             </span>
           </div>
-          <p className="ml-3 text-xl font-medium tracking-normal text-slate-500">
+          <p className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
             <FormattedMessage
               defaultMessage="CASHBACK"
               description="Amount cashback/discount"
               id="VfNkH+"
             />
           </p>
-          <p className="mt-2 text-sm font-medium text-slate-500">
+          <p className="mt-2 text-sm font-medium text-neutral-500">
             <FormattedMessage
               defaultMessage="on your first order amount"
               description="GFE discount"
@@ -372,7 +372,7 @@ function ReviewCashbackCard() {
               variant="primary"
             />
           </div>
-          <p className="mt-2 text-xs text-slate-500">
+          <p className="mt-2 text-xs text-neutral-500">
             <FormattedMessage
               defaultMessage="Check on eligibility or submit proof"
               description="Instruction to check for review cashback"

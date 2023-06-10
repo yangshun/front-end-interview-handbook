@@ -45,7 +45,7 @@ export default function MarketingAffiliateHowDoesItWork() {
           </div>
           <Section>
             <MarketingAffiliateSteps />
-            <div className="mt-12 text-sm text-slate-500">
+            <div className="mt-12 text-sm text-neutral-500">
               <FormattedMessage
                 defaultMessage="<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process."
                 description="Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"

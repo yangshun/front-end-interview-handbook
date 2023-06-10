@@ -11,8 +11,8 @@ const sizes: ReadonlyArray<TextInputSize> = ['md', 'sm', 'xs'];
 
 export default function TextInputExamples() {
   return (
-    <UIExamplesGroup gapSize="lg" title="Text Input">
-      <div className="flex gap-x-24">
+    <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Text Input">
+      <div className="flex gap-x-12">
         {sizes.map((size) => (
           <TextInput
             key={size}
@@ -46,7 +46,7 @@ export default function TextInputExamples() {
           />
         ))}
       </div>
-      <div className="flex gap-x-24">
+      <div className="flex gap-x-12">
         {sizes.map((size) => (
           <TextInput
             key={size}

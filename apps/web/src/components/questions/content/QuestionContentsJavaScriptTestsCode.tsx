@@ -49,7 +49,7 @@ function highlightElement(
   setTimeout(() => {
     const highlightClassTokens = [
       '!bg-amber-300',
-      '!text-slate-900',
+      '!text-neutral-900',
       'transition-colors',
     ];
 

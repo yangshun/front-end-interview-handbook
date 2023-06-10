@@ -327,7 +327,7 @@ export default function MarketingTestimonial() {
             {/* TODO: i18n */}
             Testimonials
           </Heading>
-          <p className="text-center text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+          <p className="text-center text-3xl font-bold leading-8 tracking-tight text-neutral-900 sm:text-4xl md:text-4xl lg:text-5xl">
             <FormattedMessage
               defaultMessage="We have helped thousands of Software Engineers"
               description="Testimonial section subtitle"
@@ -342,15 +342,15 @@ export default function MarketingTestimonial() {
                 <div
                   key={testimonial.key}
                   className="pt-6 sm:inline-block sm:w-full sm:px-3">
-                  <figure className="rounded-2xl border border-slate-200 p-6 text-sm leading-6">
-                    <blockquote className="text-slate-900">
+                  <figure className="rounded-2xl border border-neutral-200 p-6 text-sm leading-6">
+                    <blockquote className="text-neutral-900">
                       {testimonial.testimonial}
                     </blockquote>
                     <figcaption className="mt-4 flex items-center gap-x-4">
                       {testimonial.authorThumbnailUrl && (
                         <img
                           alt=""
-                          className="h-10 w-10 rounded-full bg-slate-50"
+                          className="h-10 w-10 rounded-full bg-neutral-50"
                           src={testimonial.authorThumbnailUrl}
                         />
                       )}
@@ -358,7 +358,7 @@ export default function MarketingTestimonial() {
                         {testimonial.name &&
                           (() => {
                             const nameEl = (
-                              <span className="font-semibold text-slate-900">
+                              <span className="font-semibold text-neutral-900">
                                 {testimonial.name}
                               </span>
                             );
@@ -373,7 +373,7 @@ export default function MarketingTestimonial() {
 
                             return nameEl;
                           })()}
-                        <div className="text-xs text-slate-600">
+                        <div className="text-xs text-neutral-600">
                           {[testimonial.title, testimonial.location]
                             .filter(Boolean)
                             .join(', ')}

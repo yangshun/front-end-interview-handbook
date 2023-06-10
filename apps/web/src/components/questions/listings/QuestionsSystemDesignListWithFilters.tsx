@@ -329,7 +329,7 @@ export default function QuestionsSystemDesignListWithFilters({
               id="Gi1TRd"
             />
           </Heading>
-          <div className="hidden h-full border-l border-slate-200 pl-8 lg:block">
+          <div className="hidden h-full border-l border-neutral-200 pl-8 lg:block">
             <form className="space-y-6">
               <QuestionListingFilterSectionDesktop
                 isFirstSection={true}

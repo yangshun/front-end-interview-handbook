@@ -84,15 +84,15 @@ const sizeIconClasses: Record<ButtonSize, string> = {
 const variantClasses: Record<ButtonVariant, string> = {
   primary: clsx(
     'border-transparent',
-    'text-white dark:text-slate-900',
+    'text-white dark:text-neutral-900',
     'bg-brand-600 hover:bg-brand-500 dark:bg-brand-500 dark:hover:bg-brand-400',
     'focus-visible:outline-brand-500',
   ),
   secondary: clsx(
-    'border-slate-300 dark:border-slate-800',
-    'text-slate-600 dark:text-slate-200',
-    'bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800',
-    'focus-visible:outline-slate-500',
+    'border-neutral-300 dark:border-neutral-800',
+    'text-neutral-600 dark:text-neutral-200',
+    'bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800',
+    'focus-visible:outline-neutral-500',
   ),
   success: clsx(
     'border-transparent',
@@ -102,17 +102,17 @@ const variantClasses: Record<ButtonVariant, string> = {
   ),
   tertiary: clsx(
     'border-transparent',
-    'text-slate-600 dark:text-slate-200',
-    'bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800',
-    'focus-visible:outline-slate-500',
+    'text-neutral-600 dark:text-neutral-200',
+    'bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800',
+    'focus-visible:outline-neutral-500',
   ),
 };
 
 const variantDisabledClasses: Record<ButtonVariant, string> = {
-  primary: 'border-transparent text-slate-500 bg-slate-300',
-  secondary: 'border-slate-200 text-slate-400 bg-slate-100',
-  success: 'border-transparent text-slate-500 bg-slate-300',
-  tertiary: 'border-transparent text-slate-400 bg-slate-100',
+  primary: 'border-transparent text-neutral-500 bg-neutral-300',
+  secondary: 'border-neutral-200 text-neutral-400 bg-neutral-100',
+  success: 'border-transparent text-neutral-500 bg-neutral-300',
+  tertiary: 'border-transparent text-neutral-400 bg-neutral-100',
 };
 
 export default function Button({

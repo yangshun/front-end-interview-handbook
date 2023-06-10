@@ -22,7 +22,7 @@ function LinksList({
 
   return (
     <ul
-      className="mt-3 flex flex-col gap-y-2 border-l border-slate-200"
+      className="mt-3 flex flex-col gap-y-2 border-l border-neutral-200"
       role="list">
       {items.map((link) => (
         <li key={link.href} className="relative text-sm leading-6">

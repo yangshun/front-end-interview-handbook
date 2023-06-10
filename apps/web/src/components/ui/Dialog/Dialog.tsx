@@ -10,6 +10,7 @@ import { Dialog, Transition } from '@headlessui/react';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  dark?: boolean;
   isShown?: boolean;
   onClose: () => void;
   primaryButton?: React.ReactNode;
@@ -19,6 +20,7 @@ type Props = Readonly<{
 
 export default function DialogImpl({
   children,
+  dark = false,
   isShown,
   primaryButton,
   title,
@@ -31,7 +33,7 @@ export default function DialogImpl({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className="relative z-10"
+        className={clsx('relative z-10', dark && 'dark')}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
         <Transition.Child
@@ -42,7 +44,7 @@ export default function DialogImpl({
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-slate-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-neutral-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
@@ -58,7 +60,7 @@ export default function DialogImpl({
                 className={clsx(
                   'relative transform overflow-hidden',
                   'rounded-lg',
-                  'bg-white dark:bg-slate-800',
+                  'bg-white dark:bg-neutral-800',
                   'sm:w-full sm:max-w-sm',
                   'text-left shadow-xl transition-all',
                 )}>

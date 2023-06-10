@@ -68,8 +68,10 @@ function CheckboxInput(
               'h-4 w-4',
               'rounded',
               'text-brand-600 dark:text-brand-400',
-              'border-slate-200 dark:border-slate-800',
-              'disabled:bg-slate-20 dark:disabled:bg-slate-800',
+              'bg-transparent',
+              'border-neutral-200 dark:border-neutral-800',
+              // Important! needed to override hover styles.
+              'disabled:!bg-neutral-200 dark:disabled:!bg-neutral-800',
               'focus:ring-brand-500',
             )}
             defaultChecked={defaultValue}

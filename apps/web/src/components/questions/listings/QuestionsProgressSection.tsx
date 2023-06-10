@@ -56,7 +56,7 @@ export default function QuestionsProgressSection({
         </Heading>
         <Section>
           <div className="mb-6 space-y-3">
-            <p className="text-sm font-medium tracking-tight text-slate-200 sm:text-base">
+            <p className="text-sm font-medium tracking-tight text-neutral-200 sm:text-base">
               {completedQuestions === 0 ? (
                 <FormattedMessage
                   defaultMessage="Start on this preparation plan today!"
@@ -78,7 +78,7 @@ export default function QuestionsProgressSection({
                       <span className="text-brand-300 font-bold">{chunks}</span>
                     ),
                     span2: (chunks) => (
-                      <span className="text-slate-400">{chunks}</span>
+                      <span className="text-neutral-400">{chunks}</span>
                     ),
                     totalQuestions,
                   }}

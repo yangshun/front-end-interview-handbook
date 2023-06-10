@@ -59,7 +59,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
   }, [cancelSearchParam, planSearchParam, plans]);
 
   return (
-    <div className="bg-slate-900">
+    <div className="bg-neutral-900">
       <PromoBanner variant="primary" />
       <div className="space-y-16 bg-white sm:space-y-20">
         <MarketingPricingSection countryCode={countryCode} plans={plans} />

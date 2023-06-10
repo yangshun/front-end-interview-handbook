@@ -48,7 +48,7 @@ export default function MarketingUserInterfaceQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="space-y-2 py-10 text-lg text-slate-500 md:text-xl">
+          <div className="space-y-2 py-10 text-lg text-neutral-500 md:text-xl">
             <FormattedMessage
               defaultMessage="Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
               description="Subtitle for an example list of User Interface Questions on marketing pages"

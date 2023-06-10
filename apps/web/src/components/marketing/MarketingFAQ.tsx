@@ -142,7 +142,7 @@ export default function FrequentlyAskedQuestions() {
                 id="LK0JHB"
               />
             </Heading>
-            <p className="mx-auto mt-4 justify-center px-10 text-center text-lg text-slate-500 sm:mt-8 md:text-xl lg:px-20 ">
+            <p className="mx-auto mt-4 justify-center px-10 text-center text-lg text-neutral-500 sm:mt-8 md:text-xl lg:px-20 ">
               <FormattedMessage
                 defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
                 description="Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
@@ -161,15 +161,15 @@ export default function FrequentlyAskedQuestions() {
             </p>
           </div>
           <Section>
-            <div className="divide-y-2 divide-slate-200">
-              <dl className="mt-6 space-y-6 divide-y divide-slate-200 lg:mt-12 lg:space-y-8">
+            <div className="divide-y-2 divide-neutral-200">
+              <dl className="mt-6 space-y-6 divide-y divide-neutral-200 lg:mt-12 lg:space-y-8">
                 {faqs.map((faq) => (
                   <Disclosure key={faq.key} as="div" className="pt-8">
                     {({ open }) => (
                       <>
                         <dt className="text-base sm:text-lg md:text-xl">
-                          <Disclosure.Button className="flex w-full items-start justify-between text-left text-slate-400">
-                            <span className="font-medium text-slate-700">
+                          <Disclosure.Button className="flex w-full items-start justify-between text-left text-neutral-400">
+                            <span className="font-medium text-neutral-700">
                               {faq.question}
                             </span>
                             <span className="ml-6 flex h-7 items-center">
@@ -184,7 +184,7 @@ export default function FrequentlyAskedQuestions() {
                           </Disclosure.Button>
                         </dt>
                         <Disclosure.Panel as="dd" className="mt-8 pr-12">
-                          <p className="text-base text-slate-500 sm:text-lg md:text-xl">
+                          <p className="text-base text-neutral-500 sm:text-lg md:text-xl">
                             {faq.answer}
                           </p>
                         </Disclosure.Panel>

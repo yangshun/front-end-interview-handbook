@@ -6,7 +6,7 @@ const sizes: ReadonlyArray<SpinnerSize> = ['xs', 'sm', 'md', 'lg'];
 
 export default function SpinnerExamples() {
   return (
-    <UIExamplesGroup title="Spinners">
+    <UIExamplesGroup darkMode="horizontal" title="Spinners">
       <div className="space-x-4">
         {sizes.map((size) => (
           <Spinner key={size} label="Loading..." size={size} />

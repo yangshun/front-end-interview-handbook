@@ -35,7 +35,7 @@ export default function DropdownMenuItem({
             'block px-2 py-1.5',
             'text-sm w-full text-left',
             'rounded',
-            active && 'bg-slate-100 dark:bg-slate-700',
+            active && 'bg-neutral-100 dark:bg-neutral-700',
           ),
           onClick,
         };

@@ -91,10 +91,10 @@ export default function Auth({
             {hasThirdPartyProviders && (
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-slate-200" />
+                  <div className="w-full border-t border-neutral-200" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="bg-white px-2 text-slate-500">
+                  <span className="bg-white px-2 text-neutral-500">
                     <FormattedMessage
                       defaultMessage="Or continue with"
                       description="Label of divider preceding third party providers on Sign In page"

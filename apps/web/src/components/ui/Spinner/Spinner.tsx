@@ -13,7 +13,7 @@ type Props = Readonly<{
 }>;
 
 const colorClasses: Record<SpinnerColor, string> = {
-  default: 'text-slate-400',
+  default: 'text-neutral-400',
   inherit: '',
 };
 

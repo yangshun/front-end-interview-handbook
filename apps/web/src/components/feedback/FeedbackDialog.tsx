@@ -26,10 +26,10 @@ function SocialPlatform() {
     <div className="flex flex-col gap-3">
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-slate-200" />
+          <div className="w-full border-t border-neutral-200" />
         </div>
         <div className="relative flex justify-center text-xs">
-          <span className="bg-white px-2 text-slate-500">
+          <span className="bg-white px-2 text-neutral-500">
             <FormattedMessage
               defaultMessage="Or reach us via these channels"
               description="Text to introduce users to alternative feedback channels"
@@ -42,7 +42,7 @@ function SocialPlatform() {
         {marketingContactPlatformsConfig.map((platform) => (
           <Anchor
             key={platform.key}
-            className="focus:ring-brand-500 flex items-center justify-center gap-2 rounded-full bg-slate-100 p-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-200 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
+            className="focus:ring-brand-500 flex items-center justify-center gap-2 rounded-full bg-neutral-100 p-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
             href={platform.href}
             variant="unstyled"
             onClick={() => {
@@ -148,7 +148,6 @@ export default function FeedbackDialog({
                 id: '8MHkPL',
               })}
               errorMessage={submitFailureReason?.message}
-              fontSize="xs"
               label={intl.formatMessage({
                 defaultMessage: 'Your Message',
                 description: 'Feedback widget textarea title',

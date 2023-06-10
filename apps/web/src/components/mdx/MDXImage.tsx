@@ -66,7 +66,7 @@ function ExpandedImageDialog({ children, isExpanded, onClose }: Props) {
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-slate-500 bg-opacity-75" />
+          <div className="fixed inset-0 bg-neutral-500 bg-opacity-75" />
         </Transition.Child>
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full items-end items-center justify-center">

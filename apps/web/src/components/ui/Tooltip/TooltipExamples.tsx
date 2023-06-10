@@ -2,7 +2,7 @@ import Tooltip from './Tooltip';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 function Box() {
-  return <div className="h-16 w-16 rounded bg-slate-200" />;
+  return <div className="flex h-16 w-16 rounded bg-neutral-200" />;
 }
 
 export default function TooltipExamples() {

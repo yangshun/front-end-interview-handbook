@@ -36,7 +36,7 @@ function ProductSection() {
         <div
           key={feature}
           className={clsx(
-            'inline-flex items-center gap-1 rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium',
+            'inline-flex items-center gap-1 rounded-lg bg-neutral-100 px-4 py-2 text-sm font-medium',
           )}>
           <CheckIcon
             aria-hidden={true}
@@ -59,7 +59,7 @@ function SliderSection() {
           ${Math.round(0.15 * sales * 99 * 100) / 100}{' '}
           <span className="self-end text-lg font-medium">USD</span>
         </p>
-        <p className="text-sm italic text-slate-500">
+        <p className="text-sm italic text-neutral-500">
           *Based on average order value
         </p>
       </div>
@@ -71,12 +71,12 @@ function SliderSection() {
         step={1}
         value={[sales]}
         onValueChange={([val]) => setSales(val)}>
-        <Slider.Track className="flex-grow-1 relative !h-3 w-full rounded-full bg-slate-300">
+        <Slider.Track className="flex-grow-1 relative !h-3 w-full rounded-full bg-neutral-300">
           <Slider.Range className="bg-brand-600 absolute h-full rounded" />
         </Slider.Track>
         <Slider.Thumb className="bg-brand-600 hover:bg-brand-700 focus:ring-brand-700 block h-8 w-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </Slider.Root>
-      <p className="mt-8 text-center text-2xl font-medium text-slate-700">
+      <p className="mt-8 text-center text-2xl font-medium text-neutral-700">
         {sales} sales
       </p>
     </div>
@@ -139,7 +139,7 @@ export default function MarketingAffiliateWhySections() {
             <div className="mt-6">
               <Heading level="heading4">{reason.title}</Heading>
               <Section>
-                <p className="mt-4 text-lg text-slate-500 lg:text-xl">
+                <p className="mt-4 text-lg text-neutral-500 lg:text-xl">
                   {reason.subtitle}
                 </p>
                 <div className="mt-12 space-x-4">

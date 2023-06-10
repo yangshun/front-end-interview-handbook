@@ -77,7 +77,7 @@ export default function QuestionQuizContents({
       <div className="mx-auto w-full max-w-xl px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
         <div className="grid gap-y-6">
           <div>
-            <div className="mb-1 flex justify-between gap-x-2 text-sm text-slate-500">
+            <div className="mb-1 flex justify-between gap-x-2 text-sm text-neutral-500">
               <FormattedMessage
                 defaultMessage="Quiz Questions"
                 description="Header for quiz questions"
@@ -90,7 +90,7 @@ export default function QuestionQuizContents({
               className="relative mx-auto flex min-w-0 flex-1 flex-col">
               <article aria-labelledby="question-title" className="grow">
                 <div className="min-h-0 flex-1">
-                  <header className="grid gap-y-4 border-b border-slate-200 pb-10">
+                  <header className="grid gap-y-4 border-b border-neutral-200 pb-10">
                     <Heading
                       className="pb-4"
                       id="question-title"
@@ -98,7 +98,7 @@ export default function QuestionQuizContents({
                       {question.metadata.title}
                     </Heading>
                     {question.metadata.subtitle && (
-                      <p className="pb-4 text-lg text-slate-900 sm:text-xl">
+                      <p className="pb-4 text-lg text-neutral-900 sm:text-xl">
                         {question.metadata.subtitle}
                       </p>
                     )}

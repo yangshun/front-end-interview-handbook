@@ -26,19 +26,19 @@ type Attributes = Pick<
   | 'rows'
 >;
 
-export type TextAreaFontSize = 'md' | 'sm' | 'xs';
+export type TextAreaSize = 'md' | 'sm' | 'xs';
 export type TextAreaResize = 'both' | 'horizontal' | 'none' | 'vertical';
 
 type Props = Readonly<{
   defaultValue?: string;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
-  fontSize?: TextAreaFontSize;
   isLabelHidden?: boolean;
   label: string;
   onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
   onChange?: (value: string, event: ChangeEvent<HTMLTextAreaElement>) => void;
   resize?: TextAreaResize;
+  size?: TextAreaSize;
   value?: string;
 }> &
   Readonly<Attributes>;
@@ -47,16 +47,16 @@ type State = 'error' | 'normal';
 
 const stateClasses: Record<State, string> = {
   error: clsx(
-    'text-slate-700 dark:text-slate-300',
-    'border-danger-light',
-    'placeholder-danger-light',
-    'focus:ring-danger focus:border-danger',
+    'text-neutral-700 dark:text-neutral-300',
+    'ring-danger-light',
+    'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
+    'focus:ring-danger',
   ),
   normal: clsx(
-    'text-slate-700 dark:text-slate-300',
-    'border-slate-200 dark:border-slate-800',
-    'placeholder:text-slate-400 dark:placeholder:text-slate-600',
-    'focus:ring-brand-500 focus:border-brand-500',
+    'text-neutral-700 dark:text-neutral-300',
+    'ring-neutral-200 dark:ring-neutral-800',
+    'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
+    'focus:ring-brand-500 dark:focus:ring-brand-500',
   ),
 };
 
@@ -67,19 +67,19 @@ const resizeClasses: Record<TextAreaResize, string> = {
   vertical: 'resize-y',
 };
 
-const fontSizeClasses: Record<TextAreaFontSize, string> = {
+const fontSizeClasses: Record<TextAreaSize, string> = {
   md: 'text-sm',
   sm: 'text-sm',
   xs: 'text-xs',
 };
 
-const verticalPaddingSizeClasses: Record<TextAreaFontSize, string> = {
+const verticalPaddingSizeClasses: Record<TextAreaSize, string> = {
   md: 'py-2',
   sm: 'py-1.5',
   xs: 'py-1',
 };
 
-const horizontalPaddingSizeClasses: Record<TextAreaFontSize, string> = {
+const horizontalPaddingSizeClasses: Record<TextAreaSize, string> = {
   md: 'px-3',
   sm: 'px-3',
   xs: 'px-3',
@@ -91,12 +91,12 @@ function TextArea(
     description,
     disabled,
     errorMessage,
-    fontSize = 'sm',
     id: idParam,
     isLabelHidden,
     label,
     resize = 'vertical',
     required,
+    size = 'md',
     value,
     onChange,
     ...props
@@ -144,12 +144,16 @@ function TextArea(
           className={clsx(
             'block w-full',
             'bg-transparent',
-            'disabled:bg-slate-200 disabled:text-slate-300',
-            'dark:disabled:bg-slate-800 dark:disabled:text-slate-700',
+            'disabled:bg-neutral-200 disabled:text-neutral-300',
+            'dark:disabled:bg-neutral-800 dark:disabled:text-neutral-700',
             'rounded',
-            fontSizeClasses[fontSize],
-            verticalPaddingSizeClasses[fontSize],
-            horizontalPaddingSizeClasses[fontSize],
+            'border-0',
+            'focus:outline-none focus:outline-transparent',
+            'ring-1 ring-inset',
+            'focus:ring-2 focus:ring-inset',
+            fontSizeClasses[size],
+            verticalPaddingSizeClasses[size],
+            horizontalPaddingSizeClasses[size],
             stateClasses[state],
             resizeClasses[resize],
           )}

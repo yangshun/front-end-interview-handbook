@@ -137,7 +137,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between border-t border-slate-200 bg-white px-4 py-2">
+          <div className="flex items-center justify-between border-t border-neutral-200 bg-white px-4 py-2">
             <Button
               addonPosition="start"
               href="/prepare/coding"

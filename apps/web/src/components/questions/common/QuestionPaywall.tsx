@@ -32,7 +32,7 @@ export default function QuestionPaywall({
     });
 
   return (
-    <div className="rounded border border-slate-200 bg-white px-8">
+    <div className="rounded border border-neutral-200 bg-white px-8">
       <EmptyState
         action={
           <Button

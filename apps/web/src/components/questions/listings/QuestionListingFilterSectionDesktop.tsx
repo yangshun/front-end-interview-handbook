@@ -18,7 +18,7 @@ export default function QuestionListingFilterSectionDesktop<
   return (
     <div className={clsx(!isFirstSection && 'pt-6')}>
       <fieldset>
-        <legend className="block text-sm font-medium text-slate-900">
+        <legend className="block text-sm font-medium text-neutral-900">
           {section.name}
         </legend>
         <div className="space-y-3 pt-4">
@@ -26,7 +26,7 @@ export default function QuestionListingFilterSectionDesktop<
             <div key={option.value} className="flex items-center">
               <input
                 checked={values.has(option.value)}
-                className="text-brand-600 focus:ring-brand-500 h-4 w-4 rounded border-slate-200"
+                className="text-brand-600 focus:ring-brand-500 h-4 w-4 rounded border-neutral-200"
                 id={`${section.id}-${optionIdx}`}
                 name={`${section.id}[]`}
                 type="checkbox"
@@ -34,7 +34,7 @@ export default function QuestionListingFilterSectionDesktop<
                 onChange={() => section.onChange(option.value)}
               />
               <label
-                className="ml-3 text-sm text-slate-600"
+                className="ml-3 text-sm text-neutral-600"
                 htmlFor={`${section.id}-${optionIdx}`}>
                 {option.label}
               </label>

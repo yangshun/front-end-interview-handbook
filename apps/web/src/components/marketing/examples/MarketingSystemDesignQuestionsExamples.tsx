@@ -48,7 +48,7 @@ export default function MarketingSystemDesignQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="space-y-2 py-10 text-lg text-slate-500 md:text-xl">
+          <div className="space-y-2 py-10 text-lg text-neutral-500 md:text-xl">
             <FormattedMessage
               defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
               description="Subtitle for an example list of User Interface Questions on marketing pages"

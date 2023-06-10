@@ -86,14 +86,14 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
             </Heading>
             <Section>
               <div ref={sectionMarkerRef} />
-              <p className="relative mt-10 max-w-5xl text-lg text-slate-500 lg:text-xl">
+              <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 lg:text-xl">
                 <FormattedMessage
                   defaultMessage="Studying well-written solutions is one the most effective methods to ace the interview. Our platform guarantees the quality of our solutions because they are all written by us, ex-FAANG Senior Front End Engineers."
                   description="Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 1"
                   id="0dqqyE"
                 />
               </p>
-              <p className="relative mt-10 max-w-5xl text-lg text-slate-500 lg:text-xl">
+              <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 lg:text-xl">
                 <FormattedMessage
                   defaultMessage="You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!"
                   description="Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
@@ -110,7 +110,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
               )}>
               <div>
                 <div className="mx-auto flex items-center">
-                  <p className="mb-4 mr-8 hidden justify-start text-sm text-slate-500 sm:text-base md:flex md:text-lg xl:text-xl">
+                  <p className="mb-4 mr-8 hidden justify-start text-sm text-neutral-500 sm:text-base md:flex md:text-lg xl:text-xl">
                     <FormattedMessage
                       defaultMessage="Check out sample solutions:"
                       description="Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
@@ -194,7 +194,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
               </SandpackProvider>
             </div>
             <div className="mx-auto flex items-center justify-center pt-14 text-center text-lg md:pt-20 md:text-xl lg:pt-28 lg:text-2xl">
-              <span className="block text-slate-500 sm:flex">
+              <span className="block text-neutral-500 sm:flex">
                 <FormattedMessage
                   defaultMessage="Want to see more solutions? <link>Explore our product →</link>"
                   description="Call to action button to ask users to explore our product. Leads to the interview practice questions bank."

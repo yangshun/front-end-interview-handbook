@@ -51,7 +51,7 @@ function NavbarSidebarInner({
     <div className="flex flex-col space-y-2">
       <p className={className}>{props.label}</p>
       <ul
-        className="my-1 ml-2 space-y-1 border-l-2 border-slate-200 pl-2 lg:border-slate-200"
+        className="my-1 ml-2 space-y-1 border-l-2 border-neutral-200 pl-2 lg:border-neutral-200"
         role="list">
         {props.items.map(({ onClick: onItemClick, ...item }) => (
           <li key={item.itemKey}>
@@ -80,10 +80,10 @@ export default function NavbarSidebarItem({
 }: NavbarPrimaryItem) {
   const isCurrent = false; // TODO: Read from router.
   const className = clsx(
-    isCurrent ? 'bg-slate-100 text-slate-900' : 'text-slate-600',
+    isCurrent ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-600',
     'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
   );
-  const linkClass = 'hover:bg-slate-50 hover:text-slate-900';
+  const linkClass = 'hover:bg-neutral-50 hover:text-neutral-900';
 
   if (props.type === 'link') {
     return (

@@ -45,7 +45,7 @@ function NoLogs({
     <div className="flex h-full grow items-center justify-center py-4 px-4 sm:px-6 lg:px-4">
       <div className="grid gap-y-2">
         <div className="flex justify-center">
-          <CommandLineIcon className="h-12 w-12 shrink-0 text-slate-300" />
+          <CommandLineIcon className="h-12 w-12 shrink-0 text-neutral-300" />
         </div>
         <Text
           className="text-center"
@@ -325,7 +325,7 @@ export default function JavaScriptConsole({
       ref={consoleRef}
       className={clsx(
         'overflow-y-auto',
-        consoleTheme === 'light' ? 'bg-white' : 'bg-slate-900',
+        consoleTheme === 'light' ? 'bg-white' : 'bg-neutral-900',
       )}
       onScroll={handleScroll}>
       <Console

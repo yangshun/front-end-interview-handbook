@@ -37,7 +37,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className="border border-slate-200 p-10">
+      <div className="border border-neutral-200 p-10">
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -59,7 +59,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
 
   return (
     <ul
-      className="isolate divide-y divide-slate-200 border border-slate-200"
+      className="isolate divide-y divide-neutral-200 border border-neutral-200"
       role="list">
       {questions.map((question, index) => {
         const hasCompletedQuestion = checkIfCompletedQuestion(question);
@@ -67,13 +67,13 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
         return (
           <li
             key={question.slug}
-            className="focus-within:ring-brand-500 group relative flex space-x-4 bg-white px-4 py-4 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50">
+            className="focus-within:ring-brand-500 group relative flex space-x-4 bg-white px-4 py-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50">
             {showProgress && (
               <div className="flex items-center justify-center">
                 {showTimeline && index < questions.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute top-12 left-7 z-10 -ml-px h-full w-0.5 bg-slate-200"></span>
+                    className="absolute top-12 left-7 z-10 -ml-px h-full w-0.5 bg-neutral-200"></span>
                 )}
 
                 <span
@@ -81,7 +81,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                     hasCompletedQuestion
                       ? 'border-green bg-green text-white'
-                      : 'border-slate-200 bg-white',
+                      : 'border-neutral-200 bg-white',
                   )}>
                   {hasCompletedQuestion ? (
                     <Tooltip
@@ -108,7 +108,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                       position="above">
                       <EllipsisHorizontalIcon
                         aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-slate-500"
+                        className="h-4 w-4 shrink-0 text-neutral-500"
                       />
                     </Tooltip>
                   )}
@@ -118,7 +118,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             <div className="grow">
               <p className="text-sm font-medium">
                 <Anchor
-                  className="hover:text-brand-500 block text-slate-700 focus:outline-none"
+                  className="hover:text-brand-500 block text-neutral-700 focus:outline-none"
                   href={question.href}
                   variant="unstyled">
                   {/* Extend touch target to entire panel */}
@@ -165,7 +165,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
               <div className="flex items-center justify-center pr-2">
                 <ChevronRightIcon
                   aria-hidden="true"
-                  className="h-4 w-4 shrink-0 text-slate-800 "
+                  className="h-4 w-4 shrink-0 text-neutral-800 "
                 />
               </div>
             )}

@@ -596,7 +596,7 @@ function useUserNavigationLinks() {
 //   return (
 //     <button
 //       type="button"
-//       className="bg-slate-50 flex-shrink-0 rounded-full p-1 text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-brand-500">
+//       className="bg-neutral-50 flex-shrink-0 rounded-full p-1 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-50 focus:ring-brand-500">
 //       <span className="sr-only">Search website</span>
 //       <SearchIcon className="h-6 w-6" aria-hidden="true" />
 //     </button>
@@ -673,7 +673,7 @@ export default function NavbarImpl() {
               <Anchor
                 key={props.itemKey}
                 className={clsx(
-                  'group flex items-center rounded-md px-2 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900',
+                  'group flex items-center rounded-md px-2 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900',
                 )}
                 href={props.href}
                 variant="unstyled"
@@ -689,7 +689,7 @@ export default function NavbarImpl() {
         {!isPremium && (
           <div className="mt-4 px-4">
             <Anchor
-              className="inline-flex w-full justify-center rounded-lg bg-slate-900 py-2 px-3 text-sm font-semibold text-white hover:bg-slate-700"
+              className="inline-flex w-full justify-center rounded-lg bg-neutral-900 py-2 px-3 text-sm font-semibold text-white hover:bg-neutral-700"
               href="/pricing"
               variant="unstyled"
               onClick={() => {
@@ -724,11 +724,11 @@ export default function NavbarImpl() {
               src={user?.user_metadata?.avatar_url}
             />
           ) : (
-            <UserCircleIcon className="h-8 w-8 text-slate-500" />
+            <UserCircleIcon className="h-8 w-8 text-neutral-500" />
           )}
         </div>
         <div className="ml-3">
-          <p className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
+          <p className="text-sm font-medium text-neutral-700 group-hover:text-neutral-900">
             {user?.user_metadata?.name ?? user?.email}
           </p>
         </div>

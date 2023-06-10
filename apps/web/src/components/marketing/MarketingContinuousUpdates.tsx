@@ -156,32 +156,32 @@ export default function MarketingContinuousUpdates() {
   const [activePointIndex, setActivePointIndex] = useState<number | null>(null);
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-neutral-50">
       <Container className="relative" variant="narrow">
         <div className="mx-auto grid grid-cols-1 gap-8 space-y-10 py-24 md:grid-cols-5 lg:py-40">
           <div className="mx-auto max-w-2xl md:col-span-5 lg:col-span-3 lg:mx-0 lg:max-w-prose lg:pr-24">
-            <p className="text-3xl font-bold leading-8 tracking-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <p className="text-3xl font-bold leading-8 tracking-tight text-neutral-900 sm:text-4xl md:text-4xl lg:text-5xl">
               <FormattedMessage
                 defaultMessage="We're still growing our question base."
                 description="Question base section title"
                 id="rXnAi2"
               />
             </p>
-            <p className="relative mt-10 max-w-5xl text-lg text-slate-500 md:text-xl">
+            <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 md:text-xl">
               <FormattedMessage
                 defaultMessage="Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis."
                 description="Question base section subtitle - first paragraph"
                 id="QJaxVF"
               />
             </p>
-            <p className="relative mt-10 max-w-5xl text-lg text-slate-500 lg:text-xl">
+            <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 lg:text-xl">
               <FormattedMessage
                 defaultMessage="We are also looking to include more framework-specific questions like React, Vue, Angular, etc."
                 description="Question base section subtitle - second paragraph"
                 id="Im9sPX"
               />
             </p>
-            <p className="relative mt-10 max-w-5xl text-lg text-slate-500 lg:text-xl">
+            <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 lg:text-xl">
               <FormattedMessage
                 defaultMessage="Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!"
                 description="Question base section subtitle - third paragraph"

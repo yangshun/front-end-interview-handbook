@@ -32,7 +32,7 @@ export default function DropdownMenuExamples() {
   const [selectedValue, setSelectedValue] = useState('most-popular');
 
   return (
-    <UIExamplesGroup gapSize="lg" title="Dropdown Menu">
+    <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Dropdown Menu">
       <div className="flex gap-x-24">
         <DropdownMenu icon={BarsArrowDownIcon} label="Sort By">
           {menuItems.map(({ label, value }) => (

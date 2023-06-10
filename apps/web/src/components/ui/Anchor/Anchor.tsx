@@ -60,7 +60,7 @@ function Anchor(
           'text-brand-500 hover:text-brand-600 hover:underline',
         variant === 'flat' && 'hover:underline',
         variant === 'light' && 'text-brand-400 hover:text-brand-500',
-        variant === 'muted' && 'text-slate-500 hover:text-brand-600',
+        variant === 'muted' && 'text-neutral-500 hover:text-brand-600',
         underline && 'underline',
       ),
     classNameProp,

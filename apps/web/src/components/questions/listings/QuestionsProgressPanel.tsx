@@ -25,9 +25,9 @@ export default function QuestionsProgressPanel({
   const intl = useIntl();
 
   return (
-    <div className="flex items-center overflow-hidden rounded-lg border border-slate-200 bg-white p-4">
-      <div className="-m-1 flex-shrink-0 rounded-md bg-slate-50 p-1">
-        <Icon aria-hidden="true" className="h-5 w-5 text-slate-400" />
+    <div className="flex items-center overflow-hidden rounded-lg border border-neutral-200 bg-white p-4">
+      <div className="-m-1 flex-shrink-0 rounded-md bg-neutral-50 p-1">
+        <Icon aria-hidden="true" className="h-5 w-5 text-neutral-400" />
       </div>
       <div className="ml-4 w-0 flex-1">
         <div className="flex items-center justify-between space-x-4">

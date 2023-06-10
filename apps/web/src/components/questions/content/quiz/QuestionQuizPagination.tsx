@@ -62,7 +62,7 @@ export default function QuestionQuizPagination({
           variant="secondary"
         />
         <div className="flex items-center px-6">
-          <p className="text-sm text-slate-700">
+          <p className="text-sm text-neutral-700">
             <span className="font-medium">{currentQuestionPosition}</span> /{' '}
             <span className="font-medium">{totalNumQuestions}</span>
           </p>

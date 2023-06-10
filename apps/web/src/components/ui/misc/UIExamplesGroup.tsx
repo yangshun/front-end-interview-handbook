@@ -4,6 +4,13 @@ import Container from '../Container';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 
+type Props = Readonly<{
+  children: React.ReactNode;
+  darkMode?: 'horizontal' | 'none' | 'vertical';
+  gapSize?: GapSize;
+  title: string;
+}>;
+
 type GapSize = 'lg' | 'md';
 
 const gapClasses: Record<GapSize, string> = {
@@ -12,10 +19,11 @@ const gapClasses: Record<GapSize, string> = {
 };
 
 export default function UIExamplesGroup({
-  title,
   children,
   gapSize = 'md',
-}: Readonly<{ children: React.ReactNode; gapSize?: GapSize; title: string }>) {
+  darkMode = 'vertical',
+  title,
+}: Props) {
   return (
     <div>
       <Container>
@@ -23,23 +31,49 @@ export default function UIExamplesGroup({
         <hr className="mt-2" />
       </Container>
       <Section>
-        <div className="flex flex-col">
-          <div>
-            <Container>
-              <div className={clsx('grid w-full py-12', gapClasses[gapSize])}>
-                {children}
+        {(darkMode === 'vertical' || darkMode === 'none') && (
+          <div className="flex flex-col">
+            <div>
+              <Container>
+                <div className={clsx('grid w-full py-12', gapClasses[gapSize])}>
+                  {children}
+                </div>
+              </Container>
+            </div>
+            {darkMode !== 'none' && (
+              <div className="bg-neutral-950 dark text-white">
+                <Container>
+                  <div
+                    className={clsx('grid w-full py-12', gapClasses[gapSize])}>
+                    {children}
+                  </div>
+                </Container>
+              </div>
+            )}
+          </div>
+        )}
+        {darkMode === 'horizontal' && (
+          <div className="relative flex">
+            <div className="bg-neutral-950 absolute inset-y-0 right-0 w-1/2"></div>
+            <Container className="z-10 w-full">
+              <div className="grid w-full grid-cols-2">
+                <div
+                  className={clsx(
+                    'grid grow py-12 pr-12',
+                    gapClasses[gapSize],
+                  )}>
+                  {children}
+                </div>
+                <div className="dark pl-12 text-white">
+                  <div
+                    className={clsx('grid w-full py-12', gapClasses[gapSize])}>
+                    {children}
+                  </div>
+                </div>
               </div>
             </Container>
           </div>
-          <div className="bg-slate-900">
-            <Container>
-              <div
-                className={clsx('dark grid w-full py-12', gapClasses[gapSize])}>
-                {children}
-              </div>
-            </Container>
-          </div>
-        </div>
+        )}
       </Section>
     </div>
   );

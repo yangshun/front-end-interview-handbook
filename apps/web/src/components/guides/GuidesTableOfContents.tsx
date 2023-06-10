@@ -45,7 +45,7 @@ function ListItems({
                 'hover:text-brand-700 motion-safe:transition-all',
                 activeId === section.id
                   ? 'text-brand-600'
-                  : 'font-normal text-slate-500',
+                  : 'font-normal text-neutral-500',
               )}
               href={`#${section.id}`}
               variant="unstyled">

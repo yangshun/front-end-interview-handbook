@@ -11,10 +11,10 @@ import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
-    <div className="overflow-hidden bg-slate-50 pb-16 sm:bg-white sm:pb-24">
+    <div className="overflow-hidden bg-neutral-50 pb-16 sm:bg-white sm:pb-24">
       <div className="relative sm:py-16">
         <div aria-hidden="true" className="hidden sm:block">
-          <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-slate-50" />
+          <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-neutral-50" />
           <svg
             className="absolute top-8 left-2/3 -ml-3"
             fill="none"
@@ -30,7 +30,7 @@ export default function MarketingContactUs() {
                 x={0}
                 y={0}>
                 <rect
-                  className="text-slate-200"
+                  className="text-neutral-200"
                   fill="currentColor"
                   height={4}
                   width={4}
@@ -58,7 +58,7 @@ export default function MarketingContactUs() {
                   />
                 </Heading>
                 <div className="mt-4">
-                  <p className="text-lg text-slate-500">
+                  <p className="text-lg text-neutral-500">
                     <FormattedMessage
                       defaultMessage="Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two."
                       description="Subtitle for contact us section"

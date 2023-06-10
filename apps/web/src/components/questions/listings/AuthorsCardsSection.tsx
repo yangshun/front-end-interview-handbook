@@ -38,7 +38,7 @@ export default function AuthorsCardSection() {
                 key={author_.name}
                 className={clsx(
                   'p-1',
-                  author_.name !== author.name && 'text-slate-500',
+                  author_.name !== author.name && 'text-neutral-500',
                 )}
                 label={author_.name}
                 size="xs"
@@ -52,7 +52,7 @@ export default function AuthorsCardSection() {
         </nav>
       </div>
       <div key={author.name} className="min-h-[140px]">
-        <div className="flex gap-3 rounded border border-slate-200 p-3 text-xs text-slate-500">
+        <div className="flex gap-3 rounded border border-neutral-200 p-3 text-xs text-neutral-500">
           <div className="flex shrink-0 flex-col items-center gap-3">
             <img
               alt={author.name}

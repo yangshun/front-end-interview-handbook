@@ -43,7 +43,7 @@ export default function MarketingWhatIfNew() {
                   id="TeTJmh"
                 />
               </Heading>
-              <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-slate-500 md:text-xl lg:mt-10 lg:text-2xl ">
+              <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-neutral-500 md:text-xl lg:mt-10 lg:text-2xl ">
                 <FormattedMessage
                   defaultMessage="At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!"
                   description="Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"

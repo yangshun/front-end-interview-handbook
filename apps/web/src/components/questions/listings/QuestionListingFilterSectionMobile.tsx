@@ -20,12 +20,12 @@ export default function QuestionFilterSectionMobile<
     <Disclosure
       key={section.name}
       as="div"
-      className="border-t border-slate-200 pt-4 pb-4">
+      className="border-t border-neutral-200 pt-4 pb-4">
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
-            <Disclosure.Button className="focus:ring-brand-500 flex w-full items-center justify-between text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset">
-              <span className="text-sm font-medium text-slate-900">
+            <Disclosure.Button className="focus:ring-brand-500 flex w-full items-center justify-between text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset">
+              <span className="text-sm font-medium text-neutral-900">
                 {section.name}
               </span>
               <span className="ml-6 flex h-7 items-center">
@@ -45,7 +45,7 @@ export default function QuestionFilterSectionMobile<
                 <div key={option.value} className="flex items-center">
                   <input
                     checked={values.has(option.value)}
-                    className="text-brand-600 focus:ring-brand-500 h-4 w-4 rounded border-slate-200"
+                    className="text-brand-600 focus:ring-brand-500 h-4 w-4 rounded border-neutral-200"
                     id={`${section.id}-${optionIdx}-mobile`}
                     name={`${section.id}[]`}
                     type="checkbox"
@@ -53,7 +53,7 @@ export default function QuestionFilterSectionMobile<
                     onChange={() => section.onChange(option.value)}
                   />
                   <label
-                    className="ml-3 text-sm text-slate-500"
+                    className="ml-3 text-sm text-neutral-500"
                     htmlFor={`${section.id}-${optionIdx}-mobile`}>
                     {option.label}
                   </label>

@@ -130,7 +130,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className="border border-slate-200 p-10">
+      <div className="border border-neutral-200 p-10">
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -153,7 +153,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y divide-slate-200 border border-slate-200 bg-slate-200 sm:grid sm:gap-px sm:divide-y-0',
+        'isolate divide-y divide-neutral-200 border border-neutral-200 bg-neutral-200 sm:grid sm:gap-px sm:divide-y-0',
         columns === 2 && 'sm:grid-cols-2',
       )}>
       {questions.map((question, index) => {
@@ -165,7 +165,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand-500 group relative flex gap-x-4 bg-white p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-slate-50',
+              'focus-within:ring-brand-500 group relative flex gap-x-4 bg-white p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
             )}>
             <QuestionNewLabel created={question.created} />
             {showProgress && (
@@ -173,13 +173,13 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 {showTimeline && index < questions.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute top-14 left-7 z-10 -ml-px h-full w-0.5 bg-slate-200"></span>
+                    className="absolute top-14 left-7 z-10 -ml-px h-full w-0.5 bg-neutral-200"></span>
                 )}
                 <span
                   className={clsx(
                     'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                     userCannotViewQuestion || !hasCompletedQuestion
-                      ? 'border-slate-200 bg-white'
+                      ? 'border-neutral-200 bg-white'
                       : 'border-success bg-success text-white',
                   )}>
                   {question.premium && !userProfile?.isPremium ? (
@@ -192,7 +192,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       position="above">
                       <LockClosedIcon
                         aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-slate-500"
+                        className="h-4 w-4 shrink-0 text-neutral-500"
                       />
                     </Tooltip>
                   ) : hasCompletedQuestion ? (
@@ -216,7 +216,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       position="above">
                       <EllipsisHorizontalIcon
                         aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-slate-500"
+                        className="h-4 w-4 shrink-0 text-neutral-500"
                       />
                     </Tooltip>
                   )}
@@ -296,7 +296,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               <div className="flex items-center justify-center pr-2">
                 <ChevronRightIcon
                   aria-hidden="true"
-                  className="h-4 w-4 shrink-0 text-slate-800 "
+                  className="h-4 w-4 shrink-0 text-neutral-800 "
                 />
               </div>
             )}

@@ -30,7 +30,7 @@ export default function QuestionsGuidesGrid({
       <Section>
         <div
           className={clsx(
-            'isolate grid overflow-hidden border-l border-slate-200 bg-white',
+            'isolate grid overflow-hidden border-l border-neutral-200 bg-white',
             items.length >= columns ? 'md:border-t' : 'border-t md:border-t-0',
             columns <= 4 && 'md:grid-cols-3',
             columns === 4 && 'md:grid-cols-4',
@@ -42,13 +42,13 @@ export default function QuestionsGuidesGrid({
             <Anchor
               key={guide.slug}
               className={clsx(
-                'relative flex items-center gap-4 border-b border-r p-3 hover:bg-slate-50 md:flex-col md:items-start md:gap-2 md:p-6',
+                'relative flex items-center gap-4 border-b border-r p-3 hover:bg-neutral-50 md:flex-col md:items-start md:gap-2 md:p-6',
                 items.length < columns && index < columns - 1 && 'md:border-t',
               )}
               href={guide.href}
               variant="unstyled">
               <div className="flex justify-center md:w-full">
-                <span className="z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-200 bg-white text-xs font-semibold text-slate-500">
+                <span className="z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-neutral-200 bg-white text-xs font-semibold text-neutral-500">
                   {index + 1}
                 </span>
               </div>

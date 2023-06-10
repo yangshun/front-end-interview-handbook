@@ -256,8 +256,8 @@ export default function QuestionsSidebar({
                 className={clsx(
                   itemClassname,
                   current
-                    ? 'text-brand-600 bg-slate-100'
-                    : 'hover:text-brand-600 text-slate-600',
+                    ? 'text-brand-600 bg-neutral-100'
+                    : 'hover:text-brand-600 text-neutral-600',
                 )}
                 href={item.href}
                 variant="unstyled">
@@ -282,8 +282,8 @@ export default function QuestionsSidebar({
                     className={clsx(
                       itemClassname,
                       pathname != null && item.currentMatchRegex?.test(pathname)
-                        ? 'text-brand-600 bg-slate-100'
-                        : 'hover:text-brand-600 text-slate-600',
+                        ? 'text-brand-600 bg-neutral-100'
+                        : 'hover:text-brand-600 text-neutral-600',
                     )}>
                     {label}
                   </Popover.Button>
@@ -321,7 +321,7 @@ export default function QuestionsSidebar({
                           {item.items.map((popoverItem) => (
                             <Anchor
                               key={popoverItem.key}
-                              className="group flex items-center justify-between gap-x-2 rounded px-2 py-3 text-xs font-medium text-slate-600 hover:bg-slate-100"
+                              className="group flex items-center justify-between gap-x-2 rounded px-2 py-3 text-xs font-medium text-neutral-600 hover:bg-neutral-100"
                               href={popoverItem.href}
                               variant="unstyled"
                               onClick={() => {

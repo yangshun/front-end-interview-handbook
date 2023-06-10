@@ -36,7 +36,7 @@ export default function MarketingFeatureQuestionsNew({
   });
 
   return (
-    <div className="overflow-hidden bg-slate-50 ">
+    <div className="overflow-hidden bg-neutral-50 ">
       <Container>
         <div className="relative mx-auto max-w-xl space-y-16 py-8 pb-24 sm:max-w-3xl md:max-w-4xl lg:max-w-5xl lg:space-y-32 lg:py-16 lg:pb-40">
           <svg
@@ -55,7 +55,7 @@ export default function MarketingFeatureQuestionsNew({
                 x={0}
                 y={0}>
                 <rect
-                  className="text-slate-200"
+                  className="text-neutral-200"
                   fill="currentColor"
                   height={4}
                   width={4}
@@ -83,7 +83,7 @@ export default function MarketingFeatureQuestionsNew({
                 id="ExWrYc"
               />
             </Heading>
-            <p className="relative mt-10 text-lg text-slate-500 md:text-xl">
+            <p className="relative mt-10 text-lg text-neutral-500 md:text-xl">
               <FormattedMessage
                 defaultMessage="With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more."
                 description="Subtitle of the 'Practice Everything Here' marketing section on Homepage"
@@ -118,7 +118,7 @@ export default function MarketingFeatureQuestionsNew({
                   x={0}
                   y={0}>
                   <rect
-                    className="text-slate-200"
+                    className="text-neutral-200"
                     fill="currentColor"
                     height={4}
                     width={4}

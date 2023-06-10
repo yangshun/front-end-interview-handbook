@@ -48,14 +48,14 @@ const weightClasses: Record<TextWeight, string> = {
 
 const colorClasses: Record<TextColor, string> = {
   active: 'text-brand-500',
-  dark: 'text-slate-900',
-  default: 'text-slate-900 dark:text-white',
-  disabled: 'text-slate-400 dark:text-slate-600',
+  dark: 'text-neutral-900',
+  default: 'text-neutral-900 dark:text-white',
+  disabled: 'text-neutral-400 dark:text-neutral-600',
   error: 'text-danger',
   inherit: '',
-  invert: 'text-white dark:text-slate-900',
-  placeholder: 'text-slate-400 dark:text-slate-600',
-  secondary: 'text-slate-600 dark:text-slate-400',
+  invert: 'text-white dark:text-neutral-900',
+  placeholder: 'text-neutral-400 dark:text-neutral-600',
+  secondary: 'text-neutral-600 dark:text-neutral-400',
   success: 'text-success',
   white: 'text-white',
 };

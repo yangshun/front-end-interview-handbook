@@ -17,21 +17,21 @@ type HeadingColor = 'auto' | 'custom' | 'dark' | 'light';
 const headingLevelsClasses: Record<HeadingLevel, string> = {
   custom: '',
   heading1:
-    'text-4xl sm:text-5xl lg:text-6xl font-extrabold -tracking-4 text-slate-900',
+    'text-4xl sm:text-5xl lg:text-6xl font-extrabold -tracking-4 text-neutral-900',
   heading2:
-    'text-3xl sm:text-4xl lg:text-5xl font-bold -tracking-3 text-slate-900',
+    'text-3xl sm:text-4xl lg:text-5xl font-bold -tracking-3 text-neutral-900',
   heading3:
-    'text-2xl sm:text-3xl lg:text-4xl font-bold -tracking-2 text-slate-900',
+    'text-2xl sm:text-3xl lg:text-4xl font-bold -tracking-2 text-neutral-900',
   heading4:
-    'text-xl sm:text-2xl lg:text-3xl font-bold -tracking-1 text-slate-900',
-  heading5: 'text-lg sm:text-xl lg:text-2xl font-semibold text-slate-900',
-  heading6: 'text-base sm:text-lg lg:text-xl font-semibold text-slate-900',
+    'text-xl sm:text-2xl lg:text-3xl font-bold -tracking-1 text-neutral-900',
+  heading5: 'text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-900',
+  heading6: 'text-base sm:text-lg lg:text-xl font-semibold text-neutral-900',
 };
 
 const colorClasses: Record<HeadingColor, string> = {
-  auto: 'text-slate-900 dark:text-white',
+  auto: 'text-neutral-900 dark:text-white',
   custom: '',
-  dark: 'text-slate-900',
+  dark: 'text-neutral-900',
   light: 'text-white',
 };
 

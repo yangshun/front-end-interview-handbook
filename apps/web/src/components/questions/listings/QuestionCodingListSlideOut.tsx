@@ -50,7 +50,7 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
 
   return (
     <div className="flex flex-col gap-y-1">
-      <label className="text-xs font-medium text-slate-500" id={sectionId}>
+      <label className="text-xs font-medium text-neutral-500" id={sectionId}>
         {filterOptions.name}
       </label>
       <div

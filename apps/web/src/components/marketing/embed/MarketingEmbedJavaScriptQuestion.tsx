@@ -65,7 +65,7 @@ export default function MarketingEmbedJavaScriptQuestion({
       }`}</style>
       <div className="h-0 grow sm:flex">
         <div
-          className="overflow-y-scroll border-slate-200 md:border-r"
+          className="overflow-y-scroll border-neutral-200 md:border-r"
           id="left-section">
           <div className="space-y-4 py-4 px-4">
             <div className="flex justify-between">
@@ -142,7 +142,7 @@ export default function MarketingEmbedJavaScriptQuestion({
               })()}
             </div>
           </div>
-          <div className="flex items-center justify-between border-t border-slate-200 bg-white px-4 py-2">
+          <div className="flex items-center justify-between border-t border-neutral-200 bg-white px-4 py-2">
             <Button
               addonPosition="start"
               href="/prepare/coding"

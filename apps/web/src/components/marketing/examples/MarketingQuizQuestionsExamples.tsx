@@ -61,7 +61,7 @@ export default function MarketingQuizQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="py-10 text-lg text-slate-500 md:text-xl">
+          <div className="py-10 text-lg text-neutral-500 md:text-xl">
             <FormattedMessage
               defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
               description="Subtitle for an example list of Quiz Questions on marketing pages"

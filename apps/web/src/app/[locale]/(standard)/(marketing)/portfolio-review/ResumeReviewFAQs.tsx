@@ -62,7 +62,7 @@ const faqs = [
 
 export default function ResumeReviewFAQs() {
   return (
-    <div className="bg-slate-900 py-16 lg:py-24 xl:py-32">
+    <div className="bg-neutral-900 py-16 lg:py-24 xl:py-32">
       <Container variant="3xl">
         <div className="divide-y divide-white/10">
           <h2 className="text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
@@ -94,7 +94,7 @@ export default function ResumeReviewFAQs() {
                       </Disclosure.Button>
                     </dt>
                     <Disclosure.Panel as="dd" className="mt-4 pr-12">
-                      <p className="text-base leading-7 text-slate-300">
+                      <p className="text-base leading-7 text-neutral-300">
                         {faq.answer}
                       </p>
                     </Disclosure.Panel>

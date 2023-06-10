@@ -33,8 +33,8 @@ export default function QuestionPaywallSmall({
     });
 
   return (
-    <div className="flex items-center space-x-2 rounded border border-slate-200 p-3">
-      <LockClosedIcon className="h-8 w-8 text-slate-500" />
+    <div className="flex items-center space-x-2 rounded border border-neutral-200 p-3">
+      <LockClosedIcon className="h-8 w-8 text-neutral-500" />
       <div className="grow space-y-1">
         <Text display="block" variant="body3" weight="bold">
           {title}

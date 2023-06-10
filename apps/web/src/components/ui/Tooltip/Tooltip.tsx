@@ -111,7 +111,7 @@ function TooltipLabel({
   return (
     <span
       className={clsx(
-        'fixed z-40 whitespace-nowrap rounded bg-slate-800 px-3 py-2',
+        'fixed z-40 whitespace-nowrap rounded bg-neutral-800 px-3 py-2',
         position === 'above' && 'mb-1.5',
         position === 'below' && 'mt-1.5',
         position === 'start' && 'mr-1.5',

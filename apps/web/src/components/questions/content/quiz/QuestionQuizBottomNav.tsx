@@ -26,12 +26,12 @@ export default function QuestionQuizBottomNav({
 
   return (
     <div className="sticky inset-x-0 bottom-0">
-      <div className="border-t border-slate-200 bg-white">
+      <div className="border-t border-neutral-200 bg-white">
         <div className="mx-auto py-2 px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* HACK: code to centralize the items */}
             <div className="hidden w-32 items-center xl:block">
-              <p className="font-medium text-slate-600">
+              <p className="font-medium text-neutral-600">
                 <span className="hidden">
                   <FormattedMessage
                     defaultMessage="Flashcard format"

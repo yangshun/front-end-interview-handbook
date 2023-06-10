@@ -26,9 +26,9 @@ const variantClasses: Record<
     textColorClass: 'text-white',
   },
   special: {
-    backgroundColorClass: 'bg-slate-900 dark:bg-white',
-    buttonClass: 'hover:bg-slate-700 dark:hover:bg-slate-100',
-    textColorClass: 'text-white dark:text-slate-700',
+    backgroundColorClass: 'bg-neutral-900 dark:bg-white',
+    buttonClass: 'hover:bg-neutral-700 dark:hover:bg-neutral-100',
+    textColorClass: 'text-white dark:text-neutral-700',
   },
 };
 
@@ -67,7 +67,7 @@ export default function Banner({
               className={clsx(
                 'flex rounded-md focus:outline-none focus:ring-2 focus:ring-white',
                 variant === 'primary' && 'hover:bg-brand-400',
-                variant === 'special' && 'hover:bg-slate-700',
+                variant === 'special' && 'hover:bg-neutral-700',
                 buttonClass,
                 textColorClass,
                 size === 'md' && 'p-1',

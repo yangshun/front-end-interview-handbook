@@ -14,7 +14,7 @@ export default function MarketingContactPlatforms() {
       {MarketingContactPlatformsConfig().map((platform) => (
         <Anchor
           key={platform.key}
-          className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+          className="flex items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-white p-4 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2"
           href={platform.href}
           variant="unstyled"
           onClick={() => {

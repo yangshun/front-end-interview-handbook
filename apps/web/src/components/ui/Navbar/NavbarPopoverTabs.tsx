@@ -24,11 +24,11 @@ function NavbarPopoverLink({
           />
         </div>
         <div>
-          <p className="flex items-center gap-2 text-sm font-medium text-slate-900">
+          <p className="flex items-center gap-2 text-sm font-medium text-neutral-900">
             <span>{label}</span> {labelAddon}
           </p>
           {sublabel && (
-            <p className="mt-1 text-sm text-slate-500">{sublabel}</p>
+            <p className="mt-1 text-sm text-neutral-500">{sublabel}</p>
           )}
         </div>
       </div>
@@ -41,7 +41,7 @@ function NavbarPopoverLink({
           />
         </div>
         <div className="ml-4">
-          <p className="flex items-center gap-2 text-sm font-medium text-slate-900">
+          <p className="flex items-center gap-2 text-sm font-medium text-neutral-900">
             <span>{label}</span>
             {labelAddon && <span className="shrink-0">{labelAddon}</span>}
           </p>
@@ -51,7 +51,7 @@ function NavbarPopoverLink({
 
   const className = clsx(
     'group flex grow rounded-lg p-4',
-    href != null && 'hover:bg-slate-50',
+    href != null && 'hover:bg-neutral-50',
   );
 
   if (href == null) {
@@ -80,7 +80,7 @@ export default function NavbarPopoverTabs({
   return (
     <div className="flex overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
       <Tab.Group vertical={true}>
-        <Tab.List className="flex w-1/4 shrink-0 flex-col space-y-2 bg-slate-50 p-2">
+        <Tab.List className="flex w-1/4 shrink-0 flex-col space-y-2 bg-neutral-50 p-2">
           {items.map(({ itemKey, label }) => (
             <Tab
               key={itemKey}
@@ -124,9 +124,9 @@ export default function NavbarPopoverTabs({
                 ))}
               </div>
               {item.supplementaryItem != null && (
-                <div className="flex w-full justify-end bg-slate-50 px-6 py-5">
+                <div className="flex w-full justify-end bg-neutral-50 px-6 py-5">
                   <Anchor
-                    className="-m-3 flex items-center gap-x-2 rounded-md p-3 text-sm font-medium text-slate-900 hover:bg-slate-100"
+                    className="-m-3 flex items-center gap-x-2 rounded-md p-3 text-sm font-medium text-neutral-900 hover:bg-neutral-100"
                     href={item.supplementaryItem.href}
                     variant="unstyled"
                     onClick={(event) => {
@@ -137,7 +137,7 @@ export default function NavbarPopoverTabs({
                     {item.supplementaryItem.icon && (
                       <item.supplementaryItem.icon
                         aria-hidden="true"
-                        className="inline-block h-6 w-6 text-slate-400 transition-transform"
+                        className="inline-block h-6 w-6 text-neutral-400 transition-transform"
                       />
                     )}
                     {item.supplementaryItem.label}

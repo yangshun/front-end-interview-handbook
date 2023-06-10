@@ -86,7 +86,7 @@ function TestResultItem({
   const displayPath = result.testPath.slice(1);
 
   return (
-    <div className="space-y-2 rounded bg-slate-100 p-2">
+    <div className="space-y-2 rounded bg-neutral-100 p-2">
       <div className="flex items-center gap-2">
         {result.status === 'pass' && (
           <CheckIcon
@@ -150,7 +150,7 @@ function TestResultItem({
       {showStackTrace &&
         result.errors.map((error) => (
           <Text key={error} display="block" variant="body3">
-            <pre className="space-y-1 overflow-x-auto border-t border-slate-200 p-2 pb-0">
+            <pre className="space-y-1 overflow-x-auto border-t border-neutral-200 p-2 pb-0">
               {error.replaceAll(/https.*codesandbox\.io/g, '')}
             </pre>
           </Text>
@@ -262,7 +262,7 @@ function JavaScriptQuestionTestResult({
         <div className="space-y-4">
           <TestResultStatusLabel status={result.status} />
           <Text display="block" variant="body2">
-            <pre className="rounded bg-slate-100 p-4">{result.message}</pre>
+            <pre className="rounded bg-neutral-100 p-4">{result.message}</pre>
           </Text>
         </div>
       );
@@ -291,7 +291,7 @@ export default function JavaScriptQuestionTestResults({
   if (result == null) {
     return (
       <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
-        <ClipboardDocumentCheckIcon className="h-12 w-12 text-slate-300" />
+        <ClipboardDocumentCheckIcon className="h-12 w-12 text-neutral-300" />
         <Text color="secondary" display="block" variant="body2">
           <FormattedMessage
             defaultMessage="Submit your code to check against the tests."

@@ -35,7 +35,7 @@ export default function TextPairing({
       )}
       <Heading
         className={clsx(
-          mode === 'light' && 'text-slate-900',
+          mode === 'light' && 'text-neutral-900',
           mode === 'dark' && 'text-white',
         )}
         level={headingMap[size]}>
@@ -46,8 +46,8 @@ export default function TextPairing({
           className={clsx(
             'max-w-xl',
             (size === 'md' || size === 'lg') && 'text-sm leading-6',
-            mode === 'light' && 'text-slate-700',
-            mode === 'dark' && 'text-slate-300',
+            mode === 'light' && 'text-neutral-700',
+            mode === 'dark' && 'text-neutral-300',
           )}
           color="inherit"
           display="block">

@@ -44,7 +44,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
-            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-slate-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
+            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-neutral-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
               <Heading
                 className="mt-4 text-base font-semibold text-zinc-700"
                 color="custom"
@@ -65,7 +65,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                         <Section>
                           <div className="pl-2">
                             <ul
-                              className="mt-3 flex flex-col gap-y-2 border-l border-slate-200"
+                              className="mt-3 flex flex-col gap-y-2 border-l border-neutral-200"
                               role="list">
                               {section.links.map((link) => (
                                 <li

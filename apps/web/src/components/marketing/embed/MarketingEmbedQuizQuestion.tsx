@@ -12,15 +12,15 @@ export default function MarketingEmbedQuizQuestion() {
           <div className="space-y-4 pt-4 pb-32 sm:pt-10">
             <div className="text-xl font-semibold sm:text-2xl">
               Describe the difference between{' '}
-              <code className="rounded-lg bg-slate-100 px-2 py-0.5 font-thin text-slate-700 before:content-none after:content-none">
+              <code className="rounded-lg bg-neutral-100 px-2 py-0.5 font-thin text-neutral-700 before:content-none after:content-none">
                 &lt;script&gt;
               </code>
               ,{' '}
-              <code className="rounded-lg bg-slate-100 px-2 py-0.5 font-thin text-slate-700 before:content-none after:content-none">
+              <code className="rounded-lg bg-neutral-100 px-2 py-0.5 font-thin text-neutral-700 before:content-none after:content-none">
                 &lt;script async&gt;
               </code>{' '}
               and{' '}
-              <code className="rounded-lg bg-slate-100 px-2 py-0.5 font-thin text-slate-700 before:content-none after:content-none">
+              <code className="rounded-lg bg-neutral-100 px-2 py-0.5 font-thin text-neutral-700 before:content-none after:content-none">
                 &lt;script defer&gt;
               </code>
             </div>

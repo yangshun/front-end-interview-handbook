@@ -78,7 +78,7 @@ function LeftPane({
         />
         <StatisticsPanel className="mt-4" serverDuration={serverDuration} />
       </div>
-      <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
+      <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
         <Button
           addonPosition="start"
           icon={ListBulletIcon}
@@ -149,7 +149,7 @@ export default function QuestionJavaScriptCodingWorkspacePage({
         className="static flex w-full flex-col overflow-hidden lg:fixed lg:flex-row"
         id="container">
         <section
-          className="border-b border-slate-200 lg:border-none"
+          className="border-b border-neutral-200 lg:border-none"
           id="js-coding-left-section">
           <LeftPane
             canViewPremiumContent={canViewPremiumContent}

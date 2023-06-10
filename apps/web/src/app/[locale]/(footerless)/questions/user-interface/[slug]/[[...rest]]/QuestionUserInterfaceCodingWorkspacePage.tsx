@@ -174,7 +174,7 @@ function MiddleRightPaneContents({
           </div>
           <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
           <div
-            className="flex flex-col border-l border-slate-200 lg:h-full"
+            className="flex flex-col border-l border-neutral-200 lg:h-full"
             id="right-section">
             <div
               className={clsx(
@@ -199,7 +199,7 @@ function MiddleRightPaneContents({
             <div
               className={clsx(
                 'flex flex-col',
-                showDevToolsPane && 'border-t border-slate-200',
+                showDevToolsPane && 'border-t border-neutral-200',
               )}
               id="devtool-section">
               <div
@@ -216,7 +216,7 @@ function MiddleRightPaneContents({
               </div>
               {mode === 'practice' && isMounted() && showLoadedPreviousCode && (
                 <div
-                  className="bg-brand-50 shrink-0 border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
+                  className="bg-brand-50 shrink-0 border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
                   suppressHydrationWarning={true}>
                   <Text variant="body3">
                     Your previous code was restored.{' '}
@@ -230,7 +230,7 @@ function MiddleRightPaneContents({
                   </Text>
                 </div>
               )}
-              <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
+              <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
                 <Button
                   icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
                   label={showDevToolsPane ? 'Hide DevTool' : 'Show DevTool'}
@@ -378,7 +378,7 @@ function LeftPane({
         />
         <StatisticsPanel className="mt-4" serverDuration={serverDuration} />
       </div>
-      <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
+      <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
         <Button
           addonPosition="start"
           icon={ListBulletIcon}

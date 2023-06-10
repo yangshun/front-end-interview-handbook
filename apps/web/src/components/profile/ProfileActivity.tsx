@@ -24,7 +24,7 @@ function NoCompletedQuestions() {
 
   return (
     <div className="py-12 text-center">
-      <RectangleStackIcon className="mx-auto h-12 w-12 text-slate-400" />
+      <RectangleStackIcon className="mx-auto h-12 w-12 text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="No completed questions"
@@ -33,7 +33,7 @@ function NoCompletedQuestions() {
         />
       </Heading>
       <Section>
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-sm text-neutral-500">
           <FormattedMessage
             defaultMessage="Try out some Front End questions!"
             description="Subtext for call to action when no questions are completed."
@@ -107,7 +107,7 @@ export default function ProfileActivity() {
   return (
     <div className="flex flex-col gap-y-4">
       <Heading
-        className="flex flex-row justify-between border-b border-slate-200 pb-4"
+        className="flex flex-row justify-between border-b border-neutral-200 pb-4"
         level="heading6">
         <FormattedMessage
           defaultMessage="Completed Questions"
@@ -118,7 +118,7 @@ export default function ProfileActivity() {
       </Heading>
       <Section>
         <ul
-          className="relative z-0 divide-y divide-slate-200 border-slate-200"
+          className="relative z-0 divide-y divide-neutral-200 border-neutral-200"
           role="list">
           {questionsProgressWithMetadata.map(({ metadata, createdAt }) => (
             <li key={createdAt} className="relative py-5 sm:py-6">

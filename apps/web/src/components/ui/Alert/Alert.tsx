@@ -30,25 +30,25 @@ const classes: Record<
   }>
 > = {
   danger: {
-    backgroundClass: 'bg-danger-lighter dark:bg-slate-800/70',
+    backgroundClass: 'bg-danger-lighter dark:bg-neutral-800/70',
     icon: XCircleIcon,
     iconClass: 'text-danger',
     titleClass: 'text-danger',
   },
   info: {
-    backgroundClass: 'bg-info-lighter dark:bg-slate-800/70',
+    backgroundClass: 'bg-info-lighter dark:bg-neutral-800/70',
     icon: InformationCircleIcon,
     iconClass: 'text-info',
     titleClass: 'text-info',
   },
   success: {
-    backgroundClass: 'bg-success-lighter dark:bg-slate-800/70',
+    backgroundClass: 'bg-success-lighter dark:bg-neutral-800/70',
     icon: CheckCircleIcon,
     iconClass: 'text-success',
     titleClass: 'text-success',
   },
   warning: {
-    backgroundClass: 'bg-warning-lighter dark:bg-slate-800/70',
+    backgroundClass: 'bg-warning-lighter dark:bg-neutral-800/70',
     icon: ExclamationTriangleIcon,
     iconClass: 'text-warning',
     titleClass: 'text-warning',
@@ -84,7 +84,7 @@ export default function Alert({ children, title, variant }: Props) {
         )}
         <Section>
           <Text
-            className="text-slate-500 dark:text-slate-400"
+            className="text-neutral-500 dark:text-neutral-400"
             color="inherit"
             display="block"
             variant="body">

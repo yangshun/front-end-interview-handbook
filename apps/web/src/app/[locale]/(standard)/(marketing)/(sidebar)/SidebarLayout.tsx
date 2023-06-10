@@ -13,7 +13,7 @@ export default function SidebarContainer() {
   return (
     <aside
       className={clsx(
-        'sticky z-20 hidden shrink-0 overflow-visible border-r border-slate-200 md:block',
+        'sticky z-20 hidden shrink-0 overflow-visible border-r border-neutral-200 md:block',
         isCollapsed ? 'w-[68px]' : 'w-60',
       )}
       style={{

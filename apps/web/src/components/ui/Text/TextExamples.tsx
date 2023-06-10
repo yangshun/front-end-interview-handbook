@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { capitalize } from 'lodash-es';
 import { Fragment } from 'react';
 
@@ -13,6 +14,7 @@ const colors: ReadonlyArray<TextColor> = [
   'placeholder',
   'error',
   'success',
+  'invert',
   'inherit',
 ];
 const variants: ReadonlyArray<TextVariant> = ['body', 'body2', 'body3'];
@@ -38,7 +40,13 @@ export default function TextExamples() {
       ))}
       <div className="flex flex-wrap gap-4">
         {colors.map((color) => (
-          <Text key={color} className="whitespace-nowrap" color={color}>
+          <Text
+            key={color}
+            className={clsx(
+              'whitespace-nowrap',
+              color === 'invert' && 'bg-black dark:bg-white',
+            )}
+            color={color}>
             {capitalize(color)}
           </Text>
         ))}

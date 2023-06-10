@@ -65,7 +65,7 @@ export default function QuestionDifficultyLabel({
         {showIcon && (
           <FireIcon
             aria-hidden="true"
-            className="mr-1.5 h-5 w-5 flex-shrink-0 text-slate-400"
+            className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
           />
         )}
         <Text

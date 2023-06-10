@@ -148,7 +148,7 @@ function NoBillingPlan() {
 
   return (
     <div className="py-12 text-center">
-      <CreditCardIcon className="mx-auto h-12 w-12 text-slate-400" />
+      <CreditCardIcon className="mx-auto h-12 w-12 text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="Not Subscribed"

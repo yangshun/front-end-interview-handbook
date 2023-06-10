@@ -88,7 +88,7 @@ export default function MarketingEmailSubscribe() {
               </label>
               <input
                 autoComplete="email"
-                className="focus:ring-offset-brand-600 block w-full rounded-md border border-transparent px-5 py-3 text-base text-slate-900 placeholder-slate-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                className="focus:ring-offset-brand-600 block w-full rounded-md border border-transparent px-5 py-3 text-base text-neutral-900 placeholder-neutral-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 id={emailId}
                 name="email"
                 placeholder={intl.formatMessage({

@@ -33,7 +33,7 @@ export default function Navbar({
   const rightLinks = links.filter(({ position }) => position === 'end');
 
   const divider = (
-    <hr aria-hidden="true" className="my-2 border-t border-slate-200" />
+    <hr aria-hidden="true" className="my-2 border-t border-neutral-200" />
   );
 
   function closeMobileNav() {
@@ -41,7 +41,7 @@ export default function Navbar({
   }
 
   return (
-    <div className="sticky top-0 z-30 border-b border-slate-200 bg-white">
+    <div className="sticky top-0 z-30 border-b border-neutral-200 bg-white">
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
         <div className="flex h-14 items-center justify-between md:justify-start md:gap-4">
           <div className="flex items-center justify-start lg:w-0 lg:grow">
@@ -66,7 +66,7 @@ export default function Navbar({
           </div>
           <div className="-my-2 -mr-2 lg:hidden">
             <button
-              className="focus:ring-brand-500 inline-flex items-center justify-center rounded-md bg-white p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset"
+              className="focus:ring-brand-500 inline-flex items-center justify-center rounded-md bg-white p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
               type="button"
               onClick={() => {
                 setIsMobileNavOpen(true);
@@ -90,7 +90,7 @@ export default function Navbar({
             leave="transition-opacity ease-linear duration-300"
             leaveFrom="opacity-100"
             leaveTo="opacity-0">
-            <div className="fixed inset-0 bg-slate-600 bg-opacity-75" />
+            <div className="fixed inset-0 bg-neutral-600 bg-opacity-75" />
           </Transition.Child>
           <div className="fixed inset-0 z-40 flex">
             <Transition.Child
@@ -169,7 +169,7 @@ export default function Navbar({
                   </nav>
                 </div>
                 {mobileSidebarBottomItems && (
-                  <div className="flex flex-shrink-0 border-t border-slate-200 p-4">
+                  <div className="flex flex-shrink-0 border-t border-neutral-200 p-4">
                     {mobileSidebarBottomItems}
                   </div>
                 )}

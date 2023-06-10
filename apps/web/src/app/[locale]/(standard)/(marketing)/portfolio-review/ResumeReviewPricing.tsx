@@ -35,7 +35,7 @@ const tiers = [
 
 export default function ResumeReviewPricing() {
   return (
-    <div className="bg-slate-900" id="pricing">
+    <div className="bg-neutral-900" id="pricing">
       <Container className="relative isolate" variant="narrow">
         <div
           aria-hidden="true"
@@ -56,7 +56,7 @@ export default function ResumeReviewPricing() {
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Simple pricing based on your needs
             </h2>
-            <p className="mx-auto mt-6 text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 text-lg leading-8 text-neutral-300">
               Choose a plan based on what you need.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function ResumeReviewPricing() {
                       </p>
                     ) : null}
                   </div>
-                  <p className="mt-4 text-sm leading-6 text-slate-300">
+                  <p className="mt-4 text-sm leading-6 text-neutral-300">
                     {tier.description}
                   </p>
                   <p className="mt-6 flex items-baseline gap-x-1">
@@ -103,7 +103,7 @@ export default function ResumeReviewPricing() {
                     Buy Now
                   </a>
                   <ul
-                    className="mt-8 space-y-3 text-sm leading-6 text-slate-300 xl:mt-10"
+                    className="mt-8 space-y-3 text-sm leading-6 text-neutral-300 xl:mt-10"
                     role="list">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex gap-x-3">

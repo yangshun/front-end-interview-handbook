@@ -83,7 +83,7 @@ export default function MarketingHeroNew({
       <div className="relative pt-0 pb-8 sm:pb-16 md:pb-20">
         <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
           <div className="text-center">
-            <div className="space-y-4 pb-6 text-xs font-medium text-slate-400 sm:text-sm lg:space-y-5 lg:pb-8 lg:text-sm">
+            <div className="space-y-4 pb-6 text-xs font-medium text-neutral-400 sm:text-sm lg:space-y-5 lg:pb-8 lg:text-sm">
               <p>
                 <FormattedMessage
                   defaultMessage="Contributed by ex-interviewers at"
@@ -93,7 +93,7 @@ export default function MarketingHeroNew({
               </p>
               <span className="flex items-center justify-center space-x-6 lg:space-x-8">
                 <GoogleLogo
-                  className="h-[1.5rem] text-slate-500 lg:h-[2.1rem]"
+                  className="h-[1.5rem] text-neutral-500 lg:h-[2.1rem]"
                   title={intl.formatMessage({
                     defaultMessage: 'Google logo',
                     description: 'Google company logo',
@@ -101,7 +101,7 @@ export default function MarketingHeroNew({
                   })}
                 />
                 <AmazonLogo
-                  className="mt-1 h-6 text-slate-500 lg:mt-2 lg:h-7"
+                  className="mt-1 h-6 text-neutral-500 lg:mt-2 lg:h-7"
                   title={intl.formatMessage({
                     defaultMessage: 'Amazon logo',
                     description: 'Amazon company logo',
@@ -109,7 +109,7 @@ export default function MarketingHeroNew({
                   })}
                 />
                 <MetaLogo
-                  className="h-4 text-slate-500 lg:mb-2 lg:h-5"
+                  className="h-4 text-neutral-500 lg:mb-2 lg:h-5"
                   title={intl.formatMessage({
                     defaultMessage: 'Meta logo',
                     description: 'Meta company logo',
@@ -135,7 +135,7 @@ export default function MarketingHeroNew({
                 }}
               />
             </Heading>
-            <p className="mx-auto mt-8 max-w-md text-base text-slate-700 sm:text-lg md:mt-12 md:max-w-3xl md:text-xl xl:text-xl">
+            <p className="mx-auto mt-8 max-w-md text-base text-neutral-700 sm:text-lg md:mt-12 md:max-w-3xl md:text-xl xl:text-xl">
               <FormattedMessage
                 defaultMessage="We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers."
                 description="Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
@@ -156,7 +156,7 @@ export default function MarketingHeroNew({
       <div className={clsx('relative')}>
         <Container>
           <div className="mx-auto flex items-center">
-            <p className="mb-4 hidden w-1/4 justify-end text-base text-slate-500 sm:px-4 sm:text-sm md:text-base lg:text-xl xl:flex">
+            <p className="mb-4 hidden w-1/4 justify-end text-base text-neutral-500 sm:px-4 sm:text-sm md:text-base lg:text-xl xl:flex">
               <FormattedMessage
                 defaultMessage="Try our questions here:"
                 description="Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."

@@ -67,7 +67,7 @@ export default function Tabs<T>({
 
   return (
     <div className="isolate w-full" role="tablist">
-      <div className="border-b border-slate-200 dark:border-slate-800">
+      <div className="border-b border-neutral-200 dark:border-neutral-800">
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>
           {tabs.map((tabItem) => {
             const {
@@ -89,7 +89,7 @@ export default function Tabs<T>({
                     <Icon
                       className={clsx(
                         'shrink-0',
-                        !isSelected && 'text-slate-400 dark:text-slate-600',
+                        !isSelected && 'text-neutral-400 dark:text-neutral-600',
                         iconSize,
                       )}
                     />
@@ -103,14 +103,14 @@ export default function Tabs<T>({
                 isSelected
                   ? clsx(
                       'border',
-                      'border-t-slate-200 border-x-slate-200 border-b-white',
-                      'dark:border-t-slate-800 dark:border-x-slate-800 dark:border-b-slate-900',
+                      'border-t-neutral-200 border-x-neutral-200 border-b-white',
+                      'dark:border-t-neutral-800 dark:border-x-neutral-800 dark:border-b-neutral-900',
                     )
                   : clsx(
-                      'bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-800/40',
+                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',
                       'border',
-                      'border-t-slate-100 border-x-slate-100 hover:border-slate-200',
-                      'dark:border-t-slate-800 dark:border-x-slate-800 dark:border-b-slate-800 dark:hover:border-t-slate-700 dark:hover:border-x-slate-700',
+                      'border-t-neutral-100 border-x-neutral-100 hover:border-neutral-200',
+                      'dark:border-t-neutral-800 dark:border-x-neutral-800 dark:border-b-neutral-800 dark:hover:border-t-neutral-700 dark:hover:border-x-neutral-700',
                     ),
                 tabItemSize,
               ),

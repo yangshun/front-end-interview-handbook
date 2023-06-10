@@ -309,7 +309,7 @@ function Contents({
             </div>
             {isMounted() && showLoadedPreviousCode && (
               <div
-                className="bg-brand-50 flex shrink-0 items-center justify-between border-t border-slate-200 py-3 px-4 sm:px-6 lg:px-4"
+                className="bg-brand-50 flex shrink-0 items-center justify-between border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
                 suppressHydrationWarning={true}>
                 <Text variant="body3">
                   <FormattedMessage
@@ -347,7 +347,7 @@ function Contents({
                 />
               </div>
             )}
-            <div className="flex items-center justify-between border-t border-slate-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
+            <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
               <div>
                 <div className={clsx(layout === 'horizontal' && 'lg:hidden')}>
                   <Button

@@ -26,7 +26,7 @@ export default function SelectExamples() {
   const [value, setValue] = useState('javascript');
 
   return (
-    <UIExamplesGroup title="Select">
+    <UIExamplesGroup darkMode="horizontal" title="Select">
       <div className="flex gap-x-24">
         <Select
           label="Framework"

@@ -59,8 +59,8 @@ export default function QuestionCategoryTitleSection({
           <Anchor
             key={value}
             className={clsx(
-              'group flex items-center gap-x-2 rounded-full border border-slate-200 px-8 py-2 text-xs font-medium sm:text-sm',
-              value === category ? 'bg-brand-100' : 'hover:bg-slate-50',
+              'group flex items-center gap-x-2 rounded-full border border-neutral-200 px-8 py-2 text-xs font-medium sm:text-sm',
+              value === category ? 'bg-brand-100' : 'hover:bg-neutral-50',
             )}
             href={`/questions/${value}`}
             variant="unstyled">

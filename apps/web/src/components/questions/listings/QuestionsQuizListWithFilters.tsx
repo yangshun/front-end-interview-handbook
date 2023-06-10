@@ -229,7 +229,7 @@ export default function QuestionsQuizListWithFilters({
           </div>
         ) : (
           <>
-            <div className="flex flex-col justify-end gap-2 border-b border-slate-200 pb-4 sm:flex-row sm:items-center">
+            <div className="flex flex-col justify-end gap-2 border-b border-neutral-200 pb-4 sm:flex-row sm:items-center">
               <div className="flex-1">
                 <TextInput
                   autoComplete="off"
@@ -276,7 +276,7 @@ export default function QuestionsQuizListWithFilters({
         </div>
       </section>
       {layout === 'full' && (
-        <aside className="hidden h-full flex-col gap-y-8 border-l border-slate-200 pl-8 lg:col-span-3 lg:flex">
+        <aside className="hidden h-full flex-col gap-y-8 border-l border-neutral-200 pl-8 lg:col-span-3 lg:flex">
           <Heading className="sr-only" level="custom">
             <FormattedMessage
               defaultMessage="Filters"

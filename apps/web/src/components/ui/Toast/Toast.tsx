@@ -59,8 +59,8 @@ const classes: Record<
     textColor: 'white',
   },
   plain: {
-    backgroundClass: 'bg-slate-900 dark:bg-white',
-    iconClass: 'text-slate-900 focus:ring-slate-500',
+    backgroundClass: 'bg-neutral-900 dark:bg-white',
+    iconClass: 'text-neutral-900 focus:ring-neutral-500',
     textColor: 'invert',
   },
   special: {

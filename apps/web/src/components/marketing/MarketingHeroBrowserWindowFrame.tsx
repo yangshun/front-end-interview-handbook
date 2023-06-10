@@ -6,9 +6,9 @@ type Props = Readonly<{
 
 export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
   return (
-    <div className="w-full overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-slate-900/5 sm:rounded-xl">
+    <div className="w-full overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-neutral-900/5 sm:rounded-xl">
       <div
-        className="grid items-center gap-6 bg-slate-800 py-2.5 px-4"
+        className="grid items-center gap-6 bg-neutral-800 py-2.5 px-4"
         style={{
           gridTemplateColumns: '4rem 1fr 4rem',
         }}>
@@ -18,9 +18,9 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
           <div className="h-3 w-3 rounded-full bg-[#61C454]" />
         </div>
         <div>
-          <div className="mx-auto flex items-center justify-center rounded-full bg-slate-700 py-1 text-xs font-medium leading-6 text-slate-200 ring-1 ring-inset ring-slate-900/5 sm:w-3/5">
+          <div className="mx-auto flex items-center justify-center rounded-full bg-neutral-700 py-1 text-xs font-medium leading-6 text-neutral-200 ring-1 ring-inset ring-neutral-900/5 sm:w-3/5">
             <svg
-              className="mr-1.5 h-3.5 w-3.5 text-slate-300"
+              className="mr-1.5 h-3.5 w-3.5 text-neutral-300"
               fill="currentColor"
               viewBox="0 0 20 20">
               <path

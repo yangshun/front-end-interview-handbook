@@ -210,7 +210,7 @@ function FooterSection({
   return (
     <div className="flex flex-col gap-y-4">
       <Heading
-        className="text-sm font-medium uppercase tracking-wider text-slate-400"
+        className="text-sm font-medium uppercase tracking-wider text-neutral-400"
         color="custom"
         level="custom">
         {title}
@@ -257,7 +257,7 @@ export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className="border-t border-slate-200 bg-white">
+      className="border-t border-neutral-200 bg-white">
       <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
@@ -272,7 +272,7 @@ export default function Footer() {
               <div>
                 <LogoLink size="xl" />
               </div>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-neutral-500">
                 <FormattedMessage
                   defaultMessage="The most complete all-in-one front end interview preparation platform."
                   description="Text under GreatFrontEnd logo on the Footer, to describe main offering"
@@ -283,7 +283,7 @@ export default function Footer() {
                 {navigation.social.map(({ key, href, name, icon: Icon }) => (
                   <Anchor
                     key={key}
-                    className="hover:text-brand-500 text-slate-500"
+                    className="hover:text-brand-500 text-neutral-500"
                     href={href}
                     variant="unstyled">
                     <span className="sr-only">{name}</span>
@@ -364,8 +364,8 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="mt-12 border-t border-slate-200 pt-8">
-            <p className="text-base text-slate-400 xl:text-center">
+          <div className="mt-12 border-t border-neutral-200 pt-8">
+            <p className="text-base text-neutral-400 xl:text-center">
               &copy; {new Date().getFullYear()}{' '}
               <FormattedMessage
                 defaultMessage="Codeney Pte Ltd. All rights

@@ -51,7 +51,7 @@ export default function GuidesNavbar({
 
   return (
     <div
-      className="sticky z-30 border-b border-slate-200 bg-white lg:hidden"
+      className="sticky z-30 border-b border-neutral-200 bg-white lg:hidden"
       style={{ top: 'var(--navbar-height)' }}>
       <Container className="flex h-10 items-center justify-between">
         <Button

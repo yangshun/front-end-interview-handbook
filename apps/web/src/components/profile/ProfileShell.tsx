@@ -95,7 +95,7 @@ export default function ProfileShell({ user, children }: Props) {
       </Heading>
       <Section>
         {/* 3 column wrapper */}
-        <div className="mx-auto w-full max-w-6xl flex-grow border-slate-200 lg:flex lg:border-x">
+        <div className="mx-auto w-full max-w-6xl flex-grow border-neutral-200 lg:flex lg:border-x">
           {/* Left sidebar & main wrapper */}
           <div className="min-w-0 flex-1 bg-white xl:flex">
             {/* Account profile */}
@@ -159,7 +159,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center space-x-2">
                             <EnvelopeIcon
                               aria-hidden="true"
-                              className="h-5 w-5 shrink-0 text-slate-400"
+                              className="h-5 w-5 shrink-0 text-neutral-400"
                             />
                             <Text color="secondary" variant="body2">
                               {user.email}
@@ -169,7 +169,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center space-x-2">
                               <UserCircleIcon
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-slate-400"
+                                className="h-5 w-5 shrink-0 text-neutral-400"
                               />
                               <Text color="secondary" variant="body2">
                                 {user.id}
@@ -180,7 +180,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center space-x-2">
                               <CalendarIcon
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-slate-400"
+                                className="h-5 w-5 shrink-0 text-neutral-400"
                               />
                               <Text color="secondary" variant="body2">
                                 {intl.formatMessage(
@@ -205,7 +205,7 @@ export default function ProfileShell({ user, children }: Props) {
                               <div className="flex items-center space-x-2">
                                 <GitHubIcon
                                   aria-hidden="true"
-                                  className="h-5 w-5 shrink-0 text-slate-400"
+                                  className="h-5 w-5 shrink-0 text-neutral-400"
                                 />
                                 <Text color="secondary" variant="body2">
                                   <Anchor
@@ -218,7 +218,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center space-x-2">
                             <DiscordIcon
                               aria-hidden="true"
-                              className="h-5 w-5 shrink-0 text-slate-400"
+                              className="h-5 w-5 shrink-0 text-neutral-400"
                             />
                             <Text color="secondary" variant="body2">
                               <Anchor href="https://discord.gg/NDFx8f6P6B">
@@ -257,8 +257,8 @@ export default function ProfileShell({ user, children }: Props) {
                 </div>
               </div>
             </div>
-            <div className="border-slate-200 bg-white lg:min-w-0 lg:flex-1 lg:border-l">
-              <div className="border-t border-slate-200 pl-4 pr-4 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
+            <div className="border-neutral-200 bg-white lg:min-w-0 lg:flex-1 lg:border-l">
+              <div className="border-t border-neutral-200 pl-4 pr-4 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
                 <div className="flex items-center">
                   <Tabs
                     label="Select navigation item"

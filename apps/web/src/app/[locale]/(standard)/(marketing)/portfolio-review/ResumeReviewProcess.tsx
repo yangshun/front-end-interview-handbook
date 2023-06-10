@@ -64,7 +64,7 @@ const features = [
 export default function ResumeReviewProcess() {
   return (
     <div
-      className="relative isolate overflow-hidden bg-slate-900 py-16 lg:py-24 xl:py-32"
+      className="relative isolate overflow-hidden bg-neutral-900 py-16 lg:py-24 xl:py-32"
       id="whats-included">
       <img
         alt=""
@@ -91,7 +91,7 @@ export default function ResumeReviewProcess() {
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               We go beyond your portfolio to help you grow
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
+            <p className="mt-6 text-lg leading-8 text-neutral-300">
               Our feedback is tailored for career progression, not just 1
               one-time job search. We combine years of experience screening
               candidates with a detailed understanding of your skillsets and
@@ -114,12 +114,12 @@ export default function ResumeReviewProcess() {
                     <h3 className="text-lg font-semibold text-white">
                       {feature.name}
                     </h3>
-                    <p className="mt-2 text-base leading-7 text-slate-300 ">
+                    <p className="mt-2 text-base leading-7 text-neutral-300 ">
                       {feature.description}
                     </p>
                   </div>
                   <ul
-                    className="mt-8 space-y-3 text-base leading-6 text-slate-300 xl:mt-10"
+                    className="mt-8 space-y-3 text-base leading-6 text-neutral-300 xl:mt-10"
                     role="list">
                     {feature.subfeatures.map((subfeature) => (
                       <li key={subfeature} className="flex gap-x-3">

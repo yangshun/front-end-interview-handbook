@@ -16,7 +16,7 @@ export default function Tabs<T>({ label, tabs, value, onSelect }: Props<T>) {
   return (
     <div className="w-full">
       <div role="tablist">
-        <div className="border-b border-slate-200">
+        <div className="border-b border-neutral-200">
           <nav aria-label={label} className="-mb-px flex space-x-4">
             {tabs.map((tab) => {
               const isSelected = tab.value === value;
@@ -27,7 +27,7 @@ export default function Tabs<T>({ label, tabs, value, onSelect }: Props<T>) {
                 className: clsx(
                   isSelected
                     ? 'border-brand-500 text-brand-600 font-medium'
-                    : 'border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-200',
+                    : 'border-transparent text-neutral-500 hover:text-neutral-900 hover:border-neutral-200',
                   'py-4 px-1 border-b-2 text-sm sm:text-base md:text-lg xl:text-xl text-center w-1/4',
                 ),
                 onClick:

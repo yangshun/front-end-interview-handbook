@@ -26,11 +26,11 @@ function NavbarPopoverLink({
           />
         </div>
         <div className="ml-4">
-          <p className="flex items-center gap-2 text-base font-medium text-slate-900">
+          <p className="flex items-center gap-2 text-base font-medium text-neutral-900">
             <span>{label}</span> {labelAddon}
           </p>
           {sublabel && (
-            <p className="mt-1 text-sm text-slate-500">{sublabel}</p>
+            <p className="mt-1 text-sm text-neutral-500">{sublabel}</p>
           )}
         </div>
       </>
@@ -43,7 +43,7 @@ function NavbarPopoverLink({
           />
         </div>
         <div className="ml-4">
-          <p className="flex items-center gap-2 text-base font-medium text-slate-900">
+          <p className="flex items-center gap-2 text-base font-medium text-neutral-900">
             <span>{label}</span> {labelAddon}
           </p>
         </div>
@@ -51,7 +51,7 @@ function NavbarPopoverLink({
     );
 
   const item = (
-    <div className="group -mx-3 flex items-start rounded-lg p-3 hover:bg-slate-50">
+    <div className="group -mx-3 flex items-start rounded-lg p-3 hover:bg-neutral-50">
       {el}
     </div>
   );
@@ -74,7 +74,7 @@ function NavbarPopoverLink({
 function NavbarPopoverGroup({ label, items, onClick }: NavPopoverGroupItem) {
   return (
     <div className="flex flex-col space-y-2">
-      <p className="text-sm font-medium text-slate-500">{label}</p>
+      <p className="text-sm font-medium text-neutral-500">{label}</p>
       <ul className="space-y-1" role="list">
         {items.map(({ onClick: onItemClick, ...item }) => (
           <li key={item.itemKey}>

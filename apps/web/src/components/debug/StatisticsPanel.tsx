@@ -39,7 +39,7 @@ export default function StatisticsPanel({ className, serverDuration }: Props) {
   }
 
   return (
-    <div className={clsx('border border-slate-200 p-3 text-xs', className)}>
+    <div className={clsx('border border-neutral-200 p-3 text-xs', className)}>
       {serverDuration && <>Duration: {Math.round(serverDuration)}ms</>}
     </div>
   );

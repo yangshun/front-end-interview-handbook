@@ -52,8 +52,8 @@ export default function MarketingAffiliateHero() {
             <div className="mx-auto max-w-3xl">
               <div>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-slate-900/10 hover:ring-slate-900/20">
-                    <span className="text-slate-600">
+                  <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-neutral-900/10 hover:ring-neutral-900/20">
+                    <span className="text-neutral-600">
                       <FormattedMessage
                         defaultMessage="Already an affiliate? <link>Access dashboard</link>"
                         description="Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -85,7 +85,7 @@ export default function MarketingAffiliateHero() {
                       id="lfY3AI"
                     />
                   </Heading>
-                  <p className="mx-auto mt-8 max-w-md text-center text-xl text-slate-700 md:mt-12 md:max-w-3xl xl:text-xl">
+                  <p className="mx-auto mt-8 max-w-md text-center text-xl text-neutral-700 md:mt-12 md:max-w-3xl xl:text-xl">
                     <FormattedMessage
                       defaultMessage="Earn passive commissions when others purchase GreatFrontEnd through you."
                       description="Subtitle of the Hero section of the 'Become An Affiliate' page"
@@ -107,7 +107,7 @@ export default function MarketingAffiliateHero() {
                       </span>
                     </Anchor>
                     <Anchor
-                      className="text-brand-600 ring-brand-600 hidden rounded-lg px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 transition-colors hover:bg-slate-700 hover:text-white hover:ring-slate-700 sm:inline-block sm:text-lg"
+                      className="text-brand-600 ring-brand-600 hidden rounded-lg px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 transition-colors hover:bg-neutral-700 hover:text-white hover:ring-neutral-700 sm:inline-block sm:text-lg"
                       href="mailto:contact@greatfrontend.com?subject=GreatFrontEnd Affiliate"
                       variant="unstyled">
                       <FormattedMessage

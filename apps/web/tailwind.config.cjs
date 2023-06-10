@@ -3,6 +3,20 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
+const neutral = {
+  50: '#fafafa',
+  100: '#f4f4f5',
+  200: '#e4e4e7',
+  300: '#d4d4d8',
+  400: '#a1a1aa',
+  500: '#71717a',
+  600: '#52525b',
+  700: '#3f3f46',
+  800: '#27272a',
+  900: '#18181b',
+  950: '#070708',
+};
+
 const green = {
   lighter: colors.green['100'],
   light: colors.green['400'],
@@ -65,6 +79,8 @@ module.exports = {
         danger: red,
         yellow,
         warning: yellow,
+        neutral,
+        gray: neutral,
       },
       opacity: {
         1: '0.01',

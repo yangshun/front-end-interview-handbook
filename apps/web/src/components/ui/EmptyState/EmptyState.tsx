@@ -45,13 +45,13 @@ const icons: Record<
   under_construction: WrenchScrewdriverIcon,
 };
 const colors: Record<EmptyStateVariant, string> = {
-  empty: 'text-slate-400',
+  empty: 'text-neutral-400',
   error: 'text-danger',
-  exit: 'text-slate-400',
-  login: 'text-slate-400',
-  not_subscribed: 'text-slate-400',
+  exit: 'text-neutral-400',
+  login: 'text-neutral-400',
+  not_subscribed: 'text-neutral-400',
   success: 'text-success',
-  under_construction: 'text-slate-400',
+  under_construction: 'text-neutral-400',
 };
 
 export default function EmptyState({
