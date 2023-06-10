@@ -17,9 +17,10 @@ Let's move to discuss the hard part of the question about deep-comparing objects
 
 To get around this, you can combine the `instanceof` operator to check for the constructor of a given object. But an easier and cleaner way to detect data types is to use `Object.prototype.toString`. Check out [my article](https://www.zhenghao.io/posts/js-data-type) if you want to dive deep on this topic.
 
-Now I have a utility function `shouldDeepCompare` that will tell us whether we should traverse down the current property of the input object based on the data type retrieved by `getType`. When the current property is _not_ an object or an array, we can proceed to compare their types and values via `Object.is`.
+A utility function `shouldDeepCompare` will be useful for determining whether we should traverse down the current property of the input object based on the data type retrieved by `getType`. When the current property is _not_ an object or an array, we can proceed to compare their types and values via `Object.is`.
 
 ```js
+// Warning: Incomplete solution. Refer to below.
 function shouldDeepCompare(type) {
   return type === '[object Object]' || type === '[object Array]';
 }
@@ -43,10 +44,9 @@ export default function deepEqual(value1, value2) {
 Now let's work on the case where both input values are objects or arrays. Because we need to traverse down any objects/arrays we found in the input. If it is an array, we can just loop through the items. However if it is an object, we either use `for...in` statement to loop through all the keys (own keys _and_ inherited keys), or we can convert its own enumerable, non-symbol-keyed properties into an array of key-value pairs with `Object.entries` and then we can loop through that array instead. The benefits with the second approach are:
 
 1. We only get its own properties, as opposed to inherited ones.
-
 1. We can bail out of comparison if the lengths of two arrays are different. That is, two objects/arrays have different numbers of properties/items.
 
-Here is the complete solution
+Here is the complete solution:
 
 <MDXCodeBlock>{deepEqual}</MDXCodeBlock>
 
