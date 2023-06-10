@@ -3,12 +3,34 @@ import React from 'react';
 
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
+type BannerVariant = 'primary' | 'special';
+
 type Props = Readonly<{
   children: React.ReactNode;
   onHide?: () => void;
   size?: 'md' | 'sm' | 'xs';
-  variant?: 'primary' | 'special';
+  variant?: BannerVariant;
 }>;
+
+const variantClasses: Record<
+  BannerVariant,
+  Readonly<{
+    backgroundColorClass: string;
+    buttonClass: string;
+    textColorClass: string;
+  }>
+> = {
+  primary: {
+    backgroundColorClass: 'bg-brand-500',
+    buttonClass: 'hover:bg-brand-400',
+    textColorClass: 'text-white',
+  },
+  special: {
+    backgroundColorClass: 'bg-slate-900 dark:bg-white',
+    buttonClass: 'hover:bg-slate-700 dark:hover:bg-slate-100',
+    textColorClass: 'text-white dark:text-slate-700',
+  },
+};
 
 export default function Banner({
   children,
@@ -16,12 +38,15 @@ export default function Banner({
   variant = 'primary',
   onHide,
 }: Props) {
+  const { backgroundColorClass, buttonClass, textColorClass } =
+    variantClasses[variant];
+
   return (
     <div
       className={clsx(
         'relative',
-        variant === 'primary' && 'bg-brand-500 text-white',
-        variant === 'special' && 'bg-slate-900 text-white',
+        backgroundColorClass,
+        textColorClass,
         size === 'md' && 'text-xs sm:text-sm md:text-base',
         size === 'sm' && 'text-xs md:text-sm',
         size === 'xs' && 'text-2xs md:text-xs',
@@ -43,6 +68,8 @@ export default function Banner({
                 'flex rounded-md focus:outline-none focus:ring-2 focus:ring-white',
                 variant === 'primary' && 'hover:bg-brand-400',
                 variant === 'special' && 'hover:bg-slate-700',
+                buttonClass,
+                textColorClass,
                 size === 'md' && 'p-1',
                 size === 'sm' && 'p-0.5',
                 size === 'xs' && 'p-0.5',
@@ -50,7 +77,7 @@ export default function Banner({
               type="button"
               onClick={onHide}>
               <span className="sr-only">Dismiss</span>
-              <XMarkIcon aria-hidden="true" className="h-5 w-5 text-white" />
+              <XMarkIcon aria-hidden="true" className={clsx('h-5 w-5')} />
             </button>
           </div>
         )}
