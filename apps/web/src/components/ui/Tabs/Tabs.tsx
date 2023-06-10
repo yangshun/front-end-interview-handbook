@@ -67,7 +67,7 @@ export default function Tabs<T>({
 
   return (
     <div className="isolate w-full" role="tablist">
-      <div className="border-b border-slate-200">
+      <div className="border-b border-slate-200 dark:border-slate-800">
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>
           {tabs.map((tabItem) => {
             const {
@@ -89,7 +89,7 @@ export default function Tabs<T>({
                     <Icon
                       className={clsx(
                         'shrink-0',
-                        !isSelected && 'text-slate-400',
+                        !isSelected && 'text-slate-400 dark:text-slate-600',
                         iconSize,
                       )}
                     />
@@ -101,10 +101,16 @@ export default function Tabs<T>({
                 'flex items-center whitespace-nowrap -mb-px z-10 transition',
                 borderRadius,
                 isSelected
-                  ? 'border border-t-slate-200 border-x-slate-200 border-b-white'
+                  ? clsx(
+                      'border',
+                      'border-t-slate-200 border-x-slate-200 border-b-white',
+                      'dark:border-t-slate-800 dark:border-x-slate-800 dark:border-b-slate-900',
+                    )
                   : clsx(
-                      'bg-slate-100 border border-t-slate-100 border-x-slate-100 border-b-slate-200',
-                      'hover:bg-slate-50 hover:border-slate-200',
+                      'bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-800/40',
+                      'border',
+                      'border-t-slate-100 border-x-slate-100 hover:border-slate-200',
+                      'dark:border-t-slate-800 dark:border-x-slate-800 dark:border-b-slate-800 dark:hover:border-t-slate-700 dark:hover:border-x-slate-700',
                     ),
                 tabItemSize,
               ),
