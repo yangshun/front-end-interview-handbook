@@ -3,10 +3,12 @@ import React from 'react';
 
 export type TextColor =
   | 'active'
+  | 'dark'
   | 'default'
   | 'disabled'
   | 'error'
   | 'inherit'
+  | 'invert'
   | 'placeholder'
   | 'secondary'
   | 'success'
@@ -46,11 +48,13 @@ const weightClasses: Record<TextWeight, string> = {
 
 const colorClasses: Record<TextColor, string> = {
   active: 'text-brand-500',
-  default: 'text-slate-900',
-  disabled: 'text-slate-400',
+  dark: 'text-slate-900',
+  default: 'text-slate-900 dark:text-white',
+  disabled: 'text-slate-400 dark:text-slate-600',
   error: 'text-danger',
   inherit: '',
-  placeholder: 'text-slate-400',
+  invert: 'text-white dark:text-slate-900',
+  placeholder: 'text-slate-400 dark:text-slate-600',
   secondary: 'text-gray-500',
   success: 'text-success',
   white: 'text-white',
@@ -58,7 +62,7 @@ const colorClasses: Record<TextColor, string> = {
 
 export default function Text({
   children,
-  color = 'inherit',
+  color = 'default',
   className,
   display = 'inline',
   variant = 'body',

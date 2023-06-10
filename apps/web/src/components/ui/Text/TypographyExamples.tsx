@@ -18,7 +18,12 @@ export default function TypographyExamples() {
   return (
     <UIExamplesGroup title="Typography">
       {sizes.map((sizeClass) => (
-        <div key={sizeClass} className={clsx('text-semibold', sizeClass)}>
+        <div
+          key={sizeClass}
+          className={clsx(
+            'text-semibold text-slate-900 dark:text-white',
+            sizeClass,
+          )}>
           The quick brown fox jumps over the lazy dog ({sizeClass})
         </div>
       ))}

@@ -24,33 +24,31 @@ import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
 
 export default function UILibraryPage() {
   return (
-    <Container>
-      <div className="space-y-24 py-12 lg:py-24">
-        {/* Basics */}
-        <TypographyExamples />
-        <HeadingExamples />
-        <TextExamples />
-        {/* Form */}
-        <ButtonExamples />
-        <TextInputExamples />
-        <TextAreaExamples />
-        <SelectExamples />
-        <DropdownMenuExamples />
-        <CheckboxInputExamples />
-        {/* Others */}
-        <TabsExamples />
-        <SpinnerExamples />
-        <BannerExamples />
-        <AlertExamples />
-        <BadgeExamples />
-        <EmptyStateExamples />
-        {/* Layer */}
-        <TooltipExamples />
-        <HoverCardExamples />
-        <SlideOutExamples />
-        <DialogExamples />
-        <ToastExamples />
-      </div>
-    </Container>
+    <div className="space-y-24 py-12 lg:py-24">
+      {/* Basics */}
+      <TypographyExamples />
+      <HeadingExamples />
+      <TextExamples />
+      {/* Form */}
+      <ButtonExamples />
+      <TextInputExamples />
+      <TextAreaExamples />
+      <SelectExamples />
+      <DropdownMenuExamples />
+      <CheckboxInputExamples />
+      {/* Others */}
+      <TabsExamples />
+      <SpinnerExamples />
+      <BannerExamples />
+      <AlertExamples />
+      <BadgeExamples />
+      <EmptyStateExamples />
+      {/* Layer */}
+      <TooltipExamples />
+      <HoverCardExamples />
+      <SlideOutExamples />
+      <DialogExamples />
+      <ToastExamples />
+    </div>
   );
 }

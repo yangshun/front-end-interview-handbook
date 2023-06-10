@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import Container from '../Container';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 
@@ -16,11 +17,29 @@ export default function UIExamplesGroup({
   gapSize = 'md',
 }: Readonly<{ children: React.ReactNode; gapSize?: GapSize; title: string }>) {
   return (
-    <div className="grid gap-4">
-      <Heading level="heading2">{title}</Heading>
-      <hr />
+    <div>
+      <Container>
+        <Heading level="heading2">{title}</Heading>
+        <hr className="mt-2" />
+      </Container>
       <Section>
-        <div className={clsx('grid', gapClasses[gapSize])}>{children}</div>
+        <div className="flex flex-col">
+          <div>
+            <Container>
+              <div className={clsx('grid w-full py-12', gapClasses[gapSize])}>
+                {children}
+              </div>
+            </Container>
+          </div>
+          <div className="bg-slate-900">
+            <Container>
+              <div
+                className={clsx('dark grid w-full py-12', gapClasses[gapSize])}>
+                {children}
+              </div>
+            </Container>
+          </div>
+        </div>
       </Section>
     </div>
   );
