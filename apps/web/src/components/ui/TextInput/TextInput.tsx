@@ -1,14 +1,24 @@
 import clsx from 'clsx';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, InputHTMLAttributes } from 'react';
 import React, { useId } from 'react';
 
 import Text from '../Text/Text';
 
 export type TextInputSize = 'md' | 'sm' | 'xs';
 
+type Attributes = Pick<
+  InputHTMLAttributes<HTMLInputElement>,
+  | 'autoComplete'
+  | 'autoFocus'
+  | 'id'
+  | 'name'
+  | 'onBlur'
+  | 'onFocus'
+  | 'placeholder'
+  | 'required'
+>;
+
 type Props = Readonly<{
-  autoComplete?: string;
-  autoFocus?: boolean;
   defaultValue?: string;
   description?: React.ReactNode;
   endIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -17,22 +27,29 @@ type Props = Readonly<{
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
-  name?: string;
   onChange?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
   size?: TextInputSize;
   startIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   type?: 'email' | 'password' | 'text';
   value?: string;
-}>;
+}> &
+  Readonly<Attributes>;
 
 type State = 'error' | 'normal';
 
 const stateClasses: Record<State, string> = {
-  error:
-    'border-danger-light focus:ring-danger focus:border-danger text-danger-darker placeholder-danger-light',
-  normal:
-    'placeholder:text-slate-300 focus:ring-brand-500 focus:border-brand-500 border-slate-200',
+  error: clsx(
+    'text-slate-700 dark:text-slate-300',
+    'border-danger-light',
+    'placeholder-danger-light',
+    'focus:ring-danger focus:border-danger',
+  ),
+  normal: clsx(
+    'text-slate-700 dark:text-slate-300',
+    'border-slate-200 dark:border-slate-800',
+    'placeholder:text-slate-400 dark:placeholder:text-slate-600',
+    'focus:ring-brand-500 focus:border-brand-500',
+  ),
 };
 
 const fontSizeClasses: Record<TextInputSize, string> = {
@@ -78,6 +95,7 @@ export default function TextInput({
   label,
   name,
   placeholder,
+  required,
   size = 'md',
   startIcon: StartIcon,
   type = 'text',
@@ -91,30 +109,39 @@ export default function TextInput({
   const state = hasError ? 'error' : 'normal';
   const fontSizeClass = fontSizeClasses[size];
   const iconSizeClass = iconSizeClasses[size];
+  const iconColorClass = 'text-slate-400 dark:text-slate-600';
 
   return (
     <div>
       <label
-        className={clsx(
-          isLabelHidden ? 'sr-only' : 'mb-2 block font-medium text-slate-700',
-          fontSizeClass,
-        )}
+        className={clsx(isLabelHidden ? 'sr-only' : 'mb-2 block')}
         htmlFor={id}>
-        {label}
+        <Text variant="body2" weight="medium">
+          {label}
+        </Text>
+        {required && (
+          <span aria-hidden="true" className="text-danger">
+            {' '}
+            *
+          </span>
+        )}
       </label>
       {!hasError && description && (
-        <p
-          className={clsx('my-2 text-slate-500', fontSizeClass)}
-          id={messageId}>
+        <Text
+          className="my-2"
+          color="secondary"
+          display="block"
+          id={messageId}
+          variant="body3">
           {description}
-        </p>
+        </Text>
       )}
       <div className="relative">
         {StartIcon && (
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <StartIcon
               aria-hidden="true"
-              className={clsx(iconSizeClass, 'text-slate-300')}
+              className={clsx(iconSizeClass, iconColorClass)}
             />
           </div>
         )}
@@ -126,15 +153,18 @@ export default function TextInput({
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           className={clsx(
-            'block w-full rounded',
+            'block w-full',
+            'bg-transparent',
+            'disabled:bg-slate-200 disabled:text-slate-300',
+            'dark:disabled:bg-slate-800 dark:disabled:text-slate-700',
+            'rounded',
             fontSizeClass,
             verticalPaddingSizeClasses[size],
             horizontalPaddingSizeClasses[size],
             StartIcon && 'pl-9',
             EndIcon && 'pr-9',
-            stateClasses[state],
             heightClasses[size],
-            isDisabled && 'bg-slate-100',
+            stateClasses[state],
           )}
           defaultValue={defaultValue}
           disabled={isDisabled}
@@ -155,7 +185,7 @@ export default function TextInput({
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
             <EndIcon
               aria-hidden="true"
-              className={clsx(iconSizeClass, 'text-slate-300')}
+              className={clsx(iconSizeClass, iconColorClass)}
             />
           </div>
         )}
