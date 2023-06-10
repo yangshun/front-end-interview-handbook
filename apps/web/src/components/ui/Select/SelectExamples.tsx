@@ -27,7 +27,7 @@ export default function SelectExamples() {
 
   return (
     <UIExamplesGroup title="Select">
-      <div className="flex gap-x-4">
+      <div className="flex gap-x-24">
         <Select
           label="Framework"
           options={options}

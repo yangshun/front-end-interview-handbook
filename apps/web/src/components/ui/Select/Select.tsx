@@ -76,10 +76,13 @@ export default function Select<T>({
         className={clsx(
           display === 'block' && 'block w-full',
           'flex items-center py-0',
-          'rounded border-slate-200',
-          'focus:border-brand-500 focus:ring-brand-500 focus:outline-none',
+          'rounded',
+          'transition-colors',
+          'border border-slate-200 dark:border-slate-800',
+          'text-slate-700 dark:text-slate-300',
+          'bg-transparent hover:bg-slate-50 dark:hover:bg-slate-700',
+          'focus:border-brand-500 focus:outline-brand-500 focus:outline-2 focus:outline-offset-2 focus:ring-0',
           heightClasses[size],
-          // PaddingSizeClasses[size],
           textSizeClasses[size].option,
         )}
         id={id}
