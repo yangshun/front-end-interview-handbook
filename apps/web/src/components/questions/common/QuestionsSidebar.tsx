@@ -1,8 +1,17 @@
 import clsx from 'clsx';
 import type { ReactNode, SVGProps } from 'react';
 import { Fragment } from 'react';
+import {
+  RiArrowRightSLine,
+  RiBookOpenLine,
+  RiCalendar2Line,
+  RiDownloadLine,
+  RiHome3Line,
+  RiWindowLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { useGuidesData } from '~/data/Guides';
 import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 
 import Anchor from '~/components/ui/Anchor';
@@ -14,17 +23,6 @@ import Tooltip from '~/components/ui/Tooltip';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { Popover, Transition } from '@headlessui/react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
-import {
-  ArrowSmallLeftIcon,
-  ArrowSmallRightIcon,
-  BookOpenIcon,
-  ChatBubbleLeftIcon,
-  ClockIcon,
-  CubeIcon,
-  ListBulletIcon,
-  UserCircleIcon,
-} from '@heroicons/react/24/outline';
 
 type SidebarItem = Readonly<{
   currentMatchRegex?: RegExp;
@@ -50,11 +48,13 @@ type SidebarPopover = Readonly<{
 function useQuestionsSidebarNavigation() {
   const intl = useIntl();
   const preparationPlansExtra = usePreparationPlansUI();
+  const guidesData = useGuidesData();
+
   const navigation: ReadonlyArray<SidebarLink | SidebarPopover> = [
     {
       currentMatchRegex: /prepare\/(coding|quiz|system|behavioral)/,
       href: '/prepare',
-      icon: UserCircleIcon,
+      icon: RiHome3Line,
       key: 'dashboard',
       name: intl.formatMessage({
         defaultMessage: 'Prep Dashboard',
@@ -67,7 +67,7 @@ function useQuestionsSidebarNavigation() {
     {
       currentMatchRegex: /\/questions\//,
       href: '/questions',
-      icon: ListBulletIcon,
+      icon: RiWindowLine,
       key: 'questions',
       name: intl.formatMessage({
         defaultMessage: 'Questions',
@@ -78,12 +78,12 @@ function useQuestionsSidebarNavigation() {
     },
     {
       currentMatchRegex: /guidebook/,
-      icon: BookOpenIcon,
+      icon: RiBookOpenLine,
       items: [
         {
-          href: '/front-end-interview-guidebook',
-          icon: BookOpenIcon,
-          key: 'feig',
+          href: guidesData['front-end-interview-guidebook'].href,
+          icon: guidesData['front-end-interview-guidebook'].icon,
+          key: guidesData['front-end-interview-guidebook'].key,
           labelAddon: (
             <Badge
               label={intl.formatMessage({
@@ -96,29 +96,20 @@ function useQuestionsSidebarNavigation() {
               variant="success"
             />
           ),
-          name: intl.formatMessage({
-            defaultMessage: 'Front End Interview Guidebook',
-            description: 'Sidebar label for Front End Interview Guidebook page',
-            id: '3aPvGu',
-          }),
+          name: guidesData['front-end-interview-guidebook'].name,
           type: 'link',
         },
         {
-          href: '/system-design',
-          icon: CubeIcon,
-          key: 'sdg',
-          name: intl.formatMessage({
-            defaultMessage: 'Front End System Design Guidebook',
-            description:
-              'Sidebar label for Front End System Design Guidebook page',
-            id: 'tU2J/q',
-          }),
+          href: guidesData['front-end-system-design-guidebook'].href,
+          icon: guidesData['front-end-system-design-guidebook'].icon,
+          key: guidesData['front-end-system-design-guidebook'].key,
+          name: guidesData['front-end-system-design-guidebook'].name,
           type: 'link',
         },
         {
-          href: '/behavioral-interview-guidebook',
-          icon: ChatBubbleLeftIcon,
-          key: 'big',
+          href: guidesData['behavioral-interview-guidebook'].href,
+          icon: guidesData['behavioral-interview-guidebook'].icon,
+          key: guidesData['behavioral-interview-guidebook'].key,
           labelAddon: (
             <Badge
               label={intl.formatMessage({
@@ -130,12 +121,7 @@ function useQuestionsSidebarNavigation() {
               variant="success"
             />
           ),
-          name: intl.formatMessage({
-            defaultMessage: 'Behavioral Interview Guidebook',
-            description:
-              'Sidebar label for Behavioral Interview Guidebook page',
-            id: 'lVmhzW',
-          }),
+          name: guidesData['behavioral-interview-guidebook'].name,
           type: 'link',
         },
       ],
@@ -150,7 +136,7 @@ function useQuestionsSidebarNavigation() {
     },
     {
       currentMatchRegex: /prepare\/(one-week|one-month|three-months)/,
-      icon: ClockIcon,
+      icon: RiCalendar2Line,
       items: [
         {
           href: preparationPlansExtra['one-week'].href,
@@ -337,7 +323,7 @@ export default function QuestionsSidebar({
                                 {popoverItem.labelAddon}
                               </div>
                               <span className="invisible group-hover:visible">
-                                <SidebarIcon icon={ChevronRightIcon} />
+                                <SidebarIcon icon={RiArrowRightSLine} />
                               </span>
                             </Anchor>
                           ))}
@@ -352,7 +338,7 @@ export default function QuestionsSidebar({
         })}
       </div>
       <Button
-        icon={isCollapsed ? ArrowSmallRightIcon : ArrowSmallLeftIcon}
+        icon={isCollapsed ? ContractLeftIcon : ContractRightIcon}
         isLabelHidden={true}
         label={collapseButtonLabel}
         tooltip={isCollapsed ? collapseButtonLabel : undefined}
@@ -362,4 +348,20 @@ export default function QuestionsSidebar({
       />
     </div>
   );
+}
+
+function ContractLeftIcon({
+  className,
+  ...props
+}: React.ComponentProps<'svg'>) {
+  return (
+    <RiDownloadLine className={clsx('-rotate-90', className)} {...props} />
+  );
+}
+
+function ContractRightIcon({
+  className,
+  ...props
+}: React.ComponentProps<'svg'>) {
+  return <RiDownloadLine className={clsx('rotate-90', className)} {...props} />;
 }

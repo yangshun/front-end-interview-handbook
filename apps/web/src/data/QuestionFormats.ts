@@ -1,3 +1,8 @@
+import {
+  RiCodeBoxLine,
+  RiFlowChart,
+  RiQuestionnaireLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import AngularLogo from '~/components/icons/AngularLogo';
@@ -7,12 +12,6 @@ import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrom
 import ReactLogo from '~/components/icons/ReactLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import type { QuestionUserFacingFormat } from '~/components/questions/common/QuestionsTypes';
-
-import {
-  CodeBracketIcon,
-  CubeIcon,
-  DocumentTextIcon,
-} from '@heroicons/react/24/outline';
 
 type QuestionListLink = Readonly<{
   description?: string;
@@ -35,7 +34,7 @@ export function useQuestionFormatLists() {
         id: 'uDUEmN',
       }),
       href: '/prepare/coding',
-      icon: CodeBracketIcon,
+      icon: RiCodeBoxLine,
       key: 'coding',
       longName: intl.formatMessage({
         defaultMessage: 'Coding Questions',
@@ -61,7 +60,7 @@ export function useQuestionFormatLists() {
         id: 'HDsjyG',
       }),
       href: '/prepare/quiz',
-      icon: DocumentTextIcon,
+      icon: RiQuestionnaireLine,
       key: 'quiz',
       longName: intl.formatMessage({
         defaultMessage: 'Quiz Questions',
@@ -86,7 +85,7 @@ export function useQuestionFormatLists() {
         id: 'vqKJ0D',
       }),
       href: '/prepare/system-design',
-      icon: CubeIcon,
+      icon: RiFlowChart,
       key: 'system-design',
       longName: intl.formatMessage({
         defaultMessage: 'System Design Questions',
