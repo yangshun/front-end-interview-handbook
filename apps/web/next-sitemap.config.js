@@ -12,6 +12,7 @@ export default {
   siteUrl,
   exclude: [
     '/dev__/*',
+    '/design-system',
     '/logout',
     '/password/reset',
     '/payment/success',
