@@ -5,6 +5,7 @@ import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
 import ButtonExamples from '~/components/ui/Button/ButtonExamples';
 import CheckboxInputExamples from '~/components/ui/CheckboxInput/CheckboxInputExamples';
+import ColorExamples from '~/components/ui/Color/ColorExamples';
 import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
@@ -32,6 +33,7 @@ export default function UILibraryPage() {
       </Container>
       <Section>
         {/* Basics */}
+        <ColorExamples />
         <TypographyExamples />
         <HeadingExamples />
         <TextExamples />
@@ -51,7 +53,7 @@ export default function UILibraryPage() {
         <EmptyStateExamples />
         {/* Layer */}
         <TooltipExamples />
-        <HoverCardExamples />
+        {/* <HoverCardExamples /> */}
         <SlideOutExamples />
         <DialogExamples />
         <ToastExamples />
