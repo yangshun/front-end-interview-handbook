@@ -23,7 +23,7 @@ function EmailUsLink() {
         values={{
           link: (chunks) => (
             <Anchor
-              className="text-brand-600 hover:text-brand-500 mx-auto justify-center whitespace-nowrap font-medium"
+              className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
               href="mailto:contact@greatfrontend.com"
               variant="unstyled">
               {chunks}
@@ -190,7 +190,7 @@ function StudentDiscountCard() {
               values={{
                 link: (chunks) => (
                   <Anchor
-                    className="text-brand-600 hover:text-brand-500 mx-auto justify-center whitespace-nowrap font-medium"
+                    className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
                     href="/legal/student-discount"
                     variant="unstyled">
                     {chunks}
@@ -322,7 +322,7 @@ function ReviewCashbackCard() {
               values={{
                 link: (chunks) => (
                   <Anchor
-                    className="text-brand-600 hover:text-brand-500 mx-auto justify-center whitespace-nowrap font-medium"
+                    className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
                     href="/legal/review-cashback"
                     variant="unstyled">
                     {chunks}

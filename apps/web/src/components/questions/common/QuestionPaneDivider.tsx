@@ -7,7 +7,7 @@ type Props = Readonly<{
 export default function QuestionPaneDivider({ onMouseDown }: Props) {
   return (
     <div
-      className="hover:border-brand-400 hover:bg-brand-400 z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 border-transparent bg-neutral-200 bg-clip-padding transition-colors lg:block"
+      className="hover:border-brand-light hover:bg-brand-light z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 border-transparent bg-neutral-200 bg-clip-padding transition-colors lg:block"
       role="presentation"
       onMouseDown={onMouseDown}
     />

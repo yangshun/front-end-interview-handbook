@@ -24,34 +24,34 @@ const variantClasses: Record<
   }>
 > = {
   danger: {
-    backgroundClass: 'bg-danger-lighter dark:bg-danger-darker',
-    borderClass: 'border-danger dark:border-danger-lighter',
-    textClass: 'text-danger dark:text-danger-lighter',
+    backgroundClass: 'bg-danger-lightest dark:bg-danger-darker',
+    borderClass: 'border-danger',
+    textClass: 'text-danger',
   },
   info: {
-    backgroundClass: 'bg-info-lighter dark:bg-info-darker',
-    borderClass: 'border-info dark:border-info-lighter',
-    textClass: 'text-info dark:text-info-lighter',
+    backgroundClass: 'bg-info-lightest dark:bg-info-darker',
+    borderClass: 'border-info dark:border-info-light',
+    textClass: 'text-info dark:text-info-light',
   },
   primary: {
-    backgroundClass: 'bg-brand-100',
-    borderClass: 'border-brand-800',
-    textClass: 'text-brand-800',
+    backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
+    borderClass: 'border-brand-dark dark:border-brand',
+    textClass: 'text-brand-dark dark:text-brand',
   },
   special: {
-    backgroundClass: 'bg-gradient-to-r from-pink-500 to-brand-600',
+    backgroundClass: 'bg-gradient-to-r from-pink-500 to-brand-dark',
     borderClass: 'border-white',
     textClass: 'text-white',
   },
   success: {
-    backgroundClass: 'bg-success-lighter dark:bg-success-darker',
+    backgroundClass: 'bg-success-lightest dark:bg-success-darker',
     borderClass: 'border-success dark:border-success-light',
     textClass: 'text-success dark:text-success-light',
   },
   warning: {
-    backgroundClass: 'bg-warning-lighter dark:bg-warning-darker',
-    borderClass: 'border-warning-dark dark:border-warning-light',
-    textClass: 'text-warning-dark dark:text-warning-light',
+    backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
+    borderClass: 'border-warning dark:border-warning-light',
+    textClass: 'text-warning dark:text-warning-light',
   },
 };
 

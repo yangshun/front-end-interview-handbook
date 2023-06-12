@@ -32,7 +32,7 @@ export default function MarketingUserInterfaceQuestionsExamples({
         isInView ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="lg:col-span-2">
-        <p className="text-brand-500 text-base font-semibold sm:text-lg">
+        <p className="text-brand text-base font-semibold sm:text-lg">
           <FormattedMessage
             defaultMessage="Pick your framework"
             description="Label for an example list of User Interface Questions on marketing pages"

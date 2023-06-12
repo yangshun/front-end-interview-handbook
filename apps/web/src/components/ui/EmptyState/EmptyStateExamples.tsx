@@ -5,7 +5,7 @@ import UIExamplesGroup from '../misc/UIExamplesGroup';
 export default function EmptyStateExamples() {
   return (
     <UIExamplesGroup title="Empty State">
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-8 lg:grid-cols-3">
         <EmptyState
           subtitle="Try changing the filters"
           title="No Results"
@@ -19,13 +19,13 @@ export default function EmptyStateExamples() {
         <EmptyState
           action={
             <Button
-              href="/pricing"
-              label="View subscription plans"
+              href="#"
+              label="View Subscription Plans"
               variant="primary"
             />
           }
           subtitle="Get premium to unlock full access to all questions and solutions"
-          title="Not subscribed"
+          title="Not Subscribed"
           variant="not_subscribed"
         />
       </div>

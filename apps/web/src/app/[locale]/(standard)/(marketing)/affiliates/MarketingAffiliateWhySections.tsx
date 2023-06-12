@@ -55,7 +55,7 @@ function SliderSection() {
   return (
     <div>
       <div className="mb-8 flex flex-col gap-2 text-center">
-        <p className="text-brand-600 flex justify-center gap-2 text-4xl font-bold">
+        <p className="text-brand-dark flex justify-center gap-2 text-4xl font-bold">
           ${Math.round(0.15 * sales * 99 * 100) / 100}{' '}
           <span className="self-end text-lg font-medium">USD</span>
         </p>
@@ -72,9 +72,9 @@ function SliderSection() {
         value={[sales]}
         onValueChange={([val]) => setSales(val)}>
         <Slider.Track className="flex-grow-1 relative !h-3 w-full rounded-full bg-neutral-300">
-          <Slider.Range className="bg-brand-600 absolute h-full rounded" />
+          <Slider.Range className="bg-brand-dark absolute h-full rounded" />
         </Slider.Track>
-        <Slider.Thumb className="bg-brand-600 hover:bg-brand-700 focus:ring-brand-700 block h-8 w-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block h-8 w-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </Slider.Root>
       <p className="mt-8 text-center text-2xl font-medium text-neutral-700">
         {sales} sales
@@ -129,7 +129,7 @@ export default function MarketingAffiliateWhySections() {
           className="lg:mx-auto lg:grid lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24">
           <div className="mx-auto lg:col-start-2 lg:mx-0 lg:py-24">
             <div>
-              <span className="bg-brand-600 flex h-10 w-10 items-center justify-center rounded-xl sm:h-12 sm:w-12">
+              <span className="bg-brand-dark flex h-10 w-10 items-center justify-center rounded-xl sm:h-12 sm:w-12">
                 <reason.icon
                   aria-hidden="true"
                   className="h-7 w-7 text-white sm:h-8 sm:w-8"

@@ -21,8 +21,8 @@ const variantClasses: Record<
   }>
 > = {
   primary: {
-    backgroundColorClass: 'bg-brand-500',
-    buttonClass: 'hover:bg-brand-400',
+    backgroundColorClass: 'bg-brand-dark',
+    buttonClass: 'hover:bg-brand',
     textColorClass: 'text-white',
   },
   special: {
@@ -66,7 +66,7 @@ export default function Banner({
             <button
               className={clsx(
                 'flex rounded-md focus:outline-none focus:ring-2 focus:ring-white',
-                variant === 'primary' && 'hover:bg-brand-400',
+                variant === 'primary' && 'hover:bg-brand',
                 variant === 'special' && 'hover:bg-neutral-700',
                 buttonClass,
                 textColorClass,

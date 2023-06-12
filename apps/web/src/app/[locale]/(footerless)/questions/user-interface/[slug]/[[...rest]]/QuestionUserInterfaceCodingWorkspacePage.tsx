@@ -216,7 +216,7 @@ function MiddleRightPaneContents({
               </div>
               {mode === 'practice' && isMounted() && showLoadedPreviousCode && (
                 <div
-                  className="bg-brand-50 shrink-0 border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
+                  className="bg-brand-lightest shrink-0 border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
                   suppressHydrationWarning={true}>
                   <Text variant="body3">
                     Your previous code was restored.{' '}

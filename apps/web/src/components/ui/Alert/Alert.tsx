@@ -42,7 +42,7 @@ const classes: Record<
     titleClass: 'text-info',
   },
   success: {
-    backgroundClass: 'bg-success-lighter dark:bg-neutral-800/70',
+    backgroundClass: 'bg-success-lightest dark:bg-neutral-800/70',
     icon: CheckCircleIcon,
     iconClass: 'text-success',
     titleClass: 'text-success',

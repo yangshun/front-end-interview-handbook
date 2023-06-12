@@ -24,7 +24,7 @@ export default function QuestionsSidebarCollapser() {
   return (
     <button
       aria-label={title}
-      className="focus:ring-brand-500 absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 lg:flex"
+      className="focus:ring-brand absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 lg:flex"
       title={title}
       type="button"
       onClick={() => setShowSidebar(!showSidebar)}>

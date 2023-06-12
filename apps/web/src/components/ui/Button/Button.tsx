@@ -9,7 +9,12 @@ import type { TooltipAlignment } from '../Tooltip/Tooltip';
 
 export type ButtonDisplay = 'block' | 'inline';
 export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs';
-export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'tertiary';
+export type ButtonVariant =
+  | 'danger'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'tertiary';
 
 type Props = Readonly<{
   addonPosition?: 'end' | 'start';
@@ -61,10 +66,10 @@ const fontSizeClasses: Record<ButtonSize, string> = {
 };
 
 const borderRadiusClasses: Record<ButtonSize, string> = {
-  lg: 'rounded',
-  md: 'rounded',
-  sm: 'rounded',
-  xs: 'rounded',
+  lg: 'rounded-full',
+  md: 'rounded-full',
+  sm: 'rounded-full',
+  xs: 'rounded-full',
 };
 
 const spacingClasses: Record<ButtonSize, string> = {
@@ -82,37 +87,73 @@ const sizeIconClasses: Record<ButtonSize, string> = {
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
+  danger: clsx(
+    'border-transparent',
+    'text-white dark:text-neutral-950',
+    'bg-danger',
+    'hover:bg-danger-dark dark:hover:bg-danger-light',
+    'active:bg-danger-darker dark:active:bg-danger-lighter',
+    'focus-visible:outline-danger',
+  ),
   primary: clsx(
     'border-transparent',
-    'text-white dark:text-neutral-900',
-    'bg-brand-600 hover:bg-brand-500 dark:bg-brand-500 dark:hover:bg-brand-400',
-    'focus-visible:outline-brand-500',
+    'text-white dark:text-neutral-950',
+    'bg-brand-dark dark:bg-brand',
+    'hover:bg-brand-darker dark:hover:bg-brand-light',
+    'active:bg-brand-darkest dark:active:bg-brand-lighter',
+    'focus-visible:outline-brand',
   ),
   secondary: clsx(
     'border-neutral-300 dark:border-neutral-800',
     'text-neutral-600 dark:text-neutral-200',
-    'bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800',
+    'bg-transparent',
+    'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+    'active:bg-neutral-200 dark:active:bg-neutral-800',
     'focus-visible:outline-neutral-500',
   ),
   success: clsx(
     'border-transparent',
-    'text-white',
-    'bg-success hover:bg-success-dark',
+    'text-white dark:text-neutral-950',
+    'bg-success',
+    'hover:bg-success-dark dark:hover:bg-success-light',
+    'active:bg-success-darker dark:active:bg-success-lighter',
     'focus-visible:outline-success',
   ),
   tertiary: clsx(
     'border-transparent',
     'text-neutral-600 dark:text-neutral-200',
-    'bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800',
+    'bg-transparent',
+    'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+    'active:bg-neutral-200 dark:active:bg-neutral-800',
     'focus-visible:outline-neutral-500',
   ),
 };
 
 const variantDisabledClasses: Record<ButtonVariant, string> = {
-  primary: 'border-transparent text-neutral-500 bg-neutral-300',
-  secondary: 'border-neutral-200 text-neutral-400 bg-neutral-100',
-  success: 'border-transparent text-neutral-500 bg-neutral-300',
-  tertiary: 'border-transparent text-neutral-400 bg-neutral-100',
+  danger: clsx(
+    'disabled:border-transparent',
+    'disabled:text-white dark:disabled:text-neutral-700',
+    'disabled:bg-neutral-300 dark:disabled:bg-neutral-900',
+  ),
+  primary: clsx(
+    'disabled:border-transparent',
+    'disabled:text-white dark:disabled:text-neutral-700',
+    'disabled:bg-brand-lighter dark:disabled:bg-neutral-900',
+  ),
+  secondary: clsx(
+    'disabled:border-neutral-200 dark:disabled:border-neutral-800',
+    'disabled:text-neutral-400 dark:disabled:text-neutral-800',
+    'disabled:bg-transparent',
+  ),
+  success: clsx(
+    'disabled:border-transparent',
+    'disabled:text-white dark:disabled:text-neutral-700',
+    'disabled:bg-neutral-300 dark:disabled:bg-neutral-900',
+  ),
+  tertiary: clsx(
+    'disabled:border-transparent',
+    'disabled:text-neutral-300 dark:disabled:text-neutral-700',
+  ),
 };
 
 export default function Button({
@@ -159,7 +200,8 @@ export default function Button({
       display === 'block' ? 'flex w-full' : 'inline-flex',
       'whitespace-nowrap items-center justify-center border font-medium',
       'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-colors',
-      isDisabled ? variantDisabledClasses[variant] : variantClasses[variant],
+      variantClasses[variant],
+      variantDisabledClasses[variant],
       isDisabled && 'pointer-events-none',
       heightClasses[size],
       isLabelHidden ? widthClasses[size] : horizontalPaddingClasses[size],

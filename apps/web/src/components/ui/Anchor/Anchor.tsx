@@ -57,10 +57,10 @@ function Anchor(
       clsx(
         weight === 'medium' && 'font-medium',
         variant === 'default' &&
-          'text-brand-500 hover:text-brand-600 hover:underline',
+          'text-brand hover:text-brand-dark hover:underline',
         variant === 'flat' && 'hover:underline',
-        variant === 'light' && 'text-brand-400 hover:text-brand-500',
-        variant === 'muted' && 'text-neutral-500 hover:text-brand-600',
+        variant === 'light' && 'text-brand-light hover:text-brand',
+        variant === 'muted' && 'text-neutral-500 hover:text-brand-dark',
         underline && 'underline',
       ),
     classNameProp,

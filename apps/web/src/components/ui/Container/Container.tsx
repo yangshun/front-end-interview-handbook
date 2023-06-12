@@ -15,7 +15,7 @@ export default function Container({
   return (
     <div
       className={clsx(
-        'mx-auto px-4 sm:px-6 lg:px-8',
+        'mx-auto w-full px-4 sm:px-6 lg:px-8',
         variant === 'normal' && 'max-w-7xl',
         variant === 'narrow' && 'max-w-6xl',
         variant === '5xl' && 'max-w-5xl',

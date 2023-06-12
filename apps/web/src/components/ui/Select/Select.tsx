@@ -81,7 +81,7 @@ export default function Select<T>({
           'border border-neutral-200 dark:border-neutral-800',
           'text-neutral-700 dark:text-neutral-300',
           'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
-          'focus:border-brand-500 focus:outline-brand-500 focus:outline-2 focus:outline-offset-2 focus:ring-0',
+          'focus:border-brand focus:outline-brand focus:outline-2 focus:outline-offset-2 focus:ring-0',
           heightClasses[size],
           textSizeClasses[size].option,
         )}

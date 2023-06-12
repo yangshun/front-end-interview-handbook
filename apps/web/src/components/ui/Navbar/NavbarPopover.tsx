@@ -19,7 +19,7 @@ function NavbarPopoverLink({
   const el =
     sublabel != null ? (
       <>
-        <div className="bg-brand-500 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md text-white sm:h-10 sm:w-10">
+        <div className="bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md text-white sm:h-10 sm:w-10">
           <Icon
             aria-hidden="true"
             className="h-5 w-5 transition-transform group-hover:scale-110"
@@ -36,7 +36,7 @@ function NavbarPopoverLink({
       </>
     ) : (
       <div className="flex items-center">
-        <div className="text-brand-500 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10">
+        <div className="text-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10">
           <Icon
             aria-hidden="true"
             className="h-8 w-8 transition-transform group-hover:scale-110"

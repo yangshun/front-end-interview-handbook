@@ -6,7 +6,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 export default function MarketingAffiliateCTABanner() {
   return (
-    <div className="bg-brand-600 relative mx-auto mt-24 flex justify-center px-4 py-24 transition-opacity duration-[1500ms] ease-in-out">
+    <div className="bg-brand-dark relative mx-auto mt-24 flex justify-center px-4 py-24 transition-opacity duration-[1500ms] ease-in-out">
       <div>
         <Heading className="text-center" color="light" level="heading4">
           <FormattedMessage
@@ -18,7 +18,7 @@ export default function MarketingAffiliateCTABanner() {
         <Section>
           <div className="mx-auto flex justify-center pt-8">
             <Anchor
-              className="text-brand-600 hover:text-brand-700 inline-flex rounded-lg bg-white px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 ring-white lg:text-lg"
+              className="text-brand-dark hover:text-brand-darker inline-flex rounded-lg bg-white px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 ring-white lg:text-lg"
               href="https://greatfrontend.firstpromoter.com"
               variant="unstyled">
               <FormattedMessage

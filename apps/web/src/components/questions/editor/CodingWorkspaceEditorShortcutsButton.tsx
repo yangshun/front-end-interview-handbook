@@ -261,7 +261,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
                     {keys.map((keyParam) => (
                       <span
                         key={keyParam}
-                        className="bg-brand-100 text-brand-700 rounded-md py-0.5 px-1">
+                        className="bg-brand-lightest text-brand-darker rounded-md py-0.5 px-1">
                         {renderPlatformSpecificKey(keyParam)}
                       </span>
                     ))}

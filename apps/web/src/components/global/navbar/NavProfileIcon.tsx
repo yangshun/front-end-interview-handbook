@@ -39,7 +39,7 @@ export default function NavProfileIcon({
   return (
     <Menu as="div" className="relative flex-shrink-0">
       <div>
-        <Menu.Button className="focus:ring-brand-500 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
+        <Menu.Button className="focus:ring-brand flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
           <span className="sr-only">
             <FormattedMessage
               defaultMessage="Open navigation profile menu"

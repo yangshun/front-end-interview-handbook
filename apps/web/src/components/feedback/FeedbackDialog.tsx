@@ -42,7 +42,7 @@ function SocialPlatform() {
         {marketingContactPlatformsConfig.map((platform) => (
           <Anchor
             key={platform.key}
-            className="focus:ring-brand-500 flex items-center justify-center gap-2 rounded-full bg-neutral-100 p-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
+            className="focus:ring-brand flex items-center justify-center gap-2 rounded-full bg-neutral-100 p-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
             href={platform.href}
             variant="unstyled"
             onClick={() => {

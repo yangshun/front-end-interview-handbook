@@ -33,7 +33,7 @@ export default function MarketingQuizQuestionsExamples({
         isInView ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="lg:col-span-2">
-        <p className="text-brand-500 text-base font-semibold sm:text-lg">
+        <p className="text-brand text-base font-semibold sm:text-lg">
           <FormattedMessage
             defaultMessage="Know your fundamentals"
             description="Label for an example list of Quiz Questions on marketing pages"

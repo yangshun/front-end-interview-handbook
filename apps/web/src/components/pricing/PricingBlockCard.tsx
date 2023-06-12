@@ -34,7 +34,7 @@ export default function PricingBlockCard({
           <p className="mt-6 text-base text-neutral-500">{subtitle}</p>
           <div className="mt-8">
             <div className="flex items-center">
-              <h4 className="text-brand-600 flex-shrink-0 bg-white pr-4 text-base font-semibold">
+              <h4 className="text-brand-dark flex-shrink-0 bg-white pr-4 text-base font-semibold">
                 {featuresSectionTitle}
               </h4>
               <div className="flex-1 border-t-2 border-neutral-200" />

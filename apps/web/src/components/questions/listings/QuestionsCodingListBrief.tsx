@@ -55,7 +55,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand-500 group relative flex space-x-6 bg-white p-3 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
+              'focus-within:ring-brand group relative flex space-x-6 bg-white p-3 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
             )}>
             <div className="flex grow items-center justify-between">
               <div className="flex items-center space-x-4">

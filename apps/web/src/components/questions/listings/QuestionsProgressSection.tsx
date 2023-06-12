@@ -75,7 +75,9 @@ export default function QuestionsProgressSection({
                       100
                     ).toFixed(0),
                     span: (chunks) => (
-                      <span className="text-brand-300 font-bold">{chunks}</span>
+                      <span className="text-brand-lighter font-bold">
+                        {chunks}
+                      </span>
                     ),
                     span2: (chunks) => (
                       <span className="text-neutral-400">{chunks}</span>

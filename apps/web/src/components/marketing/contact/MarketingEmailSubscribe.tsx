@@ -20,7 +20,7 @@ export default function MarketingEmailSubscribe() {
 
   return (
     <div className="mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-      <div className="bg-brand-600 relative overflow-hidden rounded-2xl px-6 py-10 shadow-xl sm:px-12 sm:py-20">
+      <div className="bg-brand-dark relative overflow-hidden rounded-2xl px-6 py-10 shadow-xl sm:px-12 sm:py-20">
         <div
           aria-hidden="true"
           className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
@@ -31,12 +31,12 @@ export default function MarketingEmailSubscribe() {
             viewBox="0 0 1463 360"
             xmlns="http://www.w3.org/2000/svg">
             <path
-              className="text-brand-500 text-opacity-40"
+              className="text-brand text-opacity-40"
               d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
               fill="currentColor"
             />
             <path
-              className="text-brand-700 text-opacity-40"
+              className="text-brand-darker text-opacity-40"
               d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
               fill="currentColor"
             />
@@ -54,7 +54,7 @@ export default function MarketingEmailSubscribe() {
                 id="ePyk/V"
               />
             </Heading>
-            <p className="text-brand-200 mx-auto mt-6 max-w-2xl text-lg">
+            <p className="text-brand-lightest mx-auto mt-6 max-w-2xl text-lg">
               <FormattedMessage
                 defaultMessage="Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>."
                 description="Subtitle text for newsletter sign up section"
@@ -88,7 +88,7 @@ export default function MarketingEmailSubscribe() {
               </label>
               <input
                 autoComplete="email"
-                className="focus:ring-offset-brand-600 block w-full rounded-md border border-transparent px-5 py-3 text-base text-neutral-900 placeholder-neutral-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                className="focus:ring-offset-brand-dark block w-full rounded-md border border-transparent px-5 py-3 text-base text-neutral-900 placeholder-neutral-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 id={emailId}
                 name="email"
                 placeholder={intl.formatMessage({
@@ -101,7 +101,7 @@ export default function MarketingEmailSubscribe() {
             </div>
             <div className="mt-4 sm:mt-0 sm:ml-3">
               <button
-                className="bg-brand-500 hover:bg-brand-400 focus:ring-offset-brand-600 block w-full rounded-md border border-transparent px-5 py-3 text-base font-medium text-white shadow focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 sm:px-10"
+                className="bg-brand hover:bg-brand-light focus:ring-offset-brand-dark block w-full rounded-md border border-transparent px-5 py-3 text-base font-medium text-white shadow focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 sm:px-10"
                 disabled={isLoading}
                 type="submit">
                 {intl.formatMessage({

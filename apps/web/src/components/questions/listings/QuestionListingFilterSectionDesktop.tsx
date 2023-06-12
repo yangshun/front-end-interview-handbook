@@ -26,7 +26,7 @@ export default function QuestionListingFilterSectionDesktop<
             <div key={option.value} className="flex items-center">
               <input
                 checked={values.has(option.value)}
-                className="text-brand-600 focus:ring-brand-500 h-4 w-4 rounded border-neutral-200"
+                className="text-brand-dark focus:ring-brand h-4 w-4 rounded border-neutral-200"
                 id={`${section.id}-${optionIdx}`}
                 name={`${section.id}[]`}
                 type="checkbox"

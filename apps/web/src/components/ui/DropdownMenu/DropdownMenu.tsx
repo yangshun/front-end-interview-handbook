@@ -67,7 +67,7 @@ export default function DropdownMenu({
             'transition-colors',
             'border border-neutral-200 dark:border-neutral-800',
             'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
-            'focus:border-brand-500 focus:outline-brand-500 focus:outline-2 focus:outline-offset-2 focus:ring-0',
+            'focus:border-brand focus:outline-brand focus:outline-2 focus:outline-offset-2 focus:ring-0',
             heightClasses[size],
           )}>
           <Text
@@ -106,7 +106,7 @@ export default function DropdownMenu({
             'rounded',
             'bg-white dark:bg-neutral-800',
             'shadow-lg',
-            'ring-brand-500 ring-1 ring-opacity-5 focus:outline-none',
+            'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
           <Text
             className="p-2"

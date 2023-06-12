@@ -202,7 +202,7 @@ function DataModel() {
         Both Facebook and Twitter use a normalized client side store. If the
         term "normalized" is new to you, have a read of{' '}
         <a
-          className="text-brand-500 hover:text-brand-600 font-medium hover:underline"
+          className="text-brand hover:text-brand-dark font-medium hover:underline"
           href="https://redux.js.org/usage/structuring-reducers/normalizing-state-shape"
           rel="noreferrer noopener"
           target="_blank">
@@ -223,7 +223,7 @@ function DataModel() {
       <p>
         Facebook uses{' '}
         <a
-          className="text-brand-500 hover:text-brand-600 font-medium hover:underline"
+          className="text-brand hover:text-brand-dark font-medium hover:underline"
           href="https://relay.dev"
           rel="noreferrer noopener"
           target="_blank">
@@ -232,7 +232,7 @@ function DataModel() {
         (which can normalize the data by virtue of knowing the GraphQL schema)
         while Twitter uses{' '}
         <a
-          className="text-brand-500 hover:text-brand-600 font-medium hover:underline"
+          className="text-brand hover:text-brand-dark font-medium hover:underline"
           href="https://redux.js.org/"
           rel="noreferrer noopener"
           target="_blank">
@@ -240,7 +240,7 @@ function DataModel() {
         </a>{' '}
         as seen from the{' '}
         <a
-          className="text-brand-500 hover:text-brand-600 font-medium hover:underline"
+          className="text-brand hover:text-brand-dark font-medium hover:underline"
           href="https://medium.com/statuscode/dissecting-twitters-redux-store-d7280b62c6b1"
           rel="noreferrer noopener"
           target="_blank">

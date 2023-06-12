@@ -309,7 +309,7 @@ function Contents({
             </div>
             {isMounted() && showLoadedPreviousCode && (
               <div
-                className="bg-brand-50 flex shrink-0 items-center justify-between border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
+                className="bg-brand-lightest flex shrink-0 items-center justify-between border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
                 suppressHydrationWarning={true}>
                 <Text variant="body3">
                   <FormattedMessage

@@ -159,10 +159,10 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                       key={link.title}
                       className="relative flex items-start space-x-4 py-6">
                       <div className="flex-shrink-0">
-                        <span className="bg-brand-50 flex h-12 w-12 items-center justify-center rounded-lg">
+                        <span className="bg-brand-lightest flex h-12 w-12 items-center justify-center rounded-lg">
                           <link.icon
                             aria-hidden="true"
-                            className="text-brand-700 h-6 w-6"
+                            className="text-brand-darker h-6 w-6"
                           />
                         </span>
                       </div>
@@ -171,7 +171,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                         <Heading
                           className="text-base font-medium"
                           level="custom">
-                          <span className="focus-within:ring-brand-500 rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
+                          <span className="focus-within:ring-brand rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                             <Anchor
                               className="focus:outline-none"
                               href={link.href}

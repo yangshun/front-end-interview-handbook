@@ -1,3 +1,5 @@
+import { capitalize } from 'lodash-es';
+
 import type { ButtonSize, ButtonVariant } from './Button';
 import Button from './Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
@@ -11,6 +13,7 @@ const variants: ReadonlyArray<ButtonVariant> = [
   'secondary',
   'tertiary',
   'success',
+  'danger',
 ];
 const tooltipPositions: ReadonlyArray<TooltipPosition> = [
   'above',
@@ -27,14 +30,14 @@ export default function ButtonExamples() {
           {sizes.map((size) => (
             <Button
               key={size}
-              label="Button text"
+              label={`${capitalize(variant)} Button`}
               size={size}
               variant={variant}
             />
           ))}
           <Button
             isDisabled={true}
-            label="Button text"
+            label={`${capitalize(variant)} Button`}
             size="md"
             variant={variant}
           />

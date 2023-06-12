@@ -202,7 +202,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                   values={{
                     link: (chunks) => (
                       <Anchor
-                        className="text-brand-600 hover:text-brand-500 ml-2 flex items-center font-semibold"
+                        className="text-brand-dark hover:text-brand ml-2 flex items-center font-semibold"
                         href="/prepare"
                         variant="unstyled"
                         onClick={() => {

@@ -123,7 +123,7 @@ function TestResultItem({
             <span>
               (
               <button
-                className="text-brand-600 text-xs"
+                className="text-brand-dark text-xs"
                 type="button"
                 onClick={() => {
                   setShowStackTrace(!showStackTrace);

@@ -283,7 +283,7 @@ export default function Footer() {
                 {navigation.social.map(({ key, href, name, icon: Icon }) => (
                   <Anchor
                     key={key}
-                    className="hover:text-brand-500 text-neutral-500"
+                    className="hover:text-brand text-neutral-500"
                     href={href}
                     variant="unstyled">
                     <span className="sr-only">{name}</span>

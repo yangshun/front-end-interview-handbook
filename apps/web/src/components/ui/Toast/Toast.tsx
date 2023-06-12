@@ -47,13 +47,13 @@ const classes: Record<
   }>
 > = {
   danger: {
-    backgroundClass: 'bg-danger-dark',
+    backgroundClass: 'bg-danger',
     icon: XCircleIcon,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
   info: {
-    backgroundClass: 'bg-info-dark',
+    backgroundClass: 'bg-info',
     icon: InformationCircleIcon,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
@@ -64,19 +64,19 @@ const classes: Record<
     textColor: 'invert',
   },
   special: {
-    backgroundClass: 'bg-brand-500',
+    backgroundClass: 'bg-brand-dark',
     icon: StarIcon,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
   success: {
-    backgroundClass: 'bg-success-dark',
+    backgroundClass: 'bg-success',
     icon: CheckCircleIcon,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
   warning: {
-    backgroundClass: 'bg-warning-dark',
+    backgroundClass: 'bg-warning',
     icon: ExclamationTriangleIcon,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',

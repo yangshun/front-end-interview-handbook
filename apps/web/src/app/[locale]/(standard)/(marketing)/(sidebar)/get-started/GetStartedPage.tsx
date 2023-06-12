@@ -59,7 +59,7 @@ function PreparationPlansSection() {
             <div
               key={plan.key}
               className={clsx(
-                'focus-within:ring-brand-500 relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset md:px-8',
+                'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset md:px-8',
                 plan.backgroundClass,
               )}>
               <div

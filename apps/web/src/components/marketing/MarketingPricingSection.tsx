@@ -410,7 +410,7 @@ export default function MarketingPricingSectionNew({
                   id="9jbYus"
                   values={{
                     span: (chunks) => (
-                      <span className="from-brand-400 my-2 inline-block  bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
+                      <span className="from-brand-light my-2 inline-block  bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
                         {chunks}
                       </span>
                     ),
@@ -538,7 +538,7 @@ export default function MarketingPricingSectionNew({
                             price:
                               lifetimePlan.unitCostBeforeDiscountInCurrency,
                             span: (chunks) => (
-                              <span className="text-brand-500">{chunks}</span>
+                              <span className="text-brand">{chunks}</span>
                             ),
                           }}
                         />
@@ -682,7 +682,7 @@ export default function MarketingPricingSectionNew({
                                       id="GHQ8sO"
                                     />
                                   ) : (
-                                    <span className="text-brand-500">
+                                    <span className="text-brand">
                                       <FormattedMessage
                                         defaultMessage="(Save {discountPercentage}% vs monthly)"
                                         description="Save more compared to monthly plan."

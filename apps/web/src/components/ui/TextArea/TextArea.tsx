@@ -56,7 +56,7 @@ const stateClasses: Record<State, string> = {
     'text-neutral-700 dark:text-neutral-300',
     'ring-neutral-200 dark:ring-neutral-800',
     'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
-    'focus:ring-brand-500 dark:focus:ring-brand-500',
+    'focus:ring-brand dark:focus:ring-brand',
   ),
 };
 

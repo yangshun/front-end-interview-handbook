@@ -96,10 +96,10 @@ export default function NotFoundPage() {
                         key={link.title}
                         className="relative flex items-start space-x-4 py-6">
                         <div className="flex-shrink-0">
-                          <span className="bg-brand-50 flex h-12 w-12 items-center justify-center rounded-lg">
+                          <span className="bg-brand-lightest flex h-12 w-12 items-center justify-center rounded-lg">
                             <link.icon
                               aria-hidden="true"
-                              className="text-brand-700 h-6 w-6"
+                              className="text-brand-darker h-6 w-6"
                             />
                           </span>
                         </div>
@@ -107,7 +107,7 @@ export default function NotFoundPage() {
                           <Heading
                             className="text-base font-medium"
                             level="custom">
-                            <span className="focus-within:ring-brand-500 rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
+                            <span className="focus-within:ring-brand rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                               <Anchor
                                 className="focus:outline-none"
                                 href={link.href}
@@ -137,7 +137,7 @@ export default function NotFoundPage() {
                   </ul>
                   <div className="mt-8">
                     <Anchor
-                      className="text-brand-600 hover:text-brand-500 text-base font-medium"
+                      className="text-brand-dark hover:text-brand text-base font-medium"
                       href="/prepare"
                       variant="unstyled">
                       Or go back home<span aria-hidden="true"> &rarr;</span>

@@ -103,7 +103,7 @@ function QuestionNewLabel({
 
   return (
     <span className="absolute right-0 top-0 h-12 w-12">
-      <span className="border-brand-600 absolute block h-12 w-12 border-[24px] !border-l-transparent !border-b-transparent" />
+      <span className="border-brand-dark absolute block h-12 w-12 border-[24px] !border-l-transparent !border-b-transparent" />
       <span className="text-2xs absolute right-1 top-2 rotate-45 font-medium uppercase text-white">
         <FormattedMessage
           defaultMessage="New"
@@ -165,7 +165,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand-500 group relative flex gap-x-4 bg-white p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
+              'focus-within:ring-brand group relative flex gap-x-4 bg-white p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
             )}>
             <QuestionNewLabel created={question.created} />
             {showProgress && (

@@ -157,7 +157,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
             />
           </div>
           <div>
-            <p className="bg-brand-100 text-brand-600 border p-3 text-xs">
+            <p className="bg-brand-lightest text-brand-dark border p-3 text-xs">
               <FormattedMessage
                 defaultMessage="First time preparing for front end interviews? Find out what to
               expect in our <link>Front End Interview Guidebook</link>"
@@ -184,15 +184,13 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                   key={value}
                   className={clsx(
                     'group relative -mt-px flex flex-none flex-col items-start border-t pt-4 text-left md:w-[35vw] md:pt-8 lg:w-auto',
-                    format === value
-                      ? 'border-brand-500'
-                      : 'hover:border-brand-500',
+                    format === value ? 'border-brand' : 'hover:border-brand',
                   )}>
                   <p
                     className={clsx(
                       'text-sm leading-6 text-neutral-600 md:rounded-full md:px-2 md:text-xs md:font-semibold md:leading-7',
                       format === value
-                        ? 'md:bg-brand-500 md:text-white'
+                        ? 'md:bg-brand md:text-white'
                         : 'md:bg-neutral-100 md:group-hover:bg-neutral-200',
                     )}>
                     <span className="font-medium">
@@ -211,7 +209,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                       className={clsx(
                         'text-sm font-semibold md:text-base md:leading-7',
                         format === value
-                          ? 'text-brand-600'
+                          ? 'text-brand-dark'
                           : 'text-neutral-900',
                       )}
                       href={href}

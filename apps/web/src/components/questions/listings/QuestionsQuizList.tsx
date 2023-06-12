@@ -67,7 +67,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
         return (
           <li
             key={question.slug}
-            className="focus-within:ring-brand-500 group relative flex space-x-4 bg-white px-4 py-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50">
+            className="focus-within:ring-brand group relative flex space-x-4 bg-white px-4 py-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50">
             {showProgress && (
               <div className="flex items-center justify-center">
                 {showTimeline && index < questions.length - 1 && (
@@ -118,7 +118,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             <div className="grow">
               <p className="text-sm font-medium">
                 <Anchor
-                  className="hover:text-brand-500 block text-neutral-700 focus:outline-none"
+                  className="hover:text-brand block text-neutral-700 focus:outline-none"
                   href={question.href}
                   variant="unstyled">
                   {/* Extend touch target to entire panel */}

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
+import type { TextColor } from '../Text';
 import Text from '../Text';
 
 import {
@@ -44,14 +45,14 @@ const icons: Record<
   success: CheckBadgeIcon,
   under_construction: WrenchScrewdriverIcon,
 };
-const colors: Record<EmptyStateVariant, string> = {
-  empty: 'text-neutral-400',
-  error: 'text-danger',
-  exit: 'text-neutral-400',
-  login: 'text-neutral-400',
-  not_subscribed: 'text-neutral-400',
-  success: 'text-success',
-  under_construction: 'text-neutral-400',
+const colors: Record<EmptyStateVariant, TextColor> = {
+  empty: 'disabled',
+  error: 'error',
+  exit: 'disabled',
+  login: 'disabled',
+  not_subscribed: 'disabled',
+  success: 'success',
+  under_construction: 'disabled',
 };
 
 export default function EmptyState({
@@ -64,10 +65,12 @@ export default function EmptyState({
 
   return (
     <div className="mx-auto max-w-md py-6 text-center sm:py-12">
-      <Icon
-        aria-hidden="true"
-        className={clsx('mx-auto h-10 w-10 shrink-0', colors[variant])}
-      />
+      <Text color={colors[variant]} display="block">
+        <Icon
+          aria-hidden="true"
+          className={clsx('mx-auto h-10 w-10 shrink-0')}
+        />
+      </Text>
       <Heading className="mt-4" level="custom">
         <Text display="block" variant="body" weight="medium">
           {title}

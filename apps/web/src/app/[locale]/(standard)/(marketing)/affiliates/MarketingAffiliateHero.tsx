@@ -61,7 +61,7 @@ export default function MarketingAffiliateHero() {
                         values={{
                           link: (chunks) => (
                             <Anchor
-                              className="text-brand-600 font-semibold"
+                              className="text-brand-dark font-semibold"
                               href="https://greatfrontend.firstpromoter.com/login"
                               variant="unstyled">
                               <span
@@ -94,7 +94,7 @@ export default function MarketingAffiliateHero() {
                   </p>
                   <div className="mx-auto mt-12 flex justify-center gap-x-4 sm:mt-16 sm:flex">
                     <Anchor
-                      className="bg-brand-600 ring-brand-600 hover:bg-brand-700 hover:ring-brand-700 inline-block rounded-lg px-4 py-2.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 transition-colors sm:text-lg"
+                      className="bg-brand-dark ring-brand-dark hover:bg-brand-darker hover:ring-brand-darker inline-block rounded-lg px-4 py-2.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 transition-colors sm:text-lg"
                       href="https://greatfrontend.firstpromoter.com"
                       variant="unstyled">
                       <FormattedMessage
@@ -102,12 +102,12 @@ export default function MarketingAffiliateHero() {
                         description="Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
                         id="wzQGxj"
                       />{' '}
-                      <span aria-hidden="true" className="text-brand-200">
+                      <span aria-hidden="true" className="text-brand-lightest">
                         &rarr;
                       </span>
                     </Anchor>
                     <Anchor
-                      className="text-brand-600 ring-brand-600 hidden rounded-lg px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 transition-colors hover:bg-neutral-700 hover:text-white hover:ring-neutral-700 sm:inline-block sm:text-lg"
+                      className="text-brand-dark ring-brand-dark hidden rounded-lg px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 transition-colors hover:bg-neutral-700 hover:text-white hover:ring-neutral-700 sm:inline-block sm:text-lg"
                       href="mailto:contact@greatfrontend.com?subject=GreatFrontEnd Affiliate"
                       variant="unstyled">
                       <FormattedMessage

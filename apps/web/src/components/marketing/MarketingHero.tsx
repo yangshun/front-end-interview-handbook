@@ -125,7 +125,7 @@ export default function MarketingHeroNew({
                 id="8q3l4q"
                 values={{
                   span: (chunks) => (
-                    <span className="from-brand-600 my-1 inline-block bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
+                    <span className="from-brand-dark my-1 inline-block bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
                       {chunks}
                     </span>
                   ),

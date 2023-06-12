@@ -189,7 +189,7 @@ export default function MarketingContinuousUpdates() {
                 values={{
                   link: (chunks) => (
                     <Anchor
-                      className="text-brand-600 hover:text-brand-500 font-medium"
+                      className="text-brand-dark hover:text-brand font-medium"
                       href="mailto:contact@greatfrontend.com"
                       variant="unstyled">
                       {chunks}
@@ -199,7 +199,7 @@ export default function MarketingContinuousUpdates() {
               />
             </p>
           </div>
-          <div className="bg-brand-50 mt-3 hidden rounded-lg lg:col-span-2 lg:flex">
+          <div className="bg-brand-lightest mt-3 hidden rounded-lg lg:col-span-2 lg:flex">
             <Chart
               activePointIndex={activePointIndex}
               height={chartHeight}

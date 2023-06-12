@@ -24,7 +24,7 @@ export default function QuestionFilterSectionMobile<
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
-            <Disclosure.Button className="focus:ring-brand-500 flex w-full items-center justify-between text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset">
+            <Disclosure.Button className="focus:ring-brand flex w-full items-center justify-between text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset">
               <span className="text-sm font-medium text-neutral-900">
                 {section.name}
               </span>
@@ -45,7 +45,7 @@ export default function QuestionFilterSectionMobile<
                 <div key={option.value} className="flex items-center">
                   <input
                     checked={values.has(option.value)}
-                    className="text-brand-600 focus:ring-brand-500 h-4 w-4 rounded border-neutral-200"
+                    className="text-brand-dark focus:ring-brand h-4 w-4 rounded border-neutral-200"
                     id={`${section.id}-${optionIdx}-mobile`}
                     name={`${section.id}[]`}
                     type="checkbox"

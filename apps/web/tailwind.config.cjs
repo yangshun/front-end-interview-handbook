@@ -1,7 +1,6 @@
 // @ts-check
 
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
 
 const neutral = {
   50: '#fafafa',
@@ -17,36 +16,54 @@ const neutral = {
   950: '#070708',
 };
 
-const green = {
-  lighter: colors.green['100'],
-  light: colors.green['400'],
-  DEFAULT: colors.green['500'],
-  dark: colors.green['600'],
-  darker: colors.green['700'],
+const indigo = {
+  lightest: '#f3f0ff',
+  lighter: '#d6d5fe',
+  light: '#bab5fd',
+  DEFAULT: '#948cf9',
+  dark: '#7063f3',
+  darker: '#5133cf',
+  darkest: '#3a2888',
 };
 
-const blue = {
-  lighter: colors.sky['100'],
-  light: colors.sky['400'],
-  DEFAULT: colors.sky['500'],
-  dark: colors.sky['600'],
-  darker: colors.sky['700'],
+const green = {
+  lightest: '#ebffed',
+  lighter: '#97ffa2',
+  light: '#39ea4a',
+  DEFAULT: '#28a635',
+  dark: '#1a6a22',
+  darker: '#0c3310',
+  darkest: '#071c09',
+};
+
+const orange = {
+  lightest: '#fff9f3',
+  lighter: '#ffe3ca',
+  light: '#ffbf85',
+  DEFAULT: '#f8963c',
+  dark: '#aa6729',
+  darker: '#3f260f',
+  darkest: '#221508',
 };
 
 const red = {
-  lighter: colors.red['100'],
-  light: colors.red['400'],
-  DEFAULT: colors.red['500'],
-  dark: colors.red['600'],
-  darker: colors.red['700'],
+  lightest: '#fff8f8',
+  lighter: '#ffe1e1',
+  light: '#ff8d8d',
+  DEFAULT: '#ff5353',
+  dark: '#ad2a2a',
+  darker: '#551515',
+  darkest: '#2f0b0b',
 };
 
-const yellow = {
-  lighter: colors.amber['100'],
-  light: colors.amber['400'],
-  DEFAULT: colors.amber['500'],
-  dark: colors.amber['600'],
-  darker: colors.amber['700'],
+const blue = {
+  lightest: '#f1fcff',
+  lighter: '#c0f0ff',
+  light: '#47c5ee',
+  DEFAULT: '#2e9cbe',
+  dark: '#1d6379',
+  darker: '#0e303b',
+  darkest: '#081a20',
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -70,15 +87,16 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        brand: colors.indigo,
+        indigo,
+        brand: indigo,
         green,
         success: green,
         blue,
         info: blue,
         red,
         danger: red,
-        yellow,
-        warning: yellow,
+        orange,
+        warning: orange,
         neutral,
         gray: neutral,
       },

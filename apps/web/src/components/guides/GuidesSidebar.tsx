@@ -30,7 +30,7 @@ function LinksList({
             className={clsx(
               'flex w-full items-center gap-x-2 pl-4',
               pathname === link.href
-                ? 'text-brand-500'
+                ? 'text-brand'
                 : 'text-zinc-600 hover:text-zinc-800',
             )}
             href={link.href}

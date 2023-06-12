@@ -17,7 +17,7 @@ export default function NavbarItem({
   if (props.type === 'link') {
     return (
       <Anchor
-        className="hover:text-brand-500 flex cursor-pointer gap-2 whitespace-nowrap px-3 py-1 text-xs font-medium text-neutral-900"
+        className="hover:text-brand flex cursor-pointer gap-2 whitespace-nowrap px-3 py-1 text-xs font-medium text-neutral-900"
         href={props.href}
         suppressHydrationWarning={true}
         variant="unstyled"
@@ -33,8 +33,8 @@ export default function NavbarItem({
         <>
           <Popover.Button
             className={clsx(
-              open ? 'text-brand-500' : 'text-neutral-900',
-              'focus:ring-brand-500 group inline-flex items-center rounded-md bg-white px-3 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-offset-2',
+              open ? 'text-brand' : 'text-neutral-900',
+              'focus:ring-brand group inline-flex items-center rounded-md bg-white px-3 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-offset-2',
             )}>
             <span>{label}</span>
             <ChevronDownIcon

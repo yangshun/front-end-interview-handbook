@@ -37,7 +37,7 @@ export default function MarketingAffiliateSteps() {
         {steps.map((step, stepIdx) => (
           <li key={step.title} className="flex flex-col md:col-span-1">
             <div className="flex items-center">
-              <div className="bg-brand-600 hover:bg-brand-900 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl text-white">
+              <div className="bg-brand-dark hover:bg-brand-darkest flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl text-white">
                 <p>{stepIdx + 1}</p>
               </div>
               <div className="py-4 pl-4 text-2xl font-medium md:text-xl">

@@ -58,7 +58,7 @@ export default function QuestionsQuizContentLayout({
                         <li
                           key={slug}
                           className={clsx(
-                            'focus-within:ring-brand-600 relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50 2xl:h-[90px]',
+                            'focus-within:ring-brand-dark relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50 2xl:h-[90px]',
                             pathname === href ? '!bg-neutral-100' : 'bg-white',
                           )}>
                           <div className="flex justify-between space-x-3">

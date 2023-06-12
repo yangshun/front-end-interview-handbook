@@ -128,7 +128,7 @@ export default function ProfileShell({ user, children }: Props) {
                         <>
                           <div className="flex items-center space-x-2">
                             {userProfile?.isPremium ? (
-                              <span className="to-brand-600 inline-flex items-center space-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
+                              <span className="to-brand-dark inline-flex items-center space-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
                                 <StarIcon
                                   aria-hidden="true"
                                   className="text-white-400 h-5 w-5 shrink-0"

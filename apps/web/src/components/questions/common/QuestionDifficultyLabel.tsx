@@ -18,7 +18,7 @@ type Props = Readonly<{
 const DifficultyLabelClasses: Record<QuestionDifficulty, string> = {
   easy: 'text-green',
   hard: 'text-red',
-  medium: 'text-yellow',
+  medium: 'text-yellow-500',
 };
 
 export default function QuestionDifficultyLabel({

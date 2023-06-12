@@ -418,7 +418,7 @@ export default function MarketingKeyFeaturesNew() {
                   id="ZLXgL9"
                   values={{
                     colour: (chunks) => (
-                      <span className="from-brand-400 bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
+                      <span className="from-brand-light bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
                         {chunks}
                       </span>
                     ),
@@ -496,7 +496,7 @@ export default function MarketingKeyFeaturesNew() {
                     values={{
                       link: (chunks) => (
                         <Anchor
-                          className="text-brand-400 hover:text-brand-500 ml-2 flex items-center font-semibold"
+                          className="text-brand-light hover:text-brand ml-2 flex items-center font-semibold"
                           href="/prepare"
                           variant="unstyled"
                           onClick={() => {

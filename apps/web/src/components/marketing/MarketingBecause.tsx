@@ -33,7 +33,7 @@ export default function MarketingBecause() {
                 id="L0IePi"
                 values={{
                   span: (chunks) => (
-                    <span className="from-brand-600 bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
+                    <span className="from-brand-dark bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
                       {chunks}
                     </span>
                   ),

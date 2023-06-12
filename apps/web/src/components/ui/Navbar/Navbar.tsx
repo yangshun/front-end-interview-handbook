@@ -66,7 +66,7 @@ export default function Navbar({
           </div>
           <div className="-my-2 -mr-2 lg:hidden">
             <button
-              className="focus:ring-brand-500 inline-flex items-center justify-center rounded-md bg-white p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
+              className="focus:ring-brand inline-flex items-center justify-center rounded-md bg-white p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
               type="button"
               onClick={() => {
                 setIsMobileNavOpen(true);

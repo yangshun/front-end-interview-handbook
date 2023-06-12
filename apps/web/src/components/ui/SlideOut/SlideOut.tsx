@@ -98,7 +98,7 @@ export default function SlideOut({
                   <Heading level="heading5">{title}</Heading>
                 </Dialog.Title>
                 <button
-                  className="focus:ring-brand-500 -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
+                  className="focus:ring-brand -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
                   type="button"
                   onClick={() => onClose?.()}>
                   {/* TODO: i18n */}

@@ -242,8 +242,8 @@ export default function QuestionsSidebar({
                 className={clsx(
                   itemClassname,
                   current
-                    ? 'text-brand-600 bg-neutral-100'
-                    : 'hover:text-brand-600 text-neutral-600',
+                    ? 'text-brand-dark bg-neutral-100'
+                    : 'hover:text-brand-dark text-neutral-600',
                 )}
                 href={item.href}
                 variant="unstyled">
@@ -268,8 +268,8 @@ export default function QuestionsSidebar({
                     className={clsx(
                       itemClassname,
                       pathname != null && item.currentMatchRegex?.test(pathname)
-                        ? 'text-brand-600 bg-neutral-100'
-                        : 'hover:text-brand-600 text-neutral-600',
+                        ? 'text-brand-dark bg-neutral-100'
+                        : 'hover:text-brand-dark text-neutral-600',
                     )}>
                     {label}
                   </Popover.Button>

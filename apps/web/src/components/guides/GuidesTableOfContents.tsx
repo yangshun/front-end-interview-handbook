@@ -42,9 +42,9 @@ function ListItems({
             <Anchor
               ref={activeId === section.id ? activeLinkRef : undefined}
               className={clsx(
-                'hover:text-brand-700 motion-safe:transition-all',
+                'hover:text-brand-darker motion-safe:transition-all',
                 activeId === section.id
-                  ? 'text-brand-600'
+                  ? 'text-brand-dark'
                   : 'font-normal text-neutral-500',
               )}
               href={`#${section.id}`}

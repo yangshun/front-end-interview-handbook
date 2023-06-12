@@ -24,7 +24,7 @@ export default function NavLocaleDropdown() {
             description: 'Change site language button label',
             id: '58dfbv',
           })}
-          className="focus:ring-brand-500 inline-flex w-full justify-center gap-x-1.5 rounded-md border border-neutral-300 bg-white px-2 py-1.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2">
+          className="focus:ring-brand inline-flex w-full justify-center gap-x-1.5 rounded-md border border-neutral-300 bg-white px-2 py-1.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2">
           <LanguageIcon
             aria-hidden="true"
             className="-mr-1 h-4 w-4 text-neutral-900"

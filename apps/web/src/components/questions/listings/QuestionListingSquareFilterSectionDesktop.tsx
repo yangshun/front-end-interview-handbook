@@ -35,9 +35,9 @@ export default function QuestionListingSquareFilterSectionDesktop<
               key={option.value}
               className={clsx(
                 values.has(option.value)
-                  ? 'border-brand-600 text-brand-600 hover:border-brand-500 hover:bg-brand-50 hover:text-brand-500'
+                  ? 'border-brand-dark text-brand-dark hover:border-brand hover:bg-brand-lightest hover:text-brand'
                   : 'bg-white text-neutral-700 hover:bg-neutral-50 hover:text-neutral-600',
-                'focus:ring-brand-600 group relative block w-full truncate border px-3 py-2 text-sm font-medium shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+                'focus:ring-brand-dark group relative block w-full truncate border px-3 py-2 text-sm font-medium shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
               )}
               type="button"
               onClick={() => section.onChange(option.value)}>
@@ -45,7 +45,7 @@ export default function QuestionListingSquareFilterSectionDesktop<
                 <span
                   aria-hidden={true}
                   className="absolute top-0 left-0 h-4 w-4">
-                  <span className="border-brand-600 group-hover:border-brand-500 absolute block h-4 w-4 border-8 !border-r-transparent !border-b-transparent transition-colors" />
+                  <span className="border-brand-dark group-hover:border-brand absolute block h-4 w-4 border-8 !border-r-transparent !border-b-transparent transition-colors" />
                   <CheckIcon className="absolute h-2 w-2 scale-125 text-white" />
                 </span>
               )}
