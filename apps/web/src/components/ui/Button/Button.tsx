@@ -106,7 +106,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   secondary: clsx(
     'border-neutral-300 dark:border-neutral-800',
     'text-neutral-600 dark:text-neutral-200',
-    'bg-transparent',
+    'bg-white dark:bg-neutral-950',
     'hover:bg-neutral-100 dark:hover:bg-neutral-900',
     'active:bg-neutral-200 dark:active:bg-neutral-800',
     'focus-visible:outline-neutral-500',

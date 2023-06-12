@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import {
   BanknotesIcon,
@@ -36,13 +37,16 @@ function ProductSection() {
         <div
           key={feature}
           className={clsx(
-            'inline-flex items-center gap-1 rounded-lg bg-neutral-100 px-4 py-2 text-sm font-medium',
+            'inline-flex items-center gap-1 rounded-lg px-4 py-2',
+            'bg-neutral-100 dark:bg-neutral-800',
           )}>
           <CheckIcon
             aria-hidden={true}
             className="text-success -ml-1 h-4 w-4"
           />
-          {feature}
+          <Text color="secondary" variant="body2" weight="medium">
+            {feature}
+          </Text>
         </div>
       ))}
     </div>
@@ -55,13 +59,22 @@ function SliderSection() {
   return (
     <div>
       <div className="mb-8 flex flex-col gap-2 text-center">
-        <p className="text-brand-dark flex justify-center gap-2 text-4xl font-bold">
+        <Text
+          className="flex justify-center gap-2 text-4xl font-bold"
+          color="active"
+          display="block"
+          variant="custom"
+          weight="bold">
           ${Math.round(0.15 * sales * 99 * 100) / 100}{' '}
           <span className="self-end text-lg font-medium">USD</span>
-        </p>
-        <p className="text-sm italic text-neutral-500">
-          *Based on average order value
-        </p>
+        </Text>
+        <Text
+          className="italic"
+          color="secondary"
+          display="block"
+          variant="body2">
+          * Based on average order value
+        </Text>
       </div>
       <Slider.Root
         className="relative flex h-4 w-full items-center"
@@ -76,9 +89,14 @@ function SliderSection() {
         </Slider.Track>
         <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block h-8 w-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </Slider.Root>
-      <p className="mt-8 text-center text-2xl font-medium text-neutral-700">
+      <Text
+        className="mt-8 text-center text-2xl"
+        color="secondary"
+        display="block"
+        variant="custom"
+        weight="medium">
         {sales} sales
-      </p>
+      </Text>
     </div>
   );
 }
@@ -122,7 +140,7 @@ const reasons = [
 
 export default function MarketingAffiliateWhySections() {
   return (
-    <div className="relative space-y-16 overflow-hidden bg-white">
+    <div className="relative space-y-16 overflow-hidden">
       {reasons.map((reason) => (
         <div
           key={reason.title}
@@ -139,9 +157,13 @@ export default function MarketingAffiliateWhySections() {
             <div className="mt-6">
               <Heading level="heading4">{reason.title}</Heading>
               <Section>
-                <p className="mt-4 text-lg text-neutral-500 lg:text-xl">
+                <Text
+                  className="mt-4 text-lg lg:text-xl"
+                  color="secondary"
+                  display="block"
+                  variant="custom">
                   {reason.subtitle}
-                </p>
+                </Text>
                 <div className="mt-12 space-x-4">
                   {reason.action && (
                     <Button

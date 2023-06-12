@@ -1,13 +1,17 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 export default function MarketingAffiliateHero() {
+  const intl = useIntl();
   const sectionMarkerRef = useRef(null);
   const isInView = useInView(sectionMarkerRef, {
     amount: 'all',
@@ -15,7 +19,7 @@ export default function MarketingAffiliateHero() {
   });
 
   return (
-    <div className="isolate bg-white">
+    <div className="isolate">
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
         <svg
           className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
@@ -52,8 +56,12 @@ export default function MarketingAffiliateHero() {
             <div className="mx-auto max-w-3xl">
               <div>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-neutral-900/10 hover:ring-neutral-900/20">
-                    <span className="text-neutral-600">
+                  <div
+                    className={clsx(
+                      'relative overflow-hidden rounded-full border py-1.5 px-4 text-sm leading-6',
+                      themeLineColor,
+                    )}>
+                    <Text color="secondary" variant="body2">
                       <FormattedMessage
                         defaultMessage="Already an affiliate? <link>Access dashboard</link>"
                         description="Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -61,20 +69,19 @@ export default function MarketingAffiliateHero() {
                         values={{
                           link: (chunks) => (
                             <Anchor
-                              className="text-brand-dark font-semibold"
+                              className="text-brand font-semibold"
                               href="https://greatfrontend.firstpromoter.com/login"
                               variant="unstyled">
                               <span
                                 aria-hidden="true"
                                 className="absolute inset-0"
                               />
-                              {chunks}
-                              <span aria-hidden="true">&rarr;</span>
+                              {chunks} <span aria-hidden="true">&rarr;</span>
                             </Anchor>
                           ),
                         }}
                       />
-                    </span>
+                    </Text>
                   </div>
                 </div>
                 <div>
@@ -85,38 +92,40 @@ export default function MarketingAffiliateHero() {
                       id="lfY3AI"
                     />
                   </Heading>
-                  <p className="mx-auto mt-8 max-w-md text-center text-xl text-neutral-700 md:mt-12 md:max-w-3xl xl:text-xl">
+                  <Text
+                    className="mx-auto mt-8 max-w-md text-center text-xl md:mt-12 md:max-w-3xl xl:text-xl"
+                    color="secondary"
+                    display="block"
+                    variant="custom">
                     <FormattedMessage
                       defaultMessage="Earn passive commissions when others purchase GreatFrontEnd through you."
                       description="Subtitle of the Hero section of the 'Become An Affiliate' page"
                       id="FAArTO"
                     />
-                  </p>
+                  </Text>
                   <div className="mx-auto mt-12 flex justify-center gap-x-4 sm:mt-16 sm:flex">
-                    <Anchor
-                      className="bg-brand-dark ring-brand-dark hover:bg-brand-darker hover:ring-brand-darker inline-block rounded-lg px-4 py-2.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 transition-colors sm:text-lg"
+                    <Button
                       href="https://greatfrontend.firstpromoter.com"
-                      variant="unstyled">
-                      <FormattedMessage
-                        defaultMessage="Start in minutes"
-                        description="Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
-                        id="wzQGxj"
-                      />{' '}
-                      <span aria-hidden="true" className="text-brand-lightest">
-                        &rarr;
-                      </span>
-                    </Anchor>
-                    <Anchor
-                      className="text-brand-dark ring-brand-dark hidden rounded-lg px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 transition-colors hover:bg-neutral-700 hover:text-white hover:ring-neutral-700 sm:inline-block sm:text-lg"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Start in minutes',
+                        description:
+                          "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page",
+                        id: 'wzQGxj',
+                      })}
+                      size="lg"
+                      variant="primary"
+                    />
+                    <Button
                       href="mailto:contact@greatfrontend.com?subject=GreatFrontEnd Affiliate"
-                      variant="unstyled">
-                      <FormattedMessage
-                        defaultMessage="Ask us about it"
-                        description="Button that opens up mail for user to send us an email about their question about the Affiliate program"
-                        id="Us7Uly"
-                      />{' '}
-                      <span aria-hidden="true">&rarr;</span>
-                    </Anchor>
+                      label={intl.formatMessage({
+                        defaultMessage: 'Ask us about it',
+                        description:
+                          'Button that opens up mail for user to send us an email about their question about the Affiliate program',
+                        id: 'Us7Uly',
+                      })}
+                      size="lg"
+                      variant="secondary"
+                    />
                   </div>
                 </div>
                 <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">

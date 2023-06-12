@@ -18,7 +18,7 @@ export default function MarketingAffiliateWhyJoinUs() {
   });
 
   return (
-    <div className="bg-white">
+    <div>
       <Container variant="narrow">
         <div
           className={clsx(

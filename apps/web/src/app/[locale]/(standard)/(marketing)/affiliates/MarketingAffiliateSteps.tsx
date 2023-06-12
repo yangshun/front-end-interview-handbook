@@ -1,3 +1,5 @@
+import Text from '~/components/ui/Text';
+
 const steps = [
   {
     imageUrl: '/img/affiliate/share_link.svg',
@@ -37,17 +39,25 @@ export default function MarketingAffiliateSteps() {
         {steps.map((step, stepIdx) => (
           <li key={step.title} className="flex flex-col md:col-span-1">
             <div className="flex items-center">
-              <div className="bg-brand-dark hover:bg-brand-darkest flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl text-white">
+              <div className="bg-brand-dark flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl text-white">
                 <p>{stepIdx + 1}</p>
               </div>
-              <div className="py-4 pl-4 text-2xl font-medium md:text-xl">
+              <Text
+                className="py-4 pl-4 text-2xl md:text-xl"
+                display="block"
+                variant="custom"
+                weight="medium">
                 {step.title}
-              </div>
+              </Text>
             </div>
             <div className="flex grow flex-col pt-2">
-              <p className="grow text-xl text-neutral-500 md:text-lg">
+              <Text
+                className="grow text-xl md:text-lg"
+                color="secondary"
+                display="block"
+                variant="custom">
                 {step.subtitle}
-              </p>
+              </Text>
               <div className="mt-12 flex grow">
                 <img
                   alt={step.title}

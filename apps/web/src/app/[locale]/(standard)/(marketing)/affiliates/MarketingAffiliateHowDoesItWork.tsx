@@ -7,6 +7,7 @@ import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionT
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import MarketingAffiliateSteps from './MarketingAffiliateSteps';
 
@@ -18,7 +19,7 @@ export default function MarketingAffiliateHowDoesItWork() {
   });
 
   return (
-    <div className="bg-white">
+    <div>
       <Container variant="narrow">
         <div
           className={clsx(
@@ -45,7 +46,11 @@ export default function MarketingAffiliateHowDoesItWork() {
           </div>
           <Section>
             <MarketingAffiliateSteps />
-            <div className="mt-12 text-sm text-neutral-500">
+            <Text
+              className="mt-12"
+              color="secondary"
+              display="block"
+              variant="body2">
               <FormattedMessage
                 defaultMessage="<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process."
                 description="Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
@@ -56,7 +61,7 @@ export default function MarketingAffiliateHowDoesItWork() {
                   ),
                 }}
               />
-            </div>
+            </Text>
           </Section>
         </div>
       </Container>

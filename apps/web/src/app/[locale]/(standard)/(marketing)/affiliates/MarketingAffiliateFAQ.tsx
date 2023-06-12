@@ -5,6 +5,8 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
+import { themeDivideColor } from '~/components/ui/theme';
 
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
@@ -48,7 +50,7 @@ const faqs = [
   },
   {
     answer: (
-      <>
+      <div className="flex flex-col gap-y-4">
         <p>
           Once accepted into the affiliate program, you will receive a unique
           reference handle and affiliate link which will be used to track all
@@ -64,7 +66,7 @@ const faqs = [
           purchases products within the duration of the cookie, you will earn
           15% commissions on their first order.
         </p>
-      </>
+      </div>
     ),
     key: 'tracking',
     question: <>How are referrals tracked?</>,
@@ -104,7 +106,7 @@ const faqs = [
 
 export default function FrequentlyAskedQuestions() {
   return (
-    <div className="bg-white">
+    <div>
       <Container variant="narrow">
         <div
           className={clsx(
@@ -118,7 +120,11 @@ export default function FrequentlyAskedQuestions() {
                 id="LK0JHB"
               />
             </Heading>
-            <p className="mx-auto mt-4 justify-center px-4 text-center text-lg text-neutral-500 sm:mt-8 md:px-10 md:text-xl lg:px-20 ">
+            <Text
+              className="mx-auto mt-4 justify-center px-4 text-center text-lg sm:mt-8 md:px-10 md:text-xl lg:px-20"
+              color="secondary"
+              display="block"
+              variant="custom">
               <FormattedMessage
                 defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
                 description="Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
@@ -134,11 +140,15 @@ export default function FrequentlyAskedQuestions() {
                   ),
                 }}
               />
-            </p>
+            </Text>
           </div>
           <Section>
-            <div className="divide-y-2 divide-neutral-200">
-              <dl className="mt-6 space-y-6 divide-y divide-neutral-200 lg:mt-12 lg:space-y-8">
+            <div>
+              <dl
+                className={clsx(
+                  'mt-6 space-y-6 divide-y lg:mt-12 lg:space-y-8',
+                  themeDivideColor,
+                )}>
                 {faqs.map((faq) => (
                   <Disclosure
                     key={faq.key}
@@ -147,12 +157,16 @@ export default function FrequentlyAskedQuestions() {
                     defaultOpen={true}>
                     {({ open }) => (
                       <>
-                        <dt className="text-base sm:text-lg md:text-xl">
-                          <Disclosure.Button className="flex w-full items-start justify-between text-left text-neutral-400">
-                            <span className="font-medium text-neutral-700">
+                        <dt>
+                          <Disclosure.Button className="flex w-full items-start justify-between text-left">
+                            <Text
+                              className="text-base sm:text-lg md:text-xl"
+                              display="block"
+                              variant="custom"
+                              weight="medium">
                               {faq.question}
-                            </span>
-                            <span className="ml-6 flex h-7 items-center">
+                            </Text>
+                            <span className="ml-6 flex h-7 items-center text-neutral-400 dark:text-neutral-600">
                               <ChevronDownIcon
                                 aria-hidden="true"
                                 className={clsx(
@@ -164,9 +178,13 @@ export default function FrequentlyAskedQuestions() {
                           </Disclosure.Button>
                         </dt>
                         <Disclosure.Panel as="dd" className="mt-8 pr-12">
-                          <div className="grid gap-y-4 text-base text-neutral-500 sm:text-lg md:text-xl">
+                          <Text
+                            className="text-base sm:text-lg md:text-xl"
+                            color="secondary"
+                            display="block"
+                            variant="custom">
                             {faq.answer}
-                          </div>
+                          </Text>
                         </Disclosure.Panel>
                       </>
                     )}

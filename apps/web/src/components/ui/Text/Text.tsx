@@ -21,7 +21,7 @@ export type TextDisplay =
   | 'inline-flex'
   | 'inline-grid'
   | 'inline';
-export type TextVariant = 'body' | 'body2' | 'body3';
+export type TextVariant = 'body' | 'body2' | 'body3' | 'custom';
 export type TextWeight = 'bold' | 'medium' | 'normal';
 
 type Props = Readonly<{
@@ -38,6 +38,7 @@ const variantClasses: Record<TextVariant, string> = {
   body: 'text-base',
   body2: 'text-sm',
   body3: 'text-xs',
+  custom: '',
 };
 
 const weightClasses: Record<TextWeight, string> = {

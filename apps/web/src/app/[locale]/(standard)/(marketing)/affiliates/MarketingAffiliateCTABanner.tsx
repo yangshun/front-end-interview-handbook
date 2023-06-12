@@ -1,10 +1,12 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
-import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 export default function MarketingAffiliateCTABanner() {
+  const intl = useIntl();
+
   return (
     <div className="bg-brand-dark relative mx-auto mt-24 flex justify-center px-4 py-24 transition-opacity duration-[1500ms] ease-in-out">
       <div>
@@ -17,16 +19,17 @@ export default function MarketingAffiliateCTABanner() {
         </Heading>
         <Section>
           <div className="mx-auto flex justify-center pt-8">
-            <Anchor
-              className="text-brand-dark hover:text-brand-darker inline-flex rounded-lg bg-white px-4 py-2.5 text-base font-semibold leading-7 shadow-sm ring-1 ring-white lg:text-lg"
+            <Button
               href="https://greatfrontend.firstpromoter.com"
-              variant="unstyled">
-              <FormattedMessage
-                defaultMessage="Get started in minutes"
-                description="Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
-                id="3v5v1K"
-              />
-            </Anchor>
+              label={intl.formatMessage({
+                defaultMessage: 'Get started in minutes',
+                description:
+                  "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page",
+                id: '3v5v1K',
+              })}
+              size="lg"
+              variant="secondary"
+            />
           </div>
         </Section>
       </div>

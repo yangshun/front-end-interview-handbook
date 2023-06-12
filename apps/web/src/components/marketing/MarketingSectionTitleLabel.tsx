@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import Text from '../ui/Text';
+
 type Props = Readonly<{
   children: React.ReactNode;
   className?: string;
@@ -10,9 +12,13 @@ export default function MarketingSectionTitleLabel({
   className,
 }: Props) {
   return (
-    <div
-      className={clsx('text-brand text-sm font-semibold leading-7', className)}>
+    <Text
+      className={clsx('leading-7', className)}
+      color="active"
+      display="block"
+      variant="body2"
+      weight="bold">
       {children}
-    </div>
+    </Text>
   );
 }
