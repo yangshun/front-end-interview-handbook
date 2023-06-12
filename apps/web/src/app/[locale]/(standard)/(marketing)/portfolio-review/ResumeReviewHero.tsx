@@ -133,7 +133,7 @@ export default function ResumeReviewHero() {
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
-                    className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-400"
+                    className="rounded-full bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-400"
                     href="#whats-included">
                     What is included{' '}
                     <span className="text-neutral-200">{'->'}</span>
@@ -174,7 +174,7 @@ export default function ResumeReviewHero() {
                   <dt className=" font-semibold text-white">
                     <feature.icon
                       aria-hidden="true"
-                      className="absolute left-1 top-1 h-8 w-8 text-pink-300"
+                      className="absolute left-1 top-1 h-8 w-8 text-pink-500"
                     />
                     {feature.name}
                   </dt>{' '}

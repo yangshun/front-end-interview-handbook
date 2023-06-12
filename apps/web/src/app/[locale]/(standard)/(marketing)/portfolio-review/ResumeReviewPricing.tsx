@@ -96,7 +96,7 @@ export default function ResumeReviewPricing() {
                       tier.mostPopular
                         ? 'bg-pink-500 text-white shadow-sm hover:bg-pink-400 focus-visible:outline-pink-500'
                         : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white',
-                      'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                      'mt-6 block rounded-full py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
                     )}
                     href={tier.href}>
                     Buy Now
