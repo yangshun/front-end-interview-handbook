@@ -9,7 +9,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundDeemphasized,
+  themeBackgroundEmphasized,
   themeDivideColor,
   themeLineColor,
 } from '~/components/ui/theme';
@@ -41,7 +41,7 @@ export default function HiringPage() {
                 'divide-y rounded border',
                 themeLineColor,
                 themeDivideColor,
-                themeBackgroundDeemphasized,
+                themeBackgroundEmphasized,
               )}>
               <div className="grid gap-y-2 p-4">
                 <Text display="block" variant="body2" weight="medium">
