@@ -122,6 +122,7 @@ export default function SupabaseAuthUpdatePassword() {
                   'Label of Change Password button on Change Password page',
                 id: 'd8XKhi',
               })}
+              size="lg"
               type="submit"
               variant="primary"
               onClick={() => {

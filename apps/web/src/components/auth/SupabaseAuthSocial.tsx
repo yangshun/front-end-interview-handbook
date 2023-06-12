@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
@@ -64,13 +65,11 @@ export type SocialAuthProps = {
   layout?: 'horizontal' | 'vertical';
   providers?: Array<SupabaseProviderGFE>;
   redirectTo: string;
-  socialButtonSize?: 'lg' | 'md' | 'sm';
   supabaseClient: SupabaseClientGFE;
 };
 
 export default function SupabaseAuthSocial({
   supabaseClient,
-  socialButtonSize,
   providers,
   layout,
   redirectTo,
@@ -111,7 +110,7 @@ export default function SupabaseAuthSocial({
           return (
             <div
               key={provider}
-              className={layout === 'horizontal' ? 'grow' : ''}>
+              className={clsx(layout === 'horizontal' && 'grow')}>
               <Button
                 addonPosition="start"
                 display="block"
@@ -129,7 +128,7 @@ export default function SupabaseAuthSocial({
                     authProviderLabel: label,
                   },
                 )}
-                size={socialButtonSize}
+                size="md"
                 variant="secondary"
                 onClick={() => {
                   logEvent('auth.sign_in', {

@@ -10,6 +10,7 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+import { themeLineColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
@@ -310,7 +311,7 @@ export default function SupabaseAuthEmail({
                       id: 'tP5+Am',
                     })
               }
-              size="md"
+              size="lg"
               type="submit"
               variant="primary"
               onClick={() => {
@@ -405,7 +406,7 @@ export default function SupabaseAuthEmail({
                 </Text>
               </div>
             )}
-            <hr />
+            <hr className={themeLineColor} />
             <Text color="secondary" display="block" variant="body3">
               <FormattedMessage
                 defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."

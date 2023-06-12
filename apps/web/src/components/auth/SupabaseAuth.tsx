@@ -1,9 +1,11 @@
+import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
@@ -91,15 +93,17 @@ export default function Auth({
             {hasThirdPartyProviders && (
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-neutral-200" />
+                  <div className={clsx('w-full border-t', themeLineColor)} />
                 </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="bg-white px-2 text-neutral-500">
-                    <FormattedMessage
-                      defaultMessage="Or continue with"
-                      description="Label of divider preceding third party providers on Sign In page"
-                      id="ugHQqC"
-                    />
+                <div className="relative flex justify-center">
+                  <span className={clsx('px-2', themeBackgroundColor)}>
+                    <Text color="secondary" variant="body2">
+                      <FormattedMessage
+                        defaultMessage="Or continue with"
+                        description="Label of divider preceding third party providers on Sign In page"
+                        id="ugHQqC"
+                      />
+                    </Text>
                   </span>
                 </div>
               </div>
