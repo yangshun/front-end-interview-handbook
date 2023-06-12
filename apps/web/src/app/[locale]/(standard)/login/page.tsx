@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import AuthPage from '~/components/auth/AuthPage';
-import { themeBackgroundDeemphasized } from '~/components/ui/theme';
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function LoginPage() {
   return (
-    <div className={themeBackgroundDeemphasized}>
+    <div className={themeBackgroundEmphasized}>
       <AuthPage view="sign_in" />
     </div>
   );

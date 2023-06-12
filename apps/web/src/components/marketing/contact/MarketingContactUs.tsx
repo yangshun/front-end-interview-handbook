@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -5,16 +6,26 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import {
+  themeBackgroundColor,
+  themeBackgroundEmphasized,
+} from '~/components/ui/theme';
 
 import MarketingContactPlatforms from './MarketingContactPlatforms';
 import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
-    <div className="overflow-hidden bg-neutral-50 pb-16 sm:bg-white sm:pb-24">
+    <div
+      className={clsx('overflow-hidden pb-16 sm:pb-24', themeBackgroundColor)}>
       <div className="relative sm:py-16">
         <div aria-hidden="true" className="hidden sm:block">
-          <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-neutral-50" />
+          <div
+            className={clsx(
+              'absolute inset-y-0 left-0 w-1/2 rounded-r-3xl',
+              themeBackgroundEmphasized,
+            )}
+          />
           <svg
             className="absolute top-8 left-2/3 -ml-3"
             fill="none"
@@ -30,7 +41,7 @@ export default function MarketingContactUs() {
                 x={0}
                 y={0}>
                 <rect
-                  className="text-neutral-200"
+                  className="text-neutral-200 dark:text-neutral-800"
                   fill="currentColor"
                   height={4}
                   width={4}
