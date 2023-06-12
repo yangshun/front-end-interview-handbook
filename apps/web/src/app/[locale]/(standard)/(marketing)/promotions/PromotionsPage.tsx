@@ -12,10 +12,15 @@ import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 function EmailUsLink() {
   return (
-    <p>
+    <Text
+      className="text-right"
+      color="secondary"
+      display="block"
+      variant="body3">
       <FormattedMessage
         defaultMessage="Facing trouble? <link>Email us</link>"
         description="Section label for seasonal promotion details"
@@ -31,7 +36,7 @@ function EmailUsLink() {
           ),
         }}
       />
-    </p>
+    </Text>
   );
 }
 
@@ -65,34 +70,47 @@ function SeasonalDiscountCard() {
         />
       }
       footer={
-        <p className="flex justify-end text-xs text-neutral-700">
+        <div className="flex justify-end text-xs">
           <EmailUsLink />
-        </p>
+        </div>
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
-            <span
+          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight">
+            <Text
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900 sm:text-6xl',
-              )}>
-              <span className="font-bold">20%</span>
-            </span>
-            <span className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
+                'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
+              )}
+              display="inline-flex"
+              variant="custom"
+              weight="bold">
+              20%
+            </Text>
+            <Text
+              className="ml-3 text-xl font-medium tracking-normal"
+              color="secondary"
+              variant="custom"
+              weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"
                 description="Amount cashback/discount"
                 id="piqimi"
               />
-            </span>
+            </Text>
           </div>
-          <p className="mt-4 text-sm font-medium text-neutral-500">
+          <Text
+            className="mt-4"
+            color="secondary"
+            display="block"
+            variant="body2"
+            weight="medium">
             <FormattedMessage
               defaultMessage="GreatFrontEnd Annual"
               description="GFE annual plan"
               id="GDgFZ0"
             />
-          </p>
+          </Text>
+
           <div className="mt-4">
             <Button
               addonPosition="start"
@@ -114,13 +132,17 @@ function SeasonalDiscountCard() {
               }}
             />
           </div>
-          <p className="mt-2 text-xs text-neutral-500">
+          <Text
+            className="mt-2"
+            color="secondary"
+            display="block"
+            variant="body3">
             <FormattedMessage
               defaultMessage="Use code at checkout"
               description="Instruction to apply discount"
               id="Ad94JV"
             />
-          </p>
+          </Text>
         </>
       }
       subtitle={
@@ -181,7 +203,11 @@ function StudentDiscountCard() {
         />
       }
       footer={
-        <p className="flex justify-between text-xs text-neutral-700">
+        <Text
+          className="justify-between gap-x-4"
+          color="secondary"
+          display="flex"
+          variant="body3">
           <span>
             <FormattedMessage
               defaultMessage="More on <link>Students Discount Terms and Conditions</link>"
@@ -200,24 +226,31 @@ function StudentDiscountCard() {
             />
           </span>
           <EmailUsLink />
-        </p>
+        </Text>
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
-            <span
+          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight">
+            <Text
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900 sm:text-6xl',
-              )}>
-              <span className="font-bold">40%</span>
-            </span>
-            <span className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
+                'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
+              )}
+              display="inline-flex"
+              variant="custom"
+              weight="bold">
+              40%
+            </Text>
+            <Text
+              className="ml-3 text-xl font-medium tracking-normal"
+              color="secondary"
+              variant="custom"
+              weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"
                 description="Amount cashback/discount"
                 id="piqimi"
               />
-            </span>
+            </Text>
           </div>
           <p className="mt-4 text-sm font-medium text-neutral-500">
             <FormattedMessage
@@ -313,7 +346,11 @@ function ReviewCashbackCard() {
         />
       }
       footer={
-        <p className="flex justify-between text-xs text-neutral-700">
+        <Text
+          className="justify-between gap-x-4"
+          color="secondary"
+          display="flex"
+          variant="body3">
           <span>
             <FormattedMessage
               defaultMessage="More on <link>Review Cashback Discount Terms and Conditions</link>"
@@ -332,32 +369,45 @@ function ReviewCashbackCard() {
             />
           </span>
           <EmailUsLink />
-        </p>
+        </Text>
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
-            <span
+          <div className="mt-4 flex items-center justify-center tracking-tight">
+            <Text
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900 sm:text-6xl',
-              )}>
-              <span className="font-bold">40%</span>
-            </span>
+                'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
+              )}
+              display="inline-flex"
+              variant="custom"
+              weight="bold">
+              40%
+            </Text>
           </div>
-          <p className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
+          <Text
+            className="text-xl tracking-normal"
+            color="secondary"
+            display="block"
+            variant="custom"
+            weight="medium">
             <FormattedMessage
               defaultMessage="CASHBACK"
               description="Amount cashback/discount"
               id="VfNkH+"
             />
-          </p>
-          <p className="mt-2 text-sm font-medium text-neutral-500">
+          </Text>
+          <Text
+            className="mt-2"
+            color="secondary"
+            display="block"
+            variant="body2"
+            weight="medium">
             <FormattedMessage
               defaultMessage="on your first order amount"
               description="GFE discount"
               id="fmPah2"
             />
-          </p>
+          </Text>
           <div className="mt-4">
             <Button
               display="block"
@@ -372,13 +422,17 @@ function ReviewCashbackCard() {
               variant="primary"
             />
           </div>
-          <p className="mt-2 text-xs text-neutral-500">
+          <Text
+            className="mt-2"
+            color="secondary"
+            display="block"
+            variant="body3">
             <FormattedMessage
               defaultMessage="Check on eligibility or submit proof"
               description="Instruction to check for review cashback"
               id="6almL5"
             />
-          </p>
+          </Text>
         </>
       }
       subtitle={
