@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -19,6 +20,7 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 import LogoLink from './Logo';
 import I18nSelect from '../i18n/I18nSelect';
 import TwitterIcon from '../icons/TwitterIcon';
+import { themeLineColor } from '../ui/theme';
 
 type FooterLink = Readonly<{
   href: string;
@@ -209,11 +211,14 @@ function FooterSection({
 }>) {
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading
-        className="text-sm font-medium uppercase tracking-wider text-neutral-400"
-        color="custom"
-        level="custom">
-        {title}
+      <Heading color="custom" level="custom">
+        <Text
+          className="uppercase tracking-wider"
+          color="secondary"
+          variant="body2"
+          weight="medium">
+          {title}
+        </Text>
       </Heading>
       <Section>
         <ul className="flex flex-col gap-y-3" role="list">
@@ -257,7 +262,7 @@ export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className="border-t border-neutral-200 bg-white">
+      className={clsx('border-t', themeLineColor)}>
       <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
@@ -272,13 +277,13 @@ export default function Footer() {
               <div>
                 <LogoLink size="xl" />
               </div>
-              <p className="text-sm text-neutral-500">
+              <Text color="secondary" display="block" variant="body2">
                 <FormattedMessage
                   defaultMessage="The most complete all-in-one front end interview preparation platform."
                   description="Text under GreatFrontEnd logo on the Footer, to describe main offering"
                   id="OL9m/V"
                 />
-              </p>
+              </Text>
               <div className="flex space-x-6">
                 {navigation.social.map(({ key, href, name, icon: Icon }) => (
                   <Anchor
@@ -364,8 +369,8 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="mt-12 border-t border-neutral-200 pt-8">
-            <p className="text-base text-neutral-400 xl:text-center">
+          <div className={clsx('mt-12 border-t pt-8', themeLineColor)}>
+            <Text className="xl:text-center" color="secondary" display="block">
               &copy; {new Date().getFullYear()}{' '}
               <FormattedMessage
                 defaultMessage="Codeney Pte Ltd. All rights
@@ -373,7 +378,7 @@ export default function Footer() {
                 description="Footer copyright text containing the company name"
                 id="P/tvlV"
               />
-            </p>
+            </Text>
           </div>
         </div>
       </Section>
