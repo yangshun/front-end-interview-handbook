@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { RiCloseLine } from 'react-icons/ri';
 
 type BannerVariant = 'primary' | 'special';
 
@@ -77,7 +76,7 @@ export default function Banner({
               type="button"
               onClick={onHide}>
               <span className="sr-only">Dismiss</span>
-              <XMarkIcon aria-hidden="true" className={clsx('h-5 w-5')} />
+              <RiCloseLine aria-hidden="true" className={clsx('h-5 w-5')} />
             </button>
           </div>
         )}

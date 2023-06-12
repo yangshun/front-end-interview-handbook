@@ -13,7 +13,6 @@ import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
-import HoverCardExamples from '~/components/ui/Hovercard/HovercardExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
@@ -47,13 +46,12 @@ export default function UILibraryPage() {
         {/* Others */}
         <TabsExamples />
         <SpinnerExamples />
-        <BannerExamples />
         <AlertExamples />
         <BadgeExamples />
         <EmptyStateExamples />
+        <BannerExamples />
         {/* Layer */}
         <TooltipExamples />
-        {/* <HoverCardExamples /> */}
         <SlideOutExamples />
         <DialogExamples />
         <ToastExamples />

@@ -1,9 +1,8 @@
 import { useState } from 'react';
+import { RiSortDesc } from 'react-icons/ri';
 
 import DropdownMenu from './DropdownMenu';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
-
-import { BarsArrowDownIcon } from '@heroicons/react/24/outline';
 
 const menuItems = [
   {
@@ -34,7 +33,7 @@ export default function DropdownMenuExamples() {
   return (
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Dropdown Menu">
       <div className="flex gap-x-24">
-        <DropdownMenu icon={BarsArrowDownIcon} label="Sort By">
+        <DropdownMenu icon={RiSortDesc} label="Sort By">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -46,7 +45,7 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu icon={BarsArrowDownIcon} label="Sort By" size="sm">
+        <DropdownMenu icon={RiSortDesc} label="Sort By" size="sm">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -58,7 +57,7 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu icon={BarsArrowDownIcon} label="Sort By" size="xs">
+        <DropdownMenu icon={RiSortDesc} label="Sort By" size="xs">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
               key={value}

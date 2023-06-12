@@ -1,26 +1,26 @@
+import { RiEyeLine, RiHome2Line, RiSunLine } from 'react-icons/ri';
+
 import { Hovercard, HovercardContent, HovercardTrigger } from './Hovercard';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import Text from '../Text';
-
-import { EyeIcon, HomeIcon, SunIcon } from '@heroicons/react/24/outline';
 
 const items = [
   {
     description: 'Measure actions your users take',
     href: '##',
-    icon: EyeIcon,
+    icon: RiEyeLine,
     name: 'Insights',
   },
   {
     description: 'Create your own targeted content',
     href: '##',
-    icon: SunIcon,
+    icon: RiSunLine,
     name: 'Automations',
   },
   {
     description: 'Keep track of your growth',
     href: '##',
-    icon: HomeIcon,
+    icon: RiHome2Line,
     name: 'Reports',
   },
 ];

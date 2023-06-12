@@ -10,30 +10,21 @@ export default function BannerExamples() {
   const [isShown4, setIsShown4] = useState(true);
 
   return (
-    <UIExamplesGroup title="Banner">
+    <UIExamplesGroup darkMode="horizontal" title="Banner">
       <div className="space-y-4">
-        <Banner>This notice is going to change your life.</Banner>
-        <Banner size="xs">
-          This smaller notice is going to change your life.
-        </Banner>
-        <Banner size="xs">
-          This even smaller notice is going to change your life.
-        </Banner>
         {isShown && (
           <Banner onHide={() => setIsShown(false)}>
-            This notice is going to change your life unless you close it.
+            This notice is going to change your life.
           </Banner>
         )}
         {isShown2 && (
           <Banner size="xs" onHide={() => setIsShown2(false)}>
-            This smaller notice is going to change your life unless you close
-            it.
+            This smaller notice is going to change your life.
           </Banner>
         )}
         {isShown3 && (
           <Banner size="xs" onHide={() => setIsShown3(false)}>
-            This even smaller notice is going to change your life unless you
-            close it.
+            This even smaller notice is going to change your life.
           </Banner>
         )}
         {isShown4 && (

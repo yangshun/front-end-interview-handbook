@@ -3,7 +3,7 @@ import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export default function BadgeExamples() {
   return (
-    <UIExamplesGroup title="Badge">
+    <UIExamplesGroup darkMode="horizontal" title="Badge">
       <div className="grid gap-4">
         <div className="flex gap-4">
           <Badge label="Brand" variant="primary" />

@@ -1,11 +1,8 @@
+import { RiMailFill, RiPhoneFill } from 'react-icons/ri';
+
 import type { TextInputSize } from './TextInput';
 import TextInput from './TextInput';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
-
-import {
-  EnvelopeIcon,
-  QuestionMarkCircleIcon,
-} from '@heroicons/react/24/solid';
 
 const sizes: ReadonlyArray<TextInputSize> = ['md', 'sm', 'xs'];
 
@@ -41,7 +38,7 @@ export default function TextInputExamples() {
             label="Email"
             placeholder="you@example.com"
             size={size}
-            startIcon={EnvelopeIcon}
+            startIcon={RiMailFill}
             type="email"
           />
         ))}
@@ -50,9 +47,9 @@ export default function TextInputExamples() {
         {sizes.map((size) => (
           <TextInput
             key={size}
-            endIcon={QuestionMarkCircleIcon}
-            label="Account number"
-            placeholder="000-00-0000"
+            endIcon={RiPhoneFill}
+            label="Phone number"
+            placeholder="(234) 56-7890"
             size={size}
             type="text"
           />

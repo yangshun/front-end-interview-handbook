@@ -1,20 +1,20 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { Fragment, useEffect, useRef } from 'react';
+import {
+  RiCheckboxCircleFill,
+  RiCloseCircleFill,
+  RiCloseLine,
+  RiErrorWarningFill,
+  RiInformationFill,
+  RiStarFill,
+} from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import type { TextColor } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 
 import { Transition } from '@headlessui/react';
-import {
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  StarIcon,
-  XCircleIcon,
-  XMarkIcon,
-} from '@heroicons/react/20/solid';
 
 export type ToastVariant =
   | 'danger'
@@ -48,13 +48,13 @@ const classes: Record<
 > = {
   danger: {
     backgroundClass: 'bg-danger',
-    icon: XCircleIcon,
+    icon: RiCloseCircleFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
   info: {
     backgroundClass: 'bg-info',
-    icon: InformationCircleIcon,
+    icon: RiInformationFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
@@ -65,19 +65,19 @@ const classes: Record<
   },
   special: {
     backgroundClass: 'bg-brand-dark',
-    icon: StarIcon,
+    icon: RiStarFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
   success: {
     backgroundClass: 'bg-success',
-    icon: CheckCircleIcon,
+    icon: RiCheckboxCircleFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
   warning: {
     backgroundClass: 'bg-warning',
-    icon: ExclamationTriangleIcon,
+    icon: RiErrorWarningFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'white',
   },
@@ -170,7 +170,7 @@ export default function Toast({
                   id="PyDwDF"
                 />
               </span>
-              <XMarkIcon aria-hidden="true" className="h-5 w-5" />
+              <RiCloseLine aria-hidden="true" className="h-5 w-5" />
             </button>
           </div>
         </div>

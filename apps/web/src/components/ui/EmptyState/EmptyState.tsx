@@ -1,21 +1,18 @@
 import clsx from 'clsx';
+import {
+  RiCheckboxCircleLine,
+  RiEmotionSadLine,
+  RiGhost2Line,
+  RiLockLine,
+  RiLoginBoxLine,
+  RiLogoutBoxLine,
+  RiToolsLine,
+} from 'react-icons/ri';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import type { TextColor } from '../Text';
 import Text from '../Text';
-
-import {
-  ArrowLeftOnRectangleIcon,
-  ArrowRightOnRectangleIcon,
-  FaceFrownIcon,
-  LockClosedIcon,
-  RectangleStackIcon,
-} from '@heroicons/react/24/outline';
-import {
-  CheckBadgeIcon,
-  WrenchScrewdriverIcon,
-} from '@heroicons/react/24/solid';
 
 type EmptyStateVariant =
   | 'empty'
@@ -37,13 +34,13 @@ const icons: Record<
   EmptyStateVariant,
   (props: React.ComponentProps<'svg'>) => JSX.Element
 > = {
-  empty: RectangleStackIcon,
-  error: FaceFrownIcon,
-  exit: ArrowLeftOnRectangleIcon,
-  login: ArrowRightOnRectangleIcon,
-  not_subscribed: LockClosedIcon,
-  success: CheckBadgeIcon,
-  under_construction: WrenchScrewdriverIcon,
+  empty: RiGhost2Line,
+  error: RiEmotionSadLine,
+  exit: RiLogoutBoxLine,
+  login: RiLoginBoxLine,
+  not_subscribed: RiLockLine,
+  success: RiCheckboxCircleLine,
+  under_construction: RiToolsLine,
 };
 const colors: Record<EmptyStateVariant, TextColor> = {
   empty: 'disabled',

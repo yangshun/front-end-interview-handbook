@@ -1,27 +1,24 @@
 import { useState } from 'react';
+import {
+  RiAccountCircleFill,
+  RiBuildingLine,
+  RiGroupLine,
+} from 'react-icons/ri';
 
 import Tabs from './Tabs';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
-import {
-  BanknotesIcon,
-  BuildingLibraryIcon,
-  UserCircleIcon,
-  UserGroupIcon,
-} from '@heroicons/react/24/solid';
-
 const tabs = [
-  { icon: UserCircleIcon, label: 'Account', value: 'account' },
-  { icon: BuildingLibraryIcon, label: 'Company', value: 'company' },
-  { icon: UserGroupIcon, label: 'Team Members', value: 'team' },
-  { icon: BanknotesIcon, label: 'Billing', value: 'billing' },
+  { icon: RiAccountCircleFill, label: 'Account', value: 'account' },
+  { icon: RiBuildingLine, label: 'Company', value: 'company' },
+  { icon: RiGroupLine, label: 'Team Members', value: 'team' },
 ];
 
 export default function TabsExamples() {
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
 
   return (
-    <UIExamplesGroup title="Tabs">
+    <UIExamplesGroup darkMode="horizontal" title="Tabs">
       <Tabs
         label="Select navigation item"
         tabs={tabs}

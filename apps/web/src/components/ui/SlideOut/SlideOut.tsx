@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { Fragment } from 'react';
+import { RiCloseLine } from 'react-icons/ri';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 
 import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 
 type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 type SlideOutEnterFrom = 'end' | 'start';
@@ -103,7 +103,7 @@ export default function SlideOut({
                   onClick={() => onClose?.()}>
                   {/* TODO: i18n */}
                   <span className="sr-only">Close menu</span>
-                  <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                  <RiCloseLine aria-hidden="true" className="h-6 w-6" />
                 </button>
               </div>
               <div className="grow overflow-y-auto px-6">

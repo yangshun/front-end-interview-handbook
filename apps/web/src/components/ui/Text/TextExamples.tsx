@@ -8,10 +8,10 @@ import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const colors: ReadonlyArray<TextColor> = [
   'default',
-  'secondary',
   'active',
-  'disabled',
+  'secondary',
   'placeholder',
+  'disabled',
   'error',
   'success',
   'invert',

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import React, { Fragment } from 'react';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 import DropdownMenuItem from './DropdownMenuItem';
 import type { TextVariant } from '../Text';
 import Text from '../Text';
 
 import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
 export type DropdownMenuAlignment = 'end' | 'start';
 export type DropdownMenuSize = 'md' | 'sm' | 'xs';
@@ -84,7 +84,7 @@ export default function DropdownMenu({
               />
             )}
             {label}
-            <ChevronDownIcon
+            <RiArrowDownSLine
               aria-hidden="true"
               className={clsx('flex-shrink-0', sizeIconClasses[size])}
             />

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { Fragment } from 'react';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 import NavbarPopover from './NavbarPopover';
 import NavbarPopoverTabs from './NavbarPopoverTabs';
@@ -7,7 +8,6 @@ import type { NavbarPrimaryItem } from './NavTypes';
 import Anchor from '../Anchor';
 
 import { Popover, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export default function NavbarItem({
   onClick,
@@ -37,7 +37,7 @@ export default function NavbarItem({
               'focus:ring-brand group inline-flex items-center rounded-md bg-white px-3 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-offset-2',
             )}>
             <span>{label}</span>
-            <ChevronDownIcon
+            <RiArrowDownSLine
               aria-hidden="true"
               className={clsx(
                 open ? 'text-neutral-600' : 'text-neutral-400',

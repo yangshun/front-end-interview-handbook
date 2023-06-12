@@ -1,16 +1,15 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
+import {
+  RiCheckboxCircleFill,
+  RiCloseCircleFill,
+  RiErrorWarningFill,
+  RiInformationFill,
+} from 'react-icons/ri';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
-
-import {
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  XCircleIcon,
-} from '@heroicons/react/20/solid';
 
 type AlertVariant = 'danger' | 'info' | 'success' | 'warning';
 
@@ -31,25 +30,25 @@ const classes: Record<
 > = {
   danger: {
     backgroundClass: 'bg-danger-lighter dark:bg-neutral-800/70',
-    icon: XCircleIcon,
+    icon: RiCloseCircleFill,
     iconClass: 'text-danger',
     titleClass: 'text-danger',
   },
   info: {
     backgroundClass: 'bg-info-lighter dark:bg-neutral-800/70',
-    icon: InformationCircleIcon,
+    icon: RiInformationFill,
     iconClass: 'text-info',
     titleClass: 'text-info',
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-neutral-800/70',
-    icon: CheckCircleIcon,
+    icon: RiCheckboxCircleFill,
     iconClass: 'text-success',
     titleClass: 'text-success',
   },
   warning: {
     backgroundClass: 'bg-warning-lighter dark:bg-neutral-800/70',
-    icon: ExclamationTriangleIcon,
+    icon: RiErrorWarningFill,
     iconClass: 'text-warning',
     titleClass: 'text-warning',
   },

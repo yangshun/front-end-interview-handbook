@@ -15,9 +15,9 @@ const variants: ReadonlyArray<ToastVariant> = [
 
 export default function ToastExamples() {
   return (
-    <UIExamplesGroup gapSize="lg" title="Toast">
+    <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Toast">
       {variants.map((variant) => (
-        <div key={variant} className="flex items-center gap-x-24">
+        <div key={variant} className="flex flex-col items-center gap-4">
           <Toast
             title={capitalize(variant) + ' Title'}
             variant={variant}

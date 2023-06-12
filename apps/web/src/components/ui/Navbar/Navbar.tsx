@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { Fragment, useState } from 'react';
+import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarPrimaryItem } from './NavTypes';
 
 import { Dialog, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   endAddOnItems?: React.ReactNode;
@@ -72,7 +72,7 @@ export default function Navbar({
                 setIsMobileNavOpen(true);
               }}>
               <span className="sr-only">Open menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+              <RiMenuFill aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function Navbar({
                       type="button"
                       onClick={() => closeMobileNav()}>
                       <span className="sr-only">Close sidebar</span>
-                      <XMarkIcon
+                      <RiCloseLine
                         aria-hidden="true"
                         className="h-6 w-6 text-white"
                       />

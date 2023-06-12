@@ -1,11 +1,10 @@
 import { capitalize } from 'lodash-es';
+import { RiArrowRightLine, RiDownload2Line } from 'react-icons/ri';
 
 import type { ButtonSize, ButtonVariant } from './Button';
 import Button from './Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import type { TooltipPosition } from '../Tooltip/Tooltip';
-
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
 
 const sizes: ReadonlyArray<ButtonSize> = ['xs', 'sm', 'md', 'lg'];
 const variants: ReadonlyArray<ButtonVariant> = [
@@ -65,14 +64,14 @@ export default function ButtonExamples() {
         {sizes.map((size) => (
           <Button
             key={size}
-            icon={EnvelopeIcon}
+            icon={RiArrowRightLine}
             label="Button text"
             size={size}
             variant="primary"
           />
         ))}
         <Button
-          icon={EnvelopeIcon}
+          icon={RiArrowRightLine}
           isDisabled={true}
           label="Button text"
           size="md"
@@ -84,7 +83,7 @@ export default function ButtonExamples() {
           <Button
             key={size}
             addonPosition="start"
-            icon={EnvelopeIcon}
+            icon={RiDownload2Line}
             label="Button text"
             size={size}
             variant="primary"
@@ -92,7 +91,7 @@ export default function ButtonExamples() {
         ))}
         <Button
           addonPosition="start"
-          icon={EnvelopeIcon}
+          icon={RiDownload2Line}
           isDisabled={true}
           label="Button text"
           size="md"
@@ -103,7 +102,7 @@ export default function ButtonExamples() {
         {sizes.map((size) => (
           <Button
             key={size}
-            icon={EnvelopeIcon}
+            icon={RiArrowRightLine}
             isLabelHidden={true}
             label="Button text"
             size={size}
@@ -111,7 +110,7 @@ export default function ButtonExamples() {
           />
         ))}
         <Button
-          icon={EnvelopeIcon}
+          icon={RiArrowRightLine}
           isDisabled={true}
           isLabelHidden={true}
           label="Button text"
@@ -124,7 +123,7 @@ export default function ButtonExamples() {
           <Button
             key={size}
             display="block"
-            icon={EnvelopeIcon}
+            icon={RiArrowRightLine}
             label="Button text"
             size={size}
             variant="primary"
