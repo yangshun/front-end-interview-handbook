@@ -1,11 +1,11 @@
 import { forwardRef, Fragment } from 'react';
+import { RiAccountCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 
 import { Menu, Transition } from '@headlessui/react';
-import { UserCircleIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   email?: string;
@@ -58,7 +58,7 @@ export default function NavProfileIcon({
               src={thumbnailUrl}
             />
           ) : (
-            <UserCircleIcon className="h-7 w-7 text-neutral-500" />
+            <RiAccountCircleLine className="h-7 w-7 text-neutral-500" />
           )}
         </Menu.Button>
       </div>

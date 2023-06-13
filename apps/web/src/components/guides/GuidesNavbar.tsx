@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Container from '~/components/ui/Container';
@@ -13,11 +14,6 @@ import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import Button from '../ui/Button';
-
-import {
-  Bars3BottomLeftIcon,
-  ListBulletIcon,
-} from '@heroicons/react/24/outline';
 
 export default function GuidesNavbar({
   navigation,
@@ -56,7 +52,7 @@ export default function GuidesNavbar({
       <Container className="flex h-10 items-center justify-between">
         <Button
           addonPosition="start"
-          icon={Bars3BottomLeftIcon}
+          icon={RiMenu2Line}
           label={intl.formatMessage({
             defaultMessage: 'Menu',
             description: 'Guides navbar menu button label',
@@ -71,7 +67,7 @@ export default function GuidesNavbar({
         {tableOfContents && (
           <Button
             addonPosition="start"
-            icon={ListBulletIcon}
+            icon={RiListUnordered}
             label={intl.formatMessage({
               defaultMessage: 'Table of Contents',
               description: 'Guides table of contents menu button label',

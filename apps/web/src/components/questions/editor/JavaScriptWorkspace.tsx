@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { RiArrowDownSLine } from 'react-icons/ri';
+import { RiArrowUpSLine, RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import useIsMounted from '~/hooks/useIsMounted';
@@ -53,11 +55,6 @@ import {
   useActiveCode,
   useSandpack,
 } from '@codesandbox/sandpack-react';
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
 import { useUser } from '@supabase/auth-helpers-react';
 
 function Contents({
@@ -331,7 +328,7 @@ function Contents({
                 </Text>
                 <Button
                   className="-mr-2"
-                  icon={XMarkIcon}
+                  icon={RiCloseLine}
                   isLabelHidden={true}
                   label={intl.formatMessage({
                     defaultMessage: 'Dismiss',
@@ -351,7 +348,7 @@ function Contents({
               <div>
                 <div className={clsx(layout === 'horizontal' && 'lg:hidden')}>
                   <Button
-                    icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
+                    icon={showDevToolsPane ? RiArrowDownSLine : RiArrowUpSLine}
                     label={
                       showDevToolsPane
                         ? intl.formatMessage({

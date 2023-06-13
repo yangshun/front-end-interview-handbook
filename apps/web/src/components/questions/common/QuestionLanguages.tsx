@@ -1,12 +1,11 @@
 import { useId } from 'react';
+import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import type { TextVariant } from '~/components/ui/Text';
 
 import QuestionLanguageLabel from './QuestionLanguageLabel';
 import type { QuestionLanguage } from './QuestionsTypes';
-
-import { CodeBracketIcon } from '@heroicons/react/24/outline';
 type Props = Readonly<{
   languages: ReadonlyArray<QuestionLanguage>;
   showIcon?: boolean;
@@ -30,7 +29,7 @@ export default function QuestionLanguages({
         />
       </span>
       {showIcon && (
-        <CodeBracketIcon
+        <RiCodeSSlashLine
           aria-hidden="true"
           className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
         />

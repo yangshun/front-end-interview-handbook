@@ -1,10 +1,10 @@
 import clsx from 'clsx';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
 export default function QuestionFilterSectionMobile<
   T extends string,
@@ -29,7 +29,7 @@ export default function QuestionFilterSectionMobile<
                 {section.name}
               </span>
               <span className="ml-6 flex h-7 items-center">
-                <ChevronDownIcon
+                <RiArrowDownSLine
                   aria-hidden="true"
                   className={clsx(
                     open ? '-rotate-180' : 'rotate-0',

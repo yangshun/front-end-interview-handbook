@@ -1,8 +1,7 @@
+import { RiHome2Line } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
-
-import { HomeIcon } from '@heroicons/react/24/solid';
 
 export type QuestionsListingBreadcrumbsLinks = ReadonlyArray<{
   href: string;
@@ -33,7 +32,10 @@ export default function QuestionsListingBreadcrumbs({ links }: Props) {
               className="text-neutral-400 hover:text-neutral-500"
               href="/prepare"
               variant="unstyled">
-              <HomeIcon aria-hidden="true" className="h-5 w-5 flex-shrink-0" />
+              <RiHome2Line
+                aria-hidden="true"
+                className="h-5 w-5 flex-shrink-0"
+              />
               <span className="sr-only">
                 <FormattedMessage
                   defaultMessage="Home"

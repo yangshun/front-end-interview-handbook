@@ -1,13 +1,11 @@
+import { RiGroup2Line } from 'react-icons/ri';
+
 import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
 import Container from '~/components/ui/Container';
 
-import {
-  ChartBarIcon,
-  DocumentCheckIcon,
-  UsersIcon,
-} from '@heroicons/react/24/outline';
+import { ChartBarIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
 
 const summaryFeatures = [
   {
@@ -19,7 +17,7 @@ const summaryFeatures = [
   {
     description:
       'Get personalized and insightful guidance from ex-interviewers',
-    icon: UsersIcon,
+    icon: RiGroup2Line,
     name: '1:1 personalized guidance',
   },
   {

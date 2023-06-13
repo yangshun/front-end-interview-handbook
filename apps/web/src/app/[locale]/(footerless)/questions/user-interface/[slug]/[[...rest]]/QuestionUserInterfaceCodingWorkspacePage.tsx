@@ -3,6 +3,11 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import {
+  RiArrowDownSLine,
+  RiArrowUpSLine,
+  RiListUnordered,
+} from 'react-icons/ri';
 
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
@@ -53,11 +58,6 @@ import {
   useActiveCode,
   useSandpack,
 } from '@codesandbox/sandpack-react';
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  ListBulletIcon,
-} from '@heroicons/react/24/outline';
 
 const STARTING_LEFT_PANE_WIDTH = 500;
 
@@ -232,7 +232,7 @@ function MiddleRightPaneContents({
               )}
               <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
                 <Button
-                  icon={showDevToolsPane ? ChevronDownIcon : ChevronUpIcon}
+                  icon={showDevToolsPane ? RiArrowDownSLine : RiArrowUpSLine}
                   label={showDevToolsPane ? 'Hide DevTool' : 'Show DevTool'}
                   size="xs"
                   variant="secondary"
@@ -381,7 +381,7 @@ function LeftPane({
       <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
         <Button
           addonPosition="start"
-          icon={ListBulletIcon}
+          icon={RiListUnordered}
           label="All Questions"
           size="xs"
           variant="secondary"

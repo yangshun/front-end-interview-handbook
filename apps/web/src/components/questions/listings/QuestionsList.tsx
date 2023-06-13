@@ -1,4 +1,10 @@
 import clsx from 'clsx';
+import {
+  RiArrowRightSLine,
+  RiCheckLine,
+  RiLockLine,
+  RiMoreLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -20,12 +26,6 @@ import type {
 } from '../common/QuestionsTypes';
 import QuestionUsersCompletedLabel from '../common/QuestionUsersCompletedLabel';
 import { ReadyQuestions } from '../content/system-design/SystemDesignNavigation';
-
-import {
-  ChevronRightIcon,
-  EllipsisHorizontalIcon,
-} from '@heroicons/react/24/outline';
-import { CheckIcon, LockClosedIcon } from '@heroicons/react/24/solid';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
@@ -190,7 +190,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                         id: '55uCRp',
                       })}
                       position="above">
-                      <LockClosedIcon
+                      <RiLockLine
                         aria-hidden={true}
                         className="h-4 w-4 shrink-0 text-neutral-500"
                       />
@@ -203,7 +203,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                         id: 'aZqFm4',
                       })}
                       position="above">
-                      <CheckIcon aria-hidden="true" className="h-4 w-4" />
+                      <RiCheckLine aria-hidden="true" className="h-4 w-4" />
                     </Tooltip>
                   ) : (
                     <Tooltip
@@ -214,7 +214,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                         id: 'm+nWg0',
                       })}
                       position="above">
-                      <EllipsisHorizontalIcon
+                      <RiMoreLine
                         aria-hidden={true}
                         className="h-4 w-4 shrink-0 text-neutral-500"
                       />
@@ -294,7 +294,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             </div>
             {showChevron && (
               <div className="flex items-center justify-center pr-2">
-                <ChevronRightIcon
+                <RiArrowRightSLine
                   aria-hidden="true"
                   className="h-4 w-4 shrink-0 text-neutral-800 "
                 />

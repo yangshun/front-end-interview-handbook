@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { RiCheckLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -9,7 +10,6 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 import QuestionDifficultyLabel from '../common/QuestionDifficultyLabel';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
-import { CheckIcon } from '@heroicons/react/24/solid';
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   questions: ReadonlyArray<Q>;
@@ -68,7 +68,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                         : 'border-neutral-200 bg-white',
                     )}>
                     {hasCompletedQuestion && (
-                      <CheckIcon aria-hidden="true" className="h-4 w-4" />
+                      <RiCheckLine aria-hidden="true" className="h-4 w-4" />
                     )}
                   </span>
                 )}

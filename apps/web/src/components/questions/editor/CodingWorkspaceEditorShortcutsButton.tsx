@@ -1,14 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
-
-import { InformationCircleIcon } from '@heroicons/react/24/outline';
 type PlatformSpecificKeys = 'alt' | 'ctrl' | 'shift';
 
 const NON_MAC_KEYS: Record<PlatformSpecificKeys, string> = {
@@ -212,7 +211,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
   return (
     <div>
       <Button
-        icon={InformationCircleIcon}
+        icon={RiInformationLine}
         isLabelHidden={true}
         label={intl.formatMessage({
           defaultMessage: 'Editor shortcuts',

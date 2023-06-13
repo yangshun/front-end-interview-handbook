@@ -1,10 +1,9 @@
 import { useId } from 'react';
+import { RiBookOpenLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import QuestionQuizTopicLabel from './QuestionQuizTopicLabel';
 import type { QuestionQuizTopic } from './QuestionsTypes';
-
-import { BookOpenIcon } from '@heroicons/react/24/outline';
 type Props = Readonly<{
   showIcon?: boolean;
   topics: ReadonlyArray<QuestionQuizTopic>;
@@ -26,7 +25,7 @@ export default function QuestionQuizTopics({
         />
       </span>
       {showIcon && (
-        <BookOpenIcon
+        <RiBookOpenLine
           aria-hidden="true"
           className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
         />

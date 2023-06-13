@@ -1,3 +1,9 @@
+import {
+  RiBookOpenLine,
+  RiBuildingLine,
+  RiCodeSSlashLine,
+  RiFlaskLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { QuestionCount } from '~/components/questions/listings/QuestionCount';
@@ -9,11 +15,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import {
   AcademicCapIcon,
   ArrowTrendingUpIcon,
-  BeakerIcon,
-  BookOpenIcon,
-  BuildingOfficeIcon,
   CheckBadgeIcon,
-  CodeBracketSquareIcon,
   CubeIcon,
 } from '@heroicons/react/24/outline';
 
@@ -34,7 +36,7 @@ function useFeatures() {
           }}
         />
       ),
-      icon: BookOpenIcon,
+      icon: RiBookOpenLine,
       name: intl.formatMessage({
         defaultMessage: 'Huge question bank',
         description: 'Title for huge question bank feature',
@@ -93,7 +95,7 @@ function useFeatures() {
           id="y16Lzt"
         />
       ),
-      icon: BuildingOfficeIcon,
+      icon: RiBuildingLine,
       name: intl.formatMessage({
         defaultMessage: 'Company-tagged questions',
         description: 'Title for company-tagged questions feature',
@@ -108,7 +110,7 @@ function useFeatures() {
           id="Nt+P5A"
         />
       ),
-      icon: CodeBracketSquareIcon,
+      icon: RiCodeSSlashLine,
       name: intl.formatMessage({
         defaultMessage: 'In-browser coding workspace',
         description: 'Title for in-browser coding workspace feature',
@@ -123,7 +125,7 @@ function useFeatures() {
           id="G9r7uh"
         />
       ),
-      icon: BeakerIcon,
+      icon: RiFlaskLine,
       name: intl.formatMessage({
         defaultMessage: 'Bring your own framework',
         description: 'Title for bring your own framework feature',

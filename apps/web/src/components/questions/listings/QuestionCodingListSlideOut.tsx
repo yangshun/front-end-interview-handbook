@@ -1,4 +1,5 @@
 import { useId, useState } from 'react';
+import { RiSearchLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -31,8 +32,6 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '../common/QuestionsTypes';
-
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   isShown: boolean;
@@ -177,7 +176,7 @@ function Contents() {
           label={searchPlaceholder}
           placeholder={searchPlaceholder}
           size="sm"
-          startIcon={MagnifyingGlassIcon}
+          startIcon={RiSearchLine}
           value={query}
           onChange={(value) => setQuery(value)}
         />

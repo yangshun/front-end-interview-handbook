@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
@@ -15,7 +16,6 @@ import logEvent from '~/logging/logEvent';
 
 import type { QuestionBase } from './QuestionsTypes';
 
-import { CheckIcon } from '@heroicons/react/24/outline';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
@@ -40,7 +40,7 @@ export default function QuestionProgressAction({
     return (
       <>
         <Button
-          icon={CheckIcon}
+          icon={RiCheckLine}
           label={intl.formatMessage({
             defaultMessage: 'Mark as complete',
             description: 'Mark quetion as complete',
@@ -102,7 +102,7 @@ export default function QuestionProgressAction({
   if (questionProgress?.status === 'complete') {
     return (
       <Button
-        icon={CheckIcon}
+        icon={RiCheckLine}
         isDisabled={deleteProgressMutation.isLoading}
         isLoading={deleteProgressMutation.isLoading}
         label={intl.formatMessage({

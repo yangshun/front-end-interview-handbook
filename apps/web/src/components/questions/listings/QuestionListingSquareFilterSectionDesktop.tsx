@@ -1,11 +1,10 @@
 import clsx from 'clsx';
+import { RiCheckLine } from 'react-icons/ri';
 
 import Tooltip from '~/components/ui/Tooltip/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
-
-import { CheckIcon } from '@heroicons/react/24/solid';
 
 type Props<T extends string, Q extends QuestionMetadata> = Readonly<{
   itemsPerRow?: 2 | 3 | 4 | 5 | 6;
@@ -46,7 +45,7 @@ export default function QuestionListingSquareFilterSectionDesktop<
                   aria-hidden={true}
                   className="absolute top-0 left-0 h-4 w-4">
                   <span className="border-brand-dark group-hover:border-brand absolute block h-4 w-4 border-8 !border-r-transparent !border-b-transparent transition-colors" />
-                  <CheckIcon className="absolute h-2 w-2 scale-125 text-white" />
+                  <RiCheckLine className="absolute h-2 w-2 scale-125 text-white" />
                 </span>
               )}
               {option.label}

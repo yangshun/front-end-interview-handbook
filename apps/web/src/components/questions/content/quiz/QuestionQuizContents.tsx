@@ -2,6 +2,7 @@
 
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
+import { RiEditBoxLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
@@ -24,8 +25,6 @@ import type {
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 
-import { PencilSquareIcon } from '@heroicons/react/24/outline';
-
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionQuizMetadata>;
@@ -42,7 +41,7 @@ function GitHubEditButton({
   return (
     <Button
       href={`https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/${question.metadata.slug}/${locale}.mdx`}
-      icon={PencilSquareIcon}
+      icon={RiEditBoxLine}
       label={intl.formatMessage({
         defaultMessage: 'Edit on GitHub',
         description: 'Edit on GitHub button',

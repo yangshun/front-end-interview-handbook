@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { RiKey2Line, RiMailLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
@@ -18,8 +19,6 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
-
-import { EnvelopeIcon, KeyIcon } from '@heroicons/react/24/outline';
 
 export default function SupabaseAuthEmail({
   authView,
@@ -212,7 +211,7 @@ export default function SupabaseAuthEmail({
               description: 'Label of email field on Sign In/Up page',
               id: '9LT8eh',
             })}
-            startIcon={EnvelopeIcon}
+            startIcon={RiMailLine}
             type="email"
             onChange={setEmail}
           />
@@ -224,7 +223,7 @@ export default function SupabaseAuthEmail({
                 description: 'Label of password field on Sign In/Up page',
                 id: 'jgIdRC',
               })}
-              startIcon={KeyIcon}
+              startIcon={RiKey2Line}
               type="password"
               onChange={setPassword}
             />

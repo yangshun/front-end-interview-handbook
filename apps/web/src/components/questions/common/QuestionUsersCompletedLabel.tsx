@@ -1,10 +1,9 @@
 import { useId } from 'react';
+import { RiCheckboxCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
-
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   count?: number;
@@ -37,7 +36,7 @@ export default function QuestionUsersCompletedLabel({
       </span>
       <div aria-labelledby={id} className="flex items-center">
         {showIcon && (
-          <CheckCircleIcon
+          <RiCheckboxCircleLine
             aria-hidden="true"
             className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
           />

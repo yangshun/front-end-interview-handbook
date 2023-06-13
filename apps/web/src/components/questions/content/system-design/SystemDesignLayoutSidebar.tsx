@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiLockLine } from 'react-icons/ri';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
@@ -19,7 +20,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import { LockClosedIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -85,7 +85,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                                       if (!isPremiumUser) {
                                         if (link.premium) {
                                           return (
-                                            <LockClosedIcon className="h-4 w-4 shrink-0" />
+                                            <RiLockLine className="h-4 w-4 shrink-0" />
                                           );
                                         }
                                       }

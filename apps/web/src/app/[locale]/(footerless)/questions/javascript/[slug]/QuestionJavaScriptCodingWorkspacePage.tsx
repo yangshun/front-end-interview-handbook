@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { RiListUnordered } from 'react-icons/ri';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
@@ -26,8 +27,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
-
-import { ListBulletIcon } from '@heroicons/react/24/outline';
 
 function LeftPane({
   language,
@@ -81,7 +80,7 @@ function LeftPane({
       <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
         <Button
           addonPosition="start"
-          icon={ListBulletIcon}
+          icon={RiListUnordered}
           label="All Questions"
           size="xs"
           variant="secondary"

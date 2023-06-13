@@ -1,11 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiLayoutColumnLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 
-import { ViewColumnsIcon } from '@heroicons/react/24/outline';
 type CodingWorkspaceLayout = 'horizontal' | 'vertical';
 type Props = Readonly<{
   layout: CodingWorkspaceLayout;
@@ -21,7 +21,7 @@ export default function CodingWorkspaceChangeLayoutButton({
   return (
     <Button
       icon={({ className, ...others }) => (
-        <ViewColumnsIcon
+        <RiLayoutColumnLine
           className={clsx(className, layout === 'horizontal' && 'rotate-90')}
           {...others}
         />

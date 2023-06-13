@@ -219,10 +219,6 @@
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
   },
-  "3aPvGu": {
-    "defaultMessage": "Front End Interview Guidebook",
-    "description": "Sidebar label for Front End Interview Guidebook page"
-  },
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
@@ -2603,10 +2599,6 @@
     "defaultMessage": "Want to see more solutions? <link>Explore our product →</link>",
     "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
   },
-  "lVmhzW": {
-    "defaultMessage": "Behavioral Interview Guidebook",
-    "description": "Sidebar label for Behavioral Interview Guidebook page"
-  },
   "ldOgfx": {
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
@@ -2954,10 +2946,6 @@
   "tR0TIm": {
     "defaultMessage": "Meet our top authors:",
     "description": "Authors section title"
-  },
-  "tU2J/q": {
-    "defaultMessage": "Front End System Design Guidebook",
-    "description": "Sidebar label for Front End System Design Guidebook page"
   },
   "tW2p7C": {
     "defaultMessage": "Coding Study Guides",

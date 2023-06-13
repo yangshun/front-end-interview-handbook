@@ -2,6 +2,11 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import {
+  RiArrowRightCircleLine,
+  RiArrowRightSLine,
+  RiCodeSSlashLine,
+} from 'react-icons/ri';
 
 import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
@@ -19,25 +24,20 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-import { CodeBracketIcon } from '@heroicons/react/20/solid';
-import {
-  ArrowRightCircleIcon,
-  CheckBadgeIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/24/solid';
+import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 
 /* TODO: i18n */
 const links = [
   {
     description: 'Get started with study plans and questions',
     href: '/get-started',
-    icon: ArrowRightCircleIcon,
+    icon: RiArrowRightCircleLine,
     title: 'Get Started',
   },
   {
     description: 'Start practicing front end interview questions',
     href: '/prepare/coding',
-    icon: CodeBracketIcon,
+    icon: RiCodeSSlashLine,
     title: 'Practice Questions',
   },
   {
@@ -191,7 +191,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                         </Section>
                       </div>
                       <div className="flex-shrink-0 self-center">
-                        <ChevronRightIcon
+                        <RiArrowRightSLine
                           aria-hidden="true"
                           className="h-5 w-5 text-neutral-400"
                         />

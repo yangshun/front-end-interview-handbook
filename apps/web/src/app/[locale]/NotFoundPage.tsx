@@ -2,6 +2,11 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import {
+  RiArrowRightCircleLine,
+  RiArrowRightSLine,
+  RiShoppingCart2Line,
+} from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
@@ -10,12 +15,6 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import {
-  ArrowRightCircleIcon,
-  ShoppingCartIcon,
-} from '@heroicons/react/24/outline';
-import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
 export default function NotFoundPage() {
   // Useful to log the full pathname for a 404.
@@ -40,7 +39,7 @@ export default function NotFoundPage() {
       description:
         'Not sure where to start? This page introduces you to everything the platform offers',
       href: '/get-started',
-      icon: ArrowRightCircleIcon,
+      icon: RiArrowRightCircleLine,
       title: 'Get Started',
     },
     {
@@ -65,7 +64,7 @@ export default function NotFoundPage() {
       description:
         'Join the premium club and get access to all questions and solutions',
       href: '/pricing',
-      icon: ShoppingCartIcon,
+      icon: RiShoppingCart2Line,
       title: 'Products',
     },
   ];
@@ -127,7 +126,7 @@ export default function NotFoundPage() {
                           </Section>
                         </div>
                         <div className="flex-shrink-0 self-center">
-                          <ChevronRightIcon
+                          <RiArrowRightSLine
                             aria-hidden="true"
                             className="h-5 w-5 text-neutral-400"
                           />

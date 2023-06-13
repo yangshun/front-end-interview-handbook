@@ -1,8 +1,7 @@
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 export default function QuestionsSidebarCollapser() {
   const intl = useIntl();
@@ -29,9 +28,9 @@ export default function QuestionsSidebarCollapser() {
       type="button"
       onClick={() => setShowSidebar(!showSidebar)}>
       {showSidebar ? (
-        <ChevronLeftIcon className="h-4 w-4" />
+        <RiArrowLeftSLine className="h-4 w-4" />
       ) : (
-        <ChevronRightIcon className="h-4 w-4" />
+        <RiArrowRightSLine className="h-4 w-4" />
       )}
     </button>
   );

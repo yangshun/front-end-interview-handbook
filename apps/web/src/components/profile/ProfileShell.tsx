@@ -1,6 +1,12 @@
 'use client';
 
 import { useSelectedLayoutSegment } from 'next/navigation';
+import {
+  RiCalendarLine,
+  RiMailLine,
+  RiStarLine,
+  RiUserLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -13,12 +19,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 
-import {
-  CalendarIcon,
-  EnvelopeIcon,
-  StarIcon,
-  UserCircleIcon,
-} from '@heroicons/react/24/solid';
 import type { User } from '@supabase/auth-helpers-nextjs';
 
 type Props = Readonly<{
@@ -129,7 +129,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center space-x-2">
                             {userProfile?.isPremium ? (
                               <span className="to-brand-dark inline-flex items-center space-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
-                                <StarIcon
+                                <RiStarLine
                                   aria-hidden="true"
                                   className="text-white-400 h-5 w-5 shrink-0"
                                 />
@@ -157,7 +157,7 @@ export default function ProfileShell({ user, children }: Props) {
                             )}
                           </div>
                           <div className="flex items-center space-x-2">
-                            <EnvelopeIcon
+                            <RiMailLine
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-400"
                             />
@@ -167,7 +167,7 @@ export default function ProfileShell({ user, children }: Props) {
                           </div>
                           {process.env.NODE_ENV === 'development' && (
                             <div className="flex items-center space-x-2">
-                              <UserCircleIcon
+                              <RiUserLine
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-400"
                               />
@@ -178,7 +178,7 @@ export default function ProfileShell({ user, children }: Props) {
                           )}
                           {userProfile?.createdAt && (
                             <div className="flex items-center space-x-2">
-                              <CalendarIcon
+                              <RiCalendarLine
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-400"
                               />

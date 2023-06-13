@@ -1,11 +1,12 @@
 'use client';
 
+import { RiCheckLine } from 'react-icons/ri';
+import { RiComputerLine } from 'react-icons/ri';
+
 import GitHubIcon from '~/components/icons/GitHubIcon';
 import Container from '~/components/ui/Container';
 
 import {
-  CheckIcon,
-  ComputerDesktopIcon,
   DocumentCheckIcon,
   IdentificationIcon,
 } from '@heroicons/react/20/solid';
@@ -50,7 +51,7 @@ const features = [
   {
     description:
       'If you have a portfolio website, we will review the presentation and code quality of it',
-    icon: ComputerDesktopIcon,
+    icon: RiComputerLine,
     name: 'Portfolio Website Review',
     subfeatures: [
       'First impressions from experienced interviewers',
@@ -123,7 +124,7 @@ export default function ResumeReviewProcess() {
                     role="list">
                     {feature.subfeatures.map((subfeature) => (
                       <li key={subfeature} className="flex gap-x-3">
-                        <CheckIcon
+                        <RiCheckLine
                           aria-hidden="true"
                           className="h-6 w-5 flex-none text-pink-500"
                         />

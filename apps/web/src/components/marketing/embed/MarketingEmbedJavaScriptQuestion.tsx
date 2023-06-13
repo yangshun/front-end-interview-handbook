@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { RiListUnordered } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -24,8 +25,6 @@ import Button from '~/components/ui/Button';
 import logEvent from '~/logging/logEvent';
 
 import JavaScriptWorkspace from '../../questions/editor/JavaScriptWorkspace';
-
-import { ListBulletIcon } from '@heroicons/react/24/outline';
 
 export default function MarketingEmbedJavaScriptQuestion({
   javaScriptEmbedExample,
@@ -146,7 +145,7 @@ export default function MarketingEmbedJavaScriptQuestion({
             <Button
               addonPosition="start"
               href="/prepare/coding"
-              icon={ListBulletIcon}
+              icon={RiListUnordered}
               label={intl.formatMessage({
                 defaultMessage: 'All Questions',
                 description: 'Link label to access all questions',

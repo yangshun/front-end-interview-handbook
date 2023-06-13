@@ -1,4 +1,6 @@
 import { Fragment, useState } from 'react';
+import { RiCheckLine, RiCloseLine } from 'react-icons/ri';
+import { RiArrowRightSLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -14,9 +16,8 @@ import type {
   JestTestResult,
 } from '../evaluator/CodingQuestionEvaluator';
 
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline';
-import { CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
+
 type Props = Readonly<{
   isRunningCode?: boolean;
   result?: CodingQuestionSubmissionResult | null;
@@ -89,13 +90,13 @@ function TestResultItem({
     <div className="space-y-2 rounded bg-neutral-100 p-2">
       <div className="flex items-center gap-2">
         {result.status === 'pass' && (
-          <CheckIcon
+          <RiCheckLine
             aria-hidden={true}
             className="text-success h-5 w-5 shrink-0"
           />
         )}
         {result.status === 'fail' && (
-          <XMarkIcon
+          <RiCloseLine
             aria-hidden={true}
             className="text-danger h-5 w-5 shrink-0"
           />
@@ -104,7 +105,7 @@ function TestResultItem({
           {displayPath.map((path, index) => (
             <Fragment key={path}>
               {index > 0 && (
-                <ChevronRightIcon aria-hidden={true} className="h-4 w-4" />
+                <RiArrowRightSLine aria-hidden={true} className="h-4 w-4" />
               )}{' '}
               <button
                 className="hover:underline"

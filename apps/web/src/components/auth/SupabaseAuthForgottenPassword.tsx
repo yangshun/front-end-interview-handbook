@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RiMailLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -13,8 +14,6 @@ import logMessage from '~/logging/logMessage';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
-
-import { EnvelopeIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   setAuthView: (view: AuthViewType) => void;
@@ -98,7 +97,7 @@ export default function SupabaseAuthForgottenPassword({
                 description: 'Label of email field on Password Reset page',
                 id: 'vx/nPL',
               })}
-              startIcon={EnvelopeIcon}
+              startIcon={RiMailLine}
               type="email"
               onChange={setEmail}
             />

@@ -1,3 +1,4 @@
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
@@ -6,8 +7,6 @@ import type {
   QuestionQuiz,
   QuestionQuizMetadata,
 } from '../../common/QuestionsTypes';
-
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionQuizMetadata>;
@@ -51,7 +50,7 @@ export default function QuestionQuizPagination({
         <Button
           addonPosition="start"
           href={prevQuestion?.href}
-          icon={ChevronLeftIcon}
+          icon={RiArrowLeftSLine}
           isDisabled={!prevQuestion?.href}
           label={intl.formatMessage({
             defaultMessage: 'Prev',
@@ -69,7 +68,7 @@ export default function QuestionQuizPagination({
         </div>
         <Button
           href={nextQuestion?.href}
-          icon={ChevronRightIcon}
+          icon={RiArrowRightSLine}
           isDisabled={!nextQuestion?.href}
           label={intl.formatMessage({
             defaultMessage: 'Next',

@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { useState } from 'react';
+import { RiArrowDownSLine, RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import fbq from '~/lib/fbq';
@@ -9,8 +10,6 @@ import fbq from '~/lib/fbq';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 
 import FeedbackDialog from './FeedbackDialog';
-
-import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   position: 'bottom' | 'end';
@@ -53,9 +52,9 @@ export default function FeedbackWidget({ position }: Props) {
             id="8+Ezk6"
           />
           {isOpen ? (
-            <XMarkIcon aria-hidden={true} className="h-5 w-5 shrink-0" />
+            <RiCloseLine aria-hidden={true} className="h-5 w-5 shrink-0" />
           ) : (
-            <ChevronDownIcon aria-hidden={true} className="h-5 w-5 shrink-0" />
+            <RiArrowDownSLine aria-hidden={true} className="h-5 w-5 shrink-0" />
           )}
         </div>
       </button>

@@ -5,6 +5,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import codeTheme from 'prism-react-renderer/themes/dracula';
 import type { ComponentProps, ReactElement } from 'react';
 import { useState } from 'react';
+import { RiCheckLine, RiFileCopyLine } from 'react-icons/ri';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 import useHoverState from '~/hooks/useHoverState';
@@ -12,8 +13,6 @@ import useHoverState from '~/hooks/useHoverState';
 import Button from '~/components/ui/Button';
 
 import Tabs from '../ui/Tabs';
-
-import { CheckIcon, Square2StackIcon } from '@heroicons/react/24/outline';
 
 type LanguagesCode = Partial<Record<Language, React.ReactNode>>;
 type LanguagesLabels = Partial<Record<Language, string>>;
@@ -38,7 +37,7 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
   return (
     <Button
       className="absolute right-2 top-2 p-1"
-      icon={isCopied ? CheckIcon : Square2StackIcon}
+      icon={isCopied ? RiCheckLine : RiFileCopyLine}
       isLabelHidden={true}
       label={isCopied ? 'Copied!' : 'Copy code to clipboard'}
       size="xs"

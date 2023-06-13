@@ -2,6 +2,7 @@ import axios from 'axios';
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
@@ -30,7 +31,6 @@ import MarketingSectionTitleLabel from './MarketingSectionTitleLabel';
 import PricingBlockCard from '../pricing/PricingBlockCard';
 import { priceRoundToNearestNiceNumber } from '../pricing/pricingUtils';
 
-import { CheckIcon } from '@heroicons/react/20/solid';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
@@ -719,7 +719,7 @@ export default function MarketingPricingSectionNew({
                                     {includedFeatures.map((feature, idx) => (
                                       // eslint-disable-next-line react/no-array-index-key
                                       <li key={idx} className={newLocal}>
-                                        <CheckIcon
+                                        <RiCheckLine
                                           aria-hidden="true"
                                           className="text-success h-5 w-5 flex-shrink-0"
                                         />

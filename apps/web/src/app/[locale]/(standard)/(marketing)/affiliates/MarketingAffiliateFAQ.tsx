@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { RiArrowDownSLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -9,7 +10,6 @@ import Text from '~/components/ui/Text';
 import { themeDivideColor } from '~/components/ui/theme';
 
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 // TODO: i18n
 const faqs = [
@@ -167,7 +167,7 @@ export default function FrequentlyAskedQuestions() {
                               {faq.question}
                             </Text>
                             <span className="ml-6 flex h-7 items-center text-neutral-400 dark:text-neutral-600">
-                              <ChevronDownIcon
+                              <RiArrowDownSLine
                                 aria-hidden="true"
                                 className={clsx(
                                   open ? '-rotate-180' : 'rotate-0',

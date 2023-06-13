@@ -1,13 +1,12 @@
 import clsx from 'clsx';
 import { useId } from 'react';
+import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import type { TextVariant } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
-
-import { FireIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   showIcon?: boolean;
@@ -63,7 +62,7 @@ export default function QuestionDifficultyLabel({
       </span>
       <div aria-labelledby={id} className="flex items-center">
         {showIcon && (
-          <FireIcon
+          <RiFireLine
             aria-hidden="true"
             className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
           />

@@ -1,10 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiCheckLine } from 'react-icons/ri';
 
 import Container from '~/components/ui/Container';
-
-import { CheckIcon } from '@heroicons/react/20/solid';
 
 const tiers = [
   {
@@ -107,7 +106,7 @@ export default function ResumeReviewPricing() {
                     role="list">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex gap-x-3">
-                        <CheckIcon
+                        <RiCheckLine
                           aria-hidden="true"
                           className="h-6 w-5 flex-none text-pink-500"
                         />

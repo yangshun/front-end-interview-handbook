@@ -1,9 +1,10 @@
 'use client';
 
+import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
+
 import Container from '~/components/ui/Container';
 
 import { Disclosure } from '@headlessui/react';
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/solid';
 
 const faqs = [
   {
@@ -80,15 +81,12 @@ export default function ResumeReviewFAQs() {
                         </span>
                         <span className="ml-6 flex h-7 items-center">
                           {open ? (
-                            <MinusSmallIcon
+                            <RiSubtractLine
                               aria-hidden="true"
                               className="h-6 w-6"
                             />
                           ) : (
-                            <PlusSmallIcon
-                              aria-hidden="true"
-                              className="h-6 w-6"
-                            />
+                            <RiAddLine aria-hidden="true" className="h-6 w-6" />
                           )}
                         </span>
                       </Disclosure.Button>

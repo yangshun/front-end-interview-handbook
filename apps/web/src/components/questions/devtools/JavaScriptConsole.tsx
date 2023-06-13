@@ -5,6 +5,13 @@ import type { Methods } from 'console-feed/lib/definitions/Methods';
 import { range } from 'lodash';
 import type { UIEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import {
+  RiArrowDownSLine,
+  RiDeleteBinLine,
+  RiSearchLine,
+  RiSettings3Line,
+  RiTerminalLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
@@ -18,13 +25,6 @@ import TextInput from '~/components/ui/TextInput';
 import useConsoleStyles from './useConsoleStyles';
 
 import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/components/Console/utils/getType';
-import {
-  ArrowSmallDownIcon,
-  Cog6ToothIcon,
-  CommandLineIcon,
-  NoSymbolIcon,
-} from '@heroicons/react/24/outline';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   logs: SandpackConsoleData;
@@ -45,7 +45,7 @@ function NoLogs({
     <div className="flex h-full grow items-center justify-center py-4 px-4 sm:px-6 lg:px-4">
       <div className="grid gap-y-2">
         <div className="flex justify-center">
-          <CommandLineIcon className="h-12 w-12 shrink-0 text-neutral-300" />
+          <RiTerminalLine className="h-12 w-12 shrink-0 text-neutral-300" />
         </div>
         <Text
           className="text-center"
@@ -132,7 +132,7 @@ export default function JavaScriptConsole({
     <div className="flex flex-col border-b">
       <div className="flex flex-row items-center gap-x-2 p-2">
         <Button
-          icon={NoSymbolIcon}
+          icon={RiDeleteBinLine}
           isLabelHidden={true}
           label={intl.formatMessage({
             defaultMessage: 'Clear Console',
@@ -168,7 +168,7 @@ export default function JavaScriptConsole({
               id: '7solt2',
             })}
             size="xs"
-            startIcon={MagnifyingGlassIcon}
+            startIcon={RiSearchLine}
             value={query}
             onChange={(value) => setQuery(value)}
           />
@@ -223,7 +223,7 @@ export default function JavaScriptConsole({
           onChange={(v) => setLogLevelFilter(v as LogLevelFilter)}
         />
         <Button
-          icon={Cog6ToothIcon}
+          icon={RiSettings3Line}
           isLabelHidden={true}
           label={intl.formatMessage({
             defaultMessage: 'More settings',
@@ -347,7 +347,7 @@ export default function JavaScriptConsole({
       {!isScrollPositionAtBottom && (
         <div className="absolute bottom-2 right-2 z-10">
           <Button
-            icon={ArrowSmallDownIcon}
+            icon={RiArrowDownSLine}
             label={intl.formatMessage({
               defaultMessage: 'Scroll to Bottom',
               description:

@@ -1,17 +1,11 @@
+import { RiFireFill, RiFireLine, RiStarFill, RiStarLine } from 'react-icons/ri';
+
 import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
 
 import usePreparationPlans from './PreparationPlans';
 
-import {
-  AcademicCapIcon,
-  FireIcon,
-  StarIcon,
-} from '@heroicons/react/24/outline';
-import {
-  AcademicCapIcon as AcademicCapSolidIcon,
-  FireIcon as FireSolidIcon,
-  StarIcon as StarSolidIcon,
-} from '@heroicons/react/24/solid';
+import { AcademicCapIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon as AcademicCapSolidIcon } from '@heroicons/react/24/solid';
 
 type PreparationPlanExtra = Readonly<{
   backgroundClass: string;
@@ -40,8 +34,8 @@ export function usePreparationPlansUI() {
       href: preparationPlans['one-month'].href,
       iconBorderClass: 'border-violet-600',
       iconClass: 'text-violet-600',
-      iconOutline: StarIcon,
-      iconSolid: StarSolidIcon,
+      iconOutline: RiStarLine,
+      iconSolid: RiStarFill,
       key: preparationPlans['one-month'].type,
       longName: preparationPlans['one-month'].longTitle,
       name: preparationPlans['one-month'].title,
@@ -54,8 +48,8 @@ export function usePreparationPlansUI() {
       href: preparationPlans['one-week'].href,
       iconBorderClass: 'border-purple-600',
       iconClass: 'text-purple-600',
-      iconOutline: FireIcon,
-      iconSolid: FireSolidIcon,
+      iconOutline: RiFireLine,
+      iconSolid: RiFireFill,
       key: preparationPlans['one-week'].type,
       longName: preparationPlans['one-week'].longTitle,
       name: preparationPlans['one-week'].title,

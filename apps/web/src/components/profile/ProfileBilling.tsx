@@ -1,6 +1,7 @@
 'use client';
 
 import axios from 'axios';
+import { RiBankCardLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
@@ -12,8 +13,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
-
-import { CreditCardIcon } from '@heroicons/react/24/outline';
 
 function PlanLabel({
   plan,
@@ -148,7 +147,7 @@ function NoBillingPlan() {
 
   return (
     <div className="py-12 text-center">
-      <CreditCardIcon className="mx-auto h-12 w-12 text-neutral-400" />
+      <RiBankCardLine className="mx-auto h-12 w-12 text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="Not Subscribed"

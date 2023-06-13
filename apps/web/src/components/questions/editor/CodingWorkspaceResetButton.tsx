@@ -1,8 +1,7 @@
+import { RiArrowGoBackLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
-
-import { ArrowUturnLeftIcon } from '@heroicons/react/24/outline';
 type Props = Readonly<{
   onClick?: React.MouseEventHandler<HTMLElement>;
 }>;
@@ -12,7 +11,7 @@ export default function CodingWorkspaceResetButton({ onClick }: Props) {
 
   return (
     <Button
-      icon={ArrowUturnLeftIcon}
+      icon={RiArrowGoBackLine}
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Reset to initial code',

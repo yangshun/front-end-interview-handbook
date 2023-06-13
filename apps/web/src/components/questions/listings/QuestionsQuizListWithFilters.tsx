@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { RiAddLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
-
-import { trpc } from '~/hooks/trpc';
 
 import {
   filterQuestions,
@@ -30,9 +29,6 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
-
-import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   layout?: 'embedded' | 'full';
@@ -104,7 +100,7 @@ export default function QuestionsQuizListWithFilters({
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div>
         <Button
-          icon={PlusIcon}
+          icon={RiAddLine}
           label={
             intl.formatMessage({
               defaultMessage: 'Filters',
@@ -144,7 +140,7 @@ export default function QuestionsQuizListWithFilters({
       </SlideOut>
       <DropdownMenu
         align="end"
-        icon={BarsArrowDownIcon}
+        icon={RiSortDesc}
         label={intl.formatMessage({
           defaultMessage: 'Sort By',
           description: 'Label for sort button',
@@ -247,7 +243,7 @@ export default function QuestionsQuizListWithFilters({
                     id: 'YbRLG7',
                   })}
                   size="sm"
-                  startIcon={MagnifyingGlassIcon}
+                  startIcon={RiSearchLine}
                   value={query}
                   onChange={(value) => setQuery(value)}
                 />

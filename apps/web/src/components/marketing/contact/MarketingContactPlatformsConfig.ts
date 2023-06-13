@@ -1,12 +1,11 @@
 // Import DiscordIcon from '../../icons/DiscordIcon';
+import { RiMailLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import GitHubIcon from '../../icons/GitHubIcon';
 import RedditIcon from '../../icons/RedditIcon';
 // Import TelegramIcon from '../../icons/TelegramIcon';
 import TwitterIcon from '../../icons/TwitterIcon';
-
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
 
 type ContactPlatform = Readonly<{
   href: string;
@@ -20,7 +19,7 @@ function usePlatforms() {
   const platforms: ReadonlyArray<ContactPlatform> = [
     {
       href: 'mailto:contact@greatfrontend.com',
-      icon: EnvelopeIcon,
+      icon: RiMailLine,
       key: 'email',
       name: intl.formatMessage({
         defaultMessage: 'Email',

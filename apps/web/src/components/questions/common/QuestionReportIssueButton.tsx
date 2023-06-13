@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RiBugLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import FeedbackDialog from '~/components/feedback/FeedbackDialog';
@@ -7,8 +8,6 @@ import Button from '~/components/ui/Button';
 import type { TooltipPosition } from '~/components/ui/Tooltip';
 
 import type { QuestionFormat } from './QuestionsTypes';
-
-import { BugAntIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   format: QuestionFormat;
@@ -41,7 +40,7 @@ export default function QuestionReportIssueButton({
   return (
     <>
       <Button
-        icon={BugAntIcon}
+        icon={RiBugLine}
         isLabelHidden={isLabelHidden}
         label={intl.formatMessage({
           defaultMessage: 'Report an issue',

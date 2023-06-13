@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { Fragment } from 'react';
+import { RiTranslate2 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -9,7 +10,6 @@ import i18nLabelOptions from '~/i18n/i18nLabelOptions';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { Menu, Transition } from '@headlessui/react';
-import { LanguageIcon } from '@heroicons/react/24/outline';
 
 export default function NavLocaleDropdown() {
   const intl = useIntl();
@@ -25,7 +25,7 @@ export default function NavLocaleDropdown() {
             id: '58dfbv',
           })}
           className="focus:ring-brand inline-flex w-full justify-center gap-x-1.5 rounded-md border border-neutral-300 bg-white px-2 py-1.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2">
-          <LanguageIcon
+          <RiTranslate2
             aria-hidden="true"
             className="-mr-1 h-4 w-4 text-neutral-900"
           />

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import { RiAddLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -39,9 +40,6 @@ import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import type { QuestionFramework } from '../common/QuestionsTypes';
-
-import { BarsArrowDownIcon, PlusIcon } from '@heroicons/react/20/solid';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (
@@ -169,7 +167,7 @@ export default function QuestionsCodingListWithFilters({
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div>
         <Button
-          icon={PlusIcon}
+          icon={RiAddLine}
           label={
             intl.formatMessage({
               defaultMessage: 'Filters',
@@ -225,7 +223,7 @@ export default function QuestionsCodingListWithFilters({
       </SlideOut>
       <DropdownMenu
         align="end"
-        icon={BarsArrowDownIcon}
+        icon={RiSortDesc}
         label={intl.formatMessage({
           defaultMessage: 'Sort By',
           description: 'Label for sort button',
@@ -353,7 +351,7 @@ export default function QuestionsCodingListWithFilters({
                 id: 'jGQnYd',
               })}
               size="sm"
-              startIcon={MagnifyingGlassIcon}
+              startIcon={RiSearchLine}
               value={query}
               onChange={(value) => setQuery(value)}
             />

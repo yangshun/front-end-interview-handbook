@@ -1,11 +1,10 @@
 import { useId } from 'react';
+import { RiLineChartLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { QuestionImportance } from '~/components/questions/common/QuestionsTypes';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
-
-import { ArrowTrendingUpIcon } from '@heroicons/react/24/outline';
 type Props = Readonly<{
   children?: React.ReactNode;
   showIcon?: boolean;
@@ -62,7 +61,7 @@ export default function QuestionImportanceLabel({
       </span>
       <div aria-labelledby={id} className="flex items-center">
         {showIcon && (
-          <ArrowTrendingUpIcon
+          <RiLineChartLine
             aria-hidden="true"
             className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
           />

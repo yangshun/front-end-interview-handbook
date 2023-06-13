@@ -1,9 +1,8 @@
 import React, { useId } from 'react';
+import { RiCheckLine } from 'react-icons/ri';
 
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import { CheckIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   features: ReadonlyArray<React.ReactNode>;
@@ -48,7 +47,7 @@ export default function PricingBlockCard({
                   key={idx}
                   className="flex items-start lg:col-span-1">
                   <div className="flex-shrink-0">
-                    <CheckIcon
+                    <RiCheckLine
                       aria-hidden="true"
                       className="text-success-light h-5 w-5"
                     />

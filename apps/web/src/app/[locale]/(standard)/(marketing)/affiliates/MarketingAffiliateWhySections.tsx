@@ -1,17 +1,14 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { RiCheckLine } from 'react-icons/ri';
+import { RiBankCardLine } from 'react-icons/ri';
 
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import {
-  BanknotesIcon,
-  CheckIcon,
-  CreditCardIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import { BanknotesIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import * as Slider from '@radix-ui/react-slider';
 
 const features = [
@@ -40,7 +37,7 @@ function ProductSection() {
             'inline-flex items-center gap-1 rounded-lg px-4 py-2',
             'bg-neutral-100 dark:bg-neutral-800',
           )}>
-          <CheckIcon
+          <RiCheckLine
             aria-hidden={true}
             className="text-success -ml-1 h-4 w-4"
           />
@@ -125,7 +122,7 @@ const reasons = [
     title: 'Simple 15% commission, no limit',
   },
   {
-    icon: CreditCardIcon,
+    icon: RiBankCardLine,
     media: (
       <img
         alt="PayPal logo"

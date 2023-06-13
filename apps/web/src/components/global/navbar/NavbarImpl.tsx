@@ -2,6 +2,8 @@
 
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
+import { RiPlayLine } from 'react-icons/ri';
+import { RiAccountCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -30,8 +32,6 @@ import NavProfileIcon from './NavProfileIcon';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
 
-import { PlayIcon } from '@heroicons/react/24/outline';
-import { UserCircleIcon } from '@heroicons/react/24/solid';
 import { useUser } from '@supabase/auth-helpers-react';
 
 function useNavLinks(
@@ -171,7 +171,7 @@ function useNavLinks(
           }),
           supplementaryItem: {
             href: questionFormatLists.coding.href,
-            icon: PlayIcon,
+            icon: RiPlayLine,
             itemKey: questionFormatLists.coding.key,
             label: intl.formatMessage({
               defaultMessage: 'Practice end-to-end',
@@ -724,7 +724,7 @@ export default function NavbarImpl() {
               src={user?.user_metadata?.avatar_url}
             />
           ) : (
-            <UserCircleIcon className="h-8 w-8 text-neutral-500" />
+            <RiAccountCircleLine className="h-8 w-8 text-neutral-500" />
           )}
         </div>
         <div className="ml-3">

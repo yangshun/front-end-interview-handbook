@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RiMailLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -11,8 +12,6 @@ import TextInput from '~/components/ui/TextInput';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
-
-import { EnvelopeIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   redirectTo: string;
@@ -81,7 +80,7 @@ export default function SupabaseAuthMagicLink({
                 description: 'Label of email field on Magic Link Sign In page',
                 id: 'UHZyhq',
               })}
-              startIcon={EnvelopeIcon}
+              startIcon={RiMailLine}
               type="email"
               onChange={setEmail}
             />

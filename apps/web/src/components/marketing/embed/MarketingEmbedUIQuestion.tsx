@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RiListUnordered } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -31,7 +32,6 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
-import { ListBulletIcon } from '@heroicons/react/24/outline';
 
 export type EmbedUIQuestion = Readonly<{
   angular: Readonly<{
@@ -141,7 +141,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
             <Button
               addonPosition="start"
               href="/prepare/coding"
-              icon={ListBulletIcon}
+              icon={RiListUnordered}
               label="All Questions"
               size="xs"
               variant="secondary"

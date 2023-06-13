@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { RiArrowRightSLine, RiCheckLine, RiMoreLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -12,9 +13,6 @@ import QuestionImportanceLabel from '../common/QuestionImportanceLabel';
 import QuestionQuizTopics from '../common/QuestionQuizTopics';
 import type { QuestionQuizMetadata } from '../common/QuestionsTypes';
 import QuestionUsersCompletedLabel from '../common/QuestionUsersCompletedLabel';
-
-import { ChevronRightIcon } from '@heroicons/react/24/outline';
-import { CheckIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/solid';
 
 type Props<Q extends QuestionQuizMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
@@ -92,7 +90,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                         id: 'fIu2R9',
                       })}
                       position="above">
-                      <CheckIcon
+                      <RiCheckLine
                         aria-hidden="true"
                         className="h-4 w-4 shrink-0"
                       />
@@ -106,7 +104,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                         id: 'bTsT6Y',
                       })}
                       position="above">
-                      <EllipsisHorizontalIcon
+                      <RiMoreLine
                         aria-hidden={true}
                         className="h-4 w-4 shrink-0 text-neutral-500"
                       />
@@ -163,7 +161,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             </div>
             {showChevron && (
               <div className="flex items-center justify-center pr-2">
-                <ChevronRightIcon
+                <RiArrowRightSLine
                   aria-hidden="true"
                   className="h-4 w-4 shrink-0 text-neutral-800 "
                 />
