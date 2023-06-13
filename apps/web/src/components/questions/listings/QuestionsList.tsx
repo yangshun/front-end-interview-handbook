@@ -185,7 +185,10 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 {showTimeline && index < questions.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute top-14 left-7 z-10 -ml-px h-full w-0.5 bg-neutral-200"></span>
+                    className={clsx(
+                      'absolute top-14 left-7 z-10 -ml-px h-full w-0.5',
+                      themeLineBackgroundColor,
+                    )}></span>
                 )}
                 <span
                   className={clsx(

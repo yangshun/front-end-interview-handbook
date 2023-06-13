@@ -74,7 +74,7 @@ export default function PreparationPlanPage({
 
   return (
     <div className="relative pb-16">
-      <div className="absolute z-0 h-96 w-full bg-neutral-900" />
+      <div className="bg-neutral-950 absolute z-0 h-96 w-full" />
       <div className="relative space-y-16 py-16 lg:pb-24 lg:pt-20">
         <Container>
           <TextPairing

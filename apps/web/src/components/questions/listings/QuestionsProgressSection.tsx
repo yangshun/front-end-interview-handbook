@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import ProgressBar from '~/components/ui/ProgressBar';
+import Text from '~/components/ui/Text';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
@@ -56,7 +57,11 @@ export default function QuestionsProgressSection({
         </Heading>
         <Section>
           <div className="mb-6 space-y-3">
-            <p className="text-sm font-medium tracking-tight text-neutral-200 sm:text-base">
+            <Text
+              className="tracking-tight"
+              color="secondary"
+              display="block"
+              weight="medium">
               {completedQuestions === 0 ? (
                 <FormattedMessage
                   defaultMessage="Start on this preparation plan today!"
@@ -75,18 +80,20 @@ export default function QuestionsProgressSection({
                       100
                     ).toFixed(0),
                     span: (chunks) => (
-                      <span className="text-brand-lighter font-bold">
+                      <Text color="active" variant="body" weight="bold">
                         {chunks}
-                      </span>
+                      </Text>
                     ),
                     span2: (chunks) => (
-                      <span className="text-neutral-400">{chunks}</span>
+                      <Text color="disabled" variant="body" weight="custom">
+                        {chunks}
+                      </Text>
                     ),
                     totalQuestions,
                   }}
                 />
               )}
-            </p>
+            </Text>
             <ProgressBar
               completed={Math.max(completedQuestions, 1)}
               size="md"

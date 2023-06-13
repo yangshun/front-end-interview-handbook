@@ -1,7 +1,9 @@
+import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 export default function QuestionPaywall({
   title: titleProp,
@@ -32,7 +34,12 @@ export default function QuestionPaywall({
     });
 
   return (
-    <div className="rounded border border-neutral-200 bg-white px-8">
+    <div
+      className={clsx(
+        'rounded-lg border px-8',
+        themeLineColor,
+        themeBackgroundColor,
+      )}>
       <EmptyState
         action={
           <Button
