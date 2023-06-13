@@ -10,6 +10,7 @@ import QuestionsList from '~/components/questions/listings/QuestionsList';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 
@@ -32,13 +33,18 @@ export default function MarketingSystemDesignQuestionsExamples({
         isInView ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="lg:col-span-2">
-        <p className="text-brand text-base font-semibold sm:text-lg">
+        <Text
+          className="text-base sm:text-lg"
+          color="active"
+          display="block"
+          variant="custom"
+          weight="bold">
           <FormattedMessage
             defaultMessage="You can't find it elsewhere"
             description="Label for an example list of System Design Questions on marketing pages"
             id="kL0yEH"
           />
-        </p>
+        </Text>
         <Heading className="mt-2" level="heading3">
           <FormattedMessage
             defaultMessage="System Design Questions"
@@ -48,13 +54,17 @@ export default function MarketingSystemDesignQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="space-y-2 py-10 text-lg text-neutral-500 md:text-xl">
+          <Text
+            className="py-10 text-lg md:text-xl"
+            color="secondary"
+            display="block"
+            variant="custom">
             <FormattedMessage
               defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
               description="Subtitle for an example list of User Interface Questions on marketing pages"
               id="QIRY6V"
             />
-          </div>
+          </Text>
           <div>
             <Button
               href="/prepare/system-design"
@@ -64,6 +74,7 @@ export default function MarketingSystemDesignQuestionsExamples({
                   'Link label to the list of all System Design questions',
                 id: '68EGSg',
               })}
+              size="lg"
               variant="primary"
               onClick={() => {
                 gtag.event({

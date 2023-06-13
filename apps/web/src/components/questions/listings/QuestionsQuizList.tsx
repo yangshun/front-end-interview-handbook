@@ -5,6 +5,12 @@ import { useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
+import {
+  themeBackgroundColor,
+  themeBackgroundEmphasizedHover,
+  themeDivideColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -57,7 +63,11 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
 
   return (
     <ul
-      className="isolate divide-y divide-neutral-200 border border-neutral-200"
+      className={clsx(
+        'isolate divide-y border',
+        themeLineColor,
+        themeDivideColor,
+      )}
       role="list">
       {questions.map((question, index) => {
         const hasCompletedQuestion = checkIfCompletedQuestion(question);
@@ -65,7 +75,11 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
         return (
           <li
             key={question.slug}
-            className="focus-within:ring-brand group relative flex space-x-4 bg-white px-4 py-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50">
+            className={clsx(
+              'focus-within:ring-brand group relative flex gap-x-4 px-4 py-4 focus-within:ring-2 focus-within:ring-inset',
+              themeBackgroundColor,
+              themeBackgroundEmphasizedHover,
+            )}>
             {showProgress && (
               <div className="flex items-center justify-center">
                 {showTimeline && index < questions.length - 1 && (
@@ -73,13 +87,12 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     aria-hidden="true"
                     className="absolute top-12 left-7 z-10 -ml-px h-full w-0.5 bg-neutral-200"></span>
                 )}
-
                 <span
                   className={clsx(
                     'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                     hasCompletedQuestion
                       ? 'border-green bg-green text-white'
-                      : 'border-neutral-200 bg-white',
+                      : clsx(themeLineColor, themeBackgroundColor),
                   )}>
                   {hasCompletedQuestion ? (
                     <Tooltip
@@ -114,9 +127,9 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
               </div>
             )}
             <div className="grow">
-              <p className="text-sm font-medium">
+              <Text display="block" variant="body2" weight="medium">
                 <Anchor
-                  className="hover:text-brand block text-neutral-700 focus:outline-none"
+                  className="block focus:outline-none"
                   href={question.href}
                   variant="unstyled">
                   {/* Extend touch target to entire panel */}
@@ -125,7 +138,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     {question.title}
                   </span>
                 </Anchor>
-              </p>
+              </Text>
               {question.subtitle && (
                 <Text
                   className="mt-1"
@@ -135,7 +148,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                   {question.subtitle}
                 </Text>
               )}
-              <div className="mt-2 flex items-center space-x-8">
+              <div className="mt-2 flex items-center gap-x-8">
                 <QuestionImportanceLabel
                   showIcon={true}
                   value={question.importance}

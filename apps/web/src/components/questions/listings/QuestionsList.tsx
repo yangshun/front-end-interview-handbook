@@ -12,6 +12,13 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
+import {
+  themeBackgroundColor,
+  themeBackgroundEmphasizedHover,
+  themeDivideColor,
+  themeLineBackgroundColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -130,7 +137,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className="border border-neutral-200 p-10">
+      <div className={clsx('border p-10', themeLineColor)}>
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -153,7 +160,10 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y divide-neutral-200 border border-neutral-200 bg-neutral-200 sm:grid sm:gap-px sm:divide-y-0',
+        'isolate divide-y border sm:grid sm:gap-px sm:divide-y-0',
+        themeLineColor,
+        themeDivideColor,
+        themeLineBackgroundColor,
         columns === 2 && 'sm:grid-cols-2',
       )}>
       {questions.map((question, index) => {
@@ -165,7 +175,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand group relative flex gap-x-4 bg-white p-4 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
+              'focus-within:ring-brand group relative flex gap-x-4 p-4 focus-within:ring-2 focus-within:ring-inset',
+              themeBackgroundColor,
+              themeBackgroundEmphasizedHover,
             )}>
             <QuestionNewLabel created={question.created} />
             {showProgress && (
@@ -179,7 +191,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   className={clsx(
                     'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                     userCannotViewQuestion || !hasCompletedQuestion
-                      ? 'border-neutral-200 bg-white'
+                      ? clsx(themeLineColor, themeBackgroundColor)
                       : 'border-success bg-success text-white',
                   )}>
                   {question.premium && !userProfile?.isPremium ? (
@@ -224,7 +236,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               </div>
             )}
             <div className="grow">
-              <p className="flex items-center space-x-2 text-sm font-medium">
+              <Text
+                className="items-center gap-x-2"
+                display="flex"
+                variant="body2"
+                weight="medium">
                 <Anchor
                   className="focus:outline-none"
                   href={
@@ -252,7 +268,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       variant="warning"
                     />
                   )}
-              </p>
+              </Text>
               {question.excerpt && (
                 <Text
                   className="mt-1"

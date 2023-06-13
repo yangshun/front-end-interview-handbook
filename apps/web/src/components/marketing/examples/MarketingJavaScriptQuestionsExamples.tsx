@@ -10,6 +10,7 @@ import QuestionsList from '~/components/questions/listings/QuestionsList';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 
@@ -32,13 +33,18 @@ export default function MarketingJavaScriptQuestionsExamples({
         isInView ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="lg:col-span-2">
-        <p className="text-brand text-base font-semibold sm:text-lg">
+        <Text
+          className="text-base sm:text-lg"
+          color="active"
+          display="block"
+          variant="custom"
+          weight="bold">
           <FormattedMessage
             defaultMessage="Everything you need"
             description="Label for an example list of JavaScript Questions on marketing pages"
             id="7gb9hK"
           />
-        </p>
+        </Text>
         <Heading className="mt-2" level="heading3">
           <FormattedMessage
             defaultMessage="JavaScript Questions"
@@ -48,13 +54,17 @@ export default function MarketingJavaScriptQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="space-y-2 py-10 text-lg text-neutral-500 md:text-xl">
+          <Text
+            className="py-10 text-lg md:text-xl"
+            color="secondary"
+            display="block"
+            variant="custom">
             <FormattedMessage
               defaultMessage="Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms."
               description="Subtitle for an example list of JavaScript Questions on marketing pages"
               id="b0OofK"
             />
-          </div>
+          </Text>
           <div>
             <Button
               href="/prepare/coding"
@@ -64,6 +74,7 @@ export default function MarketingJavaScriptQuestionsExamples({
                   'Link label to the list of all JavaScript coding questions',
                 id: 'lJupPX',
               })}
+              size="lg"
               variant="primary"
               onClick={() => {
                 gtag.event({

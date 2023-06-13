@@ -19,6 +19,7 @@ import type {
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 import { I18nLink } from '~/next-i18nostic/src';
@@ -44,14 +45,18 @@ function PreparationPlansSection() {
             id: 'J90fcx',
           })}
         </Heading>
-        <p className="text-lg text-neutral-500">
+        <Text
+          className="text-lg"
+          color="secondary"
+          display="block"
+          variant="custom">
           {intl.formatMessage({
             defaultMessage:
               "Regardless of preparation timeline, there's a plan for you.",
             description: 'Preparation plans section subtitle',
             id: 'WRQRec',
           })}
-        </p>
+        </Text>
       </div>
       <Section>
         <div className="mt-20 grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-6">
@@ -132,7 +137,11 @@ function PracticeQuestionsSection({
             id: 'Nh3PP/',
           })}
         </Heading>
-        <p className="text-lg text-neutral-500">
+        <Text
+          className="text-lg"
+          color="secondary"
+          display="block"
+          variant="custom">
           {intl.formatMessage(
             {
               defaultMessage:
@@ -145,7 +154,7 @@ function PracticeQuestionsSection({
               count: 100,
             },
           )}
-        </p>
+        </Text>
       </div>
       <Section>
         <MarketingJavaScriptQuestionsExamples questions={javaScriptQuestions} />

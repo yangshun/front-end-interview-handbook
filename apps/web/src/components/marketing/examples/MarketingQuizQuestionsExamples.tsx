@@ -11,6 +11,7 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 
@@ -33,13 +34,18 @@ export default function MarketingQuizQuestionsExamples({
         isInView ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="lg:col-span-2">
-        <p className="text-brand text-base font-semibold sm:text-lg">
+        <Text
+          className="text-base sm:text-lg"
+          color="active"
+          display="block"
+          variant="custom"
+          weight="bold">
           <FormattedMessage
             defaultMessage="Know your fundamentals"
             description="Label for an example list of Quiz Questions on marketing pages"
             id="7Po5ci"
           />
-        </p>
+        </Text>
         <Heading className="mt-2 flex items-center gap-4" level="heading3">
           <span>
             <FormattedMessage
@@ -61,7 +67,11 @@ export default function MarketingQuizQuestionsExamples({
         </Heading>
         <Section>
           <div ref={sectionMarkerRef} />
-          <div className="py-10 text-lg text-neutral-500 md:text-xl">
+          <Text
+            className="py-10 text-lg md:text-xl"
+            color="secondary"
+            display="block"
+            variant="custom">
             <FormattedMessage
               defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
               description="Subtitle for an example list of Quiz Questions on marketing pages"
@@ -70,7 +80,7 @@ export default function MarketingQuizQuestionsExamples({
                 count: 100,
               }}
             />
-          </div>
+          </Text>
           <div>
             <Button
               href="/prepare/quiz"
@@ -80,6 +90,7 @@ export default function MarketingQuizQuestionsExamples({
                   'Link label to the list of all Quiz coding questions',
                 id: 'u0dndi',
               })}
+              size="lg"
               variant="primary"
               onClick={() => {
                 gtag.event({
