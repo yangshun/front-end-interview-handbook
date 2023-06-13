@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import Badge from '~/components/ui/Badge';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -40,8 +41,8 @@ export default function QuestionContentsSystemDesign({
 
   return (
     <article ref={copyRef} className="space-y-8">
-      <div className="space-y-8">
-        <header className="mb-9">
+      <div className="grid gap-y-8">
+        <header>
           <Heading className="flex items-center gap-x-2" level="heading3">
             <span>{metadata.title}</span>
             {hasCompletedQuestion && (
@@ -75,20 +76,20 @@ export default function QuestionContentsSystemDesign({
             metadata.companies &&
             metadata.companies.length > 0 && (
               <>
-                <hr />
+                <Divider />
                 <QuestionCompanies
                   canViewPremiumContent={canViewPremiumContent}
                   question={metadata}
                 />
               </>
             )}
-          <hr />
+          <Divider />
           <QuestionContentProse
             contents={description}
             isContentsHidden={isQuestionLocked}
           />
         </div>
-        <hr />
+        <Divider />
         <div>
           <QuestionContentProse
             contents={solution}
