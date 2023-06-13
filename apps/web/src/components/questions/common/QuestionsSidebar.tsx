@@ -18,6 +18,7 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -229,6 +230,15 @@ export default function QuestionsSidebar({
             </Text>
           );
 
+          const activeClassName = clsx(
+            'text-brand-dark dark:text-brand',
+            themeBackgroundEmphasized,
+          );
+          const defaultClassName = clsx(
+            'hover:text-brand-dark dark:hover:text-brand',
+            'text-neutral-600 dark:text-neutral-400',
+          );
+
           if (item.type === 'link') {
             const current =
               pathname === item.href ||
@@ -241,9 +251,7 @@ export default function QuestionsSidebar({
                 aria-label={item.name}
                 className={clsx(
                   itemClassname,
-                  current
-                    ? 'text-brand-dark bg-neutral-100'
-                    : 'hover:text-brand-dark text-neutral-600',
+                  current ? activeClassName : defaultClassName,
                 )}
                 href={item.href}
                 variant="unstyled">
@@ -268,8 +276,8 @@ export default function QuestionsSidebar({
                     className={clsx(
                       itemClassname,
                       pathname != null && item.currentMatchRegex?.test(pathname)
-                        ? 'text-brand-dark bg-neutral-100'
-                        : 'hover:text-brand-dark text-neutral-600',
+                        ? activeClassName
+                        : defaultClassName,
                     )}>
                     {label}
                   </Popover.Button>

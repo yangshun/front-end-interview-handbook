@@ -7,6 +7,11 @@ import HTML5Logo from '~/components/icons/HTML5Logo';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import ReactLogo from '~/components/icons/ReactLogo';
 import Anchor from '~/components/ui/Anchor';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasized,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import type { QuestionListCategory } from './types';
 
@@ -59,19 +64,28 @@ export default function QuestionCategoryTitleSection({
           <Anchor
             key={value}
             className={clsx(
-              'group flex items-center gap-x-2 rounded-full border border-neutral-200 px-8 py-2 text-xs font-medium sm:text-sm',
-              value === category ? 'bg-brand-lightest' : 'hover:bg-neutral-50',
+              'group rounded-full border px-8 py-2',
+              themeLineColor,
+              value === category
+                ? 'bg-brand-lightest dark:bg-neutral-800'
+                : themeBackgroundEmphasized,
             )}
             href={`/questions/${value}`}
             variant="unstyled">
-            <Icon
-              className={clsx(
-                'h-4 w-4',
-                value !== category &&
-                  'opacity-50 grayscale transition-colors group-hover:opacity-100 group-hover:grayscale-0',
-              )}
-            />{' '}
-            {label}
+            <Text
+              className="items-center gap-x-2"
+              display="flex"
+              variant="body2"
+              weight="medium">
+              <Icon
+                className={clsx(
+                  'h-4 w-4',
+                  value !== category &&
+                    'opacity-50 grayscale transition-colors group-hover:opacity-100 group-hover:grayscale-0',
+                )}
+              />{' '}
+              {label}
+            </Text>
           </Anchor>
         ))}
       </div>
