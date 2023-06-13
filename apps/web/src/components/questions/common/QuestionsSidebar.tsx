@@ -18,7 +18,10 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
+import {
+  themeBackgroundColor,
+  themeBackgroundEmphasized,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -311,7 +314,11 @@ export default function QuestionsSidebar({
                             'top-1/2 -translate-y-1/2',
                           item.popoverAlignment === 'bottom' && 'bottom-0',
                         )}>
-                        <div className="flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5">
+                        <div
+                          className={clsx(
+                            'flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5',
+                            themeBackgroundColor,
+                          )}>
                           {item.items.map((popoverItem) => (
                             <Anchor
                               key={popoverItem.key}

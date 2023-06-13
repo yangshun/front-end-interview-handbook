@@ -10,7 +10,7 @@ import {
   RiDeleteBinLine,
   RiSearchLine,
   RiSettings3Line,
-  RiTerminalLine,
+  RiTerminalBoxLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -21,6 +21,7 @@ import Dialog from '~/components/ui/Dialog';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
 import useConsoleStyles from './useConsoleStyles';
 
@@ -45,7 +46,7 @@ function NoLogs({
     <div className="flex h-full grow items-center justify-center py-4 px-4 sm:px-6 lg:px-4">
       <div className="grid gap-y-2">
         <div className="flex justify-center">
-          <RiTerminalLine className="h-12 w-12 shrink-0 text-neutral-300" />
+          <RiTerminalBoxLine className="h-12 w-12 shrink-0 text-neutral-300" />
         </div>
         <Text
           className="text-center"
@@ -129,7 +130,7 @@ export default function JavaScriptConsole({
   }, [logs, isScrollPositionAtBottom]);
 
   const toolbar = (
-    <div className="flex flex-col border-b">
+    <div className={clsx('flex flex-col border-b', themeLineColor)}>
       <div className="flex flex-row items-center gap-x-2 p-2">
         <Button
           icon={RiDeleteBinLine}
@@ -255,7 +256,8 @@ export default function JavaScriptConsole({
         onClose={() => {
           setShowAdvancedOptions(false);
         }}>
-        <div className="flex flex-col gap-y-4 divide-y">
+        <div
+          className={clsx('flex flex-col gap-y-4 divide-y', themeDivideColor)}>
           <div className="flex gap-x-2">
             <Select
               label={intl.formatMessage({

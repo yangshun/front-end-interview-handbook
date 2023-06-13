@@ -24,11 +24,15 @@ export default function QuestionFilterSectionMobile<
     <Disclosure
       key={section.name}
       as="div"
-      className={clsx('border-t border-neutral-200 pt-4 pb-4', themeLineColor)}>
+      className={clsx('border-t pt-4 pb-4', themeLineColor)}>
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
-            <Disclosure.Button className="focus:ring-brand flex w-full items-center justify-between text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset">
+            <Disclosure.Button
+              className={clsx(
+                'focus:ring-brand flex w-full items-center justify-between focus:outline-none focus:ring-2 focus:ring-inset',
+                'text-neutral-400 hover:text-neutral-500 dark:text-neutral-600',
+              )}>
               <Text variant="body2" weight="medium">
                 {section.name}
               </Text>

@@ -35,6 +35,7 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
@@ -277,7 +278,8 @@ function Contents({
           )}
           <div
             className={clsx(
-              'flex flex-col bg-white',
+              'flex flex-col',
+              themeBackgroundColor,
               layout === 'horizontal' && 'lg:h-full',
               // Don't allow mouse events on iframe while dragging otherwise
               // the mouseup event doesn't fire on the main window.
@@ -307,7 +309,11 @@ function Contents({
             </div>
             {isMounted() && showLoadedPreviousCode && (
               <div
-                className="bg-brand-lightest flex shrink-0 items-center justify-between border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
+                className={clsx(
+                  'bg-brand-lightest flex shrink-0 items-center justify-between border-t py-3 px-4 sm:px-6 lg:px-4',
+                  'bg-brand-lightest dark:bg-neutral-800',
+                  themeLineColor,
+                )}
                 suppressHydrationWarning={true}>
                 <Text variant="body3">
                   <FormattedMessage
@@ -345,7 +351,12 @@ function Contents({
                 />
               </div>
             )}
-            <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
+            <div
+              className={clsx(
+                'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:px-2 lg:py-2',
+                themeLineColor,
+                themeBackgroundColor,
+              )}>
               <div>
                 <div className={clsx(layout === 'horizontal' && 'lg:hidden')}>
                   <Button

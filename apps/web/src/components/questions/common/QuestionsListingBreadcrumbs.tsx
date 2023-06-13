@@ -1,7 +1,14 @@
+import clsx from 'clsx';
 import { RiHome2Line } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
+import {
+  themeBackgroundColor,
+  themeLineColor,
+  themeLineTextColor,
+} from '~/components/ui/theme';
 
 export type QuestionsListingBreadcrumbsLinks = ReadonlyArray<{
   href: string;
@@ -22,28 +29,24 @@ export default function QuestionsListingBreadcrumbs({ links }: Props) {
         description: 'Screenreader text to indicate breadcrumb component',
         id: 'c12AhV',
       })}
-      className="flex border-b border-neutral-200 bg-neutral-50">
+      className={clsx('flex border-b', themeLineColor, themeBackgroundColor)}>
       <ol
         className="mx-auto flex w-full max-w-screen-xl space-x-4 px-4 sm:px-6 lg:px-8"
         role="list">
         <li className="flex">
           <div className="flex items-center">
-            <Anchor
-              className="text-neutral-400 hover:text-neutral-500"
+            <Button
               href="/prepare"
-              variant="unstyled">
-              <RiHome2Line
-                aria-hidden="true"
-                className="h-5 w-5 flex-shrink-0"
-              />
-              <span className="sr-only">
-                <FormattedMessage
-                  defaultMessage="Home"
-                  description="Home button on breadcrumb component"
-                  id="s3LMhK"
-                />
-              </span>
-            </Anchor>
+              icon={RiHome2Line}
+              isLabelHidden={true}
+              label={intl.formatMessage({
+                defaultMessage: 'Home',
+                description: 'Home button on breadcrumb component',
+                id: 's3LMhK',
+              })}
+              size="sm"
+              variant="tertiary"
+            />
           </div>
         </li>
         {links.map((item) => (
@@ -51,20 +54,22 @@ export default function QuestionsListingBreadcrumbs({ links }: Props) {
             <div className="flex items-center">
               <svg
                 aria-hidden="true"
-                className="h-full w-5 flex-shrink-0 text-neutral-200"
+                className={clsx(
+                  'mr-2 h-full w-5 flex-shrink-0',
+                  themeLineTextColor,
+                )}
                 fill="currentColor"
                 preserveAspectRatio="none"
                 viewBox="0 0 24 44"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
               </svg>
-              <Anchor
-                aria-current={item.isCurrent ? 'page' : undefined}
-                className="ml-4 text-xs font-medium text-neutral-500 hover:text-neutral-700"
+              <Button
                 href={item.href}
-                variant="unstyled">
-                {item.label}
-              </Anchor>
+                label={item.label}
+                size="xs"
+                variant="tertiary"
+              />
             </div>
           </li>
         ))}

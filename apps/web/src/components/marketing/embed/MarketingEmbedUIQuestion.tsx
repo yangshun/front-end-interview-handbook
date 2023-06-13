@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import { RiListUnordered } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -20,6 +21,7 @@ import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Select from '~/components/ui/Select';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 
@@ -138,7 +140,12 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between border-t border-neutral-200 bg-white px-4 py-2">
+          <div
+            className={clsx(
+              'flex items-center justify-between border-t px-4 py-2',
+              themeBackgroundColor,
+              themeLineColor,
+            )}>
             <Button
               addonPosition="start"
               href="/prepare/coding"

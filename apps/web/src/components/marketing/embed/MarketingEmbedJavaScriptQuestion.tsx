@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiListUnordered } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -21,6 +22,7 @@ import QuestionContentsSectionTabs from '~/components/questions/content/Question
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 
@@ -64,7 +66,7 @@ export default function MarketingEmbedJavaScriptQuestion({
       }`}</style>
       <div className="h-0 grow sm:flex">
         <div
-          className="overflow-y-scroll border-neutral-200 md:border-r"
+          className={clsx('overflow-y-scroll md:border-r', themeLineColor)}
           id="left-section">
           <div className="space-y-4 py-4 px-4">
             <div className="flex justify-between">
@@ -141,7 +143,12 @@ export default function MarketingEmbedJavaScriptQuestion({
               })()}
             </div>
           </div>
-          <div className="flex items-center justify-between border-t border-neutral-200 bg-white px-4 py-2">
+          <div
+            className={clsx(
+              'flex items-center justify-between border-t bg-white px-4 py-2',
+              themeBackgroundColor,
+              themeLineColor,
+            )}>
             <Button
               addonPosition="start"
               href="/prepare/coding"

@@ -1,8 +1,10 @@
+import clsx from 'clsx';
 import { RiLockLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 export default function QuestionPaywallSmall({
   title: titleProp,
@@ -32,7 +34,11 @@ export default function QuestionPaywallSmall({
     });
 
   return (
-    <div className="flex items-center space-x-2 rounded border border-neutral-200 p-3">
+    <div
+      className={clsx(
+        'flex items-center space-x-2 rounded border p-3',
+        themeLineColor,
+      )}>
       <RiLockLine className="h-8 w-8 text-neutral-500" />
       <div className="grow space-y-1">
         <Text display="block" variant="body3" weight="bold">

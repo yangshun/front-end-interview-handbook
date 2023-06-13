@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Fragment } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -7,6 +8,7 @@ import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallS
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
@@ -54,7 +56,11 @@ export default function QuestionCompanies({
         ) : companies.length > 0 ? (
           companies.map((company) => (
             <Fragment key={company}>
-              <span className="relative inline-flex items-center rounded-full border border-neutral-200 px-3 py-0.5">
+              <span
+                className={clsx(
+                  'relative inline-flex items-center rounded-full border px-3 py-0.5',
+                  themeLineColor,
+                )}>
                 <Text color="secondary" variant="body3">
                   {companyNames[company].label}
                 </Text>

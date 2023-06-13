@@ -11,6 +11,7 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';
 import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
+import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionFilter } from './QuestionFilterType';
@@ -49,8 +50,10 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
 
   return (
     <div className="flex flex-col gap-y-1">
-      <label className="text-xs font-medium text-neutral-500" id={sectionId}>
-        {filterOptions.name}
+      <label id={sectionId}>
+        <Text variant="body3" weight="medium">
+          {filterOptions.name}
+        </Text>
       </label>
       <div
         aria-labelledby={sectionId}

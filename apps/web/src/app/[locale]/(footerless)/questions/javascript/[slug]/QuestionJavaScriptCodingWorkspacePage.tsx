@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useRef, useState } from 'react';
 import { RiListUnordered } from 'react-icons/ri';
 import { useLocalStorage } from 'usehooks-ts';
@@ -24,6 +25,7 @@ import useCodingWorkspaceLayout from '~/components/questions/editor/useCodingWor
 import QuestionCodingListSlideOut from '~/components/questions/listings/QuestionCodingListSlideOut';
 import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
@@ -77,7 +79,11 @@ function LeftPane({
         />
         <StatisticsPanel className="mt-4" serverDuration={serverDuration} />
       </div>
-      <div className="flex items-center justify-between border-t border-neutral-200 py-3 px-4 sm:px-6 lg:py-2">
+      <div
+        className={clsx(
+          'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:py-2',
+          themeLineColor,
+        )}>
         <Button
           addonPosition="start"
           icon={RiListUnordered}
@@ -148,7 +154,7 @@ export default function QuestionJavaScriptCodingWorkspacePage({
         className="static flex w-full flex-col overflow-hidden lg:fixed lg:flex-row"
         id="container">
         <section
-          className="border-b border-neutral-200 lg:border-none"
+          className={clsx('border-b lg:border-none', themeLineColor)}
           id="js-coding-left-section">
           <LeftPane
             canViewPremiumContent={canViewPremiumContent}

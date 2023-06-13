@@ -1,4 +1,7 @@
+import clsx from 'clsx';
 import type { MouseEvent } from 'react';
+
+import { themeLineBackgroundColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   onMouseDown: (event: MouseEvent<HTMLElement>) => void;
@@ -7,7 +10,12 @@ type Props = Readonly<{
 export default function QuestionPaneDivider({ onMouseDown }: Props) {
   return (
     <div
-      className="hover:border-brand-light hover:bg-brand-light z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 border-transparent bg-neutral-200 bg-clip-padding transition-colors lg:block"
+      className={clsx(
+        'z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 bg-clip-padding transition-colors lg:block',
+        themeLineBackgroundColor,
+        'dark:hover:bg-background-brand',
+        'hover:border-brand-light dark:hover-border-brand border-transparent',
+      )}
       role="presentation"
       onMouseDown={onMouseDown}
     />

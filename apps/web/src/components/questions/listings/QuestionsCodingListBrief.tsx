@@ -4,6 +4,12 @@ import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasizedHover,
+  themeDivideColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -23,7 +29,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className="border border-neutral-200 p-10">
+      <div className={clsx('border p-10', themeLineColor)}>
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -46,7 +52,9 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y divide-neutral-200 overflow-hidden border border-neutral-200 bg-neutral-200 sm:grid sm:gap-px sm:divide-y-0',
+        'isolate divide-y overflow-hidden border sm:grid',
+        themeLineColor,
+        themeDivideColor,
       )}>
       {questions.map((question) => {
         const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
@@ -55,7 +63,8 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand group relative flex space-x-6 bg-white p-3 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50',
+              'focus-within:ring-brand group relative flex gap-x-6 p-3 focus-within:ring-2 focus-within:ring-inset',
+              themeBackgroundEmphasizedHover,
             )}>
             <div className="flex grow items-center justify-between">
               <div className="flex items-center space-x-4">
@@ -65,14 +74,18 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                       'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                       hasCompletedQuestion
                         ? 'border-success bg-success text-white'
-                        : 'border-neutral-200 bg-white',
+                        : themeLineColor,
                     )}>
                     {hasCompletedQuestion && (
                       <RiCheckLine aria-hidden="true" className="h-4 w-4" />
                     )}
                   </span>
                 )}
-                <p className="flex items-center space-x-2 text-xs font-medium">
+                <Text
+                  className="items-center gap-x-2"
+                  display="flex"
+                  variant="body3"
+                  weight="medium">
                   <Anchor
                     className="focus:outline-none"
                     href={question.href}
@@ -81,7 +94,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                     <span aria-hidden="true" className="absolute inset-0" />
                     {question.title}
                   </Anchor>
-                </p>
+                </Text>
               </div>
               <div className="flex items-center space-x-6">
                 <QuestionDifficultyLabel value={question.difficulty} />

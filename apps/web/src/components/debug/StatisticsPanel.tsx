@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
+import { themeLineColor } from '~/components/ui/theme';
+
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
@@ -39,7 +41,7 @@ export default function StatisticsPanel({ className, serverDuration }: Props) {
   }
 
   return (
-    <div className={clsx('border border-neutral-200 p-3 text-xs', className)}>
+    <div className={clsx('border p-3 text-xs', themeLineColor, className)}>
       {serverDuration && <>Duration: {Math.round(serverDuration)}ms</>}
     </div>
   );

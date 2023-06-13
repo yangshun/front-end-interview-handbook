@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Fragment, useState } from 'react';
 import { RiCheckLine, RiCloseLine } from 'react-icons/ri';
 import { RiArrowRightSLine } from 'react-icons/ri';
@@ -7,6 +8,10 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Spinner from '~/components/ui/Spinner';
 import type { TextColor } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasized,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import JavaScriptTestCodesEmitter from '../content/JavaScriptTestCodesEmitter';
 import type {
@@ -87,7 +92,8 @@ function TestResultItem({
   const displayPath = result.testPath.slice(1);
 
   return (
-    <div className="space-y-2 rounded bg-neutral-100 p-2">
+    <div
+      className={clsx('grid gap-y-2 rounded p-2', themeBackgroundEmphasized)}>
       <div className="flex items-center gap-2">
         {result.status === 'pass' && (
           <RiCheckLine
@@ -151,7 +157,11 @@ function TestResultItem({
       {showStackTrace &&
         result.errors.map((error) => (
           <Text key={error} display="block" variant="body3">
-            <pre className="space-y-1 overflow-x-auto border-t border-neutral-200 p-2 pb-0">
+            <pre
+              className={clsx(
+                'border-tp-2 grid gap-1 overflow-x-auto pb-0',
+                themeLineColor,
+              )}>
               {error.replaceAll(/https.*codesandbox\.io/g, '')}
             </pre>
           </Text>
@@ -242,7 +252,7 @@ function JavaScriptQuestionTestResult({
             </div>
             <TestResultStats results={result.report} />
           </div>
-          <ul className="space-y-2 overflow-y-auto pb-2" role="list">
+          <ul className="grid gap-y-2 overflow-y-auto pb-2" role="list">
             {result.report.results
               .filter(
                 (resultItem) =>
@@ -292,7 +302,7 @@ export default function JavaScriptQuestionTestResults({
   if (result == null) {
     return (
       <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
-        <ClipboardDocumentCheckIcon className="h-12 w-12 text-neutral-300" />
+        <ClipboardDocumentCheckIcon className="h-12 w-12 text-neutral-300 dark:text-neutral-700" />
         <Text color="secondary" display="block" variant="body2">
           <FormattedMessage
             defaultMessage="Submit your code to check against the tests."

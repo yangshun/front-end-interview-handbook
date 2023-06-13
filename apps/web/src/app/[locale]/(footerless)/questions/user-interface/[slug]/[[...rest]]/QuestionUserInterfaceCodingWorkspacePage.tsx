@@ -8,6 +8,7 @@ import {
   RiArrowUpSLine,
   RiListUnordered,
 } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import useIsMounted from '~/hooks/useIsMounted';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
@@ -47,6 +48,7 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
@@ -81,6 +83,7 @@ function MiddleRightPaneContents({
   questionProgress: QuestionProgress | null;
   saveFiles: (files: Record<string, SandpackFile>) => void;
 }>) {
+  const intl = useIntl();
   const {
     startDrag,
     isDragging,
@@ -117,7 +120,12 @@ function MiddleRightPaneContents({
 
   function resetCode() {
     const shouldDiscard = window.confirm(
-      'Your existing code will be discarded, are you sure?',
+      intl.formatMessage({
+        defaultMessage: 'Your existing code will be discarded, are you sure?',
+        description:
+          'Text on browser confirmation pop-up when user attempts to use the reset button to reset their code',
+        id: '8aQEL8',
+      }),
     );
 
     if (!shouldDiscard) {
@@ -175,7 +183,7 @@ function MiddleRightPaneContents({
           </div>
           <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
           <div
-            className="flex flex-col border-l border-neutral-200 lg:h-full"
+            className={clsx('flex flex-col border-l lg:h-full', themeLineColor)}
             id="right-section">
             <div
               className={clsx(
@@ -200,7 +208,7 @@ function MiddleRightPaneContents({
             <div
               className={clsx(
                 'flex flex-col',
-                showDevToolsPane && 'border-t border-neutral-200',
+                showDevToolsPane && clsx('border-t', themeLineColor),
               )}
               id="devtool-section">
               <div
@@ -217,21 +225,38 @@ function MiddleRightPaneContents({
               </div>
               {mode === 'practice' && isMounted() && showLoadedPreviousCode && (
                 <div
-                  className="bg-brand-lightest shrink-0 border-t border-neutral-200 py-3 px-4 sm:px-6 lg:px-4"
+                  className={clsx(
+                    'shrink-0 border-t py-3 px-4 sm:px-6 lg:px-4',
+                    'bg-brand-lightest dark:bg-neutral-800',
+                    themeLineColor,
+                  )}
                   suppressHydrationWarning={true}>
                   <Text variant="body3">
-                    Your previous code was restored.{' '}
-                    <Anchor
-                      href="#"
-                      onClick={() => {
-                        resetCode();
-                      }}>
-                      Reset to default
-                    </Anchor>
+                    <FormattedMessage
+                      defaultMessage="Your previous code was restored. <Anchor>Reset to default</Anchor>"
+                      description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+                      id="nFYr2a"
+                      values={{
+                        Anchor: (chunks) => (
+                          <Anchor
+                            href="#"
+                            onClick={() => {
+                              resetCode();
+                            }}>
+                            {chunks}
+                          </Anchor>
+                        ),
+                      }}
+                    />
                   </Text>
                 </div>
               )}
-              <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:px-2 lg:py-2">
+              <div
+                className={clsx(
+                  'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:px-2 lg:py-2',
+                  themeLineColor,
+                  themeBackgroundColor,
+                )}>
                 <Button
                   icon={showDevToolsPane ? RiArrowDownSLine : RiArrowUpSLine}
                   label={showDevToolsPane ? 'Hide DevTool' : 'Show DevTool'}
@@ -379,7 +404,12 @@ function LeftPane({
         />
         <StatisticsPanel className="mt-4" serverDuration={serverDuration} />
       </div>
-      <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
+      <div
+        className={clsx(
+          'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:py-2',
+          themeLineColor,
+          themeBackgroundColor,
+        )}>
         <Button
           addonPosition="start"
           icon={RiListUnordered}
