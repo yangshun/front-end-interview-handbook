@@ -1,11 +1,14 @@
 'use client';
 
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -13,7 +16,6 @@ import type { GuideNavigation } from './GuidesLayoutSidebar';
 import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
-import Button from '../ui/Button';
 
 export default function GuidesNavbar({
   navigation,
@@ -47,7 +49,11 @@ export default function GuidesNavbar({
 
   return (
     <div
-      className="sticky z-30 border-b border-neutral-200 bg-white lg:hidden"
+      className={clsx(
+        'sticky z-30 border-b border-neutral-200 lg:hidden',
+        themeLineColor,
+        themeBackgroundColor,
+      )}
       style={{ top: 'var(--navbar-height)' }}>
       <Container className="flex h-10 items-center justify-between">
         <Button

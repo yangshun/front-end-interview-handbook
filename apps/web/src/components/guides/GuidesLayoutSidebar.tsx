@@ -1,10 +1,13 @@
 'use client';
 
+import clsx from 'clsx';
+
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -67,11 +70,12 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
-            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-neutral-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
-              <Heading
-                className="mt-4 text-base font-semibold text-neutral-700"
-                color="custom"
-                level="custom">
+            <div
+              className={clsx(
+                'flex w-72 flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs xl:w-[300px] 2xl:w-96',
+                themeLineColor,
+              )}>
+              <Heading className="mt-4 text-base font-semibold" level="custom">
                 {navigation.title}
               </Heading>
               <Section>

@@ -14,6 +14,7 @@ import GuidesTableOfContents from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import FooterlessContainerHeight from '../common/FooterlessContainerHeight';
 import QuestionPagination from '../questions/content/QuestionPagination';
+import Text from '../ui/Text';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -48,11 +49,17 @@ export default function GuidesMainLayout({
         <div className="flex grow">
           <div className="mx-auto grid w-full max-w-xl gap-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
             {currentItem && (
-              <div className="-mb-4 flex flex-wrap gap-x-2 text-xs text-neutral-500">
+              <div className="-mb-4 flex flex-wrap gap-x-2">
                 {currentItem.breadcrumbs.map((breadcrumb, index) => (
                   <Fragment key={breadcrumb}>
-                    {index > 0 && <span>/</span>}
-                    <span>{breadcrumb}</span>
+                    {index > 0 && (
+                      <Text color="secondary" variant="body2">
+                        /
+                      </Text>
+                    )}
+                    <Text color="secondary" variant="body2">
+                      {breadcrumb}
+                    </Text>
                   </Fragment>
                 ))}
               </div>

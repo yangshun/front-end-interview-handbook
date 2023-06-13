@@ -9,8 +9,10 @@ import useScrollParent from '~/hooks/useScrollParent';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import { useActiveHeadingId } from './GuidesHeadingObserver';
+import { themeTextBrandColor } from '../ui/theme';
 
 type TableOfContentsItem = Readonly<{
   children?: ReadonlyArray<TableOfContentsItem>;
@@ -35,17 +37,20 @@ function ListItems({
   items: TableOfContents;
 }>) {
   return (
-    <ol className="mt-2 space-y-3 text-xs" role="list">
+    <ol className="mt-2 space-y-3 text-sm sm:text-xs" role="list">
       {items.map((section) => (
         <li key={section.id}>
           <p>
             <Anchor
               ref={activeId === section.id ? activeLinkRef : undefined}
               className={clsx(
-                'hover:text-brand-darker motion-safe:transition-all',
+                'motion-safe:transition-all',
                 activeId === section.id
-                  ? 'text-brand-dark'
-                  : 'font-normal text-neutral-500',
+                  ? themeTextBrandColor
+                  : clsx(
+                      themeTextSecondaryColor,
+                      'hover:text-neutral-500 dark:hover:text-white',
+                    ),
               )}
               href={`#${section.id}`}
               variant="unstyled">
@@ -87,7 +92,6 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
   }, [scrollIntoView, activeLink]);
 
   return (
-    // TODO: Replace the labelledby
     <nav ref={navRef} aria-labelledby={titleId}>
       {tableOfContents.length > 0 && (
         <>

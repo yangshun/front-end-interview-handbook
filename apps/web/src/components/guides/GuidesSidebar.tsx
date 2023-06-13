@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeLineColor, themeTextSecondaryColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -22,7 +23,7 @@ function LinksList({
 
   return (
     <ul
-      className="mt-3 flex flex-col gap-y-2 border-l border-neutral-200"
+      className={clsx('mt-3 flex flex-col gap-y-2 border-l', themeLineColor)}
       role="list">
       {items.map((link) => (
         <li key={link.href} className="relative text-sm leading-6">
@@ -31,7 +32,10 @@ function LinksList({
               'flex w-full items-center gap-x-2 pl-4',
               pathname === link.href
                 ? 'text-brand'
-                : 'text-zinc-600 hover:text-zinc-800',
+                : clsx(
+                    themeTextSecondaryColor,
+                    'hover:text-neutral-800 dark:hover:text-white',
+                  ),
             )}
             href={link.href}
             variant="unstyled">
@@ -59,8 +63,7 @@ export function GuidesSidebar({ navigation }: GuidesSidebarProps) {
         {navigation.items.map((section) => (
           <li key={section.title}>
             <Heading
-              className="text-[0.8125rem] font-semibold leading-6 text-zinc-900"
-              color="custom"
+              className="text-[0.8125rem] font-semibold leading-6"
               level="custom">
               {section.title}
             </Heading>
