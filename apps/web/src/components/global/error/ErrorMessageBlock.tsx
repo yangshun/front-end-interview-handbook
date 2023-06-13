@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 
 export default function ErrorMessageBlock() {
   // Force refresh after 3 seconds.
@@ -16,12 +17,13 @@ export default function ErrorMessageBlock() {
 
   return (
     <div className="flex flex-col gap-y-4 py-12 text-center">
-      <h1 className="text-lg text-neutral-700">
-        There's a newer version of the site available.
+      <h1 className="text-lg">
+        <Text>There's a newer version of the site available.</Text>
       </h1>
       <div>
         <Button
           label="Reload Page"
+          size="lg"
           type="button"
           variant="primary"
           onClick={() => {

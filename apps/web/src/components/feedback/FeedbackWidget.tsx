@@ -27,7 +27,9 @@ export default function FeedbackWidget({ position }: Props) {
     <>
       <button
         className={clsx(
-          'fixed z-20 hidden items-center bg-neutral-900 text-xs text-white drop-shadow-xl transition-colors hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-700 focus:ring-offset-2 md:block',
+          'fixed z-20 hidden items-center text-xs text-white drop-shadow-xl transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-700 focus:ring-offset-2 md:block',
+          'bg-neutral-900 dark:bg-neutral-800',
+          'hover:bg-neutral-800',
           position === 'end' &&
             'right-0 h-56 w-9 rounded-l-lg sm:bottom-[20px] md:top-1/2 md:-translate-y-1/2',
           position === 'bottom' &&

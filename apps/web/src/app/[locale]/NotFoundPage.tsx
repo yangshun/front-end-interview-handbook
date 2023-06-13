@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import {
@@ -15,6 +16,7 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
 export default function NotFoundPage() {
   // Useful to log the full pathname for a 404.
@@ -72,7 +74,7 @@ export default function NotFoundPage() {
   return (
     <>
       <title>Page Not Found | GreatFrontEnd</title>
-      <div className="bg-white">
+      <div>
         <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl py-12 sm:py-16">
             <Heading className="text-center" level="heading3">
@@ -88,7 +90,11 @@ export default function NotFoundPage() {
                 </Heading>
                 <Section>
                   <ul
-                    className="mt-4 divide-y divide-neutral-200 border-t border-b border-neutral-200"
+                    className={clsx(
+                      'mt-4 divide-y border-t border-b',
+                      themeLineColor,
+                      themeDivideColor,
+                    )}
                     role="list">
                     {links.map((link) => (
                       <li

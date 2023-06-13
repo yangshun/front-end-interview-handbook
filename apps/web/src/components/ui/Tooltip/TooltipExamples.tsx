@@ -4,6 +4,7 @@ import { RiAlignCenter, RiAlignLeft, RiAlignRight } from 'react-icons/ri';
 
 import Tooltip from './Tooltip';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Text from '../Text';
 
 function Box({
   children,
@@ -25,16 +26,16 @@ export default function TooltipExamples() {
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Tooltip">
       <div className="flex gap-8">
         <Tooltip label="Hello World" position="above">
-          Tooltip above
+          <Text>Tooltip above</Text>
         </Tooltip>
         <Tooltip label="Hello World" position="below">
-          Tooltip below
+          <Text>Tooltip below</Text>
         </Tooltip>
         <Tooltip label="Hello World" position="start">
-          Tooltip left
+          <Text>Tooltip left</Text>
         </Tooltip>
         <Tooltip label="Hello World" position="end">
-          Tooltip right
+          <Text>Tooltip right</Text>
         </Tooltip>
       </div>
       <div className="flex flex-col gap-8">

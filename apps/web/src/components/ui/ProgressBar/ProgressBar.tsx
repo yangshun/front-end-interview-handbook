@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { themeLineBackgroundColor } from '~/components/ui/theme';
+
 type ProgressBarSize = 'lg' | 'md';
 
 type Props = Readonly<{
@@ -30,12 +32,13 @@ export default function ProgressBar({
         <div
           className="absolute -top-2 z-10 flex h-8 w-8 -translate-x-4 items-center justify-center rounded-full bg-neutral-100 drop-shadow-lg"
           style={{ left: `calc(${(completed / total) * 100}%)` }}>
-          <div className="bg-success h-4 w-4 rounded-full" />
+          <div className="bg-success-light dark:bg-success-lighter h-4 w-4 rounded-full" />
         </div>
       )}
       <div
         className={clsx(
-          'flex-grow-1 relative flex h-full w-full overflow-clip bg-neutral-200',
+          'flex-grow-1 relative flex h-full w-full overflow-clip',
+          themeLineBackgroundColor,
           size === 'md' && 'rounded-lg',
           size === 'lg' && 'rounded-xl',
         )}>

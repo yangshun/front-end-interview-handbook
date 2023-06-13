@@ -30,6 +30,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -328,7 +329,11 @@ export default function QuestionsSystemDesignListWithFilters({
               id="Gi1TRd"
             />
           </Heading>
-          <div className="hidden h-full border-l border-neutral-200 pl-8 lg:block">
+          <div
+            className={clsx(
+              'hidden h-full border-l pl-8 lg:block',
+              themeLineColor,
+            )}>
             <form className="space-y-6">
               <QuestionListingFilterSectionDesktop
                 isFirstSection={true}

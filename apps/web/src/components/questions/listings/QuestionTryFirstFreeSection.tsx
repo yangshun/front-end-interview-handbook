@@ -1,7 +1,9 @@
+import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeBackgroundColor } from '~/components/ui/theme';
 
 import QuestionsList from './QuestionsList';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
@@ -14,7 +16,11 @@ export default function QuestionTryFirstFreeSection({
   codingQuestions,
 }: Props) {
   return (
-    <div className="space-y-6 rounded-lg bg-white p-6 shadow">
+    <div
+      className={clsx(
+        'grid gap-y-6 rounded-lg p-6 shadow',
+        themeBackgroundColor,
+      )}>
       <Heading level="heading5">
         <FormattedMessage
           defaultMessage="Try your first free question"
@@ -23,7 +29,7 @@ export default function QuestionTryFirstFreeSection({
         />
       </Heading>
       <Section>
-        <div className="mt-1 space-y-6">
+        <div className="mt-1">
           <QuestionsList
             checkIfCompletedQuestion={() => false}
             columns={1}

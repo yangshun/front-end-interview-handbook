@@ -50,7 +50,7 @@ export default function GuidesNavbar({
   return (
     <div
       className={clsx(
-        'sticky z-30 border-b border-neutral-200 lg:hidden',
+        'sticky z-30 border-b lg:hidden',
         themeLineColor,
         themeBackgroundColor,
       )}
