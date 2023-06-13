@@ -2,6 +2,13 @@ import clsx from 'clsx';
 import { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import {
+  themeTextBrandColor,
+  themeTextColor,
+  themeTextSecondaryColor,
+  themeTextSecondaryInvertColor,
+} from '~/components/ui/theme';
+
 import NavbarPopover from './NavbarPopover';
 import NavbarPopoverTabs from './NavbarPopoverTabs';
 import type { NavbarPrimaryItem } from './NavTypes';
@@ -17,7 +24,10 @@ export default function NavbarItem({
   if (props.type === 'link') {
     return (
       <Anchor
-        className="hover:text-brand flex cursor-pointer gap-2 whitespace-nowrap px-3 py-1 text-xs font-medium text-neutral-900"
+        className={clsx(
+          'hover:text-brand flex cursor-pointer items-center gap-2 whitespace-nowrap px-3 py-1 text-xs font-medium',
+          themeTextColor,
+        )}
         href={props.href}
         suppressHydrationWarning={true}
         variant="unstyled"
@@ -33,14 +43,14 @@ export default function NavbarItem({
         <>
           <Popover.Button
             className={clsx(
-              open ? 'text-brand' : 'text-neutral-900',
-              'focus:ring-brand group inline-flex items-center rounded-md bg-white px-3 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-offset-2',
+              open ? themeTextBrandColor : themeTextColor,
+              'focus:ring-brand group inline-flex items-center rounded-full px-3 py-1 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-offset-2',
             )}>
             <span>{label}</span>
             <RiArrowDownSLine
               aria-hidden="true"
               className={clsx(
-                open ? 'text-neutral-600' : 'text-neutral-400',
+                open ? themeTextSecondaryColor : themeTextSecondaryInvertColor,
                 'ml-2 h-5 w-5 group-hover:text-neutral-500',
               )}
             />

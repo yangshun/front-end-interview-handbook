@@ -3,6 +3,7 @@ import { Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import Divider from '~/components/ui/Divider';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
@@ -41,11 +42,16 @@ export default function Navbar({
   }
 
   return (
-    <div className="sticky top-0 z-30 border-b border-neutral-200 bg-white">
+    <div
+      className={clsx(
+        'sticky top-0 z-30 border-b',
+        themeLineColor,
+        themeBackgroundColor,
+      )}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
         <div className="flex h-14 items-center justify-between md:justify-start md:gap-4">
           <div className="flex items-center justify-start lg:w-0 lg:grow">
-            {logo && <div>{logo}</div>}
+            {logo}
             <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.itemKey} {...navItem} />

@@ -1,8 +1,17 @@
 import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
+import {
+  themeBackgroundEmphasized,
+  themeBackgroundLayerColor,
+  themeBackgroundLayerEmphasized,
+  themeBackgroundLayerEmphasizedHover,
+  themeTextColor,
+  themeTextInvertColor,
+} from '~/components/ui/theme';
 
 import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
+import Text from '../Text';
 
 import { Tab } from '@headlessui/react';
 
@@ -17,41 +26,50 @@ function NavbarPopoverLink({
   const el =
     sublabel != null ? (
       <div className="flex flex-col gap-4">
-        <div className="bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md text-white sm:h-10 sm:w-10">
+        <div
+          className={clsx(
+            'bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10',
+            themeTextInvertColor,
+          )}>
           <Icon
             aria-hidden="true"
             className="h-5 w-5 transition-transform group-hover:scale-110"
           />
         </div>
         <div>
-          <p className="flex items-center gap-2 text-sm font-medium text-neutral-900">
-            <span>{label}</span> {labelAddon}
-          </p>
+          <Text className="items-center gap-2" display="flex" weight="medium">
+            <span className="shrink-0">{label}</span> {labelAddon}
+          </Text>
           {sublabel && (
-            <p className="mt-1 text-sm text-neutral-500">{sublabel}</p>
+            <Text color="secondary" display="block" variant="body2">
+              {sublabel}
+            </Text>
           )}
         </div>
       </div>
     ) : (
       <div className="flex items-center">
-        <div className="text-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10">
+        <div
+          className={clsx(
+            'bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10',
+            themeTextInvertColor,
+          )}>
           <Icon
             aria-hidden="true"
-            className="h-8 w-8 transition-transform group-hover:scale-110"
+            className="h-5 w-5 transition-transform group-hover:scale-110"
           />
         </div>
         <div className="ml-4">
-          <p className="flex items-center gap-2 text-sm font-medium text-neutral-900">
-            <span>{label}</span>
-            {labelAddon && <span className="shrink-0">{labelAddon}</span>}
-          </p>
+          <Text className="items-center gap-2" display="flex" weight="medium">
+            <span className="shrink-0">{label}</span> {labelAddon}
+          </Text>
         </div>
       </div>
     );
 
   const className = clsx(
     'group flex grow rounded-lg p-4',
-    href != null && 'hover:bg-neutral-50',
+    href != null && themeBackgroundLayerEmphasizedHover,
   );
 
   if (href == null) {
@@ -78,19 +96,34 @@ export default function NavbarPopoverTabs({
   onClose: React.MouseEventHandler<HTMLElement>;
 }>) {
   return (
-    <div className="flex overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+    <div
+      className={clsx(
+        'flex overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5',
+        themeBackgroundLayerColor,
+      )}>
       <Tab.Group vertical={true}>
-        <Tab.List className="flex w-1/4 shrink-0 flex-col space-y-2 bg-neutral-50 p-2">
+        <Tab.List
+          className={clsx(
+            'flex w-1/4 shrink-0 flex-col gap-y-2 p-2',
+            themeBackgroundLayerEmphasized,
+          )}>
           {items.map(({ itemKey, label }) => (
             <Tab
               key={itemKey}
               className={({ selected }) =>
                 clsx(
                   'block w-full rounded-md p-3 text-left text-sm font-medium',
-                  selected && 'text-brand bg-white',
+                  selected && themeBackgroundEmphasized,
                 )
               }>
-              {label}
+              {({ selected }) => (
+                <Text
+                  color={selected ? 'active' : 'default'}
+                  variant="body2"
+                  weight="medium">
+                  {label}
+                </Text>
+              )}
             </Tab>
           ))}
         </Tab.List>
@@ -124,9 +157,16 @@ export default function NavbarPopoverTabs({
                 ))}
               </div>
               {item.supplementaryItem != null && (
-                <div className="flex w-full justify-end bg-neutral-50 px-6 py-5">
+                <div
+                  className={clsx(
+                    'flex w-full justify-end px-6 py-5',
+                    themeBackgroundLayerEmphasized,
+                  )}>
                   <Anchor
-                    className="-m-3 flex items-center gap-x-2 rounded-md p-3 text-sm font-medium text-neutral-900 hover:bg-neutral-100"
+                    className={clsx(
+                      '-m-3 flex items-center gap-x-2 rounded-md p-3 text-sm font-medium',
+                      themeTextColor,
+                    )}
                     href={item.supplementaryItem.href}
                     variant="unstyled"
                     onClick={(event) => {
@@ -137,7 +177,7 @@ export default function NavbarPopoverTabs({
                     {item.supplementaryItem.icon && (
                       <item.supplementaryItem.icon
                         aria-hidden="true"
-                        className="inline-block h-6 w-6 text-neutral-400 transition-transform"
+                        className="inline-block h-6 w-6 text-neutral-500 transition-transform"
                       />
                     )}
                     {item.supplementaryItem.label}
