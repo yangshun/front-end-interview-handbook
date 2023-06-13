@@ -4,7 +4,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import { trpc } from '~/hooks/trpc';
 
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
@@ -25,26 +24,26 @@ function SocialPlatform() {
   return (
     <div className="flex flex-col gap-3">
       <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-neutral-200" />
-        </div>
-        <div className="relative flex justify-center text-xs">
-          <span className="bg-white px-2 text-neutral-500">
+        <div className="relative flex justify-center">
+          <Text color="secondary" variant="body3">
             <FormattedMessage
               defaultMessage="Or reach us via these channels"
               description="Text to introduce users to alternative feedback channels"
               id="YJmwAv"
             />
-          </span>
+          </Text>
         </div>
       </div>
       <div className="flex items-center justify-center gap-2">
         {marketingContactPlatformsConfig.map((platform) => (
-          <Anchor
+          <Button
             key={platform.key}
-            className="focus:ring-brand flex items-center justify-center gap-2 rounded-full bg-neutral-100 p-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
             href={platform.href}
-            variant="unstyled"
+            icon={platform.icon}
+            isLabelHidden={true}
+            label={platform.name}
+            size="lg"
+            variant="secondary"
             onClick={() => {
               gtag.event({
                 action: `feedback.channel.${platform.key}.click`,
@@ -55,9 +54,8 @@ function SocialPlatform() {
                 element: 'Social link',
                 label: platform.name,
               });
-            }}>
-            <platform.icon className="h-5 w-5" />
-          </Anchor>
+            }}
+          />
         ))}
       </div>
     </div>
@@ -114,7 +112,7 @@ export default function FeedbackDialog({
 
   return (
     <Dialog isShown={isShown} title={title} onClose={onClose}>
-      <div className="grid gap-y-4 overflow-y-auto bg-white pt-4">
+      <div className="grid gap-y-4 overflow-y-auto pt-4">
         {preBodyContents}
         {feedbackState === 'message' && (
           <form
