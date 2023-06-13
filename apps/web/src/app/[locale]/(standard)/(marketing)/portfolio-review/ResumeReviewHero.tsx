@@ -1,17 +1,15 @@
-import { RiGroup2Line } from 'react-icons/ri';
+import { RiBuilding2Line, RiFileList3Line, RiGroup2Line } from 'react-icons/ri';
 
 import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
 import Container from '~/components/ui/Container';
 
-import { ChartBarIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
-
 const summaryFeatures = [
   {
     description:
       'Your entire portfolio - including GitHub, resume and portfolio website, projects will be reviewed',
-    icon: DocumentCheckIcon,
+    icon: RiFileList3Line,
     name: 'End-to-end review',
   },
   {
@@ -23,7 +21,7 @@ const summaryFeatures = [
   {
     description:
       'Our users now work at companies like Airbnb, Amazon, Meta and Lyft',
-    icon: ChartBarIcon,
+    icon: RiBuilding2Line,
     name: 'High success rate',
   },
 ];

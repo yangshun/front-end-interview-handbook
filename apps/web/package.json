@@ -30,7 +30,6 @@
     "@codesandbox/sandpack-react": "^2.4.7",
     "@formatjs/intl-localematcher": "^0.2.32",
     "@headlessui/react": "^1.7.11",
-    "@heroicons/react": "2.0.13",
     "@mdx-js/react": "^2.3.0",
     "@monaco-editor/react": "^4.4.6",
     "@next/mdx": "13.3.1",

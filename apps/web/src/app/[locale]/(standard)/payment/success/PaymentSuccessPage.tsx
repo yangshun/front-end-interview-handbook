@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import {
   RiArrowRightCircleLine,
   RiArrowRightSLine,
+  RiCheckboxCircleLine,
   RiCodeSSlashLine,
 } from 'react-icons/ri';
 
@@ -31,8 +32,6 @@ import {
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
-
-import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 
 /* TODO: i18n */
 const links = [
@@ -139,7 +138,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
     <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl py-12 sm:py-16">
         <div className="mb-2 flex justify-center">
-          <CheckBadgeIcon
+          <RiCheckboxCircleLine
             aria-hidden={true}
             className="text-success h-16 w-16"
           />

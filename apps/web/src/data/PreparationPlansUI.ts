@@ -1,11 +1,10 @@
 import { RiFireFill, RiFireLine, RiStarFill, RiStarLine } from 'react-icons/ri';
 
+import RiGraduationCapFill from '~/components/icons/RiGraduationCapFill';
+import RiGraduationCapLine from '~/components/icons/RiGraduationCapLine';
 import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
 
 import usePreparationPlans from './PreparationPlans';
-
-import { AcademicCapIcon } from '@heroicons/react/24/outline';
-import { AcademicCapIcon as AcademicCapSolidIcon } from '@heroicons/react/24/solid';
 
 type PreparationPlanExtra = Readonly<{
   backgroundClass: string;
@@ -62,8 +61,8 @@ export function usePreparationPlansUI() {
       href: preparationPlans['three-months'].href,
       iconBorderClass: 'border-indigo-600',
       iconClass: 'text-indigo-600',
-      iconOutline: AcademicCapIcon,
-      iconSolid: AcademicCapSolidIcon,
+      iconOutline: RiGraduationCapLine,
+      iconSolid: RiGraduationCapFill,
       key: preparationPlans['three-months'].type,
       longName: preparationPlans['three-months'].longTitle,
       name: preparationPlans['three-months'].title,

@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiLockLine } from 'react-icons/ri';
+import { RiErrorWarningLine, RiLockLine } from 'react-icons/ri';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
@@ -19,8 +19,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { themeLineColor, themeTextSecondaryColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -101,7 +99,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                                         !ReadyQuestions.includes(link.slug)
                                       ) {
                                         return (
-                                          <ExclamationTriangleIcon className="h-4 w-4 shrink-0" />
+                                          <RiErrorWarningLine className="h-4 w-4 shrink-0" />
                                         );
                                       }
 

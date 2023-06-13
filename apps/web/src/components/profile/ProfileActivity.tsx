@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiInboxLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -19,14 +20,12 @@ import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
 
-import { RectangleStackIcon } from '@heroicons/react/24/outline';
-
 function NoCompletedQuestions() {
   const intl = useIntl();
 
   return (
     <div className="py-12 text-center">
-      <RectangleStackIcon className="mx-auto h-12 w-12 text-neutral-400" />
+      <RiInboxLine className="mx-auto h-12 w-12 text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="No completed questions"

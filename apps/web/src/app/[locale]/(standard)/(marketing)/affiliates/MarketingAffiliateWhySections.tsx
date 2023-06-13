@@ -1,14 +1,13 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
-import { RiBankCardLine } from 'react-icons/ri';
+import { RiBankCardLine, RiCheckLine, RiHandCoinLine } from 'react-icons/ri';
 
+import RiSparklingLine from '~/components/icons/RiSparklingLine';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { BanknotesIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import * as Slider from '@radix-ui/react-slider';
 
 const features = [
@@ -104,7 +103,7 @@ const reasons = [
       href: '/',
       label: 'View all features',
     },
-    icon: SparklesIcon,
+    icon: RiSparklingLine,
     media: <ProductSection />,
     secondaryAction: {
       href: '/get-started',
@@ -115,7 +114,7 @@ const reasons = [
     title: 'A great product worth recommending',
   },
   {
-    icon: BanknotesIcon,
+    icon: RiHandCoinLine,
     media: <SliderSection />,
     subtitle:
       'Earn a generous 15% commission on every purchase within 7 days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.',

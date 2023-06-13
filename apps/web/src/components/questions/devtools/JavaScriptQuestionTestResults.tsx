@@ -1,7 +1,11 @@
 import clsx from 'clsx';
 import { Fragment, useState } from 'react';
-import { RiCheckLine, RiCloseLine } from 'react-icons/ri';
-import { RiArrowRightSLine } from 'react-icons/ri';
+import {
+  RiArrowRightSLine,
+  RiCheckLine,
+  RiCloseLine,
+  RiSurveyLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -20,8 +24,6 @@ import type {
   JestTestReport,
   JestTestResult,
 } from '../evaluator/CodingQuestionEvaluator';
-
-import { ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline';
 
 type Props = Readonly<{
   isRunningCode?: boolean;
@@ -302,7 +304,7 @@ export default function JavaScriptQuestionTestResults({
   if (result == null) {
     return (
       <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
-        <ClipboardDocumentCheckIcon className="h-12 w-12 text-neutral-300 dark:text-neutral-700" />
+        <RiSurveyLine className="h-12 w-12 text-neutral-300 dark:text-neutral-700" />
         <Text color="secondary" display="block" variant="body2">
           <FormattedMessage
             defaultMessage="Submit your code to check against the tests."

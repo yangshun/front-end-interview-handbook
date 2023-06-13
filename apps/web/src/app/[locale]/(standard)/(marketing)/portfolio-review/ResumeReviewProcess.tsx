@@ -1,21 +1,20 @@
 'use client';
 
-import { RiCheckLine } from 'react-icons/ri';
-import { RiComputerLine } from 'react-icons/ri';
+import {
+  RiAccountBoxLine,
+  RiCheckLine,
+  RiComputerLine,
+  RiSurveyLine,
+} from 'react-icons/ri';
 
 import GitHubIcon from '~/components/icons/GitHubIcon';
 import Container from '~/components/ui/Container';
-
-import {
-  DocumentCheckIcon,
-  IdentificationIcon,
-} from '@heroicons/react/20/solid';
 
 const features = [
   {
     description:
       'We will start with an overarching understanding of your current front end skills, experiences and career aspirations to recommend steps you can take to progress your career',
-    icon: IdentificationIcon,
+    icon: RiAccountBoxLine,
     name: 'In-depth Profile Assessment',
     subfeatures: [
       'Front-end specific recommendations from seniors',
@@ -27,7 +26,7 @@ const features = [
   {
     description:
       'We will conduct a detailed review of your resume and help you present your profile in the best way possible',
-    icon: DocumentCheckIcon,
+    icon: RiSurveyLine,
     name: 'Resume Review',
     subfeatures: [
       'First impressions from experienced interviewers',
