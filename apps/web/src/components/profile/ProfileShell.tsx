@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import {
   RiCalendarLine,
@@ -18,6 +19,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 import type { User } from '@supabase/auth-helpers-nextjs';
 
@@ -95,9 +97,13 @@ export default function ProfileShell({ user, children }: Props) {
       </Heading>
       <Section>
         {/* 3 column wrapper */}
-        <div className="mx-auto w-full max-w-6xl flex-grow border-neutral-200 lg:flex lg:border-x">
+        <div
+          className={clsx(
+            'mx-auto w-full max-w-6xl flex-grow lg:flex lg:border-x',
+            themeLineColor,
+          )}>
           {/* Left sidebar & main wrapper */}
-          <div className="min-w-0 flex-1 bg-white xl:flex">
+          <div className="min-w-0 flex-1 xl:flex">
             {/* Account profile */}
             <div className="xl:w-64 xl:flex-shrink-0 xl:px-6">
               <div className="py-6 px-4 sm:px-6 lg:px-8 xl:px-0">
@@ -159,7 +165,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center space-x-2">
                             <RiMailLine
                               aria-hidden="true"
-                              className="h-5 w-5 shrink-0 text-neutral-400"
+                              className="h-5 w-5 shrink-0 text-neutral-500"
                             />
                             <Text color="secondary" variant="body2">
                               {user.email}
@@ -169,7 +175,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center space-x-2">
                               <RiUserLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-neutral-400"
+                                className="h-5 w-5 shrink-0 text-neutral-500"
                               />
                               <Text color="secondary" variant="body2">
                                 {user.id}
@@ -180,7 +186,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center space-x-2">
                               <RiCalendarLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-neutral-400"
+                                className="h-5 w-5 shrink-0 text-neutral-500"
                               />
                               <Text color="secondary" variant="body2">
                                 {intl.formatMessage(
@@ -205,7 +211,7 @@ export default function ProfileShell({ user, children }: Props) {
                               <div className="flex items-center space-x-2">
                                 <GitHubIcon
                                   aria-hidden="true"
-                                  className="h-5 w-5 shrink-0 text-neutral-400"
+                                  className="h-5 w-5 shrink-0 text-neutral-500"
                                 />
                                 <Text color="secondary" variant="body2">
                                   <Anchor
@@ -218,7 +224,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center space-x-2">
                             <DiscordIcon
                               aria-hidden="true"
-                              className="h-5 w-5 shrink-0 text-neutral-400"
+                              className="h-5 w-5 shrink-0 text-neutral-500"
                             />
                             <Text color="secondary" variant="body2">
                               <Anchor href="https://discord.gg/NDFx8f6P6B">
@@ -257,8 +263,16 @@ export default function ProfileShell({ user, children }: Props) {
                 </div>
               </div>
             </div>
-            <div className="border-neutral-200 bg-white lg:min-w-0 lg:flex-1 lg:border-l">
-              <div className="border-t border-neutral-200 pl-4 pr-4 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
+            <div
+              className={clsx(
+                'lg:min-w-0 lg:flex-1 lg:border-l',
+                themeLineColor,
+              )}>
+              <div
+                className={clsx(
+                  'border-t pl-4 pr-4 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6',
+                  themeLineColor,
+                )}>
                 <div className="flex items-center">
                   <Tabs
                     label="Select navigation item"

@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -12,6 +13,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
 import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 
@@ -33,13 +35,17 @@ function NoCompletedQuestions() {
         />
       </Heading>
       <Section>
-        <p className="mt-1 text-sm text-neutral-500">
+        <Text
+          className="mt-1"
+          color="secondary"
+          display="block"
+          variant="body2">
           <FormattedMessage
             defaultMessage="Try out some Front End questions!"
             description="Subtext for call to action when no questions are completed."
             id="e+03Yz"
           />
-        </p>
+        </Text>
         <div className="mt-6">
           <Button
             href="/prepare/coding"
@@ -107,7 +113,10 @@ export default function ProfileActivity() {
   return (
     <div className="flex flex-col gap-y-4">
       <Heading
-        className="flex flex-row justify-between border-b border-neutral-200 pb-4"
+        className={clsx(
+          'flex flex-row justify-between border-b pb-4',
+          themeLineColor,
+        )}
         level="heading6">
         <FormattedMessage
           defaultMessage="Completed Questions"
@@ -118,7 +127,11 @@ export default function ProfileActivity() {
       </Heading>
       <Section>
         <ul
-          className="relative z-0 divide-y divide-neutral-200 border-neutral-200"
+          className={clsx(
+            'relative z-0 divide-y',
+            themeLineColor,
+            themeDivideColor,
+          )}
           role="list">
           {questionsProgressWithMetadata.map(({ metadata, createdAt }) => (
             <li key={createdAt} className="relative py-5 sm:py-6">
