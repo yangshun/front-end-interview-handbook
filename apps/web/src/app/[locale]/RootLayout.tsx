@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import nextI18nConfig from 'next-i18nostic/config';
 
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
@@ -9,6 +10,7 @@ import WebVitals from '~/components/global/analytics/WebVitals';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
+import { themeBackgroundColor } from '~/components/ui/theme';
 
 import type { IntlMessages } from '~/i18n';
 
@@ -23,10 +25,11 @@ type Props = Readonly<{
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
+      className="dark"
       lang={locale.split('-')[0]}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
-      <body className="antialiased">
+      <body className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
