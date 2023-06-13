@@ -85,7 +85,6 @@ export default function PreparationPlanPage({
               description: 'Study plans page mini title',
               id: 'UOhk7j',
             })}
-            size="lg"
             title={preparationPlan.longTitle}
           />
         </Container>

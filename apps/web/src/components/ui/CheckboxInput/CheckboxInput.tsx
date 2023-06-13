@@ -1,6 +1,10 @@
 import clsx from 'clsx';
-import type { ChangeEvent } from 'react';
-import type { ForwardedRef } from 'react';
+import type {
+  ChangeEvent,
+  ForwardedRef,
+  InputHTMLAttributes,
+  ReactNode,
+} from 'react';
 import { forwardRef, useId } from 'react';
 
 import type { TextVariant } from '../Text';
@@ -8,20 +12,24 @@ import Text from '../Text';
 
 type CheckboxSize = 'md' | 'sm';
 
+type Attributes = Pick<
+  InputHTMLAttributes<HTMLInputElement>,
+  'disabled' | 'name'
+>;
+
 type Props = Readonly<{
   defaultValue?: boolean;
   description?: string;
-  disabled?: boolean;
   errorMessage?: string;
-  label: string;
-  name?: string;
+  label: ReactNode;
   onChange?: (
     value: boolean,
     event: ChangeEvent<HTMLInputElement>,
   ) => undefined | void;
   size?: CheckboxSize;
   value?: boolean;
-}>;
+}> &
+  Readonly<Attributes>;
 
 const checkboxSizeClasses: Record<CheckboxSize, string> = {
   md: 'ml-3',

@@ -88,7 +88,7 @@ export default function SlideOut({
             <Dialog.Panel
               className={clsx(
                 'relative flex h-full w-full flex-col',
-                'bg-white dark:bg-neutral-800',
+                'bg-white dark:bg-neutral-900',
                 'shadow-xl',
                 enterFromClass.position,
                 sizeClasses[size],

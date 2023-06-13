@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 
 export const themeTextInvertColor = clsx('text-white dark:text-neutral-900');
+export const themeTextColor = clsx('text-neutral-900 dark:text-white');
+export const themeTextBrandColor = clsx('text-brand-dark dark:text-brand');
 export const themeTextSecondaryColor = clsx(
   'text-neutral-600 dark:text-neutral-400',
 );

@@ -1,6 +1,10 @@
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import CheckboxInput from '~/components/ui/CheckboxInput';
+import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
+
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
@@ -20,14 +24,14 @@ export default function QuestionFilterSectionMobile<
     <Disclosure
       key={section.name}
       as="div"
-      className="border-t border-neutral-200 pt-4 pb-4">
+      className={clsx('border-t border-neutral-200 pt-4 pb-4', themeLineColor)}>
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
             <Disclosure.Button className="focus:ring-brand flex w-full items-center justify-between text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset">
-              <span className="text-sm font-medium text-neutral-900">
+              <Text variant="body2" weight="medium">
                 {section.name}
-              </span>
+              </Text>
               <span className="ml-6 flex h-7 items-center">
                 <RiArrowDownSLine
                   aria-hidden="true"
@@ -41,22 +45,13 @@ export default function QuestionFilterSectionMobile<
           </legend>
           <Disclosure.Panel className="pt-4 pb-2">
             <div className="space-y-6">
-              {section.options.map((option, optionIdx) => (
+              {section.options.map((option) => (
                 <div key={option.value} className="flex items-center">
-                  <input
-                    checked={values.has(option.value)}
-                    className="text-brand-dark focus:ring-brand h-4 w-4 rounded border-neutral-200"
-                    id={`${section.id}-${optionIdx}-mobile`}
-                    name={`${section.id}[]`}
-                    type="checkbox"
-                    value={String(option.value)}
+                  <CheckboxInput
+                    label={option.label}
+                    value={values.has(option.value)}
                     onChange={() => section.onChange(option.value)}
                   />
-                  <label
-                    className="ml-3 text-sm text-neutral-500"
-                    htmlFor={`${section.id}-${optionIdx}-mobile`}>
-                    {option.label}
-                  </label>
                 </div>
               ))}
             </div>

@@ -60,7 +60,7 @@ export default function DialogImpl({
                 className={clsx(
                   'relative transform overflow-hidden',
                   'rounded-lg',
-                  'bg-white dark:bg-neutral-800',
+                  'bg-white dark:bg-neutral-900',
                   'sm:w-full sm:max-w-sm',
                   'text-left shadow-xl transition-all',
                 )}>

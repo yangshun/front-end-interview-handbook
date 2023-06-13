@@ -1,5 +1,8 @@
 import clsx from 'clsx';
 
+import CheckboxInput from '~/components/ui/CheckboxInput';
+import Text from '~/components/ui/Text';
+
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
@@ -18,27 +21,19 @@ export default function QuestionListingFilterSectionDesktop<
   return (
     <div className={clsx(!isFirstSection && 'pt-6')}>
       <fieldset>
-        <legend className="block text-sm font-medium text-neutral-900">
-          {section.name}
+        <legend>
+          <Text display="block" variant="body2" weight="medium">
+            {section.name}
+          </Text>
         </legend>
         <div className="space-y-3 pt-4">
           {section.options.map((option, optionIdx) => (
-            <div key={option.value} className="flex items-center">
-              <input
-                checked={values.has(option.value)}
-                className="text-brand-dark focus:ring-brand h-4 w-4 rounded border-neutral-200"
-                id={`${section.id}-${optionIdx}`}
-                name={`${section.id}[]`}
-                type="checkbox"
-                value={String(option.value)}
-                onChange={() => section.onChange(option.value)}
-              />
-              <label
-                className="ml-3 text-sm text-neutral-600"
-                htmlFor={`${section.id}-${optionIdx}`}>
-                {option.label}
-              </label>
-            </div>
+            <CheckboxInput
+              key={option.value}
+              label={option.label}
+              value={values.has(option.value)}
+              onChange={() => section.onChange(option.value)}
+            />
           ))}
         </div>
       </fieldset>

@@ -77,7 +77,7 @@ export default function QuestionCategoryTitleSection({
       </div>
       <div className="flex gap-6">
         {logo}
-        <TextPairing description={description} size="lg" title={title} />
+        <TextPairing description={description} title={title} />
       </div>
     </div>
   );

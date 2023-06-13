@@ -33,6 +33,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+import { themeLineColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -333,7 +334,11 @@ export default function QuestionsCodingListWithFilters({
         layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
       )}>
       <section className="space-y-6 lg:col-span-7 lg:mt-0">
-        <div className="flex flex-col justify-end gap-2 border-b border-neutral-200 pb-4 sm:flex-row sm:items-center">
+        <div
+          className={clsx(
+            'flex flex-col justify-end gap-2 border-b pb-4 sm:flex-row sm:items-center',
+            themeLineColor,
+          )}>
           <div className="flex-1">
             <TextInput
               autoComplete="off"
@@ -408,7 +413,11 @@ export default function QuestionsCodingListWithFilters({
         </Text>
       </section>
       {layout === 'full' && (
-        <aside className="hidden h-full flex-col gap-y-8 border-l border-neutral-200 pl-8 lg:col-span-3 lg:flex">
+        <aside
+          className={clsx(
+            'hidden h-full flex-col gap-y-8 border-l pl-8 lg:col-span-3 lg:flex',
+            themeLineColor,
+          )}>
           <Heading className="sr-only" level="custom">
             <FormattedMessage
               defaultMessage="Filters"

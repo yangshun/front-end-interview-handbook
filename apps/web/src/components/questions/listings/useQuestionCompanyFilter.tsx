@@ -61,7 +61,7 @@ export default function useQuestionCompanyFilter({
         <div className="flex items-center gap-2">
           <img
             alt={companyNames[company].label}
-            className="h-[16px] 2xl:h-[18px]"
+            className="h-4 w-4 rounded-sm bg-white object-scale-down"
             src={companyNames[company].logoUrl}
           />
           {companyNames[company].label}

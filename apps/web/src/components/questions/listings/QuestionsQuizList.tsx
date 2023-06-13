@@ -41,7 +41,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className="border border-neutral-200 p-10">
+      <div className={clsx('border p-10', themeLineColor)}>
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',

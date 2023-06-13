@@ -1,6 +1,9 @@
 import clsx from 'clsx';
-import { RiCheckLine } from 'react-icons/ri';
 
+import {
+  themeBackgroundEmphasizedHover,
+  themeLineColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
@@ -34,20 +37,20 @@ export default function QuestionListingSquareFilterSectionDesktop<
               key={option.value}
               className={clsx(
                 values.has(option.value)
-                  ? 'border-brand-dark text-brand-dark hover:border-brand hover:bg-brand-lightest hover:text-brand'
-                  : 'bg-white text-neutral-700 hover:bg-neutral-50 hover:text-neutral-600',
-                'focus:ring-brand-dark group relative block w-full truncate border px-3 py-2 text-sm font-medium shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+                  ? clsx(
+                      'border-brand-dark dark:border-brand',
+                      'text-brand-dark dark:text-brand',
+                      'hover:bg-brand-lightest dar hover:text-brand dark:hover:bg-neutral-800',
+                    )
+                  : clsx(
+                      themeBackgroundEmphasizedHover,
+                      themeLineColor,
+                      'text-neutral-700 hover:text-neutral-600 dark:text-neutral-300',
+                    ),
+                'focus:ring-brand-dark group relative block w-full truncate rounded-full border px-3 py-2 text-sm font-medium shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
               )}
               type="button"
               onClick={() => section.onChange(option.value)}>
-              {values.has(option.value) && (
-                <span
-                  aria-hidden={true}
-                  className="absolute top-0 left-0 h-4 w-4">
-                  <span className="border-brand-dark group-hover:border-brand absolute block h-4 w-4 border-8 !border-r-transparent !border-b-transparent transition-colors" />
-                  <RiCheckLine className="absolute h-2 w-2 scale-125 text-white" />
-                </span>
-              )}
               {option.label}
             </button>
           );

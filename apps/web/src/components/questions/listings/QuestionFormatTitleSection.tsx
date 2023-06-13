@@ -6,6 +6,13 @@ import { QuestionCount } from '~/components/questions/listings/QuestionCount';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasized,
+  themeLineColor,
+  themeTextBrandColor,
+  themeTextColor,
+} from '~/components/ui/theme';
 
 import type { QuestionUserFacingFormat } from '../common/QuestionsTypes';
 import TextPairing from '../../common/TextPairing';
@@ -148,7 +155,6 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                   />
                 </div>
               }
-              size="lg"
               title={intl.formatMessage({
                 defaultMessage: 'Front End Interview Preparation',
                 description: 'Front end interview preparation pages title',
@@ -157,7 +163,11 @@ export default function QuestionFormatTitleSection({ format }: Props) {
             />
           </div>
           <div>
-            <p className="bg-brand-lightest text-brand-dark border p-3 text-xs">
+            <Text
+              className={clsx('bg-brand-lightest dark:bg-brand-darkest p-3')}
+              color="active"
+              display="block"
+              variant="body3">
               <FormattedMessage
                 defaultMessage="First time preparing for front end interviews? Find out what to
               expect in our <link>Front End Interview Guidebook</link>"
@@ -173,27 +183,40 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                   ),
                 }}
               />
-            </p>
+            </Text>
           </div>
         </div>
         <div className="mt-8 flex overflow-y-auto md:mt-12 lg:block">
           <div className="min-w-full flex-none pb-4 md:pb-8">
-            <div className="grid grid-cols-4 gap-x-4 border-t border-neutral-200 md:gap-x-6 lg:gap-x-8">
+            <div
+              className={clsx(
+                'grid grid-cols-4 gap-x-4 border-t md:gap-x-6 lg:gap-x-8',
+                themeLineColor,
+              )}>
               {stages.map(({ description, href, label, value }, index) => (
                 <div
                   key={value}
                   className={clsx(
                     'group relative -mt-px flex flex-none flex-col items-start border-t pt-4 text-left md:w-[35vw] md:pt-8 lg:w-auto',
-                    format === value ? 'border-brand' : 'hover:border-brand',
+                    format === value
+                      ? 'border-brand'
+                      : clsx(themeLineColor, 'hover:border-brand'),
                   )}>
-                  <p
+                  <div
                     className={clsx(
-                      'text-sm leading-6 text-neutral-600 md:rounded-full md:px-2 md:text-xs md:font-semibold md:leading-7',
+                      'md:rounded-full md:px-2',
                       format === value
-                        ? 'md:bg-brand md:text-white'
-                        : 'md:bg-neutral-100 md:group-hover:bg-neutral-200',
+                        ? 'md:bg-brand-dark dark:md:bg-brand'
+                        : clsx(
+                            themeBackgroundEmphasized,
+                            'md:group-hover:bg-neutral-200 dark:md:group-hover:bg-neutral-800',
+                          ),
                     )}>
-                    <span className="font-medium">
+                    <Text
+                      className="leading-6 md:leading-7"
+                      color={format === value ? 'default' : 'secondary'}
+                      variant="body3"
+                      weight="bold">
                       <FormattedMessage
                         defaultMessage="Stage {stageNumber}"
                         description="Preparation stage number"
@@ -202,15 +225,13 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                           stageNumber: index + 1,
                         }}
                       />
-                    </span>
-                  </p>
+                    </Text>
+                  </div>
                   <Heading className="md:mt-4" level="custom">
                     <Anchor
                       className={clsx(
                         'text-sm font-semibold md:text-base md:leading-7',
-                        format === value
-                          ? 'text-brand-dark'
-                          : 'text-neutral-900',
+                        format === value ? themeTextBrandColor : themeTextColor,
                       )}
                       href={href}
                       variant="unstyled">
@@ -218,9 +239,13 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                       {label}
                     </Anchor>
                   </Heading>
-                  <p className="mt-2 hidden text-sm leading-6 text-neutral-700 md:block">
+                  <Text
+                    className="mt-2 hidden leading-6 md:block"
+                    color="secondary"
+                    display="block"
+                    variant="body2">
                     {description}
-                  </p>
+                  </Text>
                 </div>
               ))}
             </div>
