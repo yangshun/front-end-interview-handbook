@@ -22,7 +22,7 @@ export type TextDisplay =
   | 'inline-grid'
   | 'inline';
 export type TextVariant = 'body' | 'body2' | 'body3' | 'custom';
-export type TextWeight = 'bold' | 'medium' | 'normal';
+export type TextWeight = 'bold' | 'custom' | 'medium' | 'normal';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -43,6 +43,7 @@ const variantClasses: Record<TextVariant, string> = {
 
 const weightClasses: Record<TextWeight, string> = {
   bold: 'font-semibold',
+  custom: '',
   medium: 'font-medium',
   normal: 'font-normal',
 };

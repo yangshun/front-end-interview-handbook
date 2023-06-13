@@ -61,7 +61,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
   return (
     <div className="bg-neutral-900">
       <PromoBanner variant="primary" />
-      <div className="space-y-16 bg-white sm:space-y-20">
+      <div className="space-y-16 sm:space-y-20">
         <MarketingPricingSection countryCode={countryCode} plans={plans} />
         <Section>
           <MarketingFeatures />

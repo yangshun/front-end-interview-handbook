@@ -1,9 +1,13 @@
+import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeLineColor } from '~/components/ui/theme';
+
+import Text from '../ui/Text';
 
 type Testimonial = Readonly<{
   authorThumbnailUrl?: string;
@@ -320,20 +324,24 @@ export default function MarketingTestimonial() {
   const testimonials = useTestimonials();
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <Heading className="sr-only" level="custom">
             {/* TODO: i18n */}
             Testimonials
           </Heading>
-          <p className="text-center text-3xl font-bold leading-8 tracking-tight text-neutral-900 sm:text-4xl md:text-4xl lg:text-5xl">
+          <Text
+            className="text-center text-3xl font-bold leading-8 tracking-tight sm:text-4xl md:text-4xl lg:text-5xl"
+            display="block"
+            variant="custom"
+            weight="custom">
             <FormattedMessage
               defaultMessage="We have helped thousands of Software Engineers"
               description="Testimonial section subtitle"
               id="mST7/q"
             />
-          </p>
+          </Text>
         </div>
         <Section>
           <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
@@ -342,9 +350,13 @@ export default function MarketingTestimonial() {
                 <div
                   key={testimonial.key}
                   className="pt-6 sm:inline-block sm:w-full sm:px-3">
-                  <figure className="rounded-2xl border border-neutral-200 p-6 text-sm leading-6">
-                    <blockquote className="text-neutral-900">
-                      {testimonial.testimonial}
+                  <figure
+                    className={clsx(
+                      'rounded-2xl border p-6 text-sm leading-6',
+                      themeLineColor,
+                    )}>
+                    <blockquote>
+                      <Text variant="body2">{testimonial.testimonial}</Text>
                     </blockquote>
                     <figcaption className="mt-4 flex items-center gap-x-4">
                       {testimonial.authorThumbnailUrl && (
@@ -358,9 +370,9 @@ export default function MarketingTestimonial() {
                         {testimonial.name &&
                           (() => {
                             const nameEl = (
-                              <span className="font-semibold text-neutral-900">
+                              <Text variant="body2" weight="bold">
                                 {testimonial.name}
-                              </span>
+                              </Text>
                             );
 
                             if (testimonial.authorUrl) {
@@ -373,11 +385,11 @@ export default function MarketingTestimonial() {
 
                             return nameEl;
                           })()}
-                        <div className="text-xs text-neutral-600">
+                        <Text color="secondary" display="block" variant="body3">
                           {[testimonial.title, testimonial.location]
                             .filter(Boolean)
                             .join(', ')}
-                        </div>
+                        </Text>
                       </div>
                     </figcaption>
                   </figure>

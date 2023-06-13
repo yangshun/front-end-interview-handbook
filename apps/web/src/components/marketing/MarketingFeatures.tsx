@@ -1,8 +1,13 @@
+import clsx from 'clsx';
 import {
   RiBookOpenLine,
   RiBuildingLine,
   RiCodeSSlashLine,
-  RiFlaskLine,
+  RiFlowChart,
+  RiGitRepositoryLine,
+  RiLineChartLine,
+  RiReactjsLine,
+  RiShieldCheckLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -12,12 +17,8 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import {
-  AcademicCapIcon,
-  ArrowTrendingUpIcon,
-  CheckBadgeIcon,
-  CubeIcon,
-} from '@heroicons/react/24/outline';
+import Text from '../ui/Text';
+import { themeTextInvertColor } from '../ui/theme';
 
 function useFeatures() {
   const intl = useIntl();
@@ -51,7 +52,7 @@ function useFeatures() {
           id="8ulBJI"
         />
       ),
-      icon: CheckBadgeIcon,
+      icon: RiShieldCheckLine,
       name: intl.formatMessage({
         defaultMessage: 'High quality solutions',
         description: 'Title for high quality solutions feature',
@@ -80,7 +81,7 @@ function useFeatures() {
           }}
         />
       ),
-      icon: AcademicCapIcon,
+      icon: RiGitRepositoryLine,
       name: intl.formatMessage({
         defaultMessage: 'Proven preparation plans',
         description: 'Title for proven preparation plans feature',
@@ -125,7 +126,7 @@ function useFeatures() {
           id="G9r7uh"
         />
       ),
-      icon: RiFlaskLine,
+      icon: RiReactjsLine,
       name: intl.formatMessage({
         defaultMessage: 'Bring your own framework',
         description: 'Title for bring your own framework feature',
@@ -140,7 +141,7 @@ function useFeatures() {
           id="9KrOcn"
         />
       ),
-      icon: CubeIcon,
+      icon: RiFlowChart,
       name: intl.formatMessage({
         defaultMessage: 'Front end system design',
         description: 'Title for front end system design feature',
@@ -155,7 +156,7 @@ function useFeatures() {
           id="X1UVMv"
         />
       ),
-      icon: ArrowTrendingUpIcon,
+      icon: RiLineChartLine,
       name: intl.formatMessage({
         defaultMessage: 'Free continuous updates',
         description: 'Title for free continuous updates feature',
@@ -186,7 +187,11 @@ export default function MarketingFeatures() {
           {features.map((feature) => (
             <div key={feature.name} className="relative">
               <dt>
-                <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                <div
+                  className={clsx(
+                    'absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500',
+                    themeTextInvertColor,
+                  )}>
                   <feature.icon aria-hidden="true" className="h-6 w-6" />
                 </div>
                 <Heading
@@ -196,8 +201,10 @@ export default function MarketingFeatures() {
                 </Heading>
               </dt>
               <Section>
-                <dd className="mt-2 ml-16 text-base text-neutral-500">
-                  {feature.description}
+                <dd className="mt-2 ml-16">
+                  <Text color="secondary" display="block">
+                    {feature.description}
+                  </Text>
                 </dd>
               </Section>
             </div>

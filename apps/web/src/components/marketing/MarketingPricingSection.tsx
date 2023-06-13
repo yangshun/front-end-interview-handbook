@@ -23,6 +23,11 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import {
+  themeBackgroundColor,
+  themeDivideColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
@@ -90,7 +95,7 @@ function PricingButton({
       isDisabled={isLoading || isDisabled}
       isLoading={isLoading}
       label={label}
-      size="md"
+      size="lg"
       type="button"
       variant="primary"
       onClick={onClick}
@@ -176,7 +181,7 @@ function PricingButtonSection({
         // User is not logged in, they have to create an account first.
         if (!user) {
           return (
-            <div className="space-y-2 text-center">
+            <div className="text-center">
               <PricingButton
                 aria-describedby={ariaDescribedBy}
                 href={`/sign-up?next=${encodeURIComponent(
@@ -387,7 +392,7 @@ export default function MarketingPricingSectionNew({
   ];
 
   return (
-    <div className="bg-white pb-24">
+    <div className={clsx('pb-24', themeBackgroundColor)}>
       <div className="bg-neutral-900 pt-24">
         <div className="mx-auto px-4 sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl">
           <Container className="text-center">
@@ -452,7 +457,10 @@ export default function MarketingPricingSectionNew({
         <Section>
           <div
             ref={pricingCardMarkerRef}
-            className="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20">
+            className={clsx(
+              'mt-8 pb-16 sm:mt-12 sm:pb-20',
+              themeBackgroundColor,
+            )}>
             <div className="relative">
               <div className="absolute inset-0 h-1/2 bg-neutral-900" />
               <Container className="relative" variant="narrow">
@@ -500,34 +508,52 @@ export default function MarketingPricingSectionNew({
                   }
                   rightSectionContents={
                     <>
-                      <p className="text-lg font-medium leading-6 text-neutral-900">
+                      <Text
+                        className="text-lg leading-6"
+                        display="block"
+                        variant="custom"
+                        weight="medium">
                         <FormattedMessage
                           defaultMessage="Pay once, own it forever"
                           description="Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
                           id="zaEg+y"
                         />
-                      </p>
-                      <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-neutral-900">
-                        <span
+                      </Text>
+                      <div className="mt-4 flex items-center justify-center">
+                        <Text
                           className={clsx(
-                            'inline-flex items-center px-3 text-4xl tracking-tight text-neutral-900',
+                            'inline-flex items-center px-3 text-4xl tracking-tight',
                             lifetimePlan.unitCostLocalizedInCurrency < 1000 &&
                               'sm:text-6xl',
-                          )}>
-                          <span className="mr-2 text-4xl font-medium tracking-tight">
+                          )}
+                          display="inline-flex"
+                          variant="custom">
+                          <Text
+                            className="mr-2 text-4xl tracking-tight"
+                            variant="custom"
+                            weight="medium">
                             {lifetimePlan.symbol}
-                          </span>
-                          <span className="font-bold">
+                          </Text>
+                          <Text variant="custom" weight="bold">
                             {lifetimePlan.unitCostLocalizedInCurrency}
-                          </span>
-                        </span>
+                          </Text>
+                        </Text>
                         {lifetimePlan.symbol === '$' && (
-                          <span className="ml-3 text-xl font-medium tracking-normal text-neutral-500">
+                          <Text
+                            className="ml-3 text-xl tracking-normal"
+                            color="secondary"
+                            variant="custom"
+                            weight="medium">
                             {lifetimePlan.currency.toLocaleUpperCase()}
-                          </span>
+                          </Text>
                         )}
                       </div>
-                      <p className="mt-4 text-sm font-medium text-neutral-500">
+                      <Text
+                        className="mt-4"
+                        color="secondary"
+                        display="block"
+                        variant="body2"
+                        weight="medium">
                         <FormattedMessage
                           defaultMessage="U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>"
                           description="Usual price of the item and the discount off"
@@ -542,7 +568,7 @@ export default function MarketingPricingSectionNew({
                             ),
                           }}
                         />
-                      </p>
+                      </Text>
                       <div className="mt-6">
                         <PricingButtonSection
                           aria-describedby="tier-lifetime"
@@ -581,7 +607,7 @@ export default function MarketingPricingSectionNew({
               </Container>
             </div>
           </div>
-          <div className="bg-white">
+          <div className={themeBackgroundColor}>
             <div className="relative">
               <Container className="relative" variant="narrow">
                 <Heading className="sr-only" level="custom">
@@ -606,32 +632,47 @@ export default function MarketingPricingSectionNew({
                         return (
                           <div
                             key={plan.planType}
-                            className="flex flex-col divide-y divide-neutral-200 rounded-lg border border-neutral-200 shadow-sm">
+                            className={clsx(
+                              'flex flex-col divide-y rounded-lg border shadow-sm',
+                              themeLineColor,
+                              themeDivideColor,
+                            )}>
                             <div className="grow p-6 md:grow-0">
                               <Heading id={id} level="heading6">
                                 {pricingPlanLabels[plan.planType]}
                               </Heading>
                               <Section>
-                                <p className="mt-4 text-sm text-neutral-500 md:min-h-[40px]">
+                                <Text
+                                  className="mt-4 md:min-h-[40px]"
+                                  color="secondary"
+                                  display="block"
+                                  variant="body2">
                                   {description}
-                                </p>
-                                <p className="mt-8">
-                                  <span className="text-4xl font-bold tracking-tight text-neutral-900">
+                                </Text>
+                                <div className="mt-8">
+                                  <Text
+                                    className="text-4xl font-bold tracking-tight"
+                                    variant="custom"
+                                    weight="custom">
                                     {plan.symbol}
                                     {priceRoundToNearestNiceNumber(
                                       plan.unitCostLocalizedInCurrency /
                                         numberOfMonths,
                                     )}
-                                  </span>{' '}
-                                  <span className="text-base font-medium text-neutral-500">
+                                  </Text>{' '}
+                                  <Text color="secondary" weight="bold">
                                     <FormattedMessage
                                       defaultMessage="/month"
                                       description="Per month"
                                       id="aE1FCD"
                                     />
-                                  </span>
-                                </p>
-                                <p className="pt-4 text-xs text-neutral-500 md:min-h-[32px]">
+                                  </Text>
+                                </div>
+                                <Text
+                                  className="pt-4 md:min-h-[32px]"
+                                  color="secondary"
+                                  display="block"
+                                  variant="body3">
                                   {(() => {
                                     switch (plan.planType) {
                                       case 'monthly':
@@ -693,7 +734,7 @@ export default function MarketingPricingSectionNew({
                                       />
                                     </span>
                                   )}
-                                </p>
+                                </Text>
                                 <div className="mt-6">
                                   <PricingButtonSection
                                     aria-describedby={id}
@@ -723,9 +764,9 @@ export default function MarketingPricingSectionNew({
                                           aria-hidden="true"
                                           className="text-success h-5 w-5 flex-shrink-0"
                                         />
-                                        <span className="text-sm text-neutral-500">
+                                        <Text color="secondary" variant="body2">
                                           {feature}
-                                        </span>
+                                        </Text>
                                       </li>
                                     ))}
                                   </ul>
