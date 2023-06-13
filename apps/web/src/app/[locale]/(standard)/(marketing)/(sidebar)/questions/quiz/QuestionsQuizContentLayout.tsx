@@ -11,6 +11,13 @@ import type { QuestionQuizMetadata } from '~/components/questions/common/Questio
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasized,
+  themeBackgroundEmphasizedHover,
+  themeDivideColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -43,7 +50,8 @@ export default function QuestionsQuizContentLayout({
               <aside className="relative h-full lg:flex-shrink-0 xl:order-first">
                 <div
                   className={clsx(
-                    'relative flex h-full flex-col border-r border-neutral-200',
+                    'relative flex h-full flex-col border-r',
+                    themeLineColor,
                     !showSidebar && 'hidden',
                   )}>
                   <Heading className="sr-only" level="custom">
@@ -52,14 +60,20 @@ export default function QuestionsQuizContentLayout({
                   </Heading>
                   <div className="min-h-0 flex-1 overflow-y-auto">
                     <ul
-                      className="divide-y divide-neutral-200 border-b border-neutral-200"
+                      className={clsx(
+                        'divide-y border-b',
+                        themeLineColor,
+                        themeDivideColor,
+                      )}
                       role="list">
                       {questionList.map(({ slug, href, title: titleParam }) => (
                         <li
                           key={slug}
                           className={clsx(
-                            'focus-within:ring-brand-dark relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset hover:bg-neutral-50 2xl:h-[90px]',
-                            pathname === href ? '!bg-neutral-100' : 'bg-white',
+                            'focus-within:ring-brand-dark relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset 2xl:h-[90px]',
+                            pathname === href
+                              ? themeBackgroundEmphasized
+                              : themeBackgroundEmphasizedHover,
                           )}>
                           <div className="flex justify-between space-x-3">
                             <div className="min-w-0 flex-1">
@@ -71,12 +85,12 @@ export default function QuestionsQuizContentLayout({
                                   aria-hidden="true"
                                   className="absolute inset-0"
                                 />
-                                <p
-                                  className={clsx(
-                                    'font-lightnormal line-clamp-2 text-sm',
-                                  )}>
+                                <Text
+                                  className={clsx('line-clamp-2')}
+                                  display="block"
+                                  variant="body2">
                                   {titleParam}
-                                </p>
+                                </Text>
                               </Anchor>
                             </div>
                           </div>

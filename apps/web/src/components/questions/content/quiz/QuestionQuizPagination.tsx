@@ -2,6 +2,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 
 import type {
   QuestionQuiz,
@@ -60,12 +61,14 @@ export default function QuestionQuizPagination({
           size="xs"
           variant="secondary"
         />
-        <div className="flex items-center px-6">
-          <p className="text-sm text-neutral-700">
-            <span className="font-medium">{currentQuestionPosition}</span> /{' '}
-            <span className="font-medium">{totalNumQuestions}</span>
-          </p>
-        </div>
+        <Text
+          className="items-center px-6"
+          display="flex"
+          variant="body2"
+          weight="medium">
+          <span>{currentQuestionPosition}</span> /{' '}
+          <span>{totalNumQuestions}</span>
+        </Text>
         <Button
           href={nextQuestion?.href}
           icon={RiArrowRightSLine}

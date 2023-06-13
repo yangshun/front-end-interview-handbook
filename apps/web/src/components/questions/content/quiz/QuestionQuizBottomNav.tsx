@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
+import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -26,7 +27,7 @@ export default function QuestionQuizBottomNav({
 
   return (
     <div className="sticky inset-x-0 bottom-0">
-      <div className="border-t border-neutral-200 bg-white">
+      <div className={clsx('border-t', themeLineColor, themeBackgroundColor)}>
         <div className="mx-auto py-2 px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* HACK: code to centralize the items */}

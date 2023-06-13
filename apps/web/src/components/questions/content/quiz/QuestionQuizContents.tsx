@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
@@ -11,6 +12,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
+import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useI18n } from '~/next-i18nostic/src';
 
@@ -76,20 +79,28 @@ export default function QuestionQuizContents({
       <div className="mx-auto w-full max-w-xl px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
         <div className="grid gap-y-6">
           <div>
-            <div className="mb-1 flex justify-between gap-x-2 text-sm text-neutral-500">
+            <Text
+              className="mb-1"
+              color="secondary"
+              display="block"
+              variant="body2">
               <FormattedMessage
                 defaultMessage="Quiz Questions"
                 description="Header for quiz questions"
                 id="lmBDjV"
               />
-            </div>
+            </Text>
             {/* Question solution */}
             <div
               key={question.metadata.slug}
               className="relative mx-auto flex min-w-0 flex-1 flex-col">
               <article aria-labelledby="question-title" className="grow">
                 <div className="min-h-0 flex-1">
-                  <header className="grid gap-y-4 border-b border-neutral-200 pb-10">
+                  <header
+                    className={clsx(
+                      'grid gap-y-4 border-b pb-10',
+                      themeLineColor,
+                    )}>
                     <Heading
                       className="pb-4"
                       id="question-title"
@@ -97,9 +108,12 @@ export default function QuestionQuizContents({
                       {question.metadata.title}
                     </Heading>
                     {question.metadata.subtitle && (
-                      <p className="pb-4 text-lg text-neutral-900 sm:text-xl">
+                      <Text
+                        className="pb-4 text-lg sm:text-xl"
+                        display="block"
+                        variant="custom">
                         {question.metadata.subtitle}
-                      </p>
+                      </Text>
                     )}
                     <div className="mt-3 flex items-center justify-between">
                       <div className="flex space-x-8">
@@ -143,7 +157,7 @@ export default function QuestionQuizContents({
             />
             <GitHubEditButton question={question} />
           </div>
-          <hr />
+          <hr className={themeLineColor} />
           <QuestionPagination
             currentHref={question.metadata.href}
             items={questionList.map(({ title: titleParam, href }) => ({

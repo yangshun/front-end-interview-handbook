@@ -1,7 +1,13 @@
+import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import {
+  themeBackgroundEmphasizedHover,
+  themeLineColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 export default function QuestionsSidebarCollapser() {
   const intl = useIntl();
@@ -23,7 +29,12 @@ export default function QuestionsSidebarCollapser() {
   return (
     <button
       aria-label={title}
-      className="focus:ring-brand absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 lg:flex"
+      className={clsx(
+        'focus:ring-brand absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 focus:outline-none focus:ring-2 focus:ring-offset-2 lg:flex',
+        themeTextSecondaryColor,
+        themeLineColor,
+        themeBackgroundEmphasizedHover,
+      )}
       title={title}
       type="button"
       onClick={() => setShowSidebar(!showSidebar)}>
