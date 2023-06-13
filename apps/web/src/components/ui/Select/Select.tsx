@@ -76,7 +76,7 @@ export default function Select<T>({
         className={clsx(
           display === 'block' && 'block w-full',
           'flex items-center py-0',
-          'rounded',
+          'rounded-full',
           'transition-colors',
           'border border-neutral-200 dark:border-neutral-800',
           'text-neutral-700 dark:text-neutral-300',
