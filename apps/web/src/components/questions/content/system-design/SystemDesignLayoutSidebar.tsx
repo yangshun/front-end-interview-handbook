@@ -16,6 +16,7 @@ import {
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeLineColor, themeTextSecondaryColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -44,11 +45,12 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
             top: `var(--navbar-height)`,
           }}>
           {showSidebar && (
-            <div className="flex w-72 flex-col gap-y-8 overflow-y-auto border-r border-r-neutral-200 p-6 text-xs xl:w-[300px] 2xl:w-96">
-              <Heading
-                className="mt-4 text-base font-semibold text-zinc-700"
-                color="custom"
-                level="custom">
+            <div
+              className={clsx(
+                'flex w-72 flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs xl:w-[300px] 2xl:w-96',
+                themeLineColor,
+              )}>
+              <Heading className="mt-4 text-base font-semibold" level="custom">
                 {title}
               </Heading>
               <Section>
@@ -57,15 +59,17 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                     {systemDesignNavigation.map((section) => (
                       <li key={section.title}>
                         <Heading
-                          className="text-[0.8125rem] font-semibold leading-6 text-zinc-900"
-                          color="custom"
+                          className="text-[0.8125rem] font-semibold leading-6"
                           level="custom">
                           {section.title}
                         </Heading>
                         <Section>
                           <div className="pl-2">
                             <ul
-                              className="mt-3 flex flex-col gap-y-2 border-l border-neutral-200"
+                              className={clsx(
+                                'mt-3 flex flex-col gap-y-2 border-l',
+                                themeLineColor,
+                              )}
                               role="list">
                               {section.links.map((link) => (
                                 <li
@@ -76,7 +80,10 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                                       'flex w-full items-center gap-x-2 pl-4',
                                       pathname === link.href
                                         ? 'text-brand'
-                                        : 'text-zinc-500 hover:text-zinc-800',
+                                        : clsx(
+                                            themeTextSecondaryColor,
+                                            'hover:text-neutral-800 dark:hover:text-white',
+                                          ),
                                     )}
                                     href={link.href}
                                     variant="unstyled">

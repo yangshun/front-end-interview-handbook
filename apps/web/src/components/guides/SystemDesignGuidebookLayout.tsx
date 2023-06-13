@@ -40,6 +40,7 @@ export default function SystemDesignGuidebookLayout({
         description={description}
         isAccessibleForFree={isAccessibleForFree}
         pathname={pathname}
+        // TODO: i18n
         title={`Front End System Design: ${title}`}
       />
       <GuidesMainLayout
