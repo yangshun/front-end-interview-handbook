@@ -189,7 +189,7 @@ export default function MarketingFeatures() {
               <dt>
                 <div
                   className={clsx(
-                    'absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500',
+                    'bg-brand absolute flex h-12 w-12 items-center justify-center rounded-md',
                     themeTextInvertColor,
                   )}>
                   <feature.icon aria-hidden="true" className="h-6 w-6" />

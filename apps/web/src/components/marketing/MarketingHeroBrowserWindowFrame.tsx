@@ -1,4 +1,7 @@
+import clsx from 'clsx';
 import type { ReactNode } from 'react';
+
+import { themeBackgroundColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -6,7 +9,11 @@ type Props = Readonly<{
 
 export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
   return (
-    <div className="w-full overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-neutral-900/5 sm:rounded-xl">
+    <div
+      className={clsx(
+        'w-full overflow-hidden rounded-lg shadow-xl ring-1 ring-neutral-900/5 sm:rounded-xl',
+        themeBackgroundColor,
+      )}>
       <div
         className="grid items-center gap-6 bg-neutral-800 py-2.5 px-4"
         style={{

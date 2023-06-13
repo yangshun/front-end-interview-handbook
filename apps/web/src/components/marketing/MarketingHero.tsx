@@ -18,6 +18,7 @@ import AmazonLogo from '../icons/AmazonLogo';
 import GoogleLogo from '../icons/GoogleLogo';
 import MetaLogo from '../icons/MetaLogo';
 import type { QuestionJavaScript } from '../questions/common/QuestionsTypes';
+import Text from '../ui/Text';
 
 function useTabs() {
   const intl = useIntl();
@@ -67,7 +68,7 @@ export default function MarketingHeroNew({
   const intl = useIntl();
 
   return (
-    <div className="relative overflow-hidden bg-white bg-cover">
+    <div className="relative overflow-hidden bg-cover">
       <img
         alt=""
         aria-hidden={true}
@@ -135,7 +136,11 @@ export default function MarketingHeroNew({
                 }}
               />
             </Heading>
-            <p className="mx-auto mt-8 max-w-md text-base text-neutral-700 sm:text-lg md:mt-12 md:max-w-3xl md:text-xl xl:text-xl">
+            <Text
+              className="mx-auto mt-8 max-w-md text-base sm:text-lg md:mt-12 md:max-w-3xl md:text-xl xl:text-xl"
+              color="secondary"
+              display="block"
+              variant="custom">
               <FormattedMessage
                 defaultMessage="We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers."
                 description="Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
@@ -149,7 +154,7 @@ export default function MarketingHeroNew({
                   ),
                 }}
               />
-            </p>
+            </Text>
           </div>
         </div>
       </div>

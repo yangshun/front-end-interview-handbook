@@ -6,6 +6,8 @@ import { FormattedMessage } from 'react-intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 
+import Text from '../ui/Text';
+
 export default function MarketingWhatIfNew() {
   const titleMarkerRef = useRef(null);
   const titleIsInView = useInView(titleMarkerRef, {
@@ -14,7 +16,7 @@ export default function MarketingWhatIfNew() {
   });
 
   return (
-    <div className="relative flex min-h-[450px] items-center overflow-hidden bg-white sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+    <div className="relative flex min-h-[450px] items-center overflow-hidden sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
       <img
         alt=""
         aria-hidden={true}
@@ -43,13 +45,17 @@ export default function MarketingWhatIfNew() {
                   id="TeTJmh"
                 />
               </Heading>
-              <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-neutral-500 md:text-xl lg:mt-10 lg:text-2xl ">
+              <Text
+                className="mx-auto mt-6 max-w-3xl text-center text-lg md:text-xl lg:mt-10 lg:text-2xl"
+                color="secondary"
+                display="block"
+                variant="custom">
                 <FormattedMessage
                   defaultMessage="At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!"
                   description="Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
                   id="R99Y8S"
                 />
-              </p>
+              </Text>
             </div>
           </div>
         </div>

@@ -6,6 +6,9 @@ import { FormattedMessage } from 'react-intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
+
+import Text from '../ui/Text';
 
 export default function MarketingBecause() {
   const titleMarkerRef = useRef(null);
@@ -15,7 +18,11 @@ export default function MarketingBecause() {
   });
 
   return (
-    <div className="min-h-[450px] bg-neutral-50 sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+    <div
+      className={clsx(
+        'min-h-[450px]sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]',
+        themeBackgroundEmphasized,
+      )}>
       <Container>
         <div className="mx-auto max-w-xl px-6 py-16 sm:max-w-3xl sm:px-12 md:max-w-4xl md:py-24 lg:max-w-5xl lg:py-32 xl:px-0">
           <div ref={titleMarkerRef} />
@@ -41,20 +48,28 @@ export default function MarketingBecause() {
               />
             </Heading>
             <Section>
-              <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-neutral-500 md:text-xl lg:mt-10 lg:text-2xl">
+              <Text
+                className="mx-auto mt-6 max-w-3xl text-center text-lg md:text-xl lg:mt-10 lg:text-2xl"
+                color="secondary"
+                display="block"
+                variant="custom">
                 <FormattedMessage
                   defaultMessage="Front end interviews come in so many formats. You could be asked to write JavaScript functions, build a UI, design a system, or even solve LeetCode-style algorithm questions."
                   description="Subtitle of Second section on homepage - first paragraph"
                   id="6e1+nl"
                 />
-              </p>
-              <p className="mx-auto mt-6 max-w-2xl text-center text-lg text-neutral-500 md:text-xl lg:mt-10 lg:text-2xl">
+              </Text>
+              <Text
+                className="mx-auto mt-6 max-w-2xl text-center text-lg md:text-xl lg:mt-10 lg:text-2xl"
+                color="secondary"
+                display="block"
+                variant="custom">
                 <FormattedMessage
                   defaultMessage="Building your fundamentals is the only way to rock the interview every single time."
                   description="Subtitle of Second section on homepage - second paragraph"
                   id="TAajQb"
                 />
-              </p>
+              </Text>
             </Section>
           </div>
         </div>

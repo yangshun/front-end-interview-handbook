@@ -17,6 +17,9 @@ export const themeLineColor = clsx(
 export const themeLineBackgroundColor = clsx(
   'bg-neutral-200 dark:bg-neutral-800',
 );
+export const themeLineTextColor = clsx(
+  'text-neutral-200 dark:text-neutral-800',
+);
 export const themeDivideColor = clsx(
   'divide-neutral-200 dark:divide-neutral-800',
 );

@@ -5,6 +5,9 @@ import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
+
+import Text from '../ui/Text';
 
 const counts: ReadonlyArray<{ label: string; value: number }> = [
   { label: '2021 Q1', value: 10 },
@@ -156,32 +159,48 @@ export default function MarketingContinuousUpdates() {
   const [activePointIndex, setActivePointIndex] = useState<number | null>(null);
 
   return (
-    <div className="bg-neutral-50">
+    <div className={themeBackgroundEmphasized}>
       <Container className="relative" variant="narrow">
         <div className="mx-auto grid grid-cols-1 gap-8 space-y-10 py-24 md:grid-cols-5 lg:py-40">
           <div className="mx-auto max-w-2xl md:col-span-5 lg:col-span-3 lg:mx-0 lg:max-w-prose lg:pr-24">
-            <p className="text-3xl font-bold leading-8 tracking-tight text-neutral-900 sm:text-4xl md:text-4xl lg:text-5xl">
+            <Text
+              className="text-3xl font-bold leading-8 tracking-tight sm:text-4xl md:text-4xl lg:text-5xl"
+              display="block"
+              variant="custom"
+              weight="custom">
               <FormattedMessage
                 defaultMessage="We're still growing our question base."
                 description="Question base section title"
                 id="rXnAi2"
               />
-            </p>
-            <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 md:text-xl">
+            </Text>
+            <Text
+              className="relative mt-10 max-w-5xl text-lg md:text-xl"
+              color="secondary"
+              display="block"
+              variant="custom">
               <FormattedMessage
                 defaultMessage="Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis."
                 description="Question base section subtitle - first paragraph"
                 id="QJaxVF"
               />
-            </p>
-            <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 lg:text-xl">
+            </Text>
+            <Text
+              className="relative mt-10 max-w-5xl text-lg md:text-xl"
+              color="secondary"
+              display="block"
+              variant="custom">
               <FormattedMessage
                 defaultMessage="We are also looking to include more framework-specific questions like React, Vue, Angular, etc."
                 description="Question base section subtitle - second paragraph"
                 id="Im9sPX"
               />
-            </p>
-            <p className="relative mt-10 max-w-5xl text-lg text-neutral-500 lg:text-xl">
+            </Text>
+            <Text
+              className="relative mt-10 max-w-5xl text-lg md:text-xl"
+              color="secondary"
+              display="block"
+              variant="custom">
               <FormattedMessage
                 defaultMessage="Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!"
                 description="Question base section subtitle - third paragraph"
@@ -197,9 +216,9 @@ export default function MarketingContinuousUpdates() {
                   ),
                 }}
               />
-            </p>
+            </Text>
           </div>
-          <div className="bg-brand-lightest mt-3 hidden rounded-lg lg:col-span-2 lg:flex">
+          <div className="bg-brand-lightest mt-3 hidden rounded-lg dark:bg-neutral-700 lg:col-span-2 lg:flex">
             <Chart
               activePointIndex={activePointIndex}
               height={chartHeight}

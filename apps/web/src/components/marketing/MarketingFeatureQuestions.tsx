@@ -10,12 +10,17 @@ import type {
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import {
+  themeBackgroundEmphasized,
+  themeLineTextColor,
+} from '~/components/ui/theme';
 
 import MarketingJavaScriptQuestionsExamples from './examples/MarketingJavaScriptQuestionsExamples';
 import MarketingQuizQuestionsExamples from './examples/MarketingQuizQuestionsExamples';
 import MarketingSystemDesignQuestionsExamples from './examples/MarketingSystemDesignQuestionsExamples';
 import MarketingUserInterfaceQuestionsExamples from './examples/MarketingUserInterfaceQuestionsExamples';
 import { QuestionCount } from '../questions/listings/QuestionCount';
+import Text from '../ui/Text';
 
 // TODO: Add company tagged questions
 export default function MarketingFeatureQuestionsNew({
@@ -36,7 +41,7 @@ export default function MarketingFeatureQuestionsNew({
   });
 
   return (
-    <div className="overflow-hidden bg-neutral-50 ">
+    <div className={clsx('overflow-hidden', themeBackgroundEmphasized)}>
       <Container>
         <div className="relative mx-auto max-w-xl space-y-16 py-8 pb-24 sm:max-w-3xl md:max-w-4xl lg:max-w-5xl lg:space-y-32 lg:py-16 lg:pb-40">
           <svg
@@ -55,7 +60,7 @@ export default function MarketingFeatureQuestionsNew({
                 x={0}
                 y={0}>
                 <rect
-                  className="text-neutral-200"
+                  className={themeLineTextColor}
                   fill="currentColor"
                   height={4}
                   width={4}
@@ -83,14 +88,18 @@ export default function MarketingFeatureQuestionsNew({
                 id="ExWrYc"
               />
             </Heading>
-            <p className="relative mt-10 text-lg text-neutral-500 md:text-xl">
+            <Text
+              className="relative mt-10 text-lg md:text-xl"
+              color="secondary"
+              display="block"
+              variant="custom">
               <FormattedMessage
                 defaultMessage="With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more."
                 description="Subtitle of the 'Practice Everything Here' marketing section on Homepage"
                 id="6yAWpI"
                 values={{ QuestionCount }}
               />
-            </p>
+            </Text>
           </div>
           <Section>
             <MarketingJavaScriptQuestionsExamples
@@ -118,7 +127,7 @@ export default function MarketingFeatureQuestionsNew({
                   x={0}
                   y={0}>
                   <rect
-                    className="text-neutral-200"
+                    className={themeLineTextColor}
                     fill="currentColor"
                     height={4}
                     width={4}
