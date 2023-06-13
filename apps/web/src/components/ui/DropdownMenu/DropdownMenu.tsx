@@ -13,9 +13,12 @@ export type DropdownMenuSize = 'md' | 'sm' | 'xs';
 
 type Props = Readonly<{
   align?: DropdownMenuAlignment;
-  children: React.ReactNode; // TODO: Change to strict children.
+  children: React.ReactNode;
+  // TODO: Change to strict children.
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  label: React.ReactNode;
+  isLabelHidden?: boolean;
+  label: string;
+  showChevron?: boolean;
   size?: DropdownMenuSize;
 }>;
 
@@ -30,6 +33,18 @@ const heightClasses: Record<DropdownMenuSize, string> = {
   md: 'h-9',
   sm: 'h-8',
   xs: 'h-7',
+};
+
+const widthClasses: Record<DropdownMenuSize, string> = {
+  md: 'w-9',
+  sm: 'w-8',
+  xs: 'w-7',
+};
+
+const horizontalPaddingClasses: Record<DropdownMenuSize, string> = {
+  md: 'px-4',
+  sm: 'px-3',
+  xs: 'px-2',
 };
 
 const textSizeVariants: Record<DropdownMenuSize, TextVariant> = {
@@ -53,7 +68,9 @@ const sizeIconClasses: Record<DropdownMenuSize, string> = {
 export default function DropdownMenu({
   align = 'start',
   children,
+  isLabelHidden = false,
   label,
+  showChevron = true,
   size = 'md',
   icon: Icon,
 }: Props) {
@@ -61,13 +78,17 @@ export default function DropdownMenu({
     <Menu as="div" className="relative inline-block">
       <div className="flex">
         <Menu.Button
+          aria-label={isLabelHidden ? label : undefined}
           className={clsx(
-            'group inline-flex items-center px-2.5',
-            'rounded',
+            'group inline-flex items-center justify-center',
+            'rounded-full',
             'transition-colors',
             'border border-neutral-200 dark:border-neutral-800',
             'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
             'focus:border-brand focus:outline-brand focus:outline-2 focus:outline-offset-2 focus:ring-0',
+            isLabelHidden && !showChevron
+              ? widthClasses[size]
+              : horizontalPaddingClasses[size],
             heightClasses[size],
           )}>
           <Text
@@ -83,11 +104,13 @@ export default function DropdownMenu({
                 className={clsx('flex-shrink-0', sizeIconClasses[size])}
               />
             )}
-            {label}
-            <RiArrowDownSLine
-              aria-hidden="true"
-              className={clsx('flex-shrink-0', sizeIconClasses[size])}
-            />
+            {!isLabelHidden && label}
+            {showChevron && (
+              <RiArrowDownSLine
+                aria-hidden="true"
+                className={clsx('flex-shrink-0', sizeIconClasses[size])}
+              />
+            )}
           </Text>
         </Menu.Button>
       </div>
@@ -104,7 +127,7 @@ export default function DropdownMenu({
             alignmentClasses[align],
             'absolute z-10 mt-2 w-48',
             'rounded',
-            'bg-white dark:bg-neutral-800',
+            'bg-white dark:bg-neutral-900',
             'shadow-lg',
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>

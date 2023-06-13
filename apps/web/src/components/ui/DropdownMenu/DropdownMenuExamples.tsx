@@ -71,7 +71,7 @@ export default function DropdownMenuExamples() {
         </DropdownMenu>
       </div>
       <div className="flex gap-x-24">
-        <DropdownMenu label="Sort By">
+        <DropdownMenu label="Align Start">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -83,7 +83,37 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu align="end" label="Sort By">
+        <DropdownMenu align="end" label="Align End">
+          {menuItems.map(({ label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+      </div>
+      <div className="flex gap-x-24">
+        <DropdownMenu icon={RiSortDesc} isLabelHidden={true} label="Sort By">
+          {menuItems.map(({ label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+        <DropdownMenu
+          icon={RiSortDesc}
+          isLabelHidden={true}
+          label="Sort By"
+          showChevron={false}>
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
               key={value}
