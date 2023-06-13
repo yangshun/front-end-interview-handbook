@@ -44,6 +44,7 @@ import QuestionCodingListSlideOut from '~/components/questions/listings/Question
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
@@ -246,7 +247,7 @@ function MiddleRightPaneContents({
                   signInModalContents={
                     nextQuestions.length > 0 && (
                       <div className="mt-4 space-y-4">
-                        <hr />
+                        <Divider />
                         <QuestionNextQuestions questions={nextQuestions} />
                       </div>
                     )

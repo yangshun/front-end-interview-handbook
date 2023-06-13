@@ -10,6 +10,7 @@ import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallS
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
 import Tabs from '~/components/ui/Tabs';
 
@@ -545,7 +546,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
               elements={['author', 'difficulty', 'duration']}
               metadata={questionMetadata}
             />
-            <hr />
+            <Divider />
             <div className="space-y-2">
               <div className="text-base font-medium sm:text-lg">
                 {intl.formatMessage({
@@ -570,7 +571,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
                 })}
               />
             </div>
-            <hr />
+            <Divider />
             <Prose>
               <p>
                 Design a news feed application that contains a list of feed
@@ -604,7 +605,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
             {selectedTab === 'data-model' && <DataModel />}
             {selectedTab === 'interface' && <Interface />}
             {selectedTab === 'optimizations' && <Optimizations />}
-            <hr />
+            <Divider />
             <ReadFullQuestionAlert />
           </Prose>
         </div>

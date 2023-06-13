@@ -33,6 +33,7 @@ import {
 import useCodeSandboxStatus from '~/components/questions/evaluator/useCodeSandboxStatus';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 
 import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
@@ -381,7 +382,7 @@ function Contents({
                     signInModalContents={
                       nextQuestions.length > 0 && (
                         <div className="mt-4 space-y-4">
-                          <hr />
+                          <Divider />
                           <QuestionNextQuestions questions={nextQuestions} />
                         </div>
                       )

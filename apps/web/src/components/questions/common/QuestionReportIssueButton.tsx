@@ -5,6 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import FeedbackDialog from '~/components/feedback/FeedbackDialog';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import type { TooltipPosition } from '~/components/ui/Tooltip';
 
 import type { QuestionFormat } from './QuestionsTypes';
@@ -77,7 +78,7 @@ export default function QuestionReportIssueButton({
                 }}
               />
             </div>
-            <hr />
+            <Divider />
           </>
         }
         showHideWidgetForSessionButton={false}

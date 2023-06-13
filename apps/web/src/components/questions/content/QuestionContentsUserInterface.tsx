@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
 
 import Badge from '~/components/ui/Badge';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Select from '~/components/ui/Select';
@@ -200,7 +201,7 @@ export default function QuestionContentsUserInterface({
           metadata.companies &&
           metadata.companies.length > 0 && (
             <>
-              <hr />
+              <Divider />
               <QuestionCompanies
                 canViewPremiumContent={canViewPremiumContent}
                 question={metadata}
@@ -209,13 +210,13 @@ export default function QuestionContentsUserInterface({
           )}
         {nextQuestions.length > 0 && (
           <>
-            <hr />
+            <Divider />
             <QuestionNextQuestions questions={nextQuestions} />
           </>
         )}
         {similarQuestions.length > 0 && (
           <>
-            <hr />
+            <Divider />
             <QuestionSimilarQuestions questions={similarQuestions} />
           </>
         )}

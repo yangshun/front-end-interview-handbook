@@ -17,6 +17,7 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -192,7 +193,7 @@ export default function GetStartedPage({
           </Heading>
           <Section>
             <PreparationPlansSection />
-            <hr />
+            <Divider />
             <PracticeQuestionsSection
               javaScriptQuestions={javaScriptQuestions}
               quizQuestions={quizQuestions}

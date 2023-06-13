@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
+import Divider from '~/components/ui/Divider';
+
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarPrimaryItem } from './NavTypes';
@@ -32,9 +34,7 @@ export default function Navbar({
   const leftLinks = links.filter(({ position }) => position === 'start');
   const rightLinks = links.filter(({ position }) => position === 'end');
 
-  const divider = (
-    <hr aria-hidden="true" className="my-2 border-t border-neutral-200" />
-  );
+  const divider = <Divider className="my-2" />;
 
   function closeMobileNav() {
     setIsMobileNavOpen(false);

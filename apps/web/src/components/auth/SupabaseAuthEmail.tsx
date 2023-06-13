@@ -8,6 +8,7 @@ import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -405,7 +406,7 @@ export default function SupabaseAuthEmail({
                 </Text>
               </div>
             )}
-            <hr className={themeLineColor} />
+            <Divider />
             <Text color="secondary" display="block" variant="body3">
               <FormattedMessage
                 defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."

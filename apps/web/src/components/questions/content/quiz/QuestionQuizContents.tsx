@@ -9,6 +9,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
@@ -157,7 +158,7 @@ export default function QuestionQuizContents({
             />
             <GitHubEditButton question={question} />
           </div>
-          <hr className={themeLineColor} />
+          <Divider />
           <QuestionPagination
             currentHref={question.metadata.href}
             items={questionList.map(({ title: titleParam, href }) => ({

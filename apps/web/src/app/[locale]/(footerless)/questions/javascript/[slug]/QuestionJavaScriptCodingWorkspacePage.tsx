@@ -77,7 +77,7 @@ function LeftPane({
         />
         <StatisticsPanel className="mt-4" serverDuration={serverDuration} />
       </div>
-      <div className="flex items-center justify-between border-t border-neutral-200 bg-white py-3 px-4 sm:px-6 lg:py-2">
+      <div className="flex items-center justify-between border-t border-neutral-200 py-3 px-4 sm:px-6 lg:py-2">
         <Button
           addonPosition="start"
           icon={RiListUnordered}

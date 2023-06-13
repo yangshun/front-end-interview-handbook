@@ -18,6 +18,7 @@ import sandpackProviderOptions from '~/components/questions/evaluator/sandpackPr
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Select from '~/components/ui/Select';
 
 import logEvent from '~/logging/logEvent';
@@ -111,7 +112,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               />
             </div>
             <QuestionContentProse contents={writeup} />
-            <hr />
+            <Divider />
             <div className="space-y-2">
               <div className="text-base font-medium sm:text-lg">
                 {intl.formatMessage({

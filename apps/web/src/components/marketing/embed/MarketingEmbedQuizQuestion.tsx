@@ -2,6 +2,7 @@ import gtag from '~/lib/gtag';
 
 import QuestionQuizTopicLabel from '~/components/questions/common/QuestionQuizTopicLabel';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
 
 export default function MarketingEmbedQuizQuestion() {
@@ -28,7 +29,7 @@ export default function MarketingEmbedQuizQuestion() {
               <QuestionQuizTopicLabel value="html" />
               <QuestionQuizTopicLabel value="performance" />
             </div>
-            <hr />
+            <Divider />
             <Prose>
               <p>
                 For normal <code>&lt;script&gt;</code>s, when a{' '}

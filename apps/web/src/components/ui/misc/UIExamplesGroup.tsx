@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import Divider from '~/components/ui/Divider';
+
 import Container from '../Container';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
@@ -28,7 +30,7 @@ export default function UIExamplesGroup({
     <div>
       <Container>
         <Heading level="heading2">{title}</Heading>
-        <hr className="mt-2" />
+        <Divider className="mt-2" />
       </Container>
       <Section>
         {(darkMode === 'vertical' || darkMode === 'none') && (

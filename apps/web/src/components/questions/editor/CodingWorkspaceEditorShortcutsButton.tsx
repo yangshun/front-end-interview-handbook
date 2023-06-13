@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 type PlatformSpecificKeys = 'alt' | 'ctrl' | 'shift';
@@ -248,7 +249,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
               id="44kz/c"
             />
           </Text>
-          <hr />
+          <Divider />
           <div className="space-y-2">
             {shortcuts.map(({ label, keys, key }) => (
               <div key={key} className="flex items-center justify-between">
@@ -269,7 +270,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
               </div>
             ))}
           </div>
-          <hr />
+          <Divider />
           <Text color="secondary" display="block" variant="body3">
             <FormattedMessage
               defaultMessage="Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>."
