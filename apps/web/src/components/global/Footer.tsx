@@ -275,7 +275,7 @@ export default function Footer() {
           <div className="xl:grid xl:grid-cols-4 xl:gap-8">
             <div className="flex flex-col gap-y-4 xl:col-span-1">
               <div>
-                <LogoLink size="xl" />
+                <LogoLink />
               </div>
               <Text color="secondary" display="block" variant="body2">
                 <FormattedMessage
