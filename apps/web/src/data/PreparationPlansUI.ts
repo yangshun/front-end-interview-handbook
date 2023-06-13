@@ -1,7 +1,12 @@
-import { RiFireFill, RiFireLine, RiStarFill, RiStarLine } from 'react-icons/ri';
+import {
+  RiFireFill,
+  RiFireLine,
+  RiFlashlightFill,
+  RiFlashlightLine,
+  RiStarFill,
+  RiStarLine,
+} from 'react-icons/ri';
 
-import RiGraduationCapFill from '~/components/icons/RiGraduationCapFill';
-import RiGraduationCapLine from '~/components/icons/RiGraduationCapLine';
 import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
 
 import usePreparationPlans from './PreparationPlans';
@@ -33,8 +38,8 @@ export function usePreparationPlansUI() {
       href: preparationPlans['one-month'].href,
       iconBorderClass: 'border-violet-600',
       iconClass: 'text-violet-600',
-      iconOutline: RiStarLine,
-      iconSolid: RiStarFill,
+      iconOutline: RiFireLine,
+      iconSolid: RiFireFill,
       key: preparationPlans['one-month'].type,
       longName: preparationPlans['one-month'].longTitle,
       name: preparationPlans['one-month'].title,
@@ -47,8 +52,9 @@ export function usePreparationPlansUI() {
       href: preparationPlans['one-week'].href,
       iconBorderClass: 'border-purple-600',
       iconClass: 'text-purple-600',
-      iconOutline: RiFireLine,
-      iconSolid: RiFireFill,
+      iconOutline: RiFlashlightLine,
+      iconSolid: RiFlashlightFill,
+
       key: preparationPlans['one-week'].type,
       longName: preparationPlans['one-week'].longTitle,
       name: preparationPlans['one-week'].title,
@@ -61,8 +67,8 @@ export function usePreparationPlansUI() {
       href: preparationPlans['three-months'].href,
       iconBorderClass: 'border-indigo-600',
       iconClass: 'text-indigo-600',
-      iconOutline: RiGraduationCapLine,
-      iconSolid: RiGraduationCapFill,
+      iconOutline: RiStarLine,
+      iconSolid: RiStarFill,
       key: preparationPlans['three-months'].type,
       longName: preparationPlans['three-months'].longTitle,
       name: preparationPlans['three-months'].title,

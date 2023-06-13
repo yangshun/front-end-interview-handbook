@@ -1,12 +1,17 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiBankCardLine, RiCheckLine, RiHandCoinLine } from 'react-icons/ri';
+import {
+  RiCheckLine,
+  RiHandCoinLine,
+  RiMoneyDollarBoxLine,
+  RiThumbUpLine,
+} from 'react-icons/ri';
 
-import RiSparklingLine from '~/components/icons/RiSparklingLine';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeLineBackgroundColor } from '~/components/ui/theme';
 
 import * as Slider from '@radix-ui/react-slider';
 
@@ -80,7 +85,11 @@ function SliderSection() {
         step={1}
         value={[sales]}
         onValueChange={([val]) => setSales(val)}>
-        <Slider.Track className="flex-grow-1 relative !h-3 w-full rounded-full bg-neutral-300">
+        <Slider.Track
+          className={clsx(
+            'flex-grow-1 relative !h-3 w-full rounded-full',
+            themeLineBackgroundColor,
+          )}>
           <Slider.Range className="bg-brand-dark absolute h-full rounded" />
         </Slider.Track>
         <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block h-8 w-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
@@ -103,7 +112,7 @@ const reasons = [
       href: '/',
       label: 'View all features',
     },
-    icon: RiSparklingLine,
+    icon: RiThumbUpLine,
     media: <ProductSection />,
     secondaryAction: {
       href: '/get-started',
@@ -121,7 +130,7 @@ const reasons = [
     title: 'Simple 15% commission, no limit',
   },
   {
-    icon: RiBankCardLine,
+    icon: RiMoneyDollarBoxLine,
     media: (
       <img
         alt="PayPal logo"

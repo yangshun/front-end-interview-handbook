@@ -19,8 +19,9 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
   themeBackgroundEmphasized,
+  themeBackgroundLayerColor,
+  themeBackgroundLayerEmphasizedHover,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -316,30 +317,40 @@ export default function QuestionsSidebar({
                         )}>
                         <div
                           className={clsx(
-                            'flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5',
-                            themeBackgroundColor,
+                            'flex flex-col overflow-hidden rounded-lg p-2 shadow-lg ring-1 ring-black ring-opacity-5',
+                            themeBackgroundLayerColor,
                           )}>
                           {item.items.map((popoverItem) => (
                             <Anchor
                               key={popoverItem.key}
-                              className="group flex items-center justify-between gap-x-2 rounded px-2 py-3 text-xs font-medium text-neutral-600 hover:bg-neutral-100"
+                              className={clsx(
+                                'group gap-x-2 rounded px-2 py-3',
+                                themeBackgroundLayerEmphasizedHover,
+                              )}
                               href={popoverItem.href}
                               variant="unstyled"
                               onClick={() => {
                                 close();
                               }}>
-                              <div className="flex items-center gap-x-2">
-                                {popoverItem.icon != null && (
-                                  <SidebarIcon icon={popoverItem.icon} />
-                                )}
-                                <span className="whitespace-nowrap">
-                                  {popoverItem.name}
+                              <Text
+                                className="items-center justify-between gap-x-2"
+                                color="secondary"
+                                display="flex"
+                                variant="body3"
+                                weight="medium">
+                                <div className="flex items-center gap-x-2">
+                                  {popoverItem.icon != null && (
+                                    <SidebarIcon icon={popoverItem.icon} />
+                                  )}
+                                  <span className="whitespace-nowrap">
+                                    {popoverItem.name}
+                                  </span>
+                                  {popoverItem.labelAddon}
+                                </div>
+                                <span className="invisible group-hover:visible">
+                                  <SidebarIcon icon={RiArrowRightSLine} />
                                 </span>
-                                {popoverItem.labelAddon}
-                              </div>
-                              <span className="invisible group-hover:visible">
-                                <SidebarIcon icon={RiArrowRightSLine} />
-                              </span>
+                              </Text>
                             </Anchor>
                           ))}
                         </div>

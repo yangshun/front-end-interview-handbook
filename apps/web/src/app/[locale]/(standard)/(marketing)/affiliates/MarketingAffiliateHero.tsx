@@ -8,7 +8,6 @@ import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
 
 export default function MarketingAffiliateHero() {
   const intl = useIntl();
@@ -58,10 +57,10 @@ export default function MarketingAffiliateHero() {
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                   <div
                     className={clsx(
-                      'relative overflow-hidden rounded-full border py-1.5 px-4 text-sm leading-6',
-                      themeLineColor,
+                      'relative overflow-hidden rounded-full border py-1.5 px-4 leading-6',
+                      'ring-1 ring-inset ring-neutral-300/20',
                     )}>
-                    <Text color="secondary" variant="body2">
+                    <Text variant="body2">
                       <FormattedMessage
                         defaultMessage="Already an affiliate? <link>Access dashboard</link>"
                         description="Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
