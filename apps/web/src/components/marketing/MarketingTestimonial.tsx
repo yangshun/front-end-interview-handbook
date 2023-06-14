@@ -5,7 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeGlassyBorder, themeLineColor } from '~/components/ui/theme';
 
 import Text from '../ui/Text';
 
@@ -352,8 +352,8 @@ export default function MarketingTestimonial() {
                   className="pt-6 sm:inline-block sm:w-full sm:px-3">
                   <figure
                     className={clsx(
-                      'rounded-2xl border p-6 text-sm leading-6',
-                      themeLineColor,
+                      'rounded-2xl p-6 text-sm leading-6',
+                      themeGlassyBorder,
                     )}>
                     <blockquote>
                       <Text variant="body2">{testimonial.testimonial}</Text>

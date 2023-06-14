@@ -43,3 +43,39 @@ a {
   font-size: 0.75em;
   text-align: center;
 }
+
+.dark .glassbox {
+  background: hsla(0, 0%, 9%, 0.3);
+  position: relative;
+}
+
+.dark .glassbox::before {
+  background: conic-gradient(
+      from 90deg at 50% 50%,
+      #3f3f4640 0deg,
+      #3f3f4640 169.87deg,
+      #d8d8e140 236.25deg,
+      #3f3f4640 360deg
+    ),
+    linear-gradient(0deg, #18181b, #18181b);
+  border-radius: inherit;
+  content: '';
+  inset: 0px;
+  padding: 1px;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  /* Firefox */
+  mask-mode: match-source, match-source;
+  mask-repeat: repeat, repeat;
+  mask-clip: content-box, border-box;
+  mask-origin: content-box, border-box;
+  mask-position: 0% 0%, 0% 0%;
+  mask-size: auto, auto;
+  mask-image: linear-gradient(black, black), linear-gradient(black, black);
+  mask-composite: exclude;
+
+  /* Webkit */
+  /* -webkit-mask: linear-gradient(black, black) content-box content-box, linear-gradient(black, black); */
+  /* -webkit-mask-composite: xor; */
+}

@@ -43,3 +43,7 @@ export const themeLineTextColor = clsx(
 export const themeDivideColor = clsx(
   'divide-neutral-200 dark:divide-neutral-800',
 );
+
+export const themeGlassyBorder = clsx(
+  'glassbox border border-neutral-200 dark:border-transparent',
+);
