@@ -3,12 +3,19 @@ import clsx from 'clsx';
 export const themeTextInvertColor = clsx('text-white dark:text-neutral-900');
 export const themeTextColor = clsx('text-neutral-900 dark:text-white');
 export const themeTextBrandColor = clsx('text-brand-dark dark:text-brand');
+export const themeTextBrandHoverColor = clsx(
+  'hover:text-brand-dark dark:hover:text-brand',
+);
+export const themeTextSubtitleColor = clsx(
+  'text-neutral-700 dark:text-neutral-300',
+);
 export const themeTextSecondaryColor = clsx(
   'text-neutral-600 dark:text-neutral-400',
 );
 export const themeTextSecondaryInvertColor = clsx(
   'text-neutral-400 dark:text-neutral-600',
 );
+
 export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-950');
 export const themeBackgroundLayerColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundEmphasized = clsx(
@@ -23,6 +30,7 @@ export const themeBackgroundLayerEmphasized = clsx(
 export const themeBackgroundLayerEmphasizedHover = clsx(
   'hover:bg-neutral-50 dark:hover:bg-neutral-800',
 );
+
 export const themeLineColor = clsx(
   'border-neutral-200 dark:border-neutral-800',
 );

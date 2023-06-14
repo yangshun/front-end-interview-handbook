@@ -8,10 +8,23 @@ import React from 'react';
 
 import { useAppContext } from '~/components/global/AppContextProvider';
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
 
-type AnchorVariant = 'default' | 'flat' | 'light' | 'muted' | 'unstyled';
+import {
+  themeTextBrandColor,
+  themeTextBrandHoverColor,
+  themeTextColor,
+} from '../theme';
+
+type AnchorVariant =
+  | 'blend'
+  | 'default'
+  | 'flat'
+  | 'light'
+  | 'muted'
+  | 'unstyled';
 type AnchorFontWeight = 'medium' | 'regular';
 
 type Props = Omit<LinkProps, 'href'> &
@@ -56,11 +69,12 @@ function Anchor(
     variant !== 'unstyled' &&
       clsx(
         weight === 'medium' && 'font-medium',
-        variant === 'default' &&
-          'text-brand hover:text-brand-dark hover:underline',
+        variant === 'default' && clsx(themeTextBrandColor, 'hover:underline'),
         variant === 'flat' && 'hover:underline',
         variant === 'light' && 'text-brand-light hover:text-brand',
-        variant === 'muted' && 'text-neutral-500 hover:text-brand-dark',
+        variant === 'blend' && clsx(themeTextColor, themeTextBrandHoverColor),
+        variant === 'muted' &&
+          clsx(themeTextSecondaryColor, themeTextBrandHoverColor),
         underline && 'underline',
       ),
     classNameProp,

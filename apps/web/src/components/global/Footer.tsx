@@ -14,13 +14,13 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import LogoLink from './Logo';
 import I18nSelect from '../i18n/I18nSelect';
 import TwitterIcon from '../icons/TwitterIcon';
-import { themeLineColor } from '../ui/theme';
 
 type FooterLink = Readonly<{
   href: string;
@@ -210,18 +210,14 @@ function FooterSection({
   title: string;
 }>) {
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-2">
       <Heading color="custom" level="custom">
-        <Text
-          className="uppercase tracking-wider"
-          color="secondary"
-          variant="body2"
-          weight="medium">
+        <Text variant="body2" weight="medium">
           {title}
         </Text>
       </Heading>
       <Section>
-        <ul className="flex flex-col gap-y-3" role="list">
+        <ul className="flex flex-col gap-y-2" role="list">
           {links
             .filter((item) => item != null)
             .map((item_) => {
@@ -229,7 +225,7 @@ function FooterSection({
 
               return (
                 <li key={item.key}>
-                  <Text variant="body2">
+                  <Text display="block" variant="body2">
                     <Anchor
                       href={item.href}
                       variant="muted"
@@ -258,6 +254,17 @@ export default function Footer() {
   const navigation = useFooterNavigation();
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
+  const copyrightStatement = (
+    <Text color="secondary" display="block" variant="body2">
+      &copy; {new Date().getFullYear()}{' '}
+      <FormattedMessage
+        defaultMessage="Codeney Pte Ltd. All rights
+              reserved."
+        description="Footer copyright text containing the company name"
+        id="P/tvlV"
+      />
+    </Text>
+  );
 
   return (
     <footer
@@ -272,45 +279,37 @@ export default function Footer() {
       </Heading>
       <Section>
         <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16">
-          <div className="xl:grid xl:grid-cols-4 xl:gap-8">
-            <div className="flex flex-col gap-y-4 xl:col-span-1">
-              <div>
-                <LogoLink />
-              </div>
-              <Text color="secondary" display="block" variant="body2">
-                <FormattedMessage
-                  defaultMessage="The most complete all-in-one front end interview preparation platform."
-                  description="Text under GreatFrontEnd logo on the Footer, to describe main offering"
-                  id="OL9m/V"
-                />
-              </Text>
-              <div className="flex space-x-6">
-                {navigation.social.map(({ key, href, name, icon: Icon }) => (
-                  <Anchor
-                    key={key}
-                    className="hover:text-brand text-neutral-500"
-                    href={href}
-                    variant="unstyled">
-                    <span className="sr-only">{name}</span>
-                    {Icon && <Icon aria-hidden="true" className="h-6 w-6" />}
-                  </Anchor>
-                ))}
-              </div>
-              <div>
-                <I18nSelect
-                  locale={locale ?? 'en-US'}
-                  onChange={(newLocale: string) => {
-                    if (pathname == null) {
-                      return;
-                    }
+          <div className="lg:grid lg:grid-cols-3 xl:gap-8">
+            <div className="flex flex-col justify-between gap-y-4 xl:col-span-1">
+              <div className="flex flex-col gap-y-6">
+                <div>
+                  <LogoLink />
+                </div>
+                <div className="flex gap-x-5">
+                  {navigation.social.map(({ key, href, name, icon: Icon }) => (
+                    <Anchor key={key} href={href} variant="muted">
+                      <span className="sr-only">{name}</span>
+                      {Icon && <Icon aria-hidden="true" className="h-6 w-6" />}
+                    </Anchor>
+                  ))}
+                </div>
+                <div>
+                  <I18nSelect
+                    locale={locale ?? 'en-US'}
+                    onChange={(newLocale: string) => {
+                      if (pathname == null) {
+                        return;
+                      }
 
-                    router.push(pathname, { locale: newLocale });
-                  }}
-                />
+                      router.push(pathname, { locale: newLocale });
+                    }}
+                  />
+                </div>
               </div>
+              <div className="hidden lg:block">{copyrightStatement}</div>
             </div>
-            <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-3 xl:mt-0">
-              <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-8">
+            <div className="mt-12 grid grid-cols-2 gap-12 md:grid-cols-4 lg:col-span-2 lg:mt-0">
+              <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-12">
                 <FooterSection
                   links={navigation.practice}
                   title={intl.formatMessage({
@@ -369,16 +368,9 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className={clsx('mt-12 border-t pt-8', themeLineColor)}>
-            <Text className="xl:text-center" color="secondary" display="block">
-              &copy; {new Date().getFullYear()}{' '}
-              <FormattedMessage
-                defaultMessage="Codeney Pte Ltd. All rights
-              reserved."
-                description="Footer copyright text containing the company name"
-                id="P/tvlV"
-              />
-            </Text>
+          <div
+            className={clsx('mt-12 border-t pt-8 lg:hidden', themeLineColor)}>
+            {copyrightStatement}
           </div>
         </div>
       </Section>
