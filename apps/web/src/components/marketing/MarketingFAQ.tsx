@@ -8,7 +8,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import Text from '../ui/Text';
-import { themeDivideColor } from '../ui/theme';
+import { themeDivideColor, themeTextSubtitleColor } from '../ui/theme';
 
 import { Disclosure } from '@headlessui/react';
 
@@ -156,9 +156,9 @@ export default function FrequentlyAskedQuestions() {
               values={{
                 link: (chunks) => (
                   <Anchor
-                    className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
+                    className="whitespace-nowrap"
                     href="mailto:contact@greatfrontend.com"
-                    variant="unstyled">
+                    weight="medium">
                     {chunks}
                   </Anchor>
                 ),
@@ -181,12 +181,17 @@ export default function FrequentlyAskedQuestions() {
                         <Disclosure.Button className="flex w-full items-start justify-between text-left">
                           <Text
                             className="text-base sm:text-lg md:text-xl"
+                            color="subtitle"
                             display="block"
                             variant="custom"
                             weight="medium">
                             {faq.question}
                           </Text>
-                          <span className="ml-6 flex h-7 items-center text-neutral-400 dark:text-neutral-600">
+                          <span
+                            className={clsx(
+                              'ml-6 flex h-7 items-center',
+                              themeTextSubtitleColor,
+                            )}>
                             <RiArrowDownSLine
                               aria-hidden="true"
                               className={clsx(
