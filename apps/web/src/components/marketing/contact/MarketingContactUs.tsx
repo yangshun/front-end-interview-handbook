@@ -2,98 +2,105 @@ import clsx from 'clsx';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import gtag from '~/lib/gtag';
+
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
   themeBackgroundEmphasized,
 } from '~/components/ui/theme';
 
-import MarketingContactPlatforms from './MarketingContactPlatforms';
+import logEvent from '~/logging/logEvent';
+
+import MarketingContactPlatformsConfig from './MarketingContactPlatformsConfig';
 import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
     <div
       className={clsx('overflow-hidden pb-16 sm:pb-24', themeBackgroundColor)}>
-      <div className="relative sm:py-16">
-        <div aria-hidden="true" className="hidden sm:block">
+      <div className="relative grid gap-y-24 sm:py-16">
+        <Container className="relative">
           <div
-            className={clsx(
-              'absolute inset-y-0 left-0 w-1/2 rounded-r-3xl',
-              themeBackgroundEmphasized,
-            )}
-          />
-          <svg
-            className="absolute top-8 left-2/3 -ml-3"
-            fill="none"
-            height={392}
-            viewBox="0 0 404 392"
-            width={404}>
-            <defs>
-              <pattern
-                height={20}
-                id="8228f071-bcee-4ec8-905a-2a059a2cc4fb"
-                patternUnits="userSpaceOnUse"
-                width={20}
-                x={0}
-                y={0}>
-                <rect
-                  className="text-neutral-200 dark:text-neutral-800"
-                  fill="currentColor"
-                  height={4}
-                  width={4}
-                  x={0}
-                  y={0}
-                />
-              </pattern>
-            </defs>
-            <rect
-              fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)"
-              height={392}
-              width={404}
-            />
-          </svg>
-        </div>
-        <div className="space-y-24">
-          <Container className="relative" variant="narrow">
-            <div className="space-y-10 py-6 md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <Heading level="heading3">
+            className={clsx('rounded-[48px] py-20', themeBackgroundEmphasized)}>
+            <div className="mx-auto grid max-w-3xl gap-y-8">
+              <div className="grid gap-y-4">
+                <Heading className="text-center" level="heading2">
                   <FormattedMessage
                     defaultMessage="Have questions, feedback or anything to say?"
                     description="Title for contact us section"
                     id="eyLjDz"
                   />
                 </Heading>
-                <div className="mt-4">
-                  <p className="text-lg text-neutral-500">
-                    <FormattedMessage
-                      defaultMessage="Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two."
-                      description="Subtitle for contact us section"
-                      id="qjKLfH"
-                      values={{
-                        email: (chunks) => (
-                          <Anchor href="mailto:contact@greatfrontend.com">
-                            {chunks}
-                          </Anchor>
-                        ),
-                      }}
-                    />
-                  </p>
-                </div>
+                <Text
+                  className="text-center text-lg md:text-xl"
+                  color="secondary"
+                  display="block"
+                  variant="custom">
+                  <FormattedMessage
+                    defaultMessage="Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two."
+                    description="Subtitle for contact us section"
+                    id="qjKLfH"
+                    values={{
+                      email: (chunks) => (
+                        <Anchor href="mailto:contact@greatfrontend.com">
+                          {chunks}
+                        </Anchor>
+                      ),
+                    }}
+                  />
+                </Text>
               </div>
+              <div className="flex items-center">
+                <Divider className="grow" />
+                <Text
+                  className="px-4 text-center text-lg md:text-xl"
+                  color="secondary"
+                  display="block"
+                  variant="custom">
+                  <FormattedMessage
+                    defaultMessage="or"
+                    description="Alternative contact way"
+                    id="DAifYT"
+                  />
+                </Text>
+                <Divider className="grow" />
+              </div>
+              <Section>
+                <div className={clsx('mx-auto inline-flex gap-x-6')}>
+                  {MarketingContactPlatformsConfig().map((platform) => (
+                    <Anchor
+                      key={platform.key}
+                      href={platform.href}
+                      variant="blend"
+                      onClick={() => {
+                        gtag.event({
+                          action: `contact_us.${platform.key}.click`,
+                          category: 'engagement',
+                          label: platform.name,
+                        });
+                        logEvent('click', {
+                          element: 'Social link',
+                          label: platform.name,
+                        });
+                      }}>
+                      <platform.icon className="h-6 w-6" />
+                      <span className="sr-only">{platform.name}</span>
+                    </Anchor>
+                  ))}
+                </div>
+              </Section>
             </div>
-            <Section>
-              <MarketingContactPlatforms />
-            </Section>
-          </Container>
-          <Section>
-            <MarketingEmailSubscribe />
-          </Section>
-        </div>
+          </div>
+        </Container>
+        <Section>
+          <MarketingEmailSubscribe />
+        </Section>
       </div>
     </div>
   );

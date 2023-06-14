@@ -715,6 +715,10 @@
     "defaultMessage": "GitHub profile link",
     "description": "Link to GitHub profile"
   },
+  "DAifYT": {
+    "defaultMessage": "or",
+    "description": "Alternative contact way"
+  },
   "DAqJ87": {
     "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
     "description": "Subtitle on question paywall displayed on premium question's pages"
@@ -1307,10 +1311,6 @@
     "defaultMessage": "Search JavaScript questions",
     "description": "Placeholder for search input of JavaScript question list"
   },
-  "OL9m/V": {
-    "defaultMessage": "The most complete all-in-one front end interview preparation platform.",
-    "description": "Text under GreatFrontEnd logo on the Footer, to describe main offering"
-  },
   "OPwgMT": {
     "defaultMessage": "Twitter profile link",
     "description": "Link to Twitter profile"
@@ -1402,10 +1402,6 @@
   "PfOyMR": {
     "defaultMessage": "{duration} mins",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
-  },
-  "PiwdUd": {
-    "defaultMessage": "Beta",
-    "description": "Beta version"
   },
   "Pohz4K": {
     "defaultMessage": "{currencySymbol}{price} billed yearly.",
