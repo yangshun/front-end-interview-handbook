@@ -92,7 +92,7 @@ export default function MarketingFeatureQuestionsNew({
               className="relative mt-10 text-lg md:text-xl"
               color="secondary"
               display="block"
-              variant="custom">
+              size="custom">
               <FormattedMessage
                 defaultMessage="With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more."
                 description="Subtitle of the 'Practice Everything Here' marketing section on Homepage"

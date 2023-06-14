@@ -52,7 +52,7 @@ export default function MarketingBecause() {
                 className="mx-auto mt-6 max-w-3xl text-center text-lg md:text-xl lg:mt-10 lg:text-2xl"
                 color="secondary"
                 display="block"
-                variant="custom">
+                size="custom">
                 <FormattedMessage
                   defaultMessage="Front end interviews come in so many formats. You could be asked to write JavaScript functions, build a UI, design a system, or even solve LeetCode-style algorithm questions."
                   description="Subtitle of Second section on homepage - first paragraph"
@@ -63,7 +63,7 @@ export default function MarketingBecause() {
                 className="mx-auto mt-6 max-w-2xl text-center text-lg md:text-xl lg:mt-10 lg:text-2xl"
                 color="secondary"
                 display="block"
-                variant="custom">
+                size="custom">
                 <FormattedMessage
                   defaultMessage="Building your fundamentals is the only way to rock the interview every single time."
                   description="Subtitle of Second section on homepage - second paragraph"

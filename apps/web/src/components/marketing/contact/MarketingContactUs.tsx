@@ -41,7 +41,7 @@ export default function MarketingContactUs() {
                   className="text-center text-lg md:text-xl"
                   color="secondary"
                   display="block"
-                  variant="custom">
+                  size="custom">
                   <FormattedMessage
                     defaultMessage="Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two."
                     description="Subtitle for contact us section"
@@ -62,7 +62,7 @@ export default function MarketingContactUs() {
                   className="px-4 text-center text-lg md:text-xl"
                   color="secondary"
                   display="block"
-                  variant="custom">
+                  size="custom">
                   <FormattedMessage
                     defaultMessage="or"
                     description="Alternative contact way"

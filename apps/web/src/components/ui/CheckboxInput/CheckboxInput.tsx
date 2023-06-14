@@ -7,7 +7,7 @@ import type {
 } from 'react';
 import { forwardRef, useId } from 'react';
 
-import type { TextVariant } from '../Text';
+import type { TextSize } from '../Text';
 import Text from '../Text';
 
 type CheckboxSize = 'md' | 'sm';
@@ -36,7 +36,7 @@ const checkboxSizeClasses: Record<CheckboxSize, string> = {
   sm: 'ml-2',
 };
 
-const textSizeVariants: Record<CheckboxSize, TextVariant> = {
+const textSizeVariants: Record<CheckboxSize, TextSize> = {
   md: 'body2',
   sm: 'body3',
 };
@@ -101,7 +101,7 @@ function CheckboxInput(
             <Text
               color={disabled ? 'disabled' : 'default'}
               display="block"
-              variant={textSizeVariants[size]}>
+              size={textSizeVariants[size]}>
               {label}
             </Text>
           </label>
@@ -109,12 +109,12 @@ function CheckboxInput(
             <Text
               color={disabled ? 'disabled' : 'secondary'}
               display="block"
-              variant="body3">
+              size="body3">
               {description}
             </Text>
           )}
           {errorMessage && (
-            <Text color="error" display="block" id={errorId} variant="body3">
+            <Text color="error" display="block" id={errorId} size="body3">
               {errorMessage}
             </Text>
           )}

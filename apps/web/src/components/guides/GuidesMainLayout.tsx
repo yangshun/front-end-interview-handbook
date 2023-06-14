@@ -53,11 +53,11 @@ export default function GuidesMainLayout({
                 {currentItem.breadcrumbs.map((breadcrumb, index) => (
                   <Fragment key={breadcrumb}>
                     {index > 0 && (
-                      <Text color="secondary" variant="body2">
+                      <Text color="secondary" size="body2">
                         /
                       </Text>
                     )}
-                    <Text color="secondary" variant="body2">
+                    <Text color="secondary" size="body2">
                       {breadcrumb}
                     </Text>
                   </Fragment>

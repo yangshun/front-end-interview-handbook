@@ -34,11 +34,7 @@ function NoCompletedQuestions() {
         />
       </Heading>
       <Section>
-        <Text
-          className="mt-1"
-          color="secondary"
-          display="block"
-          variant="body2">
+        <Text className="mt-1" color="secondary" display="block" size="body2">
           <FormattedMessage
             defaultMessage="Try out some Front End questions!"
             description="Subtext for call to action when no questions are completed."
@@ -154,7 +150,7 @@ export default function ProfileActivity() {
                 </div>
                 <Section>
                   <div>
-                    <Text color="secondary" variant="body2">
+                    <Text color="secondary" size="body2">
                       {new Date(createdAt).toLocaleDateString()}
                     </Text>
                   </div>

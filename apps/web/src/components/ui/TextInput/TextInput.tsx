@@ -116,7 +116,7 @@ export default function TextInput({
       <label
         className={clsx(isLabelHidden ? 'sr-only' : 'mb-2 block')}
         htmlFor={id}>
-        <Text variant="body2" weight="medium">
+        <Text size="body2" weight="medium">
           {label}
         </Text>
         {required && (
@@ -132,7 +132,7 @@ export default function TextInput({
           color="secondary"
           display="block"
           id={messageId}
-          variant="body3">
+          size="body3">
           {description}
         </Text>
       )}
@@ -200,7 +200,7 @@ export default function TextInput({
           color="error"
           display="block"
           id={messageId}
-          variant="body3">
+          size="body3">
           {errorMessage}
         </Text>
       )}

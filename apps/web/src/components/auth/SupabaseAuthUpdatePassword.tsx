@@ -66,7 +66,7 @@ export default function SupabaseAuthUpdatePassword() {
           />
         </Heading>
         {user?.app_metadata.provider !== 'email' && (
-          <Text color="secondary" display="block" variant="body2">
+          <Text color="secondary" display="block" size="body2">
             <FormattedMessage
               defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can set a
             password here to use email and password to log in instead."
@@ -133,12 +133,12 @@ export default function SupabaseAuthUpdatePassword() {
               }}
             />
             {message && (
-              <Text color="success" display="block" variant="body2">
+              <Text color="success" display="block" size="body2">
                 {message}
               </Text>
             )}
             {error && (
-              <Text color="error" display="block" variant="body2">
+              <Text color="error" display="block" size="body2">
                 {error}
               </Text>
             )}

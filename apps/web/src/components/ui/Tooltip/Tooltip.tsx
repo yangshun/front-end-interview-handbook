@@ -121,7 +121,7 @@ function TooltipLabel({
       )}
       role="tooltip"
       style={styleMap[position]}>
-      <Text color="white" variant="body2" weight="medium">
+      <Text color="white" size="body2" weight="medium">
         {children}
       </Text>
     </span>

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
 
-import type { TextVariant } from '../Text';
+import type { TextSize } from '../Text';
 import Text from '../Text';
 
 export type TabItem<T> = Readonly<{
@@ -29,7 +29,7 @@ const sizeClasses: Record<
     iconSize: string;
     tabGapSize: string;
     tabItemSize: string;
-    textVariant: TextVariant;
+    textSize: TextSize;
   }>
 > = {
   md: {
@@ -37,21 +37,21 @@ const sizeClasses: Record<
     iconSize: 'h-5 w-5',
     tabGapSize: 'gap-x-2',
     tabItemSize: 'py-2.5 px-5',
-    textVariant: 'body',
+    textSize: 'body',
   },
   sm: {
     borderRadius: 'rounded-t',
     iconSize: 'h-4 w-4',
     tabGapSize: 'gap-x-1.5',
     tabItemSize: 'py-1.5 px-3',
-    textVariant: 'body2',
+    textSize: 'body2',
   },
   xs: {
     borderRadius: 'rounded-t',
     iconSize: 'h-4 w-4',
     tabGapSize: 'gap-x-1',
     tabItemSize: 'py-1.5 px-2',
-    textVariant: 'body3',
+    textSize: 'body3',
   },
 };
 
@@ -62,7 +62,7 @@ export default function Tabs<T>({
   value,
   onSelect,
 }: Props<T>) {
-  const { borderRadius, iconSize, tabItemSize, tabGapSize, textVariant } =
+  const { borderRadius, iconSize, tabItemSize, tabGapSize, textSize } =
     sizeClasses[size];
 
   return (
@@ -84,7 +84,7 @@ export default function Tabs<T>({
                 <Text
                   className={clsx('flex items-center', tabGapSize)}
                   color={isSelected ? 'active' : 'default'}
-                  variant={textVariant}>
+                  size={textSize}>
                   {Icon && (
                     <Icon
                       className={clsx(

@@ -145,12 +145,12 @@ export default function Toast({
             <Text
               color={textColor}
               display="block"
-              variant="body2"
+              size="body2"
               weight="medium">
               {title}
             </Text>
             {subtitle && (
-              <Text color={textColor} display="block" variant="body3">
+              <Text color={textColor} display="block" size="body3">
                 {subtitle}
               </Text>
             )}

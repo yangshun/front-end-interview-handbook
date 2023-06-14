@@ -127,7 +127,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
               </div>
             )}
             <div className="grow">
-              <Text display="block" variant="body2" weight="medium">
+              <Text display="block" size="body2" weight="medium">
                 <Anchor
                   className="block focus:outline-none"
                   href={question.href}
@@ -144,7 +144,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                   className="mt-1"
                   color="secondary"
                   display="block"
-                  variant="body2">
+                  size="body2">
                   {question.subtitle}
                 </Text>
               )}

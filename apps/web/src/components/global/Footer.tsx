@@ -212,7 +212,7 @@ function FooterSection({
   return (
     <div className="flex flex-col gap-y-2">
       <Heading color="custom" level="custom">
-        <Text variant="body2" weight="medium">
+        <Text size="body2" weight="medium">
           {title}
         </Text>
       </Heading>
@@ -225,7 +225,7 @@ function FooterSection({
 
               return (
                 <li key={item.key}>
-                  <Text display="block" variant="body2">
+                  <Text display="block" size="body2">
                     <Anchor
                       href={item.href}
                       variant="muted"
@@ -255,7 +255,7 @@ export default function Footer() {
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
   const copyrightStatement = (
-    <Text color="secondary" display="block" variant="body2">
+    <Text color="secondary" display="block" size="body2">
       &copy; {new Date().getFullYear()}{' '}
       <FormattedMessage
         defaultMessage="Codeney Pte Ltd. All rights

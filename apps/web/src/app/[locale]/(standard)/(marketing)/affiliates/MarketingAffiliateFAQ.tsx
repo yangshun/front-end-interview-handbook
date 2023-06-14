@@ -124,7 +124,7 @@ export default function FrequentlyAskedQuestions() {
               className="mx-auto mt-4 justify-center px-4 text-center text-lg sm:mt-8 md:px-10 md:text-xl lg:px-20"
               color="secondary"
               display="block"
-              variant="custom">
+              size="custom">
               <FormattedMessage
                 defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
                 description="Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
@@ -162,7 +162,7 @@ export default function FrequentlyAskedQuestions() {
                             <Text
                               className="text-base sm:text-lg md:text-xl"
                               display="block"
-                              variant="custom"
+                              size="custom"
                               weight="medium">
                               {faq.question}
                             </Text>
@@ -182,7 +182,7 @@ export default function FrequentlyAskedQuestions() {
                             className="text-base sm:text-lg md:text-xl"
                             color="secondary"
                             display="block"
-                            variant="custom">
+                            size="custom">
                             {faq.answer}
                           </Text>
                         </Disclosure.Panel>

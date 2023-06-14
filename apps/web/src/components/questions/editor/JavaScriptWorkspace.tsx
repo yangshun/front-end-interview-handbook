@@ -315,7 +315,7 @@ function Contents({
                   themeLineColor,
                 )}
                 suppressHydrationWarning={true}>
-                <Text variant="body3">
+                <Text size="body3">
                   <FormattedMessage
                     defaultMessage="Your previous code was restored. <Anchor>Reset to default</Anchor>"
                     description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"

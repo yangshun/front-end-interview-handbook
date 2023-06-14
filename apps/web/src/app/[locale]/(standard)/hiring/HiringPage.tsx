@@ -44,25 +44,25 @@ export default function HiringPage() {
                 themeBackgroundEmphasized,
               )}>
               <div className="grid gap-y-2 p-4">
-                <Text display="block" variant="body2" weight="medium">
+                <Text display="block" size="body2" weight="medium">
                   Job Type
                 </Text>
                 <Text
                   color="secondary"
                   display="block"
-                  variant="body2"
+                  size="body2"
                   weight="medium">
                   {jobType}
                 </Text>
               </div>
               <div className="grid gap-y-2 p-4">
-                <Text display="block" variant="body2" weight="medium">
+                <Text display="block" size="body2" weight="medium">
                   Pay Range
                 </Text>
                 <Text
                   color="secondary"
                   display="block"
-                  variant="body2"
+                  size="body2"
                   weight="medium">
                   {payRange}
                 </Text>

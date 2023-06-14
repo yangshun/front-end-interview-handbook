@@ -74,7 +74,7 @@ export default function PricingBlockCard({
                     className="ml-3"
                     color="secondary"
                     display="block"
-                    variant="body2">
+                    size="body2">
                     {feature}
                   </Text>
                 </li>

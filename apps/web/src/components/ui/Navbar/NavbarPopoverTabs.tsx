@@ -41,7 +41,7 @@ function NavbarPopoverLink({
             <span className="shrink-0">{label}</span> {labelAddon}
           </Text>
           {sublabel && (
-            <Text color="secondary" display="block" variant="body2">
+            <Text color="secondary" display="block" size="body2">
               {sublabel}
             </Text>
           )}
@@ -119,7 +119,7 @@ export default function NavbarPopoverTabs({
               {({ selected }) => (
                 <Text
                   color={selected ? 'active' : 'default'}
-                  variant="body2"
+                  size="body2"
                   weight="medium">
                   {label}
                 </Text>

@@ -41,7 +41,7 @@ function NavbarPopoverLink({
             <span className="shrink-0">{label}</span> {labelAddon}
           </Text>
           {sublabel && (
-            <Text color="secondary" display="block" variant="body2">
+            <Text color="secondary" display="block" size="body2">
               {sublabel}
             </Text>
           )}
@@ -95,7 +95,7 @@ function NavbarPopoverLink({
 function NavbarPopoverGroup({ label, items, onClick }: NavPopoverGroupItem) {
   return (
     <div className="flex flex-col space-y-2">
-      <Text color="secondary" display="block" variant="body2" weight="medium">
+      <Text color="secondary" display="block" size="body2" weight="medium">
         {label}
       </Text>
       <ul className="space-y-1" role="list">

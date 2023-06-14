@@ -64,7 +64,7 @@ export default function QuestionQuizPagination({
         <Text
           className="items-center px-6"
           display="flex"
-          variant="body2"
+          size="body2"
           weight="medium">
           <span>{currentQuestionPosition}</span> /{' '}
           <span>{totalNumQuestions}</span>

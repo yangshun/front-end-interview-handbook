@@ -88,7 +88,7 @@ export default function QuestionsQuizContentLayout({
                                 <Text
                                   className={clsx('line-clamp-2')}
                                   display="block"
-                                  variant="body2">
+                                  size="body2">
                                   {titleParam}
                                 </Text>
                               </Anchor>

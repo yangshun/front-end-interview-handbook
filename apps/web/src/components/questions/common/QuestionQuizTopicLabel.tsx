@@ -30,7 +30,7 @@ export default function QuestionQuizTopicLabel({
         TopicLabelClasses[value],
       )}
       color="inherit"
-      variant="body3"
+      size="body3"
       weight="bold">
       {topicLabels[value].toLocaleUpperCase()}
     </Text>

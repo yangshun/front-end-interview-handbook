@@ -2,19 +2,19 @@ import { useId } from 'react';
 import { RiTimeLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { TextVariant } from '~/components/ui/Text';
+import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 type Props = Readonly<{
   mins: number;
   showIcon?: boolean;
-  variant?: TextVariant;
+  size?: TextSize;
 }>;
 
 export default function QuestionDurationLabel({
   showIcon = false,
   mins,
-  variant = 'body3',
+  size = 'body3',
 }: Props) {
   const id = useId();
   const intl = useIntl();
@@ -42,7 +42,7 @@ export default function QuestionDurationLabel({
             className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
           />
         )}
-        <Text className="whitespace-nowrap" color="secondary" variant={variant}>
+        <Text className="whitespace-nowrap" color="secondary" size={size}>
           <FormattedMessage
             defaultMessage="{duration} mins"
             description="Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"

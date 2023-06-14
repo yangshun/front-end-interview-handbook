@@ -66,7 +66,7 @@ export default function Auth({
                 />
               )}
             </Heading>
-            <Text color="secondary" display="block" variant="body2">
+            <Text color="secondary" display="block" size="body2">
               {authView === 'sign_in' ? (
                 <FormattedMessage
                   defaultMessage="Sign in to your account"
@@ -97,7 +97,7 @@ export default function Auth({
                 </div>
                 <div className="relative flex justify-center">
                   <span className={clsx('px-2', themeBackgroundColor)}>
-                    <Text color="secondary" variant="body2">
+                    <Text color="secondary" size="body2">
                       <FormattedMessage
                         defaultMessage="Or continue with"
                         description="Label of divider preceding third party providers on Sign In page"

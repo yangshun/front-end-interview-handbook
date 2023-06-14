@@ -61,7 +61,7 @@ export default function QuestionsGuidesGrid({
                     themeLineColor,
                   )}
                   display="flex"
-                  variant="body2"
+                  size="body2"
                   weight="bold">
                   {index + 1}
                 </Text>
@@ -78,7 +78,7 @@ export default function QuestionsGuidesGrid({
                       className="line-clamp-3 pt-1 md:text-center"
                       color="secondary"
                       display="block"
-                      variant="body2">
+                      size="body2">
                       {guide.description}
                     </Text>
                   </Section>

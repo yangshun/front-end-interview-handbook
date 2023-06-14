@@ -115,12 +115,12 @@ export default function SupabaseAuthMagicLink({
             </Anchor>
           </div>
           {message && (
-            <Text color="success" display="block" variant="body2">
+            <Text color="success" display="block" size="body2">
               {message}
             </Text>
           )}
           {error && (
-            <Text color="error" display="block" variant="body2">
+            <Text color="error" display="block" size="body2">
               {error}
             </Text>
           )}

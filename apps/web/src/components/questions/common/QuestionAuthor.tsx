@@ -3,16 +3,16 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import authors from '~/data/authors';
 
-import type { TextVariant } from '~/components/ui/Text';
+import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   author: string;
-  variant?: TextVariant;
+  size?: TextSize;
 }>;
 
-export default function QuestionAuthor({ author, variant = 'body3' }: Props) {
+export default function QuestionAuthor({ author, size = 'body3' }: Props) {
   const intl = useIntl();
   const id = useId();
   const authorData = authors[author];
@@ -47,14 +47,10 @@ export default function QuestionAuthor({ author, variant = 'body3' }: Props) {
           </Tooltip>
         </div>
         <div className="ml-3 flex flex-col gap-y-0.5">
-          <Text
-            color="secondary"
-            display="block"
-            variant={variant}
-            weight="bold">
+          <Text color="secondary" display="block" size={size} weight="bold">
             {authorData.name}
           </Text>
-          <Text color="secondary" display="block" variant="body3">
+          <Text color="secondary" display="block" size="body3">
             {authorData.subtitle}
           </Text>
         </div>

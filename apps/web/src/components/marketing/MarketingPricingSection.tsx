@@ -270,7 +270,7 @@ function PricingButtonSection({
                   return processSubscription(plan.planType);
                 }}
               />
-              <Text className="text-center" color="error" variant="body3">
+              <Text className="text-center" color="error" size="body3">
                 {error}
               </Text>
             </div>
@@ -511,7 +511,7 @@ export default function MarketingPricingSectionNew({
                       <Text
                         className="text-lg leading-6"
                         display="block"
-                        variant="custom"
+                        size="custom"
                         weight="medium">
                         <FormattedMessage
                           defaultMessage="Pay once, own it forever"
@@ -527,14 +527,14 @@ export default function MarketingPricingSectionNew({
                               'sm:text-6xl',
                           )}
                           display="inline-flex"
-                          variant="custom">
+                          size="custom">
                           <Text
                             className="mr-2 text-4xl tracking-tight"
-                            variant="custom"
+                            size="custom"
                             weight="medium">
                             {lifetimePlan.symbol}
                           </Text>
-                          <Text variant="custom" weight="bold">
+                          <Text size="custom" weight="bold">
                             {lifetimePlan.unitCostLocalizedInCurrency}
                           </Text>
                         </Text>
@@ -542,7 +542,7 @@ export default function MarketingPricingSectionNew({
                           <Text
                             className="ml-3 text-xl tracking-normal"
                             color="secondary"
-                            variant="custom"
+                            size="custom"
                             weight="medium">
                             {lifetimePlan.currency.toLocaleUpperCase()}
                           </Text>
@@ -552,7 +552,7 @@ export default function MarketingPricingSectionNew({
                         className="mt-4"
                         color="secondary"
                         display="block"
-                        variant="body2"
+                        size="body2"
                         weight="medium">
                         <FormattedMessage
                           defaultMessage="U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>"
@@ -646,13 +646,13 @@ export default function MarketingPricingSectionNew({
                                   className="mt-4 md:min-h-[40px]"
                                   color="secondary"
                                   display="block"
-                                  variant="body2">
+                                  size="body2">
                                   {description}
                                 </Text>
                                 <div className="mt-8">
                                   <Text
                                     className="text-4xl font-bold tracking-tight"
-                                    variant="custom"
+                                    size="custom"
                                     weight="custom">
                                     {plan.symbol}
                                     {priceRoundToNearestNiceNumber(
@@ -672,7 +672,7 @@ export default function MarketingPricingSectionNew({
                                   className="pt-4 md:min-h-[32px]"
                                   color="secondary"
                                   display="block"
-                                  variant="body3">
+                                  size="body3">
                                   {(() => {
                                     switch (plan.planType) {
                                       case 'monthly':
@@ -764,7 +764,7 @@ export default function MarketingPricingSectionNew({
                                           aria-hidden="true"
                                           className="text-success h-5 w-5 flex-shrink-0"
                                         />
-                                        <Text color="secondary" variant="body2">
+                                        <Text color="secondary" size="body2">
                                           {feature}
                                         </Text>
                                       </li>
@@ -779,7 +779,7 @@ export default function MarketingPricingSectionNew({
                     )}
                   </div>
                   <div className="mt-8">
-                    <Text color="secondary" display="block" variant="body2">
+                    <Text color="secondary" display="block" size="body2">
                       *{' '}
                       <FormattedMessage
                         defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
@@ -787,7 +787,7 @@ export default function MarketingPricingSectionNew({
                         id="Xka4d3"
                       />
                     </Text>
-                    <Text color="secondary" display="block" variant="body2">
+                    <Text color="secondary" display="block" size="body2">
                       *{' '}
                       <FormattedMessage
                         defaultMessage="Prices will be increased as more content is being added to the website."
@@ -796,7 +796,7 @@ export default function MarketingPricingSectionNew({
                       />
                     </Text>
                     {lifetimePlan.symbol === '$' && (
-                      <Text color="secondary" display="block" variant="body2">
+                      <Text color="secondary" display="block" size="body2">
                         *{' '}
                         <FormattedMessage
                           defaultMessage="Prices shown are in {currency}."

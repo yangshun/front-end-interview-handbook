@@ -50,7 +50,7 @@ function PreparationPlansSection() {
           className="text-lg"
           color="secondary"
           display="block"
-          variant="custom">
+          size="custom">
           {intl.formatMessage({
             defaultMessage:
               "Regardless of preparation timeline, there's a plan for you.",
@@ -142,7 +142,7 @@ function PracticeQuestionsSection({
           className="text-lg"
           color="secondary"
           display="block"
-          variant="custom">
+          size="custom">
           {intl.formatMessage(
             {
               defaultMessage:

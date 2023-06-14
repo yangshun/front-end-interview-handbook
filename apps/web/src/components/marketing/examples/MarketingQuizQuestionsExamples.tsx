@@ -38,7 +38,7 @@ export default function MarketingQuizQuestionsExamples({
           className="text-base sm:text-lg"
           color="active"
           display="block"
-          variant="custom"
+          size="custom"
           weight="bold">
           <FormattedMessage
             defaultMessage="Know your fundamentals"
@@ -71,7 +71,7 @@ export default function MarketingQuizQuestionsExamples({
             className="py-10 text-lg md:text-xl"
             color="secondary"
             display="block"
-            variant="custom">
+            size="custom">
             <FormattedMessage
               defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
               description="Subtitle for an example list of Quiz Questions on marketing pages"

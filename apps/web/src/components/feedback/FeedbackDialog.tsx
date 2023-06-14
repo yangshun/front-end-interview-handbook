@@ -25,7 +25,7 @@ function SocialPlatform() {
     <div className="flex flex-col gap-3">
       <div className="relative">
         <div className="relative flex justify-center">
-          <Text color="secondary" variant="body3">
+          <Text color="secondary" size="body3">
             <FormattedMessage
               defaultMessage="Or reach us via these channels"
               description="Text to introduce users to alternative feedback channels"
@@ -216,7 +216,7 @@ export default function FeedbackDialog({
         )}
         {feedbackState === 'success' && (
           <div className="flex h-full flex-col items-center justify-center gap-4">
-            <Text color="success" variant="body2">
+            <Text color="success" size="body2">
               <FormattedMessage
                 defaultMessage="Feedback received successfully."
                 description="Feedback widget success message."

@@ -140,7 +140,7 @@ export default function MarketingHeroNew({
               className="mx-auto mt-8 max-w-md text-base sm:text-lg md:mt-12 md:max-w-3xl md:text-xl xl:text-xl"
               color="secondary"
               display="block"
-              variant="custom">
+              size="custom">
               <FormattedMessage
                 defaultMessage="We help you ace every front end interview by <strong>mastering your fundamentals</strong>. <span>Built by</span> ex-FAANG Senior Front End Engineers."
                 description="Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."

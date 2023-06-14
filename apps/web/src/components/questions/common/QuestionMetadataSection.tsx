@@ -1,4 +1,4 @@
-import type { TextVariant } from '~/components/ui/Text';
+import type { TextSize } from '~/components/ui/Text';
 
 import QuestionAuthor from './QuestionAuthor';
 import QuestionDifficultyLabel from './QuestionDifficultyLabel';
@@ -17,7 +17,7 @@ type MetadataElement =
 type Props = Readonly<{
   elements?: ReadonlyArray<MetadataElement>;
   metadata: QuestionMetadata;
-  variant?: TextVariant;
+  size?: TextSize;
 }>;
 
 const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
@@ -31,12 +31,12 @@ const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
 export default function QuestionMetadataSection({
   metadata,
   elements = DEFAULT_ELEMENTS,
-  variant = 'body3',
+  size = 'body3',
 }: Props) {
   return (
     <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
       {elements.includes('author') && metadata.author && (
-        <QuestionAuthor author={metadata.author} variant={variant} />
+        <QuestionAuthor author={metadata.author} size={size} />
       )}
       {elements.includes('languages') &&
         metadata.languages &&
@@ -44,21 +44,21 @@ export default function QuestionMetadataSection({
           <QuestionLanguages
             languages={metadata.languages}
             showIcon={true}
-            variant={variant}
+            size={size}
           />
         )}
       {elements.includes('difficulty') && metadata.difficulty && (
         <QuestionDifficultyLabel
           showIcon={true}
+          size={size}
           value={metadata.difficulty}
-          variant={variant}
         />
       )}
       {elements.includes('duration') && metadata.duration && (
         <QuestionDurationLabel
           mins={metadata.duration}
           showIcon={true}
-          variant={variant}
+          size={size}
         />
       )}
       {elements.includes('users_completed') && metadata.duration && (

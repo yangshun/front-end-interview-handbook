@@ -139,7 +139,7 @@ export default function ProfileShell({ user, children }: Props) {
                                   aria-hidden="true"
                                   className="text-white-400 h-5 w-5 shrink-0"
                                 />
-                                <Text variant="body3" weight="bold">
+                                <Text size="body3" weight="bold">
                                   {intl.formatMessage({
                                     defaultMessage: 'PREMIUM',
                                     description:
@@ -167,7 +167,7 @@ export default function ProfileShell({ user, children }: Props) {
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-500"
                             />
-                            <Text color="secondary" variant="body2">
+                            <Text color="secondary" size="body2">
                               {user.email}
                             </Text>
                           </div>
@@ -177,7 +177,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
                               />
-                              <Text color="secondary" variant="body2">
+                              <Text color="secondary" size="body2">
                                 {user.id}
                               </Text>
                             </div>
@@ -188,7 +188,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
                               />
-                              <Text color="secondary" variant="body2">
+                              <Text color="secondary" size="body2">
                                 {intl.formatMessage(
                                   {
                                     defaultMessage: 'Joined on {date}',
@@ -213,7 +213,7 @@ export default function ProfileShell({ user, children }: Props) {
                                   aria-hidden="true"
                                   className="h-5 w-5 shrink-0 text-neutral-500"
                                 />
-                                <Text color="secondary" variant="body2">
+                                <Text color="secondary" size="body2">
                                   <Anchor
                                     href={`https://github.com/${user?.user_metadata.user_name}`}>
                                     {user?.user_metadata.user_name}
@@ -226,7 +226,7 @@ export default function ProfileShell({ user, children }: Props) {
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-500"
                             />
-                            <Text color="secondary" variant="body2">
+                            <Text color="secondary" size="body2">
                               <Anchor href="https://discord.gg/NDFx8f6P6B">
                                 {intl.formatMessage({
                                   defaultMessage: 'Join Discord',
@@ -243,7 +243,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-pink-500"
                               />
-                              <Text color="secondary" variant="body2">
+                              <Text color="secondary" size="body2">
                                 <Anchor
                                   className="text-pink-500"
                                   href="https://discord.gg/8suTg77xXz">

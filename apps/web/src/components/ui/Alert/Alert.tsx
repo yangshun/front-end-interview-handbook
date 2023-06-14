@@ -86,7 +86,7 @@ export default function Alert({ children, title, variant }: Props) {
             className="text-neutral-500 dark:text-neutral-400"
             color="inherit"
             display="block"
-            variant="body">
+            size="body">
             {children}
           </Text>
         </Section>

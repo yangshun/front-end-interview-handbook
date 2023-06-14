@@ -105,7 +105,7 @@ export default function QuestionContentsJavaScriptTestsCode({
 
   return (
     <div>
-      <Text color="secondary" display="block" variant="body2">
+      <Text color="secondary" display="block" size="body2">
         <FormattedMessage
           defaultMessage="For your reference, these are the Jest tests that your code will run against."
           description="Text indicating to users that the below section are test cases that their code will be tested against"

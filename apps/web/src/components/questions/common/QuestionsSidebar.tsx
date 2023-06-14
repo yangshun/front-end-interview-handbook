@@ -227,7 +227,7 @@ export default function QuestionsSidebar({
               className="gap-x-2"
               color="inherit"
               display="flex"
-              variant="body2"
+              size="body2"
               weight="medium">
               {item.icon != null && <SidebarIcon icon={item.icon} />}
               {!isCollapsed && item.name}
@@ -336,7 +336,7 @@ export default function QuestionsSidebar({
                                 className="items-center justify-between gap-x-2"
                                 color="secondary"
                                 display="flex"
-                                variant="body3"
+                                size="body3"
                                 weight="medium">
                                 <div className="flex items-center gap-x-2">
                                   {popoverItem.icon != null && (

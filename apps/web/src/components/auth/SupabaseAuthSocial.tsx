@@ -143,7 +143,7 @@ export default function SupabaseAuthSocial({
         })}
       </div>
       {errorMessage && (
-        <Text color="error" display="block" variant="body2">
+        <Text color="error" display="block" size="body2">
           {errorMessage}
         </Text>
       )}

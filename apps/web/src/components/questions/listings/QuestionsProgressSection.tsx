@@ -80,12 +80,12 @@ export default function QuestionsProgressSection({
                       100
                     ).toFixed(0),
                     span: (chunks) => (
-                      <Text color="active" variant="body" weight="bold">
+                      <Text color="active" size="body" weight="bold">
                         {chunks}
                       </Text>
                     ),
                     span2: (chunks) => (
-                      <Text color="disabled" variant="body" weight="custom">
+                      <Text color="disabled" size="body" weight="custom">
                         {chunks}
                       </Text>
                     ),

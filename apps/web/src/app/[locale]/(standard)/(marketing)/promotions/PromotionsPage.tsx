@@ -16,11 +16,7 @@ import Text from '~/components/ui/Text';
 
 function EmailUsLink() {
   return (
-    <Text
-      className="text-right"
-      color="secondary"
-      display="block"
-      variant="body3">
+    <Text className="text-right" color="secondary" display="block" size="body3">
       <FormattedMessage
         defaultMessage="Facing trouble? <link>Email us</link>"
         description="Section label for seasonal promotion details"
@@ -82,14 +78,14 @@ function SeasonalDiscountCard() {
                 'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
               )}
               display="inline-flex"
-              variant="custom"
+              size="custom"
               weight="bold">
               20%
             </Text>
             <Text
               className="ml-3 text-xl font-medium tracking-normal"
               color="secondary"
-              variant="custom"
+              size="custom"
               weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"
@@ -102,7 +98,7 @@ function SeasonalDiscountCard() {
             className="mt-4"
             color="secondary"
             display="block"
-            variant="body2"
+            size="body2"
             weight="medium">
             <FormattedMessage
               defaultMessage="GreatFrontEnd Annual"
@@ -132,11 +128,7 @@ function SeasonalDiscountCard() {
               }}
             />
           </div>
-          <Text
-            className="mt-2"
-            color="secondary"
-            display="block"
-            variant="body3">
+          <Text className="mt-2" color="secondary" display="block" size="body3">
             <FormattedMessage
               defaultMessage="Use code at checkout"
               description="Instruction to apply discount"
@@ -207,7 +199,7 @@ function StudentDiscountCard() {
           className="justify-between gap-x-4"
           color="secondary"
           display="flex"
-          variant="body3">
+          size="body3">
           <span>
             <FormattedMessage
               defaultMessage="More on <link>Students Discount Terms and Conditions</link>"
@@ -236,14 +228,14 @@ function StudentDiscountCard() {
                 'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
               )}
               display="inline-flex"
-              variant="custom"
+              size="custom"
               weight="bold">
               40%
             </Text>
             <Text
               className="ml-3 text-xl font-medium tracking-normal"
               color="secondary"
-              variant="custom"
+              size="custom"
               weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"
@@ -350,7 +342,7 @@ function ReviewCashbackCard() {
           className="justify-between gap-x-4"
           color="secondary"
           display="flex"
-          variant="body3">
+          size="body3">
           <span>
             <FormattedMessage
               defaultMessage="More on <link>Review Cashback Discount Terms and Conditions</link>"
@@ -379,7 +371,7 @@ function ReviewCashbackCard() {
                 'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
               )}
               display="inline-flex"
-              variant="custom"
+              size="custom"
               weight="bold">
               40%
             </Text>
@@ -388,7 +380,7 @@ function ReviewCashbackCard() {
             className="text-xl tracking-normal"
             color="secondary"
             display="block"
-            variant="custom"
+            size="custom"
             weight="medium">
             <FormattedMessage
               defaultMessage="CASHBACK"
@@ -400,7 +392,7 @@ function ReviewCashbackCard() {
             className="mt-2"
             color="secondary"
             display="block"
-            variant="body2"
+            size="body2"
             weight="medium">
             <FormattedMessage
               defaultMessage="on your first order amount"
@@ -422,11 +414,7 @@ function ReviewCashbackCard() {
               variant="primary"
             />
           </div>
-          <Text
-            className="mt-2"
-            color="secondary"
-            display="block"
-            variant="body3">
+          <Text className="mt-2" color="secondary" display="block" size="body3">
             <FormattedMessage
               defaultMessage="Check on eligibility or submit proof"
               description="Instruction to check for review cashback"

@@ -334,7 +334,7 @@ export default function MarketingTestimonial() {
           <Text
             className="text-center text-3xl font-bold leading-8 tracking-tight sm:text-4xl md:text-4xl lg:text-5xl"
             display="block"
-            variant="custom"
+            size="custom"
             weight="custom">
             <FormattedMessage
               defaultMessage="We have helped thousands of Software Engineers"
@@ -356,7 +356,7 @@ export default function MarketingTestimonial() {
                       themeGlassyBorder,
                     )}>
                     <blockquote>
-                      <Text variant="body2">{testimonial.testimonial}</Text>
+                      <Text size="body2">{testimonial.testimonial}</Text>
                     </blockquote>
                     <figcaption className="mt-4 flex items-center gap-x-4">
                       {testimonial.authorThumbnailUrl && (
@@ -370,7 +370,7 @@ export default function MarketingTestimonial() {
                         {testimonial.name &&
                           (() => {
                             const nameEl = (
-                              <Text variant="body2" weight="bold">
+                              <Text size="body2" weight="bold">
                                 {testimonial.name}
                               </Text>
                             );
@@ -385,7 +385,7 @@ export default function MarketingTestimonial() {
 
                             return nameEl;
                           })()}
-                        <Text color="secondary" display="block" variant="body3">
+                        <Text color="secondary" display="block" size="body3">
                           {[testimonial.title, testimonial.location]
                             .filter(Boolean)
                             .join(', ')}

@@ -33,7 +33,7 @@ export default function QuestionFilterSectionMobile<
                 'focus:ring-brand flex w-full items-center justify-between focus:outline-none focus:ring-2 focus:ring-inset',
                 'text-neutral-400 hover:text-neutral-500 dark:text-neutral-600',
               )}>
-              <Text variant="body2" weight="medium">
+              <Text size="body2" weight="medium">
                 {section.name}
               </Text>
               <span className="ml-6 flex h-7 items-center">

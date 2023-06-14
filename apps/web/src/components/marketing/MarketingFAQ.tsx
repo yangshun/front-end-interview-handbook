@@ -148,7 +148,7 @@ export default function FrequentlyAskedQuestions() {
             className="mx-auto mt-4 justify-center px-10 text-center sm:mt-8 md:text-xl lg:px-20"
             color="secondary"
             display="block"
-            variant="custom">
+            size="custom">
             <FormattedMessage
               defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
               description="Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
@@ -183,7 +183,7 @@ export default function FrequentlyAskedQuestions() {
                             className="text-base sm:text-lg md:text-xl"
                             color="subtitle"
                             display="block"
-                            variant="custom"
+                            size="custom"
                             weight="medium">
                             {faq.question}
                           </Text>
@@ -207,7 +207,7 @@ export default function FrequentlyAskedQuestions() {
                           className="text-base sm:text-lg md:text-xl"
                           color="secondary"
                           display="block"
-                          variant="custom">
+                          size="custom">
                           {faq.answer}
                         </Text>
                       </Disclosure.Panel>

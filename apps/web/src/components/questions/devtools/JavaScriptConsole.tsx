@@ -52,7 +52,7 @@ function NoLogs({
           className="text-center"
           color="secondary"
           display="block"
-          variant="body2">
+          size="body2">
           <FormattedMessage
             defaultMessage="<code>console.log()</code> statements will appear here."
             description="Text in coding workspace's console to let users know that they can expect console logs to be found there"
@@ -66,7 +66,7 @@ function NoLogs({
           className="text-center"
           color="secondary"
           display="block"
-          variant="body2">
+          size="body2">
           {showExplicitInvocationMessage && (
             <FormattedMessage
               defaultMessage="To test your function without submitting, call the function below the declaration."

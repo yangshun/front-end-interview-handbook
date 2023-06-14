@@ -4,14 +4,14 @@ import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
-import type { TextVariant } from '~/components/ui/Text';
+import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   showIcon?: boolean;
+  size?: TextSize;
   value: QuestionDifficulty;
-  variant?: TextVariant;
 }>;
 
 const DifficultyLabelClasses: Record<QuestionDifficulty, string> = {
@@ -23,7 +23,7 @@ const DifficultyLabelClasses: Record<QuestionDifficulty, string> = {
 export default function QuestionDifficultyLabel({
   showIcon = false,
   value,
-  variant = 'body3',
+  size = 'body3',
 }: Props) {
   const intl = useIntl();
   const id = useId();
@@ -70,7 +70,7 @@ export default function QuestionDifficultyLabel({
         <Text
           className={clsx(DifficultyLabelClasses[value])}
           color="inherit"
-          variant={variant}>
+          size={size}>
           {labels[value]}
         </Text>
       </div>

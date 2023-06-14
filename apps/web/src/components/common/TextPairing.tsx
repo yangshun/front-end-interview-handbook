@@ -36,7 +36,7 @@ export default function TextPairing({
           className={clsx('max-w-xl leading-6')}
           color="secondary"
           display="block"
-          variant="body2">
+          size="body2">
           {description}
         </Text>
       )}

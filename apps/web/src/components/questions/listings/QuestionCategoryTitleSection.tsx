@@ -75,7 +75,7 @@ export default function QuestionCategoryTitleSection({
             <Text
               className="items-center gap-x-2"
               display="flex"
-              variant="body2"
+              size="body2"
               weight="medium">
               <Icon
                 className={clsx(

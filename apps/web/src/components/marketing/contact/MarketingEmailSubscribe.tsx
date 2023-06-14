@@ -118,7 +118,7 @@ export default function MarketingEmailSubscribe() {
               className="mt-3 h-6 text-center"
               color="success"
               display="block"
-              variant="body2">
+              size="body2">
               {submitMessage}
             </Text>
           )}
@@ -127,7 +127,7 @@ export default function MarketingEmailSubscribe() {
               className="mt-3 h-6 text-center"
               color="error"
               display="block"
-              variant="body2">
+              size="body2">
               {failureReason?.message}
             </Text>
           )}

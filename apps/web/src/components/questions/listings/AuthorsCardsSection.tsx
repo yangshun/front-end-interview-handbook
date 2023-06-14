@@ -18,7 +18,7 @@ export default function AuthorsCardSection() {
   return (
     <div className="flex max-w-lg flex-col gap-1">
       <div className="flex items-center gap-x-4">
-        <Text className="whitespace-nowrap" color="secondary" variant="body3">
+        <Text className="whitespace-nowrap" color="secondary" size="body3">
           <FormattedMessage
             defaultMessage="Meet our top authors:"
             description="Authors section title"
@@ -64,7 +64,7 @@ export default function AuthorsCardSection() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <Text color="secondary" display="block" variant="body3">
+            <Text color="secondary" display="block" size="body3">
               {author.bio}
             </Text>
             <div className="flex gap-x-3">

@@ -194,7 +194,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                         </span>
                       </Heading>
                       <Section>
-                        <Text color="secondary" display="block">
+                        <Text color="secondary" display="block" size="body2">
                           {link.description}
                         </Text>
                       </Section>

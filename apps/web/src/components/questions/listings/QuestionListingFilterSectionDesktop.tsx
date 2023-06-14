@@ -22,7 +22,7 @@ export default function QuestionListingFilterSectionDesktop<
     <div className={clsx(!isFirstSection && 'pt-6')}>
       <fieldset>
         <legend>
-          <Text display="block" variant="body2" weight="medium">
+          <Text display="block" size="body2" weight="medium">
             {section.name}
           </Text>
         </legend>

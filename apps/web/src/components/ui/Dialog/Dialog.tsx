@@ -69,7 +69,7 @@ export default function DialogImpl({
                     <Heading level="heading6">{title}</Heading>
                   </Dialog.Title>
                   <Section>
-                    <Text display="block" variant="body2">
+                    <Text display="block" size="body2">
                       {children}
                     </Text>
                   </Section>

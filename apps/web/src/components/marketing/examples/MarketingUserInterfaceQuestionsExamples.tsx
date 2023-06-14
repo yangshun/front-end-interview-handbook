@@ -37,7 +37,7 @@ export default function MarketingUserInterfaceQuestionsExamples({
           className="text-base sm:text-lg"
           color="active"
           display="block"
-          variant="custom"
+          size="custom"
           weight="bold">
           <FormattedMessage
             defaultMessage="Pick your framework"
@@ -58,7 +58,7 @@ export default function MarketingUserInterfaceQuestionsExamples({
             className="py-10 text-lg md:text-xl"
             color="secondary"
             display="block"
-            variant="custom">
+            size="custom">
             <FormattedMessage
               defaultMessage="Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
               description="Subtitle for an example list of User Interface Questions on marketing pages"

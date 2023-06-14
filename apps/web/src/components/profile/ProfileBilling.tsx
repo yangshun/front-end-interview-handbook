@@ -156,18 +156,14 @@ function NoBillingPlan() {
         />
       </Heading>
       <Section>
-        <Text
-          className="mt-1"
-          color="secondary"
-          display="block"
-          variant="body2">
+        <Text className="mt-1" color="secondary" display="block" size="body2">
           <FormattedMessage
             defaultMessage="Get premium to unlock <bold>full access to all questions and solutions</bold>!"
             description="Call to action text for premium upgrade."
             id="jbJq96"
             values={{
               bold: (chunks) => (
-                <Text variant="body2" weight="bold">
+                <Text size="body2" weight="bold">
                   {chunks}
                 </Text>
               ),
@@ -211,7 +207,7 @@ export default function ProfileBilling() {
               <PlanLabel plan={userProfile?.plan} />
             </Text>
             <ManageSubscriptionButton plan={userProfile?.plan} />
-            <Text display="block" variant="body2">
+            <Text display="block" size="body2">
               <FormattedMessage
                 defaultMessage="Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice."
                 description="Text describing contact method for purchase invoice."
@@ -226,7 +222,7 @@ export default function ProfileBilling() {
               />
             </Text>
             {process.env.NODE_ENV === 'development' && (
-              <Text display="block" variant="body2">
+              <Text display="block" size="body2">
                 <FormattedMessage
                   defaultMessage="Stripe Customer ID: "
                   description="Label for Stripe customer ID."

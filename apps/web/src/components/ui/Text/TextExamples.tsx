@@ -2,37 +2,38 @@ import clsx from 'clsx';
 import { capitalize } from 'lodash-es';
 import { Fragment } from 'react';
 
-import type { TextColor, TextVariant, TextWeight } from './Text';
+import type { TextColor, TextSize, TextWeight } from './Text';
 import Text from './Text';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const colors: ReadonlyArray<TextColor> = [
   'default',
-  'active',
+  'subtitle',
   'secondary',
   'placeholder',
   'disabled',
+  'active',
   'error',
   'success',
   'invert',
   'inherit',
 ];
-const variants: ReadonlyArray<TextVariant> = ['body', 'body2', 'body3'];
+const sizes: ReadonlyArray<TextSize> = ['body', 'body2', 'body3'];
 const weights: ReadonlyArray<TextWeight> = ['normal', 'medium', 'bold'];
 
 export default function TextExamples() {
   return (
     <UIExamplesGroup title="Text">
-      {variants.map((variant) => (
-        <div key={variant} className="grid grid-cols-3 gap-2">
+      {sizes.map((size) => (
+        <div key={size} className="grid grid-cols-3 gap-2">
           {weights.map((weight) => (
             <Fragment key={weight}>
               <Text
                 key={weight}
                 className="whitespace-nowrap"
-                variant={variant}
+                size={size}
                 weight={weight}>
-                {capitalize(`${variant} ${weight}`)}
+                {capitalize(`${size} ${weight}`)}
               </Text>
             </Fragment>
           ))}

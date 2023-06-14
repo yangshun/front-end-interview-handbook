@@ -16,7 +16,7 @@ export default function MarketingSectionTitleLabel({
       className={clsx('leading-7', className)}
       color="active"
       display="block"
-      variant="body2"
+      size="body2"
       weight="bold">
       {children}
     </Text>

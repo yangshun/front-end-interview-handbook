@@ -352,7 +352,7 @@ export default function SupabaseAuthEmail({
                 className="text-center"
                 color="secondary"
                 display="block"
-                variant="body">
+                size="body">
                 <FormattedMessage
                   defaultMessage="Don't have an account? <link>Sign up for free</link>"
                   description="Prompt for account creation on Email Sign In page"
@@ -381,7 +381,7 @@ export default function SupabaseAuthEmail({
                   className="text-center"
                   color="secondary"
                   display="block"
-                  variant="body">
+                  size="body">
                   <FormattedMessage
                     defaultMessage="Already have an account? <link>Sign in</link>"
                     description="Prompt for sign in on Email Sign Up page"
@@ -407,7 +407,7 @@ export default function SupabaseAuthEmail({
               </div>
             )}
             <Divider />
-            <Text color="secondary" display="block" variant="body3">
+            <Text color="secondary" display="block" size="body3">
               <FormattedMessage
                 defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."
                 description="Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"

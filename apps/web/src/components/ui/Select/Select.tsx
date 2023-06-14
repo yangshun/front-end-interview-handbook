@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 
-import type { TextVariant } from '../Text';
+import type { TextSize } from '../Text';
 import Text from '../Text';
 
 export type SelectItem<T> = Readonly<{
@@ -25,7 +25,7 @@ type Props<T> = Readonly<{
 
 const textSizeClasses: Record<
   SelectSize,
-  Readonly<{ label: TextVariant; option: string }>
+  Readonly<{ label: TextSize; option: string }>
 > = {
   md: {
     label: 'body2',
@@ -66,7 +66,7 @@ export default function Select<T>({
         htmlFor={id}>
         <Text
           display="block"
-          variant={textSizeClasses[size].label}
+          size={textSizeClasses[size].label}
           weight="medium">
           {label}
         </Text>

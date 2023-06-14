@@ -310,7 +310,7 @@ export default function QuestionsSystemDesignListWithFilters({
             </Section>
           </div>
         )}
-        <Text color="secondary" display="block" variant="body3">
+        <Text color="secondary" display="block" size="body3">
           <Anchor href="https://clearbit.com" variant="flat">
             <FormattedMessage
               defaultMessage="Logos provided by Clearbit"

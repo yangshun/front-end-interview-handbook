@@ -77,7 +77,7 @@ function TestResultStatusLabel({
   const { label, color } = statusLabels[status];
 
   return (
-    <Text color={color} variant="body2" weight="bold">
+    <Text color={color} size="body2" weight="bold">
       {label}
     </Text>
   );
@@ -109,7 +109,7 @@ function TestResultItem({
             className="text-danger h-5 w-5 shrink-0"
           />
         )}
-        <Text className="flex flex-wrap items-center gap-1" variant="body2">
+        <Text className="flex flex-wrap items-center gap-1" size="body2">
           {displayPath.map((path, index) => (
             <Fragment key={path}>
               {index > 0 && (
@@ -158,7 +158,7 @@ function TestResultItem({
       </div>
       {showStackTrace &&
         result.errors.map((error) => (
-          <Text key={error} display="block" variant="body3">
+          <Text key={error} display="block" size="body3">
             <pre
               className={clsx(
                 'border-tp-2 grid gap-1 overflow-x-auto pb-0',
@@ -182,7 +182,7 @@ function TestResultStats({
   return (
     <div className="flex space-x-4">
       {failed > 0 && (
-        <Text color="error" variant="body2" weight="bold">
+        <Text color="error" size="body2" weight="bold">
           <FormattedMessage
             defaultMessage="{numberOfFailedTests} failed"
             description="Line in DevTools showing the number of test cases failed when running the code submitted by the user"
@@ -194,7 +194,7 @@ function TestResultStats({
         </Text>
       )}
       {passed > 0 && (
-        <Text color="success" variant="body2" weight="bold">
+        <Text color="success" size="body2" weight="bold">
           <FormattedMessage
             defaultMessage="{numberOfPassedTests} passed"
             description="Line in DevTools showing the number of test cases passed when running the code submitted by the user"
@@ -206,7 +206,7 @@ function TestResultStats({
         </Text>
       )}
       {total > 0 && (
-        <Text color="secondary" variant="body2" weight="bold">
+        <Text color="secondary" size="body2" weight="bold">
           <FormattedMessage
             defaultMessage="{numberOfTotalTests} total"
             description="Line in DevTools showing the total number of test cases for this question"
@@ -274,7 +274,7 @@ function JavaScriptQuestionTestResult({
       return (
         <div className="space-y-4">
           <TestResultStatusLabel status={result.status} />
-          <Text display="block" variant="body2">
+          <Text display="block" size="body2">
             <pre className="rounded bg-neutral-100 p-4">{result.message}</pre>
           </Text>
         </div>
@@ -291,7 +291,7 @@ export default function JavaScriptQuestionTestResults({
     return (
       <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
         <Spinner display="block" size="md" />
-        <Text color="secondary" display="block" variant="body2">
+        <Text color="secondary" display="block" size="body2">
           <FormattedMessage
             defaultMessage="Evaluating tests against code..."
             description="Loading text that appears when the tests cases are running (after the user submits their code in the coding workspace)"
@@ -305,7 +305,7 @@ export default function JavaScriptQuestionTestResults({
     return (
       <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
         <RiSurveyLine className="h-12 w-12 text-neutral-300 dark:text-neutral-700" />
-        <Text color="secondary" display="block" variant="body2">
+        <Text color="secondary" display="block" size="body2">
           <FormattedMessage
             defaultMessage="Submit your code to check against the tests."
             description="Text that appears in the DevTool under the Tests tab before the user has submitted their code"

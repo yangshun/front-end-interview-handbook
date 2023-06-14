@@ -91,7 +91,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                 className="relative mt-10 max-w-5xl text-lg lg:text-xl"
                 color="secondary"
                 display="block"
-                variant="custom">
+                size="custom">
                 <FormattedMessage
                   defaultMessage="Studying well-written solutions is one the most effective methods to ace the interview. Our platform guarantees the quality of our solutions because they are all written by us, ex-FAANG Senior Front End Engineers."
                   description="Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 1"
@@ -102,7 +102,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                 className="relative mt-10 max-w-5xl text-lg lg:text-xl"
                 color="secondary"
                 display="block"
-                variant="custom">
+                size="custom">
                 <FormattedMessage
                   defaultMessage="You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!"
                   description="Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
@@ -123,7 +123,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                     className="mb-4 mr-8 hidden justify-start text-sm sm:text-base md:flex md:text-lg xl:text-xl"
                     color="secondary"
                     display="block"
-                    variant="custom">
+                    size="custom">
                     <FormattedMessage
                       defaultMessage="Check out sample solutions:"
                       description="Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
@@ -211,7 +211,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                 className="sm:flex"
                 color="secondary"
                 display="block"
-                variant="custom">
+                size="custom">
                 <FormattedMessage
                   defaultMessage="Want to see more solutions? <link>Explore our product →</link>"
                   description="Call to action button to ask users to explore our product. Leads to the interview practice questions bank."

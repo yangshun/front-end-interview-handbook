@@ -84,7 +84,7 @@ export default function QuestionQuizContents({
               className="mb-1"
               color="secondary"
               display="block"
-              variant="body2">
+              size="body2">
               <FormattedMessage
                 defaultMessage="Quiz Questions"
                 description="Header for quiz questions"
@@ -112,7 +112,7 @@ export default function QuestionQuizContents({
                       <Text
                         className="pb-4 text-lg sm:text-xl"
                         display="block"
-                        variant="custom">
+                        size="custom">
                         {question.metadata.subtitle}
                       </Text>
                     )}

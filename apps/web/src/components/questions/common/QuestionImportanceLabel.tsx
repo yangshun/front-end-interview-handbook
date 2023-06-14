@@ -69,7 +69,7 @@ export default function QuestionImportanceLabel({
         <Text
           className={ImportanceLabelClasses[value]}
           color="inherit"
-          variant="body3"
+          size="body3"
           weight="bold">
           {children ?? labels[value]}
         </Text>

@@ -167,7 +167,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
               className={clsx('bg-brand-lightest dark:bg-brand-darkest p-3')}
               color="active"
               display="block"
-              variant="body3">
+              size="body3">
               <FormattedMessage
                 defaultMessage="First time preparing for front end interviews? Find out what to
               expect in our <link>Front End Interview Guidebook</link>"
@@ -215,7 +215,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                     <Text
                       className="leading-6 md:leading-7"
                       color={format === value ? 'default' : 'secondary'}
-                      variant="body3"
+                      size="body3"
                       weight="bold">
                       <FormattedMessage
                         defaultMessage="Stage {stageNumber}"
@@ -243,7 +243,7 @@ export default function QuestionFormatTitleSection({ format }: Props) {
                     className="mt-2 hidden leading-6 md:block"
                     color="secondary"
                     display="block"
-                    variant="body2">
+                    size="body2">
                     {description}
                   </Text>
                 </div>

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import DropdownMenuItem from './DropdownMenuItem';
-import type { TextVariant } from '../Text';
+import type { TextSize } from '../Text';
 import Text from '../Text';
 
 import { Menu, Transition } from '@headlessui/react';
@@ -47,7 +47,7 @@ const horizontalPaddingClasses: Record<DropdownMenuSize, string> = {
   xs: 'px-2',
 };
 
-const textSizeVariants: Record<DropdownMenuSize, TextVariant> = {
+const textSizeVariants: Record<DropdownMenuSize, TextSize> = {
   md: 'body2',
   sm: 'body3',
   xs: 'body3',
@@ -96,7 +96,7 @@ export default function DropdownMenu({
               'flex items-center justify-center',
               spacingClasses[size],
             )}
-            variant={textSizeVariants[size]}
+            size={textSizeVariants[size]}
             weight="medium">
             {Icon != null && (
               <Icon
@@ -134,7 +134,7 @@ export default function DropdownMenu({
           <Text
             className="p-2"
             display="block"
-            variant={textSizeVariants[size]}
+            size={textSizeVariants[size]}
             weight="medium">
             {children}
           </Text>

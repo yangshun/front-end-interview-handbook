@@ -69,17 +69,13 @@ export default function EmptyState({
         />
       </Text>
       <Heading className="mt-4" level="custom">
-        <Text display="block" variant="body" weight="medium">
+        <Text display="block" size="body" weight="medium">
           {title}
         </Text>
       </Heading>
       <Section>
         {subtitle && (
-          <Text
-            className="mt-1"
-            color="secondary"
-            display="block"
-            variant="body2">
+          <Text className="mt-1" color="secondary" display="block" size="body2">
             {subtitle}
           </Text>
         )}

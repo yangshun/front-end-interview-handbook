@@ -61,14 +61,14 @@ export default function QuestionCompanies({
                   'relative inline-flex items-center rounded-full border px-3 py-0.5',
                   themeLineColor,
                 )}>
-                <Text color="secondary" variant="body3">
+                <Text color="secondary" size="body3">
                   {companyNames[company].label}
                 </Text>
               </span>{' '}
             </Fragment>
           ))
         ) : (
-          <Text color="secondary" display="block" variant="body2">
+          <Text color="secondary" display="block" size="body2">
             <FormattedMessage
               defaultMessage="No tagged companies"
               description="Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"

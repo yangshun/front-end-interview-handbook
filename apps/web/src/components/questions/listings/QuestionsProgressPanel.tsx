@@ -53,7 +53,7 @@ export default function QuestionsProgressPanel({
               {title}
             </Heading>
             {!hideCount && totalQuestions > 0 && (
-              <Text color="secondary" variant="body3">
+              <Text color="secondary" size="body3">
                 <FormattedMessage
                   defaultMessage="{completedQuestions} of {totalQuestions} completed"
                   description="Line describing the number of questions completed by user over the total number of questions"

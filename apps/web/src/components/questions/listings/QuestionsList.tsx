@@ -242,7 +242,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               <Text
                 className="items-center gap-x-2"
                 display="flex"
-                variant="body2"
+                size="body2"
                 weight="medium">
                 <Anchor
                   className="focus:outline-none"
@@ -277,7 +277,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   className="mt-1"
                   color="secondary"
                   display="block"
-                  variant="body2">
+                  size="body2">
                   {question.excerpt}
                 </Text>
               )}

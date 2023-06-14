@@ -242,7 +242,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
         })}
         onClose={() => setShowInformation(false)}>
         <div className="flex flex-col gap-4">
-          <Text display="block" variant="body2">
+          <Text display="block" size="body2">
             <FormattedMessage
               defaultMessage="GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:"
               description="Description within code editor shortcuts"
@@ -253,10 +253,10 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           <div className="space-y-2">
             {shortcuts.map(({ label, keys, key }) => (
               <div key={key} className="flex items-center justify-between">
-                <Text color="secondary" variant="body3">
+                <Text color="secondary" size="body3">
                   {label}
                 </Text>
-                <Text variant="body3">
+                <Text size="body3">
                   <div className="flex gap-1">
                     {keys.map((keyParam) => (
                       <span
@@ -271,7 +271,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
             ))}
           </div>
           <Divider />
-          <Text color="secondary" display="block" variant="body3">
+          <Text color="secondary" display="block" size="body3">
             <FormattedMessage
               defaultMessage="Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>."
               description="Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"

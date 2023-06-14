@@ -11,6 +11,7 @@ export type TextColor =
   | 'invert'
   | 'placeholder'
   | 'secondary'
+  | 'subtitle'
   | 'success'
   | 'white';
 export type TextDisplay =
@@ -21,7 +22,7 @@ export type TextDisplay =
   | 'inline-flex'
   | 'inline-grid'
   | 'inline';
-export type TextVariant = 'body' | 'body2' | 'body3' | 'custom';
+export type TextSize = 'body' | 'body2' | 'body3' | 'custom';
 export type TextWeight = 'bold' | 'custom' | 'medium' | 'normal';
 
 type Props = Readonly<{
@@ -30,11 +31,11 @@ type Props = Readonly<{
   color?: TextColor;
   display?: TextDisplay;
   id?: string;
-  variant?: TextVariant;
+  size?: TextSize;
   weight?: TextWeight;
 }>;
 
-const variantClasses: Record<TextVariant, string> = {
+const sizeClasses: Record<TextSize, string> = {
   body: 'text-base',
   body2: 'text-sm',
   body3: 'text-xs',
@@ -51,13 +52,14 @@ const weightClasses: Record<TextWeight, string> = {
 const colorClasses: Record<TextColor, string> = {
   active: 'text-brand-dark dark:text-brand',
   dark: 'text-neutral-900',
-  default: 'text-neutral-900 dark:text-white',
+  default: 'text-neutral-900 dark:text-neutral-100',
   disabled: 'text-neutral-300 dark:text-neutral-700',
   error: 'text-danger',
   inherit: '',
   invert: 'text-white dark:text-neutral-900',
   placeholder: 'text-neutral-400 dark:text-neutral-600',
   secondary: 'text-neutral-600 dark:text-neutral-400',
+  subtitle: 'text-neutral-700 dark:text-neutral-300',
   success: 'text-success dark:text-success-light',
   white: 'text-white',
 };
@@ -67,7 +69,7 @@ export default function Text({
   color = 'default',
   className,
   display = 'inline',
-  variant = 'body',
+  size = 'body',
   weight = 'normal',
   ...props
 }: Props) {
@@ -77,7 +79,7 @@ export default function Text({
         display,
         weightClasses[weight],
         colorClasses[color],
-        variantClasses[variant],
+        sizeClasses[size],
         className,
       )}
       {...props}>

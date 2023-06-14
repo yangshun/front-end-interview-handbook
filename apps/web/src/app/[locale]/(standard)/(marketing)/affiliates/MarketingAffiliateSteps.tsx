@@ -45,7 +45,7 @@ export default function MarketingAffiliateSteps() {
               <Text
                 className="py-4 pl-4 text-2xl md:text-xl"
                 display="block"
-                variant="custom"
+                size="custom"
                 weight="medium">
                 {step.title}
               </Text>
@@ -55,7 +55,7 @@ export default function MarketingAffiliateSteps() {
                 className="grow text-xl md:text-lg"
                 color="secondary"
                 display="block"
-                variant="custom">
+                size="custom">
                 {step.subtitle}
               </Text>
               <div className="mt-12 flex grow">

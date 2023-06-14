@@ -60,7 +60,7 @@ export default function MarketingAffiliateHero() {
                       'relative overflow-hidden rounded-full border py-1.5 px-4 leading-6',
                       'ring-1 ring-inset ring-neutral-300/20',
                     )}>
-                    <Text variant="body2">
+                    <Text size="body2">
                       <FormattedMessage
                         defaultMessage="Already an affiliate? <link>Access dashboard</link>"
                         description="Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -95,7 +95,7 @@ export default function MarketingAffiliateHero() {
                     className="mx-auto mt-8 max-w-md text-center text-xl md:mt-12 md:max-w-3xl xl:text-xl"
                     color="secondary"
                     display="block"
-                    variant="custom">
+                    size="custom">
                     <FormattedMessage
                       defaultMessage="Earn passive commissions when others purchase GreatFrontEnd through you."
                       description="Subtitle of the Hero section of the 'Become An Affiliate' page"

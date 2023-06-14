@@ -51,7 +51,7 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
   return (
     <div className="flex flex-col gap-y-1">
       <label id={sectionId}>
-        <Text variant="body3" weight="medium">
+        <Text size="body3" weight="medium">
           {filterOptions.name}
         </Text>
       </label>

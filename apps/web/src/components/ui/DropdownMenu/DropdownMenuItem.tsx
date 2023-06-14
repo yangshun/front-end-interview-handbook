@@ -27,7 +27,7 @@ export default function DropdownMenuItem({
               color={isSelected ? undefined : 'secondary'}
               display="block"
               // TODO: Use smaller variant for smaller size.
-              variant="body2">
+              size="body2">
               {label}
             </Text>
           ),

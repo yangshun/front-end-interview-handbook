@@ -108,7 +108,7 @@ export default function SlideOut({
               </div>
               <div className="grow overflow-y-auto px-6">
                 <Section>
-                  <Text display="block" variant="body2">
+                  <Text display="block" size="body2">
                     {children}
                   </Text>
                 </Section>

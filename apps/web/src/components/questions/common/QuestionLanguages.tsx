@@ -2,20 +2,21 @@ import { useId } from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import type { TextVariant } from '~/components/ui/Text';
+import type { TextSize } from '~/components/ui/Text';
 
 import QuestionLanguageLabel from './QuestionLanguageLabel';
 import type { QuestionLanguage } from './QuestionsTypes';
+
 type Props = Readonly<{
   languages: ReadonlyArray<QuestionLanguage>;
   showIcon?: boolean;
-  variant?: TextVariant;
+  size?: TextSize;
 }>;
 
 export default function QuestionLanguages({
   languages,
   showIcon = false,
-  variant = 'body3',
+  size = 'body3',
 }: Props) {
   const id = useId();
 
@@ -36,11 +37,7 @@ export default function QuestionLanguages({
       )}
       <div aria-labelledby={id} className="flex items-center space-x-2">
         {languages.map((language) => (
-          <QuestionLanguageLabel
-            key={language}
-            value={language}
-            variant={variant}
-          />
+          <QuestionLanguageLabel key={language} size={size} value={language} />
         ))}
       </div>
     </div>

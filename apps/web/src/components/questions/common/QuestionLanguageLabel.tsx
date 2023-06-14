@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import type { TextVariant } from '~/components/ui/Text';
+import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 
 import type { QuestionLanguage } from './QuestionsTypes';
@@ -15,14 +15,14 @@ const LanguageLabelClasses: Record<QuestionLanguage, string> = {
 
 type Props = Readonly<{
   children?: ReactNode;
+  size?: TextSize;
   value: QuestionLanguage;
-  variant?: TextVariant;
 }>;
 
 export default function QuestionLanguageLabel({
   children,
   value,
-  variant = 'body3',
+  size = 'body3',
 }: Props) {
   return (
     <Text
@@ -31,7 +31,7 @@ export default function QuestionLanguageLabel({
         LanguageLabelClasses[value],
       )}
       color="inherit"
-      variant={variant}
+      size={size}
       weight="bold">
       {children ?? value.toLocaleUpperCase()}
     </Text>
