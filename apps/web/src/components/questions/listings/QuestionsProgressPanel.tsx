@@ -11,83 +11,102 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+type GradientBarProps = Readonly<{
+  className: string;
+  progress: number;
+}>;
+
+function GradientBar({ progress, className }: GradientBarProps) {
+  return (
+    <div className="h-2 w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800">
+      <div
+        className={clsx('h-full rounded-full', className)}
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
+}
+
 type Props = Readonly<{
   completedQuestions: number;
-  hideCount?: boolean;
-  href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  progressBarClassName: string;
   title: string;
   totalQuestions: number;
+  variant: 'compact' | 'default';
 }>;
 
 export default function QuestionsProgressPanel({
-  hideCount,
   title,
   icon: Icon,
   completedQuestions,
+  progressBarClassName,
+  variant,
   totalQuestions,
-  href,
 }: Props) {
   const intl = useIntl();
 
-  return (
-    <div
-      className={clsx(
-        'flex items-center overflow-hidden rounded-lg border p-4',
-        themeLineColor,
-      )}>
-      <div
-        className={clsx(
-          '-m-1 flex-shrink-0 rounded-md p-2',
-          themeBackgroundEmphasized,
-          themeTextSecondaryColor,
-        )}>
-        <Icon aria-hidden="true" className="h-5 w-5" />
+  const titleLabel = (
+    <Text size="body2" weight="medium">
+      {title}
+    </Text>
+  );
+
+  const progressBar = (
+    <GradientBar
+      className={progressBarClassName}
+      progress={(completedQuestions / totalQuestions) * 100}
+    />
+  );
+
+  const percentageLabel = (
+    <Text size="body2" weight="bold">
+      {intl.formatNumber(completedQuestions / totalQuestions, {
+        maximumFractionDigits: 0,
+        style: 'percent',
+      })}
+    </Text>
+  );
+
+  const completedQuestionSummary = (
+    <Text color="secondary" size="body3">
+      <FormattedMessage
+        defaultMessage="<completed>{completedQuestions}</completed>/{totalQuestions} completed"
+        description="Line describing the number of questions completed by user over the total number of questions"
+        id="Xh+8s6"
+        values={{
+          completed: (chunks) => <Text size="body2">{chunks}</Text>,
+          completedQuestions,
+          totalQuestions,
+        }}
+      />
+    </Text>
+  );
+
+  if (variant === 'compact') {
+    return (
+      <div className="flex items-end gap-3">
+        <div className="grid flex-1">
+          <div className="flex justify-between">
+            {titleLabel}
+            {completedQuestionSummary}
+          </div>
+          <div className="grid gap-1 py-1.5">{progressBar}</div>
+        </div>
+        {percentageLabel}
       </div>
-      <div className="ml-4 w-0 flex-1">
-        <div className="flex items-center justify-between space-x-4">
-          <div>
-            <Heading
-              className="truncate text-sm font-medium lg:text-base"
-              level="custom">
-              {title}
-            </Heading>
-            {!hideCount && totalQuestions > 0 && (
-              <Text color="secondary" size="body3">
-                <FormattedMessage
-                  defaultMessage="{completedQuestions} of {totalQuestions} completed"
-                  description="Line describing the number of questions completed by user over the total number of questions"
-                  id="Cw8cK4"
-                  values={{
-                    completedQuestions,
-                    totalQuestions,
-                  }}
-                />
-              </Text>
-            )}
-          </div>
-          <div>
-            <Button
-              href={href}
-              label={intl.formatMessage({
-                defaultMessage: 'See all',
-                description:
-                  'Label for see all button that brings user to the full question list for that question format',
-                id: 'Z9Wr7g',
-              })}
-              size="xs"
-              variant="secondary"
-            />
-          </div>
+    );
+  }
+
+  return (
+    <div className="grid gap-3">
+      {titleLabel}
+      <div className="grid gap-1">
+        <div className="flex items-center gap-3">
+          {progressBar}
+          {percentageLabel}
         </div>
-        <div className="mt-2">
-          {completedQuestions > 0 && (
-            <ProgressBar
-              completed={completedQuestions}
-              total={totalQuestions}
-            />
-          )}
-        </div>
+        {completedQuestionSummary}
       </div>
     </div>
   );

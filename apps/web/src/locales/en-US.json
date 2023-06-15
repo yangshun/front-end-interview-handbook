@@ -627,6 +627,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Title for paywall over information about companies that asked the question"
   },
+  "BYD90z": {
+    "defaultMessage": "Practice Questions",
+    "description": "Questions list page title"
+  },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
     "description": "Placeholder for search input of system design question list"
@@ -698,10 +702,6 @@
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
-  },
-  "Cw8cK4": {
-    "defaultMessage": "{completedQuestions} of {totalQuestions} completed",
-    "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "CyhMLj": {
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
@@ -1195,6 +1195,10 @@
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
   },
+  "LzKi2d": {
+    "defaultMessage": "{questionCount}+ questions",
+    "description": "Number of questions in the list"
+  },
   "M0TkWc": {
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
@@ -1230,6 +1234,10 @@
   "MNgJK6": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty question"
+  },
+  "MOxuKN": {
+    "defaultMessage": "Select question category",
+    "description": "Tab label to select another question category"
   },
   "MWe9uf": {
     "defaultMessage": "Tips for answering questions on your motivation to join the role",
@@ -1847,6 +1855,10 @@
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
   },
+  "Xh+8s6": {
+    "defaultMessage": "<completed>{completedQuestions}</completed>/{totalQuestions} completed",
+    "description": "Line describing the number of questions completed by user over the total number of questions"
+  },
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
@@ -1914,10 +1926,6 @@
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
-  },
-  "Z9Wr7g": {
-    "defaultMessage": "See all",
-    "description": "Label for see all button that brings user to the full question list for that question format"
   },
   "ZB+f95": {
     "defaultMessage": "Preparation by Question Type",

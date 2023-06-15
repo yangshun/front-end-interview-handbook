@@ -1,14 +1,23 @@
 'use client';
 
+import { RiCodeSSlashLine } from 'react-icons/ri';
+
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
-import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
+import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
+import QuestionsProgressPanel from '~/components/questions/listings/QuestionsProgressPanel';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
+import {
+  themeGradient1,
+  themeGradient2,
+  themeGradient3,
+} from '~/components/ui/theme';
 
 export default function ScrapbookPage() {
   return (
@@ -51,6 +60,73 @@ export default function ScrapbookPage() {
               </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
+              <div className="inline-grid grid-cols-3 gap-x-6">
+                <QuestionsProgressPanel
+                  completedQuestions={58}
+                  icon={RiCodeSSlashLine}
+                  progressBarClassName={themeGradient1}
+                  title="Coding"
+                  totalQuestions={116}
+                  variant="default"
+                />
+                <QuestionsProgressPanel
+                  completedQuestions={80}
+                  icon={RiCodeSSlashLine}
+                  progressBarClassName={themeGradient3}
+                  title="Quizzes"
+                  totalQuestions={100}
+                  variant="default"
+                />
+                <QuestionsProgressPanel
+                  completedQuestions={4}
+                  icon={RiCodeSSlashLine}
+                  progressBarClassName={themeGradient2}
+                  title="System design"
+                  totalQuestions={39}
+                  variant="default"
+                />
+              </div>
+              <QuestionsProgressPanel
+                completedQuestions={58}
+                icon={RiCodeSSlashLine}
+                progressBarClassName={themeGradient1}
+                title="Coding"
+                totalQuestions={116}
+                variant="compact"
+              />
+              <QuestionsProgressPanel
+                completedQuestions={80}
+                icon={RiCodeSSlashLine}
+                progressBarClassName={themeGradient3}
+                title="Quizzes"
+                totalQuestions={100}
+                variant="compact"
+              />
+              <QuestionsProgressPanel
+                completedQuestions={4}
+                icon={RiCodeSSlashLine}
+                progressBarClassName={themeGradient2}
+                title="System design"
+                totalQuestions={39}
+                variant="compact"
+              />
+              <QuestionsProgressPanelSection
+                layout="horizontal"
+                progressSummary={{
+                  coding: {
+                    completed: 58,
+                    total: 116,
+                  },
+                  quiz: {
+                    completed: 80,
+                    total: 100,
+                  },
+                  'system-design': {
+                    completed: 4,
+                    total: 39,
+                  },
+                }}
+              />
               <div className="inline-flex flex-col items-start gap-y-6">
                 <QuestionListingDifficultySummary
                   easy={67}

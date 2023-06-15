@@ -70,3 +70,13 @@ export const themeDivideColor = clsx(
 export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
 );
+
+// Gradient colors.
+export const themeGradient1 =
+  'bg-[linear-gradient(133.77deg,_#6366F1_0%,_#10B981_97.95%)]';
+
+export const themeGradient2 =
+  'bg-[linear-gradient(133.77deg,_#059669_0%,_#F59E0B_97.95%)]';
+
+export const themeGradient3 =
+  'bg-[linear-gradient(133.77deg,_#EC4899_0%,_#818CF8_97.95%)]';
