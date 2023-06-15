@@ -5,6 +5,7 @@ import { RiCloseLine } from 'react-icons/ri';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
+import { themeBackgroundLayerColor } from '../theme';
 
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -88,7 +89,7 @@ export default function SlideOut({
             <Dialog.Panel
               className={clsx(
                 'relative flex h-full w-full flex-col',
-                'bg-white dark:bg-neutral-900',
+                themeBackgroundLayerColor,
                 'shadow-xl',
                 enterFromClass.position,
                 sizeClasses[size],

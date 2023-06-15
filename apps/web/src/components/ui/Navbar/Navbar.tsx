@@ -3,11 +3,16 @@ import { Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import Divider from '~/components/ui/Divider';
-import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import {
+  themeBackgroundColor,
+  themeBackgroundLayerColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarPrimaryItem } from './NavTypes';
+import Button from '../Button';
 
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -71,15 +76,15 @@ export default function Navbar({
             {endAddOnItems}
           </div>
           <div className="-my-2 -mr-2 lg:hidden">
-            <button
-              className="focus:ring-brand inline-flex items-center justify-center rounded-md bg-white p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
-              type="button"
+            <Button
+              icon={RiMenuFill}
+              isLabelHidden={true}
+              label="Open menu"
+              variant="secondary"
               onClick={() => {
                 setIsMobileNavOpen(true);
-              }}>
-              <span className="sr-only">Open menu</span>
-              <RiMenuFill aria-hidden="true" className="h-6 w-6" />
-            </button>
+              }}
+            />
           </div>
         </div>
       </div>
@@ -107,7 +112,11 @@ export default function Navbar({
               leave="transition ease-in-out duration-300 transform"
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full">
-              <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white focus:outline-none">
+              <Dialog.Panel
+                className={clsx(
+                  'relative flex w-full max-w-xs flex-1 flex-col focus:outline-none',
+                  themeBackgroundLayerColor,
+                )}>
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
@@ -135,7 +144,7 @@ export default function Navbar({
                   </div>
                   <nav aria-label="Sidebar" className="mt-5">
                     {leftLinks.length > 0 && (
-                      <div className="space-y-1 px-2">
+                      <div className="grid gap-y-1 px-2">
                         {leftLinks.map((navItem) => (
                           <NavbarSidebarItem
                             key={navItem.itemKey}
@@ -151,7 +160,7 @@ export default function Navbar({
                     {rightLinks.length > 0 && (
                       <>
                         {leftLinks.length > 0 && divider}
-                        <div className="space-y-1 px-2">
+                        <div className="grid gap-y-1 px-2">
                           {rightLinks.map((navItem) => (
                             <NavbarSidebarItem
                               key={navItem.itemKey}
@@ -175,7 +184,11 @@ export default function Navbar({
                   </nav>
                 </div>
                 {mobileSidebarBottomItems && (
-                  <div className="flex flex-shrink-0 border-t border-neutral-200 p-4">
+                  <div
+                    className={clsx(
+                      'flex flex-shrink-0 border-t p-4',
+                      themeLineColor,
+                    )}>
                     {mobileSidebarBottomItems}
                   </div>
                 )}

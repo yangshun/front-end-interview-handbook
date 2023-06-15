@@ -75,7 +75,7 @@ export default function DropdownMenu({
   icon: Icon,
 }: Props) {
   return (
-    <Menu as="div" className="relative inline-block">
+    <Menu as="div" className="relative inline-block shrink-0">
       <div className="flex">
         <Menu.Button
           aria-label={isLabelHidden ? label : undefined}

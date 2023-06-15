@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { RiPlayLine } from 'react-icons/ri';
 import { RiAccountCircleLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
@@ -25,6 +25,11 @@ import type {
   NavbarPrimaryItem,
   NavLinkItem,
 } from '~/components/ui/Navbar/NavTypes';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundLayerEmphasizedHover,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
@@ -659,8 +664,8 @@ export default function NavbarImpl() {
     closeMobileNav: () => void;
   }>) {
     return (
-      <>
-        <div className="px-4 pt-2">
+      <div className="grid gap-y-2">
+        <div className="mt-1 px-4">
           <I18nSelect
             display="block"
             locale={locale ?? 'en-US'}
@@ -673,7 +678,7 @@ export default function NavbarImpl() {
             }}
           />
         </div>
-        <div className="px-4 pt-2">
+        <div className="px-4">
           <AppThemeSelect
             colorScheme={appThemePreference}
             display="block"
@@ -681,12 +686,14 @@ export default function NavbarImpl() {
           />
         </div>
         {isLoggedIn && (
-          <div className="space-y-1 px-2">
+          <div className="grid gap-y-1 px-2">
             {userNavigationLinks.map((props) => (
               <Anchor
                 key={props.itemKey}
                 className={clsx(
-                  'group flex items-center rounded-md px-2 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900',
+                  'group flex items-center rounded px-2 py-2 text-xs font-medium',
+                  themeTextSecondaryColor,
+                  themeBackgroundLayerEmphasizedHover,
                 )}
                 href={props.href}
                 variant="unstyled"
@@ -700,11 +707,16 @@ export default function NavbarImpl() {
           </div>
         )}
         {!isPremium && (
-          <div className="mt-4 px-4">
-            <Anchor
-              className="inline-flex w-full justify-center rounded-lg bg-neutral-900 py-2 px-3 text-sm font-semibold text-white hover:bg-neutral-700"
+          <div className="px-4">
+            <Button
+              display="block"
               href="/pricing"
-              variant="unstyled"
+              label={intl.formatMessage({
+                defaultMessage: 'Get Full Access',
+                description: 'Link label to the pricing page',
+                id: 'OugnPX',
+              })}
+              variant="primary"
               onClick={() => {
                 closeMobileNav();
                 gtag.event({
@@ -712,40 +724,32 @@ export default function NavbarImpl() {
                   category: 'ecommerce',
                   label: 'Get Full Access',
                 });
-              }}>
-              <FormattedMessage
-                defaultMessage="Get Full Access"
-                description="Link label to the pricing page"
-                id="OugnPX"
-              />{' '}
-              <span aria-hidden="true">→</span>
-            </Anchor>
+              }}
+            />
           </div>
         )}
-      </>
+      </div>
     );
   }
 
   const mobileSidebarBottomItems = isLoggedIn && (
-    <div className="group block flex-shrink-0">
-      <div className="flex items-center">
-        <div>
-          {user?.user_metadata?.avatar_url ? (
-            <img
-              alt=""
-              className="inline-block h-8 w-8 rounded-full"
-              src={user?.user_metadata?.avatar_url}
-            />
-          ) : (
-            <RiAccountCircleLine className="h-8 w-8 text-neutral-500" />
-          )}
-        </div>
-        <div className="ml-3">
-          <p className="text-sm font-medium text-neutral-700 group-hover:text-neutral-900">
-            {user?.user_metadata?.name ?? user?.email}
-          </p>
-        </div>
+    <div className="flex shrink-0 items-center gap-x-3">
+      <div>
+        {user?.user_metadata?.avatar_url ? (
+          <img
+            alt=""
+            className="inline-block h-8 w-8 rounded-full"
+            src={user?.user_metadata?.avatar_url}
+          />
+        ) : (
+          <RiAccountCircleLine
+            className={clsx('h-8 w-8', themeTextSecondaryColor)}
+          />
+        )}
       </div>
+      <Text color="subtitle" display="block" size="body2" weight="medium">
+        {user?.user_metadata?.name ?? user?.email}
+      </Text>
     </div>
   );
 

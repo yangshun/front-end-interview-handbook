@@ -33,7 +33,7 @@ export default function DropdownMenuItem({
           ),
           className: clsx(
             'block px-2 py-1.5',
-            'text-sm w-full text-left',
+            'w-full text-left',
             'rounded',
             active && 'bg-neutral-100 dark:bg-neutral-700',
           ),
