@@ -1,8 +1,10 @@
+import clsx from 'clsx';
 import { useId } from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import type { TextSize } from '~/components/ui/Text';
+import { themeIconColor } from '~/components/ui/theme';
 
 import QuestionLanguageLabel from './QuestionLanguageLabel';
 import type { QuestionLanguage } from './QuestionsTypes';
@@ -32,10 +34,10 @@ export default function QuestionLanguages({
       {showIcon && (
         <RiCodeSSlashLine
           aria-hidden="true"
-          className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
+          className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
         />
       )}
-      <div aria-labelledby={id} className="flex items-center space-x-2">
+      <div aria-labelledby={id} className="flex items-center gap-x-2">
         {languages.map((language) => (
           <QuestionLanguageLabel key={language} size={size} value={language} />
         ))}

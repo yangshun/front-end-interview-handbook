@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
+import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
@@ -64,7 +65,7 @@ export default function QuestionDifficultyLabel({
         {showIcon && (
           <RiFireLine
             aria-hidden="true"
-            className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
+            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
           />
         )}
         <Text

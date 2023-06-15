@@ -9,14 +9,16 @@ import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
-  mins: number;
+  frequency?: 'daily' | 'weekly';
+  hours: number;
   showIcon?: boolean;
   size?: TextSize;
 }>;
 
-export default function QuestionDurationLabel({
+export default function QuestionStudyAllocationLabel({
   showIcon = false,
-  mins,
+  hours,
+  frequency,
   size = 'body3',
 }: Props) {
   const id = useId();
@@ -46,14 +48,32 @@ export default function QuestionDurationLabel({
           />
         )}
         <Text className="whitespace-nowrap" color="secondary" size={size}>
-          <FormattedMessage
-            defaultMessage="{duration} mins"
-            description="Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
-            id="PfOyMR"
-            values={{
-              duration: mins,
-            }}
-          />
+          {(() => {
+            switch (frequency) {
+              case 'daily':
+                return (
+                  <FormattedMessage
+                    defaultMessage="{numberOfHours} hours daily"
+                    description="Number of hours needed on a daily basis. E.g. 4 hours daily"
+                    id="869F+x"
+                    values={{
+                      numberOfHours: hours,
+                    }}
+                  />
+                );
+              case 'weekly':
+                return (
+                  <FormattedMessage
+                    defaultMessage="{numberOfHours} hours weekly"
+                    description="Number of hours needed on a weekly basis. E.g. 4 hours weekly"
+                    id="WB/L0V"
+                    values={{
+                      numberOfHours: hours,
+                    }}
+                  />
+                );
+            }
+          })()}
         </Text>
       </div>
     </Tooltip>

@@ -10,7 +10,7 @@ type Props = Readonly<{
   children: React.ReactNode;
   darkMode?: 'horizontal' | 'none' | 'vertical';
   gapSize?: GapSize;
-  title: string;
+  title?: string;
 }>;
 
 type GapSize = 'lg' | 'md';
@@ -28,10 +28,12 @@ export default function UIExamplesGroup({
 }: Props) {
   return (
     <div>
-      <Container>
-        <Heading level="heading2">{title}</Heading>
-        <Divider className="mt-2" />
-      </Container>
+      {title && (
+        <Container>
+          <Heading level="heading2">{title}</Heading>
+          <Divider className="mt-2" />
+        </Container>
+      )}
       <Section>
         {(darkMode === 'vertical' || darkMode === 'none') && (
           <div className="flex flex-col">

@@ -1,13 +1,18 @@
+import clsx from 'clsx';
 import { useId } from 'react';
 import { RiLineChartLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { QuestionImportance } from '~/components/questions/common/QuestionsTypes';
+import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
+import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
+
 type Props = Readonly<{
   children?: React.ReactNode;
   showIcon?: boolean;
+  size?: TextSize;
   value: QuestionImportance;
 }>;
 
@@ -21,6 +26,7 @@ export default function QuestionImportanceLabel({
   children,
   showIcon = false,
   value,
+  size = 'body3',
 }: Props) {
   const id = useId();
   const intl = useIntl();
@@ -63,14 +69,13 @@ export default function QuestionImportanceLabel({
         {showIcon && (
           <RiLineChartLine
             aria-hidden="true"
-            className="mr-1.5 h-5 w-5 flex-shrink-0 text-neutral-400"
+            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
           />
         )}
         <Text
           className={ImportanceLabelClasses[value]}
           color="inherit"
-          size="body3"
-          weight="bold">
+          size={size}>
           {children ?? labels[value]}
         </Text>
       </div>
