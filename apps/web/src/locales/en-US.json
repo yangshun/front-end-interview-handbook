@@ -1659,6 +1659,10 @@
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
   },
+  "UTE1L6": {
+    "defaultMessage": "System",
+    "description": "System theme option label"
+  },
   "UXNTcT": {
     "defaultMessage": "India",
     "description": "India country"
@@ -2615,6 +2619,10 @@
     "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
     "description": "System design link"
   },
+  "lqvY0+": {
+    "defaultMessage": "Dark",
+    "description": "Dark theme option label"
+  },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
@@ -2658,6 +2666,10 @@
   "n0mDHU": {
     "defaultMessage": "Author",
     "description": "Author of the question"
+  },
+  "n4aKYo": {
+    "defaultMessage": "Theme",
+    "description": "Change site theme button label"
   },
   "n4tPZM": {
     "defaultMessage": "JavaScript and TypeScript Questions",
@@ -2726,6 +2738,10 @@
   "o4toU7": {
     "defaultMessage": "Only platform with in-depth solutions to the most commonly asked system design questions.",
     "description": "Table cell content for front end system design feature comparison in GFE."
+  },
+  "o6ktM9": {
+    "defaultMessage": "Light",
+    "description": "Light theme option label"
   },
   "oE3TMf": {
     "defaultMessage": "Quiz Questions",

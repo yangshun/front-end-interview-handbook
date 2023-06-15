@@ -11,6 +11,7 @@ import { I18nProvider } from '~/next-i18nostic/src';
 import type { Database } from '~/supabase/database.types';
 
 import AppContextProvider from './AppContextProvider';
+import AppThemePreferencesProvider from './AppThemePreferencesProvider';
 import ScrollManagementProvider from './ScrollManagementProvider';
 import ToastsProvider from './toasts/ToastsProvider';
 import TrpcClientProvider from './TrpcClientProvider';
@@ -44,21 +45,23 @@ export default function GlobalProviders({
           defaultLocale={nextI18nosticConfig.defaultLocale}
           locale={locale}
           messages={intlMessages}>
-          <SessionContextProvider supabaseClient={supabaseClient}>
-            <AppContextProvider>
-              <ScrollManagementProvider>
-                <UserProfileProvider>
-                  <UserPreferencesProvider>
-                    <ToastsProvider>
-                      <MDXProvider components={MDXComponents}>
-                        {children}
-                      </MDXProvider>
-                    </ToastsProvider>
-                  </UserPreferencesProvider>
-                </UserProfileProvider>
-              </ScrollManagementProvider>
-            </AppContextProvider>
-          </SessionContextProvider>
+          <AppThemePreferencesProvider>
+            <SessionContextProvider supabaseClient={supabaseClient}>
+              <AppContextProvider>
+                <ScrollManagementProvider>
+                  <UserProfileProvider>
+                    <UserPreferencesProvider>
+                      <ToastsProvider>
+                        <MDXProvider components={MDXComponents}>
+                          {children}
+                        </MDXProvider>
+                      </ToastsProvider>
+                    </UserPreferencesProvider>
+                  </UserProfileProvider>
+                </ScrollManagementProvider>
+              </AppContextProvider>
+            </SessionContextProvider>
+          </AppThemePreferencesProvider>
         </IntlProvider>
       </I18nProvider>
     </TrpcClientProvider>

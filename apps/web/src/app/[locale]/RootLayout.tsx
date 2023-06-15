@@ -14,6 +14,9 @@ import { themeBackgroundColor } from '~/components/ui/theme';
 
 import type { IntlMessages } from '~/i18n';
 
+import HTMLThemeUpdater from './HTMLThemeUpdater';
+import ThemedBody from './ThemedBody';
+
 import '~/styles/globals.css';
 
 type Props = Readonly<{
@@ -25,11 +28,10 @@ type Props = Readonly<{
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
-      className="dark"
       lang={locale.split('-')[0]}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
-      <body className={clsx('antialiased', themeBackgroundColor)}>
+      <ThemedBody className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
@@ -41,8 +43,9 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <SentryInit />
           <WebVitals />
           <I18nBetaBanner />
+          <HTMLThemeUpdater />
         </GlobalProviders>
-      </body>
+      </ThemedBody>
     </html>
   );
 }

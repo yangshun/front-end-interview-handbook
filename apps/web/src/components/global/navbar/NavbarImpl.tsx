@@ -15,6 +15,7 @@ import {
   useQuestionTechnologyLists,
 } from '~/data/QuestionFormats';
 
+import AppThemeSelect from '~/components/app-theme/AppThemeSelect';
 import I18nSelect from '~/components/i18n/I18nSelect';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -27,8 +28,10 @@ import type {
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
+import NavAppThemeDropdown from './NavAppThemeDropdown';
 import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
+import { useAppThemePreferences } from '../AppThemePreferencesProvider';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
 
@@ -603,6 +606,8 @@ function useUserNavigationLinks() {
 //   );
 // }
 export default function NavbarImpl() {
+  const { appThemePreference, setAppThemePreference } =
+    useAppThemePreferences();
   const user = useUser();
   const { isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
@@ -617,6 +622,7 @@ export default function NavbarImpl() {
     <>
       {/* <SearchButton /> */}
       <NavLocaleDropdown />
+      <NavAppThemeDropdown />
       {!isPremium && (
         <Button
           href="/pricing"
@@ -665,6 +671,13 @@ export default function NavbarImpl() {
 
               router.push(pathname, { locale: newLocale });
             }}
+          />
+        </div>
+        <div className="px-4 pt-2">
+          <AppThemeSelect
+            colorScheme={appThemePreference}
+            display="block"
+            onChange={setAppThemePreference}
           />
         </div>
         {isLoggedIn && (
