@@ -1091,6 +1091,10 @@
     "defaultMessage": "Summary of all the important things in a one-pager",
     "description": "Summary of important things in front end system design interviews"
   },
+  "KhP4uM": {
+    "defaultMessage": "Medium",
+    "description": "Medium difficulty label for question difficulty summary in question listing"
+  },
   "KjD2cI": {
     "defaultMessage": "Duration: High to Low",
     "description": "Sorting option for question list - sort by duration from high to low"
@@ -1546,6 +1550,10 @@
   "S+6OOS": {
     "defaultMessage": "Free",
     "description": "Free-of-charge label"
+  },
+  "S+iQW8": {
+    "defaultMessage": "Hard",
+    "description": "Hard difficulty label for question difficulty summary in question listing"
   },
   "S21xBI": {
     "defaultMessage": "Login to track your progress and access premium",
@@ -2315,6 +2323,10 @@
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
   },
+  "gO1Ygd": {
+    "defaultMessage": "<count>{questionCount}</count> questions",
+    "description": "Questions label for question difficulty summary in question listing"
+  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -2654,6 +2666,10 @@
   "lyjVwD": {
     "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"
+  },
+  "lz6hfa": {
+    "defaultMessage": "Easy",
+    "description": "Easy difficulty label for question difficulty summary in question listing"
   },
   "lztLqo": {
     "defaultMessage": "Front End Engineer",

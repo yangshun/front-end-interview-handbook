@@ -3,6 +3,7 @@
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -47,6 +48,20 @@ export default function ScrapbookPage() {
               <div className="inline-flex gap-x-6">
                 <QuestionCountLabel count={47} showIcon={true} />
                 <QuestionCountLabel count={123} showIcon={true} />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="inline-flex flex-col items-start gap-y-6">
+                <QuestionListingDifficultySummary
+                  easy={67}
+                  hard={78}
+                  medium={36}
+                />
+                <QuestionListingDifficultySummary
+                  easy={1}
+                  hard={5678}
+                  medium={234}
+                />
               </div>
             </UIExamplesGroup>
           </div>

@@ -2,14 +2,14 @@ import { useId } from 'react';
 import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import Tooltip from '~/components/ui/Tooltip';
 
-type Props = Readonly<{
-  easy: number;
-  hard: number;
-  medium: number;
-  showIcon?: boolean;
-}>;
+type Props = Readonly<
+  Record<QuestionDifficulty, number> & {
+    showIcon?: boolean;
+  }
+>;
 
 const fullWidth = 140;
 
