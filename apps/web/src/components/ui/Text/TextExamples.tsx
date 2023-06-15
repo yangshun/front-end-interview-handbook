@@ -5,11 +5,17 @@ import { Fragment } from 'react';
 import type { TextColor, TextSize, TextWeight } from './Text';
 import Text from './Text';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import { themeBackgroundInvertColor } from '../theme';
 
 const colors: ReadonlyArray<TextColor> = [
   'default',
   'subtitle',
   'secondary',
+  'subtle',
+];
+
+const specialColors: ReadonlyArray<TextColor> = [
+  'label',
   'placeholder',
   'disabled',
   'active',
@@ -18,6 +24,7 @@ const colors: ReadonlyArray<TextColor> = [
   'invert',
   'inherit',
 ];
+
 const sizes: ReadonlyArray<TextSize> = ['body', 'body2', 'body3'];
 const weights: ReadonlyArray<TextWeight> = ['normal', 'medium', 'bold'];
 
@@ -39,19 +46,51 @@ export default function TextExamples() {
           ))}
         </div>
       ))}
-      <div className="flex flex-wrap gap-4">
-        {colors.map((color) => (
-          <Text
-            key={color}
-            className={clsx(
-              'whitespace-nowrap',
-              color === 'invert' && 'bg-black dark:bg-white',
-            )}
-            color={color}>
-            {capitalize(color)}
-          </Text>
-        ))}
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td className="py-1">
+              <Text weight="medium">Common Colors</Text>
+            </td>
+            <td>
+              <div className="flex flex-wrap items-center gap-4">
+                {colors.map((color) => (
+                  <Text
+                    key={color}
+                    className={clsx(
+                      'whitespace-nowrap',
+                      color === 'invert' && themeBackgroundInvertColor,
+                    )}
+                    color={color}>
+                    {capitalize(color)}
+                  </Text>
+                ))}
+                <Text size="body2">(Becomes more muted)</Text>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td className="py-1">
+              <Text weight="medium">Special Colors</Text>
+            </td>
+            <td>
+              <div className="flex flex-wrap items-center gap-4">
+                {specialColors.map((color) => (
+                  <Text
+                    key={color}
+                    className={clsx(
+                      'whitespace-nowrap',
+                      color === 'invert' && themeBackgroundInvertColor,
+                    )}
+                    color={color}>
+                    {capitalize(color)}
+                  </Text>
+                ))}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </UIExamplesGroup>
   );
 }

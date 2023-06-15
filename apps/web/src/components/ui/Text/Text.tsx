@@ -1,6 +1,23 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import {
+  themeTextBrandColor,
+  themeTextDangerColor,
+  themeTextDarkColor,
+  themeTextDisabledColor,
+  themeTextInvertColor,
+  themeTextLabelColor,
+  themeTextLightColor,
+  themeTextPlaceholderColor,
+  themeTextSecondaryColor,
+  themeTextSubtitleColor,
+  themeTextSubtleColor,
+  themeTextSuccessColor,
+} from '~/components/ui/theme';
+
+import { themeTextColor } from '../theme';
+
 export type TextColor =
   | 'active'
   | 'dark'
@@ -9,11 +26,13 @@ export type TextColor =
   | 'error'
   | 'inherit'
   | 'invert'
+  | 'label'
+  | 'light'
   | 'placeholder'
   | 'secondary'
   | 'subtitle'
-  | 'success'
-  | 'white';
+  | 'subtle'
+  | 'success';
 export type TextDisplay =
   | 'block'
   | 'flex'
@@ -50,18 +69,20 @@ const weightClasses: Record<TextWeight, string> = {
 };
 
 const colorClasses: Record<TextColor, string> = {
-  active: 'text-brand-dark dark:text-brand',
-  dark: 'text-neutral-900',
-  default: 'text-neutral-900 dark:text-neutral-100',
-  disabled: 'text-neutral-300 dark:text-neutral-700',
-  error: 'text-danger',
+  active: themeTextBrandColor,
+  dark: themeTextDarkColor,
+  default: themeTextColor,
+  disabled: themeTextDisabledColor,
+  error: themeTextDangerColor,
   inherit: '',
-  invert: 'text-white dark:text-neutral-900',
-  placeholder: 'text-neutral-400 dark:text-neutral-600',
-  secondary: 'text-neutral-600 dark:text-neutral-400',
-  subtitle: 'text-neutral-700 dark:text-neutral-300',
-  success: 'text-success dark:text-success-light',
-  white: 'text-white',
+  invert: themeTextInvertColor,
+  label: themeTextLabelColor,
+  light: themeTextLightColor,
+  placeholder: themeTextPlaceholderColor,
+  secondary: themeTextSecondaryColor,
+  subtitle: themeTextSubtitleColor,
+  subtle: themeTextSubtleColor,
+  success: themeTextSuccessColor,
 };
 
 export default function Text({
