@@ -133,9 +133,10 @@ export default function QuestionsCategoryPage({
   return (
     <>
       <PromoBanner sticky={true} />
-      <Container className="grid gap-y-10 py-12 pt-6" variant="normal">
+      <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
         <QuestionCategoryTitleSection
           category={category}
+          count={codingQuestions.length + quizQuestions.length}
           description={description}
           logo={logo}
           title={pageTitle}

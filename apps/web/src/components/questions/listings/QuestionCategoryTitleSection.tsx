@@ -1,17 +1,15 @@
-import clsx from 'clsx';
 import type { ReactNode } from 'react';
+import { RiCss3Line, RiHtml5Line, RiReactjsLine } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import TextPairing from '~/components/common/TextPairing';
-import CSS3Logo from '~/components/icons/CSS3Logo';
-import HTML5Logo from '~/components/icons/HTML5Logo';
-import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
-import ReactLogo from '~/components/icons/ReactLogo';
-import Anchor from '~/components/ui/Anchor';
-import Text from '~/components/ui/Text';
-import {
-  themeBackgroundEmphasized,
-  themeLineColor,
-} from '~/components/ui/theme';
+import RiJavaScriptLine from '~/components/icons/remix/RiJavaScriptLine';
+import Badge from '~/components/ui/Badge';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Tabs from '~/components/ui/Tabs';
+
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 import type { QuestionListCategory } from './types';
 
@@ -19,80 +17,95 @@ type CategoryValue = QuestionListCategory | 'react';
 
 type Props = Readonly<{
   category: CategoryValue;
+  count: number;
   description: string;
   logo?: ReactNode;
   title: string;
 }>;
 
 const items: ReadonlyArray<{
+  href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   value: CategoryValue;
 }> = [
   {
-    icon: JavaScriptLogo,
+    href: '/questions/js',
+    icon: RiJavaScriptLine,
     label: 'JavaScript',
     value: 'js',
   },
   {
-    icon: HTML5Logo,
+    href: '/questions/html',
+    icon: RiHtml5Line,
     label: 'HTML',
     value: 'html',
   },
   {
-    icon: CSS3Logo,
+    href: '/questions/css',
+    icon: RiCss3Line,
     label: 'CSS',
     value: 'css',
   },
   {
-    icon: ReactLogo,
+    href: '/questions/react',
+    icon: RiReactjsLine,
     label: 'React',
     value: 'react',
   },
 ];
 
 export default function QuestionCategoryTitleSection({
+  count,
   category,
   description,
   logo,
   title,
 }: Props) {
+  const intl = useIntl();
+
   return (
-    <div className="flex flex-col gap-y-8">
-      <div className="relative flex flex-wrap gap-3">
-        {items.map(({ icon: Icon, label, value }) => (
-          <Anchor
-            key={value}
-            className={clsx(
-              'group rounded-full border px-8 py-2',
-              themeLineColor,
-              value === category
-                ? 'bg-brand-lightest dark:bg-neutral-800'
-                : themeBackgroundEmphasized,
+    <div className="grid gap-y-12">
+      <div className="grid gap-y-6">
+        <div className="flex items-center gap-x-4">
+          <Heading level="heading4">
+            <FormattedMessage
+              defaultMessage="Practice Questions"
+              description="Questions list page title"
+              id="BYD90z"
+            />
+          </Heading>
+          <Badge
+            label={intl.formatMessage(
+              {
+                defaultMessage: '{questionCount}+ questions',
+                description: 'Number of questions in the list',
+                id: 'LzKi2d',
+              },
+              {
+                questionCount: roundQuestionCountToNearestTen(count),
+              },
             )}
-            href={`/questions/${value}`}
-            variant="unstyled">
-            <Text
-              className="items-center gap-x-2"
-              display="flex"
-              size="body2"
-              weight="medium">
-              <Icon
-                className={clsx(
-                  'h-4 w-4',
-                  value !== category &&
-                    'opacity-50 grayscale transition-colors group-hover:opacity-100 group-hover:grayscale-0',
-                )}
-              />{' '}
-              {label}
-            </Text>
-          </Anchor>
-        ))}
+            size="sm"
+            variant="primary"
+          />
+        </div>
+        <Tabs
+          label={intl.formatMessage({
+            defaultMessage: 'Select question category',
+            description: 'Tab label to select another question category',
+            id: 'MOxuKN',
+          })}
+          tabs={items}
+          value={category}
+        />
       </div>
-      <div className="flex gap-6">
-        {logo}
-        <TextPairing description={description} title={title} />
-      </div>
+      <Section>
+        <div className="flex gap-6">
+          {logo}
+          <TextPairing description={description} title={title} />
+        </div>
+      </Section>
     </div>
   );
 }

@@ -315,7 +315,7 @@ export default async function Page({ params }: Props) {
       codingQuestions={codingQuestions}
       description={description}
       format={format}
-      logo={<Logo className="h-24 w-24" />}
+      logo={<Logo className="h-16 w-16 rounded" />}
       pageTitle={pageTitle}
       questionCompletionCount={questionCompletionCount}
       quizQuestions={sortQuestions(quizQuestions, 'importance', false)}

@@ -19,7 +19,7 @@ export default function TextPairing({
   mode = 'light',
 }: Props) {
   return (
-    <div className="grid gap-y-2 lg:gap-y-3">
+    <div className="grid gap-y-2">
       {sectionLabel && (
         <MarketingSectionTitleLabel>{sectionLabel}</MarketingSectionTitleLabel>
       )}
@@ -28,12 +28,12 @@ export default function TextPairing({
           mode === 'light' && 'text-neutral-900',
           mode === 'dark' && 'text-white',
         )}
-        level="heading4">
+        level="heading5">
         {title}
       </Heading>
       {description && (
         <Text
-          className={clsx('max-w-xl leading-6')}
+          className={clsx('max-w-3xl leading-6')}
           color="secondary"
           display="block"
           size="body2">

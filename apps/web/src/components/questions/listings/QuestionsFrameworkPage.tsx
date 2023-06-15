@@ -35,9 +35,10 @@ export default function QuestionsFrameworkPage({
   return (
     <>
       <PromoBanner />
-      <Container className="grid gap-y-10 py-12 pt-6" variant="normal">
+      <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
         <QuestionCategoryTitleSection
           category="react"
+          count={questionList.length}
           description={description}
           logo={logo}
           title={title}

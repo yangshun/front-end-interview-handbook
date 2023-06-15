@@ -226,10 +226,10 @@ export default function QuestionsQuizListWithFilters({
           </div>
         ) : (
           <>
+            <div className="hidden sm:block">{squareFilters}</div>
             <div
               className={clsx(
-                'flex flex-col justify-end gap-2 border-b pb-4 sm:flex-row sm:items-center',
-                themeLineColor,
+                'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
               )}>
               <div className="flex-1">
                 <TextInput
@@ -255,7 +255,6 @@ export default function QuestionsQuizListWithFilters({
               </div>
               {sortAndFilters}
             </div>
-            <div className="hidden sm:block">{squareFilters}</div>
           </>
         )}
         <div>

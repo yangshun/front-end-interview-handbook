@@ -333,11 +333,13 @@ export default function QuestionsCodingListWithFilters({
       className={clsx(
         layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
       )}>
-      <section className="space-y-6 lg:col-span-7 lg:mt-0">
+      <section className="grid gap-y-6 lg:col-span-7 lg:mt-0">
+        {mode === 'default' && (
+          <div className="hidden sm:block">{squareFilters}</div>
+        )}
         <div
           className={clsx(
-            'flex flex-col justify-end gap-2 border-b pb-4 sm:flex-row sm:items-center',
-            themeLineColor,
+            'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
           )}>
           <div className="flex-1">
             <TextInput
@@ -363,9 +365,6 @@ export default function QuestionsCodingListWithFilters({
           </div>
           {sortAndFilters}
         </div>
-        {mode === 'default' && (
-          <div className="hidden sm:block">{squareFilters}</div>
-        )}
         {showPaywall ? (
           <QuestionPaywall
             subtitle={intl.formatMessage({
