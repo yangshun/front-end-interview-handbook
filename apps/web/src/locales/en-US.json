@@ -199,6 +199,10 @@
     "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
+  "2vDjTb": {
+    "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
+    "description": "Description for study plans page"
+  },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
     "description": "Label for warm up questions"
@@ -466,6 +470,10 @@
   "81i+95": {
     "defaultMessage": "Profile",
     "description": "Profile page title"
+  },
+  "869F+x": {
+    "defaultMessage": "{numberOfHours} hours daily",
+    "description": "Number of hours needed on a daily basis. E.g. 4 hours daily"
   },
   "8GTfgf": {
     "defaultMessage": "Welcome Back",
@@ -1123,6 +1131,10 @@
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
   },
+  "L/qzr6": {
+    "defaultMessage": "{numberOfQuestions} questions",
+    "description": "Number of questions in a list"
+  },
   "L0IePi": {
     "defaultMessage": "Because front end interviews are about <span>fundamentals</span>.",
     "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
@@ -1767,6 +1779,10 @@
     "defaultMessage": "Stage {stageNumber}",
     "description": "Preparation stage number"
   },
+  "WB/L0V": {
+    "defaultMessage": "{numberOfHours} hours weekly",
+    "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
+  },
   "WBKQzA": {
     "defaultMessage": "Dark",
     "description": "Select label for dark console theme in console settings"
@@ -1838,6 +1854,10 @@
   "XygrPg": {
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
+  },
+  "Y4hby8": {
+    "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
+    "description": "Difficulty breakdown tooltip displayed on question cards found on question lists"
   },
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
@@ -2230,6 +2250,10 @@
   "fQHORb": {
     "defaultMessage": "Show DevTool",
     "description": "Label for button to expand the DevTool"
+  },
+  "fRGOI+": {
+    "defaultMessage": "Number of questions",
+    "description": "Total number of questions in a list"
   },
   "fSn4nv": {
     "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
@@ -2675,6 +2699,10 @@
     "defaultMessage": "JavaScript and TypeScript Questions",
     "description": "JavaScript Questions list page title"
   },
+  "n8q6oB": {
+    "defaultMessage": "Recommended duration",
+    "description": "Recommended duration tooltip displayed on question cards found on question lists"
+  },
   "nFYr2a": {
     "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -2926,6 +2954,10 @@
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
     "description": "Title of Interview Preparation System Design page"
+  },
+  "swjkuF": {
+    "defaultMessage": "Study plans",
+    "description": "Title of study plans page"
   },
   "t+g7fF": {
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",

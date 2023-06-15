@@ -140,39 +140,17 @@ function useQuestionsSidebarNavigation() {
       type: 'popover',
     },
     {
-      currentMatchRegex: /prepare\/(one-week|one-month|three-months)/,
+      currentMatchRegex:
+        /study-plans|prepare\/(one-week|one-month|three-months)/,
+      href: '/study-plans',
       icon: RiCalendar2Line,
-      items: [
-        {
-          href: preparationPlansExtra['one-week'].href,
-          icon: preparationPlansExtra['one-week'].iconOutline,
-          key: preparationPlansExtra['one-week'].name,
-          name: preparationPlansExtra['one-week'].name + ' Plan',
-          type: 'link',
-        },
-        {
-          href: preparationPlansExtra['one-month'].href,
-          icon: preparationPlansExtra['one-month'].iconOutline,
-          key: preparationPlansExtra['one-month'].name,
-          name: preparationPlansExtra['one-month'].name + ' Plan',
-          type: 'link',
-        },
-        {
-          href: preparationPlansExtra['three-months'].href,
-          icon: preparationPlansExtra['three-months'].iconOutline,
-          key: preparationPlansExtra['three-months'].name,
-          name: preparationPlansExtra['three-months'].name + ' Plan',
-          type: 'link',
-        },
-      ],
       key: 'study-plans',
       name: intl.formatMessage({
         defaultMessage: 'Study Plans',
         description: 'Sidebar label for Study Plans category',
         id: 'wVEJye',
       }),
-      popoverAlignment: 'middle',
-      type: 'popover',
+      type: 'link',
     },
   ];
 

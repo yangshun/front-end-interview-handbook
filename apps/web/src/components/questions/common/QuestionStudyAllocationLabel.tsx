@@ -27,17 +27,17 @@ export default function QuestionStudyAllocationLabel({
   return (
     <Tooltip
       label={intl.formatMessage({
-        defaultMessage: 'Recommended Duration',
+        defaultMessage: 'Recommended duration',
         description:
           'Recommended duration tooltip displayed on question cards found on question lists',
-        id: 'BtCbN4',
+        id: 'n8q6oB',
       })}
       position="above">
       <span className="sr-only" id={id}>
         <FormattedMessage
-          defaultMessage="Recommended Duration"
+          defaultMessage="Recommended duration"
           description="Recommended duration tooltip displayed on question cards found on question lists"
-          id="BtCbN4"
+          id="n8q6oB"
         />
       </span>
       <div aria-labelledby={id} className="flex items-center">
