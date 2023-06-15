@@ -50,13 +50,13 @@ const classes: Record<
     backgroundClass: 'bg-danger',
     icon: RiCloseCircleFill,
     iconClass: 'text-white focus:ring-white-500',
-    textColor: 'white',
+    textColor: 'light',
   },
   info: {
     backgroundClass: 'bg-info',
     icon: RiInformationFill,
     iconClass: 'text-white focus:ring-white-500',
-    textColor: 'white',
+    textColor: 'light',
   },
   plain: {
     backgroundClass: 'bg-neutral-900 dark:bg-white',
@@ -67,19 +67,19 @@ const classes: Record<
     backgroundClass: 'bg-brand-dark',
     icon: RiStarFill,
     iconClass: 'text-white focus:ring-white-500',
-    textColor: 'white',
+    textColor: 'light',
   },
   success: {
     backgroundClass: 'bg-success',
     icon: RiCheckboxCircleFill,
     iconClass: 'text-white focus:ring-white-500',
-    textColor: 'white',
+    textColor: 'light',
   },
   warning: {
     backgroundClass: 'bg-warning',
     icon: RiErrorWarningFill,
     iconClass: 'text-white focus:ring-white-500',
-    textColor: 'white',
+    textColor: 'light',
   },
 };
 
@@ -139,7 +139,10 @@ export default function Toast({
           'pointer-events-auto w-full max-w-sm overflow-hidden rounded shadow-lg',
           backgroundClass,
         )}>
-        <div className="flex w-full items-start gap-x-2 py-2 px-3">
+        <Text
+          className="w-full items-start gap-x-2 py-2 px-3"
+          color={textColor}
+          display="flex">
           {Icon && <Icon className={clsx('h-5 w-5 shrink-0', iconClass)} />}
           <div className="w-0 grow space-y-1">
             <Text
@@ -173,7 +176,7 @@ export default function Toast({
               <RiCloseLine aria-hidden="true" className="h-5 w-5" />
             </button>
           </div>
-        </div>
+        </Text>
       </div>
     </Transition>
   );
