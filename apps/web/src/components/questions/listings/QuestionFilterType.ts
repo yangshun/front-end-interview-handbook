@@ -10,5 +10,10 @@ export type QuestionFilter<
   matches: (question: Q) => boolean;
   name: string;
   onChange: (value: T) => void;
-  options: ReadonlyArray<{ label: ReactNode; tooltip?: string; value: T }>;
+  options: ReadonlyArray<{
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    label: ReactNode;
+    tooltip?: string;
+    value: T;
+  }>;
 }>;

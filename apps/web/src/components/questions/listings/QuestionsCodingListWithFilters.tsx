@@ -321,7 +321,6 @@ export default function QuestionsCodingListWithFilters({
   const squareFilters = (
     <div className="shrink-0">
       <QuestionListingSquareFilterSectionDesktop
-        itemsPerRow={3}
         section={codingFormatFilterOptions}
         values={codingFormatFilters}
       />

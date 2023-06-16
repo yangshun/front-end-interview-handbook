@@ -197,14 +197,12 @@ export default function QuestionsQuizListWithFilters({
   );
   const squareFilters = (
     <QuestionListingSquareFilterSectionDesktop
-      itemsPerRow={5}
       section={quizTopicFilterOptions}
       values={quizTopicFilters}
     />
   );
   const squareFiltersEmbedded = (
     <QuestionListingSquareFilterSectionDesktop
-      itemsPerRow={4}
       limit={3}
       section={quizTopicFilterOptions}
       values={quizTopicFilters}

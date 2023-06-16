@@ -1,12 +1,23 @@
 'use client';
 
-import { RiCodeSSlashLine } from 'react-icons/ri';
+import { useState } from 'react';
+import {
+  RiBugLine,
+  RiCodeSSlashLine,
+  RiFolder4Line,
+  RiGlobalLine,
+  RiNodeTree,
+  RiQuestionnaireLine,
+  RiShieldKeyholeLine,
+  RiTerminalBoxLine,
+} from 'react-icons/ri';
 
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
+import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
 import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/QuestionsProgressPanel';
 import Container from '~/components/ui/Container';
@@ -21,6 +32,10 @@ import {
 } from '~/components/ui/theme';
 
 export default function ScrapbookPage() {
+  const [selectedFilters, setSelectedFilters] = useState<Set<string>>(
+    new Set(),
+  );
+
   return (
     <div className="grid gap-y-16">
       <Container className="grid gap-y-6">
@@ -157,6 +172,73 @@ export default function ScrapbookPage() {
                   easy={1}
                   hard={5678}
                   medium={234}
+                />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="grid items-start gap-y-6">
+                <QuestionListingSquareFilterSectionDesktop
+                  section={{
+                    id: '',
+                    matches: () => true,
+                    name: '',
+                    onChange: (value) => {
+                      setSelectedFilters((oldFilters) => {
+                        const newFilters = new Set(oldFilters);
+
+                        if (oldFilters.has(value)) {
+                          newFilters.delete(value);
+                        } else {
+                          newFilters.add(value);
+                        }
+
+                        return newFilters;
+                      });
+                    },
+                    options: [
+                      {
+                        icon: RiFolder4Line,
+                        label: 'All topics',
+                        value: 'all-topics',
+                      },
+                      {
+                        icon: RiGlobalLine,
+                        label: 'Internationalization',
+                        value: 'internationalization',
+                      },
+                      {
+                        icon: RiShieldKeyholeLine,
+                        label: 'Security',
+                        value: 'security',
+                      },
+                      {
+                        icon: RiBugLine,
+                        label: 'Testing',
+                        value: 'Testing',
+                      },
+                      {
+                        icon: RiFolder4Line,
+                        label: 'All questions',
+                        value: 'all-questions',
+                      },
+                      {
+                        icon: RiGlobalLine,
+                        label: 'Coding',
+                        value: 'coding',
+                      },
+                      {
+                        icon: RiQuestionnaireLine,
+                        label: 'Quiz',
+                        value: 'quiz',
+                      },
+                      {
+                        icon: RiNodeTree,
+                        label: 'System design',
+                        value: 'system-design',
+                      },
+                    ],
+                  }}
+                  values={selectedFilters}
                 />
               </div>
             </UIExamplesGroup>
