@@ -5,49 +5,20 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeGlassyBorder } from '~/components/ui/theme';
 
+import QuestionsProgressBar from '../common/QuestionsProgressBar';
 import type { QuestionDifficulty } from '../common/QuestionsTypes';
 
-type QuestionDifficultyBreakdownBarProps = Readonly<{
-  difficulty: QuestionDifficulty;
-  questionCount: number;
-  totalQuestionCount: number;
-}>;
-
-const DifficultyBackgroundClasses: Record<QuestionDifficulty, string> = {
+const difficultyBackgroundClasses: Record<QuestionDifficulty, string> = {
   easy: 'bg-green',
   hard: 'bg-red-400',
   medium: 'bg-orange-400',
 };
 
-const DifficultyLabelClasses: Record<QuestionDifficulty, string> = {
+const difficultyLabelClasses: Record<QuestionDifficulty, string> = {
   easy: 'text-green',
   hard: 'text-red-400',
   medium: 'text-orange-400',
 };
-
-function QuestionDifficultyBreakdownBar({
-  difficulty,
-  questionCount,
-  totalQuestionCount,
-}: QuestionDifficultyBreakdownBarProps) {
-  const widthPercentage = Math.round(
-    (questionCount / totalQuestionCount) * 100,
-  );
-
-  return (
-    <div className="relative h-1.5 w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800">
-      <div
-        className={clsx(
-          'absolute h-full rounded-full',
-          DifficultyBackgroundClasses[difficulty],
-        )}
-        style={{
-          width: `${widthPercentage}%`,
-        }}
-      />
-    </div>
-  );
-}
 
 type QuestionListingDifficultySummaryItemProps = Readonly<{
   difficulty: QuestionDifficulty;
@@ -92,16 +63,18 @@ function QuestionListingDifficultySummaryItem({
     <>
       <div className="grid gap-1 pb-2">
         <Text
-          className={DifficultyLabelClasses[difficulty]}
+          className={difficultyLabelClasses[difficulty]}
           color="inherit"
           size="body3"
           weight="medium">
           {barLabel}
         </Text>
-        <QuestionDifficultyBreakdownBar
-          difficulty={difficulty}
-          questionCount={questionCount}
-          totalQuestionCount={totalQuestionCount}
+        <QuestionsProgressBar
+          heightClass="h-1.5"
+          label={barLabel}
+          progressClass={difficultyBackgroundClasses[difficulty]}
+          total={totalQuestionCount}
+          value={questionCount}
         />
       </div>
       <div>

@@ -16,13 +16,13 @@ type Props = Readonly<{
 
 export default function QuestionsProgressPanel({
   title,
-  icon: Icon,
+  icon: Icon, // TODO(redesign): determine if we want to display icons.
   completedQuestions,
   progressBarClassName,
   variant,
   totalQuestions,
 }: Props) {
-const intl = useIntl();
+  const intl = useIntl();
 
   const titleLabel = (
     <Text size="body2" weight="medium">
@@ -32,9 +32,10 @@ const intl = useIntl();
 
   const progressBar = (
     <QuestionsProgressBar
-      className={progressBarClassName}
-      completed={completedQuestions}
+      label={title}
+      progressClass={progressBarClassName}
       total={totalQuestions}
+      value={completedQuestions}
     />
   );
 

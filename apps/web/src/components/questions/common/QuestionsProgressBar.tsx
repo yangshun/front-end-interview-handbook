@@ -1,23 +1,39 @@
 import clsx from 'clsx';
 
 type Props = Readonly<{
-  className: string;
-  completed: number;
+  heightClass?: string;
+  label: string;
+  progressClass: string;
   total: number;
+  value: number;
 }>;
 
 export default function QuestionsProgressBar({
-  completed,
+  progressClass,
+  heightClass = 'h-2',
+  value,
+  label,
   total,
-  className,
 }: Props) {
-  const progress = (completed / total) * 100;
+  const widthPercentage = Math.min(value / Math.max(total, 1), 1);
 
   return (
-    <div className="h-2 w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800">
+    <div
+      aria-label={label}
+      aria-valuemax={total}
+      aria-valuemin={0}
+      aria-valuenow={value}
+      className={clsx(
+        'w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800',
+        heightClass,
+      )}
+      role="progressbar">
       <div
-        className={clsx('h-full rounded-full', className)}
-        style={{ width: `${progress}%` }}
+        className={clsx(
+          'h-full rounded-full transition-[width]',
+          progressClass,
+        )}
+        style={{ width: `${widthPercentage * 100}%` }}
       />
     </div>
   );

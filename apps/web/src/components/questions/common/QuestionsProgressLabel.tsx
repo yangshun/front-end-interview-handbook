@@ -41,9 +41,10 @@ export default function QuestionProgressLabel({
           className={clsx('h-5 w-5 shrink-0', themeIconColor)}
         />
         <QuestionsProgressBar
-          className={barClassName}
-          completed={completed}
+          label={label}
+          progressClass={barClassName}
           total={total}
+          value={completed}
         />
         <div className="shrink-0">
           <QuestionsProgressFraction completed={completed} total={total} />
