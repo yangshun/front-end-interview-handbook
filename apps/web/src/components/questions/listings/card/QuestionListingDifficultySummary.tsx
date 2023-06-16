@@ -1,12 +1,11 @@
-import clsx from 'clsx';
 import { useMemo } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
-import { themeBackgroundColor, themeGlassyBorder } from '~/components/ui/theme';
 
-import QuestionsProgressBar from '../common/QuestionsProgressBar';
-import type { QuestionDifficulty } from '../common/QuestionsTypes';
+import QuestionListingSideCard from './QuestionListingSideCard';
+import QuestionsProgressBar from '../../common/QuestionsProgressBar';
+import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 
 const difficultyBackgroundClasses: Record<QuestionDifficulty, string> = {
   easy: 'bg-green',
@@ -108,17 +107,8 @@ export default function QuestionListingDifficultySummary({
   const total = easy + hard + medium;
 
   return (
-    <div
-      className={clsx(
-        'flex overflow-clip rounded-lg bg-white dark:bg-neutral-800/40',
-        themeBackgroundColor,
-        themeGlassyBorder,
-      )}>
-      <div
-        aria-hidden="true"
-        className="h-full w-1.5 bg-neutral-200 dark:bg-neutral-600"
-      />
-      <div className="grid flex-1 py-3 pl-2.5 pr-4">
+    <QuestionListingSideCard stripClassName="bg-neutral-200 dark:bg-neutral-600">
+      <div className="grid py-3 pl-2.5 pr-4">
         <div className="grid grid-cols-2 items-end gap-y-1 gap-x-4">
           <QuestionListingDifficultySummaryItem
             difficulty="easy"
@@ -137,6 +127,6 @@ export default function QuestionListingDifficultySummary({
           />
         </div>
       </div>
-    </div>
+    </QuestionListingSideCard>
   );
 }

@@ -38,7 +38,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-import QuestionListingDifficultySummary from './QuestionListingDifficultySummary';
+import QuestionListingDifficultySummary from './card/QuestionListingDifficultySummary';
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';

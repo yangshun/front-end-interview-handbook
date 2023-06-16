@@ -18,7 +18,8 @@ import QuestionProgressLabel from '~/components/questions/common/QuestionsProgre
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsGuidesList from '~/components/questions/dashboard/QuestionsGuidesList';
-import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
+import QuestionListingDifficultySummary from '~/components/questions/listings/card/QuestionListingDifficultySummary';
+import QuestionListingQuestionCount from '~/components/questions/listings/card/QuestionListingQuestionCount';
 import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
 import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/QuestionsProgressPanel';
@@ -162,6 +163,12 @@ export default function ScrapbookPage() {
                   },
                 }}
               />
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="inline-grid grid-cols-2 gap-x-2">
+                <QuestionListingQuestionCount count={78} variant="free" />
+                <QuestionListingQuestionCount count={181} variant="premium" />
+              </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">

@@ -219,6 +219,10 @@
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
   },
+  "3NSzVn": {
+    "defaultMessage": "Premium",
+    "description": "Premium label for free vs premium question breakdown in question listing"
+  },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
@@ -610,6 +614,10 @@
   "Axiomj": {
     "defaultMessage": "Questions",
     "description": "Sidebar label for Questions Bank page"
+  },
+  "B0TCc0": {
+    "defaultMessage": "<count>{questionCount}</count><questions>questions</questions>",
+    "description": "Questions label for free vs premium question breakdown in question listing"
   },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
@@ -1170,6 +1178,10 @@
   "LPfKTO": {
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
+  },
+  "LYaH0T": {
+    "defaultMessage": "Free",
+    "description": "Free label for free vs premium question breakdown in question listing"
   },
   "LYxZLx": {
     "defaultMessage": "CSS Questions",
