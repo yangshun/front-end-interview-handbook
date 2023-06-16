@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { RiAddLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import {
+  countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/questions/common/QuestionsProcessor';
@@ -30,6 +32,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
+import QuestionTotalTimeLabel from '../common/QuestionTotalTimeLabel';
 
 type Props = Readonly<{
   layout?: 'embedded' | 'full';
@@ -97,6 +100,7 @@ export default function QuestionsQuizListWithFilters({
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
+  const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div>
@@ -212,72 +216,87 @@ export default function QuestionsQuizListWithFilters({
   return (
     <div
       className={clsx(
-        layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
+        layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-6',
       )}>
-      <section className="space-y-6 lg:col-span-7 lg:mt-0">
-        {layout === 'embedded' ? (
-          <div className="flex items-center justify-between gap-8">
-            <div className="hidden sm:block">
-              {mode === 'default' && squareFiltersEmbedded}
-            </div>
-            {sortAndFilters}
-          </div>
-        ) : (
-          <>
-            <div className="hidden sm:block">{squareFilters}</div>
-            <div
-              className={clsx(
-                'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
-              )}>
-              <div className="flex-1">
-                <TextInput
-                  autoComplete="off"
-                  isLabelHidden={true}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Search quiz questions',
-                    description:
-                      'Placeholder for search input of quiz question list',
-                    id: 'YbRLG7',
-                  })}
-                  placeholder={intl.formatMessage({
-                    defaultMessage: 'Search quiz questions',
-                    description:
-                      'Placeholder for search input of quiz question list',
-                    id: 'YbRLG7',
-                  })}
-                  size="sm"
-                  startIcon={RiSearchLine}
-                  value={query}
-                  onChange={(value) => setQuery(value)}
-                />
+      <section className="flex flex-col gap-6 lg:col-span-7 lg:mt-0">
+        <div className="flex flex-col gap-4">
+          {layout === 'embedded' ? (
+            <div className="flex items-center justify-between gap-8">
+              <div className="hidden sm:block">
+                {mode === 'default' && squareFiltersEmbedded}
               </div>
               {sortAndFilters}
             </div>
-          </>
-        )}
-        <div>
-          <Heading className="sr-only" level="custom">
-            <FormattedMessage
-              defaultMessage="Questions List"
-              description="Screenreader text for quiz questions list"
-              id="AYkO94"
+          ) : (
+            <>
+              <div className="hidden sm:block">{squareFilters}</div>
+              <div
+                className={clsx(
+                  'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
+                )}>
+                <div className="flex-1">
+                  <TextInput
+                    autoComplete="off"
+                    isLabelHidden={true}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Search quiz questions',
+                      description:
+                        'Placeholder for search input of quiz question list',
+                      id: 'YbRLG7',
+                    })}
+                    placeholder={intl.formatMessage({
+                      defaultMessage: 'Search quiz questions',
+                      description:
+                        'Placeholder for search input of quiz question list',
+                      id: 'YbRLG7',
+                    })}
+                    size="sm"
+                    startIcon={RiSearchLine}
+                    value={query}
+                    onChange={(value) => setQuery(value)}
+                  />
+                </div>
+                {sortAndFilters}
+              </div>
+            </>
+          )}
+        </div>
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-x-10">
+            <QuestionCountLabel
+              count={processedQuestions.length}
+              showIcon={true}
             />
-          </Heading>
-          <Section>
-            <QuestionsQuizList
-              checkIfCompletedQuestion={(question) => question.isCompleted}
-              questionCompletionCount={questionCompletionCount}
-              questions={processedQuestions}
-              showChevron={true}
-            />
-          </Section>
+            {totalDurationMins > 0 && (
+              <QuestionTotalTimeLabel
+                mins={totalDurationMins}
+                showIcon={true}
+              />
+            )}
+          </div>
+          <div>
+            <Heading className="sr-only" level="custom">
+              <FormattedMessage
+                defaultMessage="Questions List"
+                description="Screenreader text for quiz questions list"
+                id="AYkO94"
+              />
+            </Heading>
+            <Section>
+              <QuestionsQuizList
+                checkIfCompletedQuestion={(question) => question.isCompleted}
+                questionCompletionCount={questionCompletionCount}
+                questions={processedQuestions}
+                showChevron={true}
+              />
+            </Section>
+          </div>
         </div>
       </section>
       {layout === 'full' && (
         <aside
           className={clsx(
-            'hidden h-full flex-col gap-y-8 border-l pl-8 lg:col-span-3 lg:flex',
-            themeLineColor,
+            'hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex',
           )}>
           <Heading className="sr-only" level="custom">
             <FormattedMessage
@@ -296,6 +315,7 @@ export default function QuestionsQuizListWithFilters({
                 />
               )}
               <QuestionListingFilterSectionDesktop
+                isFirstSection={mode === 'topic'}
                 section={completionStatusFilterOptions}
                 values={completionStatusFilters}
               />

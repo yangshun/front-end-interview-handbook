@@ -27,7 +27,7 @@ export default function QuestionListingFilterSectionDesktop<
           </Text>
         </legend>
         <div className="space-y-3 pt-4">
-          {section.options.map((option, optionIdx) => (
+          {section.options.map((option) => (
             <CheckboxInput
               key={option.value}
               label={option.label}

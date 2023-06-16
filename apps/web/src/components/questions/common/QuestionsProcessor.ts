@@ -1,3 +1,5 @@
+import { groupBy } from 'lodash';
+
 import type {
   QuestionDifficulty,
   QuestionImportance,
@@ -110,4 +112,21 @@ export function filterQuestions<T extends QuestionMetadata>(
   return questions.filter((question) =>
     filters.every((filter) => filter(question)),
   );
+}
+
+export function groupQuestionsByDifficulty<T extends QuestionMetadata>(
+  questions: ReadonlyArray<T>,
+): Record<QuestionDifficulty, number> {
+  const grouped = groupBy(questions, 'difficulty');
+
+  return {
+    easy: grouped.easy?.length ?? 0,
+    hard: grouped.hard?.length ?? 0,
+    medium: grouped.medium?.length ?? 0,
+  };
+}
+export function countQuestionsTotalDurationMins<T extends QuestionMetadata>(
+  questions: ReadonlyArray<T>,
+): number {
+  return questions.reduce((acc, metadata) => acc + metadata.duration, 0);
 }

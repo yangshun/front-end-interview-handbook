@@ -321,34 +321,32 @@ export default function QuestionsSystemDesignListWithFilters({
         </Text>
       </section>
       {layout === 'full' && (
-        <aside className="h-full lg:col-span-3">
-          <Heading className="sr-only" level="custom">
-            <FormattedMessage
-              defaultMessage="Filters"
-              description="Screenreader text for Filters"
-              id="Gi1TRd"
-            />
-          </Heading>
-          <div
-            className={clsx(
-              'hidden h-full border-l pl-8 lg:block',
-              themeLineColor,
-            )}>
-            <form className="space-y-6">
-              <QuestionListingFilterSectionDesktop
-                isFirstSection={true}
-                section={companyFilterOptions}
-                values={companyFilters}
+        <aside className="hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex">
+          <div>
+            <Heading className="sr-only" level="custom">
+              <FormattedMessage
+                defaultMessage="Filters"
+                description="Screenreader text for Filters"
+                id="Gi1TRd"
               />
-              <QuestionListingFilterSectionDesktop
-                section={difficultyFilterOptions}
-                values={difficultyFilters}
-              />
-              <QuestionListingFilterSectionDesktop
-                section={completionStatusFilterOptions}
-                values={completionStatusFilters}
-              />
-            </form>
+            </Heading>
+            <Section>
+              <form className="flex flex-col gap-y-6">
+                <QuestionListingFilterSectionDesktop
+                  isFirstSection={true}
+                  section={companyFilterOptions}
+                  values={companyFilters}
+                />
+                <QuestionListingFilterSectionDesktop
+                  section={difficultyFilterOptions}
+                  values={difficultyFilters}
+                />
+                <QuestionListingFilterSectionDesktop
+                  section={completionStatusFilterOptions}
+                  values={completionStatusFilters}
+                />
+              </form>
+            </Section>
           </div>
         </aside>
       )}

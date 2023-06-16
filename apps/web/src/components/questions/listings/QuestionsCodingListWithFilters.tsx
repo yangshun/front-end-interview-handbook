@@ -7,7 +7,9 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
+  countQuestionsTotalDurationMins,
   filterQuestions,
+  groupQuestionsByDifficulty,
   sortQuestionsMultiple,
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
@@ -33,14 +35,16 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeLineColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import QuestionListingDifficultySummary from './QuestionListingDifficultySummary';
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
+import QuestionCountLabel from '../common/QuestionCountLabel';
 import type { QuestionFramework } from '../common/QuestionsTypes';
+import QuestionTotalTimeLabel from '../common/QuestionTotalTimeLabel';
 
 type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (
@@ -163,6 +167,8 @@ export default function QuestionsCodingListWithFilters({
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
+  const difficultyCount = groupQuestionsByDifficulty(processedQuestions);
+  const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
@@ -330,126 +336,144 @@ export default function QuestionsCodingListWithFilters({
   return (
     <div
       className={clsx(
-        layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-8',
+        layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-6',
       )}>
-      <section className="grid gap-y-6 lg:col-span-7 lg:mt-0">
-        {mode === 'default' && (
-          <div className="hidden sm:block">{squareFilters}</div>
-        )}
-        <div
-          className={clsx(
-            'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
-          )}>
-          <div className="flex-1">
-            <TextInput
-              autoComplete="off"
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Search coding questions',
-                description:
-                  'Placeholder for search input of coding question list',
-                id: 'jGQnYd',
-              })}
-              placeholder={intl.formatMessage({
-                defaultMessage: 'Search coding questions',
-                description:
-                  'Placeholder for search input of coding question list',
-                id: 'jGQnYd',
-              })}
-              size="sm"
-              startIcon={RiSearchLine}
-              value={query}
-              onChange={(value) => setQuery(value)}
-            />
+      <section className="flex flex-col gap-6 lg:col-span-7 lg:mt-0">
+        <div className="flex flex-col gap-4">
+          {mode === 'default' && (
+            <div className="hidden sm:block">{squareFilters}</div>
+          )}
+          <div
+            className={clsx(
+              'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
+            )}>
+            <div className="flex-1">
+              <TextInput
+                autoComplete="off"
+                isLabelHidden={true}
+                label={intl.formatMessage({
+                  defaultMessage: 'Search coding questions',
+                  description:
+                    'Placeholder for search input of coding question list',
+                  id: 'jGQnYd',
+                })}
+                placeholder={intl.formatMessage({
+                  defaultMessage: 'Search coding questions',
+                  description:
+                    'Placeholder for search input of coding question list',
+                  id: 'jGQnYd',
+                })}
+                size="sm"
+                startIcon={RiSearchLine}
+                value={query}
+                onChange={(value) => setQuery(value)}
+              />
+            </div>
+            {sortAndFilters}
           </div>
-          {sortAndFilters}
         </div>
-        {showPaywall ? (
-          <QuestionPaywall
-            subtitle={intl.formatMessage({
-              defaultMessage:
-                'Purchase premium to unlock filtering questions by companies.',
-              description:
-                'Subtitle on paywall over company tags on question list pages',
-              id: 'RxZwQ9',
-            })}
-            title={intl.formatMessage({
-              defaultMessage: 'Premium Feature',
-              description:
-                'Header on paywall over company tags on question list pages',
-              id: 'LNK1eb',
-            })}
-          />
-        ) : (
-          <div>
-            <Heading className="sr-only" level="custom">
-              <FormattedMessage
-                defaultMessage="Questions List"
-                description="Screenreader text indicating the question list component on question list pages"
-                id="h38yCs"
-              />
-            </Heading>
-            <Section>
-              <QuestionsList
-                checkIfCompletedQuestion={(question) => question.isCompleted}
-                framework={framework}
-                questionCompletionCount={questionCompletionCount}
-                questions={processedQuestions}
-                showChevron={true}
-              />
-            </Section>
-          </div>
-        )}
-        <Text color="secondary" display="block" size="body3">
-          <Anchor href="https://clearbit.com" variant="flat">
-            <FormattedMessage
-              defaultMessage="Logos provided by Clearbit"
-              description="Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
-              id="yXh24P"
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-x-10">
+            <QuestionCountLabel
+              count={processedQuestions.length}
+              showIcon={true}
             />
-          </Anchor>
-        </Text>
+            {totalDurationMins > 0 && (
+              <QuestionTotalTimeLabel
+                mins={totalDurationMins}
+                showIcon={true}
+              />
+            )}
+          </div>
+          {showPaywall ? (
+            <QuestionPaywall
+              subtitle={intl.formatMessage({
+                defaultMessage:
+                  'Purchase premium to unlock filtering questions by companies.',
+                description:
+                  'Subtitle on paywall over company tags on question list pages',
+                id: 'RxZwQ9',
+              })}
+              title={intl.formatMessage({
+                defaultMessage: 'Premium Feature',
+                description:
+                  'Header on paywall over company tags on question list pages',
+                id: 'LNK1eb',
+              })}
+            />
+          ) : (
+            <div>
+              <Heading className="sr-only" level="custom">
+                <FormattedMessage
+                  defaultMessage="Questions List"
+                  description="Screenreader text indicating the question list component on question list pages"
+                  id="h38yCs"
+                />
+              </Heading>
+              <Section>
+                <QuestionsList
+                  checkIfCompletedQuestion={(question) => question.isCompleted}
+                  framework={framework}
+                  questionCompletionCount={questionCompletionCount}
+                  questions={processedQuestions}
+                  showChevron={true}
+                />
+              </Section>
+            </div>
+          )}
+          <Text color="secondary" display="block" size="body3">
+            <Anchor href="https://clearbit.com" variant="flat">
+              <FormattedMessage
+                defaultMessage="Logos provided by Clearbit"
+                description="Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
+                id="yXh24P"
+              />
+            </Anchor>
+          </Text>
+        </div>
       </section>
       {layout === 'full' && (
         <aside
           className={clsx(
-            'hidden h-full flex-col gap-y-8 border-l pl-8 lg:col-span-3 lg:flex',
-            themeLineColor,
+            'hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex',
           )}>
-          <Heading className="sr-only" level="custom">
-            <FormattedMessage
-              defaultMessage="Filters"
-              description="Screenreader text indicating the filters component on question list pages"
-              id="GyDKzV"
-            />
-          </Heading>
-          <Section>
-            <form className="flex flex-col gap-y-6">
-              <QuestionListingFilterSectionDesktop
-                isFirstSection={true}
-                section={companyFilterOptions}
-                values={companyFilters}
+          <QuestionListingDifficultySummary {...difficultyCount} />
+          <div>
+            <Heading className="sr-only" level="custom">
+              <FormattedMessage
+                defaultMessage="Filters"
+                description="Screenreader text indicating the filters component on question list pages"
+                id="GyDKzV"
               />
-              <QuestionListingFilterSectionDesktop
-                section={difficultyFilterOptions}
-                values={difficultyFilters}
-              />
-              {mode !== 'framework' && (
+            </Heading>
+            <Section>
+              <form className="flex flex-col gap-y-6">
                 <QuestionListingFilterSectionDesktop
-                  section={frameworkFilterOptions}
-                  values={frameworkFilters}
+                  isFirstSection={true}
+                  section={companyFilterOptions}
+                  values={companyFilters}
                 />
-              )}
-              <QuestionListingFilterSectionDesktop
-                section={languageFilterOptions}
-                values={languageFilters}
-              />
-              <QuestionListingFilterSectionDesktop
-                section={completionStatusFilterOptions}
-                values={completionStatusFilters}
-              />
-            </form>
-          </Section>
+                <QuestionListingFilterSectionDesktop
+                  section={difficultyFilterOptions}
+                  values={difficultyFilters}
+                />
+                {mode !== 'framework' && (
+                  <QuestionListingFilterSectionDesktop
+                    section={frameworkFilterOptions}
+                    values={frameworkFilters}
+                  />
+                )}
+                <QuestionListingFilterSectionDesktop
+                  section={languageFilterOptions}
+                  values={languageFilters}
+                />
+                <QuestionListingFilterSectionDesktop
+                  section={completionStatusFilterOptions}
+                  values={completionStatusFilters}
+                />
+              </form>
+            </Section>
+          </div>
         </aside>
       )}
     </div>

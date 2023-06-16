@@ -999,6 +999,10 @@
     "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
     "description": "Question base section subtitle - second paragraph"
   },
+  "ImDbLo": {
+    "defaultMessage": "Total time",
+    "description": "Total time needed to complete the questions"
+  },
   "IuWsYS": {
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
@@ -2990,6 +2994,10 @@
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
     "description": "Types of front end system design interview questions"
+  },
+  "sGSrxk": {
+    "defaultMessage": "{numberOfHours} hours total",
+    "description": "Total duration needed to complete the list of questions"
   },
   "sa8B3r": {
     "defaultMessage": "System Design Questions",

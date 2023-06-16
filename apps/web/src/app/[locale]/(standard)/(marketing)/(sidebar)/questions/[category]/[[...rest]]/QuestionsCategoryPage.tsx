@@ -97,7 +97,7 @@ function QuestionsList({
   const router = useI18nRouter();
 
   return (
-    <div className="space-y-8">
+    <>
       <div className="w-full overflow-x-auto">
         <QuestionsFormatTabs
           formats={['coding', 'quiz']}
@@ -129,7 +129,7 @@ function QuestionsList({
           questions={codingQuestions}
         />
       )}
-    </div>
+    </>
   );
 }
 
