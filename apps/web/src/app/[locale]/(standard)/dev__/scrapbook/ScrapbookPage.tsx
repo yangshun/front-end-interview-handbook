@@ -4,6 +4,7 @@ import { RiCodeSSlashLine } from 'react-icons/ri';
 
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
+import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
 import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
@@ -149,6 +150,16 @@ export default function ScrapbookPage() {
                   hard={5678}
                   medium={234}
                 />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="grid items-start gap-y-6">
+                <QuestionProgressLabel
+                  barClassName={themeGradient1}
+                  completed={50}
+                  total={120}
+                />
+                <QuestionProgressLabel completed={50} total={120} />
               </div>
             </UIExamplesGroup>
           </div>

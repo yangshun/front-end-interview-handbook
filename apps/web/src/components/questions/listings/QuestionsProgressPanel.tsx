@@ -1,31 +1,9 @@
-import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
-import Button from '~/components/ui/Button';
-import Heading from '~/components/ui/Heading';
-import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundEmphasized,
-  themeLineColor,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
 
-type GradientBarProps = Readonly<{
-  className: string;
-  progress: number;
-}>;
-
-function GradientBar({ progress, className }: GradientBarProps) {
-  return (
-    <div className="h-2 w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800">
-      <div
-        className={clsx('h-full rounded-full', className)}
-        style={{ width: `${progress}%` }}
-      />
-    </div>
-  );
-}
+import QuestionsProgressBar from '../common/QuestionsProgressBar';
+import QuestionsProgressFraction from '../common/QuestionsProgressFraction';
 
 type Props = Readonly<{
   completedQuestions: number;
@@ -44,7 +22,7 @@ export default function QuestionsProgressPanel({
   variant,
   totalQuestions,
 }: Props) {
-  const intl = useIntl();
+const intl = useIntl();
 
   const titleLabel = (
     <Text size="body2" weight="medium">
@@ -53,9 +31,10 @@ export default function QuestionsProgressPanel({
   );
 
   const progressBar = (
-    <GradientBar
+    <QuestionsProgressBar
       className={progressBarClassName}
-      progress={(completedQuestions / totalQuestions) * 100}
+      completed={completedQuestions}
+      total={totalQuestions}
     />
   );
 
@@ -69,18 +48,10 @@ export default function QuestionsProgressPanel({
   );
 
   const completedQuestionSummary = (
-    <Text color="secondary" size="body3">
-      <FormattedMessage
-        defaultMessage="<completed>{completedQuestions}</completed>/{totalQuestions} completed"
-        description="Line describing the number of questions completed by user over the total number of questions"
-        id="Xh+8s6"
-        values={{
-          completed: (chunks) => <Text size="body2">{chunks}</Text>,
-          completedQuestions,
-          totalQuestions,
-        }}
-      />
-    </Text>
+    <QuestionsProgressFraction
+      completed={completedQuestions}
+      total={totalQuestions}
+    />
   );
 
   if (variant === 'compact') {
