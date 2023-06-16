@@ -2707,6 +2707,10 @@
     "defaultMessage": "All Questions",
     "description": "Link label to access all questions"
   },
+  "mLRZ25": {
+    "defaultMessage": "See all",
+    "description": "See all button label in study guides list section in preparation dashboard"
+  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
@@ -2922,6 +2926,10 @@
   "qAxlQN": {
     "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
+  },
+  "qR472c": {
+    "defaultMessage": "Study guides",
+    "description": "Study guides list section title in preparation dashboard"
   },
   "qXxpdK": {
     "defaultMessage": "Quiz",

@@ -16,6 +16,7 @@ import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import QuestionsGuidesList from '~/components/questions/dashboard/QuestionsGuidesList';
 import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
 import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
 import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
@@ -239,6 +240,34 @@ export default function ScrapbookPage() {
                     ],
                   }}
                   values={selectedFilters}
+                />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="inline-flex flex-col items-start gap-y-6">
+                <QuestionsGuidesList
+                  items={[
+                    {
+                      href: '/dev__/scrapbook',
+                      slug: 'intro',
+                      title: 'Intro to Coding Round',
+                    },
+                    {
+                      href: '/dev__/scrapbook',
+                      slug: 'algo',
+                      title: 'Algorithm Questions',
+                    },
+                    {
+                      href: '/dev__/scrapbook',
+                      slug: 'js',
+                      title: 'JavaScript Questions',
+                    },
+                    {
+                      href: '/dev__/scrapbook',
+                      slug: 'ui',
+                      title: 'User Interface Questions',
+                    },
+                  ]}
                 />
               </div>
             </UIExamplesGroup>
