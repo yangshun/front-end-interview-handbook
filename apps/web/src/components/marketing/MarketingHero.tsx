@@ -6,7 +6,7 @@ import gtag from '~/lib/gtag';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
-import TabsHero from '~/components/ui/Tabs/TabsHero';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import MarketingEmbedJavaScriptQuestion from './embed/MarketingEmbedJavaScriptQuestion';
 import MarketingEmbedQuizQuestion from './embed/MarketingEmbedQuizQuestion';
@@ -169,7 +169,7 @@ export default function MarketingHeroNew({
               />
             </p>
             <div className="mx-auto flex w-3/4 grow px-4 pb-4 sm:px-6">
-              <TabsHero
+              <TabsUnderline
                 label={intl.formatMessage({
                   defaultMessage: 'Select question format',
                   description:

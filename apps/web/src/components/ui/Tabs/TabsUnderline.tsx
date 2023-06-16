@@ -4,7 +4,7 @@ import Anchor from '~/components/ui/Anchor';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
-import { themeLineColor } from '../theme';
+import { themeLineColor, themeTextSecondaryColor } from '../theme';
 
 export type TabItem<T> = Readonly<{
   href?: string;
@@ -26,7 +26,6 @@ type Props<T> = Readonly<{
 const sizeClasses: Record<
   TabSize,
   Readonly<{
-    borderRadius: string;
     iconSize: string;
     tabGapSize: string;
     tabInternalGapSize: string;
@@ -35,51 +34,42 @@ const sizeClasses: Record<
   }>
 > = {
   md: {
-    borderRadius: 'rounded-t-md',
     iconSize: 'h-5 w-5',
-    tabGapSize: 'gap-x-2',
+    tabGapSize: 'gap-x-8',
     tabInternalGapSize: 'gap-x-2',
-    tabItemSize: 'py-2.5 px-5',
+    tabItemSize: 'pb-2',
     textSize: 'body',
   },
   sm: {
-    borderRadius: 'rounded-t',
     iconSize: 'h-4 w-4',
-    tabGapSize: 'gap-x-1.5',
+    tabGapSize: 'gap-x-6',
     tabInternalGapSize: 'gap-x-1.5',
-    tabItemSize: 'py-1.5 px-3',
+    tabItemSize: 'pb-1.5',
     textSize: 'body2',
   },
   xs: {
-    borderRadius: 'rounded-t',
     iconSize: 'h-4 w-4',
-    tabGapSize: 'gap-x-1',
+    tabGapSize: 'gap-x-4',
     tabInternalGapSize: 'gap-x-1',
-    tabItemSize: 'py-1.5 px-2',
+    tabItemSize: 'pb-1',
     textSize: 'body3',
   },
 };
 
-export default function Tabs<T>({
+export default function TabsUnderline<T>({
   label,
   tabs,
   size = 'md',
   value,
   onSelect,
 }: Props<T>) {
-  const {
-    borderRadius,
-    iconSize,
-    tabItemSize,
-    tabInternalGapSize,
-    tabGapSize,
-    textSize,
-  } = sizeClasses[size];
+  const { iconSize, tabItemSize, tabInternalGapSize, tabGapSize, textSize } =
+    sizeClasses[size];
 
   return (
-    <div className="isolate w-full" role="tablist">
+    <div className="w-full" role="tablist">
       <div className={clsx('border-b', themeLineColor)}>
-        <nav aria-label={label} className={clsx('flex', tabGapSize)}>
+        <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
           {tabs.map((tabItem) => {
             const {
               icon: Icon,
@@ -93,15 +83,18 @@ export default function Tabs<T>({
               'aria-selected': isSelected,
               children: (
                 <Text
-                  className={clsx('flex items-center', tabInternalGapSize)}
-                  color={isSelected ? 'active' : 'secondary'}
+                  className={clsx(
+                    'group flex items-center',
+                    tabInternalGapSize,
+                  )}
+                  color={isSelected ? 'active' : 'inherit'}
                   size={textSize}>
                   {Icon && (
                     <Icon
                       className={clsx(
                         'shrink-0',
                         !isSelected &&
-                          'dark:hover-text-inherit text-neutral-400 hover:text-inherit dark:text-neutral-500',
+                          'text-neutral-400 group-hover:text-inherit dark:text-neutral-500 dark:group-hover:text-inherit',
                         iconSize,
                       )}
                     />
@@ -110,19 +103,12 @@ export default function Tabs<T>({
                 </Text>
               ),
               className: clsx(
-                'flex items-center whitespace-nowrap -mb-px z-10 transition',
-                borderRadius,
+                'group whitespace-nowrap border-b-2',
                 isSelected
-                  ? clsx(
-                      'border',
-                      'border-t-neutral-200 border-x-neutral-200 border-b-white',
-                      'dark:border-t-neutral-800 dark:border-x-neutral-800 dark:border-b-neutral-900',
-                    )
+                  ? 'border-brand'
                   : clsx(
-                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',
-                      'border',
-                      'border-t-neutral-100 border-x-neutral-100 hover:border-neutral-200',
-                      'dark:border-t-neutral-800 dark:border-x-neutral-800 dark:border-b-neutral-800 dark:hover:border-t-neutral-700 dark:hover:border-x-neutral-700',
+                      'border-transparent hover:text-brand',
+                      themeTextSecondaryColor,
                     ),
                 tabItemSize,
               ),

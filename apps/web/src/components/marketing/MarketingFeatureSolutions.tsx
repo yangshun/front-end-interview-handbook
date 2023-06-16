@@ -9,7 +9,7 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import TabsSolutions from '~/components/ui/Tabs/TabsSolutions';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import logEvent from '~/logging/logEvent';
 
@@ -131,7 +131,7 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
                     />
                   </Text>
                   <div className="grow pb-4">
-                    <TabsSolutions
+                    <TabsUnderline
                       label="Select navigation item"
                       tabs={[
                         // TODO: i18n
