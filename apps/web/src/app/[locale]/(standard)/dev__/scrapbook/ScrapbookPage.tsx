@@ -4,18 +4,19 @@ import { useState } from 'react';
 import {
   RiBugLine,
   RiCodeSSlashLine,
+  RiFlowChart,
   RiFolder4Line,
   RiGlobalLine,
   RiNodeTree,
   RiQuestionnaireLine,
   RiShieldKeyholeLine,
-  RiTerminalBoxLine,
 } from 'react-icons/ri';
 
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsGuidesList from '~/components/questions/dashboard/QuestionsGuidesList';
 import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
 import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
@@ -240,6 +241,44 @@ export default function ScrapbookPage() {
                     ],
                   }}
                   values={selectedFilters}
+                />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="grid items-start gap-y-6">
+                <QuestionFocusAreasSection
+                  description="Recommended focus areas tooltip"
+                  focusAreas={[
+                    {
+                      description: 'Lorem ipsum',
+                      durationMins: 92,
+                      icon: RiFlowChart,
+                      questionCount: 47,
+                      title: 'Data structure & algorithms',
+                    },
+                    {
+                      description: 'Lorem ipsum',
+                      durationMins: 92,
+                      icon: RiFlowChart,
+                      questionCount: 47,
+                      title: 'Data structure & algorithms',
+                    },
+                    {
+                      description: 'Lorem ipsum',
+                      durationMins: 92,
+                      icon: RiFlowChart,
+                      questionCount: 47,
+                      title: 'Data structure & algorithms',
+                    },
+                    {
+                      description: 'Lorem ipsum',
+                      durationMins: 92,
+                      icon: RiFlowChart,
+                      questionCount: 47,
+                      title: 'Data structure & algorithms',
+                    },
+                  ]}
+                  title="Recommended focus areas"
                 />
               </div>
             </UIExamplesGroup>

@@ -2015,6 +2015,10 @@
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
   },
+  "ahcJju": {
+    "defaultMessage": "Show all",
+    "description": "Show all button label of focus areas section in preparation dashboard"
+  },
   "akHBWv": {
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
@@ -2458,6 +2462,10 @@
   "ihSYR4": {
     "defaultMessage": "Coding Practice Questions",
     "description": "Coding question list title"
+  },
+  "ipPZZl": {
+    "defaultMessage": "Show less",
+    "description": "Show less button label of focus areas section in preparation dashboard"
   },
   "iqc+V7": {
     "defaultMessage": "Access to continuously updating question library.",
