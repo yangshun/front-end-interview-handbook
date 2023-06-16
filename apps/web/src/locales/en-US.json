@@ -279,6 +279,10 @@
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
     "description": "Condition for promotion"
   },
+  "4pEeq1": {
+    "defaultMessage": "Number of questions completed",
+    "description": "Number of questions completed in a list of questions"
+  },
   "4zNzv1": {
     "defaultMessage": "Select navigation item in DevTool",
     "description": "Label for tabs in the coding workspace DevTool"
@@ -1731,6 +1735,10 @@
     "defaultMessage": "System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
+  "VBOVcb": {
+    "defaultMessage": "Try these popular React questions",
+    "description": "Title for featured questions section"
+  },
   "VCvG/R": {
     "defaultMessage": "You are on the <bold>Annual</bold> plan.",
     "description": "Text describing user's subscription plan."
@@ -1822,6 +1830,10 @@
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
+  },
+  "Wgz18L": {
+    "defaultMessage": "Try these popular HTML questions",
+    "description": "Title for featured questions section"
   },
   "WzDhJE": {
     "defaultMessage": "Logos provided by Clearbit",
@@ -2582,6 +2594,10 @@
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "ke8J8T": {
+    "defaultMessage": "Try these popular JavaScript questions",
+    "description": "Title for featured questions section"
   },
   "kjdLiy": {
     "defaultMessage": "Practice questions by companies",

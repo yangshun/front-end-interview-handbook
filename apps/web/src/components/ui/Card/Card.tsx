@@ -9,14 +9,21 @@ import {
 type Props = Readonly<{
   children: ReactNode;
   className?: string;
+  padding?: boolean;
   pattern?: boolean;
 }>;
 
-export default function Card({ children, className, pattern = true }: Props) {
+export default function Card({
+  children,
+  className,
+  padding = true,
+  pattern = true,
+}: Props) {
   return (
     <div
       className={clsx(
-        'relative isolate overflow-clip rounded-lg bg-neutral-100 py-5 px-6',
+        'relative isolate overflow-clip rounded-lg bg-neutral-100',
+        padding && 'py-5 px-6',
         themeGlassyBorder,
         themeBackgroundEmphasized,
         className,

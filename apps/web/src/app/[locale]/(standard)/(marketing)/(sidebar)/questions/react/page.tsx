@@ -57,10 +57,15 @@ export default async function Page({ params }: Props) {
         description: 'Description for React questions page',
         id: 'j5W1/P',
       })}
+      featuredSectionTitle={intl.formatMessage({
+        defaultMessage: 'Try these popular React questions',
+        description: 'Title for featured questions section',
+        id: 'VBOVcb',
+      })}
       framework={framework}
       logo={
         <ReactLogo
-          className="h-24 w-24"
+          className="h-16 w-16"
           style={{ fill: 'rgb(20, 158, 202)' }}
         />
       }

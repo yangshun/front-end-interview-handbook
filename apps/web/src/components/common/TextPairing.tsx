@@ -19,7 +19,7 @@ export default function TextPairing({
   mode = 'light',
 }: Props) {
   return (
-    <div className="grid gap-y-2">
+    <div className="flex flex-col gap-y-2">
       {sectionLabel && (
         <MarketingSectionTitleLabel>{sectionLabel}</MarketingSectionTitleLabel>
       )}

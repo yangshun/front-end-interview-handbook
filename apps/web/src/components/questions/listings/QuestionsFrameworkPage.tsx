@@ -14,9 +14,11 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import QuestionCategoryTitleSection from './QuestionCategoryTitleSection';
+import QuestionListingFeaturedQuestions from './QuestionListingFeaturedQuestions';
 
 type Props = Readonly<{
   description: string;
+  featuredSectionTitle: string;
   framework: QuestionFramework;
   logo?: ReactNode;
   questionCompletionCount?: QuestionCompletionCount;
@@ -31,6 +33,7 @@ export default function QuestionsFrameworkPage({
   questionCompletionCount,
   questionList,
   title,
+  featuredSectionTitle,
 }: Props) {
   return (
     <>
@@ -44,6 +47,11 @@ export default function QuestionsFrameworkPage({
           title={title}
         />
         <Section>
+          <QuestionListingFeaturedQuestions
+            // TODO(redesign): pick best questions
+            questions={questionList.slice(0, 3)}
+            title={featuredSectionTitle}
+          />
           <QuestionsCodingListWithFilters
             framework={framework}
             mode="framework"

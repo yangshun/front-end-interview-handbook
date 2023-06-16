@@ -10,6 +10,7 @@ import type {
   QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionCategoryTitleSection from '~/components/questions/listings/QuestionCategoryTitleSection';
+import QuestionListingFeaturedQuestions from '~/components/questions/listings/QuestionListingFeaturedQuestions';
 import QuestionsCodingListWithFilters from '~/components/questions/listings/QuestionsCodingListWithFilters';
 import QuestionsFormatTabs from '~/components/questions/listings/QuestionsFormatsTabs';
 import QuestionsQuizListWithFilters from '~/components/questions/listings/QuestionsQuizListWithFilters';
@@ -55,26 +56,39 @@ const CategoryFilters: Record<
   js: {},
 };
 
-type Props = Readonly<{
+type Props = QuestionListProps &
+  Readonly<{
+    description: string;
+    featuredSectionTitle: string;
+    logo: ReactNode;
+    pageTitle: string;
+  }>;
+
+type QuestionListProps = Readonly<{
   category: QuestionListCategory;
   codingFormat: QuestionCodingFormat | null;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
-  description: string;
   format: QuestionUserFacingFormat | null;
-  logo: ReactNode;
-  pageTitle: string;
   questionCompletionCount?: QuestionCompletionCount;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
 }>;
 
 function QuestionsList({
-  codingFormat,
-  format: formatParam,
   category: categoryParam,
+  codingFormat,
   codingQuestions,
-  quizQuestions,
+  format: formatParam,
   questionCompletionCount,
-}: Props) {
+  quizQuestions,
+}: Pick<
+  Props,
+  | 'category'
+  | 'codingFormat'
+  | 'codingQuestions'
+  | 'format'
+  | 'questionCompletionCount'
+  | 'quizQuestions'
+>) {
   // Set defaults here since rewrites from don't work properly
   // in Next.js 13 and some params can be missing if it's from
   // a rewritten URL. Only reproducible in prod :/
@@ -129,6 +143,7 @@ export default function QuestionsCategoryPage({
   codingQuestions,
   quizQuestions,
   questionCompletionCount,
+  featuredSectionTitle,
 }: Props) {
   return (
     <>
@@ -142,15 +157,17 @@ export default function QuestionsCategoryPage({
           title={pageTitle}
         />
         <Section>
+          <QuestionListingFeaturedQuestions
+            // TODO(redesign): pick best questions
+            questions={codingQuestions.slice(0, 3)}
+            title={featuredSectionTitle}
+          />
           <QuestionsList
             key={category}
             category={category}
             codingFormat={codingFormat}
             codingQuestions={codingQuestions}
-            description={description}
             format={format}
-            logo={logo}
-            pageTitle={pageTitle}
             questionCompletionCount={questionCompletionCount}
             quizQuestions={quizQuestions}
           />

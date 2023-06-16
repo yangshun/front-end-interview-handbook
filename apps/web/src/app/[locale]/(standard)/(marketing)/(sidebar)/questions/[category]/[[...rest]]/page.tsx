@@ -133,6 +133,7 @@ async function processParams(params: Props['params']) {
     QuestionListCategory,
     Readonly<{
       description: (count: number) => string;
+      featuredSectionTitle: string;
       logo: (props: React.ComponentProps<'svg'>) => JSX.Element;
       pageTitle: (count: number) => string;
       seoTitle: (count: number) => string;
@@ -151,6 +152,11 @@ async function processParams(params: Props['params']) {
             questionCount: roundQuestionCountToNearestTen(count),
           },
         ),
+      featuredSectionTitle: intl.formatMessage({
+        defaultMessage: 'Try these popular JavaScript questions',
+        description: 'Title for featured questions section',
+        id: 'ke8J8T',
+      }),
       logo: CSS3Logo,
       pageTitle: () =>
         intl.formatMessage({
@@ -179,6 +185,11 @@ async function processParams(params: Props['params']) {
             questionCount: roundQuestionCountToNearestTen(count),
           },
         ),
+      featuredSectionTitle: intl.formatMessage({
+        defaultMessage: 'Try these popular HTML questions',
+        description: 'Title for featured questions section',
+        id: 'Wgz18L',
+      }),
       logo: HTML5Logo,
       pageTitle: () =>
         intl.formatMessage({
@@ -207,6 +218,11 @@ async function processParams(params: Props['params']) {
             questionCount: roundQuestionCountToNearestTen(count),
           },
         ),
+      featuredSectionTitle: intl.formatMessage({
+        defaultMessage: 'Try these popular JavaScript questions',
+        description: 'Title for featured questions section',
+        id: 'ke8J8T',
+      }),
       logo: JavaScriptLogo,
       pageTitle: () =>
         intl.formatMessage({
@@ -255,13 +271,14 @@ async function processParams(params: Props['params']) {
   const description = CategoryStrings[category].description(totalQuestions);
   const pageTitle = CategoryStrings[category].pageTitle(totalQuestions);
   const seoTitle = CategoryStrings[category].seoTitle(totalQuestions);
-  const { logo } = CategoryStrings[category];
+  const { featuredSectionTitle, logo } = CategoryStrings[category];
 
   return {
     category,
     codingFormat,
     codingQuestions,
     description,
+    featuredSectionTitle,
     format,
     language,
     locale,
@@ -300,6 +317,7 @@ export default async function Page({ params }: Props) {
     category,
     format,
     codingFormat,
+    featuredSectionTitle,
     codingQuestions,
     description,
     logo: Logo,
@@ -314,6 +332,7 @@ export default async function Page({ params }: Props) {
       codingFormat={codingFormat}
       codingQuestions={codingQuestions}
       description={description}
+      featuredSectionTitle={featuredSectionTitle}
       format={format}
       logo={<Logo className="h-16 w-16 rounded" />}
       pageTitle={pageTitle}

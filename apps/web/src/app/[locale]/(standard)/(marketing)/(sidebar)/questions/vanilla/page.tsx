@@ -48,9 +48,11 @@ export default async function Page() {
     fetchQuestionCompletionCount(['user-interface']),
   ]);
 
+  // TODO: i18n
   return (
     <QuestionsFrameworkPage
       description="Top Vanilla JavaScript UI coding interview questions."
+      featuredSectionTitle="Try these popular Vanilla JavaScript UI questions"
       framework={framework}
       questionCompletionCount={questionCompletionCount}
       questionList={questionList}
