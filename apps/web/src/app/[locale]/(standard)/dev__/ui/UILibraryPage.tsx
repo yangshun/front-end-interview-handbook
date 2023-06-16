@@ -4,6 +4,7 @@ import AlertExamples from '~/components/ui/Alert/AlertExamples';
 import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
 import ButtonExamples from '~/components/ui/Button/ButtonExamples';
+import CardExamples from '~/components/ui/Card/CardExamples';
 import CheckboxInputExamples from '~/components/ui/CheckboxInput/CheckboxInputExamples';
 import ColorExamples from '~/components/ui/Color/ColorExamples';
 import Container from '~/components/ui/Container';
@@ -49,6 +50,7 @@ export default function UILibraryPage() {
         <AlertExamples />
         <BadgeExamples />
         <EmptyStateExamples />
+        <CardExamples />
         <BannerExamples />
         {/* Layer */}
         <TooltipExamples />
