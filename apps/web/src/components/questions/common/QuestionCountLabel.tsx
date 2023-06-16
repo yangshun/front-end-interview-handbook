@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useId } from 'react';
-import { RiBookOpenLine, RiTimeLine } from 'react-icons/ri';
+import { RiBookOpenLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { TextSize } from '~/components/ui/Text';

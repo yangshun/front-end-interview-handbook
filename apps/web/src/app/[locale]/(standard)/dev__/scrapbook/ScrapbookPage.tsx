@@ -60,6 +60,14 @@ export default function ScrapbookPage() {
                 <QuestionCountLabel count={123} showIcon={true} />
               </div>
             </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <QuestionProgressLabel
+                barClassName={themeGradient1}
+                completed={50}
+                total={120}
+              />
+              <QuestionProgressLabel completed={60} total={100} />
+            </UIExamplesGroup>
           </div>
         </Section>
         <Container>
@@ -150,16 +158,6 @@ export default function ScrapbookPage() {
                   hard={5678}
                   medium={234}
                 />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="grid items-start gap-y-6">
-                <QuestionProgressLabel
-                  barClassName={themeGradient1}
-                  completed={50}
-                  total={120}
-                />
-                <QuestionProgressLabel completed={50} total={120} />
               </div>
             </UIExamplesGroup>
           </div>
