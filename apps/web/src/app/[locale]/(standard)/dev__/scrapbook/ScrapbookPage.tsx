@@ -4,8 +4,8 @@ import { RiCodeSSlashLine } from 'react-icons/ri';
 
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
-import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import QuestionListingDifficultySummary from '~/components/questions/listings/QuestionListingDifficultySummary';
 import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/QuestionsProgressPanel';
 import Container from '~/components/ui/Container';
@@ -59,6 +59,13 @@ export default function ScrapbookPage() {
                 <QuestionCountLabel count={123} showIcon={true} />
               </div>
             </UIExamplesGroup>
+          </div>
+        </Section>
+        <Container>
+          <Heading level="heading3">Dashboard</Heading>
+        </Container>
+        <Section>
+          <div>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-grid grid-cols-3 gap-x-6">
                 <QuestionsProgressPanel
@@ -110,6 +117,8 @@ export default function ScrapbookPage() {
                 totalQuestions={39}
                 variant="compact"
               />
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
               <QuestionsProgressPanelSection
                 layout="horizontal"
                 progressSummary={{
@@ -127,6 +136,8 @@ export default function ScrapbookPage() {
                   },
                 }}
               />
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">
                 <QuestionListingDifficultySummary
                   easy={67}
