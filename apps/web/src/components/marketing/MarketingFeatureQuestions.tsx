@@ -19,7 +19,7 @@ import MarketingJavaScriptQuestionsExamples from './examples/MarketingJavaScript
 import MarketingQuizQuestionsExamples from './examples/MarketingQuizQuestionsExamples';
 import MarketingSystemDesignQuestionsExamples from './examples/MarketingSystemDesignQuestionsExamples';
 import MarketingUserInterfaceQuestionsExamples from './examples/MarketingUserInterfaceQuestionsExamples';
-import { QuestionCount } from '../questions/listings/QuestionCount';
+import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 import Text from '../ui/Text';
 
 // TODO: Add company tagged questions

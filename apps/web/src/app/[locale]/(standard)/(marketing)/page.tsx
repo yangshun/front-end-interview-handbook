@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types';
 
 import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';
 import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
-import { QuestionCount } from '~/components/questions/listings/QuestionCount';
+import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 
 import {
   readQuestionJavaScriptContents,

@@ -4,7 +4,7 @@ import type {
   PreparationPlan,
   PreparationPlanType,
 } from '~/components/questions/common/PreparationPlanTypes';
-import { QuestionCount } from '~/components/questions/listings/QuestionCount';
+import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 
 type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
 

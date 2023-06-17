@@ -4,7 +4,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionMetadata } from '../common/QuestionsTypes';
-import QuestionsCodingListBrief from '../listings/QuestionsCodingListBrief';
+import QuestionsCodingListBrief from '../listings/items/QuestionsCodingListBrief';
 
 export default function QuestionSimilarQuestions({
   questions,

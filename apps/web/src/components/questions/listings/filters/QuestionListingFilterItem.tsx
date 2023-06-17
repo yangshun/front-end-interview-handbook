@@ -4,7 +4,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Text from '~/components/ui/Text';
 
-import type { QuestionFilter } from '../QuestionFilterType';
+import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 import { Disclosure } from '@headlessui/react';

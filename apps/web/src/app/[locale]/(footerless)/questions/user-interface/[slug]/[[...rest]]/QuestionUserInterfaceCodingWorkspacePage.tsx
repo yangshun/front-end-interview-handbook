@@ -41,7 +41,7 @@ import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWork
 import CodingWorkspaceToolbar from '~/components/questions/editor/CodingWorkspaceToolbar';
 import useUserInterfaceQuestionCode from '~/components/questions/editor/useUserInterfaceQuestionCode';
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
-import QuestionCodingListSlideOut from '~/components/questions/listings/QuestionCodingListSlideOut';
+import QuestionCodingListSlideOut from '~/components/questions/listings/items/QuestionCodingListSlideOut';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';

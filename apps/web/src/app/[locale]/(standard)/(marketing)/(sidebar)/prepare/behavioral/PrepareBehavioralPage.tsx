@@ -4,8 +4,8 @@ import { useIntl } from 'react-intl';
 
 import PromoBanner from '~/components/global/banners/PromoBanner';
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
-import QuestionFormatTitleSection from '~/components/questions/listings/QuestionFormatTitleSection';
-import QuestionsGuidesGrid from '~/components/questions/listings/QuestionsGuidesGrid';
+import QuestionFormatTitleSection from '~/components/questions/listings/headers/QuestionFormatTitleSection';
+import QuestionsGuidesGrid from '~/components/questions/listings/auxilliary/QuestionsGuidesGrid';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

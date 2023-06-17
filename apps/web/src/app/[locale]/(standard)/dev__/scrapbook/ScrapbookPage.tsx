@@ -18,11 +18,11 @@ import QuestionProgressLabel from '~/components/questions/common/QuestionsProgre
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsGuidesList from '~/components/questions/dashboard/QuestionsGuidesList';
-import QuestionListingDifficultySummary from '~/components/questions/listings/card/QuestionListingDifficultySummary';
-import QuestionListingQuestionCount from '~/components/questions/listings/card/QuestionListingQuestionCount';
-import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
-import QuestionsProgressPanelSection from '~/components/questions/listings/QuestionProgressPanelSection';
-import QuestionsProgressPanel from '~/components/questions/listings/QuestionsProgressPanel';
+import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
+import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
+import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/filters/QuestionListingSquareFilterSectionDesktop';
+import QuestionsProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
+import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';

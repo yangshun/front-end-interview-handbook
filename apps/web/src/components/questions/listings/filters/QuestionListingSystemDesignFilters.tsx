@@ -4,7 +4,7 @@ import type { FilterItemGap } from '~/components/questions/listings/filters/Ques
 import QuestionListingFilterItem from '~/components/questions/listings/filters/QuestionListingFilterItem';
 import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
-import type { QuestionFilter } from '../QuestionFilterType';
+import type { QuestionFilter } from './QuestionFilterType';
 import type {
   QuestionCompany,
   QuestionCompletionStatus,

@@ -14,9 +14,9 @@ import type {
   QuestionMetadata,
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
-import QuestionsPlansList from '~/components/questions/listings/QuestionsPlansList';
-import QuestionsProgressSection from '~/components/questions/listings/QuestionsProgressSection';
-import QuestionTryFirstFreeSection from '~/components/questions/listings/QuestionTryFirstFreeSection';
+import QuestionTryFirstFreeSection from '~/components/questions/listings/auxilliary/QuestionTryFirstFreeSection';
+import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
+import QuestionsProgressSection from '~/components/questions/listings/stats/QuestionsProgressSection';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 

@@ -6,7 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionsQuizList from '~/components/questions/listings/QuestionsQuizList';
+import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

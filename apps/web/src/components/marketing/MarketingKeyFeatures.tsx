@@ -12,7 +12,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import logEvent from '~/logging/logEvent';
 
-import { QuestionCount } from '../questions/listings/QuestionCount';
+import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 
 type Feature = Readonly<{
   gfe: React.ReactNode;

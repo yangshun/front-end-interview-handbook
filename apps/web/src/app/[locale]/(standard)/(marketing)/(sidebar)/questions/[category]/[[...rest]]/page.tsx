@@ -13,6 +13,7 @@ import type {
   QuestionQuizTopic,
   QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
+import QuestionsCategoryPage from '~/components/questions/listings/pages/QuestionsCategoryPage';
 import type { QuestionListCategory } from '~/components/questions/listings/types';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
@@ -24,8 +25,6 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import QuestionsCategoryPage from './QuestionsCategoryPage';
 
 const CATEGORY_TO_LANGUAGE: Record<QuestionListCategory, QuestionLanguage> = {
   css: 'css',

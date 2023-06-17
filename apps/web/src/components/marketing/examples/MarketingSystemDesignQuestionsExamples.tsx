@@ -6,7 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionsList from '~/components/questions/listings/QuestionsList';
+import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

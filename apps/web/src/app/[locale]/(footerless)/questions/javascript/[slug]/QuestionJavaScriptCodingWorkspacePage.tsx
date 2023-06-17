@@ -22,7 +22,7 @@ import type {
 import QuestionContentsJavaScript from '~/components/questions/content/QuestionContentsJavaScript';
 import JavaScriptWorkspace from '~/components/questions/editor/JavaScriptWorkspace';
 import useCodingWorkspaceLayout from '~/components/questions/editor/useCodingWorkspaceLayout';
-import QuestionCodingListSlideOut from '~/components/questions/listings/QuestionCodingListSlideOut';
+import QuestionCodingListSlideOut from '~/components/questions/listings/items/QuestionCodingListSlideOut';
 import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeLineColor } from '~/components/ui/theme';

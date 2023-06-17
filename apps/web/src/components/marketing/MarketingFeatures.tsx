@@ -11,7 +11,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { QuestionCount } from '~/components/questions/listings/QuestionCount';
+import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
