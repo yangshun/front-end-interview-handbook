@@ -1,7 +1,16 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import {
+  type ReactNode,
+  useContext,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+} from 'react';
 
-import { themeGlassyBorder } from '~/components/ui/theme';
+import { themeBackgroundColor, themeGlassyBorder } from '~/components/ui/theme';
+
+import { MousePositionContext } from './CardContainer';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -10,23 +19,84 @@ type Props = Readonly<{
   pattern?: boolean;
 }>;
 
+const cardOuterContainerClassNames = clsx(
+  themeBackgroundColor,
+  'p-px overflow-hidden',
+  'before:bg-neutral-400 dark:before:bg-white',
+  'before:w-20 before:h-20 before:-left-10 before:-top-10 before:blur-[20px]',
+  'before:absolute before:rounded-full before:pointer-events-none before:transition-opacity',
+  'before:opacity-0 before:group-hover/card-container:opacity-100',
+  'before:z-10',
+  'before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)]',
+  'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:z-30',
+  'after:opacity-0 dark:after:hover:opacity-60 after:hover:opacity-50',
+  'after:w-16 after:h-16 after:-left-8 after:-top-8 after:blur-[36px]',
+  'after:bg-brand-dark',
+);
+
 export default function Card({
   children,
   className,
   padding = true,
   pattern = true,
 }: Props) {
+  const id = useId();
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  const { addCard, removeCard } = useContext(MousePositionContext);
+
+  useEffect(() => {
+    const { current } = cardRef;
+
+    if (current) {
+      addCard(current);
+    }
+
+    return () => {
+      if (current) {
+        removeCard(current);
+      }
+    };
+  }, [addCard, removeCard]);
+
+  const { hiddenClasses, nonHiddenClasses } = useMemo(() => {
+    const hidden = className
+      ?.split(' ')
+      .filter((c) => c.endsWith('hidden'))
+      .join(' ');
+    const nonHidden = className
+      ?.split(' ')
+      .filter((c) => !c.endsWith('hidden'))
+      .join(' ');
+
+    return { hiddenClasses: hidden, nonHiddenClasses: nonHidden };
+  }, [className]);
+
   return (
     <div
+      ref={cardRef}
       className={clsx(
-        'relative isolate overflow-clip rounded-lg',
-        'bg-neutral-200 dark:bg-neutral-800/40',
-        padding && 'py-5 px-6',
-        pattern && themeGlassyBorder,
-        className,
+        'relative grid grid-cols-1 rounded-lg',
+        cardOuterContainerClassNames,
+        hiddenClasses,
       )}>
-      {children}
-      {pattern && <BackgroundPattern />}
+      <div
+        className={clsx(
+          'z-100 !absolute top-0 h-full w-full rounded-[inherit] before:m-[-1px]',
+          pattern && themeGlassyBorder,
+        )}
+      />
+      <div
+        className={clsx(
+          'relative isolate z-20 overflow-clip rounded-[inherit]',
+          'bg-neutral-200 dark:bg-neutral-900',
+          padding && 'py-5 px-6',
+          nonHiddenClasses,
+        )}
+        id={id}>
+        {children}
+        {pattern && <BackgroundPattern />}
+      </div>
     </div>
   );
 }

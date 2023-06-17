@@ -24,6 +24,7 @@ import QuestionListingDifficultySummary from '~/components/questions/listings/st
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionsProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
+import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -41,7 +42,7 @@ export default function ScrapbookPage() {
   );
 
   return (
-    <div className="grid gap-y-16">
+    <CardContainer className="grid gap-y-16">
       <Container className="grid gap-y-6">
         <Heading level="heading2">Scrapbook</Heading>
         <Divider />
@@ -269,21 +270,21 @@ export default function ScrapbookPage() {
                       durationMins: 92,
                       icon: RiFlowChart,
                       questionCount: 47,
-                      title: 'Data structure & algorithms',
+                      title: 'Security',
                     },
                     {
                       description: 'Lorem ipsum',
                       durationMins: 92,
                       icon: RiFlowChart,
                       questionCount: 47,
-                      title: 'Data structure & algorithms',
+                      title: 'Something else',
                     },
                     {
                       description: 'Lorem ipsum',
                       durationMins: 92,
                       icon: RiFlowChart,
                       questionCount: 47,
-                      title: 'Data structure & algorithms',
+                      title: 'Another thing',
                     },
                   ]}
                   title="Recommended focus areas"
@@ -356,6 +357,6 @@ export default function ScrapbookPage() {
           </div>
         </Section>
       </Section>
-    </div>
+    </CardContainer>
   );
 }

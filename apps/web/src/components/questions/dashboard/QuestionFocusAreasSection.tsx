@@ -75,7 +75,7 @@ export default function QuestionFocusAreasSection({
           <Card
             key={title}
             className={clsx(
-              'group flex flex-col items-start gap-3',
+              'group/card flex flex-col items-start gap-3',
               !showAll && index === 2 && '@md:hidden @2xl:flex',
               !showAll && index === 3 && '@md:hidden @4xl:flex',
               !showAll && index >= 4 && '@md:hidden',
@@ -87,8 +87,8 @@ export default function QuestionFocusAreasSection({
                   themeLineBackgroundColor,
                   'text-neutral-400',
                   'border border-transparent transition',
-                  'group-hover:border-brand-dark group-hover:text-brand-dark',
-                  'dark:group-hover:border-brand dark:group-hover:text-brand',
+                  'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
+                  'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
                 )}>
                 <Icon aria-hidden={true} className="h-6 w-6" />
               </span>
