@@ -2,7 +2,6 @@ import clsx from 'clsx';
 
 import {
   themeBackgroundEmphasizedHover,
-  themeLineColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip/Tooltip';
@@ -16,7 +15,7 @@ type Props<T extends string, Q extends QuestionMetadata> = Readonly<{
   values: Set<T>;
 }>;
 
-export default function QuestionListingSquareFilterSectionDesktop<
+export default function QuestionListingCategoryFilters<
   T extends string,
   Q extends QuestionMetadata,
 >({ limit = Infinity, section, values }: Props<T, Q>) {
@@ -38,14 +37,14 @@ export default function QuestionListingSquareFilterSectionDesktop<
                     )
                   : clsx(
                       themeBackgroundEmphasizedHover,
-                      themeLineColor,
                       themeTextSubtleColor,
+                      'border-transparent',
                       'bg-neutral-100 dark:bg-neutral-900',
                       'hover:text-brand-dark dark:hover:text-brand',
                     ),
                 'focus:ring-brand-dark focus:outline-none focus:ring-2 focus:ring-offset-2',
                 'dark:focus:ring-offset-neutral-950 focus:ring-offset-white',
-                'group relative flex items-center justify-center gap-2 truncate rounded-full border px-3 py-2 text-sm font-medium transition-colors',
+                'group relative flex items-center justify-center gap-2 truncate rounded-full border px-3 py-2 text-xs font-medium transition-colors',
               )}
               type="button"
               onClick={() => section.onChange(option.value)}>

@@ -2,11 +2,12 @@
 
 import { useIntl } from 'react-intl';
 
-import PromoBanner from '~/components/global/banners/PromoBanner';
 import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionFormatTitleSection from '~/components/questions/listings/headers/QuestionFormatTitleSection';
-import QuestionsGuidesGrid from '~/components/questions/listings/auxilliary/QuestionsGuidesGrid';
+import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/QuestionsFocusAreas';
+import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
+import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
+import QuestionPreparationPageHeader from '~/components/questions/listings/headers/QuestionPreparationPageHeader';
 import QuestionsQuizListWithFilters from '~/components/questions/listings/items/QuestionsQuizListWithFilters';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -27,44 +28,26 @@ export default function PrepareQuizQuestionsPage({
   const quizSectionItem = useQuizSectionItem();
 
   return (
-    <>
-      <PromoBanner />
-      <Container className="grid gap-y-12 py-8 md:py-12" variant="normal">
-        <Heading className="sr-only" level="custom">
-          {intl.formatMessage({
-            defaultMessage: 'Front End Interview Preparation — Quiz',
-            description: 'Prepare for front end interview quiz questions',
-            id: 'w5fdO4',
-          })}
-        </Heading>
-        <Section>
-          <QuestionFormatTitleSection format="quiz" />
-          <QuestionsGuidesGrid
-            columns={3}
-            items={[quizSectionItem]}
-            title={intl.formatMessage({
-              defaultMessage: 'Quiz Study Guides',
-              description: 'Quiz interview study guides',
-              id: '2m5u4b',
-            })}
-          />
-          <div className="grid gap-4">
-            <Heading level="heading6">
-              {intl.formatMessage({
-                defaultMessage: 'Quiz Practice Questions',
-                description: 'Quiz question list title',
-                id: 'UuC2xb',
-              })}
-            </Heading>
-            <Section>
-              <QuestionsQuizListWithFilters
-                questionCompletionCount={questionCompletionCount}
-                questions={questions}
-              />
-            </Section>
-          </div>
-        </Section>
-      </Container>
-    </>
+    <Container className="grid gap-y-12 py-8" variant="normal">
+      <Heading className="sr-only" level="custom">
+        {intl.formatMessage({
+          defaultMessage: 'Front End Interview Preparation — Quiz',
+          description: 'Prepare for front end interview quiz questions',
+          id: 'w5fdO4',
+        })}
+      </Heading>
+      <Section>
+        <div className="flex flex-col gap-y-6">
+          <QuestionPreparationPageHeader />
+          <QuestionsPreparationOnboarding />
+        </div>
+        <QuestionsFocusAreas />
+        <QuestionsPreparationTabs area="quiz" />
+        <QuestionsQuizListWithFilters
+          questionCompletionCount={questionCompletionCount}
+          questions={questions}
+        />
+      </Section>
+    </Container>
   );
 }

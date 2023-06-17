@@ -16,7 +16,7 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
 import useQuestionQuizTopicFilter from '~/components/questions/listings/filters/hooks/useQuestionQuizTopicFilter';
-import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/filters/QuestionListingSquareFilterSectionDesktop';
+import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
 import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -194,13 +194,13 @@ export default function QuestionsQuizListWithFilters({
     </div>
   );
   const squareFilters = (
-    <QuestionListingSquareFilterSectionDesktop
+    <QuestionListingCategoryFilters
       section={quizTopicFilterOptions}
       values={quizTopicFilters}
     />
   );
   const squareFiltersEmbedded = (
-    <QuestionListingSquareFilterSectionDesktop
+    <QuestionListingCategoryFilters
       limit={3}
       section={quizTopicFilterOptions}
       values={quizTopicFilters}

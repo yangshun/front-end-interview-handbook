@@ -25,7 +25,7 @@ import useQuestionCompletionStatusFilter from '~/components/questions/listings/f
 import useQuestionDifficultyFilter from '~/components/questions/listings/filters/hooks/useQuestionDifficultyFilter';
 import useQuestionFrameworkFilter from '~/components/questions/listings/filters/hooks/useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from '~/components/questions/listings/filters/hooks/useQuestionLanguageFilter';
-import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/filters/QuestionListingSquareFilterSectionDesktop';
+import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -316,7 +316,7 @@ export default function QuestionsCodingListWithFilters({
   );
   const squareFilters = (
     <div className="shrink-0">
-      <QuestionListingSquareFilterSectionDesktop
+      <QuestionListingCategoryFilters
         section={codingFormatFilterOptions}
         values={codingFormatFilters}
       />

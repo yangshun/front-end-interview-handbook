@@ -18,9 +18,9 @@ import QuestionProgressLabel from '~/components/questions/common/QuestionsProgre
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsGuidesList from '~/components/questions/dashboard/QuestionsGuidesList';
+import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
-import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/filters/QuestionListingSquareFilterSectionDesktop';
 import QuestionsProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import Container from '~/components/ui/Container';
@@ -186,7 +186,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="grid items-start gap-y-6">
-                <QuestionListingSquareFilterSectionDesktop
+                <QuestionListingCategoryFilters
                   section={{
                     id: '',
                     matches: () => true,

@@ -1,8 +1,4 @@
 {
-  "+/N6q+": {
-    "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
-    "description": "Description for behavioral interview stage"
-  },
   "+4N+iX": {
     "defaultMessage": "Real interview simulation",
     "description": "Table row header for real interview simulation feature"
@@ -54,10 +50,6 @@
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
-  },
-  "/4g12b": {
-    "defaultMessage": "System Design Study Guides",
-    "description": "System design interview study guides"
   },
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
@@ -190,10 +182,6 @@
   "2a4of9": {
     "defaultMessage": "Change to horizontal",
     "description": "Tooltip for changing to horizontal layout for coding workspace"
-  },
-  "2m5u4b": {
-    "defaultMessage": "Quiz Study Guides",
-    "description": "Quiz interview study guides"
   },
   "2sIcqn": {
     "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
@@ -478,6 +466,10 @@
   "81i+95": {
     "defaultMessage": "Profile",
     "description": "Profile page title"
+  },
+  "854lgU": {
+    "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
+    "description": "Description of behavioral interview preparation"
   },
   "869F+x": {
     "defaultMessage": "{numberOfHours} hours daily",
@@ -787,6 +779,10 @@
     "defaultMessage": "Practice everything here.",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
+  "F+dxo7": {
+    "defaultMessage": "Recommended focus areas",
+    "description": "Title of recommended focus areas section on preparation page"
+  },
   "F2QRYu": {
     "defaultMessage": "Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice.",
     "description": "Text describing contact method for purchase invoice."
@@ -971,10 +967,6 @@
     "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
     "description": "Call-to-action"
   },
-  "IQnWm4": {
-    "defaultMessage": "Coding",
-    "description": "Coding interviews stage label"
-  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -1139,10 +1131,6 @@
     "defaultMessage": "Exclusive lifetime <strong>Discord channel access</strong>.",
     "description": "Lifetime membership feature of Discord channel access."
   },
-  "KzFlkU": {
-    "defaultMessage": "Quizzes",
-    "description": "Quiz interviews stage label"
-  },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
@@ -1175,6 +1163,10 @@
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
   },
+  "LU7oiZ": {
+    "defaultMessage": "Preparation areas",
+    "description": "Preparation tabs title"
+  },
   "LYaH0T": {
     "defaultMessage": "Free",
     "description": "Free label for free vs premium question breakdown in question listing"
@@ -1186,10 +1178,6 @@
   "Ldysd3": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" growth mindset questions",
     "description": "How to answer growth mindset collaboration questions"
-  },
-  "LeyIrf": {
-    "defaultMessage": "System Design",
-    "description": "System design interviews stage label"
   },
   "LfcLVQ": {
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
@@ -1242,10 +1230,6 @@
   "MKfy+9": {
     "defaultMessage": "Pricing",
     "description": "Section label on Pricing section of Homepage or Pricing page"
-  },
-  "MNRS6S": {
-    "defaultMessage": "Preparation Stages",
-    "description": "Preparation page title"
   },
   "MNgJK6": {
     "defaultMessage": "Easy",
@@ -1410,10 +1394,6 @@
   "P4Or/u": {
     "defaultMessage": "CSS",
     "description": "CSS topic for quiz questions"
-  },
-  "P4yQWv": {
-    "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
-    "description": "Description for quiz interview stage"
   },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
@@ -1727,10 +1707,6 @@
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
   },
-  "UuC2xb": {
-    "defaultMessage": "Quiz Practice Questions",
-    "description": "Quiz question list title"
-  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -1811,10 +1787,6 @@
     "defaultMessage": "Sign up for an account",
     "description": "Title of Email Sign Up page"
   },
-  "W7BkGp": {
-    "defaultMessage": "Stage {stageNumber}",
-    "description": "Preparation stage number"
-  },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
@@ -1846,6 +1818,10 @@
   "Wgz18L": {
     "defaultMessage": "Try these popular HTML questions",
     "description": "Title for featured questions section"
+  },
+  "WoqXSx": {
+    "defaultMessage": "Behavioral",
+    "description": "Title of behavioral interview preparation area"
   },
   "WzDhJE": {
     "defaultMessage": "Logos provided by Clearbit",
@@ -1882,6 +1858,10 @@
   "Xh+8s6": {
     "defaultMessage": "<completed>{completedQuestions}</completed>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
+  },
+  "XhK6jS": {
+    "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
+    "description": "Description of quiz interview preparation"
   },
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
@@ -2135,10 +2115,6 @@
     "defaultMessage": "Design a News Feed (e.g. Facebook)",
     "description": "System design question title"
   },
-  "cgpi3r": {
-    "defaultMessage": "Front End Interview Preparation",
-    "description": "Front end interview preparation pages title"
-  },
   "cicVHX": {
     "defaultMessage": "Delhi, India",
     "description": "Anonymous Front End Engineer's location"
@@ -2191,10 +2167,6 @@
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
-  "dSaXF6": {
-    "defaultMessage": "Prepare holistically for all types of front end interview questions and rounds. Guides and {QuestionCount}+ practice questions included.",
-    "description": "Preparation page subtitle"
-  },
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
@@ -2210,10 +2182,6 @@
   "drvlbZ": {
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
     "description": "Behavioral interview guidebook description"
-  },
-  "dxwKBt": {
-    "defaultMessage": "Full Stack Engineer",
-    "description": "Full Stack Engineer job title"
   },
   "dz24ro": {
     "defaultMessage": "Send reset password instructions",
@@ -2403,10 +2371,6 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
-  "hXf/Wl": {
-    "defaultMessage": "All types of coding round questions from JS utilities to React user interfaces",
-    "description": "Description for coding interview stage"
-  },
   "hhbPlp": {
     "defaultMessage": "Pay once, get access to the interview platform forever, including updates.",
     "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
@@ -2455,10 +2419,6 @@
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
   },
-  "iOfgIz": {
-    "defaultMessage": "System Design Practice Questions",
-    "description": "Coding question list title"
-  },
   "iSDQh3": {
     "defaultMessage": "Companies",
     "description": "Title for section on question that shows which companies asked the question"
@@ -2466,10 +2426,6 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
-  },
-  "ihSYR4": {
-    "defaultMessage": "Coding Practice Questions",
-    "description": "Coding question list title"
   },
   "ipPZZl": {
     "defaultMessage": "Show less",
@@ -2490,10 +2446,6 @@
   "j+MqYO": {
     "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
-  },
-  "j3EFJn": {
-    "defaultMessage": "Front End Engineer",
-    "description": "Front End Engineer job title"
   },
   "j5W1/P": {
     "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
@@ -2807,6 +2759,10 @@
     "defaultMessage": "Try our questions here:",
     "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
   },
+  "nvhCqI": {
+    "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
+    "description": "Message in onboarding card on prepare page"
+  },
   "nwtLb2": {
     "defaultMessage": "Senior Software Engineer — Front End",
     "description": "Larry Almeida's job title"
@@ -2979,6 +2935,10 @@
     "defaultMessage": "Not many have experience to write quality guides.",
     "description": "Table cell content for front end system design feature comparison in other platforms."
   },
+  "r0Ddhm": {
+    "defaultMessage": "Preparation dashboard",
+    "description": "Preparation dashboard section title"
+  },
   "rXnAi2": {
     "defaultMessage": "We're still growing our question base.",
     "description": "Question base section title"
@@ -2986,6 +2946,10 @@
   "rfI2w+": {
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
+  },
+  "rhLand": {
+    "defaultMessage": "Navigate to preparation area",
+    "description": "Tab label to navigate to another preparation page"
   },
   "ryCcOP": {
     "defaultMessage": "Notify Me",
@@ -3010,10 +2974,6 @@
   "sa8B3r": {
     "defaultMessage": "System Design Questions",
     "description": "System design questions long title"
-  },
-  "slAmNi": {
-    "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
-    "description": "Description for system design interview stage"
   },
   "sn/P86": {
     "defaultMessage": "Guides",
@@ -3063,13 +3023,13 @@
     "defaultMessage": "Meet our top authors:",
     "description": "Authors section title"
   },
-  "tW2p7C": {
-    "defaultMessage": "Coding Study Guides",
-    "description": "Coding interview study guides"
-  },
   "taVYcT": {
     "defaultMessage": "Check your email for the magic link",
     "description": "Message indicating a successful magic link request"
+  },
+  "tcKl41": {
+    "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
+    "description": "Description of system design interview preparation"
   },
   "td80TL": {
     "defaultMessage": "For serious job seekers or longer term job hunts.",
@@ -3263,10 +3223,6 @@
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
   },
-  "wMMGUk": {
-    "defaultMessage": "Behavioral",
-    "description": "Behavioral interviews stage label"
-  },
   "wVEJye": {
     "defaultMessage": "Study Plans",
     "description": "Sidebar label for Study Plans category"
@@ -3306,6 +3262,10 @@
   "xS31qX": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
     "description": "Subtext above email settings."
+  },
+  "xU32y0": {
+    "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
+    "description": "Description of coding interview preparation"
   },
   "xVsq55": {
     "defaultMessage": "{numUsers} completed",
@@ -3350,10 +3310,6 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
-  },
-  "yRjuKv": {
-    "defaultMessage": "Web Developer",
-    "description": "Web Developer job title"
   },
   "yXh24P": {
     "defaultMessage": "Logos provided by Clearbit",

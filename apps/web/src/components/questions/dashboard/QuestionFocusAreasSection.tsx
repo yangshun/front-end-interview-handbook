@@ -70,14 +70,15 @@ export default function QuestionFocusAreasSection({
           }}
         />
       </div>
-      <div className="@xl:grid-cols-3 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-6">
+      <div className="@4xl:grid-cols-4 @2xl:grid-cols-3 grid grid-cols-2 grid-rows-1 gap-6">
         {focusAreas.map(({ title, icon: Icon, description }, index) => (
           <Card
             key={title}
             className={clsx(
               'group flex flex-col items-start gap-3',
-              !showAll && index >= 2 && '@md:hidden @xl:flex',
-              !showAll && index >= 3 && '@xl:hidden',
+              !showAll && index === 2 && '@md:hidden @2xl:flex',
+              !showAll && index === 3 && '@md:hidden @4xl:flex',
+              !showAll && index >= 4 && '@md:hidden',
             )}>
             <div className="flex justify-between self-stretch">
               <span

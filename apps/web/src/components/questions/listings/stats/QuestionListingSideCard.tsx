@@ -14,7 +14,7 @@ export default function QuestionListingSideCard({
   return (
     <div
       className={clsx(
-        'flex overflow-clip rounded-lg bg-white dark:bg-neutral-800/40',
+        'relative flex overflow-clip rounded-lg bg-white dark:bg-neutral-800/40',
         themeGlassyBorder,
       )}>
       <div

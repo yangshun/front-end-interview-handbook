@@ -1,7 +1,7 @@
 import {
-  RiCodeBoxLine,
+  RiCodeBoxFill,
   RiFlowChart,
-  RiQuestionnaireLine,
+  RiQuestionnaireFill,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -34,7 +34,7 @@ export function useQuestionFormatLists() {
         id: 'uDUEmN',
       }),
       href: '/prepare/coding',
-      icon: RiCodeBoxLine,
+      icon: RiCodeBoxFill,
       key: 'coding',
       longName: intl.formatMessage({
         defaultMessage: 'Coding Questions',
@@ -60,7 +60,7 @@ export function useQuestionFormatLists() {
         id: 'HDsjyG',
       }),
       href: '/prepare/quiz',
-      icon: RiQuestionnaireLine,
+      icon: RiQuestionnaireFill,
       key: 'quiz',
       longName: intl.formatMessage({
         defaultMessage: 'Quiz Questions',

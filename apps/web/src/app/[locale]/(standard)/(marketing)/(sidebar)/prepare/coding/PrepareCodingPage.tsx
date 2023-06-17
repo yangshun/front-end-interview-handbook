@@ -2,12 +2,13 @@
 
 import { useIntl } from 'react-intl';
 
-import PromoBanner from '~/components/global/banners/PromoBanner';
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionFormatTitleSection from '~/components/questions/listings/headers/QuestionFormatTitleSection';
+import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/QuestionsFocusAreas';
+import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
+import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
+import QuestionPreparationPageHeader from '~/components/questions/listings/headers/QuestionPreparationPageHeader';
 import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
-import QuestionsGuidesGrid from '~/components/questions/listings/auxilliary/QuestionsGuidesGrid';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -27,43 +28,26 @@ export default function PrepareCodingQuestionsPage({
   const codingQuestionListGuideItems = useCodingQuestionListGuideItems();
 
   return (
-    <>
-      <PromoBanner />
-      <Container className="grid gap-y-12 py-8 md:py-12" variant="normal">
-        <Heading className="sr-only" level="custom">
-          {intl.formatMessage({
-            defaultMessage: 'Front End Interview Preparation — Coding',
-            description: 'Prepare for front end interview coding questions',
-            id: '7H/tqa',
-          })}
-        </Heading>
-        <Section>
-          <QuestionFormatTitleSection format="coding" />
-          <QuestionsGuidesGrid
-            items={codingQuestionListGuideItems}
-            title={intl.formatMessage({
-              defaultMessage: 'Coding Study Guides',
-              description: 'Coding interview study guides',
-              id: 'tW2p7C',
-            })}
-          />
-          <div className="grid gap-4">
-            <Heading level="heading6">
-              {intl.formatMessage({
-                defaultMessage: 'Coding Practice Questions',
-                description: 'Coding question list title',
-                id: 'ihSYR4',
-              })}
-            </Heading>
-            <Section>
-              <QuestionsCodingListWithFilters
-                questionCompletionCount={questionCompletionCount}
-                questions={questions}
-              />
-            </Section>
-          </div>
-        </Section>
-      </Container>
-    </>
+    <Container className="grid gap-y-12 py-8" variant="normal">
+      <Heading className="sr-only" level="custom">
+        {intl.formatMessage({
+          defaultMessage: 'Front End Interview Preparation — Coding',
+          description: 'Prepare for front end interview coding questions',
+          id: '7H/tqa',
+        })}
+      </Heading>
+      <Section>
+        <div className="flex flex-col gap-y-6">
+          <QuestionPreparationPageHeader />
+          <QuestionsPreparationOnboarding />
+        </div>
+        <QuestionsFocusAreas />
+        <QuestionsPreparationTabs area="coding" />
+        <QuestionsCodingListWithFilters
+          questionCompletionCount={questionCompletionCount}
+          questions={questions}
+        />
+      </Section>
+    </Container>
   );
 }

@@ -53,7 +53,7 @@ export default function QuestionsGuidesList({ items }: Props) {
   return (
     <div className="grid w-full gap-4">
       <div className="flex items-center justify-between">
-        <Heading level="heading4">
+        <Heading level="heading5">
           <FormattedMessage
             defaultMessage="Study guides"
             description="Study guides list section title in preparation dashboard"
