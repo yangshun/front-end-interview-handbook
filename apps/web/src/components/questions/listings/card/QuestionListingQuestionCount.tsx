@@ -9,22 +9,29 @@ import {
 } from '~/components/ui/theme';
 
 import QuestionListingSideCard from './QuestionListingSideCard';
-
-type Variant = 'free' | 'premium';
+import type { QuestionPremiumStatus } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   count: number;
-  variant: Variant;
+  variant: QuestionPremiumStatus;
 }>;
 
-const stripBackgroundClasses: Record<Variant, string> = {
+const stripBackgroundClasses: Record<QuestionPremiumStatus, string> = {
   free: 'bg-neutral-200 dark:bg-neutral-600',
   premium: 'bg-brand-dark dark:bg-brand',
 };
 
-const labelClasses: Record<Variant, string> = {
+const labelClasses: Record<QuestionPremiumStatus, string> = {
   free: themeTextSecondaryColor,
   premium: themeTextBrandColor,
+};
+
+const icons: Record<
+  QuestionPremiumStatus,
+  (props: React.ComponentProps<'svg'>) => JSX.Element
+> = {
+  free: RiUserSmileLine,
+  premium: RiLockFill,
 };
 
 export default function QuestionListingQuestionCount({
@@ -32,36 +39,36 @@ export default function QuestionListingQuestionCount({
   count,
 }: Props) {
   const intl = useIntl();
-  const Icon = variant === 'free' ? RiUserSmileLine : RiLockFill;
-  const label =
-    variant === 'free'
-      ? intl.formatMessage({
-          defaultMessage: 'Free',
-          description:
-            'Free label for free vs premium question breakdown in question listing',
-          id: 'LYaH0T',
-        })
-      : intl.formatMessage({
-          defaultMessage: 'Premium',
-          description:
-            'Premium label for free vs premium question breakdown in question listing',
-          id: '3NSzVn',
-        });
+  const Icon = icons[variant];
+  const labels = {
+    free: intl.formatMessage({
+      defaultMessage: 'Free',
+      description:
+        'Free label for free vs premium question breakdown in question listing',
+      id: 'LYaH0T',
+    }),
+    premium: intl.formatMessage({
+      defaultMessage: 'Premium',
+      description:
+        'Premium label for free vs premium question breakdown in question listing',
+      id: '3NSzVn',
+    }),
+  };
 
   return (
     <QuestionListingSideCard stripClassName={stripBackgroundClasses[variant]}>
-      <div className="flex flex-col gap-2 px-1.5 py-3.5">
+      <div className="flex flex-col gap-2">
         <div className={clsx('flex items-center gap-1', labelClasses[variant])}>
           <Icon className="h-3 w-3" />
           <Text color="inherit" size="body3" weight="medium">
-            {label}
+            {labels[variant]}
           </Text>
         </div>
         <div className="flex flex-col">
           <FormattedMessage
-            defaultMessage="<count>{questionCount}</count><questions>questions</questions>"
-            description="Questions label for free vs premium question breakdown in question listing"
-            id="B0TCc0"
+            defaultMessage="<count>{questionCount}</count> <questions>questions</questions>"
+            description="Number of questions"
+            id="mDcqlX"
             values={{
               count: (chunks) => (
                 <Text className="text-2xl" size="custom" weight="bold">

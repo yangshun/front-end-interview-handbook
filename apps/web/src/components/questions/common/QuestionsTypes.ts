@@ -30,6 +30,7 @@ export const QuestionLanguageLabels: Record<QuestionLanguage, string> = {
 
 export type QuestionDifficulty = 'easy' | 'hard' | 'medium';
 export type QuestionImportance = 'high' | 'low' | 'mid';
+export type QuestionPremiumStatus = 'free' | 'premium';
 export type QuestionSortField =
   | 'created'
   | 'difficulty'

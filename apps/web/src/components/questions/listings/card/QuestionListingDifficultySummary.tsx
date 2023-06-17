@@ -9,14 +9,14 @@ import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 
 const difficultyBackgroundClasses: Record<QuestionDifficulty, string> = {
   easy: 'bg-green',
-  hard: 'bg-red-400',
-  medium: 'bg-orange-400',
+  hard: 'bg-red',
+  medium: 'bg-orange',
 };
 
 const difficultyLabelClasses: Record<QuestionDifficulty, string> = {
   easy: 'text-green',
-  hard: 'text-red-400',
-  medium: 'text-orange-400',
+  hard: 'text-red',
+  medium: 'text-orange',
 };
 
 type QuestionListingDifficultySummaryItemProps = Readonly<{
@@ -60,7 +60,7 @@ function QuestionListingDifficultySummaryItem({
 
   return (
     <>
-      <div className="grid gap-1 pb-2">
+      <div className="col-span-1 grid gap-1 pb-2 xl:col-span-2">
         <Text
           className={difficultyLabelClasses[difficulty]}
           color="inherit"
@@ -77,21 +77,24 @@ function QuestionListingDifficultySummaryItem({
         />
       </div>
       <div>
-        <Text color="secondary" size="body2">
-          <FormattedMessage
-            defaultMessage="<count>{questionCount}</count> questions"
-            description="Questions label for question difficulty summary in question listing"
-            id="gO1Ygd"
-            values={{
-              count: (chunks) => (
-                <Text size="body" weight="bold">
-                  {chunks}
-                </Text>
-              ),
-              questionCount,
-            }}
-          />
-        </Text>
+        <FormattedMessage
+          defaultMessage="<count>{questionCount}</count> <questions>questions</questions>"
+          description="Number of questions"
+          id="mDcqlX"
+          values={{
+            count: (chunks) => (
+              <Text size="body2" weight="bold">
+                {chunks}
+              </Text>
+            ),
+            questionCount,
+            questions: (chunks) => (
+              <Text color="secondary" size="body3">
+                {chunks}
+              </Text>
+            ),
+          }}
+        />
       </div>
     </>
   );
@@ -108,8 +111,8 @@ export default function QuestionListingDifficultySummary({
 
   return (
     <QuestionListingSideCard stripClassName="bg-neutral-200 dark:bg-neutral-600">
-      <div className="grid py-3 pl-2.5 pr-4">
-        <div className="grid grid-cols-2 items-end gap-y-1 gap-x-4">
+      <div className="grid">
+        <div className="grid grid-cols-2 items-end gap-y-1 gap-x-4 xl:grid-cols-3">
           <QuestionListingDifficultySummaryItem
             difficulty="easy"
             questionCount={easy}

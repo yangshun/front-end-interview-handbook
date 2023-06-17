@@ -615,10 +615,6 @@
     "defaultMessage": "Questions",
     "description": "Sidebar label for Questions Bank page"
   },
-  "B0TCc0": {
-    "defaultMessage": "<count>{questionCount}</count><questions>questions</questions>",
-    "description": "Questions label for free vs premium question breakdown in question listing"
-  },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
@@ -2363,10 +2359,6 @@
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
   },
-  "gO1Ygd": {
-    "defaultMessage": "<count>{questionCount}</count> questions",
-    "description": "Questions label for question difficulty summary in question listing"
-  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -2730,6 +2722,10 @@
   "m9168P": {
     "defaultMessage": "All Questions",
     "description": "Link label to access all questions"
+  },
+  "mDcqlX": {
+    "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
+    "description": "Number of questions"
   },
   "mLRZ25": {
     "defaultMessage": "See all",
