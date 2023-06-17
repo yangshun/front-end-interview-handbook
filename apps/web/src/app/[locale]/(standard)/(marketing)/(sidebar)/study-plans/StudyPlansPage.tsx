@@ -10,6 +10,7 @@ import type { PreparationPlan } from '~/components/questions/common/PreparationP
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import Anchor from '~/components/ui/Anchor';
+import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -28,17 +29,18 @@ function PreparationPlanCard({
     .reduce((prev, curr) => prev + curr, 0);
 
   return (
-    <Anchor
+    <div
       className={clsx(
-        'flex flex-1 items-center gap-6 rounded-lg bg-white p-5 transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
+        'group flex flex-1 items-center gap-6 rounded-lg bg-white p-5 transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
         themeGlassyBorder,
-      )}
-      href={href}
-      variant="unstyled">
+      )}>
       <div className="h-20 w-20 rounded-[5px] bg-neutral-200/70 dark:bg-neutral-800" />
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-col gap-1">
-          <Heading level="heading6">{title}</Heading>
+          <Anchor href={href} variant="unstyled">
+            <span aria-hidden={true} className="absolute inset-0" />
+            <Heading level="heading6">{title}</Heading>
+          </Anchor>
           <Text color="secondary" size="body3">
             {description}
           </Text>
@@ -55,7 +57,7 @@ function PreparationPlanCard({
         </div>
       </div>
       <RiArrowRightLine className="text-neutral-400" />
-    </Anchor>
+    </div>
   );
 }
 
@@ -118,18 +120,8 @@ export default function StudyPlansPage() {
           <div className="flex w-[266px] flex-col gap-6">
             <Heading level="heading6">Hear from our users</Heading>
             <Section>
-              <div
-                className={clsx(
-                  'h-[150px] rounded-md bg-neutral-50 dark:bg-neutral-800/40',
-                  themeGlassyBorder,
-                )}
-              />
-              <div
-                className={clsx(
-                  'h-[150px] rounded-md bg-neutral-50 dark:bg-neutral-800/40',
-                  themeGlassyBorder,
-                )}
-              />
+              <Card className={clsx('h-[150px]')}>{null}</Card>
+              <Card className={clsx('h-[150px]')}>{null}</Card>
             </Section>
           </div>
         </div>
