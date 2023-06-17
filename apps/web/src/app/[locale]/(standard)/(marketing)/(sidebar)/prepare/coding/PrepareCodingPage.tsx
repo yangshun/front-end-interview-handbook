@@ -1,9 +1,12 @@
 'use client';
 
+import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
+import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
 import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/QuestionsFocusAreas';
 import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
 import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
@@ -43,10 +46,22 @@ export default function PrepareCodingQuestionsPage({
         </div>
         <QuestionsFocusAreas />
         <QuestionsPreparationTabs area="coding" />
-        <QuestionsCodingListWithFilters
-          questionCompletionCount={questionCompletionCount}
-          questions={questions}
-        />
+        <div className="lg:grid lg:grid-cols-12 lg:gap-x-6">
+          <div className="lg:col-span-9">
+            <QuestionsCodingListWithFilters
+              layout="embedded"
+              questionCompletionCount={questionCompletionCount}
+              questions={questions}
+            />
+          </div>
+          <aside
+            className={clsx(
+              'hidden h-full flex-col gap-y-12 lg:col-span-3 lg:flex',
+            )}>
+            <PreparationStudyPlansCTA />
+            <PreparationStudyGuideList items={codingQuestionListGuideItems} />
+          </aside>
+        </div>
       </Section>
     </Container>
   );

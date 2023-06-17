@@ -4,37 +4,45 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeIconColor } from '~/components/ui/theme';
+import {
+  themeBackgroundLayerEmphasized,
+  themeIconColor,
+} from '~/components/ui/theme';
 
-type GuideItemProps = {
+type GuideItemProps = Readonly<{
   href: string;
   rank: number;
   title: string;
-};
+}>;
 
 function GuideItem({ href, title, rank }: GuideItemProps) {
   return (
-    <Anchor href={href} variant="unstyled">
-      <div
-        className={clsx(
-          'flex justify-between rounded-lg bg-neutral-50 py-3 px-4 dark:bg-neutral-800/40',
-          'border border-neutral-200 dark:border-transparent',
-        )}>
-        <div className="flex items-center gap-3">
-          <div
-            aria-hidden="true"
-            className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-300 font-bold text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400">
-            {rank}
-          </div>
+    <Card
+      className={clsx('group flex justify-between py-3 px-4')}
+      padding={false}
+      pattern={false}>
+      <div className="flex items-center gap-3">
+        <div
+          aria-hidden="true"
+          className={clsx(
+            'flex h-5 w-5 items-center justify-center rounded-full font-bold text-neutral-500 dark:text-neutral-400',
+            themeBackgroundLayerEmphasized,
+          )}
+          color="inherit">
+          {rank}
+        </div>
+        <Anchor href={href} variant="unstyled">
+          <span aria-hidden={true} className="absolute inset-0" />
           <Text size="body2" weight="medium">
             {title}
           </Text>
-        </div>
-        <RiArrowRightSLine className={clsx('h-5 w-5', themeIconColor)} />
+        </Anchor>
       </div>
-    </Anchor>
+      <RiArrowRightSLine className={clsx('h-5 w-5', themeIconColor)} />
+    </Card>
   );
 }
 
@@ -47,11 +55,11 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function QuestionsGuidesList({ items }: Props) {
+export default function PreparationStudyGuideList({ items }: Props) {
   const intl = useIntl();
 
   return (
-    <div className="grid w-full gap-4">
+    <div className="flex w-full flex-col gap-6">
       <div className="flex items-center justify-between">
         <Heading level="heading5">
           <FormattedMessage
@@ -73,7 +81,7 @@ export default function QuestionsGuidesList({ items }: Props) {
           variant="tertiary"
         />
       </div>
-      <div className="grid w-full gap-2">
+      <div className="flex w-full flex-col gap-2">
         {items.map(({ href, slug, title }, index) => (
           <GuideItem key={slug} href={href} rank={index + 1} title={title} />
         ))}

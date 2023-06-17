@@ -16,8 +16,8 @@ import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
-import QuestionsGuidesList from '~/components/questions/dashboard/QuestionsGuidesList';
 import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
@@ -291,7 +291,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">
-                <QuestionsGuidesList
+                <PreparationStudyGuideList
                   items={[
                     {
                       href: '/dev__/scrapbook',

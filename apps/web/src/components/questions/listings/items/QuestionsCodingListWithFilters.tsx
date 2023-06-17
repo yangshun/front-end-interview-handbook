@@ -362,10 +362,10 @@ export default function QuestionsCodingListWithFilters({
   return (
     <div
       className={clsx(
-        layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-6',
+        layout === 'full' && 'lg:grid lg:grid-cols-12 lg:gap-x-6',
       )}>
       {/* Left Column */}
-      <section className="flex flex-col gap-6 lg:col-span-7">
+      <section className="flex flex-col gap-6 lg:col-span-9">
         <div className="flex flex-col gap-4">
           {mode === 'default' && (
             <div className="hidden sm:block">{squareFilters}</div>

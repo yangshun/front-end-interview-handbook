@@ -1,10 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import {
-  themeBackgroundEmphasized,
-  themeGlassyBorder,
-} from '~/components/ui/theme';
+import { themeGlassyBorder } from '~/components/ui/theme';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -22,10 +19,10 @@ export default function Card({
   return (
     <div
       className={clsx(
-        'relative isolate overflow-clip rounded-lg bg-neutral-100',
+        'relative isolate overflow-clip rounded-lg',
+        'bg-neutral-200 dark:bg-neutral-800/40',
         padding && 'py-5 px-6',
-        themeGlassyBorder,
-        themeBackgroundEmphasized,
+        pattern && themeGlassyBorder,
         className,
       )}>
       {children}
