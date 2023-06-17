@@ -7,9 +7,10 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
+  countQuestionsByDifficulty,
+  countQuestionsByPremium,
   countQuestionsTotalDurationMins,
   filterQuestions,
-  groupQuestionsByDifficulty,
   sortQuestionsMultiple,
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
@@ -38,7 +39,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-import QuestionListingDifficultySummary from './card/QuestionListingDifficultySummary';
+import QuestionListingSummarySection from './QuestionListingSummarySection';
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
@@ -167,7 +168,8 @@ export default function QuestionsCodingListWithFilters({
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
-  const difficultyCount = groupQuestionsByDifficulty(processedQuestions);
+  const difficultyCount = countQuestionsByDifficulty(processedQuestions);
+  const premiumCount = countQuestionsByPremium(processedQuestions);
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
   const sortAndFilters = (
@@ -437,8 +439,12 @@ export default function QuestionsCodingListWithFilters({
           className={clsx(
             'hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex',
           )}>
-          <QuestionListingDifficultySummary {...difficultyCount} />
-          <div>
+          <QuestionListingSummarySection
+            free={premiumCount.free}
+            premium={premiumCount.premium}
+            {...difficultyCount}
+          />
+          <section>
             <Heading className="sr-only" level="custom">
               <FormattedMessage
                 defaultMessage="Filters"
@@ -473,7 +479,7 @@ export default function QuestionsCodingListWithFilters({
                 />
               </form>
             </Section>
-          </div>
+          </section>
         </aside>
       )}
     </div>

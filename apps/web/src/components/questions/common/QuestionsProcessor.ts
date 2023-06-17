@@ -4,6 +4,7 @@ import type {
   QuestionDifficulty,
   QuestionImportance,
   QuestionMetadata,
+  QuestionPremiumStatus,
   QuestionSortField,
 } from './QuestionsTypes';
 
@@ -114,7 +115,7 @@ export function filterQuestions<T extends QuestionMetadata>(
   );
 }
 
-export function groupQuestionsByDifficulty<T extends QuestionMetadata>(
+export function countQuestionsByDifficulty<T extends QuestionMetadata>(
   questions: ReadonlyArray<T>,
 ): Record<QuestionDifficulty, number> {
   const grouped = groupBy(questions, 'difficulty');
@@ -125,6 +126,20 @@ export function groupQuestionsByDifficulty<T extends QuestionMetadata>(
     medium: grouped.medium?.length ?? 0,
   };
 }
+
+export function countQuestionsByPremium<T extends QuestionMetadata>(
+  questions: ReadonlyArray<T>,
+): Record<QuestionPremiumStatus, number> {
+  const grouped = groupBy(questions, (question) =>
+    question.premium ? 'premium' : 'free',
+  );
+
+  return {
+    free: grouped.free?.length ?? 0,
+    premium: grouped.premium?.length ?? 0,
+  };
+}
+
 export function countQuestionsTotalDurationMins<T extends QuestionMetadata>(
   questions: ReadonlyArray<T>,
 ): number {

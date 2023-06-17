@@ -18,7 +18,8 @@ export default function QuestionCard({ metadata }: Props) {
   return (
     <Card
       className="group flex items-center justify-between gap-x-4 p-4"
-      padding={false}>
+      padding={false}
+      pattern={false}>
       <div className="grid gap-y-3">
         <div>
           <Anchor href={metadata.href} variant="unstyled">
