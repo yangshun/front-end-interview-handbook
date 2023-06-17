@@ -3,28 +3,33 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
 
-import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionMetadata } from '../common/QuestionsTypes';
+import type { QuestionFilter } from '../QuestionFilterType';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 import { Disclosure } from '@headlessui/react';
 
-export default function QuestionFilterSectionMobile<
+export type FilterItemGap = 'compact' | 'spacious';
+
+const itemGapClasses: Record<FilterItemGap, string> = {
+  compact: 'gap-3',
+  spacious: 'gap-6',
+};
+
+export default function QuestionListingFilterItem<
   T extends string,
   Q extends QuestionMetadata,
 >({
+  itemGap,
   section,
   values,
 }: Readonly<{
+  itemGap: FilterItemGap;
   section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
   return (
-    <Disclosure
-      key={section.name}
-      as="div"
-      className={clsx('border-t pt-4 pb-4', themeLineColor)}>
+    <Disclosure key={section.name} as="div" className={clsx('py-5')}>
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
@@ -36,7 +41,7 @@ export default function QuestionFilterSectionMobile<
               <Text size="body2" weight="medium">
                 {section.name}
               </Text>
-              <span className="ml-6 flex h-7 items-center">
+              <span className="ml-6 flex h-7 items-center pr-2">
                 <RiArrowDownSLine
                   aria-hidden="true"
                   className={clsx(
@@ -48,7 +53,7 @@ export default function QuestionFilterSectionMobile<
             </Disclosure.Button>
           </legend>
           <Disclosure.Panel className="pt-4 pb-2">
-            <div className="space-y-6">
+            <div className={clsx('flex flex-col', itemGapClasses[itemGap])}>
               {section.options.map((option) => (
                 <div key={option.value} className="flex items-center">
                   <CheckboxInput

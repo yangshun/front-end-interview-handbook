@@ -19,8 +19,6 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
-import QuestionListingFilterSectionDesktop from '~/components/questions/listings/QuestionListingFilterSectionDesktop';
-import QuestionListingFilterSectionMobile from '~/components/questions/listings/QuestionListingFilterSectionMobile';
 import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
 import QuestionsList from '~/components/questions/listings/QuestionsList';
 import useQuestionCodingFormatFilter from '~/components/questions/listings/useQuestionCodingFormatFilter';
@@ -39,6 +37,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import QuestionListingCodingFilters from './filters/QuestionListingCodingFilters';
 import QuestionListingSummarySection from './QuestionListingSummarySection';
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
@@ -172,6 +171,7 @@ export default function QuestionsCodingListWithFilters({
   const premiumCount = countQuestionsByPremium(processedQuestions);
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
+
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div>
@@ -201,34 +201,22 @@ export default function QuestionsCodingListWithFilters({
         onClose={() => {
           setMobileFiltersOpen(false);
         }}>
-        <form className="mt-4">
-          <QuestionListingFilterSectionMobile
-            section={companyFilterOptions}
-            values={companyFilters}
-          />
-          <QuestionListingFilterSectionMobile
-            section={codingFormatFilterOptions}
-            values={codingFormatFilters}
-          />
-          <QuestionListingFilterSectionMobile
-            section={difficultyFilterOptions}
-            values={difficultyFilters}
-          />
-          {mode !== 'framework' && (
-            <QuestionListingFilterSectionMobile
-              section={frameworkFilterOptions}
-              values={frameworkFilters}
-            />
-          )}
-          <QuestionListingFilterSectionMobile
-            section={languageFilterOptions}
-            values={languageFilters}
-          />
-          <QuestionListingFilterSectionMobile
-            section={completionStatusFilterOptions}
-            values={completionStatusFilters}
-          />
-        </form>
+        <QuestionListingCodingFilters
+          codingFormatFilterOptions={codingFormatFilterOptions}
+          codingFormatFilters={codingFormatFilters}
+          companyFilterOptions={companyFilterOptions}
+          companyFilters={companyFilters}
+          completionStatusFilterOptions={completionStatusFilterOptions}
+          completionStatusFilters={completionStatusFilters}
+          difficultyFilterOptions={difficultyFilterOptions}
+          difficultyFilters={difficultyFilters}
+          frameworkFilterOptions={frameworkFilterOptions}
+          frameworkFilters={frameworkFilters}
+          itemGap="spacious"
+          languageFilterOptions={languageFilterOptions}
+          languageFilters={languageFilters}
+          mode={mode}
+        />
       </SlideOut>
       <DropdownMenu
         align="end"
@@ -334,59 +322,58 @@ export default function QuestionsCodingListWithFilters({
       />
     </div>
   );
+  const searchFilterRow = (
+    <div
+      className={clsx(
+        'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
+      )}>
+      <div className="flex-1">
+        <TextInput
+          autoComplete="off"
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'Search coding questions',
+            description: 'Placeholder for search input of coding question list',
+            id: 'jGQnYd',
+          })}
+          placeholder={intl.formatMessage({
+            defaultMessage: 'Search coding questions',
+            description: 'Placeholder for search input of coding question list',
+            id: 'jGQnYd',
+          })}
+          size="sm"
+          startIcon={RiSearchLine}
+          value={query}
+          onChange={(value) => setQuery(value)}
+        />
+      </div>
+      {sortAndFilters}
+    </div>
+  );
+  const listMetadata = (
+    <div className="flex gap-x-10">
+      <QuestionCountLabel count={processedQuestions.length} showIcon={true} />
+      {totalDurationMins > 0 && (
+        <QuestionTotalTimeLabel mins={totalDurationMins} showIcon={true} />
+      )}
+    </div>
+  );
 
   return (
     <div
       className={clsx(
         layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-6',
       )}>
-      <section className="flex flex-col gap-6 lg:col-span-7 lg:mt-0">
+      {/* Left Column */}
+      <section className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
           {mode === 'default' && (
             <div className="hidden sm:block">{squareFilters}</div>
           )}
-          <div
-            className={clsx(
-              'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
-            )}>
-            <div className="flex-1">
-              <TextInput
-                autoComplete="off"
-                isLabelHidden={true}
-                label={intl.formatMessage({
-                  defaultMessage: 'Search coding questions',
-                  description:
-                    'Placeholder for search input of coding question list',
-                  id: 'jGQnYd',
-                })}
-                placeholder={intl.formatMessage({
-                  defaultMessage: 'Search coding questions',
-                  description:
-                    'Placeholder for search input of coding question list',
-                  id: 'jGQnYd',
-                })}
-                size="sm"
-                startIcon={RiSearchLine}
-                value={query}
-                onChange={(value) => setQuery(value)}
-              />
-            </div>
-            {sortAndFilters}
-          </div>
+          {searchFilterRow}
         </div>
         <div className="flex flex-col gap-4">
-          <div className="flex gap-x-10">
-            <QuestionCountLabel
-              count={processedQuestions.length}
-              showIcon={true}
-            />
-            {totalDurationMins > 0 && (
-              <QuestionTotalTimeLabel
-                mins={totalDurationMins}
-                showIcon={true}
-              />
-            )}
-          </div>
+          {listMetadata}
           {showPaywall ? (
             <QuestionPaywall
               subtitle={intl.formatMessage({
@@ -434,6 +421,7 @@ export default function QuestionsCodingListWithFilters({
           </Text>
         </div>
       </section>
+      {/* Right Column */}
       {layout === 'full' && (
         <aside
           className={clsx(
@@ -453,31 +441,22 @@ export default function QuestionsCodingListWithFilters({
               />
             </Heading>
             <Section>
-              <form className="flex flex-col gap-y-6">
-                <QuestionListingFilterSectionDesktop
-                  isFirstSection={true}
-                  section={companyFilterOptions}
-                  values={companyFilters}
-                />
-                <QuestionListingFilterSectionDesktop
-                  section={difficultyFilterOptions}
-                  values={difficultyFilters}
-                />
-                {mode !== 'framework' && (
-                  <QuestionListingFilterSectionDesktop
-                    section={frameworkFilterOptions}
-                    values={frameworkFilters}
-                  />
-                )}
-                <QuestionListingFilterSectionDesktop
-                  section={languageFilterOptions}
-                  values={languageFilters}
-                />
-                <QuestionListingFilterSectionDesktop
-                  section={completionStatusFilterOptions}
-                  values={completionStatusFilters}
-                />
-              </form>
+              <QuestionListingCodingFilters
+                codingFormatFilterOptions={codingFormatFilterOptions}
+                codingFormatFilters={codingFormatFilters}
+                companyFilterOptions={companyFilterOptions}
+                companyFilters={companyFilters}
+                completionStatusFilterOptions={completionStatusFilterOptions}
+                completionStatusFilters={completionStatusFilters}
+                difficultyFilterOptions={difficultyFilterOptions}
+                difficultyFilters={difficultyFilters}
+                frameworkFilterOptions={frameworkFilterOptions}
+                frameworkFilters={frameworkFilters}
+                itemGap="compact"
+                languageFilterOptions={languageFilterOptions}
+                languageFilters={languageFilters}
+                mode={mode}
+              />
             </Section>
           </section>
         </aside>

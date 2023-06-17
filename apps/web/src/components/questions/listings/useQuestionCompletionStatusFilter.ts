@@ -3,9 +3,11 @@ import { useIntl } from 'react-intl';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionMetadataWithCompletedStatus } from '../common/QuestionsTypes';
+import type {
+  QuestionCompletionStatus,
+  QuestionMetadataWithCompletedStatus,
+} from '../common/QuestionsTypes';
 import type { QuestionUserFacingFormat } from '../common/QuestionsTypes';
-type QuestionCompletionStatus = 'completed' | 'incomplete';
 
 type Props = Readonly<{
   userFacingFormat: QuestionUserFacingFormat;

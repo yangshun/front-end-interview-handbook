@@ -14,8 +14,6 @@ import type {
   QuestionQuizMetadata,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
-import QuestionListingFilterSectionDesktop from '~/components/questions/listings/QuestionListingFilterSectionDesktop';
-import QuestionListingFilterSectionMobile from '~/components/questions/listings/QuestionListingFilterSectionMobile';
 import QuestionListingSquareFilterSectionDesktop from '~/components/questions/listings/QuestionListingSquareFilterSectionDesktop';
 import QuestionsQuizList from '~/components/questions/listings/QuestionsQuizList';
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/useQuestionCompletionStatusFilter';
@@ -26,10 +24,10 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
-import { themeLineColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import QuestionListingQuizFilters from './filters/QuestionListingQuizFilters';
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import QuestionTotalTimeLabel from '../common/QuestionTotalTimeLabel';
@@ -130,18 +128,14 @@ export default function QuestionsQuizListWithFilters({
         onClose={() => {
           setMobileFiltersOpen(false);
         }}>
-        <form className="mt-4">
-          {mode !== 'topic' && (
-            <QuestionListingFilterSectionMobile
-              section={quizTopicFilterOptions}
-              values={quizTopicFilters}
-            />
-          )}
-          <QuestionListingFilterSectionMobile
-            section={completionStatusFilterOptions}
-            values={completionStatusFilters}
-          />
-        </form>
+        <QuestionListingQuizFilters
+          completionStatusFilterOptions={completionStatusFilterOptions}
+          completionStatusFilters={completionStatusFilters}
+          itemGap="spacious"
+          mode={mode}
+          quizTopicFilterOptions={quizTopicFilterOptions}
+          quizTopicFilters={quizTopicFilters}
+        />
       </SlideOut>
       <DropdownMenu
         align="end"
@@ -212,13 +206,22 @@ export default function QuestionsQuizListWithFilters({
       values={quizTopicFilters}
     />
   );
+  const listMetadata = (
+    <div className="flex gap-x-10">
+      <QuestionCountLabel count={processedQuestions.length} showIcon={true} />
+      {totalDurationMins > 0 && (
+        <QuestionTotalTimeLabel mins={totalDurationMins} showIcon={true} />
+      )}
+    </div>
+  );
 
   return (
     <div
       className={clsx(
         layout === 'full' && 'lg:grid lg:grid-cols-10 lg:gap-x-6',
       )}>
-      <section className="flex flex-col gap-6 lg:col-span-7 lg:mt-0">
+      {/* Left Column */}
+      <section className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
           {layout === 'embedded' ? (
             <div className="flex items-center justify-between gap-8">
@@ -262,18 +265,7 @@ export default function QuestionsQuizListWithFilters({
           )}
         </div>
         <div className="flex flex-col gap-4">
-          <div className="flex gap-x-10">
-            <QuestionCountLabel
-              count={processedQuestions.length}
-              showIcon={true}
-            />
-            {totalDurationMins > 0 && (
-              <QuestionTotalTimeLabel
-                mins={totalDurationMins}
-                showIcon={true}
-              />
-            )}
-          </div>
+          {listMetadata}
           <div>
             <Heading className="sr-only" level="custom">
               <FormattedMessage
@@ -293,6 +285,7 @@ export default function QuestionsQuizListWithFilters({
           </div>
         </div>
       </section>
+      {/* Right Column */}
       {layout === 'full' && (
         <aside
           className={clsx(
@@ -306,20 +299,14 @@ export default function QuestionsQuizListWithFilters({
             />
           </Heading>
           <Section>
-            <form className="flex flex-col gap-y-6">
-              {mode !== 'topic' && (
-                <QuestionListingFilterSectionDesktop
-                  isFirstSection={true}
-                  section={quizTopicFilterOptions}
-                  values={quizTopicFilters}
-                />
-              )}
-              <QuestionListingFilterSectionDesktop
-                isFirstSection={mode === 'topic'}
-                section={completionStatusFilterOptions}
-                values={completionStatusFilters}
-              />
-            </form>
+            <QuestionListingQuizFilters
+              completionStatusFilterOptions={completionStatusFilterOptions}
+              completionStatusFilters={completionStatusFilters}
+              itemGap="compact"
+              mode={mode}
+              quizTopicFilterOptions={quizTopicFilterOptions}
+              quizTopicFilters={quizTopicFilters}
+            />
           </Section>
         </aside>
       )}

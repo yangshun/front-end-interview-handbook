@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { RiAddLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
@@ -16,8 +14,6 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
-import QuestionListingFilterSectionDesktop from '~/components/questions/listings/QuestionListingFilterSectionDesktop';
-import QuestionListingFilterSectionMobile from '~/components/questions/listings/QuestionListingFilterSectionMobile';
 import QuestionsList from '~/components/questions/listings/QuestionsList';
 import useQuestionCompanyFilter from '~/components/questions/listings/useQuestionCompanyFilter';
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/useQuestionCompletionStatusFilter';
@@ -30,10 +26,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeLineColor } from '~/components/ui/theme';
 
-import { hashQuestion } from '~/db/QuestionsUtils';
-
+import QuestionListingSystemDesignFilters from './filters/QuestionListingSystemDesignFilters';
 import questionMatchesTextQuery from './questionMatchesTextQuery';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import { allSystemDesignQuestions } from '../content/system-design/SystemDesignNavigation';
@@ -74,12 +68,6 @@ export default function QuestionsSystemDesignListWithFilters({
     };
   }
 
-  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
-  const completedQuestions = new Set(
-    (questionProgress ?? []).map(({ format, slug }) =>
-      hashQuestion(format, slug),
-    ),
-  );
   const defaultSortFields: ReadonlyArray<{
     field: QuestionSortField;
     isAscendingOrder: boolean;
@@ -155,20 +143,15 @@ export default function QuestionsSystemDesignListWithFilters({
         onClose={() => {
           setMobileFiltersOpen(false);
         }}>
-        <form className="mt-4">
-          <QuestionListingFilterSectionMobile
-            section={difficultyFilterOptions}
-            values={difficultyFilters}
-          />
-          <QuestionListingFilterSectionMobile
-            section={companyFilterOptions}
-            values={companyFilters}
-          />
-          <QuestionListingFilterSectionMobile
-            section={completionStatusFilterOptions}
-            values={completionStatusFilters}
-          />
-        </form>
+        <QuestionListingSystemDesignFilters
+          companyFilterOptions={companyFilterOptions}
+          companyFilters={companyFilters}
+          completionStatusFilterOptions={completionStatusFilterOptions}
+          completionStatusFilters={completionStatusFilters}
+          difficultyFilterOptions={difficultyFilterOptions}
+          difficultyFilters={difficultyFilters}
+          itemGap="spacious"
+        />
       </SlideOut>
       <DropdownMenu
         align="end"
@@ -331,21 +314,15 @@ export default function QuestionsSystemDesignListWithFilters({
               />
             </Heading>
             <Section>
-              <form className="flex flex-col gap-y-6">
-                <QuestionListingFilterSectionDesktop
-                  isFirstSection={true}
-                  section={companyFilterOptions}
-                  values={companyFilters}
-                />
-                <QuestionListingFilterSectionDesktop
-                  section={difficultyFilterOptions}
-                  values={difficultyFilters}
-                />
-                <QuestionListingFilterSectionDesktop
-                  section={completionStatusFilterOptions}
-                  values={completionStatusFilters}
-                />
-              </form>
+              <QuestionListingSystemDesignFilters
+                companyFilterOptions={companyFilterOptions}
+                companyFilters={companyFilters}
+                completionStatusFilterOptions={completionStatusFilterOptions}
+                completionStatusFilters={completionStatusFilters}
+                difficultyFilterOptions={difficultyFilterOptions}
+                difficultyFilters={difficultyFilters}
+                itemGap="compact"
+              />
             </Section>
           </div>
         </aside>

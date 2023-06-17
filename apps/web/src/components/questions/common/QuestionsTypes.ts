@@ -28,6 +28,7 @@ export const QuestionLanguageLabels: Record<QuestionLanguage, string> = {
   ts: 'TypeScript',
 };
 
+export type QuestionCompletionStatus = 'completed' | 'incomplete';
 export type QuestionDifficulty = 'easy' | 'hard' | 'medium';
 export type QuestionImportance = 'high' | 'low' | 'mid';
 export type QuestionPremiumStatus = 'free' | 'premium';
