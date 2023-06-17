@@ -19,6 +19,7 @@ import QuestionStudyAllocationLabel from '~/components/questions/common/Question
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
+import QuestionsContinueLearning from '~/components/questions/listings/QuestionsContinueLearning';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionsProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
@@ -80,7 +81,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <QuestionProgressLabel
-                barClassName={themeGradient1}
+                barClassName={themeGradient1.className}
                 completed={50}
                 total={120}
               />
@@ -98,7 +99,7 @@ export default function ScrapbookPage() {
                 <QuestionsProgressPanel
                   completedQuestions={58}
                   icon={RiCodeSSlashLine}
-                  progressBarClassName={themeGradient1}
+                  progressBarClassName={themeGradient1.className}
                   title="Coding"
                   totalQuestions={116}
                   variant="default"
@@ -106,7 +107,7 @@ export default function ScrapbookPage() {
                 <QuestionsProgressPanel
                   completedQuestions={80}
                   icon={RiCodeSSlashLine}
-                  progressBarClassName={themeGradient3}
+                  progressBarClassName={themeGradient3.className}
                   title="Quizzes"
                   totalQuestions={100}
                   variant="default"
@@ -114,7 +115,7 @@ export default function ScrapbookPage() {
                 <QuestionsProgressPanel
                   completedQuestions={4}
                   icon={RiCodeSSlashLine}
-                  progressBarClassName={themeGradient2}
+                  progressBarClassName={themeGradient2.className}
                   title="System design"
                   totalQuestions={39}
                   variant="default"
@@ -123,7 +124,7 @@ export default function ScrapbookPage() {
               <QuestionsProgressPanel
                 completedQuestions={58}
                 icon={RiCodeSSlashLine}
-                progressBarClassName={themeGradient1}
+                progressBarClassName={themeGradient1.className}
                 title="Coding"
                 totalQuestions={116}
                 variant="compact"
@@ -131,7 +132,7 @@ export default function ScrapbookPage() {
               <QuestionsProgressPanel
                 completedQuestions={80}
                 icon={RiCodeSSlashLine}
-                progressBarClassName={themeGradient3}
+                progressBarClassName={themeGradient3.className}
                 title="Quizzes"
                 totalQuestions={100}
                 variant="compact"
@@ -139,7 +140,7 @@ export default function ScrapbookPage() {
               <QuestionsProgressPanel
                 completedQuestions={4}
                 icon={RiCodeSSlashLine}
-                progressBarClassName={themeGradient2}
+                progressBarClassName={themeGradient2.className}
                 title="System design"
                 totalQuestions={39}
                 variant="compact"
@@ -313,6 +314,40 @@ export default function ScrapbookPage() {
                       href: '/dev__/scrapbook',
                       slug: 'ui',
                       title: 'User Interface Questions',
+                    },
+                  ]}
+                />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="inline-grid grid-cols-1">
+                <QuestionsContinueLearning
+                  items={[
+                    {
+                      completedCount: 30,
+                      durationMins: 92,
+                      gradient: themeGradient1,
+                      href: '/dev__/scrapbook?plan=algo',
+                      questionsCount: 47,
+                      reverseGradient: true,
+                      title: 'Data structure and algorithms',
+                    },
+                    {
+                      completedCount: 25,
+                      durationMins: 92,
+                      gradient: themeGradient2,
+                      href: '/dev__/scrapbook?plan=forms',
+                      questionsCount: 47,
+                      reverseGradient: true,
+                      title: 'Forms',
+                    },
+                    {
+                      completedCount: 15,
+                      durationMins: 92,
+                      gradient: themeGradient3,
+                      href: '/dev__/scrapbook?plan=accessibility',
+                      questionsCount: 47,
+                      title: 'Accessibility',
                     },
                   ]}
                 />

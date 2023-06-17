@@ -191,6 +191,10 @@
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
   },
+  "30t9g2": {
+    "defaultMessage": "Welcome back",
+    "description": "Message greeting the user on preparation dashboard page"
+  },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
     "description": "Label for warm up questions"
@@ -482,10 +486,6 @@
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
-  },
-  "8KNiXb": {
-    "defaultMessage": "Front End Interview Preparation — System Design",
-    "description": "Prepare for front end interview system design questions"
   },
   "8MHkPL": {
     "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive a discount/cashback!",
@@ -1635,6 +1635,10 @@
     "defaultMessage": "What if those fundamentals were already abstracted for you?",
     "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
+  "TebaLD": {
+    "defaultMessage": "Continue learning",
+    "description": "Title of Continue Learning section in preparation dashboard"
+  },
   "Tvr6Mn": {
     "defaultMessage": "Senior Software Engineer",
     "description": "Ryan Van Valkenburg's job title"
@@ -2622,6 +2626,10 @@
   "l9vVXY": {
     "defaultMessage": "LinkedIn profile link",
     "description": "Link to LinkedIn profile"
+  },
+  "lDlJyX": {
+    "defaultMessage": "<percent>{percentage}</percent>%",
+    "description": "Progress percentage in Continue Learning section in preparation dashboard"
   },
   "lJupPX": {
     "defaultMessage": "View All Questions",

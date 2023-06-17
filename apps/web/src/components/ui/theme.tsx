@@ -74,12 +74,27 @@ export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
 );
 
+export type ThemeGradient = {
+  className: string;
+  endColor: string;
+  startColor: string;
+};
+
 // Gradient colors.
-export const themeGradient1 =
-  'bg-[linear-gradient(133.77deg,_#6366F1_0%,_#10B981_97.95%)]';
+export const themeGradient1: ThemeGradient = {
+  className: 'bg-[linear-gradient(133.77deg,_#6366F1_0%,_#10B981_97.95%)]',
+  endColor: 'rgba(16, 185, 129, 1)',
+  startColor: 'rgba(99, 102, 241, 1)',
+};
 
-export const themeGradient2 =
-  'bg-[linear-gradient(133.77deg,_#059669_0%,_#F59E0B_97.95%)]';
+export const themeGradient2: ThemeGradient = {
+  className: 'bg-[linear-gradient(133.77deg,_#059669_0%,_#F59E0B_97.95%)]',
+  endColor: 'rgba(245, 158, 11, 1)',
+  startColor: 'rgba(5, 150, 105, 1)',
+};
 
-export const themeGradient3 =
-  'bg-[linear-gradient(133.77deg,_#EC4899_0%,_#818CF8_97.95%)]';
+export const themeGradient3: ThemeGradient = {
+  className: 'bg-[linear-gradient(133.77deg,_#EC4899_0%,_#818CF8_97.95%)]',
+  endColor: 'rgba(129, 140, 248, 1)',
+  startColor: 'rgba(236, 72, 153, 1)',
+};
