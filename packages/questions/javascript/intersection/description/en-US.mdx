@@ -1,0 +1,40 @@
+---
+title: Intersection
+excerpt: Implement a function that computes the intersection of arrays, returning a new array containing unique values present in all given arrays.
+---
+
+Implement a JavaScript function intersection(arrays) that takes multiple arrays as input and returns a new array containing the unique values that are present in all given arrays.
+
+```js
+intersection(...arrays);
+```
+
+## Arguments
+
+1. `arrays` _(Array[])_: The arrays to perform the intersection on.
+
+## Returns
+
+_(Array)_: Returns a new array containing the unique values present in all given arrays.
+
+## Example
+
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [2, 3, 4];
+const arr3 = [3, 4, 5];
+
+intersection([arr1, arr2, arr3]); // => [3]
+```
+
+## Notes
+
+The order of the elements in the returned array does not matter. If there are no common elements in the given arrays, the function should return an empty array [].
+
+## Constraints
+
+The input arrays may contain any type of values. The input arrays may have varying lengths. The input arrays may be empty. The values in the input arrays are unique within each array (no duplicate values within a single array). The function should not modify the original arrays.
+
+## Resources
+
+- [Lodash `_.intersection`](https://lodash.com/docs/#intersection)
