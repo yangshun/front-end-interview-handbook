@@ -292,6 +292,7 @@ export default function ScrapbookPage() {
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">
                 <PreparationStudyGuideList
+                  href="#"
                   items={[
                     {
                       href: '/dev__/scrapbook',

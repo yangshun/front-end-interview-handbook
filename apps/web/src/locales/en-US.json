@@ -1327,6 +1327,10 @@
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
   },
+  "O9szXK": {
+    "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
+    "description": "Study plans description"
+  },
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation System Design page"
@@ -2166,6 +2170,10 @@
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
+  },
+  "dOsu3y": {
+    "defaultMessage": "Study plans",
+    "description": "Preparation study plans"
   },
   "da4RLj": {
     "defaultMessage": "Google logo",

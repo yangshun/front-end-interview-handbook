@@ -12,6 +12,11 @@ import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrom
 import ReactLogo from '~/components/icons/ReactLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import type { QuestionUserFacingFormat } from '~/components/questions/common/QuestionsTypes';
+import {
+  themeGradient1,
+  themeGradient2,
+  themeGradient3,
+} from '~/components/ui/theme';
 
 type QuestionListLink = Readonly<{
   description?: string;
@@ -21,6 +26,7 @@ type QuestionListLink = Readonly<{
   longName: string;
   name: string;
   searchPlaceholder: string;
+  themeGradient?: string;
 }>;
 type QuestionFormatLists<C extends string> = Record<C, QuestionListLink>;
 
@@ -51,6 +57,7 @@ export function useQuestionFormatLists() {
         description: 'Placeholder for search input of coding question list',
         id: 'jGQnYd',
       }),
+      themeGradient: themeGradient1,
     },
     quiz: {
       description: intl.formatMessage({
@@ -77,6 +84,7 @@ export function useQuestionFormatLists() {
         description: 'Placeholder for search input of quiz question list',
         id: 'YbRLG7',
       }),
+      themeGradient: themeGradient2,
     },
     'system-design': {
       description: intl.formatMessage({
@@ -103,6 +111,7 @@ export function useQuestionFormatLists() {
           'Placeholder for search input of system design question list',
         id: 'BgJTSk',
       }),
+      themeGradient: themeGradient3,
     },
   };
 

@@ -47,6 +47,7 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
 }
 
 type Props = Readonly<{
+  href: string;
   items: ReadonlyArray<{
     description?: string;
     href: string;
@@ -55,7 +56,10 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function PreparationStudyGuideList({ items }: Props) {
+export default function PreparationStudyGuideList({
+  href: seeAllHref,
+  items,
+}: Props) {
   const intl = useIntl();
 
   return (
@@ -70,6 +74,7 @@ export default function PreparationStudyGuideList({ items }: Props) {
         </Heading>
         <Button
           className="-mr-4"
+          href={seeAllHref}
           icon={RiArrowRightLine}
           label={intl.formatMessage({
             defaultMessage: 'See all',
