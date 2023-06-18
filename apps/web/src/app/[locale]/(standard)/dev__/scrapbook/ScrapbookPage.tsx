@@ -12,6 +12,7 @@ import {
   RiShieldKeyholeLine,
 } from 'react-icons/ri';
 
+import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
@@ -352,6 +353,18 @@ export default function ScrapbookPage() {
                     },
                   ]}
                 />
+              </div>
+            </UIExamplesGroup>
+          </div>
+        </Section>
+        <Container>
+          <Heading level="heading3">Marketing</Heading>
+        </Container>
+        <Section>
+          <div>
+            <UIExamplesGroup darkMode="vertical">
+              <div className="inline-flex gap-x-6">
+                <MarketingFeaturesRow />
               </div>
             </UIExamplesGroup>
           </div>

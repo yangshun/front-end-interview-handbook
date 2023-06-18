@@ -187,6 +187,10 @@
     "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
+  "2tJaGF": {
+    "defaultMessage": "Every question has an in-depth solution with practical considerations, multiple approaches, and technique tips.",
+    "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
+  },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
@@ -642,6 +646,10 @@
   "BtCbN4": {
     "defaultMessage": "Recommended Duration",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
+  },
+  "Bv4T/z": {
+    "defaultMessage": "{QuestionCount}+ questions from quizzes to building UI to implementing library APIs from scratch to system design - available in every popular front end framework.",
+    "description": "Description of 'Practice everything in popular frameworks' feature in marketing page"
   },
   "BwHkBU": {
     "defaultMessage": "Profile",
@@ -1795,6 +1803,10 @@
     "defaultMessage": "Sign up for an account",
     "description": "Title of Email Sign Up page"
   },
+  "W+ConA": {
+    "defaultMessage": "Guided by well-known senior engineers",
+    "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
+  },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
@@ -2302,6 +2314,10 @@
   "fevxJB": {
     "defaultMessage": "PREMIUM",
     "description": "Premium badge on profile page"
+  },
+  "fmAcHR": {
+    "defaultMessage": "Practice everything in popular frameworks",
+    "description": "Title of 'Practice everything in popular frameworks' feature in marketing page"
   },
   "fmPah2": {
     "defaultMessage": "on your first order amount",
@@ -2847,6 +2863,10 @@
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
   },
+  "p/R4cx": {
+    "defaultMessage": "Learn from official solutions and guides",
+    "description": "Title of 'Learn from official solutions and guides' feature in marketing page"
+  },
   "p0uvxa": {
     "defaultMessage": "Zalando, Berlin, Germany",
     "description": "Larry Almeida's location"
@@ -3114,6 +3134,10 @@
   "ujL9EM": {
     "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
     "description": "Title of system design question page"
+  },
+  "ujRHIv": {
+    "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
+    "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
   },
   "ukvoec": {
     "defaultMessage": "Start on this preparation plan today!",
