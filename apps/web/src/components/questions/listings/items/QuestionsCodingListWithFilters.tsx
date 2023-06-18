@@ -1,7 +1,12 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { RiAddLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import {
+  RiAddLine,
+  RiFilterLine,
+  RiSearchLine,
+  RiSortDesc,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -174,9 +179,10 @@ export default function QuestionsCodingListWithFilters({
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
-      <div>
+      <div className={clsx(layout === 'full' && 'lg:hidden')}>
         <Button
-          icon={RiAddLine}
+          icon={RiFilterLine}
+          isLabelHidden={true}
           label={
             intl.formatMessage({
               defaultMessage: 'Filters',

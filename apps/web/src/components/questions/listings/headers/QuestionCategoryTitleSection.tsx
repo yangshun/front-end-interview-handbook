@@ -21,6 +21,7 @@ type Props = Readonly<{
   description: string;
   logo?: ReactNode;
   title: string;
+  titleAddOnText?: string;
 }>;
 
 const items: ReadonlyArray<{
@@ -61,6 +62,7 @@ export default function QuestionCategoryTitleSection({
   description,
   logo,
   title,
+  titleAddOnText,
 }: Props) {
   const intl = useIntl();
 
@@ -103,7 +105,11 @@ export default function QuestionCategoryTitleSection({
       <Section>
         <div className="flex gap-6">
           {logo}
-          <TextPairing description={description} title={title} />
+          <TextPairing
+            description={description}
+            title={title}
+            titleAddOnText={titleAddOnText}
+          />
         </div>
       </Section>
     </div>

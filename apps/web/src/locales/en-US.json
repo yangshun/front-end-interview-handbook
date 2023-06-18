@@ -79,6 +79,10 @@
     "defaultMessage": "Overview",
     "description": "Front End User Interface interviews overview"
   },
+  "04Q6JH": {
+    "defaultMessage": "TypeScript supported",
+    "description": "JavaScript questions can be done in TypeScript"
+  },
   "0BbsyI": {
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
@@ -542,6 +546,10 @@
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
+  },
+  "94CGBX": {
+    "defaultMessage": "Coding",
+    "description": "Label for coding questions"
   },
   "94oFfy": {
     "defaultMessage": "Completed",
@@ -2283,6 +2291,10 @@
     "defaultMessage": "Completed",
     "description": "Label for completed status on quiz questions list"
   },
+  "fJYFo8": {
+    "defaultMessage": "Quiz",
+    "description": "Label for quiz questions"
+  },
   "fQHORb": {
     "defaultMessage": "Show DevTool",
     "description": "Label for button to expand the DevTool"
@@ -2822,10 +2834,6 @@
   "o6ktM9": {
     "defaultMessage": "Light",
     "description": "Light theme option label"
-  },
-  "oE3TMf": {
-    "defaultMessage": "Quiz Questions",
-    "description": "Label for quiz questions"
   },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
@@ -3386,10 +3394,6 @@
   "zIQsmk": {
     "defaultMessage": "Terms of Service",
     "description": "Link to terms of service page"
-  },
-  "zRNA7X": {
-    "defaultMessage": "Coding Questions",
-    "description": "Label for coding questions"
   },
   "zSySsj": {
     "defaultMessage": "Question Formats",

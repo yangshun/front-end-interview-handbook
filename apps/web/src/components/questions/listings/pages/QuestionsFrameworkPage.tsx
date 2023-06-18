@@ -24,6 +24,7 @@ type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
   title: string;
+  titleAddOnText?: string;
 }>;
 
 export default function QuestionsFrameworkPage({
@@ -34,6 +35,7 @@ export default function QuestionsFrameworkPage({
   questionList,
   title,
   featuredSectionTitle,
+  titleAddOnText,
 }: Props) {
   return (
     <>
@@ -45,6 +47,7 @@ export default function QuestionsFrameworkPage({
           description={description}
           logo={logo}
           title={title}
+          titleAddOnText={titleAddOnText}
         />
         <Section>
           <QuestionListingFeaturedQuestions

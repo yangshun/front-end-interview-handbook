@@ -104,7 +104,7 @@ export default function MarketingFeaturesRow() {
               <Heading
                 className={themeTextSubtitleColor}
                 color="custom"
-                level="heading5">
+                level="heading6">
                 {title}
               </Heading>
               <Text color="secondary" size="body2">

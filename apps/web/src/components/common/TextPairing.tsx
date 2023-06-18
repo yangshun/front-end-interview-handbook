@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
+import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
@@ -10,13 +11,15 @@ type Props = Readonly<{
   mode?: 'dark' | 'light';
   sectionLabel?: ReactNode;
   title?: string;
+  titleAddOnText?: string;
 }>;
 
 export default function TextPairing({
   description,
+  mode = 'light',
   sectionLabel,
   title,
-  mode = 'light',
+  titleAddOnText,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-2">
@@ -25,11 +28,15 @@ export default function TextPairing({
       )}
       <Heading
         className={clsx(
+          'flex items-center gap-4',
           mode === 'light' && 'text-neutral-900',
           mode === 'dark' && 'text-white',
         )}
         level="heading5">
         {title}
+        {titleAddOnText && (
+          <Badge label={titleAddOnText} size="sm" variant="neutral" />
+        )}
       </Heading>
       {description && (
         <Text

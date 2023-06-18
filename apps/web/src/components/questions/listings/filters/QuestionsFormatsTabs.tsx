@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import type { QuestionUserFacingFormat } from '../../common/QuestionsTypes';
+
 type Props = Readonly<{
   formats?: ReadonlyArray<QuestionUserFacingFormat>;
   onSelect: (format: QuestionUserFacingFormat) => void;
@@ -32,45 +33,42 @@ export default function QuestionsFormatTabs({
 
   function getLabelForFormat(format: QuestionUserFacingFormat) {
     switch (format) {
-      case 'coding':
+      case 'coding': {
+        const label = intl.formatMessage({
+          defaultMessage: 'Coding',
+          description: 'Label for coding questions',
+          id: '94CGBX',
+        });
+
         return progressSummary != null
-          ? intl.formatMessage({
-              defaultMessage: `Coding Questions`,
-              description: 'Label for coding questions',
-              id: 'zRNA7X',
-            }) +
+          ? label +
               ` (${progressSummary.coding.completed} / ${progressSummary.coding.total})`
-          : intl.formatMessage({
-              defaultMessage: `Coding Questions`,
-              description: 'Label for coding questions',
-              id: 'zRNA7X',
-            });
-      case 'quiz':
+          : label;
+      }
+      case 'quiz': {
+        const label = intl.formatMessage({
+          defaultMessage: 'Quiz',
+          description: 'Label for quiz questions',
+          id: 'fJYFo8',
+        });
+
         return progressSummary != null
-          ? intl.formatMessage({
-              defaultMessage: `Quiz Questions`,
-              description: 'Label for quiz questions',
-              id: 'oE3TMf',
-            }) +
+          ? label +
               ` (${progressSummary.quiz.completed} / ${progressSummary.quiz.total})`
-          : intl.formatMessage({
-              defaultMessage: `Quiz Questions`,
-              description: 'Label for quiz questions',
-              id: 'oE3TMf',
-            });
-      case 'system-design':
+          : label;
+      }
+      case 'system-design': {
+        const label = intl.formatMessage({
+          defaultMessage: `System Design Questions`,
+          description: 'Label for system design questions',
+          id: 'VYWqtL',
+        });
+
         return progressSummary != null
-          ? intl.formatMessage({
-              defaultMessage: `System Design Questions`,
-              description: 'Label for system design questions',
-              id: 'VYWqtL',
-            }) +
+          ? label +
               ` (${progressSummary['system-design'].completed} / ${progressSummary['system-design'].total})`
-          : intl.formatMessage({
-              defaultMessage: `System Design Questions`,
-              description: 'Label for system design questions',
-              id: 'VYWqtL',
-            });
+          : label;
+      }
     }
   }
 

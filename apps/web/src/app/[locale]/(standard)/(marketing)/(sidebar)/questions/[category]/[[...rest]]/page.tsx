@@ -136,6 +136,7 @@ async function processParams(params: Props['params']) {
       logo: (props: React.ComponentProps<'svg'>) => JSX.Element;
       pageTitle: (count: number) => string;
       seoTitle: (count: number) => string;
+      titleAddOn?: string;
     }>
   > = {
     css: {
@@ -236,6 +237,11 @@ async function processParams(params: Props['params']) {
           description: 'SEO title for JavaScript questions list page',
           id: '+p6rsI',
         }),
+      titleAddOn: intl.formatMessage({
+        defaultMessage: 'TypeScript supported',
+        description: 'JavaScript questions can be done in TypeScript',
+        id: '04Q6JH',
+      }),
     },
   };
 
@@ -270,7 +276,7 @@ async function processParams(params: Props['params']) {
   const description = CategoryStrings[category].description(totalQuestions);
   const pageTitle = CategoryStrings[category].pageTitle(totalQuestions);
   const seoTitle = CategoryStrings[category].seoTitle(totalQuestions);
-  const { featuredSectionTitle, logo } = CategoryStrings[category];
+  const { featuredSectionTitle, logo, titleAddOn } = CategoryStrings[category];
 
   return {
     category,
@@ -286,6 +292,7 @@ async function processParams(params: Props['params']) {
     questionCompletionCount,
     quizQuestions,
     seoTitle,
+    titleAddOn,
     totalQuestions,
   };
 }
@@ -323,6 +330,7 @@ export default async function Page({ params }: Props) {
     pageTitle,
     quizQuestions,
     questionCompletionCount,
+    titleAddOn,
   } = await processParams(params);
 
   return (
@@ -337,6 +345,7 @@ export default async function Page({ params }: Props) {
       pageTitle={pageTitle}
       questionCompletionCount={questionCompletionCount}
       quizQuestions={sortQuestions(quizQuestions, 'importance', false)}
+      titleAddOnText={titleAddOn}
     />
   );
 }

@@ -62,6 +62,7 @@ type Props = QuestionListProps &
     featuredSectionTitle: string;
     logo: ReactNode;
     pageTitle: string;
+    titleAddOnText?: string;
   }>;
 
 type QuestionListProps = Readonly<{
@@ -144,6 +145,7 @@ export default function QuestionsCategoryPage({
   quizQuestions,
   questionCompletionCount,
   featuredSectionTitle,
+  titleAddOnText,
 }: Props) {
   return (
     <>
@@ -155,6 +157,7 @@ export default function QuestionsCategoryPage({
           description={description}
           logo={logo}
           title={pageTitle}
+          titleAddOnText={titleAddOnText}
         />
         <Section>
           <QuestionListingFeaturedQuestions
