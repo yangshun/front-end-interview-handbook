@@ -15,6 +15,7 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree, TbForms } from 'react-icons/tb';
 
+import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
@@ -368,6 +369,11 @@ export default function ScrapbookPage() {
             <UIExamplesGroup darkMode="vertical">
               <div className="inline-flex gap-x-6">
                 <MarketingFeaturesRow />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="inline-grid grid-cols-1">
+                <MarketingCompaniesMarquee />
               </div>
             </UIExamplesGroup>
           </div>
