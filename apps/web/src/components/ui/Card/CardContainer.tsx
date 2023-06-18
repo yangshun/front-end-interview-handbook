@@ -12,11 +12,11 @@ import React, {
 import type { MousePosition } from '~/hooks/useMousePosition';
 import useMousePosition from '~/hooks/useMousePosition';
 
-type MousePositionContext = {
+type MousePositionContext = Readonly<{
   addCard: (card: HTMLElement) => void;
   containerRect: DOMRect | null;
   removeCard: (card: HTMLElement) => void;
-};
+}>;
 
 export const MousePositionContext = React.createContext<MousePositionContext>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -85,7 +85,7 @@ export default function CardContainer({ children, className }: Props) {
     <MousePositionContext.Provider value={value}>
       <div
         ref={containerRef}
-        className={clsx(className, 'group/card-container')}>
+        className={clsx('group/card-container', className)}>
         {children}
       </div>
     </MousePositionContext.Provider>

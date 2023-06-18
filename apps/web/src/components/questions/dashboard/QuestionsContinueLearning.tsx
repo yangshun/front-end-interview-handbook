@@ -135,7 +135,7 @@ type Props = Readonly<{
 export default function QuestionsContinueLearning({ items }: Props) {
   return (
     <div className="flex flex-col gap-6">
-      <Heading level="heading4">
+      <Heading level="heading5">
         <FormattedMessage
           defaultMessage="Continue learning"
           description="Title of Continue Learning section in preparation dashboard"

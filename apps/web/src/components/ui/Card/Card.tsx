@@ -76,7 +76,7 @@ export default function Card({
     <div
       ref={cardRef}
       className={clsx(
-        'relative grid grid-cols-1 rounded-lg',
+        'relative isolate grid grid-cols-1 rounded-lg',
         cardOuterContainerClassNames,
         hiddenClasses,
       )}>

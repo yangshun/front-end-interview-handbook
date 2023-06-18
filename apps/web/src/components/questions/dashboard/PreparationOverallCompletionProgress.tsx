@@ -19,7 +19,7 @@ export default function PreparationOverallCompletionProgress({
   return (
     <div
       className={clsx(
-        'grid gap-x-12 rounded-lg border py-4 px-6 lg:grid-cols-3',
+        'grid gap-y-4 gap-x-12 rounded-lg border py-4 px-6 md:grid-cols-3',
         themeLineColor,
       )}>
       {[

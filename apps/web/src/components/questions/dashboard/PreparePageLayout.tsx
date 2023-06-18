@@ -2,13 +2,10 @@
 
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { useIntl } from 'react-intl';
 
 import type { PreparationArea } from '~/data/PreparationAreas';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import PreparationOverallCompletionProgress from '~/components/questions/dashboard/PreparationOverallCompletionProgress';
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
@@ -16,12 +13,18 @@ import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/Ques
 import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
 import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
 import QuestionPreparationPageHeader from '~/components/questions/listings/headers/QuestionPreparationPageHeader';
-import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import {
+  themeGradient1,
+  themeGradient2,
+  themeGradient3,
+} from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+
+import QuestionsContinueLearning from './QuestionsContinueLearning';
 
 type Props = Readonly<{
   area: PreparationArea;
@@ -46,6 +49,9 @@ export default function PreparePageLayout({
   questionCompletionCount,
 }: Props) {
   const { userProfile } = useUserProfile();
+  // TODO(redesign): show continue learning only if user has progressed
+  // on some plans or explicitly started.
+  const showContinueLearning = userProfile;
 
   return (
     <Container className="grid gap-y-12 py-8" variant="normal">
@@ -63,9 +69,40 @@ export default function PreparePageLayout({
             <QuestionsPreparationOnboarding />
           )}
         </div>
-        <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
-          <div>Hello world</div>
-          <QuestionsFocusAreas />
+        <div className="grid gap-x-6 gap-y-12 lg:grid-cols-2">
+          {showContinueLearning && (
+            <QuestionsContinueLearning
+              items={[
+                {
+                  completedCount: 30,
+                  durationMins: 92,
+                  gradient: themeGradient1,
+                  href: '/dev__/scrapbook?plan=algo',
+                  questionsCount: 47,
+                  reverseGradient: true,
+                  title: 'Data structure and algorithms',
+                },
+                {
+                  completedCount: 25,
+                  durationMins: 92,
+                  gradient: themeGradient2,
+                  href: '/dev__/scrapbook?plan=forms',
+                  questionsCount: 47,
+                  reverseGradient: true,
+                  title: 'Forms',
+                },
+                {
+                  completedCount: 15,
+                  durationMins: 92,
+                  gradient: themeGradient3,
+                  href: '/dev__/scrapbook?plan=accessibility',
+                  questionsCount: 47,
+                  title: 'Accessibility',
+                },
+              ]}
+            />
+          )}
+          <QuestionsFocusAreas limit={showContinueLearning != null ? 4 : 8} />
         </div>
         <QuestionsPreparationTabs area={area} />
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-6">

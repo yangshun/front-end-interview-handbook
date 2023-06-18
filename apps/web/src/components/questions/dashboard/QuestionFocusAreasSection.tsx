@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
+import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeLineBackgroundColor } from '~/components/ui/theme';
@@ -28,6 +29,8 @@ type Props = Readonly<{
   title: string;
 }>;
 
+const MAX_SHOWN = 4;
+
 export default function QuestionFocusAreasSection({
   title: sectionTitle,
   description: sectionDescription,
@@ -37,7 +40,7 @@ export default function QuestionFocusAreasSection({
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <div className="@container grid gap-6">
+    <div className="@container flex flex-col gap-6">
       <div className="flex justify-between gap-4">
         <div className="flex items-center gap-4">
           <Heading level="heading5">{sectionTitle}</Heading>
@@ -45,40 +48,40 @@ export default function QuestionFocusAreasSection({
             <RiQuestionFill className="h-5 w-5 text-neutral-300 dark:text-neutral-700" />
           </Tooltip>
         </div>
-        <Button
-          className="-mr-5"
-          icon={showAll ? RiArrowUpSLine : RiArrowDownSLine}
-          label={
-            showAll
-              ? intl.formatMessage({
-                  defaultMessage: 'Show less',
-                  description:
-                    'Show less button label of focus areas section in preparation dashboard',
-                  id: 'ipPZZl',
-                })
-              : intl.formatMessage({
-                  defaultMessage: 'Show all',
-                  description:
-                    'Show all button label of focus areas section in preparation dashboard',
-                  id: 'ahcJju',
-                })
-          }
-          size="md"
-          variant="tertiary"
-          onClick={() => {
-            setShowAll(!showAll);
-          }}
-        />
+        {focusAreas.length > MAX_SHOWN && (
+          <Button
+            className="-mr-5 -mt-2 translate-y-2"
+            icon={showAll ? RiArrowUpSLine : RiArrowDownSLine}
+            label={
+              showAll
+                ? intl.formatMessage({
+                    defaultMessage: 'Show less',
+                    description:
+                      'Show less button label of focus areas section in preparation dashboard',
+                    id: 'ipPZZl',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Show all',
+                    description:
+                      'Show all button label of focus areas section in preparation dashboard',
+                    id: 'ahcJju',
+                  })
+            }
+            size="md"
+            variant="tertiary"
+            onClick={() => {
+              setShowAll(!showAll);
+            }}
+          />
+        )}
       </div>
-      <div className="@4xl:grid-cols-4 @2xl:grid-cols-3 grid grid-cols-2 grid-rows-1 gap-6">
+      <CardContainer className="@4xl:grid-cols-4 @2xl:grid-cols-3 grid grid-cols-2 grid-rows-1 gap-6">
         {focusAreas.map(({ title, icon: Icon, description }, index) => (
           <Card
             key={title}
             className={clsx(
               'group/card flex flex-col items-start gap-3',
-              !showAll && index === 2 && '@md:hidden @2xl:flex',
-              !showAll && index === 3 && '@md:hidden @4xl:flex',
-              !showAll && index >= 4 && '@md:hidden',
+              !showAll && index >= MAX_SHOWN && '@md:hidden',
             )}>
             <div className="flex justify-between self-stretch">
               <span
@@ -96,12 +99,16 @@ export default function QuestionFocusAreasSection({
                 <RiQuestionFill className="h-5 w-5 text-neutral-300 dark:text-neutral-700" />
               </Tooltip>
             </div>
-            <Text color="label" weight="medium">
+            <Text
+              className="w-full truncate"
+              color="label"
+              display="block"
+              weight="medium">
               {title}
             </Text>
           </Card>
         ))}
-      </div>
+      </CardContainer>
     </div>
   );
 }
