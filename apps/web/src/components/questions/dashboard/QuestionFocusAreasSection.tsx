@@ -78,7 +78,7 @@ export default function QuestionFocusAreasSection({
           />
         )}
       </div>
-      <CardContainer className="@4xl:grid-cols-4 @2xl:grid-cols-3 grid grid-cols-2 grid-rows-1 gap-6">
+      <CardContainer className="@4xl:grid-cols-4 grid grid-cols-2 grid-rows-1 gap-6">
         {focusAreas.map(({ title, icon: Icon, description }, index) => (
           <Card
             key={title}

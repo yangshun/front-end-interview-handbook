@@ -69,7 +69,11 @@ export default function PreparePageLayout({
             <QuestionsPreparationOnboarding />
           )}
         </div>
-        <div className="grid gap-x-6 gap-y-12 lg:grid-cols-2">
+        <div
+          className={clsx(
+            'grid gap-x-6 gap-y-12',
+            showContinueLearning && 'lg:grid-cols-2',
+          )}>
           {showContinueLearning && (
             <QuestionsContinueLearning
               items={[

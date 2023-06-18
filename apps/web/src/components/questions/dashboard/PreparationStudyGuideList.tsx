@@ -7,10 +7,7 @@ import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundLayerEmphasized,
-  themeIconColor,
-} from '~/components/ui/theme';
+import { themeLineBackgroundColor } from '~/components/ui/theme';
 
 type GuideItemProps = Readonly<{
   href: string;
@@ -22,7 +19,10 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
   return (
     <Card
       border={false}
-      className={clsx('group flex justify-between py-3 px-4')}
+      className={clsx(
+        'group flex justify-between py-3 px-4',
+        'border border-neutral-200 dark:border-transparent',
+      )}
       padding={false}
       pattern={false}>
       <div className="flex items-center gap-3">
@@ -30,19 +30,21 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
           aria-hidden="true"
           className={clsx(
             'flex h-5 w-5 items-center justify-center rounded-full font-bold text-neutral-500 dark:text-neutral-400',
-            themeBackgroundLayerEmphasized,
+            themeLineBackgroundColor,
           )}
           color="inherit">
           {rank}
         </div>
         <Anchor href={href} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text size="body2" weight="medium">
+          <Text color="subtitle" size="body2" weight="medium">
             {title}
           </Text>
         </Anchor>
       </div>
-      <RiArrowRightSLine className={clsx('h-5 w-5', themeIconColor)} />
+      <RiArrowRightSLine
+        className={clsx('h-5 w-5 text-neutral-500 dark:text-neutral-400')}
+      />
     </Card>
   );
 }
