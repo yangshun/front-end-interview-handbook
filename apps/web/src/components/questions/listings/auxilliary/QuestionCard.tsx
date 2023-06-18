@@ -17,6 +17,7 @@ type Props = Readonly<{
 export default function QuestionCard({ metadata }: Props) {
   return (
     <Card
+      border={false}
       className="group flex items-center justify-between gap-x-4 p-4"
       padding={false}
       pattern={false}>

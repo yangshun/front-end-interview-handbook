@@ -21,6 +21,7 @@ type GuideItemProps = Readonly<{
 function GuideItem({ href, title, rank }: GuideItemProps) {
   return (
     <Card
+      border={false}
       className={clsx('group flex justify-between py-3 px-4')}
       padding={false}
       pattern={false}>

@@ -3,11 +3,11 @@ import type { ReactNode } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
+import Card from '~/components/ui/Card';
+import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeGlassyBorder, themeLineColor } from '~/components/ui/theme';
-
-import Text from '../ui/Text';
+import Text from '~/components/ui/Text';
 
 type Testimonial = Readonly<{
   authorThumbnailUrl?: string;
@@ -345,16 +345,15 @@ export default function MarketingTestimonial() {
         </div>
         <Section>
           <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-            <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
+            <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.key}
                   className="pt-6 sm:inline-block sm:w-full sm:px-3">
-                  <figure
-                    className={clsx(
-                      'rounded-2xl p-6 text-sm leading-6',
-                      themeGlassyBorder,
-                    )}>
+                  <Card
+                    className={clsx('rounded-2xl p-6 text-sm leading-6')}
+                    padding={false}
+                    pattern={false}>
                     <blockquote>
                       <Text size="body2">{testimonial.testimonial}</Text>
                     </blockquote>
@@ -392,10 +391,10 @@ export default function MarketingTestimonial() {
                         </Text>
                       </div>
                     </figcaption>
-                  </figure>
+                  </Card>
                 </div>
               ))}
-            </div>
+            </CardContainer>
           </div>
         </Section>
       </div>

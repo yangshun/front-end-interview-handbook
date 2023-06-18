@@ -13,6 +13,7 @@ import { themeBackgroundColor, themeGlassyBorder } from '~/components/ui/theme';
 import { MousePositionContext } from './CardContainer';
 
 type Props = Readonly<{
+  border?: boolean;
   children: ReactNode;
   className?: string;
   padding?: boolean;
@@ -37,6 +38,7 @@ const cardOuterContainerClassNames = clsx(
 export default function Card({
   children,
   className,
+  border = true,
   padding = true,
   pattern = true,
 }: Props) {
@@ -83,7 +85,7 @@ export default function Card({
       <div
         className={clsx(
           'z-100 !absolute top-0 h-full w-full rounded-[inherit] before:m-[-1px]',
-          pattern && themeGlassyBorder,
+          border && themeGlassyBorder,
         )}
       />
       <div

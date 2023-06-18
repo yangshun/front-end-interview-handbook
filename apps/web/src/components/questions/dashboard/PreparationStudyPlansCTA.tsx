@@ -21,6 +21,7 @@ export default function PreparationStudyPlansCTA() {
         />
       </Heading>
       <Card
+        border={false}
         className={clsx('group flex items-center justify-between gap-2 p-4')}
         padding={false}
         pattern={false}>
