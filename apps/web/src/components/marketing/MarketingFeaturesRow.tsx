@@ -84,7 +84,7 @@ export default function MarketingFeaturesRow() {
   const features = useFeatures();
 
   return (
-    <Container className="py-12">
+    <Container className="py-12" variant="narrow">
       <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-3">
         {features.map(({ description, key, icon: Icon, title }) => (
           <div
@@ -100,7 +100,7 @@ export default function MarketingFeaturesRow() {
                 className={clsx('text-primary h-6 w-6', themeTextSubtitleColor)}
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-2">
               <Heading
                 className={themeTextSubtitleColor}
                 color="custom"

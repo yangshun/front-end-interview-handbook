@@ -11,6 +11,10 @@
     "defaultMessage": "About",
     "description": "Link to company's about page"
   },
+  "+Eg6gK": {
+    "defaultMessage": "View full questions list",
+    "description": "Link to questions page"
+  },
   "+IQinv": {
     "defaultMessage": "Toronto, Canada",
     "description": "Prashanth Reddy's location"
@@ -378,10 +382,6 @@
   "6almL5": {
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
-  },
-  "6e1+nl": {
-    "defaultMessage": "Front end interviews come in so many formats. You could be asked to write JavaScript functions, build a UI, design a system, or even solve LeetCode-style algorithm questions.",
-    "description": "Subtitle of Second section on homepage - first paragraph"
   },
   "6fAxyB": {
     "defaultMessage": "Behavioral Interview Guidebook",
@@ -1155,10 +1155,6 @@
     "defaultMessage": "{numberOfQuestions} questions",
     "description": "Number of questions in a list"
   },
-  "L0IePi": {
-    "defaultMessage": "Because front end interviews are about <span>fundamentals</span>.",
-    "description": "Title of Second section on homepage - serving to hook users with identification of their pain points"
-  },
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
@@ -1511,10 +1507,6 @@
     "defaultMessage": "Check out sample solutions:",
     "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
   },
-  "R99Y8S": {
-    "defaultMessage": "At GreatFrontEnd, we are focused on abstracting front end interviews into repeatable patterns and fundamental concepts. All you need to do is go through our questions and study plans!",
-    "description": "Description under the title of the section on Homepage to hook users with an engaging key benefit of the product"
-  },
   "RBApo9": {
     "defaultMessage": "Promotions",
     "description": "Promotions on the platform"
@@ -1619,10 +1611,6 @@
     "defaultMessage": "Large and curated question bank",
     "description": "Table row header for large and curated question bank feature"
   },
-  "TAajQb": {
-    "defaultMessage": "Building your fundamentals is the only way to rock the interview every single time.",
-    "description": "Subtitle of Second section on homepage - second paragraph"
-  },
   "TB8vuT": {
     "defaultMessage": "Collapse side menu",
     "description": "Screenreader text for the button that collapses the side menu"
@@ -1646,10 +1634,6 @@
   "TcVgOJ": {
     "defaultMessage": "Sign in",
     "description": "Title of Magic Link Sign In page"
-  },
-  "TeTJmh": {
-    "defaultMessage": "What if those fundamentals were already abstracted for you?",
-    "description": "Title of section on Homepage to hook users with an engaging key benefit of the product"
   },
   "TebaLD": {
     "defaultMessage": "Continue learning",
@@ -2519,6 +2503,10 @@
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
   },
+  "jROOlG": {
+    "defaultMessage": "Our users now work in these companies",
+    "description": "Title of company logos section"
+  },
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
@@ -2799,10 +2787,6 @@
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
   },
-  "nuO9Ny": {
-    "defaultMessage": "Try our questions here:",
-    "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
-  },
   "nvhCqI": {
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
     "description": "Message in onboarding card on prepare page"
@@ -2962,6 +2946,10 @@
   "qfX/3p": {
     "defaultMessage": "Tests",
     "description": "Label for Tests tab on the coding workspace"
+  },
+  "qhHM6u": {
+    "defaultMessage": "Try our questions here",
+    "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
   },
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",

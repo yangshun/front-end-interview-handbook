@@ -1,4 +1,8 @@
+import { FormattedMessage } from 'react-intl';
+
+import Container from '~/components/ui/Container';
 import Marquee from '~/components/ui/Marquee';
+import Text from '~/components/ui/Text';
 
 const logos = [
   {
@@ -66,26 +70,39 @@ const logos = [
 
 export default function MarketingCompaniesMarquee() {
   return (
-    <Marquee periodSeconds={30} startEndGap={64}>
-      <div className="flex h-12 items-center gap-16">
-        {logos.map((logo) => (
-          <div
-            key={logo.src}
-            className="flex items-center invert dark:invert-0"
-            style={{
-              height: logo.height,
-              width: logo.width,
-            }}>
-            <img
-              alt={logo.alt}
-              className={logo.className}
-              height={logo.height}
-              src={logo.src}
-              width={logo.width}
-            />
-          </div>
-        ))}
-      </div>
-    </Marquee>
+    <Container className="flex flex-col gap-y-12" variant="narrow">
+      <Text
+        className="text-center"
+        color="secondary"
+        display="block"
+        weight="bold">
+        <FormattedMessage
+          defaultMessage="Our users now work in these companies"
+          description="Title of company logos section"
+          id="jROOlG"
+        />
+      </Text>
+      <Marquee periodSeconds={30} startEndGap={64}>
+        <div className="flex h-12 items-center gap-16">
+          {logos.map((logo) => (
+            <div
+              key={logo.src}
+              className="flex items-center invert dark:invert-0"
+              style={{
+                height: logo.height,
+                width: logo.width,
+              }}>
+              <img
+                alt={logo.alt}
+                className={logo.className}
+                height={logo.height}
+                src={logo.src}
+                width={logo.width}
+              />
+            </div>
+          ))}
+        </div>
+      </Marquee>
+    </Container>
   );
 }

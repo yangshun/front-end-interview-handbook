@@ -4,8 +4,9 @@ import PromoBanner from '~/components/global/banners/PromoBanner';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
 import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';
-import MarketingBecause from '~/components/marketing/MarketingBecause';
+import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingContinuousUpdates from '~/components/marketing/MarketingContinuousUpdates';
+import MarketingEmbedSection from '~/components/marketing/MarketingEmbedSection';
 import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeatureQuestions from '~/components/marketing/MarketingFeatureQuestions';
 import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
@@ -14,7 +15,6 @@ import MarketingHero from '~/components/marketing/MarketingHero';
 import MarketingKeyFeatures from '~/components/marketing/MarketingKeyFeatures';
 import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
 import MarketingTestimonial from '~/components/marketing/MarketingTestimonial';
-import MarketingWhatIf from '~/components/marketing/MarketingWhatIf';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
@@ -44,14 +44,14 @@ export default function MarketingHomePage({
   return (
     <main>
       <PromoBanner />
-      <MarketingHero
-        javaScriptEmbedExample={javaScriptEmbedExample}
-        uiEmbedExample={uiCodingQuestion}
-      />
+      <MarketingHero />
       <Section>
         <MarketingFeaturesRow />
-        <MarketingBecause />
-        <MarketingWhatIf />
+        <MarketingCompaniesMarquee />
+        <MarketingEmbedSection
+          javaScriptEmbedExample={javaScriptEmbedExample}
+          uiEmbedExample={uiCodingQuestion}
+        />
         <MarketingKeyFeatures />
         <MarketingFeatureQuestions
           javaScriptQuestions={javaScriptQuestions}
