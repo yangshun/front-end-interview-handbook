@@ -19,9 +19,10 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized,
   themeBackgroundLayerColor,
   themeBackgroundLayerEmphasizedHover,
+  themeTextBrandHoverColor,
+  themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -214,11 +215,11 @@ export default function QuestionsSidebar({
 
           const activeClassName = clsx(
             'text-brand-dark dark:text-brand',
-            themeBackgroundEmphasized,
+            'bg-neutral-100 dark:bg-neutral-800/70',
           );
           const defaultClassName = clsx(
-            'hover:text-brand-dark dark:hover:text-brand',
-            'text-neutral-600 dark:text-neutral-400',
+            themeTextSecondaryColor,
+            themeTextBrandHoverColor,
           );
 
           if (item.type === 'link') {
