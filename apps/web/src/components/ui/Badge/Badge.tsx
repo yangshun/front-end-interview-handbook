@@ -3,6 +3,7 @@ import clsx from 'clsx';
 type BadgeVariant =
   | 'danger'
   | 'info'
+  | 'neutral'
   | 'primary'
   | 'special'
   | 'success'
@@ -32,6 +33,11 @@ const variantClasses: Record<
     backgroundClass: 'bg-info-lightest dark:bg-info-darker',
     borderClass: 'border-info dark:border-info-light',
     textClass: 'text-info dark:text-info-light',
+  },
+  neutral: {
+    backgroundClass: 'bg-neutral-100 dark:bg-neutral-900',
+    borderClass: 'border-neutral-300 dark:border-neutral-600',
+    textClass: 'text-neutral-500',
   },
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
