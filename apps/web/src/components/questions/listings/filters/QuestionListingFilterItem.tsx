@@ -29,7 +29,11 @@ export default function QuestionListingFilterItem<
   values: Set<T>;
 }>) {
   return (
-    <Disclosure key={section.name} as="div" className={clsx('py-5')}>
+    <Disclosure
+      key={section.name}
+      as="div"
+      className={clsx('py-5')}
+      defaultOpen={values.size > 0}>
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
@@ -53,7 +57,7 @@ export default function QuestionListingFilterItem<
             </Disclosure.Button>
           </legend>
           <Disclosure.Panel className="pt-4 pb-2">
-            <div className={clsx('flex flex-col', itemGapClasses[itemGap])}>
+            <div className={clsx('flex flex-wrap', itemGapClasses[itemGap])}>
               {section.options.map((option) => (
                 <div key={option.value} className="flex items-center">
                   <CheckboxInput
