@@ -33,7 +33,7 @@ export default function DialogImpl({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('relative z-10', dark && 'dark')}
+        className={clsx('relative z-40', dark && 'dark')}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
         <Transition.Child
@@ -44,9 +44,9 @@ export default function DialogImpl({
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-neutral-500 bg-opacity-75 transition-opacity" />
+          <div className="dark:bg-neutral-950/60 fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur transition-opacity" />
         </Transition.Child>
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 z-40 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}

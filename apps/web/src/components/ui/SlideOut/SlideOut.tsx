@@ -75,7 +75,7 @@ export default function SlideOut({
           leave="transition-opacity ease-linear duration-300"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="dark:bg-neutral-950/60 fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 z-40 flex">
           <Transition.Child
