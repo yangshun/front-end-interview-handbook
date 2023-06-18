@@ -4,7 +4,6 @@ import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import Divider from '~/components/ui/Divider';
 import {
-  themeBackgroundColor,
   themeBackgroundLayerColor,
   themeLineColor,
 } from '~/components/ui/theme';
@@ -49,12 +48,12 @@ export default function Navbar({
   return (
     <div
       className={clsx(
-        'sticky top-0 z-30 border-b',
-        themeLineColor,
-        themeBackgroundColor,
+        'sticky top-0 z-30',
+        ['border-b', themeLineColor],
+        ['dark:bg-neutral-950/60 bg-white/60 backdrop-blur'],
       )}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
-        <div className="flex h-14 items-center justify-between md:justify-start md:gap-4">
+        <div className="flex h-16 items-center justify-between md:justify-start md:gap-4">
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             {logo}
             <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">

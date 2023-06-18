@@ -472,35 +472,6 @@ function useNavLinks(
       position: 'start',
       type: 'popover',
     },
-    {
-      href: '/portfolio-review',
-      itemKey: 'portfolio-review',
-      label: intl.formatMessage({
-        defaultMessage: 'Portfolio Review',
-        description: 'Link label to the portfolio review page',
-        id: 'aQR8H4',
-      }),
-      labelAddon: (
-        <Badge
-          label={intl.formatMessage({
-            defaultMessage: 'New!',
-            description: 'New service label',
-            id: 'Epnwgh',
-          })}
-          size="sm"
-          variant="success"
-        />
-      ),
-      onClick: () => {
-        gtag.event({
-          action: `nav.portfolio_review.click`,
-          category: 'engagement',
-          label: 'Portfolio Review',
-        });
-      },
-      position: 'end',
-      type: 'link',
-    },
     !isPremium
       ? {
           href: '/pricing',
@@ -637,7 +608,7 @@ export default function NavbarImpl() {
               'Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase',
             id: 'PFRVpF',
           })}
-          size="xs"
+          size="sm"
           variant="primary"
           onClick={() => {
             gtag.event({

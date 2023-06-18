@@ -36,7 +36,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
           <MetaPixel />
-          <style>{`:root { --navbar-height: 57px; }`}</style>
+          <style>{`:root { --navbar-height: 65px; }`}</style>
           {children}
           <VercelAnalytics />
           <FirstPromoter />
