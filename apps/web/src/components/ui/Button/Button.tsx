@@ -14,9 +14,10 @@ export type ButtonVariant =
   | 'primary'
   | 'secondary'
   | 'success'
-  | 'tertiary';
+  | 'tertiary'
+  | 'unstyled';
 
-type Props = Readonly<{
+export type Props = Readonly<{
   addonPosition?: 'end' | 'start';
   'aria-controls'?: string;
   className?: string;
@@ -127,6 +128,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'active:bg-neutral-200 dark:active:bg-neutral-800',
     'focus-visible:outline-neutral-500',
   ),
+  unstyled: '',
 };
 
 const variantDisabledClasses: Record<ButtonVariant, string> = {
@@ -154,6 +156,7 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
     'disabled:border-transparent',
     'disabled:text-neutral-300 dark:disabled:text-neutral-700',
   ),
+  unstyled: '',
 };
 
 export default function Button({

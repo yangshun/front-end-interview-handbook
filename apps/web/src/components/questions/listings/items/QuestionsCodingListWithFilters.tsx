@@ -1,12 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import {
-  RiAddLine,
-  RiFilterLine,
-  RiSearchLine,
-  RiSortDesc,
-} from 'react-icons/ri';
+import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -43,6 +38,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
@@ -180,7 +176,7 @@ export default function QuestionsCodingListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <Button
+        <QuestionFilterButton
           icon={RiFilterLine}
           isLabelHidden={true}
           label={
@@ -190,9 +186,9 @@ export default function QuestionsCodingListWithFilters({
               id: 'k2Oi+j',
             }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
           }
+          purpose="button"
+          selected={numberOfFilters > 0}
           size="sm"
-          type="button"
-          variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>

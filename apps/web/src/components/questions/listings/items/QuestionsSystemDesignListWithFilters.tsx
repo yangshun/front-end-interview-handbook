@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiAddLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -19,7 +19,6 @@ import useQuestionCompletionStatusFilter from '~/components/questions/listings/f
 import useQuestionDifficultyFilter from '~/components/questions/listings/filters/hooks/useQuestionDifficultyFilter';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import Anchor from '~/components/ui/Anchor';
-import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -27,6 +26,7 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingSystemDesignFilters from '../filters/QuestionListingSystemDesignFilters';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 import useQuestionsWithCompletionStatus from '../useQuestionsWithCompletionStatus';
@@ -115,10 +115,11 @@ export default function QuestionsSystemDesignListWithFilters({
   );
   const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
   const sortAndFilters = (
-    <div className="flex justify-end gap-2 sm:pt-0">
+    <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <Button
-          icon={RiAddLine}
+        <QuestionFilterButton
+          icon={RiFilterLine}
+          isLabelHidden={true}
           label={
             intl.formatMessage({
               defaultMessage: 'Filters',
@@ -126,9 +127,9 @@ export default function QuestionsSystemDesignListWithFilters({
               id: 'k2Oi+j',
             }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
           }
+          purpose="button"
+          selected={numberOfFilters > 0}
           size="sm"
-          type="button"
-          variant="secondary"
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>
