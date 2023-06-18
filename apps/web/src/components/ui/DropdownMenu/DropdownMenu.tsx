@@ -85,7 +85,7 @@ export default function DropdownMenu({
             'transition-colors',
             'border border-neutral-200 dark:border-neutral-800',
             'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
-            'focus:border-brand focus:outline-brand focus:outline-2 focus:outline-offset-2 focus:ring-0',
+            'focus-visible:outline-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
             isLabelHidden && !showChevron
               ? widthClasses[size]
               : horizontalPaddingClasses[size],
