@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import {
   themeBackgroundEmphasizedHover,
+  themeTextBrandColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip/Tooltip';
@@ -15,7 +16,7 @@ type Props<T extends string, Q extends QuestionMetadata> = Readonly<{
   values: Set<T>;
 }>;
 
-export default function QuestionListingCategoryFilters<
+export default function QuestionListingTopicFilters<
   T extends string,
   Q extends QuestionMetadata,
 >({ limit = Infinity, section, values }: Props<T, Q>) {
@@ -30,13 +31,11 @@ export default function QuestionListingCategoryFilters<
               className={clsx(
                 values.has(option.value)
                   ? clsx(
+                      themeTextBrandColor,
                       'border-brand-dark dark:border-brand',
-                      'text-brand-dark dark:text-brand font-semibold',
                       'bg-brand-lightest dark:bg-neutral-800',
-                      'hover:text-brand dark:hover:bg-neutral-800',
                     )
                   : clsx(
-                      themeBackgroundEmphasizedHover,
                       themeTextSubtleColor,
                       'border-transparent',
                       'bg-neutral-100 dark:bg-neutral-900',

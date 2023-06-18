@@ -25,7 +25,7 @@ import useQuestionCompletionStatusFilter from '~/components/questions/listings/f
 import useQuestionDifficultyFilter from '~/components/questions/listings/filters/hooks/useQuestionDifficultyFilter';
 import useQuestionFrameworkFilter from '~/components/questions/listings/filters/hooks/useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from '~/components/questions/listings/filters/hooks/useQuestionLanguageFilter';
-import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
+import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -314,9 +314,9 @@ export default function QuestionsCodingListWithFilters({
       </DropdownMenu>
     </div>
   );
-  const squareFilters = (
+  const topicFilters = (
     <div className="shrink-0">
-      <QuestionListingCategoryFilters
+      <QuestionListingTopicFilters
         section={codingFormatFilterOptions}
         values={codingFormatFilters}
       />
@@ -368,7 +368,7 @@ export default function QuestionsCodingListWithFilters({
       <section className="flex flex-col gap-6 lg:col-span-9">
         <div className="flex flex-col gap-4">
           {mode === 'default' && (
-            <div className="hidden sm:block">{squareFilters}</div>
+            <div className="hidden sm:block">{topicFilters}</div>
           )}
           {searchFilterRow}
         </div>

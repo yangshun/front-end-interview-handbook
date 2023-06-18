@@ -2,9 +2,8 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
-import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
-import { themeTextFaintColor } from '~/components/ui/theme';
+import { themeGlassyBorder, themeTextFaintColor } from '~/components/ui/theme';
 
 import QuestionLanguages from '../../common/QuestionLanguages';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
@@ -16,11 +15,12 @@ type Props = Readonly<{
 
 export default function QuestionCard({ metadata }: Props) {
   return (
-    <Card
-      border={false}
-      className="group flex items-center justify-between gap-x-4 p-4"
-      padding={false}
-      pattern={false}>
+    <div
+      className={clsx(
+        'group flex items-center justify-between gap-x-4 rounded-lg p-4',
+        'bg-neutral-50 dark:bg-neutral-800/40',
+        themeGlassyBorder,
+      )}>
       <div className="grid gap-y-3">
         <div>
           <Anchor href={metadata.href} variant="unstyled">
@@ -53,6 +53,6 @@ export default function QuestionCard({ metadata }: Props) {
           'group-hover:text-brand dark:group-hover:text-brand',
         )}
       />
-    </Card>
+    </div>
   );
 }

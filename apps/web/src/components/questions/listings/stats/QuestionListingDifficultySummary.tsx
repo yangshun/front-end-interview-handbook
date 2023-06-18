@@ -76,7 +76,7 @@ function QuestionListingDifficultySummaryItem({
           value={questionCount}
         />
       </div>
-      <div>
+      <div className="whitespace-nowrap">
         <FormattedMessage
           defaultMessage="<count>{questionCount}</count> <questions>questions</questions>"
           description="Number of questions"

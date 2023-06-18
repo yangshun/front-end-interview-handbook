@@ -12,7 +12,10 @@ import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeLineBackgroundColor } from '~/components/ui/theme';
+import {
+  themeLineBackgroundColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type CardProps = Readonly<{
@@ -88,7 +91,7 @@ export default function QuestionFocusAreasSection({
                 className={clsx(
                   'inline-flex h-10 w-10 items-center justify-center rounded-md',
                   themeLineBackgroundColor,
-                  'text-neutral-400',
+                  themeTextSecondaryColor,
                   'border border-transparent transition',
                   'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
                   'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',

@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { FaUniversalAccess } from 'react-icons/fa';
 import {
   RiBugLine,
   RiCodeSSlashLine,
+  RiDashboardLine,
   RiFlowChart,
   RiFolder4Line,
   RiGlobalLine,
@@ -11,6 +13,7 @@ import {
   RiQuestionnaireLine,
   RiShieldKeyholeLine,
 } from 'react-icons/ri';
+import { TbBinaryTree, TbForms } from 'react-icons/tb';
 
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
@@ -20,7 +23,7 @@ import QuestionStudyAllocationLabel from '~/components/questions/common/Question
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
-import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
+import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionsProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
@@ -189,7 +192,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="grid items-start gap-y-6">
-                <QuestionListingCategoryFilters
+                <QuestionListingTopicFilters
                   section={{
                     id: '',
                     matches: () => true,
@@ -262,30 +265,30 @@ export default function ScrapbookPage() {
                     {
                       description: 'Lorem ipsum',
                       durationMins: 92,
-                      icon: RiFlowChart,
+                      icon: TbBinaryTree,
                       questionCount: 47,
                       title: 'Data structure & algorithms',
                     },
                     {
                       description: 'Lorem ipsum',
                       durationMins: 92,
-                      icon: RiFlowChart,
+                      icon: RiDashboardLine,
                       questionCount: 47,
-                      title: 'Security',
+                      title: 'Design system components',
                     },
                     {
                       description: 'Lorem ipsum',
                       durationMins: 92,
-                      icon: RiFlowChart,
+                      icon: FaUniversalAccess,
                       questionCount: 47,
-                      title: 'Something else',
+                      title: 'Accessibility',
                     },
                     {
                       description: 'Lorem ipsum',
                       durationMins: 92,
-                      icon: RiFlowChart,
+                      icon: TbForms,
                       questionCount: 47,
-                      title: 'Another thing',
+                      title: 'Forms',
                     },
                   ]}
                   title="Recommended focus areas"

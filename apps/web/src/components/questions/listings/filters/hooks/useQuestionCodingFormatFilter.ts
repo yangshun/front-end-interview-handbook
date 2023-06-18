@@ -1,6 +1,10 @@
+import { RiTerminalWindowLine } from 'react-icons/ri';
+import { TbBinaryTree2 } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+
+import RiJavaScriptLine from '~/components/icons/remix/RiJavaScriptLine';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 import { DSAQuestions } from '../../../common/QuestionsCodingDataStructuresAlgorithms';
@@ -29,11 +33,13 @@ export default function useQuestionCodingFormatFilter({
       new Set(initialValue),
     );
   let options: ReadonlyArray<{
+    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
     tooltip: string;
     value: QuestionCodingFormat;
   }> = [
     {
+      icon: RiJavaScriptLine,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript Utilities',
         description: 'Front end JavaScript utility functions',
@@ -48,6 +54,7 @@ export default function useQuestionCodingFormatFilter({
       value: 'utilities',
     },
     {
+      icon: RiTerminalWindowLine,
       label: intl.formatMessage({
         defaultMessage: 'User Interface',
         description: 'Front end user interface questions',
@@ -62,6 +69,7 @@ export default function useQuestionCodingFormatFilter({
       value: 'user-interface',
     },
     {
+      icon: TbBinaryTree2,
       label: intl.formatMessage({
         defaultMessage: 'Data Structures & Algorithms',
         description: 'Data structures and algorithm questions',

@@ -16,7 +16,7 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
 import useQuestionQuizTopicFilter from '~/components/questions/listings/filters/hooks/useQuestionQuizTopicFilter';
-import QuestionListingCategoryFilters from '~/components/questions/listings/filters/QuestionListingCategoryFilters';
+import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -193,14 +193,14 @@ export default function QuestionsQuizListWithFilters({
       </DropdownMenu>
     </div>
   );
-  const squareFilters = (
-    <QuestionListingCategoryFilters
+  const topicFilters = (
+    <QuestionListingTopicFilters
       section={quizTopicFilterOptions}
       values={quizTopicFilters}
     />
   );
-  const squareFiltersEmbedded = (
-    <QuestionListingCategoryFilters
+  const topicFiltersEmbedded = (
+    <QuestionListingTopicFilters
       limit={3}
       section={quizTopicFilterOptions}
       values={quizTopicFilters}
@@ -226,13 +226,13 @@ export default function QuestionsQuizListWithFilters({
           {layout === 'embedded' ? (
             <div className="flex items-center justify-between gap-8">
               <div className="hidden sm:block">
-                {mode === 'default' && squareFiltersEmbedded}
+                {mode === 'default' && topicFiltersEmbedded}
               </div>
               {sortAndFilters}
             </div>
           ) : (
             <>
-              <div className="hidden sm:block">{squareFilters}</div>
+              <div className="hidden sm:block">{topicFilters}</div>
               <div
                 className={clsx(
                   'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',

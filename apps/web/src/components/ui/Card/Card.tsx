@@ -91,7 +91,7 @@ export default function Card({
       <div
         className={clsx(
           'relative isolate z-20 overflow-clip rounded-[inherit]',
-          'bg-neutral-200 dark:bg-neutral-900',
+          'bg-neutral-50 dark:bg-neutral-900',
           padding && 'py-5 px-6',
           nonHiddenClasses,
         )}
