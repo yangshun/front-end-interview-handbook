@@ -1,4 +1,4 @@
-import Marquee from '../ui/Marquee/Marquee';
+import Marquee from '~/components/ui/Marquee';
 
 const logos = [
   {

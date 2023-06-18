@@ -11,9 +11,10 @@ import QuestionUsersCompletedLabelWithFetching from '../../common/QuestionUsersC
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  showArrow?: boolean;
 }>;
 
-export default function QuestionCard({ metadata }: Props) {
+export default function QuestionCard({ metadata, showArrow = true }: Props) {
   return (
     <div
       className={clsx(
@@ -45,14 +46,16 @@ export default function QuestionCard({ metadata }: Props) {
           />
         </div>
       </div>
-      <RiArrowRightLine
-        aria-hidden={true}
-        className={clsx(
-          'h-6 w-6 shrink-0',
-          themeTextFaintColor,
-          'group-hover:text-brand dark:group-hover:text-brand',
-        )}
-      />
+      {showArrow && (
+        <RiArrowRightLine
+          aria-hidden={true}
+          className={clsx(
+            'h-6 w-6 shrink-0',
+            themeTextFaintColor,
+            'group-hover:text-brand dark:group-hover:text-brand',
+          )}
+        />
+      )}
     </div>
   );
 }

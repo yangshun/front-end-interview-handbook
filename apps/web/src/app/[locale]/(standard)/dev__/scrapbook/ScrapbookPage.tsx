@@ -6,7 +6,6 @@ import {
   RiBugLine,
   RiCodeSSlashLine,
   RiDashboardLine,
-  RiFlowChart,
   RiFolder4Line,
   RiGlobalLine,
   RiNodeTree,
@@ -17,6 +16,7 @@ import { TbBinaryTree, TbForms } from 'react-icons/tb';
 
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
+import MarketingMarqueeQuestionListSection from '~/components/marketing/MarketingMarqueeQuestionListSection';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
@@ -367,13 +367,18 @@ export default function ScrapbookPage() {
         <Section>
           <div>
             <UIExamplesGroup darkMode="vertical">
-              <div className="inline-flex gap-x-6">
+              <div>
                 <MarketingFeaturesRow />
               </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
-              <div className="inline-grid grid-cols-1">
+              <div>
                 <MarketingCompaniesMarquee />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="vertical">
+              <div>
+                <MarketingMarqueeQuestionListSection />
               </div>
             </UIExamplesGroup>
           </div>
