@@ -180,8 +180,8 @@ export default function ScrapbookPage() {
                   medium={36}
                 />
                 <QuestionListingDifficultySummary
-                  easy={1}
-                  hard={5678}
+                  easy={10}
+                  hard={1234}
                   medium={234}
                 />
               </div>

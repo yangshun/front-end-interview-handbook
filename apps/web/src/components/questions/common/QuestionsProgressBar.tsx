@@ -3,13 +3,13 @@ import clsx from 'clsx';
 type Props = Readonly<{
   heightClass?: string;
   label: string;
-  progressClass: string;
+  progressClass?: string;
   total: number;
   value: number;
 }>;
 
 export default function QuestionsProgressBar({
-  progressClass,
+  progressClass = 'bg-green',
   heightClass = 'h-2',
   value,
   label,

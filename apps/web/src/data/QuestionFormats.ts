@@ -57,7 +57,7 @@ export function useQuestionFormatLists() {
         description: 'Placeholder for search input of coding question list',
         id: 'jGQnYd',
       }),
-      themeGradient: themeGradient1,
+      themeGradient: themeGradient1.className,
     },
     quiz: {
       description: intl.formatMessage({
@@ -84,7 +84,7 @@ export function useQuestionFormatLists() {
         description: 'Placeholder for search input of quiz question list',
         id: 'YbRLG7',
       }),
-      themeGradient: themeGradient2,
+      themeGradient: themeGradient2.className,
     },
     'system-design': {
       description: intl.formatMessage({
@@ -111,7 +111,7 @@ export function useQuestionFormatLists() {
           'Placeholder for search input of system design question list',
         id: 'BgJTSk',
       }),
-      themeGradient: themeGradient3,
+      themeGradient: themeGradient3.className,
     },
   };
 
