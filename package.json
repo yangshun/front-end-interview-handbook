@@ -22,8 +22,5 @@
   "engines": {
     "npm": ">=8.5.0",
     "node": ">=16.0.0"
-  },
-  "dependencies": {
-    "react-circular-progressbar": "^2.1.0"
   }
 }
