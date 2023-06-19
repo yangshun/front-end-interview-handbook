@@ -2,7 +2,6 @@
 
 import type { ReactNode } from 'react';
 
-import PromoBanner from '~/components/global/banners/PromoBanner';
 import type {
   QuestionCodingFormat,
   QuestionMetadata,
@@ -148,34 +147,31 @@ export default function QuestionsCategoryPage({
   titleAddOnText,
 }: Props) {
   return (
-    <>
-      <PromoBanner sticky={true} />
-      <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
-        <QuestionCategoryTitleSection
-          category={category}
-          count={codingQuestions.length + quizQuestions.length}
-          description={description}
-          logo={logo}
-          title={pageTitle}
-          titleAddOnText={titleAddOnText}
+    <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
+      <QuestionCategoryTitleSection
+        category={category}
+        count={codingQuestions.length + quizQuestions.length}
+        description={description}
+        logo={logo}
+        title={pageTitle}
+        titleAddOnText={titleAddOnText}
+      />
+      <Section>
+        <QuestionListingFeaturedQuestions
+          // TODO(redesign): pick best questions
+          questions={codingQuestions.slice(0, 3)}
+          title={featuredSectionTitle}
         />
-        <Section>
-          <QuestionListingFeaturedQuestions
-            // TODO(redesign): pick best questions
-            questions={codingQuestions.slice(0, 3)}
-            title={featuredSectionTitle}
-          />
-          <QuestionsList
-            key={category}
-            category={category}
-            codingFormat={codingFormat}
-            codingQuestions={codingQuestions}
-            format={format}
-            questionCompletionCount={questionCompletionCount}
-            quizQuestions={quizQuestions}
-          />
-        </Section>
-      </Container>
-    </>
+        <QuestionsList
+          key={category}
+          category={category}
+          codingFormat={codingFormat}
+          codingQuestions={codingQuestions}
+          format={format}
+          questionCompletionCount={questionCompletionCount}
+          quizQuestions={quizQuestions}
+        />
+      </Section>
+    </Container>
   );
 }

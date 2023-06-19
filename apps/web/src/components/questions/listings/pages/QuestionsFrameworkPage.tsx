@@ -2,7 +2,6 @@
 
 import type { ReactNode } from 'react';
 
-import PromoBanner from '~/components/global/banners/PromoBanner';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -38,9 +37,7 @@ export default function QuestionsFrameworkPage({
   titleAddOnText,
 }: Props) {
   return (
-    <>
-      <PromoBanner />
-      <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
+    <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
         <QuestionCategoryTitleSection
           category="react"
           count={questionList.length}
@@ -63,6 +60,5 @@ export default function QuestionsFrameworkPage({
           />
         </Section>
       </Container>
-    </>
   );
 }
