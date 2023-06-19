@@ -17,10 +17,12 @@ import { TbBinaryTree, TbForms } from 'react-icons/tb';
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingMarqueeQuestionListSection from '~/components/marketing/MarketingMarqueeQuestionListSection';
+import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
@@ -40,6 +42,36 @@ import {
   themeGradient2,
   themeGradient3,
 } from '~/components/ui/theme';
+
+const mockQuestion: QuestionMetadata = {
+  author: null,
+  companies: [],
+  created: 0,
+  difficulty: 'medium',
+  duration: 0,
+  excerpt:
+    'Implement a stack data structure containing the common stack methods',
+  featured: false,
+  format: 'quiz',
+  frameworkDefault: null,
+  frameworks: [],
+  href: '/dev__/scrapbook',
+  importance: 'high',
+  languages: ['js', 'ts'],
+  nextQuestions: [],
+  premium: false,
+  published: false,
+  ranking: 0,
+  similarQuestions: [],
+  slug: 'stack',
+  title: 'Stack',
+};
+
+const mockQuestions = Array.from({ length: 10 }, (_, i) => ({
+  ...mockQuestion,
+  slug: `${mockQuestion.title}${i}`,
+  title: `${mockQuestion.title} ${i}`,
+}));
 
 export default function ScrapbookPage() {
   const [selectedFilters, setSelectedFilters] = useState<Set<string>>(
@@ -379,6 +411,22 @@ export default function ScrapbookPage() {
             <UIExamplesGroup darkMode="vertical">
               <div>
                 <MarketingMarqueeQuestionListSection />
+              </div>
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <div className="flex flex-col gap-8">
+                <Heading level="heading4">Question marquees</Heading>
+                <MarketingQuestionCardMarquee
+                  periodSeconds={120}
+                  questions={mockQuestions}
+                  rows={1}
+                />
+                <Divider />
+                <MarketingQuestionCardMarquee
+                  periodSeconds={60}
+                  questions={mockQuestions}
+                  rows={2}
+                />
               </div>
             </UIExamplesGroup>
           </div>

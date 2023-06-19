@@ -11,14 +11,21 @@ import QuestionUsersCompletedLabelWithFetching from '../../common/QuestionUsersC
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  paddingSize?: 'default' | 'wide';
   showArrow?: boolean;
 }>;
 
-export default function QuestionCard({ metadata, showArrow = true }: Props) {
+export default function QuestionCard({
+  metadata,
+  showArrow = true,
+  paddingSize = 'default',
+}: Props) {
   return (
     <div
       className={clsx(
-        'group relative flex items-center justify-between gap-x-4 rounded-lg p-4',
+        'group relative flex items-center justify-between gap-x-4 rounded-lg py-4',
+        paddingSize === 'wide' && 'px-8',
+        paddingSize === 'default' && 'px-5',
         'bg-neutral-50 dark:bg-neutral-800/40',
         themeGlassyBorder,
       )}>

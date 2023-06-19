@@ -10,11 +10,10 @@ import {
 
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import Marquee from '~/components/ui/Marquee';
 import Text from '~/components/ui/Text';
 
+import MarketingQuestionCardMarquee from './MarketingQuestionCardMarquee';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
-import QuestionCard from '../questions/listings/auxilliary/QuestionCard';
 import QuestionListingTopicFilters from '../questions/listings/filters/QuestionListingTopicFilters';
 
 const mockQuestion: QuestionMetadata = {
@@ -43,27 +42,9 @@ const mockQuestion: QuestionMetadata = {
 
 const mockQuestions = Array.from({ length: 10 }, (_, i) => ({
   ...mockQuestion,
-  key: i,
+  slug: `${mockQuestion.title}${i}`,
   title: `${mockQuestion.title} ${i}`,
 }));
-
-function QuestionCardMarquee() {
-  return (
-    <div className="grid grid-cols-1 self-stretch">
-      <Marquee periodSeconds={60} startEndGap={16}>
-        <div className="grid grid-flow-col grid-rows-2 gap-4 whitespace-normal motion-reduce:pl-[80px]">
-          {mockQuestions.map((metadata) => (
-            <div
-              key={metadata.key}
-              className="h-auto w-[250px] even:[transform:translateX(-80px)]">
-              <QuestionCard metadata={metadata} showArrow={false} />
-            </div>
-          ))}
-        </div>
-      </Marquee>
-    </div>
-  );
-}
 
 export default function MarketingMarqueeQuestionListSection() {
   return (
@@ -137,7 +118,11 @@ export default function MarketingMarqueeQuestionListSection() {
           }}
           values={new Set<string>()}
         />
-        <QuestionCardMarquee />
+        <MarketingQuestionCardMarquee
+          periodSeconds={60}
+          questions={mockQuestions}
+          rows={2}
+        />
         <Button
           icon={RiArrowRightLine}
           label="View full questions list"
