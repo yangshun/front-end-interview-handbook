@@ -567,10 +567,6 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
-  "9jbYus": {
-    "defaultMessage": "Pay once, get full access <span>forever</span>.",
-    "description": "Title on Pricing section of Homepage or Pricing page"
-  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -1234,10 +1230,6 @@
   "MHz32F": {
     "defaultMessage": "Overview",
     "description": "Overview section for front end system design interviews"
-  },
-  "MKfy+9": {
-    "defaultMessage": "Pricing",
-    "description": "Section label on Pricing section of Homepage or Pricing page"
   },
   "MNgJK6": {
     "defaultMessage": "Easy",
@@ -1962,6 +1954,10 @@
   "ZN/wJM": {
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
+  },
+  "ZWMfa0": {
+    "defaultMessage": "Pricing plans",
+    "description": "Section label on Pricing section of Homepage or Pricing page"
   },
   "ZX2n3I": {
     "defaultMessage": "Importance: Low to High",
@@ -3026,6 +3022,10 @@
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
+  },
+  "tIrfY2": {
+    "defaultMessage": "Pay once, get full access forever",
+    "description": "Title on Pricing section of Homepage or Pricing page"
   },
   "tJIZWT": {
     "defaultMessage": "Layout",

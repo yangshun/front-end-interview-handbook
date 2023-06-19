@@ -98,3 +98,11 @@ export const themeGradient3: ThemeGradient = {
   endColor: 'rgba(129, 140, 248, 1)',
   startColor: 'rgba(236, 72, 153, 1)',
 };
+
+export const themeRadialGlowBackground = clsx(
+  'relative before:rounded-[inherit] before:opacity-50 before:z-[-1] before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[600px] before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_#E9D5FF_0%,_#8383FD_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
+);
+
+// Shadow colors.
+export const themeBrandShadow =
+  'shadow-[0px_0px_24px_8px_rgba(148,_140,_249,_0.4)]';

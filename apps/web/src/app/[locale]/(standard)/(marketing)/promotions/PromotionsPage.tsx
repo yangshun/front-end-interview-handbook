@@ -72,19 +72,19 @@ function SeasonalDiscountCard() {
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight">
+          <div className="mt-4 flex items-end">
             <Text
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
+                'inline-flex items-center text-5xl font-bold',
               )}
               display="inline-flex"
               size="custom"
-              weight="bold">
+              weight="custom">
               20%
             </Text>
             <Text
-              className="ml-3 text-xl font-medium tracking-normal"
-              color="secondary"
+              className="text-xl font-medium tracking-normal"
+              color="label"
               size="custom"
               weight="bold">
               <FormattedMessage
@@ -222,19 +222,19 @@ function StudentDiscountCard() {
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight">
+          <div className="mt-4 flex items-end">
             <Text
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
+                'inline-flex items-center text-5xl font-bold',
               )}
               display="inline-flex"
               size="custom"
-              weight="bold">
+              weight="custom">
               40%
             </Text>
             <Text
-              className="ml-3 text-xl font-medium tracking-normal"
-              color="secondary"
+              className="text-xl font-medium"
+              color="label"
               size="custom"
               weight="bold">
               <FormattedMessage
@@ -365,10 +365,10 @@ function ReviewCashbackCard() {
       }
       rightSectionContents={
         <>
-          <div className="mt-4 flex items-center justify-center tracking-tight">
+          <div className="mt-4 flex items-end">
             <Text
               className={clsx(
-                'inline-flex items-center px-3 text-4xl tracking-tight sm:text-6xl',
+                'inline-flex items-center text-5xl',
               )}
               display="inline-flex"
               size="custom"
@@ -377,8 +377,8 @@ function ReviewCashbackCard() {
             </Text>
           </div>
           <Text
-            className="text-xl tracking-normal"
-            color="secondary"
+            className="text-xl"
+            color="label"
             display="block"
             size="custom"
             weight="medium">
