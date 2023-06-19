@@ -16,13 +16,12 @@ type Props = Readonly<{
   border?: boolean;
   children: ReactNode;
   className?: string;
+  disableSpotlight?: boolean;
   padding?: boolean;
   pattern?: boolean;
 }>;
 
-const cardOuterContainerClassNames = clsx(
-  themeBackgroundColor,
-  'p-px overflow-hidden',
+const cardOuterContainerSpotlightClassNames = clsx(
   'before:bg-neutral-400 dark:before:bg-white',
   'before:w-20 before:h-20 before:-left-10 before:-top-10 before:blur-[20px]',
   'before:absolute before:rounded-full before:pointer-events-none before:transition-opacity',
@@ -35,10 +34,16 @@ const cardOuterContainerClassNames = clsx(
   'after:bg-brand-dark',
 );
 
+const cardOuterContainerClassNames = clsx(
+  themeBackgroundColor,
+  'p-px overflow-hidden',
+);
+
 export default function Card({
   children,
   className,
   border = true,
+  disableSpotlight = false,
   padding = true,
   pattern = true,
 }: Props) {
@@ -50,16 +55,16 @@ export default function Card({
   useEffect(() => {
     const { current } = cardRef;
 
-    if (current) {
+    if (!disableSpotlight && current) {
       addCard(current);
     }
 
     return () => {
-      if (current) {
+      if (!disableSpotlight && current) {
         removeCard(current);
       }
     };
-  }, [addCard, removeCard]);
+  }, [addCard, removeCard, disableSpotlight]);
 
   const { hiddenClasses, nonHiddenClasses } = useMemo(() => {
     const hidden = className
@@ -81,6 +86,7 @@ export default function Card({
         'relative isolate grid grid-cols-1 rounded-lg',
         cardOuterContainerClassNames,
         hiddenClasses,
+        !disableSpotlight && cardOuterContainerSpotlightClassNames,
       )}>
       <div
         className={clsx(

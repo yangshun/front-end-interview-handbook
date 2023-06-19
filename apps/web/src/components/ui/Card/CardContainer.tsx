@@ -33,8 +33,10 @@ type Props = Readonly<{
 
 export default function CardContainer({ children, className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mousePosition = useMousePosition();
   const [cards, setCards] = useState<Array<HTMLElement>>([]);
+
+  const shouldTrackMousePosition = cards.length > 0;
+  const mousePosition = useMousePosition(shouldTrackMousePosition);
 
   const addCard = useCallback((card: HTMLElement) => {
     setCards((prevCards) => [...prevCards, card]);

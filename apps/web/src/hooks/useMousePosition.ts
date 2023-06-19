@@ -5,7 +5,7 @@ export type MousePosition = {
   y: number;
 };
 
-export default function useMousePosition(): MousePosition {
+export default function useMousePosition(enabled = true): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
@@ -16,12 +16,16 @@ export default function useMousePosition(): MousePosition {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    if (enabled) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (enabled) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
     };
-  }, []);
+  }, [enabled]);
 
   return mousePosition;
 }
