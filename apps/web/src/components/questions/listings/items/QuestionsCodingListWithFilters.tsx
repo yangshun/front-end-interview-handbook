@@ -317,18 +317,13 @@ export default function QuestionsCodingListWithFilters({
     </div>
   );
   const topicFilters = (
-    <div className="shrink-0">
-      <QuestionListingTopicFilters
-        section={codingFormatFilterOptions}
-        values={codingFormatFilters}
-      />
-    </div>
+    <QuestionListingTopicFilters
+      section={codingFormatFilterOptions}
+      values={codingFormatFilters}
+    />
   );
   const searchFilterRow = (
-    <div
-      className={clsx(
-        'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
-      )}>
+    <div className={clsx('flex justify-end gap-2')}>
       <div className="flex-1">
         <TextInput
           autoComplete="off"
@@ -369,9 +364,7 @@ export default function QuestionsCodingListWithFilters({
       {/* Left Column */}
       <section className="flex flex-col gap-6 lg:col-span-9">
         <div className="flex flex-col gap-4">
-          {mode === 'default' && (
-            <div className="hidden sm:block">{topicFilters}</div>
-          )}
+          {topicFilters}
           {searchFilterRow}
         </div>
         <div className="flex flex-col gap-4">

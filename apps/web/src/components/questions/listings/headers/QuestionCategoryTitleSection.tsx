@@ -67,8 +67,8 @@ export default function QuestionCategoryTitleSection({
   const intl = useIntl();
 
   return (
-    <div className="grid gap-y-12">
-      <div className="grid gap-y-6">
+    <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-4">
         <div className="flex items-center gap-x-4">
           <Heading level="heading4">
             <FormattedMessage
@@ -98,6 +98,7 @@ export default function QuestionCategoryTitleSection({
             description: 'Tab label to select another question category',
             id: 'MOxuKN',
           })}
+          size="sm"
           tabs={items}
           value={category}
         />

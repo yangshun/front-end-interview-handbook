@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import type {
@@ -37,28 +38,34 @@ export default function QuestionsFrameworkPage({
   titleAddOnText,
 }: Props) {
   return (
-    <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
-        <QuestionCategoryTitleSection
-          category="react"
-          count={questionList.length}
-          description={description}
-          logo={logo}
-          title={title}
-          titleAddOnText={titleAddOnText}
+    <Container
+      className={clsx(
+        'flex flex-col',
+        'py-6 xl:py-8 2xl:py-10',
+        'gap-y-6 xl:gap-y-8 2xl:gap-y-10',
+      )}
+      variant="normal">
+      <QuestionCategoryTitleSection
+        category="react"
+        count={questionList.length}
+        description={description}
+        logo={logo}
+        title={title}
+        titleAddOnText={titleAddOnText}
+      />
+      <Section>
+        <QuestionListingFeaturedQuestions
+          // TODO(redesign): pick best questions
+          questions={questionList.slice(0, 3)}
+          title={featuredSectionTitle}
         />
-        <Section>
-          <QuestionListingFeaturedQuestions
-            // TODO(redesign): pick best questions
-            questions={questionList.slice(0, 3)}
-            title={featuredSectionTitle}
-          />
-          <QuestionsCodingListWithFilters
-            framework={framework}
-            mode="framework"
-            questionCompletionCount={questionCompletionCount}
-            questions={questionList}
-          />
-        </Section>
-      </Container>
+        <QuestionsCodingListWithFilters
+          framework={framework}
+          mode="framework"
+          questionCompletionCount={questionCompletionCount}
+          questions={questionList}
+        />
+      </Section>
+    </Container>
   );
 }

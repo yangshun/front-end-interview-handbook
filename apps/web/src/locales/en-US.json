@@ -787,10 +787,6 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
-  "Epnwgh": {
-    "defaultMessage": "New!",
-    "description": "New service label"
-  },
   "ExWrYc": {
     "defaultMessage": "Practice everything here.",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -2007,10 +2003,6 @@
     "defaultMessage": "Contributed by ex-interviewers at",
     "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
   },
-  "aQR8H4": {
-    "defaultMessage": "Portfolio Review",
-    "description": "Link label to the portfolio review page"
-  },
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
@@ -2743,10 +2735,6 @@
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
   },
-  "n4tPZM": {
-    "defaultMessage": "JavaScript and TypeScript Questions",
-    "description": "JavaScript Questions list page title"
-  },
   "n8q6oB": {
     "defaultMessage": "Recommended duration",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
@@ -3014,6 +3002,10 @@
   "snLKzs": {
     "defaultMessage": "Manage Subscription",
     "description": "Manage user membership subscription button label"
+  },
+  "sr3vXR": {
+    "defaultMessage": "JavaScript questions",
+    "description": "JavaScript Questions list page title"
   },
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",

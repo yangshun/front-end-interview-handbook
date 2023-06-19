@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import type {
@@ -97,7 +98,7 @@ function QuestionsList({
   const router = useI18nRouter();
 
   return (
-    <>
+    <div className="flex flex-col gap-y-4">
       <div className="w-full overflow-x-auto">
         <QuestionsFormatTabs
           formats={['coding', 'quiz']}
@@ -129,7 +130,7 @@ function QuestionsList({
           questions={codingQuestions}
         />
       )}
-    </>
+    </div>
   );
 }
 
@@ -147,7 +148,13 @@ export default function QuestionsCategoryPage({
   titleAddOnText,
 }: Props) {
   return (
-    <Container className="grid gap-y-12 pb-12 pt-6" variant="normal">
+    <Container
+      className={clsx(
+        'flex flex-col',
+        'py-6 xl:py-8 2xl:py-10',
+        'gap-y-6 xl:gap-y-8 2xl:gap-y-10',
+      )}
+      variant="normal">
       <QuestionCategoryTitleSection
         category={category}
         count={codingQuestions.length + quizQuestions.length}

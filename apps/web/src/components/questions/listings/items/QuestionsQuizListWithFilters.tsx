@@ -101,7 +101,7 @@ export default function QuestionsQuizListWithFilters({
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
-      <div>
+      <div className={clsx(layout === 'full' && 'lg:hidden')}>
         <QuestionFilterButton
           icon={RiFilterLine}
           isLabelHidden={true}
@@ -200,12 +200,30 @@ export default function QuestionsQuizListWithFilters({
       values={quizTopicFilters}
     />
   );
-  const topicFiltersEmbedded = (
-    <QuestionListingTopicFilters
-      limit={3}
-      section={quizTopicFilterOptions}
-      values={quizTopicFilters}
-    />
+  const searchFilterRow = (
+    <div className={clsx('flex justify-end gap-2')}>
+      <div className="flex-1">
+        <TextInput
+          autoComplete="off"
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'Search quiz questions',
+            description: 'Placeholder for search input of quiz question list',
+            id: 'YbRLG7',
+          })}
+          placeholder={intl.formatMessage({
+            defaultMessage: 'Search quiz questions',
+            description: 'Placeholder for search input of quiz question list',
+            id: 'YbRLG7',
+          })}
+          size="sm"
+          startIcon={RiSearchLine}
+          value={query}
+          onChange={(value) => setQuery(value)}
+        />
+      </div>
+      {sortAndFilters}
+    </div>
   );
   const listMetadata = (
     <div className="flex gap-x-10">
@@ -224,46 +242,8 @@ export default function QuestionsQuizListWithFilters({
       {/* Left Column */}
       <section className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
-          {layout === 'embedded' ? (
-            <div className="flex items-center justify-between gap-8">
-              <div className="hidden sm:block">
-                {mode === 'default' && topicFiltersEmbedded}
-              </div>
-              {sortAndFilters}
-            </div>
-          ) : (
-            <>
-              <div className="hidden sm:block">{topicFilters}</div>
-              <div
-                className={clsx(
-                  'flex flex-col justify-end gap-2 sm:flex-row sm:items-center',
-                )}>
-                <div className="flex-1">
-                  <TextInput
-                    autoComplete="off"
-                    isLabelHidden={true}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Search quiz questions',
-                      description:
-                        'Placeholder for search input of quiz question list',
-                      id: 'YbRLG7',
-                    })}
-                    placeholder={intl.formatMessage({
-                      defaultMessage: 'Search quiz questions',
-                      description:
-                        'Placeholder for search input of quiz question list',
-                      id: 'YbRLG7',
-                    })}
-                    size="sm"
-                    startIcon={RiSearchLine}
-                    value={query}
-                    onChange={(value) => setQuery(value)}
-                  />
-                </div>
-                {sortAndFilters}
-              </div>
-            </>
-          )}
+          {topicFilters}
+          {searchFilterRow}
         </div>
         <div className="flex flex-col gap-4">
           {listMetadata}

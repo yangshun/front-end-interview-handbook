@@ -54,7 +54,12 @@ export default function PreparePageLayout({
   const showContinueLearning = userProfile;
 
   return (
-    <Container className="grid gap-y-12 py-8" variant="normal">
+    <Container
+      className={clsx(
+        'flex flex-col',
+        'py-6 xl:py-8 2xl:py-10',
+        'gap-y-6 xl:gap-y-8 2xl:gap-y-10',
+      )}>
       <Heading className="sr-only" level="custom">
         {title}
       </Heading>
