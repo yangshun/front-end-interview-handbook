@@ -68,7 +68,7 @@ export default function PreparationStudyGuideList({
   return (
     <div className="flex w-full flex-col gap-6">
       <div className="flex items-center justify-between">
-        <Heading level="heading5">
+        <Heading level="heading6">
           <FormattedMessage
             defaultMessage="Study guides"
             description="Study guides list section title in preparation dashboard"

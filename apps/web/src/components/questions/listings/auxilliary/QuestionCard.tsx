@@ -23,13 +23,13 @@ export default function QuestionCard({
   return (
     <div
       className={clsx(
-        'group relative flex items-center justify-between gap-x-4 rounded-lg py-4',
+        'group relative flex items-center justify-between gap-x-4 rounded-lg py-3',
         paddingSize === 'wide' && 'px-8',
-        paddingSize === 'default' && 'px-5',
+        paddingSize === 'default' && 'px-4',
         'bg-neutral-50 dark:bg-neutral-800/40',
         themeGlassyBorder,
       )}>
-      <div className="grid gap-y-3">
+      <div className="flex flex-col gap-2">
         <div>
           <Anchor href={metadata.href} variant="unstyled">
             <span aria-hidden={true} className="absolute inset-0" />
@@ -57,7 +57,7 @@ export default function QuestionCard({
         <RiArrowRightLine
           aria-hidden={true}
           className={clsx(
-            'h-6 w-6 shrink-0',
+            'h-5 w-5 shrink-0',
             themeTextFaintColor,
             'group-hover:text-brand dark:group-hover:text-brand',
           )}

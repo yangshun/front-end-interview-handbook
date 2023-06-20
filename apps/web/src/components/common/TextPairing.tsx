@@ -22,7 +22,7 @@ export default function TextPairing({
   titleAddOnText,
 }: Props) {
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-1">
       {sectionLabel && (
         <MarketingSectionTitleLabel>{sectionLabel}</MarketingSectionTitleLabel>
       )}
@@ -32,7 +32,7 @@ export default function TextPairing({
           mode === 'light' && 'text-neutral-900',
           mode === 'dark' && 'text-white',
         )}
-        level="heading5">
+        level="heading6">
         {title}
         {titleAddOnText && (
           <Badge label={titleAddOnText} size="sm" variant="neutral" />
@@ -40,7 +40,7 @@ export default function TextPairing({
       </Heading>
       {description && (
         <Text
-          className={clsx('max-w-3xl leading-6')}
+          className={clsx('max-w-3xl')}
           color="secondary"
           display="block"
           size="body2">

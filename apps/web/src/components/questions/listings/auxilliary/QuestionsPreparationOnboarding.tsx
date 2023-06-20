@@ -58,7 +58,9 @@ export default function QuestionsPreparationOnboarding() {
               className="flex flex-col gap-2 rounded-lg bg-neutral-200/40 py-5 px-6 dark:bg-neutral-800/40">
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
-                <Heading level="heading6">{label}</Heading>
+                <Text display="block" weight="bold">
+                  {label}
+                </Text>
               </div>
               <Text
                 className="line-clamp-3"

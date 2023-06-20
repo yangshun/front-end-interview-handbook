@@ -13,7 +13,7 @@ import { themeLineBackgroundColor } from '../../ui/theme';
 export default function PreparationStudyPlansCTA() {
   return (
     <div className="flex w-full flex-col gap-6">
-      <Heading level="heading5">
+      <Heading level="heading6">
         <FormattedMessage
           defaultMessage="Study plans"
           description="Preparation study plans"

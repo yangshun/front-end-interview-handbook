@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { FormattedMessage,  } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Anchor from '~/components/ui/Anchor';
@@ -12,7 +12,7 @@ export default function QuestionPreparationPageHeader() {
   return (
     <div className="grid gap-6 xl:grid-cols-3">
       <div className="col-span-2 grid gap-y-6">
-        <Heading level="heading4">
+        <Heading level="heading5">
           {userProfile != null ? (
             <FormattedMessage
               defaultMessage="Welcome back"

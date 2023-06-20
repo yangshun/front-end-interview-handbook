@@ -70,7 +70,7 @@ export default function QuestionCategoryTitleSection({
     <div className="flex flex-col gap-y-8">
       <div className="flex flex-col gap-y-4">
         <div className="flex items-center gap-x-4">
-          <Heading level="heading4">
+          <Heading level="heading5">
             <FormattedMessage
               defaultMessage="Practice Questions"
               description="Questions list page title"

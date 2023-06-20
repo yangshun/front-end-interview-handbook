@@ -87,6 +87,7 @@ export default function QuestionsFormatTabs({
         description: 'Label for tabs for question formats',
         id: 'zSySsj',
       })}
+      size="sm"
       tabs={tabItems}
       value={value}
       onSelect={onSelect}

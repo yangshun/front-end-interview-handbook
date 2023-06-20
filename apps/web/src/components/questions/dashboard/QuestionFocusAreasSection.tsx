@@ -46,7 +46,7 @@ export default function QuestionFocusAreasSection({
     <div className="@container flex flex-col gap-6">
       <div className="flex justify-between gap-4">
         <div className="flex items-center gap-4">
-          <Heading level="heading5">{sectionTitle}</Heading>
+          <Heading level="heading6">{sectionTitle}</Heading>
           <Tooltip label={sectionDescription}>
             <RiQuestionFill className="h-5 w-5 text-neutral-300 dark:text-neutral-700" />
           </Tooltip>

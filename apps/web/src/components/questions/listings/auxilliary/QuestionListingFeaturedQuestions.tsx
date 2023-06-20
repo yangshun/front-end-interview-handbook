@@ -17,7 +17,9 @@ export default function QuestionListingFeaturedQuestions({
 }: Props) {
   return (
     <div className="grid gap-y-4">
-      <Heading level="heading6">{title}</Heading>
+      <Heading className="text-base font-semibold" level="custom">
+        {title}
+      </Heading>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           {questions.map((metadata, index) => (

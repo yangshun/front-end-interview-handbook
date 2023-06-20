@@ -341,7 +341,7 @@ export default async function Page({ params }: Props) {
       description={description}
       featuredSectionTitle={featuredSectionTitle}
       format={format}
-      logo={<Logo className="h-16 w-16 rounded" />}
+      logo={<Logo className="h-16 w-16 rounded-md" />}
       pageTitle={pageTitle}
       questionCompletionCount={questionCompletionCount}
       quizQuestions={sortQuestions(quizQuestions, 'importance', false)}
