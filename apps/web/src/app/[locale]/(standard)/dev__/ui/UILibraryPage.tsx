@@ -14,6 +14,7 @@ import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
+import PopoverExamples from '~/components/ui/Popover/PopoverExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
@@ -42,7 +43,6 @@ export default function UILibraryPage() {
         <TextInputExamples />
         <TextAreaExamples />
         <SelectExamples />
-        <DropdownMenuExamples />
         <CheckboxInputExamples />
         {/* Others */}
         <TabsExamples />
@@ -53,6 +53,8 @@ export default function UILibraryPage() {
         <CardExamples />
         <BannerExamples />
         {/* Layer */}
+        <DropdownMenuExamples />
+        <PopoverExamples />
         <TooltipExamples />
         <SlideOutExamples />
         <DialogExamples />

@@ -32,7 +32,7 @@ export default function DropdownMenuExamples() {
 
   return (
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Dropdown Menu">
-      <div className="flex gap-x-24">
+      <div className="flex gap-x-12">
         <DropdownMenu icon={RiSortDesc} label="Sort By">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
@@ -70,7 +70,7 @@ export default function DropdownMenuExamples() {
           ))}
         </DropdownMenu>
       </div>
-      <div className="flex gap-x-24">
+      <div className="flex gap-x-12">
         <DropdownMenu label="Align Start">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item
@@ -96,7 +96,7 @@ export default function DropdownMenuExamples() {
           ))}
         </DropdownMenu>
       </div>
-      <div className="flex gap-x-24">
+      <div className="flex gap-x-12">
         <DropdownMenu icon={RiSortDesc} isLabelHidden={true} label="Sort By">
           {menuItems.map(({ label, value }) => (
             <DropdownMenu.Item

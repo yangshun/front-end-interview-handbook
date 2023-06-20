@@ -58,8 +58,8 @@ export default function UIExamplesGroup({
         )}
         {darkMode === 'horizontal' && (
           <div className="relative flex">
-            <div className="bg-neutral-950 absolute inset-y-0 right-0 w-1/2"></div>
-            <Container className="z-10 w-full">
+            <div className="bg-neutral-950 absolute inset-y-0 right-0 -z-10 w-1/2"></div>
+            <Container className="w-full">
               <div className="grid w-full grid-cols-2">
                 <div
                   className={clsx(
