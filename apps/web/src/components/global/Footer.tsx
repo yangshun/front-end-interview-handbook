@@ -258,10 +258,9 @@ export default function Footer() {
     <Text color="secondary" display="block" size="body2">
       &copy; {new Date().getFullYear()}{' '}
       <FormattedMessage
-        defaultMessage="Codeney Pte Ltd. All rights
-              reserved."
+        defaultMessage="Codeney Pte Ltd. All rights reserved."
         description="Footer copyright text containing the company name"
-        id="zcPRL8"
+        id="DiyRBB"
       />
     </Text>
   );

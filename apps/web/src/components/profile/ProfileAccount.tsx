@@ -65,10 +65,9 @@ export default function ProfileAccount({ user }: Props) {
       {user?.app_metadata.provider !== 'email' && (
         <Text color="secondary" display="block" size="body2">
           <FormattedMessage
-            defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can change your
-            email here to use email and password to log in instead."
+            defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead."
             description="Subtext above email settings."
-            id="DHWrzc"
+            id="1wkHv2"
           />
         </Text>
       )}

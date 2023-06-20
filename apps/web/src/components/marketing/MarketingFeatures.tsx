@@ -26,10 +26,9 @@ function useFeatures() {
     {
       description: (
         <FormattedMessage
-          defaultMessage="{questionCount}+ interview questions across <clink>coding</clink>
-        and <qlink>quiz</qlink> formats and new questions constantly being added."
+          defaultMessage="{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added."
           description="Subtitle for huge question bank feature"
-          id="+7q0kY"
+          id="+99sZT"
           values={{
             clink: (chunks) => <Anchor href="/prepare/coding">{chunks}</Anchor>,
             qlink: (chunks) => <Anchor href="/prepare/quiz">{chunks}</Anchor>,
@@ -62,12 +61,9 @@ function useFeatures() {
     {
       description: (
         <FormattedMessage
-          defaultMessage="Preparation plans for all kinds of preparation timelines —
-          <owlink>1 week</owlink>,
-          <omlink>1 month</omlink>,
-          <tmlink>3 months</tmlink>."
+          defaultMessage="Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>."
           description="Subtitle for proven preparation plans feature"
-          id="XO8Bmu"
+          id="YdQTiq"
           values={{
             omlink: (chunks) => (
               <Anchor href="/prepare/one-month">{chunks}</Anchor>

@@ -29,10 +29,9 @@ function useFeatures() {
         <div className="space-y-8">
           <p>
             <FormattedMessage
-              defaultMessage="{questionCount}+ commonly asked questions across every interview
-            format - <strong>System design, UI, JavaScript, Quizzes</strong>"
+              defaultMessage="{questionCount}+ commonly asked questions across every interview format - <strong>System design, UI, JavaScript, Quizzes</strong>"
               description="Table cell content for large and curated question bank feature comparison in GFE."
-              id="0MATkq"
+              id="rPC33Z"
               values={{
                 questionCount: QuestionCount,
                 strong: (chunks) => (
@@ -105,20 +104,27 @@ function useFeatures() {
     {
       gfe: (
         <div className="space-y-8">
-          <FormattedMessage
-            defaultMessage="<p>Every question has an in-depth solution with inline explanations.</p>
-            <p>Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations.</p>"
-            description="Table cell content for quality solutions feature comparison in GFE."
-            id="dmfGz6"
-            values={{
-              p: (chunks) => <p>{chunks}</p>,
-              strong: (chunks) => (
-                <strong className="font-medium text-neutral-100">
-                  {chunks}
-                </strong>
-              ),
-            }}
-          />
+          <p>
+            <FormattedMessage
+              defaultMessage="<Every question has an in-depth solution with inline explanations."
+              description="Table cell content for quality solutions feature comparison in GFE."
+              id="GE+2xM"
+            />
+          </p>
+          <p>
+            <FormattedMessage
+              defaultMessage="Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations."
+              description="Table cell content for quality solutions feature comparison in GFE."
+              id="y7NBv3"
+              values={{
+                strong: (chunks) => (
+                  <strong className="font-medium text-neutral-100">
+                    {chunks}
+                  </strong>
+                ),
+              }}
+            />
+          </p>
         </div>
       ),
       key: 'quality-solutions',
@@ -161,7 +167,7 @@ function useFeatures() {
               defaultMessage="<link>View our free system design
               guides<span>→</span></link>"
               description="System design link"
-              id="V0ftNc"
+              id="loCbaG"
               values={{
                 link: (chunks) => (
                   <Anchor
@@ -280,10 +286,9 @@ function useFeatures() {
         <div className="space-y-8">
           <p>
             <FormattedMessage
-              defaultMessage="Practice interview questions asked by
-              <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>."
+              defaultMessage="Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>."
               description="Table cell content for practice questions by companies feature comparison in GFE."
-              id="boVfIq"
+              id="iSUUiW"
               values={{
                 strong: (chunks) => (
                   <strong className="font-medium text-neutral-100">
@@ -412,10 +417,9 @@ export default function MarketingKeyFeaturesNew() {
                 color="light"
                 level="heading2">
                 <FormattedMessage
-                  defaultMessage="<span>All the essentials for front end</span>
-                  <inline>interviews <colour>and more</colour></inline>."
+                  defaultMessage="<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>."
                   description="Key features section heading"
-                  id="sNsR2/"
+                  id="+NW7g8"
                   values={{
                     colour: (chunks) => (
                       <span className="from-brand-light bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
@@ -489,10 +493,9 @@ export default function MarketingKeyFeaturesNew() {
               <div className="mx-auto mt-12 flex items-center px-6 text-center text-lg sm:mt-24 md:text-xl lg:text-2xl">
                 <span className="text-white">
                   <FormattedMessage
-                    defaultMessage="Not convinced yet?
-                    <link>Try the product (it's free) →</link>"
+                    defaultMessage="Not convinced yet? <link>Try the product (it's free) →</link>"
                     description="Call-to-action"
-                    id="lzp9eR"
+                    id="szkvx2"
                     values={{
                       link: (chunks) => (
                         <Anchor
