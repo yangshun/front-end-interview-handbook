@@ -28,10 +28,12 @@ import useQuestionLanguageFilter from '~/components/questions/listings/filters/h
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import Anchor from '~/components/ui/Anchor';
-import Button from '~/components/ui/Button';
+import CheckboxInput from '~/components/ui/CheckboxInput';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Popover from '~/components/ui/Popover';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -344,6 +346,114 @@ export default function QuestionsCodingListWithFilters({
           onChange={(value) => setQuery(value)}
         />
       </div>
+      {layout === 'embedded' && (
+        <div className="hidden lg:inline-flex">
+          <Popover label={companyFilterOptions.name} size="sm">
+            <div className="flex flex-wrap gap-x-6 gap-y-3">
+              {companyFilterOptions.options.map((option) => (
+                <div key={option.value} className="flex items-center">
+                  <CheckboxInput
+                    label={option.label}
+                    size="sm"
+                    value={companyFilters.has(option.value)}
+                    onChange={() => companyFilterOptions.onChange(option.value)}
+                  />
+                </div>
+              ))}
+            </div>
+          </Popover>
+        </div>
+      )}
+      {layout === 'embedded' && (
+        <div className="hidden lg:inline-flex">
+          <Popover label={difficultyFilterOptions.name} size="sm" width="sm">
+            <div className="flex flex-wrap gap-x-6 gap-y-3">
+              {difficultyFilterOptions.options.map((option) => (
+                <div key={option.value} className="flex items-center">
+                  <CheckboxInput
+                    label={option.label}
+                    size="sm"
+                    value={difficultyFilters.has(option.value)}
+                    onChange={() =>
+                      difficultyFilterOptions.onChange(option.value)
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          </Popover>
+        </div>
+      )}
+      {layout === 'embedded' && (
+        <div className="hidden lg:inline-flex">
+          <Popover label={frameworkFilterOptions.name} size="sm">
+            <div className={clsx('flex flex-col')}>
+              <div className="flex flex-col gap-2">
+                <Text display="block" size="body3" weight="medium">
+                  {frameworkFilterOptions.name}
+                </Text>
+                <div className="flex flex-wrap gap-x-6 gap-y-3">
+                  {frameworkFilterOptions.options.map((option) => (
+                    <div key={option.value} className="flex items-center">
+                      <CheckboxInput
+                        label={option.label}
+                        size="sm"
+                        value={frameworkFilters.has(option.value)}
+                        onChange={() =>
+                          frameworkFilterOptions.onChange(option.value)
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <Divider className="my-4" />
+              <div className="flex flex-col gap-2">
+                <Text display="block" size="body3" weight="medium">
+                  {languageFilterOptions.name}
+                </Text>
+                <div className="flex flex-wrap gap-x-6 gap-y-3">
+                  {languageFilterOptions.options.map((option) => (
+                    <div key={option.value} className="flex items-center">
+                      <CheckboxInput
+                        label={option.label}
+                        size="sm"
+                        value={languageFilters.has(option.value)}
+                        onChange={() =>
+                          languageFilterOptions.onChange(option.value)
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Popover>
+        </div>
+      )}
+      {layout === 'embedded' && (
+        <div className="hidden lg:inline-flex">
+          <Popover
+            label={completionStatusFilterOptions.name}
+            size="sm"
+            width="sm">
+            <div className="flex flex-wrap gap-x-6 gap-y-3">
+              {completionStatusFilterOptions.options.map((option) => (
+                <div key={option.value} className="flex items-center">
+                  <CheckboxInput
+                    label={option.label}
+                    size="sm"
+                    value={completionStatusFilters.has(option.value)}
+                    onChange={() =>
+                      completionStatusFilterOptions.onChange(option.value)
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          </Popover>
+        </div>
+      )}
       {sortAndFilters}
     </div>
   );

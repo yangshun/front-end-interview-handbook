@@ -114,11 +114,11 @@ export default function PreparePageLayout({
           <QuestionsFocusAreas limit={showContinueLearning != null ? 4 : 8} />
         </div>
         <QuestionsPreparationTabs area={area} />
-        <div className="lg:grid lg:grid-cols-12 lg:gap-x-6">
-          <div className="lg:col-span-9">{children}</div>
+        <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
+          <div className="xl:col-span-9">{children}</div>
           <aside
             className={clsx(
-              'hidden h-full flex-col gap-y-12 lg:col-span-3 lg:flex',
+              'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
             )}>
             <PreparationStudyPlansCTA />
             <PreparationStudyGuideList href={guidesHref} items={guides} />
