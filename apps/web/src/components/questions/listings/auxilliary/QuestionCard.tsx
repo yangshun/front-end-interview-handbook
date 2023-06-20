@@ -3,7 +3,11 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
-import { themeGlassyBorder, themeTextFaintColor } from '~/components/ui/theme';
+import {
+  themeCardBackgroundColor,
+  themeGlassyBorder,
+  themeTextFaintColor,
+} from '~/components/ui/theme';
 
 import QuestionLanguages from '../../common/QuestionLanguages';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
@@ -26,7 +30,7 @@ export default function QuestionCard({
         'group relative flex items-center justify-between gap-x-4 rounded-lg py-3',
         paddingSize === 'wide' && 'px-8',
         paddingSize === 'default' && 'px-4',
-        'bg-neutral-50 dark:bg-neutral-800/40',
+        themeCardBackgroundColor,
         themeGlassyBorder,
       )}>
       <div className="flex flex-col gap-2">

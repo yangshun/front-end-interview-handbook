@@ -63,6 +63,10 @@
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
   },
+  "/F80kH": {
+    "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
+    "description": "Link to front end interview guidebook"
+  },
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
@@ -154,10 +158,6 @@
   "1AGOZJ": {
     "defaultMessage": "Access updates to the interview platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
-  },
-  "1CHLd/": {
-    "defaultMessage": "First time preparing for front end interviews? Find out what to expect in our <link>Front End Interview Guidebook</link>",
-    "description": "Link to front end interview guidebook"
   },
   "1FbA4H": {
     "defaultMessage": "What types of questions do you have on your platform?",
@@ -1198,6 +1198,10 @@
   "LfcLVQ": {
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Sentence to report bug on GitHub"
+  },
+  "Lh00HQ": {
+    "defaultMessage": "Create a free account to track your progress",
+    "description": "CTA to create a free account for non-logged in users"
   },
   "Ll7iob": {
     "defaultMessage": "Get Started",
@@ -2930,6 +2934,10 @@
   "qXxpdK": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions"
+  },
+  "qarlYe": {
+    "defaultMessage": "First time preparing for front end interviews?",
+    "description": "Link to front end interview guidebook"
   },
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
