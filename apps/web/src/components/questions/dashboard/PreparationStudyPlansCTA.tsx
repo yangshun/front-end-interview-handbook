@@ -26,6 +26,7 @@ export default function PreparationStudyPlansCTA() {
           'group flex items-center justify-between gap-2 p-4',
           'border border-neutral-200 dark:border-transparent',
         )}
+        disableSpotlight={true}
         padding={false}
         pattern={false}>
         <div className="flex items-center gap-3">

@@ -23,6 +23,7 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
         'group flex justify-between py-3 px-4',
         'border border-neutral-200 dark:border-transparent',
       )}
+      disableSpotlight={true}
       padding={false}
       pattern={false}>
       <div className="flex items-center gap-3">
