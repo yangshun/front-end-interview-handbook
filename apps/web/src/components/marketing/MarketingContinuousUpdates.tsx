@@ -292,7 +292,7 @@ export default function MarketingContinuousUpdates() {
   return (
     <div
       className={clsx(
-        'rounded-t-[48px] pb-24 lg:mx-8',
+        'rounded-t-[48px] lg:mx-8',
         themeRadialGlowBackground,
       )}>
       <Container className="relative" variant="narrow">
