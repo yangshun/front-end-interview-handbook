@@ -95,7 +95,6 @@ export default function MarketingUserInterfaceQuestionsExamples({
         <div className="mt-12 lg:col-span-4 lg:mt-0">
           <QuestionsList
             checkIfCompletedQuestion={() => false}
-            columns={2}
             questions={questions}
             showProgress={false}
           />

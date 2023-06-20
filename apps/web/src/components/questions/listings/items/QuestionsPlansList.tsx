@@ -66,7 +66,6 @@ export default function QuestionsPlansList({
             onSelect={(value) => setSelectedQuestionFormat(value)}
           />
         </div>
-
         {selectedQuestionFormat === 'quiz' && (
           <QuestionsQuizList
             checkIfCompletedQuestion={(question) =>
@@ -100,7 +99,6 @@ export default function QuestionsPlansList({
                   progress.javascript.has(question.slug) ||
                   progress['user-interface'].has(question.slug)
                 }
-                columns={1}
                 questions={sortedQuestions}
                 showTimeline={true}
               />
@@ -120,7 +118,6 @@ export default function QuestionsPlansList({
             return (
               <QuestionsList
                 checkIfCompletedQuestion={() => false}
-                columns={1}
                 questions={sortedQuestions}
                 showTimeline={true}
               />

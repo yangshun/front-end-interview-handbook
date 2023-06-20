@@ -32,7 +32,6 @@ export default function QuestionTryFirstFreeSection({
         <div className="mt-1">
           <QuestionsList
             checkIfCompletedQuestion={() => false}
-            columns={1}
             questions={codingQuestions.filter(({ slug }) => slug === 'flatten')}
             showProgress={false}
             showTimeline={false}

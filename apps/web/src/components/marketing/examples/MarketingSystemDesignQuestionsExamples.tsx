@@ -95,7 +95,6 @@ export default function MarketingSystemDesignQuestionsExamples({
         <div className="relative mt-12 select-none lg:col-span-4 lg:mt-0">
           <QuestionsList
             checkIfCompletedQuestion={() => false}
-            columns={2}
             questions={questions}
             showProgress={false}
           />

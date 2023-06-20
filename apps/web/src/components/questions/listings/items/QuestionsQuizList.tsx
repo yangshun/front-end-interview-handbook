@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightSLine, RiCheckLine, RiMoreLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiCheckboxCircleFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -10,6 +10,7 @@ import {
   themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineColor,
+  themeTextFaintColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -64,9 +65,9 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y border',
-        themeLineColor,
-        themeDivideColor,
+        'isolate overflow-clip rounded-lg',
+        ['divide-y', themeDivideColor],
+        ['border', themeLineColor],
       )}
       role="list">
       {questions.map((question, index) => {
@@ -76,9 +77,12 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
           <li
             key={question.slug}
             className={clsx(
-              'focus-within:ring-brand group relative flex gap-x-4 px-4 py-4 focus-within:ring-2 focus-within:ring-inset',
+              'group relative flex gap-x-4 px-6 py-4',
+              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               themeBackgroundColor,
               themeBackgroundEmphasizedHover,
+              index === 0 && 'rounded-t-lg',
+              index === questions.length - 1 && 'rounded-b-lg',
             )}>
             {showProgress && (
               <div className="flex items-center justify-center">
@@ -87,43 +91,41 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     aria-hidden="true"
                     className="absolute top-12 left-7 z-10 -ml-px h-full w-0.5 bg-neutral-200"></span>
                 )}
-                <span
-                  className={clsx(
-                    'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
-                    hasCompletedQuestion
-                      ? 'border-green bg-green text-white'
-                      : clsx(themeLineColor, themeBackgroundColor),
-                  )}>
-                  {hasCompletedQuestion ? (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Completed',
-                        description:
-                          'Label for completed status on quiz questions list',
-                        id: 'fIu2R9',
-                      })}
-                      position="above">
-                      <RiCheckLine
-                        aria-hidden="true"
-                        className="h-4 w-4 shrink-0"
-                      />
-                    </Tooltip>
-                  ) : (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Not Completed',
-                        description:
-                          'Label for Not completed status on quiz questions list',
-                        id: 'bTsT6Y',
-                      })}
-                      position="above">
-                      <RiMoreLine
-                        aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-neutral-500"
-                      />
-                    </Tooltip>
-                  )}
-                </span>
+                {hasCompletedQuestion ? (
+                  <Tooltip
+                    label={intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description: 'Tooltip for Completed questions label',
+                      id: 'aZqFm4',
+                    })}
+                    position="above">
+                    <RiCheckboxCircleFill
+                      aria-hidden="true"
+                      className={clsx(
+                        'h-8 w-8 scale-110',
+                        'text-success',
+                        'z-10', // Needed for the icon to be above the link.
+                      )}
+                    />
+                  </Tooltip>
+                ) : (
+                  <Tooltip
+                    label={intl.formatMessage({
+                      defaultMessage: 'Not Completed',
+                      description: 'Tooltip for questions Not Completed label',
+                      id: 'm+nWg0',
+                    })}
+                    position="above">
+                    <span
+                      className={clsx(
+                        'flex h-8 w-8 items-center justify-center rounded-full',
+                        'z-10', // Needed for the icon to be above the link.
+                        ['border', themeLineColor],
+                        'bg-neutral-100 dark:bg-neutral-900',
+                      )}
+                    />
+                  </Tooltip>
+                )}
               </div>
             )}
             <div className="grow">
@@ -148,7 +150,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                   {question.subtitle}
                 </Text>
               )}
-              <div className="mt-2 flex items-center gap-x-8">
+              <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-2">
                 <QuestionImportanceLabel
                   showIcon={true}
                   value={question.importance}
@@ -174,9 +176,9 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             </div>
             {showChevron && (
               <div className="flex items-center justify-center pr-2">
-                <RiArrowRightSLine
+                <RiArrowRightLine
                   aria-hidden="true"
-                  className="h-4 w-4 shrink-0 text-neutral-800 "
+                  className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
                 />
               </div>
             )}

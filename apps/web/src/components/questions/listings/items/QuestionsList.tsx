@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import {
-  RiArrowRightSLine,
-  RiCheckLine,
+  RiArrowRightLine,
+  RiCheckboxCircleFill,
   RiLockLine,
-  RiMoreLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -13,11 +12,11 @@ import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
   themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineBackgroundColor,
   themeLineColor,
+  themeTextFaintColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -36,7 +35,6 @@ import { ReadyQuestions } from '../../content/system-design/SystemDesignNavigati
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
-  columns?: 1 | 2;
   framework?: QuestionFramework;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
@@ -125,7 +123,6 @@ function QuestionNewLabel({
 export default function QuestionsList<Q extends QuestionMetadata>({
   framework,
   checkIfCompletedQuestion,
-  columns = 1,
   questions,
   questionCompletionCount,
   showChevron = false,
@@ -160,24 +157,23 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y border sm:grid sm:gap-px sm:divide-y-0',
-        themeLineColor,
-        themeDivideColor,
-        themeLineBackgroundColor,
-        columns === 2 && 'sm:grid-cols-2',
+        'isolate overflow-clip rounded-lg',
+        ['divide-y', themeDivideColor],
+        ['border', themeLineColor],
       )}>
       {questions.map((question, index) => {
-        const userCannotViewQuestion =
-          question.premium && !userProfile?.isPremium;
         const hasCompletedQuestion = checkIfCompletedQuestion(question);
 
         return (
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand group relative flex gap-x-4 p-4 focus-within:ring-2 focus-within:ring-inset',
-              themeBackgroundColor,
+              'group relative flex gap-x-4 px-6 py-4',
+              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+              'bg-white dark:bg-neutral-800/40',
               themeBackgroundEmphasizedHover,
+              index === 0 && 'rounded-t-lg',
+              index === questions.length - 1 && 'rounded-b-lg',
             )}>
             <QuestionNewLabel created={question.created} />
             {showProgress && (
@@ -188,54 +184,64 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     className={clsx(
                       'absolute top-14 left-7 z-10 -ml-px h-full w-0.5',
                       themeLineBackgroundColor,
-                    )}></span>
+                    )}
+                  />
                 )}
-                <span
-                  className={clsx(
-                    'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
-                    userCannotViewQuestion || !hasCompletedQuestion
-                      ? clsx(themeLineColor, themeBackgroundColor)
-                      : 'border-success bg-success text-white',
-                  )}>
-                  {question.premium && !userProfile?.isPremium ? (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Premium',
-                        description: 'Tooltip for Premium questions label',
-                        id: '55uCRp',
-                      })}
-                      position="above">
+                {question.premium && !userProfile?.isPremium ? (
+                  <Tooltip
+                    label={intl.formatMessage({
+                      defaultMessage: 'Premium',
+                      description: 'Tooltip for Premium questions label',
+                      id: '55uCRp',
+                    })}
+                    position="above">
+                    <span
+                      className={clsx(
+                        'flex h-8 w-8 items-center justify-center rounded-full border',
+                        themeLineColor,
+                        'bg-neutral-100 dark:bg-neutral-900',
+                      )}>
                       <RiLockLine
                         aria-hidden={true}
                         className="h-4 w-4 shrink-0 text-neutral-500"
                       />
-                    </Tooltip>
-                  ) : hasCompletedQuestion ? (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Completed',
-                        description: 'Tooltip for Completed questions label',
-                        id: 'aZqFm4',
-                      })}
-                      position="above">
-                      <RiCheckLine aria-hidden="true" className="h-4 w-4" />
-                    </Tooltip>
-                  ) : (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Not Completed',
-                        description:
-                          'Tooltip for questions Not Completed label',
-                        id: 'm+nWg0',
-                      })}
-                      position="above">
-                      <RiMoreLine
-                        aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-neutral-500"
-                      />
-                    </Tooltip>
-                  )}
-                </span>
+                    </span>
+                  </Tooltip>
+                ) : hasCompletedQuestion ? (
+                  <Tooltip
+                    label={intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description: 'Tooltip for Completed questions label',
+                      id: 'aZqFm4',
+                    })}
+                    position="above">
+                    <RiCheckboxCircleFill
+                      aria-hidden="true"
+                      className={clsx(
+                        'h-8 w-8 scale-110',
+                        'text-success',
+                        'z-10', // Needed for the icon to be above the link.
+                      )}
+                    />
+                  </Tooltip>
+                ) : (
+                  <Tooltip
+                    label={intl.formatMessage({
+                      defaultMessage: 'Not Completed',
+                      description: 'Tooltip for questions Not Completed label',
+                      id: 'm+nWg0',
+                    })}
+                    position="above">
+                    <span
+                      className={clsx(
+                        'flex h-8 w-8 items-center justify-center rounded-full',
+                        'z-10', // Needed for the icon to be above the link.
+                        ['border', themeLineColor],
+                        'bg-neutral-100 dark:bg-neutral-900',
+                      )}
+                    />
+                  </Tooltip>
+                )}
               </div>
             )}
             <div className="grow">
@@ -282,7 +288,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 </Text>
               )}
               <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-2">
-                <span className="inline-flex min-w-[80px]">
+                <span className="inline-flex">
                   <QuestionDifficultyLabel
                     showIcon={true}
                     value={question.difficulty}
@@ -313,9 +319,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             </div>
             {showChevron && (
               <div className="flex items-center justify-center pr-2">
-                <RiArrowRightSLine
+                <RiArrowRightLine
                   aria-hidden="true"
-                  className="h-4 w-4 shrink-0 text-neutral-800 "
+                  className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
                 />
               </div>
             )}
