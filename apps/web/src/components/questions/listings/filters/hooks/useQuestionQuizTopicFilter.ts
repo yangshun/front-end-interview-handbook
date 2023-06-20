@@ -67,7 +67,8 @@ export default function useQuestionQuizTopicFilter({
           topicRanks[b as QuestionQuizTopic],
       )
       .map((topic) => ({
-        label: topicLabels[topic as QuestionQuizTopic],
+        icon: topicLabels[topic as QuestionQuizTopic].icon,
+        label: topicLabels[topic as QuestionQuizTopic].label,
         value: topic as QuestionQuizTopic,
       })),
   };

@@ -1,56 +1,101 @@
+import { BiUniversalAccess } from 'react-icons/bi';
+import {
+  RiCss3Line,
+  RiDashboard2Line,
+  RiHtml5Line,
+  RiLock2Line,
+  RiTestTubeLine,
+  RiTranslate2,
+  RiWifiLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+
+import RiJavaScriptLine from '~/components/icons/remix/RiJavaScriptLine';
 
 import type { QuestionQuizTopic } from '../../common/QuestionsTypes';
 
 export default function useQuestionQuizTopicLabels() {
   const intl = useIntl();
 
-  const topicTitles: Record<QuestionQuizTopic, string> = {
-    a11y: intl.formatMessage({
-      defaultMessage: 'Accessibility',
-      description: 'Accessibility topic for quiz questions',
-      id: 'q0+3Lk',
-    }),
-    css: intl.formatMessage({
-      defaultMessage: 'CSS',
-      description: 'CSS topic for quiz questions',
-      id: 'P4Or/u',
-    }),
-    html: intl.formatMessage({
-      defaultMessage: 'HTML',
-      description: 'HTML topic for quiz questions',
-      id: 'Yb2e9Q',
-    }),
-    i18n: intl.formatMessage({
-      defaultMessage: 'Internationalization',
-      description: 'Internationalization topic for quiz questions',
-      id: 'tonRki',
-    }),
-    javascript: intl.formatMessage({
-      defaultMessage: 'JavaScript',
-      description: 'JavaScript topic for quiz questions',
-      id: 'w22UH7',
-    }),
-    network: intl.formatMessage({
-      defaultMessage: 'Network',
-      description: 'Network topic for quiz questions',
-      id: 'pM/ZPq',
-    }),
-    performance: intl.formatMessage({
-      defaultMessage: 'Performance',
-      description: 'Performance topic for quiz questions',
-      id: 'kwblYW',
-    }),
-    security: intl.formatMessage({
-      defaultMessage: 'Security',
-      description: 'Security topic for quiz questions',
-      id: 'kvLlxS',
-    }),
-    testing: intl.formatMessage({
-      defaultMessage: 'Testing',
-      description: 'Testing topic for quiz questions',
-      id: 'l9OWsu',
-    }),
+  const topicTitles: Record<
+    QuestionQuizTopic,
+    Readonly<{
+      icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+      label: string;
+    }>
+  > = {
+    a11y: {
+      icon: BiUniversalAccess,
+      label: intl.formatMessage({
+        defaultMessage: 'Accessibility',
+        description: 'Accessibility topic for quiz questions',
+        id: 'q0+3Lk',
+      }),
+    },
+    css: {
+      icon: RiCss3Line,
+      label: intl.formatMessage({
+        defaultMessage: 'CSS',
+        description: 'CSS topic for quiz questions',
+        id: 'P4Or/u',
+      }),
+    },
+    html: {
+      icon: RiHtml5Line,
+      label: intl.formatMessage({
+        defaultMessage: 'HTML',
+        description: 'HTML topic for quiz questions',
+        id: 'Yb2e9Q',
+      }),
+    },
+    i18n: {
+      icon: RiTranslate2,
+      label: intl.formatMessage({
+        defaultMessage: 'Internationalization',
+        description: 'Internationalization topic for quiz questions',
+        id: 'tonRki',
+      }),
+    },
+    javascript: {
+      icon: RiJavaScriptLine,
+      label: intl.formatMessage({
+        defaultMessage: 'JavaScript',
+        description: 'JavaScript topic for quiz questions',
+        id: 'w22UH7',
+      }),
+    },
+    network: {
+      icon: RiWifiLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Network',
+        description: 'Network topic for quiz questions',
+        id: 'pM/ZPq',
+      }),
+    },
+    performance: {
+      icon: RiDashboard2Line,
+      label: intl.formatMessage({
+        defaultMessage: 'Performance',
+        description: 'Performance topic for quiz questions',
+        id: 'kwblYW',
+      }),
+    },
+    security: {
+      icon: RiLock2Line,
+      label: intl.formatMessage({
+        defaultMessage: 'Security',
+        description: 'Security topic for quiz questions',
+        id: 'kvLlxS',
+      }),
+    },
+    testing: {
+      icon: RiTestTubeLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Testing',
+        description: 'Testing topic for quiz questions',
+        id: 'l9OWsu',
+      }),
+    },
   };
 
   return topicTitles;
