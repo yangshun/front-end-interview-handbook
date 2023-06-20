@@ -4,7 +4,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
-import { themeBackgroundLayerEmphasized } from '../theme';
+import { themeBackgroundColor, themeLineColor } from '../theme';
 
 import { Popover as HeadlessPopover, Transition } from '@headlessui/react';
 
@@ -90,7 +90,8 @@ export default function Popover({
             'group inline-flex items-center justify-center',
             'rounded-full',
             'transition-colors',
-            'border border-neutral-200 dark:border-neutral-800',
+            'border',
+            themeLineColor,
             'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
             'focus-visible:outline-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
             isLabelHidden && !showChevron
@@ -134,18 +135,15 @@ export default function Popover({
             alignmentClasses[align],
             panelWidthClasses[width],
             'absolute z-20 mt-2',
-            'rounded',
-            themeBackgroundLayerEmphasized,
+            'rounded-md',
+            themeBackgroundColor,
+            ['border', 'border-transparent dark:border-neutral-800'],
             'max-h-48',
             'overflow-y-auto',
             'shadow-lg',
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
-          <Text
-            className="p-4"
-            display="block"
-            size={textSizeVariants[size]}
-            weight="medium">
+          <Text className="p-4" display="block" size={textSizeVariants[size]}>
             {children}
           </Text>
         </HeadlessPopover.Panel>

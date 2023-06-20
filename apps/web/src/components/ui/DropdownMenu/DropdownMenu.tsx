@@ -5,6 +5,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import DropdownMenuItem from './DropdownMenuItem';
 import type { TextSize } from '../Text';
 import Text from '../Text';
+import { themeBackgroundColor, themeLineColor } from '../theme';
 
 import { Menu, Transition } from '@headlessui/react';
 
@@ -126,16 +127,13 @@ export default function DropdownMenu({
           className={clsx(
             alignmentClasses[align],
             'absolute z-10 mt-2 w-48',
-            'rounded',
-            'bg-white dark:bg-neutral-900',
+            'rounded-md',
+            themeBackgroundColor,
+            ['border', 'border-transparent dark:border-neutral-800'],
             'shadow-lg',
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
-          <Text
-            className="p-2"
-            display="block"
-            size={textSizeVariants[size]}
-            weight="medium">
+          <Text className="p-2" display="block" size={textSizeVariants[size]}>
             {children}
           </Text>
         </Menu.Items>
