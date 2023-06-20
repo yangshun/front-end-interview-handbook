@@ -40,7 +40,7 @@ export default function QuestionPreparationPageHeader() {
             defaultMessage="First time preparing for front end interviews? Find out what to
               expect in our <link>Front End Interview Guidebook</link>"
             description="Link to front end interview guidebook"
-            id="MstQla"
+            id="MmRrx0"
             values={{
               link: (chunk) => (
                 <Anchor href="/front-end-interview-guidebook" underline={true}>

@@ -261,7 +261,7 @@ export default function Footer() {
         defaultMessage="Codeney Pte Ltd. All rights
               reserved."
         description="Footer copyright text containing the company name"
-        id="P/tvlV"
+        id="zcPRL8"
       />
     </Text>
   );

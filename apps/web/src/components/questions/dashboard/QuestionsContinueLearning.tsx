@@ -1,9 +1,7 @@
 import clsx from 'clsx';
-import type { PropsWithChildren } from 'react';
 import { useId } from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { useDarkMode } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

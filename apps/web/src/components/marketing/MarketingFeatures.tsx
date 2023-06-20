@@ -29,7 +29,7 @@ function useFeatures() {
           defaultMessage="{questionCount}+ interview questions across <clink>coding</clink>
         and <qlink>quiz</qlink> formats and new questions constantly being added."
           description="Subtitle for huge question bank feature"
-          id="D0Hpsv"
+          id="+7q0kY"
           values={{
             clink: (chunks) => <Anchor href="/prepare/coding">{chunks}</Anchor>,
             qlink: (chunks) => <Anchor href="/prepare/quiz">{chunks}</Anchor>,
@@ -67,7 +67,7 @@ function useFeatures() {
           <omlink>1 month</omlink>,
           <tmlink>3 months</tmlink>."
           description="Subtitle for proven preparation plans feature"
-          id="caYk+w"
+          id="XO8Bmu"
           values={{
             omlink: (chunks) => (
               <Anchor href="/prepare/one-month">{chunks}</Anchor>

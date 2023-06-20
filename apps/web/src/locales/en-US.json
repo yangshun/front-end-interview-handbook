@@ -11,6 +11,10 @@
     "defaultMessage": "About",
     "description": "Link to company's about page"
   },
+  "+7q0kY": {
+    "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
+    "description": "Subtitle for huge question bank feature"
+  },
   "+Eg6gK": {
     "defaultMessage": "View full questions list",
     "description": "Link to questions page"
@@ -22,6 +26,10 @@
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
+  },
+  "+NgnE5": {
+    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
+    "description": "Ryan Van Valkenburg's testimonial"
   },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
@@ -107,6 +115,10 @@
     "defaultMessage": "Access to all premium content including solutions and companies.",
     "description": "Feature of annual pricing plan"
   },
+  "0MATkq": {
+    "defaultMessage": "{questionCount}+ commonly asked questions across every interview format - <strong>System design, UI, JavaScript, Quizzes</strong>",
+    "description": "Table cell content for large and curated question bank feature comparison in GFE."
+  },
   "0Nq65E": {
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
@@ -158,6 +170,10 @@
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
+  },
+  "1W5+hX": {
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
+    "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
   },
   "1gkgr4": {
     "defaultMessage": "Sign In",
@@ -234,10 +250,6 @@
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
-  },
-  "3iv+7q": {
-    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
-    "description": "Anand Dharne's testimonial"
   },
   "3lEE1N": {
     "defaultMessage": "New",
@@ -470,10 +482,6 @@
   "8+Ezk6": {
     "defaultMessage": "Chat with us directly!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
-  },
-  "8/l1dM": {
-    "defaultMessage": "{questionCount}+ commonly asked questions across every interview format - <strong>System design, UI, JavaScript, Quizzes</strong>",
-    "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
   "81i+95": {
     "defaultMessage": "Profile",
@@ -719,10 +727,6 @@
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
   },
-  "D0Hpsv": {
-    "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
-    "description": "Subtitle for huge question bank feature"
-  },
   "D3YhsE": {
     "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
     "description": "Description of 1 Week Preparation Plan page"
@@ -750,6 +754,10 @@
   "DDJTQX": {
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
+  },
+  "DHWrzc": {
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
+    "description": "Subtext above email settings."
   },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
@@ -971,10 +979,6 @@
     "defaultMessage": "Join Discord (Premium)",
     "description": "Join Discord channel"
   },
-  "IK98yM": {
-    "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
-    "description": "Call-to-action"
-  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -1042,10 +1046,6 @@
   "JOj1C3": {
     "defaultMessage": "3 Months",
     "description": "Title of quarterly pricing plan"
-  },
-  "JP4Wie": {
-    "defaultMessage": "<p>Every question has an in-depth solution with inline explanations.</p> <p>Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations.</p>",
-    "description": "Table cell content for quality solutions feature comparison in GFE."
   },
   "JPbOCy": {
     "defaultMessage": "Vue",
@@ -1263,7 +1263,7 @@
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
   },
-  "MstQla": {
+  "MmRrx0": {
     "defaultMessage": "First time preparing for front end interviews? Find out what to expect in our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
   },
@@ -1386,10 +1386,6 @@
   "P/sSbP": {
     "defaultMessage": "Access to all premium content including solutions and companies.",
     "description": "Feature of monthly pricing plan"
-  },
-  "P/tvlV": {
-    "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
-    "description": "Footer copyright text containing the company name"
   },
   "P2baTC": {
     "defaultMessage": "Coding Format",
@@ -1663,6 +1659,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Magic Link Sign In page"
   },
+  "UJwK2W": {
+    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
+    "description": "Larry Almeida's testimonial"
+  },
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
@@ -1702,6 +1702,10 @@
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
+  },
+  "V0ftNc": {
+    "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
+    "description": "System design link"
   },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
@@ -1839,6 +1843,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
   },
+  "XO8Bmu": {
+    "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
+    "description": "Subtitle for proven preparation plans feature"
+  },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
     "description": "Link to affiliate marketing program page"
@@ -1947,10 +1955,6 @@
     "defaultMessage": "Joined on {date}",
     "description": "Date the user joined the service"
   },
-  "ZLXgL9": {
-    "defaultMessage": "<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>.",
-    "description": "Key features section heading"
-  },
   "ZN/wJM": {
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
@@ -2039,10 +2043,6 @@
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
-  "bGwCko": {
-    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
-    "description": "Ryan Van Valkenburg's testimonial"
-  },
   "bO2ju9": {
     "defaultMessage": "Failed to mark question as incomplete. Please try again",
     "description": "Error message shown when the question cannot be marked incomplete"
@@ -2066,6 +2066,10 @@
   "bfMxFC": {
     "defaultMessage": "Stripe Customer ID:",
     "description": "Label for Stripe customer ID."
+  },
+  "boVfIq": {
+    "defaultMessage": "Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>.",
+    "description": "Table cell content for practice questions by companies feature comparison in GFE."
   },
   "bsCmcK": {
     "defaultMessage": "Email Us",
@@ -2102,10 +2106,6 @@
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
-  },
-  "caYk+w": {
-    "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
-    "description": "Subtitle for proven preparation plans feature"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -2182,6 +2182,10 @@
   "dk2vXq": {
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
+  },
+  "dmfGz6": {
+    "defaultMessage": "<p>Every question has an in-depth solution with inline explanations.</p> <p>Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations.</p>",
+    "description": "Table cell content for quality solutions feature comparison in GFE."
   },
   "drvlbZ": {
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
@@ -2439,6 +2443,10 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
+  "imWhIY": {
+    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
+    "description": "Anand Dharne's testimonial"
+  },
   "ipPZZl": {
     "defaultMessage": "Show less",
     "description": "Show less button label of focus areas section in preparation dashboard"
@@ -2486,10 +2494,6 @@
   "jN6xqZ": {
     "defaultMessage": "1 Week Plan",
     "description": "Long label for one week study plan"
-  },
-  "jNXBSj": {
-    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
-    "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
   },
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
@@ -2663,10 +2667,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
-  "loCbaG": {
-    "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
-    "description": "System design link"
-  },
   "lqvY0+": {
     "defaultMessage": "Dark",
     "description": "Dark theme option label"
@@ -2682,6 +2682,10 @@
   "lz6hfa": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty label for question difficulty summary in question listing"
+  },
+  "lzp9eR": {
+    "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
+    "description": "Call-to-action"
   },
   "lztLqo": {
     "defaultMessage": "Front End Engineer",
@@ -2742,10 +2746,6 @@
   "nId6NF": {
     "defaultMessage": "Access to continuously updating question library.",
     "description": "Feature of annual pricing plan"
-  },
-  "nJYzIr": {
-    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
-    "description": "Larry Almeida's testimonial"
   },
   "nOvXhk": {
     "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
@@ -2987,6 +2987,10 @@
     "defaultMessage": "{numberOfHours} hours total",
     "description": "Total duration needed to complete the list of questions"
   },
+  "sNsR2/": {
+    "defaultMessage": "<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>.",
+    "description": "Key features section heading"
+  },
   "sa8B3r": {
     "defaultMessage": "System Design Questions",
     "description": "System design questions long title"
@@ -3167,10 +3171,6 @@
     "defaultMessage": "Vietnam",
     "description": "Vietnam country"
   },
-  "v4Z+0r": {
-    "defaultMessage": "Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>.",
-    "description": "Table cell content for practice questions by companies feature comparison in GFE."
-  },
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
@@ -3287,10 +3287,6 @@
     "defaultMessage": "Features",
     "description": "Link to features page"
   },
-  "xS31qX": {
-    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
-    "description": "Subtext above email settings."
-  },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
@@ -3390,6 +3386,10 @@
   "zaEg+y": {
     "defaultMessage": "Pay once, own it forever",
     "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "zcPRL8": {
+    "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
+    "description": "Footer copyright text containing the company name"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",

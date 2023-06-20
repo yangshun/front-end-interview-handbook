@@ -12,7 +12,6 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeLineColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';

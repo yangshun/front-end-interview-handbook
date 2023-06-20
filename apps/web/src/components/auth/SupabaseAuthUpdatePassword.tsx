@@ -71,7 +71,7 @@ export default function SupabaseAuthUpdatePassword() {
               defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can set a
             password here to use email and password to log in instead."
               description="Tip to set password if third-party sign in methods were used, on Change Password page"
-              id="jNXBSj"
+              id="1W5+hX"
             />
           </Text>
         )}

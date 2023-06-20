@@ -4,7 +4,6 @@ import { usePreparationAreas } from '~/data/PreparationAreas';
 
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
-import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 import { QuestionCount } from '../stats/QuestionCount';

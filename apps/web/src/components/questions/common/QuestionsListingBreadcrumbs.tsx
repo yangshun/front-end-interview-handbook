@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { RiHome2Line } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,

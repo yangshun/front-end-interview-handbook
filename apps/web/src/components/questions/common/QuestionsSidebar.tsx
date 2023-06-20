@@ -12,7 +12,6 @@ import {
 import { useIntl } from 'react-intl';
 
 import { useGuidesData } from '~/data/Guides';
-import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -53,7 +52,6 @@ type SidebarPopover = Readonly<{
 
 function useQuestionsSidebarNavigation() {
   const intl = useIntl();
-  const preparationPlansExtra = usePreparationPlansUI();
   const guidesData = useGuidesData();
 
   const navigation: ReadonlyArray<SidebarLink | SidebarPopover> = [

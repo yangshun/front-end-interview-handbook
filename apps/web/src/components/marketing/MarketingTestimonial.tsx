@@ -70,7 +70,7 @@ function useTestimonials() {
           problems along with frameworks that are easy to remember and apply to
           any problem type."
           description="Larry Almeida's testimonial"
-          id="nJYzIr"
+          id="UJwK2W"
         />
         <br />
         <br />
@@ -171,7 +171,7 @@ function useTestimonials() {
           GreatFrontEnd really shines here. I will continue to use this amazing
           platform!"
         description="Anand Dharne's testimonial"
-        id="3iv+7q"
+        id="imWhIY"
       />
     ),
     title: intl.formatMessage({
@@ -218,7 +218,7 @@ function useTestimonials() {
           forward in technical ability and confidence to be able to get
           interviews AND offers."
         description="Ryan Van Valkenburg's testimonial"
-        id="bGwCko"
+        id="+NgnE5"
       />
     ),
     title: intl.formatMessage({

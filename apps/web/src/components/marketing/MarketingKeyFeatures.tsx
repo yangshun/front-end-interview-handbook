@@ -32,7 +32,7 @@ function useFeatures() {
               defaultMessage="{questionCount}+ commonly asked questions across every interview
             format - <strong>System design, UI, JavaScript, Quizzes</strong>"
               description="Table cell content for large and curated question bank feature comparison in GFE."
-              id="8/l1dM"
+              id="0MATkq"
               values={{
                 questionCount: QuestionCount,
                 strong: (chunks) => (
@@ -109,7 +109,7 @@ function useFeatures() {
             defaultMessage="<p>Every question has an in-depth solution with inline explanations.</p>
             <p>Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations.</p>"
             description="Table cell content for quality solutions feature comparison in GFE."
-            id="JP4Wie"
+            id="dmfGz6"
             values={{
               p: (chunks) => <p>{chunks}</p>,
               strong: (chunks) => (
@@ -161,7 +161,7 @@ function useFeatures() {
               defaultMessage="<link>View our free system design
               guides<span>→</span></link>"
               description="System design link"
-              id="loCbaG"
+              id="V0ftNc"
               values={{
                 link: (chunks) => (
                   <Anchor
@@ -283,7 +283,7 @@ function useFeatures() {
               defaultMessage="Practice interview questions asked by
               <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>."
               description="Table cell content for practice questions by companies feature comparison in GFE."
-              id="v4Z+0r"
+              id="boVfIq"
               values={{
                 strong: (chunks) => (
                   <strong className="font-medium text-neutral-100">
@@ -415,7 +415,7 @@ export default function MarketingKeyFeaturesNew() {
                   defaultMessage="<span>All the essentials for front end</span>
                   <inline>interviews <colour>and more</colour></inline>."
                   description="Key features section heading"
-                  id="ZLXgL9"
+                  id="sNsR2/"
                   values={{
                     colour: (chunks) => (
                       <span className="from-brand-light bg-gradient-to-l to-pink-500 bg-clip-text text-transparent">
@@ -492,7 +492,7 @@ export default function MarketingKeyFeaturesNew() {
                     defaultMessage="Not convinced yet?
                     <link>Try the product (it's free) →</link>"
                     description="Call-to-action"
-                    id="IK98yM"
+                    id="lzp9eR"
                     values={{
                       link: (chunks) => (
                         <Anchor

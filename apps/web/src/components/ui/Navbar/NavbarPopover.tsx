@@ -2,7 +2,6 @@ import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
 import {
-  themeBackgroundEmphasizedHover,
   themeBackgroundLayerColor,
   themeBackgroundLayerEmphasizedHover,
   themeTextInvertColor,
