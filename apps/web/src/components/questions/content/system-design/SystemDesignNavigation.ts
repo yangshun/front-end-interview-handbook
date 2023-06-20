@@ -110,7 +110,7 @@ function useSystemDesignGuides() {
         description: 'What front end system design interviewer are looking for',
         id: 'twAHPt',
       }),
-      href: `/${basePath}/evaluation-axes`,
+      href: `${basePath}/evaluation-axes`,
       premium: true,
       slug: 'evaluation-axes',
       title: intl.formatMessage({
@@ -126,7 +126,7 @@ function useSystemDesignGuides() {
         description: 'Comon mistakes to avoid during system design interviews',
         id: '6kLEK7',
       }),
-      href: `/${basePath}/common-mistakes`,
+      href: `${basePath}/common-mistakes`,
       premium: true,
       slug: 'common-mistakes',
       title: intl.formatMessage({
@@ -144,7 +144,7 @@ function useSystemDesignGuides() {
           'Summary of important things in front end system design interviews',
         id: 'KdzvRx',
       }),
-      href: `/${basePath}/cheatsheet`,
+      href: `${basePath}/cheatsheet`,
       premium: true,
       slug: 'cheatsheet',
       title: intl.formatMessage({
