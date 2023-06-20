@@ -54,7 +54,7 @@ const stateClasses: Record<State, string> = {
 
 const fontSizeClasses: Record<TextInputSize, string> = {
   md: 'text-sm',
-  sm: 'text-sm',
+  sm: 'text-xs',
   xs: 'text-xs',
 };
 
