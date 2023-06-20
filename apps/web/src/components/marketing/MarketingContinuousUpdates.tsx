@@ -5,7 +5,11 @@ import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
+import {
+  themeBackgroundLayerEmphasized,
+  themeGlassyBorder,
+  themeRadialGlowBackground,
+} from '~/components/ui/theme';
 
 import Text from '../ui/Text';
 
@@ -21,17 +25,46 @@ const counts: ReadonlyArray<{ label: string; value: number }> = [
 const maxPrice = Math.max(...counts.map(({ value }) => value));
 const minValue = Math.min(...counts.map(({ value }) => value));
 const chartHeight = 240;
-const chartWidth = 400;
+
+// The number of extra axis lines to draw on either side of an axis.
+// So that the border of the chart cannot be seen.
+const chartExtraLines = 2;
+
+function GFEIcon() {
+  return (
+    <svg
+      fill="none"
+      height="21"
+      viewBox="0 0 27 21"
+      width="27"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9.98523 0L13.307 3.39343L6.65492 10.1832L13.307 16.9759L9.97668 20.3751L0 10.1919L9.98523 0Z"
+        fill="#8D71FE"
+      />
+      <path
+        d="M16.6392 13.5888L13.3125 16.9844L16.6392 20.3799L19.9659 16.9844L16.6392 13.5888Z"
+        fill="#8D71FE"
+      />
+      <path
+        d="M23.292 13.5855L26.6195 10.1892L19.9646 3.39648L13.3125 10.1892L16.64 13.5855L19.9646 10.1892L23.292 13.5855Z"
+        fill="#8D71FE"
+      />
+    </svg>
+  );
+}
 
 function Chart({
   activePointIndex,
   onChangeActivePointIndex,
+  gridSize,
   width: totalWidth,
   height: totalHeight,
   paddingX = 0,
   paddingY = 0,
 }: Readonly<{
   activePointIndex: number | null;
+  gridSize: number;
   height: number;
   onChangeActivePointIndex: (index: number | null) => void;
   paddingX: number;
@@ -52,7 +85,7 @@ function Chart({
   const points: Array<{ x: number; y: number }> = [];
 
   for (let index = 0; index < counts.length; index++) {
-    const x = paddingX + (index / (counts.length - 1)) * width;
+    const x = paddingX + index * gridSize;
     const y =
       paddingY +
       (1 - (counts[index].value - minValue) / (maxPrice - minValue)) * height;
@@ -62,96 +95,194 @@ function Chart({
   }
 
   return (
-    <svg
-      ref={svgRef}
-      className={clsx('overflow-visible')}
-      viewBox={`0 0 ${totalWidth} ${totalHeight}`}
-      {...(interactionEnabled
-        ? {
-            onPointerLeave: () => onChangeActivePointIndex(null),
-            onPointerMove: (event) => {
-              const x = event.nativeEvent.offsetX;
-              let closestPointIndex = null;
-              let closestDistance = Infinity;
+    <div
+      className="relative block items-center"
+      style={{
+        height: totalHeight,
+        width: totalWidth,
+      }}>
+      <svg
+        ref={svgRef}
+        className={clsx('overflow-visible')}
+        viewBox={`0 0 ${totalWidth} ${totalHeight}`}
+        {...(interactionEnabled
+          ? {
+              onPointerLeave: () => onChangeActivePointIndex(null),
+              onPointerMove: (event) => {
+                const x = event.nativeEvent.offsetX;
+                let closestPointIndex = null;
+                let closestDistance = Infinity;
 
-              for (
-                let pointIndex = 0;
-                pointIndex < points.length;
-                pointIndex++
-              ) {
-                const point = points[pointIndex];
-                const distance = Math.abs(point.x - x);
+                for (
+                  let pointIndex = 0;
+                  pointIndex < points.length;
+                  pointIndex++
+                ) {
+                  const point = points[pointIndex];
+                  const distance = Math.abs(point.x - x);
 
-                if (distance < closestDistance) {
-                  closestDistance = distance;
-                  closestPointIndex = pointIndex;
-                } else {
-                  break;
+                  if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestPointIndex = pointIndex;
+                  } else {
+                    break;
+                  }
                 }
-              }
-              onChangeActivePointIndex(closestPointIndex ?? null);
-            },
-          }
-        : {})}>
-      <defs>
-        <clipPath id={`${id}-clip`}>
-          <path d={`${path} V ${height + paddingY} H ${paddingX} Z`} />
-        </clipPath>
-        <linearGradient id={`${id}-gradient`} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#818cf8" />
-          <stop offset="100%" stopColor="#818cf8" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <motion.rect
-        clipPath={`url(#${id}-clip)`}
-        fill={`url(#${id}-gradient)`}
-        height={height}
-        opacity="0.5"
-        width={pathWidth}
-        y={paddingY}
-      />
-      <motion.path
-        ref={pathRef}
-        d={path}
-        fill="none"
-        initial={{ pathLength: 0 }}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        transition={{ duration: 1 }}
-        {...(isInView ? { animate: { pathLength: 1 }, stroke: '#6366f1' } : {})}
-        onAnimationComplete={() => setInteractionEnabled(true)}
-        onUpdate={({ pathLength }) => {
-          if (pathRef.current != null) {
-            pathWidth.set(
-              pathRef.current?.getPointAtLength(
-                (pathLength as number) * pathRef.current?.getTotalLength(),
-              ).x,
-            );
-          }
-        }}
-      />
-      {activePointIndex !== null && (
-        <>
-          <line
-            stroke="#6366f1"
-            strokeDasharray="1 3"
-            x1="0"
-            x2={totalWidth}
-            y1={points[activePointIndex].y}
-            y2={points[activePointIndex].y}
-          />
-          <circle
-            cx={points[activePointIndex].x}
-            cy={points[activePointIndex].y}
-            fill="#fff"
-            r="4"
-            stroke="#6366f1"
+                onChangeActivePointIndex(closestPointIndex ?? null);
+              },
+            }
+          : {})}>
+        <defs>
+          <mask id={`${id}-vignette-mask`} maskUnits="objectBoundingBox">
+            <radialGradient
+              cx="50%"
+              cy="50%"
+              fx="50%"
+              fy="50%"
+              id={`${id}-vignette-gradient`}
+              r="80%">
+              <stop offset="0%" stop-color="white" stop-opacity="1" />
+              <stop offset="20%" stop-color="white" stop-opacity="1" />
+              <stop offset="80%" stop-color="black" stop-opacity="0" />
+              <stop offset="100%" stop-color="black" stop-opacity="0" />
+            </radialGradient>
+            <rect
+              fill={`url(#${id}-vignette-gradient)`}
+              height="150%"
+              width="150%"
+              x="-25%"
+              y="-25%"
+            />
+          </mask>
+          <clipPath id={`${id}-clip`}>
+            <path d={`${path} V ${height + paddingY} H ${paddingX} Z`} />
+          </clipPath>
+          <linearGradient id={`${id}-gradient`} x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="#818cf8" />
+            <stop offset="100%" stopColor="#818cf8" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient
+            gradientTransform="rotate(224.29)"
+            id={`${id}-chart-line-gradient`}>
+            <stop offset="44.99%" stop-color="rgba(141, 113, 254, 0.08)" />
+            <stop offset="76.87%" stop-color="#8D71FE" />
+            <stop offset="101.29%" stop-color="rgba(141, 113, 254, 0.0001)" />
+          </linearGradient>
+          <linearGradient
+            gradientTransform="rotate(180)"
+            id={`${id}-highlighted-axis-line-gradient`}>
+            <stop offset="0%" stop-color="rgba(203, 213, 225, 0.0001)" />
+            <stop offset="52.62%" stop-color="#CBD5E1" />
+            <stop offset="100%" stop-color="rgba(203, 213, 225, 0.0001)" />
+          </linearGradient>
+          <linearGradient
+            gradientTransform="rotate(180)"
+            gradientUnits="userSpaceOnUse"
+            id={`${id}-vertical-axis-line-gradient`}
+            x1="0%"
+            x2="100%"
+            y1="0%"
+            y2="0%">
+            <stop offset="5%" stop-color="gold" />
+            <stop offset="95%" stop-color="red" />
+          </linearGradient>
+          <linearGradient
+            gradientTransform="rotate(270)"
+            id={`${id}-horizontal-axis-line-gradient`}>
+            <stop offset="0%" stop-color="rgba(51, 65, 85, 0.0001)" />
+            <stop offset="52.62%" stop-color="#334155" />
+            <stop offset="100%" stop-color="rgba(51, 65, 85, 0.0001)" />
+          </linearGradient>
+        </defs>
+        <g mask={`url(#${id}-vignette-mask)`}>
+          <motion.path
+            ref={pathRef}
+            d={path}
+            fill="none"
+            initial={{ pathLength: 0 }}
+            strokeLinecap="round"
+            strokeLinejoin="round"
             strokeWidth="2"
+            transition={{ duration: 1 }}
+            {...(isInView
+              ? {
+                  animate: { pathLength: 1 },
+                  stroke: 'rgba(141, 113, 254, 1)',
+                }
+              : {})}
+            onAnimationComplete={() => setInteractionEnabled(true)}
+            onUpdate={({ pathLength }) => {
+              if (pathRef.current != null) {
+                pathWidth.set(
+                  pathRef.current?.getPointAtLength(
+                    (pathLength as number) * pathRef.current?.getTotalLength(),
+                  ).x,
+                );
+              }
+            }}
           />
-        </>
+          {activePointIndex !== null && (
+            <line
+              stroke="white"
+              x1={points[activePointIndex].x}
+              x2={points[activePointIndex].x}
+              y1={-gridSize * chartExtraLines}
+              y2={totalHeight + gridSize * chartExtraLines}
+            />
+          )}
+          {Array.from({ length: points.length + 2 * chartExtraLines }).map(
+            (_, index) => {
+              const x = (index - chartExtraLines) * gridSize;
+
+              return (
+                <line
+                  key={x}
+                  stroke="rgba(255, 255, 255, 0.5)"
+                  strokeWidth={1}
+                  x1={x}
+                  x2={x}
+                  y1={-gridSize * chartExtraLines}
+                  y2={totalHeight + gridSize * chartExtraLines}
+                />
+              );
+            },
+          )}
+          {Array.from({
+            length: Math.ceil(totalHeight / gridSize) + 2 * chartExtraLines,
+          }).map((_, index) => {
+            const y = (index - chartExtraLines) * gridSize;
+
+            return (
+              <line
+                key={y}
+                stroke="rgba(255, 255, 255, 0.5)"
+                x1={-gridSize * chartExtraLines}
+                x2={width + gridSize * chartExtraLines}
+                y1={y}
+                y2={y}
+              />
+            );
+          })}
+        </g>
+      </svg>
+      {activePointIndex !== null && (
+        <div
+          className="pointer-events-none absolute"
+          style={{
+            left: points[activePointIndex ?? 0]?.x - 28,
+            top: points[activePointIndex ?? 0]?.y - 28,
+          }}>
+          <div
+            className={clsx(
+              'flex h-14 w-14 items-center justify-center rounded-full',
+              themeGlassyBorder,
+              themeBackgroundLayerEmphasized,
+            )}>
+            <GFEIcon />
+          </div>
+        </div>
       )}
-    </svg>
+    </div>
   );
 }
 
@@ -159,7 +290,11 @@ export default function MarketingContinuousUpdates() {
   const [activePointIndex, setActivePointIndex] = useState<number | null>(null);
 
   return (
-    <div className={themeBackgroundEmphasized}>
+    <div
+      className={clsx(
+        'rounded-t-[48px] pb-24 lg:mx-8',
+        themeRadialGlowBackground,
+      )}>
       <Container className="relative" variant="narrow">
         <div className="mx-auto grid grid-cols-1 gap-8 space-y-10 py-24 md:grid-cols-5 lg:py-40">
           <div className="mx-auto max-w-2xl md:col-span-5 lg:col-span-3 lg:mx-0 lg:max-w-prose lg:pr-24">
@@ -208,7 +343,7 @@ export default function MarketingContinuousUpdates() {
                 values={{
                   link: (chunks) => (
                     <Anchor
-                      className="text-brand-dark hover:text-brand font-medium"
+                      className="text-brand hover:text-brand-light font-medium"
                       href="mailto:contact@greatfrontend.com"
                       variant="unstyled">
                       {chunks}
@@ -218,13 +353,14 @@ export default function MarketingContinuousUpdates() {
               />
             </Text>
           </div>
-          <div className="bg-brand-lightest mt-3 hidden rounded-lg dark:bg-neutral-700 lg:col-span-2 lg:flex">
+          <div className="mt-3 hidden rounded-lg lg:col-span-2 lg:flex">
             <Chart
               activePointIndex={activePointIndex}
+              gridSize={48}
               height={chartHeight}
-              paddingX={16}
+              paddingX={0}
               paddingY={32}
-              width={chartWidth}
+              width={48 * (counts.length - 1)}
               onChangeActivePointIndex={setActivePointIndex}
             />
           </div>
