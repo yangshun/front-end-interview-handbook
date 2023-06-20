@@ -9,6 +9,8 @@ import SystemDesignQuestionList from '~/__generated__/questions/system-design/li
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
+export const basePath = '/system-design';
+
 export type SystemDesignNavigationLink = BaseGuideNavigationLink<{
   premium: boolean;
   type: 'guide' | 'question';
@@ -49,7 +51,7 @@ function useSystemDesignIntroduction() {
           'Sidebar link title for front end system design interviews',
         id: 'H39M2g',
       }),
-      href: '/system-design',
+      href: basePath,
       premium: false,
       slug: 'introduction',
       title: intl.formatMessage({
@@ -75,7 +77,7 @@ function useSystemDesignGuides() {
           'Overview of front end system design interview question formats',
         id: 'P99cBr',
       }),
-      href: '/system-design/types-of-questions',
+      href: `${basePath}/types-of-questions`,
       premium: false,
       slug: 'types-of-questions',
       title: intl.formatMessage({
@@ -91,7 +93,7 @@ function useSystemDesignGuides() {
         description: 'Sidebar link for front end system design interview',
         id: 'BhmpD2',
       }),
-      href: '/system-design/framework',
+      href: `${basePath}/framework`,
       premium: false,
       slug: 'framework',
       title: intl.formatMessage({
@@ -108,7 +110,7 @@ function useSystemDesignGuides() {
         description: 'What front end system design interviewer are looking for',
         id: 'twAHPt',
       }),
-      href: '/system-design/evaluation-axes',
+      href: `/${basePath}/evaluation-axes`,
       premium: true,
       slug: 'evaluation-axes',
       title: intl.formatMessage({
@@ -124,7 +126,7 @@ function useSystemDesignGuides() {
         description: 'Comon mistakes to avoid during system design interviews',
         id: '6kLEK7',
       }),
-      href: '/system-design/common-mistakes',
+      href: `/${basePath}/common-mistakes`,
       premium: true,
       slug: 'common-mistakes',
       title: intl.formatMessage({
@@ -142,7 +144,7 @@ function useSystemDesignGuides() {
           'Summary of important things in front end system design interviews',
         id: 'KdzvRx',
       }),
-      href: '/system-design/cheatsheet',
+      href: `/${basePath}/cheatsheet`,
       premium: true,
       slug: 'cheatsheet',
       title: intl.formatMessage({
