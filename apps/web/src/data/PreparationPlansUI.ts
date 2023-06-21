@@ -8,10 +8,19 @@ import {
 } from 'react-icons/ri';
 
 import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
+import type {
+  QuestionFormat,
+  QuestionSlug,
+} from '~/components/questions/common/QuestionsTypes';
+import {
+  themeGradient1,
+  themeGradient2,
+  themeGradient3,
+} from '~/components/ui/theme';
 
 import usePreparationPlans from './PreparationPlans';
 
-type PreparationPlanExtra = Readonly<{
+export type PreparationPlanExtra = Readonly<{
   backgroundClass: string;
   description: string;
   href: string;
@@ -22,6 +31,7 @@ type PreparationPlanExtra = Readonly<{
   key: string;
   longName: string;
   name: string;
+  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   shortDescription: string;
   type: PreparationPlanType;
 }>;
@@ -33,7 +43,7 @@ export function usePreparationPlansUI() {
 
   const preparationPlansExtra: PreparationPlansExtra = {
     'one-month': {
-      backgroundClass: 'bg-violet-600 hover:bg-violet-500',
+      backgroundClass: themeGradient1.className,
       description: preparationPlans['one-month'].description,
       href: preparationPlans['one-month'].href,
       iconBorderClass: 'border-violet-600',
@@ -43,26 +53,27 @@ export function usePreparationPlansUI() {
       key: preparationPlans['one-month'].type,
       longName: preparationPlans['one-month'].longTitle,
       name: preparationPlans['one-month'].title,
+      questions: preparationPlans['one-month'].questions,
       shortDescription: preparationPlans['one-month'].shortDescription,
       type: preparationPlans['one-month'].type,
     },
     'one-week': {
-      backgroundClass: 'bg-purple-600 hover:bg-purple-500',
+      backgroundClass: themeGradient2.className,
       description: preparationPlans['one-week'].description,
       href: preparationPlans['one-week'].href,
       iconBorderClass: 'border-purple-600',
       iconClass: 'text-purple-600',
       iconOutline: RiFlashlightLine,
       iconSolid: RiFlashlightFill,
-
       key: preparationPlans['one-week'].type,
       longName: preparationPlans['one-week'].longTitle,
       name: preparationPlans['one-week'].title,
+      questions: preparationPlans['one-week'].questions,
       shortDescription: preparationPlans['one-week'].shortDescription,
       type: preparationPlans['one-week'].type,
     },
     'three-months': {
-      backgroundClass: 'bg-indigo-600 hover:bg-indigo-500',
+      backgroundClass: themeGradient3.className,
       description: preparationPlans['three-months'].description,
       href: preparationPlans['three-months'].href,
       iconBorderClass: 'border-indigo-600',
@@ -72,6 +83,7 @@ export function usePreparationPlansUI() {
       key: preparationPlans['three-months'].type,
       longName: preparationPlans['three-months'].longTitle,
       name: preparationPlans['three-months'].title,
+      questions: preparationPlans['three-months'].questions,
       shortDescription: preparationPlans['three-months'].shortDescription,
       type: preparationPlans['three-months'].type,
     },

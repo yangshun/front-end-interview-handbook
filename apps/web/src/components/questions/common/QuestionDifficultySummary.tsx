@@ -13,7 +13,7 @@ type Props = Readonly<
 
 const fullWidth = 140;
 
-export default function DifficultySummary({
+export default function QuestionDifficultySummary({
   easy,
   hard,
   medium,
