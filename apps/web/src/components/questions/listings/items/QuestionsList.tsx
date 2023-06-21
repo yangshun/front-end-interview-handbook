@@ -40,7 +40,6 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   questions: ReadonlyArray<Q>;
   showChevron?: boolean;
   showProgress?: boolean;
-  showTimeline?: boolean;
 }>;
 
 function QuestionTag({
@@ -126,7 +125,6 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   questions,
   questionCompletionCount,
   showChevron = false,
-  showTimeline = false,
   showProgress = true,
 }: Props<Q>) {
   const { userProfile } = useUserProfile();
@@ -178,15 +176,6 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             <QuestionNewLabel created={question.created} />
             {showProgress && (
               <div className="flex items-center justify-center">
-                {showTimeline && index < questions.length - 1 && (
-                  <span
-                    aria-hidden="true"
-                    className={clsx(
-                      'absolute top-14 left-7 z-10 -ml-px h-full w-0.5',
-                      themeLineBackgroundColor,
-                    )}
-                  />
-                )}
                 {question.premium && !userProfile?.isPremium ? (
                   <Tooltip
                     label={intl.formatMessage({

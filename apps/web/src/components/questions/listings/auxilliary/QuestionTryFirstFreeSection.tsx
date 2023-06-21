@@ -34,7 +34,6 @@ export default function QuestionTryFirstFreeSection({
             checkIfCompletedQuestion={() => false}
             questions={codingQuestions.filter(({ slug }) => slug === 'flatten')}
             showProgress={false}
-            showTimeline={false}
           />
         </div>
       </Section>

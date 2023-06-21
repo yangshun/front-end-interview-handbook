@@ -27,7 +27,6 @@ type Props<Q extends QuestionQuizMetadata> = Readonly<{
   questions: ReadonlyArray<Q>;
   showChevron?: boolean;
   showProgress?: boolean;
-  showTimeline?: boolean;
 }>;
 
 export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
@@ -35,7 +34,6 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
   questions,
   questionCompletionCount,
   showChevron = false,
-  showTimeline = false,
   showProgress = true,
 }: Props<Q>) {
   const intl = useIntl();
@@ -86,11 +84,6 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             )}>
             {showProgress && (
               <div className="flex items-center justify-center">
-                {showTimeline && index < questions.length - 1 && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-12 left-7 z-10 -ml-px h-full w-0.5 bg-neutral-200"></span>
-                )}
                 {hasCompletedQuestion ? (
                   <Tooltip
                     label={intl.formatMessage({

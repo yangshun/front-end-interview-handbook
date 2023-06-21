@@ -72,7 +72,6 @@ export default function QuestionsPlansList({
               progress.quiz.has(question.slug)
             }
             questions={quizQuestions}
-            showTimeline={true}
           />
         )}
         {selectedQuestionFormat === 'coding' &&
@@ -100,7 +99,6 @@ export default function QuestionsPlansList({
                   progress['user-interface'].has(question.slug)
                 }
                 questions={sortedQuestions}
-                showTimeline={true}
               />
             );
           })()}
@@ -119,7 +117,6 @@ export default function QuestionsPlansList({
               <QuestionsList
                 checkIfCompletedQuestion={() => false}
                 questions={sortedQuestions}
-                showTimeline={true}
               />
             );
           })()}
