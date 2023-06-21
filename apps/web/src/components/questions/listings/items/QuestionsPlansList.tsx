@@ -6,8 +6,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
+import QuestionsCodingListWithFilters from './QuestionsCodingListWithFilters';
 import QuestionsList from './QuestionsList';
-import QuestionsQuizList from './QuestionsQuizList';
+import QuestionsQuizListWithFilters from './QuestionsQuizListWithFilters';
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import type { PreparationPlan } from '../../common/PreparationPlanTypes';
 import { sortQuestionsMultiple } from '../../common/QuestionsProcessor';
@@ -34,8 +35,8 @@ export default function QuestionsPlansList({
     useState<QuestionUserFacingFormat>('coding');
 
   return (
-    <div className="space-y-4 pt-6">
-      <Heading className="text-lg font-bold tracking-tight" level="custom">
+    <div className="flex flex-col gap-y-6 pt-6">
+      <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="All Practice Questions"
           description="Header for all practice questions section in study plans"
@@ -67,12 +68,7 @@ export default function QuestionsPlansList({
           />
         </div>
         {selectedQuestionFormat === 'quiz' && (
-          <QuestionsQuizList
-            checkIfCompletedQuestion={(question) =>
-              progress.quiz.has(question.slug)
-            }
-            questions={quizQuestions}
-          />
+          <QuestionsQuizListWithFilters questions={quizQuestions} />
         )}
         {selectedQuestionFormat === 'coding' &&
           (() => {
@@ -93,13 +89,7 @@ export default function QuestionsPlansList({
             );
 
             return (
-              <QuestionsList
-                checkIfCompletedQuestion={(question) =>
-                  progress.javascript.has(question.slug) ||
-                  progress['user-interface'].has(question.slug)
-                }
-                questions={sortedQuestions}
-              />
+              <QuestionsCodingListWithFilters questions={sortedQuestions} />
             );
           })()}
         {selectedQuestionFormat === 'system-design' &&

@@ -6,7 +6,6 @@ import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
   themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineColor,
@@ -77,7 +76,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             className={clsx(
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              themeBackgroundColor,
+              'bg-white dark:bg-neutral-800/40',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',

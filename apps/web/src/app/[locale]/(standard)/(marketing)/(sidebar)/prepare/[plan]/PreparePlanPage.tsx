@@ -1,12 +1,13 @@
 'use client';
 
+import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import usePreparationPlans from '~/data/PreparationPlans';
+import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
 
-import TextPairing from '~/components/common/TextPairing';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
@@ -15,10 +16,13 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionTryFirstFreeSection from '~/components/questions/listings/auxilliary/QuestionTryFirstFreeSection';
+import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
 import QuestionsProgressSection from '~/components/questions/listings/stats/QuestionsProgressSection';
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import {
   categorizeQuestionsProgress,
@@ -46,8 +50,10 @@ export default function PreparationPlanPage({
     questionProgressParam,
   );
   const preparationPlans = usePreparationPlans();
+  const preparationPlansExtra = usePreparationPlansUI();
 
   const preparationPlan = preparationPlans[plan];
+  const preparationPlanExtra = preparationPlansExtra[plan];
 
   // Quiz questions are dynamically populated based on the following.
   const quizQuestions = quizQuestionsParam.filter(({ importance }) => {
@@ -70,28 +76,48 @@ export default function PreparationPlanPage({
     preparationPlan,
   );
 
+  const questionCount = Object.values(preparationPlanExtra.questions)
+    .map((q) => q.length)
+    .reduce((prev, curr) => prev + curr, 0);
+
   const canViewStudyPlans = userProfile?.isPremium;
 
   return (
-    <div className="relative pb-16">
-      <div className="bg-neutral-950 absolute z-0 h-96 w-full" />
-      <div className="relative space-y-16 py-16 lg:pb-24 lg:pt-20">
-        <Container>
-          <TextPairing
-            description={preparationPlan.description}
-            mode="dark"
-            sectionLabel={intl.formatMessage({
-              defaultMessage: 'Study Plans',
-              description: 'Study plans page mini title',
-              id: 'UOhk7j',
+    <div className="relative flex flex-col gap-y-12 py-6">
+      <Container className="relative flex flex-col gap-y-5">
+        <div>
+          <Button
+            addonPosition="start"
+            className="-ml-5 -mb-2"
+            href="/study-plans"
+            icon={RiArrowLeftLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Back to study plans',
+              description: 'Link text to navigate to study plans page',
+              id: 'fv+TLc',
             })}
-            title={preparationPlan.longTitle}
+            size="md"
+            variant="tertiary"
           />
-        </Container>
-      </div>
+        </div>
+        <QuestionListTitleSection
+          icon={preparationPlanExtra.iconOutline}
+          questionCount={questionCount}
+          themeBackgroundClass={preparationPlanExtra.backgroundClass}
+          title={preparationPlanExtra.longName}
+          totalDurationMins={360}
+        />
+        <Text
+          className="max-w-3xl"
+          color="secondary"
+          display="block"
+          size="body2">
+          {preparationPlanExtra.description}
+        </Text>
+      </Container>
       <Section>
         {canViewStudyPlans ? (
-          <Container className="-mt-48 translate-y-36 space-y-8 pb-48">
+          <Container className="space-y-8 pb-48">
             <QuestionsProgressSection
               preparationPlan={preparationPlan}
               progress={questionsProgress}

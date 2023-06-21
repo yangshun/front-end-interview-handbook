@@ -187,6 +187,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "2LouBj": {
+    "defaultMessage": "Holistic study plans",
+    "description": "Title of list of study plans"
+  },
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
@@ -1691,10 +1695,6 @@
     "defaultMessage": "Other Platforms",
     "description": "Table column header for other platforms"
   },
-  "UOhk7j": {
-    "defaultMessage": "Study Plans",
-    "description": "Study plans page mini title"
-  },
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
@@ -2327,6 +2327,10 @@
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
   },
+  "fv+TLc": {
+    "defaultMessage": "Back to study plans",
+    "description": "Link text to navigate to study plans page"
+  },
   "fvztbG": {
     "defaultMessage": "Submit your code to check against the tests.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
@@ -2870,6 +2874,10 @@
   "pRCMpc": {
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
+  },
+  "pRxRs2": {
+    "defaultMessage": "Hear from our users",
+    "description": "Title of testimonials section"
   },
   "pcKndh": {
     "defaultMessage": "Try a question",

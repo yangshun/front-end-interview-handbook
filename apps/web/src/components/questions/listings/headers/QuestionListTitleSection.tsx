@@ -1,13 +1,16 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
 
 import QuestionCountLabel from '../../common/QuestionCountLabel';
 import QuestionDurationLabel from '../../common/QuestionDurationLabel';
 
 type Props = Readonly<{
   completedCount?: number;
+  description?: ReactNode;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   questionCount: number;
   themeBackgroundClass: string;
@@ -16,6 +19,7 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionListTitleSection({
+  description,
   questionCount,
   completedCount = 0,
   totalDurationMins,
@@ -34,7 +38,18 @@ export default function QuestionListTitleSection({
           <Icon aria-hidden={true} className="h-10 w-10" />
         </div>
         <div className="flex flex-col gap-y-2">
-          <Heading level="heading5">{title}</Heading>
+          <div className="flex flex-col gap-y-1">
+            <Heading level="heading5">{title}</Heading>
+            {description && (
+              <Text
+                className="max-w-3xl"
+                color="secondary"
+                display="block"
+                size="body2">
+                {description}
+              </Text>
+            )}
+          </div>
           <div className="flex flex-wrap items-center gap-x-8">
             <QuestionCountLabel count={questionCount} showIcon={true} />
             <QuestionDurationLabel mins={totalDurationMins} showIcon={true} />
