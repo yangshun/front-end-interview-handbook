@@ -27,6 +27,7 @@ import PreparationStudyGuideList from '~/components/questions/dashboard/Preparat
 import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
+import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
@@ -394,6 +395,23 @@ export default function ScrapbookPage() {
           </div>
         </Section>
         <Container>
+          <Heading level="heading3">Study Plans / Focus Areas</Heading>
+        </Container>
+        <Section>
+          <div>
+            <UIExamplesGroup>
+              <QuestionListTitleSection
+                completedCount={17}
+                icon={TbBinaryTree}
+                questionCount={47}
+                themeBackgroundClass={themeGradient1.className}
+                title="Data structure and algorithms"
+                totalDurationMins={560}
+              />
+            </UIExamplesGroup>
+          </div>
+        </Section>
+        <Container>
           <Heading level="heading3">Marketing</Heading>
         </Container>
         <Section>
@@ -403,7 +421,7 @@ export default function ScrapbookPage() {
                 <MarketingFeaturesRow />
               </div>
             </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
+            <UIExamplesGroup darkMode="vertical">
               <div>
                 <MarketingCompaniesMarquee />
               </div>

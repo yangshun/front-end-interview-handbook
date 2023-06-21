@@ -25,6 +25,7 @@ export default function QuestionsProgressBar({
       aria-valuenow={value}
       className={clsx(
         'w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800',
+        'min-w-[120px]',
         heightClass,
       )}
       role="progressbar">

@@ -55,7 +55,7 @@ export default function DifficultySummary({
         {showIcon && (
           <RiFireLine aria-hidden="true" className="text-neutral-400" />
         )}
-        <div className="relative h-1.5 w-[140px] rounded-full">
+        <div className="relative h-2 w-[140px] overflow-clip rounded-full">
           <div className="bg-danger absolute left-0 h-full w-full rounded-full" />
           <div
             className="bg-warning absolute h-full rounded-full"
