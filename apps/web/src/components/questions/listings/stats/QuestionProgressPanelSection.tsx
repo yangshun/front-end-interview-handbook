@@ -12,7 +12,7 @@ import {
 import QuestionsProgressPanel from './QuestionsProgressPanel';
 import type { QuestionUserFacingFormat } from '../../common/QuestionsTypes';
 
-export default function QuestionsProgressPanelSection({
+export default function QuestionProgressPanelSection({
   layout,
   progressSummary,
 }: Readonly<{

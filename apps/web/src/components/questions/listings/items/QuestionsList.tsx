@@ -31,7 +31,7 @@ import type {
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import QuestionUsersCompletedLabel from '../../common/QuestionUsersCompletedLabel';
-import { ReadyQuestions } from '../../content/system-design/SystemDesignNavigation';
+import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;

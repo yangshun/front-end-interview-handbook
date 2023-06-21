@@ -8,10 +8,8 @@ import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigat
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import type { QuestionSystemDesign } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentsSystemDesign from '~/components/questions/content/system-design/QuestionContentsSystemDesign';
-import {
-  ReadyQuestions,
-  useSystemDesignNavigation,
-} from '~/components/questions/content/system-design/SystemDesignNavigation';
+import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
+import { useSystemDesignNavigation } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import SystemDesignPaywall from '~/components/questions/content/system-design/SystemDesignPaywall';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';

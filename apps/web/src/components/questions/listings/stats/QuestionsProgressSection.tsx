@@ -7,7 +7,7 @@ import Text from '~/components/ui/Text';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import QuestionsProgressPanelSection from './QuestionProgressPanelSection';
+import QuestionProgressPanelSection from './QuestionProgressPanelSection';
 import type { PreparationPlan } from '../../common/PreparationPlanTypes';
 import type { QuestionQuizMetadata } from '../../common/QuestionsTypes';
 
@@ -103,7 +103,7 @@ export default function QuestionsProgressSection({
         </Section>
       </div>
       <Section>
-        <QuestionsProgressPanelSection
+        <QuestionProgressPanelSection
           layout="horizontal"
           progressSummary={progressSummary}
         />

@@ -1,19 +1,27 @@
 import clsx from 'clsx';
 
+import { trpc } from '~/hooks/trpc';
+
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import { themeLineColor } from '~/components/ui/theme';
 
-import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
+import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
-  questionCompletionCount?: QuestionCompletionCount;
+  questionTotalAvailableCount: QuestionTotalAvailableCount;
 }>;
 
 export default function PreparationOverallCompletionProgress({
-  questionCompletionCount = {},
+  questionTotalAvailableCount,
 }: Props) {
+  const { data: questionProgressParam } =
+    trpc.questionProgress.getAll.useQuery();
+  const questionsProgressAll = categorizeQuestionsProgress(
+    questionProgressParam,
+  );
   const questionFormats = useQuestionFormatLists();
 
   return (
@@ -25,29 +33,28 @@ export default function PreparationOverallCompletionProgress({
       {[
         {
           completedQuestions:
-            Object.keys(questionCompletionCount.javascript ?? {}).length +
-            Object.keys(questionCompletionCount['user-interface'] ?? {}).length,
+            questionsProgressAll.javascript.size +
+            questionsProgressAll['user-interface'].size,
           gradient: questionFormats.coding.themeGradient,
           icon: questionFormats.coding.icon,
           title: questionFormats.coding.name,
-          totalQuestions: 116,
+          totalQuestions:
+            questionTotalAvailableCount.javascript +
+            questionTotalAvailableCount['user-interface'],
         },
         {
-          completedQuestions: Object.keys(questionCompletionCount.quiz ?? {})
-            .length,
+          completedQuestions: questionsProgressAll.quiz.size,
           gradient: questionFormats.quiz.themeGradient,
           icon: questionFormats.quiz.icon,
           title: questionFormats.quiz.name,
-          totalQuestions: 116,
+          totalQuestions: questionTotalAvailableCount.quiz,
         },
         {
-          completedQuestions: Object.keys(
-            questionCompletionCount['system-design'] ?? {},
-          ).length,
+          completedQuestions: questionsProgressAll['system-design'].size,
           gradient: questionFormats['system-design'].themeGradient,
           icon: questionFormats['system-design'].icon,
           title: questionFormats['system-design'].name,
-          totalQuestions: 116,
+          totalQuestions: questionTotalAvailableCount['system-design'],
         },
       ].map(({ completedQuestions, icon, gradient, title, totalQuestions }) => (
         <QuestionsProgressPanel

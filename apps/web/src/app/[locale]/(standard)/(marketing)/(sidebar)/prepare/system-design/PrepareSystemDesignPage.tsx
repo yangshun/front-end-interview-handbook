@@ -7,13 +7,16 @@ import PreparePageLayout from '~/components/questions/dashboard/PreparePageLayou
 import QuestionsSystemDesignListWithFilters from '~/components/questions/listings/items/QuestionsSystemDesignListWithFilters';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 
 type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
+  questionTotalAvailableCount: QuestionTotalAvailableCount;
 }>;
 
 export default function PrepareSystemDesignQuestionsPage({
   questionCompletionCount,
+  questionTotalAvailableCount,
 }: Props) {
   const intl = useIntl();
   const systemDesignLearningContent = useSystemDesignLearningContent();
@@ -24,6 +27,7 @@ export default function PrepareSystemDesignQuestionsPage({
       guides={systemDesignLearningContent}
       guidesHref={systemDesignLearningContent[0].href}
       questionCompletionCount={questionCompletionCount}
+      questionTotalAvailableCount={questionTotalAvailableCount}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Preparation — Quiz',
         description: 'Prepare for front end interview quiz questions',

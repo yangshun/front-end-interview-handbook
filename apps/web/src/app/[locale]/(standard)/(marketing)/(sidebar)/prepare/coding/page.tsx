@@ -1,7 +1,10 @@
 import type { Metadata } from 'next/types';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import {
+  fetchQuestionsListCoding,
+  fetchQuestionsListCount,
+} from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -48,15 +51,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ questions: codingQuestions }, questionCompletionCount] =
-    await Promise.all([
-      fetchQuestionsListCoding(locale),
-      fetchQuestionCompletionCount(['user-interface', 'javascript']),
-    ]);
+  const [
+    { questions: codingQuestions },
+    questionCompletionCount,
+    questionTotalAvailableCount,
+  ] = await Promise.all([
+    fetchQuestionsListCoding(locale),
+    fetchQuestionCompletionCount(['user-interface', 'javascript']),
+    fetchQuestionsListCount(),
+  ]);
 
   return (
     <PrepareCodingPage
       questionCompletionCount={questionCompletionCount}
+      questionTotalAvailableCount={questionTotalAvailableCount}
       questions={codingQuestions}
     />
   );

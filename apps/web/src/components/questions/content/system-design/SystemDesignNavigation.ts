@@ -7,6 +7,7 @@ import type {
 
 import SystemDesignQuestionList from '~/__generated__/questions/system-design/list.en-US.json';
 
+import { ReadyQuestions } from './SystemDesignConfig';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 export const basePath = '/system-design';
@@ -18,19 +19,6 @@ export type SystemDesignNavigationLink = BaseGuideNavigationLink<{
 
 type NavigationLinks = ReadonlyArray<SystemDesignNavigationLink>;
 
-export const ReadyQuestions: ReadonlyArray<string> = [
-  'autocomplete',
-  'news-feed-facebook',
-  'poll-widget',
-  'image-carousel',
-  'photo-sharing-instagram',
-  'e-commerce-amazon',
-  'chat-application-messenger',
-  'travel-booking-airbnb',
-  'email-client-outlook',
-  'dropdown-menu',
-  'modal-dialog',
-];
 export const allSystemDesignQuestions = (
   SystemDesignQuestionList as ReadonlyArray<QuestionMetadata>
 )

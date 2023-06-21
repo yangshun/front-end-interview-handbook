@@ -23,6 +23,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 
 import QuestionsContinueLearning from './QuestionsContinueLearning';
 
@@ -37,6 +38,7 @@ type Props = Readonly<{
   }>;
   guidesHref: string;
   questionCompletionCount?: QuestionCompletionCount;
+  questionTotalAvailableCount: QuestionTotalAvailableCount;
   title: string;
 }>;
 
@@ -47,6 +49,7 @@ export default function PreparePageLayout({
   guidesHref,
   title,
   questionCompletionCount,
+  questionTotalAvailableCount,
 }: Props) {
   const { userProfile } = useUserProfile();
   // TODO(redesign): show continue learning only if user has progressed
@@ -68,7 +71,7 @@ export default function PreparePageLayout({
           <QuestionPreparationPageHeader />
           {userProfile ? (
             <PreparationOverallCompletionProgress
-              questionCompletionCount={questionCompletionCount}
+              questionTotalAvailableCount={questionTotalAvailableCount}
             />
           ) : (
             <QuestionsPreparationOnboarding />

@@ -29,7 +29,7 @@ import QuestionsContinueLearning from '~/components/questions/dashboard/Question
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
-import QuestionsProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
+import QuestionProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
@@ -185,7 +185,7 @@ export default function ScrapbookPage() {
               />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
-              <QuestionsProgressPanelSection
+              <QuestionProgressPanelSection
                 layout="horizontal"
                 progressSummary={{
                   coding: {

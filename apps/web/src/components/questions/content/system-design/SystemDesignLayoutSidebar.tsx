@@ -9,10 +9,8 @@ import FooterlessContainerHeight from '~/components/common/FooterlessContainerHe
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSidebarCollapser';
-import {
-  ReadyQuestions,
-  useSystemDesignNavigation,
-} from '~/components/questions/content/system-design/SystemDesignNavigation';
+import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
+import { useSystemDesignNavigation } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

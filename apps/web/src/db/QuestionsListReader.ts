@@ -7,16 +7,40 @@ import fs from 'node:fs';
 
 import { filterQuestions } from '~/components/questions/common/QuestionsProcessor';
 import type {
+  QuestionFormat,
   QuestionFramework,
   QuestionMetadata,
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
+import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
 
 import { getQuestionsListOutFilenameCoding } from './questions-bundlers/QuestionsBundlerCodingConfig';
 import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { getQuestionsListOutFilenameQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionsListOutFilenameSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { getQuestionsListOutFilenameUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
+
+export type QuestionTotalAvailableCount = Record<QuestionFormat, number>;
+
+export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableCount> {
+  const [js, ui, quiz, sd] = await Promise.all([
+    fetchQuestionsListJavaScript(),
+    fetchQuestionsListUserInterface(),
+    fetchQuestionsListQuiz(),
+    fetchQuestionsListSystemDesign(),
+  ]);
+
+  const sdCount = sd.questions.filter((metadata) =>
+    ReadyQuestions.includes(metadata.slug),
+  ).length;
+
+  return {
+    javascript: js.questions.length,
+    quiz: quiz.questions.length,
+    'system-design': sdCount,
+    'user-interface': ui.questions.length,
+  };
+}
 
 export async function fetchQuestionsListQuiz(
   requestedLocale = 'en-US',
