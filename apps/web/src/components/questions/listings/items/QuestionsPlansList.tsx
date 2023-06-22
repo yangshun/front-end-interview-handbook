@@ -51,9 +51,7 @@ export default function QuestionsPlansList({
               coding: {
                 completed:
                   progress.javascript.size + progress['user-interface'].size,
-                total:
-                  preparationPlan.questions.javascript.length +
-                  preparationPlan.questions['user-interface'].length,
+                total: codingQuestions.length,
               },
               quiz: {
                 completed: progress.quiz.size,
@@ -61,7 +59,7 @@ export default function QuestionsPlansList({
               },
               'system-design': {
                 completed: progress['system-design'].size,
-                total: preparationPlan.questions['system-design'].length,
+                total: systemDesignQuestions.length,
               },
             }}
             value={selectedQuestionFormat}
@@ -73,21 +71,10 @@ export default function QuestionsPlansList({
         )}
         {selectedQuestionFormat === 'coding' &&
           (() => {
-            const sortedQuestions = sortQuestionsMultiple(
-              codingQuestions.filter(
-                (question) =>
-                  preparationPlan.questions.javascript.includes(
-                    question.slug,
-                  ) ||
-                  preparationPlan.questions['user-interface'].includes(
-                    question.slug,
-                  ),
-              ),
-              [
-                { field: 'difficulty', isAscendingOrder: true },
-                { field: 'premium', isAscendingOrder: true },
-              ],
-            );
+            const sortedQuestions = sortQuestionsMultiple(codingQuestions, [
+              { field: 'difficulty', isAscendingOrder: true },
+              { field: 'premium', isAscendingOrder: true },
+            ]);
 
             return (
               <QuestionsCodingListWithFilters questions={sortedQuestions} />
@@ -96,11 +83,7 @@ export default function QuestionsPlansList({
         {selectedQuestionFormat === 'system-design' &&
           (() => {
             const sortedQuestions = sortQuestionsMultiple(
-              systemDesignQuestions.filter((question) =>
-                preparationPlan.questions['system-design'].includes(
-                  question.slug,
-                ),
-              ),
+              systemDesignQuestions,
               [{ field: 'ranking', isAscendingOrder: true }],
             );
 

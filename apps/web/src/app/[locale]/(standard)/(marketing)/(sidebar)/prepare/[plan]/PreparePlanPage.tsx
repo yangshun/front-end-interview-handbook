@@ -10,6 +10,7 @@ import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
+import { countQuestionsTotalDurationMins } from '~/components/questions/common/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionQuizMetadata,
@@ -60,6 +61,12 @@ export default function PreparePlanPage({
 
   const canViewStudyPlans = userProfile?.isPremium;
 
+  const totalDuration = countQuestionsTotalDurationMins([
+    ...codingQuestions,
+    ...quizQuestions,
+    ...systemDesignQuestions,
+  ]);
+
   return (
     <div className="relative flex flex-col gap-y-12 py-6">
       <Container className="relative flex flex-col gap-y-5">
@@ -79,11 +86,17 @@ export default function PreparePlanPage({
           />
         </div>
         <QuestionListTitleSection
+          completedCount={
+            questionsProgress.javascript.size +
+            questionsProgress['user-interface'].size +
+            questionsProgress.quiz.size +
+            questionsProgress['system-design'].size
+          }
           icon={planTheme.iconOutline}
           questionCount={questionCount}
           themeBackgroundClass={planTheme.backgroundClass}
           title={plan.longName}
-          totalDurationMins={360}
+          totalDurationMins={totalDuration}
         />
         <Text
           className="max-w-3xl"

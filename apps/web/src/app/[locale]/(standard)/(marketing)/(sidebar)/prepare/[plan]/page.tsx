@@ -96,6 +96,19 @@ export default async function Page({ params }: Props) {
 
   const { title, description } = await getPreparationPlansSEO(planType, locale);
 
+  const codingQuestionsForPlan = codingQuestions.filter(
+    (question) =>
+      preparationPlan.questions.javascript.includes(question.slug) ||
+      preparationPlan.questions['user-interface'].includes(question.slug),
+  );
+  const quizQuestionsForPlan = quizQuestions.filter((question) =>
+    preparationPlan.questions.quiz.includes(question.slug),
+  );
+  const systemDesignQuestionsForPlan = systemDesignQuestions.filter(
+    (question) =>
+      preparationPlan.questions['system-design'].includes(question.slug),
+  );
+
   return (
     <>
       <CourseJsonLd
@@ -108,10 +121,10 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <PreparePlanPage
-        codingQuestions={codingQuestions}
+        codingQuestions={codingQuestionsForPlan}
         plan={preparationPlan}
-        quizQuestions={sortQuestions(quizQuestions, 'importance', false)}
-        systemDesignQuestions={systemDesignQuestions}
+        quizQuestions={sortQuestions(quizQuestionsForPlan, 'importance', false)}
+        systemDesignQuestions={systemDesignQuestionsForPlan}
       />
     </>
   );
