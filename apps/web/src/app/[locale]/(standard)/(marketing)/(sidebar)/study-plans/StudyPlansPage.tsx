@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { PreparationPlanExtra } from '~/data/PreparationPlansUI';
-import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
+import type { PreparationPlan } from '~/data/PreparationPlans';
+import { usePreparationPlans } from '~/data/PreparationPlans';
 import type { Testimonial } from '~/data/Testimonials';
 import { useTestimonials } from '~/data/Testimonials';
 
@@ -23,16 +23,9 @@ import { themeGlassyBorder } from '~/components/ui/theme';
 import CompletionCountSummary from './CompletionCountSummary';
 
 function PreparationPlanCard({
-  plan: {
-    backgroundClass,
-    name,
-    description,
-    questions,
-    href,
-    iconOutline: Icon,
-  },
+  plan: { theme, name, description, questions, href },
 }: {
-  plan: PreparationPlanExtra;
+  plan: PreparationPlan;
 }) {
   const questionCount = Object.values(questions)
     .map((q) => q.length)
@@ -48,9 +41,9 @@ function PreparationPlanCard({
       <div
         className={clsx(
           'flex h-20 w-20 items-center justify-center rounded-[5px]',
-          backgroundClass,
+          theme.backgroundClass,
         )}>
-        <Icon className="h-10 w-10 text-white" />
+        <theme.iconOutline className="h-10 w-10 text-white" />
       </div>
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-col gap-1">
@@ -89,7 +82,7 @@ function PreparationPlanCard({
 }
 
 type PreparationPlanSection = Readonly<{
-  plans: Array<PreparationPlanExtra>;
+  plans: Array<PreparationPlan>;
   title: string;
 }>;
 
@@ -101,7 +94,7 @@ function TestimonialCard({
   location,
 }: Testimonial) {
   return (
-    <Card className="grid gap-y-4">
+    <Card className="flex flex-col gap-y-4">
       <Text display="block" size="body2">
         "{testimonial}"
       </Text>
@@ -128,7 +121,7 @@ function TestimonialCard({
 
 export default function StudyPlansPage() {
   const intl = useIntl();
-  const preparationPlans = usePreparationPlansUI();
+  const preparationPlans = usePreparationPlans();
   const testimonials = useTestimonials();
 
   const preparationPlanSections: Array<PreparationPlanSection> = [

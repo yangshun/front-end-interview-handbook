@@ -5,11 +5,10 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import usePreparationPlans from '~/data/PreparationPlans';
-import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
+import type { PreparationPlanType } from '~/data/PreparationPlans';
+import { usePreparationPlans } from '~/data/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import type {
   QuestionMetadata,
@@ -50,10 +49,7 @@ export default function PreparationPlanPage({
     questionProgressParam,
   );
   const preparationPlans = usePreparationPlans();
-  const preparationPlansExtra = usePreparationPlansUI();
-
   const preparationPlan = preparationPlans[plan];
-  const preparationPlanExtra = preparationPlansExtra[plan];
 
   // Quiz questions are dynamically populated based on the following.
   const quizQuestions = quizQuestionsParam.filter(({ importance }) => {
@@ -76,9 +72,10 @@ export default function PreparationPlanPage({
     preparationPlan,
   );
 
-  const questionCount = Object.values(preparationPlanExtra.questions)
-    .map((q) => q.length)
-    .reduce((prev, curr) => prev + curr, 0);
+  const questionCount =
+    Object.values(preparationPlan.questions)
+      .map((q) => q.length)
+      .reduce((prev, curr) => prev + curr, 0) + quizQuestions.length;
 
   const canViewStudyPlans = userProfile?.isPremium;
 
@@ -101,10 +98,10 @@ export default function PreparationPlanPage({
           />
         </div>
         <QuestionListTitleSection
-          icon={preparationPlanExtra.iconOutline}
+          icon={preparationPlan.theme.iconOutline}
           questionCount={questionCount}
-          themeBackgroundClass={preparationPlanExtra.backgroundClass}
-          title={preparationPlanExtra.longName}
+          themeBackgroundClass={preparationPlan.theme.backgroundClass}
+          title={preparationPlan.longName}
           totalDurationMins={360}
         />
         <Text
@@ -112,12 +109,12 @@ export default function PreparationPlanPage({
           color="secondary"
           display="block"
           size="body2">
-          {preparationPlanExtra.description}
+          {preparationPlan.description}
         </Text>
       </Container>
       <Section>
         {canViewStudyPlans ? (
-          <Container className="space-y-8 pb-48">
+          <Container className="flex flex-col gap-y-8 pb-48">
             <QuestionsProgressSection
               preparationPlan={preparationPlan}
               progress={questionsProgress}

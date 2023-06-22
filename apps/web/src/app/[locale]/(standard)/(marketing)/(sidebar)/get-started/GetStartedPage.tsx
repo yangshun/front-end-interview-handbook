@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
-import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
+import { usePreparationPlans } from '~/data/PreparationPlans';
 
 import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingJavaScriptQuestionsExamples from '~/components/marketing/examples/MarketingJavaScriptQuestionsExamples';
@@ -34,11 +34,11 @@ type Props = Readonly<{
 
 function PreparationPlansSection() {
   const intl = useIntl();
-  const preparationPlansExtra = usePreparationPlansUI();
+  const preparationPlansExtra = usePreparationPlans();
 
   return (
     <div>
-      <div className="space-y-4">
+      <div className="flex flex-col gap-y-4">
         <Heading level="heading4">
           {intl.formatMessage({
             defaultMessage: 'Preparation Plans',
@@ -63,19 +63,19 @@ function PreparationPlansSection() {
         <div className="mt-20 grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-6">
           {Object.entries(preparationPlansExtra).map(([_, plan]) => (
             <div
-              key={plan.key}
+              key={plan.type}
               className={clsx(
                 'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset md:px-8',
-                plan.backgroundClass,
+                plan.theme.backgroundClass,
               )}>
               <div
                 className={clsx(
                   'absolute top-0 inline-block -translate-y-1/2 transform rounded-xl border-2 bg-white p-3 shadow-lg',
-                  plan.iconBorderClass,
+                  plan.theme.iconBorderClass,
                 )}>
-                <plan.iconSolid
+                <plan.theme.iconSolid
                   aria-hidden="true"
-                  className={clsx('h-8 w-8', plan.iconClass)}
+                  className={clsx('h-8 w-8', plan.theme.iconClass)}
                 />
               </div>
               <Heading className="text-white" level="heading6">
@@ -128,8 +128,8 @@ function PracticeQuestionsSection({
   const intl = useIntl();
 
   return (
-    <div className="space-y-12 lg:space-y-16">
-      <div className="space-y-4">
+    <div className="flex flex-col gap-y-12 lg:gap-y-16">
+      <div className="flex flex-col gap-y-4">
         <Heading level="heading4">
           {intl.formatMessage({
             defaultMessage: 'Practice Questions',
@@ -183,7 +183,7 @@ export default function GetStartedPage({
     <>
       <PromoBanner />
       <Container>
-        <div className="space-y-12 py-12 lg:space-y-16 lg:py-16">
+        <div className="flex flex-col gap-y-12 py-12 lg:gap-y-16 lg:py-16">
           <Heading level="heading3">
             {intl.formatMessage({
               defaultMessage: 'Get Started',

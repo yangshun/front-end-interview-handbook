@@ -1,5 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 
+import type { PreparationPlan } from '~/data/PreparationPlans';
+
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import ProgressBar from '~/components/ui/ProgressBar';
@@ -8,7 +10,6 @@ import Text from '~/components/ui/Text';
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 import QuestionProgressPanelSection from './QuestionProgressPanelSection';
-import type { PreparationPlan } from '../../common/PreparationPlanTypes';
 import type { QuestionQuizMetadata } from '../../common/QuestionsTypes';
 
 export default function QuestionsProgressSection({

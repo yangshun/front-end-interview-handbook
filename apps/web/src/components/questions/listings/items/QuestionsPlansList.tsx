@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import type { PreparationPlan } from '~/data/PreparationPlans';
+
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -10,7 +12,6 @@ import QuestionsCodingListWithFilters from './QuestionsCodingListWithFilters';
 import QuestionsList from './QuestionsList';
 import QuestionsQuizListWithFilters from './QuestionsQuizListWithFilters';
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
-import type { PreparationPlan } from '../../common/PreparationPlanTypes';
 import { sortQuestionsMultiple } from '../../common/QuestionsProcessor';
 import type {
   QuestionMetadata,

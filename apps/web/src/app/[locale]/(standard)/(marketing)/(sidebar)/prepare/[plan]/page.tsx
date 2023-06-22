@@ -1,7 +1,8 @@
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
 
-import type { PreparationPlanType } from '~/components/questions/common/PreparationPlanTypes';
+import type { PreparationPlanType } from '~/data/PreparationPlans';
+
 import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
 
 import {

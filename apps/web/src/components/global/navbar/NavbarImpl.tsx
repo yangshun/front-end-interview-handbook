@@ -9,7 +9,7 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 
 import { useGuidesData } from '~/data/Guides';
-import { usePreparationPlansUI } from '~/data/PreparationPlansUI';
+import { usePreparationPlans } from '~/data/PreparationPlans';
 import {
   useQuestionFormatLists,
   useQuestionTechnologyLists,
@@ -49,7 +49,7 @@ function useNavLinks(
   const intl = useIntl();
   const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
-  const preparationPlansExtra = usePreparationPlansUI();
+  const preparationPlansExtra = usePreparationPlans();
   const guides = useGuidesData();
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
@@ -314,7 +314,7 @@ function useNavLinks(
           items: [
             {
               href: preparationPlansExtra['one-week'].href,
-              icon: preparationPlansExtra['one-week'].iconOutline,
+              icon: preparationPlansExtra['one-week'].theme.iconOutline,
               itemKey: preparationPlansExtra['one-week'].type,
               label: preparationPlansExtra['one-week'].longName,
               onClick: () => {
@@ -329,7 +329,7 @@ function useNavLinks(
             },
             {
               href: preparationPlansExtra['one-month'].href,
-              icon: preparationPlansExtra['one-month'].iconOutline,
+              icon: preparationPlansExtra['one-month'].theme.iconOutline,
               itemKey: preparationPlansExtra['one-month'].type,
               label: preparationPlansExtra['one-month'].longName,
               onClick: () => {
@@ -344,7 +344,7 @@ function useNavLinks(
             },
             {
               href: preparationPlansExtra['three-months'].href,
-              icon: preparationPlansExtra['three-months'].iconOutline,
+              icon: preparationPlansExtra['three-months'].theme.iconOutline,
               itemKey: preparationPlansExtra['three-months'].type,
               label: preparationPlansExtra['three-months'].longName,
               onClick: () => {

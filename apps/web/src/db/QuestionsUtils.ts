@@ -1,4 +1,5 @@
-import type { PreparationPlan } from '~/components/questions/common/PreparationPlanTypes';
+import type { PreparationPlan } from '~/data/PreparationPlans';
+
 import type {
   QuestionFormat,
   QuestionFramework,

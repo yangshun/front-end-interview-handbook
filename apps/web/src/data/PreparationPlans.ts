@@ -1,14 +1,45 @@
+import {
+  RiFireFill,
+  RiFireLine,
+  RiFlashlightFill,
+  RiFlashlightLine,
+  RiStarFill,
+  RiStarLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type {
-  PreparationPlan,
-  PreparationPlanType,
-} from '~/components/questions/common/PreparationPlanTypes';
+  QuestionFormat,
+  QuestionSlug,
+} from '~/components/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
+import {
+  themeGradient1,
+  themeGradient2,
+  themeGradient3,
+} from '~/components/ui/theme';
+
+export type PreparationPlanType = 'one-month' | 'one-week' | 'three-months';
+export type PreparationPlan = Readonly<{
+  description: string;
+  href: string;
+  longName: string;
+  name: string;
+  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  shortDescription: string;
+  theme: {
+    backgroundClass: string;
+    iconBorderClass: string;
+    iconClass: string;
+    iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  };
+  type: PreparationPlanType;
+}>;
 
 type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
 
-export default function usePreparationPlans() {
+export function usePreparationPlans() {
   const intl = useIntl();
   const preparationPlans: PreparationPlans = {
     'one-month': {
@@ -19,10 +50,15 @@ export default function usePreparationPlans() {
         id: 'CyhMLj',
       }),
       href: '/prepare/one-month',
-      longTitle: intl.formatMessage({
+      longName: intl.formatMessage({
         defaultMessage: '1 Month Plan',
         description: 'Long label for one month study plan',
         id: 'lyjVwD',
+      }),
+      name: intl.formatMessage({
+        defaultMessage: '1 Month',
+        description: 'Short label for one month study plan',
+        id: 'EJRNjL',
       }),
       questions: {
         javascript: [
@@ -72,11 +108,13 @@ export default function usePreparationPlans() {
         description: 'Short description for one month study plan',
         id: 'SId1Gq',
       }),
-      title: intl.formatMessage({
-        defaultMessage: '1 Month',
-        description: 'Short label for one month study plan',
-        id: 'EJRNjL',
-      }),
+      theme: {
+        backgroundClass: themeGradient1.className,
+        iconBorderClass: 'border-violet-600',
+        iconClass: 'text-violet-600',
+        iconOutline: RiFireLine,
+        iconSolid: RiFireFill,
+      },
       type: 'one-month',
     },
     'one-week': {
@@ -87,10 +125,15 @@ export default function usePreparationPlans() {
         id: 'npvgQq',
       }),
       href: '/prepare/one-week',
-      longTitle: intl.formatMessage({
+      longName: intl.formatMessage({
         defaultMessage: '1 Week Plan',
         description: 'Long label for one week study plan',
         id: 'jN6xqZ',
+      }),
+      name: intl.formatMessage({
+        defaultMessage: '1 Week',
+        description: 'Short label for one week study plan',
+        id: 'vfVwh2',
       }),
       questions: {
         javascript: [
@@ -121,11 +164,13 @@ export default function usePreparationPlans() {
         description: 'Short description for one week study plan',
         id: '4WUroS',
       }),
-      title: intl.formatMessage({
-        defaultMessage: '1 Week',
-        description: 'Short label for one week study plan',
-        id: 'vfVwh2',
-      }),
+      theme: {
+        backgroundClass: themeGradient2.className,
+        iconBorderClass: 'border-purple-600',
+        iconClass: 'text-purple-600',
+        iconOutline: RiFlashlightLine,
+        iconSolid: RiFlashlightFill,
+      },
       type: 'one-week',
     },
     'three-months': {
@@ -141,10 +186,15 @@ export default function usePreparationPlans() {
         },
       ),
       href: '/prepare/three-months',
-      longTitle: intl.formatMessage({
+      longName: intl.formatMessage({
         defaultMessage: '3 Months Plan',
         description: 'Short label for 3 months study plan',
         id: 'g65B9h',
+      }),
+      name: intl.formatMessage({
+        defaultMessage: '3 Months',
+        description: 'Short label for 3 months study plan',
+        id: 'ojtNa2',
       }),
       questions: {
         javascript: [
@@ -210,11 +260,13 @@ export default function usePreparationPlans() {
         description: 'Short description for 3 months study plan',
         id: '1PHE0Y',
       }),
-      title: intl.formatMessage({
-        defaultMessage: '3 Months',
-        description: 'Short label for 3 months study plan',
-        id: 'ojtNa2',
-      }),
+      theme: {
+        backgroundClass: themeGradient3.className,
+        iconBorderClass: 'border-indigo-600',
+        iconClass: 'text-indigo-600',
+        iconOutline: RiStarLine,
+        iconSolid: RiStarFill,
+      },
       type: 'three-months',
     },
   };
