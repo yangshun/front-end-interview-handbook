@@ -75,10 +75,15 @@ export default function QuestionsFormatTabs({
   const tabItems: ReadonlyArray<{
     label: string;
     value: QuestionUserFacingFormat;
-  }> = formats.map((format) => ({
-    label: getLabelForFormat(format),
-    value: format,
-  }));
+  }> = formats
+    .filter((format) =>
+      // Filter out formats that aren't relevant.
+      progressSummary == null ? true : progressSummary[format].total > 0,
+    )
+    .map((format) => ({
+      label: getLabelForFormat(format),
+      value: format,
+    }));
 
   return (
     <TabsUnderline
