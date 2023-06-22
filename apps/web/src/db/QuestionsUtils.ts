@@ -1,4 +1,4 @@
-import type { PreparationPlan } from '~/data/PreparationPlans';
+import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 
 import type {
   QuestionFormat,

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
+import type { IntlShape } from 'react-intl';
 
-import type { PreparationPlanType } from '~/data/PreparationPlans';
+import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
+import { getPreparationPlans } from '~/data/plans/PreparationPlans';
 
 import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
 
@@ -17,59 +19,16 @@ import { getSiteUrl } from '~/seo/siteUrl';
 
 import PreparePlanPage from './PreparePlanPage';
 
-async function getPreparationPlansMetadata(
+async function getPreparationPlansSEO(
   planType: PreparationPlanType,
   locale: string,
 ) {
   const intl = await getIntlServerOnly(locale);
+  // TODO: Remove this IntlShape typecast.
+  const plans = getPreparationPlans(intl as IntlShape);
+  const plan = plans[planType];
 
-  switch (planType) {
-    case 'one-week':
-      return {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Study and practice the exact questions and concepts you need to prepare for front end interviews within a week',
-          description: 'Description of 1 Week Preparation Plan page',
-          id: 'D3YhsE',
-        }),
-        title: intl.formatMessage({
-          defaultMessage:
-            'Study plan to prepare for front end interviews in 1 week',
-          description: 'Title of 1 Week Preparation Plan page',
-          id: 'UiHdWK',
-        }),
-      };
-    case 'one-month':
-      return {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month',
-          description: 'Description of 1 Month Preparation Plan page',
-          id: 'N4F6al',
-        }),
-        title: intl.formatMessage({
-          defaultMessage:
-            'Study plan to prepare for front end interviews in 1 month',
-          description: 'Title of 1 Month Preparation Plan page',
-          id: 'O7MAvX',
-        }),
-      };
-    case 'three-months':
-      return {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Everything you need to study and practice for front end interviews for a complete preparation.',
-          description: 'Description of 3 Months Preparation Plan page',
-          id: '8UEoLG',
-        }),
-        title: intl.formatMessage({
-          defaultMessage:
-            'Study plan to prepare for front end interviews in 3 months',
-          description: 'Title of 3 Months Preparation Plan page',
-          id: '7Iapcq',
-        }),
-      };
-  }
+  return { ...plan.seo, href: plan.href };
 }
 
 export async function generateStaticParams() {
@@ -92,7 +51,7 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, plan: planType } = params;
 
-  const { title, description } = await getPreparationPlansMetadata(
+  const { title, description, href } = await getPreparationPlansSEO(
     planType,
     locale,
   );
@@ -100,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description,
     locale,
-    pathname: `/prepare/${planType}`,
+    pathname: href,
     title,
   });
 }
@@ -116,11 +75,26 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
   ]);
+  const intl = await getIntlServerOnly(locale);
+  // TODO: Remove this IntlShape typecast.
+  const preparationPlans = getPreparationPlans(intl as IntlShape);
+  const preparationPlan = preparationPlans[planType];
 
-  const { title, description } = await getPreparationPlansMetadata(
-    planType,
-    locale,
-  );
+  // Quiz questions are dynamically populated based on the following.
+  preparationPlan.questions.quiz = quizQuestions
+    .filter(({ importance }) => {
+      switch (preparationPlan.type) {
+        case 'one-week':
+          return importance === 'high';
+        case 'one-month':
+          return importance === 'high' || importance === 'mid';
+        case 'three-months':
+          return true;
+      }
+    })
+    .map((metadata) => metadata.slug);
+
+  const { title, description } = await getPreparationPlansSEO(planType, locale);
 
   return (
     <>
@@ -135,7 +109,7 @@ export default async function Page({ params }: Props) {
       />
       <PreparePlanPage
         codingQuestions={codingQuestions}
-        plan={planType}
+        plan={preparationPlan}
         quizQuestions={sortQuestions(quizQuestions, 'importance', false)}
         systemDesignQuestions={systemDesignQuestions}
       />

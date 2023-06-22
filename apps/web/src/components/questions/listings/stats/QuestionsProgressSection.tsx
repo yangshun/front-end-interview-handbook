@@ -1,6 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 
-import type { PreparationPlan } from '~/data/PreparationPlans';
+import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

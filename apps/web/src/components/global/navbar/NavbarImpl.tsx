@@ -9,7 +9,8 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 
 import { useGuidesData } from '~/data/Guides';
-import { usePreparationPlans } from '~/data/PreparationPlans';
+import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
+import usePreparationPlans from '~/data/plans/usePreparationPlans';
 import {
   useQuestionFormatLists,
   useQuestionTechnologyLists,
@@ -49,7 +50,7 @@ function useNavLinks(
   const intl = useIntl();
   const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
-  const preparationPlansExtra = usePreparationPlans();
+  const preparationPlans = usePreparationPlans();
   const guides = useGuidesData();
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
@@ -313,10 +314,10 @@ function useNavLinks(
           itemKey: 'study-plans',
           items: [
             {
-              href: preparationPlansExtra['one-week'].href,
-              icon: preparationPlansExtra['one-week'].theme.iconOutline,
-              itemKey: preparationPlansExtra['one-week'].type,
-              label: preparationPlansExtra['one-week'].longName,
+              href: preparationPlans['one-week'].href,
+              icon: getPreparationPlanTheme('one-week').iconOutline,
+              itemKey: preparationPlans['one-week'].type,
+              label: preparationPlans['one-week'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.plans.one_week.click`,
@@ -324,14 +325,14 @@ function useNavLinks(
                   label: '1 Week Plan',
                 });
               },
-              sublabel: preparationPlansExtra['one-week'].shortDescription,
+              sublabel: preparationPlans['one-week'].shortDescription,
               type: 'popover-link',
             },
             {
-              href: preparationPlansExtra['one-month'].href,
-              icon: preparationPlansExtra['one-month'].theme.iconOutline,
-              itemKey: preparationPlansExtra['one-month'].type,
-              label: preparationPlansExtra['one-month'].longName,
+              href: preparationPlans['one-month'].href,
+              icon: getPreparationPlanTheme('one-month').iconOutline,
+              itemKey: preparationPlans['one-month'].type,
+              label: preparationPlans['one-month'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.plans.one_month.click`,
@@ -339,14 +340,14 @@ function useNavLinks(
                   label: '1 Month Plan',
                 });
               },
-              sublabel: preparationPlansExtra['one-month'].shortDescription,
+              sublabel: preparationPlans['one-month'].shortDescription,
               type: 'popover-link',
             },
             {
-              href: preparationPlansExtra['three-months'].href,
-              icon: preparationPlansExtra['three-months'].theme.iconOutline,
-              itemKey: preparationPlansExtra['three-months'].type,
-              label: preparationPlansExtra['three-months'].longName,
+              href: preparationPlans['three-months'].href,
+              icon: getPreparationPlanTheme('three-months').iconOutline,
+              itemKey: preparationPlans['three-months'].type,
+              label: preparationPlans['three-months'].longName,
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.plans.three_months.click`,
@@ -354,7 +355,7 @@ function useNavLinks(
                   label: '3 Months Plan',
                 });
               },
-              sublabel: preparationPlansExtra['three-months'].shortDescription,
+              sublabel: preparationPlans['three-months'].shortDescription,
               type: 'popover-link',
             },
           ],

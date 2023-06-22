@@ -4,8 +4,9 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { PreparationPlan } from '~/data/PreparationPlans';
-import { usePreparationPlans } from '~/data/PreparationPlans';
+import type { PreparationPlan } from '~/data/plans/PreparationPlans';
+import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
+import usePreparationPlans from '~/data/plans/usePreparationPlans';
 import type { Testimonial } from '~/data/Testimonials';
 import { useTestimonials } from '~/data/Testimonials';
 
@@ -23,13 +24,14 @@ import { themeGlassyBorder } from '~/components/ui/theme';
 import CompletionCountSummary from './CompletionCountSummary';
 
 function PreparationPlanCard({
-  plan: { theme, name, description, questions, href },
+  plan: { type, name, description, questions, href },
 }: {
   plan: PreparationPlan;
 }) {
   const questionCount = Object.values(questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
+  const theme = getPreparationPlanTheme(type);
 
   return (
     <div

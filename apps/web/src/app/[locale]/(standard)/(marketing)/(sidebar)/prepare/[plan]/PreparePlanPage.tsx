@@ -5,8 +5,8 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { PreparationPlanType } from '~/data/PreparationPlans';
-import { usePreparationPlans } from '~/data/PreparationPlans';
+import type { PreparationPlan } from '~/data/plans/PreparationPlans';
+import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
@@ -29,13 +29,13 @@ import {
 
 type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
-  plan: PreparationPlanType;
+  plan: PreparationPlan;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function PreparationPlanPage({
-  quizQuestions: quizQuestionsParam,
+export default function PreparePlanPage({
+  quizQuestions,
   codingQuestions,
   systemDesignQuestions,
   plan,
@@ -47,34 +47,16 @@ export default function PreparationPlanPage({
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const preparationPlans = usePreparationPlans();
-  const preparationPlan = preparationPlans[plan];
-
-  // Quiz questions are dynamically populated based on the following.
-  const quizQuestions = quizQuestionsParam.filter(({ importance }) => {
-    switch (preparationPlan.type) {
-      case 'one-week':
-        return importance === 'high';
-      case 'one-month':
-        return importance === 'high' || importance === 'mid';
-      case 'three-months':
-        return true;
-    }
-  });
-
-  preparationPlan.questions.quiz = quizQuestions.map(
-    (metadata) => metadata.slug,
-  );
+  const planTheme = getPreparationPlanTheme(plan.type);
 
   const questionsProgress = filterQuestionsProgressByPlan(
     questionsProgressAll,
-    preparationPlan,
+    plan,
   );
 
-  const questionCount =
-    Object.values(preparationPlan.questions)
-      .map((q) => q.length)
-      .reduce((prev, curr) => prev + curr, 0) + quizQuestions.length;
+  const questionCount = Object.values(plan.questions)
+    .map((q) => q.length)
+    .reduce((prev, curr) => prev + curr, 0);
 
   const canViewStudyPlans = userProfile?.isPremium;
 
@@ -97,10 +79,10 @@ export default function PreparationPlanPage({
           />
         </div>
         <QuestionListTitleSection
-          icon={preparationPlan.theme.iconOutline}
+          icon={planTheme.iconOutline}
           questionCount={questionCount}
-          themeBackgroundClass={preparationPlan.theme.backgroundClass}
-          title={preparationPlan.longName}
+          themeBackgroundClass={planTheme.backgroundClass}
+          title={plan.longName}
           totalDurationMins={360}
         />
         <Text
@@ -108,20 +90,20 @@ export default function PreparationPlanPage({
           color="secondary"
           display="block"
           size="body2">
-          {preparationPlan.description}
+          {plan.description}
         </Text>
       </Container>
       <Section>
         {canViewStudyPlans ? (
           <Container className="flex flex-col gap-y-8 pb-48">
             <QuestionsProgressSection
-              preparationPlan={preparationPlan}
+              preparationPlan={plan}
               progress={questionsProgress}
               quizQuestions={quizQuestions}
             />
             <QuestionsPlansList
               codingQuestions={codingQuestions}
-              preparationPlan={preparationPlan}
+              preparationPlan={plan}
               progress={questionsProgress}
               quizQuestions={quizQuestions}
               systemDesignQuestions={systemDesignQuestions}
