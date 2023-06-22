@@ -14,7 +14,6 @@ import type {
   QuestionMetadata,
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
-import QuestionTryFirstFreeSection from '~/components/questions/listings/auxilliary/QuestionTryFirstFreeSection';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
 import QuestionsProgressSection from '~/components/questions/listings/stats/QuestionsProgressSection';
@@ -120,12 +119,6 @@ export default function PreparationPlanPage({
               progress={questionsProgress}
               quizQuestions={quizQuestions}
             />
-            {questionsProgress.javascript.size === 0 &&
-              questionsProgress['user-interface'].size === 0 && (
-                <QuestionTryFirstFreeSection
-                  codingQuestions={codingQuestions}
-                />
-              )}
             <QuestionsPlansList
               codingQuestions={codingQuestions}
               preparationPlan={preparationPlan}

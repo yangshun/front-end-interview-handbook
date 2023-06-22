@@ -1543,10 +1543,6 @@
     "defaultMessage": "Quiz Topics",
     "description": "Screenreader text indicating component for quiz question topics"
   },
-  "RXqyFg": {
-    "defaultMessage": "Try your first free question",
-    "description": "Header for section prompting user to try their first question"
-  },
   "Rdi/Kx": {
     "defaultMessage": "Annual",
     "description": "Title of annual pricing plan"
