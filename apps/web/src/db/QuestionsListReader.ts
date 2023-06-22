@@ -11,6 +11,7 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionQuizMetadata,
+  QuestionSlug,
 } from '~/components/questions/common/QuestionsTypes';
 import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
 
@@ -199,4 +200,42 @@ export async function fetchCodingQuestionsForFramework(
         (frameworkItem) => framework === frameworkItem.framework,
       ),
   ]);
+}
+
+export async function fetchQuestionsBySlug(
+  slugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>,
+  locale = 'en-US',
+): Promise<Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>> {
+  const [
+    { questions: quizQuestions },
+    { questions: jsQuestions },
+    { questions: uiQuestions },
+    { questions: systemDesignQuestions },
+  ] = await Promise.all([
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListJavaScript(locale),
+    fetchQuestionsListUserInterface(locale),
+    fetchQuestionsListSystemDesign(locale),
+  ]);
+
+  // TODO: Improve the lookup.
+  const jsQuestionsFiltered = jsQuestions.filter((question) =>
+    slugs.javascript.includes(question.slug),
+  );
+  const uiQuestionsFiltered = uiQuestions.filter((question) =>
+    slugs['user-interface'].includes(question.slug),
+  );
+  const quizQuestionsFiltered = quizQuestions.filter((question) =>
+    slugs.quiz.includes(question.slug),
+  );
+  const systemDesignQuestionsFiltered = systemDesignQuestions.filter(
+    (question) => slugs['system-design'].includes(question.slug),
+  );
+
+  return {
+    javascript: jsQuestionsFiltered,
+    quiz: quizQuestionsFiltered,
+    'system-design': systemDesignQuestionsFiltered,
+    'user-interface': uiQuestionsFiltered,
+  };
 }

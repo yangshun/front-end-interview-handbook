@@ -1,6 +1,6 @@
 import { useId } from 'react';
 import { RiFireLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import Tooltip from '~/components/ui/Tooltip';
@@ -27,29 +27,25 @@ export default function QuestionDifficultySummary({
   const easyWidth = Math.round((easy / total) * fullWidth);
   const mediumWidth = Math.round(((easy + medium) / total) * fullWidth);
 
+  const label = intl.formatMessage(
+    {
+      defaultMessage:
+        'Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}',
+      description:
+        'Difficulty breakdown tooltip displayed on question cards found on question lists',
+      id: 'Y4hby8',
+    },
+    {
+      numberOfEasy: easy,
+      numberOfHard: hard,
+      numberOfMedium: medium,
+    },
+  );
+
   return (
-    <Tooltip
-      label={intl.formatMessage(
-        {
-          defaultMessage:
-            'Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}',
-          description:
-            'Difficulty breakdown tooltip displayed on question cards found on question lists',
-          id: 'Y4hby8',
-        },
-        {
-          numberOfEasy: easy,
-          numberOfHard: hard,
-          numberOfMedium: medium,
-        },
-      )}
-      position="above">
+    <Tooltip label={label} position="above">
       <span className="sr-only" id={id}>
-        <FormattedMessage
-          defaultMessage="Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}"
-          description="Difficulty breakdown tooltip displayed on question cards found on question lists"
-          id="Y4hby8"
-        />
+        {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-1.5">
         {showIcon && (

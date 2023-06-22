@@ -8,9 +8,8 @@ import { getPreparationPlans } from '~/data/plans/PreparationPlans';
 import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
 
 import {
-  fetchQuestionsListCoding,
+  fetchQuestionsBySlug,
   fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -66,48 +65,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, plan: planType } = params;
-  const [
-    { questions: quizQuestions },
-    { questions: codingQuestions },
-    { questions: systemDesignQuestions },
-  ] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListCoding(locale),
-    fetchQuestionsListSystemDesign(locale),
-  ]);
+
   const intl = await getIntlServerOnly(locale);
+
+  const [{ questions: quizQuestions }] = await Promise.all([
+    fetchQuestionsListQuiz(locale),
+  ]);
   // TODO: Remove this IntlShape typecast.
   const preparationPlans = getPreparationPlans(intl as IntlShape);
   const preparationPlan = preparationPlans[planType];
 
+  const quizQuestionsForPlan = quizQuestions.filter(({ importance }) => {
+    switch (preparationPlan.type) {
+      case 'one-week':
+        return importance === 'high';
+      case 'one-month':
+        return importance === 'high' || importance === 'mid';
+      case 'three-months':
+        return true;
+    }
+  });
+
   // Quiz questions are dynamically populated based on the following.
-  preparationPlan.questions.quiz = quizQuestions
-    .filter(({ importance }) => {
-      switch (preparationPlan.type) {
-        case 'one-week':
-          return importance === 'high';
-        case 'one-month':
-          return importance === 'high' || importance === 'mid';
-        case 'three-months':
-          return true;
-      }
-    })
-    .map((metadata) => metadata.slug);
+  preparationPlan.questions.quiz = quizQuestionsForPlan.map(
+    (metadata) => metadata.slug,
+  );
 
   const { title, description } = await getPreparationPlansSEO(planType, locale);
 
-  const codingQuestionsForPlan = codingQuestions.filter(
-    (question) =>
-      preparationPlan.questions.javascript.includes(question.slug) ||
-      preparationPlan.questions['user-interface'].includes(question.slug),
+  const questions = await fetchQuestionsBySlug(
+    preparationPlan.questions,
+    locale,
   );
-  const quizQuestionsForPlan = quizQuestions.filter((question) =>
-    preparationPlan.questions.quiz.includes(question.slug),
+  const codingQuestionsForPlan = questions.javascript.concat(
+    questions['user-interface'],
   );
-  const systemDesignQuestionsForPlan = systemDesignQuestions.filter(
-    (question) =>
-      preparationPlan.questions['system-design'].includes(question.slug),
-  );
+  const systemDesignQuestionsForPlan = questions['system-design'];
 
   return (
     <>

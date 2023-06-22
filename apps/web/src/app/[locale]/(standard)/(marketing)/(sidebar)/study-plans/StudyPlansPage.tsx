@@ -4,7 +4,10 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
+import type {
+  PreparationPlan,
+  PreparationPlanType,
+} from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import usePreparationPlans from '~/data/plans/usePreparationPlans';
 import type { Testimonial } from '~/data/Testimonials';
@@ -13,6 +16,7 @@ import { useTestimonials } from '~/data/Testimonials';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/questions/common/QuestionDifficultySummary';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
+import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
@@ -24,8 +28,10 @@ import { themeGlassyBorder } from '~/components/ui/theme';
 import CompletionCountSummary from './CompletionCountSummary';
 
 function PreparationPlanCard({
+  difficultySummary,
   plan: { type, name, description, questions, href },
 }: {
+  difficultySummary: Record<QuestionDifficulty, number>;
   plan: PreparationPlan;
 }) {
   const questionCount = Object.values(questions)
@@ -65,11 +71,10 @@ function PreparationPlanCard({
             hours={2}
             showIcon={true}
           />
-          {/* TODO(redesign): calculate breakdown. */}
           <QuestionDifficultySummary
-            easy={30}
-            hard={10}
-            medium={20}
+            easy={difficultySummary.easy}
+            hard={difficultySummary.hard}
+            medium={difficultySummary.medium}
             showIcon={true}
           />
           {false && (
@@ -78,7 +83,7 @@ function PreparationPlanCard({
           )}
         </div>
       </div>
-      <RiArrowRightLine className="h-6 w-6 text-neutral-400" />
+      <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 text-neutral-400 transition-colors" />
     </div>
   );
 }
@@ -109,7 +114,7 @@ function TestimonialCard({
           />
         )}
         <div>
-          <Text display="block" size="body2">
+          <Text display="block" size="body2" weight="medium">
             {name}
           </Text>
           <Text color="secondary" display="block" size="body3">
@@ -121,7 +126,16 @@ function TestimonialCard({
   );
 }
 
-export default function StudyPlansPage() {
+export type PlanDifficultySummary = Record<
+  PreparationPlanType,
+  Record<QuestionDifficulty, number>
+>;
+
+type Props = Readonly<{
+  plansDifficultySummary: PlanDifficultySummary;
+}>;
+
+export default function StudyPlansPage({ plansDifficultySummary }: Props) {
   const intl = useIntl();
   const preparationPlans = usePreparationPlans();
   const testimonials = useTestimonials();
@@ -169,7 +183,11 @@ export default function StudyPlansPage() {
                 <Section>
                   <div className="flex flex-col gap-4">
                     {plans.map((plan) => (
-                      <PreparationPlanCard key={plan.type} plan={plan} />
+                      <PreparationPlanCard
+                        key={plan.type}
+                        difficultySummary={plansDifficultySummary[plan.type]}
+                        plan={plan}
+                      />
                     ))}
                   </div>
                 </Section>
