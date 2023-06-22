@@ -1,5 +1,3 @@
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-
 import type {
   QuestionFormat,
   QuestionFramework,
@@ -102,31 +100,29 @@ export function categorizeQuestionsProgress(
   };
 }
 
-export function filterQuestionsProgressByPlan(
+export function filterQuestionsProgressByList(
   questionProgress: QuestionsCategorizedProgress,
-  preparationPlan: PreparationPlan,
+  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>,
 ): QuestionsCategorizedProgress {
   return {
     javascript: new Set(
       Array.from(questionProgress.javascript).filter(
-        (slug) => preparationPlan?.questions.javascript.includes(slug) ?? true,
+        (slug) => questions.javascript.includes(slug) ?? true,
       ),
     ),
     quiz: new Set(
       Array.from(questionProgress.quiz).filter(
-        (slug) => preparationPlan?.questions.quiz.includes(slug) ?? true,
+        (slug) => questions.quiz.includes(slug) ?? true,
       ),
     ),
     'system-design': new Set(
       Array.from(questionProgress['system-design']).filter(
-        (slug) =>
-          preparationPlan?.questions['system-design'].includes(slug) ?? true,
+        (slug) => questions['system-design'].includes(slug) ?? true,
       ),
     ),
     'user-interface': new Set(
       Array.from(questionProgress['user-interface']).filter(
-        (slug) =>
-          preparationPlan?.questions['user-interface'].includes(slug) ?? true,
+        (slug) => questions['user-interface'].includes(slug) ?? true,
       ),
     ),
   };

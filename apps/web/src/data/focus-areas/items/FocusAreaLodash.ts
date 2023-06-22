@@ -15,14 +15,14 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
     }),
     href: '/focus-areas/lodash',
     longName: intl.formatMessage({
-      defaultMessage: 'Lodash',
+      defaultMessage: 'Lodash functions',
       description: 'Name of focus area questions',
-      id: 'UD5boA',
+      id: 'mNMq+n',
     }),
     name: intl.formatMessage({
-      defaultMessage: 'Lodash',
+      defaultMessage: 'Lodash functions',
       description: 'Name of focus area questions',
-      id: 'UD5boA',
+      id: 'mNMq+n',
     }),
     questions: {
       javascript: [],

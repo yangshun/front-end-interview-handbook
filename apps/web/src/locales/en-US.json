@@ -175,6 +175,10 @@
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
   },
+  "1kiNiW": {
+    "defaultMessage": "Accessibility",
+    "description": "Name of focus area questions"
+  },
   "1mtNyQ": {
     "defaultMessage": "To test your function without submitting, call the function below the declaration.",
     "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
@@ -1347,6 +1351,10 @@
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
   },
+  "O8kIBQ": {
+    "defaultMessage": "Back to dashboard",
+    "description": "Link text to navigate to dashboard page"
+  },
   "O9szXK": {
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
@@ -1915,6 +1923,10 @@
     "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
   },
+  "YKZzqP": {
+    "defaultMessage": "Forms",
+    "description": "Name of focus area questions"
+  },
   "YM1bnf": {
     "defaultMessage": "An error has occurred",
     "description": "Title of alert indicating an error on Email Sign In/Up Page"
@@ -2311,10 +2323,6 @@
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
   },
-  "fnVJCv": {
-    "defaultMessage": "Progress Overview",
-    "description": "Header for progress overview section which tells user the progress they have made on questions practice on the platform"
-  },
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
@@ -2643,6 +2651,10 @@
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
   },
+  "lEECs5": {
+    "defaultMessage": "Data structures & algorithms",
+    "description": "Name of focus area questions"
+  },
   "lJupPX": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -2710,6 +2722,10 @@
   "mLRZ25": {
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"
+  },
+  "mNMq+n": {
+    "defaultMessage": "Lodash functions",
+    "description": "Name of focus area questions"
   },
   "mNb3b2": {
     "defaultMessage": "Hard",
@@ -3139,10 +3155,6 @@
     "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
   },
-  "uawqxS": {
-    "defaultMessage": "You have completed <span>{completionProgressPercentage}%</span> of this plan <span2> ({completedQuestions} of {totalQuestions})</span2>",
-    "description": "Line describing completion status of the study plan"
-  },
   "ugHQqC": {
     "defaultMessage": "Or continue with",
     "description": "Label of divider preceding third party providers on Sign In page"
@@ -3154,10 +3166,6 @@
   "ujRHIv": {
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
-  },
-  "ukvoec": {
-    "defaultMessage": "Start on this preparation plan today!",
-    "description": "Call-to-Action that asks user to try out a study plan"
   },
   "ul1/lo": {
     "defaultMessage": "U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>",

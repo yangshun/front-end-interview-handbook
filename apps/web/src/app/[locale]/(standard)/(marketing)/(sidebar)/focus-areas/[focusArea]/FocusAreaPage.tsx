@@ -5,11 +5,9 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
+import type { FocusArea } from '~/data/focus-areas/FocusAreas';
+import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
-import { useUserProfile } from '~/components/global/UserProfileProvider';
-import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import { countQuestionsTotalDurationMins } from '~/components/questions/common/QuestionsProcessor';
 import type {
   QuestionMetadata,
@@ -29,36 +27,33 @@ import {
 
 type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
-  plan: PreparationPlan;
+  focusArea: FocusArea;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function PreparePlanPage({
+export default function FocusAreaPage({
   quizQuestions,
   codingQuestions,
   systemDesignQuestions,
-  plan,
+  focusArea,
 }: Props) {
   const intl = useIntl();
-  const { userProfile } = useUserProfile();
   const { data: questionProgressParam } =
     trpc.questionProgress.getAll.useQuery();
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const planTheme = getPreparationPlanTheme(plan.type);
+  const planTheme = getFocusAreaTheme(focusArea.type);
 
   const questionsProgress = filterQuestionsProgressByList(
     questionsProgressAll,
-    plan.questions,
+    focusArea.questions,
   );
 
-  const questionCount = Object.values(plan.questions)
+  const questionCount = Object.values(focusArea.questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
-
-  const canViewStudyPlans = userProfile?.isPremium;
 
   const totalDuration = countQuestionsTotalDurationMins([
     ...codingQuestions,
@@ -73,12 +68,12 @@ export default function PreparePlanPage({
           <Button
             addonPosition="start"
             className="-ml-5 -mb-2"
-            href="/study-plans"
+            href="/prepare"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
-              defaultMessage: 'Back to study plans',
-              description: 'Link text to navigate to study plans page',
-              id: 'fv+TLc',
+              defaultMessage: 'Back to dashboard',
+              description: 'Link text to navigate to dashboard page',
+              id: 'O8kIBQ',
             })}
             size="md"
             variant="tertiary"
@@ -94,7 +89,7 @@ export default function PreparePlanPage({
           icon={planTheme.iconOutline}
           questionCount={questionCount}
           themeBackgroundClass={planTheme.backgroundClass}
-          title={plan.longName}
+          title={focusArea.longName}
           totalDurationMins={totalDuration}
         />
         <Text
@@ -102,35 +97,17 @@ export default function PreparePlanPage({
           color="secondary"
           display="block"
           size="body2">
-          {plan.description}
+          {focusArea.description}
         </Text>
       </Container>
       <Section>
         <Container className="pb-12">
-          {canViewStudyPlans ? (
-            <QuestionsPlansList
-              codingQuestions={codingQuestions}
-              progress={questionsProgress}
-              quizQuestions={quizQuestions}
-              systemDesignQuestions={systemDesignQuestions}
-            />
-          ) : (
-            <div className="relative">
-              <QuestionPaywall
-                subtitle={intl.formatMessage({
-                  defaultMessage:
-                    'Purchase premium to unlock full access to the study plans and all questions with high quality solutions',
-                  description: 'Study plans paywall description',
-                  id: 'KsoiBa',
-                })}
-                title={intl.formatMessage({
-                  defaultMessage: 'Premium Study Plans',
-                  description: 'Study plans paywall title',
-                  id: 'tfonOP',
-                })}
-              />
-            </div>
-          )}
+          <QuestionsPlansList
+            codingQuestions={codingQuestions}
+            progress={questionsProgress}
+            quizQuestions={quizQuestions}
+            systemDesignQuestions={systemDesignQuestions}
+          />
         </Container>
       </Section>
     </div>

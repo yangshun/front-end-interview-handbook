@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -21,13 +19,11 @@ import type {
 
 export default function QuestionsPlansList({
   progress,
-  preparationPlan,
   quizQuestions,
   codingQuestions,
   systemDesignQuestions,
 }: Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
-  preparationPlan: PreparationPlan;
   progress: QuestionsCategorizedProgress;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
