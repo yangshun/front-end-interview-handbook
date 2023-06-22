@@ -17,7 +17,6 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
-import QuestionsProgressSection from '~/components/questions/listings/stats/QuestionsProgressSection';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -107,13 +106,8 @@ export default function PreparePlanPage({
         </Text>
       </Container>
       <Section>
-        {canViewStudyPlans ? (
-          <Container className="flex flex-col gap-y-8 pb-48">
-            <QuestionsProgressSection
-              preparationPlan={plan}
-              progress={questionsProgress}
-              quizQuestions={quizQuestions}
-            />
+        <Container className="pb-12">
+          {canViewStudyPlans ? (
             <QuestionsPlansList
               codingQuestions={codingQuestions}
               preparationPlan={plan}
@@ -121,9 +115,7 @@ export default function PreparePlanPage({
               quizQuestions={quizQuestions}
               systemDesignQuestions={systemDesignQuestions}
             />
-          </Container>
-        ) : (
-          <Container>
+          ) : (
             <div className="relative">
               <QuestionPaywall
                 subtitle={intl.formatMessage({
@@ -139,8 +131,8 @@ export default function PreparePlanPage({
                 })}
               />
             </div>
-          </Container>
-        )}
+          )}
+        </Container>
       </Section>
     </div>
   );

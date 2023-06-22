@@ -30,7 +30,6 @@ import QuestionListingTopicFilters from '~/components/questions/listings/filters
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
-import QuestionProgressPanelSection from '~/components/questions/listings/stats/QuestionProgressPanelSection';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
@@ -183,25 +182,6 @@ export default function ScrapbookPage() {
                 title="System design"
                 totalQuestions={39}
                 variant="compact"
-              />
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <QuestionProgressPanelSection
-                layout="horizontal"
-                progressSummary={{
-                  coding: {
-                    completed: 58,
-                    total: 116,
-                  },
-                  quiz: {
-                    completed: 80,
-                    total: 100,
-                  },
-                  'system-design': {
-                    completed: 4,
-                    total: 39,
-                  },
-                }}
               />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">

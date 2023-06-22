@@ -36,7 +36,7 @@ export default function QuestionsPlansList({
     useState<QuestionUserFacingFormat>('coding');
 
   return (
-    <div className="flex flex-col gap-y-6 pt-6">
+    <div className="flex flex-col gap-y-6">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="All Practice Questions"
