@@ -1,18 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { FaUniversalAccess } from 'react-icons/fa';
 import {
   RiBugLine,
   RiCodeSSlashLine,
-  RiDashboardLine,
   RiFolder4Line,
   RiGlobalLine,
   RiNodeTree,
   RiQuestionnaireLine,
   RiShieldKeyholeLine,
 } from 'react-icons/ri';
-import { TbBinaryTree, TbForms } from 'react-icons/tb';
+import { TbBinaryTree } from 'react-icons/tb';
 
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
@@ -24,7 +22,6 @@ import QuestionProgressLabel from '~/components/questions/common/QuestionsProgre
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
-import QuestionFocusAreasSection from '~/components/questions/dashboard/QuestionFocusAreasSection';
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
@@ -268,44 +265,6 @@ export default function ScrapbookPage() {
                     ],
                   }}
                   values={selectedFilters}
-                />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="grid items-start gap-y-6">
-                <QuestionFocusAreasSection
-                  description="Recommended focus areas tooltip"
-                  focusAreas={[
-                    {
-                      description: 'Lorem ipsum',
-                      durationMins: 92,
-                      icon: TbBinaryTree,
-                      questionCount: 47,
-                      title: 'Data structure & algorithms',
-                    },
-                    {
-                      description: 'Lorem ipsum',
-                      durationMins: 92,
-                      icon: RiDashboardLine,
-                      questionCount: 47,
-                      title: 'Design system components',
-                    },
-                    {
-                      description: 'Lorem ipsum',
-                      durationMins: 92,
-                      icon: FaUniversalAccess,
-                      questionCount: 47,
-                      title: 'Accessibility',
-                    },
-                    {
-                      description: 'Lorem ipsum',
-                      durationMins: 92,
-                      icon: TbForms,
-                      questionCount: 47,
-                      title: 'Forms',
-                    },
-                  ]}
-                  title="Recommended focus areas"
                 />
               </div>
             </UIExamplesGroup>
