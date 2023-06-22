@@ -14,7 +14,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeDivideColor,
-  themeLineBackgroundColor,
   themeLineColor,
   themeTextFaintColor,
 } from '~/components/ui/theme';
@@ -38,7 +37,6 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   framework?: QuestionFramework;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
-  showChevron?: boolean;
   showProgress?: boolean;
 }>;
 
@@ -124,7 +122,6 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
   questions,
   questionCompletionCount,
-  showChevron = false,
   showProgress = true,
 }: Props<Q>) {
   const { userProfile } = useUserProfile();
@@ -306,14 +303,12 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 })()}
               </div>
             </div>
-            {showChevron && (
-              <div className="flex items-center justify-center pr-2">
-                <RiArrowRightLine
-                  aria-hidden="true"
-                  className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
-                />
-              </div>
-            )}
+            <div className="flex items-center justify-center">
+              <RiArrowRightLine
+                aria-hidden="true"
+                className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
+              />
+            </div>
           </li>
         );
       })}

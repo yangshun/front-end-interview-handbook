@@ -24,7 +24,6 @@ type Props<Q extends QuestionQuizMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
-  showChevron?: boolean;
   showProgress?: boolean;
 }>;
 
@@ -32,7 +31,6 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
   checkIfCompletedQuestion,
   questions,
   questionCompletionCount,
-  showChevron = false,
   showProgress = true,
 }: Props<Q>) {
   const intl = useIntl();
@@ -166,14 +164,12 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                 })()}
               </div>
             </div>
-            {showChevron && (
-              <div className="flex items-center justify-center pr-2">
-                <RiArrowRightLine
-                  aria-hidden="true"
-                  className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
-                />
-              </div>
-            )}
+            <div className="flex items-center justify-center">
+              <RiArrowRightLine
+                aria-hidden="true"
+                className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
+              />
+            </div>
           </li>
         );
       })}

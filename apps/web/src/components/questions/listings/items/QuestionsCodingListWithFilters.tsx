@@ -510,7 +510,6 @@ export default function QuestionsCodingListWithFilters({
                   framework={framework}
                   questionCompletionCount={questionCompletionCount}
                   questions={processedQuestions}
-                  showChevron={true}
                 />
               </Section>
             </div>

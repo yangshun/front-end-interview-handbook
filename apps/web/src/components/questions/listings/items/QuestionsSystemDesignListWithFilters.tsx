@@ -289,7 +289,6 @@ export default function QuestionsSystemDesignListWithFilters({
               <QuestionsList
                 checkIfCompletedQuestion={(question) => question.isCompleted}
                 questions={processedQuestions}
-                showChevron={true}
               />
             </Section>
           </div>

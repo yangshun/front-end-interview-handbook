@@ -260,7 +260,6 @@ export default function QuestionsQuizListWithFilters({
                 checkIfCompletedQuestion={(question) => question.isCompleted}
                 questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}
-                showChevron={true}
               />
             </Section>
           </div>
