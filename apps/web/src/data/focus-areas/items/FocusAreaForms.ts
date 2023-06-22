@@ -1,12 +1,11 @@
-import { RiFireFill, RiFireLine } from 'react-icons/ri';
+import { TbForms } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { themeGradient1 } from '~/components/ui/theme';
 
-import type { PreparationPlan } from '../PreparationPlans';
+import type { FocusArea, FocusAreaTheme } from '../FocusAreas';
 
-export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
+export function getFocusAreaForms(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -14,58 +13,28 @@ export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
       description: 'Description for one month study plan',
       id: 'CyhMLj',
     }),
-    href: '/prepare/one-month',
+    href: '/focus-areas/forms',
     longName: intl.formatMessage({
-      defaultMessage: '1 Month Plan',
-      description: 'Long label for one month study plan',
-      id: 'lyjVwD',
+      defaultMessage: 'Forms',
+      description: 'Name of focus area questions',
+      id: 'YKZzqP',
     }),
     name: intl.formatMessage({
-      defaultMessage: '1 Month',
-      description: 'Short label for one month study plan',
-      id: 'EJRNjL',
+      defaultMessage: 'Forms',
+      description: 'Name of focus area questions',
+      id: 'YKZzqP',
     }),
     questions: {
-      javascript: [
-        'array-filter',
-        'array-reduce',
-        'get',
-        'promise-any',
-        'promise-all',
-        'function-bind',
-        'debounce',
-        'throttle',
-        'flatten',
-        'curry',
-        'get-elements-by-tag-name',
-        'get-elements-by-class-name',
-        'jquery-css',
-        'jquery-class-manipulation',
-        'deep-clone',
-        'deep-equal',
-        'classnames',
-        'list-format',
-        'text-search',
-        'data-selection',
-        'table-of-contents',
-        'identical-dom-trees',
-      ],
+      javascript: [],
       // Use question importance for now.
       quiz: [],
-      'system-design': [
-        'news-feed-facebook',
-        'autocomplete',
-        'e-commerce-amazon',
-        'image-carousel',
-      ],
+      'system-design': [],
       'user-interface': [
-        'counter',
         'contact-form',
-        'signup-form',
-        'holy-grail',
-        'temperature-converter',
-        'star-rating',
         'todo-list',
+        'flight-booker',
+        'temperature-converter',
+        'signup-form',
       ],
     },
     seo: {
@@ -87,16 +56,16 @@ export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
       description: 'Short description for one month study plan',
       id: 'SId1Gq',
     }),
-    type: 'one-month',
+    type: 'forms',
   };
 }
 
-export function getPreparationPlanThemeOneMonth(): QuestionListTheme {
+export function getFocusAreaThemeForms(): FocusAreaTheme {
   return {
     backgroundClass: themeGradient1.className,
     iconBorderClass: 'border-violet-600',
     iconClass: 'text-violet-600',
-    iconOutline: RiFireLine,
-    iconSolid: RiFireFill,
+    iconOutline: TbForms,
+    iconSolid: TbForms,
   };
 }

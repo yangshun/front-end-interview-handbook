@@ -1,13 +1,11 @@
 import { RiStarFill, RiStarLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
+import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 import { themeGradient3 } from '~/components/ui/theme';
 
-import type {
-  PreparationPlan,
-  PreparationPlanTheme,
-} from '../PreparationPlans';
+import type { PreparationPlan } from '../PreparationPlans';
 
 export function getPreparationPlanThreeMonths(
   intl: IntlShape,
@@ -117,7 +115,7 @@ export function getPreparationPlanThreeMonths(
   };
 }
 
-export function getPreparationPlanThemeThreeMonths(): PreparationPlanTheme {
+export function getPreparationPlanThemeThreeMonths(): QuestionListTheme {
   return {
     backgroundClass: themeGradient3.className,
     iconBorderClass: 'border-indigo-600',

@@ -1,12 +1,10 @@
 import { RiFlashlightFill, RiFlashlightLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
+import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { themeGradient2 } from '~/components/ui/theme';
 
-import type {
-  PreparationPlan,
-  PreparationPlanTheme,
-} from '../PreparationPlans';
+import type { PreparationPlan } from '../PreparationPlans';
 
 export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
   return {
@@ -74,7 +72,7 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
   };
 }
 
-export function getPreparationPlanThemeOneWeek(): PreparationPlanTheme {
+export function getPreparationPlanThemeOneWeek(): QuestionListTheme {
   return {
     backgroundClass: themeGradient2.className,
     iconBorderClass: 'border-purple-600',

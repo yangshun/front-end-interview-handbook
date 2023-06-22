@@ -143,3 +143,24 @@ export type QuestionQuizTopic =
 export type QuestionQuiz = QuestionBase & {
   readonly metadata: QuestionQuizMetadata;
 };
+
+export type QuestionList = Readonly<{
+  description: string;
+  href: string;
+  longName: string;
+  name: string;
+  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  seo: {
+    description: string;
+    title: string;
+  };
+  shortDescription: string;
+}>;
+
+export type QuestionListTheme = Readonly<{
+  backgroundClass: string;
+  iconBorderClass: string;
+  iconClass: string;
+  iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
+}>;
