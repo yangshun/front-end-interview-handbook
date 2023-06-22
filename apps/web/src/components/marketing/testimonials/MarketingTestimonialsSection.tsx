@@ -1,17 +1,16 @@
-import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import type { Testimonial } from '~/data/Testimonials';
 import { useTestimonials } from '~/data/Testimonials';
 
-import Anchor from '~/components/ui/Anchor';
-import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-export default function MarketingTestimonial() {
+import TestimonialCard from './TestimonialCard';
+
+export default function MarketingTestimonialsSection() {
   const testimonialsObjects = useTestimonials();
 
   const testimonials: ReadonlyArray<Testimonial> = [
@@ -57,48 +56,7 @@ export default function MarketingTestimonial() {
                 <div
                   key={testimonial.key}
                   className="pt-6 sm:inline-block sm:w-full sm:px-3">
-                  <Card
-                    className={clsx('rounded-2xl p-6 text-sm leading-6')}
-                    padding={false}
-                    pattern={false}>
-                    <blockquote>
-                      <Text size="body2">{testimonial.testimonial}</Text>
-                    </blockquote>
-                    <figcaption className="mt-4 flex items-center gap-x-4">
-                      {testimonial.authorThumbnailUrl && (
-                        <img
-                          alt=""
-                          className="h-10 w-10 rounded-full bg-neutral-50"
-                          src={testimonial.authorThumbnailUrl}
-                        />
-                      )}
-                      <div>
-                        {testimonial.name &&
-                          (() => {
-                            const nameEl = (
-                              <Text size="body2" weight="bold">
-                                {testimonial.name}
-                              </Text>
-                            );
-
-                            if (testimonial.authorUrl) {
-                              return (
-                                <Anchor href={testimonial.authorUrl}>
-                                  {nameEl}
-                                </Anchor>
-                              );
-                            }
-
-                            return nameEl;
-                          })()}
-                        <Text color="secondary" display="block" size="body3">
-                          {[testimonial.title, testimonial.location]
-                            .filter(Boolean)
-                            .join(', ')}
-                        </Text>
-                      </div>
-                    </figcaption>
-                  </Card>
+                  <TestimonialCard {...testimonial} />
                 </div>
               ))}
             </CardContainer>

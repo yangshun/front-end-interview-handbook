@@ -10,15 +10,14 @@ import type {
 } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import usePreparationPlans from '~/data/plans/usePreparationPlans';
-import type { Testimonial } from '~/data/Testimonials';
 import { useTestimonials } from '~/data/Testimonials';
 
+import TestimonialCard from '~/components/marketing/testimonials/TestimonialCard';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/questions/common/QuestionDifficultySummary';
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
-import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -48,7 +47,7 @@ function PreparationPlanCard({
       )}>
       <div
         className={clsx(
-          'flex h-20 w-20 items-center justify-center rounded-[5px]',
+          'flex h-20 w-20 items-center justify-center rounded',
           theme.backgroundClass,
         )}>
         <theme.iconOutline className="h-10 w-10 text-white" />
@@ -92,39 +91,6 @@ type PreparationPlanSection = Readonly<{
   plans: Array<PreparationPlan>;
   title: string;
 }>;
-
-function TestimonialCard({
-  authorThumbnailUrl,
-  name,
-  testimonial,
-  title,
-  location,
-}: Testimonial) {
-  return (
-    <Card className="flex flex-col gap-y-4">
-      <Text display="block" size="body2">
-        "{testimonial}"
-      </Text>
-      <div className="flex items-center gap-x-4">
-        {authorThumbnailUrl && (
-          <img
-            alt={name}
-            className="h-8 w-8 shrink-0 rounded-full"
-            src={authorThumbnailUrl}
-          />
-        )}
-        <div>
-          <Text display="block" size="body2" weight="medium">
-            {name}
-          </Text>
-          <Text color="secondary" display="block" size="body3">
-            {title ?? location}
-          </Text>
-        </div>
-      </div>
-    </Card>
-  );
-}
 
 export type PlanDifficultySummary = Record<
   PreparationPlanType,

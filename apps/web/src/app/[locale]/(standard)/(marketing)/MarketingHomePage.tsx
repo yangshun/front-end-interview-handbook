@@ -14,7 +14,7 @@ import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingHero from '~/components/marketing/MarketingHero';
 import MarketingKeyFeatures from '~/components/marketing/MarketingKeyFeatures';
 import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
-import MarketingTestimonial from '~/components/marketing/MarketingTestimonial';
+import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
@@ -68,7 +68,7 @@ export default function MarketingHomePage({
         {!(userProfile?.isPremium && userProfile?.plan === 'lifetime') && (
           <MarketingPricingSectionLocalizedContainer />
         )}
-        <MarketingTestimonial />
+        <MarketingTestimonialsSection />
         <MarketingContinuousUpdates />
         <MarketingFAQ />
         <MarketingContactUs />

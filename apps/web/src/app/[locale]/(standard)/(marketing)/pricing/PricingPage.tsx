@@ -13,7 +13,7 @@ import type {
 import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
 import MarketingPricingSection from '~/components/marketing/MarketingPricingSection';
-import MarketingTestimonial from '~/components/marketing/MarketingTestimonial';
+import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import logEvent from '~/logging/logEvent';
@@ -65,7 +65,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
         <MarketingPricingSection countryCode={countryCode} plans={plans} />
         <Section>
           <MarketingFeatures />
-          <MarketingTestimonial />
+          <MarketingTestimonialsSection />
         </Section>
       </div>
     </div>
