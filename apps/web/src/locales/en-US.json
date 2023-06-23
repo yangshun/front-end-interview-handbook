@@ -1,8 +1,4 @@
 {
-  "+4N+iX": {
-    "defaultMessage": "Real interview simulation",
-    "description": "Table row header for real interview simulation feature"
-  },
   "+59/34": {
     "defaultMessage": "Questions to Ask (End of Interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -26,10 +22,6 @@
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
-  },
-  "+NW7g8": {
-    "defaultMessage": "<span>All the essentials for front end</span> <inline>interviews <colour>and more</colour></inline>.",
-    "description": "Key features section heading"
   },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
@@ -70,10 +62,6 @@
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
-  },
-  "/Q1sUc": {
-    "defaultMessage": "In-browser coding workspace with test cases - no need for any setup!",
-    "description": "Table cell content for real interview simulation feature comparison in GFE."
   },
   "/ftlBv": {
     "defaultMessage": "Undo",
@@ -163,10 +151,6 @@
     "defaultMessage": "What types of questions do you have on your platform?",
     "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
   },
-  "1IbtLx": {
-    "defaultMessage": "System design resources are virtually non-existent.",
-    "description": "Table cell content for front end system design feature comparison in other platforms."
-  },
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
@@ -198,10 +182,6 @@
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
-  },
-  "2XFmzP": {
-    "defaultMessage": "<link>View question list <span>→</span></link>",
-    "description": "View question list link"
   },
   "2YMuJe": {
     "defaultMessage": "What does \"lifetime access\" mean?",
@@ -258,6 +238,10 @@
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
+  },
+  "3i5xK8": {
+    "defaultMessage": "Large question bank",
+    "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
   "3iv+7q": {
     "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
@@ -346,10 +330,6 @@
   "5A3y/o": {
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
-  },
-  "5QmCPt": {
-    "defaultMessage": "Study plans and Progress tracking",
-    "description": "Table row header for study plans feature"
   },
   "5RlLAP": {
     "defaultMessage": "Clear Console",
@@ -539,10 +519,6 @@
     "defaultMessage": "Contact Us",
     "description": "Link to contact us page"
   },
-  "8k78Jb": {
-    "defaultMessage": "Proven study plans with the most important questions to practice for various preparation timelines.",
-    "description": "Table cell content for study plans feature comparison in GFE."
-  },
   "8klsso": {
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
@@ -630,10 +606,6 @@
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
-  },
-  "B9449h": {
-    "defaultMessage": "Not available.",
-    "description": "Not available."
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -731,6 +703,10 @@
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
   },
+  "D/cRh1": {
+    "defaultMessage": "Practice everything here",
+    "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
+  },
   "D3YhsE": {
     "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
     "description": "Description of 1 Week Preparation Plan page"
@@ -759,6 +735,10 @@
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
   },
+  "DIs2lU": {
+    "defaultMessage": "FAQs",
+    "description": "Frequently Asked Questions"
+  },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
@@ -779,6 +759,10 @@
     "defaultMessage": "Evaluation Axes",
     "description": "Evaluation axes in front end system design interviews"
   },
+  "E7SqUY": {
+    "defaultMessage": "We have helped thousands of Software Engineers",
+    "description": "Testimonial section heading"
+  },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
     "description": "Title for solving common behavioral questions section"
@@ -798,10 +782,6 @@
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
-  },
-  "ExWrYc": {
-    "defaultMessage": "Practice everything here.",
-    "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
@@ -855,10 +835,6 @@
     "defaultMessage": "GreatFrontEnd Annual",
     "description": "GFE annual plan"
   },
-  "GE+2xM": {
-    "defaultMessage": "<Every question has an in-depth solution with inline explanations.",
-    "description": "Table cell content for quality solutions feature comparison in GFE."
-  },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
@@ -878,14 +854,6 @@
   "GObvI2": {
     "defaultMessage": "Perfect for short term job hunts.",
     "description": "Supporting statement for a monthly pricing plan"
-  },
-  "GP3q80": {
-    "defaultMessage": "Quality solutions to learn from",
-    "description": "Table row header for quality solutions feature"
-  },
-  "GQhit1": {
-    "defaultMessage": "Exclusive system design guides, including solution framework, cheatsheet and evaluation axes.",
-    "description": "Table cell content for front end system design feature comparison in GFE."
   },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
@@ -1067,10 +1035,6 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
   },
-  "JdOpbg": {
-    "defaultMessage": "Solutions are hard to find or incomplete, usually superficial.",
-    "description": "Table cell content for quality solutions feature comparison in other platforms."
-  },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
     "description": "Quiz questions long title"
@@ -1243,6 +1207,10 @@
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
   },
+  "MCqeck": {
+    "defaultMessage": "Testimonials",
+    "description": "Testimonial section title"
+  },
   "MF21p5": {
     "defaultMessage": "System Design",
     "description": "System design questions short title"
@@ -1374,10 +1342,6 @@
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
-  },
-  "OX/Imk": {
-    "defaultMessage": "Rarely cover system design or coding questions.",
-    "description": "Table cell content for large and curated question bank feature comparison in other platforms."
   },
   "OcBA+t": {
     "defaultMessage": "What does \"free updates\" include?",
@@ -1615,14 +1579,6 @@
     "defaultMessage": "Mark as Complete",
     "description": "Mark the question as complete"
   },
-  "T1UibH": {
-    "defaultMessage": "Often community-sourced.",
-    "description": "Table cell content for large and curated question bank feature comparison in other platforms."
-  },
-  "T5ZDDU": {
-    "defaultMessage": "Large and curated question bank",
-    "description": "Table row header for large and curated question bank feature"
-  },
   "TB8vuT": {
     "defaultMessage": "Collapse side menu",
     "description": "Screenreader text for the button that collapses the side menu"
@@ -1690,10 +1646,6 @@
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
-  },
-  "UM4r2s": {
-    "defaultMessage": "Other Platforms",
-    "description": "Table column header for other platforms"
   },
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
@@ -1862,10 +1814,6 @@
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
     "description": "Link to affiliate marketing program page"
-  },
-  "XUWY7n": {
-    "defaultMessage": "Front end system design",
-    "description": "Table row header for front end system design feature"
   },
   "XVPYZg": {
     "defaultMessage": "Forgot your password?",
@@ -2155,6 +2103,10 @@
     "defaultMessage": "Bring your own framework",
     "description": "Title for bring your own framework feature"
   },
+  "d+9jeS": {
+    "defaultMessage": "Everything you need, in great quality",
+    "description": "Title of the 'Features' marketing section on Homepage"
+  },
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
@@ -2218,10 +2170,6 @@
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
-  },
-  "eFGHLB": {
-    "defaultMessage": "You won't find the same depth and quality elsewhere.",
-    "description": "Key features section subheading"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -2322,6 +2270,10 @@
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
+  },
+  "ft4ubO": {
+    "defaultMessage": "You won't find the same depth or quality elsewhere.",
+    "description": "Subtitle of the 'Features' marketing section on Homepage"
   },
   "ftr2lo": {
     "defaultMessage": "No tagged companies",
@@ -2450,10 +2402,6 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
-  },
-  "iSUUiW": {
-    "defaultMessage": "Practice interview questions asked by <strong>Google, Facebook, Amazon, Apple, Airbnb, LinkedIn and more</strong>.",
-    "description": "Table cell content for practice questions by companies feature comparison in GFE."
   },
   "ipPZZl": {
     "defaultMessage": "Show less",
@@ -2595,10 +2543,6 @@
     "defaultMessage": "Try these popular JavaScript questions",
     "description": "Title for featured questions section"
   },
-  "kjdLiy": {
-    "defaultMessage": "Practice questions by companies",
-    "description": "Table row header for practice questions by companies feature"
-  },
   "kmEY/r": {
     "defaultMessage": "{currencySymbol}{price} billed every 3 months.",
     "description": "Description of billing frequency for quarterly plan"
@@ -2679,10 +2623,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
-  "loCbaG": {
-    "defaultMessage": "<link>View our free system design guides<span>→</span></link>",
-    "description": "System design link"
-  },
   "lqvY0+": {
     "defaultMessage": "Dark",
     "description": "Dark theme option label"
@@ -2730,10 +2670,6 @@
   "mOk1w0": {
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
-  },
-  "mST7/q": {
-    "defaultMessage": "We have helped thousands of Software Engineers",
-    "description": "Testimonial section subtitle"
   },
   "mb7erW": {
     "defaultMessage": "Importance",
@@ -2815,10 +2751,6 @@
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
-  "o4toU7": {
-    "defaultMessage": "Only platform with in-depth solutions to the most commonly asked system design questions.",
-    "description": "Table cell content for front end system design feature comparison in GFE."
-  },
   "o6ktM9": {
     "defaultMessage": "Light",
     "description": "Light theme option label"
@@ -2894,10 +2826,6 @@
   "pcXH8p": {
     "defaultMessage": "JavaScript Utilities",
     "description": "Front end JavaScript utility functions"
-  },
-  "phh5/0": {
-    "defaultMessage": "GreatFrontEnd",
-    "description": "Table column header for GFE"
   },
   "piqimi": {
     "defaultMessage": "OFF",
@@ -2979,17 +2907,9 @@
     "defaultMessage": "Software Developer Intern, Vidyard",
     "description": "Nafis Hasnain's job title"
   },
-  "qzKA9Y": {
-    "defaultMessage": "Not many have experience to write quality guides.",
-    "description": "Table cell content for front end system design feature comparison in other platforms."
-  },
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
-  },
-  "rPC33Z": {
-    "defaultMessage": "{questionCount}+ commonly asked questions across every interview format - <strong>System design, UI, JavaScript, Quizzes</strong>",
-    "description": "Table cell content for large and curated question bank feature comparison in GFE."
   },
   "rXnAi2": {
     "defaultMessage": "We're still growing our question base.",
@@ -3046,10 +2966,6 @@
   "swjkuF": {
     "defaultMessage": "Study plans",
     "description": "Title of study plans page"
-  },
-  "szkvx2": {
-    "defaultMessage": "Not convinced yet? <link>Try the product (it's free) →</link>",
-    "description": "Call-to-action"
   },
   "t+g7fF": {
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
@@ -3283,10 +3199,6 @@
     "defaultMessage": "Study Plans",
     "description": "Sidebar label for Study Plans category"
   },
-  "wY7F08": {
-    "defaultMessage": "<link>View study plans <span>→</span></link>",
-    "description": "Study plans link"
-  },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
     "description": "Label of send magic link button on Magic Link Sign In page"
@@ -3351,10 +3263,6 @@
     "defaultMessage": "User Interface",
     "description": "Front end user interface questions"
   },
-  "y7NBv3": {
-    "defaultMessage": "Solutions incorporate <strong>scalability, accessibility and performance</strong> considerations.",
-    "description": "Table cell content for quality solutions feature comparison in GFE."
-  },
   "y7sRet": {
     "defaultMessage": "Monthly",
     "description": "Title of monthly pricing plan"
@@ -3366,6 +3274,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yXYc5a": {
+    "defaultMessage": "Features",
+    "description": "Title of the 'Features' marketing section on Homepage"
   },
   "yXh24P": {
     "defaultMessage": "Logos provided by Clearbit",

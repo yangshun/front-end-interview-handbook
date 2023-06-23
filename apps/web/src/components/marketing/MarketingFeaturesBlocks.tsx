@@ -5,10 +5,15 @@ import { FormattedMessage } from 'react-intl';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
+import {
+  themeGradient1,
+  themeGradient2,
+  themeGradient3,
+  themeTextBrandColor,
+} from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
-import Text from '../ui/Text';
-import { themeTextBrandColor } from '../ui/theme';
 
 function FeatureBlock({
   description,
@@ -26,9 +31,10 @@ function FeatureBlock({
   return (
     <div
       className={clsx(
-        'flex flex-col items-center gap-x-28 gap-y-12',
+        'flex flex-col gap-x-28 gap-y-8 md:items-center',
         reverse ? 'md:flex-row-reverse' : 'md:flex-row',
       )}>
+      <div className="md:basis-1/2">{media}</div>
       <div className="flex flex-col gap-y-4 md:basis-1/2">
         <Heading level="heading4">{title}</Heading>
         {description && (
@@ -51,7 +57,6 @@ function FeatureBlock({
           ))}
         </ul>
       </div>
-      <div className="md:basis-1/2">{media}</div>
     </div>
   );
 }
@@ -98,8 +103,14 @@ export default function MarketingFeaturesBlocks() {
             <>Track your progress</>,
             <>Pick and choose weak areas</>,
           ]}
-          media={null}
-          reverse={true}
+          media={
+            <div
+              className={clsx(
+                'h-72 w-full rounded-lg',
+                themeGradient1.className,
+              )}
+            />
+          }
           title={<>Not sure what to prepare? No problem</>}
         />
         <FeatureBlock
@@ -112,7 +123,15 @@ export default function MarketingFeaturesBlocks() {
               Angular, Svelte (coming soon)
             </>,
           ]}
-          media={null}
+          media={
+            <div
+              className={clsx(
+                'h-96 w-full rounded-lg',
+                themeGradient2.className,
+              )}
+            />
+          }
+          reverse={true}
           title={<>Practice 200+ of the most important questions</>}
         />
         <FeatureBlock
@@ -124,8 +143,14 @@ export default function MarketingFeaturesBlocks() {
             <>Concepts to reinforce fundamentals</>,
             <>Technique tips and design patterns</>,
           ]}
-          media={null}
-          reverse={true}
+          media={
+            <div
+              className={clsx(
+                'h-64 w-full rounded-lg',
+                themeGradient3.className,
+              )}
+            />
+          }
           title={<>Learn from solutions by ex-interviewers</>}
         />
         <FeatureBlock
@@ -134,7 +159,15 @@ export default function MarketingFeaturesBlocks() {
             <>No set-up needed</>,
             <>Syntax highlighting, themes, keyboard shortcuts, and more</>,
           ]}
-          media={null}
+          media={
+            <div
+              className={clsx(
+                'h-80 w-full rounded-lg',
+                themeGradient1.className,
+              )}
+            />
+          }
+          reverse={true}
           title={<>Get started instantly</>}
         />
         <FeatureBlock
@@ -142,15 +175,29 @@ export default function MarketingFeaturesBlocks() {
             <>Automated comprehensive test cases for JavaScript questions</>,
             <>Detailed test case scenarios for UI questions</>,
           ]}
-          media={null}
-          reverse={true}
+          media={
+            <div
+              className={clsx(
+                'h-72 w-full rounded-lg',
+                themeGradient2.className,
+              )}
+            />
+          }
           title={<>Comprehensive test cases</>}
         />
         <FeatureBlock
           features={[
             <>Company-tagged questions for over 15 major tech companies</>,
           ]}
-          media={null}
+          media={
+            <div
+              className={clsx(
+                'h-64 w-full rounded-lg',
+                themeGradient3.className,
+              )}
+            />
+          }
+          reverse={true}
           title={<>Find questions asked by your dream company</>}
         />
         <FeatureBlock
@@ -161,8 +208,14 @@ export default function MarketingFeaturesBlocks() {
               prepare per day
             </>,
           ]}
-          media={null}
-          reverse={true}
+          media={
+            <div
+              className={clsx(
+                'h-96 w-full rounded-lg',
+                themeGradient3.className,
+              )}
+            />
+          }
           title={<>Use proven study plans</>}
         />
       </Container>

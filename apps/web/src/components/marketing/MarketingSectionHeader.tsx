@@ -9,7 +9,7 @@ import Text from '../ui/Text';
 type Props = Readonly<{
   description?: ReactNode;
   heading: ReactNode;
-  title: ReactNode;
+  title?: ReactNode;
 }>;
 
 export default function MarketingSectionHeader({
@@ -20,14 +20,16 @@ export default function MarketingSectionHeader({
   return (
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-3">
-        <Text
-          className="text-center"
-          color="active"
-          display="block"
-          size="body2"
-          weight="medium">
-          {title}
-        </Text>
+        {title && (
+          <Text
+            className="text-center"
+            color="active"
+            display="block"
+            size="body2"
+            weight="medium">
+            {title}
+          </Text>
+        )}
         <Heading className="text-center" level="heading2">
           {heading}
         </Heading>

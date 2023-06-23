@@ -4,11 +4,11 @@ import type { Testimonial } from '~/data/Testimonials';
 import { useTestimonials } from '~/data/Testimonials';
 
 import CardContainer from '~/components/ui/Card/CardContainer';
-import Heading from '~/components/ui/Heading';
+import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import TestimonialCard from './TestimonialCard';
+import MarketingSectionHeader from '../MarketingSectionHeader';
 
 export default function MarketingTestimonialsSection() {
   const testimonialsObjects = useTestimonials();
@@ -30,39 +30,38 @@ export default function MarketingTestimonialsSection() {
   ];
 
   return (
-    <div className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <Heading className="sr-only" level="custom">
-            {/* TODO: i18n */}
-            Testimonials
-          </Heading>
-          <Text
-            className="text-center text-3xl font-bold leading-8 tracking-tight sm:text-4xl md:text-4xl lg:text-5xl"
-            display="block"
-            size="custom"
-            weight="custom">
+    <Container className="py-24 sm:py-32">
+      <div className="mx-auto max-w-3xl">
+        <MarketingSectionHeader
+          heading={
             <FormattedMessage
               defaultMessage="We have helped thousands of Software Engineers"
-              description="Testimonial section subtitle"
-              id="mST7/q"
+              description="Testimonial section heading"
+              id="E7SqUY"
             />
-          </Text>
-        </div>
-        <Section>
-          <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-            <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.key}
-                  className="pt-6 sm:inline-block sm:w-full sm:px-3">
-                  <TestimonialCard {...testimonial} />
-                </div>
-              ))}
-            </CardContainer>
-          </div>
-        </Section>
+          }
+          title={
+            <FormattedMessage
+              defaultMessage="Testimonials"
+              description="Testimonial section title"
+              id="MCqeck"
+            />
+          }
+        />
       </div>
-    </div>
+      <Section>
+        <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+          <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.key}
+                className="pt-6 sm:inline-block sm:w-full sm:px-3">
+                <TestimonialCard {...testimonial} />
+              </div>
+            ))}
+          </CardContainer>
+        </div>
+      </Section>
+    </Container>
   );
 }

@@ -291,12 +291,9 @@ export default function MarketingContinuousUpdates() {
 
   return (
     <div
-      className={clsx(
-        'rounded-t-[48px] lg:mx-8',
-        themeRadialGlowBackground,
-      )}>
+      className={clsx('rounded-t-[48px] lg:mx-8', themeRadialGlowBackground)}>
       <Container className="relative" variant="narrow">
-        <div className="mx-auto grid grid-cols-1 gap-8 space-y-10 py-24 md:grid-cols-5 lg:py-40">
+        <div className="mx-auto grid grid-cols-1 gap-8 py-24 md:grid-cols-5 lg:py-40">
           <div className="mx-auto max-w-2xl md:col-span-5 lg:col-span-3 lg:mx-0 lg:max-w-prose lg:pr-24">
             <Text
               className="text-3xl font-bold leading-8 tracking-tight sm:text-4xl md:text-4xl lg:text-5xl"
@@ -353,7 +350,7 @@ export default function MarketingContinuousUpdates() {
               />
             </Text>
           </div>
-          <div className="mt-3 hidden rounded-lg lg:col-span-2 lg:flex">
+          <div className="mt-3 hidden rounded-lg lg:col-span-2 lg:flex lg:items-center">
             <Chart
               activePointIndex={activePointIndex}
               gridSize={48}

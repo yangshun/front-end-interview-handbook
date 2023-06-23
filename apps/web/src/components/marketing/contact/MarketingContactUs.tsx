@@ -22,10 +22,9 @@ import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
-    <div
-      className={clsx('overflow-hidden pb-16 sm:pb-24', themeBackgroundColor)}>
+    <div className={clsx('overflow-hidden pb-16 sm:pb-24')}>
       <div className="relative grid gap-y-24 sm:py-16">
-        <Container className="relative">
+        <Container className="relative" variant="narrow">
           <div
             className={clsx('rounded-[48px] py-20', themeBackgroundEmphasized)}>
             <div className="mx-auto grid max-w-3xl gap-y-8">

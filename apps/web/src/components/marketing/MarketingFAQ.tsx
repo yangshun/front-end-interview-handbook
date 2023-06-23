@@ -4,9 +4,9 @@ import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import MarketingSectionHeader from './MarketingSectionHeader';
 import Text from '../ui/Text';
 import { themeDivideColor, themeTextSubtitleColor } from '../ui/theme';
 
@@ -135,20 +135,9 @@ const faqs = [
 export default function FrequentlyAskedQuestions() {
   return (
     <Container variant="narrow">
-      <div className="relative space-y-10 py-24 lg:py-40">
-        <div>
-          <Heading className="text-center" level="heading2">
-            <FormattedMessage
-              defaultMessage="FAQs."
-              description="Frequently Asked Questions"
-              id="LK0JHB"
-            />
-          </Heading>
-          <Text
-            className="mx-auto mt-4 justify-center px-10 text-center sm:mt-8 md:text-xl lg:px-20"
-            color="secondary"
-            display="block"
-            size="custom">
+      <div className="relative flex flex-col gap-y-12">
+        <MarketingSectionHeader
+          description={
             <FormattedMessage
               defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
               description="Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
@@ -164,17 +153,20 @@ export default function FrequentlyAskedQuestions() {
                 ),
               }}
             />
-          </Text>
-        </div>
+          }
+          heading={
+            <FormattedMessage
+              defaultMessage="FAQs"
+              description="Frequently Asked Questions"
+              id="DIs2lU"
+            />
+          }
+        />
         <Section>
           <div>
-            <dl
-              className={clsx(
-                'mt-6 space-y-6 divide-y lg:mt-12 lg:space-y-8',
-                themeDivideColor,
-              )}>
+            <dl className={clsx(['divide-y', themeDivideColor])}>
               {faqs.map((faq) => (
-                <Disclosure key={faq.key} as="div" className="pt-8">
+                <Disclosure key={faq.key} as="div" className="py-4 md:py-8">
                   {({ open }) => (
                     <>
                       <dt className="text-base sm:text-lg md:text-xl">
@@ -202,9 +194,9 @@ export default function FrequentlyAskedQuestions() {
                           </span>
                         </Disclosure.Button>
                       </dt>
-                      <Disclosure.Panel as="dd" className="mt-8 pr-12">
+                      <Disclosure.Panel as="dd" className="mt-4 pr-12 md:mt-8">
                         <Text
-                          className="text-base sm:text-lg md:text-xl"
+                          className="text-sm sm:text-base md:text-lg xl:text-xl"
                           color="secondary"
                           display="block"
                           size="custom">
