@@ -7,22 +7,36 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import type { TextSize } from '../Text';
 import Text from '../Text';
 
-export type TooltipPosition = 'above' | 'below' | 'end' | 'start';
 export type TooltipAlignment = 'bottom' | 'center' | 'end' | 'start' | 'top';
+export type TooltipPosition = 'above' | 'below' | 'end' | 'start';
+export type TooltipSize = 'md' | 'sm';
 
 type TooltipLabelProps = Readonly<{
   alignment: TooltipAlignment;
   children: ReactNode;
   position: TooltipPosition;
+  size: TooltipSize;
   triggerRef: RefObject<HTMLSpanElement>;
 }>;
+
+const sizeClasses: Record<TooltipSize, string> = {
+  md: 'px-3 py-2',
+  sm: 'px-2 py-1',
+};
+
+const fontSizeClasses: Record<TooltipSize, TextSize> = {
+  md: 'body2',
+  sm: 'body3',
+};
 
 function TooltipLabel({
   alignment,
   children,
   position,
+  size,
   triggerRef,
 }: TooltipLabelProps) {
   const shouldUseXAlignment = position === 'above' || position === 'below';
@@ -111,17 +125,24 @@ function TooltipLabel({
   return (
     <span
       className={clsx(
-        'fixed z-40 whitespace-nowrap rounded bg-neutral-800 px-3 py-2',
+        'fixed z-40 rounded',
+        sizeClasses[size],
+        'bg-neutral-950 dark:bg-white',
         position === 'above' && 'mb-1.5',
         position === 'below' && 'mt-1.5',
         position === 'start' && 'mr-1.5',
         position === 'end' && 'ml-1.5',
         shouldUseXAlignment && alignment === 'center' && '-translate-x-1/2',
         shouldUseYAlignment && alignment === 'center' && '-translate-y-1/2',
+        'max-w-md',
       )}
       role="tooltip"
       style={styleMap[position]}>
-      <Text color="light" size="body2" weight="medium">
+      <Text
+        color="invert"
+        display="block"
+        size={fontSizeClasses[size]}
+        weight="medium">
         {children}
       </Text>
     </span>
@@ -134,6 +155,7 @@ type Props = Readonly<{
   className?: string;
   label?: ReactNode;
   position?: TooltipPosition;
+  size?: TooltipSize;
 }>;
 
 type TooltipTriggerSource = 'focus' | 'mouseenter';
@@ -143,6 +165,7 @@ export default function Tooltip({
   children,
   className,
   label,
+  size = 'sm',
   position = 'above',
 }: Props) {
   const [triggerSource, setTriggerSource] =
@@ -225,6 +248,7 @@ export default function Tooltip({
           <TooltipLabel
             alignment={alignment}
             position={position}
+            size={size}
             triggerRef={triggerRef}>
             {label}
           </TooltipLabel>,
