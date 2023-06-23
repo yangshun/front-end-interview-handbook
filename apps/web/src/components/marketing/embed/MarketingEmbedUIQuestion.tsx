@@ -21,6 +21,7 @@ import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Select from '~/components/ui/Select';
+import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
@@ -79,11 +80,13 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
     <div aria-hidden={true} className="relative flex h-full w-full flex-col">
       <div className="h-0 grow lg:flex">
         <div className="overflow-y-scroll lg:flex lg:w-2/5 lg:grow lg:flex-col">
-          <div className="space-y-4 py-4 px-4 sm:grow">
+          <div className="flex flex-col gap-y-4 p-4 sm:grow">
             <div className="flex justify-between">
-              <div className="text-xl font-semibold sm:text-2xl">
+              <Text
+                className="text-base font-semibold sm:text-xl"
+                size="custom">
                 {question.metadata.title}
-              </div>
+              </Text>
               <Select
                 isLabelHidden={true}
                 label={intl.formatMessage({

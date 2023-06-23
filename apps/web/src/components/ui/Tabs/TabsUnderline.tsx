@@ -13,15 +13,22 @@ export type TabItem<T> = Readonly<{
   value: T;
 }>;
 
+type TabDisplay = 'block' | 'inline';
 type TabSize = 'md' | 'sm' | 'xs';
 
 type Props<T> = Readonly<{
+  display?: TabDisplay;
   label: string;
   onSelect?: (value: T) => void;
   size?: TabSize;
   tabs: ReadonlyArray<TabItem<T>>;
   value: T;
 }>;
+
+const displayClasses: Record<TabDisplay, string> = {
+  block: 'block',
+  inline: 'inline-block',
+};
 
 const sizeClasses: Record<
   TabSize,
@@ -57,6 +64,7 @@ const sizeClasses: Record<
 };
 
 export default function TabsUnderline<T>({
+  display = 'block',
   label,
   tabs,
   size = 'md',
@@ -67,7 +75,7 @@ export default function TabsUnderline<T>({
     sizeClasses[size];
 
   return (
-    <div className="w-full" role="tablist">
+    <div className={displayClasses[display]} role="tablist">
       <div className={clsx('border-b', themeLineColor)}>
         <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
           {tabs.map((tabItem) => {

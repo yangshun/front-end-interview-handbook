@@ -84,8 +84,8 @@ export default function MarketingFeaturesRow() {
   const features = useFeatures();
 
   return (
-    <Container className="py-12" variant="narrow">
-      <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-3">
+    <Container className="py-12">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-3">
         {features.map(({ description, key, icon: Icon, title }) => (
           <div
             key={key}

@@ -13,6 +13,7 @@ import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
 import Tabs from '~/components/ui/Tabs';
+import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 
@@ -534,14 +535,14 @@ export default function MarketingEmbedSystemDesignQuestion() {
       }`}</style>
       <div className="h-0 w-full grow lg:flex">
         <div className="shrink-0 overflow-y-auto" id="left-section">
-          <div className="space-y-4 py-4 px-4">
-            <div className="text-xl font-semibold sm:text-2xl">
+          <div className="flex flex-col gap-y-4 p-4">
+            <Text className="text-base font-semibold sm:text-xl" size="custom">
               {intl.formatMessage({
                 defaultMessage: 'Design a News Feed (e.g. Facebook)',
                 description: 'System design question title',
                 id: 'cgTXiW',
               })}
-            </div>
+            </Text>
             <QuestionMetadataSection
               elements={['author', 'difficulty', 'duration']}
               metadata={questionMetadata}

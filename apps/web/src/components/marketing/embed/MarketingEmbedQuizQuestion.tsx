@@ -1,30 +1,56 @@
+import clsx from 'clsx';
+
 import gtag from '~/lib/gtag';
 
 import QuestionQuizTopicLabel from '~/components/questions/common/QuestionQuizTopicLabel';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasized,
+  themeLineColor,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 export default function MarketingEmbedQuizQuestion() {
   return (
     <div className="relative h-full w-full">
       <div className="h-full sm:overflow-y-scroll">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4 pt-4 pb-32 sm:pt-10">
-            <div className="text-xl font-semibold sm:text-2xl">
+          <div className="flex flex-col gap-y-4 pt-4 pb-32 sm:pt-10">
+            <Text className="text-base font-semibold sm:text-xl" size="custom">
               Describe the difference between{' '}
-              <code className="rounded-lg bg-neutral-100 px-2 py-0.5 font-thin text-neutral-700 before:content-none after:content-none">
+              <code
+                className={clsx(
+                  'rounded-lg px-2 py-0.5 font-thin before:content-none after:content-none',
+                  themeBackgroundEmphasized,
+                  ['border', themeLineColor],
+                  themeTextSubtitleColor,
+                )}>
                 &lt;script&gt;
               </code>
               ,{' '}
-              <code className="rounded-lg bg-neutral-100 px-2 py-0.5 font-thin text-neutral-700 before:content-none after:content-none">
+              <code
+                className={clsx(
+                  'rounded-lg px-2 py-0.5 font-thin before:content-none after:content-none',
+                  themeBackgroundEmphasized,
+                  ['border', themeLineColor],
+                  themeTextSubtitleColor,
+                )}>
                 &lt;script async&gt;
               </code>{' '}
               and{' '}
-              <code className="rounded-lg bg-neutral-100 px-2 py-0.5 font-thin text-neutral-700 before:content-none after:content-none">
+              <code
+                className={clsx(
+                  'rounded-lg px-2 py-0.5 font-thin before:content-none after:content-none',
+                  themeBackgroundEmphasized,
+                  ['border', themeLineColor],
+                  themeTextSubtitleColor,
+                )}>
                 &lt;script defer&gt;
               </code>
-            </div>
+            </Text>
             <div className="flex gap-2">
               <QuestionQuizTopicLabel value="html" />
               <QuestionQuizTopicLabel value="performance" />
@@ -71,7 +97,7 @@ export default function MarketingEmbedQuizQuestion() {
           </div>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8">
+      <div className="dark:from-neutral-950 absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8">
         <Button
           href="/questions/quiz/describe-the-difference-between-script-async-and-script-defer"
           label="Show full question"

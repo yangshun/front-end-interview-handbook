@@ -22,6 +22,7 @@ import QuestionContentsSectionTabs from '~/components/questions/content/Question
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
@@ -68,11 +69,13 @@ export default function MarketingEmbedJavaScriptQuestion({
         <div
           className={clsx('overflow-y-scroll md:border-r', themeLineColor)}
           id="left-section">
-          <div className="space-y-4 py-4 px-4">
+          <div className="flex flex-col gap-y-4 p-4">
             <div className="flex justify-between">
-              <div className="text-xl font-semibold sm:text-2xl">
+              <Text
+                className="text-base font-semibold sm:text-xl"
+                size="custom">
                 {javaScriptEmbedExample.metadata.title}
-              </div>
+              </Text>
               <QuestionCodingWorkingLanguageSelect
                 value={language}
                 onChange={(value) => {

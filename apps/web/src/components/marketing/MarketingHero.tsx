@@ -21,8 +21,10 @@ function MarketingHeroAuthorIntroduction({
   icons,
 }: MarketingHeroAuthorIntroductionProps) {
   return (
-    <div className="space-y-4 pb-6 text-xs font-medium sm:text-sm lg:space-y-5 lg:pb-8 lg:text-sm">
-      <Text size="body2">{title}</Text>
+    <div className="space-y-4 text-xs font-medium sm:text-sm lg:space-y-5 lg:text-sm">
+      <Text className="text-center" display="block" size="body2">
+        {title}
+      </Text>
       <Text className="flex items-center justify-center space-x-6 lg:space-x-8">
         {icons}
       </Text>
@@ -237,100 +239,102 @@ export default function MarketingHero() {
       </div>
       <div className="relative pt-0 pb-8 sm:pb-16 md:pb-20">
         <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
-          <div className="flex flex-col items-center text-center">
-            <Heading className="mx-auto mb-8 max-w-7xl" level="heading1">
-              <FormattedMessage
-                defaultMessage="The <underline>great</underline> way to prepare for front end interviews"
-                description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
-                id="M/e+G9"
-                values={{
-                  underline: (chunks) => (
-                    <span className="relative">
-                      {chunks}
-                      <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] ml-[-75%] mb-[-5%] w-[200%] hue-rotate-180 invert dark:filter-none" />
-                    </span>
-                  ),
-                }}
-              />
-            </Heading>
-            <div className="flex flex-col gap-y-2 gap-x-20 md:flex-row">
-              <MarketingHeroAuthorIntroduction
-                icons={
-                  <>
-                    <GoogleLogo
-                      className="h-[1.5rem] lg:h-[2.1rem]"
-                      title={intl.formatMessage({
-                        defaultMessage: 'Google logo',
-                        description: 'Google company logo',
-                        id: 'da4RLj',
-                      })}
-                    />
-                    ,
-                    <AmazonLogo
-                      className="mt-1 h-6 lg:mt-2 lg:h-7"
-                      title={intl.formatMessage({
-                        defaultMessage: 'Amazon logo',
-                        description: 'Amazon company logo',
-                        id: 'nai6YT',
-                      })}
-                    />
-                    ,
-                    <MetaLogo
-                      className="h-4 lg:mb-2 lg:h-5"
-                      title={intl.formatMessage({
-                        defaultMessage: 'Meta logo',
-                        description: 'Meta company logo',
-                        id: 'a8ETQr',
-                      })}
-                    />
-                  </>
-                }
-                title={intl.formatMessage({
-                  defaultMessage: 'By ex-interviewers at',
-                  description:
-                    'Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform.',
-                  id: 'LNz/aW',
-                })}
-              />
-              <MarketingHeroAuthorIntroduction
-                icons={
-                  <>
-                    <Text
-                      className="font-semibold"
-                      size="custom"
-                      weight="custom">
-                      Blind 75
-                    </Text>
-                    <div className="flex items-center gap-2">
-                      <FrontEndInterviewHandbookLogo
-                        className="h-9"
-                        style={{
-                          filter:
-                            'sepia(90%) hue-rotate(190deg) brightness(90%)',
-                        }}
+          <div className="flex flex-col items-center gap-y-8">
+            <div className="flex flex-col items-center gap-y-16">
+              <Heading className="max-w-3xl text-center" level="heading1">
+                <FormattedMessage
+                  defaultMessage="The <underline>great</underline> way to prepare for front end interviews"
+                  description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
+                  id="M/e+G9"
+                  values={{
+                    underline: (chunks) => (
+                      <span className="relative">
+                        {chunks}
+                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] ml-[-75%] mb-[-5%] w-[200%] hue-rotate-180 invert dark:filter-none" />
+                      </span>
+                    ),
+                  }}
+                />
+              </Heading>
+              <div className="flex flex-col gap-y-8 gap-x-20 md:flex-row">
+                <MarketingHeroAuthorIntroduction
+                  icons={
+                    <>
+                      <GoogleLogo
+                        className="h-[1.5rem] lg:h-[2.1rem]"
+                        title={intl.formatMessage({
+                          defaultMessage: 'Google logo',
+                          description: 'Google company logo',
+                          id: 'da4RLj',
+                        })}
                       />
+                      ,
+                      <AmazonLogo
+                        className="mt-1 h-6 lg:mt-2 lg:h-7"
+                        title={intl.formatMessage({
+                          defaultMessage: 'Amazon logo',
+                          description: 'Amazon company logo',
+                          id: 'nai6YT',
+                        })}
+                      />
+                      ,
+                      <MetaLogo
+                        className="h-4 lg:mb-2 lg:h-5"
+                        title={intl.formatMessage({
+                          defaultMessage: 'Meta logo',
+                          description: 'Meta company logo',
+                          id: 'a8ETQr',
+                        })}
+                      />
+                    </>
+                  }
+                  title={intl.formatMessage({
+                    defaultMessage: 'By ex-interviewers at',
+                    description:
+                      'Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform.',
+                    id: 'LNz/aW',
+                  })}
+                />
+                <MarketingHeroAuthorIntroduction
+                  icons={
+                    <>
                       <Text
-                        className="text-left font-bold leading-4"
-                        size="body2"
+                        className="text-base font-semibold sm:text-2xl"
+                        size="custom"
                         weight="custom">
-                        Front End Interview
-                        <br />
-                        Handbook
+                        Blind 75
                       </Text>
-                    </div>
-                  </>
-                }
-                title={intl.formatMessage({
-                  defaultMessage: 'By creators of',
-                  description:
-                    'Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products.',
-                  id: 'EM2v4V',
-                })}
-              />
+                      <div className="flex items-center gap-2">
+                        <FrontEndInterviewHandbookLogo
+                          className="h-9"
+                          style={{
+                            filter:
+                              'sepia(90%) hue-rotate(190deg) brightness(90%)',
+                          }}
+                        />
+                        <Text
+                          className="text-left font-bold leading-4"
+                          size="body2"
+                          weight="custom">
+                          Front End Interview
+                          <br />
+                          Handbook
+                        </Text>
+                      </div>
+                    </>
+                  }
+                  title={intl.formatMessage({
+                    defaultMessage: 'By creators of',
+                    description:
+                      'Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products.',
+                    id: 'EM2v4V',
+                  })}
+                />
+              </div>
             </div>
             <Text
-              className="mx-auto mt-8 max-w-md text-base sm:text-lg md:mt-12 md:max-w-3xl md:text-xl xl:text-xl"
-              color="secondary"
+              className="mx-auto max-w-md text-center text-base sm:text-lg md:max-w-3xl md:text-xl xl:text-xl"
+              color="subtitle"
               display="block"
               size="custom">
               <FormattedMessage
@@ -342,7 +346,7 @@ export default function MarketingHero() {
                 }}
               />
             </Text>
-            <div className="mt-8 flex flex-col gap-x-2 gap-y-4 sm:flex-row">
+            <div className="flex flex-col gap-x-2 gap-y-4 sm:flex-row">
               <div className="flex flex-col items-center gap-2">
                 <Button
                   icon={RiArrowRightLine}
@@ -355,7 +359,7 @@ export default function MarketingHero() {
                   size="lg"
                   variant="primary"
                 />
-                <Text color="secondary" size="body3">
+                <Text color="subtitle" size="body3">
                   <FormattedMessage
                     defaultMessage="No sign in required"
                     description="Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
