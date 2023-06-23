@@ -9,6 +9,7 @@ import MarketingContinuousUpdates from '~/components/marketing/MarketingContinuo
 import MarketingEmbedSection from '~/components/marketing/MarketingEmbedSection';
 import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeatureQuestions from '~/components/marketing/MarketingFeatureQuestions';
+import MarketingFeaturesBlocks from '~/components/marketing/MarketingFeaturesBlocks';
 import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingHero from '~/components/marketing/MarketingHero';
@@ -51,6 +52,7 @@ export default function MarketingHomePage({
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />
+        <MarketingFeaturesBlocks />
         <MarketingFeatureQuestions
           javaScriptQuestions={javaScriptQuestions}
           quizQuestions={quizQuestions}
