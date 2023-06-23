@@ -1,29 +1,18 @@
-import clsx from 'clsx';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import MarketingMarqueeQuestionListSection from '~/components/marketing/MarketingMarqueeQuestionListSection';
 import type {
   QuestionMetadata,
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
-import {
-  themeBackgroundEmphasized,
-  themeLineTextColor,
-} from '~/components/ui/theme';
 
-import MarketingJavaScriptQuestionsExamples from './examples/MarketingJavaScriptQuestionsExamples';
-import MarketingQuizQuestionsExamples from './examples/MarketingQuizQuestionsExamples';
-import MarketingSystemDesignQuestionsExamples from './examples/MarketingSystemDesignQuestionsExamples';
-import MarketingUserInterfaceQuestionsExamples from './examples/MarketingUserInterfaceQuestionsExamples';
+import MarketingSectionHeader from './MarketingSectionHeader';
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 import Text from '../ui/Text';
 
 // TODO: Add company tagged questions
-export default function MarketingFeatureQuestionsNew({
+export default function MarketingFeatureQuestions({
   javaScriptQuestions,
   userInterfaceQuestions,
   systemDesignQuestions,
@@ -34,117 +23,111 @@ export default function MarketingFeatureQuestionsNew({
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
-  const titleMarkerRef = useRef(null);
-  const titleIsInView = useInView(titleMarkerRef, {
-    amount: 'all',
-    once: true,
-  });
-
   return (
-    <div className={clsx('overflow-hidden', themeBackgroundEmphasized)}>
-      <Container>
-        <div className="relative mx-auto max-w-xl space-y-16 py-8 pb-24 sm:max-w-3xl md:max-w-4xl lg:max-w-5xl lg:space-y-32 lg:py-16 lg:pb-40">
-          <svg
-            aria-hidden="true"
-            className="absolute left-full hidden -translate-x-1/2 -translate-y-1/4 transform lg:block"
-            fill="none"
-            height={784}
-            viewBox="0 0 404 784"
-            width={404}>
-            <defs>
-              <pattern
-                height={20}
-                id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7"
-                patternUnits="userSpaceOnUse"
-                width={20}
-                x={0}
-                y={0}>
-                <rect
-                  className={themeLineTextColor}
-                  fill="currentColor"
-                  height={4}
-                  width={4}
-                  x={0}
-                  y={0}
-                />
-              </pattern>
-            </defs>
-            <rect
-              fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"
-              height={784}
-              width={404}
-            />
-          </svg>
-          <div
-            className={clsx(
-              'transition-opacity duration-[1500ms] ease-in-out',
-              titleIsInView ? 'opacity-100' : 'opacity-0',
-            )}>
-            <div ref={titleMarkerRef} />
-            <Heading level="heading2">
-              <FormattedMessage
-                defaultMessage="Practice everything here."
-                description="Title of the 'Practice Everything Here' marketing section on Homepage"
-                id="ExWrYc"
-              />
-            </Heading>
-            <Text
-              className="relative mt-10 text-lg md:text-xl"
-              color="secondary"
-              display="block"
-              size="custom">
+    <div>
+      <Container className="flex flex-col gap-y-12 py-8 md:gap-y-24 lg:gap-y-32">
+        <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
+          <MarketingSectionHeader
+            description={
               <FormattedMessage
                 defaultMessage="With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more."
                 description="Subtitle of the 'Practice Everything Here' marketing section on Homepage"
                 id="6yAWpI"
                 values={{ QuestionCount }}
               />
-            </Text>
-          </div>
-          <Section>
-            <MarketingJavaScriptQuestionsExamples
-              questions={javaScriptQuestions}
-            />
-            <MarketingUserInterfaceQuestionsExamples
-              questions={userInterfaceQuestions}
-            />
-            <MarketingSystemDesignQuestionsExamples
-              questions={systemDesignQuestions}
-            />
-            <svg
-              aria-hidden="true"
-              className="absolute right-full hidden translate-x-1/2 translate-y-12 transform lg:block"
-              fill="none"
-              height={784}
-              viewBox="0 0 404 784"
-              width={404}>
-              <defs>
-                <pattern
-                  height={20}
-                  id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
-                  patternUnits="userSpaceOnUse"
-                  width={20}
-                  x={0}
-                  y={0}>
-                  <rect
-                    className={themeLineTextColor}
-                    fill="currentColor"
-                    height={4}
-                    width={4}
-                    x={0}
-                    y={0}
-                  />
-                </pattern>
-              </defs>
-              <rect
-                fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"
-                height={784}
-                width={404}
+            }
+            heading={
+              <FormattedMessage
+                defaultMessage="Practice everything here"
+                description="Title of the 'Practice Everything Here' marketing section on Homepage"
+                id="D/cRh1"
               />
-            </svg>
-            <MarketingQuizQuestionsExamples questions={quizQuestions} />
-          </Section>
+            }
+            title={
+              <FormattedMessage
+                defaultMessage="Large question bank"
+                description="Title of the 'Practice Everything Here' marketing section on Homepage"
+                id="3i5xK8"
+              />
+            }
+          />
         </div>
+        <MarketingMarqueeQuestionListSection
+          description={
+            <FormattedMessage
+              defaultMessage="Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms."
+              description="Subtitle for an example list of JavaScript Questions on marketing pages"
+              id="b0OofK"
+            />
+          }
+          href="/questions"
+          title={
+            <>
+              JavaScript questions{' '}
+              <Text
+                className="text-xl"
+                color="secondary"
+                size="custom"
+                weight="bold">
+                (with TypeScript support)
+              </Text>
+            </>
+          }
+        />
+        <MarketingMarqueeQuestionListSection
+          description={
+            <FormattedMessage
+              defaultMessage="Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
+              description="Subtitle for an example list of User Interface Questions on marketing pages"
+              id="uogn1k"
+            />
+          }
+          href="/questions/js/coding/user-interface"
+          title={
+            <FormattedMessage
+              defaultMessage="User Interface Questions"
+              description="Title for an example list of User Interface Questions on marketing pages"
+              id="bxZm1S"
+            />
+          }
+        />
+        <MarketingMarqueeQuestionListSection
+          description={
+            <FormattedMessage
+              defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
+              description="Subtitle for an example list of User Interface Questions on marketing pages"
+              id="QIRY6V"
+            />
+          }
+          href="/prepare/system-design"
+          title={
+            <FormattedMessage
+              defaultMessage="System Design Questions"
+              description="Title for an example list of System Design Questions on marketing pages"
+              id="jnV/ZP"
+            />
+          }
+        />
+        <MarketingMarqueeQuestionListSection
+          description={
+            <FormattedMessage
+              defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
+              description="Subtitle for an example list of Quiz Questions on marketing pages"
+              id="kF3Llo"
+              values={{
+                count: 100,
+              }}
+            />
+          }
+          href="/prepare/quiz"
+          title={
+            <FormattedMessage
+              defaultMessage="Quiz Questions"
+              description="Title for an example list of Quiz Questions on marketing pages"
+              id="BGn++d"
+            />
+          }
+        />
       </Container>
     </div>
   );

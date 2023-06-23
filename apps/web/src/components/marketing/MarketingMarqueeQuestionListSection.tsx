@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import {
   RiArrowRightLine,
   RiBugLine,
@@ -46,23 +47,23 @@ const mockQuestions = Array.from({ length: 10 }, (_, i) => ({
   title: `${mockQuestion.title} ${i}`,
 }));
 
-export default function MarketingMarqueeQuestionListSection() {
+type Props = Readonly<{
+  description: ReactNode;
+  href: string;
+  title: ReactNode;
+}>;
+
+export default function MarketingMarqueeQuestionListSection({
+  description,
+  href,
+  title,
+}: Props) {
   return (
     <div className="flex flex-col items-center gap-12">
-      <div className="flex flex-col gap-1">
-        <Heading level="heading3">
-          Javascript questions{' '}
-          <Text
-            className="text-xl"
-            color="secondary"
-            size="custom"
-            weight="bold">
-            (with TypeScript support)
-          </Text>
-        </Heading>
-        <Text color="secondary">
-          Practice coding out common library APIs, utilities, data structures
-          and algorithms in JavaScript or TypeScript
+      <div className="flex flex-col gap-1 text-center">
+        <Heading level="heading3">{title}</Heading>
+        <Text color="secondary" display="block">
+          {description}
         </Text>
       </div>
       <div className="flex flex-col items-center gap-8">
@@ -124,6 +125,7 @@ export default function MarketingMarqueeQuestionListSection() {
           rows={2}
         />
         <Button
+          href={href}
           icon={RiArrowRightLine}
           label="View full questions list"
           size="md"

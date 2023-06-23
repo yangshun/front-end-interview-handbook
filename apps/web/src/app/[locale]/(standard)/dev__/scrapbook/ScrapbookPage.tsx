@@ -14,7 +14,6 @@ import { TbBinaryTree } from 'react-icons/tb';
 
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
-import MarketingMarqueeQuestionListSection from '~/components/marketing/MarketingMarqueeQuestionListSection';
 import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
 import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
@@ -363,11 +362,6 @@ export default function ScrapbookPage() {
             <UIExamplesGroup darkMode="vertical">
               <div>
                 <MarketingCompaniesMarquee />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="vertical">
-              <div>
-                <MarketingMarqueeQuestionListSection />
               </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">

@@ -21,8 +21,9 @@ export default function MarketingSectionHeader({
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-3">
         <Text
-          className="text-brand-light"
-          color="inherit"
+          className="text-center"
+          color="active"
+          display="block"
           size="body2"
           weight="medium">
           {title}
@@ -34,7 +35,7 @@ export default function MarketingSectionHeader({
       {description && (
         <Text
           className={clsx(
-            'mx-auto max-w-3xl text-center text-lg md:text-xl',
+            'mx-auto text-center text-lg',
             themeTextSecondaryColor,
           )}
           display="block"

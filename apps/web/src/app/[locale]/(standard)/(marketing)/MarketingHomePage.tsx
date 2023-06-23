@@ -12,7 +12,6 @@ import MarketingFeatureQuestions from '~/components/marketing/MarketingFeatureQu
 import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingHero from '~/components/marketing/MarketingHero';
-import MarketingKeyFeatures from '~/components/marketing/MarketingKeyFeatures';
 import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import type {
@@ -52,7 +51,6 @@ export default function MarketingHomePage({
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />
-        <MarketingKeyFeatures />
         <MarketingFeatureQuestions
           javaScriptQuestions={javaScriptQuestions}
           quizQuestions={quizQuestions}
