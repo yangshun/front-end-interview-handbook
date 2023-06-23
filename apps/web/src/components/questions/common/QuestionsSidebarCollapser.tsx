@@ -30,7 +30,9 @@ export default function QuestionsSidebarCollapser() {
     <button
       aria-label={title}
       className={clsx(
-        'focus:ring-brand absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 focus:outline-none focus:ring-2 focus:ring-offset-2 lg:flex',
+        'absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 lg:flex',
+        'focus:outline-none focus:ring-2 focus:ring-offset-2',
+        'focus:ring-brand-dark dark:focus:ring-brand',
         themeTextSecondaryColor,
         themeLineColor,
         themeBackgroundEmphasizedHover,

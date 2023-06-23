@@ -26,7 +26,10 @@ export default function NavbarItem({
     'inline-flex cursor-pointer items-center gap-2 px-3 py-1',
     'text-sm font-medium whitespace-nowrap',
     'group rounded-full',
-    'focus-visible:ring-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-transparent',
+    [
+      'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-transparent',
+    ],
   );
 
   if (props.type === 'link') {

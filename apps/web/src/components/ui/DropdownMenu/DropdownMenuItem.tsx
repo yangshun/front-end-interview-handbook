@@ -24,9 +24,8 @@ export default function DropdownMenuItem({
         const props = {
           children: (
             <Text
-              color={isSelected ? undefined : 'secondary'}
+              color={isSelected ? 'active' : 'secondary'}
               display="block"
-              // TODO: Use smaller variant for smaller size.
               size="body2">
               {label}
             </Text>
@@ -35,7 +34,7 @@ export default function DropdownMenuItem({
             'block px-2 py-1.5',
             'w-full text-left',
             'rounded',
-            active && 'bg-neutral-100 dark:bg-neutral-700',
+            active && 'bg-neutral-100 dark:bg-neutral-800',
           ),
           onClick,
         };

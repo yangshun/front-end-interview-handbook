@@ -39,8 +39,10 @@ export default function QuestionListingFilterItem<
           <legend className="w-full">
             <Disclosure.Button
               className={clsx(
-                'focus:ring-brand flex w-full items-center justify-between focus:outline-none focus:ring-2 focus:ring-inset',
+                'flex w-full items-center justify-between',
                 'text-neutral-400 hover:text-neutral-500 dark:text-neutral-600',
+                'focus:outline-none focus:ring-2 focus:ring-inset',
+                'focus:ring-brand-dark dark:focus:ring-brand',
               )}>
               <Text size="body2" weight="medium">
                 {section.name}

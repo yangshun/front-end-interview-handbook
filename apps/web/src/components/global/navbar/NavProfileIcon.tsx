@@ -61,7 +61,9 @@ export default function NavProfileIcon({
             'transition-colors',
             'border border-neutral-200 dark:border-neutral-800',
             'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
-            'focus:border-brand focus:outline-brand focus:outline-2 focus:outline-offset-2 focus:ring-0',
+            'focus:border-brand-dark dark:focus:border-brand',
+            'focus:outline-brand-dark dark:focus:outline-brand',
+            'focus:outline-2 focus:outline-offset-2 focus:ring-0',
           )}>
           <span className="sr-only">
             <FormattedMessage

@@ -102,7 +102,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-brand-dark dark:bg-brand',
     'hover:bg-brand-darker dark:hover:bg-brand-light',
     'active:bg-brand-darkest dark:active:bg-brand-lighter',
-    'focus-visible:outline-brand',
+    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   secondary: clsx(
     'border-neutral-300 dark:border-neutral-800',
@@ -110,7 +110,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-white dark:bg-neutral-950',
     'hover:bg-neutral-100 dark:hover:bg-neutral-900',
     'active:bg-neutral-200 dark:active:bg-neutral-800',
-    'focus-visible:outline-neutral-500',
+    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   success: clsx(
     'border-transparent',
@@ -124,9 +124,15 @@ const variantClasses: Record<ButtonVariant, string> = {
     'border-transparent',
     'text-neutral-600 dark:text-neutral-200',
     'bg-transparent',
-    'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-    'active:bg-neutral-200 dark:active:bg-neutral-800',
-    'focus-visible:outline-neutral-500',
+    [
+      'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+      'hover:text-brand-darker dark:hover:text-brand',
+    ],
+    [
+      'active:bg-neutral-200 dark:active:bg-neutral-800',
+      'active:text-brand-dark  dark:active:text-brand-light',
+    ],
+    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   unstyled: '',
 };
