@@ -8,9 +8,42 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeCardBackgroundColor,
+  themeGradient1,
+  themeGradient2,
   themeLineBackgroundColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+
+import QuestionsContinueLearning from '../../dashboard/QuestionsContinueLearning';
+
+// TODO: i18n
+function ContinueLearningCard() {
+  return (
+    <QuestionsContinueLearning
+      hideHeading={true}
+      items={[
+        {
+          completedCount: 24,
+          durationMins: 92,
+          gradient: themeGradient1,
+          href: '/',
+          questionsCount: 47,
+          reverseGradient: true,
+          title: 'Data Structure and Algorithms',
+        },
+        {
+          completedCount: 24,
+          durationMins: 92,
+          gradient: themeGradient2,
+          href: '/',
+          questionsCount: 50,
+          reverseGradient: true,
+          title: 'Forms',
+        },
+      ]}
+    />
+  );
+}
 
 export default function QuestionPreparationPageHeader() {
   const { userProfile } = useUserProfile();
@@ -96,10 +129,16 @@ export default function QuestionPreparationPageHeader() {
           )}>
           <div
             className={clsx(
-              'h-full w-36',
+              'relative h-full w-36 overflow-hidden',
               'bg-neutral-200/70 dark:bg-neutral-900',
-            )}
-          />
+            )}>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-2">
+              <ContinueLearningCard />
+            </div>
+            <div className="absolute h-full w-full bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
+          </div>
           <div className="flex items-center p-4">
             <Anchor href="/sign-up" variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />

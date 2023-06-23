@@ -118,6 +118,7 @@ function GradientProgressBar({
 }
 
 type Props = Readonly<{
+  hideHeading?: boolean;
   items: ReadonlyArray<{
     completedCount: number;
     durationMins: number;
@@ -130,16 +131,21 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function QuestionsContinueLearning({ items }: Props) {
+export default function QuestionsContinueLearning({
+  items,
+  hideHeading = false,
+}: Props) {
   return (
     <div className="flex flex-col gap-6">
-      <Heading level="heading6">
-        <FormattedMessage
-          defaultMessage="Continue learning"
-          description="Title of Continue Learning section in preparation dashboard"
-          id="TebaLD"
-        />
-      </Heading>
+      {!hideHeading && (
+        <Heading level="heading6">
+          <FormattedMessage
+            defaultMessage="Continue learning"
+            description="Title of Continue Learning section in preparation dashboard"
+            id="TebaLD"
+          />
+        </Heading>
+      )}
       <div
         className={clsx(
           'flex flex-col divide-y rounded-lg bg-white dark:bg-neutral-800/40',
