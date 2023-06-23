@@ -423,10 +423,6 @@
     "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
   },
-  "7/y6bz": {
-    "defaultMessage": "Terms and Conditions",
-    "description": "Section label for promotion details"
-  },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"

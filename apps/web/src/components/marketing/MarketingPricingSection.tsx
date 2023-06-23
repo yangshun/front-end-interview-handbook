@@ -33,6 +33,7 @@ import {
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
+import MarketingSectionHeader from './MarketingSectionHeader';
 import PricingBlockCard from '../pricing/PricingBlockCard';
 import { priceRoundToNearestNiceNumber } from '../pricing/pricingUtils';
 
@@ -462,45 +463,41 @@ export default function MarketingPricingSectionNew({
           <Container className="text-center">
             <div
               className={clsx(
-                'flex max-w-3xl flex-col pb-8 transition-opacity duration-[1500ms] ease-in-out lg:max-w-none',
+                'flex max-w-4xl flex-col pb-8 transition-opacity duration-[1500ms] ease-in-out lg:max-w-none',
                 titleIsInView ? 'opacity-100' : 'opacity-0',
               )}>
-              <Text
-                className="text-brand-light mb-3"
-                color="inherit"
-                weight="medium">
-                <FormattedMessage
-                  defaultMessage="Pricing plans"
-                  description="Section label on Pricing section of Homepage or Pricing page"
-                  id="ZWMfa0"
-                />
-              </Text>
-              <Heading
-                className="mb-6 text-center"
-                color="light"
-                level="heading2">
-                <FormattedMessage
-                  defaultMessage="Pay once, get full access forever"
-                  description="Title on Pricing section of Homepage or Pricing page"
-                  id="tIrfY2"
-                />
-              </Heading>
               <div ref={titleMarkerRef} />
-              <p className="mx-auto mt-1 max-w-3xl text-center text-lg text-neutral-400 md:text-xl lg:mt-2">
-                <FormattedMessage
-                  defaultMessage="For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
-                  description="Subtitle of Pricing section on Homepage or Pricing page"
-                  id="2sIcqn"
-                  values={{
-                    strong: (chunks) => (
-                      <strong className="font-bold">{chunks}</strong>
-                    ),
-                    symbol: lifetimePlan.symbol,
-                    unitCostLocalizedInCurrency:
-                      lifetimePlan.unitCostLocalizedInCurrency,
-                  }}
-                />
-              </p>
+              <MarketingSectionHeader
+                description={
+                  <FormattedMessage
+                    defaultMessage="For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
+                    description="Subtitle of Pricing section on Homepage or Pricing page"
+                    id="2sIcqn"
+                    values={{
+                      strong: (chunks) => (
+                        <strong className="font-semibold">{chunks}</strong>
+                      ),
+                      symbol: lifetimePlan.symbol,
+                      unitCostLocalizedInCurrency:
+                        lifetimePlan.unitCostLocalizedInCurrency,
+                    }}
+                  />
+                }
+                heading={
+                  <FormattedMessage
+                    defaultMessage="Pay once, get full access forever"
+                    description="Title on Pricing section of Homepage or Pricing page"
+                    id="tIrfY2"
+                  />
+                }
+                title={
+                  <FormattedMessage
+                    defaultMessage="Pricing plans"
+                    description="Section label on Pricing section of Homepage or Pricing page"
+                    id="ZWMfa0"
+                  />
+                }
+              />
               {isProhibitedCountry(countryCode) && (
                 <div className="mt-8">
                   <Alert variant="danger">
@@ -520,7 +517,7 @@ export default function MarketingPricingSectionNew({
             ref={pricingCardMarkerRef}
             className={clsx('mt-8 pb-16 sm:mt-12 sm:pb-20')}>
             <div className="relative">
-              <Container className="relative" variant="narrow">
+              <Container>
                 <PricingBlockCard
                   features={[
                     intl.formatMessage({
@@ -556,15 +553,7 @@ export default function MarketingPricingSectionNew({
                       id: 'F74ozi',
                     }),
                   ]}
-                  featuresSectionTitle={
-                    <FormattedMessage
-                      defaultMessage="What's Included"
-                      description="Section label for features included in a pricing plan"
-                      id="IhJAk8"
-                    />
-                  }
                   glow={true}
-                  hideFeaturesSectionTitle={true}
                   rightSectionContents={
                     <>
                       <Text color="label" display="block" size="body2">
@@ -658,10 +647,10 @@ export default function MarketingPricingSectionNew({
           </div>
           <div>
             <div className="relative">
-              <Container className="relative" variant="narrow">
+              <Container className="relative">
                 <div
                   aria-hidden="true"
-                  className="absolute right-0 top-0 z-[-1]">
+                  className="absolute right-0 top-0 -z-10">
                   <PurpleGradientBackground />
                 </div>
                 <Heading className="sr-only" level="custom">
@@ -674,9 +663,9 @@ export default function MarketingPricingSectionNew({
                 <Section>
                   <div
                     className={clsx(
-                      'grid grid-cols-1 divide-y divide-x-0 rounded-3xl border bg-neutral-800/20 sm:grid-cols-2 sm:divide-y-0 lg:mx-auto lg:grid-cols-3 lg:divide-x xl:mx-0 xl:max-w-none',
-                      themeLineColor,
-                      themeDivideColor,
+                      'grid grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:grid-cols-3',
+                      ['divide-y md:divide-y-0 md:divide-x', themeDivideColor],
+                      ['border', themeLineColor],
                     )}>
                     {planList.map(
                       ({
@@ -690,7 +679,7 @@ export default function MarketingPricingSectionNew({
                         return (
                           <div
                             key={plan.planType}
-                            className="flex flex-col px-6 py-6 shadow-sm">
+                            className="flex flex-col gap-y-8 py-6 px-8 shadow-sm md:gap-y-16">
                             <div className="grow md:grow-0">
                               <Heading
                                 className="font-medium text-neutral-700 dark:text-neutral-300"
@@ -801,47 +790,44 @@ export default function MarketingPricingSectionNew({
                               </Section>
                             </div>
                             <Section>
-                              <div className="px-6 ">
-                                <Heading
-                                  className="sr-only text-sm font-medium"
-                                  level="custom">
-                                  <FormattedMessage
-                                    defaultMessage="What's Included"
-                                    description="Section label for features included in a pricing plan"
-                                    id="IhJAk8"
-                                  />
-                                </Heading>
-                                <Section>
-                                  <ul
-                                    className={clsx(
-                                      'mt-6 divide-y',
-                                      themeDivideColor,
-                                    )}
-                                    role="list">
-                                    {includedFeatures.map((feature, idx) => (
-                                      <li
-                                        // eslint-disable-next-line react/no-array-index-key
-                                        key={idx}
-                                        className="flex space-x-3 py-3">
-                                        <RiCheckLine
-                                          aria-hidden="true"
-                                          className="text-brand h-5 w-5 flex-shrink-0"
-                                        />
-                                        <Text color="secondary" size="body2">
-                                          {feature}
-                                        </Text>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </Section>
-                              </div>
+                              <Heading className="sr-only" level="custom">
+                                <FormattedMessage
+                                  defaultMessage="What's Included"
+                                  description="Section label for features included in a pricing plan"
+                                  id="IhJAk8"
+                                />
+                              </Heading>
+                              <Section>
+                                <ul
+                                  className={clsx(
+                                    'divide-y border-y',
+                                    themeLineColor,
+                                    themeDivideColor,
+                                  )}
+                                  role="list">
+                                  {includedFeatures.map((feature, idx) => (
+                                    <li
+                                      // eslint-disable-next-line react/no-array-index-key
+                                      key={idx}
+                                      className="flex gap-x-3 py-3">
+                                      <RiCheckLine
+                                        aria-hidden="true"
+                                        className="text-brand h-5 w-5 flex-shrink-0"
+                                      />
+                                      <Text color="secondary" size="body3">
+                                        {feature}
+                                      </Text>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </Section>
                             </Section>
                           </div>
                         );
                       },
                     )}
                   </div>
-                  <div className="mt-8">
+                  <div className="mt-5 px-8">
                     <Text color="secondary" display="block" size="body2">
                       *{' '}
                       <FormattedMessage

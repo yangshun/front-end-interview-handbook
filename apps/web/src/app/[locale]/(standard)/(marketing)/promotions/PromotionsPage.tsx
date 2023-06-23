@@ -58,13 +58,6 @@ function SeasonalDiscountCard() {
           id: 'V5oBr9',
         }),
       ]}
-      featuresSectionTitle={
-        <FormattedMessage
-          defaultMessage="Terms and Conditions"
-          description="Section label for promotion details"
-          id="7/y6bz"
-        />
-      }
       footer={
         <div className="flex justify-end text-xs">
           <EmailUsLink />
@@ -74,9 +67,7 @@ function SeasonalDiscountCard() {
         <>
           <div className="mt-4 flex items-end">
             <Text
-              className={clsx(
-                'inline-flex items-center text-5xl font-bold',
-              )}
+              className={clsx('inline-flex items-center text-5xl font-bold')}
               display="inline-flex"
               size="custom"
               weight="custom">
@@ -187,13 +178,6 @@ function StudentDiscountCard() {
           id: 'bz1Gh7',
         }),
       ]}
-      featuresSectionTitle={
-        <FormattedMessage
-          defaultMessage="Terms and Conditions"
-          description="Section label for promotion details"
-          id="7/y6bz"
-        />
-      }
       footer={
         <Text
           className="justify-between gap-x-4"
@@ -224,9 +208,7 @@ function StudentDiscountCard() {
         <>
           <div className="mt-4 flex items-end">
             <Text
-              className={clsx(
-                'inline-flex items-center text-5xl font-bold',
-              )}
+              className={clsx('inline-flex items-center text-5xl font-bold')}
               display="inline-flex"
               size="custom"
               weight="custom">
@@ -244,13 +226,18 @@ function StudentDiscountCard() {
               />
             </Text>
           </div>
-          <p className="mt-4 text-sm font-medium text-neutral-500">
+          <Text
+            className="mt-4"
+            color="secondary"
+            display="block"
+            size="body2"
+            weight="medium">
             <FormattedMessage
               defaultMessage="GreatFrontEnd Annual"
               description="GFE annual plan"
               id="GDgFZ0"
             />
-          </p>
+          </Text>
           <div className="mt-4">
             <Button
               display="block"
@@ -330,13 +317,6 @@ function ReviewCashbackCard() {
           },
         ),
       ]}
-      featuresSectionTitle={
-        <FormattedMessage
-          defaultMessage="Terms and Conditions"
-          description="Section label for promotion details"
-          id="7/y6bz"
-        />
-      }
       footer={
         <Text
           className="justify-between gap-x-4"
@@ -367,9 +347,7 @@ function ReviewCashbackCard() {
         <>
           <div className="mt-4 flex items-end">
             <Text
-              className={clsx(
-                'inline-flex items-center text-5xl',
-              )}
+              className={clsx('inline-flex items-center text-5xl')}
               display="inline-flex"
               size="custom"
               weight="bold">
