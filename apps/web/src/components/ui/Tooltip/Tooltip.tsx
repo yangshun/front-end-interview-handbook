@@ -138,6 +138,28 @@ function TooltipLabel({
       )}
       role="tooltip"
       style={styleMap[position]}>
+      <div
+        aria-hidden="true"
+        className={clsx(
+          'bg-neutral-950 absolute z-30 h-2 w-2 rounded-sm dark:bg-white',
+          position === 'above' && '-bottom-[3px]',
+          position === 'below' && '-top-[3px]',
+          position === 'start' && '-right-[3px]',
+          position === 'end' && '-left-[3px]',
+          shouldUseXAlignment &&
+            alignment === 'center' &&
+            'left-0 right-0 mx-auto',
+          shouldUseXAlignment && alignment === 'start' && 'left-2',
+          shouldUseXAlignment && alignment === 'end' && 'right-2',
+          shouldUseYAlignment && 'top-0 bottom-0 my-auto',
+        )}
+        style={{
+          // Have to use inline styles to rotate then scale
+          transform: shouldUseXAlignment
+            ? 'scaleX(1.3) rotate(45deg)'
+            : 'scaleY(1.3) rotate(45deg)',
+        }}
+      />
       <Text
         color="invert"
         display="block"
