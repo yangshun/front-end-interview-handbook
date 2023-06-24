@@ -17,50 +17,24 @@ import MarketingQuestionCardMarquee from './MarketingQuestionCardMarquee';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '../questions/listings/filters/QuestionListingTopicFilters';
 
-const mockQuestion: QuestionMetadata = {
-  author: null,
-  companies: [],
-  created: 0,
-  difficulty: 'medium',
-  duration: 0,
-  excerpt:
-    'Implement a stack data structure containing the common stack methods',
-  featured: false,
-  format: 'quiz',
-  frameworkDefault: null,
-  frameworks: [],
-  href: '/dev__/scrapbook',
-  importance: 'high',
-  languages: ['js', 'ts'],
-  nextQuestions: [],
-  premium: false,
-  published: false,
-  ranking: 0,
-  similarQuestions: [],
-  slug: 'stack',
-  title: 'Stack',
-};
-
-const mockQuestions = Array.from({ length: 10 }, (_, i) => ({
-  ...mockQuestion,
-  slug: `${mockQuestion.title}${i}`,
-  title: `${mockQuestion.title} ${i}`,
-}));
-
 type Props = Readonly<{
   description: ReactNode;
   href: string;
+  questions: ReadonlyArray<QuestionMetadata>;
   title: ReactNode;
+  titleLines?: 1 | 2;
 }>;
 
 export default function MarketingMarqueeQuestionListSection({
   description,
   href,
+  questions,
   title,
+  titleLines = 1,
 }: Props) {
   return (
     <div className="flex flex-col items-center gap-12">
-      <div className="flex flex-col gap-1 text-center">
+      <div className="flex max-w-prose flex-col gap-1 text-center">
         <Heading level="heading3">{title}</Heading>
         <Text color="secondary" display="block">
           {description}
@@ -121,8 +95,9 @@ export default function MarketingMarqueeQuestionListSection({
         />
         <MarketingQuestionCardMarquee
           periodSeconds={60}
-          questions={mockQuestions}
+          questions={questions}
           rows={2}
+          titleLines={titleLines}
         />
         <Button
           href={href}

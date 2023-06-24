@@ -61,6 +61,7 @@ export default function MarketingFeatureQuestions({
             />
           }
           href="/questions"
+          questions={javaScriptQuestions}
           title={
             <>
               JavaScript questions{' '}
@@ -83,6 +84,7 @@ export default function MarketingFeatureQuestions({
             />
           }
           href="/questions/js/coding/user-interface"
+          questions={userInterfaceQuestions}
           title={
             <FormattedMessage
               defaultMessage="User Interface Questions"
@@ -100,6 +102,7 @@ export default function MarketingFeatureQuestions({
             />
           }
           href="/prepare/system-design"
+          questions={systemDesignQuestions}
           title={
             <FormattedMessage
               defaultMessage="System Design Questions"
@@ -120,6 +123,7 @@ export default function MarketingFeatureQuestions({
             />
           }
           href="/prepare/quiz"
+          questions={quizQuestions}
           title={
             <FormattedMessage
               defaultMessage="Quiz Questions"
@@ -127,6 +131,7 @@ export default function MarketingFeatureQuestions({
               id="BGn++d"
             />
           }
+          titleLines={2}
         />
       </Container>
     </div>

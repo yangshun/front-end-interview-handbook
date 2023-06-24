@@ -10,12 +10,14 @@ type Props = Readonly<
   Omit<ComponentPropsWithoutRef<typeof Marquee>, 'children' | 'startEndGap'> & {
     questions: ReadonlyArray<QuestionMetadata>;
     rows: 1 | 2;
+    titleLines?: 1 | 2;
   }
 >;
 
 export default function MarketingQuestionCardMarquee({
   questions,
   rows,
+  titleLines = 1,
   ...marqueeProps
 }: Props) {
   return (
@@ -38,6 +40,7 @@ export default function MarketingQuestionCardMarquee({
                 metadata={metadata}
                 paddingSize="wide"
                 showArrow={false}
+                titleLines={titleLines}
               />
             </div>
           ))}
