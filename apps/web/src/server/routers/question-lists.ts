@@ -120,16 +120,28 @@ export const questionListsRouter = router({
         return null;
       }
 
+      const existingSession = await prisma.questionListSession.findFirst({
+        where: {
+          key: listKey,
+          status: 'IN_PROGRESS',
+          userId: user.id,
+        },
+      });
+
+      // There's an existing session, return it.
+      if (existingSession != null) {
+        return existingSession;
+      }
+
+      // No existing session, create one.
       const createData = {
         key: listKey,
         userId: user.id,
       };
 
-      const session = await prisma.questionListSession.create({
+      return await prisma.questionListSession.create({
         data: createData,
       });
-
-      return session;
     }),
   stopSession: publicProcedure
     .input(
