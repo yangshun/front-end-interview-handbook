@@ -2,11 +2,11 @@ import type { Metadata } from 'next/types';
 import type { IntlShape } from 'react-intl';
 
 import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-import { getPreparationPlans } from '~/data/plans/PreparationPlans';
 
 import { countQuestionsByDifficulty } from '~/components/questions/common/QuestionsProcessor';
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 
+import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -61,7 +61,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const preparationPlans = getPreparationPlans(intl as IntlShape);
+  const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
   const [
     difficultySummaryOneWeek,
     difficultySummaryOneMonth,
@@ -79,6 +79,7 @@ export default async function Page({ params }: Props) {
         'one-week': difficultySummaryOneWeek,
         'three-months': difficultySummaryThreeMonths,
       }}
+      preparationPlans={preparationPlans}
     />
   );
 }

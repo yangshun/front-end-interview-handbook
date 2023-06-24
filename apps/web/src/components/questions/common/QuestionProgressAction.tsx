@@ -1,3 +1,4 @@
+import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -29,6 +30,8 @@ export default function QuestionProgressAction({
   questionProgress,
   question,
 }: Props) {
+  const searchParams = useSearchParams();
+
   const intl = useIntl();
   const user = useUser();
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
@@ -43,8 +46,8 @@ export default function QuestionProgressAction({
           icon={RiCheckLine}
           label={intl.formatMessage({
             defaultMessage: 'Mark as complete',
-            description: 'Mark quetion as complete',
-            id: 'Rhpldj',
+            description: 'Mark question as complete',
+            id: '6y6SUS',
           })}
           size="xs"
           variant="primary"
@@ -167,6 +170,7 @@ export default function QuestionProgressAction({
         addProgressMutation.mutate(
           {
             format: question.metadata.format,
+            listKey: searchParams?.get('list') ?? undefined,
             progressId: questionProgress?.id,
             slug: question.metadata.slug,
             status: 'complete',

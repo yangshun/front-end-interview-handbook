@@ -11,7 +11,7 @@ type Props = Readonly<
   }
 >;
 
-const fullWidth = 140;
+const fullWidth = 100;
 
 export default function QuestionDifficultySummary({
   easy,
@@ -51,7 +51,9 @@ export default function QuestionDifficultySummary({
         {showIcon && (
           <RiFireLine aria-hidden="true" className="text-neutral-400" />
         )}
-        <div className="relative h-2 w-[140px] overflow-clip rounded-full">
+        <div
+          className="relative h-2 overflow-clip rounded-full"
+          style={{ width: fullWidth }}>
           <div className="bg-danger absolute left-0 h-full w-full rounded-full" />
           <div
             className="bg-warning absolute h-full rounded-full"

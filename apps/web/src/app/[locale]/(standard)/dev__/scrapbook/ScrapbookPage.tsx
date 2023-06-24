@@ -132,7 +132,6 @@ export default function ScrapbookPage() {
               <div className="inline-grid grid-cols-3 gap-x-6">
                 <QuestionsProgressPanel
                   completedQuestions={58}
-                  icon={RiCodeSSlashLine}
                   progressBarClassName={themeGradient1.className}
                   title="Coding"
                   totalQuestions={116}
@@ -140,7 +139,6 @@ export default function ScrapbookPage() {
                 />
                 <QuestionsProgressPanel
                   completedQuestions={80}
-                  icon={RiCodeSSlashLine}
                   progressBarClassName={themeGradient3.className}
                   title="Quizzes"
                   totalQuestions={100}
@@ -148,7 +146,6 @@ export default function ScrapbookPage() {
                 />
                 <QuestionsProgressPanel
                   completedQuestions={4}
-                  icon={RiCodeSSlashLine}
                   progressBarClassName={themeGradient2.className}
                   title="System design"
                   totalQuestions={39}
@@ -157,7 +154,6 @@ export default function ScrapbookPage() {
               </div>
               <QuestionsProgressPanel
                 completedQuestions={58}
-                icon={RiCodeSSlashLine}
                 progressBarClassName={themeGradient1.className}
                 title="Coding"
                 totalQuestions={116}
@@ -165,7 +161,6 @@ export default function ScrapbookPage() {
               />
               <QuestionsProgressPanel
                 completedQuestions={80}
-                icon={RiCodeSSlashLine}
                 progressBarClassName={themeGradient3.className}
                 title="Quizzes"
                 totalQuestions={100}
@@ -173,7 +168,6 @@ export default function ScrapbookPage() {
               />
               <QuestionsProgressPanel
                 completedQuestions={4}
-                icon={RiCodeSSlashLine}
                 progressBarClassName={themeGradient2.className}
                 title="System design"
                 totalQuestions={39}
@@ -339,9 +333,14 @@ export default function ScrapbookPage() {
           <div>
             <UIExamplesGroup>
               <QuestionListTitleSection
-                completedCount={17}
+                difficultySummary={{
+                  easy: 30,
+                  hard: 10,
+                  medium: 20,
+                }}
                 icon={TbBinaryTree}
                 questionCount={47}
+                questionListKey="one-month"
                 themeBackgroundClass={themeGradient1.className}
                 title="Data structure and algorithms"
                 totalDurationMins={560}

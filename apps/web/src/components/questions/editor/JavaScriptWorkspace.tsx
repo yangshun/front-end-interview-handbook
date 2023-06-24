@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { RiArrowUpSLine, RiCloseLine } from 'react-icons/ri';
@@ -102,6 +103,7 @@ function Contents({
   const [devToolsMode, setDevToolsMode] =
     useState<JavaScriptQuestionDevToolsMode>('console');
   const csbStatus = useCodeSandboxStatus();
+  const searchParams = useSearchParams();
   const addProgressMutation = useMutationQuestionProgressAdd();
   const user = useUser();
   const { showToast } = useToast();
@@ -159,6 +161,7 @@ function Contents({
               if (user != null && questionProgress?.status !== 'complete') {
                 addProgressMutation.mutate({
                   format: question.metadata.format,
+                  listKey: searchParams?.get('list') ?? undefined,
                   progressId: questionProgress?.id,
                   slug: question.metadata.slug,
                   status: 'complete',

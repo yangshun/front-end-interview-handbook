@@ -7,6 +7,8 @@ import type {
 
 import type { QuestionProgressList } from './QuestionsProgressTypes';
 
+import type { QuestionListSessionProgress } from '@prisma/client';
+
 function createQuestionHref(
   format: QuestionFormat,
   slug: string,
@@ -62,6 +64,12 @@ export function hashQuestion(format: string, slug: QuestionSlug) {
   return format + ':' + slug;
 }
 
+function unhashQuestion(key: string): [format: string, slug: QuestionSlug] {
+  const parts = key.split(':');
+
+  return [parts[0], parts[1]];
+}
+
 export function hasCompletedQuestion(
   completedQuestions: Set<QuestionSlug>,
   question: QuestionMetadata,
@@ -71,8 +79,29 @@ export function hasCompletedQuestion(
 
 export type QuestionsCategorizedProgress = Record<QuestionFormat, Set<string>>;
 
+export function categorizeQuestionListSessionProgress(
+  sessionProgress?:
+    | ReadonlyArray<Readonly<{ id: string; key: string }>>
+    | null
+    | undefined,
+): QuestionsCategorizedProgress {
+  return categorizeQuestionsProgress(
+    (sessionProgress ?? []).map(({ id, key }) => {
+      const [format, slug] = unhashQuestion(key);
+
+      return {
+        format,
+        id,
+        slug,
+      };
+    }),
+  );
+}
+
 export function categorizeQuestionsProgress(
-  questionProgress?: QuestionProgressList | null,
+  questionProgress?: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  > | null,
 ): QuestionsCategorizedProgress {
   return {
     javascript: new Set(

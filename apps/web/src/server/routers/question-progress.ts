@@ -3,6 +3,7 @@ import { z } from 'zod';
 import type { QuestionFormat } from '~/components/questions/common/QuestionsTypes';
 
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
+import { hashQuestion } from '~/db/QuestionsUtils';
 
 import { publicProcedure, router } from '../trpc';
 
@@ -15,6 +16,7 @@ export const questionProgressRouter = router({
     .input(
       z.object({
         format: z.string(),
+        listKey: z.string().optional(),
         progressId: z.string().optional(),
         slug: z.string(),
         status: z.string(),
@@ -22,7 +24,7 @@ export const questionProgressRouter = router({
     )
     .mutation(
       async ({
-        input: { format, slug, status, progressId },
+        input: { format, slug, status, progressId, listKey },
         ctx: { user },
       }) => {
         if (!user) {
@@ -51,6 +53,30 @@ export const questionProgressRouter = router({
               id: progressId,
             },
           });
+        }
+
+        if (listKey != null) {
+          try {
+            const session = await prisma.questionListSession.findFirst({
+              where: {
+                key: listKey,
+                status: 'IN_PROGRESS',
+                userId: user.id,
+              },
+            });
+
+            if (session != null) {
+              await prisma.questionListSessionProgress.create({
+                data: {
+                  key: hashQuestion(format, slug),
+                  sessionId: session.id,
+                  status: 'COMPLETED',
+                },
+              });
+            }
+          } catch {
+            // TODO: Report error
+          }
         }
 
         return {

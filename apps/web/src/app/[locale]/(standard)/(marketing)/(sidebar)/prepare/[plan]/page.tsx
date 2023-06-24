@@ -5,12 +5,14 @@ import type { IntlShape } from 'react-intl';
 import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
 import { getPreparationPlans } from '~/data/plans/PreparationPlans';
 
-import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
-
 import {
-  fetchQuestionsBySlug,
-  fetchQuestionsListQuiz,
-} from '~/db/QuestionsListReader';
+  countQuestionsByDifficulty,
+  sortQuestions,
+} from '~/components/questions/common/QuestionsProcessor';
+import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
+
+import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
+import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -67,29 +69,9 @@ export default async function Page({ params }: Props) {
   const { locale, plan: planType } = params;
 
   const intl = await getIntlServerOnly(locale);
-
-  const [{ questions: quizQuestions }] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-  ]);
   // TODO: Remove this IntlShape typecast.
-  const preparationPlans = getPreparationPlans(intl as IntlShape);
+  const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
   const preparationPlan = preparationPlans[planType];
-
-  const quizQuestionsForPlan = quizQuestions.filter(({ importance }) => {
-    switch (preparationPlan.type) {
-      case 'one-week':
-        return importance === 'high';
-      case 'one-month':
-        return importance === 'high' || importance === 'mid';
-      case 'three-months':
-        return true;
-    }
-  });
-
-  // Quiz questions are dynamically populated based on the following.
-  preparationPlan.questions.quiz = quizQuestionsForPlan.map(
-    (metadata) => metadata.slug,
-  );
 
   const { title, description } = await getPreparationPlansSEO(planType, locale);
 
@@ -101,6 +83,12 @@ export default async function Page({ params }: Props) {
     questions['user-interface'],
   );
   const systemDesignQuestionsForPlan = questions['system-design'];
+  const quizQuestionsForPlan =
+    questions.quiz as ReadonlyArray<QuestionQuizMetadata>;
+  const difficultySummary = countQuestionsByDifficulty([
+    ...codingQuestionsForPlan,
+    ...systemDesignQuestionsForPlan,
+  ]);
 
   return (
     <>
@@ -115,6 +103,7 @@ export default async function Page({ params }: Props) {
       />
       <PreparePlanPage
         codingQuestions={codingQuestionsForPlan}
+        difficultySummary={difficultySummary}
         plan={preparationPlan}
         quizQuestions={sortQuestions(quizQuestionsForPlan, 'importance', false)}
         systemDesignQuestions={systemDesignQuestionsForPlan}

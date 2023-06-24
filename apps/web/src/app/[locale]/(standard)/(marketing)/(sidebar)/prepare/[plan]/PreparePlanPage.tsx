@@ -12,6 +12,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import { countQuestionsTotalDurationMins } from '~/components/questions/common/QuestionsProcessor';
 import type {
+  QuestionDifficulty,
   QuestionMetadata,
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
@@ -20,21 +21,23 @@ import QuestionsPlansList from '~/components/questions/listings/items/QuestionsP
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import {
+  categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
+  difficultySummary: Record<QuestionDifficulty, number>;
   plan: PreparationPlan;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function PreparePlanPage({
+  difficultySummary,
   quizQuestions,
   codingQuestions,
   systemDesignQuestions,
@@ -44,16 +47,26 @@ export default function PreparePlanPage({
   const { userProfile } = useUserProfile();
   const { data: questionProgressParam } =
     trpc.questionProgress.getAll.useQuery();
+  const { data: questionListsProgressParam } =
+    trpc.questionLists.getSessionProgress.useQuery({ listKey: plan.type });
+
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const planTheme = getPreparationPlanTheme(plan.type);
+  const questionsListsProgressAll = categorizeQuestionListSessionProgress(
+    questionListsProgressParam,
+  );
 
-  const questionsProgress = filterQuestionsProgressByList(
+  const _questionsProgress = filterQuestionsProgressByList(
     questionsProgressAll,
     plan.questions,
   );
+  const questionsSessionProgress = filterQuestionsProgressByList(
+    questionsListsProgressAll,
+    plan.questions,
+  );
 
+  const planTheme = getPreparationPlanTheme(plan.type);
   const questionCount = Object.values(plan.questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
@@ -85,32 +98,22 @@ export default function PreparePlanPage({
           />
         </div>
         <QuestionListTitleSection
-          completedCount={
-            questionsProgress.javascript.size +
-            questionsProgress['user-interface'].size +
-            questionsProgress.quiz.size +
-            questionsProgress['system-design'].size
-          }
+          description={plan.description}
+          difficultySummary={difficultySummary}
           icon={planTheme.iconOutline}
           questionCount={questionCount}
+          questionListKey={plan.type}
           themeBackgroundClass={planTheme.backgroundClass}
           title={plan.longName}
           totalDurationMins={totalDuration}
         />
-        <Text
-          className="max-w-3xl"
-          color="secondary"
-          display="block"
-          size="body2">
-          {plan.description}
-        </Text>
       </Container>
       <Section>
         <Container className="pb-12">
           {canViewStudyPlans ? (
             <QuestionsPlansList
               codingQuestions={codingQuestions}
-              progress={questionsProgress}
+              progress={questionsSessionProgress}
               quizQuestions={quizQuestions}
               systemDesignQuestions={systemDesignQuestions}
             />

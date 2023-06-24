@@ -5,6 +5,8 @@ import type {
   QuestionListTheme,
 } from '~/components/questions/common/QuestionsTypes';
 
+import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
+
 import {
   getPreparationPlanOneMonth,
   getPreparationPlanThemeOneMonth,
@@ -26,7 +28,7 @@ export type PreparationPlan = QuestionList &
     type: PreparationPlanType;
   }>;
 
-type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
+export type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
 type PreparationPlanThemes = Record<PreparationPlanType, QuestionListTheme>;
 
 export function getPreparationPlans(intl: IntlShape): PreparationPlans {

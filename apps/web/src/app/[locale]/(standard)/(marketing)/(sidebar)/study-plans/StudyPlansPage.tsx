@@ -4,12 +4,14 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import type {
   PreparationPlan,
+  PreparationPlans,
   PreparationPlanType,
 } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-import usePreparationPlans from '~/data/plans/usePreparationPlans';
 import { useTestimonials } from '~/data/Testimonials';
 
 import TestimonialCard from '~/components/marketing/testimonials/TestimonialCard';
@@ -18,6 +20,7 @@ import QuestionDifficultySummary from '~/components/questions/common/QuestionDif
 import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -29,10 +32,15 @@ import CompletionCountSummary from './CompletionCountSummary';
 function PreparationPlanCard({
   difficultySummary,
   plan: { type, name, description, questions, href },
+  isStarted = false,
+  completionCount = 0,
 }: {
+  completionCount?: number;
   difficultySummary: Record<QuestionDifficulty, number>;
+  isStarted?: boolean;
   plan: PreparationPlan;
 }) {
+  const intl = useIntl();
   const questionCount = Object.values(questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
@@ -54,15 +62,30 @@ function PreparationPlanCard({
       </div>
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-col gap-1">
-          <Anchor href={href} variant="unstyled">
-            <span aria-hidden={true} className="absolute inset-0" />
-            <Heading level="heading6">{name}</Heading>
-          </Anchor>
-          <Text color="secondary" size="body3">
+          <div className="flex gap-x-4">
+            <Anchor href={href} variant="unstyled">
+              <span aria-hidden={true} className="absolute inset-0" />
+              <Heading level="heading6">{name}</Heading>
+            </Anchor>
+            {isStarted && (
+              <span>
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Started',
+                    description: 'Started on study plan label',
+                    id: 'cKn3cK',
+                  })}
+                  size="sm"
+                  variant="info"
+                />
+              </span>
+            )}
+          </div>
+          <Text color="secondary" size="body2">
             {description}
           </Text>
         </div>
-        <div className="flex flex-wrap items-center gap-x-10 gap-y-2">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
           <QuestionCountLabel count={questionCount} showIcon={true} />
           {/* TODO(redesign): calculate daily. */}
           <QuestionStudyAllocationLabel
@@ -76,9 +99,11 @@ function PreparationPlanCard({
             medium={difficultySummary.medium}
             showIcon={true}
           />
-          {false && (
-            // TODO(redesign): fetch progress.
-            <CompletionCountSummary completed={10} total={questionCount} />
+          {isStarted && (
+            <CompletionCountSummary
+              completed={completionCount}
+              total={questionCount}
+            />
           )}
         </div>
       </div>
@@ -99,12 +124,19 @@ export type PlanDifficultySummary = Record<
 
 type Props = Readonly<{
   plansDifficultySummary: PlanDifficultySummary;
+  preparationPlans: PreparationPlans;
 }>;
 
-export default function StudyPlansPage({ plansDifficultySummary }: Props) {
+export default function StudyPlansPage({
+  preparationPlans,
+  plansDifficultySummary,
+}: Props) {
   const intl = useIntl();
-  const preparationPlans = usePreparationPlans();
   const testimonials = useTestimonials();
+  const { data: questionListSessions } =
+    trpc.questionLists.getActiveSessions.useQuery();
+
+  const sessions = questionListSessions ?? [];
 
   const preparationPlanSections: Array<PreparationPlanSection> = [
     {
@@ -148,13 +180,22 @@ export default function StudyPlansPage({ plansDifficultySummary }: Props) {
                 </Heading>
                 <Section>
                   <div className="flex flex-col gap-4">
-                    {plans.map((plan) => (
-                      <PreparationPlanCard
-                        key={plan.type}
-                        difficultySummary={plansDifficultySummary[plan.type]}
-                        plan={plan}
-                      />
-                    ))}
+                    {plans.map((plan) => {
+                      const session = sessions.find(
+                        (session_) => session_.key === plan.type,
+                      );
+                      const completionCount = session?._count.progress;
+
+                      return (
+                        <PreparationPlanCard
+                          key={plan.type}
+                          completionCount={completionCount}
+                          difficultySummary={plansDifficultySummary[plan.type]}
+                          isStarted={session != null}
+                          plan={plan}
+                        />
+                      );
+                    })}
                   </div>
                 </Section>
               </div>

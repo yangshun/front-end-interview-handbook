@@ -7,7 +7,6 @@ import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 
 type Props = Readonly<{
   completedQuestions: number;
-  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   progressBarClassName?: string;
   title: string;
   totalQuestions: number;
@@ -16,7 +15,6 @@ type Props = Readonly<{
 
 export default function QuestionsProgressPanel({
   title,
-  icon: Icon, // TODO(redesign): determine if we want to display icons.
   completedQuestions,
   progressBarClassName,
   variant,
