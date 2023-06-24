@@ -72,13 +72,12 @@ export default function Badge({ label, size = 'md', variant }: Props) {
   return (
     <span
       className={clsx(
-        'inline-flex items-center whitespace-nowrap rounded-full border py-0.5 font-medium',
+        'inline-flex items-center whitespace-nowrap rounded-full border py-px font-medium',
         sizeClasses[size],
         backgroundClass,
         borderClass,
-        textClass,
       )}>
-      {label}
+      <span className={textClass}>{label}</span>
     </span>
   );
 }
