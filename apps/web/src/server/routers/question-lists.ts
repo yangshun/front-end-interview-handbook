@@ -79,6 +79,36 @@ export const questionListsRouter = router({
         },
       });
     }),
+  resetSessionProgress: publicProcedure
+    .input(
+      z.object({
+        sessionId: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { sessionId }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      // Make sure the session is active.
+      const session = await prisma.questionListSession.findFirst({
+        where: {
+          id: sessionId,
+          status: 'IN_PROGRESS',
+          userId: user.id,
+        },
+      });
+
+      if (session == null) {
+        return null;
+      }
+
+      await prisma.questionListSessionProgress.deleteMany({
+        where: {
+          sessionId,
+        },
+      });
+    }),
   startSession: publicProcedure
     .input(
       z.object({

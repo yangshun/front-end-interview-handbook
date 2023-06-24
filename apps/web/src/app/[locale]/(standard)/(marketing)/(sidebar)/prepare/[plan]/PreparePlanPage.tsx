@@ -45,6 +45,8 @@ export default function PreparePlanPage({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
+  const canViewStudyPlans = userProfile?.isPremium;
+
   const { data: questionProgressParam } =
     trpc.questionProgress.getAll.useQuery();
   const { data: questionListsProgressParam } =
@@ -70,8 +72,6 @@ export default function PreparePlanPage({
   const questionCount = Object.values(plan.questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
-
-  const canViewStudyPlans = userProfile?.isPremium;
 
   const totalDuration = countQuestionsTotalDurationMins([
     ...codingQuestions,

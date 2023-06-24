@@ -49,6 +49,8 @@ export default function QuestionListTitleSection({
 
   const startSessionMutation = trpc.questionLists.startSession.useMutation();
   const stopSessionMutation = trpc.questionLists.stopSession.useMutation();
+  const resetSessionProgressMutation =
+    trpc.questionLists.resetSessionProgress.useMutation();
 
   return (
     <div className="flex flex-col justify-between gap-y-4 gap-x-8 md:flex-row">
@@ -147,8 +149,8 @@ export default function QuestionListTitleSection({
                 <Button
                   addonPosition="start"
                   icon={RiLoopLeftLine}
-                  isDisabled={false}
-                  isLoading={false}
+                  isDisabled={resetSessionProgressMutation.isLoading}
+                  isLoading={resetSessionProgressMutation.isLoading}
                   label={intl.formatMessage({
                     defaultMessage: 'Reset progress',
                     description: 'Button label to reset study plan progress',
@@ -156,6 +158,32 @@ export default function QuestionListTitleSection({
                   })}
                   size="sm"
                   variant="tertiary"
+                  onClick={() => {
+                    if (questionListSession == null) {
+                      return;
+                    }
+
+                    // TODO(redesign): Change to modal.
+                    const decision = window.confirm(
+                      'Are you sure you want to reset all progress?',
+                    );
+
+                    if (!decision) {
+                      return;
+                    }
+
+                    resetSessionProgressMutation.mutate(
+                      {
+                        sessionId: questionListSession.id,
+                      },
+                      {
+                        onSuccess: () => {
+                          // TODO(redesign): Add toast.
+                          alert('Progress for study plan cleared');
+                        },
+                      },
+                    );
+                  }}
                 />
                 <Button
                   addonPosition="start"
@@ -175,6 +203,16 @@ export default function QuestionListTitleSection({
                       return;
                     }
 
+                    // TODO(redesign): Change to modal.
+                    const decision = window.confirm(
+                      'Are you sure you want to stop the study plan?',
+                    );
+
+                    if (!decision) {
+                      return;
+                    }
+
+                    // TODO:
                     stopSessionMutation.mutate(
                       {
                         sessionId: questionListSession.id,

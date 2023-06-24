@@ -18,9 +18,9 @@ import QuestionsPlansList from '~/components/questions/listings/items/QuestionsP
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import {
+  categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
@@ -41,16 +41,26 @@ export default function FocusAreaPage({
   const intl = useIntl();
   const { data: questionProgressParam } =
     trpc.questionProgress.getAll.useQuery();
+  const { data: questionListsProgressParam } =
+    trpc.questionLists.getSessionProgress.useQuery({ listKey: focusArea.type });
+
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const focusAreaTheme = getFocusAreaTheme(focusArea.type);
+  const questionsListsProgressAll = categorizeQuestionListSessionProgress(
+    questionListsProgressParam,
+  );
 
-  const questionsProgress = filterQuestionsProgressByList(
+  const _questionsProgress = filterQuestionsProgressByList(
     questionsProgressAll,
     focusArea.questions,
   );
+  const questionsSessionProgress = filterQuestionsProgressByList(
+    questionsListsProgressAll,
+    focusArea.questions,
+  );
 
+  const focusAreaTheme = getFocusAreaTheme(focusArea.type);
   const questionCount = Object.values(focusArea.questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
@@ -94,7 +104,7 @@ export default function FocusAreaPage({
           <QuestionsPlansList
             codingQuestions={codingQuestions}
             listKey={focusArea.type}
-            progress={questionsProgress}
+            progress={questionsSessionProgress}
             quizQuestions={quizQuestions}
             systemDesignQuestions={systemDesignQuestions}
           />
