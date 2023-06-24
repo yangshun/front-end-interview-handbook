@@ -27,6 +27,23 @@ export default function CheckboxInputExamples() {
       </div>
       <div className="flex gap-x-24">
         <CheckboxInput
+          label="I would like to sign up for the newsletter to receive useful tips and question updates"
+          value={isChecked}
+          onChange={(value) => {
+            setIsChecked(value);
+          }}
+        />
+        <CheckboxInput
+          label="I would like to sign up for the newsletter to receive useful tips and question updates"
+          size="sm"
+          value={isChecked}
+          onChange={(value) => {
+            setIsChecked(value);
+          }}
+        />
+      </div>
+      <div className="flex gap-x-24">
+        <CheckboxInput
           description="No spam, we promise! Unsubscribe anytime"
           label="I would like to sign up for newsletter and updates"
           value={isChecked}

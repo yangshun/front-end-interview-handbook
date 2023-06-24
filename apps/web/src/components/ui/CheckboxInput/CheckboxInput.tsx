@@ -41,6 +41,11 @@ const textSizeVariants: Record<CheckboxSize, TextSize> = {
   sm: 'body3',
 };
 
+const topMarginVariants: Record<CheckboxSize, string> = {
+  md: '',
+  sm: 'mt-0.5',
+};
+
 function CheckboxInput(
   {
     defaultValue,
@@ -61,12 +66,7 @@ function CheckboxInput(
 
   return (
     <div>
-      <div
-        className={clsx(
-          'relative flex',
-          // Vertically center only when there's only the label to render.
-          description == null && errorMessage == null && 'items-center',
-        )}>
+      <div className={clsx('relative flex')}>
         <div className="flex h-5 items-center">
           <input
             ref={ref}
@@ -97,7 +97,12 @@ function CheckboxInput(
             }}
           />
         </div>
-        <div className={clsx('grid gap-1', checkboxSizeClasses[size])}>
+        <div
+          className={clsx(
+            'grid gap-1',
+            checkboxSizeClasses[size],
+            topMarginVariants[size],
+          )}>
           <label className={clsx('block')} htmlFor={id}>
             <Text
               color={disabled ? 'disabled' : 'default'}
