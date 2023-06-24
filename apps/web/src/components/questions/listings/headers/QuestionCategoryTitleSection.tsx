@@ -1,9 +1,13 @@
 import type { ReactNode } from 'react';
-import { RiCss3Line, RiHtml5Line, RiReactjsLine } from 'react-icons/ri';
+import {
+  RiCss3Line,
+  RiHtml5Line,
+  RiJavascriptLine,
+  RiReactjsLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import TextPairing from '~/components/common/TextPairing';
-import RiJavaScriptLine from '~/components/icons/remix/RiJavaScriptLine';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -32,7 +36,7 @@ const items: ReadonlyArray<{
 }> = [
   {
     href: '/questions/js',
-    icon: RiJavaScriptLine,
+    icon: RiJavascriptLine,
     label: 'JavaScript',
     value: 'js',
   },

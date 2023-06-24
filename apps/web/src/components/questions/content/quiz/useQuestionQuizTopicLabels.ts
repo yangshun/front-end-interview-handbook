@@ -3,14 +3,13 @@ import {
   RiCss3Line,
   RiDashboard2Line,
   RiHtml5Line,
+  RiJavascriptLine,
   RiLock2Line,
   RiTestTubeLine,
   RiTranslate2,
   RiWifiLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
-
-import RiJavaScriptLine from '~/components/icons/remix/RiJavaScriptLine';
 
 import type { QuestionQuizTopic } from '../../common/QuestionsTypes';
 
@@ -57,7 +56,7 @@ export default function useQuestionQuizTopicLabels() {
       }),
     },
     javascript: {
-      icon: RiJavaScriptLine,
+      icon: RiJavascriptLine,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript',
         description: 'JavaScript topic for quiz questions',

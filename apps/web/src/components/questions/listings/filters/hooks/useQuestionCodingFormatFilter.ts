@@ -1,10 +1,8 @@
-import { RiTerminalWindowLine } from 'react-icons/ri';
+import { RiJavascriptLine, RiTerminalWindowLine } from 'react-icons/ri';
 import { TbBinaryTree2 } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
-
-import RiJavaScriptLine from '~/components/icons/remix/RiJavaScriptLine';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 import { DSAQuestions } from '../../../common/QuestionsCodingDataStructuresAlgorithms';
@@ -39,7 +37,7 @@ export default function useQuestionCodingFormatFilter({
     value: QuestionCodingFormat;
   }> = [
     {
-      icon: RiJavaScriptLine,
+      icon: RiJavascriptLine,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript Utilities',
         description: 'Front end JavaScript utility functions',

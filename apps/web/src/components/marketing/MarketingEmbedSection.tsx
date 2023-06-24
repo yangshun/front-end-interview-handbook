@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowRightLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiJavascriptLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -18,7 +18,6 @@ import type { EmbedUIQuestion } from './embed/MarketingEmbedUIQuestion';
 import MarketingEmbedUIQuestion from './embed/MarketingEmbedUIQuestion';
 import MarketingHeroBrowserWindowFrame from './MarketingHeroBrowserWindowFrame';
 import MarketingQuestionCardMarquee from './MarketingQuestionCardMarquee';
-import RiJavaScriptLine from '../icons/remix/RiJavaScriptLine';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
@@ -70,7 +69,7 @@ function useTabs() {
       value: 'user-interface',
     },
     {
-      icon: RiJavaScriptLine,
+      icon: RiJavascriptLine,
       label: 'JavaScript',
       value: 'javascript',
     },
