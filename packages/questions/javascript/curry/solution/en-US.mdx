@@ -16,7 +16,7 @@ We first need to understand a few terms:
 - **Arity**: The number of arguments or operands taken by a function.
 - **Closure**: A closure is the combination of a function bundled together with references to its lexical environment (surrounding state).
 
-The curried function will stop accepting arguments after the number of arguments have been passed into the curried function equals the arity of the original function.
+The curried function will stop accepting arguments after the number of arguments that have been passed into the curried function equals the arity of the original function.
 
 We can keep a record of the curried function arguments so far via closures. Each time the curried function is called, we compare the number of arguments so far with the arity of the original function.
 
