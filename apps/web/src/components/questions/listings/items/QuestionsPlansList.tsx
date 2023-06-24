@@ -20,15 +20,17 @@ import type {
 
 export default function QuestionsPlansList({
   listKey,
-  progress,
+  sessionProgress,
   quizQuestions,
   codingQuestions,
   systemDesignQuestions,
+  overallProgress,
 }: Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   listKey: string;
-  progress: QuestionsCategorizedProgress;
+  overallProgress: QuestionsCategorizedProgress;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  sessionProgress: QuestionsCategorizedProgress;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const [selectedQuestionFormat, setSelectedQuestionFormat] =
@@ -41,6 +43,10 @@ export default function QuestionsPlansList({
   const codingQuestionsWithProgress = useQuestionsWithListProgressStatus(
     listKey,
     codingQuestions,
+  );
+  const systemDesignQuestionsWithProgress = useQuestionsWithListProgressStatus(
+    listKey,
+    systemDesignQuestions,
   );
 
   return (
@@ -58,15 +64,16 @@ export default function QuestionsPlansList({
             progressSummary={{
               coding: {
                 completed:
-                  progress.javascript.size + progress['user-interface'].size,
+                  sessionProgress.javascript.size +
+                  sessionProgress['user-interface'].size,
                 total: codingQuestions.length,
               },
               quiz: {
-                completed: progress.quiz.size,
+                completed: sessionProgress.quiz.size,
                 total: quizQuestions.length,
               },
               'system-design': {
-                completed: progress['system-design'].size,
+                completed: sessionProgress['system-design'].size,
                 total: systemDesignQuestions.length,
               },
             }}
@@ -76,6 +83,9 @@ export default function QuestionsPlansList({
         </div>
         {selectedQuestionFormat === 'quiz' && (
           <QuestionsQuizListWithFilters
+            checkIfCompletedQuestionBefore={(question) =>
+              overallProgress[question.format].has(question.slug)
+            }
             listKey={listKey}
             questions={quizQuestionsWithProgress}
           />
@@ -92,6 +102,9 @@ export default function QuestionsPlansList({
 
             return (
               <QuestionsCodingListWithFilters
+                checkIfCompletedQuestionBefore={(question) =>
+                  overallProgress[question.format].has(question.slug)
+                }
                 listKey={listKey}
                 questions={sortedQuestions}
               />
@@ -100,13 +113,16 @@ export default function QuestionsPlansList({
         {selectedQuestionFormat === 'system-design' &&
           (() => {
             const sortedQuestions = sortQuestionsMultiple(
-              systemDesignQuestions,
+              systemDesignQuestionsWithProgress,
               [{ field: 'ranking', isAscendingOrder: true }],
             );
 
             return (
               <QuestionsList
-                checkIfCompletedQuestion={() => false}
+                checkIfCompletedQuestion={(question) => question.isCompleted}
+                checkIfCompletedQuestionBefore={(question) =>
+                  overallProgress[question.format].has(question.slug)
+                }
                 listKey={listKey}
                 questions={sortedQuestions}
               />

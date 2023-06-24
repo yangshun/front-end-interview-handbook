@@ -1,5 +1,9 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiCheckboxCircleFill } from 'react-icons/ri';
+import {
+  RiArrowRightLine,
+  RiCheckboxCircleFill,
+  RiCheckboxCircleLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -23,6 +27,7 @@ import QuestionUsersCompletedLabel from '../../common/QuestionUsersCompletedLabe
 
 type Props<Q extends QuestionQuizMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
+  checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   listKey?: string;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
@@ -31,6 +36,7 @@ type Props<Q extends QuestionQuizMetadata> = Readonly<{
 
 export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
   checkIfCompletedQuestion,
+  checkIfCompletedQuestionBefore,
   listKey,
   questions,
   questionCompletionCount,
@@ -70,6 +76,9 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
       role="list">
       {questions.map((question, index) => {
         const hasCompletedQuestion = checkIfCompletedQuestion(question);
+        const hasCompletedQuestionBefore = checkIfCompletedQuestionBefore
+          ? checkIfCompletedQuestionBefore(question)
+          : false;
 
         return (
           <li
@@ -83,7 +92,11 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
             {showProgress && (
-              <div className="flex items-center justify-center">
+              <div
+                className={clsx(
+                  'flex items-center justify-center',
+                  'z-10', // Needed for the icon to be above the link.
+                )}>
                 {hasCompletedQuestion ? (
                   <Tooltip
                     label={intl.formatMessage({
@@ -94,11 +107,20 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     position="above">
                     <RiCheckboxCircleFill
                       aria-hidden="true"
-                      className={clsx(
-                        'h-8 w-8 scale-110',
-                        'text-success',
-                        'z-10', // Needed for the icon to be above the link.
-                      )}
+                      className={clsx('h-8 w-8 scale-110', 'text-success')}
+                    />
+                  </Tooltip>
+                ) : hasCompletedQuestionBefore ? (
+                  <Tooltip
+                    label={intl.formatMessage({
+                      defaultMessage: 'Past solved',
+                      description: 'Label for questions solved in the past',
+                      id: 'txBBg4',
+                    })}
+                    position="above">
+                    <RiCheckboxCircleLine
+                      aria-hidden="true"
+                      className={clsx('h-8 w-8 scale-110', 'text-neutral-500')}
                     />
                   </Tooltip>
                 ) : (
@@ -112,7 +134,6 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     <span
                       className={clsx(
                         'flex h-8 w-8 items-center justify-center rounded-full',
-                        'z-10', // Needed for the icon to be above the link.
                         ['border', themeLineColor],
                         'bg-neutral-100 dark:bg-neutral-900',
                       )}

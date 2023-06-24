@@ -15,6 +15,7 @@ import {
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
   QuestionCodingFormat,
+  QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
@@ -48,6 +49,7 @@ import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
+  checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
   codingFormatFiltersFilterPredicate?: (
     format: QuestionCodingFormat,
   ) => boolean;
@@ -66,6 +68,7 @@ export type Props = Readonly<{
 }>;
 
 export default function QuestionsCodingListWithFilters({
+  checkIfCompletedQuestionBefore,
   initialCodingFormat = null,
   framework,
   layout = 'full',
@@ -504,6 +507,9 @@ export default function QuestionsCodingListWithFilters({
               <Section>
                 <QuestionsList
                   checkIfCompletedQuestion={(question) => question.isCompleted}
+                  checkIfCompletedQuestionBefore={
+                    checkIfCompletedQuestionBefore
+                  }
                   framework={framework}
                   listKey={listKey}
                   questionCompletionCount={questionCompletionCount}

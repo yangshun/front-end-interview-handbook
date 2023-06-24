@@ -51,7 +51,7 @@ export default function FocusAreaPage({
     questionListsProgressParam,
   );
 
-  const _questionsProgress = filterQuestionsProgressByList(
+  const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
     focusArea.questions,
   );
@@ -104,8 +104,9 @@ export default function FocusAreaPage({
           <QuestionsPlansList
             codingQuestions={codingQuestions}
             listKey={focusArea.type}
-            progress={questionsSessionProgress}
+            overallProgress={questionsOverallProgress}
             quizQuestions={quizQuestions}
+            sessionProgress={questionsSessionProgress}
             systemDesignQuestions={systemDesignQuestions}
           />
         </Container>

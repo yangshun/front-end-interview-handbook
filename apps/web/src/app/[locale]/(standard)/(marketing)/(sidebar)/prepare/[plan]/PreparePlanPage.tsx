@@ -59,7 +59,7 @@ export default function PreparePlanPage({
     questionListsProgressParam,
   );
 
-  const _questionsProgress = filterQuestionsProgressByList(
+  const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
     plan.questions,
   );
@@ -114,8 +114,9 @@ export default function PreparePlanPage({
             <QuestionsPlansList
               codingQuestions={codingQuestions}
               listKey={plan.type}
-              progress={questionsSessionProgress}
+              overallProgress={questionsOverallProgress}
               quizQuestions={quizQuestions}
+              sessionProgress={questionsSessionProgress}
               systemDesignQuestions={systemDesignQuestions}
             />
           ) : (

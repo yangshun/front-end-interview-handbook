@@ -10,6 +10,7 @@ import {
   sortQuestionsMultiple,
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
+  QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
   QuestionQuizMetadata,
   QuestionQuizMetadataWithCompletedStatus,
@@ -33,6 +34,7 @@ import questionMatchesTextQuery from '../questionMatchesTextQuery';
 import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
+  checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
   layout?: 'embedded' | 'full';
   listKey?: string;
   mode?: 'default' | 'topic';
@@ -41,6 +43,7 @@ export type Props = Readonly<{
 }>;
 
 export default function QuestionsQuizListWithFilters({
+  checkIfCompletedQuestionBefore,
   listKey,
   layout = 'full',
   mode = 'default',
@@ -257,6 +260,7 @@ export default function QuestionsQuizListWithFilters({
             <Section>
               <QuestionsQuizList
                 checkIfCompletedQuestion={(question) => question.isCompleted}
+                checkIfCompletedQuestionBefore={checkIfCompletedQuestionBefore}
                 listKey={listKey}
                 questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}
