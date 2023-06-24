@@ -3,7 +3,7 @@ title: Intersection With
 excerpt: Computes the intersection of arrays using a custom comparator function to determine equality between elements.
 ---
 
-The `intersectionWith` function takes a custom comparator function and multiple arrays as arguments. It compares the elements of the arrays using the comparator function to determine equality. The function returns a new array containing the elements that are present in all given arrays.
+The `intersectionWith` function takes a custom `comparator` function and multiple arrays as arguments. It compares the elements of the arrays using the `comparator` function to determine equality. The function returns a new array containing the elements that are present in all given arrays.
 
 ```ts
 intersectionWith(comparator, ...arrays);
@@ -11,8 +11,8 @@ intersectionWith(comparator, ...arrays);
 
 ## Arguments
 
-1. `comparator` _(Function)_: The comparator function used to determine equality between elements. The function will be invoked with two arguments (a, b) representing the two elements being compared. It should return true if the elements are considered equal, and false otherwise.
-1. `arrays` _(Array[])_: The arrays to inspect.
+1. `comparator` _(Function)_: The comparator function used to determine equality between elements. The function will be invoked with two arguments `(arrVal, othVal)` representing the two elements being compared. It should return `true` if the elements are considered equal, and `false` otherwise.
+1. `arrays` _(...Array)_: The arrays to inspect.
 
 ## Returns
 
@@ -39,12 +39,9 @@ const result = intersectionWith(
 
 ## Notes
 
-- In lodash, `comparator` is optional, but in this question it is a required parameter for simplicity.
-
+- In Lodash, `comparator` is optional and is the last parameter, but in this question it is a required parameter for simplicity.
 - The order of elements in the resulting array is determined by the order in which they appear in the first array.
-
 - If no arrays are provided, the function will return an empty array.
-
 - If any of the arrays are empty, the function will return an empty array.
 
 ## Resources

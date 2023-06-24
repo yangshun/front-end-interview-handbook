@@ -1,15 +1,6 @@
 import intersectionBy from './intersection-by';
 
 describe('intersectionBy', () => {
-  test('should return the intersection of arrays based on iteratee function', () => {
-    const arr1 = [2.1, 1.2];
-    const arr2 = [2.3, 3.4];
-    const arr3 = [4.5, 2.6];
-    const iteratee = Math.floor;
-
-    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([2.1]);
-  });
-
   test('should handle empty arrays', () => {
     const arr1 = [];
     const arr2 = [1, 2, 3];
@@ -17,6 +8,15 @@ describe('intersectionBy', () => {
     const iteratee = String;
 
     expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([]);
+  });
+
+  test('should return the intersection of arrays based on iteratee function', () => {
+    const arr1 = [2.1, 1.2];
+    const arr2 = [2.3, 3.4];
+    const arr3 = [4.5, 2.6];
+    const iteratee = Math.floor;
+
+    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([2.1]);
   });
 
   test('should handle arrays with no intersection', () => {

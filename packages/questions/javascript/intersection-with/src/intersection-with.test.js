@@ -6,15 +6,15 @@ describe('intersectionWith', () => {
     expect(actual).toEqual([]);
   });
 
-  test('should return an empty array when any of the arrays is empty', () => {
+  test('should return an empty array when any of the arrays are empty', () => {
     const actual = intersectionWith((x, y) => true, [], [1, 2, 3], [4, 5, 6]);
     expect(actual).toEqual([]);
   });
 
   test('should return an empty array when there are no common elements', () => {
     const actual = intersectionWith(
-      (x, y) => x == y,
-      [(1, 2, 3)],
+      (x, y) => x === y,
+      [1, 2, 3],
       [4, 5, 6],
       [7, 8, 9],
     );
