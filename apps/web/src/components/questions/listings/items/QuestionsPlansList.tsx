@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
+import QuestionsQuizListWithFilters from '~/components/questions/listings/items/QuestionsQuizListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import QuestionsCodingListWithFiltersAndProgress from './QuestionsCodingListWithFiltersAndProgress';
 import QuestionsList from './QuestionsList';
-import QuestionsQuizListWithFiltersAndProgress from './QuestionsQuizListWithFiltersAndProgress';
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
+import useQuestionsWithListProgressStatus from '../useQuestionsWithListProgressStatus';
 import { sortQuestionsMultiple } from '../../common/QuestionsProcessor';
 import type {
   QuestionMetadata,
@@ -18,18 +19,29 @@ import type {
 } from '../../common/QuestionsTypes';
 
 export default function QuestionsPlansList({
+  listKey,
   progress,
   quizQuestions,
   codingQuestions,
   systemDesignQuestions,
 }: Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
+  listKey: string;
   progress: QuestionsCategorizedProgress;
   quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const [selectedQuestionFormat, setSelectedQuestionFormat] =
     useState<QuestionUserFacingFormat>('coding');
+
+  const quizQuestionsWithProgress = useQuestionsWithListProgressStatus(
+    listKey,
+    quizQuestions,
+  );
+  const codingQuestionsWithProgress = useQuestionsWithListProgressStatus(
+    listKey,
+    codingQuestions,
+  );
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -63,17 +75,24 @@ export default function QuestionsPlansList({
           />
         </div>
         {selectedQuestionFormat === 'quiz' && (
-          <QuestionsQuizListWithFiltersAndProgress questions={quizQuestions} />
+          <QuestionsQuizListWithFilters
+            listKey={listKey}
+            questions={quizQuestionsWithProgress}
+          />
         )}
         {selectedQuestionFormat === 'coding' &&
           (() => {
-            const sortedQuestions = sortQuestionsMultiple(codingQuestions, [
-              { field: 'difficulty', isAscendingOrder: true },
-              { field: 'premium', isAscendingOrder: true },
-            ]);
+            const sortedQuestions = sortQuestionsMultiple(
+              codingQuestionsWithProgress,
+              [
+                { field: 'difficulty', isAscendingOrder: true },
+                { field: 'premium', isAscendingOrder: true },
+              ],
+            );
 
             return (
-              <QuestionsCodingListWithFiltersAndProgress
+              <QuestionsCodingListWithFilters
+                listKey={listKey}
                 questions={sortedQuestions}
               />
             );
@@ -88,6 +107,7 @@ export default function QuestionsPlansList({
             return (
               <QuestionsList
                 checkIfCompletedQuestion={() => false}
+                listKey={listKey}
                 questions={sortedQuestions}
               />
             );

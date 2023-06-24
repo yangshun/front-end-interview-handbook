@@ -59,9 +59,9 @@ export default function QuestionsFormatTabs({
       }
       case 'system-design': {
         const label = intl.formatMessage({
-          defaultMessage: `System Design Questions`,
+          defaultMessage: `System Design`,
           description: 'Label for system design questions',
-          id: 'VYWqtL',
+          id: 'n9Ii7+',
         });
 
         return progressSummary != null

@@ -34,12 +34,14 @@ import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
   layout?: 'embedded' | 'full';
+  listKey?: string;
   mode?: 'default' | 'topic';
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionQuizMetadataWithCompletedStatus>;
 }>;
 
 export default function QuestionsQuizListWithFilters({
+  listKey,
   layout = 'full',
   mode = 'default',
   questions,
@@ -255,6 +257,7 @@ export default function QuestionsQuizListWithFilters({
             <Section>
               <QuestionsQuizList
                 checkIfCompletedQuestion={(question) => question.isCompleted}
+                listKey={listKey}
                 questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}
               />

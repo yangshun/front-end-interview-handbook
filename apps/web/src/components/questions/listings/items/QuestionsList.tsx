@@ -24,6 +24,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionDifficultyLabel from '../../common/QuestionDifficultyLabel';
 import QuestionFrameworks from '../../common/QuestionFrameworks';
+import { questionHrefWithList } from '../../common/questionHref';
 import QuestionLanguages from '../../common/QuestionLanguages';
 import type {
   QuestionFramework,
@@ -35,6 +36,7 @@ import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
   framework?: QuestionFramework;
+  listKey?: string;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
   showProgress?: boolean;
@@ -118,8 +120,9 @@ function QuestionNewLabel({
 }
 
 export default function QuestionsList<Q extends QuestionMetadata>({
-  framework,
   checkIfCompletedQuestion,
+  framework,
+  listKey,
   questions,
   questionCompletionCount,
   showProgress = true,
@@ -240,10 +243,13 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   className="focus:outline-none"
                   href={
                     // Redirect to framework-specific page if framework prop is provided.
-                    question.frameworks.find(
-                      ({ framework: frameworkType }) =>
-                        frameworkType === framework,
-                    )?.href ?? question.href
+                    questionHrefWithList(
+                      question.frameworks.find(
+                        ({ framework: frameworkType }) =>
+                          frameworkType === framework,
+                      )?.href ?? question.href,
+                      listKey,
+                    )
                   }
                   variant="unstyled">
                   {/* Extend touch target to entire panel */}

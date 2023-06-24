@@ -15,6 +15,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import { questionHrefWithList } from '../../common/questionHref';
 import QuestionImportanceLabel from '../../common/QuestionImportanceLabel';
 import QuestionQuizTopics from '../../common/QuestionQuizTopics';
 import type { QuestionQuizMetadata } from '../../common/QuestionsTypes';
@@ -22,6 +23,7 @@ import QuestionUsersCompletedLabel from '../../common/QuestionUsersCompletedLabe
 
 type Props<Q extends QuestionQuizMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
+  listKey?: string;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
   showProgress?: boolean;
@@ -29,6 +31,7 @@ type Props<Q extends QuestionQuizMetadata> = Readonly<{
 
 export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
   checkIfCompletedQuestion,
+  listKey,
   questions,
   questionCompletionCount,
   showProgress = true,
@@ -122,7 +125,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
               <Text display="block" size="body2" weight="medium">
                 <Anchor
                   className="block focus:outline-none"
-                  href={question.href}
+                  href={questionHrefWithList(question.href, listKey)}
                   variant="unstyled">
                   {/* Extend touch target to entire panel */}
                   <span aria-hidden="true" className="absolute inset-0" />

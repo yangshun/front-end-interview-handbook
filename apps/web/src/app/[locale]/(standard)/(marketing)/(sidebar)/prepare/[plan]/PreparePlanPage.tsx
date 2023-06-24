@@ -113,6 +113,7 @@ export default function PreparePlanPage({
           {canViewStudyPlans ? (
             <QuestionsPlansList
               codingQuestions={codingQuestions}
+              listKey={plan.type}
               progress={questionsSessionProgress}
               quizQuestions={quizQuestions}
               systemDesignQuestions={systemDesignQuestions}

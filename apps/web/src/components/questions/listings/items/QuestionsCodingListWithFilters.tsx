@@ -58,6 +58,7 @@ export type Props = Readonly<{
   framework?: QuestionFramework;
   initialCodingFormat?: QuestionCodingFormat | null;
   layout?: 'embedded' | 'full';
+  listKey?: string;
   mode?: 'default' | 'framework';
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
@@ -68,6 +69,7 @@ export default function QuestionsCodingListWithFilters({
   initialCodingFormat = null,
   framework,
   layout = 'full',
+  listKey,
   mode = 'default',
   questions,
   questionCompletionCount,
@@ -503,6 +505,7 @@ export default function QuestionsCodingListWithFilters({
                 <QuestionsList
                   checkIfCompletedQuestion={(question) => question.isCompleted}
                   framework={framework}
+                  listKey={listKey}
                   questionCompletionCount={questionCompletionCount}
                   questions={processedQuestions}
                 />

@@ -60,7 +60,6 @@ export default function PreparationOverallCompletionProgress({
         <QuestionsProgressPanel
           key={title}
           completedQuestions={completedQuestions}
-          icon={icon}
           progressBarClassName={gradient}
           title={title}
           totalQuestions={totalQuestions}

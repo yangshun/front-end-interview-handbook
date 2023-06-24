@@ -44,7 +44,7 @@ export default function FocusAreaPage({
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const planTheme = getFocusAreaTheme(focusArea.type);
+  const focusAreaTheme = getFocusAreaTheme(focusArea.type);
 
   const questionsProgress = filterQuestionsProgressByList(
     questionsProgressAll,
@@ -80,30 +80,20 @@ export default function FocusAreaPage({
           />
         </div>
         <QuestionListTitleSection
-          completedCount={
-            questionsProgress.javascript.size +
-            questionsProgress['user-interface'].size +
-            questionsProgress.quiz.size +
-            questionsProgress['system-design'].size
-          }
-          icon={planTheme.iconOutline}
+          description={focusArea.description}
+          icon={focusAreaTheme.iconOutline}
           questionCount={questionCount}
-          themeBackgroundClass={planTheme.backgroundClass}
+          questionListKey={focusArea.type}
+          themeBackgroundClass={focusAreaTheme.backgroundClass}
           title={focusArea.longName}
           totalDurationMins={totalDuration}
         />
-        <Text
-          className="max-w-3xl"
-          color="secondary"
-          display="block"
-          size="body2">
-          {focusArea.description}
-        </Text>
       </Container>
       <Section>
         <Container className="pb-12">
           <QuestionsPlansList
             codingQuestions={codingQuestions}
+            listKey={focusArea.type}
             progress={questionsProgress}
             quizQuestions={quizQuestions}
             systemDesignQuestions={systemDesignQuestions}

@@ -22,7 +22,7 @@ import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   description?: ReactNode;
-  difficultySummary: Record<QuestionDifficulty, number>;
+  difficultySummary?: Record<QuestionDifficulty, number>;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   questionCount: number;
   questionListKey: string;
@@ -66,12 +66,14 @@ export default function QuestionListTitleSection({
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
               <QuestionCountLabel count={questionCount} showIcon={true} />
               <QuestionDurationLabel mins={totalDurationMins} showIcon={true} />
-              <QuestionDifficultySummary
-                easy={difficultySummary.easy}
-                hard={difficultySummary.hard}
-                medium={difficultySummary.medium}
-                showIcon={true}
-              />
+              {difficultySummary && (
+                <QuestionDifficultySummary
+                  easy={difficultySummary.easy}
+                  hard={difficultySummary.hard}
+                  medium={difficultySummary.medium}
+                  showIcon={true}
+                />
+              )}
             </div>
           </div>
         </div>
