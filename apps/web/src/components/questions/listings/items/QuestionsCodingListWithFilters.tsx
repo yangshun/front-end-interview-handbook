@@ -15,7 +15,6 @@ import {
 } from '~/components/questions/common/QuestionsProcessor';
 import type {
   QuestionCodingFormat,
-  QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
@@ -44,12 +43,11 @@ import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
-import useQuestionsWithCompletionStatus from '../useQuestionsWithCompletionStatus';
 import QuestionCountLabel from '../../common/QuestionCountLabel';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
 
-type Props = Readonly<{
+export type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (
     format: QuestionCodingFormat,
   ) => boolean;
@@ -62,7 +60,7 @@ type Props = Readonly<{
   layout?: 'embedded' | 'full';
   mode?: 'default' | 'framework';
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   sideColumnAddOn?: ReactNode;
 }>;
 
@@ -137,11 +135,8 @@ export default function QuestionsCodingListWithFilters({
     isAscendingOrder: boolean;
   }> = [{ field: 'premium', isAscendingOrder: true }];
 
-  const questionsWithCompletionStatus =
-    useQuestionsWithCompletionStatus(questions);
-
   const sortedQuestions = sortQuestionsMultiple(
-    questionsWithCompletionStatus,
+    questions,
     userProfile?.isPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.

@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
 import PreparePageLayout from '~/components/questions/dashboard/PreparePageLayout';
-import QuestionsQuizListWithFilters from '~/components/questions/listings/items/QuestionsQuizListWithFilters';
+import QuestionsQuizListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
@@ -36,7 +36,7 @@ export default function PrepareQuizQuestionsPage({
         description: 'Prepare for front end interview quiz questions',
         id: 'w5fdO4',
       })}>
-      <QuestionsQuizListWithFilters
+      <QuestionsQuizListWithFiltersAndProgress
         layout="embedded"
         questionCompletionCount={questionCompletionCount}
         questions={questions}

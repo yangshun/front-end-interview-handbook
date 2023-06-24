@@ -12,6 +12,7 @@ import {
 import type {
   QuestionMetadataWithCompletedStatus,
   QuestionQuizMetadata,
+  QuestionQuizMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
@@ -29,14 +30,13 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingQuizFilters from '../filters/QuestionListingQuizFilters';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
-import useQuestionsWithCompletionStatus from '../useQuestionsWithCompletionStatus';
 import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
 
-type Props = Readonly<{
+export type Props = Readonly<{
   layout?: 'embedded' | 'full';
   mode?: 'default' | 'topic';
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionQuizMetadata>;
+  questions: ReadonlyArray<QuestionQuizMetadataWithCompletedStatus>;
 }>;
 
 export default function QuestionsQuizListWithFilters({
@@ -71,10 +71,7 @@ export default function QuestionsQuizListWithFilters({
     };
   }
 
-  const questionsWithCompletionStatus =
-    useQuestionsWithCompletionStatus(questions);
-
-  const sortedQuestions = sortQuestionsMultiple(questionsWithCompletionStatus, [
+  const sortedQuestions = sortQuestionsMultiple(questions, [
     { field: 'ranking', isAscendingOrder: true },
     { field: sortField, isAscendingOrder },
   ]);

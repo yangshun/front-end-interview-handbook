@@ -6,9 +6,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import QuestionsCodingListWithFilters from './QuestionsCodingListWithFilters';
+import QuestionsCodingListWithFiltersAndProgress from './QuestionsCodingListWithFiltersAndProgress';
 import QuestionsList from './QuestionsList';
-import QuestionsQuizListWithFilters from './QuestionsQuizListWithFilters';
+import QuestionsQuizListWithFiltersAndProgress from './QuestionsQuizListWithFiltersAndProgress';
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import { sortQuestionsMultiple } from '../../common/QuestionsProcessor';
 import type {
@@ -63,7 +63,7 @@ export default function QuestionsPlansList({
           />
         </div>
         {selectedQuestionFormat === 'quiz' && (
-          <QuestionsQuizListWithFilters questions={quizQuestions} />
+          <QuestionsQuizListWithFiltersAndProgress questions={quizQuestions} />
         )}
         {selectedQuestionFormat === 'coding' &&
           (() => {
@@ -73,7 +73,9 @@ export default function QuestionsPlansList({
             ]);
 
             return (
-              <QuestionsCodingListWithFilters questions={sortedQuestions} />
+              <QuestionsCodingListWithFiltersAndProgress
+                questions={sortedQuestions}
+              />
             );
           })()}
         {selectedQuestionFormat === 'system-design' &&

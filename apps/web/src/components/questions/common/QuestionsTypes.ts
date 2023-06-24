@@ -120,12 +120,16 @@ export type QuestionUserInterface = QuestionBase & {
   readonly skeletonSetup: QuestionUserInterfaceSandpackSetup | null;
   readonly solutionSetup: QuestionUserInterfaceSandpackSetup | null;
 };
+// TODO: Remove this type and merge into one.
 export type QuestionQuizMetadata = QuestionMetadata & {
   readonly subtitle: string | null;
   readonly topics: ReadonlyArray<QuestionQuizTopic>;
 };
 
 export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {
+  readonly isCompleted: boolean;
+};
+export type QuestionQuizMetadataWithCompletedStatus = QuestionQuizMetadata & {
   readonly isCompleted: boolean;
 };
 

@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import PreparePageLayout from '~/components/questions/dashboard/PreparePageLayout';
-import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
+import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
@@ -36,7 +36,7 @@ export default function PrepareCodingQuestionsPage({
         description: 'Prepare for front end interview coding questions',
         id: '7H/tqa',
       })}>
-      <QuestionsCodingListWithFilters
+      <QuestionsCodingListWithFiltersAndProgress
         layout="embedded"
         questionCompletionCount={questionCompletionCount}
         questions={questions}

@@ -7,7 +7,7 @@ import type {
   QuestionFramework,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
-import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
+import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -59,7 +59,7 @@ export default function QuestionsFrameworkPage({
           questions={questionList.slice(0, 3)}
           title={featuredSectionTitle}
         />
-        <QuestionsCodingListWithFilters
+        <QuestionsCodingListWithFiltersAndProgress
           framework={framework}
           mode="framework"
           questionCompletionCount={questionCompletionCount}

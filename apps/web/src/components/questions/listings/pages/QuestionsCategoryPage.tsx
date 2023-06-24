@@ -12,8 +12,8 @@ import type {
 import QuestionListingFeaturedQuestions from '~/components/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
 import QuestionsFormatTabs from '~/components/questions/listings/filters/QuestionsFormatsTabs';
 import QuestionCategoryTitleSection from '~/components/questions/listings/headers/QuestionCategoryTitleSection';
-import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
-import QuestionsQuizListWithFilters from '~/components/questions/listings/items/QuestionsQuizListWithFilters';
+import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
+import QuestionsQuizListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 import type { QuestionListCategory } from '~/components/questions/listings/types';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -111,14 +111,14 @@ function QuestionsList({
         />
       </div>
       {format === 'quiz' && (
-        <QuestionsQuizListWithFilters
+        <QuestionsQuizListWithFiltersAndProgress
           mode="topic"
           questionCompletionCount={questionCompletionCount}
           questions={quizQuestions}
         />
       )}
       {format === 'coding' && (
-        <QuestionsCodingListWithFilters
+        <QuestionsCodingListWithFiltersAndProgress
           codingFormatFiltersFilterPredicate={
             CategoryFilters[category].filterPredicate
           }
