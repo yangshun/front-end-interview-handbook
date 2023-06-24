@@ -180,21 +180,21 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill="none"
-      height="29"
-      viewBox="0 0 253 29"
-      width="253"
+      height="32"
+      viewBox="0 0 159 32"
+      width="159"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
       <path
-        d="M4 24.9273C28.2793 24.9273 52.5586 24.9273 76.8378 24.9273C105.35 24.9273 134.101 25.7391 162.183 21.9377C173.362 20.4244 184.866 19.7659 195.733 17.4295C206.556 15.1027 217.393 12.736 228.032 10.0741C233.3 8.75581 238.123 6.81945 243.372 5.49481C245.107 5.05692 247.183 4 249 4"
-        stroke="url(#paint0_radial_530_82356)"
+        d="M4.19504 22.3283C18.8792 25.5879 30.9156 27.876 46.2735 27.5981C64.3086 27.2718 83.436 27.8 101.13 23.6778C108.174 22.0369 114.513 21.2012 121.345 18.7409C128.149 16.2905 134.961 13.8002 141.642 11.017C144.951 9.63863 147.967 7.6474 151.263 6.26291C152.352 5.80524 153.647 4.72473 154.796 4.70393"
+        stroke="url(#paint0_radial_1164_60765)"
         stroke-linecap="round"
         stroke-opacity="0.6"
         stroke-width="8"
       />
       <path
-        d="M4 24.9273C28.2793 24.9273 52.5586 24.9273 76.8378 24.9273C105.35 24.9273 134.101 25.7391 162.183 21.9377C173.362 20.4244 184.866 19.7659 195.733 17.4295C206.556 15.1027 217.393 12.736 228.032 10.0741C233.3 8.75581 238.123 6.81945 243.372 5.49481C245.107 5.05692 247.183 4 249 4"
-        stroke="url(#paint1_radial_530_82356)"
+        d="M4.19504 22.3283C18.8792 25.5879 30.9156 27.876 46.2735 27.5981C64.3086 27.2718 83.436 27.8 101.13 23.6778C108.174 22.0369 114.513 21.2012 121.345 18.7409C128.149 16.2905 134.961 13.8002 141.642 11.017C144.951 9.63863 147.967 7.6474 151.263 6.26291C152.352 5.80524 153.647 4.72473 154.796 4.70393"
+        stroke="url(#paint1_radial_1164_60765)"
         stroke-linecap="round"
         stroke-opacity="0.6"
         stroke-width="8"
@@ -203,9 +203,9 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
         <radialGradient
           cx="0"
           cy="0"
-          gradientTransform="translate(-17.9378 1.80308) rotate(5.02506) scale(145.079 41.2041)"
+          gradientTransform="translate(-14.0938 5.56197) rotate(6.87605) scale(92.3109 40.9693)"
           gradientUnits="userSpaceOnUse"
-          id="paint0_radial_530_82356"
+          id="paint0_radial_1164_60765"
           r="1">
           <stop stop-color="#DCC0FF" />
           <stop offset="0.297527" stop-color="#3C3CF2" />
@@ -214,9 +214,9 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
         <radialGradient
           cx="0"
           cy="0"
-          gradientTransform="translate(249 25) rotate(-174.665) scale(161.465 27.8816)"
+          gradientTransform="translate(155.177 25.7001) rotate(-172.353) scale(139.094 37.4795)"
           gradientUnits="userSpaceOnUse"
-          id="paint1_radial_530_82356"
+          id="paint1_radial_1164_60765"
           r="1">
           <stop stop-color="#DCC0FF" />
           <stop offset="0.307292" stop-color="#DBCEFF" />
@@ -250,7 +250,7 @@ export default function MarketingHero() {
                     underline: (chunks) => (
                       <span className="relative">
                         {chunks}
-                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] ml-[-75%] mb-[-5%] w-[200%] hue-rotate-180 invert dark:filter-none" />
+                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] sm:mb-[-7%] mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none" />
                       </span>
                     ),
                   }}

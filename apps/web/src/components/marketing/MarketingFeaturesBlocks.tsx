@@ -10,6 +10,7 @@ import {
   themeGradient1,
   themeGradient2,
   themeGradient3,
+  themeRadialGlowBackground,
   themeTextBrandColor,
 } from '~/components/ui/theme';
 
@@ -63,8 +64,9 @@ function FeatureBlock({
 
 export default function MarketingFeaturesBlocks() {
   return (
-    <div>
-      <Container className="flex flex-col gap-y-12 py-8 md:gap-y-24 lg:gap-y-32">
+    <div
+      className={clsx('rounded-t-[48px] lg:mx-8', themeRadialGlowBackground)}>
+      <Container className="flex flex-col gap-y-12 py-32 md:gap-y-24 lg:gap-y-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
             description={

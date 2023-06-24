@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import MarketingMarqueeQuestionListSection from '~/components/marketing/MarketingMarqueeQuestionListSection';
@@ -6,6 +7,7 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Container from '~/components/ui/Container';
+import { themeRadialGlowBackground } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
@@ -24,8 +26,9 @@ export default function MarketingFeatureQuestions({
   userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   return (
-    <div>
-      <Container className="flex flex-col gap-y-12 py-8 md:gap-y-24 lg:gap-y-32">
+    <div
+      className={clsx('rounded-t-[48px] lg:mx-8', themeRadialGlowBackground)}>
+      <Container className="flex flex-col gap-y-12 pt-[72px] pb-32 md:gap-y-24 lg:gap-y-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
             description={

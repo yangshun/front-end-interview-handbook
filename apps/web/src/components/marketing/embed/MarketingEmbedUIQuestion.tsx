@@ -78,8 +78,8 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
 
   return (
     <div aria-hidden={true} className="relative flex h-full w-full flex-col">
-      <div className="h-0 grow lg:flex">
-        <div className="overflow-y-scroll lg:flex lg:w-2/5 lg:grow lg:flex-col">
+      <div className="h-0 grow lg:grid lg:grid-cols-5">
+        <div className="overflow-y-scroll lg:col-span-2 lg:flex lg:flex-col">
           <div className="flex flex-col gap-y-4 p-4 sm:grow">
             <div className="flex justify-between">
               <Text
@@ -159,7 +159,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
             />
           </div>
         </div>
-        <div className="grow sm:h-full">
+        <div className="flex grow sm:h-full lg:col-span-3">
           <SandpackProvider
             customSetup={{
               dependencies: setup?.dependencies,
@@ -187,10 +187,6 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                   flexGrow: editorPartPercentage,
                   flexShrink: editorPartPercentage,
                   height,
-                  minWidth:
-                    700 *
-                    (editorPartPercentage /
-                      (previewPartPercentage + editorPartPercentage)),
                 }}
                 wrapContent={false}
               />
@@ -202,10 +198,6 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                   flexGrow: previewPartPercentage,
                   flexShrink: previewPartPercentage,
                   height,
-                  minWidth:
-                    700 *
-                    (previewPartPercentage /
-                      (previewPartPercentage + editorPartPercentage)),
                 }}
               />
             </SandpackLayout>
