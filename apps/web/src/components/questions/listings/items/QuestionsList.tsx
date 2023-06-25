@@ -16,6 +16,7 @@ import {
   themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineColor,
+  themeTextBrandGroupHoverColor,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -175,6 +176,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               'bg-white dark:bg-neutral-800/40',
+              'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',
@@ -330,7 +332,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             <div className="flex items-center justify-center">
               <RiArrowRightLine
                 aria-hidden="true"
-                className={clsx('h-6 w-6 shrink-0', themeTextFaintColor)}
+                className={clsx(
+                  'h-6 w-6 shrink-0',
+                  themeTextFaintColor,
+                  themeTextBrandGroupHoverColor,
+                )}
               />
             </div>
           </li>

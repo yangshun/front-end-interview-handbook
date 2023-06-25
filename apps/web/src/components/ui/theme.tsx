@@ -6,6 +6,9 @@ export const themeTextBrandColor = clsx('text-brand-dark dark:text-brand');
 export const themeTextBrandHoverColor = clsx(
   'hover:text-brand-dark dark:hover:text-brand',
 );
+export const themeTextBrandGroupHoverColor = clsx(
+  'group-hover:text-brand-dark dark:group-hover:text-brand',
+);
 export const themeTextSubtitleColor = clsx(
   'text-neutral-700 dark:text-neutral-300',
 );

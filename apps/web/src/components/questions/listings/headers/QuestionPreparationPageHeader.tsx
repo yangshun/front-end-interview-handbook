@@ -7,10 +7,12 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundEmphasizedHover,
   themeCardBackgroundColor,
-  themeGradientGreenYellow,
   themeGradientBlueGreen,
+  themeGradientGreenYellow,
   themeLineBackgroundColor,
+  themeTextBrandGroupHoverColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -70,10 +72,12 @@ export default function QuestionPreparationPageHeader() {
       {userProfile != null ? (
         <div
           className={clsx(
-            'relative inline-flex shrink items-center justify-between gap-2 py-3 px-4',
+            'group relative inline-flex shrink items-center justify-between gap-2 py-3 px-4',
             'border border-neutral-200 dark:border-transparent',
             'rounded-lg',
+            'transition-colors',
             themeCardBackgroundColor,
+            themeBackgroundEmphasizedHover,
           )}>
           <div className="flex items-center gap-3">
             <div
@@ -116,16 +120,18 @@ export default function QuestionPreparationPageHeader() {
           <RiArrowRightSLine
             className={clsx(
               'h-6 w-6 shrink-0 text-neutral-500 dark:text-neutral-400',
+              themeTextBrandGroupHoverColor,
             )}
           />
         </div>
       ) : (
         <div
           className={clsx(
-            'relative flex',
+            'group relative flex',
             'border border-neutral-200 dark:border-transparent',
             'overflow-hidden rounded-lg',
             themeCardBackgroundColor,
+            themeBackgroundEmphasizedHover,
           )}>
           <div
             className={clsx(
@@ -153,6 +159,7 @@ export default function QuestionPreparationPageHeader() {
             <RiArrowRightSLine
               className={clsx(
                 'h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400',
+                themeTextBrandGroupHoverColor,
               )}
             />
           </div>

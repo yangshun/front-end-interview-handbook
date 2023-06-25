@@ -3,16 +3,20 @@ import { RiArrowRightSLine, RiCalendar2Line } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
-import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeBackgroundEmphasizedHover,
+  themeCardBackgroundColor,
+  themeTextBrandGroupHoverColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { themeLineBackgroundColor } from '../../ui/theme';
 
 export default function PreparationStudyPlansCTA() {
   return (
-    <div className="flex w-full flex-col gap-6">
+    <div className="group flex w-full flex-col gap-4">
       <Heading level="heading6">
         <FormattedMessage
           defaultMessage="Study plans"
@@ -20,15 +24,15 @@ export default function PreparationStudyPlansCTA() {
           id="dOsu3y"
         />
       </Heading>
-      <Card
-        border={false}
+      <div
         className={clsx(
-          'group flex items-center justify-between gap-2 p-4',
+          'group relative flex items-center justify-between py-3 px-4',
           'border border-neutral-200 dark:border-transparent',
-        )}
-        disableSpotlight={true}
-        padding={false}
-        pattern={false}>
+          'rounded-lg',
+          'transition-colors',
+          themeCardBackgroundColor,
+          themeBackgroundEmphasizedHover,
+        )}>
         <div className="flex items-center gap-3">
           <div
             aria-hidden="true"
@@ -42,7 +46,7 @@ export default function PreparationStudyPlansCTA() {
           </div>
           <Anchor href="/study-plans" variant="unstyled">
             <span aria-hidden={true} className="absolute inset-0" />
-            <Text color="subtitle" display="block" size="body2">
+            <Text color="subtitle" display="block" size="body3">
               <FormattedMessage
                 defaultMessage="We help you get ready within 1 week, 1 month or 3 months"
                 description="Study plans description"
@@ -54,9 +58,10 @@ export default function PreparationStudyPlansCTA() {
         <RiArrowRightSLine
           className={clsx(
             'h-6 w-6 shrink-0 text-neutral-500 dark:text-neutral-400',
+            themeTextBrandGroupHoverColor,
           )}
         />
-      </Card>
+      </div>
     </div>
   );
 }

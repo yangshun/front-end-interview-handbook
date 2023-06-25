@@ -136,7 +136,7 @@ export default function QuestionsContinueLearning({
   hideHeading = false,
 }: Props) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       {!hideHeading && (
         <Heading level="heading6">
           <FormattedMessage

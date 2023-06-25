@@ -39,7 +39,7 @@ export default function QuestionFocusAreasSection({
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <div className="@container flex flex-col gap-6">
+    <div className="@container flex flex-col gap-4">
       <div className="flex justify-between gap-4">
         <div className="flex items-center gap-4">
           <Heading level="heading6">{sectionTitle}</Heading>
@@ -82,9 +82,10 @@ export default function QuestionFocusAreasSection({
             <Anchor key={type} href={href} variant="unstyled">
               <Card
                 className={clsx(
-                  'group/card relative isolate flex flex-col items-start gap-3',
+                  'group/card relative isolate flex flex-col items-start gap-3 p-4',
                   !showAll && index >= MAX_SHOWN && '@md:hidden',
-                )}>
+                )}
+                padding={false}>
                 <div className="flex justify-between self-stretch">
                   <span
                     className={clsx(

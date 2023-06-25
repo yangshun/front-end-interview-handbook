@@ -17,14 +17,15 @@ import type {
   QuestionMetadata,
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
+import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeBackgroundColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
-import { I18nLink } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
@@ -69,12 +70,13 @@ function PreparationPlansSection() {
               <div
                 key={plan.type}
                 className={clsx(
-                  'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset md:px-8',
+                  'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset',
                   planTheme.gradient.className,
                 )}>
                 <div
                   className={clsx(
-                    'absolute top-0 inline-block -translate-y-1/2 transform rounded-xl border-2 bg-white p-3 shadow-lg',
+                    'absolute top-0 inline-block -translate-y-1/2 transform rounded-xl border-2 p-3 shadow-lg',
+                    themeBackgroundColor,
                   )}
                   style={{ borderColor: planTheme.gradient.startColor }}>
                   <planTheme.iconSolid
@@ -85,18 +87,23 @@ function PreparationPlansSection() {
                     }}
                   />
                 </div>
-                <Heading className="text-white" level="heading6">
+                <Heading color="light" level="heading6">
                   {plan.longName}
                 </Heading>
                 <Section>
-                  <p className="mt-4 text-base text-neutral-50">
+                  <Text
+                    className="mt-4"
+                    color="light"
+                    display="block"
+                    size="body2">
                     {plan.description}
-                  </p>
-                  <I18nLink
+                  </Text>
+                  <Anchor
                     className={clsx(
                       'mt-4 text-base font-medium text-white focus:outline-none',
                     )}
                     href={plan.href}
+                    variant="unstyled"
                     onClick={() => {
                       gtag.event({
                         action: `get_started.plans.${plan.type}.click`,
@@ -116,7 +123,7 @@ function PreparationPlansSection() {
                       id: '8UZ9q3',
                     })}{' '}
                     <span aria-hidden="true"> &rarr;</span>
-                  </I18nLink>
+                  </Anchor>
                 </Section>
               </div>
             );

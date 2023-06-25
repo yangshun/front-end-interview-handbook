@@ -4,10 +4,14 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeLineBackgroundColor } from '~/components/ui/theme';
+import {
+  themeBackgroundEmphasizedHover,
+  themeCardBackgroundColor,
+  themeLineBackgroundColor,
+  themeTextBrandGroupHoverColor,
+} from '~/components/ui/theme';
 
 type GuideItemProps = Readonly<{
   href: string;
@@ -17,20 +21,21 @@ type GuideItemProps = Readonly<{
 
 function GuideItem({ href, title, rank }: GuideItemProps) {
   return (
-    <Card
-      border={false}
+    <div
       className={clsx(
-        'group flex justify-between py-3 px-4',
+        'group relative flex items-center justify-between py-3 px-4',
         'border border-neutral-200 dark:border-transparent',
-      )}
-      disableSpotlight={true}
-      padding={false}
-      pattern={false}>
+        'rounded-lg',
+        'transition-colors',
+        themeCardBackgroundColor,
+        themeBackgroundEmphasizedHover,
+      )}>
       <div className="flex items-center gap-3">
         <div
           aria-hidden="true"
           className={clsx(
-            'flex h-5 w-5 items-center justify-center rounded-full font-bold text-neutral-500 dark:text-neutral-400',
+            'flex h-5 w-5 shrink-0 items-center justify-center rounded-full',
+            'font-bold text-neutral-500 dark:text-neutral-400',
             themeLineBackgroundColor,
           )}
           color="inherit">
@@ -44,9 +49,12 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
         </Anchor>
       </div>
       <RiArrowRightSLine
-        className={clsx('h-5 w-5 text-neutral-500 dark:text-neutral-400')}
+        className={clsx(
+          'h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400',
+          themeTextBrandGroupHoverColor,
+        )}
       />
-    </Card>
+    </div>
   );
 }
 
@@ -67,7 +75,7 @@ export default function PreparationStudyGuideList({
   const intl = useIntl();
 
   return (
-    <div className="flex w-full flex-col gap-6">
+    <div className="flex w-full flex-col gap-4">
       <div className="flex items-center justify-between">
         <Heading level="heading6">
           <FormattedMessage
