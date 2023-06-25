@@ -40,14 +40,17 @@ export default function QuestionStudyAllocationLabel({
           id="n8q6oB"
         />
       </span>
-      <div aria-labelledby={id} className="flex items-center">
+      <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
           <RiTimeLine
             aria-hidden="true"
-            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+            className={clsx('h-5 w-5 flex-shrink-0', themeIconColor)}
           />
         )}
-        <Text className="whitespace-nowrap" color="secondary" size={size}>
+        <Text
+          className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+          color="inherit"
+          size={size}>
           {(() => {
             switch (frequency) {
               case 'daily':

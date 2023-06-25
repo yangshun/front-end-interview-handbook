@@ -38,14 +38,17 @@ export default function QuestionDurationLabel({
           id="BtCbN4"
         />
       </span>
-      <div aria-labelledby={id} className="flex items-center">
+      <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
           <RiTimeLine
             aria-hidden="true"
-            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+            className={clsx('h-5 w-5 flex-shrink-0', themeIconColor)}
           />
         )}
-        <Text className="whitespace-nowrap" color="secondary" size={size}>
+        <Text
+          className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+          color="inherit"
+          size={size}>
           <FormattedMessage
             defaultMessage="{duration} mins"
             description="Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"

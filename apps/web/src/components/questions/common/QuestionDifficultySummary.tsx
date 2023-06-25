@@ -1,8 +1,10 @@
+import clsx from 'clsx';
 import { useId } from 'react';
 import { RiFireLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
+import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<
@@ -47,9 +49,12 @@ export default function QuestionDifficultySummary({
       <span className="sr-only" id={id}>
         {label}
       </span>
-      <div aria-labelledby={id} className="flex items-center gap-1.5">
+      <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
-          <RiFireLine aria-hidden="true" className="text-neutral-400" />
+          <RiFireLine
+            aria-hidden="true"
+            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+          />
         )}
         <div
           className="relative h-2 overflow-clip rounded-full"

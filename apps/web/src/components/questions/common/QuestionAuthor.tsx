@@ -30,7 +30,7 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
           id="n0mDHU"
         />
       </span>
-      <div aria-labelledby={id} className="flex items-center">
+      <div aria-labelledby={id} className="flex items-center gap-x-3">
         <div>
           <Tooltip
             label={intl.formatMessage({
@@ -46,11 +46,20 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
             />
           </Tooltip>
         </div>
-        <div className="ml-3 flex flex-col gap-y-0.5">
-          <Text color="secondary" display="block" size={size} weight="bold">
+        <div className="flex flex-col gap-y-0.5">
+          <Text
+            className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+            color="inherit"
+            display="block"
+            size={size}
+            weight="bold">
             {authorData.name}
           </Text>
-          <Text color="secondary" display="block" size="body3">
+          <Text
+            className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+            color="inherit"
+            display="block"
+            size="body3">
             {authorData.subtitle}
           </Text>
         </div>

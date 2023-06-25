@@ -20,7 +20,7 @@ export default function QuestionQuizTopics({
   const id = useId();
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-x-1.5">
       <span className="sr-only" id={id}>
         <FormattedMessage
           defaultMessage="Quiz Topics"
@@ -31,7 +31,7 @@ export default function QuestionQuizTopics({
       {showIcon && (
         <RiBookOpenLine
           aria-hidden="true"
-          className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+          className={clsx('h-5 w-5 flex-shrink-0', themeIconColor)}
         />
       )}
       <div

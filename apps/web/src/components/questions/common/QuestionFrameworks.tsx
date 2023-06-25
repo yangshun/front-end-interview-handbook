@@ -49,7 +49,7 @@ export default function QuestionFrameworks({ frameworks }: Props) {
           id="aqK/Gm"
         />
       </span>
-      <div aria-labelledby={id} className="flex items-center space-x-2">
+      <div aria-labelledby={id} className="flex items-center gap-x-2">
         {frameworks.map(({ framework, href }) => {
           const { icon: Icon, style: iconStyle } = frameworkIcons[framework];
 

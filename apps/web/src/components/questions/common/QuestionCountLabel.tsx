@@ -32,14 +32,17 @@ export default function QuestionCountLabel({
       <span className="sr-only" id={id}>
         {label}
       </span>
-      <div aria-labelledby={id} className="flex items-center">
+      <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
           <RiBookOpenLine
             aria-hidden="true"
-            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+            className={clsx('h-5 w-5 flex-shrink-0', themeIconColor)}
           />
         )}
-        <Text className="whitespace-nowrap" color="secondary" size={size}>
+        <Text
+          className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+          color="inherit"
+          size={size}>
           <FormattedMessage
             defaultMessage="{numberOfQuestions} questions"
             description="Number of questions in a list"

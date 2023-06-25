@@ -61,11 +61,11 @@ export default function QuestionDifficultyLabel({
           id="NgxUnY"
         />
       </span>
-      <div aria-labelledby={id} className="flex items-center">
+      <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
           <RiFireLine
             aria-hidden="true"
-            className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+            className={clsx('h-5 w-5 flex-shrink-0', themeIconColor)}
           />
         )}
         <Text

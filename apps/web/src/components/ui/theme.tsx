@@ -40,7 +40,7 @@ export const themeTextLabelColor = clsx(
   'text-neutral-700 dark:text-neutral-300',
 );
 
-export const themeIconColor = clsx('text-neutral-400');
+export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-600');
 
 // Background colors.
 export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-950');

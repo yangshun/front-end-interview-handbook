@@ -23,7 +23,7 @@ export default function QuestionLanguages({
   const id = useId();
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-x-1.5">
       <span className="sr-only" id={id}>
         <FormattedMessage
           defaultMessage="Languages"
@@ -34,7 +34,7 @@ export default function QuestionLanguages({
       {showIcon && (
         <RiCodeSSlashLine
           aria-hidden="true"
-          className={clsx('mr-1.5 h-5 w-5 flex-shrink-0', themeIconColor)}
+          className={clsx('h-5 w-5 flex-shrink-0', themeIconColor)}
         />
       )}
       <div aria-labelledby={id} className="flex items-center gap-x-2">
