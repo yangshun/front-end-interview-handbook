@@ -22,6 +22,7 @@ import QuestionStudyAllocationLabel from '~/components/questions/metadata/Questi
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -152,9 +153,14 @@ export default function StudyPlansPage({
   ];
 
   return (
-    <div className="h-full p-8">
-      <div className="mb-12 flex flex-col gap-3">
-        <Heading level="heading4">
+    <Container
+      className={clsx(
+        'flex flex-col',
+        'py-4 md:py-6 lg:py-8',
+        'gap-y-8 md:gap-y-10 2xl:gap-y-12',
+      )}>
+      <div className="flex flex-col gap-3">
+        <Heading level="heading5">
           {intl.formatMessage({
             defaultMessage: 'Study plans',
             description: 'Title of study plans page',
@@ -174,10 +180,8 @@ export default function StudyPlansPage({
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="flex flex-1 flex-col gap-12 lg:col-span-2">
             {preparationPlanSections.map(({ plans, title }) => (
-              <div key={title}>
-                <Heading className="mb-6" level="heading5">
-                  {title}
-                </Heading>
+              <div key={title} className="flex flex-col gap-y-4">
+                <Heading level="heading6">{title}</Heading>
                 <Section>
                   <div className="flex flex-col gap-4">
                     {plans.map((plan) => {
@@ -201,7 +205,7 @@ export default function StudyPlansPage({
               </div>
             ))}
           </div>
-          <div className="hidden flex-col gap-6 md:flex">
+          <div className="hidden flex-col gap-y-4 md:flex">
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Hear from our users"
@@ -220,6 +224,6 @@ export default function StudyPlansPage({
           </div>
         </div>
       </Section>
-    </div>
+    </Container>
   );
 }

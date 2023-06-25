@@ -55,8 +55,8 @@ export default function PreparePageLayout({
     <Container
       className={clsx(
         'flex flex-col',
-        'py-6 xl:py-8 2xl:py-10',
-        'gap-y-6 xl:gap-y-8 2xl:gap-y-10',
+        'py-4 md:py-6 lg:py-8',
+        'gap-y-8 md:gap-y-10 2xl:gap-y-12',
       )}>
       <Heading className="sr-only" level="custom">
         {title}
@@ -74,7 +74,7 @@ export default function PreparePageLayout({
         </div>
         <div
           className={clsx(
-            'grid gap-x-6 gap-y-12',
+            'grid gap-6',
             showContinueLearning && 'lg:grid-cols-2',
           )}>
           {showContinueLearning && questionListSessions != null && (

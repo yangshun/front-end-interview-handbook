@@ -18,6 +18,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeLineBackgroundColor,
+  themeTextFainterColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -44,7 +45,7 @@ export default function QuestionFocusAreasSection({
         <div className="flex items-center gap-4">
           <Heading level="heading6">{sectionTitle}</Heading>
           <Tooltip label={sectionDescription}>
-            <RiQuestionFill className="h-5 w-5 text-neutral-300 dark:text-neutral-700" />
+            <RiQuestionFill className="h-6 w-6 text-neutral-300" />
           </Tooltip>
         </div>
         {focusAreas.length > MAX_SHOWN && (
@@ -99,7 +100,9 @@ export default function QuestionFocusAreasSection({
                     <Icon aria-hidden={true} className="h-6 w-6" />
                   </span>
                   <Tooltip label={description}>
-                    <RiQuestionFill className="z-10 h-5 w-5 text-neutral-300 dark:text-neutral-700" />
+                    <RiQuestionFill
+                      className={clsx('z-10 h-6 w-6', themeTextFainterColor)}
+                    />
                   </Tooltip>
                 </div>
                 <Text

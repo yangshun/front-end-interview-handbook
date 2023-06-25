@@ -20,7 +20,11 @@ export default function QuestionsFocusAreas({ limit = Infinity }: Props) {
 
   return (
     <QuestionFocusAreasSection
-      description="Recommended focus areas tooltip"
+      description={intl.formatMessage({
+        defaultMessage: 'These focus areas are relevant to interviews',
+        description: 'Tooltip of recommended focus areas',
+        id: 'CZYeMZ',
+      })}
       focusAreas={areas.slice(0, limit)}
       title={intl.formatMessage({
         defaultMessage: 'Recommended focus areas',

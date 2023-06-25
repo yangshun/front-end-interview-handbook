@@ -19,6 +19,9 @@ export const themeTextSubtleColor = clsx('text-neutral-500');
 export const themeTextFaintColor = clsx(
   'text-neutral-400 dark:text-neutral-600',
 );
+export const themeTextFainterColor = clsx(
+  'text-neutral-300 dark:text-neutral-700',
+);
 export const themeTextSecondaryInvertColor = clsx(
   'text-neutral-400 dark:text-neutral-600',
 );
@@ -33,14 +36,12 @@ export const themeTextSuccessColor = clsx(
 );
 export const themeTextDangerColor = clsx('text-danger');
 export const themeTextPlaceholderColor = themeTextSecondaryColor;
-export const themeTextDisabledColor = clsx(
-  'text-neutral-300 dark:text-neutral-700',
-);
+export const themeTextDisabledColor = themeTextFainterColor;
 export const themeTextLabelColor = clsx(
   'text-neutral-700 dark:text-neutral-300',
 );
 
-export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-600');
+export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-500');
 
 // Background colors.
 export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-950');

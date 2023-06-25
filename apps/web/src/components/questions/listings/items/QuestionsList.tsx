@@ -45,55 +45,6 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   showProgress?: boolean;
 }>;
 
-function QuestionTag({
-  question,
-}: Readonly<{
-  question: QuestionMetadata;
-}>) {
-  const intl = useIntl();
-
-  // TODO: Ugly hack to render special tags for certain questions.
-  if (question.slug === 'counter') {
-    return (
-      <Badge
-        label={intl.formatMessage({
-          defaultMessage: 'Warm Up Question',
-          description: 'Label for warm up questions',
-          id: '32cQk/',
-        })}
-        size="sm"
-        variant="warning"
-      />
-    );
-  }
-
-  if (question.premium) {
-    return (
-      <Badge
-        label={intl.formatMessage({
-          defaultMessage: 'Premium',
-          description: 'Label for premium questions',
-          id: 'YB06jW',
-        })}
-        size="sm"
-        variant="primary"
-      />
-    );
-  }
-
-  return (
-    <Badge
-      label={intl.formatMessage({
-        defaultMessage: 'Free',
-        description: 'Label for free questions',
-        id: 'Tc2C+b',
-      })}
-      size="sm"
-      variant="success"
-    />
-  );
-}
-
 function QuestionNewLabel({
   created,
 }: Readonly<{
@@ -198,13 +149,13 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     position="above">
                     <span
                       className={clsx(
-                        'flex h-8 w-8 items-center justify-center rounded-full border',
-                        themeLineColor,
-                        'bg-neutral-100 dark:bg-neutral-900',
+                        'flex h-8 w-8 items-center justify-center rounded-full',
+                        'border-brand-dark dark:border-brand border',
+                        'bg-brand-lightest dark:bg-neutral-800',
                       )}>
                       <RiLockLine
                         aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-neutral-500"
+                        className="text-brand-dark dark:text-brand h-4 w-4 shrink-0"
                       />
                     </span>
                   </Tooltip>
@@ -218,7 +169,10 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     position="above">
                     <RiCheckboxCircleFill
                       aria-hidden="true"
-                      className={clsx('h-8 w-8 scale-110', 'text-success')}
+                      className={clsx(
+                        'h-8 w-8 scale-110',
+                        'text-success dark:text-success-light',
+                      )}
                     />
                   </Tooltip>
                 ) : hasCompletedQuestionBefore ? (
@@ -237,9 +191,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 ) : (
                   <Tooltip
                     label={intl.formatMessage({
-                      defaultMessage: 'Not Completed',
+                      defaultMessage: 'Not completed',
                       description: 'Tooltip for questions Not Completed label',
-                      id: 'm+nWg0',
+                      id: 'xAtvsP',
                     })}
                     position="above">
                     <span
@@ -276,7 +230,17 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   <span aria-hidden="true" className="absolute inset-0" />
                   {question.title}
                 </Anchor>
-                {!userProfile?.isPremium && <QuestionTag question={question} />}
+                {question.slug === 'counter' && (
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'Warm Up Question',
+                      description: 'Label for warm up questions',
+                      id: '32cQk/',
+                    })}
+                    size="sm"
+                    variant="warning"
+                  />
+                )}
                 {question.format === 'system-design' &&
                   !ReadyQuestions.includes(question.slug) && (
                     <Badge

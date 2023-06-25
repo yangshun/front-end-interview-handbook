@@ -5,7 +5,8 @@ import {
   RiArrowRightSLine,
   RiBookOpenLine,
   RiCalendar2Line,
-  RiDownloadLine,
+  RiContractLeftLine,
+  RiContractRightLine,
   RiHome3Line,
   RiWindowLine,
 } from 'react-icons/ri';
@@ -192,12 +193,11 @@ export default function QuestionsSidebar({
 
   return (
     <div className="flex h-full w-full flex-1 grow flex-col items-end justify-between p-4">
-      <div
-        className={clsx('grid self-stretch', isCollapsed ? 'gap-4' : 'gap-2')}>
+      <div className={clsx('grid gap-2 self-stretch')}>
         {navigation.map((item) => {
           const itemClassname = clsx(
             'group flex w-full items-center gap-x-2 rounded text-xs font-medium',
-            isCollapsed ? 'p-2' : 'py-2.5 px-3',
+            'p-2',
           );
           const label = (
             <Text
@@ -341,7 +341,7 @@ export default function QuestionsSidebar({
         })}
       </div>
       <Button
-        icon={isCollapsed ? ContractLeftIcon : ContractRightIcon}
+        icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
         isLabelHidden={true}
         label={collapseButtonLabel}
         tooltip={isCollapsed ? collapseButtonLabel : undefined}
@@ -351,20 +351,4 @@ export default function QuestionsSidebar({
       />
     </div>
   );
-}
-
-function ContractLeftIcon({
-  className,
-  ...props
-}: React.ComponentProps<'svg'>) {
-  return (
-    <RiDownloadLine className={clsx('-rotate-90', className)} {...props} />
-  );
-}
-
-function ContractRightIcon({
-  className,
-  ...props
-}: React.ComponentProps<'svg'>) {
-  return <RiDownloadLine className={clsx('rotate-90', className)} {...props} />;
 }

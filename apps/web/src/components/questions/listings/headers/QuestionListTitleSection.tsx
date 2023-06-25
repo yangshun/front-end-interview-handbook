@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
 import Button from '~/components/ui/Button';
@@ -42,6 +43,7 @@ export default function QuestionListTitleSection({
   title,
 }: Props) {
   const intl = useIntl();
+  const { userProfile } = useUserProfile();
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
     trpc.questionLists.getActiveSession.useQuery({
       listKey: questionListKey,
@@ -91,6 +93,10 @@ export default function QuestionListTitleSection({
       </div>
       <div>
         {(() => {
+          if (userProfile == null || !userProfile?.isPremium) {
+            return null;
+          }
+
           if (isQuestionListSessionLoading) {
             return null;
           }
