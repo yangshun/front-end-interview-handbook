@@ -40,26 +40,55 @@ export type FocusAreaTheme = Readonly<{
 }>;
 
 type FocusAreas = Record<FocusAreaType, FocusArea>;
-type FocusAreaThemes = Record<FocusAreaType, FocusAreaTheme>;
 
 export function getFocusAreas(intl: IntlShape): FocusAreas {
   const focusAreas: FocusAreas = {
-    accessibility: getFocusAreaAccessibility(intl),
-    'data-structure-algorithms': getFocusAreaDataStructuresAlgorithms(intl),
-    forms: getFocusAreaForms(intl),
-    lodash: getFocusAreaLodash(intl),
+    accessibility: getFocusArea('accessibility', intl),
+    'data-structure-algorithms': getFocusArea(
+      'data-structure-algorithms',
+      intl,
+    ),
+    forms: getFocusArea('forms', intl),
+    lodash: getFocusArea('lodash', intl),
   };
 
   return focusAreas;
 }
 
-export function getFocusAreaTheme(planType: FocusAreaType): FocusAreaTheme {
-  const focusAreaThemes: FocusAreaThemes = {
-    accessibility: getFocusAreaThemeAccessibility(),
-    'data-structure-algorithms': getFocusAreaThemeDataStructuresAlgorithms(),
-    forms: getFocusAreaThemeForms(),
-    lodash: getFocusAreaThemeLodash(),
-  };
+export function getFocusArea(
+  focusArea: FocusAreaType,
+  intl: IntlShape,
+): FocusArea {
+  switch (focusArea) {
+    case 'accessibility':
+      return getFocusAreaAccessibility(intl);
+    case 'data-structure-algorithms':
+      return getFocusAreaDataStructuresAlgorithms(intl);
+    case 'forms':
+      return getFocusAreaForms(intl);
+    case 'lodash':
+      return getFocusAreaLodash(intl);
+  }
+}
 
-  return focusAreaThemes[planType];
+export function getFocusAreaThemes(): Record<FocusAreaType, FocusAreaTheme> {
+  return {
+    accessibility: getFocusAreaTheme('accessibility'),
+    'data-structure-algorithms': getFocusAreaTheme('data-structure-algorithms'),
+    forms: getFocusAreaTheme('forms'),
+    lodash: getFocusAreaTheme('lodash'),
+  };
+}
+
+export function getFocusAreaTheme(focusArea: FocusAreaType): FocusAreaTheme {
+  switch (focusArea) {
+    case 'accessibility':
+      return getFocusAreaThemeAccessibility();
+    case 'data-structure-algorithms':
+      return getFocusAreaThemeDataStructuresAlgorithms();
+    case 'forms':
+      return getFocusAreaThemeForms();
+    case 'lodash':
+      return getFocusAreaThemeLodash();
+  }
 }

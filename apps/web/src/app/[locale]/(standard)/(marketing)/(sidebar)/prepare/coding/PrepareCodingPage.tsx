@@ -29,7 +29,6 @@ export default function PrepareCodingQuestionsPage({
       area="coding"
       guides={codingQuestionListGuideItems}
       guidesHref={codingQuestionListGuideItems[0].href}
-      questionCompletionCount={questionCompletionCount}
       questionTotalAvailableCount={questionTotalAvailableCount}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Preparation — Coding',

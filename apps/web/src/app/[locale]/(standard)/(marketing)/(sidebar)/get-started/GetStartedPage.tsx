@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-import usePreparationPlans from '~/data/plans/usePreparationPlans';
+import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 
 import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingJavaScriptQuestionsExamples from '~/components/marketing/examples/MarketingJavaScriptQuestionsExamples';

@@ -10,7 +10,7 @@ import gtag from '~/lib/gtag';
 
 import { useGuidesData } from '~/data/Guides';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-import usePreparationPlans from '~/data/plans/usePreparationPlans';
+import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 import {
   useQuestionFormatLists,
   useQuestionTechnologyLists,

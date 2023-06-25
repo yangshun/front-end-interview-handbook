@@ -16,7 +16,7 @@ type Props = Readonly<{
   questions: ReadonlyArray<QuestionQuizMetadata>;
 }>;
 
-export default function PrepareQuizQuestionsPage({
+export default function PrepareQuizPage({
   questions,
   questionCompletionCount,
   questionTotalAvailableCount,
@@ -29,7 +29,6 @@ export default function PrepareQuizQuestionsPage({
       area="quiz"
       guides={[quizSectionItem]}
       guidesHref={quizSectionItem.href}
-      questionCompletionCount={questionCompletionCount}
       questionTotalAvailableCount={questionTotalAvailableCount}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Preparation — Quiz',

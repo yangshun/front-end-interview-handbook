@@ -5,8 +5,6 @@ import type {
   QuestionListTheme,
 } from '~/components/questions/common/QuestionsTypes';
 
-import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
-
 import {
   getPreparationPlanOneMonth,
   getPreparationPlanThemeOneMonth,
@@ -29,26 +27,53 @@ export type PreparationPlan = QuestionList &
   }>;
 
 export type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
-type PreparationPlanThemes = Record<PreparationPlanType, QuestionListTheme>;
 
+// Note that these plans are missing the quiz questions.
 export function getPreparationPlans(intl: IntlShape): PreparationPlans {
   const preparationPlans: PreparationPlans = {
-    'one-month': getPreparationPlanOneMonth(intl),
-    'one-week': getPreparationPlanOneWeek(intl),
-    'three-months': getPreparationPlanThreeMonths(intl),
+    'one-month': getPreparationPlan('one-month', intl),
+    'one-week': getPreparationPlan('one-week', intl),
+    'three-months': getPreparationPlan('three-months', intl),
   };
 
   return preparationPlans;
 }
 
+// Note that these plans are missing the quiz questions.
+export function getPreparationPlan(
+  planType: PreparationPlanType,
+  intl: IntlShape,
+): PreparationPlan {
+  switch (planType) {
+    case 'one-week':
+      return getPreparationPlanOneWeek(intl);
+    case 'one-month':
+      return getPreparationPlanOneMonth(intl);
+    case 'three-months':
+      return getPreparationPlanThreeMonths(intl);
+  }
+}
+
+export function getPreparationPlanThemes(): Record<
+  PreparationPlanType,
+  QuestionListTheme
+> {
+  return {
+    'one-month': getPreparationPlanTheme('one-month'),
+    'one-week': getPreparationPlanTheme('one-week'),
+    'three-months': getPreparationPlanTheme('three-months'),
+  };
+}
+
 export function getPreparationPlanTheme(
   planType: PreparationPlanType,
 ): QuestionListTheme {
-  const preparationPlanThemes: PreparationPlanThemes = {
-    'one-month': getPreparationPlanThemeOneMonth(),
-    'one-week': getPreparationPlanThemeOneWeek(),
-    'three-months': getPreparationPlanThemeThreeMonths(),
-  };
-
-  return preparationPlanThemes[planType];
+  switch (planType) {
+    case 'one-week':
+      return getPreparationPlanThemeOneWeek();
+    case 'one-month':
+      return getPreparationPlanThemeOneMonth();
+    case 'three-months':
+      return getPreparationPlanThemeThreeMonths();
+  }
 }

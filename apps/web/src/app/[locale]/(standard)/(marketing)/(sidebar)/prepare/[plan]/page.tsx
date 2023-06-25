@@ -3,7 +3,7 @@ import { CourseJsonLd } from 'next-seo';
 import type { IntlShape } from 'react-intl';
 
 import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
-import { getPreparationPlans } from '~/data/plans/PreparationPlans';
+import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
 import {
   countQuestionsByDifficulty,
@@ -26,8 +26,7 @@ async function getPreparationPlansSEO(
 ) {
   const intl = await getIntlServerOnly(locale);
   // TODO: Remove this IntlShape typecast.
-  const plans = getPreparationPlans(intl as IntlShape);
-  const plan = plans[planType];
+  const plan = getPreparationPlan(planType, intl as IntlShape);
 
   return { ...plan.seo, href: plan.href };
 }

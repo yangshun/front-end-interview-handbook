@@ -1,12 +1,6 @@
-import { BiUniversalAccess } from 'react-icons/bi';
-import {
-  RiDashboardLine,
-  RiListCheck2,
-  RiOrganizationChart,
-} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import useFocusAreas from '~/data/focus-areas/useFocusAreas';
+import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
 
 import QuestionFocusAreasSection from '../../dashboard/QuestionFocusAreasSection';
 
