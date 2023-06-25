@@ -1,7 +1,7 @@
 import { trpc } from '~/hooks/trpc';
 
-import type { QuestionMetadata } from './QuestionsTypes';
 import QuestionUsersCompletedLabel from './QuestionUsersCompletedLabel';
+import type { QuestionMetadata } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;

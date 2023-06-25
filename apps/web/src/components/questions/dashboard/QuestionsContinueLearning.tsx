@@ -9,8 +9,8 @@ import Text from '~/components/ui/Text';
 import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGlassyBorder, themeLineColor } from '~/components/ui/theme';
 
-import QuestionCountLabel from '../common/QuestionCountLabel';
-import QuestionTotalTimeLabel from '../common/QuestionTotalTimeLabel';
+import QuestionCountLabel from '../metadata/QuestionCountLabel';
+import QuestionTotalTimeLabel from '../metadata/QuestionTotalTimeLabel';
 
 import 'react-circular-progressbar/dist/styles.css';
 

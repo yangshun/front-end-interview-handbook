@@ -4,8 +4,8 @@ import QuestionAuthor from './QuestionAuthor';
 import QuestionDifficultyLabel from './QuestionDifficultyLabel';
 import QuestionDurationLabel from './QuestionDurationLabel';
 import QuestionLanguages from './QuestionLanguages';
-import type { QuestionMetadata } from './QuestionsTypes';
 import QuestionUsersCompletedLabelWithFetching from './QuestionUsersCompletedLabelWithFetching';
+import type { QuestionMetadata } from '../common/QuestionsTypes';
 
 type MetadataElement =
   | 'author'

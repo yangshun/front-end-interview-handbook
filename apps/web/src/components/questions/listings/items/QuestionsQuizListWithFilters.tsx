@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
 import {
   countQuestionsTotalDurationMins,
   filterQuestions,
@@ -20,6 +19,7 @@ import useQuestionCompletionStatusFilter from '~/components/questions/listings/f
 import useQuestionQuizTopicFilter from '~/components/questions/listings/filters/hooks/useQuestionQuizTopicFilter';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
+import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -31,7 +31,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingQuizFilters from '../filters/QuestionListingQuizFilters';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
-import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
+import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;

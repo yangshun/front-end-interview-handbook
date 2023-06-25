@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiLineChartLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import type { QuestionImportance } from '~/components/questions/common/QuestionsTypes';
 import type { TextSize } from '~/components/ui/Text';
@@ -49,22 +49,16 @@ export default function QuestionImportanceLabel({
     }),
   };
 
+  const label = intl.formatMessage({
+    defaultMessage: 'Importance',
+    description:
+      'Label for question importance - how important it is to practice this question',
+    id: 'mb7erW',
+  });
+
   return (
-    <Tooltip
-      label={intl.formatMessage({
-        defaultMessage: 'Importance',
-        description:
-          'Label for question importance - how important it is to practice this question',
-        id: 'mb7erW',
-      })}
-      position="above">
-      <span className="sr-only">
-        <FormattedMessage
-          defaultMessage="Importance"
-          description="Screenreader text to indicate question importance - how important it is to practice this question"
-          id="7OxMtC"
-        />
-      </span>
+    <Tooltip label={label} position="above">
+      <span className="sr-only">{label}</span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
           <RiLineChartLine

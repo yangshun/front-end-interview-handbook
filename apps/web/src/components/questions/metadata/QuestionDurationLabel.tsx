@@ -21,22 +21,17 @@ export default function QuestionDurationLabel({
 }: Props) {
   const id = useId();
   const intl = useIntl();
+  const label = intl.formatMessage({
+    defaultMessage: 'Recommended Duration',
+    description:
+      'Recommended duration tooltip displayed on question cards found on question lists',
+    id: 'BtCbN4',
+  });
 
   return (
-    <Tooltip
-      label={intl.formatMessage({
-        defaultMessage: 'Recommended Duration',
-        description:
-          'Recommended duration tooltip displayed on question cards found on question lists',
-        id: 'BtCbN4',
-      })}
-      position="above">
+    <Tooltip label={label} position="above">
       <span className="sr-only" id={id}>
-        <FormattedMessage
-          defaultMessage="Recommended Duration"
-          description="Recommended duration tooltip displayed on question cards found on question lists"
-          id="BtCbN4"
-        />
+        {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (

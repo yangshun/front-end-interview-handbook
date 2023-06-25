@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { themeIconColor } from '~/components/ui/theme';
 
 import QuestionQuizTopicLabel from './QuestionQuizTopicLabel';
-import type { QuestionQuizTopic } from './QuestionsTypes';
+import type { QuestionQuizTopic } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   showIcon?: boolean;

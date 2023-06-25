@@ -12,10 +12,10 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import QuestionCompanies from '../QuestionCompanies';
 import QuestionContentProse from '../QuestionContentProse';
-import QuestionMetadataSection from '../../common/QuestionMetadataSection';
 import QuestionProgressAction from '../../common/QuestionProgressAction';
 import type { QuestionBase } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

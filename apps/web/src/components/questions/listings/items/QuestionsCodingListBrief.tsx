@@ -13,8 +13,8 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import QuestionDifficultyLabel from '../../common/QuestionDifficultyLabel';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;

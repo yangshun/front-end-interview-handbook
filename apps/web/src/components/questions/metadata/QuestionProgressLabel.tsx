@@ -6,8 +6,8 @@ import { useIntl } from 'react-intl';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import QuestionsProgressBar from './QuestionsProgressBar';
-import QuestionsProgressFraction from './QuestionsProgressFraction';
+import QuestionsProgressBar from '../common/QuestionsProgressBar';
+import QuestionsProgressFraction from '../common/QuestionsProgressFraction';
 
 type Props = Readonly<{
   barClassName?: string; // Each focus area has a theme color.

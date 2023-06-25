@@ -15,10 +15,10 @@ import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import { useTestimonials } from '~/data/Testimonials';
 
 import TestimonialCard from '~/components/marketing/testimonials/TestimonialCard';
-import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
-import QuestionDifficultySummary from '~/components/questions/common/QuestionDifficultySummary';
-import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
+import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
+import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
+import QuestionStudyAllocationLabel from '~/components/questions/metadata/QuestionStudyAllocationLabel';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';

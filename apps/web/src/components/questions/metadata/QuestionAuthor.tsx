@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import authors from '~/data/authors';
 
@@ -21,24 +21,20 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
     return null;
   }
 
+  const label = intl.formatMessage({
+    defaultMessage: 'Author',
+    description: 'Author of the question',
+    id: 'n0mDHU',
+  });
+
   return (
     <div className="group block flex-shrink-0">
       <span className="sr-only" id={id}>
-        <FormattedMessage
-          defaultMessage="Author"
-          description="Author of the question"
-          id="n0mDHU"
-        />
+        {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-3">
         <div>
-          <Tooltip
-            label={intl.formatMessage({
-              defaultMessage: 'Author',
-              description: 'Author of the question',
-              id: 'n0mDHU',
-            })}
-            position="above">
+          <Tooltip label={label} position="above">
             <img
               alt={authorData.name}
               className="inline-block h-8 w-8 rounded-full"

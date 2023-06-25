@@ -15,13 +15,13 @@ import type { QuestionContentsSection } from './QuestionContentsSectionTabs';
 import QuestionContentsSectionTabs from './QuestionContentsSectionTabs';
 import QuestionNextQuestions from './QuestionNextQuestions';
 import QuestionSimilarQuestions from './QuestionSimilarQuestions';
-import QuestionMetadataSection from '../common/QuestionMetadataSection';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionMetadata,
 } from '../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../common/useQuestionLogEventCopyContents';
+import QuestionMetadataSection from '../metadata/QuestionMetadataSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

@@ -24,16 +24,16 @@ import Tooltip from '~/components/ui/Tooltip';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import QuestionDifficultyLabel from '../../common/QuestionDifficultyLabel';
-import QuestionFrameworks from '../../common/QuestionFrameworks';
 import { questionHrefWithList } from '../../common/questionHref';
-import QuestionLanguages from '../../common/QuestionLanguages';
 import type {
   QuestionFramework,
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
-import QuestionUsersCompletedLabel from '../../common/QuestionUsersCompletedLabel';
 import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
+import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
+import QuestionFrameworks from '../../metadata/QuestionFrameworks';
+import QuestionLanguages from '../../metadata/QuestionLanguages';
+import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;

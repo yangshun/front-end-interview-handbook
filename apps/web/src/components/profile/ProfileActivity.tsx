@@ -6,8 +6,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import QuestionLanguages from '~/components/questions/common/QuestionLanguages';
 import type { QuestionLanguage } from '~/components/questions/common/QuestionsTypes';
+import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

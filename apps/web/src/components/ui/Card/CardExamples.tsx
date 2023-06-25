@@ -6,8 +6,8 @@ import {
   RiUserSmileFill,
 } from 'react-icons/ri';
 
-import QuestionLanguages from '~/components/questions/common/QuestionLanguages';
-import QuestionUsersCompletedLabel from '~/components/questions/common/QuestionUsersCompletedLabel';
+import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
+import QuestionUsersCompletedLabel from '~/components/questions/metadata/QuestionUsersCompletedLabel';
 
 import Card from './Card';
 import CardContainer from './CardContainer';

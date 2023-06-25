@@ -9,8 +9,8 @@ import {
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
-import QuestionLanguages from '../../common/QuestionLanguages';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import QuestionLanguages from '../../metadata/QuestionLanguages';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;

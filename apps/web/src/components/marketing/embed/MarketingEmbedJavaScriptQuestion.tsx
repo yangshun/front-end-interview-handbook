@@ -6,7 +6,6 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
-import QuestionMetadataSection from '~/components/questions/common/QuestionMetadataSection';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
 import type {
@@ -19,6 +18,7 @@ import QuestionContentProse from '~/components/questions/content/QuestionContent
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import type { QuestionContentsSection } from '~/components/questions/content/QuestionContentsSectionTabs';
 import QuestionContentsSectionTabs from '~/components/questions/content/QuestionContentsSectionTabs';
+import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';

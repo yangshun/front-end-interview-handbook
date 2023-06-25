@@ -20,21 +20,16 @@ export default function QuestionUsersCompletedLabel({
 }: Props) {
   const id = useId();
   const intl = useIntl();
+  const label = intl.formatMessage({
+    defaultMessage: 'Users completed',
+    description: 'Number of users who completed the question',
+    id: 'DEhOz5',
+  });
 
   return (
-    <Tooltip
-      label={intl.formatMessage({
-        defaultMessage: 'Users Completed',
-        description: 'Number of users who completed the question',
-        id: 'VMIoK4',
-      })}
-      position="above">
+    <Tooltip label={label} position="above">
       <span className="sr-only" id={id}>
-        <FormattedMessage
-          defaultMessage="Users Completed"
-          description="Number of users who completed the question"
-          id="VMIoK4"
-        />
+        {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (

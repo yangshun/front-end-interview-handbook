@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 import Text from '~/components/ui/Text';
 
-import type { QuestionQuizTopic } from './QuestionsTypes';
+import type { QuestionQuizTopic } from '../common/QuestionsTypes';
 import useQuestionQuizTopicLabels from '../content/quiz/useQuestionQuizTopicLabels';
 
 const TopicLabelClasses: Record<QuestionQuizTopic, string> = {

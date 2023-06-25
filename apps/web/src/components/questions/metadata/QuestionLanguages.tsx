@@ -7,7 +7,7 @@ import type { TextSize } from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 
 import QuestionLanguageLabel from './QuestionLanguageLabel';
-import type { QuestionLanguage } from './QuestionsTypes';
+import type { QuestionLanguage } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   languages: ReadonlyArray<QuestionLanguage>;

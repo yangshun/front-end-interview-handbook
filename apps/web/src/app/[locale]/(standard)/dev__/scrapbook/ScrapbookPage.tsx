@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import {
   RiBugLine,
-  RiCodeSSlashLine,
   RiFolder4Line,
   RiGlobalLine,
   RiNodeTree,
@@ -15,10 +14,6 @@ import { TbBinaryTree } from 'react-icons/tb';
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
-import QuestionCountLabel from '~/components/questions/common/QuestionCountLabel';
-import QuestionDifficultyLabel from '~/components/questions/common/QuestionDifficultyLabel';
-import QuestionProgressLabel from '~/components/questions/common/QuestionsProgressLabel';
-import QuestionStudyAllocationLabel from '~/components/questions/common/QuestionStudyAllocationLabel';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
@@ -27,6 +22,10 @@ import QuestionListTitleSection from '~/components/questions/listings/headers/Qu
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
+import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
+import QuestionDifficultyLabel from '~/components/questions/metadata/QuestionDifficultyLabel';
+import QuestionProgressLabel from '~/components/questions/metadata/QuestionProgressLabel';
+import QuestionStudyAllocationLabel from '~/components/questions/metadata/QuestionStudyAllocationLabel';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -34,8 +33,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
 import {
-  themeGradientGreenYellow,
   themeGradientBlueGreen,
+  themeGradientGreenYellow,
   themeGradientPinkPurple,
 } from '~/components/ui/theme';
 

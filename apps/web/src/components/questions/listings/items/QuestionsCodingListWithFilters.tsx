@@ -44,9 +44,9 @@ import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
-import QuestionCountLabel from '../../common/QuestionCountLabel';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
-import QuestionTotalTimeLabel from '../../common/QuestionTotalTimeLabel';
+import QuestionCountLabel from '../../metadata/QuestionCountLabel';
+import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;

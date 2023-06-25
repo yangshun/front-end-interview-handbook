@@ -5,7 +5,6 @@ import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
-import QuestionMetadataSection from '~/components/questions/common/QuestionMetadataSection';
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
 import type {
   QuestionMetadata,
@@ -16,6 +15,7 @@ import QuestionContentProse from '~/components/questions/content/QuestionContent
 import type { QuestionContentsSection } from '~/components/questions/content/QuestionContentsSectionTabs';
 import QuestionContentsSectionTabs from '~/components/questions/content/QuestionContentsSectionTabs';
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
+import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';

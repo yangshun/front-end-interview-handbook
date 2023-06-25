@@ -11,7 +11,7 @@ import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { QuestionFramework } from './QuestionsTypes';
+import type { QuestionFramework } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   frameworks: ReadonlyArray<

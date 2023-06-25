@@ -16,13 +16,13 @@ import QuestionCompanies from './QuestionCompanies';
 import QuestionContentProse from './QuestionContentProse';
 import QuestionNextQuestions from './QuestionNextQuestions';
 import QuestionSimilarQuestions from './QuestionSimilarQuestions';
-import QuestionMetadataSection from '../common/QuestionMetadataSection';
 import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
 } from '../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../common/useQuestionLogEventCopyContents';
+import QuestionMetadataSection from '../metadata/QuestionMetadataSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

@@ -9,16 +9,16 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import QuestionDifficultySummary from '~/components/questions/common/QuestionDifficultySummary';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
+import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import QuestionCountLabel from '../../common/QuestionCountLabel';
-import QuestionDurationLabel from '../../common/QuestionDurationLabel';
 import type { QuestionDifficulty } from '../../common/QuestionsTypes';
+import QuestionCountLabel from '../../metadata/QuestionCountLabel';
+import QuestionDurationLabel from '../../metadata/QuestionDurationLabel';
 
 type Props = Readonly<{
   description?: ReactNode;

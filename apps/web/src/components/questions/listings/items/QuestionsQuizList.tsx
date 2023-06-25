@@ -21,10 +21,10 @@ import Tooltip from '~/components/ui/Tooltip';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import { questionHrefWithList } from '../../common/questionHref';
-import QuestionImportanceLabel from '../../common/QuestionImportanceLabel';
-import QuestionQuizTopics from '../../common/QuestionQuizTopics';
 import type { QuestionQuizMetadata } from '../../common/QuestionsTypes';
-import QuestionUsersCompletedLabel from '../../common/QuestionUsersCompletedLabel';
+import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
+import QuestionQuizTopics from '../../metadata/QuestionQuizTopics';
+import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
 
 type Props<Q extends QuestionQuizMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;

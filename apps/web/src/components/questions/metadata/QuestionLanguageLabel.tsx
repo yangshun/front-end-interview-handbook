@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 
-import type { QuestionLanguage } from './QuestionsTypes';
+import type { QuestionLanguage } from '../common/QuestionsTypes';
 
 const LanguageLabelClasses: Record<QuestionLanguage, string> = {
   css: 'bg-sky-500 text-white',

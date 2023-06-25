@@ -4,10 +4,10 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
-import QuestionMetadataSection from '~/components/questions/common/QuestionMetadataSection';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import gtag from '~/lib/gtag';
 
-import QuestionQuizTopicLabel from '~/components/questions/common/QuestionQuizTopicLabel';
+import QuestionQuizTopicLabel from '~/components/questions/metadata/QuestionQuizTopicLabel';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';

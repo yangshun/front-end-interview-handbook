@@ -23,22 +23,17 @@ export default function QuestionStudyAllocationLabel({
 }: Props) {
   const id = useId();
   const intl = useIntl();
+  const label = intl.formatMessage({
+    defaultMessage: 'Recommended duration',
+    description:
+      'Recommended duration tooltip displayed on question cards found on question lists',
+    id: 'n8q6oB',
+  });
 
   return (
-    <Tooltip
-      label={intl.formatMessage({
-        defaultMessage: 'Recommended duration',
-        description:
-          'Recommended duration tooltip displayed on question cards found on question lists',
-        id: 'n8q6oB',
-      })}
-      position="above">
+    <Tooltip label={label} position="above">
       <span className="sr-only" id={id}>
-        <FormattedMessage
-          defaultMessage="Recommended duration"
-          description="Recommended duration tooltip displayed on question cards found on question lists"
-          id="n8q6oB"
-        />
+        {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (

@@ -20,14 +20,14 @@ import { useI18n } from '~/next-i18nostic/src';
 
 import QuestionQuizBottomNav from './QuestionQuizBottomNav';
 import QuestionPagination from '../QuestionPagination';
-import QuestionImportanceLabel from '../../common/QuestionImportanceLabel';
-import QuestionQuizTopics from '../../common/QuestionQuizTopics';
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type {
   QuestionQuiz,
   QuestionQuizMetadata,
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
+import QuestionQuizTopics from '../../metadata/QuestionQuizTopics';
 
 type Props = Readonly<{
   question: QuestionQuiz;

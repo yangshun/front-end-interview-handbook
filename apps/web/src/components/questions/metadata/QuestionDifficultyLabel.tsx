@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiFireLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 import type { TextSize } from '~/components/ui/Text';
@@ -45,21 +45,16 @@ export default function QuestionDifficultyLabel({
       id: 'gtouN7',
     }),
   };
+  const label = intl.formatMessage({
+    defaultMessage: 'Difficulty',
+    description: 'Question difficulty label',
+    id: 'NgxUnY',
+  });
 
   return (
-    <Tooltip
-      label={intl.formatMessage({
-        defaultMessage: 'Difficulty',
-        description: 'Question difficulty label',
-        id: 'NgxUnY',
-      })}
-      position="above">
+    <Tooltip label={label} position="above">
       <span className="sr-only" id={id}>
-        <FormattedMessage
-          defaultMessage="Difficulty"
-          description="Question difficulty label"
-          id="NgxUnY"
-        />
+        {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
