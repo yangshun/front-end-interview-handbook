@@ -33,7 +33,9 @@ export default function AppContextProvider({ children }: Props) {
 
   const contextValue = useMemo(
     () => ({
-      serverMismatch: clientCommit !== serverCommit,
+      serverMismatch:
+        // Only check in prod.
+        process.env.NODE_ENV === 'production' && clientCommit !== serverCommit,
     }),
     [serverCommit],
   );
