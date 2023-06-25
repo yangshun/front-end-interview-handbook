@@ -56,7 +56,7 @@ function PreparationPlanCard({
       <div
         className={clsx(
           'flex h-20 w-20 items-center justify-center rounded',
-          theme.backgroundClass,
+          theme.theme.className,
         )}>
         <theme.iconOutline className="h-10 w-10 text-white" />
       </div>

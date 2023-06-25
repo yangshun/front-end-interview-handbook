@@ -4,7 +4,7 @@ import {
 } from '~/data/question-lists/QuestionListsHooks';
 
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
-import { themeGradient1 } from '~/components/ui/theme';
+import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 type Props = Readonly<{
   items: ReadonlyArray<{
@@ -21,7 +21,7 @@ export default function QuestionsContinueLearningContainer({ items }: Props) {
     <QuestionsContinueLearning
       items={items.map(({ listKey, completedCount }) => ({
         completedCount,
-        gradient: themeGradient1,
+        gradient: themeGradientBlueGreen,
         href: questionLists[listKey]?.href,
         questionsCount: 50, // TODO(redesign)
         title: questionLists[listKey].longName,

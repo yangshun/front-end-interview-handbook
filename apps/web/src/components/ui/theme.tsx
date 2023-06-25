@@ -78,29 +78,32 @@ export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
 );
 
-export type ThemeGradient = {
-  className: string;
-  endColor: string;
-  startColor: string;
+export type ThemeGradient<
+  StartColor extends string = string,
+  EndColor extends string = string,
+> = {
+  className: `bg-[linear-gradient(133.77deg,_${StartColor}_0%,_${EndColor}_97.95%)]`;
+  endColor: EndColor;
+  startColor: StartColor;
 };
 
 // Gradient colors.
-export const themeGradient1: ThemeGradient = {
+export const themeGradientBlueGreen: ThemeGradient<'#6366F1', '#10B981'> = {
   className: 'bg-[linear-gradient(133.77deg,_#6366F1_0%,_#10B981_97.95%)]',
-  endColor: 'rgba(16, 185, 129, 1)',
-  startColor: 'rgba(99, 102, 241, 1)',
+  endColor: '#10B981',
+  startColor: '#6366F1',
 };
 
-export const themeGradient2: ThemeGradient = {
+export const themeGradientGreenYellow: ThemeGradient<'#059669', '#F59E0B'> = {
   className: 'bg-[linear-gradient(133.77deg,_#059669_0%,_#F59E0B_97.95%)]',
-  endColor: 'rgba(245, 158, 11, 1)',
-  startColor: 'rgba(5, 150, 105, 1)',
+  endColor: '#F59E0B',
+  startColor: '#059669',
 };
 
-export const themeGradient3: ThemeGradient = {
+export const themeGradientPinkPurple: ThemeGradient<'#EC4899', '#818CF8'> = {
   className: 'bg-[linear-gradient(133.77deg,_#EC4899_0%,_#818CF8_97.95%)]',
-  endColor: 'rgba(129, 140, 248, 1)',
-  startColor: 'rgba(236, 72, 153, 1)',
+  endColor: '#818CF8',
+  startColor: '#EC4899',
 };
 
 export const themeRadialGlowBackground = clsx(

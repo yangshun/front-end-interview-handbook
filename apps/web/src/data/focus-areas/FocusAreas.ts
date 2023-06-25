@@ -1,6 +1,9 @@
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionList } from '~/components/questions/common/QuestionsTypes';
+import type {
+  QuestionList,
+  QuestionListTheme,
+} from '~/components/questions/common/QuestionsTypes';
 
 import {
   getFocusAreaAccessibility,
@@ -30,14 +33,6 @@ export type FocusArea = QuestionList &
   Readonly<{
     type: FocusAreaType;
   }>;
-
-export type FocusAreaTheme = Readonly<{
-  backgroundClass: string;
-  iconBorderClass: string;
-  iconClass: string;
-  iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
-}>;
 
 type FocusAreas = Record<FocusAreaType, FocusArea>;
 
@@ -71,7 +66,7 @@ export function getFocusArea(
   }
 }
 
-export function getFocusAreaThemes(): Record<FocusAreaType, FocusAreaTheme> {
+export function getFocusAreaThemes(): Record<FocusAreaType, QuestionListTheme> {
   return {
     accessibility: getFocusAreaTheme('accessibility'),
     'data-structure-algorithms': getFocusAreaTheme('data-structure-algorithms'),
@@ -80,7 +75,7 @@ export function getFocusAreaThemes(): Record<FocusAreaType, FocusAreaTheme> {
   };
 }
 
-export function getFocusAreaTheme(focusArea: FocusAreaType): FocusAreaTheme {
+export function getFocusAreaTheme(focusArea: FocusAreaType): QuestionListTheme {
   switch (focusArea) {
     case 'accessibility':
       return getFocusAreaThemeAccessibility();

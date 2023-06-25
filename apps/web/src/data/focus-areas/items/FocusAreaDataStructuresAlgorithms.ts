@@ -1,10 +1,11 @@
 import { TbBinaryTree } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
+import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
-import { themeGradient3 } from '~/components/ui/theme';
+import { themeGradientPinkPurple } from '~/components/ui/theme';
 
-import type { FocusArea, FocusAreaTheme } from '../FocusAreas';
+import type { FocusArea } from '../FocusAreas';
 
 export function getFocusAreaDataStructuresAlgorithms(
   intl: IntlShape,
@@ -75,12 +76,12 @@ export function getFocusAreaDataStructuresAlgorithms(
   };
 }
 
-export function getFocusAreaThemeDataStructuresAlgorithms(): FocusAreaTheme {
+export function getFocusAreaThemeDataStructuresAlgorithms(): QuestionListTheme {
   return {
-    backgroundClass: themeGradient3.className,
     iconBorderClass: 'border-indigo-600',
     iconClass: 'text-indigo-600',
     iconOutline: TbBinaryTree,
     iconSolid: TbBinaryTree,
+    theme: themeGradientPinkPurple,
   };
 }

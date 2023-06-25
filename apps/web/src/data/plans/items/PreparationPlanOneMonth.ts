@@ -2,7 +2,7 @@ import { RiFireFill, RiFireLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
-import { themeGradient1 } from '~/components/ui/theme';
+import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { PreparationPlan } from '../PreparationPlans';
 
@@ -93,10 +93,10 @@ export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
 
 export function getPreparationPlanThemeOneMonth(): QuestionListTheme {
   return {
-    backgroundClass: themeGradient1.className,
     iconBorderClass: 'border-violet-600',
     iconClass: 'text-violet-600',
     iconOutline: RiFireLine,
     iconSolid: RiFireFill,
+    theme: themeGradientBlueGreen,
   };
 }

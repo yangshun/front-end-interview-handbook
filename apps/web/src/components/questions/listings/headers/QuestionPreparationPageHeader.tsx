@@ -8,8 +8,8 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeCardBackgroundColor,
-  themeGradient1,
-  themeGradient2,
+  themeGradientGreenYellow,
+  themeGradientBlueGreen,
   themeLineBackgroundColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -25,7 +25,7 @@ function ContinueLearningCard() {
         {
           completedCount: 24,
           durationMins: 92,
-          gradient: themeGradient1,
+          gradient: themeGradientBlueGreen,
           href: '/',
           questionsCount: 47,
           reverseGradient: true,
@@ -34,7 +34,7 @@ function ContinueLearningCard() {
         {
           completedCount: 24,
           durationMins: 92,
-          gradient: themeGradient2,
+          gradient: themeGradientGreenYellow,
           href: '/',
           questionsCount: 50,
           reverseGradient: true,

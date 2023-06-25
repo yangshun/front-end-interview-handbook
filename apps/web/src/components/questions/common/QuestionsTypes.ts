@@ -1,3 +1,5 @@
+import type { ThemeGradient } from '~/components/ui/theme';
+
 import type { SandboxTemplate } from '@codesandbox/sandpack-react';
 
 export type QuestionSlug = string;
@@ -162,9 +164,9 @@ export type QuestionList = Readonly<{
 }>;
 
 export type QuestionListTheme = Readonly<{
-  backgroundClass: string;
   iconBorderClass: string;
   iconClass: string;
   iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  theme: ThemeGradient;
 }>;

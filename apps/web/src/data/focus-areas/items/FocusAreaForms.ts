@@ -1,9 +1,10 @@
 import { TbForms } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
-import { themeGradient1 } from '~/components/ui/theme';
+import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import { themeGradientBlueGreen } from '~/components/ui/theme';
 
-import type { FocusArea, FocusAreaTheme } from '../FocusAreas';
+import type { FocusArea } from '../FocusAreas';
 
 export function getFocusAreaForms(intl: IntlShape): FocusArea {
   return {
@@ -60,12 +61,12 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
   };
 }
 
-export function getFocusAreaThemeForms(): FocusAreaTheme {
+export function getFocusAreaThemeForms(): QuestionListTheme {
   return {
-    backgroundClass: themeGradient1.className,
     iconBorderClass: 'border-violet-600',
     iconClass: 'text-violet-600',
     iconOutline: TbForms,
     iconSolid: TbForms,
+    theme: themeGradientBlueGreen,
   };
 }

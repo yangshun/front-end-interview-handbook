@@ -34,9 +34,9 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
 import {
-  themeGradient1,
-  themeGradient2,
-  themeGradient3,
+  themeGradientGreenYellow,
+  themeGradientBlueGreen,
+  themeGradientPinkPurple,
 } from '~/components/ui/theme';
 
 const mockQuestion: QuestionMetadata = {
@@ -115,7 +115,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <QuestionProgressLabel
-                barClassName={themeGradient1.className}
+                barClassName={themeGradientBlueGreen.className}
                 completed={50}
                 total={120}
               />
@@ -132,21 +132,21 @@ export default function ScrapbookPage() {
               <div className="inline-grid grid-cols-3 gap-x-6">
                 <QuestionsProgressPanel
                   completedQuestions={58}
-                  progressBarClassName={themeGradient1.className}
+                  progressBarClassName={themeGradientBlueGreen.className}
                   title="Coding"
                   totalQuestions={116}
                   variant="default"
                 />
                 <QuestionsProgressPanel
                   completedQuestions={80}
-                  progressBarClassName={themeGradient3.className}
+                  progressBarClassName={themeGradientPinkPurple.className}
                   title="Quizzes"
                   totalQuestions={100}
                   variant="default"
                 />
                 <QuestionsProgressPanel
                   completedQuestions={4}
-                  progressBarClassName={themeGradient2.className}
+                  progressBarClassName={themeGradientGreenYellow.className}
                   title="System design"
                   totalQuestions={39}
                   variant="default"
@@ -154,21 +154,21 @@ export default function ScrapbookPage() {
               </div>
               <QuestionsProgressPanel
                 completedQuestions={58}
-                progressBarClassName={themeGradient1.className}
+                progressBarClassName={themeGradientBlueGreen.className}
                 title="Coding"
                 totalQuestions={116}
                 variant="compact"
               />
               <QuestionsProgressPanel
                 completedQuestions={80}
-                progressBarClassName={themeGradient3.className}
+                progressBarClassName={themeGradientPinkPurple.className}
                 title="Quizzes"
                 totalQuestions={100}
                 variant="compact"
               />
               <QuestionsProgressPanel
                 completedQuestions={4}
-                progressBarClassName={themeGradient2.className}
+                progressBarClassName={themeGradientGreenYellow.className}
                 title="System design"
                 totalQuestions={39}
                 variant="compact"
@@ -297,7 +297,7 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 30,
                       durationMins: 92,
-                      gradient: themeGradient1,
+                      gradient: themeGradientBlueGreen,
                       href: '/dev__/scrapbook?plan=algo',
                       questionsCount: 47,
                       reverseGradient: true,
@@ -306,7 +306,7 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 25,
                       durationMins: 92,
-                      gradient: themeGradient2,
+                      gradient: themeGradientGreenYellow,
                       href: '/dev__/scrapbook?plan=forms',
                       questionsCount: 47,
                       reverseGradient: true,
@@ -315,7 +315,7 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 15,
                       durationMins: 92,
-                      gradient: themeGradient3,
+                      gradient: themeGradientPinkPurple,
                       href: '/dev__/scrapbook?plan=accessibility',
                       questionsCount: 47,
                       title: 'Accessibility',
@@ -341,7 +341,7 @@ export default function ScrapbookPage() {
                 icon={TbBinaryTree}
                 questionCount={47}
                 questionListKey="one-month"
-                themeBackgroundClass={themeGradient1.className}
+                themeBackgroundClass={themeGradientBlueGreen.className}
                 title="Data structure and algorithms"
                 totalDurationMins={560}
               />

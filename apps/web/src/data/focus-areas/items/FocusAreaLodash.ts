@@ -1,9 +1,10 @@
 import { SiLodash } from 'react-icons/si';
 import type { IntlShape } from 'react-intl';
 
-import { themeGradient1 } from '~/components/ui/theme';
+import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import { themeGradientBlueGreen } from '~/components/ui/theme';
 
-import type { FocusArea, FocusAreaTheme } from '../FocusAreas';
+import type { FocusArea } from '../FocusAreas';
 
 export function getFocusAreaLodash(intl: IntlShape): FocusArea {
   return {
@@ -61,12 +62,12 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
   };
 }
 
-export function getFocusAreaThemeLodash(): FocusAreaTheme {
+export function getFocusAreaThemeLodash(): QuestionListTheme {
   return {
-    backgroundClass: themeGradient1.className,
     iconBorderClass: 'border-violet-600',
     iconClass: 'text-violet-600',
     iconOutline: SiLodash,
     iconSolid: SiLodash,
+    theme: themeGradientBlueGreen,
   };
 }

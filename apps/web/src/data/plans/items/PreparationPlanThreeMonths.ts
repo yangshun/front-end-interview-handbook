@@ -3,7 +3,7 @@ import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
-import { themeGradient3 } from '~/components/ui/theme';
+import { themeGradientPinkPurple } from '~/components/ui/theme';
 
 import type { PreparationPlan } from '../PreparationPlans';
 
@@ -117,10 +117,10 @@ export function getPreparationPlanThreeMonths(
 
 export function getPreparationPlanThemeThreeMonths(): QuestionListTheme {
   return {
-    backgroundClass: themeGradient3.className,
     iconBorderClass: 'border-indigo-600',
     iconClass: 'text-indigo-600',
     iconOutline: RiStarLine,
     iconSolid: RiStarFill,
+    theme: themeGradientPinkPurple,
   };
 }

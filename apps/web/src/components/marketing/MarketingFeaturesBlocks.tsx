@@ -7,9 +7,9 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeGradient1,
-  themeGradient2,
-  themeGradient3,
+  themeGradientBlueGreen,
+  themeGradientGreenYellow,
+  themeGradientPinkPurple,
   themeRadialGlowBackground,
   themeTextBrandColor,
 } from '~/components/ui/theme';
@@ -109,7 +109,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-72 w-full rounded-lg',
-                themeGradient1.className,
+                themeGradientBlueGreen.className,
               )}
             />
           }
@@ -129,7 +129,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-96 w-full rounded-lg',
-                themeGradient2.className,
+                themeGradientGreenYellow.className,
               )}
             />
           }
@@ -149,7 +149,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-64 w-full rounded-lg',
-                themeGradient3.className,
+                themeGradientPinkPurple.className,
               )}
             />
           }
@@ -165,7 +165,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-80 w-full rounded-lg',
-                themeGradient1.className,
+                themeGradientBlueGreen.className,
               )}
             />
           }
@@ -181,7 +181,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-72 w-full rounded-lg',
-                themeGradient2.className,
+                themeGradientGreenYellow.className,
               )}
             />
           }
@@ -195,7 +195,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-64 w-full rounded-lg',
-                themeGradient3.className,
+                themeGradientPinkPurple.className,
               )}
             />
           }
@@ -214,7 +214,7 @@ export default function MarketingFeaturesBlocks() {
             <div
               className={clsx(
                 'h-96 w-full rounded-lg',
-                themeGradient3.className,
+                themeGradientPinkPurple.className,
               )}
             />
           }

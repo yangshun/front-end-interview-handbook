@@ -1,9 +1,10 @@
 import { BiUniversalAccess } from 'react-icons/bi';
 import type { IntlShape } from 'react-intl';
 
-import { themeGradient1 } from '~/components/ui/theme';
+import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import { themeGradientBlueGreen } from '~/components/ui/theme';
 
-import type { FocusArea, FocusAreaTheme } from '../FocusAreas';
+import type { FocusArea } from '../FocusAreas';
 
 export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
   return {
@@ -61,12 +62,12 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
   };
 }
 
-export function getFocusAreaThemeAccessibility(): FocusAreaTheme {
+export function getFocusAreaThemeAccessibility(): QuestionListTheme {
   return {
-    backgroundClass: themeGradient1.className,
     iconBorderClass: 'border-violet-600',
     iconClass: 'text-violet-600',
     iconOutline: BiUniversalAccess,
     iconSolid: BiUniversalAccess,
+    theme: themeGradientBlueGreen,
   };
 }
