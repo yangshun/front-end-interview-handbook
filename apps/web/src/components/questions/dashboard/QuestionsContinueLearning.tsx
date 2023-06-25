@@ -121,13 +121,13 @@ type Props = Readonly<{
   hideHeading?: boolean;
   items: ReadonlyArray<{
     completedCount: number;
-    durationMins: number;
+    durationMins?: number;
     gradient: ThemeGradient;
+    // Resume button leads here.
     href: string;
-    // Resume button leads here
     questionsCount: number;
     reverseGradient?: boolean;
-    title: string; // Not exactly sure the best way to do this, you can decide
+    title: string;
   }>;
 }>;
 
@@ -181,14 +181,18 @@ export default function QuestionsContinueLearning({
                   <div className="flex flex-col gap-1">
                     <Text weight="medium">{title}</Text>
                     <div className="inline-flex flex-wrap gap-x-6 gap-y-1">
-                      <QuestionTotalTimeLabel
-                        mins={durationMins}
-                        showIcon={true}
-                      />
-                      <QuestionCountLabel
-                        count={questionsCount}
-                        showIcon={true}
-                      />
+                      {durationMins && (
+                        <QuestionTotalTimeLabel
+                          mins={durationMins}
+                          showIcon={true}
+                        />
+                      )}
+                      {questionsCount && (
+                        <QuestionCountLabel
+                          count={questionsCount}
+                          showIcon={true}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import { trpc } from '~/hooks/trpc';
+
 import type { PreparationArea } from '~/data/PreparationAreas';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -16,16 +18,10 @@ import QuestionPreparationPageHeader from '~/components/questions/listings/heade
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import {
-  themeGradient1,
-  themeGradient2,
-  themeGradient3,
-} from '~/components/ui/theme';
 
-import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 
-import QuestionsContinueLearning from './QuestionsContinueLearning';
+import QuestionsContinueLearningWithFetching from './QuestionsContinueLearningWithFetching';
 
 type Props = Readonly<{
   area: PreparationArea;
@@ -37,7 +33,6 @@ type Props = Readonly<{
     title: string;
   }>;
   guidesHref: string;
-  questionCompletionCount?: QuestionCompletionCount;
   questionTotalAvailableCount: QuestionTotalAvailableCount;
   title: string;
 }>;
@@ -48,13 +43,13 @@ export default function PreparePageLayout({
   guides,
   guidesHref,
   title,
-  questionCompletionCount,
   questionTotalAvailableCount,
 }: Props) {
   const { userProfile } = useUserProfile();
-  // TODO(redesign): show continue learning only if user has progressed
-  // on some plans or explicitly started.
-  const showContinueLearning = userProfile;
+  const { data: questionListSessions } =
+    trpc.questionLists.getActiveSessions.useQuery();
+  const showContinueLearning =
+    questionListSessions != null && questionListSessions.length > 0;
 
   return (
     <Container
@@ -82,36 +77,12 @@ export default function PreparePageLayout({
             'grid gap-x-6 gap-y-12',
             showContinueLearning && 'lg:grid-cols-2',
           )}>
-          {showContinueLearning && (
-            <QuestionsContinueLearning
-              items={[
-                {
-                  completedCount: 30,
-                  durationMins: 92,
-                  gradient: themeGradient1,
-                  href: '/dev__/scrapbook?plan=algo',
-                  questionsCount: 47,
-                  reverseGradient: true,
-                  title: 'Data structure and algorithms',
-                },
-                {
-                  completedCount: 25,
-                  durationMins: 92,
-                  gradient: themeGradient2,
-                  href: '/dev__/scrapbook?plan=forms',
-                  questionsCount: 47,
-                  reverseGradient: true,
-                  title: 'Forms',
-                },
-                {
-                  completedCount: 15,
-                  durationMins: 92,
-                  gradient: themeGradient3,
-                  href: '/dev__/scrapbook?plan=accessibility',
-                  questionsCount: 47,
-                  title: 'Accessibility',
-                },
-              ]}
+          {showContinueLearning && questionListSessions != null && (
+            <QuestionsContinueLearningWithFetching
+              items={questionListSessions.map((session) => ({
+                completedCount: session._count.progress,
+                listKey: session.key,
+              }))}
             />
           )}
           <QuestionsFocusAreas limit={showContinueLearning != null ? 4 : 8} />
