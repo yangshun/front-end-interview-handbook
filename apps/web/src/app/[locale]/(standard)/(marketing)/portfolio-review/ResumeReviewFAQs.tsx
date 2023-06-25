@@ -75,7 +75,12 @@ export default function ResumeReviewFAQs() {
                 {({ open }) => (
                   <>
                     <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-white">
+                      <Disclosure.Button
+                        className={clsx(
+                          'flex w-full items-start justify-between text-left text-white',
+                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
+                          'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
+                        )}>
                         <span className="text-lg font-medium leading-7">
                           {faq.question}
                         </span>

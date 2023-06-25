@@ -170,7 +170,12 @@ export default function FrequentlyAskedQuestions() {
                   {({ open }) => (
                     <>
                       <dt className="text-base sm:text-lg md:text-xl">
-                        <Disclosure.Button className="flex w-full items-start justify-between text-left">
+                        <Disclosure.Button
+                          className={clsx(
+                            'flex w-full items-start justify-between text-left',
+                            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
+                            'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
+                          )}>
                           <Text
                             className="text-base sm:text-lg md:text-xl"
                             color="subtitle"
