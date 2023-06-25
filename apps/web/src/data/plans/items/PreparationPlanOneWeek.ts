@@ -74,10 +74,8 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
 
 export function getPreparationPlanThemeOneWeek(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-purple-600',
-    iconClass: 'text-purple-600',
+    gradient: themeGradientGreenYellow,
     iconOutline: RiFlashlightLine,
     iconSolid: RiFlashlightFill,
-    theme: themeGradientGreenYellow,
   };
 }

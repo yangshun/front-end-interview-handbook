@@ -70,16 +70,19 @@ function PreparationPlansSection() {
                 key={plan.type}
                 className={clsx(
                   'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset md:px-8',
-                  planTheme.theme.className,
+                  planTheme.gradient.className,
                 )}>
                 <div
                   className={clsx(
                     'absolute top-0 inline-block -translate-y-1/2 transform rounded-xl border-2 bg-white p-3 shadow-lg',
-                    planTheme.iconBorderClass,
-                  )}>
+                  )}
+                  style={{ borderColor: planTheme.gradient.startColor }}>
                   <planTheme.iconSolid
                     aria-hidden="true"
-                    className={clsx('h-8 w-8', planTheme.iconClass)}
+                    className={clsx('h-8 w-8')}
+                    style={{
+                      color: planTheme.gradient.startColor,
+                    }}
                   />
                 </div>
                 <Heading className="text-white" level="heading6">

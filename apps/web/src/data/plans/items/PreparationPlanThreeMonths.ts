@@ -117,10 +117,8 @@ export function getPreparationPlanThreeMonths(
 
 export function getPreparationPlanThemeThreeMonths(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-indigo-600',
-    iconClass: 'text-indigo-600',
+    gradient: themeGradientPinkPurple,
     iconOutline: RiStarLine,
     iconSolid: RiStarFill,
-    theme: themeGradientPinkPurple,
   };
 }

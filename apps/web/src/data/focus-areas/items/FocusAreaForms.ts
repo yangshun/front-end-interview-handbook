@@ -63,10 +63,8 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
 
 export function getFocusAreaThemeForms(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-violet-600',
-    iconClass: 'text-violet-600',
+    gradient: themeGradientBlueGreen,
     iconOutline: TbForms,
     iconSolid: TbForms,
-    theme: themeGradientBlueGreen,
   };
 }

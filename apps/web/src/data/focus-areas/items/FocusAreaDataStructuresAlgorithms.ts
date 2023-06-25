@@ -78,10 +78,8 @@ export function getFocusAreaDataStructuresAlgorithms(
 
 export function getFocusAreaThemeDataStructuresAlgorithms(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-indigo-600',
-    iconClass: 'text-indigo-600',
+    gradient: themeGradientPinkPurple,
     iconOutline: TbBinaryTree,
     iconSolid: TbBinaryTree,
-    theme: themeGradientPinkPurple,
   };
 }

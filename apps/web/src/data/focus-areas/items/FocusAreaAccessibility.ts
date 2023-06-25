@@ -64,10 +64,8 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
 
 export function getFocusAreaThemeAccessibility(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-violet-600',
-    iconClass: 'text-violet-600',
+    gradient: themeGradientBlueGreen,
     iconOutline: BiUniversalAccess,
     iconSolid: BiUniversalAccess,
-    theme: themeGradientBlueGreen,
   };
 }

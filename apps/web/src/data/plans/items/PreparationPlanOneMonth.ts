@@ -93,10 +93,8 @@ export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
 
 export function getPreparationPlanThemeOneMonth(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-violet-600',
-    iconClass: 'text-violet-600',
+    gradient: themeGradientBlueGreen,
     iconOutline: RiFireLine,
     iconSolid: RiFireFill,
-    theme: themeGradientBlueGreen,
   };
 }

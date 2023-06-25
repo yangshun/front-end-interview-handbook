@@ -64,10 +64,8 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
 
 export function getFocusAreaThemeLodash(): QuestionListTheme {
   return {
-    iconBorderClass: 'border-violet-600',
-    iconClass: 'text-violet-600',
+    gradient: themeGradientBlueGreen,
     iconOutline: SiLodash,
     iconSolid: SiLodash,
-    theme: themeGradientBlueGreen,
   };
 }

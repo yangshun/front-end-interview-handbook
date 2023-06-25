@@ -94,7 +94,7 @@ export default function FocusAreaPage({
           icon={focusAreaTheme.iconOutline}
           questionCount={questionCount}
           questionListKey={focusArea.type}
-          themeBackgroundClass={focusAreaTheme.theme.className}
+          themeBackgroundClass={focusAreaTheme.gradient.className}
           title={focusArea.longName}
           totalDurationMins={totalDuration}
         />

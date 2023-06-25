@@ -164,9 +164,7 @@ export type QuestionList = Readonly<{
 }>;
 
 export type QuestionListTheme = Readonly<{
-  iconBorderClass: string;
-  iconClass: string;
+  gradient: ThemeGradient;
   iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  theme: ThemeGradient;
 }>;
