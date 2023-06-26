@@ -6,7 +6,7 @@ import useAppThemeOptions from '~/hooks/useAppThemeOptions';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
-import { useAppThemePreferences } from '../AppThemePreferencesProvider';
+import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';
 
 export default function NavAppThemeDropdown() {
   const intl = useIntl();

@@ -8,7 +8,6 @@ import gtag from '~/lib/gtag';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 
-import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingJavaScriptQuestionsExamples from '~/components/marketing/examples/MarketingJavaScriptQuestionsExamples';
 import MarketingQuizQuestionsExamples from '~/components/marketing/examples/MarketingQuizQuestionsExamples';
 import MarketingSystemDesignQuestionsExamples from '~/components/marketing/examples/MarketingSystemDesignQuestionsExamples';
@@ -195,29 +194,26 @@ export default function GetStartedPage({
   const intl = useIntl();
 
   return (
-    <>
-      <PromoBanner />
-      <Container>
-        <div className="flex flex-col gap-y-12 py-12 lg:gap-y-16 lg:py-16">
-          <Heading level="heading3">
-            {intl.formatMessage({
-              defaultMessage: 'Get Started',
-              description: 'Title of get started page',
-              id: 'cktXm2',
-            })}
-          </Heading>
-          <Section>
-            <PreparationPlansSection />
-            <Divider />
-            <PracticeQuestionsSection
-              javaScriptQuestions={javaScriptQuestions}
-              quizQuestions={quizQuestions}
-              systemDesignQuestions={systemDesignQuestions}
-              userInterfaceQuestions={userInterfaceQuestions}
-            />
-          </Section>
-        </div>
-      </Container>
-    </>
+    <Container>
+      <div className="flex flex-col gap-y-12 py-12 lg:gap-y-16 lg:py-16">
+        <Heading level="heading3">
+          {intl.formatMessage({
+            defaultMessage: 'Get Started',
+            description: 'Title of get started page',
+            id: 'cktXm2',
+          })}
+        </Heading>
+        <Section>
+          <PreparationPlansSection />
+          <Divider />
+          <PracticeQuestionsSection
+            javaScriptQuestions={javaScriptQuestions}
+            quizQuestions={quizQuestions}
+            systemDesignQuestions={systemDesignQuestions}
+            userInterfaceQuestions={userInterfaceQuestions}
+          />
+        </Section>
+      </div>
+    </Container>
   );
 }

@@ -10,7 +10,6 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
-import PromoBanner from '~/components/global/banners/PromoBanner';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
 import MarketingPricingSection from '~/components/marketing/MarketingPricingSection';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
@@ -59,15 +58,12 @@ export default function PricingPage({ countryCode, plans }: Props) {
   }, [cancelSearchParam, planSearchParam, plans]);
 
   return (
-    <div>
-      <PromoBanner variant="primary" />
-      <div className="space-y-16 sm:space-y-20">
-        <MarketingPricingSection countryCode={countryCode} plans={plans} />
-        <Section>
-          <MarketingFeatures />
-          <MarketingTestimonialsSection />
-        </Section>
-      </div>
+    <div className="flex flex-col gap-y-16 sm:gap-y-20">
+      <MarketingPricingSection countryCode={countryCode} plans={plans} />
+      <Section>
+        <MarketingFeatures />
+        <MarketingTestimonialsSection />
+      </Section>
     </div>
   );
 }

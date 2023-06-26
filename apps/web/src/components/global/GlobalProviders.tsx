@@ -11,7 +11,7 @@ import { I18nProvider } from '~/next-i18nostic/src';
 import type { Database } from '~/supabase/database.types';
 
 import AppContextProvider from './AppContextProvider';
-import AppThemePreferencesProvider from './AppThemePreferencesProvider';
+import AppThemePreferencesProvider from './dark/AppThemePreferencesProvider';
 import ScrollManagementProvider from './ScrollManagementProvider';
 import ToastsProvider from './toasts/ToastsProvider';
 import TrpcClientProvider from './TrpcClientProvider';

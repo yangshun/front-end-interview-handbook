@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { useAppThemePreferences } from '~/components/global/AppThemePreferencesProvider';
+import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 
 export default function HTMLThemeUpdater() {
   const { appTheme } = useAppThemePreferences();

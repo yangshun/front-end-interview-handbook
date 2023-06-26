@@ -11,6 +11,7 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import DiscordIcon from '~/components/icons/DiscordIcon';
 import GitHubIcon from '~/components/icons/GitHubIcon';
 import Anchor from '~/components/ui/Anchor';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -277,7 +278,7 @@ export default function Footer() {
         />
       </Heading>
       <Section>
-        <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16">
+        <Container className="py-12 lg:py-16">
           <div className="lg:grid lg:grid-cols-3 xl:gap-8">
             <div className="flex flex-col justify-between gap-y-4 xl:col-span-1">
               <div className="flex flex-col gap-y-6">
@@ -371,7 +372,7 @@ export default function Footer() {
             className={clsx('mt-12 border-t pt-8 lg:hidden', themeLineColor)}>
             {copyrightStatement}
           </div>
-        </div>
+        </Container>
       </Section>
     </footer>
   );

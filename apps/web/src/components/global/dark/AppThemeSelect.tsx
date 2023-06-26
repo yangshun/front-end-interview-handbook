@@ -5,7 +5,7 @@ import useAppThemeOptions from '~/hooks/useAppThemeOptions';
 import type { SelectDisplay } from '~/components/ui/Select';
 import Select from '~/components/ui/Select';
 
-import type { AppThemePreference } from '../global/AppThemePreferencesProvider';
+import type { AppThemePreference } from './AppThemePreferencesProvider';
 
 type Props = Readonly<{
   colorScheme: AppThemePreference;

@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
@@ -13,9 +15,7 @@ import { useUserProfile } from '../UserProfileProvider';
 
 export default function PromoBanner({
   variant = 'special',
-  sticky = true,
 }: Readonly<{
-  sticky?: boolean;
   variant?: 'primary' | 'special';
 }>) {
   const { userProfile } = useUserProfile();
@@ -23,14 +23,15 @@ export default function PromoBanner({
   const isPremium = userProfile?.isPremium ?? false;
   const isInvisible = isPremium || !showPromoBanner;
 
+  if (isInvisible) {
+    return null;
+  }
+
   return (
     <div
       className={clsx(
-        'z-20 w-full transition-opacity duration-500',
-        sticky && 'lg:sticky',
-        isInvisible && 'select-none opacity-0',
+        'sticky top-0 z-20 w-full transition-opacity duration-500',
       )}
-      style={{ top: `var(--navbar-height)` }}
       suppressHydrationWarning={true}>
       <Banner
         size="xs"

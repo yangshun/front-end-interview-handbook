@@ -8,13 +8,14 @@ import SentryInit from '~/components/global/analytics/SentryInit';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
+import HTMLThemeUpdater from '~/components/global/dark/HTMLThemeUpdater';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
+import NavbarHeight from '~/components/global/NavbarHeight';
 import { themeBackgroundColor } from '~/components/ui/theme';
 
 import type { IntlMessages } from '~/i18n';
 
-import HTMLThemeUpdater from './HTMLThemeUpdater';
 import ThemedBody from './ThemedBody';
 
 import '~/styles/globals.css';
@@ -36,7 +37,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
           <MetaPixel />
-          <style>{`:root { --navbar-height: 65px; }`}</style>
+          <NavbarHeight />
           {children}
           <VercelAnalytics />
           <FirstPromoter />

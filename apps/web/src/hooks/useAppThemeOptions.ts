@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import type { AppThemePreference } from '~/components/global/AppThemePreferencesProvider';
+import type { AppThemePreference } from '~/components/global/dark/AppThemePreferencesProvider';
 import type { SelectItem } from '~/components/ui/Select';
 
 function useAppThemePreferenceLabel(appThemePreference: AppThemePreference) {

@@ -16,6 +16,7 @@ import Button from '../Button';
 import { Dialog, Transition } from '@headlessui/react';
 
 type Props = Readonly<{
+  className?: string;
   endAddOnItems?: React.ReactNode;
   isLoading: boolean;
   links: ReadonlyArray<NavbarPrimaryItem>;
@@ -27,6 +28,7 @@ type Props = Readonly<{
 }>;
 
 export default function Navbar({
+  className,
   endAddOnItems,
   isLoading,
   links,
@@ -51,6 +53,7 @@ export default function Navbar({
         'sticky top-0 z-30',
         ['border-b', themeLineColor],
         ['dark:bg-neutral-950/60 bg-white/60 backdrop-blur'],
+        className,
       )}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between md:justify-start md:gap-4">

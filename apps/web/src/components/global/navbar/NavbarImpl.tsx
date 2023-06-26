@@ -16,7 +16,8 @@ import {
   useQuestionTechnologyLists,
 } from '~/data/QuestionFormats';
 
-import AppThemeSelect from '~/components/app-theme/AppThemeSelect';
+import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
+import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import I18nSelect from '~/components/i18n/I18nSelect';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -37,7 +38,7 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 import NavAppThemeDropdown from './NavAppThemeDropdown';
 import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
-import { useAppThemePreferences } from '../AppThemePreferencesProvider';
+import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
 
@@ -585,6 +586,7 @@ function useUserNavigationLinks() {
 export default function NavbarImpl() {
   const { appThemePreference, setAppThemePreference } =
     useAppThemePreferences();
+  const { showPromoBanner } = useUserPreferences();
   const user = useUser();
   const { isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
@@ -727,6 +729,7 @@ export default function NavbarImpl() {
 
   return (
     <Navbar
+      className={showPromoBanner ? 'sm:!top-12 md:!top-8' : undefined}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}
