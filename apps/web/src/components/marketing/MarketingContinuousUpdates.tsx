@@ -141,10 +141,10 @@ function Chart({
               fy="50%"
               id={`${id}-vignette-gradient`}
               r="80%">
-              <stop offset="0%" stop-color="white" stop-opacity="1" />
-              <stop offset="20%" stop-color="white" stop-opacity="1" />
-              <stop offset="80%" stop-color="black" stop-opacity="0" />
-              <stop offset="100%" stop-color="black" stop-opacity="0" />
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="20%" stopColor="white" stopOpacity="1" />
+              <stop offset="80%" stopColor="black" stopOpacity="0" />
+              <stop offset="100%" stopColor="black" stopOpacity="0" />
             </radialGradient>
             <rect
               fill={`url(#${id}-vignette-gradient)`}
@@ -164,16 +164,16 @@ function Chart({
           <linearGradient
             gradientTransform="rotate(224.29)"
             id={`${id}-chart-line-gradient`}>
-            <stop offset="44.99%" stop-color="rgba(141, 113, 254, 0.08)" />
-            <stop offset="76.87%" stop-color="#8D71FE" />
-            <stop offset="101.29%" stop-color="rgba(141, 113, 254, 0.0001)" />
+            <stop offset="44.99%" stopColor="rgba(141, 113, 254, 0.08)" />
+            <stop offset="76.87%" stopColor="#8D71FE" />
+            <stop offset="101.29%" stopColor="rgba(141, 113, 254, 0.0001)" />
           </linearGradient>
           <linearGradient
             gradientTransform="rotate(180)"
             id={`${id}-highlighted-axis-line-gradient`}>
-            <stop offset="0%" stop-color="rgba(203, 213, 225, 0.0001)" />
-            <stop offset="52.62%" stop-color="#CBD5E1" />
-            <stop offset="100%" stop-color="rgba(203, 213, 225, 0.0001)" />
+            <stop offset="0%" stopColor="rgba(203, 213, 225, 0.0001)" />
+            <stop offset="52.62%" stopColor="#CBD5E1" />
+            <stop offset="100%" stopColor="rgba(203, 213, 225, 0.0001)" />
           </linearGradient>
           <linearGradient
             gradientTransform="rotate(180)"
@@ -183,15 +183,15 @@ function Chart({
             x2="100%"
             y1="0%"
             y2="0%">
-            <stop offset="5%" stop-color="gold" />
-            <stop offset="95%" stop-color="red" />
+            <stop offset="5%" stopColor="gold" />
+            <stop offset="95%" stopColor="red" />
           </linearGradient>
           <linearGradient
             gradientTransform="rotate(270)"
             id={`${id}-horizontal-axis-line-gradient`}>
-            <stop offset="0%" stop-color="rgba(51, 65, 85, 0.0001)" />
-            <stop offset="52.62%" stop-color="#334155" />
-            <stop offset="100%" stop-color="rgba(51, 65, 85, 0.0001)" />
+            <stop offset="0%" stopColor="rgba(51, 65, 85, 0.0001)" />
+            <stop offset="52.62%" stopColor="#334155" />
+            <stop offset="100%" stopColor="rgba(51, 65, 85, 0.0001)" />
           </linearGradient>
         </defs>
         <g mask={`url(#${id}-vignette-mask)`}>

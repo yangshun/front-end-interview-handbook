@@ -13,7 +13,7 @@ type AppThemePreferencesContextType = {
 };
 
 const DEFAULT_APP_THEME_PREFERENCE: AppThemePreference = 'system';
-const DEFAULT_APP_THEME: AppTheme = 'light';
+const DEFAULT_APP_THEME: AppTheme = 'dark';
 
 const AppThemePreferencesContext =
   createContext<AppThemePreferencesContextType>({

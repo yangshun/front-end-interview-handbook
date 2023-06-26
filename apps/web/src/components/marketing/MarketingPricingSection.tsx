@@ -86,8 +86,8 @@ function PurpleGradientBackground() {
           x2="151.568"
           y1="436.014"
           y2="65.2011">
-          <stop stop-color="#A855F7" />
-          <stop offset="1" stop-color="#6366F1" stop-opacity="0.01" />
+          <stop stopColor="#A855F7" />
+          <stop offset="1" stopColor="#6366F1" stopOpacity="0.01" />
         </linearGradient>
       </defs>
     </svg>

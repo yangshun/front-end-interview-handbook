@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { RiArrowRightSLine, RiBookOpenLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Anchor from '~/components/ui/Anchor';
@@ -18,8 +18,9 @@ import {
 
 import QuestionsContinueLearning from '../../dashboard/QuestionsContinueLearning';
 
-// TODO: i18n
 function ContinueLearningCard() {
+  const intl = useIntl();
+
   return (
     <QuestionsContinueLearning
       hideHeading={true}
@@ -28,19 +29,27 @@ function ContinueLearningCard() {
           completedCount: 24,
           durationMins: 92,
           gradient: themeGradientBlueGreen,
-          href: '/',
+          href: '/dsa',
           questionsCount: 47,
           reverseGradient: true,
-          title: 'Data Structure and Algorithms',
+          title: intl.formatMessage({
+            defaultMessage: 'Data structures and algorithms',
+            description: 'Title of study plan',
+            id: 'OOYktU',
+          }),
         },
         {
           completedCount: 24,
           durationMins: 92,
           gradient: themeGradientGreenYellow,
-          href: '/',
+          href: '/a11y',
           questionsCount: 50,
           reverseGradient: true,
-          title: 'Forms',
+          title: intl.formatMessage({
+            defaultMessage: 'Accessibility',
+            description: 'Title of study plan',
+            id: 'qzlnBr',
+          }),
         },
       ]}
     />

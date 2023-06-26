@@ -147,9 +147,9 @@ function MarketingHeroBackground(props: React.SVGProps<SVGSVGElement>) {
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_401_76334"
           r="1">
-          <stop stop-color="#E9D5FF" />
-          <stop offset="0.223497" stop-color="#8383FD" />
-          <stop offset="1" stop-color="#0F172A" stop-opacity="0.01" />
+          <stop stopColor="#E9D5FF" />
+          <stop offset="0.223497" stopColor="#8383FD" />
+          <stop offset="1" stopColor="#0F172A" stopOpacity="0.01" />
         </radialGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -158,8 +158,8 @@ function MarketingHeroBackground(props: React.SVGProps<SVGSVGElement>) {
           x2="986.754"
           y1="494.676"
           y2="790.36">
-          <stop stop-color="#A855F7" />
-          <stop offset="1" stop-color="#6366F1" />
+          <stop stopColor="#A855F7" />
+          <stop offset="1" stopColor="#6366F1" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -168,8 +168,8 @@ function MarketingHeroBackground(props: React.SVGProps<SVGSVGElement>) {
           x2="386.568"
           y1="61.9859"
           y2="432.799">
-          <stop stop-color="#8383FD" />
-          <stop offset="1" stop-color="#6366F1" stop-opacity="0.01" />
+          <stop stopColor="#8383FD" />
+          <stop offset="1" stopColor="#6366F1" stopOpacity="0.01" />
         </linearGradient>
       </defs>
     </svg>
@@ -207,9 +207,9 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_1164_60765"
           r="1">
-          <stop stop-color="#DCC0FF" />
-          <stop offset="0.297527" stop-color="#3C3CF2" />
-          <stop offset="1" stop-opacity="0" />
+          <stop stopColor="#DCC0FF" />
+          <stop offset="0.297527" stopColor="#3C3CF2" />
+          <stop offset="1" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           cx="0"
@@ -218,9 +218,9 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
           gradientUnits="userSpaceOnUse"
           id="paint1_radial_1164_60765"
           r="1">
-          <stop stop-color="#DCC0FF" />
-          <stop offset="0.307292" stop-color="#DBCEFF" />
-          <stop offset="1" stop-color="#A18AE0" stop-opacity="0" />
+          <stop stopColor="#DCC0FF" />
+          <stop offset="0.307292" stopColor="#DBCEFF" />
+          <stop offset="1" stopColor="#A18AE0" stopOpacity="0" />
         </radialGradient>
       </defs>
     </svg>
@@ -250,7 +250,7 @@ export default function MarketingHero() {
                     underline: (chunks) => (
                       <span className="relative">
                         {chunks}
-                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] sm:mb-[-7%] mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none" />
+                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none sm:mb-[-7%]" />
                       </span>
                     ),
                   }}

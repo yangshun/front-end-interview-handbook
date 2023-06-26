@@ -255,8 +255,8 @@ function BackgroundPattern() {
           x2="-4.16762e-06"
           y1="116"
           y2="9.55678e-06">
-          <stop stop-color="#27272A" />
-          <stop offset="1" stop-color="#27272A" stop-opacity="0" />
+          <stop stopColor="#27272A" />
+          <stop offset="1" stopColor="#27272A" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -265,8 +265,8 @@ function BackgroundPattern() {
           x2="-4.16762e-06"
           y1="116"
           y2="9.55678e-06">
-          <stop stop-color="#27272A" />
-          <stop offset="1" stop-color="#27272A" stop-opacity="0" />
+          <stop stopColor="#27272A" />
+          <stop offset="1" stopColor="#27272A" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -275,9 +275,9 @@ function BackgroundPattern() {
           x2="103.47"
           y1="-58.6924"
           y2="102.533">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -286,9 +286,9 @@ function BackgroundPattern() {
           x2="136.647"
           y1="-49.8027"
           y2="111.423">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -297,9 +297,9 @@ function BackgroundPattern() {
           x2="169.828"
           y1="-40.9121"
           y2="120.314">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -308,9 +308,9 @@ function BackgroundPattern() {
           x2="203.002"
           y1="-32.0225"
           y2="129.203">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -319,9 +319,9 @@ function BackgroundPattern() {
           x2="236.183"
           y1="-23.1328"
           y2="138.093">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.64" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.64" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -330,9 +330,9 @@ function BackgroundPattern() {
           x2="269.357"
           y1="-14.2432"
           y2="146.983">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -341,9 +341,9 @@ function BackgroundPattern() {
           x2="302.538"
           y1="-5.35254"
           y2="155.873">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -352,9 +352,9 @@ function BackgroundPattern() {
           x2="70.2925"
           y1="-67.582"
           y2="93.6438">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -363,9 +363,9 @@ function BackgroundPattern() {
           x2="37.1152"
           y1="-76.4727"
           y2="84.7532">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#CBD5E1" stop-opacity="0.48" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#CBD5E1" stopOpacity="0.48" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -374,9 +374,9 @@ function BackgroundPattern() {
           x2="-1.42383"
           y1="-59.5958"
           y2="-59.5958">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#334155" stop-opacity="0.32" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#334155" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -385,9 +385,9 @@ function BackgroundPattern() {
           x2="-10.3125"
           y1="-26.4181"
           y2="-26.4181">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#334155" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#334155" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -396,9 +396,9 @@ function BackgroundPattern() {
           x2="-19.2017"
           y1="6.75967"
           y2="6.75967">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#334155" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#334155" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -407,9 +407,9 @@ function BackgroundPattern() {
           x2="-28.0938"
           y1="39.9374"
           y2="39.9374">
-          <stop stop-color="#334155" stop-opacity="0.01" />
-          <stop offset="0.526196" stop-color="#334155" />
-          <stop offset="1" stop-color="#334155" stop-opacity="0.01" />
+          <stop stopColor="#334155" stopOpacity="0.01" />
+          <stop offset="0.526196" stopColor="#334155" />
+          <stop offset="1" stopColor="#334155" stopOpacity="0.01" />
         </linearGradient>
       </defs>
     </svg>
