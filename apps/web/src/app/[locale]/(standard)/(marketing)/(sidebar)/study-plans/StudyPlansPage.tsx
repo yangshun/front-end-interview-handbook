@@ -32,7 +32,7 @@ import CompletionCountSummary from './CompletionCountSummary';
 
 function PreparationPlanCard({
   difficultySummary,
-  plan: { type, name, description, questions, href },
+  plan: { type, name, description, questions, href, schedule },
   isStarted = false,
   completionCount = 0,
 }: {
@@ -88,10 +88,9 @@ function PreparationPlanCard({
         </div>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
           <QuestionCountLabel count={questionCount} showIcon={true} />
-          {/* TODO(redesign): calculate daily. */}
           <QuestionStudyAllocationLabel
-            frequency="daily"
-            hours={2}
+            frequency={schedule.frequency}
+            hours={schedule.hours}
             showIcon={true}
           />
           <QuestionDifficultySummary

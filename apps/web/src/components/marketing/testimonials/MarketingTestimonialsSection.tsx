@@ -54,7 +54,7 @@ export default function MarketingTestimonialsSection() {
           <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
             {testimonials.map((testimonial) => (
               <div
-                key={testimonial.key}
+                key={testimonial.id}
                 className="pt-6 sm:inline-block sm:w-full sm:px-3">
                 <TestimonialCard {...testimonial} />
               </div>

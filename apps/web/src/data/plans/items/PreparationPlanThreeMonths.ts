@@ -91,6 +91,10 @@ export function getPreparationPlanThreeMonths(
         'tweet',
       ],
     },
+    schedule: {
+      frequency: 'weekly',
+      hours: 3,
+    },
     seo: {
       description: intl.formatMessage({
         defaultMessage:

@@ -4,7 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 export type Testimonial = Readonly<{
   authorThumbnailUrl?: string;
   authorUrl?: string;
-  key: string;
+  id: string;
   location: string;
   name?: string;
   testimonial: ReactNode;
@@ -16,7 +16,7 @@ export function useTestimonials() {
   const luke = {
     authorThumbnailUrl: '/img/testimonials/luke-fiji.jpg',
     authorUrl: 'https://www.linkedin.com/in/lukefiji/',
-    key: 'luke-fiji',
+    id: 'luke-fiji',
     location: intl.formatMessage({
       defaultMessage: 'Seattle, WA, USA',
       description: 'Seattle in USA',
@@ -32,7 +32,7 @@ export function useTestimonials() {
     ),
   };
   const alan = {
-    key: 'alan',
+    id: 'alan',
     location: 'Mountain View, CA, USA',
     name: 'Alan',
     testimonial:
@@ -42,7 +42,7 @@ export function useTestimonials() {
   const larry = {
     authorThumbnailUrl: '/img/testimonials/larry-almeida.jpg',
     authorUrl: 'https://www.linkedin.com/in/larrydalmeida/',
-    key: 'larry-almedia',
+    id: 'larry-almedia',
     location: intl.formatMessage({
       defaultMessage: 'Zalando, Berlin, Germany',
       description: "Larry Almeida's location",
@@ -82,7 +82,7 @@ export function useTestimonials() {
   const nafis = {
     authorThumbnailUrl: '/img/testimonials/nafis-hasnain.jpg',
     authorUrl: 'https://www.linkedin.com/in/nhasnain/',
-    key: 'nafis-hasnain',
+    id: 'nafis-hasnain',
     location: intl.formatMessage({
       defaultMessage: 'Ontario, Canada',
       description: "Nafis Hasnain's location",
@@ -103,7 +103,7 @@ export function useTestimonials() {
     }),
   };
   const delhi = {
-    key: 'delhi',
+    id: 'delhi',
     location: intl.formatMessage({
       defaultMessage: 'Delhi, India',
       description: "Anonymous Front End Engineer's location",
@@ -125,7 +125,7 @@ export function useTestimonials() {
   const jacky = {
     authorThumbnailUrl: '/img/testimonials/jacky-liang.jpg',
     authorUrl: 'https://www.linkedin.com/in/mrjackyliang/',
-    key: 'jacky-liang',
+    id: 'jacky-liang',
     location: intl.formatMessage({
       defaultMessage: 'New York, NY, USA',
       description: "Jacky Liang's location",
@@ -147,7 +147,7 @@ export function useTestimonials() {
   };
   const anand = {
     authorUrl: 'https://www.linkedin.com/in/ananddharne/',
-    key: 'anand-dharne',
+    id: 'anand-dharne',
     location: intl.formatMessage({
       defaultMessage: 'USA',
       description: "Anand Dharne's location",
@@ -173,7 +173,7 @@ export function useTestimonials() {
     }),
   };
   const vietnam = {
-    key: 'vietnam',
+    id: 'vietnam',
     location: intl.formatMessage({
       defaultMessage: 'Vietnam',
       description: 'Vietnam country',
@@ -195,7 +195,7 @@ export function useTestimonials() {
   const ryan = {
     authorThumbnailUrl: '/img/testimonials/ryanlvv.jpg',
     authorUrl: 'https://www.linkedin.com/in/ryanlvv/',
-    key: 'ryanlvv',
+    id: 'ryanlvv',
     location: intl.formatMessage({
       defaultMessage: 'Seattle, WA, USA',
       description: 'Seattle location',
@@ -222,7 +222,7 @@ export function useTestimonials() {
   const prashanth = {
     authorThumbnailUrl: '/img/testimonials/prashanth-reddy.jpg',
     authorUrl: 'https://www.linkedin.com/in/prshnthrddy/',
-    key: 'prashanth-reddy',
+    id: 'prashanth-reddy',
     location: intl.formatMessage({
       defaultMessage: 'Toronto, Canada',
       description: "Prashanth Reddy's location",
@@ -244,7 +244,7 @@ export function useTestimonials() {
   };
   const gouse = {
     authorUrl: 'https://www.linkedin.com/in/gouse-basha-7a0902191/',
-    key: 'gouse-basha',
+    id: 'gouse-basha',
     location: intl.formatMessage({
       defaultMessage: 'Chennai, India',
       description: 'Chennai in India',
@@ -265,7 +265,7 @@ export function useTestimonials() {
     }),
   };
   const india = {
-    key: 'india',
+    id: 'india',
     location: intl.formatMessage({
       defaultMessage: 'India',
       description: 'India country',
@@ -285,7 +285,7 @@ export function useTestimonials() {
     }),
   };
   const zhenchao = {
-    key: 'zhenchao',
+    id: 'zhenchao',
     location: 'USA',
     name: 'Zhenchao',
     testimonial:

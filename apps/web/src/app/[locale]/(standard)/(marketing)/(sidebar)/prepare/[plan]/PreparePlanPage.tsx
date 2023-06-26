@@ -103,6 +103,7 @@ export default function PreparePlanPage({
           icon={planTheme.iconOutline}
           questionCount={questionCount}
           questionListKey={plan.type}
+          schedule={plan.schedule}
           themeBackgroundClass={planTheme.gradient.className}
           title={plan.longName}
           totalDurationMins={totalDuration}

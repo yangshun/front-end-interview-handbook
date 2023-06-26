@@ -19,10 +19,14 @@ import {
 } from './items/PreparationPlanThreeMonths';
 
 export type PreparationPlanType = 'one-month' | 'one-week' | 'three-months';
-
+export type PreparationPlanSchedule = Readonly<{
+  frequency: 'daily' | 'weekly';
+  hours: number;
+}>;
 // Can only contain serializable values as it's passed between the server-client boundary.
 export type PreparationPlan = QuestionList &
   Readonly<{
+    schedule: PreparationPlanSchedule;
     type: PreparationPlanType;
   }>;
 

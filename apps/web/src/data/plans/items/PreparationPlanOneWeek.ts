@@ -49,6 +49,10 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
         'todo-list',
       ],
     },
+    schedule: {
+      frequency: 'daily',
+      hours: 2,
+    },
     seo: {
       description: intl.formatMessage({
         defaultMessage:

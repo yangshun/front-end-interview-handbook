@@ -9,9 +9,12 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
+import QuestionStudyAllocationLabel from '~/components/questions/metadata/QuestionStudyAllocationLabel';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
@@ -27,6 +30,7 @@ type Props = Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   questionCount: number;
   questionListKey: string;
+  schedule?: PreparationPlanSchedule;
   themeBackgroundClass: string;
   title: string;
   totalDurationMins: number;
@@ -37,6 +41,7 @@ export default function QuestionListTitleSection({
   difficultySummary,
   questionListKey,
   questionCount,
+  schedule,
   totalDurationMins,
   icon: Icon,
   themeBackgroundClass,
@@ -69,7 +74,18 @@ export default function QuestionListTitleSection({
             <Heading level="heading5">{title}</Heading>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
               <QuestionCountLabel count={questionCount} showIcon={true} />
-              <QuestionDurationLabel mins={totalDurationMins} showIcon={true} />
+              {schedule != null ? (
+                <QuestionStudyAllocationLabel
+                  frequency={schedule.frequency}
+                  hours={schedule.hours}
+                  showIcon={true}
+                />
+              ) : (
+                <QuestionDurationLabel
+                  mins={totalDurationMins}
+                  showIcon={true}
+                />
+              )}
               {difficultySummary && (
                 <QuestionDifficultySummary
                   easy={difficultySummary.easy}
