@@ -15,14 +15,18 @@ export default function QuestionListingFeaturedQuestions({
   title,
   questions,
 }: Props) {
+  if (questions.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="grid gap-y-4">
+    <div className="flex flex-col gap-y-4">
       <Heading className="text-base font-semibold" level="custom">
         {title}
       </Heading>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-          {questions.map((metadata, index) => (
+          {questions.slice(0, 3).map((metadata, index) => (
             <div
               key={metadata.href}
               className={clsx(index >= 2 && 'hidden xl:block')}>

@@ -139,9 +139,17 @@
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
   },
+  "1+/4gB": {
+    "defaultMessage": "Reset progress",
+    "description": "Button label to reset study plan progress"
+  },
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
+  },
+  "16RIbp": {
+    "defaultMessage": "Try these popular CSS questions",
+    "description": "Title for featured questions section"
   },
   "1AGOZJ": {
     "defaultMessage": "Access updates to the interview platform for life.",
@@ -399,6 +407,10 @@
     "defaultMessage": "Practice Questions",
     "description": "Section title for links to question lists by category and format"
   },
+  "6y6SUS": {
+    "defaultMessage": "Mark as complete",
+    "description": "Mark question as complete"
+  },
   "6yAWpI": {
     "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
@@ -430,10 +442,6 @@
   "7Korc4": {
     "defaultMessage": "Growth Mindset Questions",
     "description": "Title for growth mindset collaboration questions"
-  },
-  "7OxMtC": {
-    "defaultMessage": "Importance",
-    "description": "Screenreader text to indicate question importance - how important it is to practice this question"
   },
   "7P0wF0": {
     "defaultMessage": "Get Full Access",
@@ -687,6 +695,10 @@
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
   },
+  "CZYeMZ": {
+    "defaultMessage": "These focus areas are relevant to interviews",
+    "description": "Tooltip of recommended focus areas"
+  },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
     "description": "Button label within embed"
@@ -735,6 +747,10 @@
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
   },
+  "DEhOz5": {
+    "defaultMessage": "Users completed",
+    "description": "Number of users who completed the question"
+  },
   "DIs2lU": {
     "defaultMessage": "FAQs",
     "description": "Frequently Asked Questions"
@@ -770,6 +786,10 @@
   "EJRNjL": {
     "defaultMessage": "1 Month",
     "description": "Short label for one month study plan"
+  },
+  "EK/Uac": {
+    "defaultMessage": "Stop study plan",
+    "description": "Button label to stop study plan"
   },
   "EM2v4V": {
     "defaultMessage": "By creators of",
@@ -1030,6 +1050,10 @@
   "JPbOCy": {
     "defaultMessage": "Vue",
     "description": "Vue questions category short title"
+  },
+  "JQ6swd": {
+    "defaultMessage": "Progress",
+    "description": "Question progress"
   },
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -1331,6 +1355,10 @@
     "defaultMessage": "Search JavaScript questions",
     "description": "Placeholder for search input of JavaScript question list"
   },
+  "OOYktU": {
+    "defaultMessage": "Data structures and algorithms",
+    "description": "Title of study plan"
+  },
   "OPwgMT": {
     "defaultMessage": "Twitter profile link",
     "description": "Link to Twitter profile"
@@ -1527,10 +1555,6 @@
     "defaultMessage": "Completed",
     "description": "The question has been completed"
   },
-  "Rhpldj": {
-    "defaultMessage": "Mark as complete",
-    "description": "Mark quetion as complete"
-  },
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
@@ -1594,10 +1618,6 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
-  },
-  "Tc2C+b": {
-    "defaultMessage": "Free",
-    "description": "Label for free questions"
   },
   "TcVgOJ": {
     "defaultMessage": "Sign in",
@@ -1711,10 +1731,6 @@
     "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
   },
-  "VMIoK4": {
-    "defaultMessage": "Users Completed",
-    "description": "Number of users who completed the question"
-  },
   "VQ9c4+": {
     "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
@@ -1726,10 +1742,6 @@
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
-  },
-  "VYWqtL": {
-    "defaultMessage": "System Design Questions",
-    "description": "Label for system design questions"
   },
   "VcLkXG": {
     "defaultMessage": "Free",
@@ -1854,10 +1866,6 @@
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
-  },
-  "YB06jW": {
-    "defaultMessage": "Premium",
-    "description": "Label for premium questions"
   },
   "YIsqrq": {
     "defaultMessage": "Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>.",
@@ -2062,6 +2070,10 @@
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
+  },
+  "cKn3cK": {
+    "defaultMessage": "Started",
+    "description": "Started on study plan label"
   },
   "cU6AYV": {
     "defaultMessage": "Access to continuously updating question library.",
@@ -2607,6 +2619,10 @@
     "defaultMessage": "Want to see more solutions? <link>Explore our product →</link>",
     "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
   },
+  "lUuh6Q": {
+    "defaultMessage": "Start study plan",
+    "description": "Button label to start study plan"
+  },
   "ldOgfx": {
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
@@ -2690,6 +2706,10 @@
   "n8q6oB": {
     "defaultMessage": "Recommended duration",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
+  },
+  "n9Ii7+": {
+    "defaultMessage": "System Design",
+    "description": "Label for system design questions"
   },
   "nFYr2a": {
     "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
@@ -2907,6 +2927,10 @@
     "defaultMessage": "Software Developer Intern, Vidyard",
     "description": "Nafis Hasnain's job title"
   },
+  "qzlnBr": {
+    "defaultMessage": "Accessibility",
+    "description": "Title of study plan"
+  },
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
@@ -3050,6 +3074,10 @@
   "twAHPt": {
     "defaultMessage": "What interviewers are looking for",
     "description": "What front end system design interviewer are looking for"
+  },
+  "txBBg4": {
+    "defaultMessage": "Past solved",
+    "description": "Label for questions solved in the past"
   },
   "u0dndi": {
     "defaultMessage": "View All Questions",
@@ -3222,6 +3250,10 @@
   "x8+4jJ": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Coding page"
+  },
+  "xAtvsP": {
+    "defaultMessage": "Not completed",
+    "description": "Tooltip for questions Not Completed label"
   },
   "xEvm93": {
     "defaultMessage": "Features",

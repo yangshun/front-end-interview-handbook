@@ -153,9 +153,9 @@ async function processParams(params: Props['params']) {
           },
         ),
       featuredSectionTitle: intl.formatMessage({
-        defaultMessage: 'Try these popular JavaScript questions',
+        defaultMessage: 'Try these popular CSS questions',
         description: 'Title for featured questions section',
-        id: 'ke8J8T',
+        id: '16RIbp',
       }),
       logo: CSS3Logo,
       pageTitle: () =>
@@ -333,12 +333,25 @@ export default async function Page({ params }: Props) {
     titleAddOn,
   } = await processParams(params);
 
+  const featuredQuestions = (() => {
+    if (format == null || format === 'coding') {
+      return codingQuestions.filter((question) => question.featured);
+    }
+
+    if (format === 'quiz') {
+      return quizQuestions.filter((question) => question.featured);
+    }
+
+    return [];
+  })();
+
   return (
     <QuestionsCategoryPage
       category={category}
       codingFormat={codingFormat}
       codingQuestions={codingQuestions}
       description={description}
+      featuredQuestions={featuredQuestions}
       featuredSectionTitle={featuredSectionTitle}
       format={format}
       logo={<Logo className="h-16 w-16 rounded-md" />}

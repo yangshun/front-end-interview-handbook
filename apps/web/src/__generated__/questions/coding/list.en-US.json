@@ -499,8 +499,7 @@
     "href": "/questions/user-interface/contact-form",
     "importance": "high",
     "languages": [
-      "html",
-      "css"
+      "html"
     ],
     "nextQuestions": [
       "flatten",

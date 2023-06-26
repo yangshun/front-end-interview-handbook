@@ -59,6 +59,7 @@ const CategoryFilters: Record<
 type Props = QuestionListProps &
   Readonly<{
     description: string;
+    featuredQuestions: ReadonlyArray<QuestionMetadata>;
     featuredSectionTitle: string;
     logo: ReactNode;
     pageTitle: string;
@@ -137,14 +138,15 @@ function QuestionsList({
 export default function QuestionsCategoryPage({
   category,
   codingFormat,
+  codingQuestions,
+  description,
+  featuredQuestions,
+  featuredSectionTitle,
   format,
   logo,
   pageTitle,
-  description,
-  codingQuestions,
   quizQuestions,
   questionCompletionCount,
-  featuredSectionTitle,
   titleAddOnText,
 }: Props) {
   return (
@@ -165,8 +167,7 @@ export default function QuestionsCategoryPage({
       />
       <Section>
         <QuestionListingFeaturedQuestions
-          // TODO(redesign): pick best questions
-          questions={codingQuestions.slice(0, 3)}
+          questions={featuredQuestions}
           title={featuredSectionTitle}
         />
         <QuestionsList

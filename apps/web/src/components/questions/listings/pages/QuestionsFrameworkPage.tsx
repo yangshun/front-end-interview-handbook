@@ -18,6 +18,7 @@ import QuestionCategoryTitleSection from '../headers/QuestionCategoryTitleSectio
 
 type Props = Readonly<{
   description: string;
+  featuredQuestions: ReadonlyArray<QuestionMetadata>;
   featuredSectionTitle: string;
   framework: QuestionFramework;
   logo?: ReactNode;
@@ -29,12 +30,13 @@ type Props = Readonly<{
 
 export default function QuestionsFrameworkPage({
   description,
+  featuredQuestions,
+  featuredSectionTitle,
   framework,
   logo,
   questionCompletionCount,
   questionList,
   title,
-  featuredSectionTitle,
   titleAddOnText,
 }: Props) {
   return (
@@ -55,8 +57,7 @@ export default function QuestionsFrameworkPage({
       />
       <Section>
         <QuestionListingFeaturedQuestions
-          // TODO(redesign): pick best questions
-          questions={questionList.slice(0, 3)}
+          questions={featuredQuestions}
           title={featuredSectionTitle}
         />
         <QuestionsCodingListWithFiltersAndProgress
