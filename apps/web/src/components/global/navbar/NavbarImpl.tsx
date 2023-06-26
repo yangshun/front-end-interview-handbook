@@ -729,7 +729,8 @@ export default function NavbarImpl() {
 
   return (
     <Navbar
-      className={showPromoBanner ? 'sm:!top-12 md:!top-8' : undefined}
+      // Sync height with navbar.
+      className={showPromoBanner ? '!top-14 lg:!top-10' : undefined}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}

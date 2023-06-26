@@ -4,7 +4,7 @@ import { useUserPreferences } from '~/components/global/UserPreferencesProvider'
 
 export default function NavbarHeight() {
   const navbarHeight = 65;
-  const bannerHeight = 32;
+  const bannerHeight = 40;
   const { showPromoBanner } = useUserPreferences();
 
   return showPromoBanner ? (
