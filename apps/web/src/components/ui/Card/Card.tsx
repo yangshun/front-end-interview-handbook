@@ -22,16 +22,19 @@ type Props = Readonly<{
 }>;
 
 const cardOuterContainerSpotlightClassNames = clsx(
-  'before:bg-neutral-400 dark:before:bg-white',
-  'before:w-20 before:h-20 before:-left-10 before:-top-10 before:blur-[20px]',
   'before:absolute before:rounded-full before:pointer-events-none before:transition-opacity',
+  'before:w-40 before:h-40 before:-left-20 before:-top-20 before:blur-[40px]',
+  'before:bg-neutral-400 dark:before:bg-white',
   'before:opacity-0 before:group-hover/card-container:opacity-100',
-  'before:z-10',
   'before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)]',
-  'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:z-30',
-  'after:opacity-0 dark:after:hover:opacity-60 after:hover:opacity-50',
-  'after:w-16 after:h-16 after:-left-8 after:-top-8 after:blur-[36px]',
+  'before:z-10',
+
+  'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500',
+  'after:w-32 after:h-32 after:-left-16 after:-top-16 after:blur-[72px]',
+  'after:opacity-0 dark:after:hover:opacity-80 after:hover:opacity-70',
   'after:bg-brand-dark',
+  'after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)]',
+  'after:z-30',
 );
 
 const cardOuterContainerClassNames = clsx(
