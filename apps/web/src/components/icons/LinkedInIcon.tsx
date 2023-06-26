@@ -4,7 +4,7 @@ export default function LinkedInIcon(props: React.ComponentProps<'svg'>) {
       fill="currentColor"
       height="24"
       stroke="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 24 24"
       width="24"
       xmlns="http://www.w3.org/2000/svg"

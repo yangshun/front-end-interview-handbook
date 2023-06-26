@@ -49,6 +49,10 @@ export default function MarketingHomePage({
         <MarketingFeaturesRow />
         <MarketingCompaniesMarquee />
         <MarketingEmbedSection
+          featuredQuestions={[
+            ...javaScriptQuestions,
+            ...userInterfaceQuestions,
+          ]}
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />

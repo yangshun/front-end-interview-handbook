@@ -190,14 +190,14 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
         stroke="url(#paint0_radial_1164_60765)"
         stroke-linecap="round"
         stroke-opacity="0.6"
-        stroke-width="8"
+        strokeWidth="8"
       />
       <path
         d="M4.19504 22.3283C18.8792 25.5879 30.9156 27.876 46.2735 27.5981C64.3086 27.2718 83.436 27.8 101.13 23.6778C108.174 22.0369 114.513 21.2012 121.345 18.7409C128.149 16.2905 134.961 13.8002 141.642 11.017C144.951 9.63863 147.967 7.6474 151.263 6.26291C152.352 5.80524 153.647 4.72473 154.796 4.70393"
         stroke="url(#paint1_radial_1164_60765)"
         stroke-linecap="round"
         stroke-opacity="0.6"
-        stroke-width="8"
+        strokeWidth="8"
       />
       <defs>
         <radialGradient

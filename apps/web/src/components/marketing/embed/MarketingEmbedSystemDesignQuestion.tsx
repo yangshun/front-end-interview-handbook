@@ -12,7 +12,7 @@ import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
-import Tabs from '~/components/ui/Tabs';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
@@ -21,30 +21,33 @@ function ReadFullQuestionAlert() {
   const intl = useIntl();
 
   return (
-    <div className="bg-info-lighter rounded-md p-4 text-xs">
-      Like what you are reading?{' '}
-      <Anchor
-        href={questionMetadata.href}
-        target="_blank"
-        variant="flat"
-        onClick={() => {
-          gtag.event({
-            action: `homepage.hero.embed.system_design.try_out.click`,
-            category: 'engagement',
-            label: 'View the full solution and other System Design guides.',
-          });
-          logEvent('click', {
-            element: 'Homepage System Design questions embed (Try out button)',
-            label: 'View the full solution and other System Design guides.',
-          });
-        }}>
-        {intl.formatMessage({
-          defaultMessage:
-            'View the full solution and other System Design guides.',
-          description: 'Button label within embed',
-          id: 'eT2mrq',
-        })}
-      </Anchor>
+    <div className="bg-info rounded-md p-4 text-xs">
+      <Text display="block" size="body3" weight="medium">
+        Like what you are reading?{' '}
+        <Anchor
+          href={questionMetadata.href}
+          target="_blank"
+          variant="flat"
+          onClick={() => {
+            gtag.event({
+              action: `homepage.hero.embed.system_design.try_out.click`,
+              category: 'engagement',
+              label: 'View the full solution and other System Design guides.',
+            });
+            logEvent('click', {
+              element:
+                'Homepage System Design questions embed (Try out button)',
+              label: 'View the full solution and other System Design guides.',
+            });
+          }}>
+          {intl.formatMessage({
+            defaultMessage:
+              'View the full solution and other System Design guides.',
+            description: 'Button label within embed',
+            id: 'eT2mrq',
+          })}
+        </Anchor>
+      </Text>
     </div>
   );
 }
@@ -536,7 +539,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
       <div className="h-0 w-full grow lg:flex">
         <div className="shrink-0 overflow-y-auto" id="left-section">
           <div className="flex flex-col gap-y-4 p-4">
-            <Text className="text-base font-semibold sm:text-xl" size="custom">
+            <Text className="text-base font-semibold sm:text-lg" size="custom">
               {intl.formatMessage({
                 defaultMessage: 'Design a News Feed (e.g. Facebook)',
                 description: 'System design question title',
@@ -548,14 +551,17 @@ export default function MarketingEmbedSystemDesignQuestion() {
               metadata={questionMetadata}
             />
             <Divider />
-            <div className="space-y-2">
-              <div className="text-base font-medium sm:text-lg">
+            <div className="flex flex-col gap-y-2">
+              <Text
+                className="text-base font-medium"
+                display="block"
+                size="custom">
                 {intl.formatMessage({
                   defaultMessage: 'Companies',
                   description: 'Companies section label',
                   id: '5rd3TN',
                 })}
-              </div>
+              </Text>
               <QuestionPaywallSmall
                 subtitle={intl.formatMessage({
                   defaultMessage:
@@ -588,8 +594,9 @@ export default function MarketingEmbedSystemDesignQuestion() {
         </div>
         <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
         <div className="flex grow flex-col gap-4 overflow-y-auto p-4">
-          <Tabs
+          <TabsUnderline
             label="Select navigation item"
+            size="sm"
             tabs={[
               { label: 'Requirements', value: 'requirements' },
               { label: 'Architecture', value: 'architecture' },

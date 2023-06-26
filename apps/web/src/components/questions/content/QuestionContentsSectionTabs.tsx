@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import Tabs from '~/components/ui/Tabs';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 function useSectionLabels(): Record<QuestionContentsSection, string> {
   const intl = useIntl();
@@ -47,7 +47,7 @@ export default function QuestionContentsSectionTabs({
   const sections = sectionsProp ?? DEFAULT_SECTIONS;
 
   return (
-    <Tabs
+    <TabsUnderline
       label={intl.formatMessage({
         defaultMessage: 'Select question section',
         description: 'Label for tabs within coding workspace',

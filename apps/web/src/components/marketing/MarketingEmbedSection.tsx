@@ -16,7 +16,7 @@ import MarketingEmbedQuizQuestion from './embed/MarketingEmbedQuizQuestion';
 import MarketingEmbedSystemDesignQuestion from './embed/MarketingEmbedSystemDesignQuestion';
 import type { EmbedUIQuestion } from './embed/MarketingEmbedUIQuestion';
 import MarketingEmbedUIQuestion from './embed/MarketingEmbedUIQuestion';
-import MarketingHeroBrowserWindowFrame from './MarketingHeroBrowserWindowFrame';
+import MarketingHeroBrowserWindowFrame from './embed/MarketingHeroBrowserWindowFrame';
 import MarketingQuestionCardMarquee from './MarketingQuestionCardMarquee';
 import type {
   QuestionJavaScript,
@@ -189,36 +189,6 @@ function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-const mockQuestion: QuestionMetadata = {
-  author: null,
-  companies: [],
-  created: 0,
-  difficulty: 'medium',
-  duration: 0,
-  excerpt:
-    'Implement a stack data structure containing the common stack methods',
-  featured: false,
-  format: 'quiz',
-  frameworkDefault: null,
-  frameworks: [],
-  href: '/dev__/scrapbook',
-  importance: 'high',
-  languages: ['js', 'ts'],
-  nextQuestions: [],
-  premium: false,
-  published: false,
-  ranking: 0,
-  similarQuestions: [],
-  slug: 'stack',
-  title: 'Stack',
-};
-
-const mockQuestions = Array.from({ length: 10 }, (_, i) => ({
-  ...mockQuestion,
-  slug: `${mockQuestion.title}${i}`,
-  title: `${mockQuestion.title} ${i}`,
-}));
-
 function useTabs() {
   const intl = useIntl();
   const questionFormat = useQuestionFormatLists();
@@ -240,20 +210,12 @@ function useTabs() {
     },
     {
       icon: questionFormat['system-design'].icon,
-      label: intl.formatMessage({
-        defaultMessage: 'System Design',
-        description: 'System Design question',
-        id: 'zXN8kB',
-      }),
+      label: questionFormat['system-design'].name,
       value: 'system-design',
     },
     {
       icon: questionFormat.quiz.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Quiz',
-        description: 'Quiz questions',
-        id: 'qXxpdK',
-      }),
+      label: questionFormat.quiz.name,
       value: 'quiz',
     },
   ];
@@ -262,9 +224,11 @@ function useTabs() {
 }
 
 export default function MarketingEmbedSection({
+  featuredQuestions,
   javaScriptEmbedExample,
   uiEmbedExample,
 }: Readonly<{
+  featuredQuestions: ReadonlyArray<QuestionMetadata>;
   javaScriptEmbedExample: QuestionJavaScript;
   uiEmbedExample: EmbedUIQuestion;
 }>) {
@@ -277,7 +241,7 @@ export default function MarketingEmbedSection({
       <div
         aria-hidden="true"
         className="absolute top-0 left-0 right-0 bottom-0 h-full w-full">
-        <MarketingEmbedSectionBackground className="h-full w-full invert dark:invert-0" />
+        <MarketingEmbedSectionBackground className="hidden h-full w-full invert dark:block dark:invert-0" />
       </div>
       <Container className={clsx('relative flex flex-col gap-y-8 pt-24 pb-12')}>
         <div className="flex flex-col gap-y-6">
@@ -326,11 +290,13 @@ export default function MarketingEmbedSection({
             {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
           </div>
         </MarketingHeroBrowserWindowFrame>
-        <MarketingQuestionCardMarquee
-          periodSeconds={60}
-          questions={mockQuestions}
-          rows={1}
-        />
+        {featuredQuestions.length > 0 && (
+          <MarketingQuestionCardMarquee
+            periodSeconds={60}
+            questions={featuredQuestions}
+            rows={1}
+          />
+        )}
         <div className="mx-auto">
           <Button
             href="/questions"

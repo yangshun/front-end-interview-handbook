@@ -2895,10 +2895,6 @@
     "defaultMessage": "Study guides",
     "description": "Study guides list section title in preparation dashboard"
   },
-  "qXxpdK": {
-    "defaultMessage": "Quiz",
-    "description": "Quiz questions"
-  },
   "qarlYe": {
     "defaultMessage": "First time preparing for front end interviews?",
     "description": "Link to front end interview guidebook"
@@ -3354,10 +3350,6 @@
   "zUR/Om": {
     "defaultMessage": "The page you requested could not be found",
     "description": "Description of 404 page"
-  },
-  "zXN8kB": {
-    "defaultMessage": "System Design",
-    "description": "System Design question"
   },
   "zaEg+y": {
     "defaultMessage": "Pay once, own it forever",
