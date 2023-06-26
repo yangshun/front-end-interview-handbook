@@ -92,7 +92,10 @@ export default function Popover({
             'transition-colors',
             'border',
             themeLineColor,
-            'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
+            [
+              'dark:bg-neutral-950 bg-white',
+              'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+            ],
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

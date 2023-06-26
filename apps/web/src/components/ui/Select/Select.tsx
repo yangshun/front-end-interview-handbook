@@ -80,13 +80,16 @@ export default function Select<T>({
           'transition-colors',
           [
             'border border-neutral-200 dark:border-neutral-800',
-            'focus:border-neutral-200 dark:focus:border-neutral-800',
+            'focus-visible:border-neutral-200 dark:focus-visible:border-neutral-800',
           ],
           'text-neutral-700 dark:text-neutral-300',
-          'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
           [
-            'focus:outline-brand-dark dark:focus:outline-brand',
-            'focus:outline-2 focus:outline-offset-2 focus:ring-0',
+            'dark:bg-neutral-950 bg-white',
+            'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+          ],
+          [
+            'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+            'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:ring-0',
           ],
           heightClasses[size],
           textSizeClasses[size].option,

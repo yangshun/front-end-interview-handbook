@@ -5,7 +5,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import DropdownMenuItem from './DropdownMenuItem';
 import type { TextSize } from '../Text';
 import Text from '../Text';
-import { themeBackgroundColor, themeLineColor } from '../theme';
+import { themeBackgroundColor } from '../theme';
 
 import { Menu, Transition } from '@headlessui/react';
 
@@ -85,7 +85,10 @@ export default function DropdownMenu({
             'rounded-full',
             'transition-colors',
             'border border-neutral-200 dark:border-neutral-800',
-            'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
+            [
+              'dark:bg-neutral-950 bg-white',
+              'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+            ],
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
