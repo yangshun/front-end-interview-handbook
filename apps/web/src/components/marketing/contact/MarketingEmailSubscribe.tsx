@@ -1,11 +1,95 @@
+import type { SVGProps } from 'react';
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
+import TextInput from '~/components/ui/TextInput';
+
+function Background(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 1104 368"
+      width="100%"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <rect
+        fill="url(#paint0_radial_1280_65051)"
+        height="368"
+        rx="48"
+        width="1104"
+      />
+      <mask
+        height="368"
+        id="mask0_1280_65051"
+        maskUnits="userSpaceOnUse"
+        style={{ maskType: 'luminance' }}
+        width="1104"
+        x="0"
+        y="0">
+        <rect fill="white" height="368" rx="48" width="1104" />
+      </mask>
+      <g mask="url(#mask0_1280_65051)">
+        <g filter="url(#filter0_f_1280_65051)">
+          <path
+            clip-rule="evenodd"
+            d="M73.1423 450.414C53.5705 495.9 107.331 537.635 146.545 507.398L377.138 329.588C409.811 304.394 397.576 252.444 357.093 244.479L215.036 216.531C192.845 212.165 170.617 223.881 161.678 244.656L73.1423 450.414Z"
+            fill="url(#paint1_linear_1280_65051)"
+            fill-rule="evenodd"
+          />
+        </g>
+      </g>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          filterUnits="userSpaceOnUse"
+          height="573.882"
+          id="filter0_f_1280_65051"
+          width="598.705"
+          x="-66.9278"
+          y="79.709">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            mode="normal"
+            result="shape"
+          />
+          <feGaussianBlur
+            result="effect1_foregroundBlur_1280_65051"
+            stdDeviation="67.957"
+          />
+        </filter>
+        <radialGradient
+          cx="0"
+          cy="0"
+          gradientTransform="translate(552) rotate(90) scale(392.842 1178.53)"
+          gradientUnits="userSpaceOnUse"
+          id="paint0_radial_1280_65051"
+          r="1">
+          <stop stop-color="#8383FD" />
+          <stop offset="0.223497" stop-color="#8383FD" stop-opacity="0.64" />
+          <stop offset="1" stop-color="#0F172A" stop-opacity="0.01" />
+        </radialGradient>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id="paint1_linear_1280_65051"
+          x1="-106.578"
+          x2="7.58278"
+          y1="498.066"
+          y2="138.31">
+          <stop stop-color="#A855F7" />
+          <stop offset="1" stop-color="#6366F1" stop-opacity="0.01" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
 
 export default function MarketingEmailSubscribe() {
   const emailId = useId();
@@ -19,119 +103,90 @@ export default function MarketingEmailSubscribe() {
   } = trpc.marketing.signUpWithEmail.useMutation();
 
   return (
-    <div className="mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-      <div className="bg-brand-dark relative overflow-hidden rounded-2xl px-6 py-10 shadow-xl sm:px-12 sm:py-20">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
-          <svg
-            className="absolute inset-0 h-full w-full"
-            fill="none"
-            preserveAspectRatio="xMidYMid slice"
-            viewBox="0 0 1463 360"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              className="text-brand text-opacity-40"
-              d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
-              fill="currentColor"
+    <div className="relative flex flex-col justify-center gap-y-8 overflow-hidden md:gap-y-12 md:p-16 lg:min-h-[400px] lg:rounded-[48px] lg:p-20">
+      <Background
+        aria-hidden={true}
+        className="absolute inset-0 -z-10 hidden h-full lg:block"
+      />
+      <div className="flex flex-col gap-y-3 sm:text-center md:gap-y-4">
+        <Heading className="mx-auto max-w-3xl" level="heading3">
+          <FormattedMessage
+            defaultMessage="Get notified about new front end resources, interview tips and practice questions"
+            description="Title for newsletter sign up section"
+            id="ePyk/V"
+          />
+        </Heading>
+        <Text
+          className="text-brand-lightest mx-auto max-w-3xl text-base lg:text-lg"
+          display="block">
+          <FormattedMessage
+            defaultMessage="Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>."
+            description="Subtitle text for newsletter sign up section"
+            id="+pieds"
+            values={{
+              span: (chunks) => (
+                <span className="whitespace-nowrap">{chunks}</span>
+              ),
+            }}
+          />
+        </Text>
+      </div>
+      <div className="flex flex-col items-center gap-y-2">
+        <form
+          className="flex w-full flex-col gap-x-2 gap-y-4 sm:max-w-lg sm:flex-row"
+          onSubmit={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            fbq.track('Lead');
+
+            const data = new FormData(event.target as HTMLFormElement);
+
+            signUpWithEmail({ email: data.get('email') as string });
+          }}>
+          <div className="min-w-0 grow">
+            <TextInput
+              autoComplete="email"
+              className="grow bg-white !text-neutral-800 !ring-transparent placeholder:text-neutral-400"
+              errorMessage={failureReason?.message}
+              id={emailId}
+              isLabelHidden={true}
+              label={intl.formatMessage({
+                defaultMessage: 'Email address',
+                description: 'Label for email address input field',
+                id: 'zyPeie',
+              })}
+              name="email"
+              placeholder={intl.formatMessage({
+                defaultMessage: 'Enter your email',
+                description: 'Placeholder text for email input field',
+                id: 'JKBRGr',
+              })}
+              type="email"
             />
-            <path
-              className="text-brand-darker text-opacity-40"
-              d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-        <div className="relative">
-          <div className="sm:text-center">
-            <Heading
-              className="mx-auto max-w-3xl"
-              color="light"
-              level="heading3">
-              <FormattedMessage
-                defaultMessage="Get notified about new front end resources, interview tips and practice questions"
-                description="Title for newsletter sign up section"
-                id="ePyk/V"
-              />
-            </Heading>
-            <p className="text-brand-lightest mx-auto mt-6 max-w-2xl text-lg">
-              <FormattedMessage
-                defaultMessage="Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>."
-                description="Subtitle text for newsletter sign up section"
-                id="+pieds"
-                values={{
-                  span: (chunks) => (
-                    <span className="whitespace-nowrap">{chunks}</span>
-                  ),
-                }}
-              />
-            </p>
           </div>
-          <form
-            className="mt-12 sm:mx-auto sm:flex sm:max-w-lg"
-            onSubmit={(event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              fbq.track('Lead');
-
-              const data = new FormData(event.target as HTMLFormElement);
-
-              signUpWithEmail({ email: data.get('email') as string });
-            }}>
-            <div className="min-w-0 flex-1">
-              <label className="sr-only" htmlFor={emailId}>
-                <FormattedMessage
-                  defaultMessage="Email Address"
-                  description="Label for email address input field"
-                  id="GJB3/X"
-                />
-              </label>
-              <input
-                autoComplete="email"
-                className="focus:ring-offset-brand-dark block w-full rounded-md border border-transparent px-5 py-3 text-base text-neutral-900 placeholder-neutral-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-                id={emailId}
-                name="email"
-                placeholder={intl.formatMessage({
-                  defaultMessage: 'Enter your email',
-                  description: 'Placeholder text for email input field',
-                  id: 'JKBRGr',
-                })}
-                type="email"
-              />
-            </div>
-            <div className="mt-4 sm:mt-0 sm:ml-3">
-              <button
-                className="bg-brand hover:bg-brand-light focus:ring-offset-brand-dark block w-full rounded-md border border-transparent px-5 py-3 text-base font-medium text-white shadow focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 sm:px-10"
-                disabled={isLoading}
-                type="submit">
-                {intl.formatMessage({
-                  defaultMessage: 'Notify Me',
-                  description:
-                    'Button label for a newsletter subscription section',
-                  id: 'ryCcOP',
-                })}
-              </button>
-            </div>
-          </form>
-          {submitMessage && (
-            <Text
-              className="mt-3 h-6 text-center"
-              color="success"
-              display="block"
-              size="body2">
-              {submitMessage}
-            </Text>
-          )}
-          {failureReason?.message && (
-            <Text
-              className="mt-3 h-6 text-center"
-              color="error"
-              display="block"
-              size="body2">
-              {failureReason?.message}
-            </Text>
-          )}
-        </div>
+          <Button
+            isDisabled={isLoading}
+            isLoading={isLoading}
+            label={intl.formatMessage({
+              defaultMessage: 'Notify Me',
+              description: 'Button label for a newsletter subscription section',
+              id: 'ryCcOP',
+            })}
+            size="md"
+            type="submit"
+            variant="primary"
+          />
+        </form>
+        {submitMessage && (
+          <Text
+            className="text-center"
+            color="success"
+            display="block"
+            size="body2"
+            weight="medium">
+            {submitMessage}
+          </Text>
+        )}
       </div>
     </div>
   );

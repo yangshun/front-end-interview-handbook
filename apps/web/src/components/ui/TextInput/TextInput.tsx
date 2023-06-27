@@ -19,6 +19,7 @@ type Attributes = Pick<
 >;
 
 type Props = Readonly<{
+  className?: string;
   defaultValue?: string;
   description?: React.ReactNode;
   endIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -85,6 +86,7 @@ const heightClasses: Record<TextInputSize, string> = {
 export default function TextInput({
   autoComplete,
   autoFocus,
+  className,
   defaultValue,
   description,
   endIcon: EndIcon,
@@ -169,6 +171,7 @@ export default function TextInput({
             EndIcon && 'pr-9',
             heightClasses[size],
             stateClasses[state],
+            className,
           )}
           defaultValue={defaultValue}
           disabled={isDisabled}

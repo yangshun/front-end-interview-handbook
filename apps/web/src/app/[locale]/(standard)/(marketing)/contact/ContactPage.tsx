@@ -6,7 +6,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 export default function ContactPage() {
   return (
-    <div className="pt-24">
+    <div className="py-12">
       <Heading className="sr-only" level="custom">
         {/* TODO: i18n */}
         Contact Us

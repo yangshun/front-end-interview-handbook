@@ -19,11 +19,13 @@ import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
-    <Container className="relative flex flex-col gap-y-24 sm:py-16">
-      <Section>
-        <MarketingEmailSubscribe />
-      </Section>
-      <div className={clsx('rounded-[48px] py-20', themeBackgroundEmphasized)}>
+    <Container className="flex flex-col gap-y-12 md:gap-y-16 lg:gap-y-24 xl:gap-y-32">
+      <MarketingEmailSubscribe />
+      <div
+        className={clsx(
+          'rounded-[48px] p-12 md:p-16 lg:p-20',
+          themeBackgroundEmphasized,
+        )}>
         <div className="mx-auto grid max-w-3xl gap-y-8">
           <div className="grid gap-y-4">
             <Heading className="text-center" level="heading2">
