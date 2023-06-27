@@ -782,16 +782,16 @@ export default function NavbarImpl() {
 
   return (
     <Navbar
-      ref={navbarRef}
       // Sync offset with banner height.
-      className={isHidden ? undefined : '!top-14 lg:!top-10'}
+      ref={navbarRef}
+      className={isHidden ? undefined : 'lg:!top-10 !top-14'}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      opaque={!isSticky}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
+      transparent={!isSticky}
     />
   );
 }
