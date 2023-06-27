@@ -44,21 +44,21 @@ const sizeClasses: Record<
     iconSize: 'h-5 w-5',
     tabGapSize: 'gap-x-8',
     tabInternalGapSize: 'gap-x-2',
-    tabItemSize: 'pb-2',
+    tabItemSize: 'py-2',
     textSize: 'body',
   },
   sm: {
     iconSize: 'h-4 w-4',
     tabGapSize: 'gap-x-6',
     tabInternalGapSize: 'gap-x-1.5',
-    tabItemSize: 'pb-1.5',
+    tabItemSize: 'py-1.5',
     textSize: 'body2',
   },
   xs: {
     iconSize: 'h-4 w-4',
     tabGapSize: 'gap-x-4',
     tabInternalGapSize: 'gap-x-1',
-    tabItemSize: 'pb-1',
+    tabItemSize: 'py-1',
     textSize: 'body3',
   },
 };
@@ -96,7 +96,8 @@ export default function TabsUnderline<T>({
                     tabInternalGapSize,
                   )}
                   color={isSelected ? 'active' : 'inherit'}
-                  size={textSize}>
+                  size={textSize}
+                  weight="medium">
                   {Icon && (
                     <Icon
                       className={clsx(

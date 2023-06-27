@@ -95,7 +95,8 @@ export default function Tabs<T>({
                 <Text
                   className={clsx('flex items-center', tabInternalGapSize)}
                   color={isSelected ? 'active' : 'secondary'}
-                  size={textSize}>
+                  size={textSize}
+                  weight="medium">
                   {Icon && (
                     <Icon
                       className={clsx(

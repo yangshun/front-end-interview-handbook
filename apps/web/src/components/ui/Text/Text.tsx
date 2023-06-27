@@ -97,7 +97,7 @@ export default function Text({
   return (
     <span
       className={clsx(
-        display,
+        display === 'inline' ? null : display,
         weightClasses[weight],
         colorClasses[color],
         sizeClasses[size],
