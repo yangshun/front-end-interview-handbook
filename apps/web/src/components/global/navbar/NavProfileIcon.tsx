@@ -7,6 +7,7 @@ import Anchor from '~/components/ui/Anchor';
 import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundColor,
   themeDivideColor,
   themeTextColor,
   themeTextSecondaryColor,
@@ -33,7 +34,7 @@ const NavProfileLink = forwardRef<
         'w-full text-left text-sm',
         'rounded',
         themeTextSecondaryColor,
-        active && 'bg-neutral-100 dark:bg-neutral-700',
+        active && 'bg-neutral-100 dark:bg-neutral-900',
       )}
       href={href}
       variant="unstyled"
@@ -60,10 +61,14 @@ export default function NavProfileIcon({
             'h-8 w-8',
             'transition-colors',
             'border border-neutral-200 dark:border-neutral-800',
-            'bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-700',
-            'focus:border-brand-dark dark:focus:border-brand',
-            'focus:outline-brand-dark dark:focus:outline-brand',
-            'focus:outline-2 focus:outline-offset-2 focus:ring-0',
+            [
+              'dark:bg-neutral-950 bg-white',
+              'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+            ],
+            [
+              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+              'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+            ],
           )}>
           <span className="sr-only">
             <FormattedMessage
@@ -99,10 +104,10 @@ export default function NavProfileIcon({
           className={clsx(
             'absolute z-10 mt-2 w-64 py-1',
             'right-0 origin-top-right',
-            'rounded',
-            'bg-white dark:bg-neutral-900',
-            'divide-y',
-            themeDivideColor,
+            ['divide-y', themeDivideColor],
+            'rounded-md',
+            themeBackgroundColor,
+            ['border', 'border-transparent dark:border-neutral-800'],
             'shadow-lg',
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
