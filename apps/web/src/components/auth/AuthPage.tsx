@@ -8,7 +8,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
-import { themeBackgroundColor } from '~/components/ui/theme';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
@@ -50,8 +49,7 @@ export default function AuthPage({ view }: Props) {
   return (
     <div
       className={clsx(
-        'mx-auto max-w-lg space-y-6 px-4 py-8 sm:px-6 md:px-8 lg:py-16',
-        themeBackgroundColor,
+        'mx-auto flex max-w-md flex-col gap-y-6 px-4 py-8 sm:px-6 md:px-8 lg:py-16',
       )}>
       {!user ? (
         <>

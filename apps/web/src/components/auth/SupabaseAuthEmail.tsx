@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { RiKey2Line, RiMailLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
@@ -184,7 +183,7 @@ export default function SupabaseAuthEmail({
 
   return (
     <form id={id} onSubmit={handleSubmit}>
-      <div className="space-y-6">
+      <div className="flex flex-col gap-y-12">
         {showTitle && (
           <Heading level="heading4">
             {authView === 'sign_in' ? (
@@ -202,7 +201,7 @@ export default function SupabaseAuthEmail({
             )}
           </Heading>
         )}
-        <div className="space-y-6">
+        <div className="flex flex-col gap-y-6">
           <TextInput
             autoComplete="email"
             defaultValue={email}
@@ -211,46 +210,40 @@ export default function SupabaseAuthEmail({
               description: 'Label of email field on Sign In/Up page',
               id: '9LT8eh',
             })}
-            startIcon={RiMailLine}
             type="email"
             onChange={setEmail}
           />
-          <div className="space-y-2">
-            <TextInput
-              defaultValue={password}
-              label={intl.formatMessage({
-                defaultMessage: 'Password',
-                description: 'Label of password field on Sign In/Up page',
-                id: 'jgIdRC',
-              })}
-              startIcon={RiKey2Line}
-              type="password"
-              onChange={setPassword}
-            />
-            {authView === 'sign_in' && (
-              <div>
-                <Anchor
-                  className="text-sm"
-                  href="#auth-forgot-password"
-                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                    e.preventDefault();
-                    logEvent('click', {
-                      element: 'Auth page forgot your password button',
-                      label: 'Forgot your password?',
-                    });
-                    setAuthView('forgotten_password');
-                  }}>
-                  <FormattedMessage
-                    defaultMessage="Forgot your password?"
-                    description="Label of forget password button on Email Sign In page"
-                    id="XVPYZg"
-                  />
-                </Anchor>
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="grid gap-y-8">
+          <TextInput
+            defaultValue={password}
+            label={intl.formatMessage({
+              defaultMessage: 'Password',
+              description: 'Label of password field on Sign In/Up page',
+              id: 'jgIdRC',
+            })}
+            type="password"
+            onChange={setPassword}
+          />
+          {authView === 'sign_in' && (
+            <div>
+              <Anchor
+                className="text-sm"
+                href="#auth-forgot-password"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
+                  logEvent('click', {
+                    element: 'Auth page forgot your password button',
+                    label: 'Forgot your password?',
+                  });
+                  setAuthView('forgotten_password');
+                }}>
+                <FormattedMessage
+                  defaultMessage="Forgot your password?"
+                  description="Label of forget password button on Email Sign In page"
+                  id="XVPYZg"
+                />
+              </Anchor>
+            </div>
+          )}
           {authView === 'sign_up' && (
             <CheckboxInput
               label={intl.formatMessage({
@@ -266,31 +259,37 @@ export default function SupabaseAuthEmail({
               }}
             />
           )}
-          {message && (
-            <Alert
-              title={intl.formatMessage({
-                defaultMessage: 'Signed up successfully',
-                description:
-                  'Title of alert indicating a successful email sign up',
-                id: 'I5MeD9',
-              })}
-              variant="info">
-              {message}
-            </Alert>
+        </div>
+        <div className="flex flex-col gap-y-6">
+          {(message || error) && (
+            <div className="flex flex-col gap-y-2">
+              {message && (
+                <Alert
+                  title={intl.formatMessage({
+                    defaultMessage: 'Signed up successfully',
+                    description:
+                      'Title of alert indicating a successful email sign up',
+                    id: 'I5MeD9',
+                  })}
+                  variant="info">
+                  {message}
+                </Alert>
+              )}
+              {error && (
+                <Alert
+                  title={intl.formatMessage({
+                    defaultMessage: 'An error has occurred',
+                    description:
+                      'Title of alert indicating an error on Email Sign In/Up Page',
+                    id: 'YM1bnf',
+                  })}
+                  variant="danger">
+                  {error}
+                </Alert>
+              )}
+            </div>
           )}
-          {error && (
-            <Alert
-              title={intl.formatMessage({
-                defaultMessage: 'An error has occurred',
-                description:
-                  'Title of alert indicating an error on Email Sign In/Up Page',
-                id: 'YM1bnf',
-              })}
-              variant="danger">
-              {error}
-            </Alert>
-          )}
-          <div className="grid gap-y-6">
+          <div className="flex flex-col gap-y-4">
             <Button
               display="block"
               isDisabled={loading}
@@ -310,7 +309,7 @@ export default function SupabaseAuthEmail({
                       id: 'tP5+Am',
                     })
               }
-              size="lg"
+              size="md"
               type="submit"
               variant="primary"
               onClick={() => {
@@ -351,7 +350,7 @@ export default function SupabaseAuthEmail({
                 className="text-center"
                 color="secondary"
                 display="block"
-                size="body">
+                size="body2">
                 <FormattedMessage
                   defaultMessage="Don't have an account? <link>Sign up for free</link>"
                   description="Prompt for account creation on Email Sign In page"
@@ -375,12 +374,12 @@ export default function SupabaseAuthEmail({
                 />
               </Text>
             ) : (
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-y-6">
                 <Text
                   className="text-center"
                   color="secondary"
                   display="block"
-                  size="body">
+                  size="body2">
                   <FormattedMessage
                     defaultMessage="Already have an account? <link>Sign in</link>"
                     description="Prompt for sign in on Email Sign Up page"
@@ -406,7 +405,11 @@ export default function SupabaseAuthEmail({
               </div>
             )}
             <Divider />
-            <Text color="secondary" display="block" size="body3">
+            <Text
+              className="mx-auto max-w-[284px] text-center"
+              color="secondary"
+              display="block"
+              size="body3">
               <FormattedMessage
                 defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."
                 description="Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"

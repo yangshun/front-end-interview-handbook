@@ -49,24 +49,9 @@ export default function Auth({
   function Container({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
       <div className={className}>
-        <div className="space-y-8">
-          <div className="flex flex-col gap-2 text-center">
-            <Heading level="heading4">
-              {authView === 'sign_in' ? (
-                <FormattedMessage
-                  defaultMessage="Welcome Back"
-                  description="Title of Sign In page"
-                  id="8GTfgf"
-                />
-              ) : (
-                <FormattedMessage
-                  defaultMessage="Get Started"
-                  description="Title of Sign Up page"
-                  id="51w4r4"
-                />
-              )}
-            </Heading>
-            <Text color="secondary" display="block" size="body2">
+        <div className="flex flex-col gap-y-6">
+          <div className="flex flex-col gap-y-10">
+            <Heading className="text-center" level="heading4">
               {authView === 'sign_in' ? (
                 <FormattedMessage
                   defaultMessage="Sign in to your account"
@@ -80,16 +65,20 @@ export default function Auth({
                   id="KtYnhS"
                 />
               )}
-            </Text>
+            </Heading>
+            <Section>
+              <div className="flex flex-col gap-y-4">
+                {preBodyContents}
+                <SupabaseAuthSocial
+                  layout={socialLayout}
+                  providers={providers}
+                  redirectTo={redirectTo}
+                  supabaseClient={supabaseClient}
+                />
+              </div>
+            </Section>
           </div>
           <Section>
-            {preBodyContents}
-            <SupabaseAuthSocial
-              layout={socialLayout}
-              providers={providers}
-              redirectTo={redirectTo}
-              supabaseClient={supabaseClient}
-            />
             {hasThirdPartyProviders && (
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
