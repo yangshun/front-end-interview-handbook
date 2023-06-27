@@ -871,10 +871,6 @@
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
   },
-  "GJB3/X": {
-    "defaultMessage": "Email Address",
-    "description": "Label for email address input field"
-  },
   "GJt7KQ": {
     "defaultMessage": "Build user interface apps and components in JavaScript frameworks",
     "description": "Description of front end user interface questions"
@@ -3406,5 +3402,9 @@
   "zw0Ov8": {
     "defaultMessage": "Hard",
     "description": "Hard question difficulty"
+  },
+  "zyPeie": {
+    "defaultMessage": "Email address",
+    "description": "Label for email address input field"
   }
 }

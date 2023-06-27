@@ -1,5 +1,7 @@
+'use client';
+
 import clsx from 'clsx';
-import { Fragment, useState } from 'react';
+import { forwardRef, Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import Divider from '~/components/ui/Divider';
@@ -22,20 +24,25 @@ type Props = Readonly<{
   links: ReadonlyArray<NavbarPrimaryItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
+  opaque?: boolean;
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
 }>;
 
-export default function Navbar({
-  className,
-  endAddOnItems,
-  isLoading,
-  links,
-  logo,
-  renderMobileSidebarAddOnItems,
-  mobileSidebarBottomItems,
-}: Props) {
+function Navbar(
+  {
+    className,
+    endAddOnItems,
+    isLoading,
+    links,
+    logo,
+    renderMobileSidebarAddOnItems,
+    mobileSidebarBottomItems,
+    opaque = false,
+  }: Props,
+  ref: React.Ref<HTMLDivElement>,
+) {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const leftLinks = links.filter(({ position }) => position === 'start');
@@ -49,10 +56,13 @@ export default function Navbar({
 
   return (
     <div
+      ref={ref}
       className={clsx(
-        'sticky top-0 z-30',
+        'sticky top-0 z-30 backdrop-blur',
         ['border-b', themeLineColor],
-        ['dark:bg-neutral-950/60 bg-white/60 backdrop-blur'],
+        !opaque && 'dark:bg-neutral-950/60 bg-white/60',
+        opaque && 'dark:bg-neutral-950 bg-white',
+        'transition-[background-color]',
         className,
       )}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
@@ -205,3 +215,5 @@ export default function Navbar({
     </div>
   );
 }
+
+export default forwardRef(Navbar);

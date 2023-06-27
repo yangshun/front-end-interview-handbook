@@ -1,7 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
+import { set } from 'lodash';
 import { usePathname } from 'next/navigation';
+import type { MutableRefObject, RefObject } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { RiPlayLine } from 'react-icons/ri';
 import { RiAccountCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -583,6 +586,54 @@ function useUserNavigationLinks() {
 //     </button>
 //   );
 // }
+
+const useIsSticky = (
+  ref: RefObject<Element>,
+  observerSettings = { threshold: [1] },
+) => {
+  const [isStuck, setIsStuck] = useState(false);
+  const [isScrollZero, setIsScrollZero] = useState(true);
+
+  const isSticky = useMemo(() => {
+    return isStuck || isScrollZero;
+  }, [isStuck, isScrollZero]);
+
+  // Mount
+  useEffect(() => {
+    const element = ref.current;
+
+    setIsScrollZero(window.scrollY === 0);
+
+    if (element == null) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(([e]) => {
+      return setIsStuck(e.intersectionRatio < 1);
+    }, observerSettings);
+
+    const scrollListener = () => {
+      if (window.scrollY > 0) {
+        setIsScrollZero(false);
+      } else {
+        setIsScrollZero(true);
+      }
+    };
+
+    window.addEventListener('scroll', scrollListener);
+
+    observer.observe(element);
+
+    // Unmount
+    return () => {
+      observer.unobserve(element);
+      window.removeEventListener('scroll', scrollListener);
+    };
+  }, [observerSettings, ref]);
+
+  return { isSticky };
+};
+
 export default function NavbarImpl() {
   const { appThemePreference, setAppThemePreference } =
     useAppThemePreferences();
@@ -596,6 +647,8 @@ export default function NavbarImpl() {
   const userNavigationLinks = useUserNavigationLinks();
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
+  const navbarRef = useRef(null);
+  const { isSticky } = useIsSticky(navbarRef);
 
   const endAddOnItems = (
     <>
@@ -729,6 +782,7 @@ export default function NavbarImpl() {
 
   return (
     <Navbar
+      ref={navbarRef}
       // Sync offset with banner height.
       className={isHidden ? undefined : '!top-14 lg:!top-10'}
       endAddOnItems={endAddOnItems}
@@ -736,6 +790,7 @@ export default function NavbarImpl() {
       links={links}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
+      opaque={!isSticky}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
     />
   );
