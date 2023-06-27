@@ -231,11 +231,11 @@ export default function MarketingHero() {
   const intl = useIntl();
 
   return (
-    <div className="relative rounded-b-[48px] bg-cover lg:mx-8">
+    <div className="relative lg:mx-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-[-1] -mt-28 -mb-28 h-[calc(100%_+_112px)] w-full overflow-hidden rounded-[inherit]">
-        <MarketingHeroBackground className="h-full w-full" />
+        className="pointer-events-none absolute -z-10 -mt-28 -mb-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden lg:rounded-b-[48px]">
+        <MarketingHeroBackground className="h-full" />
       </div>
       <div className="relative pt-0 pb-8 sm:pb-16 md:pb-20">
         <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
@@ -250,7 +250,7 @@ export default function MarketingHero() {
                     underline: (chunks) => (
                       <span className="relative">
                         {chunks}
-                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 z-[-1] mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none sm:mb-[-7%]" />
+                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none sm:mb-[-7%]" />
                       </span>
                     ),
                   }}
@@ -349,6 +349,7 @@ export default function MarketingHero() {
             <div className="flex flex-col gap-x-2 gap-y-4 sm:flex-row">
               <div className="flex flex-col items-center gap-2">
                 <Button
+                  href="/prepare"
                   icon={RiArrowRightLine}
                   label={intl.formatMessage({
                     defaultMessage: 'Get started (free)',
@@ -368,6 +369,7 @@ export default function MarketingHero() {
                 </Text>
               </div>
               <Button
+                href="/questions"
                 icon={RiArrowRightLine}
                 label={intl.formatMessage({
                   defaultMessage: 'Try a question',

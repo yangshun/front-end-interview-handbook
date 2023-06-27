@@ -455,7 +455,7 @@ export default function MarketingPricingSectionNew({
   return (
     <div
       className={clsx(
-        'rounded-t-[48px] pb-24 lg:mx-8',
+        'lg:rounded-t-[48px] pb-24 lg:mx-8',
         themeRadialGlowBackground,
       )}>
       <div className="pt-24">
