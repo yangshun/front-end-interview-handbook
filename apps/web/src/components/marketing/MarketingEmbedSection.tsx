@@ -79,20 +79,20 @@ function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
           <path
             d="M477.266 698.413L59.1289 334.539L308.096 811.725L287.349 664.898L477.266 698.413Z"
             fill="#CA31BB"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
         </g>
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="1327.16"
           id="filter0_f_401_77475"
           width="1062.69"
           x="708.982"
           y="298.978">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -105,14 +105,14 @@ function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="1139.29"
           id="filter1_f_401_77475"
           width="851.943"
           x="833.855"
           y="417.509">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -125,14 +125,14 @@ function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="751.754"
           id="filter2_f_401_77475"
           width="530.167"
           x="922.386"
           y="525.953">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -145,14 +145,14 @@ function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="1212.71"
           id="filter3_f_401_77475"
           width="1205.92"
           x="-285.46"
           y="0.540009">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -165,14 +165,14 @@ function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="913.799"
           id="filter4_f_401_77475"
           width="854.75"
           x="-159.178"
           y="116.232">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -240,10 +240,10 @@ export default function MarketingEmbedSection({
     <div className="relative">
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 bottom-0 h-full w-full">
+        className="absolute bottom-0 left-0 right-0 top-0 h-full w-full">
         <MarketingEmbedSectionBackground className="hidden h-full w-full invert dark:block dark:invert-0" />
       </div>
-      <Container className={clsx('relative flex flex-col gap-y-8 pt-24 pb-12')}>
+      <Container className={clsx('relative flex flex-col gap-y-8 pb-12 pt-24')}>
         <div className="flex flex-col gap-y-6">
           <Heading className="mx-auto" level="heading6">
             <FormattedMessage

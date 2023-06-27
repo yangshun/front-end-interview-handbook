@@ -62,28 +62,28 @@ function MarketingHeroBackground(props: React.SVGProps<SVGSVGElement>) {
         />
       </mask>
       <g mask="url(#mask0_401_76334)">
-        <circle cx="245" cy="192" fill="#F1F5F9" fill-opacity="0.32" r="2" />
-        <circle cx="250" cy="249" fill="#F1F5F9" fill-opacity="0.32" r="2" />
-        <circle cx="148" cy="333" fill="#F1F5F9" fill-opacity="0.12" r="3" />
-        <circle cx="337" cy="362" fill="#F1F5F9" fill-opacity="0.48" r="2" />
-        <circle cx="366" cy="116" fill="#F1F5F9" fill-opacity="0.48" r="2" />
-        <circle cx="899" cy="188" fill="#F1F5F9" fill-opacity="0.08" r="2" />
-        <circle cx="491" cy="401" fill="#F1F5F9" fill-opacity="0.12" r="2" />
-        <circle cx="491" cy="401" fill="#F1F5F9" fill-opacity="0.32" r="2" />
-        <circle cx="818" cy="154" fill="#F1F5F9" fill-opacity="0.24" r="2" />
-        <circle cx="988" cy="393" fill="#F1F5F9" fill-opacity="0.24" r="2" />
-        <circle cx="995" cy="475" fill="#F1F5F9" fill-opacity="0.32" r="1" />
-        <circle cx="869" cy="414" fill="#F1F5F9" fill-opacity="0.48" r="2" />
-        <circle cx="1088" cy="209" fill="#F1F5F9" fill-opacity="0.48" r="2" />
-        <circle cx="975" cy="127" fill="#F1F5F9" fill-opacity="0.32" r="1" />
-        <circle cx="1259" cy="339" fill="#F1F5F9" fill-opacity="0.12" r="2" />
-        <circle cx="1107" cy="525" fill="#F1F5F9" fill-opacity="0.4" r="1" />
-        <circle cx="866" cy="484" fill="#F1F5F9" fill-opacity="0.32" r="1" />
-        <circle cx="718" cy="428" fill="#F1F5F9" fill-opacity="0.64" r="1" />
-        <circle cx="445" cy="479" fill="#F1F5F9" fill-opacity="0.72" r="1" />
-        <circle cx="384" cy="453" fill="#F1F5F9" fill-opacity="0.16" r="2" />
-        <circle cx="183" cy="498" fill="#F1F5F9" fill-opacity="0.32" r="1" />
-        <circle cx="299" cy="409" fill="#F1F5F9" fill-opacity="0.24" r="1" />
+        <circle cx="245" cy="192" fill="#F1F5F9" fillOpacity="0.32" r="2" />
+        <circle cx="250" cy="249" fill="#F1F5F9" fillOpacity="0.32" r="2" />
+        <circle cx="148" cy="333" fill="#F1F5F9" fillOpacity="0.12" r="3" />
+        <circle cx="337" cy="362" fill="#F1F5F9" fillOpacity="0.48" r="2" />
+        <circle cx="366" cy="116" fill="#F1F5F9" fillOpacity="0.48" r="2" />
+        <circle cx="899" cy="188" fill="#F1F5F9" fillOpacity="0.08" r="2" />
+        <circle cx="491" cy="401" fill="#F1F5F9" fillOpacity="0.12" r="2" />
+        <circle cx="491" cy="401" fill="#F1F5F9" fillOpacity="0.32" r="2" />
+        <circle cx="818" cy="154" fill="#F1F5F9" fillOpacity="0.24" r="2" />
+        <circle cx="988" cy="393" fill="#F1F5F9" fillOpacity="0.24" r="2" />
+        <circle cx="995" cy="475" fill="#F1F5F9" fillOpacity="0.32" r="1" />
+        <circle cx="869" cy="414" fill="#F1F5F9" fillOpacity="0.48" r="2" />
+        <circle cx="1088" cy="209" fill="#F1F5F9" fillOpacity="0.48" r="2" />
+        <circle cx="975" cy="127" fill="#F1F5F9" fillOpacity="0.32" r="1" />
+        <circle cx="1259" cy="339" fill="#F1F5F9" fillOpacity="0.12" r="2" />
+        <circle cx="1107" cy="525" fill="#F1F5F9" fillOpacity="0.4" r="1" />
+        <circle cx="866" cy="484" fill="#F1F5F9" fillOpacity="0.32" r="1" />
+        <circle cx="718" cy="428" fill="#F1F5F9" fillOpacity="0.64" r="1" />
+        <circle cx="445" cy="479" fill="#F1F5F9" fillOpacity="0.72" r="1" />
+        <circle cx="384" cy="453" fill="#F1F5F9" fillOpacity="0.16" r="2" />
+        <circle cx="183" cy="498" fill="#F1F5F9" fillOpacity="0.32" r="1" />
+        <circle cx="299" cy="409" fill="#F1F5F9" fillOpacity="0.24" r="1" />
         <g filter="url(#filter0_f_401_76334)">
           <path
             d="M1433.72 442.763C1430.04 439.762 1424.96 439.152 1420.68 441.195C1416.39 443.238 1413.66 447.569 1413.66 452.324V550.894H983.296C976.505 550.894 971 556.41 971 563.215V661.785C971 668.59 976.505 674.106 983.296 674.106H1413.66V772.676C1413.66 777.431 1416.39 781.762 1420.68 783.805C1424.96 785.848 1430.04 785.238 1433.72 782.237L1630.46 622.061C1633.33 619.722 1635 616.209 1635 612.5C1635 608.791 1633.33 605.278 1630.46 602.939L1433.72 442.763Z"
@@ -92,23 +92,23 @@ function MarketingHeroBackground(props: React.SVGProps<SVGSVGElement>) {
         </g>
         <g filter="url(#filter1_f_401_76334)">
           <path
-            clip-rule="evenodd"
+            clipRule="evenodd"
             d="M371 -65L832 304L548 362L371 -65Z"
             fill="url(#paint2_linear_401_76334)"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           />
         </g>
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="616.828"
           id="filter0_f_401_76334"
           width="935.828"
           x="835.086"
           y="304.086">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -121,14 +121,14 @@ function MarketingHeroBackground(props: React.SVGProps<SVGSVGElement>) {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="698.828"
           id="filter1_f_401_76334"
           width="732.828"
           x="235.086"
           y="-200.914">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -188,15 +188,15 @@ function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
       <path
         d="M4.19504 22.3283C18.8792 25.5879 30.9156 27.876 46.2735 27.5981C64.3086 27.2718 83.436 27.8 101.13 23.6778C108.174 22.0369 114.513 21.2012 121.345 18.7409C128.149 16.2905 134.961 13.8002 141.642 11.017C144.951 9.63863 147.967 7.6474 151.263 6.26291C152.352 5.80524 153.647 4.72473 154.796 4.70393"
         stroke="url(#paint0_radial_1164_60765)"
-        stroke-linecap="round"
-        stroke-opacity="0.6"
+        strokeLinecap="round"
+        strokeOpacity="0.6"
         strokeWidth="8"
       />
       <path
         d="M4.19504 22.3283C18.8792 25.5879 30.9156 27.876 46.2735 27.5981C64.3086 27.2718 83.436 27.8 101.13 23.6778C108.174 22.0369 114.513 21.2012 121.345 18.7409C128.149 16.2905 134.961 13.8002 141.642 11.017C144.951 9.63863 147.967 7.6474 151.263 6.26291C152.352 5.80524 153.647 4.72473 154.796 4.70393"
         stroke="url(#paint1_radial_1164_60765)"
-        stroke-linecap="round"
-        stroke-opacity="0.6"
+        strokeLinecap="round"
+        strokeOpacity="0.6"
         strokeWidth="8"
       />
       <defs>
@@ -234,10 +234,10 @@ export default function MarketingHero() {
     <div className="relative lg:mx-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -z-10 -mt-28 -mb-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden lg:rounded-b-[48px]">
+        className="lg:rounded-b-[48px] pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden">
         <MarketingHeroBackground className="h-full" />
       </div>
-      <div className="relative pt-0 pb-8 sm:pb-16 md:pb-20">
+      <div className="relative pb-8 pt-0 sm:pb-16 md:pb-20">
         <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
           <div className="flex flex-col items-center gap-y-8">
             <div className="flex flex-col items-center gap-y-16">
@@ -250,18 +250,18 @@ export default function MarketingHero() {
                     underline: (chunks) => (
                       <span className="relative">
                         {chunks}
-                        <MarketingHeroTextUnderline className="absolute left-0 bottom-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none sm:mb-[-7%]" />
+                        <MarketingHeroTextUnderline className="sm:mb-[-7%] absolute bottom-0 left-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none" />
                       </span>
                     ),
                   }}
                 />
               </Heading>
-              <div className="flex flex-col gap-y-8 gap-x-20 md:flex-row">
+              <div className="flex flex-col gap-x-20 gap-y-8 md:flex-row">
                 <MarketingHeroAuthorIntroduction
                   icons={
                     <>
                       <GoogleLogo
-                        className="h-[1.5rem] lg:h-[2.1rem]"
+                        className="lg:h-[2.1rem] h-[1.5rem]"
                         title={intl.formatMessage({
                           defaultMessage: 'Google logo',
                           description: 'Google company logo',

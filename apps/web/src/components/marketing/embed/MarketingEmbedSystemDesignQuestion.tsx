@@ -594,19 +594,21 @@ export default function MarketingEmbedSystemDesignQuestion() {
         </div>
         <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
         <div className="flex grow flex-col gap-4 overflow-y-auto p-4">
-          <TabsUnderline
-            label="Select navigation item"
-            size="sm"
-            tabs={[
-              { label: 'Requirements', value: 'requirements' },
-              { label: 'Architecture', value: 'architecture' },
-              { label: 'Data Model', value: 'data-model' },
-              { label: 'API', value: 'interface' },
-              { label: 'Optimizations', value: 'optimizations' },
-            ]}
-            value={selectedTab}
-            onSelect={setSelectedTab}
-          />
+          <div>
+            <TabsUnderline
+              label="Select navigation item"
+              size="sm"
+              tabs={[
+                { label: 'Requirements', value: 'requirements' },
+                { label: 'Architecture', value: 'architecture' },
+                { label: 'Data Model', value: 'data-model' },
+                { label: 'API', value: 'interface' },
+                { label: 'Optimizations', value: 'optimizations' },
+              ]}
+              value={selectedTab}
+              onSelect={setSelectedTab}
+            />
+          </div>
           <Prose>
             {selectedTab === 'requirements' && <Requirements />}
             {selectedTab === 'architecture' && <Architecture />}

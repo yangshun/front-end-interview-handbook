@@ -37,23 +37,23 @@ function Background(props: SVGProps<SVGSVGElement>) {
       <g mask="url(#mask0_1280_65051)">
         <g filter="url(#filter0_f_1280_65051)">
           <path
-            clip-rule="evenodd"
+            clipRule="evenodd"
             d="M73.1423 450.414C53.5705 495.9 107.331 537.635 146.545 507.398L377.138 329.588C409.811 304.394 397.576 252.444 357.093 244.479L215.036 216.531C192.845 212.165 170.617 223.881 161.678 244.656L73.1423 450.414Z"
             fill="url(#paint1_linear_1280_65051)"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           />
         </g>
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="573.882"
           id="filter0_f_1280_65051"
           width="598.705"
           x="-66.9278"
           y="79.709">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -72,9 +72,9 @@ function Background(props: SVGProps<SVGSVGElement>) {
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_1280_65051"
           r="1">
-          <stop stop-color="#8383FD" />
-          <stop offset="0.223497" stop-color="#8383FD" stop-opacity="0.64" />
-          <stop offset="1" stop-color="#0F172A" stop-opacity="0.01" />
+          <stop stopColor="#8383FD" />
+          <stop offset="0.223497" stopColor="#8383FD" stopOpacity="0.64" />
+          <stop offset="1" stopColor="#0F172A" stopOpacity="0.01" />
         </radialGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -83,8 +83,8 @@ function Background(props: SVGProps<SVGSVGElement>) {
           x2="7.58278"
           y1="498.066"
           y2="138.31">
-          <stop stop-color="#A855F7" />
-          <stop offset="1" stop-color="#6366F1" stop-opacity="0.01" />
+          <stop stopColor="#A855F7" />
+          <stop offset="1" stopColor="#6366F1" stopOpacity="0.01" />
         </linearGradient>
       </defs>
     </svg>
@@ -103,7 +103,7 @@ export default function MarketingEmailSubscribe() {
   } = trpc.marketing.signUpWithEmail.useMutation();
 
   return (
-    <div className="relative flex flex-col justify-center gap-y-8 overflow-hidden md:gap-y-12 md:p-16 lg:min-h-[400px] lg:rounded-[48px] lg:p-20">
+    <div className="lg:min-h-[400px] lg:rounded-[48px] relative flex flex-col justify-center gap-y-8 overflow-hidden md:gap-y-12 md:p-16 lg:p-20">
       <Background
         aria-hidden={true}
         className="absolute inset-0 -z-10 hidden h-full lg:block"

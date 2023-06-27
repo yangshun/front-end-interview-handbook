@@ -51,23 +51,23 @@ function PurpleGradientBackground() {
       xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_401_78170)">
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M136 563L597 194L313 136L136 563Z"
           fill="url(#paint0_linear_401_78170)"
-          fill-opacity="0.5"
-          fill-rule="evenodd"
+          fillOpacity="0.5"
+          fillRule="evenodd"
         />
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="698.828"
           id="filter0_f_401_78170"
           width="732.828"
           x="0.085907"
           y="0.085907">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -663,8 +663,8 @@ export default function MarketingPricingSectionNew({
                 <Section>
                   <div
                     className={clsx(
-                      'grid grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:grid-cols-3',
-                      ['divide-y md:divide-y-0 md:divide-x', themeDivideColor],
+                      'dark:bg-neutral-800/20 grid grid-cols-1 rounded-3xl md:grid-cols-3',
+                      ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
                       ['border', themeLineColor],
                     )}>
                     {planList.map(
@@ -679,7 +679,7 @@ export default function MarketingPricingSectionNew({
                         return (
                           <div
                             key={plan.planType}
-                            className="flex flex-col gap-y-8 py-6 px-8 shadow-sm md:gap-y-16">
+                            className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
                             <div className="grow md:grow-0">
                               <Heading
                                 className="font-medium text-neutral-700 dark:text-neutral-300"
@@ -689,7 +689,7 @@ export default function MarketingPricingSectionNew({
                               </Heading>
                               <Section>
                                 <Text
-                                  className="mt-1 md:min-h-[40px]"
+                                  className="md:min-h-[40px] mt-1"
                                   color="secondary"
                                   display="block"
                                   size="body2">
@@ -715,7 +715,7 @@ export default function MarketingPricingSectionNew({
                                   </Text>
                                 </div>
                                 <Text
-                                  className="pt-1 md:min-h-[32px]"
+                                  className="md:min-h-[32px] pt-1"
                                   display="block"
                                   size="body3">
                                   {(() => {
