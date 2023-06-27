@@ -75,77 +75,75 @@ export default function TabsUnderline<T>({
     sizeClasses[size];
 
   return (
-    <div className={displayClasses[display]} role="tablist">
-      <div className={clsx('border-b', themeLineColor)}>
-        <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
-          {tabs.map((tabItem) => {
-            const {
-              icon: Icon,
-              label: tabItemLabel,
-              value: tabItemValue,
-              href,
-            } = tabItem;
-            const isSelected = tabItemValue === value;
-            const commonProps = {
-              'aria-label': tabItemLabel,
-              'aria-selected': isSelected,
-              children: (
-                <Text
-                  className={clsx(
-                    'group flex items-center',
-                    tabInternalGapSize,
-                  )}
-                  color={isSelected ? 'active' : 'inherit'}
-                  size={textSize}
-                  weight="medium">
-                  {Icon && (
-                    <Icon
-                      className={clsx(
-                        'shrink-0',
-                        !isSelected &&
-                          'text-neutral-400 group-hover:text-inherit dark:text-neutral-500 dark:group-hover:text-inherit',
-                        iconSize,
-                      )}
-                    />
-                  )}
-                  {tabItemLabel}
-                </Text>
-              ),
-              className: clsx(
-                'group whitespace-nowrap border-b-2',
-                isSelected
-                  ? 'border-brand'
-                  : clsx(
-                      'border-transparent hover:text-brand',
-                      themeTextSecondaryColor,
-                    ),
-                tabItemSize,
-              ),
-              onClick: () => onSelect?.(tabItemValue),
-              role: 'tab',
-            };
+    <div
+      className={clsx(
+        'overflow-auto',
+        displayClasses[display],
+        'border-b',
+        themeLineColor,
+      )}
+      role="tablist">
+      <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
+        {tabs.map((tabItem) => {
+          const {
+            icon: Icon,
+            label: tabItemLabel,
+            value: tabItemValue,
+            href,
+          } = tabItem;
+          const isSelected = tabItemValue === value;
+          const commonProps = {
+            'aria-label': tabItemLabel,
+            'aria-selected': isSelected,
+            children: (
+              <Text
+                className={clsx('group flex items-center', tabInternalGapSize)}
+                color={isSelected ? 'active' : 'inherit'}
+                size={textSize}
+                weight="medium">
+                {Icon && (
+                  <Icon
+                    className={clsx(
+                      'shrink-0',
+                      !isSelected &&
+                        'text-neutral-400 group-hover:text-inherit dark:text-neutral-500 dark:group-hover:text-inherit',
+                      iconSize,
+                    )}
+                  />
+                )}
+                {tabItemLabel}
+              </Text>
+            ),
+            className: clsx(
+              'group whitespace-nowrap border-b-2',
+              isSelected
+                ? 'border-brand'
+                : clsx(
+                    'border-transparent hover:text-brand',
+                    themeTextSecondaryColor,
+                  ),
+              tabItemSize,
+            ),
+            onClick: () => onSelect?.(tabItemValue),
+            role: 'tab',
+          };
 
-            if (href != null) {
-              return (
-                <Anchor
-                  key={String(tabItemValue)}
-                  href={href}
-                  variant="unstyled"
-                  {...commonProps}
-                />
-              );
-            }
-
+          if (href != null) {
             return (
-              <button
+              <Anchor
                 key={String(tabItemValue)}
-                type="button"
+                href={href}
+                variant="unstyled"
                 {...commonProps}
               />
             );
-          })}
-        </nav>
-      </div>
+          }
+
+          return (
+            <button key={String(tabItemValue)} type="button" {...commonProps} />
+          );
+        })}
+      </nav>
     </div>
   );
 }
