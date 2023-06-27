@@ -1,16 +1,19 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import {
   RiArrowRightLine,
   RiLoopLeftLine,
   RiStopCircleFill,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
+import ConfirmationDialog from '~/components/common/ConfirmationDialog';
+import { useToast } from '~/components/global/toasts/ToastsProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
 import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
@@ -58,6 +61,13 @@ export default function QuestionListTitleSection({
   const stopSessionMutation = trpc.questionLists.stopSession.useMutation();
   const resetSessionProgressMutation =
     trpc.questionLists.resetSessionProgress.useMutation();
+
+  const completedQuestions = questionListSession?.progress?.length ?? 0;
+  const [showStopStudyPlanConfirmation, setShowStopStudyPlanConfirmation] =
+    useState(false);
+  const [showResetProgressConfirmation, setShowResetProgressConfirmation] =
+    useState(false);
+  const { showToast } = useToast();
 
   return (
     <div className="flex flex-col justify-between gap-y-4 gap-x-8 md:flex-row">
@@ -136,8 +146,15 @@ export default function QuestionListTitleSection({
                     },
                     {
                       onSuccess: () => {
-                        // TODO(redesign): Add toast.
-                        alert('Started session');
+                        showToast({
+                          title: intl.formatMessage({
+                            defaultMessage: 'Study plan started',
+                            description:
+                              'Success message for starting a study plan',
+                            id: '79rtZd',
+                          }),
+                          variant: 'success',
+                        });
                       },
                     },
                   );
@@ -154,9 +171,7 @@ export default function QuestionListTitleSection({
                 padding={false}
                 pattern={false}>
                 <QuestionsProgressPanel
-                  completedQuestions={
-                    questionListSession?.progress?.length ?? 0
-                  }
+                  completedQuestions={completedQuestions}
                   progressBarClassName={themeBackgroundClass}
                   title={intl.formatMessage({
                     defaultMessage: 'Progress',
@@ -167,56 +182,17 @@ export default function QuestionListTitleSection({
                   variant="compact"
                 />
               </Card>
-              <div className="flex justify-end gap-x-2">
+              <div className="flex w-full flex-row-reverse justify-between gap-x-2">
                 <Button
                   addonPosition="start"
-                  icon={RiLoopLeftLine}
-                  isDisabled={resetSessionProgressMutation.isLoading}
-                  isLoading={resetSessionProgressMutation.isLoading}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Reset progress',
-                    description: 'Button label to reset study plan progress',
-                    id: '1+/4gB',
-                  })}
-                  size="sm"
-                  variant="tertiary"
-                  onClick={() => {
-                    if (questionListSession == null) {
-                      return;
-                    }
-
-                    // TODO(redesign): Change to modal.
-                    const decision = window.confirm(
-                      'Are you sure you want to reset all progress?',
-                    );
-
-                    if (!decision) {
-                      return;
-                    }
-
-                    resetSessionProgressMutation.mutate(
-                      {
-                        sessionId: questionListSession.id,
-                      },
-                      {
-                        onSuccess: () => {
-                          // TODO(redesign): Add toast.
-                          alert('Progress for study plan cleared');
-                        },
-                      },
-                    );
-                  }}
-                />
-                <Button
-                  addonPosition="start"
-                  className="md:-mr-3"
+                  className="text-danger dark:text-danger hover:text-danger dark:hover:text-danger md:-mr-3"
                   icon={RiStopCircleFill}
                   isDisabled={stopSessionMutation.isLoading}
                   isLoading={stopSessionMutation.isLoading}
                   label={intl.formatMessage({
                     defaultMessage: 'Stop study plan',
-                    description: 'Button label to stop study plan',
-                    id: 'EK/Uac',
+                    description: 'Label to stop study plan',
+                    id: '+5SO+E',
                   })}
                   size="sm"
                   variant="tertiary"
@@ -225,30 +201,109 @@ export default function QuestionListTitleSection({
                       return;
                     }
 
-                    // TODO(redesign): Change to modal.
-                    const decision = window.confirm(
-                      'Are you sure you want to stop the study plan?',
-                    );
-
-                    if (!decision) {
-                      return;
-                    }
-
-                    // TODO:
-                    stopSessionMutation.mutate(
-                      {
-                        sessionId: questionListSession.id,
-                      },
-                      {
-                        onSuccess: () => {
-                          // TODO(redesign): Add toast.
-                          alert('Stopped session');
-                        },
-                      },
-                    );
+                    setShowStopStudyPlanConfirmation(true);
                   }}
                 />
+                {completedQuestions > 0 && (
+                  <Button
+                    addonPosition="start"
+                    icon={RiLoopLeftLine}
+                    isDisabled={resetSessionProgressMutation.isLoading}
+                    isLoading={resetSessionProgressMutation.isLoading}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Reset progress',
+                      description: 'Label to reset study plan progress',
+                      id: '4FirvF',
+                    })}
+                    size="sm"
+                    variant="tertiary"
+                    onClick={() => {
+                      if (questionListSession == null) {
+                        return;
+                      }
+
+                      setShowResetProgressConfirmation(true);
+                    }}
+                  />
+                )}
               </div>
+              <ConfirmationDialog
+                confirmButtonVariant="danger"
+                isConfirming={stopSessionMutation.isLoading}
+                isShown={showStopStudyPlanConfirmation}
+                title={intl.formatMessage({
+                  defaultMessage: 'Stop study plan',
+                  description: 'Label to stop study plan',
+                  id: '+5SO+E',
+                })}
+                onCancel={() => {
+                  setShowStopStudyPlanConfirmation(false);
+                }}
+                onConfirm={() => {
+                  stopSessionMutation.mutate(
+                    {
+                      sessionId: questionListSession.id,
+                    },
+                    {
+                      onSuccess: () => {
+                        setShowStopStudyPlanConfirmation(false);
+                        showToast({
+                          title: intl.formatMessage({
+                            defaultMessage: 'Study plan session stopped',
+                            description:
+                              'Success message for stopping a study plan',
+                            id: 'TYoAs+',
+                          }),
+                          variant: 'info',
+                        });
+                      },
+                    },
+                  );
+                }}>
+                <FormattedMessage
+                  defaultMessage="This is an irreversible action. You will not be able to resume the study plan and all progress will be erased. Are you sure?"
+                  description="Confirmation text for stopping a study plan"
+                  id="dActPn"
+                />
+              </ConfirmationDialog>
+              <ConfirmationDialog
+                isConfirming={resetSessionProgressMutation.isLoading}
+                isShown={showResetProgressConfirmation}
+                title={intl.formatMessage({
+                  defaultMessage: 'Reset progress',
+                  description: 'Label to reset study plan progress',
+                  id: '4FirvF',
+                })}
+                onCancel={() => {
+                  setShowResetProgressConfirmation(false);
+                }}
+                onConfirm={() => {
+                  resetSessionProgressMutation.mutate(
+                    {
+                      sessionId: questionListSession.id,
+                    },
+                    {
+                      onSuccess: () => {
+                        setShowResetProgressConfirmation(false);
+                        showToast({
+                          title: intl.formatMessage({
+                            defaultMessage: 'Study plan progress cleared',
+                            description:
+                              'Success message for clearing study plan progress',
+                            id: '+7egiW',
+                          }),
+                          variant: 'info',
+                        });
+                      },
+                    },
+                  );
+                }}>
+                <FormattedMessage
+                  defaultMessage="This is an irreversible action. You will lose all progress. Are you sure?"
+                  description="Confirmation text for reseting study plan progress"
+                  id="Jn7AHE"
+                />
+              </ConfirmationDialog>
             </div>
           );
         })()}

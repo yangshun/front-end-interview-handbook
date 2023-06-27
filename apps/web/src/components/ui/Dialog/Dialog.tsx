@@ -44,7 +44,7 @@ export default function DialogImpl({
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="dark:bg-neutral-950/60 fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur transition-opacity" />
+          <div className="dark:bg-neutral-950/60 fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 z-40 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
