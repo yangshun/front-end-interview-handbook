@@ -169,9 +169,9 @@ export default function StudyPlansPage({
         <Text color="secondary" display="block" size="body2">
           {intl.formatMessage({
             defaultMessage:
-              'Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.',
+              'Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.',
             description: 'Description for study plans page',
-            id: '2vDjTb',
+            id: 't5nQRB',
           })}
         </Text>
       </div>

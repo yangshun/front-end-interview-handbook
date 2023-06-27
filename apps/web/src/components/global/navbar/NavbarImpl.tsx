@@ -17,7 +17,6 @@ import {
 } from '~/data/QuestionFormats';
 
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import I18nSelect from '~/components/i18n/I18nSelect';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -38,6 +37,7 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 import NavAppThemeDropdown from './NavAppThemeDropdown';
 import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
+import useIsBannerHidden from '../banners/useIsBannerHidden';
 import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';
 import LogoLink from '../Logo';
 import { useUserProfile } from '../UserProfileProvider';
@@ -586,7 +586,7 @@ function useUserNavigationLinks() {
 export default function NavbarImpl() {
   const { appThemePreference, setAppThemePreference } =
     useAppThemePreferences();
-  const { showPromoBanner } = useUserPreferences();
+  const isHidden = useIsBannerHidden();
   const user = useUser();
   const { isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
@@ -729,8 +729,8 @@ export default function NavbarImpl() {
 
   return (
     <Navbar
-      // Sync height with navbar.
-      className={showPromoBanner ? '!top-14 lg:!top-10' : undefined}
+      // Sync offset with banner height.
+      className={isHidden ? undefined : '!top-14 lg:!top-10'}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}

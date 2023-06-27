@@ -2995,6 +2995,10 @@
     "defaultMessage": "Pricing",
     "description": "Link to pricing plans page"
   },
+  "t5nQRB": {
+    "defaultMessage": "Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.",
+    "description": "Description for study plans page"
+  },
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
