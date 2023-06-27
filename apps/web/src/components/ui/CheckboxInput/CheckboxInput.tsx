@@ -79,9 +79,14 @@ function CheckboxInput(
               'bg-transparent',
               'border-neutral-200 dark:border-neutral-800',
               // Important! needed to override hover styles.
-              'disabled:!bg-neutral-200 dark:disabled:!bg-neutral-800',
-              'focus:ring-transparent focus:ring-offset-transparent',
-              'focus:outline-brand-dark dark:focus:outline-brand',
+              [
+                'disabled:!bg-neutral-200 dark:disabled:!bg-neutral-800',
+                'disabled:cursor-not-allowed',
+              ],
+              [
+                'focus:ring-transparent focus:ring-offset-transparent',
+                'focus:outline-brand-dark dark:focus:outline-brand',
+              ],
             )}
             defaultChecked={defaultValue}
             disabled={disabled}

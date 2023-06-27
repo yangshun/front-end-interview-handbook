@@ -157,8 +157,11 @@ export default function TextInput({
           className={clsx(
             'block w-full',
             'bg-transparent',
-            'disabled:bg-neutral-200 disabled:text-neutral-300',
-            'dark:disabled:bg-neutral-800 dark:disabled:text-neutral-700',
+            [
+              'disabled:bg-neutral-200 disabled:text-neutral-300',
+              'dark:disabled:bg-neutral-800 dark:disabled:text-neutral-700',
+              'disabled:cursor-not-allowed',
+            ],
             'rounded',
             'border-0',
             'focus:outline-none focus:outline-transparent',

@@ -216,7 +216,7 @@ export default function Button({
       'transition-colors',
       'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
       variantClasses[variant],
-      variantDisabledClasses[variant],
+      [variantDisabledClasses[variant], 'disabled:cursor-not-allowed'],
       isDisabled && 'pointer-events-none',
       className,
     ),
