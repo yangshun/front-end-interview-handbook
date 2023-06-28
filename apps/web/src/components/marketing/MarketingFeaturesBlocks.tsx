@@ -3,18 +3,17 @@ import type { ReactNode } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
+import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeGradientBlueGreen,
-  themeGradientGreenYellow,
-  themeGradientPinkPurple,
   themeRadialGlowBackground,
   themeTextBrandColor,
 } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
+import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
 
 function FeatureBlock({
   description,
@@ -32,11 +31,11 @@ function FeatureBlock({
   return (
     <div
       className={clsx(
-        'flex flex-col gap-x-28 gap-y-8 md:items-center',
+        'flex flex-col gap-x-20 gap-y-6 md:items-center lg:gap-x-28',
         reverse ? 'md:flex-row-reverse' : 'md:flex-row',
       )}>
-      <div className="md:basis-1/2">{media}</div>
-      <div className="flex flex-col gap-y-4 md:basis-1/2">
+      <div className="md:basis-1/2 overflow-auto">{media}</div>
+      <div className="md:basis-1/2 mx-auto flex max-w-sm flex-col gap-y-4 md:max-w-none">
         <Heading level="heading4">{title}</Heading>
         {description && (
           <Text color="secondary" display="block">
@@ -62,14 +61,21 @@ function FeatureBlock({
   );
 }
 
-export default function MarketingFeaturesBlocks() {
+export default function MarketingFeaturesBlocks({
+  solutions,
+}: Readonly<{
+  solutions: Readonly<{
+    todoListReact: QuestionUserInterfaceBundle;
+    todoListVanilla: QuestionUserInterfaceBundle;
+  }>;
+}>) {
   return (
     <div
       className={clsx(
-        'lg:mx-8 lg:rounded-t-[48px]',
+        'lg:rounded-t-[48px] lg:mx-8',
         themeRadialGlowBackground,
       )}>
-      <Container className="flex flex-col gap-y-12 py-32 md:gap-y-24 lg:gap-y-32">
+      <Container className="flex flex-col gap-y-16 py-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
             description={
@@ -109,11 +115,10 @@ export default function MarketingFeaturesBlocks() {
             <>Pick and choose weak areas</>,
           ]}
           media={
-            <div
-              className={clsx(
-                'h-72 w-full rounded-lg',
-                themeGradientBlueGreen.className,
-              )}
+            <img
+              alt="Question topics"
+              className="mx-auto max-w-sm md:max-w-full"
+              src="/img/marketing/topics.svg"
             />
           }
           title={<>Not sure what to prepare? No problem</>}
@@ -129,11 +134,10 @@ export default function MarketingFeaturesBlocks() {
             </>,
           ]}
           media={
-            <div
-              className={clsx(
-                'h-96 w-full rounded-lg',
-                themeGradientGreenYellow.className,
-              )}
+            <img
+              alt="Questions for many frameworks"
+              className="mx-auto w-full max-w-sm md:max-w-none"
+              src="/img/marketing/questions-framework.png"
             />
           }
           reverse={true}
@@ -148,14 +152,7 @@ export default function MarketingFeaturesBlocks() {
             <>Concepts to reinforce fundamentals</>,
             <>Technique tips and design patterns</>,
           ]}
-          media={
-            <div
-              className={clsx(
-                'h-64 w-full rounded-lg',
-                themeGradientPinkPurple.className,
-              )}
-            />
-          }
+          media={<MarketingFeatureSolutions solutions={solutions} />}
           title={<>Learn from solutions by ex-interviewers</>}
         />
         <FeatureBlock
@@ -165,11 +162,10 @@ export default function MarketingFeaturesBlocks() {
             <>Syntax highlighting, themes, keyboard shortcuts, and more</>,
           ]}
           media={
-            <div
-              className={clsx(
-                'h-80 w-full rounded-lg',
-                themeGradientBlueGreen.className,
-              )}
+            <img
+              alt="Solutions from ex-interviewers"
+              className="mx-auto w-full max-w-sm md:max-w-none"
+              src="/img/marketing/workspace.png"
             />
           }
           reverse={true}
@@ -181,11 +177,10 @@ export default function MarketingFeaturesBlocks() {
             <>Detailed test case scenarios for UI questions</>,
           ]}
           media={
-            <div
-              className={clsx(
-                'h-72 w-full rounded-lg',
-                themeGradientGreenYellow.className,
-              )}
+            <img
+              alt="Coding workspace"
+              className="mx-auto w-full max-w-sm md:max-w-none"
+              src="/img/marketing/tests.png"
             />
           }
           title={<>Comprehensive test cases</>}
@@ -195,11 +190,10 @@ export default function MarketingFeaturesBlocks() {
             <>Company-tagged questions for over 15 major tech companies</>,
           ]}
           media={
-            <div
-              className={clsx(
-                'h-64 w-full rounded-lg',
-                themeGradientPinkPurple.className,
-              )}
+            <img
+              alt="Coding workspace"
+              className="mx-auto w-full max-w-sm md:max-w-none"
+              src="/img/marketing/questions-company.png"
             />
           }
           reverse={true}
@@ -214,11 +208,10 @@ export default function MarketingFeaturesBlocks() {
             </>,
           ]}
           media={
-            <div
-              className={clsx(
-                'h-96 w-full rounded-lg',
-                themeGradientPinkPurple.className,
-              )}
+            <img
+              alt="Coding workspace"
+              className="mx-auto w-full max-w-sm md:max-w-none"
+              src="/img/marketing/study-plans.png"
             />
           }
           title={<>Use proven study plans</>}
