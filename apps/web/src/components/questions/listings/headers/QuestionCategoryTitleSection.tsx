@@ -93,7 +93,7 @@ export default function QuestionCategoryTitleSection({
               },
             )}
             size="sm"
-            variant="special"
+            variant="primary"
           />
         </div>
         <Tabs
