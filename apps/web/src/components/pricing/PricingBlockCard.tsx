@@ -93,8 +93,8 @@ export default function PricingBlockCard({
       <Section>
         <div
           className={clsx(
-            'min-w-[300px] py-8 px-6 lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-8',
-            'bg-neutral-100 dark:bg-[#21223d]',
+            'min-w-[300px] p-8 lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-8',
+            'dark:bg-[#21223d] bg-neutral-100',
           )}>
           {rightSectionContents}
         </div>

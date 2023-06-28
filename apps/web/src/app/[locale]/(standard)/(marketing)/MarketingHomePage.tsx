@@ -9,7 +9,6 @@ import MarketingEmbedSection from '~/components/marketing/MarketingEmbedSection'
 import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeaturedQuestions from '~/components/marketing/MarketingFeaturedQuestions';
 import MarketingFeaturesBlocks from '~/components/marketing/MarketingFeaturesBlocks';
-import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingHero from '~/components/marketing/MarketingHero';
 import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
@@ -41,7 +40,7 @@ export default function MarketingHomePage({
   const { userProfile } = useUserProfile();
 
   return (
-    <main>
+    <main className="dark bg-neutral-950 pb-12 md:pb-24">
       <MarketingHero />
       <Section>
         <MarketingFeaturesRow />
@@ -54,18 +53,17 @@ export default function MarketingHomePage({
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />
-        <MarketingFeaturesBlocks />
+        <MarketingFeaturesBlocks
+          solutions={{
+            todoListReact: uiCodingQuestion.react.solution,
+            todoListVanilla: uiCodingQuestion.vanilla.solution,
+          }}
+        />
         <MarketingFeaturedQuestions
           javaScriptQuestions={javaScriptQuestions}
           quizQuestions={quizQuestions}
           systemDesignQuestions={systemDesignQuestions}
           userInterfaceQuestions={userInterfaceQuestions}
-        />
-        <MarketingFeatureSolutions
-          solutions={{
-            todoListReact: uiCodingQuestion.react.solution,
-            todoListVanilla: uiCodingQuestion.vanilla.solution,
-          }}
         />
         {!(userProfile?.isPremium && userProfile?.plan === 'lifetime') && (
           <MarketingPricingSectionLocalizedContainer />

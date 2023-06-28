@@ -25,7 +25,7 @@ const variantClasses: Record<
     textColorClass: 'text-white',
   },
   special: {
-    backgroundColorClass: 'bg-neutral-950',
+    backgroundColorClass: 'bg-neutral-800',
     buttonClass: 'hover:bg-neutral-700',
     textColorClass: 'text-white',
   },
@@ -50,7 +50,7 @@ export default function Banner({
         size === 'sm' && 'text-xs md:text-sm',
         size === 'xs' && 'text-2xs md:text-xs',
       )}>
-      <div className="mx-auto max-w-7xl py-3 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
         <div className="pr-16 sm:px-16 sm:text-center">
           <p className="font-medium">{children}</p>
         </div>
@@ -58,9 +58,9 @@ export default function Banner({
           <div
             className={clsx(
               'absolute inset-y-0 right-0 flex items-start sm:items-start',
-              size === 'md' && 'pt-2.5 pr-2',
-              size === 'sm' && 'pt-2.5 pr-2',
-              size === 'xs' && 'pt-2 pr-2',
+              size === 'md' && 'pr-2 pt-2.5',
+              size === 'sm' && 'pr-2 pt-2.5',
+              size === 'xs' && 'pr-2 pt-2',
             )}>
             <button
               className={clsx(

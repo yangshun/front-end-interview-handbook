@@ -58,7 +58,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
   }, [cancelSearchParam, planSearchParam, plans]);
 
   return (
-    <div className="flex flex-col gap-y-16 sm:gap-y-20">
+    <div className="dark flex flex-col gap-y-16 bg-neutral-950 sm:gap-y-20">
       <MarketingPricingSection countryCode={countryCode} plans={plans} />
       <Section>
         <MarketingFeatures />

@@ -84,8 +84,8 @@ export default function MarketingFeaturesRow() {
   const features = useFeatures();
 
   return (
-    <Container className="py-12">
-      <div className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-3">
+    <Container className="py-16">
+      <div className="mx-auto grid max-w-md grid-cols-1 gap-x-8 gap-y-12 md:max-w-full lg:grid-cols-3">
         {features.map(({ description, key, icon: Icon, title }) => (
           <div
             key={key}
@@ -93,7 +93,7 @@ export default function MarketingFeaturesRow() {
             <div
               aria-hidden="true"
               className={clsx(
-                'rounded-full p-4 dark:bg-neutral-800/70',
+                'dark:bg-neutral-800/70 rounded-full p-3',
                 themeGlassyBorder,
               )}>
               <Icon

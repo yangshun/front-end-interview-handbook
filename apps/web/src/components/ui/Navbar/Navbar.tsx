@@ -60,7 +60,7 @@ function Navbar(
       className={clsx(
         'sticky top-0 z-30 backdrop-blur',
         ['border-b', themeLineColor],
-        transparent && 'dark:bg-neutral-950/60 bg-white/60',
+        transparent && 'dark:bg-neutral-950/60 bg-white',
         'transition-[background-color]',
         className,
       )}>

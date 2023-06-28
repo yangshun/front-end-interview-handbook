@@ -663,7 +663,7 @@ export default function MarketingPricingSectionNew({
                 <Section>
                   <div
                     className={clsx(
-                      'dark:bg-neutral-800/20 grid grid-cols-1 rounded-3xl md:grid-cols-3',
+                      'dark:bg-neutral-800/20 mx-auto grid max-w-lg grid-cols-1 rounded-3xl md:max-w-none md:grid-cols-3',
                       ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
                       ['border', themeLineColor],
                     )}>

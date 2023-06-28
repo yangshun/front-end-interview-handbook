@@ -134,88 +134,86 @@ const faqs = [
 
 export default function FrequentlyAskedQuestions() {
   return (
-    <Container variant="narrow">
-      <div className="relative flex flex-col gap-y-12">
-        <MarketingSectionHeader
-          description={
-            <FormattedMessage
-              defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
-              description="Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
-              id="JQa3Or"
-              values={{
-                link: (chunks) => (
-                  <Anchor
-                    className="whitespace-nowrap"
-                    href="mailto:contact@greatfrontend.com"
-                    weight="medium">
-                    {chunks}
-                  </Anchor>
-                ),
-              }}
-            />
-          }
-          heading={
-            <FormattedMessage
-              defaultMessage="FAQs"
-              description="Frequently Asked Questions"
-              id="DIs2lU"
-            />
-          }
-        />
-        <Section>
-          <div>
-            <dl className={clsx(['divide-y', themeDivideColor])}>
-              {faqs.map((faq) => (
-                <Disclosure key={faq.key} as="div" className="py-4 md:py-8">
-                  {({ open }) => (
-                    <>
-                      <dt className="text-base sm:text-lg md:text-xl">
-                        <Disclosure.Button
-                          className={clsx(
-                            'flex w-full items-start justify-between text-left',
-                            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                            'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
-                          )}>
-                          <Text
-                            className="text-base sm:text-lg md:text-xl"
-                            color="subtitle"
-                            display="block"
-                            size="custom"
-                            weight="medium">
-                            {faq.question}
-                          </Text>
-                          <span
-                            className={clsx(
-                              'ml-6 flex h-7 items-center',
-                              themeTextSubtitleColor,
-                            )}>
-                            <RiArrowDownSLine
-                              aria-hidden="true"
-                              className={clsx(
-                                open ? '-rotate-180' : 'rotate-0',
-                                'h-6 w-6 transform',
-                              )}
-                            />
-                          </span>
-                        </Disclosure.Button>
-                      </dt>
-                      <Disclosure.Panel as="dd" className="mt-4 pr-12 md:mt-8">
+    <Container className="relative flex flex-col gap-y-12 py-32">
+      <MarketingSectionHeader
+        description={
+          <FormattedMessage
+            defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
+            description="Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+            id="JQa3Or"
+            values={{
+              link: (chunks) => (
+                <Anchor
+                  className="whitespace-nowrap"
+                  href="mailto:contact@greatfrontend.com"
+                  weight="medium">
+                  {chunks}
+                </Anchor>
+              ),
+            }}
+          />
+        }
+        heading={
+          <FormattedMessage
+            defaultMessage="FAQs"
+            description="Frequently Asked Questions"
+            id="DIs2lU"
+          />
+        }
+      />
+      <Section>
+        <div>
+          <dl className={clsx(['divide-y', themeDivideColor])}>
+            {faqs.map((faq) => (
+              <Disclosure key={faq.key} as="div" className="py-4 md:py-8">
+                {({ open }) => (
+                  <>
+                    <dt className="text-base sm:text-lg md:text-xl">
+                      <Disclosure.Button
+                        className={clsx(
+                          'flex w-full items-start justify-between text-left',
+                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
+                          'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
+                        )}>
                         <Text
-                          className="text-sm sm:text-base md:text-lg xl:text-xl"
-                          color="secondary"
+                          className="text-base sm:text-lg md:text-xl"
+                          color="subtitle"
                           display="block"
-                          size="custom">
-                          {faq.answer}
+                          size="custom"
+                          weight="medium">
+                          {faq.question}
                         </Text>
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
-              ))}
-            </dl>
-          </div>
-        </Section>
-      </div>
+                        <span
+                          className={clsx(
+                            'ml-6 flex h-7 items-center',
+                            themeTextSubtitleColor,
+                          )}>
+                          <RiArrowDownSLine
+                            aria-hidden="true"
+                            className={clsx(
+                              open ? '-rotate-180' : 'rotate-0',
+                              'h-6 w-6 transform',
+                            )}
+                          />
+                        </span>
+                      </Disclosure.Button>
+                    </dt>
+                    <Disclosure.Panel as="dd" className="mt-4 pr-12 md:mt-8">
+                      <Text
+                        className="text-sm sm:text-base md:text-lg xl:text-xl"
+                        color="secondary"
+                        display="block"
+                        size="custom">
+                        {faq.answer}
+                      </Text>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            ))}
+          </dl>
+        </div>
+      </Section>
     </Container>
   );
 }

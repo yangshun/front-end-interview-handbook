@@ -261,7 +261,7 @@ export default function MarketingHero() {
                   icons={
                     <>
                       <GoogleLogo
-                        className="lg:h-[2.1rem] h-[1.5rem]"
+                        className="lg:h-[2.1rem] h-[1.5rem] text-white"
                         title={intl.formatMessage({
                           defaultMessage: 'Google logo',
                           description: 'Google company logo',
@@ -270,7 +270,7 @@ export default function MarketingHero() {
                       />
                       ,
                       <AmazonLogo
-                        className="mt-1 h-6 lg:mt-2 lg:h-7"
+                        className="mt-1 h-6 text-white lg:mt-2 lg:h-7"
                         title={intl.formatMessage({
                           defaultMessage: 'Amazon logo',
                           description: 'Amazon company logo',
@@ -279,7 +279,7 @@ export default function MarketingHero() {
                       />
                       ,
                       <MetaLogo
-                        className="h-4 lg:mb-2 lg:h-5"
+                        className="h-4 text-white lg:mb-2 lg:h-5"
                         title={intl.formatMessage({
                           defaultMessage: 'Meta logo',
                           description: 'Meta company logo',
@@ -299,19 +299,14 @@ export default function MarketingHero() {
                   icons={
                     <>
                       <Text
-                        className="text-base font-semibold sm:text-2xl"
+                        className="text-base font-semibold text-white sm:text-2xl"
+                        color="inherit"
                         size="custom"
                         weight="custom">
                         Blind 75
                       </Text>
                       <div className="flex items-center gap-2">
-                        <FrontEndInterviewHandbookLogo
-                          className="h-9"
-                          style={{
-                            filter:
-                              'sepia(90%) hue-rotate(190deg) brightness(90%)',
-                          }}
-                        />
+                        <FrontEndInterviewHandbookLogo className="h-9" />
                         <Text
                           className="text-left font-bold leading-4"
                           size="body2"

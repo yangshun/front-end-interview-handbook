@@ -1,14 +1,9 @@
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useState } from 'react';
+import { RiJavascriptLine, RiReactjsLine } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
-import Anchor from '~/components/ui/Anchor';
-import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import logEvent from '~/logging/logEvent';
@@ -16,7 +11,6 @@ import logEvent from '~/logging/logEvent';
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
 import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
 import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
-import Text from '../ui/Text';
 
 import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
 import {
@@ -37,9 +31,9 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function MarketingQualitySolutions({ solutions }: Props) {
+export default function MarketingFeatureSolutions({ solutions }: Props) {
   const { todoListReact, todoListVanilla } = solutions;
-  const [selectedTab, setSelectedTab] = useState('vanilla');
+  const [selectedTab, setSelectedTab] = useState('react');
   const { sandpack: setup } =
     selectedTab === 'vanilla'
       ? {
@@ -56,189 +50,88 @@ export default function MarketingQualitySolutions({ solutions }: Props) {
             activeFile: '/App.js',
           },
         };
-  const sectionMarkerRef = useRef(null);
-  const isInView = useInView(sectionMarkerRef, {
-    amount: 'all',
-    once: true,
-  });
-  const solutionsMarkerRef = useRef(null);
-  const solIsInView = useInView(solutionsMarkerRef, {
-    amount: 'all',
-    margin: '33%',
-    once: true,
-  });
 
   return (
-    <div>
-      <div ref={solutionsMarkerRef} />
-      <Container>
-        <div
-          className={clsx(
-            'relative mx-auto max-w-xl py-24 transition-opacity duration-[1500ms] ease-in-out sm:max-w-3xl md:max-w-4xl lg:max-w-5xl lg:py-40',
-            isInView ? 'opacity-100' : 'opacity-0',
-          )}>
-          <div className="pb-10 lg:pb-12">
-            <Heading level="heading2">
-              <FormattedMessage
-                defaultMessage="Learn from the best solutions."
-                description="Title of the 'Learn from the best solutions' section on Homepage"
-                id="FIQIm5"
-              />
-            </Heading>
-            <Section>
-              <div ref={sectionMarkerRef} />
-              <Text
-                className="relative mt-10 max-w-5xl text-lg lg:text-xl"
-                color="secondary"
-                display="block"
-                size="custom">
-                <FormattedMessage
-                  defaultMessage="Studying well-written solutions is one the most effective methods to ace the interview. Our platform guarantees the quality of our solutions because they are all written by us, ex-FAANG Senior Front End Engineers."
-                  description="Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 1"
-                  id="0dqqyE"
-                />
-              </Text>
-              <Text
-                className="relative mt-10 max-w-5xl text-lg lg:text-xl"
-                color="secondary"
-                display="block"
-                size="custom">
-                <FormattedMessage
-                  defaultMessage="You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!"
-                  description="Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
-                  id="OtRu2B"
-                />
-              </Text>
-            </Section>
-          </div>
-          <Section>
-            <div
-              className={clsx(
-                'transition-opacity duration-[1500ms] ease-in-out',
-                solIsInView ? 'opacity-100' : 'opacity-0',
-              )}>
-              <div>
-                <div className="mx-auto flex items-center">
-                  <Text
-                    className="mb-4 mr-8 hidden justify-start text-sm sm:text-base md:flex md:text-lg xl:text-xl"
-                    color="secondary"
-                    display="block"
-                    size="custom">
-                    <FormattedMessage
-                      defaultMessage="Check out sample solutions:"
-                      description="Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
-                      id="R79mq9"
-                    />
-                  </Text>
-                  <div className="grow pb-4">
-                    <TabsUnderline
-                      label="Select navigation item"
-                      tabs={[
-                        // TODO: i18n
-                        { label: 'Vanilla JavaScript', value: 'vanilla' },
-                        { label: 'React', value: 'react' },
-                      ]}
-                      value={selectedTab}
-                      onSelect={(newTab) => {
-                        gtag.event({
-                          action: `homepage.solutions.${newTab}.click`,
-                          category: 'engagement',
-                          label: newTab,
-                        });
-                        logEvent('click', {
-                          element: 'Homepage solutions tab',
-                          label: newTab,
-                        });
-                        setSelectedTab(newTab);
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <SandpackProvider
-                customSetup={{
-                  dependencies: setup?.dependencies,
-                  entry: setup?.entry,
-                  environment: setup?.environment as
-                    | SandboxEnvironment
-                    | undefined,
-                }}
-                files={setup?.files}
-                options={{
-                  ...sandpackProviderOptions,
-                  activeFile: setup?.activeFile,
-                  classes: {
-                    'sp-input': 'touch-none select-none pointer-events-none',
-                  },
-                  visibleFiles: setup?.visibleFiles,
-                }}
-                theme={MarketingCodeMirrorTheme}>
-                <SandpackLayout>
-                  <SandpackCodeEditor
-                    showLineNumbers={true}
-                    showTabs={true}
-                    style={{
-                      // Reference: https://github.com/codesandbox/sandpack/blob/d1301bdbcf80c063e6ed63451f5b48ce55ea46e5/sandpack-react/src/presets/Sandpack.tsx
-                      flexGrow: editorPartPercentage,
-                      flexShrink: editorPartPercentage,
-                      height,
-                      minWidth:
-                        700 *
-                        (editorPartPercentage /
-                          (previewPartPercentage + editorPartPercentage)),
-                    }}
-                    wrapContent={false}
-                  />
-                  <SandpackPreview
-                    showNavigator={true}
-                    showOpenInCodeSandbox={false}
-                    style={{
-                      // Reference: https://github.com/codesandbox/sandpack/blob/d1301bdbcf80c063e6ed63451f5b48ce55ea46e5/sandpack-react/src/presets/Sandpack.tsx
-                      flexGrow: previewPartPercentage,
-                      flexShrink: previewPartPercentage,
-                      height,
-                      minWidth:
-                        700 *
-                        (previewPartPercentage /
-                          (previewPartPercentage + editorPartPercentage)),
-                    }}
-                  />
-                </SandpackLayout>
-              </SandpackProvider>
-            </div>
-            <div className="mx-auto flex items-center justify-center pt-14 text-center text-lg md:pt-20 md:text-xl lg:pt-28 lg:text-2xl">
-              <Text
-                className="sm:flex"
-                color="secondary"
-                display="block"
-                size="custom">
-                <FormattedMessage
-                  defaultMessage="Want to see more solutions? <link>Explore our product →</link>"
-                  description="Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
-                  id="lTQM7o"
-                  values={{
-                    link: (chunks) => (
-                      <Anchor
-                        className="text-brand-dark hover:text-brand ml-2 flex items-center font-semibold"
-                        href="/prepare"
-                        variant="unstyled"
-                        onClick={() => {
-                          gtag.event({
-                            action: 'homepage.solutions.explore_product.click',
-                            category: 'engagement',
-                            label: 'Explore the product',
-                          });
-                        }}>
-                        {chunks}
-                      </Anchor>
-                    ),
-                  }}
-                />
-              </Text>
-            </div>
-          </Section>
-        </div>
-      </Container>
+    <div
+      className={clsx(
+        'relative flex max-h-[300px] max-w-full flex-col gap-y-2',
+      )}>
+      <div className="grow">
+        <TabsUnderline
+          label="Select framework"
+          size="sm"
+          tabs={[
+            { icon: RiReactjsLine, label: 'React', value: 'react' },
+            {
+              icon: RiJavascriptLine,
+              label: 'Vanilla JavaScript',
+              value: 'vanilla',
+            },
+          ]}
+          value={selectedTab}
+          onSelect={(newTab) => {
+            gtag.event({
+              action: `homepage.solutions.${newTab}.click`,
+              category: 'engagement',
+              label: newTab,
+            });
+            logEvent('click', {
+              element: 'Homepage solutions tab',
+              label: newTab,
+            });
+            setSelectedTab(newTab);
+          }}
+        />
+      </div>
+      <SandpackProvider
+        customSetup={{
+          dependencies: setup?.dependencies,
+          entry: setup?.entry,
+          environment: setup?.environment as SandboxEnvironment | undefined,
+        }}
+        files={setup?.files}
+        options={{
+          ...sandpackProviderOptions,
+          activeFile: setup?.activeFile,
+          classes: {
+            'sp-input': 'touch-none select-none pointer-events-none',
+            'sp-wrapper': '!w-[200%] !scale-50 !origin-top-left -mb-[200px]',
+          },
+          visibleFiles: setup?.visibleFiles,
+        }}
+        theme={MarketingCodeMirrorTheme}>
+        <SandpackLayout>
+          <SandpackCodeEditor
+            showLineNumbers={true}
+            showTabs={true}
+            style={{
+              // Reference: https://github.com/codesandbox/sandpack/blob/d1301bdbcf80c063e6ed63451f5b48ce55ea46e5/sandpack-react/src/presets/Sandpack.tsx
+              flexGrow: editorPartPercentage,
+              flexShrink: editorPartPercentage,
+              height,
+              minWidth:
+                700 *
+                (editorPartPercentage /
+                  (previewPartPercentage + editorPartPercentage)),
+            }}
+            wrapContent={false}
+          />
+          <SandpackPreview
+            showNavigator={true}
+            showOpenInCodeSandbox={false}
+            style={{
+              // Reference: https://github.com/codesandbox/sandpack/blob/d1301bdbcf80c063e6ed63451f5b48ce55ea46e5/sandpack-react/src/presets/Sandpack.tsx
+              flexGrow: previewPartPercentage,
+              flexShrink: previewPartPercentage,
+              height,
+              minWidth:
+                700 *
+                (previewPartPercentage /
+                  (previewPartPercentage + editorPartPercentage)),
+            }}
+          />
+        </SandpackLayout>
+      </SandpackProvider>
     </div>
   );
 }

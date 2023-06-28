@@ -19,7 +19,7 @@ import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
-    <Container className="flex flex-col gap-y-12 md:gap-y-16 lg:gap-y-24 xl:gap-y-32">
+    <Container className="flex flex-col gap-y-12 md:gap-y-16 lg:gap-y-24">
       <MarketingEmailSubscribe />
       <div
         className={clsx(
