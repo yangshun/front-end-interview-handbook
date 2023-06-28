@@ -127,10 +127,6 @@
     "defaultMessage": "What does buying GreatFrontEnd get me?",
     "description": "Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
   },
-  "0dqqyE": {
-    "defaultMessage": "Studying well-written solutions is one the most effective methods to ace the interview. Our platform guarantees the quality of our solutions because they are all written by us, ex-FAANG Senior Front End Engineers.",
-    "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 1"
-  },
   "0hdhAz": {
     "defaultMessage": "Low",
     "description": "Label for low question importance"
@@ -174,6 +170,10 @@
   "1gkgr4": {
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
+  },
+  "1hBmJl": {
+    "defaultMessage": "{QuestionCount}+ of the most important questions — from building user interfaces in popular front end frameworks to system design.",
+    "description": "Description of 'Practice everything in popular frameworks' feature in marketing page"
   },
   "1kiNiW": {
     "defaultMessage": "Accessibility",
@@ -359,9 +359,9 @@
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
   },
-  "5dwMRE": {
-    "defaultMessage": "Interview Guides",
-    "description": "Sidebar label for Interview Guides category"
+  "5c7RMQ": {
+    "defaultMessage": "Practice by framework",
+    "description": "Sidebar label for Questions list page"
   },
   "5gqGca": {
     "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
@@ -587,10 +587,6 @@
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
   },
-  "A5oI/E": {
-    "defaultMessage": "On This Page",
-    "description": "Title of the table of contents for a guidebook page."
-  },
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
@@ -623,10 +619,6 @@
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
   },
-  "Axiomj": {
-    "defaultMessage": "Questions",
-    "description": "Sidebar label for Questions Bank page"
-  },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
@@ -643,10 +635,6 @@
     "defaultMessage": "Premium Feature",
     "description": "Title for paywall over information about companies that asked the question"
   },
-  "BYD90z": {
-    "defaultMessage": "Practice Questions",
-    "description": "Questions list page title"
-  },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
     "description": "Placeholder for search input of system design question list"
@@ -658,10 +646,6 @@
   "BtCbN4": {
     "defaultMessage": "Recommended Duration",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
-  },
-  "Bv4T/z": {
-    "defaultMessage": "{QuestionCount}+ questions from quizzes to building UI to implementing library APIs from scratch to system design - available in every popular front end framework.",
-    "description": "Description of 'Practice everything in popular frameworks' feature in marketing page"
   },
   "BwHkBU": {
     "defaultMessage": "Profile",
@@ -699,6 +683,10 @@
     "defaultMessage": "Sign in with password",
     "description": "Label of link to go to Password Sign In Page on Magic Link Sign In page"
   },
+  "CIPW07": {
+    "defaultMessage": "Interview guides",
+    "description": "Sidebar label for Interview Guides category"
+  },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
@@ -718,6 +706,10 @@
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
     "description": "Button label within embed"
+  },
+  "Cl4Ghp": {
+    "defaultMessage": "On this page",
+    "description": "Title of the table of contents for a guidebook page."
   },
   "CqG3Op": {
     "defaultMessage": "Completed Questions",
@@ -838,10 +830,6 @@
   "FAtaOX": {
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
-  },
-  "FIQIm5": {
-    "defaultMessage": "Learn from the best solutions.",
-    "description": "Title of the 'Learn from the best solutions' section on Homepage"
   },
   "FInmLy": {
     "defaultMessage": "Reset to initial code",
@@ -1367,6 +1355,10 @@
     "defaultMessage": "Search JavaScript questions",
     "description": "Placeholder for search input of JavaScript question list"
   },
+  "OHistx": {
+    "defaultMessage": "Practice by framework",
+    "description": "Questions list page title"
+  },
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
     "description": "Title of study plan"
@@ -1398,10 +1390,6 @@
   "OoOyEp": {
     "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
-  },
-  "OtRu2B": {
-    "defaultMessage": "You can always rely on our solutions to include multiple approaches, reinforce fundamentals, patterns & techniques, and include a large number of practical considerations. If not, leave us a message!",
-    "description": "Subtitle of the 'Learn from the best solutions' section on Homepage, paragraph 2"
   },
   "Ou1LIp": {
     "defaultMessage": "Marked question as completed",
@@ -1519,10 +1507,6 @@
     "defaultMessage": "Contact Us",
     "description": "Title of Contact Us page"
   },
-  "R79mq9": {
-    "defaultMessage": "Check out sample solutions:",
-    "description": "Text above sample solutions code sample. Purpose is to explain that the code sample is sample code from some of our solutions"
-  },
   "RBApo9": {
     "defaultMessage": "Promotions",
     "description": "Promotions on the platform"
@@ -1542,6 +1526,10 @@
   "RQRPBv": {
     "defaultMessage": "Top 20+ common behavioral interview questions for SWE",
     "description": "Most common behavioral interview questions for software engineers"
+  },
+  "RQm9cE": {
+    "defaultMessage": "We're still growing our question base",
+    "description": "Question base section title"
   },
   "RTBOas": {
     "defaultMessage": "JavaScript",
@@ -1802,6 +1790,10 @@
   "WJ/3Qn": {
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
+  },
+  "WNRcvy": {
+    "defaultMessage": "Study plans",
+    "description": "Sidebar label for Study Plans category"
   },
   "WRQRec": {
     "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
@@ -2503,10 +2495,6 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
-  "jcGC9r": {
-    "defaultMessage": "Prep Dashboard",
-    "description": "Sidebar label for Front End Interview Prep Dashboard page"
-  },
   "jgIdRC": {
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
@@ -2627,6 +2615,10 @@
     "defaultMessage": "Data structures & algorithms",
     "description": "Name of focus area questions"
   },
+  "lGUj4P": {
+    "defaultMessage": "View study plans",
+    "description": "Link label to view all study plans"
+  },
   "lJupPX": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -2634,10 +2626,6 @@
   "lMXh4f": {
     "defaultMessage": "Theme",
     "description": "Select label to choose console theme in console settings"
-  },
-  "lTQM7o": {
-    "defaultMessage": "Want to see more solutions? <link>Explore our product →</link>",
-    "description": "Call to action button to ask users to explore our product. Leads to the interview practice questions bank."
   },
   "lUuh6Q": {
     "defaultMessage": "Start study plan",
@@ -2803,6 +2791,10 @@
     "defaultMessage": "Answering \"Tell Me About Yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
   },
+  "oPyUXk": {
+    "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
+    "description": "Subtitle for an example list of User Interface Questions on marketing pages"
+  },
   "oQiKcl": {
     "defaultMessage": "Sort By",
     "description": "Label for sort button"
@@ -2950,10 +2942,6 @@
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
-  },
-  "rXnAi2": {
-    "defaultMessage": "We're still growing our question base.",
-    "description": "Question base section title"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",
@@ -3243,10 +3231,6 @@
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
   },
-  "wVEJye": {
-    "defaultMessage": "Study Plans",
-    "description": "Sidebar label for Study Plans category"
-  },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
     "description": "Label of send magic link button on Magic Link Sign In page"
@@ -3314,6 +3298,10 @@
   "y3aYKb": {
     "defaultMessage": "User Interface",
     "description": "Front end user interface questions"
+  },
+  "y4l5Q0": {
+    "defaultMessage": "Prep dashboard",
+    "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
   "y7sRet": {
     "defaultMessage": "Monthly",

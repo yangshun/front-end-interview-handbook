@@ -2,8 +2,11 @@ import clsx from 'clsx';
 import { useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+type Direction = 'leftToRight' | 'rightToLeft';
+
 type Props = Readonly<{
   children: React.ReactNode;
+  direction?: Direction;
   maskEdges?: boolean;
   periodSeconds?: number;
   // The gap in pixels between the end and the wrapped start of the marquee.
@@ -17,6 +20,7 @@ const maskClasses = clsx(
 
 export default function Marquee({
   children,
+  direction = 'rightToLeft',
   maskEdges = true,
   periodSeconds = 5,
   startEndGap,
@@ -40,6 +44,8 @@ export default function Marquee({
       <div
         className="motion-safe:animate-marquee whitespace-nowrap"
         style={{
+          animationDirection:
+            direction === 'rightToLeft' ? 'normal' : 'reverse',
           animationDuration: `${periodSeconds}s`,
           paddingInlineEnd: reduceMotion ? 0 : startEndGap,
         }}>
@@ -49,6 +55,8 @@ export default function Marquee({
         aria-hidden="true"
         className="motion-safe:animate-marquee2 absolute top-0 hidden whitespace-nowrap motion-safe:block"
         style={{
+          animationDirection:
+            direction === 'rightToLeft' ? 'normal' : 'reverse',
           animationDuration: `${periodSeconds}s`,
           paddingInlineEnd: reduceMotion ? 0 : startEndGap,
         }}>
