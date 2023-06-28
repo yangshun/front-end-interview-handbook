@@ -27,7 +27,7 @@ export default function MarketingFeaturedQuestions({
   return (
     <div
       className={clsx(
-        'lg:rounded-t-[48px] lg:mx-8',
+        'lg:rounded-t-[48px] isolate lg:mx-8',
         themeRadialGlowBackground,
       )}>
       <Container className="flex flex-col gap-y-24 pb-32 pt-[72px] lg:gap-y-32">

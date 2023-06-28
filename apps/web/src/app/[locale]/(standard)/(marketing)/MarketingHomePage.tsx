@@ -40,7 +40,7 @@ export default function MarketingHomePage({
   const { userProfile } = useUserProfile();
 
   return (
-    <main className="dark bg-neutral-950 pb-12 md:pb-24">
+    <main className="dark bg-neutral-950 pb-12 dark:bg-transparent md:pb-24">
       <MarketingHero />
       <Section>
         <MarketingFeaturesRow />

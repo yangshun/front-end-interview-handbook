@@ -231,7 +231,7 @@ export default function MarketingHero() {
   const intl = useIntl();
 
   return (
-    <div className="relative lg:mx-8">
+    <div className="relative isolate lg:mx-8">
       <div
         aria-hidden="true"
         className="lg:rounded-b-[48px] pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden">

@@ -103,7 +103,7 @@ export default function MarketingEmailSubscribe() {
   } = trpc.marketing.signUpWithEmail.useMutation();
 
   return (
-    <div className="lg:min-h-[400px] lg:rounded-[48px] relative flex flex-col justify-center gap-y-8 overflow-hidden md:gap-y-12 md:p-16 lg:p-20">
+    <div className="lg:min-h-[400px] lg:rounded-[48px] relative isolate flex flex-col justify-center gap-y-8 overflow-hidden md:gap-y-12 md:p-16 lg:p-20">
       <Background
         aria-hidden={true}
         className="absolute inset-0 -z-10 hidden h-full lg:block"

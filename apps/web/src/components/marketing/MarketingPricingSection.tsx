@@ -455,7 +455,7 @@ export default function MarketingPricingSectionNew({
   return (
     <div
       className={clsx(
-        'lg:rounded-t-[48px] pb-24 lg:mx-8',
+        'lg:rounded-t-[48px] isolate pb-24 lg:mx-8',
         themeRadialGlowBackground,
       )}>
       <div className="pt-24">
@@ -645,223 +645,212 @@ export default function MarketingPricingSectionNew({
               </Container>
             </div>
           </div>
-          <div>
-            <div className="relative">
-              <Container className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute right-0 top-0 -z-10">
-                  <PurpleGradientBackground />
-                </div>
-                <Heading className="sr-only" level="custom">
-                  <FormattedMessage
-                    defaultMessage="Pricing Plans"
-                    description="Screen reader text referring to the Pricing Plan cards"
-                    id="iElBQT"
-                  />
-                </Heading>
-                <Section>
-                  <div
-                    className={clsx(
-                      'dark:bg-neutral-800/20 mx-auto grid max-w-lg grid-cols-1 rounded-3xl md:max-w-none md:grid-cols-3',
-                      ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
-                      ['border', themeLineColor],
-                    )}>
-                    {planList.map(
-                      ({
-                        description,
-                        numberOfMonths,
-                        plan,
-                        includedFeatures,
-                      }) => {
-                        const id = `tier-${plan.planType}`;
+          <Container className="relative">
+            <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
+              <PurpleGradientBackground />
+            </div>
+            <Heading className="sr-only" level="custom">
+              <FormattedMessage
+                defaultMessage="Pricing Plans"
+                description="Screen reader text referring to the Pricing Plan cards"
+                id="iElBQT"
+              />
+            </Heading>
+            <Section>
+              <div
+                className={clsx(
+                  'dark:bg-neutral-800/20 mx-auto grid max-w-lg grid-cols-1 rounded-3xl md:max-w-none md:grid-cols-3',
+                  ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
+                  ['border', themeLineColor],
+                )}>
+                {planList.map(
+                  ({ description, numberOfMonths, plan, includedFeatures }) => {
+                    const id = `tier-${plan.planType}`;
 
-                        return (
-                          <div
-                            key={plan.planType}
-                            className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
-                            <div className="grow md:grow-0">
-                              <Heading
-                                className="font-medium text-neutral-700 dark:text-neutral-300"
-                                id={id}
-                                level="custom">
-                                {pricingPlanLabels[plan.planType]}
-                              </Heading>
-                              <Section>
-                                <Text
-                                  className="md:min-h-[40px] mt-1"
-                                  color="secondary"
-                                  display="block"
-                                  size="body2">
-                                  {description}
-                                </Text>
-                                <div className="mt-8">
-                                  <Text
-                                    className="text-3xl font-bold tracking-tight"
-                                    size="custom"
-                                    weight="custom">
-                                    <Text weight="medium">{plan.symbol}</Text>
-                                    {priceRoundToNearestNiceNumber(
-                                      plan.unitCostLocalizedInCurrency /
-                                        numberOfMonths,
-                                    )}
-                                  </Text>
-                                  <Text weight="bold">
-                                    <FormattedMessage
-                                      defaultMessage="/month"
-                                      description="Per month"
-                                      id="aE1FCD"
-                                    />
-                                  </Text>
-                                </div>
-                                <Text
-                                  className="md:min-h-[32px] pt-1"
-                                  display="block"
-                                  size="body3">
-                                  {(() => {
-                                    switch (plan.planType) {
-                                      case 'monthly':
-                                        return (
-                                          <FormattedMessage
-                                            defaultMessage="{currencySymbol}{price} billed per month."
-                                            description="Description of billing frequency for monthly plan"
-                                            id="aBlEic"
-                                            values={{
-                                              currencySymbol: plan.symbol,
-                                              price:
-                                                plan.unitCostLocalizedInCurrency,
-                                            }}
-                                          />
-                                        );
-                                      case 'quarterly':
-                                        return (
-                                          <FormattedMessage
-                                            defaultMessage="{currencySymbol}{price} billed every 3 months."
-                                            description="Description of billing frequency for quarterly plan"
-                                            id="kmEY/r"
-                                            values={{
-                                              currencySymbol: plan.symbol,
-                                              price:
-                                                plan.unitCostLocalizedInCurrency,
-                                            }}
-                                          />
-                                        );
-                                      case 'annual':
-                                        return (
-                                          <FormattedMessage
-                                            defaultMessage="{currencySymbol}{price} billed yearly."
-                                            description="Description of billing frequency for annual plan"
-                                            id="Pohz4K"
-                                            values={{
-                                              currencySymbol: plan.symbol,
-                                              price:
-                                                plan.unitCostLocalizedInCurrency,
-                                            }}
-                                          />
-                                        );
-                                    }
-                                  })()}{' '}
-                                  {plan.planType === 'monthly' ? (
-                                    <FormattedMessage
-                                      defaultMessage="Cancel anytime."
-                                      description="Cancel the subscription anytime."
-                                      id="GHQ8sO"
-                                    />
-                                  ) : (
-                                    <span className="text-brand">
+                    return (
+                      <div
+                        key={plan.planType}
+                        className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
+                        <div className="grow md:grow-0">
+                          <Heading
+                            className="font-medium text-neutral-700 dark:text-neutral-300"
+                            id={id}
+                            level="custom">
+                            {pricingPlanLabels[plan.planType]}
+                          </Heading>
+                          <Section>
+                            <Text
+                              className="md:min-h-[40px] mt-1"
+                              color="secondary"
+                              display="block"
+                              size="body2">
+                              {description}
+                            </Text>
+                            <div className="mt-8">
+                              <Text
+                                className="text-3xl font-bold tracking-tight"
+                                size="custom"
+                                weight="custom">
+                                <Text weight="medium">{plan.symbol}</Text>
+                                {priceRoundToNearestNiceNumber(
+                                  plan.unitCostLocalizedInCurrency /
+                                    numberOfMonths,
+                                )}
+                              </Text>
+                              <Text weight="bold">
+                                <FormattedMessage
+                                  defaultMessage="/month"
+                                  description="Per month"
+                                  id="aE1FCD"
+                                />
+                              </Text>
+                            </div>
+                            <Text
+                              className="md:min-h-[32px] pt-1"
+                              display="block"
+                              size="body3">
+                              {(() => {
+                                switch (plan.planType) {
+                                  case 'monthly':
+                                    return (
                                       <FormattedMessage
-                                        defaultMessage="(Save {discountPercentage}% vs monthly)"
-                                        description="Save more compared to monthly plan."
-                                        id="Dynazi"
+                                        defaultMessage="{currencySymbol}{price} billed per month."
+                                        description="Description of billing frequency for monthly plan"
+                                        id="aBlEic"
                                         values={{
-                                          discountPercentage: plan.discount,
+                                          currencySymbol: plan.symbol,
+                                          price:
+                                            plan.unitCostLocalizedInCurrency,
                                         }}
                                       />
-                                    </span>
-                                  )}
-                                </Text>
-                                <div className="mt-8">
-                                  <PricingButtonSection
-                                    aria-describedby={id}
-                                    countryCode={countryCode}
-                                    plan={plan}
-                                  />
-                                </div>
-                              </Section>
-                            </div>
-                            <Section>
-                              <Heading className="sr-only" level="custom">
-                                <FormattedMessage
-                                  defaultMessage="What's Included"
-                                  description="Section label for features included in a pricing plan"
-                                  id="IhJAk8"
-                                />
-                              </Heading>
-                              <Section>
-                                <ul
-                                  className={clsx(
-                                    'divide-y border-y',
-                                    themeLineColor,
-                                    themeDivideColor,
-                                  )}
-                                  role="list">
-                                  {includedFeatures.map((feature, idx) => (
-                                    <li
-                                      // eslint-disable-next-line react/no-array-index-key
-                                      key={idx}
-                                      className="flex gap-x-3 py-3">
-                                      <RiCheckLine
-                                        aria-hidden="true"
-                                        className="text-brand h-5 w-5 flex-shrink-0"
+                                    );
+                                  case 'quarterly':
+                                    return (
+                                      <FormattedMessage
+                                        defaultMessage="{currencySymbol}{price} billed every 3 months."
+                                        description="Description of billing frequency for quarterly plan"
+                                        id="kmEY/r"
+                                        values={{
+                                          currencySymbol: plan.symbol,
+                                          price:
+                                            plan.unitCostLocalizedInCurrency,
+                                        }}
                                       />
-                                      <Text color="secondary" size="body3">
-                                        {feature}
-                                      </Text>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </Section>
-                            </Section>
-                          </div>
-                        );
-                      },
-                    )}
-                  </div>
-                  <div className="mt-5 px-8">
-                    <Text color="secondary" display="block" size="body2">
-                      *{' '}
-                      <FormattedMessage
-                        defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
-                        description="Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
-                        id="Xka4d3"
-                      />
-                    </Text>
-                    <Text color="secondary" display="block" size="body2">
-                      *{' '}
-                      <FormattedMessage
-                        defaultMessage="Prices will be increased as more content is being added to the website."
-                        description="Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
-                        id="VJ8xZy"
-                      />
-                    </Text>
-                    {lifetimePlan.symbol === '$' && (
-                      <Text color="secondary" display="block" size="body2">
-                        *{' '}
-                        <FormattedMessage
-                          defaultMessage="Prices shown are in {currency}."
-                          description="Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
-                          id="jxXMtj"
-                          values={{
-                            currency: lifetimePlan.currency.toLocaleUpperCase(),
-                          }}
-                        />
-                      </Text>
-                    )}
-                  </div>
-                </Section>
-              </Container>
-            </div>
-          </div>
+                                    );
+                                  case 'annual':
+                                    return (
+                                      <FormattedMessage
+                                        defaultMessage="{currencySymbol}{price} billed yearly."
+                                        description="Description of billing frequency for annual plan"
+                                        id="Pohz4K"
+                                        values={{
+                                          currencySymbol: plan.symbol,
+                                          price:
+                                            plan.unitCostLocalizedInCurrency,
+                                        }}
+                                      />
+                                    );
+                                }
+                              })()}{' '}
+                              {plan.planType === 'monthly' ? (
+                                <FormattedMessage
+                                  defaultMessage="Cancel anytime."
+                                  description="Cancel the subscription anytime."
+                                  id="GHQ8sO"
+                                />
+                              ) : (
+                                <span className="text-brand">
+                                  <FormattedMessage
+                                    defaultMessage="(Save {discountPercentage}% vs monthly)"
+                                    description="Save more compared to monthly plan."
+                                    id="Dynazi"
+                                    values={{
+                                      discountPercentage: plan.discount,
+                                    }}
+                                  />
+                                </span>
+                              )}
+                            </Text>
+                            <div className="mt-8">
+                              <PricingButtonSection
+                                aria-describedby={id}
+                                countryCode={countryCode}
+                                plan={plan}
+                              />
+                            </div>
+                          </Section>
+                        </div>
+                        <Section>
+                          <Heading className="sr-only" level="custom">
+                            <FormattedMessage
+                              defaultMessage="What's Included"
+                              description="Section label for features included in a pricing plan"
+                              id="IhJAk8"
+                            />
+                          </Heading>
+                          <Section>
+                            <ul
+                              className={clsx(
+                                'divide-y border-y',
+                                themeLineColor,
+                                themeDivideColor,
+                              )}
+                              role="list">
+                              {includedFeatures.map((feature, idx) => (
+                                <li
+                                  // eslint-disable-next-line react/no-array-index-key
+                                  key={idx}
+                                  className="flex gap-x-3 py-3">
+                                  <RiCheckLine
+                                    aria-hidden="true"
+                                    className="text-brand h-5 w-5 flex-shrink-0"
+                                  />
+                                  <Text color="secondary" size="body3">
+                                    {feature}
+                                  </Text>
+                                </li>
+                              ))}
+                            </ul>
+                          </Section>
+                        </Section>
+                      </div>
+                    );
+                  },
+                )}
+              </div>
+              <div className="mt-5 px-8">
+                <Text color="secondary" display="block" size="body2">
+                  *{' '}
+                  <FormattedMessage
+                    defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
+                    description="Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+                    id="Xka4d3"
+                  />
+                </Text>
+                <Text color="secondary" display="block" size="body2">
+                  *{' '}
+                  <FormattedMessage
+                    defaultMessage="Prices will be increased as more content is being added to the website."
+                    description="Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
+                    id="VJ8xZy"
+                  />
+                </Text>
+                {lifetimePlan.symbol === '$' && (
+                  <Text color="secondary" display="block" size="body2">
+                    *{' '}
+                    <FormattedMessage
+                      defaultMessage="Prices shown are in {currency}."
+                      description="Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
+                      id="jxXMtj"
+                      values={{
+                        currency: lifetimePlan.currency.toLocaleUpperCase(),
+                      }}
+                    />
+                  </Text>
+                )}
+              </div>
+            </Section>
+          </Container>
         </Section>
       </div>
     </div>
