@@ -2,12 +2,12 @@ import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
 import {
+  themeBackgroundColor,
   themeBackgroundEmphasized,
   themeBackgroundLayerColor,
-  themeBackgroundLayerEmphasized,
-  themeBackgroundLayerEmphasizedHover,
+  themeGlassyBorder,
   themeTextColor,
-  themeTextInvertColor,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
 import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
@@ -25,15 +25,16 @@ function NavbarPopoverLink({
 }: NavPopoverLinkItem) {
   const el =
     sublabel != null ? (
-      <div className="flex flex-col gap-4">
+      <div className="group flex flex-col items-start gap-4">
         <div
           className={clsx(
-            'bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10',
-            themeTextInvertColor,
+            'dark:bg-neutral-800/70 rounded-full p-3',
+            themeGlassyBorder,
+            themeTextSubtitleColor,
           )}>
           <Icon
             aria-hidden="true"
-            className="h-5 w-5 transition-transform group-hover:scale-110"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 transition-colors"
           />
         </div>
         <div>
@@ -48,29 +49,29 @@ function NavbarPopoverLink({
         </div>
       </div>
     ) : (
-      <div className="flex items-center">
+      <div className="group flex items-center gap-x-4">
         <div
           className={clsx(
-            'bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10',
-            themeTextInvertColor,
+            'dark:bg-neutral-800/70 rounded-full p-3',
+            themeGlassyBorder,
+            themeTextSubtitleColor,
           )}>
           <Icon
             aria-hidden="true"
-            className="h-5 w-5 transition-transform group-hover:scale-110"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 transition-colors"
           />
         </div>
-        <div className="ml-4">
-          <Text className="items-center gap-2" display="flex" weight="medium">
-            <span className="shrink-0">{label}</span> {labelAddon}
-          </Text>
-        </div>
+        <Text
+          className="items-center gap-2"
+          display="flex"
+          size="body2"
+          weight="medium">
+          <span className="shrink-0">{label}</span> {labelAddon}
+        </Text>
       </div>
     );
 
-  const className = clsx(
-    'group flex grow rounded-lg p-4',
-    href != null && themeBackgroundLayerEmphasizedHover,
-  );
+  const className = clsx('group flex grow', href != null);
 
   if (href == null) {
     return <div className={className}>{el}</div>;
@@ -98,14 +99,15 @@ export default function NavbarPopoverTabs({
   return (
     <div
       className={clsx(
-        'flex overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5',
+        'flex overflow-hidden rounded-lg shadow-lg dark:shadow-none',
+        themeGlassyBorder,
         themeBackgroundLayerColor,
       )}>
       <Tab.Group vertical={true}>
         <Tab.List
           className={clsx(
-            'flex w-1/4 shrink-0 flex-col gap-y-2 p-2',
-            themeBackgroundLayerEmphasized,
+            'flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
+            themeBackgroundColor,
           )}>
           {items.map(({ itemKey, label }) => (
             <Tab
@@ -132,7 +134,7 @@ export default function NavbarPopoverTabs({
             <Tab.Panel key={item.itemKey} className="grid h-full w-full">
               <div
                 className={clsx(
-                  'relative grid grow gap-2 p-6',
+                  'relative grid grow gap-2 px-8 py-10',
                   (item.items.length === 2 || item.items.length === 4) &&
                     'grid-cols-2',
                   (item.items.length === 3 || item.items.length > 4) &&
@@ -157,14 +159,11 @@ export default function NavbarPopoverTabs({
                 ))}
               </div>
               {item.supplementaryItem != null && (
-                <div
-                  className={clsx(
-                    'flex w-full justify-end px-6 py-5',
-                    themeBackgroundLayerEmphasized,
-                  )}>
+                <div className={clsx('flex w-full justify-end px-8 pb-6')}>
                   <Anchor
                     className={clsx(
-                      '-m-3 flex items-center gap-x-2 rounded-md p-3 text-sm font-medium',
+                      '-m-3 flex items-center gap-x-2 rounded-full p-3 text-sm font-medium',
+                      'hover:text-brand-dark dark:hover:text-brand transition-colors',
                       themeTextColor,
                     )}
                     href={item.supplementaryItem.href}
@@ -177,7 +176,7 @@ export default function NavbarPopoverTabs({
                     {item.supplementaryItem.icon && (
                       <item.supplementaryItem.icon
                         aria-hidden="true"
-                        className="inline-block h-6 w-6 text-neutral-500 transition-transform"
+                        className={clsx('inline-block h-4 w-4')}
                       />
                     )}
                     {item.supplementaryItem.label}

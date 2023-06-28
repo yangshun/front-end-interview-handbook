@@ -30,7 +30,7 @@ export default function PromoBanner({
   return (
     <div
       className={clsx(
-        'sticky top-0 z-20 w-full transition-opacity duration-500',
+        'sticky top-0 z-30 w-full transition-opacity duration-500',
       )}
       suppressHydrationWarning={true}>
       <Banner

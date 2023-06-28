@@ -80,10 +80,8 @@ export default function NavbarItem({
                     <Popover.Panel
                       className={clsx(
                         // TODO: Increase max-width as number of items increase.
-                        'absolute z-10 -ml-4 mt-3 w-screen max-w-md transform lg:ml-0',
-                        props.items.length === 2 && 'lg:max-w-4xl',
-                        props.items.length === 3 && 'lg:max-w-5xl',
-                        props.items.length === 4 && 'lg:max-w-6xl',
+                        'fixed z-10 -ml-4 mt-3 w-screen max-w-5xl transform lg:ml-0',
+                        'left-1/2 -translate-x-1/2',
                       )}>
                       <NavbarPopover items={props.items} onClose={close} />
                     </Popover.Panel>
@@ -93,9 +91,7 @@ export default function NavbarItem({
                     <Popover.Panel
                       className={clsx(
                         // TODO: Increase max-width as number of items increase.
-                        'fixed left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform xl:absolute xl:left-auto xl:ml-0 xl:translate-x-0',
-                        props.items.length === 2 && 'lg:max-w-4xl',
-                        props.items.length === 3 && 'lg:max-w-5xl',
+                        'fixed left-1/2 z-10 mt-3 w-screen max-w-5xl -translate-x-1/2 transform xl:absolute xl:left-auto xl:ml-0 xl:translate-x-0',
                       )}>
                       <NavbarPopoverTabs items={props.items} onClose={close} />
                     </Popover.Panel>

@@ -4,7 +4,9 @@ import Anchor from '~/components/ui/Anchor';
 import {
   themeBackgroundLayerColor,
   themeBackgroundLayerEmphasizedHover,
+  themeGlassyBorder,
   themeTextInvertColor,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
 import type {
@@ -27,15 +29,16 @@ function NavbarPopoverLink({
       <>
         <div
           className={clsx(
-            'bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10',
-            themeTextInvertColor,
+            'dark:bg-neutral-800/70 rounded-full p-3',
+            themeGlassyBorder,
+            themeTextSubtitleColor,
           )}>
           <Icon
             aria-hidden="true"
-            className="h-5 w-5 transition-transform group-hover:scale-110"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6"
           />
         </div>
-        <div className="ml-4 grid gap-y-1">
+        <div className="flex flex-col gap-y-1">
           <Text className="items-center gap-2" display="flex" weight="medium">
             <span className="shrink-0">{label}</span> {labelAddon}
           </Text>
@@ -47,15 +50,16 @@ function NavbarPopoverLink({
         </div>
       </>
     ) : (
-      <div className="flex items-center">
+      <div className="flex flex-col gap-y-4">
         <div
           className={clsx(
-            'bg-brand flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md sm:h-10 sm:w-10',
-            themeTextInvertColor,
+            'dark:bg-neutral-800/70 rounded-full p-3',
+            themeGlassyBorder,
+            themeTextSubtitleColor,
           )}>
           <Icon
             aria-hidden="true"
-            className="h-5 w-5 transition-transform group-hover:scale-110"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6"
           />
         </div>
         <div className="ml-4">
@@ -67,13 +71,7 @@ function NavbarPopoverLink({
     );
 
   const item = (
-    <div
-      className={clsx(
-        'group -mx-3 flex items-start rounded-lg p-3',
-        themeBackgroundLayerEmphasizedHover,
-      )}>
-      {el}
-    </div>
+    <div className={clsx('group flex flex-col items-start gap-y-4')}>{el}</div>
   );
 
   if (href == null) {
@@ -93,11 +91,15 @@ function NavbarPopoverLink({
 
 function NavbarPopoverGroup({ label, items, onClick }: NavPopoverGroupItem) {
   return (
-    <div className="flex flex-col space-y-2">
-      <Text color="secondary" display="block" size="body2" weight="medium">
-        {label}
-      </Text>
-      <ul className="space-y-1" role="list">
+    <div>
+      <span className="sr-only">{label}</span>
+      <ul
+        className={clsx(
+          'grid gap-x-6',
+          items.length === 2 && 'grid-cols-2',
+          items.length === 3 && 'grid-cols-3',
+        )}
+        role="list">
         {items.map(({ onClick: onItemClick, ...item }) => (
           <li key={item.itemKey}>
             <NavbarPopoverLink
@@ -123,11 +125,15 @@ export default function NavbarPopover({
   onClose: () => void;
 }>) {
   return (
-    <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+    <div
+      className={clsx(
+        'overflow-hidden rounded-lg shadow-lg dark:shadow-none',
+        themeBackgroundLayerColor,
+        themeGlassyBorder,
+      )}>
       <ul
         className={clsx(
-          'relative grid divide-x px-5 py-6 sm:p-8',
-          themeBackgroundLayerColor,
+          'relative grid divide-x px-8 py-10',
           items.length === 2 && 'grid-cols-2',
           items.length === 3 && 'grid-cols-3',
           items.length === 4 && 'grid-cols-4',

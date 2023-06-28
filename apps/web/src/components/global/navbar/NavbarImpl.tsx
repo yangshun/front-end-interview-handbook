@@ -368,6 +368,17 @@ function useNavLinks(
             description: 'Section title for study plans',
             id: 'CQOAJS',
           }),
+          supplementaryItem: {
+            href: '/study-plans',
+            icon: RiPlayLine,
+            itemKey: 'study-plans',
+            label: intl.formatMessage({
+              defaultMessage: 'View study plans',
+              description: 'Link label to view all study plans',
+              id: 'lGUj4P',
+            }),
+            type: 'link',
+          },
           type: 'popover-list',
         },
       ],
