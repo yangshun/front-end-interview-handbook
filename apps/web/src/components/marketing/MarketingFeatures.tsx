@@ -16,9 +16,12 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import {
+  themeGlassyBorder,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 import Text from '../ui/Text';
-import { themeTextInvertColor } from '../ui/theme';
 
 function useFeatures() {
   const intl = useIntl();
@@ -173,31 +176,35 @@ export default function MarketingFeatures() {
   const features = useFeatures();
 
   return (
-    <Container variant="narrow">
+    <Container>
       <Heading className="sr-only" level="custom">
         {/* TODO: i18n */}
         Features
       </Heading>
       <Section>
-        <dl className="space-y-10 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 sm:space-y-0 lg:gap-x-8">
+        <dl className="sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 lg:gap-x-12">
           {features.map((feature) => (
-            <div key={feature.name} className="relative">
-              <dt>
+            <div key={feature.name} className="group relative">
+              <dt className="flex flex-col items-start gap-y-4">
                 <div
                   className={clsx(
-                    'bg-brand absolute flex h-12 w-12 items-center justify-center rounded-md',
-                    themeTextInvertColor,
+                    'dark:bg-neutral-800/70 rounded-full p-3',
+                    themeGlassyBorder,
+                    themeTextSubtitleColor,
                   )}>
-                  <feature.icon aria-hidden="true" className="h-6 w-6" />
+                  <feature.icon
+                    aria-hidden="true"
+                    className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6"
+                  />
                 </div>
                 <Heading
-                  className="ml-16 text-lg font-medium leading-6"
+                  className="text-lg font-medium leading-6"
                   level="custom">
                   {feature.name}
                 </Heading>
               </dt>
               <Section>
-                <dd className="mt-2 ml-16">
+                <dd className="mt-2">
                   <Text color="secondary" display="block">
                     {feature.description}
                   </Text>
