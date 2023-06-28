@@ -44,9 +44,9 @@ function ListItems({
             <Anchor
               ref={activeId === section.id ? activeLinkRef : undefined}
               className={clsx(
-                'motion-safe:transition-all',
+                'font-medium motion-safe:transition-all',
                 activeId === section.id
-                  ? themeTextBrandColor
+                  ? clsx(themeTextBrandColor)
                   : clsx(
                       themeTextSecondaryColor,
                       'hover:text-neutral-500 dark:hover:text-white',
@@ -97,9 +97,9 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
         <>
           <Heading className="text-sm font-medium" id={titleId} level="custom">
             <FormattedMessage
-              defaultMessage="On This Page"
+              defaultMessage="On this page"
               description="Title of the table of contents for a guidebook page."
-              id="A5oI/E"
+              id="Cl4Ghp"
             />
           </Heading>
           <Section>

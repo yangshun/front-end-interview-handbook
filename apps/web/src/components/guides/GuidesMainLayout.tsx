@@ -48,22 +48,6 @@ export default function GuidesMainLayout({
         />
         <div className="flex grow">
           <div className="mx-auto grid w-full max-w-xl gap-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
-            {currentItem && (
-              <div className="-mb-4 flex flex-wrap gap-x-2">
-                {currentItem.breadcrumbs.map((breadcrumb, index) => (
-                  <Fragment key={breadcrumb}>
-                    {index > 0 && (
-                      <Text color="secondary" size="body2">
-                        /
-                      </Text>
-                    )}
-                    <Text color="secondary" size="body2">
-                      {breadcrumb}
-                    </Text>
-                  </Fragment>
-                ))}
-              </div>
-            )}
             <div ref={articleContainerRef}>{children}</div>
             <Section>
               <div className="mt-8">
@@ -78,7 +62,7 @@ export default function GuidesMainLayout({
             <Section>
               <div
                 key={currentItem?.href}
-                className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:py-12 xl:px-6"
+                className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:px-6 xl:py-12"
                 style={{
                   height: FooterlessContainerHeight,
                   top: `var(--navbar-height)`,

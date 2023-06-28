@@ -35,7 +35,7 @@ export default function QuestionPagination({ currentHref, items }: Props) {
       {prevQuestion && (
         <div className="flex basis-1/2 flex-col items-start gap-3">
           <Anchor
-            className="inline-flex justify-center gap-1 overflow-hidden rounded-full bg-zinc-100 py-1 px-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-200 dark:bg-zinc-800/40 dark:text-zinc-400 dark:ring-1 dark:ring-inset dark:ring-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-300"
+            className="dark:bg-neutral-800/40 inline-flex justify-center gap-1 overflow-hidden rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-900 transition hover:bg-neutral-200 dark:text-neutral-400 dark:ring-1 dark:ring-inset dark:ring-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
             href={prevQuestion.href}
             variant="unstyled">
             <span aria-hidden={true}>←</span>
@@ -47,7 +47,7 @@ export default function QuestionPagination({ currentHref, items }: Props) {
           </Anchor>
           <Anchor
             aria-hidden={true}
-            className="line-clamp-2 text-base font-semibold text-zinc-900 transition hover:text-zinc-600 dark:text-white dark:hover:text-zinc-300"
+            className="line-clamp-2 text-base font-semibold text-neutral-900 transition hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300"
             href="/webhooks"
             variant="unstyled">
             {prevQuestion.title}
@@ -57,7 +57,7 @@ export default function QuestionPagination({ currentHref, items }: Props) {
       {nextQuestion && (
         <div className="ml-auto flex basis-1/2 flex-col items-end gap-3">
           <Anchor
-            className="inline-flex justify-center gap-1 overflow-hidden rounded-full bg-zinc-100 py-1 px-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-200 dark:bg-zinc-800/40 dark:text-zinc-400 dark:ring-1 dark:ring-inset dark:ring-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-300"
+            className="dark:bg-neutral-800/40 inline-flex justify-center gap-1 overflow-hidden rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-900 transition hover:bg-neutral-200 dark:text-neutral-400 dark:ring-1 dark:ring-inset dark:ring-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
             href={nextQuestion.href}
             variant="unstyled">
             <FormattedMessage
@@ -69,7 +69,7 @@ export default function QuestionPagination({ currentHref, items }: Props) {
           </Anchor>
           <Anchor
             aria-hidden={true}
-            className="line-clamp-2 text-right text-base font-semibold text-zinc-900 transition hover:text-zinc-600 dark:text-white dark:hover:text-zinc-300"
+            className="line-clamp-2 text-right text-base font-semibold text-neutral-900 transition hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300"
             href={nextQuestion.href}
             variant="unstyled">
             {nextQuestion.title}

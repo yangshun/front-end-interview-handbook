@@ -69,7 +69,12 @@ function Anchor(
     variant !== 'unstyled' &&
       clsx(
         weight === 'medium' && 'font-medium',
-        variant === 'default' && clsx(themeTextBrandColor, 'hover:underline'),
+        variant === 'default' &&
+          clsx(
+            themeTextBrandColor,
+            themeTextBrandHoverColor,
+            'hover:underline',
+          ),
         variant === 'flat' && 'hover:underline',
         variant === 'light' && 'text-brand-light hover:text-brand',
         variant === 'blend' && clsx(themeTextColor, themeTextBrandHoverColor),

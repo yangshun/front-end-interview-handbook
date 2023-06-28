@@ -14,7 +14,11 @@ import { useSystemDesignNavigation } from '~/components/questions/content/system
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeLineColor, themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeLineColor,
+  themeTextBrandColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -43,7 +47,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
           {showSidebar && (
             <div
               className={clsx(
-                'flex w-72 flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs xl:w-[300px] 2xl:w-96',
+                'xl:w-[300px] flex w-72 flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs 2xl:w-96',
                 themeLineColor,
               )}>
               <Heading className="mt-4 text-base font-semibold" level="custom">
@@ -73,12 +77,15 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                                   className="relative text-sm leading-6">
                                   <Anchor
                                     className={clsx(
-                                      'flex w-full items-center gap-x-2 pl-4',
+                                      '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
                                       pathname === link.href
-                                        ? 'text-brand'
+                                        ? clsx(
+                                            themeTextBrandColor,
+                                            'border-current font-semibold',
+                                          )
                                         : clsx(
                                             themeTextSecondaryColor,
-                                            'hover:text-neutral-800 dark:hover:text-white',
+                                            'border-transparent hover:text-neutral-800 dark:hover:text-white',
                                           ),
                                     )}
                                     href={link.href}

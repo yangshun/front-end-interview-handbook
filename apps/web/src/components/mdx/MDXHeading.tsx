@@ -9,7 +9,7 @@ type Props = ComponentProps<'h1'> &
 
 export default function MDXHeading({ as: Tag, id, children, ...props }: Props) {
   return (
-    <Tag className="group scroll-mt-20" id={id} {...props}>
+    <Tag className="group scroll-mt-28" id={id} {...props}>
       {children}
       {id &&
         (() => {
@@ -21,7 +21,7 @@ export default function MDXHeading({ as: Tag, id, children, ...props }: Props) {
             <Anchor
               aria-hidden={true}
               aria-label={anchorTitle}
-              className="ml-2 select-none !no-underline opacity-0 before:content-['#'] hover:!underline focus:opacity-100 group-hover:opacity-100"
+              className="before:content-['#'] hover:!underline ml-2 select-none !no-underline opacity-0 focus:opacity-100 group-hover:opacity-100"
               href={`#${id}`}
               title={anchorTitle}
               underline={false}>

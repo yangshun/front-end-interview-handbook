@@ -5,7 +5,11 @@ import clsx from 'clsx';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeLineColor, themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeLineColor,
+  themeTextBrandColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -31,7 +35,7 @@ function LinksList({
             className={clsx(
               'flex w-full items-center gap-x-2 pl-4',
               pathname === link.href
-                ? 'text-brand'
+                ? clsx(themeTextBrandColor, 'font-semibold')
                 : clsx(
                     themeTextSecondaryColor,
                     'hover:text-neutral-800 dark:hover:text-white',
