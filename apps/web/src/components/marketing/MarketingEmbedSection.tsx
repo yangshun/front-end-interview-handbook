@@ -292,7 +292,7 @@ export default function MarketingEmbedSection({
         </MarketingHeroBrowserWindowFrame>
         {featuredQuestions.length > 0 && (
           <MarketingQuestionCardMarquee
-            periodSeconds={60}
+            periodSeconds={120}
             questions={featuredQuestions}
             rows={1}
           />
