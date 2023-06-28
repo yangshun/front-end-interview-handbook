@@ -9,6 +9,7 @@ import AmazonLogo from '../icons/AmazonLogo';
 import FrontEndInterviewHandbookLogo from '../icons/FrontEndInterviewHandbookLogo';
 import GoogleLogo from '../icons/GoogleLogo';
 import MetaLogo from '../icons/MetaLogo';
+import Anchor from '../ui/Anchor';
 import Button from '../ui/Button';
 
 type MarketingHeroAuthorIntroductionProps = Readonly<{
@@ -241,21 +242,41 @@ export default function MarketingHero() {
         <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
           <div className="flex flex-col items-center gap-y-8">
             <div className="flex flex-col items-center gap-y-16">
-              <Heading className="max-w-3xl text-center" level="heading1">
-                <FormattedMessage
-                  defaultMessage="The <underline>great</underline> way to prepare for front end interviews"
-                  description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
-                  id="M/e+G9"
-                  values={{
-                    underline: (chunks) => (
-                      <span className="relative">
-                        {chunks}
-                        <MarketingHeroTextUnderline className="sm:mb-[-7%] absolute bottom-0 left-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none" />
-                      </span>
-                    ),
-                  }}
-                />
-              </Heading>
+              <div className="flex flex-col items-center gap-y-2">
+                <Anchor
+                  className={clsx(
+                    'group relative inline-flex items-center gap-x-1 rounded-full',
+                    'px-3 py-0.5',
+                    'text-sm font-medium text-neutral-300',
+                    'bg-brand/20 hover:bg-brand/30 transition-colors',
+                    'shiny shadow-sm',
+                  )}
+                  href="/portfolio-review"
+                  variant="unstyled">
+                  New! Our portfolio review just landed{' '}
+                  <RiArrowRightLine
+                    className={clsx(
+                      'text-brand h-4 w-4 shrink-0',
+                      'group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out',
+                    )}
+                  />
+                </Anchor>
+                <Heading className="max-w-3xl text-center" level="heading1">
+                  <FormattedMessage
+                    defaultMessage="The <underline>great</underline> way to prepare for front end interviews"
+                    description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
+                    id="M/e+G9"
+                    values={{
+                      underline: (chunks) => (
+                        <span className="relative">
+                          {chunks}
+                          <MarketingHeroTextUnderline className="sm:mb-[-7%] absolute bottom-0 left-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none" />
+                        </span>
+                      ),
+                    }}
+                  />
+                </Heading>
+              </div>
               <div className="flex flex-col gap-x-20 gap-y-8 md:flex-row">
                 <MarketingHeroAuthorIntroduction
                   icons={

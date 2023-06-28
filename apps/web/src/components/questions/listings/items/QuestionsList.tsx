@@ -61,7 +61,7 @@ function QuestionNewLabel({
 
   return (
     <span className="absolute right-0 top-0 h-12 w-12">
-      <span className="border-brand-dark absolute block h-12 w-12 border-[24px] !border-l-transparent !border-b-transparent" />
+      <span className="border-brand-dark absolute block h-12 w-12 border-[24px] !border-b-transparent !border-l-transparent" />
       <span className="text-2xs absolute right-1 top-2 rotate-45 font-medium uppercase text-white">
         <FormattedMessage
           defaultMessage="New"
@@ -126,7 +126,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             className={clsx(
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              'bg-white dark:bg-neutral-800/40',
+              'dark:bg-neutral-800/40 bg-white',
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',
@@ -150,12 +150,12 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     <span
                       className={clsx(
                         'flex h-8 w-8 items-center justify-center rounded-full',
-                        'border-brand-dark dark:border-brand border',
-                        'bg-brand-lightest dark:bg-neutral-800',
+                        'shiny',
+                        'bg-brand-dark dark:bg-brand/20',
                       )}>
                       <RiLockLine
                         aria-hidden={true}
-                        className="text-brand-dark dark:text-brand h-4 w-4 shrink-0"
+                        className="h-4 w-4 shrink-0 text-white"
                       />
                     </span>
                   </Tooltip>

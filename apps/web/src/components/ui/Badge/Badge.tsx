@@ -26,37 +26,37 @@ const variantClasses: Record<
 > = {
   danger: {
     backgroundClass: 'bg-danger-lightest dark:bg-danger-darker',
-    borderClass: 'border-danger',
+    borderClass: 'border border-danger',
     textClass: 'text-danger',
   },
   info: {
     backgroundClass: 'bg-info-lightest dark:bg-info-darker',
-    borderClass: 'border-info dark:border-info-light',
+    borderClass: 'border border-info dark:border-info-light',
     textClass: 'text-info dark:text-info-light',
   },
   neutral: {
     backgroundClass: 'bg-neutral-100 dark:bg-neutral-900',
-    borderClass: 'border-neutral-300 dark:border-neutral-600',
+    borderClass: 'border border-neutral-300 dark:border-neutral-600',
     textClass: 'text-neutral-500',
   },
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
-    borderClass: 'border-brand-dark dark:border-brand',
+    borderClass: 'border border-brand-dark dark:border-brand',
     textClass: 'text-brand-dark dark:text-brand',
   },
   special: {
-    backgroundClass: 'bg-gradient-to-r from-pink-500 to-brand-dark',
-    borderClass: 'border-white',
+    backgroundClass: 'shiny bg-brand-dark dark:bg-brand/20',
+    borderClass: 'drop-shadow-md',
     textClass: 'text-white',
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',
-    borderClass: 'border-success dark:border-success-light',
+    borderClass: 'border border-success dark:border-success-light',
     textClass: 'text-success dark:text-success-light',
   },
   warning: {
     backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
-    borderClass: 'border-warning dark:border-warning-light',
+    borderClass: 'border border-warning dark:border-warning-light',
     textClass: 'text-warning dark:text-warning-light',
   },
 };
@@ -72,7 +72,7 @@ export default function Badge({ label, size = 'md', variant }: Props) {
   return (
     <span
       className={clsx(
-        'inline-flex items-center whitespace-nowrap rounded-full border py-px font-medium',
+        'relative inline-flex items-center whitespace-nowrap rounded-full py-px font-medium',
         sizeClasses[size],
         backgroundClass,
         borderClass,

@@ -624,7 +624,7 @@ export default function MarketingPricingSectionNew({
                     />
                   }
                   title={
-                    <div className="flex items-center gap-x-2">
+                    <div className="flex items-center gap-x-4">
                       <FormattedMessage
                         defaultMessage="Lifetime Membership"
                         description="Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
