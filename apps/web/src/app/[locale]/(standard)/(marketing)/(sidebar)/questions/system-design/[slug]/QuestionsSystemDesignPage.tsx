@@ -83,16 +83,14 @@ export default function QuestionsSystemDesignPage({
             />
           )
         ) : (
-          <div className="pt-2 sm:pt-4">
-            <QuestionContentsSystemDesign
-              key={question.metadata.slug}
-              canViewPremiumContent={canViewPremiumContent}
-              hasCompletedQuestion={false}
-              isQuestionLocked={isQuestionLocked}
-              question={question}
-              serverDuration={serverDuration}
-            />
-          </div>
+          <QuestionContentsSystemDesign
+            key={question.metadata.slug}
+            canViewPremiumContent={canViewPremiumContent}
+            hasCompletedQuestion={false}
+            isQuestionLocked={isQuestionLocked}
+            question={question}
+            serverDuration={serverDuration}
+          />
         )}
       </SystemDesignPaywall>
     </GuidesMainLayout>

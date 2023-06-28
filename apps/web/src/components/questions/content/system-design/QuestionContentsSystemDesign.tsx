@@ -43,7 +43,7 @@ export default function QuestionContentsSystemDesign({
     <article ref={copyRef} className="space-y-8">
       <div className="grid gap-y-8">
         <header>
-          <Heading className="flex items-center gap-x-2" level="heading3">
+          <Heading className="flex items-center gap-x-2" level="heading4">
             <span>{metadata.title}</span>
             {hasCompletedQuestion && (
               <Badge
@@ -71,7 +71,7 @@ export default function QuestionContentsSystemDesign({
       </div>
       <StatisticsPanel serverDuration={serverDuration} />
       <Section>
-        <div className="space-y-8">
+        <div className="flex flex-col gap-y-8">
           {!isQuestionLocked &&
             metadata.companies &&
             metadata.companies.length > 0 && (

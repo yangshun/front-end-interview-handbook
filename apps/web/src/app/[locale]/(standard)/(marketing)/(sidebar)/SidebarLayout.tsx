@@ -22,7 +22,8 @@ export default function SidebarContainer() {
     if (
       pathname?.startsWith(feigBasePath) ||
       pathname?.startsWith(bigBasePath) ||
-      pathname?.startsWith(systemDesignBasePath)
+      pathname?.startsWith(systemDesignBasePath) ||
+      pathname?.startsWith('/questions/system-design')
     ) {
       setIsCollapsed(true);
     }
