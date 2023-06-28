@@ -76,9 +76,9 @@ export default function QuestionCategoryTitleSection({
         <div className="flex items-center gap-x-4">
           <Heading level="heading5">
             <FormattedMessage
-              defaultMessage="Practice Questions"
+              defaultMessage="Practice by framework"
               description="Questions list page title"
-              id="BYD90z"
+              id="OHistx"
             />
           </Heading>
           <Badge
@@ -93,7 +93,7 @@ export default function QuestionCategoryTitleSection({
               },
             )}
             size="sm"
-            variant="primary"
+            variant="special"
           />
         </div>
         <Tabs

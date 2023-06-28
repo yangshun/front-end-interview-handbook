@@ -83,9 +83,9 @@ export default function MarketingFeaturedQuestions({
         <MarketingMarqueeQuestionListSection
           description={
             <FormattedMessage
-              defaultMessage="Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
+              defaultMessage="Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
               description="Subtitle for an example list of User Interface Questions on marketing pages"
-              id="uogn1k"
+              id="oPyUXk"
             />
           }
           href="/questions/js/coding/user-interface"

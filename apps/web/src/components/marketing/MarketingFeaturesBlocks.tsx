@@ -23,7 +23,7 @@ function FeatureBlock({
   title,
 }: Readonly<{
   description?: ReactNode;
-  features: ReadonlyArray<ReactNode>;
+  features?: ReadonlyArray<ReactNode>;
   media: ReactNode;
   reverse?: boolean;
   title: ReactNode;
@@ -42,20 +42,25 @@ function FeatureBlock({
             {description}
           </Text>
         )}
-        <ul className="flex flex-col gap-y-1" role="list">
-          {features.map((feature, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <div key={index} className="flex gap-x-1">
-              <RiCheckLine
-                aria-hidden={true}
-                className={clsx('mt-0.5 h-5 w-5 shrink-0', themeTextBrandColor)}
-              />
-              <Text color="secondary" display="block">
-                {feature}
-              </Text>
-            </div>
-          ))}
-        </ul>
+        {features != null && features.length > 0 && (
+          <ul className="flex flex-col gap-y-1" role="list">
+            {features.map((feature, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <div key={index} className="flex gap-x-1">
+                <RiCheckLine
+                  aria-hidden={true}
+                  className={clsx(
+                    'mt-0.5 h-5 w-5 shrink-0',
+                    themeTextBrandColor,
+                  )}
+                />
+                <Text color="secondary" display="block">
+                  {feature}
+                </Text>
+              </div>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
@@ -105,14 +110,14 @@ export default function MarketingFeaturesBlocks({
           description={
             <>
               We structured the monolith of front end interview preparation into
-              bite-sized focus areas. Explore learning paths and find what you
-              need.
+              bite-sized focus areas. Explore structured learning paths and find
+              what you need.
             </>
           }
           features={[
-            <>Cover everything important</>,
+            <>Systematically cover what's important</>,
             <>Track your progress</>,
-            <>Pick and choose weak areas</>,
+            <>Pick and choose weak areas to focus on</>,
           ]}
           media={
             <img
@@ -126,11 +131,14 @@ export default function MarketingFeaturesBlocks({
         <FeatureBlock
           features={[
             <>
-              Every interview format - System design, UI, JavaScript, Quizzes
+              Cover all the commonly asked questions across every interview
+              format - system design, user interfaces, JavaScript and
+              trivia-style quizzes
             </>,
             <>
-              Solutions with explanations in popular frameworks – React,
-              Angular, Svelte (coming soon)
+              Practice with different frameworks and languages - with official
+              solutions available for popular frameworks (Angular and Svelte
+              coming soon)
             </>,
           ]}
           media={
@@ -146,20 +154,34 @@ export default function MarketingFeaturesBlocks({
         <FeatureBlock
           features={[
             <>
-              Large number of practical considerations like accessibility and UI
-              UX
+              Every question is accompanied by at least 1 official solution to
+              learn from, written by big tech ex-interviewers considerations
             </>,
-            <>Concepts to reinforce fundamentals</>,
-            <>Technique tips and design patterns</>,
+            <>
+              Learn how to answer with scalability, accessibility and
+              performance
+            </>,
+            <>
+              Reinforce your fundamentals, sharpen industry-approved techniques
+              and recognize design patterns
+            </>,
           ]}
           media={<MarketingFeatureSolutions solutions={solutions} />}
           title={<>Learn from solutions by ex-interviewers</>}
         />
         <FeatureBlock
+          description={
+            <>
+              Our in-browser coding workspace allows you to simulate a real
+              interview environment with no set up required!
+            </>
+          }
           features={[
-            <>State-of-the-art workspace</>,
-            <>No set-up needed</>,
-            <>Syntax highlighting, themes, keyboard shortcuts, and more</>,
+            <>Instantly preview your code output</>,
+            <>
+              Enjoy quality of life editor features like syntax highlighting,
+              theming, keyboard shortcuts
+            </>,
           ]}
           media={
             <img
@@ -169,11 +191,18 @@ export default function MarketingFeaturesBlocks({
             />
           }
           reverse={true}
-          title={<>Get started instantly</>}
+          title={<>Practice in an environment that simulates real interviews</>}
         />
         <FeatureBlock
           features={[
-            <>Automated comprehensive test cases for JavaScript questions</>,
+            <>
+              Utilize a comprehensive test suite that covers all the important
+              edge cases that interviewers will look out for
+            </>,
+            <>
+              All our test cases are public — you will always know exactly what
+              to improve on
+            </>,
             <>Detailed test case scenarios for UI questions</>,
           ]}
           media={
@@ -183,12 +212,15 @@ export default function MarketingFeaturesBlocks({
               src="/img/marketing/tests.png"
             />
           }
-          title={<>Comprehensive test cases</>}
+          title={<>Test your code automatically with a single click</>}
         />
         <FeatureBlock
-          features={[
-            <>Company-tagged questions for over 15 major tech companies</>,
-          ]}
+          description={
+            <>
+              Practice interview questions asked by Google, Amazon, Apple,
+              Airbnb, Lyft, LinkedIn, and more.
+            </>
+          }
           media={
             <img
               alt="Coding workspace"
@@ -197,16 +229,16 @@ export default function MarketingFeaturesBlocks({
             />
           }
           reverse={true}
-          title={<>Find questions asked by your dream company</>}
+          title={<>Gain insights on what your target company might ask</>}
         />
         <FeatureBlock
-          features={[
-            <>Tailored to experience level</>,
+          description={
             <>
-              Customize preparation timelines based on time left and hours to
-              prepare per day
-            </>,
-          ]}
+              Utilize proven study plans prepared by senior engineers to ace
+              your preparation regardless of the time left - be it 1 week, 1
+              month or 3 months.
+            </>
+          }
           media={
             <img
               alt="Coding workspace"
@@ -214,7 +246,7 @@ export default function MarketingFeaturesBlocks({
               src="/img/marketing/study-plans.png"
             />
           }
-          title={<>Use proven study plans</>}
+          title={<>Prepare the best you can within any timeline</>}
         />
       </Container>
     </div>

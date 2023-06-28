@@ -23,10 +23,10 @@ function useFeatures() {
       description: intl.formatMessage(
         {
           defaultMessage:
-            '{QuestionCount}+ questions from quizzes to building UI to implementing library APIs from scratch to system design - available in every popular front end framework.',
+            '{QuestionCount}+ of the most important questions — from building user interfaces in popular front end frameworks to system design.',
           description:
             "Description of 'Practice everything in popular frameworks' feature in marketing page",
-          id: 'Bv4T/z',
+          id: '1hBmJl',
         },
         {
           QuestionCount,
