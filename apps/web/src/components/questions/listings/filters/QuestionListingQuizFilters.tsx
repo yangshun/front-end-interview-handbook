@@ -44,12 +44,14 @@ export default function QuestionListingQuizFilters({
       )}>
       {mode !== 'topic' && (
         <QuestionListingFilterItem
+          defaultOpen={true}
           itemGap={itemGap}
           section={quizTopicFilterOptions}
           values={quizTopicFilters}
         />
       )}
       <QuestionListingFilterItem
+        defaultOpen={true}
         itemGap={itemGap}
         section={completionStatusFilterOptions}
         values={completionStatusFilters}

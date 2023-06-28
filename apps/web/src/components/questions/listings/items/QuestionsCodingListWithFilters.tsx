@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
@@ -349,7 +350,7 @@ export default function QuestionsCodingListWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover label={companyFilterOptions.name} size="sm">
-            <div className="flex flex-wrap gap-x-6 gap-y-3">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
               {companyFilterOptions.options.map((option) => (
                 <div key={option.value} className="flex items-center">
                   <CheckboxInput
@@ -540,7 +541,12 @@ export default function QuestionsCodingListWithFilters({
             premium={premiumCount.premium}
             {...difficultyCount}
           />
-          <section>
+          <section
+            className={clsx('sticky overflow-y-auto')}
+            style={{
+              maxHeight: FooterlessContainerHeight,
+              top: `var(--navbar-height)`,
+            }}>
             <Heading className="sr-only" level="custom">
               <FormattedMessage
                 defaultMessage="Filters"

@@ -6,6 +6,7 @@ type BannerVariant = 'primary' | 'special';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  className?: string;
   onHide?: () => void;
   size?: 'md' | 'sm' | 'xs';
   variant?: BannerVariant;
@@ -32,6 +33,7 @@ const variantClasses: Record<
 };
 
 export default function Banner({
+  className,
   children,
   size = 'md',
   variant = 'primary',
@@ -43,12 +45,13 @@ export default function Banner({
   return (
     <div
       className={clsx(
-        'relative',
+        'relative flex items-center',
         backgroundColorClass,
         textColorClass,
         size === 'md' && 'text-xs sm:text-sm md:text-base',
         size === 'sm' && 'text-xs md:text-sm',
         size === 'xs' && 'text-2xs md:text-xs',
+        className,
       )}>
       <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
         <div className="pr-16 sm:px-16 sm:text-center">

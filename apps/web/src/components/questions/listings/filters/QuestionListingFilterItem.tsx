@@ -20,10 +20,12 @@ export default function QuestionListingFilterItem<
   T extends string,
   Q extends QuestionMetadata,
 >({
+  defaultOpen,
   itemGap,
   section,
   values,
 }: Readonly<{
+  defaultOpen?: boolean;
   itemGap: FilterItemGap;
   section: QuestionFilter<T, Q>;
   values: Set<T>;
@@ -33,7 +35,7 @@ export default function QuestionListingFilterItem<
       key={section.name}
       as="div"
       className={clsx('py-5')}
-      defaultOpen={values.size > 0}>
+      defaultOpen={defaultOpen ?? values.size > 0}>
       {({ open }) => (
         <fieldset>
           <legend className="w-full">
@@ -58,7 +60,7 @@ export default function QuestionListingFilterItem<
               </span>
             </Disclosure.Button>
           </legend>
-          <Disclosure.Panel className="pt-4 pb-2">
+          <Disclosure.Panel className="pb-2 pt-4">
             <div className={clsx('flex flex-wrap', itemGapClasses[itemGap])}>
               {section.options.map((option) => (
                 <div key={option.value} className="flex items-center">

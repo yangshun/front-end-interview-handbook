@@ -43,16 +43,19 @@ export default function QuestionListingSystemDesignFilters({
         themeDivideColor,
       )}>
       <QuestionListingFilterItem
+        defaultOpen={true}
         itemGap={itemGap}
         section={companyFilterOptions}
         values={companyFilters}
       />
       <QuestionListingFilterItem
+        defaultOpen={true}
         itemGap={itemGap}
         section={difficultyFilterOptions}
         values={difficultyFilters}
       />
       <QuestionListingFilterItem
+        defaultOpen={true}
         itemGap={itemGap}
         section={completionStatusFilterOptions}
         values={completionStatusFilters}

@@ -99,7 +99,9 @@ export default function QuestionFocusAreasSection({
                     )}>
                     <Icon aria-hidden={true} className="h-6 w-6" />
                   </span>
-                  <Tooltip label={description}>
+                  <Tooltip
+                    alignment={index === MAX_SHOWN - 1 ? 'end' : undefined}
+                    label={description}>
                     <RiQuestionFill
                       className={clsx('z-10 h-6 w-6', themeTextFainterColor)}
                     />

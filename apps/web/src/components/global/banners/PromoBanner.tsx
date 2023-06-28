@@ -34,6 +34,7 @@ export default function PromoBanner({
       )}
       suppressHydrationWarning={true}>
       <Banner
+        className="h-14 lg:h-auto"
         size="xs"
         variant={variant}
         onHide={() => {
