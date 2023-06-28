@@ -13,8 +13,7 @@ import MarketingSectionHeader from './MarketingSectionHeader';
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 import Text from '../ui/Text';
 
-// TODO: Add company tagged questions
-export default function MarketingFeatureQuestions({
+export default function MarketingFeaturedQuestions({
   javaScriptQuestions,
   userInterfaceQuestions,
   systemDesignQuestions,
@@ -28,10 +27,10 @@ export default function MarketingFeatureQuestions({
   return (
     <div
       className={clsx(
-        'lg:mx-8 lg:rounded-t-[48px]',
+        'lg:rounded-t-[48px] lg:mx-8',
         themeRadialGlowBackground,
       )}>
-      <Container className="flex flex-col gap-y-12 pt-[72px] pb-32 md:gap-y-24 lg:gap-y-32">
+      <Container className="flex flex-col gap-y-12 pb-32 pt-[72px] md:gap-y-24 lg:gap-y-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
             description={
