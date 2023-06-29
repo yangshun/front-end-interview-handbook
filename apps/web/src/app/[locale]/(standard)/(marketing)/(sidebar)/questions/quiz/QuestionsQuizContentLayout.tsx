@@ -17,6 +17,8 @@ import {
   themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineColor,
+  themeTextBrandColor,
+  themeTextBrandHoverColor,
 } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -60,25 +62,23 @@ export default function QuestionsQuizContentLayout({
                   </Heading>
                   <div className="min-h-0 flex-1 overflow-y-auto">
                     <ul
-                      className={clsx(
-                        'divide-y border-b',
-                        themeLineColor,
-                        themeDivideColor,
-                      )}
+                      className={clsx('divide-y px-4', themeDivideColor)}
                       role="list">
                       {questionList.map(({ slug, href, title: titleParam }) => (
                         <li
                           key={slug}
                           className={clsx(
-                            'focus-within:ring-brand-dark relative flex h-[80px] items-center py-5 px-6 focus-within:ring-2 focus-within:ring-inset 2xl:h-[90px]',
-                            pathname === href
-                              ? themeBackgroundEmphasized
-                              : themeBackgroundEmphasizedHover,
+                            'relative flex items-center py-5',
+                            pathname === href && themeTextBrandColor,
+                            themeTextBrandHoverColor,
                           )}>
                           <div className="flex justify-between space-x-3">
                             <div className="min-w-0 flex-1">
                               <Anchor
-                                className="block focus:outline-none"
+                                className={clsx(
+                                  'block',
+                                  'focus-visible:ring-brand-dark dark:focus-visible:ring-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-inset',
+                                )}
                                 href={href}
                                 variant="unstyled">
                                 <span
@@ -86,7 +86,7 @@ export default function QuestionsQuizContentLayout({
                                   className="absolute inset-0"
                                 />
                                 <Text
-                                  className={clsx('line-clamp-2')}
+                                  color="inherit"
                                   display="block"
                                   size="body2">
                                   {titleParam}
