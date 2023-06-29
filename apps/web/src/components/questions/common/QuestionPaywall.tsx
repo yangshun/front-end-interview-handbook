@@ -3,13 +3,15 @@ import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import { themeLineColor } from '~/components/ui/theme';
 
 export default function QuestionPaywall({
   title: titleProp,
   subtitle: subtitleProp,
   variant = 'not_subscribed',
+  background = true,
 }: Readonly<{
+  background?: boolean;
   subtitle?: string;
   title?: string;
   variant?: 'not_subscribed' | 'under_construction';
@@ -36,9 +38,11 @@ export default function QuestionPaywall({
   return (
     <div
       className={clsx(
-        'rounded-lg border px-8',
-        themeLineColor,
-        themeBackgroundColor,
+        background &&
+          clsx(
+            'dark:bg-neutral-950/60 rounded-lg border bg-white/60 px-8 backdrop-blur',
+            themeLineColor,
+          ),
       )}>
       <EmptyState
         action={

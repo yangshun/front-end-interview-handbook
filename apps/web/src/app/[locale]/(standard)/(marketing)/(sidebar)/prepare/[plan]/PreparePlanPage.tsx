@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -17,6 +18,7 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
+import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -85,7 +87,7 @@ export default function PreparePlanPage({
         <div>
           <Button
             addonPosition="start"
-            className="-ml-5 -mb-2"
+            className="-mb-2 -ml-5"
             href="/study-plans"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
@@ -122,19 +124,36 @@ export default function PreparePlanPage({
             />
           ) : (
             <div className="relative">
-              <QuestionPaywall
-                subtitle={intl.formatMessage({
-                  defaultMessage:
-                    'Purchase premium to unlock full access to the study plans and all questions with high quality solutions',
-                  description: 'Study plans paywall description',
-                  id: 'KsoiBa',
-                })}
-                title={intl.formatMessage({
-                  defaultMessage: 'Premium Study Plans',
-                  description: 'Study plans paywall title',
-                  id: 'tfonOP',
-                })}
-              />
+              <div className="border-lg pointer-events-none touch-none select-none">
+                <QuestionsList
+                  checkIfCompletedQuestion={() => false}
+                  questions={codingQuestions.slice(0, 5)}
+                />
+              </div>
+              <div className={clsx('absolute bottom-0 top-0 w-full')}>
+                <div
+                  className={clsx(
+                    'absolute bottom-0 top-0 w-full',
+                    'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
+                  )}
+                />
+                <div className={clsx('absolute bottom-0 w-full px-8')}>
+                  <QuestionPaywall
+                    background={false}
+                    subtitle={intl.formatMessage({
+                      defaultMessage:
+                        'Purchase premium to unlock full access to the study plans and all questions with high quality solutions',
+                      description: 'Study plans paywall description',
+                      id: 'KsoiBa',
+                    })}
+                    title={intl.formatMessage({
+                      defaultMessage: 'Premium Study Plans',
+                      description: 'Study plans paywall title',
+                      id: 'tfonOP',
+                    })}
+                  />
+                </div>
+              </div>
             </div>
           )}
         </Container>
