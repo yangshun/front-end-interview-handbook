@@ -16,16 +16,36 @@ type HeadingColor = 'auto' | 'custom' | 'dark' | 'light';
 
 const headingLevelsClasses: Record<HeadingLevel, string> = {
   custom: '',
-  heading1:
-    'text-4xl sm:text-5xl lg:text-6xl font-extrabold -tracking-4',
-  heading2:
-    'text-3xl sm:text-4xl lg:text-5xl font-bold -tracking-3',
-  heading3:
-    'text-2xl sm:text-3xl lg:text-4xl font-bold -tracking-2',
-  heading4:
-    'text-xl sm:text-2xl lg:text-3xl font-bold -tracking-1',
-  heading5: 'text-lg sm:text-xl lg:text-2xl font-semibold',
-  heading6: 'text-base sm:text-lg lg:text-xl font-semibold',
+  heading1: clsx(
+    'lg:text-6xl lg:-tracking-[1px] lg:leading-[4rem] lg:font-extrabold',
+    'sm:text-5xl sm:-tracking-[0.75px] sm:font-bold',
+    'text-4xl -tracking-[0.5px] font-bold',
+  ),
+  heading2: clsx(
+    'lg:text-5xl lg:-tracking-[0.75px] lg:font-bold',
+    'sm:text-4xl sm:-tracking-[0.5px] sm:font-bold',
+    'text-3xl -tracking-[0.25px] font-bold',
+  ),
+  heading3: clsx(
+    'lg:text-4xl lg:-tracking-[0.5px] lg:font-bold',
+    'sm:text-3xl sm:-tracking-[0.25px] sm:font-bold',
+    'text-2xl font-semibold',
+  ),
+  heading4: clsx(
+    'lg:text-3xl lg:-tracking-[0.25px] lg:font-bold',
+    'sm:text-2xl sm:font-semibold',
+    'text-xl font-semibold',
+  ),
+  heading5: clsx(
+    'lg:text-2xl lg:font-semibold',
+    'sm:text-xl sm:font-semibold',
+    'text-lg font-semibold',
+  ),
+  heading6: clsx(
+    'lg:text-xl lg:font-semibold',
+    'sm:text-lg sm:font-semibold',
+    'text-base font-semibold',
+  ),
 };
 
 const colorClasses: Record<HeadingColor, string> = {
