@@ -35,6 +35,10 @@ a {
   box-sizing: border-box;
 }
 
+.dark {
+  color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
+}
+
 .prose h5 {
   padding-top: 1rem;
 }
