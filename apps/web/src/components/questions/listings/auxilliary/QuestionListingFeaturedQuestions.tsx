@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 
+import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import QuestionCard from './QuestionCard';
+import QuestionCardGlow from './QuestionCardGlow';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
@@ -27,7 +28,7 @@ export default function QuestionListingFeaturedQuestions({
         {title}
       </Heading>
       <Section>
-        <div
+        <CardContainer
           className={clsx(
             'grid gap-6 lg:grid-cols-2',
             finalQuestions.length === 3 && 'xl:grid-cols-3',
@@ -36,10 +37,10 @@ export default function QuestionListingFeaturedQuestions({
             <div
               key={metadata.href}
               className={clsx(index >= 2 && 'hidden xl:block')}>
-              <QuestionCard metadata={metadata} />
+              <QuestionCardGlow metadata={metadata} />
             </div>
           ))}
-        </div>
+        </CardContainer>
       </Section>
     </div>
   );
