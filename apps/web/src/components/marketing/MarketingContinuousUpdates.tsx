@@ -22,6 +22,7 @@ const counts: ReadonlyArray<{ label: string; value: number }> = [
   { label: '2022 Q2', value: 82 },
   { label: '2022 Q3', value: 135 },
 ];
+const defaultPointIndex = counts.length - 1;
 const maxPrice = Math.max(...counts.map(({ value }) => value));
 const minValue = Math.min(...counts.map(({ value }) => value));
 const chartHeight = 240;
@@ -71,6 +72,8 @@ function Chart({
   paddingY: number;
   width: number;
 }>) {
+  const currentPointIndex = activePointIndex ?? defaultPointIndex;
+
   const width = totalWidth - paddingX * 2;
   const height = totalHeight - paddingY * 2;
 
@@ -221,11 +224,11 @@ function Chart({
               }
             }}
           />
-          {activePointIndex !== null && (
+          {currentPointIndex !== null && (
             <line
               stroke="white"
-              x1={points[activePointIndex].x}
-              x2={points[activePointIndex].x}
+              x1={points[currentPointIndex].x}
+              x2={points[currentPointIndex].x}
               y1={-gridSize * chartExtraLines}
               y2={totalHeight + gridSize * chartExtraLines}
             />
@@ -265,12 +268,12 @@ function Chart({
           })}
         </g>
       </svg>
-      {activePointIndex !== null && (
+      {currentPointIndex !== null && (
         <div
           className="pointer-events-none absolute"
           style={{
-            left: points[activePointIndex ?? 0]?.x - 28,
-            top: points[activePointIndex ?? 0]?.y - 28,
+            left: points[currentPointIndex ?? 0]?.x - 28,
+            top: points[currentPointIndex ?? 0]?.y - 28,
           }}>
           <div
             className={clsx(

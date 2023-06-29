@@ -1815,10 +1815,6 @@
     "defaultMessage": "Behavioral",
     "description": "Title of behavioral interview preparation area"
   },
-  "WzDhJE": {
-    "defaultMessage": "Logos provided by Clearbit",
-    "description": "Attribution text that company logos were provided by Clearbit"
-  },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
     "description": "Title of Affiliate Program page"
@@ -3318,10 +3314,6 @@
   "yXYc5a": {
     "defaultMessage": "Features",
     "description": "Title of the 'Features' marketing section on Homepage"
-  },
-  "yXh24P": {
-    "defaultMessage": "Logos provided by Clearbit",
-    "description": "Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
   },
   "yXzFuf": {
     "defaultMessage": "UI Questions Cheatsheet",
