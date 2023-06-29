@@ -313,8 +313,8 @@ function Contents({
             {isMounted() && showLoadedPreviousCode && (
               <div
                 className={clsx(
-                  'bg-brand-lightest flex shrink-0 items-center justify-between border-t py-3 px-4 sm:px-6 lg:px-4',
-                  'bg-brand-lightest dark:bg-neutral-800',
+                  'flex shrink-0 items-center justify-between border-t px-4 py-2 sm:px-6 lg:px-4',
+                  'bg-brand-lightest dark:bg-neutral-950',
                   themeLineColor,
                 )}
                 suppressHydrationWarning={true}>
@@ -356,7 +356,7 @@ function Contents({
             )}
             <div
               className={clsx(
-                'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:px-2 lg:py-2',
+                'flex items-center justify-between border-t px-4 py-3 sm:px-6 lg:px-2 lg:py-2',
                 themeLineColor,
                 themeBackgroundColor,
               )}>

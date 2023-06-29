@@ -596,7 +596,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
         <div className="flex grow flex-col gap-4 overflow-y-auto p-4">
           <div>
             <TabsUnderline
-              label="Select navigation item"
+              label="Select solution section"
               size="sm"
               tabs={[
                 { label: 'Requirements', value: 'requirements' },

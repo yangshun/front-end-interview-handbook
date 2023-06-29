@@ -12,7 +12,7 @@ import useHoverState from '~/hooks/useHoverState';
 
 import Button from '~/components/ui/Button';
 
-import Tabs from '../ui/Tabs';
+import TabsUnderline from '../ui/Tabs/TabsUnderline';
 
 type LanguagesCode = Partial<Record<Language, React.ReactNode>>;
 type LanguagesLabels = Partial<Record<Language, string>>;
@@ -112,7 +112,7 @@ export default function MDXCodeBlock({
   return (
     <div>
       {Object.keys(allLanguages).length > 1 && (
-        <Tabs
+        <TabsUnderline
           label="Selected language"
           size="xs"
           tabs={(Object.keys(allLanguages) as Array<Language>).map((lng) => ({

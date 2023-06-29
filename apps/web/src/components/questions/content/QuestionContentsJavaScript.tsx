@@ -75,9 +75,7 @@ export default function QuestionContentsJavaScript({
       <section className="mt-8 flex h-full min-w-0 flex-1 flex-col lg:order-last">
         <header className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Heading level="heading4">
-              <span>{metadata.title}</span>
-            </Heading>
+            <Heading level="heading5">{metadata.title}</Heading>
             {hasCompletedQuestion && (
               <Badge
                 label={intl.formatMessage({

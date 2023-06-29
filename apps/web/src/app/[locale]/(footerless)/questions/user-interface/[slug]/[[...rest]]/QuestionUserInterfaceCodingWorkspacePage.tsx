@@ -18,6 +18,7 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
+import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaneHorizontalDivider from '~/components/questions/common/QuestionPaneHorizontalDivider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
@@ -226,8 +227,8 @@ function MiddleRightPaneContents({
               {mode === 'practice' && isMounted() && showLoadedPreviousCode && (
                 <div
                   className={clsx(
-                    'shrink-0 border-t py-3 px-4 sm:px-6 lg:px-4',
-                    'bg-brand-lightest dark:bg-neutral-800',
+                    'shrink-0 border-t px-4 py-2 sm:px-6 lg:px-4',
+                    'bg-brand-lightest dark:bg-neutral-950',
                     themeLineColor,
                   )}
                   suppressHydrationWarning={true}>
@@ -253,7 +254,7 @@ function MiddleRightPaneContents({
               )}
               <div
                 className={clsx(
-                  'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:px-2 lg:py-2',
+                  'flex items-center justify-between border-t px-4 py-3 sm:px-6 lg:px-2 lg:py-2',
                   themeLineColor,
                   themeBackgroundColor,
                 )}>
@@ -301,6 +302,7 @@ function MiddleRightPane({
   questionProgress: QuestionProgress | null;
 }>) {
   const pathname = usePathname();
+  const { appTheme } = useAppThemePreferences();
 
   const {
     setup: practiceSetup,
@@ -329,7 +331,8 @@ function MiddleRightPane({
           'sp-wrapper': 'lg:!flex lg:!grow lg:!h-0',
         },
         visibleFiles: setup?.visibleFiles,
-      }}>
+      }}
+      theme={appTheme === 'dark' ? 'dark' : undefined}>
       <MiddleRightPaneContents
         deleteFilesFromClientStorage={deleteFilesFromClientStorage}
         isLeftPaneDragging={isLeftPaneDragging}
@@ -406,7 +409,7 @@ function LeftPane({
       </div>
       <div
         className={clsx(
-          'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:py-2',
+          'flex items-center justify-between border-t px-4 py-3 sm:px-6 lg:py-2',
           themeLineColor,
           themeBackgroundColor,
         )}>

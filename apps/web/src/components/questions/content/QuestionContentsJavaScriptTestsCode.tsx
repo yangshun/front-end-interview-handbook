@@ -104,7 +104,7 @@ export default function QuestionContentsJavaScriptTestsCode({
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-y-2">
       <Text color="secondary" display="block" size="body2">
         <FormattedMessage
           defaultMessage="For your reference, these are the Jest tests that your code will run against."

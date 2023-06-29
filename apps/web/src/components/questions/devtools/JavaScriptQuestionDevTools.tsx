@@ -1,8 +1,8 @@
 import { useIntl } from 'react-intl';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
-import type { TabItem } from '~/components/ui/Tabs';
-import Tabs from '~/components/ui/Tabs';
+import type { TabItem } from '~/components/ui/Tabs/TabsUnderline';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import JavaScriptConsole from './JavaScriptConsole';
 import JavaScriptQuestionTestResults from './JavaScriptQuestionTestResults';
@@ -70,7 +70,7 @@ export default function JavaScriptQuestionDevTools({
   return (
     <div className="flex h-full flex-col">
       <div className="shrink px-4 pt-2 sm:px-6 lg:px-2">
-        <Tabs
+        <TabsUnderline
           label={intl.formatMessage({
             defaultMessage: 'Select navigation item in DevTool',
             description: 'Label for tabs in the coding workspace DevTool',

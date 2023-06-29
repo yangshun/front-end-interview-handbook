@@ -7,8 +7,8 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Select from '~/components/ui/Select';
-import type { TabItem } from '~/components/ui/Tabs';
-import Tabs from '~/components/ui/Tabs';
+import type { TabItem } from '~/components/ui/Tabs/TabsUnderline';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
@@ -161,21 +161,17 @@ export default function QuestionContentsUserInterface({
       <Section>
         <QuestionMetadataSection metadata={metadata} />
         <div className="mt-3 sm:mt-4">
-          <div>
-            <nav className="-mb-px flex space-x-4">
-              <Tabs
-                label={intl.formatMessage({
-                  defaultMessage: 'Select question section',
-                  description:
-                    'Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)',
-                  id: 'KaGCVb',
-                })}
-                size="sm"
-                tabs={SECTIONS}
-                value={section}
-              />
-            </nav>
-          </div>
+          <TabsUnderline
+            label={intl.formatMessage({
+              defaultMessage: 'Select question section',
+              description:
+                'Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)',
+              id: 'KaGCVb',
+            })}
+            size="sm"
+            tabs={SECTIONS}
+            value={section}
+          />
         </div>
         <div>
           {(() => {

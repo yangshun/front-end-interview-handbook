@@ -15,6 +15,8 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeLineColor,
+  themeTextBrandColor,
+  themeTextBrandHoverColor,
 } from '~/components/ui/theme';
 
 import JavaScriptTestCodesEmitter from '../content/JavaScriptTestCodesEmitter';
@@ -132,7 +134,11 @@ function TestResultItem({
             <span>
               (
               <button
-                className="text-brand-dark text-xs"
+                className={clsx(
+                  'text-xs hover:underline',
+                  themeTextBrandColor,
+                  themeTextBrandHoverColor,
+                )}
                 type="button"
                 onClick={() => {
                   setShowStackTrace(!showStackTrace);
@@ -289,7 +295,7 @@ export default function JavaScriptQuestionTestResults({
 }: Props) {
   if (isRunningCode) {
     return (
-      <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
+      <div className="flex h-full grow flex-col items-center justify-center gap-y-2 px-4 py-4 text-center sm:px-6 lg:px-4">
         <Spinner display="block" size="md" />
         <Text color="secondary" display="block" size="body2">
           <FormattedMessage
@@ -303,7 +309,7 @@ export default function JavaScriptQuestionTestResults({
   }
   if (result == null) {
     return (
-      <div className="flex h-full grow flex-col items-center justify-center gap-y-2 py-4 px-4 text-center sm:px-6 lg:px-4">
+      <div className="flex h-full grow flex-col items-center justify-center gap-y-2 px-4 py-4 text-center sm:px-6 lg:px-4">
         <RiSurveyLine className="h-12 w-12 text-neutral-300 dark:text-neutral-700" />
         <Text color="secondary" display="block" size="body2">
           <FormattedMessage

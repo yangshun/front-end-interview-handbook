@@ -50,7 +50,7 @@ export default function QuestionProgressAction({
             id: '6y6SUS',
           })}
           size="xs"
-          variant="primary"
+          variant="secondary"
           onClick={() => setIsLoginDialogShown(true)}
         />
         <Dialog
