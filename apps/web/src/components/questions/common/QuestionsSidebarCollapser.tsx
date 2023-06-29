@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import {
+  themeBackgroundColor,
   themeBackgroundEmphasizedHover,
   themeLineColor,
   themeTextSecondaryColor,
@@ -30,11 +31,15 @@ export default function QuestionsSidebarCollapser() {
     <button
       aria-label={title}
       className={clsx(
-        'absolute top-[80px] right-0 z-10 hidden h-10 translate-x-full items-center justify-center rounded-r-lg border-y border-r p-1 lg:flex',
+        'hidden items-center justify-center p-1 lg:flex',
+        'absolute top-[80px] z-10 -ml-px h-10 translate-x-full',
+        showSidebar ? 'right-px' : 'right-0',
+        'rounded-r-lg border-y border-r',
         'focus:outline-none focus:ring-2 focus:ring-offset-2',
         'focus:ring-brand-dark dark:focus:ring-brand',
         themeTextSecondaryColor,
         themeLineColor,
+        themeBackgroundColor,
         themeBackgroundEmphasizedHover,
       )}
       title={title}

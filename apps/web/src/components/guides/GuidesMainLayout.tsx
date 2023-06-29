@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { Fragment, useRef } from 'react';
+import { useRef } from 'react';
 
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -50,7 +50,7 @@ export default function GuidesMainLayout({
         <div
           className={clsx(
             'flex grow justify-center gap-x-12',
-            'px-4 py-6 md:px-6 lg:px-8',
+            'px-4 pb-16 pt-6 md:px-6 lg:px-8',
           )}>
           <div
             className={clsx(
