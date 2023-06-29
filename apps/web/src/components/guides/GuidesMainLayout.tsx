@@ -48,6 +48,13 @@ export default function GuidesMainLayout({
         />
         <div className="flex grow">
           <div className="mx-auto grid w-full max-w-xl gap-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
+            {navigation.title && (
+              <div className="-mb-4 flex flex-wrap gap-x-2">
+                <Text color="secondary" size="body2">
+                  {navigation.title}
+                </Text>
+              </div>
+            )}
             <div ref={articleContainerRef}>{children}</div>
             <Section>
               <div className="mt-8">

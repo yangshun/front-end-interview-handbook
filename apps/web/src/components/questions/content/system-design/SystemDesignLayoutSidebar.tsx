@@ -47,80 +47,75 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
           {showSidebar && (
             <div
               className={clsx(
-                'xl:w-[300px] flex w-72 flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs 2xl:w-96',
+                'xl:w-[300px] flex w-72 flex-col gap-y-8 overflow-y-auto border-r px-6 py-10 text-xs 2xl:w-96',
                 themeLineColor,
               )}>
-              <Heading className="mt-4 text-base font-semibold" level="custom">
-                {title}
-              </Heading>
-              <Section>
-                <nav>
-                  <ul className="flex flex-col gap-y-6" role="list">
-                    {systemDesignNavigation.map((section) => (
-                      <li key={section.title}>
-                        <Heading
-                          className="text-[0.8125rem] font-semibold leading-6"
-                          level="custom">
-                          {section.title}
-                        </Heading>
-                        <Section>
-                          <div className="pl-2">
-                            <ul
-                              className={clsx(
-                                'mt-3 flex flex-col gap-y-2 border-l',
-                                themeLineColor,
-                              )}
-                              role="list">
-                              {section.links.map((link) => (
-                                <li
-                                  key={link.href}
-                                  className="relative text-sm leading-6">
-                                  <Anchor
-                                    className={clsx(
-                                      '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
-                                      pathname === link.href
-                                        ? clsx(
-                                            themeTextBrandColor,
-                                            'border-current font-semibold',
-                                          )
-                                        : clsx(
-                                            themeTextSecondaryColor,
-                                            'border-transparent hover:text-neutral-800 dark:hover:text-white',
-                                          ),
-                                    )}
-                                    href={link.href}
-                                    variant="unstyled">
-                                    <span>{link.title}</span>
-                                    {(() => {
-                                      if (!isPremiumUser) {
-                                        if (link.premium) {
-                                          return (
-                                            <RiLockLine className="h-4 w-4 shrink-0" />
-                                          );
-                                        }
-                                      }
-                                      if (
-                                        link.type === 'question' &&
-                                        !ReadyQuestions.includes(link.slug)
-                                      ) {
+              <nav>
+                <ul className="flex flex-col gap-y-6" role="list">
+                  {systemDesignNavigation.map((section) => (
+                    <li key={section.title}>
+                      <Heading
+                        className="text-[0.8125rem] font-semibold leading-6"
+                        level="custom">
+                        {section.title}
+                      </Heading>
+                      <Section>
+                        <div className="pl-2">
+                          <ul
+                            className={clsx(
+                              'mt-3 flex flex-col gap-y-2 border-l',
+                              themeLineColor,
+                            )}
+                            role="list">
+                            {section.links.map((link) => (
+                              <li
+                                key={link.href}
+                                className="relative text-sm leading-6">
+                                <Anchor
+                                  className={clsx(
+                                    '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
+                                    pathname === link.href
+                                      ? clsx(
+                                          themeTextBrandColor,
+                                          'border-current font-semibold',
+                                        )
+                                      : clsx(
+                                          themeTextSecondaryColor,
+                                          'border-transparent hover:text-neutral-800 dark:hover:text-white',
+                                        ),
+                                  )}
+                                  href={link.href}
+                                  variant="unstyled">
+                                  <span>{link.title}</span>
+                                  {(() => {
+                                    if (!isPremiumUser) {
+                                      if (link.premium) {
                                         return (
-                                          <RiErrorWarningLine className="h-4 w-4 shrink-0" />
+                                          <RiLockLine className="h-4 w-4 shrink-0" />
                                         );
                                       }
+                                    }
+                                    if (
+                                      link.type === 'question' &&
+                                      !ReadyQuestions.includes(link.slug)
+                                    ) {
+                                      return (
+                                        <RiErrorWarningLine className="h-4 w-4 shrink-0" />
+                                      );
+                                    }
 
-                                      return null;
-                                    })()}
-                                  </Anchor>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </Section>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </Section>
+                                    return null;
+                                  })()}
+                                </Anchor>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </Section>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
           )}
           <QuestionsSidebarCollapser />

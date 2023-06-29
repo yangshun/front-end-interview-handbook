@@ -33,12 +33,12 @@ function LinksList({
         <li key={link.href} className="relative text-sm leading-6">
           <Anchor
             className={clsx(
-              'flex w-full items-center gap-x-2 pl-4',
+              '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
               pathname === link.href
-                ? clsx(themeTextBrandColor, 'font-semibold')
+                ? clsx(themeTextBrandColor, 'border-current font-semibold')
                 : clsx(
                     themeTextSecondaryColor,
-                    'hover:text-neutral-800 dark:hover:text-white',
+                    'border-transparent hover:text-neutral-800 dark:hover:text-white',
                   ),
             )}
             href={link.href}
