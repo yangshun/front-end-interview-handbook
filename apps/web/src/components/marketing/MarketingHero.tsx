@@ -242,7 +242,7 @@ export default function MarketingHero() {
         <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
           <div className="flex flex-col items-center gap-y-8">
             <div className="flex flex-col items-center gap-y-16">
-              <div className="flex flex-col items-center gap-y-2">
+              <div className="flex flex-col items-center gap-y-7">
                 <Anchor
                   className={clsx(
                     'group relative inline-flex items-center gap-x-1 rounded-full',
@@ -261,7 +261,7 @@ export default function MarketingHero() {
                     )}
                   />
                 </Anchor>
-                <Heading className="max-w-3xl text-center" level="heading1">
+                <Heading className="max-w-4xl text-center" level="heading1">
                   <FormattedMessage
                     defaultMessage="The <underline>great</underline> way to prepare for front end interviews"
                     description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."

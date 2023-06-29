@@ -80,7 +80,7 @@ export default function MarketingFeaturesBlocks({
         'lg:rounded-t-[48px] isolate lg:mx-8',
         themeRadialGlowBackground,
       )}>
-      <Container className="flex flex-col gap-y-16 py-32">
+      <Container className="flex flex-col gap-y-24 py-24 lg:gap-y-32 lg:py-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
             description={

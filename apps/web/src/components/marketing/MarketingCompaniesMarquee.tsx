@@ -70,7 +70,9 @@ const logos = [
 
 export default function MarketingCompaniesMarquee() {
   return (
-    <Container className="flex flex-col gap-y-12" variant="narrow">
+    <Container
+      className="flex flex-col gap-y-12 py-12 lg:py-16"
+      variant="narrow">
       <Text
         className="text-center"
         color="secondary"
