@@ -60,9 +60,13 @@ function QuestionNewLabel({
   }
 
   return (
-    <span className="absolute right-0 top-0 h-12 w-12">
-      <span className="border-brand-dark absolute block h-12 w-12 border-[24px] !border-b-transparent !border-l-transparent" />
-      <span className="text-2xs absolute right-1 top-2 rotate-45 font-medium uppercase text-white">
+    <span
+      className="absolute -right-0.5 -top-0.5 h-12 w-12"
+      style={{
+        clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
+      }}>
+      <span className="border-info absolute block h-12 w-12 border-[24px] !border-b-transparent !border-l-transparent" />
+      <span className="absolute right-[3px] top-[10px] rotate-45 text-xs font-medium uppercase text-neutral-50 dark:text-black">
         <FormattedMessage
           defaultMessage="New"
           description="Label for new questions ribbon"
@@ -110,7 +114,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate overflow-clip rounded-lg',
+        'isolate rounded-lg',
         ['divide-y', themeDivideColor],
         ['border', themeLineColor],
       )}>
