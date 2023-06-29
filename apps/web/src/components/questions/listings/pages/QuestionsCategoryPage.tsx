@@ -105,6 +105,7 @@ function QuestionsList({
           formats={['coding', 'quiz']}
           value={format}
           onSelect={(formatValue) => {
+            // TODO: Change to href instead.
             router.push(
               `/questions/${category}/${[formatValue ?? ''].filter(Boolean)}`,
             );
