@@ -1,10 +1,32 @@
+import type { SVGProps } from 'react';
+import {
+  FaAirbnb,
+  FaAmazon,
+  FaApple,
+  FaDropbox,
+  FaGoogle,
+  FaLinkedin,
+  FaLyft,
+  FaMicrosoft,
+  FaSalesforce,
+  FaSnapchat,
+  FaStripeS,
+  FaTwitter,
+  FaUber,
+  FaYelp,
+} from 'react-icons/fa';
+import { SiBytedance, SiPalantir, SiToptal } from 'react-icons/si';
+import { TbBrandWalmart } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
 import type { QuestionCompany } from '~/components/questions/common/QuestionsTypes';
 
 export default function useCompanyNames(): Record<
   QuestionCompany,
-  Readonly<{ label: string; logoUrl: string }>
+  Readonly<{
+    label: string;
+    logo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  }>
 > {
   const intl = useIntl();
 
@@ -15,7 +37,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Airbnb',
         id: 'M9z02W',
       }),
-      logoUrl: 'https://logo.clearbit.com/airbnb.com',
+      logo: FaAirbnb,
     },
     amazon: {
       label: intl.formatMessage({
@@ -23,7 +45,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Amazon',
         id: 'iLx/BQ',
       }),
-      logoUrl: '/img/companies/amazon-logo.jpg',
+      logo: FaAmazon,
     },
     apple: {
       label: intl.formatMessage({
@@ -31,8 +53,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Apple',
         id: 'hNQSH/',
       }),
-      logoUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+      logo: FaApple,
     },
     bytedance: {
       label: intl.formatMessage({
@@ -40,7 +61,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for ByteDance',
         id: 'yeLNWe',
       }),
-      logoUrl: 'https://logo.clearbit.com/bytedance.com',
+      logo: SiBytedance,
     },
     dropbox: {
       label: intl.formatMessage({
@@ -48,7 +69,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Dropbox',
         id: 'QVh3mt',
       }),
-      logoUrl: 'https://logo.clearbit.com/dropbox.com',
+      logo: FaDropbox,
     },
     google: {
       label: intl.formatMessage({
@@ -56,7 +77,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Google',
         id: 'fHpn67',
       }),
-      logoUrl: '/img/companies/google-logo.svg',
+      logo: FaGoogle,
     },
     linkedin: {
       label: intl.formatMessage({
@@ -64,7 +85,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for LinkedIn',
         id: 'g3PJQr',
       }),
-      logoUrl: 'https://logo.clearbit.com/linkedin.com',
+      logo: FaLinkedin,
     },
     lyft: {
       label: intl.formatMessage({
@@ -72,7 +93,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Lyft',
         id: 'TDzLXK',
       }),
-      logoUrl: 'https://logo.clearbit.com/lyft.com',
+      logo: FaLyft,
     },
     microsoft: {
       label: intl.formatMessage({
@@ -80,7 +101,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Microsoft',
         id: 'MeV/ww',
       }),
-      logoUrl: 'https://logo.clearbit.com/microsoft.com',
+      logo: FaMicrosoft,
     },
     palantir: {
       label: intl.formatMessage({
@@ -88,7 +109,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Palantir',
         id: 'U022No',
       }),
-      logoUrl: 'https://logo.clearbit.com/palantir.com',
+      logo: SiPalantir,
     },
     salesforce: {
       label: intl.formatMessage({
@@ -96,7 +117,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Salesforce',
         id: 'uz7f93',
       }),
-      logoUrl: 'https://logo.clearbit.com/salesforce.com',
+      logo: FaSalesforce,
     },
     snap: {
       label: intl.formatMessage({
@@ -104,7 +125,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Snap',
         id: 'RMBCok',
       }),
-      logoUrl: 'https://logo.clearbit.com/snap.com',
+      logo: FaSnapchat,
     },
     stripe: {
       label: intl.formatMessage({
@@ -112,7 +133,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Stripe',
         id: 'v7xpbV',
       }),
-      logoUrl: 'https://logo.clearbit.com/stripe.com',
+      logo: FaStripeS,
     },
     toptal: {
       label: intl.formatMessage({
@@ -120,7 +141,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Toptal',
         id: '3du5bC',
       }),
-      logoUrl: 'https://logo.clearbit.com/toptal.com',
+      logo: SiToptal,
     },
     twitter: {
       label: intl.formatMessage({
@@ -128,7 +149,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Twitter',
         id: 'bZFghR',
       }),
-      logoUrl: 'https://logo.clearbit.com/twitter.com',
+      logo: FaTwitter,
     },
     uber: {
       label: intl.formatMessage({
@@ -136,7 +157,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Uber',
         id: 'Ku3VdX',
       }),
-      logoUrl: 'https://logo.clearbit.com/uber.com',
+      logo: FaUber,
     },
     walmart: {
       label: intl.formatMessage({
@@ -144,7 +165,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Walmart',
         id: '8Nm9WZ',
       }),
-      logoUrl: 'https://logo.clearbit.com/walmart.com',
+      logo: TbBrandWalmart,
     },
     yelp: {
       label: intl.formatMessage({
@@ -152,7 +173,7 @@ export default function useCompanyNames(): Record<
         description: 'Company name for Yelp',
         id: 'UBPrBM',
       }),
-      logoUrl: 'https://logo.clearbit.com/yelp.com',
+      logo: FaYelp,
     },
   };
 }

@@ -28,7 +28,6 @@ import useQuestionFrameworkFilter from '~/components/questions/listings/filters/
 import useQuestionLanguageFilter from '~/components/questions/listings/filters/hooks/useQuestionLanguageFilter';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
-import Anchor from '~/components/ui/Anchor';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -519,15 +518,6 @@ export default function QuestionsCodingListWithFilters({
               </Section>
             </div>
           )}
-          <Text color="secondary" display="block" size="body3">
-            <Anchor href="https://clearbit.com" variant="flat">
-              <FormattedMessage
-                defaultMessage="Logos provided by Clearbit"
-                description="Attribution text at the end of question lists indicating that the logos were sourced by Clearbit"
-                id="yXh24P"
-              />
-            </Anchor>
-          </Text>
         </div>
       </section>
       {/* Right Column */}

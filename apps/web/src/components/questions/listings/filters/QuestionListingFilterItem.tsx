@@ -12,7 +12,7 @@ import { Disclosure } from '@headlessui/react';
 export type FilterItemGap = 'compact' | 'spacious';
 
 const itemGapClasses: Record<FilterItemGap, string> = {
-  compact: 'gap-3',
+  compact: 'gap-x-4 gap-y-3',
   spacious: 'gap-6',
 };
 

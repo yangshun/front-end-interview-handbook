@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
@@ -8,6 +9,7 @@ import type {
   QuestionCompany,
   QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
+import { themeIconColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
@@ -20,6 +22,8 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'lyft',
   'uber',
   'dropbox',
+  'microsoft',
+  'stripe',
 ];
 
 type Props = Readonly<{
@@ -56,19 +60,19 @@ export default function useQuestionCompanyFilter({
         : newCompanies.add(value);
       setCompanyFilters(newCompanies);
     },
-    options: COMPANY_OPTIONS.map((company) => ({
-      label: (
-        <div className="flex items-center gap-2">
-          <img
-            alt={companyNames[company].label}
-            className="h-4 w-4 rounded-sm bg-white object-scale-down"
-            src={companyNames[company].logoUrl}
-          />
-          {companyNames[company].label}
-        </div>
-      ),
-      value: company,
-    })),
+    options: COMPANY_OPTIONS.map((company) => {
+      const Icon = companyNames[company].logo;
+
+      return {
+        label: (
+          <div className="flex items-center gap-2">
+            <Icon className={clsx('h-4 w-4 shrink-0', themeIconColor)} />
+            {companyNames[company].label}
+          </div>
+        ),
+        value: company,
+      };
+    }),
   };
 
   return [companyFilters, CompanyFilterOptions];

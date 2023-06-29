@@ -18,12 +18,10 @@ import useQuestionCompanyFilter from '~/components/questions/listings/filters/ho
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
 import useQuestionDifficultyFilter from '~/components/questions/listings/filters/hooks/useQuestionDifficultyFilter';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
-import Anchor from '~/components/ui/Anchor';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
-import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import QuestionFilterButton from '../filters/QuestionFilterButton';
@@ -293,15 +291,6 @@ export default function QuestionsSystemDesignListWithFilters({
             </Section>
           </div>
         )}
-        <Text color="secondary" display="block" size="body3">
-          <Anchor href="https://clearbit.com" variant="flat">
-            <FormattedMessage
-              defaultMessage="Logos provided by Clearbit"
-              description="Attribution text that company logos were provided by Clearbit"
-              id="WzDhJE"
-            />
-          </Anchor>
-        </Text>
       </section>
       {layout === 'full' && (
         <aside className="hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex">
