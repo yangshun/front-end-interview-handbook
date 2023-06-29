@@ -191,6 +191,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                 wrapContent={false}
               />
               <SandpackPreview
+                className="dark:[&>.sp-preview-container]:invert dark:[&>.sp-preview-container]:hue-rotate-180"
                 showNavigator={true}
                 showOpenInCodeSandbox={false}
                 style={{
