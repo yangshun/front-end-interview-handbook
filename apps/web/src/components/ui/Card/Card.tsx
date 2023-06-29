@@ -93,7 +93,7 @@ export default function Card({
       )}>
       <div
         className={clsx(
-          'z-100 !absolute top-0 h-full w-full rounded-[inherit] before:m-[-1px]',
+          'z-100 before:m-[-1px] !absolute top-0 h-full w-full rounded-[inherit]',
           border && themeGlassyBorder,
         )}
       />
@@ -101,7 +101,7 @@ export default function Card({
         className={clsx(
           'relative isolate z-20 overflow-clip rounded-[inherit]',
           'bg-neutral-50 dark:bg-neutral-900',
-          padding && 'py-5 px-6',
+          padding && 'px-6 py-5',
           nonHiddenClasses,
         )}
         id={id}>
@@ -116,9 +116,8 @@ function BackgroundPattern() {
   return (
     <svg
       aria-hidden={true}
-      className="absolute top-0 right-0 -z-10"
+      className="max-h- absolute right-0 top-0 -z-10 max-h-[200px]"
       fill="none"
-      height="100%"
       viewBox="0 0 266 116"
       xmlns="http://www.w3.org/2000/svg">
       <mask
