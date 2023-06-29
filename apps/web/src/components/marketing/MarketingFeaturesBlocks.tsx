@@ -126,19 +126,35 @@ export default function MarketingFeaturesBlocks({
               src="/img/marketing/topics.svg"
             />
           }
-          title={<>Not sure what to prepare? No problem</>}
+          title={
+            <>
+              Not sure what to prepare?
+              <br />
+              No problem
+            </>
+          }
         />
         <FeatureBlock
+          description={
+            <>
+              With the largest, curated question bank supplemented with official
+              solutions from ex-interviewers, you get all-rounded coverage for
+              your preparation.
+            </>
+          }
           features={[
             <>
-              Cover all the commonly asked questions across every interview
-              format - system design, user interfaces, JavaScript and
-              trivia-style quizzes
+              Master every interview format — user interfaces, JavaScript,
+              trivia-style quizzes and even front end system design
             </>,
             <>
-              Practice with different frameworks and languages - with official
-              solutions available for popular frameworks (Angular and Svelte
-              coming soon)
+              Find questions across all important topics — HTML, CSS,
+              JavaScript, algorithms, DOM APIs, accessibility, performance,
+              front end fundamentals, and more
+            </>,
+            <>
+              Practice in any framework or language you want — and reference
+              official solutions in popular frameworks
             </>,
           ]}
           media={
@@ -152,11 +168,13 @@ export default function MarketingFeaturesBlocks({
           title={<>Practice 200+ of the most important questions</>}
         />
         <FeatureBlock
-          features={[
+          description={
             <>
-              Every question is accompanied by at least 1 official solution to
+              Every question is accompanied by at least one official solution to
               learn from, written by big tech ex-interviewers considerations
-            </>,
+            </>
+          }
+          features={[
             <>
               Learn how to answer with scalability, accessibility and
               performance
@@ -196,12 +214,12 @@ export default function MarketingFeaturesBlocks({
         <FeatureBlock
           features={[
             <>
-              Utilize a comprehensive test suite that covers all the important
-              edge cases that interviewers will look out for
+              Polish your answers with a comprehensive test suite that covers
+              all the important edge cases that interviewers will look out for
             </>,
             <>
-              All our test cases are public — you will always know exactly what
-              to improve on
+              Always know exactly what to improve on — all of our test cases are
+              public
             </>,
             <>Detailed test case scenarios for UI questions</>,
           ]}
@@ -234,9 +252,9 @@ export default function MarketingFeaturesBlocks({
         <FeatureBlock
           description={
             <>
-              Utilize proven study plans prepared by senior engineers to ace
-              your preparation regardless of the time left - be it 1 week, 1
-              month or 3 months.
+              Leverage proven study plans prepared by senior engineers to
+              supercharge your preparation regardless of the time left — prepare
+              well in 1 week, 1 month or 3 months.
             </>
           }
           media={

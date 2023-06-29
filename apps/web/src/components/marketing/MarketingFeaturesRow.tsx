@@ -44,10 +44,10 @@ function useFeatures() {
     {
       description: intl.formatMessage({
         defaultMessage:
-          'Every question has an in-depth solution with practical considerations, multiple approaches, and technique tips.',
+          'Every question is accompanied by an official, well-explained solution from ex-interviewers.',
         description:
           "Description of 'Learn from official solutions and guides' feature in marketing page",
-        id: '2tJaGF',
+        id: 'Z4VfkU',
       }),
       icon: RiBook3Line,
       key: 'learn-from-official-solutions',
