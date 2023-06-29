@@ -77,7 +77,7 @@ export default function TabsUnderline<T>({
   return (
     <div
       className={clsx(
-        'overflow-auto',
+        'overflow-x-auto overflow-y-hidden',
         displayClasses[display],
         'border-b',
         themeLineColor,

@@ -77,7 +77,7 @@ export default function Tabs<T>({
   } = sizeClasses[size];
 
   return (
-    <div className="isolate w-full" role="tablist">
+    <div className="isolate w-full overflow-x-auto" role="tablist">
       <div className={clsx('border-b', themeLineColor)}>
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>
           {tabs.map((tabItem) => {
