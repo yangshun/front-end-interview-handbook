@@ -45,7 +45,7 @@ export default function UIExamplesGroup({
               </Container>
             </div>
             {darkMode !== 'none' && (
-              <div className="bg-neutral-950 dark text-white">
+              <div className="dark bg-neutral-950 text-white">
                 <Container>
                   <div
                     className={clsx('grid w-full py-12', gapClasses[gapSize])}>
@@ -58,17 +58,17 @@ export default function UIExamplesGroup({
         )}
         {darkMode === 'horizontal' && (
           <div className="relative flex">
-            <div className="bg-neutral-950 absolute inset-y-0 right-0 -z-10 w-1/2"></div>
+            <div className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 bg-neutral-950 lg:block"></div>
             <Container className="w-full">
-              <div className="grid w-full grid-cols-2">
+              <div className="grid w-full lg:grid-cols-2">
                 <div
                   className={clsx(
-                    'grid grow py-12 pr-12',
+                    'grid grow py-12 lg:pr-12',
                     gapClasses[gapSize],
                   )}>
                   {children}
                 </div>
-                <div className="dark pl-12 text-white">
+                <div className="dark bg-neutral-950 text-white lg:bg-transparent lg:pl-12">
                   <div
                     className={clsx('grid w-full py-12', gapClasses[gapSize])}>
                     {children}
