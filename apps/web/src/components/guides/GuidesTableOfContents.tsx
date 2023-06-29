@@ -9,7 +9,10 @@ import useScrollParent from '~/hooks/useScrollParent';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeTextSecondaryColor,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 import { useActiveHeadingId } from './GuidesHeadingObserver';
 import { themeTextBrandColor } from '../ui/theme';
@@ -31,10 +34,12 @@ function ListItems({
   activeId,
   activeLinkRef,
   items,
+  level,
 }: Readonly<{
   activeId: string | null;
   activeLinkRef: Ref<HTMLAnchorElement>;
   items: TableOfContents;
+  level: number;
 }>) {
   return (
     <ol className="mt-2 space-y-3 text-sm sm:text-xs" role="list">
@@ -44,9 +49,11 @@ function ListItems({
             <Anchor
               ref={activeId === section.id ? activeLinkRef : undefined}
               className={clsx(
-                'font-medium motion-safe:transition-all',
+                'motion-safe:transition-all',
                 activeId === section.id
                   ? clsx(themeTextBrandColor)
+                  : level === 1
+                  ? [themeTextSubtitleColor, 'font-medium']
                   : clsx(
                       themeTextSecondaryColor,
                       'hover:text-neutral-500 dark:hover:text-white',
@@ -63,6 +70,7 @@ function ListItems({
                 activeId={activeId}
                 activeLinkRef={activeLinkRef}
                 items={section.children}
+                level={level + 1}
               />
             </div>
           )}
@@ -108,6 +116,7 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
                 activeId={activeId}
                 activeLinkRef={activeLinkRef}
                 items={tableOfContents}
+                level={1}
               />
             </div>
           </Section>
