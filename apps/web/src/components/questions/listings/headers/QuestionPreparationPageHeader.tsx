@@ -60,7 +60,7 @@ export default function QuestionPreparationPageHeader() {
   const { userProfile } = useUserProfile();
 
   return (
-    <div className="flex flex-col justify-between gap-4 sm:flex-row">
+    <div className="grid grid-cols-1 items-stretch justify-between gap-4 sm:flex sm:flex-row">
       <div className="grid gap-y-6">
         <Heading level="heading5">
           {userProfile != null ? (
@@ -81,7 +81,7 @@ export default function QuestionPreparationPageHeader() {
       {userProfile != null ? (
         <div
           className={clsx(
-            'group relative inline-flex shrink items-center justify-between gap-2 py-3 px-4',
+            'group relative inline-flex shrink items-center justify-between gap-2 px-4 py-3',
             'border border-neutral-200 dark:border-transparent',
             'rounded-lg',
             'transition-colors',
@@ -136,7 +136,7 @@ export default function QuestionPreparationPageHeader() {
       ) : (
         <div
           className={clsx(
-            'group relative flex',
+            'group relative flex justify-between',
             'border border-neutral-200 dark:border-transparent',
             'overflow-hidden rounded-lg',
             themeCardBackgroundColor,
