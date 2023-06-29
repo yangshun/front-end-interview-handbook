@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { Fragment, useRef } from 'react';
 
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -46,16 +47,28 @@ export default function GuidesMainLayout({
           navigation={navigation}
           tableOfContents={tableOfContents}
         />
-        <div className="flex grow">
-          <div className="mx-auto grid w-full max-w-xl gap-6 overflow-auto px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
-            {navigation.title && (
-              <div className="-mb-4 flex flex-wrap gap-x-2">
-                <Text color="secondary" size="body2">
+        <div
+          className={clsx(
+            'flex grow justify-center gap-x-12',
+            'px-4 py-6 md:px-6 lg:px-8',
+          )}>
+          <div
+            className={clsx(
+              'flex flex-col gap-6 overflow-auto',
+              'w-full max-w-2xl',
+            )}>
+            <div className="flex flex-col gap-y-4">
+              {navigation.title && (
+                <Text
+                  color="secondary"
+                  display="block"
+                  size="body2"
+                  weight="medium">
                   {navigation.title}
                 </Text>
-              </div>
-            )}
-            <div ref={articleContainerRef}>{children}</div>
+              )}
+              <div ref={articleContainerRef}>{children}</div>
+            </div>
             <Section>
               <div className="mt-8">
                 <QuestionPagination
@@ -69,7 +82,7 @@ export default function GuidesMainLayout({
             <Section>
               <div
                 key={currentItem?.href}
-                className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden xl:px-6 xl:py-12"
+                className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
                 style={{
                   height: FooterlessContainerHeight,
                   top: `var(--navbar-height)`,

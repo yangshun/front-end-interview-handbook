@@ -31,7 +31,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
   const { pathname } = useI18nPathname();
   const { userProfile } = useUserProfile();
   const isPremiumUser = userProfile?.isPremium ?? false;
-  const { title, items: systemDesignNavigation } = useSystemDesignNavigation();
+  const { items: systemDesignNavigation } = useSystemDesignNavigation();
 
   useScrollToTop([pathname]);
 
@@ -47,7 +47,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
           {showSidebar && (
             <div
               className={clsx(
-                'xl:w-[300px] flex w-72 flex-col gap-y-8 overflow-y-auto border-r px-6 py-10 text-xs 2xl:w-96',
+                'flex w-[280px] flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs',
                 themeLineColor,
               )}>
               <nav>

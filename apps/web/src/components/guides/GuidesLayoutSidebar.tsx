@@ -72,7 +72,7 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
           {showSidebar && (
             <div
               className={clsx(
-                'xl:w-[300px] flex w-72 flex-col gap-y-8 overflow-y-auto border-r px-6 py-10 text-xs 2xl:w-96',
+                'flex w-[280px] flex-col gap-y-8 overflow-y-auto border-r p-6 text-xs',
                 themeLineColor,
               )}>
               <GuidesSidebar navigation={navigation} />
