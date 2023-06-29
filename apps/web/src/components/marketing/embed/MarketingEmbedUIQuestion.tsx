@@ -173,7 +173,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               classes: {
                 'sp-input': 'touch-none select-none pointer-events-none',
                 'sp-layout': 'h-full',
-                'sp-wrapper': '!h-full grow',
+                'sp-wrapper': '!h-full grow !w-full',
               },
               visibleFiles: setup?.visibleFiles,
             }}
