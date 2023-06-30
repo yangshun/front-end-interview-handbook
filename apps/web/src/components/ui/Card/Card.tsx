@@ -42,6 +42,16 @@ const cardOuterContainerClassNames = clsx(
   'p-px overflow-hidden',
 );
 
+function isAllowedBrowser() {
+  if (typeof navigator === 'undefined') {
+    return false;
+  }
+
+  return (
+    /chrome/i.test(navigator.userAgent) || /firefox/i.test(navigator.userAgent)
+  );
+}
+
 export default function Card({
   children,
   className,
@@ -57,6 +67,11 @@ export default function Card({
 
   useEffect(() => {
     const { current } = cardRef;
+
+    // TODO: disable hover glow on Safari until we figure out how to fix it.
+    if (!isAllowedBrowser()) {
+      return;
+    }
 
     if (!disableSpotlight && current) {
       addCard(current);
@@ -89,7 +104,9 @@ export default function Card({
         'relative isolate grid grid-cols-1 rounded-lg',
         cardOuterContainerClassNames,
         hiddenClasses,
-        !disableSpotlight && cardOuterContainerSpotlightClassNames,
+        !disableSpotlight &&
+          isAllowedBrowser() &&
+          cardOuterContainerSpotlightClassNames,
       )}>
       <div
         className={clsx(
