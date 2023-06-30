@@ -11,16 +11,17 @@ import {
   themeRadialGlowBackground,
 } from '~/components/ui/theme';
 
+import Heading from '../ui/Heading';
 import Text from '../ui/Text';
 
 const counts: ReadonlyArray<{ label: string; value: number }> = [
-  { label: '2021 Q1', value: 10 },
-  { label: '2021 Q2', value: 34 },
-  { label: '2021 Q3', value: 45 },
-  { label: '2021 Q4', value: 56 },
+  { label: '2021 Q4', value: 40 },
   { label: '2022 Q1', value: 62 },
   { label: '2022 Q2', value: 82 },
-  { label: '2022 Q3', value: 135 },
+  { label: '2022 Q3', value: 95 },
+  { label: '2022 Q4', value: 119 },
+  { label: '2023 Q1', value: 153 },
+  { label: '2023 Q2', value: 203 },
 ];
 const defaultPointIndex = counts.length - 1;
 const maxPrice = Math.max(...counts.map(({ value }) => value));
@@ -301,17 +302,13 @@ export default function MarketingContinuousUpdates() {
       <Container className="relative">
         <div className="mx-auto grid grid-cols-1 gap-8 py-24 md:grid-cols-5">
           <div className="mx-auto max-w-2xl md:col-span-5 lg:col-span-3 lg:mx-0 lg:max-w-prose lg:pr-24">
-            <Text
-              className="text-3xl font-bold leading-8 tracking-tight sm:text-4xl md:text-4xl lg:text-5xl"
-              display="block"
-              size="custom"
-              weight="custom">
+            <Heading level="heading2">
               <FormattedMessage
                 defaultMessage="We're still growing our question base"
                 description="Question base section title"
                 id="RQm9cE"
               />
-            </Text>
+            </Heading>
             <Text
               className="relative mt-10 max-w-5xl text-lg md:text-xl"
               color="secondary"

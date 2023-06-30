@@ -387,6 +387,10 @@
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all System Design questions"
   },
+  "6A9LIb": {
+    "defaultMessage": "Study plans for Front End Interviews",
+    "description": "Title of study plans page"
+  },
   "6IwcDT": {
     "defaultMessage": "Show",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"

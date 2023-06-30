@@ -5,6 +5,8 @@ import {
 
 import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
 
+import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
+
 type Props = Readonly<{
   items: ReadonlyArray<{
     completedCount: number;
@@ -22,7 +24,9 @@ export default function QuestionsContinueLearningContainer({ items }: Props) {
         completedCount,
         gradient: themes[listKey].gradient,
         href: questionLists[listKey]?.href,
-        questionsCount: 50, // TODO(redesign)
+        questionsCount: countNumberOfQuestionsInList(
+          questionLists[listKey].questions,
+        ),
         title: questionLists[listKey].longName,
       }))}
     />

@@ -7,11 +7,12 @@ import type {
   QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Container from '~/components/ui/Container';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
-import Text from '../ui/Text';
 
 export default function MarketingFeaturedQuestions({
   javaScriptQuestions,
@@ -57,87 +58,89 @@ export default function MarketingFeaturedQuestions({
             }
           />
         </div>
-        <MarketingMarqueeQuestionListSection
-          description={
-            <FormattedMessage
-              defaultMessage="Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms."
-              description="Subtitle for an example list of JavaScript Questions on marketing pages"
-              id="b0OofK"
-            />
-          }
-          href="/questions"
-          questions={javaScriptQuestions}
-          title={
-            <>
-              JavaScript questions{' '}
-              <Text
-                className="text-xl"
-                color="secondary"
-                size="custom"
-                weight="bold">
-                (with TypeScript support)
-              </Text>
-            </>
-          }
-        />
-        <MarketingMarqueeQuestionListSection
-          description={
-            <FormattedMessage
-              defaultMessage="Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
-              description="Subtitle for an example list of User Interface Questions on marketing pages"
-              id="oPyUXk"
-            />
-          }
-          href="/questions/js/coding/user-interface"
-          questions={userInterfaceQuestions}
-          title={
-            <FormattedMessage
-              defaultMessage="User Interface Questions"
-              description="Title for an example list of User Interface Questions on marketing pages"
-              id="bxZm1S"
-            />
-          }
-        />
-        <MarketingMarqueeQuestionListSection
-          description={
-            <FormattedMessage
-              defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
-              description="Subtitle for an example list of User Interface Questions on marketing pages"
-              id="QIRY6V"
-            />
-          }
-          href="/prepare/system-design"
-          questions={systemDesignQuestions}
-          title={
-            <FormattedMessage
-              defaultMessage="System Design Questions"
-              description="Title for an example list of System Design Questions on marketing pages"
-              id="jnV/ZP"
-            />
-          }
-        />
-        <MarketingMarqueeQuestionListSection
-          description={
-            <FormattedMessage
-              defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
-              description="Subtitle for an example list of Quiz Questions on marketing pages"
-              id="kF3Llo"
-              values={{
-                count: 100,
-              }}
-            />
-          }
-          href="/prepare/quiz"
-          questions={quizQuestions}
-          title={
-            <FormattedMessage
-              defaultMessage="Quiz Questions"
-              description="Title for an example list of Quiz Questions on marketing pages"
-              id="BGn++d"
-            />
-          }
-          titleLines={2}
-        />
+        <Section>
+          <MarketingMarqueeQuestionListSection
+            description={
+              <FormattedMessage
+                defaultMessage="Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms."
+                description="Subtitle for an example list of JavaScript Questions on marketing pages"
+                id="b0OofK"
+              />
+            }
+            href="/questions"
+            questions={javaScriptQuestions}
+            title={
+              <>
+                JavaScript questions{' '}
+                <Text
+                  className="text-xl"
+                  color="secondary"
+                  size="custom"
+                  weight="bold">
+                  (with TypeScript support)
+                </Text>
+              </>
+            }
+          />
+          <MarketingMarqueeQuestionListSection
+            description={
+              <FormattedMessage
+                defaultMessage="Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
+                description="Subtitle for an example list of User Interface Questions on marketing pages"
+                id="oPyUXk"
+              />
+            }
+            href="/questions/js/coding/user-interface"
+            questions={userInterfaceQuestions}
+            title={
+              <FormattedMessage
+                defaultMessage="User Interface Questions"
+                description="Title for an example list of User Interface Questions on marketing pages"
+                id="bxZm1S"
+              />
+            }
+          />
+          <MarketingMarqueeQuestionListSection
+            description={
+              <FormattedMessage
+                defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
+                description="Subtitle for an example list of User Interface Questions on marketing pages"
+                id="QIRY6V"
+              />
+            }
+            href="/prepare/system-design"
+            questions={systemDesignQuestions}
+            title={
+              <FormattedMessage
+                defaultMessage="System Design Questions"
+                description="Title for an example list of System Design Questions on marketing pages"
+                id="jnV/ZP"
+              />
+            }
+          />
+          <MarketingMarqueeQuestionListSection
+            description={
+              <FormattedMessage
+                defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
+                description="Subtitle for an example list of Quiz Questions on marketing pages"
+                id="kF3Llo"
+                values={{
+                  count: 100,
+                }}
+              />
+            }
+            href="/prepare/quiz"
+            questions={quizQuestions}
+            title={
+              <FormattedMessage
+                defaultMessage="Quiz Questions"
+                description="Title for an example list of Quiz Questions on marketing pages"
+                id="BGn++d"
+              />
+            }
+            titleLines={2}
+          />
+        </Section>
       </Container>
     </div>
   );

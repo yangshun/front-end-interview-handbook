@@ -26,7 +26,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  // TODO(redesign): update metadata
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
@@ -37,9 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/study-plans',
     title: intl.formatMessage({
-      defaultMessage: 'Study plans',
+      defaultMessage: 'Study plans for Front End Interviews',
       description: 'Title of study plans page',
-      id: 'swjkuF',
+      id: '6A9LIb',
     }),
   });
 }

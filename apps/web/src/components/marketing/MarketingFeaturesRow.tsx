@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { RiBook3Line, RiTeamLine, RiTerminalBoxLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import Section from '~/components/ui/Heading/HeadingContext';
+
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 import Container from '../ui/Container';
 import Heading from '../ui/Heading';
@@ -81,39 +83,52 @@ function useFeatures() {
 }
 
 export default function MarketingFeaturesRow() {
+  const intl = useIntl();
   const features = useFeatures();
 
   return (
     <Container className="py-16">
-      <div className="mx-auto grid max-w-md grid-cols-1 gap-x-8 gap-y-12 md:max-w-full lg:grid-cols-3">
-        {features.map(({ description, key, icon: Icon, title }) => (
-          <div
-            key={key}
-            className="flex flex-row items-start gap-6 lg:flex-col">
+      <Heading className="sr-only" level="custom">
+        {intl.formatMessage({
+          defaultMessage: 'Key features',
+          description: 'Key features of the product',
+          id: '97HVxk',
+        })}
+      </Heading>
+      <Section>
+        <div className="mx-auto grid max-w-md grid-cols-1 gap-x-8 gap-y-12 md:max-w-full lg:grid-cols-3">
+          {features.map(({ description, key, icon: Icon, title }) => (
             <div
-              aria-hidden="true"
-              className={clsx(
-                'dark:bg-neutral-800/70 rounded-full p-3',
-                themeGlassyBorder,
-              )}>
-              <Icon
-                className={clsx('text-primary h-6 w-6', themeTextSubtitleColor)}
-              />
+              key={key}
+              className="flex flex-row items-start gap-6 lg:flex-col">
+              <div
+                aria-hidden="true"
+                className={clsx(
+                  'dark:bg-neutral-800/70 rounded-full p-3',
+                  themeGlassyBorder,
+                )}>
+                <Icon
+                  className={clsx(
+                    'text-primary h-6 w-6',
+                    themeTextSubtitleColor,
+                  )}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Heading
+                  className={themeTextSubtitleColor}
+                  color="custom"
+                  level="heading6">
+                  {title}
+                </Heading>
+                <Text color="secondary" size="body2">
+                  {description}
+                </Text>
+              </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <Heading
-                className={themeTextSubtitleColor}
-                color="custom"
-                level="heading6">
-                {title}
-              </Heading>
-              <Text color="secondary" size="body2">
-                {description}
-              </Text>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Section>
     </Container>
   );
 }

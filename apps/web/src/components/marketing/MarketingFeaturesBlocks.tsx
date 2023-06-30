@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeRadialGlowBackground,
@@ -106,166 +107,171 @@ export default function MarketingFeaturesBlocks({
             }
           />
         </div>
-        <FeatureBlock
-          description={
-            <>
-              We structured the monolith of front end interview preparation into
-              bite-sized focus areas. Explore structured learning paths and find
-              what you need.
-            </>
-          }
-          features={[
-            <>Systematically cover what's important</>,
-            <>Track your progress</>,
-            <>Pick and choose weak areas to focus on</>,
-          ]}
-          media={
-            <img
-              alt="Question topics"
-              className="mx-auto max-w-sm md:max-w-full"
-              src="/img/marketing/topics.svg"
-            />
-          }
-          title={
-            <>
-              Not sure what to prepare?
-              <br />
-              No problem
-            </>
-          }
-        />
-        <FeatureBlock
-          description={
-            <>
-              With the largest, curated question bank supplemented with official
-              solutions from ex-interviewers, you get all-rounded coverage for
-              your preparation.
-            </>
-          }
-          features={[
-            <>
-              Master every interview format — user interfaces, JavaScript,
-              trivia-style quizzes and even front end system design
-            </>,
-            <>
-              Find questions across all important topics — HTML, CSS,
-              JavaScript, algorithms, DOM APIs, accessibility, performance,
-              front end fundamentals, and more
-            </>,
-            <>
-              Practice in any framework or language you want — and reference
-              official solutions in popular frameworks
-            </>,
-          ]}
-          media={
-            <img
-              alt="Questions for many frameworks"
-              className="mx-auto w-full max-w-sm md:max-w-none"
-              src="/img/marketing/questions-framework.png"
-            />
-          }
-          reverse={true}
-          title={<>Practice 200+ of the most important questions</>}
-        />
-        <FeatureBlock
-          description={
-            <>
-              Every question is accompanied by at least one official solution to
-              learn from, written by big tech ex-interviewers considerations
-            </>
-          }
-          features={[
-            <>
-              Learn how to answer with scalability, accessibility and
-              performance
-            </>,
-            <>
-              Reinforce your fundamentals, sharpen industry-approved techniques
-              and recognize design patterns
-            </>,
-          ]}
-          media={<MarketingFeatureSolutions solutions={solutions} />}
-          title={<>Learn from solutions by ex-interviewers</>}
-        />
-        <FeatureBlock
-          description={
-            <>
-              Our in-browser coding workspace allows you to simulate a real
-              interview environment with no set up required!
-            </>
-          }
-          features={[
-            <>Instantly preview your code output</>,
-            <>
-              Enjoy quality of life editor features like syntax highlighting,
-              theming, keyboard shortcuts
-            </>,
-          ]}
-          media={
-            <img
-              alt="Solutions from ex-interviewers"
-              className="mx-auto w-full max-w-sm md:max-w-none"
-              src="/img/marketing/workspace.png"
-            />
-          }
-          reverse={true}
-          title={<>Practice in an environment that simulates real interviews</>}
-        />
-        <FeatureBlock
-          features={[
-            <>
-              Polish your answers with a comprehensive test suite that covers
-              all the important edge cases that interviewers will look out for
-            </>,
-            <>
-              Always know exactly what to improve on — all of our test cases are
-              public
-            </>,
-            <>Detailed test case scenarios for UI questions</>,
-          ]}
-          media={
-            <img
-              alt="Coding workspace"
-              className="mx-auto w-full max-w-sm md:max-w-none"
-              src="/img/marketing/tests.png"
-            />
-          }
-          title={<>Test your code automatically with a single click</>}
-        />
-        <FeatureBlock
-          description={
-            <>
-              Practice interview questions asked by Google, Amazon, Apple,
-              Airbnb, Lyft, LinkedIn, and more.
-            </>
-          }
-          media={
-            <img
-              alt="Coding workspace"
-              className="mx-auto w-full max-w-sm md:max-w-none"
-              src="/img/marketing/questions-company.png"
-            />
-          }
-          reverse={true}
-          title={<>Gain insights on what your target company might ask</>}
-        />
-        <FeatureBlock
-          description={
-            <>
-              Leverage proven study plans prepared by senior engineers to
-              supercharge your preparation regardless of the time left — prepare
-              well in 1 week, 1 month or 3 months.
-            </>
-          }
-          media={
-            <img
-              alt="Coding workspace"
-              className="mx-auto w-full max-w-sm md:max-w-none"
-              src="/img/marketing/study-plans.png"
-            />
-          }
-          title={<>Prepare the best you can within any timeline</>}
-        />
+        <Section>
+          <FeatureBlock
+            description={
+              <>
+                We structured the monolith of front end interview preparation
+                into bite-sized focus areas. Explore structured learning paths
+                and find what you need.
+              </>
+            }
+            features={[
+              <>Systematically cover what's important</>,
+              <>Track your progress</>,
+              <>Pick and choose weak areas to focus on</>,
+            ]}
+            media={
+              <img
+                alt="Question topics"
+                className="mx-auto max-w-sm md:max-w-full"
+                src="/img/marketing/topics.svg"
+              />
+            }
+            title={
+              <>
+                Not sure what to prepare?
+                <br />
+                No problem
+              </>
+            }
+          />
+          <FeatureBlock
+            description={
+              <>
+                With the largest, curated question bank supplemented with
+                official solutions from ex-interviewers, you get all-rounded
+                coverage for your preparation.
+              </>
+            }
+            features={[
+              <>
+                Master every interview format — user interfaces, JavaScript,
+                trivia-style quizzes and even front end system design
+              </>,
+              <>
+                Find questions across all important topics — HTML, CSS,
+                JavaScript, algorithms, DOM APIs, accessibility, performance,
+                front end fundamentals, and more
+              </>,
+              <>
+                Practice in any framework or language you want — and reference
+                official solutions in popular frameworks
+              </>,
+            ]}
+            media={
+              <img
+                alt="Questions for many frameworks"
+                className="mx-auto w-full max-w-sm md:max-w-none"
+                src="/img/marketing/questions-framework.png"
+              />
+            }
+            reverse={true}
+            title={<>Practice 200+ of the most important questions</>}
+          />
+          <FeatureBlock
+            description={
+              <>
+                Every question is accompanied by at least one official solution
+                to learn from, written by big tech ex-interviewers
+                considerations
+              </>
+            }
+            features={[
+              <>
+                Learn how to answer with scalability, accessibility and
+                performance
+              </>,
+              <>
+                Reinforce your fundamentals, sharpen industry-approved
+                techniques and recognize design patterns
+              </>,
+            ]}
+            media={<MarketingFeatureSolutions solutions={solutions} />}
+            title={<>Learn from solutions by ex-interviewers</>}
+          />
+          <FeatureBlock
+            description={
+              <>
+                Our in-browser coding workspace allows you to simulate a real
+                interview environment with no set up required!
+              </>
+            }
+            features={[
+              <>Instantly preview your code output</>,
+              <>
+                Enjoy quality of life editor features like syntax highlighting,
+                theming, keyboard shortcuts
+              </>,
+            ]}
+            media={
+              <img
+                alt="Solutions from ex-interviewers"
+                className="mx-auto w-full max-w-sm md:max-w-none"
+                src="/img/marketing/workspace.png"
+              />
+            }
+            reverse={true}
+            title={
+              <>Practice in an environment that simulates real interviews</>
+            }
+          />
+          <FeatureBlock
+            features={[
+              <>
+                Polish your answers with a comprehensive test suite that covers
+                all the important edge cases that interviewers will look out for
+              </>,
+              <>
+                Always know exactly what to improve on — all of our test cases
+                are public
+              </>,
+              <>Detailed test case scenarios for UI questions</>,
+            ]}
+            media={
+              <img
+                alt="Coding workspace"
+                className="mx-auto w-full max-w-sm md:max-w-none"
+                src="/img/marketing/tests.png"
+              />
+            }
+            title={<>Test your code automatically with a single click</>}
+          />
+          <FeatureBlock
+            description={
+              <>
+                Practice interview questions asked by Google, Amazon, Apple,
+                Airbnb, Lyft, LinkedIn, and more.
+              </>
+            }
+            media={
+              <img
+                alt="Coding workspace"
+                className="mx-auto w-full max-w-sm md:max-w-none"
+                src="/img/marketing/questions-company.png"
+              />
+            }
+            reverse={true}
+            title={<>Gain insights on what your target company might ask</>}
+          />
+          <FeatureBlock
+            description={
+              <>
+                Leverage proven study plans prepared by senior engineers to
+                supercharge your preparation regardless of the time left —
+                prepare well in 1 week, 1 month or 3 months.
+              </>
+            }
+            media={
+              <img
+                alt="Coding workspace"
+                className="mx-auto w-full max-w-sm md:max-w-none"
+                src="/img/marketing/study-plans.png"
+              />
+            }
+            title={<>Prepare the best you can within any timeline</>}
+          />
+        </Section>
       </Container>
     </div>
   );
