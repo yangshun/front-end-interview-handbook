@@ -23,8 +23,8 @@ type TooltipLabelProps = Readonly<{
 }>;
 
 const sizeClasses: Record<TooltipSize, string> = {
-  md: 'px-3 py-2',
-  sm: 'px-2 py-1',
+  md: 'p-3',
+  sm: 'p-2',
 };
 
 const fontSizeClasses: Record<TooltipSize, TextSize> = {
@@ -136,7 +136,7 @@ function TooltipLabel({
         position === 'end' && 'ml-1.5',
         shouldUseXAlignment && alignment === 'center' && '-translate-x-1/2',
         shouldUseYAlignment && alignment === 'center' && '-translate-y-1/2',
-        'max-w-md',
+        'max-w-xs',
       )}
       role="tooltip"
       style={styleMap[position]}>

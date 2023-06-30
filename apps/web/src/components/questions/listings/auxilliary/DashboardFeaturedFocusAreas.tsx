@@ -8,7 +8,9 @@ type Props = Readonly<{
   limit?: number;
 }>;
 
-export default function QuestionsFocusAreas({ limit = Infinity }: Props) {
+export default function DashboardFeaturedFocusAreas({
+  limit = Infinity,
+}: Props) {
   const intl = useIntl();
   const focusAreas = useFocusAreas();
   const areas = [

@@ -11,7 +11,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import PreparationOverallCompletionProgress from '~/components/questions/dashboard/PreparationOverallCompletionProgress';
 import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
 import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
-import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/QuestionsFocusAreas';
+import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/DashboardFeaturedFocusAreas';
 import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
 import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
 import QuestionPreparationPageHeader from '~/components/questions/listings/headers/QuestionPreparationPageHeader';

@@ -9,14 +9,16 @@ import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
+  color?: 'default' | 'inherit';
   count: number;
   showIcon?: boolean;
   size?: TextSize;
 }>;
 
 export default function QuestionCountLabel({
-  showIcon = false,
   count,
+  color = 'default',
+  showIcon = false,
   size = 'body3',
 }: Props) {
   const id = useId();
@@ -40,7 +42,10 @@ export default function QuestionCountLabel({
           />
         )}
         <Text
-          className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+          className={clsx(
+            'whitespace-nowrap',
+            color === 'default' && 'text-neutral-700 dark:text-neutral-500',
+          )}
           color="inherit"
           size={size}>
           <FormattedMessage
