@@ -40,15 +40,15 @@ model FeedbackMessage {
 }
 
 model Profile {
-  id                  String                @id(map: "profile_pkey") @db.Uuid
-  premium             Boolean               @default(false)
-  plan                String?
-  stripeCustomer      String?
-  createdAt           DateTime              @default(now()) @db.Timestamptz(6)
-  Event               Event[]
-  QuestionProgress    QuestionProgress[]
-  QuestionListSession QuestionListSession[]
-  SitePerformance     SitePerformance[]
+  id               String             @id(map: "profile_pkey") @db.Uuid
+  premium          Boolean            @default(false)
+  plan             String?
+  stripeCustomer   String?
+  createdAt        DateTime           @default(now()) @db.Timestamptz(6)
+  Event            Event[]
+  QuestionProgress QuestionProgress[]
+  LearningSession  LearningSession[]
+  SitePerformance  SitePerformance[]
 }
 
 model QuestionProgress {
@@ -77,33 +77,33 @@ model SitePerformance {
   profile     Profile?  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-enum QuestionListSessionStatus {
+enum LearningSessionStatus {
   IN_PROGRESS
   STOPPED
 }
 
-model QuestionListSession {
-  id        String                        @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId    String                        @db.Uuid
+model LearningSession {
+  id        String                    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId    String                    @db.Uuid
   key       String
-  status    QuestionListSessionStatus     @default(IN_PROGRESS)
-  createdAt DateTime                      @default(now()) @db.Timestamptz(6)
-  stoppedAt DateTime?                     @db.Timestamptz(6)
-  profile   Profile?                      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  progress  QuestionListSessionProgress[]
+  status    LearningSessionStatus     @default(IN_PROGRESS)
+  createdAt DateTime                  @default(now()) @db.Timestamptz(6)
+  stoppedAt DateTime?                 @db.Timestamptz(6)
+  profile   Profile?                  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  progress  LearningSessionProgress[]
 }
 
-enum QuestionListSessionProgressStatus {
+enum LearningSessionProgressStatus {
   COMPLETED
 }
 
-model QuestionListSessionProgress {
-  id        String                            @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+model LearningSessionProgress {
+  id        String                        @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   key       String
-  sessionId String                            @db.Uuid
-  status    QuestionListSessionProgressStatus
-  createdAt DateTime                          @default(now()) @db.Timestamptz(6)
-  session   QuestionListSession               @relation(fields: [sessionId], references: [id])
+  sessionId String                        @db.Uuid
+  status    LearningSessionProgressStatus
+  createdAt DateTime                      @default(now()) @db.Timestamptz(6)
+  session   LearningSession               @relation(fields: [sessionId], references: [id])
 
   @@unique([sessionId, key])
 }

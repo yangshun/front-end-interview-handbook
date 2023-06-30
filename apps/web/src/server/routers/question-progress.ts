@@ -57,7 +57,7 @@ export const questionProgressRouter = router({
 
         if (listKey != null) {
           try {
-            const session = await prisma.questionListSession.findFirst({
+            const session = await prisma.learningSession.findFirst({
               where: {
                 key: listKey,
                 status: 'IN_PROGRESS',
@@ -66,7 +66,7 @@ export const questionProgressRouter = router({
             });
 
             if (session != null) {
-              await prisma.questionListSessionProgress.create({
+              await prisma.learningSessionProgress.create({
                 data: {
                   key: hashQuestion(format, slug),
                   sessionId: session.id,

@@ -18,7 +18,7 @@ export const questionListsRouter = router({
         return null;
       }
 
-      const session = await prisma.questionListSession.findFirst({
+      const session = await prisma.learningSession.findFirst({
         include: {
           progress: true,
         },
@@ -36,7 +36,7 @@ export const questionListsRouter = router({
       return null;
     }
 
-    return await prisma.questionListSession.findMany({
+    return await prisma.learningSession.findMany({
       include: {
         _count: {
           select: {
@@ -61,7 +61,7 @@ export const questionListsRouter = router({
         return null;
       }
 
-      const session = await prisma.questionListSession.findFirst({
+      const session = await prisma.learningSession.findFirst({
         where: {
           key: listKey,
           status: 'IN_PROGRESS',
@@ -73,7 +73,7 @@ export const questionListsRouter = router({
         return null;
       }
 
-      return await prisma.questionListSessionProgress.findMany({
+      return await prisma.learningSessionProgress.findMany({
         where: {
           sessionId: session.id,
         },
@@ -91,7 +91,7 @@ export const questionListsRouter = router({
       }
 
       // Make sure the session is active.
-      const session = await prisma.questionListSession.findFirst({
+      const session = await prisma.learningSession.findFirst({
         where: {
           id: sessionId,
           status: 'IN_PROGRESS',
@@ -103,7 +103,7 @@ export const questionListsRouter = router({
         return null;
       }
 
-      await prisma.questionListSessionProgress.deleteMany({
+      await prisma.learningSessionProgress.deleteMany({
         where: {
           sessionId,
         },
@@ -120,7 +120,7 @@ export const questionListsRouter = router({
         return null;
       }
 
-      const existingSession = await prisma.questionListSession.findFirst({
+      const existingSession = await prisma.learningSession.findFirst({
         where: {
           key: listKey,
           status: 'IN_PROGRESS',
@@ -139,7 +139,7 @@ export const questionListsRouter = router({
         userId: user.id,
       };
 
-      return await prisma.questionListSession.create({
+      return await prisma.learningSession.create({
         data: createData,
       });
     }),
@@ -155,7 +155,7 @@ export const questionListsRouter = router({
       }
 
       // Make sure the session is active.
-      const session = await prisma.questionListSession.findFirst({
+      const session = await prisma.learningSession.findFirst({
         where: {
           id: sessionId,
           status: 'IN_PROGRESS',
@@ -167,7 +167,7 @@ export const questionListsRouter = router({
         return null;
       }
 
-      return await prisma.questionListSession.update({
+      return await prisma.learningSession.update({
         data: {
           status: 'STOPPED',
           stoppedAt: new Date(),
