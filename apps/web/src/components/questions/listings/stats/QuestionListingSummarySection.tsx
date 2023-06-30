@@ -20,20 +20,26 @@ export default function QuestionListingSummarySection({
   const { userProfile } = useUserProfile();
 
   return (
-    <section className="grid grid-cols-2 gap-2">
+    <section className="flex flex-col gap-2">
       {!userProfile?.isPremium && (
-        <>
-          <QuestionListingQuestionCount count={free} variant="free" />
-          <QuestionListingQuestionCount count={premium} variant="premium" />
-        </>
+        <div className="flex gap-2">
+          {free > 0 && (
+            <div className="flex-1">
+              <QuestionListingQuestionCount count={free} variant="free" />
+            </div>
+          )}
+          {premium > 0 && (
+            <div className="flex-1">
+              <QuestionListingQuestionCount count={premium} variant="premium" />
+            </div>
+          )}
+        </div>
       )}
-      <div className="col-span-2">
-        <QuestionListingDifficultySummary
-          easy={easy}
-          hard={hard}
-          medium={medium}
-        />
-      </div>
+      <QuestionListingDifficultySummary
+        easy={easy}
+        hard={hard}
+        medium={medium}
+      />
     </section>
   );
 }

@@ -3,7 +3,7 @@
 import { useIntl } from 'react-intl';
 
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
-import QuestionsFocusAreas from '~/components/questions/listings/auxilliary/DashboardFeaturedFocusAreas';
+import DashboardFeaturedFocusAreas from '~/components/questions/listings/auxilliary/DashboardFeaturedFocusAreas';
 import QuestionsGuidesGrid from '~/components/questions/listings/auxilliary/QuestionsGuidesGrid';
 import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
 import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
@@ -32,7 +32,7 @@ export default function PrepareBehavioralInterviewPage() {
           <QuestionPreparationPageHeader />
           <QuestionsPreparationOnboarding />
         </div>
-        <QuestionsFocusAreas />
+        <DashboardFeaturedFocusAreas />
         <QuestionsPreparationTabs area="behavioral" />
         <QuestionsGuidesGrid
           items={behavioralInterviewGuidebookNavigation.items

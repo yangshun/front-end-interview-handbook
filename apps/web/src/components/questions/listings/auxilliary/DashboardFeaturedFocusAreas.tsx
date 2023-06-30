@@ -14,11 +14,15 @@ export default function DashboardFeaturedFocusAreas({
   const intl = useIntl();
   const focusAreas = useFocusAreas();
   const areas = [
-    focusAreas['data-structure-algorithms'],
-    focusAreas.forms,
+    focusAreas['data-structures-algorithms'],
+    focusAreas['async-operations'],
+    focusAreas['design-system-components'],
     focusAreas.lodash,
+    focusAreas['dom-manipulation'],
     focusAreas.accessibility,
-  ];
+    focusAreas['javascript-polyfills'],
+    focusAreas.forms,
+  ].slice(0, limit);
 
   return (
     <QuestionFocusAreasSection
@@ -27,7 +31,7 @@ export default function DashboardFeaturedFocusAreas({
         description: 'Tooltip of recommended focus areas',
         id: 'CZYeMZ',
       })}
-      focusAreas={areas.slice(0, limit)}
+      focusAreas={areas}
       title={intl.formatMessage({
         defaultMessage: 'Recommended focus areas',
         description:

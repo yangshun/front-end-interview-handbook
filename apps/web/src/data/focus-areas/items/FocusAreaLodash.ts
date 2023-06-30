@@ -10,9 +10,9 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.',
-      description: 'Description for one month study plan',
-      id: 'CyhMLj',
+        'Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.',
+      description: 'Description for interview preparation focus area',
+      id: 'gNEj/r',
     }),
     href: '/focus-areas/lodash',
     longName: intl.formatMessage({
@@ -26,37 +26,56 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
       id: 'mNMq+n',
     }),
     questions: {
-      javascript: [],
+      javascript: [
+        'chunk',
+        'clamp',
+        'compact',
+        'curry',
+        'debounce',
+        'deep-clone',
+        'deep-equal',
+        'difference',
+        'drop-right-while',
+        'drop-white',
+        'fill',
+        'find-index',
+        'find-last-index',
+        'flatten',
+        'from-pairs',
+        'get',
+        'in-range',
+        'intersection',
+        'intersection-by',
+        'intersection-with',
+        'is-empty',
+        'limit',
+        'once',
+        'throttle',
+        'unique-array',
+      ],
       // Use question importance for now.
       quiz: [],
       'system-design': [],
-      'user-interface': [
-        'accordion',
-        'accordion-ii',
-        'accordion-iii',
-        'tabs',
-        'tabs-ii',
-        'tabs-iii',
-      ],
+      'user-interface': [],
     },
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month',
-        description: 'Description of 1 Month Preparation Plan page',
-        id: 'N4F6al',
+          'Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.',
+        description: 'Description for interview preparation focus area',
+        id: 'j+FaML',
       }),
       title: intl.formatMessage({
-        defaultMessage:
-          'Study plan to prepare for front end interviews in 1 month',
-        description: 'Title of 1 Month Preparation Plan page',
-        id: 'O7MAvX',
+        defaultMessage: 'Practice building Lodash utility functions',
+        description: 'Title for interview preparation focus area',
+        id: 'mnJ9uY',
       }),
     },
     shortDescription: intl.formatMessage({
-      defaultMessage: 'All rounded coverage to bring you to the next level.',
-      description: 'Short description for one month study plan',
-      id: 'SId1Gq',
+      defaultMessage:
+        'Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.',
+      description: 'Description for interview preparation focus area',
+      id: 'NoFZV/',
     }),
     type: 'lodash',
   };

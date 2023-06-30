@@ -215,10 +215,6 @@
     "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
-  "2tJaGF": {
-    "defaultMessage": "Every question has an in-depth solution with practical considerations, multiple approaches, and technique tips.",
-    "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
-  },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
@@ -579,6 +575,14 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
+  "9Q8e4/": {
+    "defaultMessage": "JavaScript Polyfills",
+    "description": "Name of focus area questions"
+  },
+  "9fclPT": {
+    "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
+    "description": "Title for interview preparation focus area"
+  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -767,6 +771,10 @@
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
   },
+  "DbEF7d": {
+    "defaultMessage": "Master the art of building interactive and user-friendly forms.",
+    "description": "Description for interview preparation focus area"
+  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
@@ -807,6 +815,10 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
+  "EmirPr": {
+    "defaultMessage": "Master async programming for front end interviews",
+    "description": "Title for interview preparation focus area"
+  },
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
     "description": "Title of recommended focus areas section on preparation page"
@@ -838,6 +850,10 @@
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
+  },
+  "FcKhvG": {
+    "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
+    "description": "Description for interview preparation focus area"
   },
   "FkGppk": {
     "defaultMessage": "Submit",
@@ -934,6 +950,10 @@
   "HHJYxM": {
     "defaultMessage": "Failed to load coding questions",
     "description": "Error message when the questions failed to load"
+  },
+  "HMJJLh": {
+    "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
+    "description": "Description for interview preparation focus area"
   },
   "HOCjPY": {
     "defaultMessage": "Implement popular JavaScript library and utility functions",
@@ -1151,6 +1171,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
   },
+  "LGm3GF": {
+    "defaultMessage": "Async Operations",
+    "description": "Name of focus area questions"
+  },
   "LK0JHB": {
     "defaultMessage": "FAQs.",
     "description": "Frequently Asked Questions"
@@ -1323,6 +1347,10 @@
     "defaultMessage": "Intro to System Design",
     "description": "Introduction to front end system design"
   },
+  "NoFZV/": {
+    "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
+    "description": "Description for interview preparation focus area"
+  },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
@@ -1399,6 +1427,10 @@
     "defaultMessage": "Get Full Access",
     "description": "Link label to the pricing page"
   },
+  "OumyBP": {
+    "defaultMessage": "Showcase your knowledge of web accessibility in front end interviews",
+    "description": "Title for interview preparation focus area"
+  },
   "P/sSbP": {
     "defaultMessage": "Access to all premium content including solutions and companies.",
     "description": "Feature of monthly pricing plan"
@@ -1426,6 +1458,10 @@
   "PGFsFr": {
     "defaultMessage": "3 Months Plan",
     "description": "Link to three months study plan"
+  },
+  "PGq6U8": {
+    "defaultMessage": "Elevate your front-end skills by practicing the creation of front end design system components.",
+    "description": "Description for interview preparation focus area"
   },
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
@@ -1499,6 +1535,10 @@
     "defaultMessage": "Front end system design",
     "description": "Title for front end system design feature"
   },
+  "QsAiLH": {
+    "defaultMessage": "Practice creating design system components",
+    "description": "Title for interview preparation focus area"
+  },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
@@ -1559,6 +1599,10 @@
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
+  "RvPm3x": {
+    "defaultMessage": "DOM Manipulation",
+    "description": "Name of focus area questions"
+  },
   "RxZwQ9": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle on paywall over company tags on question list pages"
@@ -1602,6 +1646,22 @@
   "Se6J8o": {
     "defaultMessage": "Mark as Complete",
     "description": "Mark the question as complete"
+  },
+  "Sj1CaY": {
+    "defaultMessage": "Practice developing inclusive and accessible web experiences.",
+    "description": "Description for interview preparation focus area"
+  },
+  "T3JUSj": {
+    "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
+    "description": "Description for interview preparation focus area"
+  },
+  "T8HWQC": {
+    "defaultMessage": "Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.",
+    "description": "Description for interview preparation focus area"
+  },
+  "T9GECe": {
+    "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
+    "description": "Description for interview preparation focus area"
   },
   "TB8vuT": {
     "defaultMessage": "Collapse side menu",
@@ -1694,6 +1754,10 @@
   "UotwsL": {
     "defaultMessage": "Logging you in...",
     "description": "Subtitle of AuthPage when logged in"
+  },
+  "UrnJdy": {
+    "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions.",
+    "description": "Description for interview preparation focus area"
   },
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
@@ -1871,6 +1935,10 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
+  "YGqz7y": {
+    "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
+    "description": "Description for interview preparation focus area"
+  },
   "YIsqrq": {
     "defaultMessage": "Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
@@ -1914,6 +1982,10 @@
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
+  },
+  "Z4VfkU": {
+    "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
+    "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
   },
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
@@ -2066,6 +2138,10 @@
   "c2hcfm": {
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
+  },
+  "c5f6aC": {
+    "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
+    "description": "Description for interview preparation focus area"
   },
   "c7lcjj": {
     "defaultMessage": "HTML Questions",
@@ -2323,6 +2399,10 @@
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
   },
+  "gNEj/r": {
+    "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
+    "description": "Description for interview preparation focus area"
+  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -2374,6 +2454,10 @@
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
+  },
+  "huMizZ": {
+    "defaultMessage": "Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
+    "description": "Description for interview preparation focus area"
   },
   "huof8A": {
     "defaultMessage": "{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
@@ -2438,6 +2522,10 @@
   "ivmSx0": {
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
+  },
+  "j+FaML": {
+    "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.",
+    "description": "Description for interview preparation focus area"
   },
   "j+MqYO": {
     "defaultMessage": "Premium Content Coming Soon",
@@ -2623,6 +2711,10 @@
     "defaultMessage": "Theme",
     "description": "Select label to choose console theme in console settings"
   },
+  "lNxRzi": {
+    "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
+    "description": "Description for interview preparation focus area"
+  },
   "lUuh6Q": {
     "defaultMessage": "Start study plan",
     "description": "Button label to start study plan"
@@ -2694,6 +2786,10 @@
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
+  },
+  "mnJ9uY": {
+    "defaultMessage": "Practice building Lodash utility functions",
+    "description": "Title for interview preparation focus area"
   },
   "mt2ON4": {
     "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
@@ -2810,6 +2906,10 @@
   "ojtNa2": {
     "defaultMessage": "3 Months",
     "description": "Short label for 3 months study plan"
+  },
+  "onNjnt": {
+    "defaultMessage": "Design System Components",
+    "description": "Name of focus area questions"
   },
   "oo7GzR": {
     "defaultMessage": "Menu",
@@ -2938,6 +3038,10 @@
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
+  },
+  "r1cPM9": {
+    "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
+    "description": "Title for interview preparation focus area"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",
@@ -3254,6 +3358,10 @@
   "xAtvsP": {
     "defaultMessage": "Not completed",
     "description": "Tooltip for questions Not Completed label"
+  },
+  "xBj9I5": {
+    "defaultMessage": "Prepare for tackling form questions in front end interviews",
+    "description": "Title for interview preparation focus area"
   },
   "xEvm93": {
     "defaultMessage": "Features",

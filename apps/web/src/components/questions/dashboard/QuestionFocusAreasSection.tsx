@@ -39,10 +39,13 @@ const MAX_SHOWN = 4;
 export default function QuestionFocusAreasSection({
   description: sectionDescription,
   title: sectionTitle,
-  focusAreas,
+  focusAreas: allFocusAreas,
 }: Props) {
   const intl = useIntl();
   const [showAll, setShowAll] = useState(false);
+  const focusAreas = showAll
+    ? allFocusAreas
+    : allFocusAreas.slice(0, MAX_SHOWN);
 
   return (
     <div className="@container flex flex-col gap-4">
@@ -53,7 +56,7 @@ export default function QuestionFocusAreasSection({
             <RiQuestionFill className="h-6 w-6 text-neutral-300" />
           </Tooltip>
         </div>
-        {focusAreas.length > MAX_SHOWN && (
+        {allFocusAreas.length > MAX_SHOWN && (
           <Button
             className="-mr-5 -mt-2 translate-y-2"
             icon={showAll ? RiArrowUpSLine : RiArrowDownSLine}
@@ -82,7 +85,7 @@ export default function QuestionFocusAreasSection({
       </div>
       <CardContainer className="@4xl:grid-cols-4 grid grid-cols-2 grid-rows-1 gap-6">
         {focusAreas.map(
-          ({ href, name, type, description, questions }, index) => {
+          ({ href, name, type, shortDescription, questions }, index) => {
             const Icon = getFocusAreaTheme(type).iconSolid;
 
             return (
@@ -106,10 +109,12 @@ export default function QuestionFocusAreasSection({
                       <Icon aria-hidden={true} className="h-6 w-6" />
                     </span>
                     <Tooltip
-                      alignment={index === MAX_SHOWN - 1 ? 'end' : undefined}
+                      alignment={
+                        index % MAX_SHOWN === MAX_SHOWN - 1 ? 'end' : undefined
+                      }
                       label={
                         <div className="flex flex-col gap-y-1.5">
-                          {description}
+                          {shortDescription}
                           <hr className="border-neutral-700 dark:border-neutral-300" />
                           <QuestionCountLabel
                             color="inherit"

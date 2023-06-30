@@ -10,9 +10,9 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.',
-      description: 'Description for one month study plan',
-      id: 'CyhMLj',
+        'Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.',
+      description: 'Description for interview preparation focus area',
+      id: 'T3JUSj',
     }),
     href: '/focus-areas/forms',
     longName: intl.formatMessage({
@@ -27,35 +27,37 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
     }),
     questions: {
       javascript: [],
-      // Use question importance for now.
       quiz: [],
-      'system-design': [],
+      'system-design': ['e-commerce-amazon'],
       'user-interface': [
         'contact-form',
         'todo-list',
         'flight-booker',
         'temperature-converter',
+        'mortgage-calculator',
         'signup-form',
+        'transfer-list-ii',
       ],
     },
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month',
-        description: 'Description of 1 Month Preparation Plan page',
-        id: 'N4F6al',
+          'Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.',
+        description: 'Description for interview preparation focus area',
+        id: 'T3JUSj',
       }),
       title: intl.formatMessage({
         defaultMessage:
-          'Study plan to prepare for front end interviews in 1 month',
-        description: 'Title of 1 Month Preparation Plan page',
-        id: 'O7MAvX',
+          'Prepare for tackling form questions in front end interviews',
+        description: 'Title for interview preparation focus area',
+        id: 'xBj9I5',
       }),
     },
     shortDescription: intl.formatMessage({
-      defaultMessage: 'All rounded coverage to bring you to the next level.',
-      description: 'Short description for one month study plan',
-      id: 'SId1Gq',
+      defaultMessage:
+        'Master the art of building interactive and user-friendly forms.',
+      description: 'Description for interview preparation focus area',
+      id: 'DbEF7d',
     }),
     type: 'forms',
   };

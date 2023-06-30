@@ -28,8 +28,12 @@ async function getFocusAreaSEO(focusAreaType: FocusAreaType, locale: string) {
 export async function generateStaticParams() {
   const focusAreas: ReadonlyArray<FocusAreaType> = [
     'accessibility',
-    'data-structure-algorithms',
+    'async-operations',
+    'data-structures-algorithms',
+    'design-system-components',
+    'dom-manipulation',
     'forms',
+    'javascript-polyfills',
     'lodash',
   ];
 

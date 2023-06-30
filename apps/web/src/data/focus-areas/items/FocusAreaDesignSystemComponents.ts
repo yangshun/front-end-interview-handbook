@@ -1,4 +1,4 @@
-import { BiUniversalAccess } from 'react-icons/bi';
+import { RiDashboardLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
@@ -6,29 +6,29 @@ import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
 
-export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
+export function getFocusAreaDesignSystemComponents(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.',
+        'Elevate your front-end skills by practicing the creation of front end design system components.',
       description: 'Description for interview preparation focus area',
-      id: 'lNxRzi',
+      id: 'PGq6U8',
     }),
-    href: '/focus-areas/accessibility',
+    href: '/focus-areas/design-system-components',
     longName: intl.formatMessage({
-      defaultMessage: 'Accessibility',
+      defaultMessage: 'Design System Components',
       description: 'Name of focus area questions',
-      id: '1kiNiW',
+      id: 'onNjnt',
     }),
     name: intl.formatMessage({
-      defaultMessage: 'Accessibility',
+      defaultMessage: 'Design System Components',
       description: 'Name of focus area questions',
-      id: '1kiNiW',
+      id: 'onNjnt',
     }),
     questions: {
       javascript: [],
       quiz: [],
-      'system-design': [],
+      'system-design': ['image-carousel', 'dropdown-menu', 'modal-dialog'],
       'user-interface': [
         'accordion',
         'accordion-ii',
@@ -36,36 +36,37 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
         'tabs',
         'tabs-ii',
         'tabs-iii',
+        'progress-bar',
+        'star-rating',
       ],
     },
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.',
+          'Elevate your front-end skills by practicing the creation of front end design system components.',
         description: 'Description for interview preparation focus area',
-        id: 'T8HWQC',
+        id: 'PGq6U8',
       }),
       title: intl.formatMessage({
-        defaultMessage:
-          'Showcase your knowledge of web accessibility in front end interviews',
+        defaultMessage: 'Practice creating design system components',
         description: 'Title for interview preparation focus area',
-        id: 'OumyBP',
+        id: 'QsAiLH',
       }),
     },
     shortDescription: intl.formatMessage({
       defaultMessage:
-        'Practice developing inclusive and accessible web experiences.',
+        'Elevate your front-end skills by practicing the creation of front end design system components.',
       description: 'Description for interview preparation focus area',
-      id: 'Sj1CaY',
+      id: 'PGq6U8',
     }),
-    type: 'accessibility',
+    type: 'design-system-components',
   };
 }
 
-export function getFocusAreaThemeAccessibility(): QuestionListTheme {
+export function getFocusAreaThemeDesignSystemComponents(): QuestionListTheme {
   return {
     gradient: themeGradientBlueGreen,
-    iconOutline: BiUniversalAccess,
-    iconSolid: BiUniversalAccess,
+    iconOutline: RiDashboardLine,
+    iconSolid: RiDashboardLine,
   };
 }
