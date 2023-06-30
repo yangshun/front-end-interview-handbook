@@ -112,12 +112,12 @@ export default function QuestionFocusAreasSection({
                       alignment={
                         index % MAX_SHOWN === MAX_SHOWN - 1 ? 'end' : undefined
                       }
+                      invert={true}
                       label={
-                        <div className="flex flex-col gap-y-1.5">
+                        <div className="flex flex-col gap-y-1.5 font-medium">
                           {shortDescription}
-                          <hr className="border-neutral-700 dark:border-neutral-300" />
+                          <Divider />
                           <QuestionCountLabel
-                            color="inherit"
                             count={countNumberOfQuestionsInList(questions)}
                             showIcon={true}
                           />

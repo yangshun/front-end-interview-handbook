@@ -17,6 +17,7 @@ export type TooltipSize = 'md' | 'sm';
 type TooltipLabelProps = Readonly<{
   alignment: TooltipAlignment;
   children: ReactNode;
+  invert?: boolean;
   position: TooltipPosition;
   size: TooltipSize;
   triggerRef: RefObject<HTMLSpanElement>;
@@ -35,6 +36,7 @@ const fontSizeClasses: Record<TooltipSize, TextSize> = {
 function TooltipLabel({
   alignment,
   children,
+  invert,
   position,
   size,
   triggerRef,
@@ -122,7 +124,9 @@ function TooltipLabel({
     start: startPositionStyle,
   };
 
-  const tooltipBackgroundColor = 'bg-neutral-950 dark:bg-neutral-200';
+  const tooltipBackgroundColor = invert
+    ? 'bg-neutral-200 dark:bg-neutral-900'
+    : 'bg-neutral-950 dark:bg-neutral-200';
 
   return (
     <span
@@ -164,7 +168,7 @@ function TooltipLabel({
         }}
       />
       <Text
-        color="invert"
+        color={invert ? undefined : 'invert'}
         display="block"
         size={fontSizeClasses[size]}
         weight="medium">
@@ -178,6 +182,7 @@ type Props = Readonly<{
   alignment?: TooltipAlignment;
   children: ReactNode;
   className?: string;
+  invert?: boolean;
   label?: ReactNode;
   position?: TooltipPosition;
   size?: TooltipSize;
@@ -189,6 +194,7 @@ export default function Tooltip({
   alignment = 'center',
   children,
   className,
+  invert = false,
   label,
   size = 'sm',
   position = 'above',
@@ -272,6 +278,7 @@ export default function Tooltip({
         createPortal(
           <TooltipLabel
             alignment={alignment}
+            invert={invert}
             position={position}
             size={size}
             triggerRef={triggerRef}>
