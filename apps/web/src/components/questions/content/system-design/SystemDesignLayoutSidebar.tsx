@@ -73,7 +73,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                                 className="relative text-sm leading-6">
                                 <Anchor
                                   className={clsx(
-                                    '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
+                                    '-ml-px flex w-full items-center justify-between gap-x-2 border-l pl-4',
                                     pathname === link.href
                                       ? clsx(
                                           themeTextBrandColor,
@@ -81,7 +81,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
                                         )
                                       : clsx(
                                           themeTextSecondaryColor,
-                                          'border-transparent hover:text-neutral-800 dark:hover:text-white',
+                                          'border-transparent hover:border-current hover:text-neutral-800 dark:hover:text-white',
                                         ),
                                   )}
                                   href={link.href}
