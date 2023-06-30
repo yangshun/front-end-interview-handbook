@@ -27,8 +27,8 @@ export default function PreparationOverallCompletionProgress({
   return (
     <div
       className={clsx(
-        'grid gap-y-4 gap-x-12 rounded-lg border py-4 px-6 md:grid-cols-3',
-        themeLineColor,
+        'glassbox relative grid gap-x-12 gap-y-4 rounded-lg px-6 py-4 md:grid-cols-3',
+        'dark:bg-neutral-800/40 bg-white',
       )}>
       {[
         {
@@ -56,7 +56,7 @@ export default function PreparationOverallCompletionProgress({
           title: questionFormats['system-design'].name,
           totalQuestions: questionTotalAvailableCount['system-design'],
         },
-      ].map(({ completedQuestions, icon, gradient, title, totalQuestions }) => (
+      ].map(({ completedQuestions, gradient, title, totalQuestions }) => (
         <QuestionsProgressPanel
           key={title}
           completedQuestions={completedQuestions}

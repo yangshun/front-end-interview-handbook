@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import { trpc } from '~/hooks/trpc';
+import useScrollToElement from '~/hooks/useScrollToElement';
 
 import type { PreparationArea } from '~/data/PreparationAreas';
 
@@ -48,6 +49,9 @@ export default function PreparePageLayout({
   const { userProfile } = useUserProfile();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery();
+
+  const contentsRef = useScrollToElement<HTMLDivElement>('#contents', 100);
+
   const showContinueLearning =
     questionListSessions != null && questionListSessions.length > 0;
 
@@ -87,7 +91,9 @@ export default function PreparePageLayout({
           )}
           <DashboardFeaturedFocusAreas limit={showContinueLearning ? 4 : 8} />
         </div>
-        <QuestionsPreparationTabs area={area} />
+        <div ref={contentsRef}>
+          <QuestionsPreparationTabs area={area} />
+        </div>
         <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
           <div className="xl:col-span-9">{children}</div>
           <aside

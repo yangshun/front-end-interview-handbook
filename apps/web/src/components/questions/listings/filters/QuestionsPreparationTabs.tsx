@@ -34,25 +34,25 @@ export default function QuestionsPreparationTabs({ area }: Props) {
           size="sm"
           tabs={[
             {
-              href: areas.coding.href,
+              href: areas.coding.href + '#contents',
               icon: areas.coding.icon,
               label: areas.coding.name,
               value: areas.coding.value,
             },
             {
-              href: areas.quiz.href,
+              href: areas.quiz.href + '#contents',
               icon: areas.quiz.icon,
               label: areas.quiz.name,
               value: areas.quiz.value,
             },
             {
-              href: areas['system-design'].href,
+              href: areas['system-design'].href + '#contents',
               icon: areas['system-design'].icon,
               label: areas['system-design'].name,
               value: areas['system-design'].value,
             },
             {
-              href: areas.behavioral.href,
+              href: areas.behavioral.href + '#contents',
               icon: areas.behavioral.icon,
               label: areas.behavioral.name,
               value: areas.behavioral.value,
