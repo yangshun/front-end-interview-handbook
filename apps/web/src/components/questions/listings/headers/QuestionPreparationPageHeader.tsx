@@ -65,9 +65,9 @@ export default function QuestionPreparationPageHeader() {
         <Heading level="heading5">
           {userProfile != null ? (
             <FormattedMessage
-              defaultMessage="Welcome back"
+              defaultMessage="Welcome back!"
               description="Message greeting the user on preparation dashboard page"
-              id="30t9g2"
+              id="w1Jqfl"
             />
           ) : (
             <FormattedMessage

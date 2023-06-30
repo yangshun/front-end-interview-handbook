@@ -211,11 +211,14 @@ export default function MarketingFeaturesBlocks({
             }
           />
           <FeatureBlock
-            features={[
+            description={
               <>
                 Polish your answers with a comprehensive test suite that covers
-                all the important edge cases that interviewers will look out for
-              </>,
+                all the important edge cases that interviewers will look out
+                for.
+              </>
+            }
+            features={[
               <>
                 Always know exactly what to improve on — all of our test cases
                 are public

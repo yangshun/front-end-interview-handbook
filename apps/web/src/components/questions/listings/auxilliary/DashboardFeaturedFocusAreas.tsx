@@ -26,12 +26,17 @@ export default function DashboardFeaturedFocusAreas({
 
   return (
     <QuestionFocusAreasSection
-      description={intl.formatMessage({
-        defaultMessage:
-          'Dive into the important focus areas necessary to ace your front end interviews',
-        description: 'Tooltip of recommended focus areas',
-        id: 'piTmtt',
-      })}
+      description={intl.formatMessage(
+        {
+          defaultMessage:
+            '{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.',
+          description: 'Tooltip of recommended focus areas',
+          id: 'F9Zh+J',
+        },
+        {
+          number: areas.length,
+        },
+      )}
       focusAreas={areas}
       title={intl.formatMessage({
         defaultMessage: 'Recommended focus areas',

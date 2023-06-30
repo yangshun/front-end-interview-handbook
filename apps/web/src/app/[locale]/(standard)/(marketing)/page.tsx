@@ -40,9 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/',
     title: intl.formatMessage({
-      defaultMessage: 'The best way to prepare for Front End Interviews',
+      defaultMessage: 'The great way to prepare for Front End Interviews',
       description: 'Title of GreatFrontEnd standard page',
-      id: 'M7x/vv',
+      id: 'aYUexA',
     }),
   });
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiFileCopyLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
@@ -24,9 +25,8 @@ function EmailUsLink() {
         values={{
           link: (chunks) => (
             <Anchor
-              className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
-              href="mailto:contact@greatfrontend.com"
-              variant="unstyled">
+              className="mx-auto justify-center whitespace-nowrap font-medium"
+              href="mailto:contact@greatfrontend.com">
               {chunks}
             </Anchor>
           ),
@@ -102,12 +102,13 @@ function SeasonalDiscountCard() {
             <Button
               addonPosition="start"
               display="block"
+              icon={RiFileCopyLine}
               label={
                 isCopied
                   ? intl.formatMessage({
-                      defaultMessage: 'COPIED!',
+                      defaultMessage: 'Copied!',
                       description: 'Indication that text has been copied',
-                      id: 'AYjkR4',
+                      id: 'EHngws',
                     })
                   : seasonalSaleCode
               }
@@ -192,9 +193,8 @@ function StudentDiscountCard() {
               values={{
                 link: (chunks) => (
                   <Anchor
-                    className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
-                    href="/legal/student-discount"
-                    variant="unstyled">
+                    className="mx-auto justify-center whitespace-nowrap font-medium"
+                    href="/legal/student-discount">
                     {chunks}
                   </Anchor>
                 ),
@@ -256,9 +256,9 @@ function StudentDiscountCard() {
       }
       subtitle={
         <FormattedMessage
-          defaultMessage="{discountPercentage}% off GreatFrontEnd Annual plan. We were once students and you have our support in your learning journey!"
+          defaultMessage="{discountPercentage}% off GreatFrontEnd Annual plan."
           description="Subtitle of discount promotion card"
-          id="U4Yu1B"
+          id="k64L83"
           values={{
             discountPercentage: 40,
           }}
@@ -331,9 +331,8 @@ function ReviewCashbackCard() {
               values={{
                 link: (chunks) => (
                   <Anchor
-                    className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
-                    href="/legal/review-cashback"
-                    variant="unstyled">
+                    className="mx-auto justify-center whitespace-nowrap font-medium"
+                    href="/legal/review-cashback">
                     {chunks}
                   </Anchor>
                 ),
@@ -403,9 +402,9 @@ function ReviewCashbackCard() {
       }
       subtitle={
         <FormattedMessage
-          defaultMessage="Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. If GreatFrontEnd helped you get a job, you can share your success story too!"
+          defaultMessage="Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!"
           description="Subtitle of discount promotion card"
-          id="e6PFI+"
+          id="l/9/qK"
           values={{
             discountPercentage: 40,
           }}

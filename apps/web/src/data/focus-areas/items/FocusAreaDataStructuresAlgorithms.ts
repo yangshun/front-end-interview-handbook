@@ -24,14 +24,14 @@ export function getFocusAreaDataStructuresAlgorithms(
     ),
     href: '/focus-areas/data-structures-algorithms',
     longName: intl.formatMessage({
-      defaultMessage: 'Data structures & algorithms',
+      defaultMessage: 'Data Structures & Algorithms',
       description: 'Name of focus area questions',
-      id: 'lEECs5',
+      id: 'qZRTqi',
     }),
     name: intl.formatMessage({
-      defaultMessage: 'Data structures & algorithms',
+      defaultMessage: 'Data Structures & Algorithms',
       description: 'Name of focus area questions',
-      id: 'lEECs5',
+      id: 'qZRTqi',
     }),
     questions: {
       javascript: [

@@ -2,7 +2,6 @@ import { RiStarFill, RiStarLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
-import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 import { themeGradientPinkPurple } from '~/components/ui/theme';
 
 import type { PreparationPlan } from '../PreparationPlans';
@@ -19,7 +18,7 @@ export function getPreparationPlanThreeMonths(
         id: 'JrmA6j',
       },
       {
-        numberOfQuestions: QuestionCount,
+        numberOfQuestions: 140,
       },
     ),
     href: '/prepare/three-months',
