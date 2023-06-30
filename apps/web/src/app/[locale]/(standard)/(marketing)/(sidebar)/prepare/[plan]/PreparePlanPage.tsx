@@ -20,9 +20,11 @@ import type {
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
+import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import {
   categorizeQuestionListSessionProgress,
@@ -113,14 +115,36 @@ export default function PreparePlanPage({
       <Section>
         <Container className="pb-12">
           {canViewStudyPlans ? (
-            <QuestionsPlansList
-              codingQuestions={codingQuestions}
-              listKey={plan.type}
-              overallProgress={questionsOverallProgress}
-              quizQuestions={quizQuestions}
-              sessionProgress={questionsSessionProgress}
-              systemDesignQuestions={systemDesignQuestions}
-            />
+            <div className="flex flex-col gap-y-8">
+              {(questionsOverallProgress.javascript.size > 0 ||
+                questionsOverallProgress['user-interface'].size > 0) && (
+                <Alert
+                  title={intl.formatMessage({
+                    defaultMessage:
+                      'Changes to how study plan progress is calculated',
+                    description: 'Message about changes to study plans',
+                    id: 'kmShy2',
+                  })}
+                  variant="info">
+                  <Text color="secondary" display="block" size="body2">
+                    Study plan progress no longer reads from your overall
+                    question completion. This allows you to have study
+                    plan-specific progress by starting a question from this
+                    page. Your overall question progress is still present, and
+                    we are working on allowing you to easily import your
+                    previous progress into this plan.
+                  </Text>
+                </Alert>
+              )}
+              <QuestionsPlansList
+                codingQuestions={codingQuestions}
+                listKey={plan.type}
+                overallProgress={questionsOverallProgress}
+                quizQuestions={quizQuestions}
+                sessionProgress={questionsSessionProgress}
+                systemDesignQuestions={systemDesignQuestions}
+              />
+            </div>
           ) : (
             <div className="relative">
               <div className="border-lg pointer-events-none touch-none select-none">

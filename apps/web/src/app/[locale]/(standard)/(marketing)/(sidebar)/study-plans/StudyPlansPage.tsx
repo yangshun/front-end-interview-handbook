@@ -215,8 +215,8 @@ export default function StudyPlansPage({
             <Section>
               <CardContainer>
                 <div className="flex flex-col gap-y-4">
-                  <TestimonialCard {...testimonials.alan} />
                   <TestimonialCard {...testimonials.luke} />
+                  <TestimonialCard {...testimonials.alan} />
                 </div>
               </CardContainer>
             </Section>
