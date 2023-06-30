@@ -1194,6 +1194,31 @@
     "title": "Flight Booker"
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that returns an object composed from key-value pairs",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/from-pairs",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "from-pairs",
+    "title": "From Pairs"
+  },
+  {
     "author": "zhenghao",
     "companies": [],
     "created": 1656201600,
@@ -1556,6 +1581,90 @@
     ],
     "slug": "insertion-sort",
     "title": "Insertion Sort"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that computes the intersection of arrays, returning a new array containing unique values present in all given arrays.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/intersection",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "intersection-by",
+      "intersection-with"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "intersection",
+    "title": "Intersection"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that returns an array of unique values that are included in all given arrays based on a provided iteratee function.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/intersection-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "intersection",
+      "intersection-with"
+    ],
+    "slug": "intersection-by",
+    "title": "Intersection By"
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Computes the intersection of arrays using a custom comparator function to determine equality between elements.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/intersection-with",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "intersection",
+      "intersection-with"
+    ],
+    "slug": "intersection-with",
+    "title": "Intersection With"
   },
   {
     "author": null,

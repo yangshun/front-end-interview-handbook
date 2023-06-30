@@ -1,0 +1,47 @@
+---
+title: Intersection By
+excerpt: Implement a function that returns an array of unique values that are included in all given arrays based on a provided iteratee function.
+---
+
+The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It creates an array of unique values that are included in all given arrays based on the result of applying the iteratee function to each value.
+
+The iteratee function is invoked with one argument: `value`, where value is the current value being iterated.
+
+```js
+intersectionBy(iteratee, ...arrays);
+```
+
+## Arguments
+
+1. `iteratee` _(Function)_: The iteratee invoked per element.
+1. `arrays` _(Array)_: The arrays to inspect.
+
+## Returns
+
+_(Array)_: Returns the new array of intersecting values.
+
+## Example
+
+```js
+// Get the intersection based on the floor value of each number
+const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]); // => [2]
+
+// Get the intersection based on the lowercase value of each string
+const result2 = intersectionBy(
+  (str) => str.toLowerCase(),
+  ['apple', 'banana', 'orange'],
+  ['Apple', 'Banana', 'Orange'],
+);
+// => ['apple']
+```
+
+## Notes
+
+- In Lodash, `iteratee` is optional and is the last parameter, but in this question it is a required parameter for simplicity.
+- The order of elements in the resulting array is determined by the order in which they appear in the first array.
+- If no arrays are provided, the function will return an empty array.
+- If any of the arrays are empty, the function will return an empty array.
+
+## Resources
+
+- [Lodash `_.intersectionBy`](https://lodash.com/docs/#intersectionBy)

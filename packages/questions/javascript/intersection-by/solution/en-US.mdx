@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import intersectionBy from '../src/intersection-by';
+
+## Solution
+
+<MDXCodeBlock>{intersectionBy}</MDXCodeBlock>
+
+The solution first maps each array using the iteratee function to transform the values. Then, it filters the values from the first mapped array that are present in all the other mapped arrays. Finally, it maps the intersected values back to the original values from the first array.
+
+## Resources
+
+- [Lodash `_.intersectionBy`](https://lodash.com/docs/#intersectionBy)

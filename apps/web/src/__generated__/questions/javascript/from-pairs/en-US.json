@@ -1,0 +1,35 @@
+{
+  "description": "var Component=(()=>{var h=Object.create;var t=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var j=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),x=(r,e)=>{for(var a in e)t(r,a,{get:e[a],enumerable:!0})},o=(r,e,a,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of p(e))!f.call(r,c)&&c!==a&&t(r,c,{get:()=>e[c],enumerable:!(s=m(e,c))||s.enumerable});return r};var g=(r,e,a)=>(a=r!=null?h(u(r)):{},o(e||!r||!r.__esModule?t(a,\"default\",{value:r,enumerable:!0}):a,r)),b=r=>o(t({},\"__esModule\",{value:!0}),r);var l=j((A,i)=>{i.exports=_jsx_runtime});var k={};x(k,{default:()=>P,frontmatter:()=>_});var n=g(l()),_={title:\"From Pairs\",excerpt:\"Implement a function that returns an object composed from key-value pairs\"};function d(r){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ol:\"ol\",li:\"li\",em:\"em\",ul:\"ul\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Implement a function \",(0,n.jsx)(e.code,{children:\"fromPairs(pairs)\"}),\" that takes the key-value pairs and returns a new object.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`fromPairs(pairs);\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Arguments\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"pairs\"}),\" \",(0,n.jsx)(e.em,{children:\"(Array)\"}),\": An array of key-value pairs.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Returns\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.em,{children:\"(Object)\"}),\": Returns the object composed from the key-value pairs.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Example\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const pairs = [\n  ['a', 1],\n  ['b', 2],\n  ['c', 3],\n];\n\nfromPairs(pairs); // => { a: 1, b: 2, c: 3 }\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/#fromPairs\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.fromPairs\"})]})}),`\n`]})]})}function y(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(d,r)})):d(r)}var P=y;return b(k);})();\n;return Component;",
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that returns an object composed from key-value pairs",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/from-pairs",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "from-pairs",
+    "title": "From Pairs"
+  },
+  "skeleton": {
+    "js": "/**\n * Creates an object from an array of key-value pairs.\n *\n * @param {Array} pairs - An array of key-value pairs.\n * @returns {Object} - The object composed from the key-value pairs.\n */\nexport default function fromPairs(pairs) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function fromPairs<T>(\n  pairs: [string | number, T][],\n): Record<string | number, T> {\n  throw 'Not implemented!';\n}"
+  },
+  "solution": "var Component=(()=>{var f=Object.create;var a=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var y=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),_=(r,e)=>{for(var n in e)a(r,n,{get:e[n],enumerable:!0})},c=(r,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!x.call(r,t)&&t!==n&&a(r,t,{get:()=>e[t],enumerable:!(s=h(e,t))||s.enumerable});return r};var k=(r,e,n)=>(n=r!=null?f(j(r)):{},c(e||!r||!r.__esModule?a(n,\"default\",{value:r,enumerable:!0}):n,r)),b=r=>c(a({},\"__esModule\",{value:!0}),r);var l=y((P,i)=>{i.exports=_jsx_runtime});var g={};_(g,{default:()=>M});var o=k(l());var u=MDXCodeBlock;var d=`/**\n * Creates an object from an array of key-value pairs.\n *\n * @param {Array} pairs - An array of key-value pairs.\n * @returns {Object} - The object composed from the key-value pairs.\n */\nexport default function fromPairs(pairs) {\n  const result = {};\n\n  for (const [key, value] of pairs) {\n    result[key] = value;\n  }\n\n  return result;\n}\n`;function m(r){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\",code:\"code\"},r.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,o.jsx)(u,{children:d}),`\n`,(0,o.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:(0,o.jsxs)(e.a,{href:\"https://lodash.com/docs/#fromPairs\",children:[\"Lodash \",(0,o.jsx)(e.code,{children:\"_.fromPairs\"})]})}),`\n`]})]})}function C(r={}){let{wrapper:e}=r.components||{};return e?(0,o.jsx)(e,Object.assign({},r,{children:(0,o.jsx)(m,r)})):m(r)}var M=C;return b(g);})();\n;return Component;",
+  "tests": "import fromPairs from './from-pairs';\n\ndescribe('fromPairs', () => {\n  describe('when given an empty array', () => {\n    test('should return an empty object', () => {\n      expect(fromPairs([])).toEqual({});\n    });\n  });\n\n  describe('when given a single-element array', () => {\n    test('should return an object with the single key-value pair', () => {\n      expect(fromPairs([['a', 1]])).toEqual({ a: 1 });\n    });\n  });\n\n  describe('when given a two-element array', () => {\n    test('should return an object with the two key-value pairs', () => {\n      expect(\n        fromPairs([\n          ['a', 1],\n          ['b', 2],\n        ]),\n      ).toEqual({ a: 1, b: 2 });\n    });\n  });\n\n  describe('when given a multiple-element array', () => {\n    test('should return an object with all the key-value pairs', () => {\n      expect(\n        fromPairs([\n          ['a', 1],\n          ['b', 2],\n          ['c', 3],\n        ]),\n      ).toEqual({ a: 1, b: 2, c: 3 });\n    });\n  });\n\n  describe('when given an array as value', () => {\n    test('should return an object with the value to be an array', () => {\n      expect(\n        fromPairs([\n          ['a', ['b', 2]],\n          ['c', 3],\n          ['d', 4],\n        ]),\n      ).toEqual({ a: ['b', 2], c: 3, d: 4 });\n    });\n  });\n});"
+}

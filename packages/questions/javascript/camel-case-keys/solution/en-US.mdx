@@ -23,7 +23,7 @@ The solution can be broken down into two main parts:
 There are generally two ways we can explore an object:
 
 - Looping through the keys with the old school `for ... in` statement. This approach reveals inherited, enumerable properties, which is normally not what we want. Instead we should add an additional check with `hasOwnProperty` or `Object.hasOwn` to make sure the properties are not from the prototypal inheritance.
-- Converting the object into an array of keys with `Object.keys`, or an array of a key-value tuple with `Object.entries`. This approach works if we don't care about Symbol keys and non-enumerable keys. Often times this is indeed the case.
+- Converting the object into an array of keys with `Object.keys`, or an array of a key-value tuple with `Object.entries`. This approach works if we don't care about Symbol keys and non-enumerable keys. Often, this is indeed the case.
 
 Also note we need to traverse recursively if we find the value of the current property is also an object. And recursion comes with its own caveats and overhead we need to be aware of:
 
