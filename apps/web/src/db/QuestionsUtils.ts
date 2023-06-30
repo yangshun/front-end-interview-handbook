@@ -5,10 +5,6 @@ import type {
   QuestionSlug,
 } from '~/components/questions/common/QuestionsTypes';
 
-import type { QuestionProgressList } from './QuestionsProgressTypes';
-
-import type { QuestionListSessionProgress } from '@prisma/client';
-
 function createQuestionHref(
   format: QuestionFormat,
   slug: string,
@@ -159,4 +155,12 @@ export function filterQuestionsProgressByList(
 
 export function roundQuestionCountToNearestTen(count: number) {
   return Math.floor(count / 10) * 10;
+}
+
+export function countNumberOfQuestionsInList(
+  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>,
+): number {
+  return Object.values(questions)
+    .map((q) => q.length)
+    .reduce((prev, curr) => prev + curr, 0);
 }

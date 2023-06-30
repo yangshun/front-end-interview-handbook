@@ -28,6 +28,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder } from '~/components/ui/theme';
 
+import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
+
 import CompletionCountSummary from './CompletionCountSummary';
 
 function PreparationPlanCard({
@@ -42,16 +44,14 @@ function PreparationPlanCard({
   plan: PreparationPlan;
 }) {
   const intl = useIntl();
-  const questionCount = Object.values(questions)
-    .map((q) => q.length)
-    .reduce((prev, curr) => prev + curr, 0);
+  const questionCount = countNumberOfQuestionsInList(questions);
   const theme = getPreparationPlanTheme(type);
 
   return (
     <div
       className={clsx(
-        'group relative flex flex-1 items-center gap-6 rounded-lg py-5 px-8',
-        'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
+        'group relative flex flex-1 items-center gap-6 rounded-lg px-8 py-5',
+        'dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80 bg-white transition',
         themeGlassyBorder,
       )}>
       <div

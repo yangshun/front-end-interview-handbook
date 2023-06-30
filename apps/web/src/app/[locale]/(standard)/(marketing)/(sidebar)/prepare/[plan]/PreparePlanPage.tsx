@@ -27,6 +27,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import {
   categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
+  countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
@@ -71,9 +72,7 @@ export default function PreparePlanPage({
   );
 
   const planTheme = getPreparationPlanTheme(plan.type);
-  const questionCount = Object.values(plan.questions)
-    .map((q) => q.length)
-    .reduce((prev, curr) => prev + curr, 0);
+  const questionCount = countNumberOfQuestionsInList(plan.questions);
 
   const totalDuration = countQuestionsTotalDurationMins([
     ...codingQuestions,

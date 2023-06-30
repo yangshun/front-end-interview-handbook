@@ -22,6 +22,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import {
   categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
+  countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
@@ -61,9 +62,7 @@ export default function FocusAreaPage({
   );
 
   const focusAreaTheme = getFocusAreaTheme(focusArea.type);
-  const questionCount = Object.values(focusArea.questions)
-    .map((q) => q.length)
-    .reduce((prev, curr) => prev + curr, 0);
+  const questionCount = countNumberOfQuestionsInList(focusArea.questions);
 
   const totalDuration = countQuestionsTotalDurationMins([
     ...codingQuestions,
@@ -77,7 +76,7 @@ export default function FocusAreaPage({
         <div>
           <Button
             addonPosition="start"
-            className="-ml-5 -mb-2"
+            className="-mb-2 -ml-5"
             href="/prepare"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
