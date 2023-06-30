@@ -96,7 +96,7 @@ export default function MarketingFeaturesRow() {
         })}
       </Heading>
       <Section>
-        <div className="mx-auto grid max-w-md grid-cols-1 gap-x-8 gap-y-12 md:max-w-full lg:grid-cols-3">
+        <div className="mx-auto grid max-w-sm grid-cols-1 gap-x-8 gap-y-12 md:max-w-xl lg:max-w-full lg:grid-cols-3">
           {features.map(({ description, key, icon: Icon, title }) => (
             <div
               key={key}

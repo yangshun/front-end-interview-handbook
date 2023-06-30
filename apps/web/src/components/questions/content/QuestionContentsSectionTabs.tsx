@@ -26,16 +26,19 @@ function useSectionLabels(): Record<QuestionContentsSection, string> {
 }
 
 export type QuestionContentsSection = 'description' | 'solution' | 'tests';
+
 type Props = Readonly<{
   onSelectSection: (section: QuestionContentsSection) => void;
   sections?: ReadonlyArray<QuestionContentsSection>;
   selectedSection: QuestionContentsSection;
+  size?: 'sm' | 'xs';
 }>;
 
 export default function QuestionContentsSectionTabs({
   onSelectSection,
   selectedSection,
   sections: sectionsProp,
+  size = 'sm',
 }: Props) {
   const intl = useIntl();
   const sectionLabels = useSectionLabels();
@@ -53,7 +56,7 @@ export default function QuestionContentsSectionTabs({
         description: 'Label for tabs within coding workspace',
         id: 'jgldKV',
       })}
-      size="sm"
+      size={size}
       tabs={sections.map((section) => ({
         label: sectionLabels[section],
         value: section,

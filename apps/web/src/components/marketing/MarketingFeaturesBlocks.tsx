@@ -151,12 +151,7 @@ export default function MarketingFeaturesBlocks({
               </>,
               <>
                 Find questions across all important topics — HTML, CSS,
-                JavaScript, algorithms, DOM APIs, accessibility, performance,
-                front end fundamentals, and more
-              </>,
-              <>
-                Practice in any framework or language you want — and reference
-                official solutions in popular frameworks
+                JavaScript, DOM APIs, accessibility, performance, and more
               </>,
             ]}
             media={
@@ -173,14 +168,13 @@ export default function MarketingFeaturesBlocks({
             description={
               <>
                 Every question is accompanied by at least one official solution
-                to learn from, written by big tech ex-interviewers
-                considerations
+                to learn from, written by big tech ex-interviewers.
               </>
             }
             features={[
               <>
                 Learn how to answer with scalability, accessibility and
-                performance
+                performance considerations
               </>,
               <>
                 Reinforce your fundamentals, sharpen industry-approved

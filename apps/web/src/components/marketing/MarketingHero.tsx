@@ -26,7 +26,7 @@ function MarketingHeroAuthorIntroduction({
       <Text className="text-center" display="block" size="body2">
         {title}
       </Text>
-      <Text className="flex items-center justify-center space-x-6 lg:space-x-8">
+      <Text className="flex items-center justify-center gap-x-6 lg:gap-x-8">
         {icons}
       </Text>
     </div>
@@ -261,12 +261,15 @@ export default function MarketingHero() {
                     )}
                   />
                 </Anchor>
-                <Heading className="max-w-4xl text-center" level="heading1">
+                <Heading className="max-w-3xl text-center" level="heading1">
                   <FormattedMessage
-                    defaultMessage="The <underline>great</underline> way to prepare for front end interviews"
+                    defaultMessage="The <underline>great</underline> way to prepare for <span>front end</span> interviews"
                     description="Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
-                    id="M/e+G9"
+                    id="NMtINV"
                     values={{
+                      span: (chunks) => (
+                        <span className="whitespace-nowrap">{chunks}</span>
+                      ),
                       underline: (chunks) => (
                         <span className="relative">
                           {chunks}
@@ -289,7 +292,6 @@ export default function MarketingHero() {
                           id: 'da4RLj',
                         })}
                       />
-                      ,
                       <AmazonLogo
                         className="mt-1 h-6 text-white lg:mt-2 lg:h-7"
                         title={intl.formatMessage({
@@ -298,7 +300,6 @@ export default function MarketingHero() {
                           id: 'nai6YT',
                         })}
                       />
-                      ,
                       <MetaLogo
                         className="h-4 text-white lg:mb-2 lg:h-5"
                         title={intl.formatMessage({
@@ -349,16 +350,16 @@ export default function MarketingHero() {
               </div>
             </div>
             <Text
-              className="mx-auto max-w-md text-center text-base sm:text-lg md:max-w-3xl md:text-xl xl:text-xl"
+              className="mx-auto max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
               color="subtitle"
               display="block"
               size="custom">
               <FormattedMessage
-                defaultMessage="The only end-to-end front end interview preparation platform.{br}Brought to you by big tech senior / staff front end engineers."
+                defaultMessage="The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers."
                 description="Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
-                id="AJhYP1"
+                id="fhTYwQ"
                 values={{
-                  br: <br />,
+                  br: <br className="hidden md:inline" />,
                 }}
               />
             </Text>

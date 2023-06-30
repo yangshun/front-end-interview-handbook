@@ -90,6 +90,7 @@ export default function MarketingEmbedJavaScriptQuestion({
             <div className="mt-3 sm:mt-4">
               <QuestionContentsSectionTabs
                 selectedSection={selectedSection}
+                size="xs"
                 onSelectSection={setSelectedSection}
               />
             </div>

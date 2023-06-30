@@ -113,6 +113,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
               <QuestionContentsSectionTabs
                 sections={['description', 'solution']}
                 selectedSection={selectedSection}
+                size="xs"
                 onSelectSection={setSelectedSection}
               />
             </div>
