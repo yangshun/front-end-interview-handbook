@@ -144,7 +144,7 @@ export default function QuestionPreparationPageHeader() {
           )}>
           <div
             className={clsx(
-              'relative h-full w-36 overflow-hidden',
+              'relative h-full w-36 overflow-clip',
               'bg-neutral-200/70 dark:bg-neutral-900',
             )}>
             <div
