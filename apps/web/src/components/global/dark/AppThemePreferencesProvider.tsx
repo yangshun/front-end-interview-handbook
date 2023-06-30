@@ -12,7 +12,7 @@ type AppThemePreferencesContextType = {
   setAppThemePreference: (appThemePreference: AppThemePreference) => void;
 };
 
-const DEFAULT_APP_THEME_PREFERENCE: AppThemePreference = 'system';
+const DEFAULT_APP_THEME_PREFERENCE: AppThemePreference = 'dark';
 const DEFAULT_APP_THEME: AppTheme = 'dark';
 
 const AppThemePreferencesContext =
