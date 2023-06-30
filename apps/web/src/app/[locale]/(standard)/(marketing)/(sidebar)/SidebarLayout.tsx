@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { useSessionStorage } from 'usehooks-ts';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { basePath as bigBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
@@ -13,8 +14,10 @@ import { themeLineColor } from '~/components/ui/theme';
 import useI18nPathname from '~/next-i18nostic/src/client/useI18nPathname';
 
 export default function SidebarContainer() {
-  // TODO(redesign): Persist to session/local storage.
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useSessionStorage(
+    'gfe:sidebar-collapse',
+    false,
+  );
   const { pathname } = useI18nPathname();
 
   useEffect(() => {
