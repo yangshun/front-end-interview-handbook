@@ -105,7 +105,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   secondary: clsx(
-    'border-neutral-300 dark:border-neutral-800',
+    'border-neutral-300 dark:border-neutral-700',
     'text-neutral-600 dark:text-neutral-200',
     'bg-white dark:bg-neutral-950',
     'hover:bg-neutral-100 dark:hover:bg-neutral-900',
@@ -149,8 +149,8 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
     'disabled:bg-brand-lighter dark:disabled:bg-neutral-900',
   ),
   secondary: clsx(
-    'disabled:border-neutral-200 dark:disabled:border-neutral-800',
-    'disabled:text-neutral-400 dark:disabled:text-neutral-800',
+    'disabled:border-neutral-300 dark:disabled:border-neutral-700',
+    'disabled:text-neutral-300 dark:disabled:text-neutral-700',
     'disabled:bg-transparent',
   ),
   success: clsx(

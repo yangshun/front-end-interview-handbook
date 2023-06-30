@@ -17,12 +17,12 @@ type Props = Omit<ButtonProps, 'variant'> &
 
 const purposeClasses: Record<FilterButtonPurpose, string> = {
   button: clsx(
-    'border-neutral-300 dark:border-neutral-800',
+    'border-neutral-300 dark:border-neutral-700',
     'text-neutral-600 dark:text-neutral-200',
     'bg-white dark:bg-neutral-950',
     'hover:bg-neutral-100 dark:hover:bg-neutral-900',
     'active:bg-neutral-200 dark:active:bg-neutral-800',
-    'focus-visible:outline-neutral-500',
+    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   tab: clsx(
     themeTextSubtleColor,

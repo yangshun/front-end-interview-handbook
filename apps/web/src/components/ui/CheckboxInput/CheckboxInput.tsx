@@ -77,10 +77,10 @@ function CheckboxInput(
               'rounded',
               'text-brand-dark dark:text-brand',
               'bg-transparent',
-              'border-neutral-200 dark:border-neutral-800',
+              'border-neutral-300 dark:border-neutral-700',
               // Important! needed to override hover styles.
               [
-                'disabled:!bg-neutral-200 dark:disabled:!bg-neutral-800',
+                'disabled:!bg-neutral-300 dark:disabled:!bg-neutral-700',
                 'disabled:cursor-not-allowed',
               ],
               [

@@ -84,9 +84,9 @@ export default function DropdownMenu({
             'group inline-flex items-center justify-center',
             'rounded-full',
             'transition-colors',
-            'border border-neutral-200 dark:border-neutral-800',
+            'border border-neutral-300 dark:border-neutral-700',
             [
-              'dark:bg-neutral-950 bg-white',
+              'bg-white dark:bg-neutral-950',
               'hover:bg-neutral-100 dark:hover:bg-neutral-900',
             ],
             [
@@ -135,7 +135,7 @@ export default function DropdownMenu({
             'absolute z-10 mt-2 w-48',
             'rounded-md',
             themeBackgroundColor,
-            ['border', 'border-transparent dark:border-neutral-800'],
+            ['border', 'border-transparent dark:border-neutral-700'],
             'shadow-lg',
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>

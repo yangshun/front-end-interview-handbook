@@ -79,12 +79,12 @@ export default function Select<T>({
           'rounded-full',
           'transition-colors',
           [
-            'border border-neutral-200 dark:border-neutral-800',
-            'focus-visible:border-neutral-200 dark:focus-visible:border-neutral-800',
+            'border border-neutral-300 dark:border-neutral-700',
+            'focus-visible:border-neutral-300 dark:focus-visible:border-neutral-700',
           ],
           'text-neutral-700 dark:text-neutral-300',
           [
-            'dark:bg-neutral-950 bg-white',
+            'bg-white dark:bg-neutral-950',
             'hover:bg-neutral-100 dark:hover:bg-neutral-900',
           ],
           [

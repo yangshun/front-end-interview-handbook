@@ -4,7 +4,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
-import { themeBackgroundColor, themeLineColor } from '../theme';
+import { themeBackgroundColor } from '../theme';
 
 import { Popover as HeadlessPopover, Transition } from '@headlessui/react';
 
@@ -91,9 +91,9 @@ export default function Popover({
             'rounded-full',
             'transition-colors',
             'border',
-            themeLineColor,
+            'border border-neutral-300 dark:border-neutral-700',
             [
-              'dark:bg-neutral-950 bg-white',
+              'bg-white dark:bg-neutral-950',
               'hover:bg-neutral-100 dark:hover:bg-neutral-900',
             ],
             [
@@ -143,7 +143,7 @@ export default function Popover({
             'absolute z-20 mt-2',
             'rounded-md',
             themeBackgroundColor,
-            ['border', 'border-transparent dark:border-neutral-800'],
+            ['border', 'border-transparent dark:border-neutral-700'],
             'max-h-48',
             'overflow-y-auto',
             'shadow-lg',

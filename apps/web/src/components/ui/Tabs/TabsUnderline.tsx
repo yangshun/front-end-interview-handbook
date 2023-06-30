@@ -79,8 +79,7 @@ export default function TabsUnderline<T>({
       className={clsx(
         'overflow-x-auto overflow-y-hidden',
         displayClasses[display],
-        'border-b',
-        themeLineColor,
+        'border-b border-neutral-300 dark:border-neutral-700',
       )}
       role="tablist">
       <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>

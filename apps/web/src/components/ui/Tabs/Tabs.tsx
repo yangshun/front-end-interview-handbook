@@ -4,7 +4,6 @@ import Anchor from '~/components/ui/Anchor';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
-import { themeLineColor } from '../theme';
 
 export type TabItem<T> = Readonly<{
   href?: string;
@@ -78,7 +77,8 @@ export default function Tabs<T>({
 
   return (
     <div className="isolate w-full overflow-x-auto" role="tablist">
-      <div className={clsx('border-b', themeLineColor)}>
+      <div
+        className={clsx('border-b border-neutral-300 dark:border-neutral-700')}>
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>
           {tabs.map((tabItem) => {
             const {
@@ -116,14 +116,14 @@ export default function Tabs<T>({
                 isSelected
                   ? clsx(
                       'border',
-                      'border-t-neutral-200 border-x-neutral-200 border-b-white',
-                      'dark:border-t-neutral-800 dark:border-x-neutral-800 dark:border-b-neutral-900',
+                      'border-t-neutral-300 border-x-neutral-300 border-b-white',
+                      'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-950',
                     )
                   : clsx(
-                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',
+                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-700 dark:hover:bg-neutral-800/40',
                       'border',
-                      'border-t-neutral-100 border-x-neutral-100 hover:border-neutral-200',
-                      'dark:border-t-neutral-800 dark:border-x-neutral-800 dark:border-b-neutral-800 dark:hover:border-t-neutral-700 dark:hover:border-x-neutral-700',
+                      'border-t-transparent border-x-transparent border-b-neutral-300 hover:border-neutral-300',
+                      'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-700 dark:hover:border-t-neutral-700 dark:hover:border-x-neutral-700',
                     ),
                 tabItemSize,
               ),
