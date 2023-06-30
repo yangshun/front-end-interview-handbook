@@ -82,7 +82,7 @@ export default function QuestionPreparationPageHeader() {
         <div
           className={clsx(
             'group relative inline-flex shrink items-center justify-between gap-2 px-4 py-3',
-            'border border-neutral-200 dark:border-transparent',
+            'border border-neutral-300 dark:border-transparent',
             'rounded-lg',
             'transition-colors',
             themeCardBackgroundColor,

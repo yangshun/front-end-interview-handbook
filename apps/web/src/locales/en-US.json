@@ -223,10 +223,6 @@
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
   },
-  "30t9g2": {
-    "defaultMessage": "Welcome back",
-    "description": "Message greeting the user on preparation dashboard page"
-  },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
     "description": "Label for warm up questions"
@@ -611,10 +607,6 @@
     "defaultMessage": "Buy Now",
     "description": "Purchase button label"
   },
-  "AYjkR4": {
-    "defaultMessage": "COPIED!",
-    "description": "Indication that text has been copied"
-  },
   "AYkO94": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for quiz questions list"
@@ -799,6 +791,10 @@
     "defaultMessage": "Solving Common Questions",
     "description": "Title for solving common behavioral questions section"
   },
+  "EHngws": {
+    "defaultMessage": "Copied!",
+    "description": "Indication that text has been copied"
+  },
   "EJRNjL": {
     "defaultMessage": "1 Month",
     "description": "Short label for one month study plan"
@@ -834,6 +830,10 @@
   "F74ozi": {
     "defaultMessage": "Real-time support from the team and the growing community.",
     "description": "Lifetime membership feature of real-time support."
+  },
+  "F9Zh+J": {
+    "defaultMessage": "{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.",
+    "description": "Tooltip of recommended focus areas"
   },
   "FAArTO": {
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
@@ -1242,10 +1242,6 @@
   "M0TkWc": {
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
-  },
-  "M7x/vv": {
-    "defaultMessage": "The best way to prepare for Front End Interviews",
-    "description": "Title of GreatFrontEnd standard page"
   },
   "M9z02W": {
     "defaultMessage": "Airbnb",
@@ -1699,10 +1695,6 @@
     "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
     "description": "Prashanth Reddy's testimonial"
   },
-  "U4Yu1B": {
-    "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan. We were once students and you have our support in your learning journey!",
-    "description": "Subtitle of discount promotion card"
-  },
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
@@ -2047,6 +2039,10 @@
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
   },
+  "aYUexA": {
+    "defaultMessage": "The great way to prepare for Front End Interviews",
+    "description": "Title of GreatFrontEnd standard page"
+  },
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
@@ -2254,10 +2250,6 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
-  },
-  "e6PFI+": {
-    "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. If GreatFrontEnd helped you get a job, you can share your success story too!",
-    "description": "Subtitle of discount promotion card"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
@@ -2651,6 +2643,10 @@
     "defaultMessage": "{currencySymbol}{price} billed every 3 months.",
     "description": "Description of billing frequency for quarterly plan"
   },
+  "kmShy2": {
+    "defaultMessage": "Changes to how study plan progress is calculated",
+    "description": "Message about changes to study plans"
+  },
   "kn+R8V": {
     "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
     "description": "Description of Contact Us page"
@@ -2679,6 +2675,10 @@
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle location"
   },
+  "l/9/qK": {
+    "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!",
+    "description": "Subtitle of discount promotion card"
+  },
   "l1ZqoW": {
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
@@ -2694,10 +2694,6 @@
   "lDlJyX": {
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
-  },
-  "lEECs5": {
-    "defaultMessage": "Data structures & algorithms",
-    "description": "Name of focus area questions"
   },
   "lGUj4P": {
     "defaultMessage": "View study plans",
@@ -2955,10 +2951,6 @@
     "defaultMessage": "JavaScript Utilities",
     "description": "Front end JavaScript utility functions"
   },
-  "piTmtt": {
-    "defaultMessage": "Dive into the important focus areas necessary to ace your front end interviews",
-    "description": "Tooltip of recommended focus areas"
-  },
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
@@ -3006,6 +2998,10 @@
   "qR472c": {
     "defaultMessage": "Study guides",
     "description": "Study guides list section title in preparation dashboard"
+  },
+  "qZRTqi": {
+    "defaultMessage": "Data Structures & Algorithms",
+    "description": "Name of focus area questions"
   },
   "qarlYe": {
     "defaultMessage": "First time preparing for front end interviews?",
@@ -3314,6 +3310,10 @@
   "w0h58l": {
     "defaultMessage": "Efficiently prepare for behavioral interviews for front end / web developers / software engineers, with guides about evaluation criteria at big tech, preparation strategies, and common behavioral interview questions.",
     "description": "Description of Behavioral Interview Preparation page"
+  },
+  "w1Jqfl": {
+    "defaultMessage": "Welcome back!",
+    "description": "Message greeting the user on preparation dashboard page"
   },
   "w1iJ0L": {
     "defaultMessage": "Lifetime Membership",

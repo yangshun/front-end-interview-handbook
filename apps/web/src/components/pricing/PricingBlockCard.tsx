@@ -54,11 +54,7 @@ export default function PricingBlockCard({
             {title}
           </Heading>
           <Section>
-            <Text
-              className="text-base lg:text-xl"
-              color="secondary"
-              display="block"
-              size="custom">
+            <Text color="secondary" display="block">
               {subtitle}
             </Text>
           </Section>

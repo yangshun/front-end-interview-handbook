@@ -128,7 +128,7 @@ export default function SupabaseAuthSocial({
                     authProviderLabel: label,
                   },
                 )}
-                size="md"
+                size="lg"
                 variant="secondary"
                 onClick={() => {
                   logEvent('auth.sign_in', {
