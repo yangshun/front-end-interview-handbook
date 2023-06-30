@@ -1,6 +1,6 @@
 import { RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { useSessionStorage } from 'usehooks-ts';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { usePreparationAreas } from '~/data/PreparationAreas';
 
@@ -9,12 +9,16 @@ import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Text from '~/components/ui/Text';
 
+import { useI18nPathname } from '~/next-i18nostic/src';
+
 import { QuestionCount } from '../stats/QuestionCount';
 
 export default function QuestionsPreparationOnboarding() {
   const intl = useIntl();
   const areas = usePreparationAreas();
-  const [shouldHide, setShouldHide] = useSessionStorage(
+  const { pathname } = useI18nPathname();
+
+  const [shouldHide, setShouldHide] = useLocalStorage(
     'gfe:dashboard-onboarding',
     false,
   );
@@ -46,7 +50,7 @@ export default function QuestionsPreparationOnboarding() {
     },
   ];
 
-  if (shouldHide) {
+  if (shouldHide || pathname !== '/prepare') {
     return null;
   }
 
@@ -83,7 +87,7 @@ export default function QuestionsPreparationOnboarding() {
           {areas_.map(({ icon: Icon, label, description, value }) => (
             <div
               key={value}
-              className="flex flex-col gap-2 rounded-lg bg-neutral-200/40 py-5 px-6 dark:bg-neutral-800/40">
+              className="dark:bg-neutral-800/40 flex flex-col gap-2 rounded-lg bg-neutral-200/40 px-6 py-5">
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
                 <Text display="block" weight="bold">
