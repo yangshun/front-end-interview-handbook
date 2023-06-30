@@ -44,9 +44,9 @@ export default function QuestionFrameworks({ frameworks }: Props) {
     <div className="flex items-center">
       <span className="sr-only" id={id}>
         <FormattedMessage
-          defaultMessage="Available Frameworks"
+          defaultMessage="Available frameworks"
           description="Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
-          id="aqK/Gm"
+          id="bNW00Y"
         />
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-2">

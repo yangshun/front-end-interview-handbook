@@ -24,10 +24,10 @@ export default function QuestionStudyAllocationLabel({
   const id = useId();
   const intl = useIntl();
   const label = intl.formatMessage({
-    defaultMessage: 'Recommended duration',
+    defaultMessage: 'Recommended schedule',
     description:
-      'Recommended duration tooltip displayed on question cards found on question lists',
-    id: 'n8q6oB',
+      'Recommended schedule tooltip displayed on question cards found on question lists',
+    id: '0QZnRv',
   });
 
   return (

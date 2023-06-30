@@ -123,6 +123,10 @@
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
   },
+  "0QZnRv": {
+    "defaultMessage": "Recommended schedule",
+    "description": "Recommended schedule tooltip displayed on question cards found on question lists"
+  },
   "0RaY4p": {
     "defaultMessage": "What does buying GreatFrontEnd get me?",
     "description": "Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
@@ -567,6 +571,10 @@
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed by the user"
   },
+  "97HVxk": {
+    "defaultMessage": "Key features",
+    "description": "Key features of the product"
+  },
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
@@ -598,10 +606,6 @@
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
-  },
-  "AJhYP1": {
-    "defaultMessage": "The only end-to-end front end interview preparation platform.{br}Brought to you by big tech senior / staff front end engineers.",
-    "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
   "ATwxZX": {
     "defaultMessage": "Buy Now",
@@ -650,10 +654,6 @@
   "BhmpD2": {
     "defaultMessage": "A structured way to approach system design questions",
     "description": "Sidebar link for front end system design interview"
-  },
-  "BtCbN4": {
-    "defaultMessage": "Recommended Duration",
-    "description": "Recommended duration tooltip displayed on question cards found on question lists"
   },
   "BwHkBU": {
     "defaultMessage": "Profile",
@@ -706,10 +706,6 @@
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
-  },
-  "CZYeMZ": {
-    "defaultMessage": "These focus areas are relevant to interviews",
-    "description": "Tooltip of recommended focus areas"
   },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
@@ -1243,10 +1239,6 @@
     "defaultMessage": "{questionCount}+ questions",
     "description": "Number of questions in the list"
   },
-  "M/e+G9": {
-    "defaultMessage": "The <underline>great</underline> way to prepare for front end interviews",
-    "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
-  },
   "M0TkWc": {
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
@@ -1326,6 +1318,10 @@
   "NMKLAX": {
     "defaultMessage": "Console",
     "description": "Label for Console tab on the coding workspace"
+  },
+  "NMtINV": {
+    "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
+    "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
@@ -1578,10 +1574,6 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
-  },
-  "RWMcHN": {
-    "defaultMessage": "Quiz Topics",
-    "description": "Screenreader text indicating component for quiz question topics"
   },
   "Rdi/Kx": {
     "defaultMessage": "Annual",
@@ -2079,10 +2071,6 @@
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
   },
-  "aqK/Gm": {
-    "defaultMessage": "Available Frameworks",
-    "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
-  },
   "au4m82": {
     "defaultMessage": "JavaScript",
     "description": "JavaScript questions category long title"
@@ -2102,6 +2090,10 @@
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
+  },
+  "bNW00Y": {
+    "defaultMessage": "Available frameworks",
+    "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
   },
   "bO2ju9": {
     "defaultMessage": "Failed to mark question as incomplete. Please try again",
@@ -2358,6 +2350,10 @@
   "fevxJB": {
     "defaultMessage": "PREMIUM",
     "description": "Premium badge on profile page"
+  },
+  "fhTYwQ": {
+    "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",
+    "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
   "fmAcHR": {
     "defaultMessage": "Practice everything in popular frameworks",
@@ -2959,6 +2955,10 @@
     "defaultMessage": "JavaScript Utilities",
     "description": "Front end JavaScript utility functions"
   },
+  "piTmtt": {
+    "defaultMessage": "Dive into the important focus areas necessary to ace your front end interviews",
+    "description": "Tooltip of recommended focus areas"
+  },
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
@@ -3302,6 +3302,10 @@
   "vx/nPL": {
     "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
+  },
+  "vzcdoW": {
+    "defaultMessage": "Quiz topics",
+    "description": "Screenreader text indicating component for quiz question topics"
   },
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",

@@ -23,9 +23,9 @@ export default function QuestionQuizTopics({
     <div className="flex items-center gap-x-1.5">
       <span className="sr-only" id={id}>
         <FormattedMessage
-          defaultMessage="Quiz Topics"
+          defaultMessage="Quiz topics"
           description="Screenreader text indicating component for quiz question topics"
-          id="RWMcHN"
+          id="vzcdoW"
         />
       </span>
       {showIcon && (
