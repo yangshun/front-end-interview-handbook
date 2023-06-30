@@ -3,5 +3,5 @@
  * @param {...*} boundArgs
  */
 Function.prototype.myBind = function (thisArg, ...boundArgs) {
-    throw 'Not implemented!';
+  throw 'Not implemented!';
 };
