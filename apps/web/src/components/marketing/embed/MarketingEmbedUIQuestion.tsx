@@ -159,7 +159,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
             />
           </div>
         </div>
-        <div className="flex grow sm:h-full lg:col-span-3">
+        <div className="flex grow overflow-y-auto sm:h-full lg:col-span-3">
           <SandpackProvider
             customSetup={{
               dependencies: setup?.dependencies,
@@ -191,7 +191,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                 wrapContent={false}
               />
               <SandpackPreview
-                className="dark:[&>.sp-preview-container]:invert dark:[&>.sp-preview-container]:hue-rotate-180"
+                className="dark:[&>.sp-preview-container]:hue-rotate-180 dark:[&>.sp-preview-container]:invert"
                 showNavigator={true}
                 showOpenInCodeSandbox={false}
                 style={{
