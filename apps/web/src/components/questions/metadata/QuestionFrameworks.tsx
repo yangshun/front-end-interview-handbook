@@ -75,7 +75,7 @@ export default function QuestionFrameworks({ frameworks }: Props) {
                 onClick={(event) => {
                   event.stopPropagation();
                 }}>
-                <Icon className="h-6 w-6" style={iconStyle} />
+                <Icon className="h-5 w-5" style={iconStyle} />
               </Anchor>
             </Tooltip>
           );
