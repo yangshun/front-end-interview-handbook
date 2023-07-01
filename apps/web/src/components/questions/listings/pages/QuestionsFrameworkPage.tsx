@@ -63,6 +63,7 @@ export default function QuestionsFrameworkPage({
         <QuestionsCodingListWithFiltersAndProgress
           framework={framework}
           mode="framework"
+          namespace={`${framework}-quiz`}
           questionCompletionCount={questionCompletionCount}
           questions={questionList}
         />

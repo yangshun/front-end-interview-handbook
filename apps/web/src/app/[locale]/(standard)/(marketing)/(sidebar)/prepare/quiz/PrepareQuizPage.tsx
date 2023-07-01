@@ -37,6 +37,7 @@ export default function PrepareQuizPage({
       })}>
       <QuestionsQuizListWithFiltersAndProgress
         layout="embedded"
+        namespace="prepare-quiz"
         questionCompletionCount={questionCompletionCount}
         questions={questions}
       />

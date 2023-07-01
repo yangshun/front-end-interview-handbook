@@ -38,6 +38,7 @@ export type Props = Readonly<{
   layout?: 'embedded' | 'full';
   listKey?: string;
   mode?: 'default' | 'topic';
+  namespace: string;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionQuizMetadataWithCompletedStatus>;
 }>;
@@ -47,6 +48,7 @@ export default function QuestionsQuizListWithFilters({
   listKey,
   layout = 'full',
   mode = 'default',
+  namespace,
   questions,
   questionCompletionCount,
 }: Props) {
@@ -56,10 +58,10 @@ export default function QuestionsQuizListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
   const [quizTopicFilters, quizTopicFilterOptions] = useQuestionQuizTopicFilter(
-    { namespace: 'quiz' },
+    { namespace },
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ namespace: 'quiz' });
+    useQuestionCompletionStatusFilter({ namespace });
 
   function makeDropdownItemProps(
     label: string,

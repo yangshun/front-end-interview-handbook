@@ -29,7 +29,10 @@ export default function PrepareSystemDesignPage({
         description: 'Prepare for front end interview quiz questions',
         id: 'w5fdO4',
       })}>
-      <QuestionsSystemDesignListWithFilters layout="embedded" />
+      <QuestionsSystemDesignListWithFilters
+        layout="embedded"
+        namespace="prepare-system-design"
+      />
     </PreparePageLayout>
   );
 }

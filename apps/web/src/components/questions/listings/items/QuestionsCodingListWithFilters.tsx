@@ -62,6 +62,7 @@ export type Props = Readonly<{
   layout?: 'embedded' | 'full';
   listKey?: string;
   mode?: 'default' | 'framework';
+  namespace: string;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   sideColumnAddOn?: ReactNode;
@@ -74,6 +75,7 @@ export default function QuestionsCodingListWithFilters({
   layout = 'full',
   listKey,
   mode = 'default',
+  namespace,
   questions,
   questionCompletionCount,
   codingFormatFiltersFilterPredicate,
@@ -87,29 +89,29 @@ export default function QuestionsCodingListWithFilters({
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
     useQuestionDifficultyFilter({
-      namespace: 'coding',
+      namespace,
     });
 
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    namespace: 'coding',
+    namespace,
   });
   const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    namespace: 'coding',
+    namespace,
   });
   const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
     {
-      namespace: 'coding',
+      namespace,
     },
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({
-      namespace: 'coding',
+      namespace,
     });
   const [codingFormatFilters, codingFormatFilterOptions] =
     useQuestionCodingFormatFilter({
       filter: codingFormatFiltersFilterPredicate,
       initialValue: initialCodingFormat == null ? [] : [initialCodingFormat],
-      namespace: 'coding',
+      namespace,
       order: codingFormatFiltersOrderComparator,
     });
 

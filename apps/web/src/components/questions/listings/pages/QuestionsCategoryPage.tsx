@@ -115,6 +115,7 @@ function QuestionsList({
       {format === 'quiz' && (
         <QuestionsQuizListWithFiltersAndProgress
           mode="topic"
+          namespace={`${category}-quiz`}
           questionCompletionCount={questionCompletionCount}
           questions={quizQuestions}
         />
@@ -128,6 +129,7 @@ function QuestionsList({
             CategoryFilters[category].orderComparator
           }
           initialCodingFormat={codingFormat}
+          namespace={`${category}-coding`}
           questionCompletionCount={questionCompletionCount}
           questions={codingQuestions}
         />

@@ -37,6 +37,7 @@ export default function PrepareCodingQuestionsPage({
       })}>
       <QuestionsCodingListWithFiltersAndProgress
         layout="embedded"
+        namespace="prepare-coding"
         questionCompletionCount={questionCompletionCount}
         questions={questions}
       />

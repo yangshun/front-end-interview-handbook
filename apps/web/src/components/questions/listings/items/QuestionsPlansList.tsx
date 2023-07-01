@@ -87,6 +87,7 @@ export default function QuestionsPlansList({
               overallProgress[question.format].has(question.slug)
             }
             listKey={listKey}
+            namespace={`${listKey}-quiz`}
             questions={quizQuestionsWithProgress}
           />
         )}
@@ -106,6 +107,7 @@ export default function QuestionsPlansList({
                   overallProgress[question.format].has(question.slug)
                 }
                 listKey={listKey}
+                namespace={`${listKey}-coding`}
                 questions={sortedQuestions}
               />
             );

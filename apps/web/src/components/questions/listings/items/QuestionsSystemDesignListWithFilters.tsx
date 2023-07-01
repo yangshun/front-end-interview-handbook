@@ -32,9 +32,11 @@ import { allSystemDesignQuestions } from '../../content/system-design/SystemDesi
 
 type Props = Readonly<{
   layout?: 'embedded' | 'full';
+  namespace: string;
 }>;
 
 export default function QuestionsSystemDesignListWithFilters({
+  namespace,
   layout = 'full',
 }: Props) {
   const intl = useIntl();
@@ -44,12 +46,12 @@ export default function QuestionsSystemDesignListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ namespace: 'system-design' });
+    useQuestionDifficultyFilter({ namespace });
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    namespace: 'system-design',
+    namespace,
   });
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ namespace: 'system-design' });
+    useQuestionCompletionStatusFilter({ namespace });
 
   function makeDropdownItemProps(
     label: string,
