@@ -10,6 +10,7 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
+import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
 import MarketingPricingSection from '~/components/marketing/MarketingPricingSection';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
@@ -62,6 +63,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
       <MarketingPricingSection countryCode={countryCode} plans={plans} />
       <Section>
         <MarketingFeatures />
+        <MarketingFAQ />
         <MarketingTestimonialsSection />
       </Section>
     </div>

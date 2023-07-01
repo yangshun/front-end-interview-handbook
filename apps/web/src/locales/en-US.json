@@ -851,6 +851,10 @@
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
   },
+  "FRg+qa": {
+    "defaultMessage": "General",
+    "description": "Title for FAQ section"
+  },
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"

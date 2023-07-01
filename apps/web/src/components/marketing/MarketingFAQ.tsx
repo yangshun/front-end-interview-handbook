@@ -1,138 +1,34 @@
-import clsx from 'clsx';
-import { RiArrowDownSLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
+
+import type { FAQItems } from '~/data/faqs/FAQs';
+import {
+  buying,
+  freeUpdates,
+  lifetimeAccess,
+  questions,
+  seniority,
+  worthIt,
+} from '~/data/faqs/GeneralFAQs';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import FAQSection from './faqs/FAQSection';
 import MarketingSectionHeader from './MarketingSectionHeader';
-import Text from '../ui/Text';
-import { themeDivideColor, themeTextSubtitleColor } from '../ui/theme';
 
-import { Disclosure } from '@headlessui/react';
-
-const faqs = [
-  {
-    answer: (
-      <FormattedMessage
-        defaultMessage="For a limited time, we are offering lifetime access at a discount, which will provide you immediate access to our huge question bank, guides, and study plans. All future updates to our interview preparation platform will also be completely free for you."
-        description="Answer to 'What does buying GreatFrontEnd get me' on Homepage's FAQ sections"
-        id="GYwmPt"
-      />
-    ),
-    key: 'buying',
-    question: (
-      <FormattedMessage
-        defaultMessage="What does buying GreatFrontEnd get me?"
-        description="Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
-        id="0RaY4p"
-      />
-    ),
-  },
-  {
-    answer: (
-      <FormattedMessage
-        defaultMessage="There are currently quiz questions, JavaScript coding questions, User Interface coding questions and System Design content."
-        description="Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
-        id="+ywzSI"
-      />
-    ),
-    key: 'questions',
-    question: (
-      <FormattedMessage
-        defaultMessage="What types of questions do you have on your platform?"
-        description="Question on Homepage's FAQ section - on the types of practice questions available on the platform"
-        id="1FbA4H"
-      />
-    ),
-  },
-  {
-    answer: (
-      <>
-        <FormattedMessage
-          defaultMessage="Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation."
-          description="Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-          id="YMfxks"
-        />
-        <br />
-        <br />
-        <FormattedMessage
-          defaultMessage="Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers."
-          description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-          id="IuWsYS"
-        />
-        {/* TODO: We
-            are also the only one carrying front end system design questions (with
-            answers). */}
-      </>
-    ),
-    key: 'worth-it',
-    question: (
-      <FormattedMessage
-        defaultMessage="Is it really worth it to buy GreatFrontEnd?"
-        description="Question on Homepage's FAQ section - on the worthiness of purchasing the product"
-        id="SAFY5p"
-      />
-    ),
-  },
-  {
-    answer: (
-      <FormattedMessage
-        defaultMessage="There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts."
-        description="Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
-        id="TQLJ/G"
-      />
-    ),
-    key: 'seniority',
-    question: (
-      <FormattedMessage
-        defaultMessage="Is GreatFrontEnd targeted at engineers of specific seniority?"
-        description="Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
-        id="jzVpyI"
-      />
-    ),
-  },
-  {
-    answer: (
-      <FormattedMessage
-        defaultMessage="It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts."
-        description="Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
-        id="IUYG0x"
-        values={{
-          strong: (chunks) => <strong className="font-medium">{chunks}</strong>,
-        }}
-      />
-    ),
-    key: 'lifetime-access',
-    question: (
-      <FormattedMessage
-        defaultMessage='What does "lifetime access" mean?'
-        description="Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
-        id="2YMuJe"
-      />
-    ),
-  },
-  {
-    answer: (
-      <FormattedMessage
-        defaultMessage="You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them."
-        description="Answer to 'What does free updates include?' on Homepage's FAQ sections"
-        id="nOvXhk"
-      />
-    ),
-    key: 'free-updates',
-    question: (
-      <FormattedMessage
-        defaultMessage='What does "free updates" include?'
-        description="Question on Homepage's FAQ section - on the scope of complimentary updates to the GreatFrontEnd interview platform"
-        id="OcBA+t"
-      />
-    ),
-  },
+const generalFaqs: FAQItems = [
+  buying,
+  questions,
+  worthIt,
+  seniority,
+  lifetimeAccess,
+  freeUpdates,
 ];
 
 export default function FrequentlyAskedQuestions() {
+  const intl = useIntl();
+
   return (
     <Container className="relative flex flex-col gap-y-12 py-32">
       <MarketingSectionHeader
@@ -162,56 +58,16 @@ export default function FrequentlyAskedQuestions() {
         }
       />
       <Section>
-        <div>
-          <dl className={clsx(['divide-y', themeDivideColor])}>
-            {faqs.map((faq) => (
-              <Disclosure key={faq.key} as="div" className="py-4 md:py-8">
-                {({ open }) => (
-                  <>
-                    <dt className="text-base sm:text-lg md:text-xl">
-                      <Disclosure.Button
-                        className={clsx(
-                          'flex w-full items-start justify-between text-left',
-                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                          'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
-                        )}>
-                        <Text
-                          className="text-base sm:text-lg md:text-xl"
-                          color="subtitle"
-                          display="block"
-                          size="custom"
-                          weight="medium">
-                          {faq.question}
-                        </Text>
-                        <span
-                          className={clsx(
-                            'ml-6 flex h-7 items-center',
-                            themeTextSubtitleColor,
-                          )}>
-                          <RiArrowDownSLine
-                            aria-hidden="true"
-                            className={clsx(
-                              open ? '-rotate-180' : 'rotate-0',
-                              'h-6 w-6 transform',
-                            )}
-                          />
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-4 pr-12 md:mt-8">
-                      <Text
-                        className="text-sm sm:text-base md:text-lg xl:text-xl"
-                        color="secondary"
-                        display="block"
-                        size="custom">
-                        {faq.answer}
-                      </Text>
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
+        <div className="flex flex-col gap-y-6">
+          <FAQSection
+            faqs={generalFaqs}
+            hideTitle={true}
+            title={intl.formatMessage({
+              defaultMessage: 'General',
+              description: 'Title for FAQ section',
+              id: 'FRg+qa',
+            })}
+          />
         </div>
       </Section>
     </Container>
