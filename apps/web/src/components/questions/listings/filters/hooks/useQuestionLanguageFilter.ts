@@ -2,10 +2,7 @@ import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
-import type {
-  QuestionLanguage,
-  QuestionUserFacingFormat,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionLanguage } from '~/components/questions/common/QuestionsTypes';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
@@ -19,16 +16,16 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{
 ];
 
 type Props = Readonly<{
-  userFacingFormat: QuestionUserFacingFormat;
+  namespace: string;
 }>;
 
 export default function useQuestionLanguageFilter({
-  userFacingFormat,
+  namespace,
 }: Props): [Set<QuestionLanguage>, QuestionFilter<QuestionLanguage>] {
   const intl = useIntl();
   const [languageFilters, setLanguageFilters] =
     useSessionStorageForSets<QuestionLanguage>(
-      `gfe:${userFacingFormat}:language-filter`,
+      `gfe:${namespace}:language-filter`,
       new Set(),
     );
 

@@ -56,10 +56,10 @@ export default function QuestionsQuizListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
   const [quizTopicFilters, quizTopicFilterOptions] = useQuestionQuizTopicFilter(
-    { userFacingFormat: 'quiz' },
+    { namespace: 'quiz' },
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ userFacingFormat: 'quiz' });
+    useQuestionCompletionStatusFilter({ namespace: 'quiz' });
 
   function makeDropdownItemProps(
     label: string,

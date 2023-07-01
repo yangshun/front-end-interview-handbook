@@ -5,7 +5,6 @@ import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 import type {
   QuestionQuizMetadata,
   QuestionQuizTopic,
-  QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionQuizTopicLabels from '~/components/questions/content/quiz/useQuestionQuizTopicLabels';
 
@@ -25,11 +24,11 @@ const topicRanks: Record<QuestionQuizTopic, number> = {
 };
 
 type Props = Readonly<{
-  userFacingFormat: QuestionUserFacingFormat;
+  namespace: string;
 }>;
 
 export default function useQuestionQuizTopicFilter({
-  userFacingFormat,
+  namespace,
 }: Props): [
   Set<QuestionQuizTopic>,
   QuestionFilter<QuestionQuizTopic, QuestionQuizMetadata>,
@@ -38,7 +37,7 @@ export default function useQuestionQuizTopicFilter({
   const topicLabels = useQuestionQuizTopicLabels();
   const [topicFilters, setTopicFilters] =
     useSessionStorageForSets<QuestionQuizTopic>(
-      `gfe:${userFacingFormat}:topic-filter`,
+      `gfe:${namespace}:topic-filter`,
       new Set(),
     );
   const topicFilterOptions: QuestionFilter<

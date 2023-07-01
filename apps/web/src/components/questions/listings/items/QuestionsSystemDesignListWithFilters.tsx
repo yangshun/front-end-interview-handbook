@@ -44,12 +44,12 @@ export default function QuestionsSystemDesignListWithFilters({
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ userFacingFormat: 'system-design' });
+    useQuestionDifficultyFilter({ namespace: 'system-design' });
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    userFacingFormat: 'system-design',
+    namespace: 'system-design',
   });
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ userFacingFormat: 'system-design' });
+    useQuestionCompletionStatusFilter({ namespace: 'system-design' });
 
   function makeDropdownItemProps(
     label: string,

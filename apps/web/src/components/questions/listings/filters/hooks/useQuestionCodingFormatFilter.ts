@@ -6,28 +6,25 @@ import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 import { DSAQuestions } from '../../../common/QuestionsCodingDataStructuresAlgorithms';
-import type {
-  QuestionCodingFormat,
-  QuestionUserFacingFormat,
-} from '../../../common/QuestionsTypes';
+import type { QuestionCodingFormat } from '../../../common/QuestionsTypes';
 
 type Props = Readonly<{
   filter?: (format: QuestionCodingFormat) => boolean;
   initialValue?: ReadonlyArray<QuestionCodingFormat>;
+  namespace: string;
   order?: (a: QuestionCodingFormat, b: QuestionCodingFormat) => number;
-  userFacingFormat: QuestionUserFacingFormat;
 }>;
 
 export default function useQuestionCodingFormatFilter({
   initialValue = [],
   filter,
-  userFacingFormat,
+  namespace,
   order,
 }: Props): [Set<QuestionCodingFormat>, QuestionFilter<QuestionCodingFormat>] {
   const intl = useIntl();
   const [codingFormatFilters, setCodingFormatFilters] =
     useSessionStorageForSets<QuestionCodingFormat>(
-      `gfe:${userFacingFormat}:coding-format-filter`,
+      `gfe:${namespace}:coding-format-filter`,
       new Set(initialValue),
     );
   let options: ReadonlyArray<{

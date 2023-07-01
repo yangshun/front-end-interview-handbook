@@ -102,21 +102,21 @@ function Contents() {
   const { searchPlaceholder } = questionFormatLists.coding;
 
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ userFacingFormat: 'coding' });
+    useQuestionDifficultyFilter({ namespace: 'coding' });
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    userFacingFormat: 'coding',
+    namespace: 'coding',
   });
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({
-      userFacingFormat: 'coding',
+      namespace: 'coding',
     });
   const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    userFacingFormat: 'coding',
+    namespace: 'coding',
   });
   const [codingFormatFilters, codingFormatFilterOptions] =
-    useQuestionCodingFormatFilter({ userFacingFormat: 'coding' });
+    useQuestionCodingFormatFilter({ namespace: 'coding' });
   const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
-    { userFacingFormat: 'coding' },
+    { namespace: 'coding' },
   );
 
   const filters: ReadonlyArray<

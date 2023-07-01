@@ -2,19 +2,16 @@ import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
-import type {
-  QuestionDifficulty,
-  QuestionUserFacingFormat,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
 type Props = Readonly<{
-  userFacingFormat: QuestionUserFacingFormat;
+  namespace: string;
 }>;
 
 export default function useQuestionDifficultyFilter({
-  userFacingFormat,
+  namespace,
 }: Props): [Set<QuestionDifficulty>, QuestionFilter<QuestionDifficulty>] {
   const intl = useIntl();
   const DIFFICULTY_OPTIONS: ReadonlyArray<{
@@ -48,7 +45,7 @@ export default function useQuestionDifficultyFilter({
   ];
   const [difficultyFilters, setDifficultyFilters] =
     useSessionStorageForSets<QuestionDifficulty>(
-      `gfe:${userFacingFormat}:difficulty-filter`,
+      `gfe:${namespace}:difficulty-filter`,
       new Set(),
     );
   const difficultyFilterOptions: QuestionFilter<QuestionDifficulty> = {

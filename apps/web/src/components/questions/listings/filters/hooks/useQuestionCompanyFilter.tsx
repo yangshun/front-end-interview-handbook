@@ -5,10 +5,7 @@ import useCompanyNames from '~/hooks/useCompanyNames';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import type {
-  QuestionCompany,
-  QuestionUserFacingFormat,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionCompany } from '~/components/questions/common/QuestionsTypes';
 import { themeIconColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from '../QuestionFilterType';
@@ -27,18 +24,18 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
 ];
 
 type Props = Readonly<{
-  userFacingFormat: QuestionUserFacingFormat;
+  namespace: string;
 }>;
 
 export default function useQuestionCompanyFilter({
-  userFacingFormat,
+  namespace,
 }: Props): [Set<QuestionCompany>, QuestionFilter<QuestionCompany>] {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const companyNames = useCompanyNames();
   const [companyFilters, setCompanyFilters] =
     useSessionStorageForSets<QuestionCompany>(
-      `gfe:${userFacingFormat}:company-filter`,
+      `gfe:${namespace}:company-filter`,
       new Set(),
     );
   const CompanyFilterOptions: QuestionFilter<QuestionCompany> = {

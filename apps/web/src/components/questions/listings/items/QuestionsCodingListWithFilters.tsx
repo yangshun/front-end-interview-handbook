@@ -87,30 +87,30 @@ export default function QuestionsCodingListWithFilters({
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
     useQuestionDifficultyFilter({
-      userFacingFormat: 'coding',
+      namespace: 'coding',
     });
 
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    userFacingFormat: 'coding',
+    namespace: 'coding',
   });
   const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    userFacingFormat: 'coding',
+    namespace: 'coding',
   });
   const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
     {
-      userFacingFormat: 'coding',
+      namespace: 'coding',
     },
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({
-      userFacingFormat: 'coding',
+      namespace: 'coding',
     });
   const [codingFormatFilters, codingFormatFilterOptions] =
     useQuestionCodingFormatFilter({
       filter: codingFormatFiltersFilterPredicate,
       initialValue: initialCodingFormat == null ? [] : [initialCodingFormat],
+      namespace: 'coding',
       order: codingFormatFiltersOrderComparator,
-      userFacingFormat: 'coding',
     });
 
   function makeDropdownItemProps(

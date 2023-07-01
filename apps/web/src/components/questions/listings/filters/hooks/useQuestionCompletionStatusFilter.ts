@@ -5,17 +5,16 @@ import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 import type {
   QuestionCompletionStatus,
   QuestionMetadataWithCompletedStatus,
-  QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
 type Props = Readonly<{
-  userFacingFormat: QuestionUserFacingFormat;
+  namespace: string;
 }>;
 
 export default function useQuestionCompletionStatusFilter({
-  userFacingFormat,
+  namespace,
 }: Props): [
   Set<QuestionCompletionStatus>,
   QuestionFilter<QuestionCompletionStatus, QuestionMetadataWithCompletedStatus>,
@@ -45,7 +44,7 @@ export default function useQuestionCompletionStatusFilter({
 
   const [completionStatusFilters, setCompletionStatusFilters] =
     useSessionStorageForSets<QuestionCompletionStatus>(
-      `gfe:${userFacingFormat}:completion-status-filter`,
+      `gfe:${namespace}:completion-status-filter`,
       new Set(),
     );
 
