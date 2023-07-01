@@ -10,6 +10,7 @@ const variants: ReadonlyArray<ToastVariant> = [
   'info',
   'warning',
   'danger',
+  'dark',
   'special',
 ];
 

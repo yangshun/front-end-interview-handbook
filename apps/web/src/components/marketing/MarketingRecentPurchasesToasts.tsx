@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { RiStarSmileLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
 
@@ -44,6 +45,7 @@ function MarketingRecentPurchasesImpl({
 
     showToast({
       duration: 8000,
+      icon: RiStarSmileLine,
       onClose: () => {
         setIndex(data.length);
         setLastShown(Date.now());
@@ -59,7 +61,7 @@ function MarketingRecentPurchasesImpl({
           }}
         />
       ),
-      variant: 'plain',
+      variant: 'dark',
     });
 
     const timer = setTimeout(() => {

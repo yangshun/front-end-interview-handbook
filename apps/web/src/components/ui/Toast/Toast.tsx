@@ -18,6 +18,7 @@ import { Transition } from '@headlessui/react';
 
 export type ToastVariant =
   | 'danger'
+  | 'dark'
   | 'info'
   | 'plain'
   | 'special'
@@ -26,6 +27,7 @@ export type ToastVariant =
 
 export type ToastMessage = Readonly<{
   duration?: number;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   onClose?: () => void;
   subtitle?: ReactNode;
   title: ReactNode;
@@ -52,6 +54,11 @@ const classes: Record<
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
+  dark: {
+    backgroundClass: 'bg-neutral-900 border border-neutral-700',
+    iconClass: 'text-white focus:ring-white-500',
+    textColor: 'light',
+  },
   info: {
     backgroundClass: 'bg-info',
     icon: RiInformationFill,
@@ -59,7 +66,7 @@ const classes: Record<
     textColor: 'light',
   },
   plain: {
-    backgroundClass: 'bg-neutral-900 dark:bg-white',
+    backgroundClass: 'bg-neutral-900 dark:bg-neutral-100',
     iconClass: 'text-neutral-900 focus:ring-neutral-500',
     textColor: 'invert',
   },
@@ -85,6 +92,7 @@ const classes: Record<
 
 export default function Toast({
   duration = 4000,
+  icon: IconProp,
   title,
   subtitle,
   variant,
@@ -118,11 +126,13 @@ export default function Toast({
   }, []);
 
   const {
-    icon: Icon,
+    icon: VariantIcon,
     backgroundClass,
     iconClass,
     textColor,
   } = classes[variant];
+
+  const Icon = IconProp ?? VariantIcon;
 
   return (
     <Transition
@@ -140,7 +150,7 @@ export default function Toast({
           backgroundClass,
         )}>
         <Text
-          className="w-full items-start gap-x-2 py-2 px-3"
+          className="w-full items-start gap-x-2 px-3 py-2"
           color={textColor}
           display="flex">
           {Icon && <Icon className={clsx('h-5 w-5 shrink-0', iconClass)} />}
