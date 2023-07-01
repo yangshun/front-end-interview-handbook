@@ -189,7 +189,10 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     position="above">
                     <RiCheckboxCircleLine
                       aria-hidden="true"
-                      className={clsx('h-8 w-8 scale-110', 'text-neutral-500')}
+                      className={clsx(
+                        'h-8 w-8 scale-110',
+                        'text-neutral-400 dark:text-neutral-600',
+                      )}
                     />
                   </Tooltip>
                 ) : (
@@ -203,7 +206,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     <span
                       className={clsx(
                         'flex h-8 w-8 items-center justify-center rounded-full',
-                        ['border', themeLineColor],
+                        ['border', 'border-neutral-300 dark:border-neutral-700'],
                         'bg-neutral-100 dark:bg-neutral-900',
                       )}
                     />

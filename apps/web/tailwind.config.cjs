@@ -1,21 +1,20 @@
 // @ts-check
 
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
 
-// const neutral = {
-//   50: '#fafafa',
-//   100: '#f4f4f5',
-//   200: '#e4e4e7',
-//   300: '#d4d4d8',
-//   400: '#a1a1aa',
-//   500: '#71717a',
-//   600: '#52525b',
-//   700: '#3f3f46',
-//   800: '#27272a',
-//   900: '#18181b',
-//   950: '#111111',
-// };
+const neutral = {
+  50: '#fafafa',
+  100: '#f4f4f5',
+  200: '#e4e4e7',
+  300: '#d4d4d8',
+  400: '#a1a1aa',
+  500: '#71717a',
+  600: '#52525b',
+  700: '#484851',
+  800: '#303036',
+  900: '#252429',
+  950: '#18181b',
+};
 
 const indigo = {
   lightest: '#f3f0ff',
@@ -112,8 +111,8 @@ module.exports = {
         danger: red,
         orange,
         warning: orange,
-        neutral: colors.zinc,
-        gray: colors.zinc,
+        neutral,
+        gray: neutral,
       },
       opacity: {
         1: '0.01',

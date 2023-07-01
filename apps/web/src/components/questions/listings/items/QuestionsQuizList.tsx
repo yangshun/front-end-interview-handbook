@@ -87,7 +87,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
             className={clsx(
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              'bg-white dark:bg-neutral-800/40',
+              'dark:bg-neutral-800/40 bg-white',
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',
@@ -136,7 +136,10 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                     <span
                       className={clsx(
                         'flex h-8 w-8 items-center justify-center rounded-full',
-                        ['border', themeLineColor],
+                        [
+                          'border',
+                          'border-neutral-300 dark:border-neutral-700',
+                        ],
                         'bg-neutral-100 dark:bg-neutral-900',
                       )}
                     />
