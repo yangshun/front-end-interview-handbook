@@ -27,7 +27,8 @@ export default function PreparationOverallCompletionProgress({
   return (
     <div
       className={clsx(
-        'glassbox relative grid gap-x-12 gap-y-4 rounded-lg px-6 py-4 md:grid-cols-3',
+        'relative grid gap-x-12 gap-y-4 rounded-lg px-6 py-4 md:grid-cols-3',
+        'glassbox border border-neutral-200 dark:border-transparent',
         'dark:bg-neutral-800/40 bg-white',
       )}>
       {[
