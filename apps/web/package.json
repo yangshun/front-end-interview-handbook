@@ -26,6 +26,7 @@
     "prisma": "prisma"
   },
   "dependencies": {
+    "@ark-ui/react": "^0.7.2",
     "@axiomhq/axiom-node": "^0.11.0",
     "@codesandbox/sandpack-react": "^2.4.7",
     "@formatjs/intl-localematcher": "^0.2.32",
