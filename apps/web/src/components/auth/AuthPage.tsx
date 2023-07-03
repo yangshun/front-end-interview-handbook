@@ -13,6 +13,7 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
+import Container from '../ui/Container';
 import Text from '../ui/Text';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
@@ -47,10 +48,7 @@ export default function AuthPage({ view }: Props) {
   }, [nextSearchParam, router, user]);
 
   return (
-    <div
-      className={clsx(
-        'mx-auto flex max-w-md flex-col gap-y-6 px-4 py-8 sm:px-6 md:px-8 lg:py-16',
-      )}>
+    <Container className={clsx('flex flex-col gap-y-6 lg:py-16')} variant="md">
       {!user ? (
         <>
           {error && (
@@ -106,6 +104,6 @@ export default function AuthPage({ view }: Props) {
           variant="login"
         />
       )}
-    </div>
+    </Container>
   );
 }
