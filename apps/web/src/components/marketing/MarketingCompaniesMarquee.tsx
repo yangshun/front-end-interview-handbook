@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import Container from '~/components/ui/Container';
@@ -6,64 +7,47 @@ import Text from '~/components/ui/Text';
 
 const logos = [
   {
-    alt: 'Amazon logo',
-    height: 48,
-    src: '/img/company-logos/amazon-logo.svg',
-    width: 110,
-  },
-  {
     alt: 'Meta logo',
     height: 48,
     src: '/img/company-logos/meta-logo.svg',
     width: 120,
   },
   {
-    alt: 'Airbnb logo',
+    alt: 'DocuSign logo',
+    className: 'mt-1',
     height: 48,
-    src: '/img/company-logos/airbnb-logo.svg',
+    src: '/img/company-logos/docusign-logo.svg',
     width: 130,
   },
   {
-    alt: 'eBay logo',
+    alt: 'Adobe logo',
     height: 48,
-    src: '/img/company-logos/ebay-logo.svg',
-    width: 110,
-  },
-  {
-    alt: 'Datadog logo',
-    height: 48,
-    src: '/img/company-logos/datadog-logo.svg',
+    src: '/img/company-logos/adobe-logo.svg',
     width: 130,
   },
   {
-    alt: 'Bloomberg logo',
+    alt: 'ByteDance logo',
     height: 48,
-    src: '/img/company-logos/bloomberg-logo.svg',
+    src: '/img/company-logos/bytedance-logo.svg',
     width: 130,
   },
   {
-    alt: 'JPMorgan logo',
+    alt: 'Retool logo',
+    height: 36,
+    src: '/img/company-logos/retool-logo.svg',
+    width: 100,
+  },
+  {
+    alt: 'Databricks logo',
     height: 48,
-    src: '/img/company-logos/jpmorgan-logo.svg',
+    src: '/img/company-logos/databricks-logo.svg',
     width: 130,
   },
   {
-    alt: 'Mailchimp logo',
+    alt: 'Seam logo',
+    className: 'invert',
     height: 48,
-    src: '/img/company-logos/mailchimp-logo.svg',
-    width: 130,
-  },
-  {
-    alt: 'Expedia logo',
-    height: 48,
-    src: '/img/company-logos/expedia-logo.svg',
-    width: 130,
-  },
-  {
-    alt: 'Credit Karma logo',
-    className: 'lg:block hidden',
-    height: 48,
-    src: '/img/company-logos/credit-karma-logo.svg',
+    src: '/img/company-logos/seam-wordmark.webp',
     width: 130,
   },
 ];
@@ -85,11 +69,14 @@ export default function MarketingCompaniesMarquee() {
         />
       </Text>
       <Marquee periodSeconds={30} startEndGap={64}>
-        <div className="flex h-12 items-center gap-16">
+        <div
+          className={clsx(
+            'flex h-12 items-center gap-16 invert dark:invert-0',
+          )}>
           {logos.map((logo) => (
             <div
               key={logo.src}
-              className="flex items-center invert dark:invert-0"
+              className="user-select-none flex items-center"
               style={{
                 height: logo.height,
                 width: logo.width,
