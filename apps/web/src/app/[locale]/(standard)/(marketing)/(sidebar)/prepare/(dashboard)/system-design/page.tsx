@@ -38,13 +38,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const [questionTotalAvailableCount] = await Promise.all([
-    fetchQuestionsListCount(),
-  ]);
-
-  return (
-    <PrepareSystemDesignPage
-      questionTotalAvailableCount={questionTotalAvailableCount}
-    />
-  );
+  return <PrepareSystemDesignPage />;
 }

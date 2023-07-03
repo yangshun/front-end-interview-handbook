@@ -31,28 +31,29 @@ export default function QuestionsPreparationTabs({ area }: Props) {
             description: 'Tab label to navigate to another preparation page',
             id: 'rhLand',
           })}
+          scrollToTop={false}
           size="sm"
           tabs={[
             {
-              href: areas.coding.href + '#contents',
+              href: areas.coding.href,
               icon: areas.coding.icon,
               label: areas.coding.name,
               value: areas.coding.value,
             },
             {
-              href: areas.quiz.href + '#contents',
+              href: areas.quiz.href,
               icon: areas.quiz.icon,
               label: areas.quiz.name,
               value: areas.quiz.value,
             },
             {
-              href: areas['system-design'].href + '#contents',
+              href: areas['system-design'].href,
               icon: areas['system-design'].icon,
               label: areas['system-design'].name,
               value: areas['system-design'].value,
             },
             {
-              href: areas.behavioral.href + '#contents',
+              href: areas.behavioral.href,
               icon: areas.behavioral.icon,
               label: areas.behavioral.name,
               value: areas.behavioral.value,

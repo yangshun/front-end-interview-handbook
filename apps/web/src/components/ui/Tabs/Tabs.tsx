@@ -17,6 +17,7 @@ type TabSize = 'md' | 'sm' | 'xs';
 type Props<T> = Readonly<{
   label: string;
   onSelect?: (value: T) => void;
+  scrollToTop?: boolean;
   size?: TabSize;
   tabs: ReadonlyArray<TabItem<T>>;
   value: T;
@@ -62,6 +63,7 @@ const sizeClasses: Record<
 export default function Tabs<T>({
   label,
   tabs,
+  scrollToTop = true,
   size = 'md',
   value,
   onSelect,
@@ -136,6 +138,7 @@ export default function Tabs<T>({
                 <Anchor
                   key={String(tabItemValue)}
                   href={href}
+                  scrollToTop={scrollToTop}
                   variant="unstyled"
                   {...commonProps}
                 />

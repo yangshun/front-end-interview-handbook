@@ -5,7 +5,6 @@ import { trpc } from '~/hooks/trpc';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
-import { themeLineColor } from '~/components/ui/theme';
 
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';

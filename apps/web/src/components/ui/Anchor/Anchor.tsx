@@ -34,6 +34,7 @@ type Props = Omit<LinkProps, 'href'> &
     href?: string;
     locale?: string;
     rel?: string;
+    scrollToTop?: boolean;
     suppressHydrationWarning?: boolean;
     target?: HTMLAttributeAnchorTarget;
     title?: string;
@@ -49,6 +50,7 @@ function Anchor(
     href,
     rel: relProp,
     target: targetProp,
+    scrollToTop = true,
     underline = false,
     variant = 'default',
     weight = 'medium',
@@ -117,7 +119,9 @@ function Anchor(
       rel={rel}
       target={target}
       onClick={(event) => {
-        setShouldScrollToTop(true);
+        if (scrollToTop) {
+          setShouldScrollToTop(true);
+        }
         onClick?.(event);
       }}
       {...props}>

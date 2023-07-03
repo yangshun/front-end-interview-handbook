@@ -1,10 +1,11 @@
 'use client';
 
-import { useIntl } from 'react-intl';
+import clsx from 'clsx';
 
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import PreparePageLayout from '~/components/questions/dashboard/PreparePageLayout';
+import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
+import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
 import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -19,28 +20,29 @@ type Props = Readonly<{
 export default function PrepareCodingQuestionsPage({
   questions,
   questionCompletionCount,
-  questionTotalAvailableCount,
 }: Props) {
-  const intl = useIntl();
   const codingQuestionListGuideItems = useCodingQuestionListGuideItems();
 
   return (
-    <PreparePageLayout
-      area="coding"
-      guides={codingQuestionListGuideItems}
-      guidesHref={codingQuestionListGuideItems[0].href}
-      questionTotalAvailableCount={questionTotalAvailableCount}
-      title={intl.formatMessage({
-        defaultMessage: 'Front End Interview Preparation — Coding',
-        description: 'Prepare for front end interview coding questions',
-        id: '7H/tqa',
-      })}>
-      <QuestionsCodingListWithFiltersAndProgress
-        layout="embedded"
-        namespace="prepare-coding"
-        questionCompletionCount={questionCompletionCount}
-        questions={questions}
-      />
-    </PreparePageLayout>
+    <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
+      <div className="xl:col-span-9">
+        <QuestionsCodingListWithFiltersAndProgress
+          layout="embedded"
+          namespace="prepare-coding"
+          questionCompletionCount={questionCompletionCount}
+          questions={questions}
+        />
+      </div>
+      <aside
+        className={clsx(
+          'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
+        )}>
+        <PreparationStudyPlansCTA />
+        <PreparationStudyGuideList
+          href={codingQuestionListGuideItems[0].href}
+          items={codingQuestionListGuideItems}
+        />
+      </aside>
+    </div>
   );
 }
