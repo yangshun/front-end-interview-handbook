@@ -2,6 +2,7 @@ import { SiLodash } from 'react-icons/si';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -16,14 +17,14 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
     }),
     href: '/focus-areas/lodash',
     longName: intl.formatMessage({
-      defaultMessage: 'Lodash functions',
+      defaultMessage: 'Lodash Functions',
       description: 'Name of focus area questions',
-      id: 'mNMq+n',
+      id: '0HOYxB',
     }),
     name: intl.formatMessage({
-      defaultMessage: 'Lodash functions',
+      defaultMessage: 'Lodash Functions',
       description: 'Name of focus area questions',
-      id: 'mNMq+n',
+      id: '0HOYxB',
     }),
     questions: {
       javascript: [
@@ -81,9 +82,15 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
   };
 }
 
+const gradient: ThemeGradient<'#4B79A1', '#283E51'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#4B79A1_0%,_#283E51_97.95%)]',
+  endColor: '#283E51',
+  startColor: '#4B79A1',
+};
+
 export function getFocusAreaThemeLodash(): QuestionListTheme {
   return {
-    gradient: themeGradientBlueGreen,
+    gradient,
     iconOutline: SiLodash,
     iconSolid: SiLodash,
   };

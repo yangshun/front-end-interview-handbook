@@ -2,6 +2,7 @@ import { RiRefreshLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -75,9 +76,15 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
   };
 }
 
+const gradient: ThemeGradient<'#2C3E50', '#FD746C'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#2C3E50_0%,_#FD746C_97.95%)]',
+  endColor: '#FD746C',
+  startColor: '#2C3E50',
+};
+
 export function getFocusAreaThemeAsyncOperations(): QuestionListTheme {
   return {
-    gradient: themeGradientBlueGreen,
+    gradient,
     iconOutline: RiRefreshLine,
     iconSolid: RiRefreshLine,
   };

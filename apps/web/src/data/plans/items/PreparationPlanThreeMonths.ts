@@ -2,6 +2,7 @@ import { RiStarFill, RiStarLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientPinkPurple } from '~/components/ui/theme';
 
 import type { PreparationPlan } from '../PreparationPlans';
@@ -118,9 +119,15 @@ export function getPreparationPlanThreeMonths(
   };
 }
 
+const gradient: ThemeGradient<'#7F00FF', '#E100FF'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#7F00FF_0%,_#E100FF_97.95%)]',
+  endColor: '#E100FF',
+  startColor: '#7F00FF',
+};
+
 export function getPreparationPlanThemeThreeMonths(): QuestionListTheme {
   return {
-    gradient: themeGradientPinkPurple,
+    gradient,
     iconOutline: RiStarLine,
     iconSolid: RiStarFill,
   };

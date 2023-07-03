@@ -2,6 +2,7 @@ import { RiJavascriptFill } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -73,9 +74,15 @@ export function getFocusAreaJavaScriptPolyfills(intl: IntlShape): FocusArea {
   };
 }
 
+const gradient: ThemeGradient<'#f7ff00', '#db36a4'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#f7ff00_0%,_#db36a4_97.95%)]',
+  endColor: '#db36a4',
+  startColor: '#f7ff00',
+};
+
 export function getFocusAreaThemeJavaScriptPolyfills(): QuestionListTheme {
   return {
-    gradient: themeGradientBlueGreen,
+    gradient,
     iconOutline: RiJavascriptFill,
     iconSolid: RiJavascriptFill,
   };

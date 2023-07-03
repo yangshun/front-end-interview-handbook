@@ -17,7 +17,7 @@ export default function CompletionCountSummary({ completed, total }: Props) {
       size="body2">
       {completed}
       <Text
-        className="text-neutral-400 dark:text-neutral-500 "
+        className="text-neutral-400 dark:text-neutral-500"
         color="inherit"
         size="body3">
         /{total} completed

@@ -2,6 +2,7 @@ import { BiUniversalAccess } from 'react-icons/bi';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -62,9 +63,15 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
   };
 }
 
+const gradient: ThemeGradient<'#42275a', '#734b6d'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#42275a_0%,_#734b6d_97.95%)]',
+  endColor: '#734b6d',
+  startColor: '#42275a',
+};
+
 export function getFocusAreaThemeAccessibility(): QuestionListTheme {
   return {
-    gradient: themeGradientBlueGreen,
+    gradient,
     iconOutline: BiUniversalAccess,
     iconSolid: BiUniversalAccess,
   };

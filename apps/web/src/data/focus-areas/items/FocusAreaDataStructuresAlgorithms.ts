@@ -3,6 +3,7 @@ import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientPinkPurple } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -85,9 +86,15 @@ export function getFocusAreaDataStructuresAlgorithms(
   };
 }
 
+const gradient: ThemeGradient<'#e96443', '#904e95'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#e96443_0%,_#904e95_97.95%)]',
+  endColor: '#904e95',
+  startColor: '#e96443',
+};
+
 export function getFocusAreaThemeDataStructuresAlgorithms(): QuestionListTheme {
   return {
-    gradient: themeGradientPinkPurple,
+    gradient,
     iconOutline: TbBinaryTree,
     iconSolid: TbBinaryTree,
   };

@@ -2,6 +2,7 @@ import { RiFlashlightFill, RiFlashlightLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientGreenYellow } from '~/components/ui/theme';
 
 import type { PreparationPlan } from '../PreparationPlans';
@@ -76,9 +77,15 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
   };
 }
 
+const gradient: ThemeGradient<'#f7ff00', '#db36a4'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#f7ff00_0%,_#db36a4_97.95%)]',
+  endColor: '#db36a4',
+  startColor: '#f7ff00',
+};
+
 export function getPreparationPlanThemeOneWeek(): QuestionListTheme {
   return {
-    gradient: themeGradientGreenYellow,
+    gradient,
     iconOutline: RiFlashlightLine,
     iconSolid: RiFlashlightFill,
   };

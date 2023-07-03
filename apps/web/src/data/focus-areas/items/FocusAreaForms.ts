@@ -2,6 +2,7 @@ import { TbForms } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -63,9 +64,15 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
   };
 }
 
+const gradient: ThemeGradient<'#EECDA3', '#EF629F'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#EECDA3_0%,_#EF629F_97.95%)]',
+  endColor: '#EF629F',
+  startColor: '#EECDA3',
+};
+
 export function getFocusAreaThemeForms(): QuestionListTheme {
   return {
-    gradient: themeGradientBlueGreen,
+    gradient,
     iconOutline: TbForms,
     iconSolid: TbForms,
   };

@@ -111,6 +111,10 @@
     "defaultMessage": "Collaboration Questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
   },
+  "0HOYxB": {
+    "defaultMessage": "Lodash Functions",
+    "description": "Name of focus area questions"
+  },
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
@@ -442,10 +446,6 @@
   "79rtZd": {
     "defaultMessage": "Study plan started",
     "description": "Success message for starting a study plan"
-  },
-  "7H/tqa": {
-    "defaultMessage": "Front End Interview Preparation — Coding",
-    "description": "Prepare for front end interview coding questions"
   },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
@@ -1226,10 +1226,6 @@
   "Ll7iob": {
     "defaultMessage": "Get Started",
     "description": "Title of Get Started page"
-  },
-  "LnN52b": {
-    "defaultMessage": "Front End Interview Preparation — Behavioral Interviews",
-    "description": "Prepare for front end interview behavioral questions"
   },
   "Lnj3bs": {
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
@@ -2771,10 +2767,6 @@
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"
   },
-  "mNMq+n": {
-    "defaultMessage": "Lodash functions",
-    "description": "Name of focus area questions"
-  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
@@ -3334,10 +3326,6 @@
   "w3pn1B": {
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
-  },
-  "w5fdO4": {
-    "defaultMessage": "Front End Interview Preparation — Quiz",
-    "description": "Prepare for front end interview quiz questions"
   },
   "wAOHw9": {
     "defaultMessage": "Similar Questions",

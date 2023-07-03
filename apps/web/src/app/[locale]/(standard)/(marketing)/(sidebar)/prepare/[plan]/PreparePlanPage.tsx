@@ -118,23 +118,26 @@ export default function PreparePlanPage({
             <div className="flex flex-col gap-y-8">
               {(questionsOverallProgress.javascript.size > 0 ||
                 questionsOverallProgress['user-interface'].size > 0) && (
-                <Alert
-                  title={intl.formatMessage({
-                    defaultMessage:
-                      'Changes to how study plan progress is calculated',
-                    description: 'Message about changes to study plans',
-                    id: 'kmShy2',
-                  })}
-                  variant="info">
-                  <Text color="secondary" display="block" size="body2">
-                    Study plan progress no longer reads from your overall
-                    question completion. This allows you to have study
-                    plan-specific progress by starting a question from this
-                    page. Your overall question progress is still present, and
-                    we are working on allowing you to easily import your
-                    previous progress into this plan.
-                  </Text>
-                </Alert>
+                <div className="max-w-3xl">
+                  <Alert
+                    title={intl.formatMessage({
+                      defaultMessage:
+                        'Changes to how study plan progress is calculated',
+                      description: 'Message about changes to study plans',
+                      id: 'kmShy2',
+                    })}
+                    variant="info">
+                    <Text color="secondary" display="block" size="body2">
+                      Study plan progress no longer reads from your overall
+                      question completion, so you might see changes in your
+                      study progress. This allows you to have study
+                      plan-specific progress by starting a question from this
+                      page. Your overall completion progress remains unchanged,
+                      and we are working on allowing you to easily import your
+                      overall progress into this plan.
+                    </Text>
+                  </Alert>
+                </div>
               )}
               <QuestionsPlansList
                 codingQuestions={codingQuestions}

@@ -2,6 +2,7 @@ import { RiDashboardLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
@@ -63,9 +64,15 @@ export function getFocusAreaDesignSystemComponents(intl: IntlShape): FocusArea {
   };
 }
 
+const gradient: ThemeGradient<'#FF5F6D', '#FFC371'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#FF5F6D_0%,_#FFC371_97.95%)]',
+  endColor: '#FFC371',
+  startColor: '#FF5F6D',
+};
+
 export function getFocusAreaThemeDesignSystemComponents(): QuestionListTheme {
   return {
-    gradient: themeGradientBlueGreen,
+    gradient,
     iconOutline: RiDashboardLine,
     iconSolid: RiDashboardLine,
   };
