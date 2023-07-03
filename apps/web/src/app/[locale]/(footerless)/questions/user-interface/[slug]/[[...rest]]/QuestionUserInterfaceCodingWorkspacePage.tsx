@@ -326,8 +326,22 @@ function MiddleRightPane({
         ...sandpackProviderOptions,
         activeFile: setup?.activeFile,
         classes: {
-          'sp-input': 'touch-none select-none pointer-events-none',
+          'sp-button': clsx(
+            '!text-neutral-600 dark:!text-neutral-400',
+            'hover:!text-neutral-900 dark:hover:!text-neutral-100',
+          ),
+          'sp-input': clsx(
+            'touch-none select-none pointer-events-none',
+            '!bg-neutral-50 dark:!bg-neutral-900',
+          ),
+          'sp-navigator': '!bg-white dark:!bg-neutral-950',
           'sp-stack': 'h-full',
+          'sp-tab-button': clsx(
+            'dark:data-[active=true]:!text-brand-light data-[active=true]:!text-brand-dark',
+            '!text-neutral-600 dark:!text-neutral-400',
+            'hover:!text-brand-dark dark:hover:!text-brand-light',
+          ),
+          'sp-tabs': '!bg-white dark:!bg-neutral-950',
           'sp-wrapper': 'lg:!flex lg:!grow lg:!h-0',
         },
         visibleFiles: setup?.visibleFiles,
