@@ -54,7 +54,7 @@ export type FocusArea = QuestionList &
     type: FocusAreaType;
   }>;
 
-type FocusAreas = Record<FocusAreaType, FocusArea>;
+export type FocusAreas = Record<FocusAreaType, FocusArea>;
 
 export function getFocusAreas(intl: IntlShape): FocusAreas {
   const focusAreas: FocusAreas = {

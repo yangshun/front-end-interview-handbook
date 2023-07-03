@@ -395,6 +395,10 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
+  "6D1OGe": {
+    "defaultMessage": "Important focus areas",
+    "description": "Title of list of focus areas"
+  },
   "6IwcDT": {
     "defaultMessage": "Show",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
@@ -554,6 +558,10 @@
   "8vjTks": {
     "defaultMessage": "Select current line",
     "description": "Text describing command to select current line in the coding workspace shortcuts menu"
+  },
+  "8wt3/b": {
+    "defaultMessage": "Focus areas for Front End Interviews",
+    "description": "Title of focus areas page"
   },
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
@@ -1263,6 +1271,10 @@
     "defaultMessage": "Overview",
     "description": "Overview section for front end system design interviews"
   },
+  "MJyQhr": {
+    "defaultMessage": "See all",
+    "description": "Link to all focus areas page"
+  },
   "MNgJK6": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty question"
@@ -1923,6 +1935,10 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
+  "YAoXTu": {
+    "defaultMessage": "Discover focus areas tailored to your needs to help your prepare for your upcoming technical interviews.",
+    "description": "Description for focus areas page"
+  },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
@@ -2019,6 +2035,10 @@
     "defaultMessage": "Save Changes",
     "description": "Label for button to save changes to user account email"
   },
+  "Zui1cu": {
+    "defaultMessage": "Focus areas",
+    "description": "Title of focus areas page"
+  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -2050,10 +2070,6 @@
   "aeeTOy": {
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
-  },
-  "ahcJju": {
-    "defaultMessage": "Show all",
-    "description": "Show all button label of focus areas section in preparation dashboard"
   },
   "akHBWv": {
     "defaultMessage": "Outdent line",
@@ -2498,10 +2514,6 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
-  },
-  "ipPZZl": {
-    "defaultMessage": "Show less",
-    "description": "Show less button label of focus areas section in preparation dashboard"
   },
   "iqc+V7": {
     "defaultMessage": "Access to continuously updating question library.",

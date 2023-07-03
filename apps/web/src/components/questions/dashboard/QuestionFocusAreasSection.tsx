@@ -1,10 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
-import {
-  RiArrowDownSLine,
-  RiArrowUpSLine,
-  RiQuestionFill,
-} from 'react-icons/ri';
+import { RiArrowRightSLine, RiQuestionFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
@@ -42,10 +37,7 @@ export default function QuestionFocusAreasSection({
   focusAreas: allFocusAreas,
 }: Props) {
   const intl = useIntl();
-  const [showAll, setShowAll] = useState(false);
-  const focusAreas = showAll
-    ? allFocusAreas
-    : allFocusAreas.slice(0, MAX_SHOWN);
+  const focusAreas = allFocusAreas.slice(0, MAX_SHOWN);
 
   return (
     <div className="@container flex flex-col gap-4">
@@ -59,27 +51,15 @@ export default function QuestionFocusAreasSection({
         {allFocusAreas.length > MAX_SHOWN && (
           <Button
             className="-mr-5 -mt-2 translate-y-2"
-            icon={showAll ? RiArrowUpSLine : RiArrowDownSLine}
-            label={
-              showAll
-                ? intl.formatMessage({
-                    defaultMessage: 'Show less',
-                    description:
-                      'Show less button label of focus areas section in preparation dashboard',
-                    id: 'ipPZZl',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Show all',
-                    description:
-                      'Show all button label of focus areas section in preparation dashboard',
-                    id: 'ahcJju',
-                  })
-            }
+            href="/focus-areas"
+            icon={RiArrowRightSLine}
+            label={intl.formatMessage({
+              defaultMessage: 'See all',
+              description: 'Link to all focus areas page',
+              id: 'MJyQhr',
+            })}
             size="md"
             variant="tertiary"
-            onClick={() => {
-              setShowAll(!showAll);
-            }}
           />
         )}
       </div>
@@ -93,7 +73,6 @@ export default function QuestionFocusAreasSection({
                 <Card
                   className={clsx(
                     'group/card relative isolate flex flex-col items-start gap-3 p-4',
-                    !showAll && index >= MAX_SHOWN && '@md:hidden',
                   )}
                   padding={false}>
                   <div className="flex justify-between self-stretch">
