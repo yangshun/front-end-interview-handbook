@@ -16,11 +16,11 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
         themeGlassyBorder,
       )}>
       <div
-        className="grid items-center gap-6 border-b border-neutral-200 py-3 px-6 dark:border-transparent"
-        style={{
-          gridTemplateColumns: '4rem 1fr 4rem',
-        }}>
-        <div className="flex items-center gap-2">
+        className={clsx(
+          'md:grid-cols-[4rem_1fr_4rem] grid grid-cols-[3rem_1fr_3rem]',
+          'items-center gap-6 border-b border-neutral-200 px-4 py-3 dark:border-transparent md:px-6',
+        )}>
+        <div className="flex items-center gap-x-2">
           <div className="h-3 w-3 rounded-full bg-[#EC6A5F]" />
           <div className="h-3 w-3 rounded-full bg-[#F4BF50]" />
           <div className="h-3 w-3 rounded-full bg-[#61C454]" />
@@ -28,9 +28,9 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
         <div>
           <div
             className={clsx(
-              'mx-auto flex items-center justify-center gap-1 rounded-full bg-white/10 py-1 sm:w-3/5',
+              'sm:w-3/5 mx-auto flex items-center justify-center gap-1 rounded-full bg-white/10 py-1',
               'text-xs font-medium leading-6 text-neutral-800 dark:text-neutral-200',
-              'ring-1 ring-inset ring-neutral-200 dark:ring-neutral-900/5',
+              'dark:ring-neutral-900/5 ring-1 ring-inset ring-neutral-200',
             )}>
             <svg
               className="h-3.5 w-3.5 text-neutral-700 dark:text-neutral-300"
