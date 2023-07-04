@@ -96,7 +96,9 @@ export type QuestionMetadata = {
   readonly ranking: number; // Value from 1-100 where 1 is the highest ranking.
   readonly similarQuestions: ReadonlyArray<QuestionSlug>;
   readonly slug: QuestionSlug;
+  readonly subtitle: string | null;
   readonly title: string;
+  readonly topics: ReadonlyArray<QuestionTopic>;
 };
 
 export type QuestionBase = {
@@ -122,20 +124,12 @@ export type QuestionUserInterface = QuestionBase & {
   readonly skeletonSetup: QuestionUserInterfaceSandpackSetup | null;
   readonly solutionSetup: QuestionUserInterfaceSandpackSetup | null;
 };
-// TODO: Remove this type and merge into one.
-export type QuestionQuizMetadata = QuestionMetadata & {
-  readonly subtitle: string | null;
-  readonly topics: ReadonlyArray<QuestionQuizTopic>;
-};
 
 export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {
   readonly isCompleted: boolean;
 };
-export type QuestionQuizMetadataWithCompletedStatus = QuestionQuizMetadata & {
-  readonly isCompleted: boolean;
-};
 
-export type QuestionQuizTopic =
+export type QuestionTopic =
   | 'a11y'
   | 'css'
   | 'html'
@@ -146,9 +140,7 @@ export type QuestionQuizTopic =
   | 'security'
   | 'testing';
 
-export type QuestionQuiz = QuestionBase & {
-  readonly metadata: QuestionQuizMetadata;
-};
+export type QuestionQuiz = QuestionBase;
 
 export type QuestionList = Readonly<{
   description: string;

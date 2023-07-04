@@ -3,10 +3,10 @@ import type { ReactNode } from 'react';
 
 import Text from '~/components/ui/Text';
 
-import type { QuestionQuizTopic } from '../common/QuestionsTypes';
-import useQuestionQuizTopicLabels from '../content/quiz/useQuestionQuizTopicLabels';
+import type { QuestionTopic } from '../common/QuestionsTypes';
+import useQuestionTopicLabels from '../listings/filters/useQuestionTopicLabels';
 
-const TopicLabelClasses: Record<QuestionQuizTopic, string> = {
+const TopicLabelClasses: Record<QuestionTopic, string> = {
   a11y: 'bg-blue text-white',
   css: 'bg-sky-600 text-white',
   html: 'bg-orange-600 text-white',
@@ -18,10 +18,10 @@ const TopicLabelClasses: Record<QuestionQuizTopic, string> = {
   testing: 'bg-green-dark text-white',
 };
 
-export default function QuestionQuizTopicLabel({
+export default function QuestionTopicLabel({
   value,
-}: Readonly<{ children?: ReactNode; value: QuestionQuizTopic }>) {
-  const topicLabels = useQuestionQuizTopicLabels();
+}: Readonly<{ children?: ReactNode; value: QuestionTopic }>) {
+  const topicLabels = useQuestionTopicLabels();
 
   return (
     <Text

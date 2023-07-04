@@ -8,13 +8,13 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import QuestionQuizPagination from './QuestionQuizPagination';
 import type {
+  QuestionMetadata,
   QuestionQuiz,
-  QuestionQuizMetadata,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   question: QuestionQuiz;
-  questionList: ReadonlyArray<QuestionQuizMetadata>;
+  questionList: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function QuestionQuizBottomNav({
@@ -28,7 +28,7 @@ export default function QuestionQuizBottomNav({
   return (
     <div className="sticky inset-x-0 bottom-0">
       <div className={clsx('border-t', themeLineColor, themeBackgroundColor)}>
-        <div className="mx-auto py-2 px-3 sm:px-6 lg:px-8">
+        <div className="mx-auto px-3 py-2 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* HACK: code to centralize the items */}
             <div className="hidden w-32 items-center xl:block">

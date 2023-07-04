@@ -1,11 +1,11 @@
 import type { Props as BaseProps } from './QuestionsQuizListWithFilters';
 import QuestionsQuizListWithFilters from './QuestionsQuizListWithFilters';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-import type { QuestionQuizMetadata } from '../../common/QuestionsTypes';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 type Props = Omit<BaseProps, 'questions'> &
   Readonly<{
-    questions: ReadonlyArray<QuestionQuizMetadata>;
+    questions: ReadonlyArray<QuestionMetadata>;
   }>;
 
 export default function QuestionsQuizListWithFiltersAndProgress({

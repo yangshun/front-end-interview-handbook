@@ -22,16 +22,16 @@ import QuestionQuizBottomNav from './QuestionQuizBottomNav';
 import QuestionPagination from '../QuestionPagination';
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type {
+  QuestionMetadata,
   QuestionQuiz,
-  QuestionQuizMetadata,
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
-import QuestionQuizTopics from '../../metadata/QuestionQuizTopics';
+import QuestionTopics from '../../metadata/QuestionTopics';
 
 type Props = Readonly<{
   question: QuestionQuiz;
-  questionList: ReadonlyArray<QuestionQuizMetadata>;
+  questionList: ReadonlyArray<QuestionMetadata>;
 }>;
 
 function GitHubEditButton({
@@ -122,7 +122,7 @@ export default function QuestionQuizContents({
                           showIcon={true}
                           value={question.metadata.importance}
                         />
-                        <QuestionQuizTopics topics={question.metadata.topics} />
+                        <QuestionTopics topics={question.metadata.topics} />
                       </div>
                       <GitHubEditButton question={question} />
                     </div>

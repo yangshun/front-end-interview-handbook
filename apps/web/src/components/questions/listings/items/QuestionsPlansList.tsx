@@ -9,12 +9,11 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 import QuestionsList from './QuestionsList';
-import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import useQuestionsWithListProgressStatus from '../filters/hooks/useQuestionsWithListProgressStatus';
+import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
-  QuestionQuizMetadata,
   QuestionUserFacingFormat,
 } from '../../common/QuestionsTypes';
 
@@ -29,7 +28,7 @@ export default function QuestionsPlansList({
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   listKey: string;
   overallProgress: QuestionsCategorizedProgress;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
   sessionProgress: QuestionsCategorizedProgress;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {

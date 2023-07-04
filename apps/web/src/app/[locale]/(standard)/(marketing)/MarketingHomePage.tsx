@@ -16,14 +16,13 @@ import MarketingTestimonialsSection from '~/components/marketing/testimonials/Ma
 import type {
   QuestionJavaScript,
   QuestionMetadata,
-  QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   uiCodingQuestion: EmbedUIQuestion;
   userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;

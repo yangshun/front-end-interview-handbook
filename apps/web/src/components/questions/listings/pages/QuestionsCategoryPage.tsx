@@ -6,7 +6,6 @@ import type { ReactNode } from 'react';
 import type {
   QuestionCodingFormat,
   QuestionMetadata,
-  QuestionQuizMetadata,
   QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionListingFeaturedQuestions from '~/components/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
@@ -72,7 +71,7 @@ type QuestionListProps = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   format: QuestionUserFacingFormat | null;
   questionCompletionCount?: QuestionCompletionCount;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 function QuestionsList({

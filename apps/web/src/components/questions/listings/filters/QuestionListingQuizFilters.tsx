@@ -7,9 +7,9 @@ import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 import type { QuestionFilter } from './QuestionFilterType';
 import type {
   QuestionCompletionStatus,
+  QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
-  QuestionQuizMetadata,
-  QuestionQuizTopic,
+  QuestionTopic,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
@@ -20,11 +20,8 @@ type Props = Readonly<{
   completionStatusFilters: Set<QuestionCompletionStatus>;
   itemGap: FilterItemGap;
   mode?: 'default' | 'topic';
-  quizTopicFilterOptions: QuestionFilter<
-    QuestionQuizTopic,
-    QuestionQuizMetadata
-  >;
-  quizTopicFilters: Set<QuestionQuizTopic>;
+  quizTopicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
+  quizTopicFilters: Set<QuestionTopic>;
 }>;
 
 export default function QuestionListingQuizFilters({

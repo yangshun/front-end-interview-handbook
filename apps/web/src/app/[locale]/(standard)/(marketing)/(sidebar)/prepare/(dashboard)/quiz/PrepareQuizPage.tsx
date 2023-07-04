@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
 import DashboardStudyPlansCTA from '~/components/dashboard/DashboardStudyPlansCTA';
 import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
-import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -14,7 +14,7 @@ import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
   questionTotalAvailableCount: QuestionTotalAvailableCount;
-  questions: ReadonlyArray<QuestionQuizMetadata>;
+  questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function PrepareQuizPage({

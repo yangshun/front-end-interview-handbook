@@ -3,15 +3,15 @@ import { useIntl } from 'react-intl';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type {
-  QuestionQuizMetadata,
-  QuestionQuizTopic,
+  QuestionMetadata,
+  QuestionTopic,
 } from '~/components/questions/common/QuestionsTypes';
-import useQuestionQuizTopicLabels from '~/components/questions/content/quiz/useQuestionQuizTopicLabels';
+import useQuestionTopicLabels from '~/components/questions/listings/filters/useQuestionTopicLabels';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
 // The lower the earlier it appears.
-const topicRanks: Record<QuestionQuizTopic, number> = {
+const topicRanks: Record<QuestionTopic, number> = {
   a11y: 3,
   css: 1,
   html: 2,
@@ -27,23 +27,20 @@ type Props = Readonly<{
   namespace: string;
 }>;
 
-export default function useQuestionQuizTopicFilter({
+export default function useQuestionTopicFilter({
   namespace,
 }: Props): [
-  Set<QuestionQuizTopic>,
-  QuestionFilter<QuestionQuizTopic, QuestionQuizMetadata>,
+  Set<QuestionTopic>,
+  QuestionFilter<QuestionTopic, QuestionMetadata>,
 ] {
   const intl = useIntl();
-  const topicLabels = useQuestionQuizTopicLabels();
+  const topicLabels = useQuestionTopicLabels();
   const [topicFilters, setTopicFilters] =
-    useSessionStorageForSets<QuestionQuizTopic>(
+    useSessionStorageForSets<QuestionTopic>(
       `gfe:${namespace}:topic-filter`,
       new Set(),
     );
-  const topicFilterOptions: QuestionFilter<
-    QuestionQuizTopic,
-    QuestionQuizMetadata
-  > = {
+  const topicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata> = {
     id: 'topic',
     matches: (question) =>
       topicFilters.size === 0 ||
@@ -62,13 +59,12 @@ export default function useQuestionQuizTopicFilter({
     options: Object.keys(topicLabels)
       .sort(
         (a, b) =>
-          topicRanks[a as QuestionQuizTopic] -
-          topicRanks[b as QuestionQuizTopic],
+          topicRanks[a as QuestionTopic] - topicRanks[b as QuestionTopic],
       )
       .map((topic) => ({
-        icon: topicLabels[topic as QuestionQuizTopic].icon,
-        label: topicLabels[topic as QuestionQuizTopic].label,
-        value: topic as QuestionQuizTopic,
+        icon: topicLabels[topic as QuestionTopic].icon,
+        label: topicLabels[topic as QuestionTopic].label,
+        value: topic as QuestionTopic,
       })),
   };
 

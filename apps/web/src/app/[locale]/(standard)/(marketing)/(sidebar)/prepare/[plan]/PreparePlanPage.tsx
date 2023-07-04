@@ -11,12 +11,11 @@ import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionDifficulty,
   QuestionMetadata,
-  QuestionQuizMetadata,
 } from '~/components/questions/common/QuestionsTypes';
+import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
@@ -37,7 +36,7 @@ type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   difficultySummary: Record<QuestionDifficulty, number>;
   plan: PreparationPlan;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 

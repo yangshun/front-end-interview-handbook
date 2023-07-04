@@ -52,7 +52,10 @@ export function normalizeQuestionFrontMatter(
     ranking: frontmatter.ranking ?? 100, // 1-100 where 1 is the top.
     similarQuestions: frontmatter.similar_questions ?? [],
     slug,
+    // Have to be null to be serialize-able.
+    subtitle: frontmatter.subtitle ?? null,
     title: frontmatter.title,
+    topics: frontmatter.topics ?? [],
   };
 }
 

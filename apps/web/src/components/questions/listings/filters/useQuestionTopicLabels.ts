@@ -11,13 +11,13 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { QuestionQuizTopic } from '../../common/QuestionsTypes';
+import type { QuestionTopic } from '../../common/QuestionsTypes';
 
-export default function useQuestionQuizTopicLabels() {
+export default function useQuestionTopicLabels() {
   const intl = useIntl();
 
   const topicTitles: Record<
-    QuestionQuizTopic,
+    QuestionTopic,
     Readonly<{
       icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
       label: string;

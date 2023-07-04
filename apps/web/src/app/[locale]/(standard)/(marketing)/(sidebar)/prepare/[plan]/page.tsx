@@ -9,7 +9,7 @@ import {
   countQuestionsByDifficulty,
   sortQuestions,
 } from '~/components/questions/listings/filters/QuestionsProcessor';
-import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
@@ -83,7 +83,7 @@ export default async function Page({ params }: Props) {
   );
   const systemDesignQuestionsForPlan = questions['system-design'];
   const quizQuestionsForPlan =
-    questions.quiz as ReadonlyArray<QuestionQuizMetadata>;
+    questions.quiz as ReadonlyArray<QuestionMetadata>;
   const difficultySummary = countQuestionsByDifficulty([
     ...codingQuestionsForPlan,
     ...systemDesignQuestionsForPlan,

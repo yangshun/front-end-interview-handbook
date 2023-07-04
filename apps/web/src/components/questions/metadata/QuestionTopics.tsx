@@ -5,27 +5,24 @@ import { FormattedMessage } from 'react-intl';
 
 import { themeIconColor } from '~/components/ui/theme';
 
-import QuestionQuizTopicLabel from './QuestionQuizTopicLabel';
-import type { QuestionQuizTopic } from '../common/QuestionsTypes';
+import QuestionTopicLabel from './QuestionTopicLabel';
+import type { QuestionTopic } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   showIcon?: boolean;
-  topics: ReadonlyArray<QuestionQuizTopic>;
+  topics: ReadonlyArray<QuestionTopic>;
 }>;
 
-export default function QuestionQuizTopics({
-  topics,
-  showIcon = false,
-}: Props) {
+export default function QuestionTopics({ topics, showIcon = false }: Props) {
   const id = useId();
 
   return (
     <div className="flex items-center gap-x-1.5">
       <span className="sr-only" id={id}>
         <FormattedMessage
-          defaultMessage="Quiz topics"
-          description="Screenreader text indicating component for quiz question topics"
-          id="vzcdoW"
+          defaultMessage="Topics"
+          description="Screenreader text indicating component for question topics"
+          id="D2YUXz"
         />
       </span>
       {showIcon && (
@@ -38,7 +35,7 @@ export default function QuestionQuizTopics({
         aria-labelledby={id}
         className="inline-flex flex-wrap items-center gap-2">
         {topics.map((topic) => (
-          <QuestionQuizTopicLabel key={topic} value={topic} />
+          <QuestionTopicLabel key={topic} value={topic} />
         ))}
       </div>
     </div>

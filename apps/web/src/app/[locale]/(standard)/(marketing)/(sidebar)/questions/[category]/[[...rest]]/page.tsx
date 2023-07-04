@@ -10,7 +10,7 @@ import {
 import type {
   QuestionCodingFormat,
   QuestionLanguage,
-  QuestionQuizTopic,
+  QuestionTopic,
   QuestionUserFacingFormat,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionsCategoryPage from '~/components/questions/listings/pages/QuestionsCategoryPage';
@@ -32,12 +32,11 @@ const CATEGORY_TO_LANGUAGE: Record<QuestionListCategory, QuestionLanguage> = {
   js: 'js',
 };
 
-const CATEGORY_TO_QUIZ_TOPIC: Record<QuestionListCategory, QuestionQuizTopic> =
-  {
-    css: 'css',
-    html: 'html',
-    js: 'javascript',
-  };
+const CATEGORY_TO_QUIZ_TOPIC: Record<QuestionListCategory, QuestionTopic> = {
+  css: 'css',
+  html: 'html',
+  js: 'javascript',
+};
 
 export async function generateStaticParams() {
   const paths: ReadonlyArray<{

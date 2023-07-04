@@ -523,7 +523,9 @@ const questionMetadata: QuestionMetadata = {
   ranking: 1,
   similarQuestions: [],
   slug: 'news-feed-facebook',
+  subtitle: null,
   title: 'News Feed (e.g. Facebook)',
+  topics: [],
 };
 
 export default function MarketingEmbedSystemDesignQuestion() {

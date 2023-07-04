@@ -12,10 +12,7 @@ import MarketingJavaScriptQuestionsExamples from '~/components/marketing/example
 import MarketingQuizQuestionsExamples from '~/components/marketing/examples/MarketingQuizQuestionsExamples';
 import MarketingSystemDesignQuestionsExamples from '~/components/marketing/examples/MarketingSystemDesignQuestionsExamples';
 import MarketingUserInterfaceQuestionsExamples from '~/components/marketing/examples/MarketingUserInterfaceQuestionsExamples';
-import type {
-  QuestionMetadata,
-  QuestionQuizMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -28,7 +25,7 @@ import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
@@ -61,7 +58,7 @@ function PreparationPlansSection() {
         </Text>
       </div>
       <Section>
-        <div className="mt-20 grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-6">
+        <div className="mt-20 grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-0">
           {Object.entries(preparationPlans).map(([_, plan]) => {
             const planTheme = getPreparationPlanTheme(plan.type);
 
@@ -69,7 +66,7 @@ function PreparationPlansSection() {
               <div
                 key={plan.type}
                 className={clsx(
-                  'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pt-12 pb-8 focus-within:ring-2 focus-within:ring-inset',
+                  'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pb-8 pt-12 focus-within:ring-2 focus-within:ring-inset',
                   planTheme.gradient.className,
                 )}>
                 <div

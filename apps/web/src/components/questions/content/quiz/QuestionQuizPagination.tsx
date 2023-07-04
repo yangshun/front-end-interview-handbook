@@ -5,12 +5,12 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import type {
+  QuestionMetadata,
   QuestionQuiz,
-  QuestionQuizMetadata,
 } from '../../common/QuestionsTypes';
 type Props = Readonly<{
   question: QuestionQuiz;
-  questionList: ReadonlyArray<QuestionQuizMetadata>;
+  questionList: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function QuestionQuizPagination({

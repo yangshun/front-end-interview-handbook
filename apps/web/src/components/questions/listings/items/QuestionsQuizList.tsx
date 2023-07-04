@@ -21,12 +21,12 @@ import Tooltip from '~/components/ui/Tooltip';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import { questionHrefWithList } from '../../common/questionHref';
-import type { QuestionQuizMetadata } from '../../common/QuestionsTypes';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
-import QuestionQuizTopics from '../../metadata/QuestionQuizTopics';
+import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
 
-type Props<Q extends QuestionQuizMetadata> = Readonly<{
+type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   listKey?: string;
@@ -35,7 +35,7 @@ type Props<Q extends QuestionQuizMetadata> = Readonly<{
   showProgress?: boolean;
 }>;
 
-export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
+export default function QuestionsQuizList<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
   checkIfCompletedQuestionBefore,
   listKey,
@@ -174,7 +174,7 @@ export default function QuestionsQuizList<Q extends QuestionQuizMetadata>({
                   showIcon={true}
                   value={question.importance}
                 />
-                <QuestionQuizTopics topics={question.topics} />
+                <QuestionTopics topics={question.topics} />
                 {(() => {
                   const count =
                     questionCompletionCount?.[question.format]?.[question.slug];

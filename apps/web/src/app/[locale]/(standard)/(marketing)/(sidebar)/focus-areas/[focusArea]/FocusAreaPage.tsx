@@ -8,11 +8,8 @@ import { trpc } from '~/hooks/trpc';
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
-import type {
-  QuestionMetadata,
-  QuestionQuizMetadata,
-} from '~/components/questions/common/QuestionsTypes';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
 import Button from '~/components/ui/Button';
@@ -29,7 +26,7 @@ import {
 type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   focusArea: FocusArea;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 

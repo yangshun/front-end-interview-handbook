@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import gtag from '~/lib/gtag';
 
-import QuestionQuizTopicLabel from '~/components/questions/metadata/QuestionQuizTopicLabel';
+import QuestionTopicLabel from '~/components/questions/metadata/QuestionTopicLabel';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
@@ -18,7 +18,7 @@ export default function MarketingEmbedQuizQuestion() {
     <div className="relative h-full w-full">
       <div className="h-full sm:overflow-y-scroll">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-y-4 pt-4 pb-32 sm:pt-10">
+          <div className="flex flex-col gap-y-4 pb-32 pt-4 sm:pt-10">
             <Text className="text-base font-semibold sm:text-xl" size="custom">
               Describe the difference between{' '}
               <code
@@ -52,8 +52,8 @@ export default function MarketingEmbedQuizQuestion() {
               </code>
             </Text>
             <div className="flex gap-2">
-              <QuestionQuizTopicLabel value="html" />
-              <QuestionQuizTopicLabel value="performance" />
+              <QuestionTopicLabel value="html" />
+              <QuestionTopicLabel value="performance" />
             </div>
             <Divider />
             <Prose>
@@ -97,7 +97,7 @@ export default function MarketingEmbedQuizQuestion() {
           </div>
         </div>
       </div>
-      <div className="dark:from-neutral-950 absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8">
+      <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pb-8 pt-32 dark:from-neutral-950">
         <Button
           href="/questions/quiz/describe-the-difference-between-script-async-and-script-defer"
           label="Show full question"

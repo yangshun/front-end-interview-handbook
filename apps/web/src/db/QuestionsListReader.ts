@@ -5,15 +5,14 @@
 // It's only meant to be used on the server.
 import fs from 'node:fs';
 
-import { filterQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionFormat,
   QuestionFramework,
   QuestionMetadata,
-  QuestionQuizMetadata,
   QuestionSlug,
 } from '~/components/questions/common/QuestionsTypes';
 import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
+import { filterQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
 
 import { getQuestionsListOutFilenameCoding } from './questions-bundlers/QuestionsBundlerCodingConfig';
 import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
@@ -48,7 +47,7 @@ export async function fetchQuestionsListQuiz(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionQuizMetadata>;
+    questions: ReadonlyArray<QuestionMetadata>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -65,9 +64,7 @@ export async function fetchQuestionsListQuiz(
 
   return {
     loadedLocale,
-    questions: JSON.parse(
-      String(response),
-    ) as ReadonlyArray<QuestionQuizMetadata>,
+    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
   };
 }
 

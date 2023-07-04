@@ -6,7 +6,7 @@ import type { FocusAreaType } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import { sortQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
-import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -98,7 +98,7 @@ export default async function Page({ params }: Props) {
         codingQuestions={codingQuestionsForPlan}
         focusArea={focusArea}
         quizQuestions={sortQuestions(
-          quizQuestionsForPlan as ReadonlyArray<QuestionQuizMetadata>,
+          quizQuestionsForPlan as ReadonlyArray<QuestionMetadata>,
           'importance',
           false,
         )}

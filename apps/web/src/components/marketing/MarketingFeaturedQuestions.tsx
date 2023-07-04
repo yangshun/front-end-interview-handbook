@@ -2,10 +2,7 @@ import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import MarketingMarqueeQuestionListSection from '~/components/marketing/MarketingMarqueeQuestionListSection';
-import type {
-  QuestionMetadata,
-  QuestionQuizMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -21,7 +18,7 @@ export default function MarketingFeaturedQuestions({
   quizQuestions,
 }: Readonly<{
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
-  quizQuestions: ReadonlyArray<QuestionQuizMetadata>;
+  quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {

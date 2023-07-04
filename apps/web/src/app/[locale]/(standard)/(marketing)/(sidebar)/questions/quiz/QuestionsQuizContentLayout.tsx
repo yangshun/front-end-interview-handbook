@@ -7,7 +7,7 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSidebarCollapser';
-import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -25,7 +25,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  questionList: ReadonlyArray<QuestionQuizMetadata>;
+  questionList: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function QuestionsQuizContentLayout({

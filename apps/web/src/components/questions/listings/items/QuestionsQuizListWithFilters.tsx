@@ -3,21 +3,19 @@ import { useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import type {
+  QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
+  QuestionSortField,
+} from '~/components/questions/common/QuestionsTypes';
+import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
+import useQuestionTopicFilter from '~/components/questions/listings/filters/hooks/useQuestionTopicFilter';
+import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import {
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/questions/listings/filters/QuestionsProcessor';
-import type {
-  QuestionMetadata,
-  QuestionMetadataWithCompletedStatus,
-  QuestionQuizMetadata,
-  QuestionQuizMetadataWithCompletedStatus,
-  QuestionSortField,
-} from '~/components/questions/common/QuestionsTypes';
-import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
-import useQuestionQuizTopicFilter from '~/components/questions/listings/filters/hooks/useQuestionQuizTopicFilter';
-import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
 import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -40,7 +38,7 @@ export type Props = Readonly<{
   mode?: 'default' | 'topic';
   namespace: string;
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionQuizMetadataWithCompletedStatus>;
+  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>;
 
 export default function QuestionsQuizListWithFilters({
@@ -57,7 +55,7 @@ export default function QuestionsQuizListWithFilters({
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
-  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionQuizTopicFilter(
+  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionTopicFilter(
     { namespace },
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
@@ -86,7 +84,7 @@ export default function QuestionsQuizListWithFilters({
     [
       number,
       (
-        question: QuestionMetadataWithCompletedStatus & QuestionQuizMetadata,
+        question: QuestionMetadata & QuestionMetadataWithCompletedStatus,
       ) => boolean,
     ]
   > = [

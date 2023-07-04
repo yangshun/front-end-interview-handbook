@@ -727,6 +727,10 @@
     "defaultMessage": "Practice everything here",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
+  "D2YUXz": {
+    "defaultMessage": "Topics",
+    "description": "Screenreader text indicating component for question topics"
+  },
   "D3YhsE": {
     "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
     "description": "Description of 1 Week Preparation Plan page"
@@ -3306,10 +3310,6 @@
   "vx/nPL": {
     "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
-  },
-  "vzcdoW": {
-    "defaultMessage": "Quiz topics",
-    "description": "Screenreader text indicating component for quiz question topics"
   },
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",
