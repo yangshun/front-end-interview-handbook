@@ -16,7 +16,7 @@ import {
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/questions/listings/filters/QuestionsProcessor';
-import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
+import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
@@ -55,9 +55,9 @@ export default function QuestionsQuizListWithFilters({
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
-  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionTopicFilter(
-    { namespace },
-  );
+  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionTopicFilter({
+    namespace,
+  });
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({ namespace });
 
@@ -258,7 +258,7 @@ export default function QuestionsQuizListWithFilters({
               />
             </Heading>
             <Section>
-              <QuestionsQuizList
+              <QuestionsList
                 checkIfCompletedQuestion={(question) => question.isCompleted}
                 checkIfCompletedQuestionBefore={checkIfCompletedQuestionBefore}
                 listKey={listKey}

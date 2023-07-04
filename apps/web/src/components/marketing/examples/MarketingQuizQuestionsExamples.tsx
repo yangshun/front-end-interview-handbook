@@ -6,7 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionsQuizList from '~/components/questions/listings/items/QuestionsQuizList';
+import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -109,7 +109,7 @@ export default function MarketingQuizQuestionsExamples({
       </div>
       <Section>
         <div className="mt-12 lg:col-span-4 lg:mt-0">
-          <QuestionsQuizList
+          <QuestionsList
             checkIfCompletedQuestion={() => false}
             questions={questions}
             showProgress={false}
