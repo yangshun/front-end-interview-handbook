@@ -11,12 +11,12 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
+import DashboardContinueLearning from '~/components/dashboard/DashboardContinueLearning';
+import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
-import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
+import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepageFeaturesRow';
 import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
-import DashboardContinueLearning from '~/components/dashboard/DashboardContinueLearning';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
@@ -354,7 +354,7 @@ export default function ScrapbookPage() {
           <div>
             <UIExamplesGroup darkMode="vertical">
               <div>
-                <MarketingFeaturesRow />
+                <MarketingHomepageFeaturesRow />
               </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="vertical">

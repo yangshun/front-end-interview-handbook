@@ -13,7 +13,7 @@ const testimonials = [
     ),
     name: (
       <a
-        className="text-pink-400 hover:underline"
+        className="text-brand-light hover:underline"
         href="https://www.linkedin.com/in/chaitannah/"
         rel="noreferrer noopener"
         target="_blank">
@@ -43,7 +43,7 @@ const testimonials = [
     ),
     name: (
       <a
-        className="text-pink-400 hover:underline"
+        className="text-brand-light hover:underline"
         href="https://www.linkedin.com/in/bryantandk/"
         rel="noreferrer noopener"
         target="_blank">
@@ -186,9 +186,9 @@ const testimonials = [
 
 export default function ResumeReviewTestimonials() {
   return (
-    <div className="bg-neutral-900 py-16 lg:py-24 xl:py-32">
+    <div className="bg-neutral-950 py-16 lg:py-24 xl:py-32">
       <Container variant="narrow">
-        <p className="pb-6 text-base font-semibold leading-7 text-pink-400">
+        <p className="text-brand pb-6 text-base font-semibold leading-7">
           Testimonials
         </p>
         <h2 className="mt-1 text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
@@ -209,7 +209,7 @@ export default function ResumeReviewTestimonials() {
                   fill="currentColor"
                 />
               </svg>
-              <div className="mt-4 space-y-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+              <div className="mt-4 space-y-4 sm:ml-6 sm:mt-0 lg:ml-0 lg:mt-6">
                 <p className="text-lg text-neutral-300">{testimonial.quote}</p>
                 <div className="flex gap-x-4">
                   {testimonial.logo}

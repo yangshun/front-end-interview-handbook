@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 
+import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
+
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import ResumeReviewContact from './ResumeReviewContact';
 import ResumeReviewFAQs from './ResumeReviewFAQs';
 import ResumeReviewHero from './ResumeReviewHero';
 import ResumeReviewLogoWall from './ResumeReviewLogoWall';
@@ -28,14 +29,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function PortfolioReviewPage() {
   return (
-    <main>
+    <main className="dark bg-neutral-950">
       <ResumeReviewHero />
       <ResumeReviewLogoWall />
       <ResumeReviewProcess />
       <ResumeReviewTestimonials />
       <ResumeReviewPricing />
       <ResumeReviewFAQs />
-      <ResumeReviewContact />
+      <div className="py-12">
+        <MarketingContactUs />
+      </div>
     </main>
   );
 }

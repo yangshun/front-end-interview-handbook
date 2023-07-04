@@ -1,8 +1,18 @@
-import { RiBuilding2Line, RiFileList3Line, RiGroup2Line } from 'react-icons/ri';
+'use client';
+
+import clsx from 'clsx';
+import {
+  RiArrowRightLine,
+  RiBuilding2Line,
+  RiFileList3Line,
+  RiGroup2Line,
+} from 'react-icons/ri';
 
 import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
+import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 
 const summaryFeatures = [
@@ -10,18 +20,21 @@ const summaryFeatures = [
     description:
       'Your entire portfolio - including GitHub, resume and portfolio website, projects will be reviewed',
     icon: RiFileList3Line,
+    key: 'review',
     name: 'End-to-end review',
   },
   {
     description:
       'Get personalized and insightful guidance from ex-interviewers',
     icon: RiGroup2Line,
+    key: 'guidance',
     name: '1:1 personalized guidance',
   },
   {
     description:
       'Our users now work at companies like Airbnb, Amazon, Meta and Lyft',
     icon: RiBuilding2Line,
+    key: 'success',
     name: 'High success rate',
   },
 ];
@@ -56,7 +69,7 @@ const featuredReviews = [
 
 export default function ResumeReviewHero() {
   return (
-    <div className="relative isolate overflow-hidden bg-neutral-900">
+    <div className="relative isolate overflow-hidden bg-neutral-950">
       <Container>
         <svg
           aria-hidden="true"
@@ -87,7 +100,7 @@ export default function ResumeReviewHero() {
         </svg>
         <div
           aria-hidden="true"
-          className="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]">
+          className="sm:left-[calc(50%-18rem)] lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)] absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl lg:left-48">
           <div
             className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20"
             style={{
@@ -96,16 +109,21 @@ export default function ResumeReviewHero() {
             }}
           />
         </div>
-        <div className="pb-10 xl:pb-20">
-          <div className="mx-auto lg:flex ">
+        <div className="flex flex-col gap-y-24 pb-10 xl:pb-20">
+          <div className="mx-auto lg:flex">
             <div>
               <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl">
                 <div className="mt-24 sm:mt-32 lg:mt-16">
-                  <a className="inline-flex space-x-6" href="#">
-                    <span className="rounded-full bg-neutral-300/10 px-3 py-1 text-sm font-semibold leading-6 text-neutral-300 ring-1 ring-inset ring-neutral-300/20">
-                      Front End Portfolio Review
-                    </span>
-                  </a>
+                  <span
+                    className={clsx(
+                      'group relative inline-flex items-center gap-x-1 rounded-full',
+                      'px-3 py-0.5',
+                      'text-sm font-medium text-neutral-300',
+                      'bg-brand/20 hover:bg-brand/30 transition-colors',
+                      'shiny shadow-sm',
+                    )}>
+                    Front end portfolio review
+                  </span>
                 </div>
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                   Take your front end portfolio to the next level
@@ -129,22 +147,25 @@ export default function ResumeReviewHero() {
                   tech companies, we know what to look out for and how to
                   improve your chances at getting shortlisted.
                 </p>
-                <div className="mt-10 flex items-center gap-x-6">
-                  <a
-                    className="rounded-full bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-400"
-                    href="#whats-included">
-                    What is included{' '}
-                    <span className="text-neutral-200">{'->'}</span>
-                  </a>
-                  <a
-                    className="text-sm font-semibold leading-6 text-white"
-                    href="#pricing">
-                    Pricing <span className="text-neutral-400">{'->'}</span>
-                  </a>
+                <div className="mt-10 flex items-center gap-x-2">
+                  <Button
+                    href="#whats-included"
+                    icon={RiArrowRightLine}
+                    label="What is included"
+                    size="lg"
+                    variant="primary"
+                  />
+                  <Button
+                    href="#pricing"
+                    icon={RiArrowRightLine}
+                    label="Pricing"
+                    size="lg"
+                    variant="tertiary"
+                  />
                 </div>
               </div>
             </div>
-            <div className="hidden w-full pt-6 lg:ml-auto lg:block lg:w-2/6 lg:flex-shrink-0">
+            <div className="lg:w-2/6 hidden w-full pt-6 lg:ml-auto lg:block lg:flex-shrink-0">
               {featuredReviews.map((review) => (
                 <figure
                   key={review.reviewerName}
@@ -165,22 +186,7 @@ export default function ResumeReviewHero() {
               ))}
             </div>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl lg:mt-24 lg:max-w-7xl xl:sm:mt-28">
-            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-neutral-300 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
-              {summaryFeatures.map((feature) => (
-                <div key={feature.name} className="relative pl-12">
-                  <dt className=" font-semibold text-white">
-                    <feature.icon
-                      aria-hidden="true"
-                      className="absolute left-1 top-1 h-8 w-8 text-pink-500"
-                    />
-                    {feature.name}
-                  </dt>{' '}
-                  <dd>{feature.description}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <MarketingFeaturesRow features={summaryFeatures} title="Features" />
         </div>
       </Container>
     </div>

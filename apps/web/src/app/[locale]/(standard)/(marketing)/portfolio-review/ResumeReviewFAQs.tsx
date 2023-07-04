@@ -64,7 +64,7 @@ const faqs = [
 
 export default function ResumeReviewFAQs() {
   return (
-    <div className="bg-neutral-900 py-16 lg:py-24 xl:py-32">
+    <div className="bg-neutral-950 py-16 lg:py-24 xl:py-32">
       <Container variant="3xl">
         <div className="divide-y divide-white/10">
           <h2 className="text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">

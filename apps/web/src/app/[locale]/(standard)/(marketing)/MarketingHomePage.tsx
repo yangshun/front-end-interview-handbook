@@ -9,8 +9,8 @@ import MarketingEmbedSection from '~/components/marketing/MarketingEmbedSection'
 import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeaturedQuestions from '~/components/marketing/MarketingFeaturedQuestions';
 import MarketingFeaturesBlocks from '~/components/marketing/MarketingFeaturesBlocks';
-import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingHero from '~/components/marketing/MarketingHero';
+import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepageFeaturesRow';
 import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import type {
@@ -43,7 +43,7 @@ export default function MarketingHomePage({
     <main className="dark bg-[#070708] pb-12 md:pb-24">
       <MarketingHero />
       <Section>
-        <MarketingFeaturesRow />
+        <MarketingHomepageFeaturesRow />
         <MarketingCompaniesMarquee />
         <MarketingEmbedSection
           featuredQuestions={[
