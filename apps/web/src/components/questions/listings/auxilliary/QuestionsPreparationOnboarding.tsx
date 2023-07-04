@@ -50,7 +50,7 @@ export default function QuestionsPreparationOnboarding() {
     },
   ];
 
-  if (shouldHide || pathname !== '/prepare') {
+  if (shouldHide) {
     return null;
   }
 
