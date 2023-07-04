@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-prototypal-inheritance-works",
-    "title": "Explique como funciona a herança de protótipos",
     "subtitle": null,
+    "title": "Explique como funciona a herança de protótipos",
     "topics": [
       "javascript"
     ]

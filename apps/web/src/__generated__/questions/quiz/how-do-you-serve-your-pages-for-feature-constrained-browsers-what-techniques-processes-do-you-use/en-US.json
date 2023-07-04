@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use",
-    "title": "How do you serve your pages for feature-constrained browsers?",
     "subtitle": "What techniques/processes do you use?",
+    "title": "How do you serve your pages for feature-constrained browsers?",
     "topics": [
       "css"
     ]

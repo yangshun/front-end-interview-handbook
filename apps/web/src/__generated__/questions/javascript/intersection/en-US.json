@@ -27,7 +27,9 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "intersection",
-    "title": "Intersection"
+    "subtitle": null,
+    "title": "Intersection",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * Computes the intersection of arrays, returning a new array containing unique values present in all given arrays.\n *\n * @param {Array[]} arrays - The arrays to perform the intersection on.\n * @returns {Array} - A new array containing the unique values present in all given arrays.\n */\nexport default function intersection(...arrays) {\n  throw 'Not implemented!';\n}",

@@ -37,7 +37,9 @@
       "throttle"
     ],
     "slug": "debounce",
-    "title": "Debounce"
+    "subtitle": null,
+    "title": "Debounce",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Function} func\n * @param {number} wait\n * @return {Function}\n */\nexport default function debounce(func, wait) {\n  throw 'Not implemented!';\n}",

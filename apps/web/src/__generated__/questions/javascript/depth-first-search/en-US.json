@@ -26,7 +26,9 @@
       "breadth-first-search"
     ],
     "slug": "depth-first-search",
-    "title": "Depth-First Search"
+    "subtitle": null,
+    "title": "Depth-First Search",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Record<string, Array<string>} graph The adjacency list representing the graph.\n * @param {string} source The source node to start traversal from. It has to exist as a node in the graph.\n * @return {Array<string>} A DFS-traversed order of nodes.\n */\nexport default function depthFirstSearch(graph, source) {\n  throw 'Not implemented!';\n}",

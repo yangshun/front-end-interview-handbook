@@ -25,8 +25,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models",
-    "title": "Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.",
     "subtitle": null,
+    "title": "Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.",
     "topics": [
       "css"
     ]

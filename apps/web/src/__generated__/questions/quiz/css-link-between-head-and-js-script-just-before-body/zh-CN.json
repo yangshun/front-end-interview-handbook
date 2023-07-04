@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "css-link-between-head-and-js-script-just-before-body",
-    "title": "为什么一般来说，将CSS`<link>`放在`<head></head>`之间，将JS`<script>`放在`</body>`之前是个好主意？",
     "subtitle": "您是否知道任何例外情况？",
+    "title": "为什么一般来说，将CSS`<link>`放在`<head></head>`之间，将JS`<script>`放在`</body>`之前是个好主意？",
     "topics": [
       "html",
       "performance"

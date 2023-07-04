@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-this-works-in-javascript",
-    "title": "Explain how `this` works in JavaScript",
     "subtitle": null,
+    "title": "Explain how `this` works in JavaScript",
     "topics": [
       "javascript"
     ]

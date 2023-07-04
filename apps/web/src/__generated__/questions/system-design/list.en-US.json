@@ -23,7 +23,9 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "autocomplete",
-    "title": "Autocomplete"
+    "subtitle": null,
+    "title": "Autocomplete",
+    "topics": []
   },
   {
     "author": null,
@@ -45,7 +47,9 @@
     "ranking": 9,
     "similarQuestions": [],
     "slug": "chat-application-messenger",
-    "title": "Chat App (e.g. Messenger)"
+    "subtitle": null,
+    "title": "Chat App (e.g. Messenger)",
+    "topics": []
   },
   {
     "author": null,
@@ -69,7 +73,9 @@
     "ranking": 7,
     "similarQuestions": [],
     "slug": "collaborative-editor-google-docs",
-    "title": "Google Docs"
+    "subtitle": null,
+    "title": "Google Docs",
+    "topics": []
   },
   {
     "author": null,
@@ -91,7 +97,9 @@
     "ranking": 8,
     "similarQuestions": [],
     "slug": "collaborative-spreadsheet-google-sheets",
-    "title": "Google Sheets"
+    "subtitle": null,
+    "title": "Google Sheets",
+    "topics": []
   },
   {
     "author": null,
@@ -113,7 +121,9 @@
     "ranking": 13,
     "similarQuestions": [],
     "slug": "diagram-tool-lucidchart",
-    "title": "Diagram Tool (e.g. Lucidchart)"
+    "subtitle": null,
+    "title": "Diagram Tool (e.g. Lucidchart)",
+    "topics": []
   },
   {
     "author": null,
@@ -138,7 +148,9 @@
     "ranking": 8,
     "similarQuestions": [],
     "slug": "dropdown-menu",
-    "title": "Dropdown Menu"
+    "subtitle": null,
+    "title": "Dropdown Menu",
+    "topics": []
   },
   {
     "author": null,
@@ -160,7 +172,9 @@
     "ranking": 3,
     "similarQuestions": [],
     "slug": "e-commerce-amazon",
-    "title": "E-commerce Marketplace (e.g. Amazon)"
+    "subtitle": null,
+    "title": "E-commerce Marketplace (e.g. Amazon)",
+    "topics": []
   },
   {
     "author": null,
@@ -182,7 +196,9 @@
     "ranking": 11,
     "similarQuestions": [],
     "slug": "email-client-outlook",
-    "title": "Email Client (e.g. Microsoft Outlook)"
+    "subtitle": null,
+    "title": "Email Client (e.g. Microsoft Outlook)",
+    "topics": []
   },
   {
     "author": null,
@@ -207,7 +223,9 @@
     "ranking": 4,
     "similarQuestions": [],
     "slug": "image-carousel",
-    "title": "Image Carousel"
+    "subtitle": null,
+    "title": "Image Carousel",
+    "topics": []
   },
   {
     "author": null,
@@ -229,7 +247,9 @@
     "ranking": 10,
     "similarQuestions": [],
     "slug": "modal-dialog",
-    "title": "Modal Dialog"
+    "subtitle": null,
+    "title": "Modal Dialog",
+    "topics": []
   },
   {
     "author": null,
@@ -251,7 +271,9 @@
     "ranking": 11,
     "similarQuestions": [],
     "slug": "music-streaming-spotify",
-    "title": "Music Streaming (e.g. Spotify)"
+    "subtitle": null,
+    "title": "Music Streaming (e.g. Spotify)",
+    "topics": []
   },
   {
     "author": "yangshun",
@@ -276,7 +298,9 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "news-feed-facebook",
-    "title": "News Feed (e.g. Facebook)"
+    "subtitle": null,
+    "title": "News Feed (e.g. Facebook)",
+    "topics": []
   },
   {
     "author": null,
@@ -298,7 +322,9 @@
     "ranking": 8,
     "similarQuestions": [],
     "slug": "photo-gallery-google-photos",
-    "title": "Photo Gallery (e.g. Google Photos)"
+    "subtitle": null,
+    "title": "Photo Gallery (e.g. Google Photos)",
+    "topics": []
   },
   {
     "author": null,
@@ -322,7 +348,9 @@
     "ranking": 5,
     "similarQuestions": [],
     "slug": "photo-sharing-instagram",
-    "title": "Photo Sharing (e.g. Instagram)"
+    "subtitle": null,
+    "title": "Photo Sharing (e.g. Instagram)",
+    "topics": []
   },
   {
     "author": null,
@@ -344,7 +372,9 @@
     "ranking": 12,
     "similarQuestions": [],
     "slug": "pinterest",
-    "title": "Pinterest"
+    "subtitle": null,
+    "title": "Pinterest",
+    "topics": []
   },
   {
     "author": null,
@@ -366,7 +396,9 @@
     "ranking": 6,
     "similarQuestions": [],
     "slug": "poll-widget",
-    "title": "Poll Widget"
+    "subtitle": null,
+    "title": "Poll Widget",
+    "topics": []
   },
   {
     "author": null,
@@ -388,7 +420,9 @@
     "ranking": 7,
     "similarQuestions": [],
     "slug": "travel-booking-airbnb",
-    "title": "Travel Booking (e.g. Airbnb)"
+    "subtitle": null,
+    "title": "Travel Booking (e.g. Airbnb)",
+    "topics": []
   },
   {
     "author": null,
@@ -410,7 +444,9 @@
     "ranking": 14,
     "similarQuestions": [],
     "slug": "video-conferencing-zoom",
-    "title": "Video Conferencing (e.g. Zoom)"
+    "subtitle": null,
+    "title": "Video Conferencing (e.g. Zoom)",
+    "topics": []
   },
   {
     "author": null,
@@ -432,6 +468,8 @@
     "ranking": 7,
     "similarQuestions": [],
     "slug": "video-streaming-youtube",
-    "title": "Video Streaming (e.g. YouTube)"
+    "subtitle": null,
+    "title": "Video Streaming (e.g. YouTube)",
+    "topics": []
   }
 ]

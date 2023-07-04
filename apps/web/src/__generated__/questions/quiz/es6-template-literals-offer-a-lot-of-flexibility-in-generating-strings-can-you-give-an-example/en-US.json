@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example",
-    "title": "ES2015 Template Literals offer a lot of flexibility in generating strings, can you give an example?",
     "subtitle": null,
+    "title": "ES2015 Template Literals offer a lot of flexibility in generating strings, can you give an example?",
     "topics": [
       "javascript"
     ]

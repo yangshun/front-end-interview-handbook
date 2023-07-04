@@ -33,5 +33,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "digital-clock",
-  "title": "Digital Clock"
+  "subtitle": null,
+  "title": "Digital Clock",
+  "topics": []
 }

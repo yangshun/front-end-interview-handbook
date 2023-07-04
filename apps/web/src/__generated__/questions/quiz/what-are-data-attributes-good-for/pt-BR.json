@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-data-attributes-good-for",
-    "title": "Para que servem os atributos `data-`?",
     "subtitle": null,
+    "title": "Para que servem os atributos `data-`?",
     "topics": [
       "html",
       "testing"

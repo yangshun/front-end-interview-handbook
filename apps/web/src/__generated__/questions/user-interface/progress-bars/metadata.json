@@ -31,5 +31,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "progress-bars",
-  "title": "Progress Bars"
+  "subtitle": null,
+  "title": "Progress Bars",
+  "topics": []
 }

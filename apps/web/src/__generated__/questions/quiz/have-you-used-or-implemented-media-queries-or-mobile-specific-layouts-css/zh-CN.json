@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
-    "title": "你是否使用或配置过媒体查询或移动端专用布局/CSS？",
     "subtitle": null,
+    "title": "你是否使用或配置过媒体查询或移动端专用布局/CSS？",
     "topics": [
       "css"
     ]

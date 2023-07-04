@@ -26,7 +26,9 @@
       "data-selection"
     ],
     "slug": "unique-array",
-    "title": "Unique Array"
+    "subtitle": null,
+    "title": "Unique Array",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array} array\n * @return {Array}\n */\nexport default function uniqueArray(array) {\n  throw 'Not implemented!';\n}",

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-difference-between-synchronous-and-asynchronous-functions",
-    "title": "Explain the difference between synchronous and asynchronous functions",
     "subtitle": null,
+    "title": "Explain the difference between synchronous and asynchronous functions",
     "topics": [
       "javascript"
     ]

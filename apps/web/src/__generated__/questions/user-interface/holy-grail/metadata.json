@@ -36,5 +36,7 @@
     "tweet"
   ],
   "slug": "holy-grail",
-  "title": "Holy Grail"
+  "subtitle": null,
+  "title": "Holy Grail",
+  "topics": []
 }

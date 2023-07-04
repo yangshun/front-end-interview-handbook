@@ -28,7 +28,9 @@
       "curry"
     ],
     "slug": "curry-ii",
-    "title": "Curry II"
+    "subtitle": null,
+    "title": "Curry II",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Function} func\n * @return {Function}\n */\nexport default function curry(func) {\n  throw 'Not implemented!';\n}",

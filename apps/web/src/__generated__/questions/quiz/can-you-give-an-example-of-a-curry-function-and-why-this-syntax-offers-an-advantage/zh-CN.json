@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
-    "title": "您能提供一个柯里化函数的例子，以及为什么这个语法会有优势？",
     "subtitle": null,
+    "title": "您能提供一个柯里化函数的例子，以及为什么这个语法会有优势？",
     "topics": [
       "javascript"
     ]

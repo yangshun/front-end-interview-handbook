@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-how-a-browser-determines-what-elements-match-a-css-selector",
-    "title": "Explain how a browser determines what elements match a CSS selector.",
     "subtitle": null,
+    "title": "Explain how a browser determines what elements match a CSS selector.",
     "topics": [
       "css"
     ]

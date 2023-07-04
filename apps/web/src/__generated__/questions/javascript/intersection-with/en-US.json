@@ -27,7 +27,9 @@
       "intersection-with"
     ],
     "slug": "intersection-with",
-    "title": "Intersection With"
+    "subtitle": null,
+    "title": "Intersection With",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * Computes the intersection of arrays using a custom comparator function to determine equality between elements.\n *\n * @param {Function} comparator - The comparator function used to determine equality between elements.\n * @param {...Array} arrays - The arrays to perform the intersection on.\n * @returns {Array} - A new array containing the elements that are present in all given arrays.\n */\nexport default function intersectionWith(comparator, ...arrays) {\n  throw 'Not implemented!';\n}",

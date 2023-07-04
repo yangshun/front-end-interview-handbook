@@ -31,5 +31,7 @@
     "todo-list"
   ],
   "slug": "transfer-list",
-  "title": "Transfer List"
+  "subtitle": null,
+  "title": "Transfer List",
+  "topics": []
 }

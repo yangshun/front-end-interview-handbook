@@ -27,7 +27,9 @@
       "text-search"
     ],
     "slug": "text-search-ii",
-    "title": "Text Search II"
+    "subtitle": null,
+    "title": "Text Search II",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {string} string\n * @param {Array<string>} queries\n * @return {string}\n */\nexport default function textSearch(string, queries) {\n  throw 'Not implemented!';\n}",

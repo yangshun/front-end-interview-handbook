@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-block-formatting-context-bfc-and-how-it-works",
-    "title": "Descrever o contexto de formatação de bloco (BFC) e como ele funciona.",
     "subtitle": null,
+    "title": "Descrever o contexto de formatação de bloco (BFC) e como ele funciona.",
     "topics": [
       "css"
     ]

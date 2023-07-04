@@ -26,7 +26,9 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "drop-while",
-    "title": "Drop While"
+    "subtitle": null,
+    "title": "Drop While",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array} array - The array to iterate over.\n * @param {Function} predicate - The function invoked per iteration.\n * @return {Array} Returns the slice of `array`.\n */\nexport default function dropWhile(array, predicate) {\n  throw 'Not implemented!';\n}",

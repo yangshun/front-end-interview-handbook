@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5",
-    "title": "创建一个for循环，迭代到`100`，同时在`3`的倍数上输出**\"fizz \"**，在`5`的倍数上输出**\"buzz\"**，在`3`和`5`的公倍数上输出**\"fizzbuzz\"**。",
     "subtitle": null,
+    "title": "创建一个for循环，迭代到`100`，同时在`3`的倍数上输出**\"fizz \"**，在`5`的倍数上输出**\"buzz\"**，在`3`和`5`的公倍数上输出**\"fizzbuzz\"**。",
     "topics": [
       "javascript"
     ]

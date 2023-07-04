@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string",
-    "title": "功能检测、功能推断和使用UA字符串之间有什么区别？",
     "subtitle": null,
+    "title": "功能检测、功能推断和使用UA字符串之间有什么区别？",
     "topics": [
       "javascript"
     ]

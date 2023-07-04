@@ -35,7 +35,9 @@
       "array-filter"
     ],
     "slug": "array-reduce",
-    "title": "Array.prototype.reduce"
+    "subtitle": null,
+    "title": "Array.prototype.reduce",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @template T, U\n * @param {(previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U} callbackFn\n * @param {U} [initialValue]\n * @return {Array<U>}\n */\nArray.prototype.myReduce = function (callbackFn, initialValue) {\n  throw 'Not implemented!';\n};",

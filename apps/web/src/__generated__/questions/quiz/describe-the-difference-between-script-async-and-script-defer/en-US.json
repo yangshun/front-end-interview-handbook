@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "describe-the-difference-between-script-async-and-script-defer",
-    "title": "Describe the difference between `<script>`, `<script async>` and `<script defer>`",
     "subtitle": null,
+    "title": "Describe the difference between `<script>`, `<script async>` and `<script defer>`",
     "topics": [
       "html",
       "javascript"

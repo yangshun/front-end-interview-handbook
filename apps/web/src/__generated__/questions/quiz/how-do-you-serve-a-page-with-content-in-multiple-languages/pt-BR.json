@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-serve-a-page-with-content-in-multiple-languages",
-    "title": "Como se serve uma página com conteúdo em vários idiomas?",
     "subtitle": null,
+    "title": "Como se serve uma página com conteúdo em vários idiomas?",
     "topics": [
       "html",
       "i18n"

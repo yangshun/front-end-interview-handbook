@@ -26,7 +26,9 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "once",
-    "title": "Once"
+    "subtitle": null,
+    "title": "Once",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @template {Function} T\n * @param {T} func\n * @return {T}\n */\nexport default function once(func) {\n  throw 'Not implemented!';\n}",

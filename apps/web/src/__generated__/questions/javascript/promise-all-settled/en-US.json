@@ -28,7 +28,9 @@
       "promise-race"
     ],
     "slug": "promise-all-settled",
-    "title": "Promise.allSettled"
+    "subtitle": null,
+    "title": "Promise.allSettled",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array} iterable\n * @return {Promise<Array<{status: 'fulfilled', value: *}|{status: 'rejected', reason: *}>>}\n */\nexport default function promiseAllSettled(iterable) {\n  throw 'Not implemented!';\n}",

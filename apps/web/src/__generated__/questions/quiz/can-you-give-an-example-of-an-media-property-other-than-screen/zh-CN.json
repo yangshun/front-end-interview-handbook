@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-of-an-media-property-other-than-screen",
-    "title": "你能举例说明除 \"screen \"以外的媒体查询属性吗？",
     "subtitle": null,
+    "title": "你能举例说明除 \"screen \"以外的媒体查询属性吗？",
     "topics": [
       "css"
     ]

@@ -28,7 +28,9 @@
       "unique-array"
     ],
     "slug": "data-selection",
-    "title": "Data Selection"
+    "subtitle": null,
+    "title": "Data Selection",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array<{user: number, duration: number, equipment: Array<string>}>} sessions\n * @param {{user?: number, minDuration?: number, equipment?: Array<string>, merge?: boolean}} [options]\n * @return {Array}\n */\nexport default function selectData(sessions, options) {\n  throw 'Not implemented!';\n}",

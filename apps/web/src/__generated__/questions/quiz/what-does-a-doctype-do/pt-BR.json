@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-does-a-doctype-do",
-    "title": "O que um `DOCTYPE` faz?",
     "subtitle": null,
+    "title": "O que um `DOCTYPE` faz?",
     "topics": [
       "html"
     ]

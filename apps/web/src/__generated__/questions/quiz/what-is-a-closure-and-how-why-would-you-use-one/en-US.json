@@ -26,8 +26,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-a-closure-and-how-why-would-you-use-one",
-    "title": "What is a closure, and how/why would you use one?",
     "subtitle": null,
+    "title": "What is a closure, and how/why would you use one?",
     "topics": [
       "javascript"
     ]

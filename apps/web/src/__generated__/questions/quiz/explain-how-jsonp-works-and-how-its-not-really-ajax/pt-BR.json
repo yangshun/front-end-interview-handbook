@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-how-jsonp-works-and-how-its-not-really-ajax",
-    "title": "Explique como o JSONP funciona (e como ele não é Ajax)",
     "subtitle": null,
+    "title": "Explique como o JSONP funciona (e como ele não é Ajax)",
     "topics": [
       "javascript",
       "network",

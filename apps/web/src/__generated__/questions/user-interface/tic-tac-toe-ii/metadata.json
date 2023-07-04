@@ -32,5 +32,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "tic-tac-toe-ii",
-  "title": "Tic-tac-toe II"
+  "subtitle": null,
+  "title": "Tic-tac-toe II",
+  "topics": []
 }

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "difference-between-function-person-var-person-person-and-var-person-new-person",
-    "title": "Diferença entre: `function Person(){}`, `var person = Person()`, e `var person = new Person()`?",
     "subtitle": null,
+    "title": "Diferença entre: `function Person(){}`, `var person = Person()`, e `var person = new Person()`?",
     "topics": [
       "javascript"
     ]

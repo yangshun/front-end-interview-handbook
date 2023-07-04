@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-would-you-approach-fixing-browser-specific-styling-issues",
-    "title": "您将如何解决特定浏览器特有的样式问题？",
     "subtitle": null,
+    "title": "您将如何解决特定浏览器特有的样式问题？",
     "topics": [
       "css"
     ]

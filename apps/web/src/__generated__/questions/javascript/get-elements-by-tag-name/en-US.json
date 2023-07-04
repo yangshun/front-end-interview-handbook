@@ -27,7 +27,9 @@
       "get-elements-by-class-name"
     ],
     "slug": "get-elements-by-tag-name",
-    "title": "getElementsByTagName"
+    "subtitle": null,
+    "title": "getElementsByTagName",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Element} rootElement\n * @param {string} tagName\n * @return {Array<Element>}\n */\nexport default function getElementsByTagName(rootElement, tagName) {\n  throw 'Not implemented!';\n}",

@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-event-delegation",
-    "title": "Explain event delegation",
     "subtitle": null,
+    "title": "Explain event delegation",
     "topics": [
       "javascript",
       "html"

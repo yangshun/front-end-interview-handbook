@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "when-would-you-use-document-write",
-    "title": "您什么时候使用 `document.write()`？",
     "subtitle": null,
+    "title": "您什么时候使用 `document.write()`？",
     "topics": [
       "javascript"
     ]

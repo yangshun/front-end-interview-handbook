@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-this-works-in-javascript",
-    "title": "解释 JavaScript `this` 如何工作",
     "subtitle": null,
+    "title": "解释 JavaScript `this` 如何工作",
     "topics": [
       "javascript"
     ]

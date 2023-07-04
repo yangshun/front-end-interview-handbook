@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-prototypal-inheritance-works",
-    "title": "解释原型继承如何工作",
     "subtitle": null,
+    "title": "解释原型继承如何工作",
     "topics": [
       "javascript"
     ]

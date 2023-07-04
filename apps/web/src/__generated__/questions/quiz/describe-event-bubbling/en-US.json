@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-event-bubbling",
-    "title": "Describe event bubbling",
     "subtitle": null,
+    "title": "Describe event bubbling",
     "topics": [
       "javascript",
       "html"

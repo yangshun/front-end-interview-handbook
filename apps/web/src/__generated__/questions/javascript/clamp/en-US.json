@@ -28,7 +28,9 @@
       "in-range"
     ],
     "slug": "clamp",
-    "title": "Clamp"
+    "subtitle": null,
+    "title": "Clamp",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {number} value The number to clamp.\n * @param {number} lower The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the clamped number.\n */\nexport default function clamp(value, lower, upper) {\n  throw 'Not implemented';\n}",

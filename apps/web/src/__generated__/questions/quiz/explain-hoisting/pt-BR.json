@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-hoisting",
-    "title": "Explique \"hoisting\"",
     "subtitle": null,
+    "title": "Explique \"hoisting\"",
     "topics": [
       "javascript"
     ]

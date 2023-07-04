@@ -26,7 +26,9 @@
       "get"
     ],
     "slug": "chunk",
-    "title": "Chunk"
+    "subtitle": null,
+    "title": "Chunk",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array} array - The array to process.\n * @param {number} [size=1] - The length of each chunk.\n * @returns {Array} - Returns the new array of chunks.\n */\nexport default function chunk(array, size = 1) {\n  throw 'Not implemented!';\n}",

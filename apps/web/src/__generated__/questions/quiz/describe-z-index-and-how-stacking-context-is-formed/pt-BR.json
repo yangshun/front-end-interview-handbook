@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-z-index-and-how-stacking-context-is-formed",
-    "title": "Descreva `z-index` e como o contexto de empilhamento é formado.",
     "subtitle": null,
+    "title": "Descreva `z-index` e como o contexto de empilhamento é formado.",
     "topics": [
       "css"
     ]

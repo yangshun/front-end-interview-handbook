@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items",
-    "title": "What language constructions do you use for iterating over object properties and array items?",
     "subtitle": null,
+    "title": "What language constructions do you use for iterating over object properties and array items?",
     "topics": [
       "javascript"
     ]

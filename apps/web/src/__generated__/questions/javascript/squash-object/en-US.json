@@ -27,7 +27,9 @@
       "get"
     ],
     "slug": "squash-object",
-    "title": "Squash Object"
+    "subtitle": null,
+    "title": "Squash Object",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Object} obj\n * @return {Object}\n */\nexport default function squashObject(obj) {\n  throw 'Not implemented!';\n}",

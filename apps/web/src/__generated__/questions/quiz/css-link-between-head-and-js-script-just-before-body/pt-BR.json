@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "css-link-between-head-and-js-script-just-before-body",
-    "title": "Por que geralmente é uma boa ideia posicionar os CSS `<link>` entre `<head></head>` e os JS `<script>` logo antes de `</body>`?",
     "subtitle": "Você conhece alguma exceção?",
+    "title": "Por que geralmente é uma boa ideia posicionar os CSS `<link>` entre `<head></head>` e os JS `<script>` logo antes de `</body>`?",
     "topics": [
       "html",
       "performance"

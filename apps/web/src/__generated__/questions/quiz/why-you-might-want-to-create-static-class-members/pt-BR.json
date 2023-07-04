@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-you-might-want-to-create-static-class-members",
-    "title": "Por que você pode querer criar membros de classe estáticos?",
     "subtitle": null,
+    "title": "Por que você pode querer criar membros de classe estáticos?",
     "topics": [
       "javascript"
     ]

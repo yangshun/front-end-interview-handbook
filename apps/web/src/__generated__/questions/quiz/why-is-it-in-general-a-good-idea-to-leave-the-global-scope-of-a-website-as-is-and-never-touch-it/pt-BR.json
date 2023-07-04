@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
-    "title": "Por que, em geral, é uma boa ideia deixar o escopo global de um site como está e nunca modificá-lo?",
     "subtitle": null,
+    "title": "Por que, em geral, é uma boa ideia deixar o escopo global de um site como está e nunca modificá-lo?",
     "topics": [
       "javascript"
     ]

@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states",
-    "title": "`null`, `undefined` 和未声明变量的区别是什么？",
     "subtitle": "您将如何检查这些状态？”",
+    "title": "`null`, `undefined` 和未声明变量的区别是什么？",
     "topics": [
       "javascript"
     ]

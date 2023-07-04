@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-is-the-difference-between-double-equal-and-triple-equal",
-    "title": "`==` 和 `===`之间有什么区别？",
     "subtitle": null,
+    "title": "`==` 和 `===`之间有什么区别？",
     "topics": [
       "javascript"
     ]

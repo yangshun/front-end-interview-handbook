@@ -27,5 +27,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "memory-game",
-  "title": "Memory Game"
+  "subtitle": null,
+  "title": "Memory Game",
+  "topics": []
 }

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-extending-built-in-javascript-objects-not-a-good-idea",
-    "title": "为什么扩展内置的 JavaScript 对象不是一个好主意？",
     "subtitle": null,
+    "title": "为什么扩展内置的 JavaScript 对象不是一个好主意？",
     "topics": [
       "javascript"
     ]

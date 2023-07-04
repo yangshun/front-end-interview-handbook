@@ -25,7 +25,9 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "classnames",
-    "title": "Classnames"
+    "subtitle": null,
+    "title": "Classnames",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {...(string|Object|Array<string|Object>)} args\n * @return {string}\n */\nexport default function classNames(...args) {\n  throw 'Not implemented!';\n}",

@@ -30,7 +30,9 @@
       "debounce"
     ],
     "slug": "throttle",
-    "title": "Throttle"
+    "subtitle": null,
+    "title": "Throttle",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @callback func\n * @param {number} wait\n * @return {Function}\n */\nexport default function throttle(func, wait) {\n  throw 'Not implemented!';\n}",

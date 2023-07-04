@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue",
-    "title": "O que é o loop de eventos?",
     "subtitle": "Qual é a diferença entre call stack e task queue?",
+    "title": "O que é o loop de eventos?",
     "topics": [
       "javascript"
     ]

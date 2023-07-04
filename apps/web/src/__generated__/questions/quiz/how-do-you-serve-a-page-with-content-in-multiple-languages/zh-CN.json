@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-serve-a-page-with-content-in-multiple-languages",
-    "title": "你如何提供一个有多国语言内容的页面？",
     "subtitle": null,
+    "title": "你如何提供一个有多国语言内容的页面？",
     "topics": [
       "html",
       "i18n"

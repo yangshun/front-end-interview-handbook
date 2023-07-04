@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife",
-    "title": "解释这为什么不能以IIFE工作: `function foo(){ }();`. 为了使它成为一个IIFE，需要作出哪些改变？",
     "subtitle": null,
+    "title": "解释这为什么不能以IIFE工作: `function foo(){ }();`. 为了使它成为一个IIFE，需要作出哪些改变？",
     "topics": [
       "javascript"
     ]

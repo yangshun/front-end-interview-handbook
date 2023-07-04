@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
-    "title": "Can you give an example of a curry function and why this syntax offers an advantage?",
     "subtitle": null,
+    "title": "Can you give an example of a curry function and why this syntax offers an advantage?",
     "topics": [
       "javascript"
     ]

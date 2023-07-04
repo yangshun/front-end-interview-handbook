@@ -25,8 +25,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models",
-    "title": "Explique sua compreensão do modelo de caixa e como você diria ao navegador em CSS para renderizar seu layout em diferentes modelos de caixa.",
     "subtitle": null,
+    "title": "Explique sua compreensão do modelo de caixa e como você diria ao navegador em CSS para renderizar seu layout em diferentes modelos de caixa.",
     "topics": [
       "css"
     ]

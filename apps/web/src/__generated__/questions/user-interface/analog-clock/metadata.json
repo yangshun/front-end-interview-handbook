@@ -35,5 +35,7 @@
     "digital-clock"
   ],
   "slug": "analog-clock",
-  "title": "Analog Clock"
+  "subtitle": null,
+  "title": "Analog Clock",
+  "topics": []
 }

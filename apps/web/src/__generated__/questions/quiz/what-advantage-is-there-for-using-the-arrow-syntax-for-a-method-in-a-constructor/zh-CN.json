@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor",
-    "title": "在构造函数中对方法使用箭头语法有什么好处？",
     "subtitle": null,
+    "title": "在构造函数中对方法使用箭头语法有什么好处？",
     "topics": [
       "javascript"
     ]

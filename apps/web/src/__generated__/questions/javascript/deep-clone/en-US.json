@@ -31,7 +31,9 @@
       "deep-clone-ii"
     ],
     "slug": "deep-clone",
-    "title": "Deep Clone"
+    "subtitle": null,
+    "title": "Deep Clone",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {*} value\n * @return {*}\n */\nexport default function deepClone(value) {\n  throw 'Not implemented!';\n}",

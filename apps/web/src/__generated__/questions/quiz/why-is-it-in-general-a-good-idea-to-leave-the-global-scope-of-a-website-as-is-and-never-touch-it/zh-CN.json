@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
-    "title": "为什么一般来说，让一个网站的全局范围保持原样，永远不可触及是个好主意？",
     "subtitle": null,
+    "title": "为什么一般来说，让一个网站的全局范围保持原样，永远不可触及是个好主意？",
     "topics": [
       "javascript"
     ]

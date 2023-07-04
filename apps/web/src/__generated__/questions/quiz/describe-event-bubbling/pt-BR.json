@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-event-bubbling",
-    "title": "Descreva a propagação de eventos",
     "subtitle": null,
+    "title": "Descreva a propagação de eventos",
     "topics": [
       "javascript",
       "html"

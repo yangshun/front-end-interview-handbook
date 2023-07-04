@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
-    "title": "Você usou ou implementou consultas de mídia ou layouts/CSS específicos para dispositivos móveis?",
     "subtitle": null,
+    "title": "Você usou ou implementou consultas de mídia ou layouts/CSS específicos para dispositivos móveis?",
     "topics": [
       "css"
     ]

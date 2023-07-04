@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-advantages-and-disadvantages-of-using-ajax",
-    "title": "What are the advantages and disadvantages of using Ajax?",
     "subtitle": null,
+    "title": "What are the advantages and disadvantages of using Ajax?",
     "topics": [
       "javascript",
       "network"

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
-    "title": "Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?",
     "subtitle": null,
+    "title": "Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?",
     "topics": [
       "css",
       "performance"

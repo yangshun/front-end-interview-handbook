@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
-    "title": "Explain CSS sprites, and how you would implement them on a page or site.",
     "subtitle": null,
+    "title": "Explain CSS sprites, and how you would implement them on a page or site.",
     "topics": [
       "css",
       "performance"

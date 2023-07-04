@@ -29,5 +29,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "grid-lights",
-  "title": "Grid Lights"
+  "subtitle": null,
+  "title": "Grid Lights",
+  "topics": []
 }

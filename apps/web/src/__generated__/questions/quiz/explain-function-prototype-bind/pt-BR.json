@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-function-prototype-bind",
-    "title": "Explique `Function.prototype.bind`",
     "subtitle": null,
+    "title": "Explique `Function.prototype.bind`",
     "topics": [
       "javascript"
     ]

@@ -28,7 +28,9 @@
       "html-serializer"
     ],
     "slug": "json-stringify",
-    "title": "JSON.stringify"
+    "subtitle": null,
+    "title": "JSON.stringify",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {*} value\n * @return {string}\n */\nexport default function jsonStringify(value) {\n  throw 'Not implemented!';\n}",

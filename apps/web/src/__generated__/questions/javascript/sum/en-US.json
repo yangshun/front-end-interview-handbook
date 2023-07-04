@@ -29,7 +29,9 @@
       "curry-ii"
     ],
     "slug": "sum",
-    "title": "Sum"
+    "subtitle": null,
+    "title": "Sum",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {number} number\n * @return {Function}\n */\nexport default function sum(number) {\n  throw 'Not implemented!';\n}",

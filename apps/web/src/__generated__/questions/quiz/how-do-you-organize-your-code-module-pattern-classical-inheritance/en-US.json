@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-organize-your-code-module-pattern-classical-inheritance",
-    "title": "How do you organize your code?",
     "subtitle": "Do you use module pattern, classical inheritance, something else?",
+    "title": "How do you organize your code?",
     "topics": [
       "javascript"
     ]

@@ -25,8 +25,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models",
-    "title": "解释您对盒模型的理解，以及您如何告诉浏览器在 CSS 中渲染您在不同盒模型中的布局。",
     "subtitle": null,
+    "title": "解释您对盒模型的理解，以及您如何告诉浏览器在 CSS 中渲染您在不同盒模型中的布局。",
     "topics": [
       "css"
     ]

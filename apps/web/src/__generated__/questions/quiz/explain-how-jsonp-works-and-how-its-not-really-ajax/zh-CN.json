@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-how-jsonp-works-and-how-its-not-really-ajax",
-    "title": "解释JSONP 如何工作(以及它为什么不是真正的 Ajax)",
     "subtitle": null,
+    "title": "解释JSONP 如何工作(以及它为什么不是真正的 Ajax)",
     "topics": [
       "javascript",
       "network",

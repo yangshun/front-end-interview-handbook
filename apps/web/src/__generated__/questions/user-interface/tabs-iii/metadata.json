@@ -28,5 +28,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "tabs-iii",
-  "title": "Tabs III"
+  "subtitle": null,
+  "title": "Tabs III",
+  "topics": []
 }

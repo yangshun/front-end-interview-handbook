@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "difference-between-document-load-event-and-document-domcontentloaded-event",
-    "title": "Difference between document `load` event and document `DOMContentLoaded` event?",
     "subtitle": null,
+    "title": "Difference between document `load` event and document `DOMContentLoaded` event?",
     "topics": [
       "javascript"
     ]

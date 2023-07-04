@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-host-objects-and-native-objects",
-    "title": "Qual é a diferença entre objetos do host e objetos nativos?",
     "subtitle": null,
+    "title": "Qual é a diferença entre objetos do host e objetos nativos?",
     "topics": [
       "javascript"
     ]

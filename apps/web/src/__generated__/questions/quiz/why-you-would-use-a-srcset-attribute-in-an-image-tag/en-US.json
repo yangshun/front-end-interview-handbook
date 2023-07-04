@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag",
-    "title": "Why you would use a `srcset` attribute in an image tag?",
     "subtitle": "Explain the process the browser uses when evaluating the content of this attribute.",
+    "title": "Why you would use a `srcset` attribute in an image tag?",
     "topics": [
       "html"
     ]

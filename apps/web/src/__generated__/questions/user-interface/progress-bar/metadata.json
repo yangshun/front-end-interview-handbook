@@ -39,5 +39,7 @@
     "star-rating"
   ],
   "slug": "progress-bar",
-  "title": "Progress Bar"
+  "subtitle": null,
+  "title": "Progress Bar",
+  "topics": []
 }

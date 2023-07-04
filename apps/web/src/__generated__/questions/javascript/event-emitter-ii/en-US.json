@@ -32,7 +32,9 @@
       "jquery-class-manipulation"
     ],
     "slug": "event-emitter-ii",
-    "title": "Event Emitter II"
+    "subtitle": null,
+    "title": "Event Emitter II",
+    "topics": []
   },
   "skeleton": {
     "js": "// You are free to use alternative approaches of\n// instantiating the EventEmitter as long as the\n// default export is correct.\nexport default class EventEmitter {\n  constructor() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} eventName\n   * @param {Function} listener\n   * @returns {{off: Function}}\n   */\n  on(eventName, listener) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} eventName\n   * @param {...any} args\n   */\n  emit(eventName, ...args) {\n    throw 'Not implemented!';\n  }\n}",

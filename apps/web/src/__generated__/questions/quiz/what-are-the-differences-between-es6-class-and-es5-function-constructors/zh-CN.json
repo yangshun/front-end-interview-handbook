@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-es6-class-and-es5-function-constructors",
-    "title": "ES2015类和 ES5 函数构造函数之间有什么区别？",
     "subtitle": null,
+    "title": "ES2015类和 ES5 函数构造函数之间有什么区别？",
     "topics": [
       "javascript"
     ]

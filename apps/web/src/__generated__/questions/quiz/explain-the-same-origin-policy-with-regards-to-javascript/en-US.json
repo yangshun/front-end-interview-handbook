@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
-    "title": "Explain the same-origin policy with regards to JavaScript",
     "subtitle": null,
+    "title": "Explain the same-origin policy with regards to JavaScript",
     "topics": [
       "javascript",
       "network"

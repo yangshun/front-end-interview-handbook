@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-for-destructuring-an-object-or-an-array",
-    "title": "您能提供一个解构对象或数组的例子吗？",
     "subtitle": null,
+    "title": "您能提供一个解构对象或数组的例子吗？",
     "topics": [
       "javascript"
     ]

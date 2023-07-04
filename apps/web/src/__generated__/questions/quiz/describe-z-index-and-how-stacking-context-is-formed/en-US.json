@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-z-index-and-how-stacking-context-is-formed",
-    "title": "Describe `z-index` and how stacking context is formed.",
     "subtitle": null,
+    "title": "Describe `z-index` and how stacking context is formed.",
     "topics": [
       "css"
     ]

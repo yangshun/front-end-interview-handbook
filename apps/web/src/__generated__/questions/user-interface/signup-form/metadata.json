@@ -31,5 +31,7 @@
     "contact-form"
   ],
   "slug": "signup-form",
-  "title": "Signup Form"
+  "subtitle": null,
+  "title": "Signup Form",
+  "topics": []
 }

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax",
-    "title": "使用展开语法 (Spread syntax) 的好处是什么？ 它与剩余语法 (Rest syntax) 有何不同？",
     "subtitle": null,
+    "title": "使用展开语法 (Spread syntax) 的好处是什么？ 它与剩余语法 (Rest syntax) 有何不同？",
     "topics": [
       "javascript"
     ]

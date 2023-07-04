@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-ajax-in-as-much-detail-as-possible",
-    "title": "Explique o Ajax com o máximo de detalhes possível.",
     "subtitle": null,
+    "title": "Explique o Ajax com o máximo de detalhes possível.",
     "topics": [
       "javascript",
       "network"

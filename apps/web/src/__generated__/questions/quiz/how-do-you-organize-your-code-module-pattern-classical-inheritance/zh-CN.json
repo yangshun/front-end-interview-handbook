@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-organize-your-code-module-pattern-classical-inheritance",
-    "title": "您如何组织您的代码？",
     "subtitle": "你是否使用模块模式，经典的继承，还是其他什么？",
+    "title": "您如何组织您的代码？",
     "topics": [
       "javascript"
     ]

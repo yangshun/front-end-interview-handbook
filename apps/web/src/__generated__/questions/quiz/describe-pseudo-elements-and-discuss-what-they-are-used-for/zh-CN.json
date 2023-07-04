@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-pseudo-elements-and-discuss-what-they-are-used-for",
-    "title": "描述伪元素并讨论其用途。",
     "subtitle": null,
+    "title": "描述伪元素并讨论其用途。",
     "topics": [
       "css"
     ]

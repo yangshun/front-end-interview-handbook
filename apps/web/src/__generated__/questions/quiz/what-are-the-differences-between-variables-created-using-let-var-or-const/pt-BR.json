@@ -23,8 +23,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-variables-created-using-let-var-or-const",
-    "title": "Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?",
     "subtitle": null,
+    "title": "Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?",
     "topics": [
       "javascript"
     ]

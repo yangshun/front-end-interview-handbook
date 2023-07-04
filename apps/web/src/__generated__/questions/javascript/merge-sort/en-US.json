@@ -26,7 +26,9 @@
       "quick-sort"
     ],
     "slug": "merge-sort",
-    "title": "Merge Sort"
+    "subtitle": null,
+    "title": "Merge Sort",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be sorted.\n * @return {Array<number>}\n */\nexport default function recursiveMergeSort(arr) {\n  throw 'Not implemented!';\n}",

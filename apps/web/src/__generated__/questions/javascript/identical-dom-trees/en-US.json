@@ -27,7 +27,9 @@
       "deep-equal"
     ],
     "slug": "identical-dom-trees",
-    "title": "Identical DOM Trees"
+    "subtitle": null,
+    "title": "Identical DOM Trees",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Node} nodeA\n * @param {Node} nodeB\n * @return {boolean}\n */\nexport default function isSameTree(nodeA, nodeB) {\n  throw 'Not implemented!';\n}",

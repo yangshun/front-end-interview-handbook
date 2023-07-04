@@ -27,7 +27,9 @@
       "squash-object"
     ],
     "slug": "camel-case-keys",
-    "title": "Camel Case Keys"
+    "subtitle": null,
+    "title": "Camel Case Keys",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @template {Record<string, unknown>|Array<unknown>} T\n * @param {T} object\n * @return {T}\n */\nexport default function camelCaseKeys(object) {\n  throw 'Not implemented!';\n}",

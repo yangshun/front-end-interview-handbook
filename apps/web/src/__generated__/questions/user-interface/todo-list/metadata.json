@@ -39,5 +39,7 @@
     "temperature-converter"
   ],
   "slug": "todo-list",
-  "title": "Todo List"
+  "subtitle": null,
+  "title": "Todo List",
+  "topics": []
 }

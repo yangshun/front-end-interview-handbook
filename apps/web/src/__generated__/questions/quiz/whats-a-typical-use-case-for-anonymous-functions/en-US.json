@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-a-typical-use-case-for-anonymous-functions",
-    "title": "What's a typical use case for anonymous functions?",
     "subtitle": null,
+    "title": "What's a typical use case for anonymous functions?",
     "topics": [
       "javascript"
     ]

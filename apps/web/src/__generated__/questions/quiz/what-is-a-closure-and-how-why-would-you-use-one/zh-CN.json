@@ -26,8 +26,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-a-closure-and-how-why-would-you-use-one",
-    "title": "什么是闭包？ 你如何/为何使用？",
     "subtitle": null,
+    "title": "什么是闭包？ 你如何/为何使用？",
     "topics": [
       "javascript"
     ]

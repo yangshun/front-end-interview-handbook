@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue",
-    "title": "什么是事件循环？",
     "subtitle": "调用栈和任务队列之间的区别是什么？",
+    "title": "什么是事件循环？",
     "topics": [
       "javascript"
     ]

@@ -23,8 +23,8 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
-    "title": "Describe the difference between a cookie, `sessionStorage` and `localStorage`.",
     "subtitle": null,
+    "title": "Describe the difference between a cookie, `sessionStorage` and `localStorage`.",
     "topics": [
       "html",
       "javascript"

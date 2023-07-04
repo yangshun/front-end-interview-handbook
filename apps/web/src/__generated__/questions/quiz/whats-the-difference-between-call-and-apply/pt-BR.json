@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-call-and-apply",
-    "title": "Qual é a diferença entre `.call` e `.apply`?",
     "subtitle": null,
+    "title": "Qual é a diferença entre `.call` e `.apply`?",
     "topics": [
       "javascript"
     ]

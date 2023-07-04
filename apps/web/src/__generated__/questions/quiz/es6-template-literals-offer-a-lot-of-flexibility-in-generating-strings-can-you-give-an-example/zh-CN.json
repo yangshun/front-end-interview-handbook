@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example",
-    "title": "ES2015 模板字面量在生成字符串时具有很大的灵活性，您能给出一个例子吗？",
     "subtitle": null,
+    "title": "ES2015 模板字面量在生成字符串时具有很大的灵活性，您能给出一个例子吗？",
     "topics": [
       "javascript"
     ]

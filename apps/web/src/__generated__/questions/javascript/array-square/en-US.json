@@ -30,7 +30,9 @@
       "array-reduce"
     ],
     "slug": "array-square",
-    "title": "Array.prototype.square"
+    "subtitle": null,
+    "title": "Array.prototype.square",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @return {Array<number>}\n */\nArray.prototype.square = function () {\n  throw 'Not implemented!';\n};",

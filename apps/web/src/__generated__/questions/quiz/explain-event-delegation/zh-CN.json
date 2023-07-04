@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-event-delegation",
-    "title": "解释事件委托",
     "subtitle": null,
+    "title": "解释事件委托",
     "topics": [
       "javascript",
       "html"

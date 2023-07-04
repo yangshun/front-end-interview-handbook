@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-event-bubbling",
-    "title": "描述事件冒泡过程",
     "subtitle": null,
+    "title": "描述事件冒泡过程",
     "topics": [
       "javascript",
       "html"

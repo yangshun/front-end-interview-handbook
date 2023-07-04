@@ -27,7 +27,9 @@
       "deep-clone-ii"
     ],
     "slug": "deep-equal",
-    "title": "Deep Equal"
+    "subtitle": null,
+    "title": "Deep Equal",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {*} valueA\n * @param {*} valueB\n * @return {boolean}\n */\nexport default function deepEqual(valueA, valueB) {\n  throw 'Not implemented!';\n}",

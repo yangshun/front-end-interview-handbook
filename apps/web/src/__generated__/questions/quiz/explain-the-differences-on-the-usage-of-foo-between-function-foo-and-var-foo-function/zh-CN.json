@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function",
-    "title": "解释`function foo() {}` 和 `var foo = function() {}` 之间在`foo` 使用方法上的差异",
     "subtitle": null,
+    "title": "解释`function foo() {}` 和 `var foo = function() {}` 之间在`foo` 使用方法上的差异",
     "topics": [
       "javascript"
     ]

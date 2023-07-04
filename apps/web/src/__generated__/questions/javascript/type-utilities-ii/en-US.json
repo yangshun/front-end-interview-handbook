@@ -30,7 +30,9 @@
       "type-utilities"
     ],
     "slug": "type-utilities-ii",
-    "title": "Type Utilities II"
+    "subtitle": null,
+    "title": "Type Utilities II",
+    "topics": []
   },
   "skeleton": {
     "js": "export function isArray(value) {\n  throw 'Not implemented!';\n}\n\nexport function isFunction(value) {\n  throw 'Not implemented!';\n}\n\nexport function isObject(value) {\n  throw 'Not implemented!';\n}\n\nexport function isPlainObject(value) {\n  throw 'Not implemented!';\n}",

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-ajax-in-as-much-detail-as-possible",
-    "title": "尽可能详细地解释Ajax",
     "subtitle": null,
+    "title": "尽可能详细地解释Ajax",
     "topics": [
       "javascript",
       "network"

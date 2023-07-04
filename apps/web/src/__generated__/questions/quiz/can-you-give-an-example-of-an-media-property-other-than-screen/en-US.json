@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-of-an-media-property-other-than-screen",
-    "title": "Can you give an example of an `@media` property other than `screen`?",
     "subtitle": null,
+    "title": "Can you give an example of an `@media` property other than `screen`?",
     "topics": [
       "css"
     ]

@@ -24,7 +24,9 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "from-pairs",
-    "title": "From Pairs"
+    "subtitle": null,
+    "title": "From Pairs",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * Creates an object from an array of key-value pairs.\n *\n * @param {Array} pairs - An array of key-value pairs.\n * @returns {Object} - The object composed from the key-value pairs.\n */\nexport default function fromPairs(pairs) {\n  throw 'Not implemented!';\n}",

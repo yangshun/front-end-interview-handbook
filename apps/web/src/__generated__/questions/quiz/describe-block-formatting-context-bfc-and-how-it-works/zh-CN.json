@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-block-formatting-context-bfc-and-how-it-works",
-    "title": "描述块级格式化上下文(BFC)及其工作方式。",
     "subtitle": null,
+    "title": "描述块级格式化上下文(BFC)及其工作方式。",
     "topics": [
       "css"
     ]

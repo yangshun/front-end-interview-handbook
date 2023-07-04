@@ -26,7 +26,9 @@
       "find-last-index"
     ],
     "slug": "find-index",
-    "title": "Find Index"
+    "subtitle": null,
+    "title": "Find Index",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * This function returns the index of the first element in the array that satisfies the provided testing function.\n * Otherwise, it returns -1, indicating that no element passed the test.\n *\n * @param {Array} array - The array to search.\n * @param {Function} predicate - The function invoked per iteration.\n * @param {number} [fromIndex=0] - The index to start searching from.\n * @returns The index of the found element, else -1.\n */\nexport default function findIndex(array, predicate, fromIndex = 0) {\n  throw 'Not implemented!';\n}",

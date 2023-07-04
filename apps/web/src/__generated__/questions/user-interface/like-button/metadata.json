@@ -33,5 +33,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "like-button",
-  "title": "Like Button"
+  "subtitle": null,
+  "title": "Like Button",
+  "topics": []
 }

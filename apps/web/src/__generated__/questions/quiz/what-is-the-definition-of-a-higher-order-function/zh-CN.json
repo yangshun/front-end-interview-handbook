@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-the-definition-of-a-higher-order-function",
-    "title": "高阶函数的定义是什么？",
     "subtitle": null,
+    "title": "高阶函数的定义是什么？",
     "topics": [
       "javascript"
     ]

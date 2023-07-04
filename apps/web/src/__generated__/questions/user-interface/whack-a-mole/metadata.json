@@ -31,5 +31,7 @@
     "memory-game"
   ],
   "slug": "whack-a-mole",
-  "title": "whack-a-mole"
+  "subtitle": null,
+  "title": "whack-a-mole",
+  "topics": []
 }

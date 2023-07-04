@@ -30,5 +30,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "mortgage-calculator",
-  "title": "Mortgage Calculator"
+  "subtitle": null,
+  "title": "Mortgage Calculator",
+  "topics": []
 }

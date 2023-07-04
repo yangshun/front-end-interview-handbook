@@ -27,7 +27,9 @@
       "chunk"
     ],
     "slug": "compact",
-    "title": "Compact"
+    "subtitle": null,
+    "title": "Compact",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Array} array: The array to compact.\n * @return {Array} Returns the new array of filtered values.\n */\nexport default function compact(array) {\n  throw 'Not implemented!';\n}",

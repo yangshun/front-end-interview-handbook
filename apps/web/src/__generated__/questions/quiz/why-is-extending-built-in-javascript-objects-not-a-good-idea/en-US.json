@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-extending-built-in-javascript-objects-not-a-good-idea",
-    "title": "Why is extending built-in JavaScript objects not a good idea?",
     "subtitle": null,
+    "title": "Why is extending built-in JavaScript objects not a good idea?",
     "topics": [
       "javascript"
     ]

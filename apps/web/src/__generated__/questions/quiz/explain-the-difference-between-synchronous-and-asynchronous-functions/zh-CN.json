@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-difference-between-synchronous-and-asynchronous-functions",
-    "title": "解释同步函数和异步函数之间的差异",
     "subtitle": null,
+    "title": "解释同步函数和异步函数之间的差异",
     "topics": [
       "javascript"
     ]

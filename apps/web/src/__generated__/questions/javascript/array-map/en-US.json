@@ -34,7 +34,9 @@
       "array-reduce"
     ],
     "slug": "array-map",
-    "title": "Array.prototype.map"
+    "subtitle": null,
+    "title": "Array.prototype.map",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @template T, U\n * @param { (value: T) => U } callbackFn\n * @param {any} [thisArg]\n * @return {Array<U>}\n */\nArray.prototype.myMap = function (callbackFn, thisArg) {\n  throw 'Not implemented!';\n};",

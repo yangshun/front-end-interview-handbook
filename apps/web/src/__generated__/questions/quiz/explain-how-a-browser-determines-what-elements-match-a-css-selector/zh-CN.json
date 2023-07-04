@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-how-a-browser-determines-what-elements-match-a-css-selector",
-    "title": "解释浏览器如何决定什么元素与 CSS 选择器匹配。",
     "subtitle": null,
+    "title": "解释浏览器如何决定什么元素与 CSS 选择器匹配。",
     "topics": [
       "css"
     ]

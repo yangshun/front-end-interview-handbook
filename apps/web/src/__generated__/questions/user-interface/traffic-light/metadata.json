@@ -35,5 +35,7 @@
     "digital-clock"
   ],
   "slug": "traffic-light",
-  "title": "Traffic Light"
+  "subtitle": null,
+  "title": "Traffic Light",
+  "topics": []
 }

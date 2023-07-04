@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
-    "title": "Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?",
     "subtitle": null,
+    "title": "Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?",
     "topics": [
       "javascript"
     ]

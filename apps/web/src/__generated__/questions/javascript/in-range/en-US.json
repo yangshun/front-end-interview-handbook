@@ -26,7 +26,9 @@
       "clamp"
     ],
     "slug": "in-range",
-    "title": "In Range"
+    "subtitle": null,
+    "title": "In Range",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {number} value The number to check.\n * @param {number} [start=0] The start of the range.\n * @param {number} end The end of the range.\n * @returns {boolean} Returns `true` if `number` is in the range, else `false`.\n */\nexport default function inRange(value, start, end) {\n  throw 'Not implemented';\n}",

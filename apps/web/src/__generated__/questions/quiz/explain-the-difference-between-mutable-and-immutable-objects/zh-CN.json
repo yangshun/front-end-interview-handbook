@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-difference-between-mutable-and-immutable-objects",
-    "title": "解释可变和不可变对象之间的差异",
     "subtitle": null,
+    "title": "解释可变和不可变对象之间的差异",
     "topics": [
       "javascript"
     ]

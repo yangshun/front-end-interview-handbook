@@ -31,5 +31,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "job-board",
-  "title": "Job Board"
+  "subtitle": null,
+  "title": "Job Board",
+  "topics": []
 }

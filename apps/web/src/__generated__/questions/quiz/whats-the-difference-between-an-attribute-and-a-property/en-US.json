@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-an-attribute-and-a-property",
-    "title": "What's the difference between an \"attribute\" and a \"property\"?",
     "subtitle": null,
+    "title": "What's the difference between an \"attribute\" and a \"property\"?",
     "topics": [
       "javascript"
     ]

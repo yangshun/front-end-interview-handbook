@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items",
-    "title": "你用什么语言结构来迭代对象的属性和数组项目？",
     "subtitle": null,
+    "title": "你用什么语言结构来迭代对象的属性和数组项目？",
     "topics": [
       "javascript"
     ]

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-offer-a-use-case-for-the-new-arrow-greater-function-syntax-how-does-this-new-syntax-differ-from-other-functions",
-    "title": "Você pode oferecer um caso de uso para a nova sintaxe de arrow function =>?",
     "subtitle": "Como essa nova sintaxe difere de outras funções?",
+    "title": "Você pode oferecer um caso de uso para a nova sintaxe de arrow function =>?",
     "topics": [
       "javascript"
     ]

@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
-    "title": "解释CSS 图像精灵（雪碧图），以及您如何在页面或网站上实现它们。",
     "subtitle": null,
+    "title": "解释CSS 图像精灵（雪碧图），以及您如何在页面或网站上实现它们。",
     "topics": [
       "css",
       "performance"

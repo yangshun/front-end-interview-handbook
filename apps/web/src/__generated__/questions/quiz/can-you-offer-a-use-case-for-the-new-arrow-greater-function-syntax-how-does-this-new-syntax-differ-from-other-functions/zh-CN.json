@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-offer-a-use-case-for-the-new-arrow-greater-function-syntax-how-does-this-new-syntax-differ-from-other-functions",
-    "title": "您可以为新箭头函数语法提供一个用例吗？",
     "subtitle": "这个新语法与其他函数有什么不同？",
+    "title": "您可以为新箭头函数语法提供一个用例吗？",
     "topics": [
       "javascript"
     ]

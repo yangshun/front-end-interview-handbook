@@ -26,7 +26,9 @@
       "squash-object"
     ],
     "slug": "get",
-    "title": "Get"
+    "subtitle": null,
+    "title": "Get",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Object} object\n * @param {string|Array<string>} path\n * @param {*} [defaultValue]\n * @return {*}\n */\nexport default function get(object, path, defaultValue) {\n  throw 'Not implemented!';\n}",

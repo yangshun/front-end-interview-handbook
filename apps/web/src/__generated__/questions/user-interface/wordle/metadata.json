@@ -27,5 +27,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "wordle",
-  "title": "Wordle"
+  "subtitle": null,
+  "title": "Wordle",
+  "topics": []
 }

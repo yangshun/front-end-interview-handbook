@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states",
-    "title": "Qual é a diferença entre uma variável que é: `null`, `undefined` ou não declarada?",
     "subtitle": "Como você checaria cada um destes estados?\"",
+    "title": "Qual é a diferença entre uma variável que é: `null`, `undefined` ou não declarada?",
     "topics": [
       "javascript"
     ]

@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other",
-    "title": "你能描述一个 `.forEach` 循环和 `.map()` 循环之间的主要差异吗？",
     "subtitle": "这两者你会如何选择？",
+    "title": "你能描述一个 `.forEach` 循环和 `.map()` 循环之间的主要差异吗？",
     "topics": [
       "javascript"
     ]

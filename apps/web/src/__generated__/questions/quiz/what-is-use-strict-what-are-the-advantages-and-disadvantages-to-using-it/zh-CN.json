@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
-    "title": "什么是`严格模式`？",
     "subtitle": "使用它有哪些利弊？",
+    "title": "什么是`严格模式`？",
     "topics": [
       "javascript"
     ]

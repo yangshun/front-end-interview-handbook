@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-organize-your-code-module-pattern-classical-inheritance",
-    "title": "Como você organiza seu código?",
     "subtitle": "Você usa o pattern de modulo, herança clássica, algo mais?",
+    "title": "Como você organiza seu código?",
     "topics": [
       "javascript"
     ]

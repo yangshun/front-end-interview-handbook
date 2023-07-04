@@ -27,7 +27,9 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "table-of-contents",
-    "title": "Table of Contents"
+    "subtitle": null,
+    "title": "Table of Contents",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Node} doc\n * @return {string}\n */\nexport default function tableOfContents(doc) {\n  throw 'Not implemented!';\n}",

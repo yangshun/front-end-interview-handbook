@@ -26,7 +26,9 @@
       "once"
     ],
     "slug": "limit",
-    "title": "Limit"
+    "subtitle": null,
+    "title": "Limit",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @callback func\n * @param {number} n\n * @return {Function}\n */\nexport default function limit(func, n) {\n  throw 'Not implemented!';\n}",

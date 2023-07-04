@@ -19,8 +19,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "are-you-familiar-with-styling-svg",
-    "title": "Você conhece o estilo SVG?",
     "subtitle": null,
+    "title": "Você conhece o estilo SVG?",
     "topics": [
       "css"
     ]
@@ -47,8 +47,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other",
-    "title": "Você pode descrever a principal diferença entre um loop `.forEach` e um loop `.map()`?",
     "subtitle": "Por que você escolheria um em vez do outro?",
+    "title": "Você pode descrever a principal diferença entre um loop `.forEach` e um loop `.map()`?",
     "topics": [
       "javascript"
     ]
@@ -73,8 +73,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy",
-    "title": "Você pode explicar a diferença entre codificar um site para ser responsivo e usar uma estratégia mobile-first?",
     "subtitle": null,
+    "title": "Você pode explicar a diferença entre codificar um site para ser responsivo e usar uma estratégia mobile-first?",
     "topics": [
       "css"
     ]
@@ -99,8 +99,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-for-destructuring-an-object-or-an-array",
-    "title": "Você pode dar um exemplo para desestruturar um objeto ou um array?",
     "subtitle": null,
+    "title": "Você pode dar um exemplo para desestruturar um objeto ou um array?",
     "topics": [
       "javascript"
     ]
@@ -125,8 +125,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage",
-    "title": "Você pode dar um exemplo de uma função de curry e por que essa sintaxe oferece uma vantagem?",
     "subtitle": null,
+    "title": "Você pode dar um exemplo de uma função de curry e por que essa sintaxe oferece uma vantagem?",
     "topics": [
       "javascript"
     ]
@@ -151,8 +151,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-give-an-example-of-an-media-property-other-than-screen",
-    "title": "Você pode dar um exemplo de uma propriedade `@media` diferente de `tela`?",
     "subtitle": null,
+    "title": "Você pode dar um exemplo de uma propriedade `@media` diferente de `tela`?",
     "topics": [
       "css"
     ]
@@ -177,8 +177,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "can-you-offer-a-use-case-for-the-new-arrow-greater-function-syntax-how-does-this-new-syntax-differ-from-other-functions",
-    "title": "Você pode oferecer um caso de uso para a nova sintaxe de arrow function =>?",
     "subtitle": "Como essa nova sintaxe difere de outras funções?",
+    "title": "Você pode oferecer um caso de uso para a nova sintaxe de arrow function =>?",
     "topics": [
       "javascript"
     ]
@@ -203,8 +203,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5",
-    "title": "Crie um loop for que itere até `100` enquanto exibe **\"fizz\"** em múltiplos de `3`, **\"buzz\"** em múltiplos de `5` e **\"fizzbuzz\"** em múltiplos de `3` e `5`",
     "subtitle": null,
+    "title": "Crie um loop for que itere até `100` enquanto exibe **\"fizz\"** em múltiplos de `3`, **\"buzz\"** em múltiplos de `5` e **\"fizzbuzz\"** em múltiplos de `3` e `5`",
     "topics": [
       "javascript"
     ]
@@ -229,8 +229,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "css-link-between-head-and-js-script-just-before-body",
-    "title": "Por que geralmente é uma boa ideia posicionar os CSS `<link>` entre `<head></head>` e os JS `<script>` logo antes de `</body>`?",
     "subtitle": "Você conhece alguma exceção?",
+    "title": "Por que geralmente é uma boa ideia posicionar os CSS `<link>` entre `<head></head>` e os JS `<script>` logo antes de `</body>`?",
     "topics": [
       "html",
       "performance"
@@ -256,8 +256,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-block-formatting-context-bfc-and-how-it-works",
-    "title": "Descrever o contexto de formatação de bloco (BFC) e como ele funciona.",
     "subtitle": null,
+    "title": "Descrever o contexto de formatação de bloco (BFC) e como ele funciona.",
     "topics": [
       "css"
     ]
@@ -282,8 +282,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-event-bubbling",
-    "title": "Descreva a propagação de eventos",
     "subtitle": null,
+    "title": "Descreva a propagação de eventos",
     "topics": [
       "javascript",
       "html"
@@ -309,8 +309,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-floats-and-how-they-work",
-    "title": "Descreva os 'float' e como funcionam.",
     "subtitle": null,
+    "title": "Descreva os 'float' e como funcionam.",
     "topics": [
       "css"
     ]
@@ -335,8 +335,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-pseudo-elements-and-discuss-what-they-are-used-for",
-    "title": "Descreva pseudo-elementos e discuta para que eles são usados.",
     "subtitle": null,
+    "title": "Descreva pseudo-elementos e discuta para que eles são usados.",
     "topics": [
       "css"
     ]
@@ -363,8 +363,8 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
-    "title": "Descreva a diferença entre cookie, `sessionStorage` e `localStorage`.",
     "subtitle": null,
+    "title": "Descreva a diferença entre cookie, `sessionStorage` e `localStorage`.",
     "topics": [
       "html",
       "javascript"
@@ -390,8 +390,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "describe-the-difference-between-script-async-and-script-defer",
-    "title": "Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`",
     "subtitle": null,
+    "title": "Descreva a diferença entre `<script>`, `<script async>` e `<script defer>`",
     "topics": [
       "html",
       "javascript"
@@ -417,8 +417,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used",
-    "title": "Descreva o que você gosta e não gosta sobre os pré-processadores CSS que você usou.",
     "subtitle": null,
+    "title": "Descreva o que você gosta e não gosta sobre os pré-processadores CSS que você usou.",
     "topics": [
       "css"
     ]
@@ -443,8 +443,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "describe-z-index-and-how-stacking-context-is-formed",
-    "title": "Descreva `z-index` e como o contexto de empilhamento é formado.",
     "subtitle": null,
+    "title": "Descreva `z-index` e como o contexto de empilhamento é formado.",
     "topics": [
       "css"
     ]
@@ -469,8 +469,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "designing-or-developing-for-multilingual-sites",
-    "title": "Que tipo de coisas você deve estar atento ao projetar ou desenvolver para sites multilíngues?",
     "subtitle": null,
+    "title": "Que tipo de coisas você deve estar atento ao projetar ou desenvolver para sites multilíngues?",
     "topics": [
       "html",
       "i18n"
@@ -496,8 +496,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "difference-between-document-load-event-and-document-domcontentloaded-event",
-    "title": "Qual a diferença entre o evento `load` do documento e o evento `DOMContentLoaded` do documento?",
     "subtitle": null,
+    "title": "Qual a diferença entre o evento `load` do documento e o evento `DOMContentLoaded` do documento?",
     "topics": [
       "javascript"
     ]
@@ -522,8 +522,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "difference-between-function-person-var-person-person-and-var-person-new-person",
-    "title": "Diferença entre: `function Person(){}`, `var person = Person()`, e `var person = new Person()`?",
     "subtitle": null,
+    "title": "Diferença entre: `function Person(){}`, `var person = Person()`, e `var person = new Person()`?",
     "topics": [
       "javascript"
     ]
@@ -548,8 +548,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example",
-    "title": "Template Literals do ES2015 oferecem muita flexibilidade na geração de strings, você pode dar um exemplo?",
     "subtitle": null,
+    "title": "Template Literals do ES2015 oferecem muita flexibilidade na geração de strings, você pode dar um exemplo?",
     "topics": [
       "javascript"
     ]
@@ -574,8 +574,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-ajax-in-as-much-detail-as-possible",
-    "title": "Explique o Ajax com o máximo de detalhes possível.",
     "subtitle": null,
+    "title": "Explique o Ajax com o máximo de detalhes possível.",
     "topics": [
       "javascript",
       "network"
@@ -601,8 +601,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
-    "title": "Explique os sprites CSS e como você os implementaria em uma página ou site.",
     "subtitle": null,
+    "title": "Explique os sprites CSS e como você os implementaria em uma página ou site.",
     "topics": [
       "css",
       "performance"
@@ -630,8 +630,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-event-delegation",
-    "title": "Explique delegação do evento",
     "subtitle": null,
+    "title": "Explique delegação do evento",
     "topics": [
       "javascript",
       "html"
@@ -657,8 +657,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-function-prototype-bind",
-    "title": "Explique `Function.prototype.bind`",
     "subtitle": null,
+    "title": "Explique `Function.prototype.bind`",
     "topics": [
       "javascript"
     ]
@@ -683,8 +683,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-hoisting",
-    "title": "Explique \"hoisting\"",
     "subtitle": null,
+    "title": "Explique \"hoisting\"",
     "topics": [
       "javascript"
     ]
@@ -709,8 +709,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-how-a-browser-determines-what-elements-match-a-css-selector",
-    "title": "Explique como um navegador determina quais elementos correspondem a um seletor CSS.",
     "subtitle": null,
+    "title": "Explique como um navegador determina quais elementos correspondem a um seletor CSS.",
     "topics": [
       "css"
     ]
@@ -735,8 +735,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-how-jsonp-works-and-how-its-not-really-ajax",
-    "title": "Explique como o JSONP funciona (e como ele não é Ajax)",
     "subtitle": null,
+    "title": "Explique como o JSONP funciona (e como ele não é Ajax)",
     "topics": [
       "javascript",
       "network",
@@ -763,8 +763,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-prototypal-inheritance-works",
-    "title": "Explique como funciona a herança de protótipos",
     "subtitle": null,
+    "title": "Explique como funciona a herança de protótipos",
     "topics": [
       "javascript"
     ]
@@ -789,8 +789,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-this-works-in-javascript",
-    "title": "Explique como `this` funciona em JavaScript",
     "subtitle": null,
+    "title": "Explique como `this` funciona em JavaScript",
     "topics": [
       "javascript"
     ]
@@ -815,8 +815,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-difference-between-mutable-and-immutable-objects",
-    "title": "Explique a diferença entre objetos mutáveis e imutáveis",
     "subtitle": null,
+    "title": "Explique a diferença entre objetos mutáveis e imutáveis",
     "topics": [
       "javascript"
     ]
@@ -841,8 +841,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-difference-between-synchronous-and-asynchronous-functions",
-    "title": "Explique a diferença entre funções síncronas e assíncronas",
     "subtitle": null,
+    "title": "Explique a diferença entre funções síncronas e assíncronas",
     "topics": [
       "javascript"
     ]
@@ -867,8 +867,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function",
-    "title": "Explique as diferenças no uso de `foo` entre `function foo() {}` e `var foo = function() {}`",
     "subtitle": null,
+    "title": "Explique as diferenças no uso de `foo` entre `function foo() {}` e `var foo = function() {}`",
     "topics": [
       "javascript"
     ]
@@ -893,8 +893,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
-    "title": "Explique a política de mesma origem em relação ao JavaScript",
     "subtitle": null,
+    "title": "Explique a política de mesma origem em relação ao JavaScript",
     "topics": [
       "javascript",
       "network"
@@ -920,8 +920,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly",
-    "title": "Explique o que é um aplicativo de página única e como torná-lo amigável para SEO",
     "subtitle": null,
+    "title": "Explique o que é um aplicativo de página única e como torná-lo amigável para SEO",
     "topics": [
       "javascript"
     ]
@@ -946,8 +946,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife",
-    "title": "Explique porque o seguinte não funciona como um IIFE: `function foo(){ }();`. O que precisa ser alterado para torná-lo corretamente um IIFE?",
     "subtitle": null,
+    "title": "Explique porque o seguinte não funciona como um IIFE: `function foo(){ }();`. O que precisa ser alterado para torná-lo corretamente um IIFE?",
     "topics": [
       "javascript"
     ]
@@ -976,8 +976,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models",
-    "title": "Explique sua compreensão do modelo de caixa e como você diria ao navegador em CSS para renderizar seu layout em diferentes modelos de caixa.",
     "subtitle": null,
+    "title": "Explique sua compreensão do modelo de caixa e como você diria ao navegador em CSS para renderizar seu layout em diferentes modelos de caixa.",
     "topics": [
       "css"
     ]
@@ -1002,8 +1002,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer",
-    "title": "Você já usou um sistema de grid e, se sim, o que você prefere?",
     "subtitle": null,
+    "title": "Você já usou um sistema de grid e, se sim, o que você prefere?",
     "topics": [
       "css"
     ]
@@ -1028,8 +1028,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use",
-    "title": "Você já trabalhou com gráficos de retina?",
     "subtitle": "Em caso afirmativo, quando e que técnicas utilizou?",
+    "title": "Você já trabalhou com gráficos de retina?",
     "topics": [
       "css"
     ]
@@ -1054,8 +1054,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "have-you-played-around-with-the-new-css-flexbox-or-grid-specs",
-    "title": "Você já experimentou as novas especificações CSS Flexbox ou Grid?",
     "subtitle": null,
+    "title": "Você já experimentou as novas especificações CSS Flexbox ou Grid?",
     "topics": [
       "css"
     ]
@@ -1080,8 +1080,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
-    "title": "Você usou ou implementou consultas de mídia ou layouts/CSS específicos para dispositivos móveis?",
     "subtitle": null,
+    "title": "Você usou ou implementou consultas de mídia ou layouts/CSS específicos para dispositivos móveis?",
     "topics": [
       "css"
     ]
@@ -1106,8 +1106,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-can-you-share-code-between-files",
-    "title": "Como você pode compartilhar código entre arquivos?",
     "subtitle": null,
+    "title": "Como você pode compartilhar código entre arquivos?",
     "topics": [
       "javascript"
     ]
@@ -1132,8 +1132,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-organize-your-code-module-pattern-classical-inheritance",
-    "title": "Como você organiza seu código?",
     "subtitle": "Você usa o pattern de modulo, herança clássica, algo mais?",
+    "title": "Como você organiza seu código?",
     "topics": [
       "javascript"
     ]
@@ -1158,8 +1158,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-serve-a-page-with-content-in-multiple-languages",
-    "title": "Como se serve uma página com conteúdo em vários idiomas?",
     "subtitle": null,
+    "title": "Como se serve uma página com conteúdo em vários idiomas?",
     "topics": [
       "html",
       "i18n"
@@ -1185,8 +1185,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use",
-    "title": "Como você serve suas páginas para navegadores com limitações de recursos?",
     "subtitle": "Quais técnicas/processos você usa?",
+    "title": "Como você serve suas páginas para navegadores com limitações de recursos?",
     "topics": [
       "css"
     ]
@@ -1211,8 +1211,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-is-responsive-design-different-from-adaptive-design",
-    "title": "Como o design responsivo é diferente do design adaptável?",
     "subtitle": null,
+    "title": "Como o design responsivo é diferente do design adaptável?",
     "topics": [
       "css"
     ]
@@ -1237,8 +1237,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "how-would-you-approach-fixing-browser-specific-styling-issues",
-    "title": "Como você abordaria a correção de problemas de estilo específicos de navegador?",
     "subtitle": null,
+    "title": "Como você abordaria a correção de problemas de estilo específicos de navegador?",
     "topics": [
       "css"
     ]
@@ -1263,8 +1263,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "html5-as-an-open-web-platform-building-blocks",
-    "title": "Considere HTML5 como uma plataforma web aberta. Quais são os blocos de construção do HTML5?",
     "subtitle": null,
+    "title": "Considere HTML5 como uma plataforma web aberta. Quais são os blocos de construção do HTML5?",
     "topics": [
       "html"
     ]
@@ -1289,8 +1289,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
-    "title": "Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?",
     "subtitle": null,
+    "title": "Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?",
     "topics": [
       "css",
       "performance"
@@ -1316,8 +1316,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor",
-    "title": "Qual é a vantagem de usar a sintaxe de seta para um método em um constructor?",
     "subtitle": null,
+    "title": "Qual é a vantagem de usar a sintaxe de seta para um método em um constructor?",
     "topics": [
       "javascript"
     ]
@@ -1342,8 +1342,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-data-attributes-good-for",
-    "title": "Para que servem os atributos `data-`?",
     "subtitle": null,
+    "title": "Para que servem os atributos `data-`?",
     "topics": [
       "html",
       "testing"
@@ -1369,8 +1369,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript",
-    "title": "Quais são algumas das vantagens/desvantagens de escrever código JavaScript em uma linguagem que compila para JavaScript?",
     "subtitle": null,
+    "title": "Quais são algumas das vantagens/desvantagens de escrever código JavaScript em uma linguagem que compila para JavaScript?",
     "topics": [
       "javascript"
     ]
@@ -1395,8 +1395,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-some-of-the-gotchas-for-writing-efficient-css",
-    "title": "Quais são algumas das \"armadilhas\" para escrever CSS eficiente?",
     "subtitle": null,
+    "title": "Quais são algumas das \"armadilhas\" para escrever CSS eficiente?",
     "topics": [
       "css"
     ]
@@ -1421,8 +1421,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-advantages-and-disadvantages-of-using-ajax",
-    "title": "Quais são as vantagens e desvantagens de usar o Ajax?",
     "subtitle": null,
+    "title": "Quais são as vantagens e desvantagens de usar o Ajax?",
     "topics": [
       "javascript",
       "network"
@@ -1450,8 +1450,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-advantages-disadvantages-of-using-css-preprocessors",
-    "title": "Quais são as vantagens / desvantagens de usar pré-processadores CSS?",
     "subtitle": null,
+    "title": "Quais são as vantagens / desvantagens de usar pré-processadores CSS?",
     "topics": [
       "css"
     ]
@@ -1476,8 +1476,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax",
-    "title": "Quais são os benefícios de usar a sintaxe de spread e como ela é diferente da sintaxe de rest?",
     "subtitle": null,
+    "title": "Quais são os benefícios de usar a sintaxe de spread e como ela é diferente da sintaxe de rest?",
     "topics": [
       "javascript"
     ]
@@ -1502,8 +1502,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-es6-class-and-es5-function-constructors",
-    "title": "Quais são as diferenças entre a classe ES2015 e os construtores de função ES5?",
     "subtitle": null,
+    "title": "Quais são as diferenças entre a classe ES2015 e os construtores de função ES5?",
     "topics": [
       "javascript"
     ]
@@ -1530,8 +1530,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-variables-created-using-let-var-or-const",
-    "title": "Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?",
     "subtitle": null,
+    "title": "Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?",
     "topics": [
       "javascript"
     ]
@@ -1556,8 +1556,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers",
-    "title": "Quais são as diferentes maneiras de esconder conteúdo visualmente (e torná-lo disponível apenas para leitores de tela)?",
     "subtitle": null,
+    "title": "Quais são as diferentes maneiras de esconder conteúdo visualmente (e torná-lo disponível apenas para leitores de tela)?",
     "topics": [
       "css",
       "a11y"
@@ -1585,8 +1585,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
-    "title": "Quais são os prós e contras de usar Promises em vez de callbacks?",
     "subtitle": null,
+    "title": "Quais são os prós e contras de usar Promises em vez de callbacks?",
     "topics": [
       "javascript"
     ]
@@ -1611,8 +1611,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context",
-    "title": "Quais são as várias técnicas de limpeza e qual é apropriada para qual contexto?",
     "subtitle": null,
+    "title": "Quais são as várias técnicas de limpeza e qual é apropriada para qual contexto?",
     "topics": [
       "css"
     ]
@@ -1637,8 +1637,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-do-you-think-of-amd-vs-commonjs",
-    "title": "O que você acha de AMD versus CommonJS?",
     "subtitle": null,
+    "title": "O que você acha de AMD versus CommonJS?",
     "topics": [
       "javascript"
     ]
@@ -1663,8 +1663,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-does-a-doctype-do",
-    "title": "O que um `DOCTYPE` faz?",
     "subtitle": null,
+    "title": "O que um `DOCTYPE` faz?",
     "topics": [
       "html"
     ]
@@ -1689,8 +1689,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-does-box-sizing-border-box-do-what-are-its-advantages",
-    "title": "O que faz `* { box-sizing: border-box; }`?",
     "subtitle": "Quais as vantagens?",
+    "title": "O que faz `* { box-sizing: border-box; }`?",
     "topics": [
       "css"
     ]
@@ -1715,8 +1715,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
-    "title": "Quais frameworks CSS existentes você usou localmente ou em produção?",
     "subtitle": "Como você mudaria/melhoraria eles?",
+    "title": "Quais frameworks CSS existentes você usou localmente ou em produção?",
     "topics": [
       "css"
     ]
@@ -1746,8 +1746,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-a-closure-and-how-why-would-you-use-one",
-    "title": "O que é um closure e como/por que você usaria um?",
     "subtitle": null,
+    "title": "O que é um closure e como/por que você usaria um?",
     "topics": [
       "javascript"
     ]
@@ -1772,8 +1772,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-is-css-selector-specificity-and-how-does-it-work",
-    "title": "O que é a especificidade do seletor CSS e como funciona?",
     "subtitle": null,
+    "title": "O que é a especificidade do seletor CSS e como funciona?",
     "topics": [
       "css"
     ]
@@ -1800,8 +1800,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue",
-    "title": "O que é o loop de eventos?",
     "subtitle": "Qual é a diferença entre call stack e task queue?",
+    "title": "O que é o loop de eventos?",
     "topics": [
       "javascript"
     ]
@@ -1826,8 +1826,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-progressive-rendering",
-    "title": "O que é a renderização progressiva?",
     "subtitle": null,
+    "title": "O que é a renderização progressiva?",
     "topics": [
       "html"
     ]
@@ -1852,8 +1852,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use",
-    "title": "Qual é a propriedade CSS `display` e você pode dar alguns exemplos de seu uso?",
     "subtitle": null,
+    "title": "Qual é a propriedade CSS `display` e você pode dar alguns exemplos de seu uso?",
     "topics": [
       "css"
     ]
@@ -1878,8 +1878,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-the-definition-of-a-higher-order-function",
-    "title": "Qual é a definição de uma função de ordem superior?",
     "subtitle": null,
+    "title": "Qual é a definição de uma função de ordem superior?",
     "topics": [
       "javascript"
     ]
@@ -1904,8 +1904,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-is-the-difference-between-double-equal-and-triple-equal",
-    "title": "Qual é a diferença entre `==` e `===`?",
     "subtitle": null,
+    "title": "Qual é a diferença entre `==` e `===`?",
     "topics": [
       "javascript"
     ]
@@ -1930,8 +1930,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills",
-    "title": "Qual é a extensão da sua experiência com Promises e/ou seus polyfills?",
     "subtitle": null,
+    "title": "Qual é a extensão da sua experiência com Promises e/ou seus polyfills?",
     "topics": [
       "javascript"
     ]
@@ -1956,8 +1956,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
-    "title": "O que é `\"use strict\";`?",
     "subtitle": "Quais são as vantagens e desvantagens de usa-lo?",
+    "title": "O que é `\"use strict\";`?",
     "topics": [
       "javascript"
     ]
@@ -1982,8 +1982,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items",
-    "title": "Que construções de idioma você usa para iterar sobre propriedades de objeto e itens de matriz?",
     "subtitle": null,
+    "title": "Que construções de idioma você usa para iterar sobre propriedades de objeto e itens de matriz?",
     "topics": [
       "javascript"
     ]
@@ -2008,8 +2008,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-tools-and-techniques-do-you-use-for-debugging-javascript-code",
-    "title": "Quais ferramentas e técnicas você usa para depurar o código JavaScript?",
     "subtitle": null,
+    "title": "Quais ferramentas e técnicas você usa para depurar o código JavaScript?",
     "topics": [
       "javascript"
     ]
@@ -2034,8 +2034,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-a-typical-use-case-for-anonymous-functions",
-    "title": "Qual é um caso típico de uso para funções anônimas?",
     "subtitle": null,
+    "title": "Qual é um caso típico de uso para funções anônimas?",
     "topics": [
       "javascript"
     ]
@@ -2062,8 +2062,8 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
-    "title": "Qual é a diferença entre um elemento com posicionamento `relative`, `fixed`, `absolute` e `static`?",
     "subtitle": null,
+    "title": "Qual é a diferença entre um elemento com posicionamento `relative`, `fixed`, `absolute` e `static`?",
     "topics": [
       "css"
     ]
@@ -2088,8 +2088,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states",
-    "title": "Qual é a diferença entre uma variável que é: `null`, `undefined` ou não declarada?",
     "subtitle": "Como você checaria cada um destes estados?\"",
+    "title": "Qual é a diferença entre uma variável que é: `null`, `undefined` ou não declarada?",
     "topics": [
       "javascript"
     ]
@@ -2114,8 +2114,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-an-attribute-and-a-property",
-    "title": "Qual é a diferença entre um \"atributo\" e uma \"propriedade\"?",
     "subtitle": null,
+    "title": "Qual é a diferença entre um \"atributo\" e uma \"propriedade\"?",
     "topics": [
       "javascript"
     ]
@@ -2140,8 +2140,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-call-and-apply",
-    "title": "Qual é a diferença entre `.call` e `.apply`?",
     "subtitle": null,
+    "title": "Qual é a diferença entre `.call` e `.apply`?",
     "topics": [
       "javascript"
     ]
@@ -2166,8 +2166,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string",
-    "title": "Qual é a diferença entre detecção de recurso, inferência de recurso e uso da string UA?",
     "subtitle": null,
+    "title": "Qual é a diferença entre detecção de recurso, inferência de recurso e uso da string UA?",
     "topics": [
       "javascript"
     ]
@@ -2192,8 +2192,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-host-objects-and-native-objects",
-    "title": "Qual é a diferença entre objetos do host e objetos nativos?",
     "subtitle": null,
+    "title": "Qual é a diferença entre objetos do host e objetos nativos?",
     "topics": [
       "javascript"
     ]
@@ -2218,8 +2218,8 @@
     "ranking": 2,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-inline-and-inline-block",
-    "title": "Qual é a diferença entre `inline` e `inline-block`?",
     "subtitle": null,
+    "title": "Qual é a diferença entre `inline` e `inline-block`?",
     "topics": [
       "css"
     ]
@@ -2244,8 +2244,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
-    "title": "Qual é a diferença entre \"resetting\" e \"normalizing\" CSS?",
     "subtitle": "Qual você escolheria e por quê?",
+    "title": "Qual é a diferença entre \"resetting\" e \"normalizing\" CSS?",
     "topics": [
       "css"
     ]
@@ -2270,8 +2270,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "when-would-you-use-document-write",
-    "title": "Quando você usaria `document.write()`?",
     "subtitle": null,
+    "title": "Quando você usaria `document.write()`?",
     "topics": [
       "javascript"
     ]
@@ -2296,8 +2296,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-extending-built-in-javascript-objects-not-a-good-idea",
-    "title": "Por que estender objetos JavaScript nativos não é uma boa ideia?",
     "subtitle": null,
+    "title": "Por que estender objetos JavaScript nativos não é uma boa ideia?",
     "topics": [
       "javascript"
     ]
@@ -2322,8 +2322,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate",
-    "title": "Por que se chama uma expressão Ternária, o que indica a palavra \"Ternary\"?",
     "subtitle": null,
+    "title": "Por que se chama uma expressão Ternária, o que indica a palavra \"Ternary\"?",
     "topics": [
       "javascript"
     ]
@@ -2348,8 +2348,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
-    "title": "Por que, em geral, é uma boa ideia deixar o escopo global de um site como está e nunca modificá-lo?",
     "subtitle": null,
+    "title": "Por que, em geral, é uma boa ideia deixar o escopo global de um site como está e nunca modificá-lo?",
     "topics": [
       "javascript"
     ]
@@ -2374,8 +2374,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
-    "title": "Por que você usaria algo como o evento `load`?",
     "subtitle": "Este evento tem desvantagens? Você conhece alguma alternativa, e por que as usaria?",
+    "title": "Por que você usaria algo como o evento `load`?",
     "topics": [
       "javascript"
     ]
@@ -2400,8 +2400,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-you-might-want-to-create-static-class-members",
-    "title": "Por que você pode querer criar membros de classe estáticos?",
     "subtitle": null,
+    "title": "Por que você pode querer criar membros de classe estáticos?",
     "topics": [
       "javascript"
     ]
@@ -2426,8 +2426,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag",
-    "title": "Por que você usaria um atributo 'srcset' em uma tag de imagem?",
     "subtitle": "Explique o processo que o navegador usa ao avaliar o conteúdo deste atributo.",
+    "title": "Por que você usaria um atributo 'srcset' em uma tag de imagem?",
     "topics": [
       "html"
     ]

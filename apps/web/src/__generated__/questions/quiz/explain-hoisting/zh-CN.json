@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-hoisting",
-    "title": "解释“（变量）提升”",
     "subtitle": null,
+    "title": "解释“（变量）提升”",
     "topics": [
       "javascript"
     ]

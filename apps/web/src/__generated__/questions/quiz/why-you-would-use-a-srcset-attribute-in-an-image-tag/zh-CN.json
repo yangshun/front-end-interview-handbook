@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag",
-    "title": "为什么你会在图像标签中使用 `srcset` 属性？",
     "subtitle": "解释一下浏览器在评估这个属性的内容时的过程。",
+    "title": "为什么你会在图像标签中使用 `srcset` 属性？",
     "topics": [
       "html"
     ]

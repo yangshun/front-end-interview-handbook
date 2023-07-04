@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
-    "title": "Quais são os prós e contras de usar Promises em vez de callbacks?",
     "subtitle": null,
+    "title": "Quais são os prós e contras de usar Promises em vez de callbacks?",
     "topics": [
       "javascript"
     ]

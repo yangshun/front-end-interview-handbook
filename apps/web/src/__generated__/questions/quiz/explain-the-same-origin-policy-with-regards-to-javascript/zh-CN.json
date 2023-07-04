@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
-    "title": "解释与JavaScript有关的同源策略。",
     "subtitle": null,
+    "title": "解释与JavaScript有关的同源策略。",
     "topics": [
       "javascript",
       "network"

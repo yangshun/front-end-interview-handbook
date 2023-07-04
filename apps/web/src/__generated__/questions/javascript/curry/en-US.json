@@ -31,7 +31,9 @@
       "function-bind"
     ],
     "slug": "curry",
-    "title": "Curry"
+    "subtitle": null,
+    "title": "Curry",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {Function} func\n * @return {Function}\n */\nexport default function curry(func) {\n  throw 'Not implemented!';\n}",

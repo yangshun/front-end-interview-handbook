@@ -21,8 +21,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-es6-class-and-es5-function-constructors",
-    "title": "What are the differences between ES2015 class and ES5 function constructors?",
     "subtitle": null,
+    "title": "What are the differences between ES2015 class and ES5 function constructors?",
     "topics": [
       "javascript"
     ]

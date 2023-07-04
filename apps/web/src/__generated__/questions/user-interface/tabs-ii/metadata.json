@@ -35,5 +35,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "tabs-ii",
-  "title": "Tabs II"
+  "subtitle": null,
+  "title": "Tabs II",
+  "topics": []
 }

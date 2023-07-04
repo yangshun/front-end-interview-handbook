@@ -33,5 +33,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "accordion",
-  "title": "Accordion"
+  "subtitle": null,
+  "title": "Accordion",
+  "topics": []
 }

@@ -26,5 +26,7 @@
   "ranking": 100,
   "similarQuestions": [],
   "slug": "flight-booker",
-  "title": "Flight Booker"
+  "subtitle": null,
+  "title": "Flight Booker",
+  "topics": []
 }

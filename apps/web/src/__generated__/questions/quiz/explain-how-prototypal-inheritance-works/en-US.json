@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "explain-how-prototypal-inheritance-works",
-    "title": "Explain how prototypal inheritance works",
     "subtitle": null,
+    "title": "Explain how prototypal inheritance works",
     "topics": [
       "javascript"
     ]

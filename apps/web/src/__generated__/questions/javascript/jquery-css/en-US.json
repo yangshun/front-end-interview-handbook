@@ -28,7 +28,9 @@
       "jquery-class-manipulation"
     ],
     "slug": "jquery-css",
-    "title": "jQuery.css"
+    "subtitle": null,
+    "title": "jQuery.css",
+    "topics": []
   },
   "skeleton": {
     "js": "/**\n * @param {string} selector\n * @return {{css: Function}}\n */\nexport default function $(selector) {\n  throw 'Not implemented!';\n}",

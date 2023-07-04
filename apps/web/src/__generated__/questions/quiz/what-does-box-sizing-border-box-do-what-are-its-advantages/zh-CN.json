@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "what-does-box-sizing-border-box-do-what-are-its-advantages",
-    "title": "`* { box-sizing: border-box; }` 是干什么的？",
     "subtitle": "它有什么好处？",
+    "title": "`* { box-sizing: border-box; }` 是干什么的？",
     "topics": [
       "css"
     ]

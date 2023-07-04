@@ -21,8 +21,8 @@
     "ranking": 1,
     "similarQuestions": [],
     "slug": "describe-the-difference-between-script-async-and-script-defer",
-    "title": "描述`<script>`、`<script async>`和`<script defer> `之间的差异",
     "subtitle": null,
+    "title": "描述`<script>`、`<script async>`和`<script defer> `之间的差异",
     "topics": [
       "html",
       "javascript"

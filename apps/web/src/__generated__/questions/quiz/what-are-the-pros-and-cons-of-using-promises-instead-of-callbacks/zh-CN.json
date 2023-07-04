@@ -23,8 +23,8 @@
     "ranking": 100,
     "similarQuestions": [],
     "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
-    "title": "使用Promise而不是回调的利弊是什么？",
     "subtitle": null,
+    "title": "使用Promise而不是回调的利弊是什么？",
     "topics": [
       "javascript"
     ]
