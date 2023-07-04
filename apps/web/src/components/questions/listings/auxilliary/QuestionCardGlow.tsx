@@ -9,6 +9,7 @@ import { themeTextFaintColor } from '~/components/ui/theme';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
+import QuestionTopics from '../../metadata/QuestionTopics';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
@@ -50,10 +51,12 @@ export default function QuestionCardGlow({
             {metadata.excerpt}
           </Text>
         </div>
-        {metadata.frameworks.length === 0 ? (
+        {metadata.frameworks.length > 0 ? (
+          <QuestionFrameworks frameworks={metadata.frameworks} />
+        ) : metadata.languages.length > 0 ? (
           <QuestionLanguages languages={metadata.languages} />
         ) : (
-          <QuestionFrameworks frameworks={metadata.frameworks} />
+          <QuestionTopics topics={metadata.topics} />
         )}
       </div>
       {showArrow && (
