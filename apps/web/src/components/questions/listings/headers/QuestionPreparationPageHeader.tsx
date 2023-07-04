@@ -149,7 +149,9 @@ export default function QuestionPreparationPageHeader() {
             )}>
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-2">
+              className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-2"
+              // So that focus cannot go into the card, which is not meant to be used.
+              {...{ inert: '' }}>
               <ContinueLearningCard />
             </div>
             <div className="absolute h-full w-full bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
