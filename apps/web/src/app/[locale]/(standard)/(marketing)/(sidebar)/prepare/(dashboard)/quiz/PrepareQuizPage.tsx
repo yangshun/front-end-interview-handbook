@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 
+import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
+import DashboardStudyPlansCTA from '~/components/dashboard/DashboardStudyPlansCTA';
 import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
-import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
-import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -37,7 +37,7 @@ export default function PrepareQuizPage({
         className={clsx(
           'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
         )}>
-        <PreparationStudyPlansCTA />
+        <DashboardStudyPlansCTA />
         <PreparationStudyGuideList
           href={quizSectionItem.href}
           items={[quizSectionItem]}

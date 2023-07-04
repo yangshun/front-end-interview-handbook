@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 
+import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
+import DashboardStudyPlansCTA from '~/components/dashboard/DashboardStudyPlansCTA';
 import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
-import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
 import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -37,7 +37,7 @@ export default function PrepareCodingQuestionsPage({
         className={clsx(
           'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
         )}>
-        <PreparationStudyPlansCTA />
+        <DashboardStudyPlansCTA />
         <PreparationStudyGuideList
           href={codingQuestionListGuideItems[0].href}
           items={codingQuestionListGuideItems}

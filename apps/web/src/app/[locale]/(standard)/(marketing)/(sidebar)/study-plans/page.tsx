@@ -3,7 +3,7 @@ import type { IntlShape } from 'react-intl';
 
 import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 
-import { countQuestionsByDifficulty } from '~/components/questions/common/QuestionsProcessor';
+import { countQuestionsByDifficulty } from '~/components/questions/listings/filters/QuestionsProcessor';
 import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';

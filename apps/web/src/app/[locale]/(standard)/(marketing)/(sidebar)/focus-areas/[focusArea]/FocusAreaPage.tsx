@@ -8,7 +8,7 @@ import { trpc } from '~/hooks/trpc';
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
-import { countQuestionsTotalDurationMins } from '~/components/questions/common/QuestionsProcessor';
+import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionQuizMetadata,

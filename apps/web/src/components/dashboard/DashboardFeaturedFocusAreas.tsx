@@ -2,7 +2,7 @@ import { useIntl } from 'react-intl';
 
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
 
-import QuestionFocusAreasSection from '../../dashboard/QuestionFocusAreasSection';
+import DashboardFocusAreasSection from './DashboardFocusAreasSection';
 
 type Props = Readonly<{
   limit?: number;
@@ -25,7 +25,7 @@ export default function DashboardFeaturedFocusAreas({
   ].slice(0, limit);
 
   return (
-    <QuestionFocusAreasSection
+    <DashboardFocusAreasSection
       description={intl.formatMessage(
         {
           defaultMessage:

@@ -2,8 +2,8 @@
 
 import { useIntl } from 'react-intl';
 
+import DashboardGuidesGrid from '~/components/dashboard/DashboardGuidesGrid';
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
-import QuestionsGuidesGrid from '~/components/questions/listings/auxilliary/QuestionsGuidesGrid';
 
 export default function PrepareBehavioralInterviewPage() {
   const intl = useIntl();
@@ -11,7 +11,7 @@ export default function PrepareBehavioralInterviewPage() {
     useBehavioralInterviewGuidebookNavigation();
 
   return (
-    <QuestionsGuidesGrid
+    <DashboardGuidesGrid
       items={behavioralInterviewGuidebookNavigation.items
         .map((item) => item.links)
         .flat()}

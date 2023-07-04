@@ -7,7 +7,7 @@ import {
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
-} from '~/components/questions/common/QuestionsProcessor';
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
@@ -30,7 +30,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingQuizFilters from '../filters/QuestionListingQuizFilters';
-import questionMatchesTextQuery from '../questionMatchesTextQuery';
+import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{

@@ -1,4 +1,4 @@
-import type { QuestionMetadata } from '../common/QuestionsTypes';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 export default function questionMatchesTextQuery(
   question: QuestionMetadata,

@@ -22,12 +22,12 @@ import useQuestionDifficultyFilter from '../filters/hooks/useQuestionDifficultyF
 import useQuestionFrameworkFilter from '../filters/hooks/useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from '../filters/hooks/useQuestionLanguageFilter';
 import type { QuestionFilter } from '../filters/QuestionFilterType';
-import questionMatchesTextQuery from '../questionMatchesTextQuery';
-import useQuestionsWithCompletionStatus from '../useQuestionsWithCompletionStatus';
+import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
+import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import {
   filterQuestions,
   sortQuestionsMultiple,
-} from '../../common/QuestionsProcessor';
+} from '../filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,

@@ -11,7 +11,7 @@ import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import { countQuestionsTotalDurationMins } from '~/components/questions/common/QuestionsProcessor';
+import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionDifficulty,
   QuestionMetadata,

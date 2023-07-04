@@ -8,7 +8,7 @@ import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 import {
   countQuestionsByDifficulty,
   sortQuestions,
-} from '~/components/questions/common/QuestionsProcessor';
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type { QuestionQuizMetadata } from '~/components/questions/common/QuestionsTypes';
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';

@@ -21,7 +21,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
 
-import QuestionCountLabel from '../metadata/QuestionCountLabel';
+import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 type Props = Readonly<{
   description: string;

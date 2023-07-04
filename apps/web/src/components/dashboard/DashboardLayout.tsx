@@ -8,18 +8,18 @@ import { trpc } from '~/hooks/trpc';
 
 import type { PreparationArea } from '~/data/PreparationAreas';
 
+import DashboardFeaturedFocusAreas from '~/components/dashboard/DashboardFeaturedFocusAreas';
+import DashboardOverallCompletionProgress from '~/components/dashboard/DashboardOverallCompletionProgress';
+import DashboardPageHeader from '~/components/dashboard/DashboardPageHeader';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import PreparationOverallCompletionProgress from '~/components/questions/dashboard/PreparationOverallCompletionProgress';
-import DashboardFeaturedFocusAreas from '~/components/questions/listings/auxilliary/DashboardFeaturedFocusAreas';
 import QuestionsPreparationOnboarding from '~/components/questions/listings/auxilliary/QuestionsPreparationOnboarding';
 import QuestionsPreparationTabs from '~/components/questions/listings/filters/QuestionsPreparationTabs';
-import QuestionPreparationPageHeader from '~/components/questions/listings/headers/QuestionPreparationPageHeader';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 
-import QuestionsContinueLearningWithFetching from './QuestionsContinueLearningWithFetching';
+import DashboardContinueLearningWithFetching from './DashboardContinueLearningWithFetching';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -47,9 +47,9 @@ export default function DashboardLayout({
       )}>
       <Section>
         <div className="flex flex-col gap-y-6">
-          <QuestionPreparationPageHeader />
+          <DashboardPageHeader />
           {userProfile ? (
-            <PreparationOverallCompletionProgress
+            <DashboardOverallCompletionProgress
               questionTotalAvailableCount={questionTotalAvailableCount}
             />
           ) : (
@@ -62,7 +62,7 @@ export default function DashboardLayout({
             showContinueLearning && 'lg:grid-cols-2',
           )}>
           {showContinueLearning && questionListSessions != null && (
-            <QuestionsContinueLearningWithFetching
+            <DashboardContinueLearningWithFetching
               items={questionListSessions.map((session) => ({
                 completedCount: session._count.progress,
                 listKey: session.key,

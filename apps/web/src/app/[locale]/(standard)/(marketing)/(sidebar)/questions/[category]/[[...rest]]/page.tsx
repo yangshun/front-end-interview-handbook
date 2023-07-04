@@ -6,7 +6,7 @@ import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import {
   filterQuestions,
   sortQuestions,
-} from '~/components/questions/common/QuestionsProcessor';
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionCodingFormat,
   QuestionLanguage,

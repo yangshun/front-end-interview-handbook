@@ -5,7 +5,7 @@
 // It's only meant to be used on the server.
 import fs from 'node:fs';
 
-import { filterQuestions } from '~/components/questions/common/QuestionsProcessor';
+import { filterQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionFormat,
   QuestionFramework,

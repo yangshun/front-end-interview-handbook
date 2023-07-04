@@ -6,7 +6,7 @@ import type {
   QuestionMetadata,
   QuestionPremiumStatus,
   QuestionSortField,
-} from './QuestionsTypes';
+} from '../../common/QuestionsTypes';
 
 export const QuestionSortFields: ReadonlyArray<
   Readonly<{

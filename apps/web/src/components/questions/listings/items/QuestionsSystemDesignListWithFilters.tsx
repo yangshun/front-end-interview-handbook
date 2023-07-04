@@ -8,7 +8,7 @@ import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import {
   filterQuestions,
   sortQuestionsMultiple,
-} from '~/components/questions/common/QuestionsProcessor';
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
@@ -26,8 +26,8 @@ import TextInput from '~/components/ui/TextInput';
 
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingSystemDesignFilters from '../filters/QuestionListingSystemDesignFilters';
-import questionMatchesTextQuery from '../questionMatchesTextQuery';
-import useQuestionsWithCompletionStatus from '../useQuestionsWithCompletionStatus';
+import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
+import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import { allSystemDesignQuestions } from '../../content/system-design/SystemDesignNavigation';
 
 type Props = Readonly<{

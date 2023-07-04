@@ -4,34 +4,32 @@ import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import { hasCompletedQuestion } from '~/db/QuestionsUtils';
-
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
-} from '../common/QuestionsTypes';
+} from '~/components/questions/common/QuestionsTypes';
 
-export default function useQuestionsWithListProgressStatus<
+import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
+
+export default function useQuestionsWithCompletionStatus<
   Q extends QuestionMetadata,
 >(
-  listKey: string,
   questions: ReadonlyArray<Q>,
 ): ReadonlyArray<Q & QuestionMetadataWithCompletedStatus> {
-  const { data: questionListProgress } =
-    trpc.questionLists.getSessionProgress.useQuery({
-      listKey,
-    });
+  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
 
   const questionsWithCompletionStatus = useMemo(() => {
     const completedQuestions = new Set(
-      (questionListProgress ?? []).map(({ key }) => key),
+      (questionProgress ?? []).map(({ format, slug }) =>
+        hashQuestion(format, slug),
+      ),
     );
 
     return questions.map((question) => ({
       ...question,
       isCompleted: hasCompletedQuestion(completedQuestions, question),
     }));
-  }, [questionListProgress, questions]);
+  }, [questionProgress, questions]);
 
   return questionsWithCompletionStatus;
 }

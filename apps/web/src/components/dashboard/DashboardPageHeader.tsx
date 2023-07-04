@@ -16,13 +16,13 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import QuestionsContinueLearning from '../../dashboard/QuestionsContinueLearning';
+import DashboardContinueLearning from './DashboardContinueLearning';
 
 function ContinueLearningCard() {
   const intl = useIntl();
 
   return (
-    <QuestionsContinueLearning
+    <DashboardContinueLearning
       hideHeading={true}
       items={[
         {
@@ -56,7 +56,7 @@ function ContinueLearningCard() {
   );
 }
 
-export default function QuestionPreparationPageHeader() {
+export default function DashboardPageHeader() {
   const { userProfile } = useUserProfile();
 
   return (

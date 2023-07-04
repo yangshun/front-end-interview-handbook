@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
-import { sortQuestionsMultiple } from '~/components/questions/common/QuestionsProcessor';
+import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
 
 import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';

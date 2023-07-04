@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import { sortQuestions } from '~/components/questions/common/QuestionsProcessor';
+import { sortQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 
 import {

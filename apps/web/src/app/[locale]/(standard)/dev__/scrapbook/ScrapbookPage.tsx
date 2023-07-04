@@ -15,8 +15,8 @@ import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompanies
 import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
 import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
-import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
+import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
+import DashboardContinueLearning from '~/components/dashboard/DashboardContinueLearning';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
@@ -291,7 +291,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-grid grid-cols-1">
-                <QuestionsContinueLearning
+                <DashboardContinueLearning
                   items={[
                     {
                       completedCount: 30,

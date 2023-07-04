@@ -13,7 +13,7 @@ import {
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
-} from '~/components/questions/common/QuestionsProcessor';
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionCodingFormat,
   QuestionMetadata,
@@ -42,7 +42,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
-import questionMatchesTextQuery from '../questionMatchesTextQuery';
+import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';

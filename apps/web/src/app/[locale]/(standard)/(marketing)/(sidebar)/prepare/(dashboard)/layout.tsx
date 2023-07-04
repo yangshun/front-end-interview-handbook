@@ -1,4 +1,4 @@
-import DashboardLayout from '~/components/questions/dashboard/DashboardLayout';
+import DashboardLayout from '~/components/dashboard/DashboardLayout';
 
 import { fetchQuestionsListCount } from '~/db/QuestionsListReader';
 

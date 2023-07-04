@@ -10,8 +10,8 @@ import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 import QuestionsList from './QuestionsList';
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
-import useQuestionsWithListProgressStatus from '../useQuestionsWithListProgressStatus';
-import { sortQuestionsMultiple } from '../../common/QuestionsProcessor';
+import useQuestionsWithListProgressStatus from '../filters/hooks/useQuestionsWithListProgressStatus';
+import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionQuizMetadata,

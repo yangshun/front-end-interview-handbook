@@ -9,17 +9,17 @@ import Text from '~/components/ui/Text';
 import type { ThemeGradient } from '~/components/ui/theme';
 import { themeGlassyBorder, themeLineColor } from '~/components/ui/theme';
 
-import QuestionCountLabel from '../metadata/QuestionCountLabel';
-import QuestionTotalTimeLabel from '../metadata/QuestionTotalTimeLabel';
+import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
+import QuestionTotalTimeLabel from '../questions/metadata/QuestionTotalTimeLabel';
 
 import 'react-circular-progressbar/dist/styles.css';
 
-type GradientSVGProps = {
+type GradientSVGProps = Readonly<{
   endColor: string;
   idCSS: string;
   rotation: number;
   startColor: string;
-};
+}>;
 
 function GradientSVG({
   startColor,
@@ -131,7 +131,7 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function QuestionsContinueLearning({
+export default function DashboardContinueLearning({
   items,
   hideHeading = false,
 }: Props) {
@@ -148,7 +148,7 @@ export default function QuestionsContinueLearning({
       )}
       <div
         className={clsx(
-          'flex flex-col divide-y rounded-lg bg-white dark:bg-neutral-800/40',
+          'dark:bg-neutral-800/40 flex flex-col divide-y rounded-lg bg-white',
           themeGlassyBorder,
           themeLineColor,
         )}>

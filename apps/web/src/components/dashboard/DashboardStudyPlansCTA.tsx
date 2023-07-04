@@ -12,9 +12,9 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import { themeLineBackgroundColor } from '../../ui/theme';
+import { themeLineBackgroundColor } from '../ui/theme';
 
-export default function PreparationStudyPlansCTA() {
+export default function DashboardStudyPlansCTA() {
   return (
     <div className="group flex w-full flex-col gap-4">
       <Heading level="heading6">
@@ -26,7 +26,7 @@ export default function PreparationStudyPlansCTA() {
       </Heading>
       <div
         className={clsx(
-          'group relative flex items-center justify-between py-3 px-4',
+          'group relative flex items-center justify-between px-4 py-3',
           'border border-neutral-200 dark:border-transparent',
           'rounded-lg',
           'transition-colors',

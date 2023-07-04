@@ -3,7 +3,7 @@ import {
   useQuestionLists,
 } from '~/data/question-lists/QuestionListsHooks';
 
-import QuestionsContinueLearning from '~/components/questions/dashboard/QuestionsContinueLearning';
+import DashboardContinueLearning from '~/components/dashboard/DashboardContinueLearning';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
 
@@ -14,12 +14,12 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function QuestionsContinueLearningContainer({ items }: Props) {
+export default function DashboardContinueLearningContainer({ items }: Props) {
   const questionLists = useQuestionLists();
   const themes = getQuestionListThemes();
 
   return (
-    <QuestionsContinueLearning
+    <DashboardContinueLearning
       items={items.map(({ listKey, completedCount }) => ({
         completedCount,
         gradient: themes[listKey].gradient,

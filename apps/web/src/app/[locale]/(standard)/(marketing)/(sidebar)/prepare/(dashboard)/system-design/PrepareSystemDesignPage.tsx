@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 
+import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
+import DashboardStudyPlansCTA from '~/components/dashboard/DashboardStudyPlansCTA';
 import { useSystemDesignLearningContent } from '~/components/questions/content/system-design/SystemDesignNavigation';
-import PreparationStudyGuideList from '~/components/questions/dashboard/PreparationStudyGuideList';
-import PreparationStudyPlansCTA from '~/components/questions/dashboard/PreparationStudyPlansCTA';
 import QuestionsSystemDesignListWithFilters from '~/components/questions/listings/items/QuestionsSystemDesignListWithFilters';
 
 export default function PrepareSystemDesignPage() {
@@ -22,7 +22,7 @@ export default function PrepareSystemDesignPage() {
         className={clsx(
           'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
         )}>
-        <PreparationStudyPlansCTA />
+        <DashboardStudyPlansCTA />
         <PreparationStudyGuideList
           href={systemDesignLearningContent[0].href}
           items={systemDesignLearningContent}
