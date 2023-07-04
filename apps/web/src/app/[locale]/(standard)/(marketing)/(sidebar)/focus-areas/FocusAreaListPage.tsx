@@ -127,17 +127,7 @@ export default function FocusAreaListPage({
     trpc.questionLists.getActiveSessions.useQuery();
 
   const sessions = questionListSessions ?? [];
-
-  const focusAreasSections: Array<FocusAreasSection> = [
-    {
-      areas: Object.values(focusAreas),
-      title: intl.formatMessage({
-        defaultMessage: 'Important focus areas',
-        description: 'Title of list of focus areas',
-        id: '6D1OGe',
-      }),
-    },
-  ];
+  const areas = Object.values(focusAreas);
 
   return (
     <Container
@@ -157,39 +147,30 @@ export default function FocusAreaListPage({
         <Text color="secondary" display="block" size="body2">
           {intl.formatMessage({
             defaultMessage:
-              'Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.',
-            description: 'Description for study plans page',
-            id: 't5nQRB',
+              'Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.',
+            description: 'Description for focus areas page',
+            id: 'Qe4ww/',
           })}
         </Text>
       </div>
       <Section>
-        <div className="flex flex-col gap-6">
-          {focusAreasSections.map(({ areas, title }) => (
-            <div key={title} className="flex flex-col gap-y-4">
-              <Heading level="heading6">{title}</Heading>
-              <Section>
-                <div className="grid gap-4 lg:grid-cols-2">
-                  {areas.map((area) => {
-                    const session = sessions.find(
-                      (session_) => session_.key === area.type,
-                    );
-                    const completionCount = session?._count.progress;
+        <div className="grid gap-4 lg:grid-cols-2">
+          {areas.map((area) => {
+            const session = sessions.find(
+              (session_) => session_.key === area.type,
+            );
+            const completionCount = session?._count.progress;
 
-                    return (
-                      <FocusAreaCard
-                        key={area.type}
-                        area={area}
-                        completionCount={completionCount}
-                        difficultySummary={difficultySummary[area.type]}
-                        isStarted={session != null}
-                      />
-                    );
-                  })}
-                </div>
-              </Section>
-            </div>
-          ))}
+            return (
+              <FocusAreaCard
+                key={area.type}
+                area={area}
+                completionCount={completionCount}
+                difficultySummary={difficultySummary[area.type]}
+                isStarted={session != null}
+              />
+            );
+          })}
         </div>
       </Section>
     </Container>

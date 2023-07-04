@@ -395,10 +395,6 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
-  "6D1OGe": {
-    "defaultMessage": "Important focus areas",
-    "description": "Title of list of focus areas"
-  },
   "6IwcDT": {
     "defaultMessage": "Show",
     "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
@@ -1530,6 +1526,10 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
+  },
+  "Qe4ww/": {
+    "defaultMessage": "Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.",
+    "description": "Description for focus areas page"
   },
   "Qf/RU+": {
     "defaultMessage": "React Coding Questions",

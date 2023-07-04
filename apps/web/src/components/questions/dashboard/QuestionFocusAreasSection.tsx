@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightSLine, RiQuestionFill } from 'react-icons/ri';
+import { RiArrowRightLine, RiQuestionFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
@@ -52,7 +52,7 @@ export default function QuestionFocusAreasSection({
           <Button
             className="-mr-5 -mt-2 translate-y-2"
             href="/focus-areas"
-            icon={RiArrowRightSLine}
+            icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'See all',
               description: 'Link to all focus areas page',
