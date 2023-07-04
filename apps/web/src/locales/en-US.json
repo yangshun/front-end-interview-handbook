@@ -1475,6 +1475,10 @@
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
   },
+  "PXLoIh": {
+    "defaultMessage": "Focus areas",
+    "description": "Sidebar label for interview focus area category"
+  },
   "PeXK7/": {
     "defaultMessage": "Pricing",
     "description": "Title of Pricing page"
@@ -2766,10 +2770,6 @@
   "lztLqo": {
     "defaultMessage": "Front End Engineer",
     "description": "Anonymous Front End Engineer's job title"
-  },
-  "m+nWg0": {
-    "defaultMessage": "Not Completed",
-    "description": "Tooltip for questions Not Completed label"
   },
   "m9168P": {
     "defaultMessage": "All Questions",

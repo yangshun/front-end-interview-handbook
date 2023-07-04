@@ -7,6 +7,7 @@ import {
   RiCalendar2Line,
   RiContractLeftLine,
   RiContractRightLine,
+  RiFocus2Line,
   RiHome3Line,
   RiWindowLine,
 } from 'react-icons/ri';
@@ -57,7 +58,7 @@ function useQuestionsSidebarNavigation() {
 
   const navigation: ReadonlyArray<SidebarLink | SidebarPopover> = [
     {
-      currentMatchRegex: /prepare\/(coding|quiz|system|behavioral)/,
+      currentMatchRegex: /^\/prepare\/(coding|quiz|system|behavioral)/,
       href: '/prepare',
       icon: RiHome3Line,
       key: 'dashboard',
@@ -70,7 +71,7 @@ function useQuestionsSidebarNavigation() {
       type: 'link',
     },
     {
-      currentMatchRegex: /\/questions\//,
+      currentMatchRegex: /^\/questions\//,
       href: '/questions',
       icon: RiWindowLine,
       key: 'questions',
@@ -141,7 +142,7 @@ function useQuestionsSidebarNavigation() {
     },
     {
       currentMatchRegex:
-        /study-plans|prepare\/(one-week|one-month|three-months)/,
+        /^\/(study-plans|prepare\/(one-week|one-month|three-months))/,
       href: '/study-plans',
       icon: RiCalendar2Line,
       key: 'study-plans',
@@ -149,6 +150,18 @@ function useQuestionsSidebarNavigation() {
         defaultMessage: 'Study plans',
         description: 'Sidebar label for Study Plans category',
         id: 'WNRcvy',
+      }),
+      type: 'link',
+    },
+    {
+      currentMatchRegex: /^\/focus-areas/,
+      href: '/focus-areas',
+      icon: RiFocus2Line,
+      key: 'focus-areas',
+      name: intl.formatMessage({
+        defaultMessage: 'Focus areas',
+        description: 'Sidebar label for interview focus area category',
+        id: 'PXLoIh',
       }),
       type: 'link',
     },
