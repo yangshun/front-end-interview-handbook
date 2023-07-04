@@ -7,13 +7,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import {
-  countQuestionsByDifficulty,
-  countQuestionsByPremium,
-  countQuestionsTotalDurationMins,
-  filterQuestions,
-  sortQuestionsMultiple,
-} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionCodingFormat,
   QuestionMetadata,
@@ -27,6 +20,13 @@ import useQuestionDifficultyFilter from '~/components/questions/listings/filters
 import useQuestionFrameworkFilter from '~/components/questions/listings/filters/hooks/useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from '~/components/questions/listings/filters/hooks/useQuestionLanguageFilter';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
+import {
+  countQuestionsByDifficulty,
+  countQuestionsByPremium,
+  countQuestionsTotalDurationMins,
+  filterQuestions,
+  sortQuestionsMultiple,
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
@@ -61,8 +61,11 @@ export type Props = Readonly<{
   initialCodingFormat?: QuestionCodingFormat | null;
   layout?: 'embedded' | 'full';
   listKey?: string;
+  listMode?: 'default' | 'learning-list';
   mode?: 'default' | 'framework';
   namespace: string;
+  onMarkAsCompleted?: (question: QuestionMetadata) => void;
+  onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   sideColumnAddOn?: ReactNode;
@@ -74,12 +77,15 @@ export default function QuestionsCodingListWithFilters({
   framework,
   layout = 'full',
   listKey,
+  listMode,
   mode = 'default',
   namespace,
   questions,
   questionCompletionCount,
   codingFormatFiltersFilterPredicate,
   codingFormatFiltersOrderComparator,
+  onMarkAsCompleted,
+  onMarkAsNotCompleted,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -514,8 +520,11 @@ export default function QuestionsCodingListWithFilters({
                   }
                   framework={framework}
                   listKey={listKey}
+                  mode={listMode}
                   questionCompletionCount={questionCompletionCount}
                   questions={processedQuestions}
+                  onMarkAsCompleted={onMarkAsCompleted}
+                  onMarkAsNotCompleted={onMarkAsNotCompleted}
                 />
               </Section>
             </div>

@@ -113,7 +113,6 @@ function QuestionsList({
       </div>
       {format === 'quiz' && (
         <QuestionsQuizListWithFiltersAndProgress
-          mode="topic"
           namespace={`${category}-quiz`}
           questionCompletionCount={questionCompletionCount}
           questions={quizQuestions}

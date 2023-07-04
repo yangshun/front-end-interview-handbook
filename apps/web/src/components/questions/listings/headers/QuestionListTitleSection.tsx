@@ -70,7 +70,7 @@ export default function QuestionListTitleSection({
   const { showToast } = useToast();
 
   return (
-    <div className="flex flex-col justify-between gap-y-4 gap-x-8 md:flex-row">
+    <div className="flex flex-col justify-between gap-x-8 gap-y-4 md:flex-row">
       <div className="flex flex-col gap-4">
         <div className="flex gap-x-6">
           <div
@@ -134,9 +134,9 @@ export default function QuestionListTitleSection({
                 isDisabled={startSessionMutation.isLoading}
                 isLoading={startSessionMutation.isLoading}
                 label={intl.formatMessage({
-                  defaultMessage: 'Start study plan',
-                  description: 'Button label to start study plan',
-                  id: 'lUuh6Q',
+                  defaultMessage: 'Start learning',
+                  description: 'Button label to start study plan / focus area',
+                  id: 'rmYPMV',
                 })}
                 variant="primary"
                 onClick={() => {
@@ -148,10 +148,10 @@ export default function QuestionListTitleSection({
                       onSuccess: () => {
                         showToast({
                           title: intl.formatMessage({
-                            defaultMessage: 'Study plan started',
+                            defaultMessage: 'Started tracking progress',
                             description:
                               'Success message for starting a study plan',
-                            id: '79rtZd',
+                            id: 'm0cej4',
                           }),
                           variant: 'success',
                         });
@@ -190,9 +190,9 @@ export default function QuestionListTitleSection({
                   isDisabled={stopSessionMutation.isLoading}
                   isLoading={stopSessionMutation.isLoading}
                   label={intl.formatMessage({
-                    defaultMessage: 'Stop study plan',
+                    defaultMessage: 'Stop session',
                     description: 'Label to stop study plan',
-                    id: '+5SO+E',
+                    id: 'ECkWMR',
                   })}
                   size="sm"
                   variant="tertiary"
@@ -232,9 +232,9 @@ export default function QuestionListTitleSection({
                 isConfirming={stopSessionMutation.isLoading}
                 isShown={showStopStudyPlanConfirmation}
                 title={intl.formatMessage({
-                  defaultMessage: 'Stop study plan',
+                  defaultMessage: 'Stop session',
                   description: 'Label to stop study plan',
-                  id: '+5SO+E',
+                  id: 'ECkWMR',
                 })}
                 onCancel={() => {
                   setShowStopStudyPlanConfirmation(false);
@@ -249,10 +249,10 @@ export default function QuestionListTitleSection({
                         setShowStopStudyPlanConfirmation(false);
                         showToast({
                           title: intl.formatMessage({
-                            defaultMessage: 'Study plan session stopped',
+                            defaultMessage: 'Study list session stopped',
                             description:
                               'Success message for stopping a study plan',
-                            id: 'TYoAs+',
+                            id: '0xSU4h',
                           }),
                           variant: 'info',
                         });
@@ -261,9 +261,9 @@ export default function QuestionListTitleSection({
                   );
                 }}>
                 <FormattedMessage
-                  defaultMessage="This is an irreversible action. You will not be able to resume the study plan and all progress will be erased. Are you sure?"
+                  defaultMessage="This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?"
                   description="Confirmation text for stopping a study plan"
-                  id="dActPn"
+                  id="NO9tAQ"
                 />
               </ConfirmationDialog>
               <ConfirmationDialog
@@ -287,10 +287,10 @@ export default function QuestionListTitleSection({
                         setShowResetProgressConfirmation(false);
                         showToast({
                           title: intl.formatMessage({
-                            defaultMessage: 'Study plan progress cleared',
+                            defaultMessage: 'Learning progress cleared',
                             description:
                               'Success message for clearing study plan progress',
-                            id: '+7egiW',
+                            id: 'kQgKV1',
                           }),
                           variant: 'info',
                         });

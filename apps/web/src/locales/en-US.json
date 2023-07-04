@@ -7,14 +7,6 @@
     "defaultMessage": "About",
     "description": "Link to company's about page"
   },
-  "+5SO+E": {
-    "defaultMessage": "Stop study plan",
-    "description": "Label to stop study plan"
-  },
-  "+7egiW": {
-    "defaultMessage": "Study plan progress cleared",
-    "description": "Success message for clearing study plan progress"
-  },
   "+99sZT": {
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
@@ -154,6 +146,10 @@
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
+  },
+  "0xSU4h": {
+    "defaultMessage": "Study list session stopped",
+    "description": "Success message for stopping a study plan"
   },
   "15O0qb": {
     "defaultMessage": "Get Started",
@@ -443,10 +439,6 @@
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
   },
-  "79rtZd": {
-    "defaultMessage": "Study plan started",
-    "description": "Success message for starting a study plan"
-  },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
@@ -462,6 +454,10 @@
   "7Korc4": {
     "defaultMessage": "Growth Mindset Questions",
     "description": "Title for growth mindset collaboration questions"
+  },
+  "7N70T1": {
+    "defaultMessage": "No ongoing learning session",
+    "description": "No active study plan session started"
   },
   "7P0wF0": {
     "defaultMessage": "Get Full Access",
@@ -719,6 +715,10 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
   },
+  "CvwT9O": {
+    "defaultMessage": "You need to start the learning session first",
+    "description": "Message telling users that need to start on a study plan session first"
+  },
   "CyhMLj": {
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
@@ -794,6 +794,10 @@
   "E7SqUY": {
     "defaultMessage": "We have helped thousands of Software Engineers",
     "description": "Testimonial section heading"
+  },
+  "ECkWMR": {
+    "defaultMessage": "Stop session",
+    "description": "Label to stop study plan"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -974,6 +978,10 @@
   "HaIAzk": {
     "defaultMessage": "Light",
     "description": "Select label for light console theme in console settings"
+  },
+  "Hav9UT": {
+    "defaultMessage": "Marked \"{questionTitle}\" as not completed",
+    "description": "Success message for marking a question as not completed"
   },
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
@@ -1331,6 +1339,10 @@
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
+  "NO9tAQ": {
+    "defaultMessage": "This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?",
+    "description": "Confirmation text for stopping a study plan"
+  },
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
     "description": "Subtitle for HTML questions list page"
@@ -1374,10 +1386,6 @@
   "O7MAvX": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
-  },
-  "O8kIBQ": {
-    "defaultMessage": "Back to dashboard",
-    "description": "Link text to navigate to dashboard page"
   },
   "O9szXK": {
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
@@ -1470,6 +1478,10 @@
   "PGq6U8": {
     "defaultMessage": "Elevate your front-end skills by practicing the creation of front end design system components.",
     "description": "Description for interview preparation focus area"
+  },
+  "PHhUwD": {
+    "defaultMessage": "Back to focus areas",
+    "description": "Link text to navigate to focus areas list page"
   },
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
@@ -1686,10 +1698,6 @@
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
-  },
-  "TYoAs+": {
-    "defaultMessage": "Study plan session stopped",
-    "description": "Success message for stopping a study plan"
   },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
@@ -2095,6 +2103,10 @@
     "defaultMessage": "JavaScript",
     "description": "JavaScript questions category long title"
   },
+  "awMxNG": {
+    "defaultMessage": "Marked \"{questionTitle}\" as complete",
+    "description": "Success message for marking a question as complete"
+  },
   "b0OofK": {
     "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
@@ -2234,10 +2246,6 @@
   "dAHBqv": {
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
-  },
-  "dActPn": {
-    "defaultMessage": "This is an irreversible action. You will not be able to resume the study plan and all progress will be erased. Are you sure?",
-    "description": "Confirmation text for stopping a study plan"
   },
   "dFz30c": {
     "defaultMessage": "Reset",
@@ -2430,6 +2438,10 @@
   "geCoTi": {
     "defaultMessage": "Hide DevTool",
     "description": "Label for button to collapse the DevTool"
+  },
+  "ghmPBf": {
+    "defaultMessage": "Solved previously, mark as completed",
+    "description": "Label for questions solved in the past"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -2655,6 +2667,10 @@
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
+  "kQgKV1": {
+    "defaultMessage": "Learning progress cleared",
+    "description": "Success message for clearing study plan progress"
+  },
   "ke8J8T": {
     "defaultMessage": "Try these popular JavaScript questions",
     "description": "Title for featured questions section"
@@ -2731,10 +2747,6 @@
     "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
     "description": "Description for interview preparation focus area"
   },
-  "lUuh6Q": {
-    "defaultMessage": "Start study plan",
-    "description": "Button label to start study plan"
-  },
   "ldOgfx": {
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
@@ -2770,6 +2782,10 @@
   "lztLqo": {
     "defaultMessage": "Front End Engineer",
     "description": "Anonymous Front End Engineer's job title"
+  },
+  "m0cej4": {
+    "defaultMessage": "Started tracking progress",
+    "description": "Success message for starting a study plan"
   },
   "m9168P": {
     "defaultMessage": "All Questions",
@@ -2967,6 +2983,10 @@
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
   },
+  "pmgCza": {
+    "defaultMessage": "Mark as not completed",
+    "description": "Tooltip to mark a button as incomplete"
+  },
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
@@ -3062,6 +3082,10 @@
   "rhLand": {
     "defaultMessage": "Navigate to preparation area",
     "description": "Tab label to navigate to another preparation page"
+  },
+  "rmYPMV": {
+    "defaultMessage": "Start learning",
+    "description": "Button label to start study plan / focus area"
   },
   "ryCcOP": {
     "defaultMessage": "Notify Me",
@@ -3194,10 +3218,6 @@
   "twAHPt": {
     "defaultMessage": "What interviewers are looking for",
     "description": "What front end system design interviewer are looking for"
-  },
-  "txBBg4": {
-    "defaultMessage": "Past solved",
-    "description": "Label for questions solved in the past"
   },
   "u0dndi": {
     "defaultMessage": "View All Questions",

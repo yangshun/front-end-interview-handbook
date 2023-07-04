@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import {
   RiArrowRightLine,
   RiCheckboxCircleFill,
-  RiCheckboxCircleLine,
   RiLockLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -14,8 +13,10 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
+  themeBackgroundLayerEmphasized,
   themeDivideColor,
   themeLineColor,
+  themeTextBrandColor,
   themeTextBrandGroupHoverColor,
   themeTextFaintColor,
 } from '~/components/ui/theme';
@@ -40,6 +41,9 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   framework?: QuestionFramework;
   listKey?: string;
+  mode?: 'default' | 'learning-list';
+  onMarkAsCompleted?: (question: Q) => void;
+  onMarkAsNotCompleted?: (question: Q) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
   showProgress?: boolean;
@@ -85,6 +89,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   questions,
   questionCompletionCount,
   showProgress = true,
+  onMarkAsCompleted,
+  onMarkAsNotCompleted,
+  mode = 'default',
 }: Props<Q>) {
   const { userProfile } = useUserProfile();
   const intl = useIntl();
@@ -123,6 +130,12 @@ export default function QuestionsList<Q extends QuestionMetadata>({
         const hasCompletedQuestionBefore = checkIfCompletedQuestionBefore
           ? checkIfCompletedQuestionBefore(question)
           : false;
+        const progressIndicatorDefaultClass = clsx(
+          'inline-flex items-center justify-center',
+          'h-8 w-8 rounded-full',
+          [themeTextBrandColor, 'font-semibold'],
+          'bg-brand-lightest dark:bg-neutral-800',
+        );
 
         return (
           <li
@@ -145,6 +158,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 )}>
                 {question.premium && !userProfile?.isPremium ? (
                   <Tooltip
+                    alignment="start"
                     label={intl.formatMessage({
                       defaultMessage: 'Premium',
                       description: 'Tooltip for Premium questions label',
@@ -164,52 +178,105 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     </span>
                   </Tooltip>
                 ) : hasCompletedQuestion ? (
-                  <Tooltip
-                    label={intl.formatMessage({
-                      defaultMessage: 'Completed',
-                      description: 'Tooltip for Completed questions label',
-                      id: 'aZqFm4',
-                    })}
-                    position="above">
-                    <RiCheckboxCircleFill
-                      aria-hidden="true"
-                      className={clsx(
-                        'h-8 w-8 scale-110',
-                        'text-success dark:text-success-light',
-                      )}
-                    />
-                  </Tooltip>
+                  mode === 'default' ? (
+                    <Tooltip
+                      alignment="start"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Completed',
+                        description: 'Tooltip for Completed questions label',
+                        id: 'aZqFm4',
+                      })}
+                      position="above">
+                      <RiCheckboxCircleFill
+                        aria-hidden="true"
+                        className={clsx(
+                          'h-8 w-8 scale-110',
+                          'text-success dark:text-success-light',
+                        )}
+                      />
+                    </Tooltip>
+                  ) : (
+                    <Tooltip
+                      alignment="start"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Mark as not completed',
+                        description: 'Tooltip to mark a button as incomplete',
+                        id: 'pmgCza',
+                      })}
+                      position="above">
+                      <button
+                        aria-label={intl.formatMessage({
+                          defaultMessage: 'Mark as not completed',
+                          description: 'Tooltip to mark a button as incomplete',
+                          id: 'pmgCza',
+                        })}
+                        type="button"
+                        onClick={() => {
+                          onMarkAsNotCompleted?.(question);
+                        }}>
+                        <RiCheckboxCircleFill
+                          aria-hidden="true"
+                          className={clsx(
+                            'h-8 w-8 scale-110',
+                            'transition-colors',
+                            'text-success hover:text-success-dark',
+                            'dark:text-success-light dark:hover:text-success-lighter',
+                          )}
+                        />
+                      </button>
+                    </Tooltip>
+                  )
                 ) : hasCompletedQuestionBefore ? (
                   <Tooltip
+                    alignment="start"
                     label={intl.formatMessage({
-                      defaultMessage: 'Past solved',
+                      defaultMessage: 'Solved previously, mark as completed',
                       description: 'Label for questions solved in the past',
-                      id: 'txBBg4',
+                      id: 'ghmPBf',
                     })}
                     position="above">
-                    <RiCheckboxCircleLine
-                      aria-hidden="true"
+                    <button
+                      aria-label={intl.formatMessage({
+                        defaultMessage: 'Solved previously, mark as completed',
+                        description: 'Label for questions solved in the past',
+                        id: 'ghmPBf',
+                      })}
                       className={clsx(
-                        'h-8 w-8 scale-110',
-                        'text-neutral-400 dark:text-neutral-600',
+                        progressIndicatorDefaultClass,
+                        'hover:opacity-60',
+                        'border-success border border-dashed',
                       )}
-                    />
+                      type="button"
+                      onClick={() => onMarkAsCompleted?.(question)}>
+                      {index + 1}
+                    </button>
                   </Tooltip>
                 ) : (
                   <Tooltip
+                    alignment="start"
                     label={intl.formatMessage({
                       defaultMessage: 'Not completed',
                       description: 'Tooltip for questions Not Completed label',
                       id: 'xAtvsP',
                     })}
                     position="above">
-                    <span
-                      className={clsx(
-                        'flex h-8 w-8 items-center justify-center rounded-full',
-                        ['border', 'border-neutral-300 dark:border-neutral-700'],
-                        'bg-neutral-100 dark:bg-neutral-900',
-                      )}
-                    />
+                    {mode === 'default' && (
+                      <span
+                        className={clsx(
+                          'flex h-8 w-8 items-center justify-center rounded-full',
+                          [
+                            'border',
+                            'border-neutral-300 dark:border-neutral-700',
+                          ],
+                          'bg-neutral-100 dark:bg-neutral-900',
+                        )}
+                      />
+                    )}
+                    {mode === 'learning-list' && (
+                      <span className={progressIndicatorDefaultClass}>
+                        {index + 1}
+                      </span>
+                    )}
                   </Tooltip>
                 )}
               </div>

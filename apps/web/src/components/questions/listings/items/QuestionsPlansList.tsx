@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
+import { useToast } from '~/components/global/toasts/ToastsProvider';
 import QuestionsCodingListWithFilters from '~/components/questions/listings/items/QuestionsCodingListWithFilters';
 import QuestionsQuizListWithFilters from '~/components/questions/listings/items/QuestionsQuizListWithFilters';
 import Heading from '~/components/ui/Heading';
@@ -32,6 +35,14 @@ export default function QuestionsPlansList({
   sessionProgress: QuestionsCategorizedProgress;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
+  const intl = useIntl();
+  const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
+    trpc.questionLists.getActiveSession.useQuery({
+      listKey,
+    });
+
+  const { showToast } = useToast();
+
   const [selectedQuestionFormat, setSelectedQuestionFormat] =
     useState<QuestionUserFacingFormat>('coding');
 
@@ -47,6 +58,100 @@ export default function QuestionsPlansList({
     listKey,
     systemDesignQuestions,
   );
+  const markCompleteMutation = trpc.questionLists.markComplete.useMutation();
+  const markAsNotCompleteMutation =
+    trpc.questionLists.markAsNotComplete.useMutation();
+
+  function canMarkQuestions() {
+    if (isQuestionListSessionLoading) {
+      return false;
+    }
+
+    if (questionListSession == null) {
+      showToast({
+        subtitle: intl.formatMessage({
+          defaultMessage: 'You need to start the learning session first',
+          description:
+            'Message telling users that need to start on a study plan session first',
+          id: 'CvwT9O',
+        }),
+        title: intl.formatMessage({
+          defaultMessage: 'No ongoing learning session',
+          description: 'No active study plan session started',
+          id: '7N70T1',
+        }),
+        variant: 'danger',
+      });
+
+      return false;
+    }
+
+    return true;
+  }
+
+  function markQuestionAsCompleted(question: QuestionMetadata) {
+    if (!canMarkQuestions()) {
+      return;
+    }
+
+    markCompleteMutation.mutate(
+      {
+        format: question.format,
+        listKey,
+        slug: question.slug,
+      },
+      {
+        onSuccess: () => {
+          showToast({
+            title: intl.formatMessage(
+              {
+                defaultMessage: 'Marked "{questionTitle}" as complete',
+                description:
+                  'Success message for marking a question as complete',
+                id: 'awMxNG',
+              },
+              {
+                questionTitle: question.title,
+              },
+            ),
+            variant: 'success',
+          });
+        },
+      },
+    );
+  }
+
+  function markQuestionAsNotCompleted(question: QuestionMetadata) {
+    if (!canMarkQuestions()) {
+      return;
+    }
+
+    markAsNotCompleteMutation.mutate(
+      {
+        format: question.format,
+        listKey,
+        slug: question.slug,
+      },
+      {
+        onSuccess: () => {
+          showToast({
+            title: intl.formatMessage(
+              {
+                defaultMessage: 'Marked "{questionTitle}" as not completed',
+                description:
+                  'Success message for marking a question as not completed',
+                id: 'Hav9UT',
+              },
+              {
+                questionTitle: question.title,
+              },
+            ),
+            variant: 'info',
+          });
+        },
+      },
+    );
+  }
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -86,8 +191,11 @@ export default function QuestionsPlansList({
               overallProgress[question.format].has(question.slug)
             }
             listKey={listKey}
+            listMode="learning-list"
             namespace={`${listKey}-quiz`}
             questions={quizQuestionsWithProgress}
+            onMarkAsCompleted={markQuestionAsCompleted}
+            onMarkAsNotCompleted={markQuestionAsNotCompleted}
           />
         )}
         {selectedQuestionFormat === 'coding' &&
@@ -106,8 +214,11 @@ export default function QuestionsPlansList({
                   overallProgress[question.format].has(question.slug)
                 }
                 listKey={listKey}
+                listMode="learning-list"
                 namespace={`${listKey}-coding`}
                 questions={sortedQuestions}
+                onMarkAsCompleted={markQuestionAsCompleted}
+                onMarkAsNotCompleted={markQuestionAsNotCompleted}
               />
             );
           })()}
@@ -125,7 +236,10 @@ export default function QuestionsPlansList({
                   overallProgress[question.format].has(question.slug)
                 }
                 listKey={listKey}
+                mode="learning-list"
                 questions={sortedQuestions}
+                onMarkAsCompleted={markQuestionAsCompleted}
+                onMarkAsNotCompleted={markQuestionAsNotCompleted}
               />
             );
           })()}

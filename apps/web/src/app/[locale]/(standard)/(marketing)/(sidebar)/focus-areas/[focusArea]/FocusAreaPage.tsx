@@ -74,12 +74,12 @@ export default function FocusAreaPage({
           <Button
             addonPosition="start"
             className="-mb-2 -ml-5"
-            href="/prepare"
+            href="/focus-areas"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
-              defaultMessage: 'Back to dashboard',
-              description: 'Link text to navigate to dashboard page',
-              id: 'O8kIBQ',
+              defaultMessage: 'Back to focus areas',
+              description: 'Link text to navigate to focus areas list page',
+              id: 'PHhUwD',
             })}
             size="md"
             variant="tertiary"

@@ -37,7 +37,7 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
         'deep-equal',
         'difference',
         'drop-right-while',
-        'drop-white',
+        'drop-while',
         'fill',
         'find-index',
         'find-last-index',

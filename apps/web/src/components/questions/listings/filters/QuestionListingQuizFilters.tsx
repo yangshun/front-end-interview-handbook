@@ -19,7 +19,6 @@ type Props = Readonly<{
   >;
   completionStatusFilters: Set<QuestionCompletionStatus>;
   itemGap: FilterItemGap;
-  mode?: 'default' | 'topic';
   quizTopicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
   quizTopicFilters: Set<QuestionTopic>;
 }>;
@@ -27,7 +26,6 @@ type Props = Readonly<{
 export default function QuestionListingQuizFilters({
   completionStatusFilterOptions,
   completionStatusFilters,
-  mode,
   itemGap,
   quizTopicFilterOptions,
   quizTopicFilters,
@@ -39,14 +37,12 @@ export default function QuestionListingQuizFilters({
         themeLineColor,
         themeDivideColor,
       )}>
-      {mode !== 'topic' && (
-        <QuestionListingFilterItem
-          defaultOpen={true}
-          itemGap={itemGap}
-          section={quizTopicFilterOptions}
-          values={quizTopicFilters}
-        />
-      )}
+      <QuestionListingFilterItem
+        defaultOpen={true}
+        itemGap={itemGap}
+        section={quizTopicFilterOptions}
+        values={quizTopicFilters}
+      />
       <QuestionListingFilterItem
         defaultOpen={true}
         itemGap={itemGap}

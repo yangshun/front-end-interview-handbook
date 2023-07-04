@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { hashQuestion } from '~/db/QuestionsUtils';
+
 import { publicProcedure, router } from '../trpc';
 
 import { PrismaClient } from '@prisma/client';
@@ -78,6 +80,79 @@ export const questionListsRouter = router({
           sessionId: session.id,
         },
       });
+    }),
+  markAsNotComplete: publicProcedure
+    .input(
+      z.object({
+        format: z.string(),
+        listKey: z.string(),
+        slug: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { format, slug, listKey }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      try {
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: listKey,
+            status: 'IN_PROGRESS',
+            userId: user.id,
+          },
+        });
+
+        if (session == null) {
+          return;
+        }
+
+        await prisma.learningSessionProgress.deleteMany({
+          where: {
+            key: hashQuestion(format, slug),
+            sessionId: session.id,
+          },
+        });
+      } catch {
+        // TODO: Report error
+      }
+    }),
+  markComplete: publicProcedure
+    .input(
+      z.object({
+        format: z.string(),
+        listKey: z.string(),
+        slug: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { format, slug, listKey }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      try {
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: listKey,
+            status: 'IN_PROGRESS',
+            userId: user.id,
+          },
+        });
+
+        if (session == null) {
+          return;
+        }
+
+        return await prisma.learningSessionProgress.create({
+          data: {
+            key: hashQuestion(format, slug),
+            sessionId: session.id,
+            status: 'COMPLETED',
+          },
+        });
+      } catch {
+        // TODO: Report error
+      }
     }),
   resetSessionProgress: publicProcedure
     .input(

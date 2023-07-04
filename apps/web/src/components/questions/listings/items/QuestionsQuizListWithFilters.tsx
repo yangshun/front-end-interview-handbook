@@ -35,8 +35,10 @@ export type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
   layout?: 'embedded' | 'full';
   listKey?: string;
-  mode?: 'default' | 'topic';
+  listMode?: 'default' | 'learning-list';
   namespace: string;
+  onMarkAsCompleted?: (question: QuestionMetadata) => void;
+  onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>;
@@ -45,7 +47,9 @@ export default function QuestionsQuizListWithFilters({
   checkIfCompletedQuestionBefore,
   listKey,
   layout = 'full',
-  mode = 'default',
+  listMode = 'default',
+  onMarkAsCompleted,
+  onMarkAsNotCompleted,
   namespace,
   questions,
   questionCompletionCount,
@@ -135,7 +139,6 @@ export default function QuestionsQuizListWithFilters({
           completionStatusFilterOptions={completionStatusFilterOptions}
           completionStatusFilters={completionStatusFilters}
           itemGap="spacious"
-          mode={mode}
           quizTopicFilterOptions={quizTopicFilterOptions}
           quizTopicFilters={quizTopicFilters}
         />
@@ -262,8 +265,11 @@ export default function QuestionsQuizListWithFilters({
                 checkIfCompletedQuestion={(question) => question.isCompleted}
                 checkIfCompletedQuestionBefore={checkIfCompletedQuestionBefore}
                 listKey={listKey}
+                mode={listMode}
                 questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}
+                onMarkAsCompleted={onMarkAsCompleted}
+                onMarkAsNotCompleted={onMarkAsNotCompleted}
               />
             </Section>
           </div>
@@ -287,7 +293,6 @@ export default function QuestionsQuizListWithFilters({
               completionStatusFilterOptions={completionStatusFilterOptions}
               completionStatusFilters={completionStatusFilters}
               itemGap="compact"
-              mode={mode}
               quizTopicFilterOptions={quizTopicFilterOptions}
               quizTopicFilters={quizTopicFilters}
             />

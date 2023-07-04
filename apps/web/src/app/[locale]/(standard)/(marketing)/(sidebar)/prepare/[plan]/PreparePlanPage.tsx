@@ -132,8 +132,9 @@ export default function PreparePlanPage({
                       study progress. This allows you to have study
                       plan-specific progress by starting a question from this
                       page. Your overall completion progress remains unchanged,
-                      and we are working on allowing you to easily import your
-                      overall progress into this plan.
+                      and you can click on the icons on the left of each item to
+                      mark each past solved question as completed for this study
+                      plan.
                     </Text>
                   </Alert>
                 </div>

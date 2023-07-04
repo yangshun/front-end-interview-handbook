@@ -5,10 +5,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import {
-  filterQuestions,
-  sortQuestionsMultiple,
-} from '~/components/questions/listings/filters/QuestionsProcessor';
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
@@ -17,6 +13,10 @@ import type {
 import useQuestionCompanyFilter from '~/components/questions/listings/filters/hooks/useQuestionCompanyFilter';
 import useQuestionCompletionStatusFilter from '~/components/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
 import useQuestionDifficultyFilter from '~/components/questions/listings/filters/hooks/useQuestionDifficultyFilter';
+import {
+  filterQuestions,
+  sortQuestionsMultiple,
+} from '~/components/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
@@ -24,19 +24,21 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
+import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingSystemDesignFilters from '../filters/QuestionListingSystemDesignFilters';
 import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
-import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import { allSystemDesignQuestions } from '../../content/system-design/SystemDesignNavigation';
 
 type Props = Readonly<{
   layout?: 'embedded' | 'full';
+  listMode?: 'default' | 'learning-list';
   namespace: string;
 }>;
 
 export default function QuestionsSystemDesignListWithFilters({
   namespace,
+  listMode = 'default',
   layout = 'full',
 }: Props) {
   const intl = useIntl();
@@ -288,6 +290,7 @@ export default function QuestionsSystemDesignListWithFilters({
             <Section>
               <QuestionsList
                 checkIfCompletedQuestion={(question) => question.isCompleted}
+                mode={listMode}
                 questions={processedQuestions}
               />
             </Section>
