@@ -3,18 +3,17 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import QuestionCategoryTitleSection from '~/components/questions/category/QuestionCategoryTitleSection';
 import type {
   QuestionFramework,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
+import QuestionListingFeaturedQuestions from '~/components/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
 import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
-
-import QuestionListingFeaturedQuestions from '../auxilliary/QuestionListingFeaturedQuestions';
-import QuestionCategoryTitleSection from '../headers/QuestionCategoryTitleSection';
 
 type Props = Readonly<{
   description: string;

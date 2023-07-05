@@ -52,7 +52,7 @@ type SidebarPopover = Readonly<{
 }> &
   SidebarItem;
 
-function useQuestionsSidebarNavigation() {
+function useSidebarNavigation() {
   const intl = useIntl();
   const guidesData = useGuidesData();
 
@@ -183,13 +183,13 @@ type Props = Readonly<{
   onCollapseChange: () => void;
 }>;
 
-export default function QuestionsSidebar({
+export default function Sidebar({
   isCollapsed = false,
   onCollapseChange,
 }: Props) {
   const intl = useIntl();
   const { pathname } = useI18nPathname();
-  const navigation = useQuestionsSidebarNavigation();
+  const navigation = useSidebarNavigation();
   const collapseButtonLabel = isCollapsed
     ? intl.formatMessage({
         defaultMessage: 'Show side menu',

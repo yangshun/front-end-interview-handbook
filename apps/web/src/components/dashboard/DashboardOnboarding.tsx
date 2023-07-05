@@ -9,14 +9,11 @@ import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Text from '~/components/ui/Text';
 
-import { useI18nPathname } from '~/next-i18nostic/src';
+import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 
-import { QuestionCount } from '../stats/QuestionCount';
-
-export default function QuestionsPreparationOnboarding() {
+export default function DashboardOnboarding() {
   const intl = useIntl();
   const areas = usePreparationAreas();
-  const { pathname } = useI18nPathname();
 
   const [shouldHide, setShouldHide] = useLocalStorage(
     'gfe:dashboard-onboarding',

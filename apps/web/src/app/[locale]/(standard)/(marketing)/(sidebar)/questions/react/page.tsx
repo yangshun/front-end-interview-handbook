@@ -1,8 +1,8 @@
 import type { Metadata } from 'next/types';
 
 import ReactLogo from '~/components/icons/ReactLogo';
+import QuestionsFrameworkPage from '~/components/questions/category/QuestionsFrameworkPage';
 import type { QuestionFramework } from '~/components/questions/common/QuestionsTypes';
-import QuestionsFrameworkPage from '~/components/questions/listings/pages/QuestionsFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';

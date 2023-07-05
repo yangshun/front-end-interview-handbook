@@ -6,8 +6,8 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSidebarCollapser';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import SidebarCollapser from '~/components/common/SidebarCollapser';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -103,7 +103,7 @@ export default function QuestionsQuizContentLayout({
             </nav>
           </Section>
         )}
-        <QuestionsSidebarCollapser />
+        <SidebarCollapser />
       </div>
       <div className="w-full">{children}</div>
     </div>

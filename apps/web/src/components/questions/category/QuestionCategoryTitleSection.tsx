@@ -15,7 +15,7 @@ import Tabs from '~/components/ui/Tabs';
 
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
-import type { QuestionListCategory } from '../types';
+import type { QuestionListCategory } from '../listings/types';
 
 type CategoryValue = QuestionListCategory | 'react';
 

@@ -8,7 +8,7 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import QuestionsSidebarCollapser from '~/components/questions/common/QuestionsSidebarCollapser';
+import SidebarCollapser from '~/components/common/SidebarCollapser';
 import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
 import { useSystemDesignNavigation } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import Anchor from '~/components/ui/Anchor';
@@ -118,7 +118,7 @@ export default function SystemDesignLayoutSidebar({ children }: Props) {
               </nav>
             </div>
           )}
-          <QuestionsSidebarCollapser />
+          <SidebarCollapser />
         </div>
       </Section>
       {children}

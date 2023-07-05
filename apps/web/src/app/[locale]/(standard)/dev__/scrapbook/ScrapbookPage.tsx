@@ -18,7 +18,7 @@ import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepa
 import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '~/components/questions/listings/filters/QuestionListingTopicFilters';
-import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
+import QuestionsLearningListTitleSection from '~/components/questions/listings/learning/QuestionsLearningListTitleSection';
 import QuestionListingDifficultySummary from '~/components/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionListingQuestionCount from '~/components/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionsProgressPanel from '~/components/questions/listings/stats/QuestionsProgressPanel';
@@ -333,7 +333,7 @@ export default function ScrapbookPage() {
         <Section>
           <div>
             <UIExamplesGroup>
-              <QuestionListTitleSection
+              <QuestionsLearningListTitleSection
                 difficultySummary={{
                   easy: 30,
                   hard: 10,

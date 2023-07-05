@@ -16,9 +16,9 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
-import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
 import QuestionsList from '~/components/questions/listings/items/QuestionsList';
-import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
+import QuestionsLearningList from '~/components/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListTitleSection from '~/components/questions/listings/learning/QuestionsLearningListTitleSection';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -40,7 +40,7 @@ type Props = Readonly<{
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function PreparePlanPage({
+export default function StudyPlanPage({
   difficultySummary,
   quizQuestions,
   codingQuestions,
@@ -99,7 +99,7 @@ export default function PreparePlanPage({
             variant="tertiary"
           />
         </div>
-        <QuestionListTitleSection
+        <QuestionsLearningListTitleSection
           description={plan.description}
           difficultySummary={difficultySummary}
           icon={planTheme.iconOutline}
@@ -132,14 +132,13 @@ export default function PreparePlanPage({
                       study progress. This allows you to have study
                       plan-specific progress by starting a question from this
                       page. Your overall completion progress remains unchanged,
-                      and you can click on the icons on the left of each item to
-                      mark each past solved question as completed for this study
-                      plan.
+                      and you can click on the left icon within each past solved
+                      question to mark them as completed for this study plan.
                     </Text>
                   </Alert>
                 </div>
               )}
-              <QuestionsPlansList
+              <QuestionsLearningList
                 codingQuestions={codingQuestions}
                 listKey={plan.type}
                 overallProgress={questionsOverallProgress}
@@ -150,7 +149,10 @@ export default function PreparePlanPage({
             </div>
           ) : (
             <div className="relative">
-              <div className="border-lg pointer-events-none touch-none select-none">
+              <div
+                className="border-lg pointer-events-none touch-none select-none"
+                // So that focus cannot go into the card, which is not meant to be used.
+                {...{ inert: '' }}>
                 <QuestionsList
                   checkIfCompletedQuestion={() => false}
                   questions={codingQuestions.slice(0, 5)}

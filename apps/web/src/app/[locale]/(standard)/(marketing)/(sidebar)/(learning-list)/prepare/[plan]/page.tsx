@@ -5,11 +5,11 @@ import type { IntlShape } from 'react-intl';
 import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
 import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import {
   countQuestionsByDifficulty,
   sortQuestions,
 } from '~/components/questions/listings/filters/QuestionsProcessor';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
@@ -18,7 +18,7 @@ import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 
-import PreparePlanPage from './PreparePlanPage';
+import StudyPlanPage from './StudyPlanPage';
 
 async function getPreparationPlansSEO(
   planType: PreparationPlanType,
@@ -100,7 +100,7 @@ export default async function Page({ params }: Props) {
         }}
         useAppDir={true}
       />
-      <PreparePlanPage
+      <StudyPlanPage
         codingQuestions={codingQuestionsForPlan}
         difficultySummary={difficultySummary}
         plan={preparationPlan}

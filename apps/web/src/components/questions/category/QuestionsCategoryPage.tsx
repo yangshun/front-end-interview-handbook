@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import QuestionCategoryTitleSection from '~/components/questions/category/QuestionCategoryTitleSection';
 import type {
   QuestionCodingFormat,
   QuestionMetadata,
@@ -10,7 +11,6 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionListingFeaturedQuestions from '~/components/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
 import QuestionsFormatTabs from '~/components/questions/listings/filters/QuestionsFormatsTabs';
-import QuestionCategoryTitleSection from '~/components/questions/listings/headers/QuestionCategoryTitleSection';
 import QuestionsCodingListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 import type { QuestionListCategory } from '~/components/questions/listings/types';

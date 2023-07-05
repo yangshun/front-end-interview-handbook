@@ -1,16 +1,16 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { basePath as bigBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import { basePath as feigBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
-import QuestionsSidebar from '~/components/questions/common/QuestionsSidebar';
 import { basePath as systemDesignBasePath } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import { themeLineColor } from '~/components/ui/theme';
 
+import Sidebar from '~/app/[locale]/(standard)/(marketing)/(sidebar)/Sidebar';
 import useI18nPathname from '~/next-i18nostic/src/client/useI18nPathname';
 
 export default function SidebarContainer() {
@@ -44,7 +44,7 @@ export default function SidebarContainer() {
         height: FooterlessContainerHeight,
         top: `var(--navbar-height)`,
       }}>
-      <QuestionsSidebar
+      <Sidebar
         isCollapsed={isCollapsed}
         onCollapseChange={() => setIsCollapsed(!isCollapsed)}
       />

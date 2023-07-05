@@ -11,16 +11,16 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import QuestionsList from './QuestionsList';
 import useQuestionsWithListProgressStatus from '../filters/hooks/useQuestionsWithListProgressStatus';
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
+import QuestionsList from '../items/QuestionsList';
 import type {
   QuestionMetadata,
   QuestionUserFacingFormat,
 } from '../../common/QuestionsTypes';
 
-export default function QuestionsPlansList({
+export default function QuestionsLearningList({
   listKey,
   sessionProgress,
   quizQuestions,

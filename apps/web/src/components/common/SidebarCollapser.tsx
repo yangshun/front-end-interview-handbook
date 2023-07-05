@@ -10,7 +10,7 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-export default function QuestionsSidebarCollapser() {
+export default function SidebarCollapser() {
   const intl = useIntl();
   const { showSidebar, setShowSidebar } = useUserPreferences();
   const title = showSidebar

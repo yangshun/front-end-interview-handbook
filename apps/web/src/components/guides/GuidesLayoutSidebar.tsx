@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeLineColor } from '~/components/ui/theme';
 
@@ -13,7 +12,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { GuidesSidebar } from './GuidesSidebar';
 import FooterlessContainerHeight from '../common/FooterlessContainerHeight';
-import QuestionsSidebarCollapser from '../questions/common/QuestionsSidebarCollapser';
+import SidebarCollapser from '../common/SidebarCollapser';
 
 export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
@@ -78,7 +77,7 @@ export default function GuidesLayoutSidebar({ children, navigation }: Props) {
               <GuidesSidebar navigation={navigation} />
             </div>
           )}
-          <QuestionsSidebarCollapser />
+          <SidebarCollapser />
         </div>
       </Section>
       {children}

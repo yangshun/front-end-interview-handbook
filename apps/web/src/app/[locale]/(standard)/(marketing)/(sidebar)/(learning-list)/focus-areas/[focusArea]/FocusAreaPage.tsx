@@ -10,8 +10,8 @@ import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
-import QuestionListTitleSection from '~/components/questions/listings/headers/QuestionListTitleSection';
-import QuestionsPlansList from '~/components/questions/listings/items/QuestionsPlansList';
+import QuestionsLearningList from '~/components/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListTitleSection from '~/components/questions/listings/learning/QuestionsLearningListTitleSection';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -85,7 +85,7 @@ export default function FocusAreaPage({
             variant="tertiary"
           />
         </div>
-        <QuestionListTitleSection
+        <QuestionsLearningListTitleSection
           description={focusArea.description}
           icon={focusAreaTheme.iconOutline}
           questionCount={questionCount}
@@ -97,7 +97,7 @@ export default function FocusAreaPage({
       </Container>
       <Section>
         <Container className="pb-12">
-          <QuestionsPlansList
+          <QuestionsLearningList
             codingQuestions={codingQuestions}
             listKey={focusArea.type}
             overallProgress={questionsOverallProgress}

@@ -39,7 +39,7 @@ type Props = Readonly<{
   totalDurationMins: number;
 }>;
 
-export default function QuestionListTitleSection({
+export default function QuestionsLearningListTitleSection({
   description,
   difficultySummary,
   questionListKey,
