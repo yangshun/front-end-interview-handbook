@@ -63,8 +63,10 @@ export default function PricingPage({ countryCode, plans }: Props) {
       <MarketingPricingSection countryCode={countryCode} plans={plans} />
       <Section>
         <MarketingFeatures />
-        <MarketingFAQ />
-        <MarketingTestimonialsSection />
+        <div>
+          <MarketingFAQ />
+          <MarketingTestimonialsSection />
+        </div>
       </Section>
     </div>
   );

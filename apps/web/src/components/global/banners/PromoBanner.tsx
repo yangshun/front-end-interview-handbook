@@ -41,9 +41,9 @@ export default function PromoBanner({
           setShowPromoBanner(false);
         }}>
         <FormattedMessage
-          defaultMessage="Summer Sale! Additional 20% off annual plan with the code SUMMERSALE23, <discount>grab your discount today!</discount>. Check out other <promotion>promotions</promotion>"
+          defaultMessage="Summer sale! Get {discountPercentage}% off annual plan with the code SUMMERSALE23, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>"
           description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-          id="QRPpZB"
+          id="0/GLIR"
           values={{
             discount: (chunks) => (
               <Anchor
@@ -65,6 +65,7 @@ export default function PromoBanner({
                 {chunks}
               </Anchor>
             ),
+            discountPercentage: 20,
             promotion: (chunks) => (
               <Anchor
                 className="whitespace-nowrap font-medium"

@@ -161,7 +161,7 @@ async function processOneTimePlan(
 ) {
   const { cancelUrl, successUrl } = checkoutSessionUrls(req, plan);
   const session = await stripe.checkout.sessions.create({
-    allow_promotion_codes: true,
+    allow_promotion_codes: false,
     cancel_url: cancelUrl,
     client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
     customer: stripeCustomerId,

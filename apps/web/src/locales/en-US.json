@@ -71,6 +71,10 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "0/GLIR": {
+    "defaultMessage": "Summer sale! Get {discountPercentage}% off annual plan with the code SUMMERSALE23, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "032cio": {
     "defaultMessage": "Move line up",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
@@ -110,10 +114,6 @@
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
-  },
-  "0JrrHl": {
-    "defaultMessage": "Access to all premium content including solutions and companies.",
-    "description": "Feature of annual pricing plan"
   },
   "0Nq65E": {
     "defaultMessage": "Billing",
@@ -215,10 +215,6 @@
     "defaultMessage": "Change to horizontal",
     "description": "Tooltip for changing to horizontal layout for coding workspace"
   },
-  "2sIcqn": {
-    "defaultMessage": "For a limited time, we are offering lifetime access at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
-    "description": "Subtitle of Pricing section on Homepage or Pricing page"
-  },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
@@ -278,6 +274,10 @@
   "3z2LJp": {
     "defaultMessage": "Practice",
     "description": "Section heading in footer for links to practice question pages"
+  },
+  "3zCjYE": {
+    "defaultMessage": "For a limited time, we are offering our annual plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
+    "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "3zMEIO": {
     "defaultMessage": "Resume Preparation",
@@ -398,6 +398,10 @@
   "6KA0W1": {
     "defaultMessage": "Summer Discount",
     "description": "Promotion title"
+  },
+  "6SEbWz": {
+    "defaultMessage": "Annual plan",
+    "description": "Title of annual pricing plan"
   },
   "6Us9sa": {
     "defaultMessage": "Confirm action?",
@@ -555,6 +559,10 @@
     "defaultMessage": "Focus areas for Front End Interviews",
     "description": "Title of focus areas page"
   },
+  "8yJWMC": {
+    "defaultMessage": "Pay once, get full access to the interview platform forever, including updates.",
+    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
@@ -591,6 +599,14 @@
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
     "description": "Title for interview preparation focus area"
   },
+  "9gs1LO": {
+    "defaultMessage": "Buy now",
+    "description": "Purchase button label"
+  },
+  "9jHIQF": {
+    "defaultMessage": "{currencySymbol}{price} billed yearly",
+    "description": "Description of billing frequency for annual plan"
+  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -602,10 +618,6 @@
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
-  },
-  "ATwxZX": {
-    "defaultMessage": "Buy Now",
-    "description": "Purchase button label"
   },
   "AYkO94": {
     "defaultMessage": "Questions List",
@@ -626,6 +638,10 @@
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
+  },
+  "BCSs45": {
+    "defaultMessage": "Exclusive lifetime Discord channel access.",
+    "description": "Feature of annual pricing plan"
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -855,6 +871,10 @@
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
+  "FFDULM": {
+    "defaultMessage": "{currencySymbol}{price} billed every 3 months",
+    "description": "Description of billing frequency for quarterly plan"
+  },
   "FInmLy": {
     "defaultMessage": "Reset to initial code",
     "description": "Label for button that allows users to reset their coding workspace to the initial code"
@@ -1067,10 +1087,6 @@
     "defaultMessage": "Solution",
     "description": "Header for question solution section in coding workspace"
   },
-  "JFHL5z": {
-    "defaultMessage": "Access to all premium content including solutions and companies.",
-    "description": "Feature of quarterly pricing plan"
-  },
   "JJ0V4Y": {
     "defaultMessage": "Duration: Low to High",
     "description": "Sorting option for question list - sort by duration from low to high"
@@ -1078,10 +1094,6 @@
   "JKBRGr": {
     "defaultMessage": "Enter your email",
     "description": "Placeholder text for email input field"
-  },
-  "JOj1C3": {
-    "defaultMessage": "3 Months",
-    "description": "Title of quarterly pricing plan"
   },
   "JPbOCy": {
     "defaultMessage": "Vue",
@@ -1175,10 +1187,6 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
-  "Kv46h1": {
-    "defaultMessage": "Exclusive lifetime <strong>Discord channel access</strong>.",
-    "description": "Lifetime membership feature of Discord channel access."
-  },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
@@ -1214,6 +1222,10 @@
   "LPfKTO": {
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
+  },
+  "LSKN5A": {
+    "defaultMessage": "Unlock all premium content including official solutions, company tags, and study plans.",
+    "description": "Feature of quarterly pricing plan"
   },
   "LU7oiZ": {
     "defaultMessage": "Preparation areas",
@@ -1322,6 +1334,10 @@
   "N4F6al": {
     "defaultMessage": "Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month",
     "description": "Description of 1 Month Preparation Plan page"
+  },
+  "N5Cp1r": {
+    "defaultMessage": "While offer lasts",
+    "description": "Label to indicate offer is a limited time deal"
   },
   "N9hGOq": {
     "defaultMessage": "Search Vue questions",
@@ -1447,10 +1463,6 @@
     "defaultMessage": "Showcase your knowledge of web accessibility in front end interviews",
     "description": "Title for interview preparation focus area"
   },
-  "P/sSbP": {
-    "defaultMessage": "Access to all premium content including solutions and companies.",
-    "description": "Feature of monthly pricing plan"
-  },
   "P2baTC": {
     "defaultMessage": "Coding Format",
     "description": "Front end coding interview questions"
@@ -1499,10 +1511,6 @@
     "defaultMessage": "{duration} mins",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
   },
-  "Pohz4K": {
-    "defaultMessage": "{currencySymbol}{price} billed yearly.",
-    "description": "Description of billing frequency for annual plan"
-  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -1538,10 +1546,6 @@
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
-  },
-  "QRPpZB": {
-    "defaultMessage": "Summer Sale! Additional 20% off annual plan with the code SUMMERSALE23, <discount>grab your discount today!</discount>. Check out other <promotion>promotions</promotion>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "QVh3mt": {
     "defaultMessage": "Dropbox",
@@ -1602,10 +1606,6 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
-  },
-  "Rdi/Kx": {
-    "defaultMessage": "Annual",
-    "description": "Title of annual pricing plan"
   },
   "Rdi3ic": {
     "defaultMessage": "Activity",
@@ -1674,6 +1674,10 @@
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
+  },
+  "SuWvZa": {
+    "defaultMessage": "Monthly plan",
+    "description": "Title of monthly pricing plan"
   },
   "T3JUSj": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
@@ -1867,6 +1871,10 @@
     "defaultMessage": "Questions",
     "description": "Front end system design interviews questions"
   },
+  "WIHUwS": {
+    "defaultMessage": "Quarterly plan",
+    "description": "Title of quarterly pricing plan"
+  },
   "WJ/3Qn": {
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
@@ -2007,6 +2015,10 @@
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
     "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
   },
+  "Z4uI1g": {
+    "defaultMessage": "Get {discountPercentage}% off with the code {promoCode}",
+    "description": "Subtitle of discount promotion card"
+  },
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
@@ -2115,6 +2127,10 @@
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
   },
+  "bAEOVz": {
+    "defaultMessage": "Lifetime plan is a limited time offering and will be removed in future.",
+    "description": "Tip at the bottom of the Pricing section"
+  },
   "bE90WW": {
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
@@ -2182,10 +2198,6 @@
   "cKn3cK": {
     "defaultMessage": "Started",
     "description": "Started on study plan label"
-  },
-  "cU6AYV": {
-    "defaultMessage": "Access to continuously updating question library.",
-    "description": "Feature of quarterly pricing plan"
   },
   "cZVPou": {
     "defaultMessage": "HTML",
@@ -2379,6 +2391,10 @@
     "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
   },
+  "fjKhks": {
+    "defaultMessage": "Invest in fuss-free, quality preparation",
+    "description": "Title of Pricing section of Homepage or Pricing page"
+  },
   "fmAcHR": {
     "defaultMessage": "Practice everything in popular frameworks",
     "description": "Title of 'Practice everything in popular frameworks' feature in marketing page"
@@ -2406,10 +2422,6 @@
   "fvztbG": {
     "defaultMessage": "Submit your code to check against the tests.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
-  },
-  "fy/E4B": {
-    "defaultMessage": "Exclusive lifetime Discord channel access. Get real-time support from the team and the community.",
-    "description": "Feature of annual pricing plan"
   },
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
@@ -2474,10 +2486,6 @@
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
-  },
-  "hhbPlp": {
-    "defaultMessage": "Pay once, get access to the interview platform forever, including updates.",
-    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
@@ -2675,10 +2683,6 @@
     "defaultMessage": "Try these popular JavaScript questions",
     "description": "Title for featured questions section"
   },
-  "kmEY/r": {
-    "defaultMessage": "{currencySymbol}{price} billed every 3 months.",
-    "description": "Description of billing frequency for quarterly plan"
-  },
   "kmShy2": {
     "defaultMessage": "Changes to how study plan progress is calculated",
     "description": "Message about changes to study plans"
@@ -2838,10 +2842,6 @@
   "nFYr2a": {
     "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
-  },
-  "nId6NF": {
-    "defaultMessage": "Access to continuously updating question library.",
-    "description": "Feature of annual pricing plan"
   },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
@@ -3083,6 +3083,10 @@
     "defaultMessage": "Navigate to preparation area",
     "description": "Tab label to navigate to another preparation page"
   },
+  "riPEvL": {
+    "defaultMessage": "Lifetime plan",
+    "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
   "rmYPMV": {
     "defaultMessage": "Start learning",
     "description": "Button label to start study plan / focus area"
@@ -3111,13 +3115,13 @@
     "defaultMessage": "System Design Questions",
     "description": "System design questions long title"
   },
+  "sjLtW1": {
+    "defaultMessage": "Manage subscription",
+    "description": "Manage user membership subscription button label"
+  },
   "sn/P86": {
     "defaultMessage": "Guides",
     "description": "Section heading in footer for links to interview guides"
-  },
-  "snLKzs": {
-    "defaultMessage": "Manage Subscription",
-    "description": "Manage user membership subscription button label"
   },
   "sr3vXR": {
     "defaultMessage": "JavaScript questions",
@@ -3146,10 +3150,6 @@
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
-  },
-  "tIrfY2": {
-    "defaultMessage": "Pay once, get full access forever",
-    "description": "Title on Pricing section of Homepage or Pricing page"
   },
   "tJIZWT": {
     "defaultMessage": "Layout",
@@ -3190,10 +3190,6 @@
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
-  },
-  "tmvC1S": {
-    "defaultMessage": "Unlock all premium content including official solutions, companies, and study plans.",
-    "description": "Lifetime membership feature of unlocking premium content."
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -3295,10 +3291,6 @@
     "defaultMessage": "Hide Details",
     "description": "Label for button that allows users to collapse details of the code execution in the coding workspace"
   },
-  "vaKldd": {
-    "defaultMessage": "Lifetime",
-    "description": "Title of lifetime pricing plan"
-  },
   "vfVwh2": {
     "defaultMessage": "1 Week",
     "description": "Short label for one week study plan"
@@ -3342,10 +3334,6 @@
   "w1Jqfl": {
     "defaultMessage": "Welcome back!",
     "description": "Message greeting the user on preparation dashboard page"
-  },
-  "w1iJ0L": {
-    "defaultMessage": "Lifetime Membership",
-    "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "w22UH7": {
     "defaultMessage": "JavaScript",
@@ -3439,10 +3427,6 @@
     "defaultMessage": "Prep dashboard",
     "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
-  "y7sRet": {
-    "defaultMessage": "Monthly",
-    "description": "Title of monthly pricing plan"
-  },
   "y8zzVx": {
     "defaultMessage": "Email",
     "description": "Email"
@@ -3494,10 +3478,6 @@
   "zUR/Om": {
     "defaultMessage": "The page you requested could not be found",
     "description": "Description of 404 page"
-  },
-  "zaEg+y": {
-    "defaultMessage": "Pay once, own it forever",
-    "description": "Text above price of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
