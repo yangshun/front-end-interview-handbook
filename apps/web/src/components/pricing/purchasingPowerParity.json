@@ -1,25 +1,25 @@
 {
   "AE": {
-    "conversionFactor": 0.5562415171807296,
+    "conversionFactor": 0.5562195583458799,
     "country": {
       "code": "AE",
       "name": "United Arab Emirates"
     },
     "currency": {
       "code": "aed",
-      "exchangeRate": 3.672865,
+      "exchangeRate": 3.67301,
       "symbol": "د.إ"
     }
   },
   "AF": {
-    "conversionFactor": 0.23325140967884972,
+    "conversionFactor": 0.24070965208807435,
     "country": {
       "code": "AF",
       "name": "Afghanistan"
     },
     "currency": {
       "code": "afn",
-      "exchangeRate": 89.499995,
+      "exchangeRate": 86.726892,
       "symbol": "؋"
     }
   },
@@ -36,74 +36,74 @@
     }
   },
   "AL": {
-    "conversionFactor": 0.40654394845835246,
+    "conversionFactor": 0.4588705851769187,
     "country": {
       "code": "AL",
       "name": "Albania"
     },
     "currency": {
       "code": "all",
-      "exchangeRate": 108.65,
+      "exchangeRate": 96.260256,
       "symbol": "L"
     }
   },
   "AM": {
-    "conversionFactor": 0.5447741968725043,
+    "conversionFactor": 0.5460801002268029,
     "country": {
       "code": "AM",
       "name": "Armenia"
     },
     "currency": {
       "code": "amd",
-      "exchangeRate": 388.17,
+      "exchangeRate": 387.241725,
       "symbol": "֏"
     }
   },
   "AO": {
-    "conversionFactor": 0.35650368829766754,
+    "conversionFactor": 0.21794580927573018,
     "country": {
       "code": "AO",
       "name": "Angola"
     },
     "currency": {
       "code": "aoa",
-      "exchangeRate": 503.891,
+      "exchangeRate": 824.237,
       "symbol": "Kz"
     }
   },
   "AR": {
-    "conversionFactor": 0.1713967544362225,
+    "conversionFactor": 0.1311291484516161,
     "country": {
       "code": "AR",
       "name": "Argentina"
     },
     "currency": {
       "code": "ars",
-      "exchangeRate": 198.2768,
+      "exchangeRate": 259.164346,
       "symbol": "$"
     }
   },
   "AT": {
-    "conversionFactor": 0.8853719358328282,
+    "conversionFactor": 0.9071498417926325,
     "country": {
       "code": "AT",
       "name": "Austria"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "AU": {
-    "conversionFactor": 0.9738447336017657,
+    "conversionFactor": 0.9631928003176331,
     "country": {
       "code": "AU",
       "name": "Australia"
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.479702,
+      "exchangeRate": 1.496066,
       "symbol": "$"
     }
   },
@@ -132,14 +132,14 @@
     }
   },
   "BA": {
-    "conversionFactor": 0.37328657123262693,
+    "conversionFactor": 0.382985427070501,
     "country": {
       "code": "BA",
       "name": "Bosnia and Herzegovina"
     },
     "currency": {
       "code": "bam",
-      "exchangeRate": 1.843088,
+      "exchangeRate": 1.796413,
       "symbol": "KM"
     }
   },
@@ -156,122 +156,122 @@
     }
   },
   "BD": {
-    "conversionFactor": 0.3379029668067353,
+    "conversionFactor": 0.3335062143232384,
     "country": {
       "code": "BD",
       "name": "Bangladesh"
     },
     "currency": {
       "code": "bdt",
-      "exchangeRate": 107.027767,
+      "exchangeRate": 108.438759,
       "symbol": "৳"
     }
   },
   "BE": {
-    "conversionFactor": 0.8598936067441139,
+    "conversionFactor": 0.8810448103741395,
     "country": {
       "code": "BE",
       "name": "Belgium"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "BF": {
-    "conversionFactor": 0.3279756579802157,
+    "conversionFactor": 0.3360431428090564,
     "country": {
       "code": "BF",
       "name": "Burkina Faso"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "BG": {
-    "conversionFactor": 0.37040406534707515,
+    "conversionFactor": 0.3808319061416383,
     "country": {
       "code": "BG",
       "name": "Bulgaria"
     },
     "currency": {
       "code": "bgn",
-      "exchangeRate": 1.846632,
+      "exchangeRate": 1.796068,
       "symbol": "лв"
     }
   },
   "BH": {
-    "conversionFactor": 0.5040028436370968,
+    "conversionFactor": 0.5040135393952899,
     "country": {
       "code": "BH",
       "name": "Bahrain"
     },
     "currency": {
       "code": "bhd",
-      "exchangeRate": 0.376982,
+      "exchangeRate": 0.376974,
       "symbol": ".د.ب"
     }
   },
   "BI": {
-    "conversionFactor": 0.4764793070259865,
+    "conversionFactor": 0.35056703883232737,
     "country": {
       "code": "BI",
       "name": "Burundi"
     },
     "currency": {
       "code": "bif",
-      "exchangeRate": 2078,
+      "exchangeRate": 2824.349954,
       "symbol": "Fr"
     }
   },
   "BJ": {
-    "conversionFactor": 0.33525357628441266,
+    "conversionFactor": 0.3435000820072618,
     "country": {
       "code": "BJ",
       "name": "Benin"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "BN": {
-    "conversionFactor": 0.33346776020325936,
+    "conversionFactor": 0.3326044185274736,
     "country": {
       "code": "BN",
       "name": "Brunei Darussalam"
     },
     "currency": {
       "code": "bnd",
-      "exchangeRate": 1.346457,
+      "exchangeRate": 1.349952,
       "symbol": "$"
     }
   },
   "BO": {
-    "conversionFactor": 0.5153480248512913,
+    "conversionFactor": 0.5150801201198074,
     "country": {
       "code": "BO",
       "name": "Bolivia"
     },
     "currency": {
       "code": "bob",
-      "exchangeRate": 6.911834,
+      "exchangeRate": 6.915429,
       "symbol": "Bs."
     }
   },
   "BR": {
-    "conversionFactor": 0.42423660457077017,
+    "conversionFactor": 0.45628240348666677,
     "country": {
       "code": "BR",
       "name": "Brazil"
     },
     "currency": {
       "code": "brl",
-      "exchangeRate": 5.207,
+      "exchangeRate": 4.8413,
       "symbol": "R$"
     }
   },
@@ -288,194 +288,194 @@
     }
   },
   "BT": {
-    "conversionFactor": 0.29421102808257316,
+    "conversionFactor": 0.2965013715381491,
     "country": {
       "code": "BT",
       "name": "Bhutan"
     },
     "currency": {
       "code": "btn",
-      "exchangeRate": 82.716138,
+      "exchangeRate": 82.077192,
       "symbol": "Nu."
     }
   },
   "BW": {
-    "conversionFactor": 0.3824371845034941,
+    "conversionFactor": 0.37665103043831605,
     "country": {
       "code": "BW",
       "name": "Botswana"
     },
     "currency": {
       "code": "bwp",
-      "exchangeRate": 13.230931,
+      "exchangeRate": 13.434186,
       "symbol": "P"
     }
   },
   "BY": {
-    "conversionFactor": 0.2871558931716705,
+    "conversionFactor": 0.2897644794311184,
     "country": {
       "code": "BY",
       "name": "Belarus"
     },
     "currency": {
       "code": "byn",
-      "exchangeRate": 2.524761,
+      "exchangeRate": 2.502032,
       "symbol": "Br"
     }
   },
   "BZ": {
-    "conversionFactor": 0.5604422037777771,
+    "conversionFactor": 0.5601121810520492,
     "country": {
       "code": "BZ",
       "name": "Belize"
     },
     "currency": {
       "code": "bzd",
-      "exchangeRate": 2.016265,
+      "exchangeRate": 2.017453,
       "symbol": "$"
     }
   },
   "CA": {
-    "conversionFactor": 0.8868961280775002,
+    "conversionFactor": 0.9123584124812445,
     "country": {
       "code": "CA",
       "name": "Canada"
     },
     "currency": {
       "code": "cad",
-      "exchangeRate": 1.360926,
+      "exchangeRate": 1.322945,
       "symbol": "$"
     }
   },
   "CD": {
-    "conversionFactor": 0.5549731051344744,
+    "conversionFactor": 0.46182099220496126,
     "country": {
       "code": "CD",
       "name": "Congo, The Democratic Republic of the"
     },
     "currency": {
       "code": "cdf",
-      "exchangeRate": 2045,
+      "exchangeRate": 2457.488982,
       "symbol": "FC"
     }
   },
   "CF": {
-    "conversionFactor": 0.5542287726889185,
+    "conversionFactor": 0.567861589962341,
     "country": {
       "code": "CF",
       "name": "Central African Republic"
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "CG": {
-    "conversionFactor": 0.28523386958487634,
+    "conversionFactor": 0.2922499997748989,
     "country": {
       "code": "CG",
       "name": "Congo"
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "CH": {
-    "conversionFactor": 1.2833358204182566,
+    "conversionFactor": 1.3418555276311903,
     "country": {
       "code": "CH",
       "name": "Switzerland"
     },
     "currency": {
       "code": "chf",
-      "exchangeRate": 0.93818,
+      "exchangeRate": 0.897265,
       "symbol": "Fr."
     }
   },
   "CI": {
-    "conversionFactor": 0.35454321565904534,
+    "conversionFactor": 0.3632642043784895,
     "country": {
       "code": "CI",
       "name": "Cote D'Ivoire"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "CL": {
-    "conversionFactor": 0.5046587363736933,
+    "conversionFactor": 0.5079291406552988,
     "country": {
       "code": "CL",
       "name": "Chile"
     },
     "currency": {
       "code": "clp",
-      "exchangeRate": 804.51,
+      "exchangeRate": 799.33,
       "symbol": "$"
     }
   },
   "CM": {
-    "conversionFactor": 0.3536077838645544,
+    "conversionFactor": 0.36230576300500433,
     "country": {
       "code": "CM",
       "name": "Cameroon"
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "CN": {
-    "conversionFactor": 0.5095984017141038,
+    "conversionFactor": 0.4869882818444681,
     "country": {
       "code": "CN",
       "name": "China"
     },
     "currency": {
       "code": "cny",
-      "exchangeRate": 6.9074,
+      "exchangeRate": 7.2281,
       "symbol": "¥"
     }
   },
   "CO": {
-    "conversionFactor": 0.2873668560666357,
+    "conversionFactor": 0.3309384548863377,
     "country": {
       "code": "CO",
       "name": "Colombia"
     },
     "currency": {
       "code": "cop",
-      "exchangeRate": 4814.055521,
+      "exchangeRate": 4180.233453,
       "symbol": "$"
     }
   },
   "CR": {
-    "conversionFactor": 0.7334365465167533,
+    "conversionFactor": 0.7552897866143979,
     "country": {
       "code": "CR",
       "name": "Costa Rica"
     },
     "currency": {
       "code": "crc",
-      "exchangeRate": 559.215384,
+      "exchangeRate": 543.035279,
       "symbol": "₡"
     }
   },
   "CV": {
-    "conversionFactor": 0.4338350910834133,
+    "conversionFactor": 0.44679589020059873,
     "country": {
       "code": "CV",
       "name": "Cape Verde"
     },
     "currency": {
       "code": "cve",
-      "exchangeRate": 104.3,
+      "exchangeRate": 101.274432,
       "symbol": "Esc"
     }
   },
@@ -492,62 +492,62 @@
     }
   },
   "CY": {
-    "conversionFactor": 0.6380198242632251,
+    "conversionFactor": 0.6537134951047627,
     "country": {
       "code": "CY",
       "name": "Cyprus"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "CZ": {
-    "conversionFactor": 0.5980417355611681,
+    "conversionFactor": 0.6058676099317752,
     "country": {
       "code": "CZ",
       "name": "Czech Republic"
     },
     "currency": {
       "code": "czk",
-      "exchangeRate": 22.110497,
+      "exchangeRate": 21.8249,
       "symbol": "Kč"
     }
   },
   "DE": {
-    "conversionFactor": 0.8280456953832207,
+    "conversionFactor": 0.8484135211010232,
     "country": {
       "code": "DE",
       "name": "Germany"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "DJ": {
-    "conversionFactor": 0.5604717775905644,
+    "conversionFactor": 0.5600260622678698,
     "country": {
       "code": "DJ",
       "name": "Djibouti"
     },
     "currency": {
       "code": "djf",
-      "exchangeRate": 178.05,
+      "exchangeRate": 178.191707,
       "symbol": "Fr"
     }
   },
   "DK": {
-    "conversionFactor": 1.0362182825766115,
+    "conversionFactor": 1.0608454137640313,
     "country": {
       "code": "DK",
       "name": "Denmark"
     },
     "currency": {
       "code": "dkk",
-      "exchangeRate": 7.010106,
+      "exchangeRate": 6.847369,
       "symbol": "kr"
     }
   },
@@ -564,26 +564,26 @@
     }
   },
   "DO": {
-    "conversionFactor": 0.4096470588235294,
+    "conversionFactor": 0.409922370849142,
     "country": {
       "code": "DO",
       "name": "Dominican Republic"
     },
     "currency": {
       "code": "dop",
-      "exchangeRate": 55.25,
+      "exchangeRate": 55.212893,
       "symbol": "$"
     }
   },
   "DZ": {
-    "conversionFactor": 0.26668621700879763,
+    "conversionFactor": 0.2679288904527404,
     "country": {
       "code": "DZ",
       "name": "Algeria"
     },
     "currency": {
       "code": "dzd",
-      "exchangeRate": 136.4,
+      "exchangeRate": 135.767367,
       "symbol": "د.ج"
     }
   },
@@ -600,26 +600,26 @@
     }
   },
   "EE": {
-    "conversionFactor": 0.6274038538095941,
+    "conversionFactor": 0.6428363986803906,
     "country": {
       "code": "EE",
       "name": "Estonia"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "EG": {
-    "conversionFactor": 0.1529402295930275,
+    "conversionFactor": 0.15223997913098897,
     "country": {
       "code": "EG",
       "name": "Egypt"
     },
     "currency": {
       "code": "egp",
-      "exchangeRate": 30.763652,
+      "exchangeRate": 30.905154,
       "symbol": "£"
     }
   },
@@ -636,50 +636,50 @@
     }
   },
   "ES": {
-    "conversionFactor": 0.6794221090323862,
+    "conversionFactor": 0.6961341711598139,
     "country": {
       "code": "ES",
       "name": "Spain"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "ET": {
-    "conversionFactor": 0.2457589285714286,
+    "conversionFactor": 0.23996960820874783,
     "country": {
       "code": "ET",
       "name": "Ethiopia"
     },
     "currency": {
       "code": "etb",
-      "exchangeRate": 53.76,
+      "exchangeRate": 55.056972,
       "symbol": "Br"
     }
   },
   "FI": {
-    "conversionFactor": 0.9533141467360668,
+    "conversionFactor": 0.9767632589086139,
     "country": {
       "code": "FI",
       "name": "Finland"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "FJ": {
-    "conversionFactor": 0.5541368166512237,
+    "conversionFactor": 0.5466503176903356,
     "country": {
       "code": "FJ",
       "name": "Fiji"
     },
     "currency": {
       "code": "fjd",
-      "exchangeRate": 2.21245,
+      "exchangeRate": 2.24275,
       "symbol": "$"
     }
   },
@@ -696,38 +696,38 @@
     }
   },
   "FR": {
-    "conversionFactor": 0.8291072924285838,
+    "conversionFactor": 0.8495012307434604,
     "country": {
       "code": "FR",
       "name": "France"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "GA": {
-    "conversionFactor": 0.38454015045297246,
+    "conversionFactor": 0.39399899824967877,
     "country": {
       "code": "GA",
       "name": "Gabon"
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "GB": {
-    "conversionFactor": 0.8336702000688526,
+    "conversionFactor": 0.8830902823220573,
     "country": {
       "code": "GB",
       "name": "United Kingdom"
     },
     "currency": {
       "code": "gbp",
-      "exchangeRate": 0.833663,
+      "exchangeRate": 0.787009,
       "symbol": "£"
     }
   },
@@ -744,134 +744,134 @@
     }
   },
   "GE": {
-    "conversionFactor": 0.39115384615384613,
+    "conversionFactor": 0.39040307101727445,
     "country": {
       "code": "GE",
       "name": "Georgia"
     },
     "currency": {
       "code": "gel",
-      "exchangeRate": 2.6,
+      "exchangeRate": 2.605,
       "symbol": "₾"
     }
   },
   "GH": {
-    "conversionFactor": 0.15758620297229392,
+    "conversionFactor": 0.17515876288370003,
     "country": {
       "code": "GH",
       "name": "Ghana"
     },
     "currency": {
       "code": "ghs",
-      "exchangeRate": 12.653392,
+      "exchangeRate": 11.383958,
       "symbol": "₵"
     }
   },
   "GM": {
-    "conversionFactor": 0.23872500819403472,
+    "conversionFactor": 0.24441275167785234,
     "country": {
       "code": "GM",
       "name": "Gambia"
     },
     "currency": {
       "code": "gmd",
-      "exchangeRate": 61.02,
+      "exchangeRate": 59.6,
       "symbol": "D"
     }
   },
   "GN": {
-    "conversionFactor": 0.5140284090909091,
+    "conversionFactor": 0.525753634675327,
     "country": {
       "code": "GN",
       "name": "Guinea"
     },
     "currency": {
       "code": "gnf",
-      "exchangeRate": 8800,
+      "exchangeRate": 8603.744609,
       "symbol": "Fr"
     }
   },
   "GQ": {
-    "conversionFactor": 0.4076087400700557,
+    "conversionFactor": 0.4176350247854183,
     "country": {
       "code": "GQ",
       "name": "Equatorial Guinea"
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "GR": {
-    "conversionFactor": 0.6157262863105999,
+    "conversionFactor": 0.6308715926135813,
     "country": {
       "code": "GR",
       "name": "Greece"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "GT": {
-    "conversionFactor": 0.570912299934281,
+    "conversionFactor": 0.5680525705907212,
     "country": {
       "code": "GT",
       "name": "Guatemala"
     },
     "currency": {
       "code": "gtq",
-      "exchangeRate": 7.812058,
+      "exchangeRate": 7.851386,
       "symbol": "Q"
     }
   },
   "GW": {
-    "conversionFactor": 0.4012581615898091,
+    "conversionFactor": 0.4111282359453564,
     "country": {
       "code": "GW",
       "name": "Guinea-Bissau"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "GY": {
-    "conversionFactor": 0.4677923063943141,
+    "conversionFactor": 0.46644381941388385,
     "country": {
       "code": "GY",
       "name": "Guyana"
     },
     "currency": {
       "code": "gyd",
-      "exchangeRate": 211.059478,
+      "exchangeRate": 211.66965,
       "symbol": "$"
     }
   },
   "HK": {
-    "conversionFactor": 0.7580940005987299,
+    "conversionFactor": 0.7601250482981489,
     "country": {
       "code": "HK",
       "name": "Hong Kong"
     },
     "currency": {
       "code": "hkd",
-      "exchangeRate": 7.84995,
+      "exchangeRate": 7.828975,
       "symbol": "$"
     }
   },
   "HN": {
-    "conversionFactor": 0.5083468395461912,
+    "conversionFactor": 0.5076145623475178,
     "country": {
       "code": "HN",
       "name": "Honduras"
     },
     "currency": {
       "code": "hnl",
-      "exchangeRate": 24.68,
+      "exchangeRate": 24.715603,
       "symbol": "L"
     }
   },
@@ -883,139 +883,139 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "HT": {
-    "conversionFactor": 0.3023319513719208,
+    "conversionFactor": 0.32989402507943427,
     "country": {
       "code": "HT",
       "name": "Haiti"
     },
     "currency": {
       "code": "htg",
-      "exchangeRate": 151.250967,
+      "exchangeRate": 138.614211,
       "symbol": "G"
     }
   },
   "HU": {
-    "conversionFactor": 0.39268471951264294,
+    "conversionFactor": 0.40605725024109085,
     "country": {
       "code": "HU",
       "name": "Hungary"
     },
     "currency": {
       "code": "huf",
-      "exchangeRate": 357.082904,
+      "exchangeRate": 345.323227,
       "symbol": "Ft"
     }
   },
   "ID": {
-    "conversionFactor": 0.29188922312320165,
+    "conversionFactor": 0.2970510081727951,
     "country": {
       "code": "ID",
       "name": "Indonesia"
     },
     "currency": {
       "code": "idr",
-      "exchangeRate": 15292,
+      "exchangeRate": 15026.274536,
       "symbol": "Rp"
     }
   },
   "IE": {
-    "conversionFactor": 0.8598936067441139,
+    "conversionFactor": 0.8810448103741395,
     "country": {
       "code": "IE",
       "name": "Ireland"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "IL": {
-    "conversionFactor": 1.0660745543832881,
+    "conversionFactor": 1.0566365850628905,
     "country": {
       "code": "IL",
       "name": "Israel"
     },
     "currency": {
       "code": "ils",
-      "exchangeRate": 3.670475,
+      "exchangeRate": 3.70326,
       "symbol": "₪"
     }
   },
   "IN": {
-    "conversionFactor": 0.240350721887966,
+    "conversionFactor": 0.23936474855202972,
     "country": {
       "code": "IN",
       "name": "India"
     },
     "currency": {
       "code": "inr",
-      "exchangeRate": 81.718082,
+      "exchangeRate": 82.054689,
       "symbol": "₹"
     }
   },
   "IQ": {
-    "conversionFactor": 0.26072098596371107,
+    "conversionFactor": 0.2904357171342329,
     "country": {
       "code": "IQ",
       "name": "Iraq"
     },
     "currency": {
       "code": "iqd",
-      "exchangeRate": 1460.5,
+      "exchangeRate": 1311.074973,
       "symbol": "ع.د"
     }
   },
   "IR": {
-    "conversionFactor": 0.7490052071005917,
+    "conversionFactor": 0.7486065408953811,
     "country": {
       "code": "IR",
       "name": "Iran, Islamic Republic Of"
     },
     "currency": {
       "code": "irr",
-      "exchangeRate": 42250,
+      "exchangeRate": 42272.5,
       "symbol": "﷼"
     }
   },
   "IS": {
-    "conversionFactor": 1.0531940509915017,
+    "conversionFactor": 1.0833466890070664,
     "country": {
       "code": "IS",
       "name": "Iceland"
     },
     "currency": {
       "code": "isk",
-      "exchangeRate": 141.2,
+      "exchangeRate": 137.27,
       "symbol": "kr"
     }
   },
   "IT": {
-    "conversionFactor": 0.7526723051624403,
+    "conversionFactor": 0.7711861364879813,
     "country": {
       "code": "IT",
       "name": "Italy"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "JM": {
-    "conversionFactor": 0.532553244024498,
+    "conversionFactor": 0.528066333373474,
     "country": {
       "code": "JM",
       "name": "Jamaica"
     },
     "currency": {
       "code": "jmd",
-      "exchangeRate": 153.319881,
+      "exchangeRate": 154.62262,
       "symbol": "$"
     }
   },
@@ -1032,74 +1032,74 @@
     }
   },
   "JP": {
-    "conversionFactor": 0.6845285477236381,
+    "conversionFactor": 0.6442582454820318,
     "country": {
       "code": "JP",
       "name": "Japan"
     },
     "currency": {
       "code": "jpy",
-      "exchangeRate": 136.09366667,
+      "exchangeRate": 144.6004,
       "symbol": "¥"
     }
   },
   "KE": {
-    "conversionFactor": 0.4557126030624264,
+    "conversionFactor": 0.41232682060390763,
     "country": {
       "code": "KE",
       "name": "Kenya"
     },
     "currency": {
       "code": "kes",
-      "exchangeRate": 127.35,
+      "exchangeRate": 140.75,
       "symbol": "Sh"
     }
   },
   "KG": {
-    "conversionFactor": 0.2833790894532144,
+    "conversionFactor": 0.28334667734187347,
     "country": {
       "code": "KG",
       "name": "Kyrgyzstan"
     },
     "currency": {
       "code": "kgs",
-      "exchangeRate": 87.42,
+      "exchangeRate": 87.43,
       "symbol": "с"
     }
   },
   "KH": {
-    "conversionFactor": 0.35904679802955664,
+    "conversionFactor": 0.35283427001082096,
     "country": {
       "code": "KH",
       "name": "Cambodia"
     },
     "currency": {
       "code": "khr",
-      "exchangeRate": 4060,
+      "exchangeRate": 4131.486434,
       "symbol": "៛"
     }
   },
   "KI": {
-    "conversionFactor": 0.7204153268698698,
+    "conversionFactor": 0.7125354095340715,
     "country": {
       "code": "KI",
       "name": "Kiribati"
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.479702,
+      "exchangeRate": 1.496066,
       "symbol": "$"
     }
   },
   "KM": {
-    "conversionFactor": 0.4654219892961029,
+    "conversionFactor": 0.4794994730841496,
     "country": {
       "code": "KM",
       "name": "Comoros"
     },
     "currency": {
       "code": "kmf",
-      "exchangeRate": 464.950099,
+      "exchangeRate": 451.299766,
       "symbol": "Fr"
     }
   },
@@ -1116,62 +1116,62 @@
     }
   },
   "KR": {
-    "conversionFactor": 0.6324747943603803,
+    "conversionFactor": 0.6304537161933408,
     "country": {
       "code": "KR",
       "name": "Korea, Republic of"
     },
     "currency": {
       "code": "krw",
-      "exchangeRate": 1299.64863,
+      "exchangeRate": 1303.814981,
       "symbol": "₩"
     }
   },
   "KW": {
-    "conversionFactor": 0.4168973715923525,
+    "conversionFactor": 0.4166436102168825,
     "country": {
       "code": "KW",
       "name": "Kuwait"
     },
     "currency": {
       "code": "kwd",
-      "exchangeRate": 0.30703,
+      "exchangeRate": 0.307217,
       "symbol": "د.ك"
     }
   },
   "KZ": {
-    "conversionFactor": 0.289784361563692,
+    "conversionFactor": 0.28384171399327396,
     "country": {
       "code": "KZ",
       "name": "Kazakhstan"
     },
     "currency": {
       "code": "kzt",
-      "exchangeRate": 436.465927,
+      "exchangeRate": 445.603989,
       "symbol": "₸"
     }
   },
   "LA": {
-    "conversionFactor": 0.17575653760512697,
+    "conversionFactor": 0.1552602244778746,
     "country": {
       "code": "LA",
       "name": "Lao People'S Democratic Republic"
     },
     "currency": {
       "code": "lak",
-      "exchangeRate": 16874.137602,
+      "exchangeRate": 19101.737164,
       "symbol": "₭"
     }
   },
   "LB": {
-    "conversionFactor": 0.06234865573770492,
+    "conversionFactor": 0.06291595415126258,
     "country": {
       "code": "LB",
       "name": "Lebanon"
     },
     "currency": {
       "code": "lbp",
-      "exchangeRate": 15250,
+      "exchangeRate": 15112.494324,
       "symbol": "ل.ل"
     }
   },
@@ -1188,134 +1188,134 @@
     }
   },
   "LK": {
-    "conversionFactor": 0.15714280374892328,
+    "conversionFactor": 0.1776447897850886,
     "country": {
       "code": "LK",
       "name": "Sri Lanka"
     },
     "currency": {
       "code": "lkr",
-      "exchangeRate": 346.213754,
+      "exchangeRate": 306.257223,
       "symbol": "Rs  රු"
     }
   },
   "LR": {
-    "conversionFactor": 0.003089481519820449,
+    "conversionFactor": 0.0027242522201741974,
     "country": {
       "code": "LR",
       "name": "Liberia"
     },
     "currency": {
       "code": "lrd",
-      "exchangeRate": 159.250022,
+      "exchangeRate": 180.600018,
       "symbol": "$"
     }
   },
   "LS": {
-    "conversionFactor": 0.3466812945693911,
+    "conversionFactor": 0.33894947223368294,
     "country": {
       "code": "LS",
       "name": "Lesotho"
     },
     "currency": {
       "code": "lsl",
-      "exchangeRate": 18.23,
+      "exchangeRate": 18.645847,
       "symbol": "L"
     }
   },
   "LT": {
-    "conversionFactor": 0.5010738054113848,
+    "conversionFactor": 0.5133989512303627,
     "country": {
       "code": "LT",
       "name": "Lithuania"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "LU": {
-    "conversionFactor": 0.9575605349175192,
+    "conversionFactor": 0.9811140974783628,
     "country": {
       "code": "LU",
       "name": "Luxembourg"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "LV": {
-    "conversionFactor": 0.5499072694980875,
+    "conversionFactor": 0.5634335947824743,
     "country": {
       "code": "LV",
       "name": "Latvia"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "LY": {
-    "conversionFactor": 0.20993788819875778,
+    "conversionFactor": 0.21071903193931124,
     "country": {
       "code": "LY",
       "name": "Libyan Arab Jamahiriya"
     },
     "currency": {
       "code": "lyd",
-      "exchangeRate": 4.83,
+      "exchangeRate": 4.812095,
       "symbol": "ل.د"
     }
   },
   "MA": {
-    "conversionFactor": 0.335080548208704,
+    "conversionFactor": 0.35539379448160346,
     "country": {
       "code": "MA",
       "name": "Morocco"
     },
     "currency": {
       "code": "mad",
-      "exchangeRate": 10.3975,
+      "exchangeRate": 9.80321,
       "symbol": "د.م."
     }
   },
   "MD": {
-    "conversionFactor": 0.44168243331047585,
+    "conversionFactor": 0.45060424672243776,
     "country": {
       "code": "MD",
       "name": "Moldova, Republic of"
     },
     "currency": {
       "code": "mdl",
-      "exchangeRate": 18.791782,
+      "exchangeRate": 18.419711,
       "symbol": "L"
     }
   },
   "ME": {
-    "conversionFactor": 0.4044684742833424,
+    "conversionFactor": 0.41441737376857674,
     "country": {
       "code": "ME",
       "name": "Montenegro"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "MG": {
-    "conversionFactor": 0.2547698845779418,
+    "conversionFactor": 0.2402530412637234,
     "country": {
       "code": "MG",
       "name": "Madagascar"
     },
     "currency": {
       "code": "mga",
-      "exchangeRate": 4294.502868,
+      "exchangeRate": 4553.990219,
       "symbol": "Ar"
     }
   },
@@ -1332,278 +1332,278 @@
     }
   },
   "MK": {
-    "conversionFactor": 0.34987104175139816,
+    "conversionFactor": 0.3596933618072438,
     "country": {
       "code": "MK",
       "name": "Macedonia, The Former Yugoslav Republic of"
     },
     "currency": {
       "code": "mkd",
-      "exchangeRate": 58.092833,
+      "exchangeRate": 56.506464,
       "symbol": "den"
     }
   },
   "ML": {
-    "conversionFactor": 0.35210915092043915,
+    "conversionFactor": 0.36077026696374614,
     "country": {
       "code": "ML",
       "name": "Mali"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "MM": {
-    "conversionFactor": 0.1604675373698694,
+    "conversionFactor": 0.16037656511887283,
     "country": {
       "code": "MM",
       "name": "Myanmar"
     },
     "currency": {
       "code": "mmk",
-      "exchangeRate": 2100.56193,
+      "exchangeRate": 2101.753456,
       "symbol": "Ks"
     }
   },
   "MN": {
-    "conversionFactor": 0.2624957786295482,
+    "conversionFactor": 0.25413867576015914,
     "country": {
       "code": "MN",
       "name": "Mongolia"
     },
     "currency": {
       "code": "mnt",
-      "exchangeRate": 3406.965265,
+      "exchangeRate": 3519,
       "symbol": "₮"
     }
   },
   "MO": {
-    "conversionFactor": 0.6925414118373516,
+    "conversionFactor": 0.6938712253795571,
     "country": {
       "code": "MO",
       "name": "Macao"
     },
     "currency": {
       "code": "mop",
-      "exchangeRate": 8.087603,
+      "exchangeRate": 8.072103,
       "symbol": "P"
     }
   },
   "MR": {
-    "conversionFactor": 3.1184000000000003,
+    "conversionFactor": 3.1655307736959317,
     "country": {
       "code": "MR",
       "name": "Mauritania"
     },
     "currency": {
       "code": "mru",
-      "exchangeRate": 35,
+      "exchangeRate": 34.478894,
       "symbol": "UM"
     }
   },
   "MT": {
-    "conversionFactor": 0.616787883355963,
+    "conversionFactor": 0.6319593022560185,
     "country": {
       "code": "MT",
       "name": "Malta"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "MU": {
-    "conversionFactor": 0.36108480957889655,
+    "conversionFactor": 0.36782419199227223,
     "country": {
       "code": "MU",
       "name": "Mauritius"
     },
     "currency": {
       "code": "mur",
-      "exchangeRate": 46.349222,
+      "exchangeRate": 45.499998,
       "symbol": "₨"
     }
   },
   "MV": {
-    "conversionFactor": 0.6779296875,
+    "conversionFactor": 0.6766081871345029,
     "country": {
       "code": "MV",
       "name": "Maldives"
     },
     "currency": {
       "code": "mvr",
-      "exchangeRate": 15.36,
+      "exchangeRate": 15.39,
       "symbol": ".ރ"
     }
   },
   "MW": {
-    "conversionFactor": 0.2503155837811431,
+    "conversionFactor": 0.24298895793028574,
     "country": {
       "code": "MW",
       "name": "Malawi"
     },
     "currency": {
       "code": "mwk",
-      "exchangeRate": 1023.5,
+      "exchangeRate": 1054.360668,
       "symbol": "MK"
     }
   },
   "MX": {
-    "conversionFactor": 0.5308629592590433,
+    "conversionFactor": 0.560629100413631,
     "country": {
       "code": "MX",
       "name": "Mexico"
     },
     "currency": {
       "code": "mxn",
-      "exchangeRate": 18.015949,
+      "exchangeRate": 17.059407,
       "symbol": "$"
     }
   },
   "MY": {
-    "conversionFactor": 0.32331583063344876,
+    "conversionFactor": 0.3116183912996662,
     "country": {
       "code": "MY",
       "name": "Malaysia"
     },
     "currency": {
       "code": "myr",
-      "exchangeRate": 4.4755,
+      "exchangeRate": 4.6435,
       "symbol": "RM"
     }
   },
   "MZ": {
-    "conversionFactor": 0.40180109002660785,
+    "conversionFactor": 0.4016439299359522,
     "country": {
       "code": "MZ",
       "name": "Mozambique"
     },
     "currency": {
       "code": "mzn",
-      "exchangeRate": 63.850001,
+      "exchangeRate": 63.874985,
       "symbol": "MT"
     }
   },
   "NA": {
-    "conversionFactor": 0.42457487657707077,
+    "conversionFactor": 0.4119212346993082,
     "country": {
       "code": "NA",
       "name": "Namibia"
     },
     "currency": {
       "code": "nad",
-      "exchangeRate": 18.23,
+      "exchangeRate": 18.79,
       "symbol": "$"
     }
   },
   "NE": {
-    "conversionFactor": 0.3511737191259482,
+    "conversionFactor": 0.359811825590261,
     "country": {
       "code": "NE",
       "name": "Niger"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "NG": {
-    "conversionFactor": 0.31073491725665636,
+    "conversionFactor": 0.18675906684001808,
     "country": {
       "code": "NG",
       "name": "Nigeria"
     },
     "currency": {
       "code": "ngn",
-      "exchangeRate": 460.46,
+      "exchangeRate": 766.126124,
       "symbol": "₦"
     }
   },
   "NI": {
-    "conversionFactor": 0.3510714285714286,
+    "conversionFactor": 0.3491232632148988,
     "country": {
       "code": "NI",
       "name": "Nicaragua"
     },
     "currency": {
       "code": "nio",
-      "exchangeRate": 36.4,
+      "exchangeRate": 36.603118,
       "symbol": "C$"
     }
   },
   "NL": {
-    "conversionFactor": 0.8376000687914886,
+    "conversionFactor": 0.858202907882958,
     "country": {
       "code": "NL",
       "name": "Netherlands"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "NO": {
-    "conversionFactor": 0.8507102783074925,
+    "conversionFactor": 0.8311804525109525,
     "country": {
       "code": "NO",
       "name": "Norway"
     },
     "currency": {
       "code": "nok",
-      "exchangeRate": 10.420704,
+      "exchangeRate": 10.665554,
       "symbol": "kr"
     }
   },
   "NP": {
-    "conversionFactor": 0.3058049350775035,
+    "conversionFactor": 0.3081774105287999,
     "country": {
       "code": "NP",
       "name": "Nepal"
     },
     "currency": {
       "code": "npr",
-      "exchangeRate": 132.345804,
+      "exchangeRate": 131.326952,
       "symbol": "₨"
     }
   },
   "NR": {
-    "conversionFactor": 0.6285049286951021,
+    "conversionFactor": 0.621630329143233,
     "country": {
       "code": "NR",
       "name": "Nauru"
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.479702,
+      "exchangeRate": 1.496066,
       "symbol": "$"
     }
   },
   "NZ": {
-    "conversionFactor": 0.9307344792729965,
+    "conversionFactor": 0.9281883175828219,
     "country": {
       "code": "NZ",
       "name": "New Zealand"
     },
     "currency": {
       "code": "nzd",
-      "exchangeRate": 1.610556,
+      "exchangeRate": 1.614974,
       "symbol": "$"
     }
   },
   "OM": {
-    "conversionFactor": 0.37404831976975245,
+    "conversionFactor": 0.3740910755897779,
     "country": {
       "code": "OM",
       "name": "Oman"
     },
     "currency": {
       "code": "omr",
-      "exchangeRate": 0.384977,
+      "exchangeRate": 0.384933,
       "symbol": "ر.ع."
     }
   },
@@ -1620,62 +1620,62 @@
     }
   },
   "PE": {
-    "conversionFactor": 0.4306675479180436,
+    "conversionFactor": 0.4490639126285373,
     "country": {
       "code": "PE",
       "name": "Peru"
     },
     "currency": {
       "code": "pen",
-      "exchangeRate": 3.7825,
+      "exchangeRate": 3.627546,
       "symbol": "S/ "
     }
   },
   "PG": {
-    "conversionFactor": 0.6465248226950354,
+    "conversionFactor": 0.628937586706594,
     "country": {
       "code": "PG",
       "name": "Papua New Guinea"
     },
     "currency": {
       "code": "pgk",
-      "exchangeRate": 3.525,
+      "exchangeRate": 3.623571,
       "symbol": "K"
     }
   },
   "PH": {
-    "conversionFactor": 0.35101137903419827,
+    "conversionFactor": 0.34687620272111364,
     "country": {
       "code": "PH",
       "name": "Philippines"
     },
     "currency": {
       "code": "php",
-      "exchangeRate": 54.776002,
+      "exchangeRate": 55.428997,
       "symbol": "₱"
     }
   },
   "PK": {
-    "conversionFactor": 0.1227851694163562,
+    "conversionFactor": 0.1257775871223406,
     "country": {
       "code": "PK",
       "name": "Pakistan"
     },
     "currency": {
       "code": "pkr",
-      "exchangeRate": 281.85,
+      "exchangeRate": 275.14441,
       "symbol": "₨"
     }
   },
   "PL": {
-    "conversionFactor": 0.3916317516175384,
+    "conversionFactor": 0.42618278604299226,
     "country": {
       "code": "PL",
       "name": "Poland"
     },
     "currency": {
       "code": "pln",
-      "exchangeRate": 4.435289,
+      "exchangeRate": 4.075716,
       "symbol": "zł"
     }
   },
@@ -1704,14 +1704,14 @@
     }
   },
   "PT": {
-    "conversionFactor": 0.6433278094900406,
+    "conversionFactor": 0.6591520433169488,
     "country": {
       "code": "PT",
       "name": "Portugal"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
@@ -1728,170 +1728,170 @@
     }
   },
   "PY": {
-    "conversionFactor": 0.3747793334090797,
+    "conversionFactor": 0.3728136478463449,
     "country": {
       "code": "PY",
       "name": "Paraguay"
     },
     "currency": {
       "code": "pyg",
-      "exchangeRate": 7226.358976,
+      "exchangeRate": 7264.46045,
       "symbol": "₲"
     }
   },
   "QA": {
-    "conversionFactor": 0.5177149134853062,
+    "conversionFactor": 0.5168345487856171,
     "country": {
       "code": "QA",
       "name": "Qatar"
     },
     "currency": {
       "code": "qar",
-      "exchangeRate": 3.641,
+      "exchangeRate": 3.647202,
       "symbol": "ر.ق"
     }
   },
   "RO": {
-    "conversionFactor": 0.41837394867371147,
+    "conversionFactor": 0.4261020448505348,
     "country": {
       "code": "RO",
       "name": "Romania"
     },
     "currency": {
       "code": "ron",
-      "exchangeRate": 4.637,
+      "exchangeRate": 4.5529,
       "symbol": "lei"
     }
   },
   "RS": {
-    "conversionFactor": 0.39474510579741756,
+    "conversionFactor": 0.4046765706434009,
     "country": {
       "code": "RS",
       "name": "Serbia"
     },
     "currency": {
       "code": "rsd",
-      "exchangeRate": 110.486487,
+      "exchangeRate": 107.774957,
       "symbol": "дин."
     }
   },
   "RU": {
-    "conversionFactor": 0.3488077995674783,
+    "conversionFactor": 0.2927163386238159,
     "country": {
       "code": "RU",
       "name": "Russian Federation"
     },
     "currency": {
       "code": "rub",
-      "exchangeRate": 75.528701,
+      "exchangeRate": 90.001809,
       "symbol": "₽"
     }
   },
   "RW": {
-    "conversionFactor": 0.3047169638774577,
+    "conversionFactor": 0.2870231969722454,
     "country": {
       "code": "RW",
       "name": "RWANDA"
     },
     "currency": {
       "code": "rwf",
-      "exchangeRate": 1093.5,
+      "exchangeRate": 1160.909653,
       "symbol": "Fr"
     }
   },
   "SA": {
-    "conversionFactor": 0.38766371464966526,
+    "conversionFactor": 0.3879732039840449,
     "country": {
       "code": "SA",
       "name": "Saudi Arabia"
     },
     "currency": {
       "code": "sar",
-      "exchangeRate": 3.753253,
+      "exchangeRate": 3.750259,
       "symbol": "ر.س"
     }
   },
   "SB": {
-    "conversionFactor": 1.0357416357587346,
+    "conversionFactor": 1.0208203853325049,
     "country": {
       "code": "SB",
       "name": "Solomon Islands"
     },
     "currency": {
       "code": "sbd",
-      "exchangeRate": 8.246265,
+      "exchangeRate": 8.3668,
       "symbol": "$"
     }
   },
   "SC": {
-    "conversionFactor": 0.6228051925075601,
+    "conversionFactor": 0.5961703563097995,
     "country": {
       "code": "SC",
       "name": "Seychelles"
     },
     "currency": {
       "code": "scr",
-      "exchangeRate": 12.525586,
+      "exchangeRate": 13.085186,
       "symbol": "₨"
     }
   },
   "SD": {
-    "conversionFactor": 0.07644556962025316,
+    "conversionFactor": 0.07530174563591022,
     "country": {
       "code": "SD",
       "name": "Sudan"
     },
     "currency": {
       "code": "sdg",
-      "exchangeRate": 592.5,
+      "exchangeRate": 601.5,
       "symbol": "LS"
     }
   },
   "SE": {
-    "conversionFactor": 0.8437948704061143,
+    "conversionFactor": 0.8165999855117869,
     "country": {
       "code": "SE",
       "name": "Sweden"
     },
     "currency": {
       "code": "sek",
-      "exchangeRate": 10.487146,
+      "exchangeRate": 10.836395,
       "symbol": "kr"
     }
   },
   "SG": {
-    "conversionFactor": 0.6231894822847804,
+    "conversionFactor": 0.6212242486259393,
     "country": {
       "code": "SG",
       "name": "Singapore"
     },
     "currency": {
       "code": "sgd",
-      "exchangeRate": 1.3463,
+      "exchangeRate": 1.350559,
       "symbol": "$"
     }
   },
   "SI": {
-    "conversionFactor": 0.6348350331271359,
+    "conversionFactor": 0.6504503661774511,
     "country": {
       "code": "SI",
       "name": "Slovenia"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "SK": {
-    "conversionFactor": 0.5074433876835635,
+    "conversionFactor": 0.519925209084986,
     "country": {
       "code": "SK",
       "name": "Slovakia"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
@@ -1908,62 +1908,62 @@
     }
   },
   "SM": {
-    "conversionFactor": 0.7133932144840055,
+    "conversionFactor": 0.7309408797178046,
     "country": {
       "code": "SM",
       "name": "San Marino"
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.941977,
+      "exchangeRate": 0.919363,
       "symbol": "€"
     }
   },
   "SN": {
-    "conversionFactor": 0.3595343430884746,
+    "conversionFactor": 0.3683781026411681,
     "country": {
       "code": "SN",
       "name": "Senegal"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "SO": {
-    "conversionFactor": 0.0006226912928759894,
+    "conversionFactor": 0.0006211205167823764,
     "country": {
       "code": "SO",
       "name": "Somalia"
     },
     "currency": {
       "code": "sos",
-      "exchangeRate": 568.5,
+      "exchangeRate": 569.937702,
       "symbol": "Sh"
     }
   },
   "SR": {
-    "conversionFactor": 0.10127677346220393,
+    "conversionFactor": 0.09175675675675676,
     "country": {
       "code": "SR",
       "name": "Suriname"
     },
     "currency": {
       "code": "srd",
-      "exchangeRate": 33.522,
+      "exchangeRate": 37,
       "symbol": "$"
     }
   },
   "ST": {
-    "conversionFactor": 597.8524064171123,
+    "conversionFactor": 620.9973426710155,
     "country": {
       "code": "ST",
       "name": "Sao Tome and Principe"
     },
     "currency": {
       "code": "stn",
-      "exchangeRate": 23.375,
+      "exchangeRate": 22.5038,
       "symbol": "Db"
     }
   },
@@ -1992,62 +1992,62 @@
     }
   },
   "SZ": {
-    "conversionFactor": 0.32539769610532093,
+    "conversionFactor": 0.3183917160615739,
     "country": {
       "code": "SZ",
       "name": "Swaziland"
     },
     "currency": {
       "code": "szl",
-      "exchangeRate": 18.23,
+      "exchangeRate": 18.631138,
       "symbol": "L"
     }
   },
   "TD": {
-    "conversionFactor": 0.3363087692429042,
+    "conversionFactor": 0.3445812304078022,
     "country": {
       "code": "TD",
       "name": "Chad"
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "TG": {
-    "conversionFactor": 0.3564480655242977,
+    "conversionFactor": 0.3652159093898944,
     "country": {
       "code": "TG",
       "name": "Togo"
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 617.896466,
+      "exchangeRate": 603.062447,
       "symbol": "Fr"
     }
   },
   "TH": {
-    "conversionFactor": 0.35026026604973975,
+    "conversionFactor": 0.3467053034690453,
     "country": {
       "code": "TH",
       "name": "Thailand"
     },
     "currency": {
       "code": "thb",
-      "exchangeRate": 34.58,
+      "exchangeRate": 34.934568,
       "symbol": "฿"
     }
   },
   "TJ": {
-    "conversionFactor": 0.2505625673904952,
+    "conversionFactor": 0.22905247136570228,
     "country": {
       "code": "TJ",
       "name": "Tajikistan"
     },
     "currency": {
       "code": "tjs",
-      "exchangeRate": 10.013467,
+      "exchangeRate": 10.953822,
       "symbol": "ЅМ"
     }
   },
@@ -2076,110 +2076,110 @@
     }
   },
   "TN": {
-    "conversionFactor": 0.26400638467677573,
+    "conversionFactor": 0.2682017188260094,
     "country": {
       "code": "TN",
       "name": "Tunisia"
     },
     "currency": {
       "code": "tnd",
-      "exchangeRate": 3.1325,
+      "exchangeRate": 3.0835,
       "symbol": "د.ت"
     }
   },
   "TO": {
-    "conversionFactor": 0.7279669105949729,
+    "conversionFactor": 0.726832222895215,
     "country": {
       "code": "TO",
       "name": "Tonga"
     },
     "currency": {
       "code": "top",
-      "exchangeRate": 2.35725,
+      "exchangeRate": 2.36093,
       "symbol": "T$"
     }
   },
   "TR": {
-    "conversionFactor": 0.12324229578225072,
+    "conversionFactor": 0.08954661843478433,
     "country": {
       "code": "TR",
       "name": "Turkey"
     },
     "currency": {
       "code": "try",
-      "exchangeRate": 18.897733,
+      "exchangeRate": 26.008799,
       "symbol": "₺"
     }
   },
   "TT": {
-    "conversionFactor": 0.4991450812969276,
+    "conversionFactor": 0.4981402909675124,
     "country": {
       "code": "TT",
       "name": "Trinidad and Tobago"
     },
     "currency": {
       "code": "ttd",
-      "exchangeRate": 6.779592,
+      "exchangeRate": 6.793267,
       "symbol": "$"
     }
   },
   "TV": {
-    "conversionFactor": 0.9089668054784004,
+    "conversionFactor": 0.8990245082770413,
     "country": {
       "code": "TV",
       "name": "Tuvalu"
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.479702,
+      "exchangeRate": 1.496066,
       "symbol": "$"
     }
   },
   "TW": {
-    "conversionFactor": 0.44206533263381337,
+    "conversionFactor": 0.4341628327334953,
     "country": {
       "code": "TW",
       "name": "Taiwan, Province of China"
     },
     "currency": {
       "code": "twd",
-      "exchangeRate": 30.590501,
+      "exchangeRate": 31.1473,
       "symbol": "$"
     }
   },
   "TZ": {
-    "conversionFactor": 0.3541610422896198,
+    "conversionFactor": 0.34259958677685953,
     "country": {
       "code": "TZ",
       "name": "Tanzania, United Republic of"
     },
     "currency": {
       "code": "tzs",
-      "exchangeRate": 2341,
+      "exchangeRate": 2420,
       "symbol": "Sh"
     }
   },
   "UA": {
-    "conversionFactor": 0.308789307157139,
+    "conversionFactor": 0.30861795134874864,
     "country": {
       "code": "UA",
       "name": "Ukraine"
     },
     "currency": {
       "code": "uah",
-      "exchangeRate": 36.941046,
+      "exchangeRate": 36.961557,
       "symbol": "₴"
     }
   },
   "UG": {
-    "conversionFactor": 0.3241122566798554,
+    "conversionFactor": 0.3256649303157383,
     "country": {
       "code": "UG",
       "name": "Uganda"
     },
     "currency": {
       "code": "ugx",
-      "exchangeRate": 3711.02905,
+      "exchangeRate": 3693.335966,
       "symbol": "Sh"
     }
   },
@@ -2196,26 +2196,26 @@
     }
   },
   "UY": {
-    "conversionFactor": 0.7104077236294305,
+    "conversionFactor": 0.7388960316663162,
     "country": {
       "code": "UY",
       "name": "Uruguay"
     },
     "currency": {
       "code": "uyu",
-      "exchangeRate": 38.925534,
+      "exchangeRate": 37.424751,
       "symbol": "$"
     }
   },
   "UZ": {
-    "conversionFactor": 0.17679736263736262,
+    "conversionFactor": 0.17411629241429902,
     "country": {
       "code": "UZ",
       "name": "Uzbekistan"
     },
     "currency": {
       "code": "uzs",
-      "exchangeRate": 11375,
+      "exchangeRate": 11550.15405,
       "symbol": "so'm"
     }
   },
@@ -2232,86 +2232,86 @@
     }
   },
   "VE": {
-    "conversionFactor": 1490394894.126894,
+    "conversionFactor": 1295727793.2077641,
     "country": {
       "code": "VE",
       "name": "Venezuela"
     },
     "currency": {
       "code": "ves",
-      "exchangeRate": 24.326565,
+      "exchangeRate": 27.981331,
       "symbol": "Bs.S."
     }
   },
   "VN": {
-    "conversionFactor": 0.34209800822004427,
+    "conversionFactor": 0.3421866410006298,
     "country": {
       "code": "VN",
       "name": "Viet Nam"
     },
     "currency": {
       "code": "vnd",
-      "exchangeRate": 23722.5,
+      "exchangeRate": 23716.355426,
       "symbol": "₫"
     }
   },
   "VU": {
-    "conversionFactor": 1.062646131950798,
+    "conversionFactor": 1.054295295808504,
     "country": {
       "code": "VU",
       "name": "Vanuatu"
     },
     "currency": {
       "code": "vuv",
-      "exchangeRate": 118.044,
+      "exchangeRate": 118.979,
       "symbol": "Vt"
     }
   },
   "WS": {
-    "conversionFactor": 0.7510518804100016,
+    "conversionFactor": 0.7433471166864183,
     "country": {
       "code": "WS",
       "name": "Samoa"
     },
     "currency": {
       "code": "wst",
-      "exchangeRate": 2.69755,
+      "exchangeRate": 2.72551,
       "symbol": "T"
     }
   },
   "YE": {
-    "conversionFactor": 1.0652507577642418,
+    "conversionFactor": 1.0650377289372768,
     "country": {
       "code": "YE",
       "name": "Yemen"
     },
     "currency": {
       "code": "yer",
-      "exchangeRate": 250.249998,
+      "exchangeRate": 250.300053,
       "symbol": "﷼"
     }
   },
   "ZA": {
-    "conversionFactor": 0.38663023613626124,
+    "conversionFactor": 0.3760792797830073,
     "country": {
       "code": "ZA",
       "name": "South Africa"
     },
     "currency": {
       "code": "zar",
-      "exchangeRate": 18.162056,
+      "exchangeRate": 18.671595,
       "symbol": "R"
     }
   },
   "ZM": {
-    "conversionFactor": 0.26135614208705243,
+    "conversionFactor": 0.2931306828451752,
     "country": {
       "code": "ZM",
       "name": "Zambia"
     },
     "currency": {
       "code": "zmw",
-      "exchangeRate": 19.980399,
+      "exchangeRate": 17.81458,
       "symbol": "ZK"
     }
   },
