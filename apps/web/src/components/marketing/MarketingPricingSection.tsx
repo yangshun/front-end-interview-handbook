@@ -248,9 +248,9 @@ function PricingButtonSection({
                 icon={RiArrowRightLine}
                 isDisabled={isPending}
                 label={intl.formatMessage({
-                  defaultMessage: 'Buy Now',
+                  defaultMessage: 'Buy now',
                   description: 'Purchase button label',
-                  id: 'ATwxZX',
+                  id: '9gs1LO',
                 })}
                 onClick={() => {
                   gtag.event({
@@ -292,9 +292,9 @@ function PricingButtonSection({
                 isDisabled={isPending}
                 isLoading={isCheckoutSessionLoading}
                 label={intl.formatMessage({
-                  defaultMessage: 'Buy Now',
+                  defaultMessage: 'Buy now',
                   description: 'Purchase button label',
-                  id: 'ATwxZX',
+                  id: '9gs1LO',
                 })}
                 onClick={() => {
                   gtag.event({
@@ -345,9 +345,9 @@ function PricingButtonSection({
               icon={RiArrowRightLine}
               isDisabled={isPending}
               label={intl.formatMessage({
-                defaultMessage: 'Manage Subscription',
+                defaultMessage: 'Manage subscription',
                 description: 'Manage user membership subscription button label',
-                id: 'snLKzs',
+                id: 'sjLtW1',
               })}
             />
           );
@@ -686,7 +686,7 @@ export default function MarketingPricingSectionNew({
                               size="body2">
                               {description}
                             </Text>
-                            <div className="mt-8">
+                            <div className="mt-8 flex items-baseline gap-x-1">
                               <Text
                                 className="text-3xl font-bold tracking-tight"
                                 size="custom"
