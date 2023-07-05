@@ -1,8 +1,7 @@
 import axios from 'axios';
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
 import type { SVGProps } from 'react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -357,17 +356,8 @@ function PricingButtonSection({
   );
 }
 
-export default function MarketingPricingSectionNew({
-  countryCode,
-  plans,
-}: Props) {
-  const titleMarkerRef = useRef(null);
-  const titleIsInView = useInView(titleMarkerRef, {
-    amount: 'all',
-    once: true,
-  });
+export default function MarketingPricingSection({ countryCode, plans }: Props) {
   const intl = useIntl();
-  const pricingCardMarkerRef = useRef(null);
   const pricingPlanLabels = usePricingPlansLabels();
 
   const {
@@ -461,12 +451,7 @@ export default function MarketingPricingSectionNew({
       <div className="pt-24">
         <div className="mx-auto px-4 sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl">
           <Container className="text-center">
-            <div
-              className={clsx(
-                'flex max-w-4xl flex-col pb-8 transition-opacity duration-[1500ms] ease-in-out lg:max-w-none',
-                titleIsInView ? 'opacity-100' : 'opacity-0',
-              )}>
-              <div ref={titleMarkerRef} />
+            <div className={clsx('flex max-w-4xl flex-col pb-8 lg:max-w-none')}>
               <MarketingSectionHeader
                 description={
                   <FormattedMessage
@@ -513,9 +498,7 @@ export default function MarketingPricingSectionNew({
           </Container>
         </div>
         <Section>
-          <div
-            ref={pricingCardMarkerRef}
-            className={clsx('mt-8 pb-16 sm:mt-12 sm:pb-20')}>
+          <div className={clsx('mt-8 pb-16 sm:mt-12 sm:pb-20')}>
             <div className="relative">
               <Container>
                 <PricingBlockCard

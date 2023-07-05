@@ -1,6 +1,4 @@
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -21,18 +19,9 @@ export default function MarketingQuizQuestionsExamples({
   questions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const intl = useIntl();
-  const sectionMarkerRef = useRef(null);
-  const isInView = useInView(sectionMarkerRef, {
-    amount: 'all',
-    once: true,
-  });
 
   return (
-    <div
-      className={clsx(
-        'relative transition-opacity duration-[1500ms] ease-in-out lg:grid lg:grid-cols-6 lg:gap-x-8',
-        isInView ? 'opacity-100' : 'opacity-0',
-      )}>
+    <div className={clsx('relative lg:grid lg:grid-cols-6 lg:gap-x-8')}>
       <div className="lg:col-span-2">
         <Text
           className="text-base sm:text-lg"
@@ -66,7 +55,6 @@ export default function MarketingQuizQuestionsExamples({
           </div>
         </Heading>
         <Section>
-          <div ref={sectionMarkerRef} />
           <Text
             className="py-10 text-lg md:text-xl"
             color="secondary"
