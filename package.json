@@ -3,6 +3,7 @@
     "format-mdx": "prettier --write \"packages/**/en-US.{md,mdx}\"",
     "i18n": "npm run i18n:download && npm run i18n:fix",
     "i18n:download": "crowdin download",
+    "i18n:upload": "crowdin upload",
     "i18n:fix": "find packages -type f -name '*.mdx' -exec sed -i '' -e 's/{\\/_/{\\/*/g' -e 's/_\\/}/\\*\\/}/g' {} +"
   },
   "devDependencies": {
