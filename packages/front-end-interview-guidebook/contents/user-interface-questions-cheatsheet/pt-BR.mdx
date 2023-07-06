@@ -69,7 +69,7 @@ Is your CSS written in a scalable and easy-to-understand manner?
 -   **Avoid `#id` selectors in components**: When building UI components meant to be reused (e.g. buttons, tabs, menus, modals, etc), avoid using `#id` selectors in the HTML as `id`s are meant to be globally unique but you can have multiple instances of the component.
 -   **Organize your CSS**: Read about how to [organize your CSS in big projects](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing) and how to have a [Scalable and Modular Architecture for CSS](http://smacss.com/).
 
-## User Experience
+## Experiência de Usuário
 
 Does your UI provide a great user experience?
 
@@ -82,7 +82,7 @@ Does your UI provide a great user experience?
     -   `<img>` tags have a similar `object-fit` property with `contain` and `cover` values.
 -   **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
 
-## Network
+## Rede
 
 Does your UI handle the unpredictable nature of network requests and conditions?
 
@@ -99,7 +99,7 @@ Does your UI handle the unpredictable nature of network requests and conditions?
 -   **Request timeouts**: You might want to artificially show that the request has failed (timed out) if the request doesn't receive a response after a stipulated duration.
 -   **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
 
-## Accessibility (a11y)
+## Acessibilidade (a11y)
 
 Handling accessibility in UI is a huge plus and in some cases a requirement for senior engineers.
 
@@ -137,7 +137,7 @@ There's probably not enough time to handle all edge cases scenarios in your code
     -   Truncate the excess content and show an ellipsis. The `word-break` CSS property will come in handy useful.
     -   Limit the content to the first X characters/words and hide the excess content behind a "Show More" button.
 
-## Performance
+## Desempenho
 
 -   **Throttle/debounce**: Throttle and debounce are rate limiting techniques to prevent unnecessary operations. This technique can be used for operations which aren't super time-sensitive like network requests and scroll/resizing event callbacks.
 -   **Caching**: The results of duplicate computations / network requests can be cached in browser memory/storage and not repeated.
@@ -145,7 +145,7 @@ There's probably not enough time to handle all edge cases scenarios in your code
 -   **Prefetch/preload data**: Reduce network latency by prefetching/preloading data right before it is needed so that updates appear instantly.
 -   **Too many items in a list**: Refer to the point under "Edge Cases" above.
 
-## Security
+## Segurança
 
 -   **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 -   **Output encoding for "URL Contexts"**: If user-supplied input can be used in URL query parameters, use `encodeURIComponent` to prevent unintended values from becoming part of the URL (e.g. extra query parameters).
