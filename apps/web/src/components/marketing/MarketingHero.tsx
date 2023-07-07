@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiBriefcaseLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Heading from '~/components/ui/Heading';
@@ -251,13 +251,13 @@ export default function MarketingHero() {
                     'bg-brand/20 hover:bg-brand/30 transition-colors',
                     'shiny shadow-sm',
                   )}
-                  href="/portfolio-review"
+                  href="/hiring"
                   variant="unstyled">
-                  New! Our portfolio review just landed{' '}
-                  <RiArrowRightLine
+                  We're hiring!
+                  <RiBriefcaseLine
                     className={clsx(
                       'text-brand h-4 w-4 shrink-0',
-                      'group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out',
+                      'transition-transform duration-150 ease-in-out group-hover:scale-105',
                     )}
                   />
                 </Anchor>
