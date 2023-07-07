@@ -4,7 +4,7 @@ import type { SVGProps } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
 import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
@@ -100,6 +100,35 @@ type Props = Readonly<{
   countryCode: string;
   plans: PricingPlansLocalized;
 }>;
+
+function PriceLabel({
+  amount,
+  symbol,
+  currency,
+  children,
+}: Readonly<{
+  amount: number;
+  children?: (val: Array<Intl.NumberFormatPart>) => React.ReactElement | null;
+  currency: string;
+  symbol: string;
+}>) {
+  return (
+    <FormattedNumberParts
+      currency={currency.toUpperCase()}
+      currencyDisplay={symbol !== '$' ? 'narrowSymbol' : undefined}
+      maximumFractionDigits={0}
+      style="currency"
+      value={amount}>
+      {(parts) =>
+        children == null ? (
+          <>{parts.map((part) => part.value).join('')}</>
+        ) : (
+          children(parts)
+        )
+      }
+    </FormattedNumberParts>
+  );
+}
 
 function PricingButton({
   'aria-describedby': ariaDescribedBy,
@@ -213,47 +242,45 @@ function PricingButtonSection({
         // User is not logged in, they have to create an account first.
         if (!user) {
           return (
-            <div className="text-center">
-              <PricingButton
-                aria-describedby={ariaDescribedBy}
-                href={`/sign-up?next=${encodeURIComponent(
-                  '/pricing',
-                )}&source=buy_now`}
-                icon={RiArrowRightLine}
-                isDisabled={isPending}
-                label={intl.formatMessage({
-                  defaultMessage: 'Buy now',
-                  description: 'Purchase button label',
-                  id: '9gs1LO',
-                })}
-                onClick={() => {
-                  gtag.event({
-                    action: `checkout.sign_up`,
-                    category: 'ecommerce',
-                    label: 'Buy Now (not logged in)',
-                  });
-                  gtag.event({
-                    action: `checkout.sign_up.${plan.planType}.purchase`,
-                    category: 'ecommerce',
-                    label: 'Buy Now (not logged in)',
-                  });
-                  logMessage({
-                    level: 'info',
-                    message: `${
-                      plan.planType
-                    } plan for ${plan.currency.toLocaleUpperCase()} ${
-                      plan.unitCostLocalizedInCurrency
-                    } but not signed in`,
-                    title: 'Checkout initiate (non-signed in)',
-                  });
-                  logEvent('checkout.attempt.not_logged_in', {
-                    currency: plan.currency.toLocaleUpperCase(),
-                    plan: plan.planType,
-                    value: plan.unitCostLocalizedInCurrency,
-                  });
-                }}
-              />
-            </div>
+            <PricingButton
+              aria-describedby={ariaDescribedBy}
+              href={`/sign-up?next=${encodeURIComponent(
+                '/pricing',
+              )}&source=buy_now`}
+              icon={RiArrowRightLine}
+              isDisabled={isPending}
+              label={intl.formatMessage({
+                defaultMessage: 'Buy now',
+                description: 'Purchase button label',
+                id: '9gs1LO',
+              })}
+              onClick={() => {
+                gtag.event({
+                  action: `checkout.sign_up`,
+                  category: 'ecommerce',
+                  label: 'Buy Now (not logged in)',
+                });
+                gtag.event({
+                  action: `checkout.sign_up.${plan.planType}.purchase`,
+                  category: 'ecommerce',
+                  label: 'Buy Now (not logged in)',
+                });
+                logMessage({
+                  level: 'info',
+                  message: `${
+                    plan.planType
+                  } plan for ${plan.currency.toLocaleUpperCase()} ${
+                    plan.unitCostLocalizedInCurrency
+                  } but not signed in`,
+                  title: 'Checkout initiate (non-signed in)',
+                });
+                logEvent('checkout.attempt.not_logged_in', {
+                  currency: plan.currency.toLocaleUpperCase(),
+                  plan: plan.planType,
+                  value: plan.unitCostLocalizedInCurrency,
+                });
+              }}
+            />
           );
         }
         // User is logged in but not a premium user.
@@ -312,6 +339,7 @@ function PricingButtonSection({
             </div>
           );
         }
+
         // User is already subscribed.
         if (!!userProfile && userProfile.isPremium) {
           return (
@@ -343,12 +371,17 @@ function PricingPlanComparisonDiscount({
       return (
         <span>
           <FormattedMessage
-            defaultMessage="{currencySymbol}{price} billed per month."
+            defaultMessage="{price} billed per month."
             description="Description of billing frequency for monthly plan"
-            id="aBlEic"
+            id="pDo/V5"
             values={{
-              currencySymbol: plan.symbol,
-              price: plan.unitCostLocalizedInCurrency,
+              price: (
+                <PriceLabel
+                  amount={plan.unitCostLocalizedInCurrency}
+                  currency={plan.currency.toUpperCase()}
+                  symbol={plan.symbol}
+                />
+              ),
             }}
           />{' '}
           <FormattedMessage
@@ -362,12 +395,17 @@ function PricingPlanComparisonDiscount({
       return (
         <span>
           <FormattedMessage
-            defaultMessage="{currencySymbol}{price} billed every 3 months"
+            defaultMessage="{price} billed every 3 months"
             description="Description of billing frequency for quarterly plan"
-            id="FFDULM"
+            id="2XR9B5"
             values={{
-              currencySymbol: plan.symbol,
-              price: plan.unitCostLocalizedInCurrency,
+              price: (
+                <PriceLabel
+                  amount={plan.unitCostLocalizedInCurrency}
+                  currency={plan.currency.toUpperCase()}
+                  symbol={plan.symbol}
+                />
+              ),
             }}
           />{' '}
           <span className={themeTextBrandColor}>
@@ -386,12 +424,17 @@ function PricingPlanComparisonDiscount({
       return (
         <span>
           <FormattedMessage
-            defaultMessage="{currencySymbol}{price} billed yearly"
+            defaultMessage="{price} billed yearly"
             description="Description of billing frequency for annual plan"
-            id="9jHIQF"
+            id="7uB2Jj"
             values={{
-              currencySymbol: plan.symbol,
-              price: plan.unitCostLocalizedInCurrency,
+              price: (
+                <PriceLabel
+                  amount={plan.unitCostLocalizedInCurrency}
+                  currency={plan.currency.toUpperCase()}
+                  symbol={plan.symbol}
+                />
+              ),
             }}
           />{' '}
           <span className={themeTextBrandColor}>
@@ -409,13 +452,18 @@ function PricingPlanComparisonDiscount({
     case 'lifetime':
       return (
         <FormattedMessage
-          defaultMessage="U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>"
+          defaultMessage="U.P. {price} <span>({discountPercentage}% off)</span>"
           description="Usual price of the item and the discount off"
-          id="ul1/lo"
+          id="FQQRsa"
           values={{
-            currencySymbol: plan.symbol,
             discountPercentage: plan.discount,
-            price: plan.unitCostBeforeDiscountInCurrency,
+            price: (
+              <PriceLabel
+                amount={plan.unitCostBeforeDiscountInCurrency}
+                currency={plan.currency.toUpperCase()}
+                symbol={plan.symbol}
+              />
+            ),
             span: (chunks) => (
               <span className={themeTextBrandColor}>{chunks}</span>
             ),
@@ -622,36 +670,57 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                     <>
                       <Text
                         className={clsx(
-                          'mt-2 inline-flex items-end text-xl',
+                          'inline-flex items-end gap-x-2 text-xl',
                           featuredPlan.plan.unitCostLocalizedInCurrency <
                             1000 && 'sm:text-xl',
                         )}
-                        color="label"
+                        color="subtitle"
                         display="inline-flex"
                         size="custom"
                         weight="medium">
-                        {featuredPlan.plan.symbol}
-                        <Text
-                          className="text-5xl font-bold"
-                          size="custom"
-                          weight="custom">
-                          {priceRoundToNearestNiceNumber(
-                            featuredPlan.plan.unitCostLocalizedInCurrency /
-                              (featuredPlan.numberOfMonths ?? 1),
-                          )}
-                        </Text>
+                        <span>
+                          <PriceLabel
+                            amount={priceRoundToNearestNiceNumber(
+                              featuredPlan.plan.unitCostLocalizedInCurrency /
+                                (featuredPlan.numberOfMonths ?? 1),
+                            )}
+                            currency={featuredPlan.plan.currency.toUpperCase()}
+                            symbol={featuredPlan.plan.symbol}>
+                            {(parts) => (
+                              <>
+                                {parts[0].value}
+                                <Text
+                                  className="text-5xl font-bold tracking-tight"
+                                  color="default"
+                                  size="custom"
+                                  weight="custom">
+                                  <>
+                                    {parts
+                                      .slice(1)
+                                      .map((part) => part.value)
+                                      .join('')}
+                                  </>
+                                </Text>
+                              </>
+                            )}
+                          </PriceLabel>
+                        </span>
                         {featuredPlan.numberOfMonths != null ? (
                           <FormattedMessage
                             defaultMessage="/month"
                             description="Per month"
                             id="aE1FCD"
                           />
-                        ) : featuredPlan.plan.symbol === '$' ? (
-                          featuredPlan.plan.currency.toLocaleUpperCase()
-                        ) : null}
+                        ) : (
+                          <FormattedMessage
+                            defaultMessage="paid once"
+                            description="Pay the price once"
+                            id="BMBc9O"
+                          />
+                        )}
                       </Text>
                       <Text
-                        className="mt-4"
+                        className="mt-2"
                         display="block"
                         size="body2"
                         weight="medium">
@@ -667,7 +736,7 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                         />
                       </div>
                       <Text
-                        className="mt-4"
+                        className="mt-2"
                         color="subtitle"
                         display="block"
                         size="body3">
@@ -766,29 +835,52 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                               size="body2">
                               {description}
                             </Text>
-                            <div className="mt-8 flex items-baseline gap-x-1">
-                              <Text
-                                className="text-3xl font-bold tracking-tight"
-                                size="custom"
-                                weight="custom">
-                                <Text weight="medium">{plan.symbol}</Text>
-                                {priceRoundToNearestNiceNumber(
-                                  plan.unitCostLocalizedInCurrency /
-                                    (numberOfMonths ?? 1),
-                                )}
-                              </Text>
-                              <Text weight="bold">
-                                {numberOfMonths != null ? (
-                                  <FormattedMessage
-                                    defaultMessage="/month"
-                                    description="Per month"
-                                    id="aE1FCD"
-                                  />
-                                ) : featuredPlan.plan.symbol === '$' ? (
-                                  featuredPlan.plan.currency.toLocaleUpperCase()
-                                ) : null}
-                              </Text>
-                            </div>
+                            <Text
+                              className="mt-8 flex items-baseline gap-x-2"
+                              color="subtitle"
+                              display="flex"
+                              weight="medium">
+                              <span>
+                                <PriceLabel
+                                  amount={priceRoundToNearestNiceNumber(
+                                    plan.unitCostLocalizedInCurrency /
+                                      (numberOfMonths ?? 1),
+                                  )}
+                                  currency={plan.currency.toUpperCase()}
+                                  symbol={plan.symbol}>
+                                  {(parts) => (
+                                    <>
+                                      {parts[0].value}
+                                      <Text
+                                        className="text-3xl font-bold tracking-tight"
+                                        color="default"
+                                        size="custom"
+                                        weight="custom">
+                                        <>
+                                          {parts
+                                            .slice(1)
+                                            .map((part) => part.value)
+                                            .join('')}
+                                        </>
+                                      </Text>
+                                    </>
+                                  )}
+                                </PriceLabel>
+                              </span>
+                              {numberOfMonths != null ? (
+                                <FormattedMessage
+                                  defaultMessage="/month"
+                                  description="Per month"
+                                  id="aE1FCD"
+                                />
+                              ) : (
+                                <FormattedMessage
+                                  defaultMessage="paid once"
+                                  description="Pay the price once"
+                                  id="BMBc9O"
+                                />
+                              )}
+                            </Text>
                             <Text
                               className="md:min-h-[32px] pt-1"
                               display="block"
