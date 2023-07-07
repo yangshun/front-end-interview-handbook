@@ -2,6 +2,8 @@ import type Stripe from 'stripe';
 
 export type PricingPlanType = 'annual' | 'lifetime' | 'monthly' | 'quarterly';
 export type PricingPlanDetails = Readonly<{
+  // Only null when one-time payment.
+  basePriceInUSD: PriceValues;
   checkoutMode: Stripe.Checkout.Session.Mode;
   discount: number;
   planType: PricingPlanType;
@@ -9,19 +11,27 @@ export type PricingPlanDetails = Readonly<{
   recurring: Readonly<{
     count: number;
     interval: Stripe.Price.Recurring.Interval;
-  }> | null; // Only null when one-time payment.
-  unitCostBeforeDiscountInUSD: number;
-  unitCostInUSD: number;
+  }> | null;
 }>;
 
-export type PricingPlanDetailsLocalized = PricingPlanDetails & {
-  countryCode: string;
-  currency: string;
-  symbol: string;
-  unitCostBeforeDiscountInCurrency: number;
-  unitCostLocalizedInCurrency: number;
-  unitCostLocalizedInUSD: number;
-};
+type PriceValues = Readonly<{
+  after: number;
+  before: number;
+}>;
+
+type UnitCostValues = Readonly<{
+  base: PriceValues;
+  withPPP: PriceValues;
+}>;
+
+export type PricingPlanDetailsLocalized = PricingPlanDetails &
+  Readonly<{
+    countryCode: string;
+    currency: string;
+    symbol: string;
+    unitCostCurrency: UnitCostValues;
+    unitCostUSD: UnitCostValues;
+  }>;
 
 export type PricingPlansLocalized = Record<
   PricingPlanType,
@@ -30,39 +40,47 @@ export type PricingPlansLocalized = Record<
 
 export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   annual: {
+    basePriceInUSD: {
+      after: 119,
+      before: 129,
+    },
     checkoutMode: 'subscription',
     discount: 70,
     planType: 'annual',
     priceType: 'recurring',
     recurring: { count: 1, interval: 'year' },
-    unitCostBeforeDiscountInUSD: 129,
-    unitCostInUSD: 119,
   },
   lifetime: {
+    basePriceInUSD: {
+      after: 199,
+      before: 250,
+    },
     checkoutMode: 'payment',
     discount: 20,
     planType: 'lifetime',
     priceType: 'one_time',
     recurring: null,
-    unitCostBeforeDiscountInUSD: 250,
-    unitCostInUSD: 199,
   },
   monthly: {
+    basePriceInUSD: {
+      after: 29,
+      before: 49,
+    },
     checkoutMode: 'subscription',
     discount: 0,
     planType: 'monthly',
     priceType: 'recurring',
     recurring: { count: 1, interval: 'month' },
-    unitCostBeforeDiscountInUSD: 49,
-    unitCostInUSD: 29,
   },
   quarterly: {
+    basePriceInUSD: {
+      after: 57,
+      before: 49,
+    },
     checkoutMode: 'subscription',
     discount: 50,
     planType: 'quarterly',
     priceType: 'recurring',
     recurring: { count: 3, interval: 'month' },
-    unitCostBeforeDiscountInUSD: 49,
-    unitCostInUSD: 57,
   },
 };

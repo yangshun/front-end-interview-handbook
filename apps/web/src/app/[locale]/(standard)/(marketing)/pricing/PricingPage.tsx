@@ -53,7 +53,7 @@ export default function PricingPage({ countryCode, plans }: Props) {
       logEvent('checkout.cancel', {
         currency: plan.currency.toLocaleUpperCase(),
         plan: planSearchParam,
-        value: plan.unitCostLocalizedInCurrency,
+        value: plan.unitCostCurrency.withPPP.after,
       });
     }
   }, [cancelSearchParam, planSearchParam, plans]);

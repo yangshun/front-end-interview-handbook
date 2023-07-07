@@ -57,9 +57,9 @@ export default async function handler(
     });
   }
 
-  const { currency, unitCostLocalizedInCurrency } = planDetails;
+  const { currency, unitCostCurrency } = planDetails;
   const unitAmountInStripeFormat = normalizeCurrencyValue(
-    unitCostLocalizedInCurrency,
+    unitCostCurrency.withPPP.after,
     currency,
   );
 

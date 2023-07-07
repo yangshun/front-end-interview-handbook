@@ -223,7 +223,7 @@ function PricingButtonSection({
       logEvent('checkout.fail', {
         currency: plan.currency.toLocaleUpperCase(),
         plan: planType,
-        value: plan.unitCostLocalizedInCurrency,
+        value: plan.unitCostCurrency.withPPP.after,
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -270,14 +270,14 @@ function PricingButtonSection({
                   message: `${
                     plan.planType
                   } plan for ${plan.currency.toLocaleUpperCase()} ${
-                    plan.unitCostLocalizedInCurrency
+                    plan.unitCostCurrency.withPPP.after
                   } but not signed in`,
                   title: 'Checkout initiate (non-signed in)',
                 });
                 logEvent('checkout.attempt.not_logged_in', {
                   currency: plan.currency.toLocaleUpperCase(),
                   plan: plan.planType,
-                  value: plan.unitCostLocalizedInCurrency,
+                  value: plan.unitCostCurrency.withPPP.after,
                 });
               }}
             />
@@ -311,21 +311,21 @@ function PricingButtonSection({
                   fbq.track('InitiateCheckout', {
                     content_category: plan.planType,
                     currency: plan.currency.toLocaleUpperCase(),
-                    value: plan.unitCostLocalizedInCurrency,
+                    value: plan.unitCostCurrency.withPPP.after,
                   });
                   logMessage({
                     level: 'info',
                     message: `${
                       plan.planType
                     } plan for ${plan.currency.toLocaleUpperCase()} ${
-                      plan.unitCostLocalizedInCurrency
+                      plan.unitCostCurrency.withPPP.after
                     }`,
                     title: 'Checkout Initiate',
                   });
                   logEvent('checkout.attempt', {
                     currency: plan.currency.toLocaleUpperCase(),
                     plan: plan.planType,
-                    value: plan.unitCostLocalizedInCurrency,
+                    value: plan.unitCostCurrency.withPPP.after,
                   });
 
                   return processSubscription(plan.planType);
@@ -377,7 +377,7 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostLocalizedInCurrency}
+                  amount={plan.unitCostCurrency.withPPP.after}
                   currency={plan.currency.toUpperCase()}
                   symbol={plan.symbol}
                 />
@@ -401,7 +401,7 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostLocalizedInCurrency}
+                  amount={plan.unitCostCurrency.withPPP.after}
                   currency={plan.currency.toUpperCase()}
                   symbol={plan.symbol}
                 />
@@ -430,7 +430,7 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostLocalizedInCurrency}
+                  amount={plan.unitCostCurrency.withPPP.after}
                   currency={plan.currency.toUpperCase()}
                   symbol={plan.symbol}
                 />
@@ -459,7 +459,7 @@ function PricingPlanComparisonDiscount({
             discountPercentage: plan.discount,
             price: (
               <PriceLabel
-                amount={plan.unitCostBeforeDiscountInCurrency}
+                amount={plan.unitCostCurrency.withPPP.before}
                 currency={plan.currency.toUpperCase()}
                 symbol={plan.symbol}
               />
@@ -626,7 +626,7 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                       ),
                       symbol: annualPlan.symbol,
                       unitCostLocalizedInCurrency:
-                        annualPlan.unitCostLocalizedInCurrency,
+                        annualPlan.unitCostCurrency.withPPP.after,
                     }}
                   />
                 }
@@ -671,7 +671,7 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                       <Text
                         className={clsx(
                           'inline-flex items-end gap-x-2 text-xl',
-                          featuredPlan.plan.unitCostLocalizedInCurrency <
+                          featuredPlan.plan.unitCostCurrency.withPPP.after <
                             1000 && 'sm:text-xl',
                         )}
                         color="subtitle"
@@ -681,7 +681,7 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                         <span>
                           <PriceLabel
                             amount={priceRoundToNearestNiceNumber(
-                              featuredPlan.plan.unitCostLocalizedInCurrency /
+                              featuredPlan.plan.unitCostCurrency.withPPP.after /
                                 (featuredPlan.numberOfMonths ?? 1),
                             )}
                             currency={featuredPlan.plan.currency.toUpperCase()}
@@ -843,7 +843,7 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                               <span>
                                 <PriceLabel
                                   amount={priceRoundToNearestNiceNumber(
-                                    plan.unitCostLocalizedInCurrency /
+                                    plan.unitCostCurrency.withPPP.after /
                                       (numberOfMonths ?? 1),
                                   )}
                                   currency={plan.currency.toUpperCase()}

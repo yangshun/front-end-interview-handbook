@@ -107,14 +107,14 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
           ignore_referrer: 'true',
           send_to: 'AW-11039716901/SrTfCIrox5UYEKXskpAp',
           transaction_id: '',
-          value: plan.unitCostLocalizedInCurrency,
+          value: plan.unitCostCurrency.withPPP.after,
         },
       });
 
       fbq.track('Purchase', {
         content_name: plan.planType,
         currency: plan.currency.toLocaleUpperCase(),
-        value: plan.unitCostLocalizedInCurrency,
+        value: plan.unitCostCurrency.withPPP.after,
       });
 
       logMessage({
@@ -122,14 +122,14 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         message: `Purchased ${
           plan.planType
         } plan for ${plan.currency.toLocaleUpperCase()} ${
-          plan.unitCostLocalizedInCurrency
+          plan.unitCostCurrency.withPPP.after
         }`,
         title: 'Purchase',
       });
       logEvent('checkout.success', {
         currency: plan.currency.toLocaleUpperCase(),
         plan: plan.planType,
-        value: plan.unitCostLocalizedInCurrency,
+        value: plan.unitCostCurrency.withPPP.after,
       });
     }
   }, [planSearchParam, plans]);
@@ -159,7 +159,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
             <Section>
               <ul
                 className={clsx(
-                  'mt-4 divide-y border-t border-b',
+                  'mt-4 divide-y border-b border-t',
                   themeLineColor,
                   themeDivideColor,
                 )}

@@ -1,7 +1,13 @@
+import { clamp } from 'lodash-es';
+
 import { shouldUseCountryCurrency } from '~/lib/stripeUtils';
 
 import logMessage from '~/logging/logMessage';
 
+import {
+  MAXIMUM_PPP_CONVERSION_FACTOR,
+  MINIMUM_PPP_CONVERSION_FACTOR,
+} from './pricingConfig';
 import { priceRoundToNearestNiceNumber } from './pricingUtils';
 import pppValues from './purchasingPowerParity.json';
 import type {
@@ -37,8 +43,6 @@ const defaultPpp: PurchasingPowerParity = {
   },
 };
 
-const MINIMUM_PPP_CONVERSION_FACTOR = 0.4;
-const MAXIMUM_PPP_CONVERSION_FACTOR = 2;
 // For these countries we convert the prices using a PPP.
 // These are our top 20 countries based on GA data.
 // For the rest, we will just do a currency conversion based on US value.
@@ -77,19 +81,22 @@ function localizePlanDetails(
   const { currency, conversionFactor: pppConversionFactor } = ppp;
 
   const shouldUseCountryCurrencyValue = shouldUseCountryCurrency(currency.code);
+  const { before: unitCostBeforeDiscountInUSD, after: unitCostInUSD } =
+    plan.basePriceInUSD;
 
-  const conversionFactor = Math.min(
-    Math.max(pppConversionFactor, MINIMUM_PPP_CONVERSION_FACTOR),
+  const conversionFactor = clamp(
+    pppConversionFactor,
+    MINIMUM_PPP_CONVERSION_FACTOR,
     MAXIMUM_PPP_CONVERSION_FACTOR,
   );
 
   const unitCostLocalizedInUSD = localizeUnitCostInUSD(
-    plan.unitCostInUSD,
+    unitCostInUSD,
     conversionFactor,
   );
 
   const unitCostLocalizedBeforeDiscountInUSD = priceRoundToNearestNiceNumber(
-    localizeUnitCostInUSD(plan.unitCostBeforeDiscountInUSD, conversionFactor),
+    localizeUnitCostInUSD(unitCostBeforeDiscountInUSD, conversionFactor),
   );
 
   const unitCostLocalizedInCurrency = shouldUseCountryCurrencyValue
@@ -98,20 +105,48 @@ function localizePlanDetails(
       )
     : unitCostLocalizedInUSD;
 
+  const unitCostLocalizedBeforeDiscountInCurrency =
+    shouldUseCountryCurrencyValue
+      ? priceRoundToNearestNiceNumber(
+          unitCostLocalizedBeforeDiscountInUSD * currency.exchangeRate,
+        )
+      : unitCostLocalizedBeforeDiscountInUSD;
+
+  const unitCostInCurrency = shouldUseCountryCurrencyValue
+    ? priceRoundToNearestNiceNumber(unitCostInUSD * currency.exchangeRate)
+    : unitCostInUSD;
+
   const unitCostBeforeDiscountInCurrency = shouldUseCountryCurrencyValue
     ? priceRoundToNearestNiceNumber(
-        unitCostLocalizedBeforeDiscountInUSD * currency.exchangeRate,
+        unitCostBeforeDiscountInUSD * currency.exchangeRate,
       )
-    : unitCostLocalizedBeforeDiscountInUSD;
+    : unitCostBeforeDiscountInUSD;
 
   return {
     ...plan,
     countryCode,
     currency: shouldUseCountryCurrencyValue ? currency.code : 'usd',
     symbol: shouldUseCountryCurrencyValue ? currency.symbol : '$',
-    unitCostBeforeDiscountInCurrency,
-    unitCostLocalizedInCurrency,
-    unitCostLocalizedInUSD,
+    unitCostCurrency: {
+      base: {
+        after: unitCostInCurrency,
+        before: unitCostBeforeDiscountInCurrency,
+      },
+      withPPP: {
+        after: unitCostLocalizedInCurrency,
+        before: unitCostLocalizedBeforeDiscountInCurrency,
+      },
+    },
+    unitCostUSD: {
+      base: {
+        after: unitCostInUSD,
+        before: unitCostBeforeDiscountInUSD,
+      },
+      withPPP: {
+        after: unitCostLocalizedInUSD,
+        before: unitCostLocalizedBeforeDiscountInUSD,
+      },
+    },
   };
 }
 type CountryCode = keyof typeof pppValues;
