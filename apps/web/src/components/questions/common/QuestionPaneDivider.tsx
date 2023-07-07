@@ -13,8 +13,8 @@ export default function QuestionPaneDivider({ onMouseDown }: Props) {
       className={clsx(
         'z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 bg-clip-padding transition-colors lg:block',
         themeLineBackgroundColor,
-        'dark:hover:bg-background-brand',
-        'hover:border-brand-light dark:hover-border-brand border-transparent',
+        'hover:bg-brand-light dark:hover:bg-brand',
+        'hover:border-brand-light dark:hover:border-brand border-transparent',
       )}
       role="presentation"
       onMouseDown={onMouseDown}
