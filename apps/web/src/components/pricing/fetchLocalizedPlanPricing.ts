@@ -124,6 +124,7 @@ function localizePlanDetails(
 
   return {
     ...plan,
+    conversionFactor,
     countryCode,
     currency: shouldUseCountryCurrencyValue ? currency.code : 'usd',
     symbol: shouldUseCountryCurrencyValue ? currency.symbol : '$',

@@ -26,6 +26,7 @@ type UnitCostValues = Readonly<{
 
 export type PricingPlanDetailsLocalized = PricingPlanDetails &
   Readonly<{
+    conversionFactor: number;
     countryCode: string;
     currency: string;
     symbol: string;

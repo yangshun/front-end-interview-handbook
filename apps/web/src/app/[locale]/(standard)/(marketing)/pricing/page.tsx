@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
+import countryNames from '~/data/countryCodesToNames.json';
+
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
 
 import { getIntlServerOnly } from '~/i18n';
@@ -45,6 +47,14 @@ export default async function Page({ searchParams }: Props) {
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
   const plans = await fetchLocalizedPlanPricing(countryCode);
+  const countryName: string =
+    countryNames[countryCode as keyof typeof countryNames];
 
-  return <PricingPage countryCode={countryCode} plans={plans} />;
+  return (
+    <PricingPage
+      countryCode={countryCode}
+      countryName={countryName}
+      plans={plans}
+    />
+  );
 }

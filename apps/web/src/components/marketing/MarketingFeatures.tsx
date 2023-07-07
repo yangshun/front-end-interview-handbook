@@ -182,7 +182,7 @@ export default function MarketingFeatures() {
         Features
       </Heading>
       <Section>
-        <dl className="sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 lg:gap-x-12">
+        <dl className="grid gap-6 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-12">
           {features.map((feature) => (
             <div key={feature.name} className="group relative">
               <dt className="flex flex-col items-start gap-y-4">

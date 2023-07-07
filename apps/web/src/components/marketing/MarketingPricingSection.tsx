@@ -1,5 +1,6 @@
 import axios from 'axios';
 import clsx from 'clsx';
+import _ from 'lodash';
 import type { SVGProps } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
@@ -37,6 +38,7 @@ import logMessage from '~/logging/logMessage';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
 import PricingBlockCard from '../pricing/PricingBlockCard';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../pricing/pricingConfig';
 import { priceRoundToNearestNiceNumber } from '../pricing/pricingUtils';
 
 import { loadStripe } from '@stripe/stripe-js';
@@ -98,6 +100,7 @@ function PurpleGradientBackground() {
 
 type Props = Readonly<{
   countryCode: string;
+  countryName: string;
   plans: PricingPlansLocalized;
 }>;
 
@@ -449,7 +452,7 @@ function PricingPlanComparisonDiscount({
           </span>
         </span>
       );
-    case 'lifetime':
+    case 'lifetime': {
       return (
         <FormattedMessage
           defaultMessage="U.P. {price} <span>({discountPercentage}% off)</span>"
@@ -470,6 +473,7 @@ function PricingPlanComparisonDiscount({
           }}
         />
       );
+    }
   }
 }
 
@@ -481,7 +485,11 @@ type PricingPlanDetails = Readonly<{
   plan: PricingPlanDetailsLocalized;
 }>;
 
-export default function MarketingPricingSection({ countryCode, plans }: Props) {
+export default function MarketingPricingSection({
+  countryCode,
+  countryName,
+  plans,
+}: Props) {
   const intl = useIntl();
   const featuredPlanId = useId();
 
@@ -603,6 +611,9 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
   ];
 
   const featuredPlan = annualPlanDetails;
+  const showPPPMessage =
+    featuredPlan.plan.conversionFactor <
+    MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
 
   return (
     <div
@@ -661,13 +672,60 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
         </div>
         <Section>
           <div className={clsx('mt-8 pb-16 sm:mt-12 sm:pb-20')}>
-            <div className="relative">
-              <Container>
-                <PricingBlockCard
-                  features={featuredPlan.includedFeatures}
-                  glow={true}
-                  rightSectionContents={
-                    <>
+            <Container className="relative flex flex-col gap-y-12">
+              {showPPPMessage && (
+                <Alert
+                  title={`Purchasing power parity for ${countryName}`}
+                  variant="primary">
+                  We noticed you're in {countryName}. We support Purchasing
+                  Power Parity, so a{' '}
+                  <strong>
+                    {Math.ceil(100 - featuredPlan.plan.conversionFactor * 100)}%
+                    discount
+                  </strong>{' '}
+                  has been automatically applied! 🎉
+                </Alert>
+              )}
+              <PricingBlockCard
+                features={featuredPlan.includedFeatures}
+                glow={true}
+                rightSectionContents={
+                  <>
+                    <div className="flex flex-col">
+                      {showPPPMessage && (
+                        <Text
+                          className={clsx(
+                            'inline-flex items-end gap-x-2 text-lg line-through',
+                            featuredPlan.plan.unitCostCurrency.withPPP.after <
+                              1000 && 'sm:text-lg',
+                          )}
+                          color="subtle"
+                          display="inline-flex"
+                          size="custom"
+                          weight="medium">
+                          <PriceLabel
+                            amount={priceRoundToNearestNiceNumber(
+                              featuredPlan.plan.unitCostCurrency.base.after /
+                                (featuredPlan.numberOfMonths ?? 1),
+                            )}
+                            currency={featuredPlan.plan.currency.toUpperCase()}
+                            symbol={featuredPlan.plan.symbol}
+                          />
+                          {featuredPlan.numberOfMonths != null ? (
+                            <FormattedMessage
+                              defaultMessage="/month"
+                              description="Per month"
+                              id="aE1FCD"
+                            />
+                          ) : (
+                            <FormattedMessage
+                              defaultMessage="paid once"
+                              description="Pay the price once"
+                              id="BMBc9O"
+                            />
+                          )}
+                        </Text>
+                      )}
                       <Text
                         className={clsx(
                           'inline-flex items-end gap-x-2 text-xl',
@@ -719,57 +777,55 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                           />
                         )}
                       </Text>
-                      <Text
-                        className="mt-2"
-                        display="block"
-                        size="body2"
-                        weight="medium">
-                        <PricingPlanComparisonDiscount
-                          plan={featuredPlan.plan}
-                        />
-                      </Text>
-                      <div className="mt-6">
-                        <PricingButtonSection
-                          aria-describedby={featuredPlanId}
-                          countryCode={countryCode}
-                          plan={featuredPlan.plan}
-                        />
-                      </div>
-                      <Text
-                        className="mt-2"
-                        color="subtitle"
-                        display="block"
-                        size="body3">
-                        <FormattedMessage
-                          defaultMessage="Get {discountPercentage}% off with the code {promoCode}"
-                          description="Subtitle of discount promotion card"
-                          id="Z4uI1g"
-                          values={{
-                            discountPercentage: 20,
-                            promoCode: 'SUMMERSALE23',
-                          }}
-                        />
-                      </Text>
-                    </>
-                  }
-                  subtitle={featuredPlan.description}
-                  title={
-                    <div className="flex items-center gap-x-4">
-                      <span id={featuredPlanId}>{featuredPlan.name}</span>
-                      <Badge
-                        label={intl.formatMessage({
-                          defaultMessage: 'While offer lasts',
-                          description:
-                            'Label to indicate offer is a limited time deal',
-                          id: 'N5Cp1r',
-                        })}
-                        variant="special"
+                    </div>
+                    <Text
+                      className="mt-2"
+                      display="block"
+                      size="body2"
+                      weight="medium">
+                      <PricingPlanComparisonDiscount plan={featuredPlan.plan} />
+                    </Text>
+                    <div className="mt-6">
+                      <PricingButtonSection
+                        aria-describedby={featuredPlanId}
+                        countryCode={countryCode}
+                        plan={featuredPlan.plan}
                       />
                     </div>
-                  }
-                />
-              </Container>
-            </div>
+                    <Text
+                      className="mt-2"
+                      color="subtitle"
+                      display="block"
+                      size="body3">
+                      <FormattedMessage
+                        defaultMessage="Get {discountPercentage}% off with the code {promoCode}"
+                        description="Subtitle of discount promotion card"
+                        id="Z4uI1g"
+                        values={{
+                          discountPercentage: 20,
+                          promoCode: 'SUMMERSALE23',
+                        }}
+                      />
+                    </Text>
+                  </>
+                }
+                subtitle={featuredPlan.description}
+                title={
+                  <div className="flex items-center gap-x-4">
+                    <span id={featuredPlanId}>{featuredPlan.name}</span>
+                    <Badge
+                      label={intl.formatMessage({
+                        defaultMessage: 'While offer lasts',
+                        description:
+                          'Label to indicate offer is a limited time deal',
+                        id: 'N5Cp1r',
+                      })}
+                      variant="special"
+                    />
+                  </div>
+                }
+              />
+            </Container>
           </div>
           <Container className="relative">
             <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
@@ -835,54 +891,95 @@ export default function MarketingPricingSection({ countryCode, plans }: Props) {
                               size="body2">
                               {description}
                             </Text>
-                            <Text
-                              className="mt-8 flex items-baseline gap-x-2"
-                              color="subtitle"
-                              display="flex"
-                              weight="medium">
-                              <span>
-                                <PriceLabel
-                                  amount={priceRoundToNearestNiceNumber(
-                                    plan.unitCostCurrency.withPPP.after /
-                                      (numberOfMonths ?? 1),
+                            <div className="mt-8">
+                              {showPPPMessage && (
+                                <Text
+                                  className={clsx(
+                                    'items-baseline gap-x-2 line-through',
                                   )}
-                                  currency={plan.currency.toUpperCase()}
-                                  symbol={plan.symbol}>
-                                  {(parts) => (
+                                  color="subtle"
+                                  display="flex">
+                                  <PriceLabel
+                                    amount={priceRoundToNearestNiceNumber(
+                                      plan.unitCostCurrency.base.after /
+                                        (numberOfMonths ?? 1),
+                                    )}
+                                    currency={plan.currency.toUpperCase()}
+                                    symbol={plan.symbol}
+                                  />
+                                  {numberOfMonths != null ? (
+                                    <FormattedMessage
+                                      defaultMessage="/month"
+                                      description="Per month"
+                                      id="aE1FCD"
+                                    />
+                                  ) : (
                                     <>
-                                      {parts[0].value}
-                                      <Text
-                                        className="text-3xl font-bold tracking-tight"
-                                        color="default"
-                                        size="custom"
-                                        weight="custom">
-                                        <>
-                                          {parts
-                                            .slice(1)
-                                            .map((part) => part.value)
-                                            .join('')}
-                                        </>
-                                      </Text>
+                                      {' '}
+                                      <FormattedMessage
+                                        defaultMessage="paid once"
+                                        description="Pay the price once"
+                                        id="BMBc9O"
+                                      />
                                     </>
                                   )}
-                                </PriceLabel>
-                              </span>
-                              {numberOfMonths != null ? (
-                                <FormattedMessage
-                                  defaultMessage="/month"
-                                  description="Per month"
-                                  id="aE1FCD"
-                                />
-                              ) : (
-                                <FormattedMessage
-                                  defaultMessage="paid once"
-                                  description="Pay the price once"
-                                  id="BMBc9O"
-                                />
+                                </Text>
                               )}
-                            </Text>
+                              <Text
+                                className="flex items-baseline gap-x-2"
+                                color="subtitle"
+                                display="flex"
+                                weight="medium">
+                                <span>
+                                  <PriceLabel
+                                    amount={priceRoundToNearestNiceNumber(
+                                      plan.unitCostCurrency.withPPP.after /
+                                        (numberOfMonths ?? 1),
+                                    )}
+                                    currency={plan.currency.toUpperCase()}
+                                    symbol={plan.symbol}>
+                                    {(parts) => (
+                                      <>
+                                        {parts[0].value}
+                                        <Text
+                                          className="text-3xl font-bold tracking-tight"
+                                          color="default"
+                                          size="custom"
+                                          weight="custom">
+                                          <>
+                                            {parts
+                                              .slice(1)
+                                              .map((part) => part.value)
+                                              .join('')}
+                                          </>
+                                        </Text>
+                                      </>
+                                    )}
+                                  </PriceLabel>
+                                </span>
+                                {numberOfMonths != null ? (
+                                  <FormattedMessage
+                                    defaultMessage="/month"
+                                    description="Per month"
+                                    id="aE1FCD"
+                                  />
+                                ) : (
+                                  <FormattedMessage
+                                    defaultMessage="paid once"
+                                    description="Pay the price once"
+                                    id="BMBc9O"
+                                  />
+                                )}
+                              </Text>
+                            </div>
                             <Text
-                              className="md:min-h-[32px] pt-1"
+                              className={clsx(
+                                'md:min-h-[32px] pt-1',
+                                plan.conversionFactor <
+                                  MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
+                                  plan.planType === 'lifetime' &&
+                                  'invisible',
+                              )}
                               display="block"
                               size="body3">
                               <PricingPlanComparisonDiscount plan={plan} />

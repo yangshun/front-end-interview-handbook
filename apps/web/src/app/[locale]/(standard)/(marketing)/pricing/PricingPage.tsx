@@ -21,10 +21,15 @@ import logMessage from '~/logging/logMessage';
 
 type Props = Readonly<{
   countryCode: string;
+  countryName: string;
   plans: PricingPlansLocalized;
 }>;
 
-export default function PricingPage({ countryCode, plans }: Props) {
+export default function PricingPage({
+  countryCode,
+  countryName,
+  plans,
+}: Props) {
   const searchParams = useSearchParams();
   const planSearchParam = searchParams?.get('plan') as PricingPlanType | null;
 
@@ -60,7 +65,11 @@ export default function PricingPage({ countryCode, plans }: Props) {
 
   return (
     <div className="dark flex flex-col gap-y-16 bg-[#070708] sm:gap-y-20 md:pt-8">
-      <MarketingPricingSection countryCode={countryCode} plans={plans} />
+      <MarketingPricingSection
+        countryCode={countryCode}
+        countryName={countryName}
+        plans={plans}
+      />
       <Section>
         <MarketingFeatures />
         <div>

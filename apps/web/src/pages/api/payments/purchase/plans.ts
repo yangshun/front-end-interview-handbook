@@ -1,9 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import countryNames from '~/data/countryCodesToNames.json';
+
 import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
 
 import logMessage from '~/logging/logMessage';
 
+type CountryCode = keyof typeof countryNames;
 type QueryParams = Readonly<{
   country?: string;
 }>;
@@ -19,7 +22,10 @@ export default async function handler(
     const plans = await fetchLocalizedPlanPricing(countryCode);
 
     return res.json({
-      countryCode,
+      country: {
+        code: countryCode,
+        name: countryNames[countryCode as CountryCode],
+      },
       plans,
     });
   } catch (err: any) {
