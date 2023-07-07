@@ -4,6 +4,9 @@ import UIExamplesGroup from '../misc/UIExamplesGroup';
 export default function AlertExamples() {
   return (
     <UIExamplesGroup darkMode="horizontal" title="Alert">
+      <Alert title="Hey hey look here" variant="primary">
+        Just wanted to get your attention. Nothing important actually.
+      </Alert>
       <Alert title="Order completed" variant="success">
         Your order has been placed! Please check your email for the
         confirmation.

@@ -5,13 +5,14 @@ import {
   RiCloseCircleFill,
   RiErrorWarningFill,
   RiInformationFill,
+  RiStarFill,
 } from 'react-icons/ri';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 
-type AlertVariant = 'danger' | 'info' | 'success' | 'warning';
+type AlertVariant = 'danger' | 'info' | 'primary' | 'success' | 'warning';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -39,6 +40,12 @@ const classes: Record<
     icon: RiInformationFill,
     iconClass: 'text-info',
     titleClass: 'text-info',
+  },
+  primary: {
+    backgroundClass: 'bg-brand-lighter dark:bg-neutral-800/70',
+    icon: RiStarFill,
+    iconClass: 'text-brand-dark dark:text-brand',
+    titleClass: 'text-brand-dark dark:text-brand',
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-neutral-800/70',
