@@ -48,7 +48,7 @@ export default function QuestionPagination({ currentHref, items }: Props) {
           <Anchor
             aria-hidden={true}
             className="line-clamp-2 text-base font-semibold text-neutral-900 transition hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300"
-            href="/webhooks"
+            href={prevQuestion.href}
             variant="unstyled">
             {prevQuestion.title}
           </Anchor>
