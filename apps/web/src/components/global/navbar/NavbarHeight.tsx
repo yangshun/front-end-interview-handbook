@@ -9,9 +9,12 @@ export default function NavbarHeight() {
   const isHidden = useIsBannerHidden();
 
   return isHidden ? (
-    <style>{`:root { --navbar-height: ${navbarHeight}px; }`}</style>
+    <style
+      suppressHydrationWarning={
+        true
+      }>{`:root { --navbar-height: ${navbarHeight}px; }`}</style>
   ) : (
-    <style>{`:root { --navbar-height: ${
+    <style suppressHydrationWarning={true}>{`:root { --navbar-height: ${
       navbarHeight + bannerHeight
     }px; }`}</style>
   );

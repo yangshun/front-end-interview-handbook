@@ -1,10 +1,7 @@
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 
 export default function useIsBannerHidden() {
-  const { userProfile } = useUserProfile();
-  const { showPromoBanner } = useUserPreferences();
-  const isPremium = userProfile?.isPremium ?? false;
+  const { showGlobalBanner } = useUserPreferences();
 
-  return isPremium || !showPromoBanner;
+  return !showGlobalBanner;
 }

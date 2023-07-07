@@ -32,7 +32,7 @@ export default function HiringPage() {
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
       variant="narrow">
-      <Heading level="heading2">{title}</Heading>
+      <Heading level="heading3">{title}</Heading>
       <Section>
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:order-last">

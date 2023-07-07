@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -6,26 +7,26 @@ type Props = Readonly<{
 
 type UserPreferencesContextType = Readonly<{
   setShowFeedbackWidget: (collapsed: boolean) => void;
-  setShowPromoBanner: (isHidden: boolean) => void;
+  setShowGlobalBanner: (isHidden: boolean) => void;
   setShowSidebar: (collapsed: boolean) => void;
   showFeedbackWidget: boolean;
-  showPromoBanner: boolean;
+  showGlobalBanner: boolean;
   showSidebar: boolean;
 }>;
 
 const DEFAULT_SHOW_SIDEBAR = true;
 const DEFAULT_SHOW_FEEDBACK_WIDGET = true;
-const DEFAULT_SHOW_PROMO_BANNER = true;
+const DEFAULT_SHOW_GLOBAL_BANNER = true;
 
 const UserPreferencesContext = createContext<UserPreferencesContextType>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowFeedbackWidget: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setShowPromoBanner: () => {},
+  setShowGlobalBanner: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowSidebar: () => {},
   showFeedbackWidget: DEFAULT_SHOW_FEEDBACK_WIDGET,
-  showPromoBanner: DEFAULT_SHOW_PROMO_BANNER,
+  showGlobalBanner: DEFAULT_SHOW_GLOBAL_BANNER,
   showSidebar: DEFAULT_SHOW_SIDEBAR,
 });
 
@@ -38,18 +39,19 @@ export default function UserPreferencesProvider({ children }: Props) {
   const [showFeedbackWidget, setShowFeedbackWidget] = useState(
     DEFAULT_SHOW_FEEDBACK_WIDGET,
   );
-  const [showPromoBanner, setShowPromoBanner] = useState(
-    DEFAULT_SHOW_PROMO_BANNER,
+  const [showGlobalBanner, setShowGlobalBanner] = useLocalStorage(
+    'gfe:global-banner-0', // Update when banner contents are changed.
+    DEFAULT_SHOW_GLOBAL_BANNER,
   );
 
   return (
     <UserPreferencesContext.Provider
       value={{
         setShowFeedbackWidget,
-        setShowPromoBanner,
+        setShowGlobalBanner,
         setShowSidebar,
         showFeedbackWidget,
-        showPromoBanner,
+        showGlobalBanner,
         showSidebar,
       }}>
       {children}
