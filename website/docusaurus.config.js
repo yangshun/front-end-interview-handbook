@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       id: 'gfe', // Increment on change
-      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 25% off the lifetime plan today</a>! ⭐️`,
+      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
       isCloseable: false,
     },
     prism: {
@@ -27,24 +27,24 @@ module.exports = {
       },
       items: [
         {to: 'introduction', label: 'Start reading', position: 'left'},
-         {
+        {
           type: 'dropdown',
           position: 'left',
           label: 'Practice',
           items: [
             {
               label: 'Coding Questions',
-              href: 'https://www.greatfrontend.com/prepare/coding'
+              href: 'https://www.greatfrontend.com/prepare/coding',
             },
             {
               label: 'System Design',
-              href: 'https://www.greatfrontend.com/prepare/system-design'
+              href: 'https://www.greatfrontend.com/prepare/system-design',
             },
             {
               label: 'Quiz Questions',
-              href: 'https://www.greatfrontend.com/prepare/quiz'
+              href: 'https://www.greatfrontend.com/prepare/quiz',
             },
-          ]
+          ],
         },
         {
           to: 'front-end-system-design',
