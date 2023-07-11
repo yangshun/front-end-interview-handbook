@@ -89,9 +89,10 @@ export const config = {
      * - sitemap.xml (sitemap file)
      * - robots.txt (robots.txt file)
      * - img (public imgs)
+     * - monaco-editor (monaco editor library)
      *
      * Add/remove where necessary.
      */
-    '/((?!api|_vercel|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|img).*)',
+    '/((?!api|_vercel|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|img|monaco-editor).*)',
   ],
 };
