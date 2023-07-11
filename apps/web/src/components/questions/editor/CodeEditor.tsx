@@ -41,10 +41,6 @@ export default function CodeEditor({ value, filePath, onChange }: Props) {
     if (monaco && monacoTheme) {
       monaco.editor.defineTheme(themeKey, monacoTheme);
       monaco.editor.setTheme(themeKey);
-
-      monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
-        target: monaco.languages.typescript.ScriptTarget.ESNext,
-      });
     }
   }, [monaco, monacoTheme, themeKey]);
 
