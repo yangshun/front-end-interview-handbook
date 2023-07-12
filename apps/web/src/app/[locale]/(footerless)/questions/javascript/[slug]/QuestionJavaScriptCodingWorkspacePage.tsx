@@ -81,7 +81,7 @@ function LeftPane({
       </div>
       <div
         className={clsx(
-          'flex items-center justify-between border-t py-3 px-4 sm:px-6 lg:py-2',
+          'flex items-center justify-between border-t px-4 py-3 sm:px-6 lg:py-2',
           themeLineColor,
         )}>
         <Button
@@ -177,6 +177,7 @@ export default function QuestionJavaScriptCodingWorkspacePage({
           ) : (
             <JavaScriptWorkspace
               key={question.metadata.slug + '/' + shownLanguage}
+              instance="workspace.js"
               language={shownLanguage}
               layout={layout}
               nextQuestions={nextQuestions}

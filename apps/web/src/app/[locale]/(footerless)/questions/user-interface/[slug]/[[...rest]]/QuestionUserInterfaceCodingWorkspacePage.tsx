@@ -62,6 +62,7 @@ import {
   useActiveCode,
   useSandpack,
 } from '@codesandbox/sandpack-react';
+import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 const STARTING_LEFT_PANE_WIDTH = 500;
 
@@ -363,6 +364,7 @@ function MiddleRightPane({
           }
         }}
       />
+      <SandpackTimeoutLogger instance="workspace.ui" />
     </SandpackProvider>
   );
 }

@@ -19,6 +19,7 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
+import SandpackTimeoutLogger from '../workspace/SandpackTimeoutLogger';
 
 const height = 450;
 const editorPartPercentage = 70;
@@ -131,6 +132,7 @@ export default function MarketingFeatureSolutions({ solutions }: Props) {
             }}
           />
         </SandpackLayout>
+        <SandpackTimeoutLogger instance="marketing.feature.solutions" />
       </SandpackProvider>
     </div>
   );

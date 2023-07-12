@@ -17,6 +17,7 @@ type LoggingAction =
   | 'click'
   | 'copy'
   | 'error'
+  | 'sandpack.timeout'
   | 'hydration.fail'
   | 'hydration.success'
   | 'pageview'
@@ -27,7 +28,7 @@ type LoggingAction =
 type LoggingPayload = Record<string, unknown>;
 
 /**
- * Client-side logging. Don't use on the server.
+ * Client-side logging to Axiom. Don't use on the server.
  */
 export default async function logEvent(
   action: LoggingAction,

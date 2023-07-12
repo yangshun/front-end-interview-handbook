@@ -170,6 +170,7 @@ export default function MarketingEmbedJavaScriptQuestion({
         <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
         <JavaScriptWorkspace
           key={language}
+          instance="marketing.embed.js"
           language={language}
           layout="horizontal"
           // Don't need show next questions for embed.

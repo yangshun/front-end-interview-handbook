@@ -36,6 +36,7 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
+import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 export type EmbedUIQuestion = Readonly<{
   angular: Readonly<{
@@ -217,6 +218,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                 }}
               />
             </SandpackLayout>
+            <SandpackTimeoutLogger instance="marketing.embed.ui" />
           </SandpackProvider>
         </div>
       </div>

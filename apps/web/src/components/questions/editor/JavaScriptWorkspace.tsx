@@ -59,6 +59,7 @@ import {
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { useUser } from '@supabase/auth-helpers-react';
+import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 function Contents({
   language,
@@ -440,6 +441,7 @@ function Contents({
 }
 
 export default function JavaScriptWorkspace({
+  instance,
   language,
   layout = 'vertical',
   onChangeLayout,
@@ -450,6 +452,7 @@ export default function JavaScriptWorkspace({
   showToolbar = true,
   nextQuestions = [],
 }: Readonly<{
+  instance: string;
   language: QuestionCodingWorkingLanguage;
   layout?: CodingWorkspaceLayout;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -506,6 +509,7 @@ export default function JavaScriptWorkspace({
       <div className="hidden">
         <SandpackPreview />
       </div>
+      <SandpackTimeoutLogger instance={instance} />
     </SandpackProvider>
   );
 }
