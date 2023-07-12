@@ -1,15 +1,13 @@
-import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
+import type {
+  AppRouterInstance,
+  NavigateOptions,
+} from 'next/dist/shared/lib/app-router-context';
 import { useRouter } from 'next/navigation';
 
 import useI18n from './useI18n';
 import type { Locale } from '../types';
 import i18nHref from '../utils/i18nHref';
 
-// Copied from next/dist/shared/lib/app-router-context.d.ts.
-// Need to sync with it periodically.
-type NavigateOptions = {
-  forceOptimisticNavigation?: boolean;
-};
 type I18nNavigateOptions = NavigateOptions & {
   locale?: Locale;
 };
