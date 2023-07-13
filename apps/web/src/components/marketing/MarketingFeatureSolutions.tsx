@@ -98,6 +98,8 @@ export default function MarketingFeatureSolutions({ solutions }: Props) {
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-wrapper': '!w-[200%] !scale-50 !origin-top-left -mb-[200px]',
           },
+          initMode: 'user-visible',
+          initModeObserverOptions: { rootMargin: `1000px 0px` },
           visibleFiles: setup?.visibleFiles,
         }}
         theme={MarketingCodeMirrorTheme}>

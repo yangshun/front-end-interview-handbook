@@ -191,6 +191,8 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
                 'sp-tabs': '!bg-white dark:!bg-neutral-950',
                 'sp-wrapper': '!h-full grow !w-full',
               },
+              initMode: 'user-visible',
+              initModeObserverOptions: { rootMargin: `600px 0px` },
               visibleFiles: setup?.visibleFiles,
             }}
             theme={MarketingCodeMirrorTheme}>
