@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import useMonacoTheme from '~/hooks/useMonacoTheme';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
+import EmptyState from '~/components/ui/EmptyState';
 
 import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 
@@ -49,6 +50,13 @@ export default function CodeEditor({ value, filePath, onChange }: Props) {
   return (
     <MonacoEditor
       defaultLanguage={language}
+      loading={
+        <EmptyState
+          iconClassName="animate-bounce"
+          title="Loading editor"
+          variant="editor_loading"
+        />
+      }
       options={{
         minimap: {
           // TODO: Make it customizable.

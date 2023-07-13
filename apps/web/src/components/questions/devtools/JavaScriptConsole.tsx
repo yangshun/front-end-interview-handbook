@@ -21,7 +21,11 @@ import Dialog from '~/components/ui/Dialog';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import {
+  themeDivideColor,
+  themeLineColor,
+  themeTextFainterColor,
+} from '~/components/ui/theme';
 
 import useConsoleStyles from './useConsoleStyles';
 
@@ -43,10 +47,12 @@ function NoLogs({
   showExplicitInvocationMessage?: boolean;
 }>) {
   return (
-    <div className="flex h-full grow items-center justify-center py-4 px-4 sm:px-6 lg:px-4">
+    <div className="flex h-full grow items-center justify-center px-4 py-4 sm:px-6 lg:px-4">
       <div className="grid gap-y-2">
         <div className="flex justify-center">
-          <RiTerminalBoxLine className="h-12 w-12 shrink-0 text-neutral-300" />
+          <RiTerminalBoxLine
+            className={clsx('h-12 w-12 shrink-0', themeTextFainterColor)}
+          />
         </div>
         <Text
           className="text-center"

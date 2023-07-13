@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import {
   RiCheckboxCircleLine,
+  RiCodeBoxLine,
   RiEmotionSadLine,
   RiGhost2Line,
   RiLockLine,
@@ -19,12 +20,14 @@ type EmptyStateVariant =
   | 'error'
   | 'exit'
   | 'login'
+  | 'editor_loading'
   | 'not_subscribed'
   | 'success'
   | 'under_construction';
 
 type Props = Readonly<{
   action?: React.ReactNode;
+  iconClassName?: string;
   subtitle?: string;
   title: string;
   variant: EmptyStateVariant;
@@ -35,6 +38,7 @@ const icons: Record<
   (props: React.ComponentProps<'svg'>) => JSX.Element
 > = {
   empty: RiGhost2Line,
+  editor_loading: RiCodeBoxLine,
   error: RiEmotionSadLine,
   exit: RiLogoutBoxLine,
   login: RiLoginBoxLine,
@@ -45,6 +49,7 @@ const icons: Record<
 const colors: Record<EmptyStateVariant, TextColor> = {
   empty: 'disabled',
   error: 'error',
+  editor_loading: 'disabled',
   exit: 'disabled',
   login: 'disabled',
   not_subscribed: 'disabled',
@@ -54,6 +59,7 @@ const colors: Record<EmptyStateVariant, TextColor> = {
 
 export default function EmptyState({
   action,
+  iconClassName,
   subtitle,
   title,
   variant,
@@ -65,7 +71,7 @@ export default function EmptyState({
       <Text color={colors[variant]} display="block">
         <Icon
           aria-hidden="true"
-          className={clsx('mx-auto h-10 w-10 shrink-0')}
+          className={clsx('mx-auto h-10 w-10 shrink-0', iconClassName)}
         />
       </Text>
       <Heading className="mt-4" level="custom">
