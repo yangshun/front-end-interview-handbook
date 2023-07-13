@@ -30,7 +30,7 @@ export default function MarketingQuestionCardMarquee({
           className={clsx(
             'grid grid-flow-col gap-4 whitespace-normal',
             rows === 1 && 'grid-rows-1',
-            rows === 2 && 'motion-reduce:pl-[80px] motion-reduce:grid-rows-2',
+            rows === 2 && 'motion-reduce:grid-rows-2 motion-reduce:pl-[80px]',
           )}>
           {questions.map((metadata) => (
             <div
@@ -51,7 +51,7 @@ export default function MarketingQuestionCardMarquee({
         </div>
       </Marquee>
       {rows === 2 && (
-        <div aria-hidden="true" className="motion-reduce:hidden">
+        <div className="motion-reduce:hidden">
           <Marquee {...marqueeProps} direction="rightToLeft" startEndGap={16}>
             <div
               className={clsx(

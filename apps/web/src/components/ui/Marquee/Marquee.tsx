@@ -52,7 +52,6 @@ export default function Marquee({
         {children}
       </div>
       <div
-        aria-hidden="true"
         className="motion-safe:animate-marquee2 absolute top-0 hidden whitespace-nowrap motion-safe:block"
         style={{
           animationDirection:

@@ -78,7 +78,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
     ];
 
   return (
-    <div aria-hidden={true} className="relative flex h-full w-full flex-col">
+    <div className="relative flex h-full w-full flex-col">
       <div className="h-0 grow lg:grid lg:grid-cols-5">
         <div className="overflow-y-scroll lg:col-span-2 lg:flex lg:flex-col">
           <div className="flex flex-col gap-y-4 p-4 sm:grow">
