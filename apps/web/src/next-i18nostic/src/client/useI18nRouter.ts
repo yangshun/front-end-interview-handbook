@@ -1,6 +1,7 @@
 import type {
   AppRouterInstance,
   NavigateOptions,
+  PrefetchOptions,
 } from 'next/dist/shared/lib/app-router-context';
 import { useRouter } from 'next/navigation';
 
@@ -11,10 +12,14 @@ import i18nHref from '../utils/i18nHref';
 type I18nNavigateOptions = NavigateOptions & {
   locale?: Locale;
 };
+type I18nPrefetchOptions = PrefetchOptions & {
+  locale?: Locale;
+};
 
 type I18nAppRouterInstance = AppRouterInstance & {
   push: (href: string, options?: I18nNavigateOptions) => void;
   replace: (href: string, options?: I18nNavigateOptions) => void;
+  prefetch: (href: string, options?: I18nPrefetchOptions) => void;
 };
 
 export default function useI18nRouter(): I18nAppRouterInstance {
@@ -37,6 +42,12 @@ export default function useI18nRouter(): I18nAppRouterInstance {
       router.replace(
         i18nHref(href, locale ?? contextLocale).toString(),
         navigateOptions,
+      );
+    },
+    prefetch: (href: string, options?: I18nPrefetchOptions) => {
+      router.prefetch(
+        i18nHref(href, options?.locale ?? contextLocale).toString(),
+        options?.kind != null ? { kind: options.kind } : undefined,
       );
     },
   };
