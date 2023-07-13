@@ -130,7 +130,6 @@ export default function Tabs<T>({
                 tabItemSize,
               ),
               onClick: () => onSelect?.(tabItemValue),
-              role: 'tab',
             };
 
             if (href != null) {

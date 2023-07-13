@@ -124,7 +124,6 @@ export default function TabsUnderline<T>({
               tabItemSize,
             ),
             onClick: () => onSelect?.(tabItemValue),
-            role: 'tab',
           };
 
           if (href != null) {
