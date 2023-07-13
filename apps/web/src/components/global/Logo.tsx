@@ -11,6 +11,7 @@ type Props = Readonly<{
 export default function LogoLink({ height = 20 }: Props) {
   return (
     <Anchor
+      aria-label="Go to the homepage"
       className={clsx('inline-block', themeTextColor)}
       href="/"
       variant="unstyled">
