@@ -59,9 +59,9 @@ export default function QuestionCard({
           <QuestionFrameworks frameworks={metadata.frameworks} />
         ) : metadata.languages.length > 0 ? (
           <QuestionLanguages languages={metadata.languages} />
-        ) : (
+        ) : metadata.topics.length > 0 ? (
           <QuestionTopics topics={metadata.topics} />
-        )}
+        ) : null}
       </div>
       {showArrow && (
         <RiArrowRightLine

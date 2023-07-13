@@ -48,7 +48,7 @@ function FeatureBlock({
           <ul className="flex flex-col gap-y-1" role="list">
             {features.map((feature, index) => (
               // eslint-disable-next-line react/no-array-index-key
-              <div key={index} className="flex gap-x-1">
+              <li key={index} className="flex gap-x-1">
                 <RiCheckLine
                   aria-hidden={true}
                   className={clsx(
@@ -59,7 +59,7 @@ function FeatureBlock({
                 <Text color="secondary" display="block">
                   {feature}
                 </Text>
-              </div>
+              </li>
             ))}
           </ul>
         )}
