@@ -80,8 +80,7 @@ export default function TabsUnderline<T>({
         'overflow-x-auto overflow-y-hidden',
         displayClasses[display],
         'border-b border-neutral-300 dark:border-neutral-700',
-      )}
-      role="tablist">
+      )}>
       <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
         {tabs.map((tabItem) => {
           const {
@@ -92,8 +91,6 @@ export default function TabsUnderline<T>({
           } = tabItem;
           const isSelected = tabItemValue === value;
           const commonProps = {
-            'aria-label': tabItemLabel,
-            'aria-selected': isSelected,
             children: (
               <Text
                 className={clsx('group flex items-center', tabInternalGapSize)}

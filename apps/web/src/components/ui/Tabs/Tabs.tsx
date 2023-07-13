@@ -78,7 +78,7 @@ export default function Tabs<T>({
   } = sizeClasses[size];
 
   return (
-    <div className="isolate w-full overflow-x-auto" role="tablist">
+    <div className="isolate w-full overflow-x-auto">
       <div
         className={clsx('border-b border-neutral-300 dark:border-neutral-700')}>
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>
@@ -91,8 +91,6 @@ export default function Tabs<T>({
             } = tabItem;
             const isSelected = tabItemValue === value;
             const commonProps = {
-              'aria-label': tabItemLabel,
-              'aria-selected': isSelected,
               children: (
                 <Text
                   className={clsx('flex items-center', tabInternalGapSize)}
