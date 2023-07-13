@@ -1,23 +1,26 @@
 'use client';
 
-import { useUserProfile } from '~/components/global/UserProfileProvider';
-import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
+import { useInView } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import { useRef } from 'react';
+
 import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
-import MarketingContinuousUpdates from '~/components/marketing/MarketingContinuousUpdates';
 import MarketingEmbedSection from '~/components/marketing/MarketingEmbedSection';
-import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeaturedQuestions from '~/components/marketing/MarketingFeaturedQuestions';
 import MarketingFeaturesBlocks from '~/components/marketing/MarketingFeaturesBlocks';
 import MarketingHero from '~/components/marketing/MarketingHero';
 import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepageFeaturesRow';
-import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
-import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Section from '~/components/ui/Heading/HeadingContext';
+
+const MarketingHomePageBottom = dynamic(
+  () => import('./MarketingHomePageBottom'),
+  { ssr: false },
+);
 
 type Props = Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
@@ -36,7 +39,11 @@ export default function MarketingHomePage({
   systemDesignQuestions,
   quizQuestions,
 }: Props) {
-  const { userProfile } = useUserProfile();
+  const loadBottomHalfMarkerRef = useRef(null);
+  const showBottomHalf = useInView(loadBottomHalfMarkerRef, {
+    amount: 'some',
+    once: true,
+  });
 
   return (
     <main className="dark bg-[#070708] pb-12 md:pb-24">
@@ -58,19 +65,14 @@ export default function MarketingHomePage({
             todoListVanilla: uiCodingQuestion.vanilla.solution,
           }}
         />
+        <div ref={loadBottomHalfMarkerRef} />
         <MarketingFeaturedQuestions
           javaScriptQuestions={javaScriptQuestions}
           quizQuestions={quizQuestions}
           systemDesignQuestions={systemDesignQuestions}
           userInterfaceQuestions={userInterfaceQuestions}
         />
-        {!(userProfile?.isPremium && userProfile?.plan === 'lifetime') && (
-          <MarketingPricingSectionLocalizedContainer />
-        )}
-        <MarketingTestimonialsSection />
-        <MarketingContinuousUpdates />
-        <MarketingFAQ />
-        <MarketingContactUs />
+        {showBottomHalf && <MarketingHomePageBottom />}
       </Section>
     </main>
   );
