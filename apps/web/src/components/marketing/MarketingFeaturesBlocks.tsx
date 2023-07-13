@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
@@ -35,8 +36,8 @@ function FeatureBlock({
         'flex flex-col gap-x-20 gap-y-6 md:items-center lg:gap-x-28',
         reverse ? 'md:flex-row-reverse' : 'md:flex-row',
       )}>
-      <div className="md:basis-1/2 overflow-auto">{media}</div>
-      <div className="md:basis-1/2 mx-auto flex max-w-sm flex-col gap-y-4 md:max-w-none">
+      <div className="relative overflow-auto md:basis-1/2">{media}</div>
+      <div className="mx-auto flex max-w-sm flex-col gap-y-4 md:max-w-none md:basis-1/2">
         <Heading level="heading4">{title}</Heading>
         {description && (
           <Text color="secondary" display="block">
@@ -78,7 +79,7 @@ export default function MarketingFeaturesBlocks({
   return (
     <div
       className={clsx(
-        'lg:rounded-t-[48px] isolate lg:mx-8',
+        'isolate lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
       <Container className="flex flex-col gap-y-24 py-24 lg:gap-y-32 lg:py-32">
@@ -122,10 +123,13 @@ export default function MarketingFeaturesBlocks({
               <>Pick and choose weak areas to focus on</>,
             ]}
             media={
-              <img
+              <Image
                 alt="Question topics"
                 className="mx-auto max-w-sm md:max-w-full"
-                src="/img/marketing/topics.svg"
+                height={312 * 2}
+                quality={100}
+                src="/img/marketing/topics.webp"
+                width={496 * 2}
               />
             }
             title={
@@ -158,7 +162,9 @@ export default function MarketingFeaturesBlocks({
               <img
                 alt="Questions for many frameworks"
                 className="mx-auto w-full max-w-sm md:max-w-none"
-                src="/img/marketing/questions-framework.png"
+                decoding="async"
+                loading="lazy"
+                src="/img/marketing/questions-framework.webp"
               />
             }
             reverse={true}
@@ -202,7 +208,9 @@ export default function MarketingFeaturesBlocks({
               <img
                 alt="Solutions from ex-interviewers"
                 className="mx-auto w-full max-w-sm md:max-w-none"
-                src="/img/marketing/workspace.png"
+                decoding="async"
+                loading="lazy"
+                src="/img/marketing/workspace.webp"
               />
             }
             reverse={true}
@@ -227,9 +235,11 @@ export default function MarketingFeaturesBlocks({
             ]}
             media={
               <img
-                alt="Coding workspace"
+                alt="Test suite"
                 className="mx-auto w-full max-w-sm md:max-w-none"
-                src="/img/marketing/tests.png"
+                decoding="async"
+                loading="lazy"
+                src="/img/marketing/tests.webp"
               />
             }
             title={<>Test your code automatically with a single click</>}
@@ -243,9 +253,11 @@ export default function MarketingFeaturesBlocks({
             }
             media={
               <img
-                alt="Coding workspace"
+                alt="Company questions"
                 className="mx-auto w-full max-w-sm md:max-w-none"
-                src="/img/marketing/questions-company.png"
+                decoding="async"
+                loading="lazy"
+                src="/img/marketing/questions-company.webp"
               />
             }
             reverse={true}
@@ -261,9 +273,11 @@ export default function MarketingFeaturesBlocks({
             }
             media={
               <img
-                alt="Coding workspace"
+                alt="Study plans"
                 className="mx-auto w-full max-w-sm md:max-w-none"
-                src="/img/marketing/study-plans.png"
+                decoding="async"
+                loading="lazy"
+                src="/img/marketing/study-plans.webp"
               />
             }
             title={<>Prepare the best you can within any timeline</>}

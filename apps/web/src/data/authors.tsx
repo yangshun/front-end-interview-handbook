@@ -44,7 +44,7 @@ const authors: Record<string, Author> = {
     ),
     companyIconUrl: '/img/marketing/meta-icon.svg',
     gitHubUrl: 'https://www.github.com/yangshun',
-    imageUrl: 'https://github.com/yangshun.png',
+    imageUrl: '/img/team/yangshun.png',
     linkedInUrl: 'https://www.linkedin.com/in/yangshun',
     name: 'Yangshun Tay',
     profileUrl: 'https://www.github.com/yangshun',

@@ -25,8 +25,10 @@ export default function TestimonialCard({
       <figcaption className="mt-4 flex items-center gap-x-4">
         {authorThumbnailUrl && (
           <img
-            alt=""
+            alt={name}
             className="h-10 w-10 rounded-full bg-neutral-50"
+            decoding="async"
+            loading="lazy"
             src={authorThumbnailUrl}
           />
         )}
