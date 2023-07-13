@@ -203,6 +203,10 @@
     "defaultMessage": "React",
     "description": "React questions category short title"
   },
+  "2XR9B5": {
+    "defaultMessage": "{price} billed every 3 months",
+    "description": "Description of billing frequency for quarterly plan"
+  },
   "2YMuJe": {
     "defaultMessage": "What does \"lifetime access\" mean?",
     "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
@@ -230,6 +234,10 @@
   "3AfCoE": {
     "defaultMessage": "Minimum 6 characters",
     "description": "Description of password field indicating minimum character count, on Change Password page"
+  },
+  "3G2d9k": {
+    "defaultMessage": "We're hiring question and solution authors! Check out the <link>job description</link>!",
+    "description": "Text on Promo Banner"
   },
   "3HUfI+": {
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
@@ -487,6 +495,10 @@
     "defaultMessage": "Filter logs",
     "description": "Placeholder for filter input of console logs"
   },
+  "7uB2Jj": {
+    "defaultMessage": "{price} billed yearly",
+    "description": "Description of billing frequency for annual plan"
+  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -603,10 +615,6 @@
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
   },
-  "9jHIQF": {
-    "defaultMessage": "{currencySymbol}{price} billed yearly",
-    "description": "Description of billing frequency for annual plan"
-  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -646,6 +654,10 @@
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
+  },
+  "BMBc9O": {
+    "defaultMessage": "paid once",
+    "description": "Pay the price once"
   },
   "BNUAPJ": {
     "defaultMessage": "Not Completed",
@@ -871,10 +883,6 @@
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
-  "FFDULM": {
-    "defaultMessage": "{currencySymbol}{price} billed every 3 months",
-    "description": "Description of billing frequency for quarterly plan"
-  },
   "FInmLy": {
     "defaultMessage": "Reset to initial code",
     "description": "Label for button that allows users to reset their coding workspace to the initial code"
@@ -882,6 +890,10 @@
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
+  },
+  "FQQRsa": {
+    "defaultMessage": "U.P. {price} <span>({discountPercentage}% off)</span>",
+    "description": "Usual price of the item and the discount off"
   },
   "FRg+qa": {
     "defaultMessage": "General",
@@ -2075,10 +2087,6 @@
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
   },
-  "aBlEic": {
-    "defaultMessage": "{currencySymbol}{price} billed per month.",
-    "description": "Description of billing frequency for monthly plan"
-  },
   "aE1FCD": {
     "defaultMessage": "/month",
     "description": "Per month"
@@ -2959,6 +2967,10 @@
     "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
   },
+  "pDo/V5": {
+    "defaultMessage": "{price} billed per month.",
+    "description": "Description of billing frequency for monthly plan"
+  },
   "pM/ZPq": {
     "defaultMessage": "Network",
     "description": "Network topic for quiz questions"
@@ -3242,10 +3254,6 @@
   "ujRHIv": {
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
-  },
-  "ul1/lo": {
-    "defaultMessage": "U.P. {currencySymbol}{price} <span>({discountPercentage}% off)</span>",
-    "description": "Usual price of the item and the discount off"
   },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
