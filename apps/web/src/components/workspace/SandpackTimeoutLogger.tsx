@@ -1,6 +1,8 @@
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { useEffect, useRef } from 'react';
+
 import logEvent from '~/logging/logEvent';
+
+import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   // Identify which instance this happened. Should be unique within the page.
@@ -13,13 +15,13 @@ export default function SandpackTimeoutLogger({ instance }: Props) {
   const sentRef = useRef(false);
 
   useEffect(() => {
-    if (sandpack.status === 'timeout' && !sentRef.current) {
+    if (sandpackStatus === 'timeout' && !sentRef.current) {
       logEvent('sandpack.timeout', {
         instance,
       });
       sentRef.current = true;
     }
-  }, [sandpackStatus]);
+  }, [instance, sandpackStatus]);
 
   return null;
 }

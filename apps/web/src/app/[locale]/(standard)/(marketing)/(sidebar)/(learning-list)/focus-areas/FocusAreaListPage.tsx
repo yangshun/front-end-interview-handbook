@@ -47,7 +47,7 @@ function FocusAreaCard({
     <div
       className={clsx(
         'group relative flex flex-1 items-center gap-6 rounded-lg px-8 py-5',
-        'dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80 bg-white transition',
+        'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
         themeGlassyBorder,
       )}>
       <div
@@ -102,11 +102,6 @@ function FocusAreaCard({
     </div>
   );
 }
-
-type FocusAreasSection = Readonly<{
-  areas: Array<FocusArea>;
-  title: string;
-}>;
 
 export type FocusAreaDifficultySummary = Record<
   FocusAreaType,

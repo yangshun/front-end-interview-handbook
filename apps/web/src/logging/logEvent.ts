@@ -17,12 +17,12 @@ type LoggingAction =
   | 'click'
   | 'copy'
   | 'error'
-  | 'sandpack.timeout'
   | 'hydration.fail'
   | 'hydration.success'
   | 'pageview'
   | 'question.mark_complete'
   | 'question.submit'
+  | 'sandpack.timeout'
   | 'web_vitals';
 // TODO: Improve typing.
 type LoggingPayload = Record<string, unknown>;

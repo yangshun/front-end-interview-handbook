@@ -17,9 +17,9 @@ type I18nPrefetchOptions = PrefetchOptions & {
 };
 
 type I18nAppRouterInstance = AppRouterInstance & {
+  prefetch: (href: string, options?: I18nPrefetchOptions) => void;
   push: (href: string, options?: I18nNavigateOptions) => void;
   replace: (href: string, options?: I18nNavigateOptions) => void;
-  prefetch: (href: string, options?: I18nPrefetchOptions) => void;
 };
 
 export default function useI18nRouter(): I18nAppRouterInstance {
@@ -28,6 +28,12 @@ export default function useI18nRouter(): I18nAppRouterInstance {
 
   return {
     ...router,
+    prefetch: (href: string, options?: I18nPrefetchOptions) => {
+      router.prefetch(
+        i18nHref(href, options?.locale ?? contextLocale).toString(),
+        options?.kind != null ? { kind: options.kind } : undefined,
+      );
+    },
     push: (href: string, options?: I18nNavigateOptions) => {
       const { locale, ...navigateOptions } = options ?? {};
 
@@ -42,12 +48,6 @@ export default function useI18nRouter(): I18nAppRouterInstance {
       router.replace(
         i18nHref(href, locale ?? contextLocale).toString(),
         navigateOptions,
-      );
-    },
-    prefetch: (href: string, options?: I18nPrefetchOptions) => {
-      router.prefetch(
-        i18nHref(href, options?.locale ?? contextLocale).toString(),
-        options?.kind != null ? { kind: options.kind } : undefined,
       );
     },
   };

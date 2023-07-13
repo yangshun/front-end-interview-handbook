@@ -1,10 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { set } from 'lodash';
 import { usePathname } from 'next/navigation';
-import type { MutableRefObject, RefObject } from 'react';
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { RiPlayLine } from 'react-icons/ri';
 import { RiAccountCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -749,7 +747,7 @@ export default function NavbarImpl() {
     <Navbar
       // Sync offset with banner height.
       ref={navbarRef}
-      className={isHidden ? undefined : 'lg:!top-10 !top-14'}
+      className={isHidden ? undefined : '!top-14 lg:!top-10'}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}

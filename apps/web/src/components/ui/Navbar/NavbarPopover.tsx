@@ -3,9 +3,7 @@ import clsx from 'clsx';
 import Anchor from '~/components/ui/Anchor';
 import {
   themeBackgroundLayerColor,
-  themeBackgroundLayerEmphasizedHover,
   themeGlassyBorder,
-  themeTextInvertColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
@@ -29,7 +27,7 @@ function NavbarPopoverLink({
       <>
         <div
           className={clsx(
-            'dark:bg-neutral-800/70 rounded-full p-3',
+            'rounded-full p-3 dark:bg-neutral-800/70',
             themeGlassyBorder,
             themeTextSubtitleColor,
           )}>
@@ -53,7 +51,7 @@ function NavbarPopoverLink({
       <div className="flex flex-col gap-y-4">
         <div
           className={clsx(
-            'dark:bg-neutral-800/70 rounded-full p-3',
+            'rounded-full p-3 dark:bg-neutral-800/70',
             themeGlassyBorder,
             themeTextSubtitleColor,
           )}>

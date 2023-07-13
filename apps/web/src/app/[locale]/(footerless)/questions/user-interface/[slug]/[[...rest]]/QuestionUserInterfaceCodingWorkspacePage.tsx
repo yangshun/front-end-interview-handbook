@@ -50,6 +50,7 @@ import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
@@ -62,7 +63,6 @@ import {
   useActiveCode,
   useSandpack,
 } from '@codesandbox/sandpack-react';
-import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 const STARTING_LEFT_PANE_WIDTH = 500;
 

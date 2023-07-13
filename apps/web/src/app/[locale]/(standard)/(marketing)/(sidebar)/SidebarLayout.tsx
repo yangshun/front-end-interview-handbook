@@ -31,7 +31,7 @@ export default function SidebarContainer() {
     ) {
       setIsCollapsed(true);
     }
-  }, [pathname]);
+  }, [pathname, setIsCollapsed]);
 
   return (
     <aside

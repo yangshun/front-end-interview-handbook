@@ -6,9 +6,9 @@ import { RiErrorWarningLine, RiLockLine } from 'react-icons/ri';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import SidebarCollapser from '~/components/common/SidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import SidebarCollapser from '~/components/common/SidebarCollapser';
 import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
 import { useSystemDesignNavigation } from '~/components/questions/content/system-design/SystemDesignNavigation';
 import Anchor from '~/components/ui/Anchor';

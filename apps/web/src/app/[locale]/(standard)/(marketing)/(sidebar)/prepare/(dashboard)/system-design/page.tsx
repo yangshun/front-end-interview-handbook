@@ -1,6 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import { fetchQuestionsListCount } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 

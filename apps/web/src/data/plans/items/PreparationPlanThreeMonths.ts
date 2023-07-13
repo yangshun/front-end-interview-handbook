@@ -3,7 +3,6 @@ import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
-import { themeGradientPinkPurple } from '~/components/ui/theme';
 
 import type { PreparationPlan } from '../PreparationPlans';
 

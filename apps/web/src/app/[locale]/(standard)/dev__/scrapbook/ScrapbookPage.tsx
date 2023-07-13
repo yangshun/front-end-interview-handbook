@@ -51,9 +51,7 @@ const mockQuestion: QuestionMetadata = {
   frameworkDefault: null,
   frameworks: [],
   href: '/dev__/scrapbook',
-  subtitle: null,
   importance: 'high',
-  topics: [],
   languages: ['js', 'ts'],
   nextQuestions: [],
   premium: false,
@@ -61,7 +59,9 @@ const mockQuestion: QuestionMetadata = {
   ranking: 0,
   similarQuestions: [],
   slug: 'stack',
+  subtitle: null,
   title: 'Stack',
+  topics: [],
 };
 
 const mockQuestions = Array.from({ length: 10 }, (_, i) => ({

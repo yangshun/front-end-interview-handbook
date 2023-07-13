@@ -16,11 +16,11 @@ import type { TextColor } from '../Text';
 import Text from '../Text';
 
 type EmptyStateVariant =
+  | 'editor_loading'
   | 'empty'
   | 'error'
   | 'exit'
   | 'login'
-  | 'editor_loading'
   | 'not_subscribed'
   | 'success'
   | 'under_construction';
@@ -37,8 +37,8 @@ const icons: Record<
   EmptyStateVariant,
   (props: React.ComponentProps<'svg'>) => JSX.Element
 > = {
-  empty: RiGhost2Line,
   editor_loading: RiCodeBoxLine,
+  empty: RiGhost2Line,
   error: RiEmotionSadLine,
   exit: RiLogoutBoxLine,
   login: RiLoginBoxLine,
@@ -47,9 +47,9 @@ const icons: Record<
   under_construction: RiToolsLine,
 };
 const colors: Record<EmptyStateVariant, TextColor> = {
+  editor_loading: 'disabled',
   empty: 'disabled',
   error: 'error',
-  editor_loading: 'disabled',
   exit: 'disabled',
   login: 'disabled',
   not_subscribed: 'disabled',

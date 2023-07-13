@@ -23,6 +23,7 @@ import Divider from '~/components/ui/Divider';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 import logEvent from '~/logging/logEvent';
 
@@ -36,7 +37,6 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
-import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 export type EmbedUIQuestion = Readonly<{
   angular: Readonly<{

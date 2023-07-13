@@ -1,6 +1,5 @@
 import axios from 'axios';
 import clsx from 'clsx';
-import _ from 'lodash';
 import type { SVGProps } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
@@ -618,7 +617,7 @@ export default function MarketingPricingSection({
   return (
     <div
       className={clsx(
-        'lg:rounded-t-[48px] isolate pb-24 lg:mx-8',
+        'isolate pb-24 lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
       <div className="pt-24">
@@ -841,7 +840,7 @@ export default function MarketingPricingSection({
             <Section>
               <div
                 className={clsx(
-                  'dark:bg-neutral-800/20 mx-auto grid max-w-lg grid-cols-1 rounded-3xl md:max-w-none md:grid-cols-3',
+                  'mx-auto grid max-w-lg grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:max-w-none md:grid-cols-3',
                   ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
                   ['border', themeLineColor],
                 )}>
@@ -885,7 +884,7 @@ export default function MarketingPricingSection({
                           </div>
                           <Section>
                             <Text
-                              className="md:min-h-[40px] mt-1"
+                              className="mt-1 md:min-h-[40px]"
                               color="secondary"
                               display="block"
                               size="body2">
@@ -974,7 +973,7 @@ export default function MarketingPricingSection({
                             </div>
                             <Text
                               className={clsx(
-                                'md:min-h-[32px] pt-1',
+                                'pt-1 md:min-h-[32px]',
                                 plan.conversionFactor <
                                   MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
                                   plan.planType === 'lifetime' &&

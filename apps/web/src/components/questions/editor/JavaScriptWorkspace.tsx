@@ -37,6 +37,7 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
@@ -59,7 +60,6 @@ import {
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { useUser } from '@supabase/auth-helpers-react';
-import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
 
 function Contents({
   language,
@@ -183,6 +183,7 @@ function Contents({
   }, [
     addProgressMutation,
     intl,
+    searchParams,
     question.metadata,
     questionProgress,
     showToast,

@@ -5,16 +5,14 @@ import clsx from 'clsx';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import SidebarCollapser from '~/components/common/SidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import SidebarCollapser from '~/components/common/SidebarCollapser';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized,
-  themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineColor,
   themeTextBrandColor,

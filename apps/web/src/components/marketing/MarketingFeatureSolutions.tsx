@@ -11,6 +11,7 @@ import logEvent from '~/logging/logEvent';
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
 import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
 import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
+import SandpackTimeoutLogger from '../workspace/SandpackTimeoutLogger';
 
 import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
 import {
@@ -19,7 +20,6 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
-import SandpackTimeoutLogger from '../workspace/SandpackTimeoutLogger';
 
 const height = 450;
 const editorPartPercentage = 70;

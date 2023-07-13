@@ -4,7 +4,6 @@ import type { IntlShape } from 'react-intl';
 import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 import type { ThemeGradient } from '~/components/ui/theme';
-import { themeGradientPinkPurple } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';
 

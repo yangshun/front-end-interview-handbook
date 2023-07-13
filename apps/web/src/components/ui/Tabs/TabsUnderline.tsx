@@ -4,7 +4,7 @@ import Anchor from '~/components/ui/Anchor';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
-import { themeLineColor, themeTextSecondaryColor } from '../theme';
+import { themeTextSecondaryColor } from '../theme';
 
 export type TabItem<T> = Readonly<{
   href?: string;
