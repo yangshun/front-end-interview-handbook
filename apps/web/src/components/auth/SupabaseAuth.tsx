@@ -67,7 +67,7 @@ export default function Auth({
               )}
             </Heading>
             <Section>
-              <div className="flex flex-col gap-y-4">
+              <div className="flex flex-col gap-y-12">
                 {preBodyContents}
                 <SupabaseAuthSocial
                   layout={socialLayout}

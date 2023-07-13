@@ -48,7 +48,9 @@ export default function AuthPage({ view }: Props) {
   }, [nextSearchParam, router, user]);
 
   return (
-    <Container className={clsx('flex flex-col gap-y-6 lg:py-16')} variant="md">
+    <Container
+      className={clsx('flex flex-col gap-y-6 py-8 md:py-12 lg:py-16')}
+      variant="xl">
       {!user ? (
         <>
           {error && (
@@ -68,7 +70,7 @@ export default function AuthPage({ view }: Props) {
                       'Title of alert requesting user to create an account to purchase premium plans',
                     id: 'RnHcaK',
                   })}
-                  variant="success">
+                  variant="info">
                   <FormattedMessage
                     defaultMessage="Please create a free account in order to purchase the premium plans."
                     description="Content of alert requesting user to create an account to purchase premium plans"
