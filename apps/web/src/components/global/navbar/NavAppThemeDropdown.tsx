@@ -2,8 +2,7 @@ import { useMemo } from 'react';
 import { RiMoonLine, RiSunLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import useAppThemeOptions from '~/hooks/useAppThemeOptions';
-
+import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';

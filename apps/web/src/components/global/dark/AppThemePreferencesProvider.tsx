@@ -3,6 +3,8 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
+import { APP_THEME_STORAGE_KEY } from './AppThemeScript';
+
 export type AppTheme = 'dark' | 'light';
 export type AppThemePreference = AppTheme | 'system';
 
@@ -34,7 +36,7 @@ type Props = Readonly<{
 export default function AppThemePreferencesProvider({ children }: Props) {
   const [appThemePreference, setAppThemePreference] =
     useLocalStorage<AppThemePreference>(
-      'gfe:theme:theme-preference',
+      APP_THEME_STORAGE_KEY,
       DEFAULT_APP_THEME_PREFERENCE,
     );
 
@@ -46,7 +48,7 @@ export default function AppThemePreferencesProvider({ children }: Props) {
       '(prefers-color-scheme: dark)',
     );
 
-    // Initialize the app theme based on the system color scheme
+    // Initialize the app theme based on the system color scheme.
     setResolvedSystemAppTheme(
       prefersDarkColorSchemeQuery.matches ? 'dark' : 'light',
     );
@@ -55,7 +57,7 @@ export default function AppThemePreferencesProvider({ children }: Props) {
       setResolvedSystemAppTheme(event.matches ? 'dark' : 'light');
     };
 
-    // Listen to changes in the system color scheme
+    // Listen for changes in the system color scheme.
     prefersDarkColorSchemeQuery.addEventListener('change', handleQueryChange);
 
     return () => {
@@ -73,6 +75,14 @@ export default function AppThemePreferencesProvider({ children }: Props) {
 
     return appThemePreference;
   }, [appThemePreference, resolvedSystemAppTheme]);
+
+  useEffect(() => {
+    if (appTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [appTheme]);
 
   return (
     <AppThemePreferencesContext.Provider

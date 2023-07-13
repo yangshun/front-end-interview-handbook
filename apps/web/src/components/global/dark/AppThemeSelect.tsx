@@ -1,7 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import useAppThemeOptions from '~/hooks/useAppThemeOptions';
-
+import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
 import type { SelectDisplay } from '~/components/ui/Select';
 import Select from '~/components/ui/Select';
 

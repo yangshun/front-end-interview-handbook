@@ -8,15 +8,13 @@ import SentryInit from '~/components/global/analytics/SentryInit';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
-import HTMLThemeUpdater from '~/components/global/dark/HTMLThemeUpdater';
+import AppThemeScript from '~/components/global/dark/AppThemeScript';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import NavbarHeight from '~/components/global/navbar/NavbarHeight';
 import { themeBackgroundColor } from '~/components/ui/theme';
 
 import type { IntlMessages } from '~/i18n';
-
-import ThemedBody from './ThemedBody';
 
 import '~/styles/globals.css';
 
@@ -29,10 +27,16 @@ type Props = Readonly<{
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
+      // The default is dark.
+      className="dark"
       lang={locale.split('-')[0]}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
-      <ThemedBody className={clsx('antialiased', themeBackgroundColor)}>
+      <head>
+        {/* Important to inject in head to get it to run as early as possible. */}
+        <AppThemeScript />
+      </head>
+      <body className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
@@ -44,9 +48,8 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <SentryInit />
           <WebVitals />
           <I18nBetaBanner />
-          <HTMLThemeUpdater />
         </GlobalProviders>
-      </ThemedBody>
+      </body>
     </html>
   );
 }
