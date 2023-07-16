@@ -1,0 +1,24 @@
+---
+title: Make Counter
+excerpt: Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values
+---
+
+Implement a function that accepts an optional integer value and returns a function. When the returned function is called initially, it returns the initial value if provided, otherwise 0. The returned function can be called repeatedly to return 1 more than the return value of the previous invocation.
+
+## Example
+
+```js
+const counter = makeCounter();
+counter(); // 0
+counter(); // 1
+counter(); // 2
+```
+
+With a custom initial value:
+
+```js
+const counter = makeCounter(5);
+counter(); // 5
+counter(); // 6
+counter(); // 7
+```

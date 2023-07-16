@@ -1531,6 +1531,39 @@
   },
   {
     "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/make-counter",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "counter"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "counter"
+    ],
+    "slug": "make-counter",
+    "subtitle": null,
+    "title": "Make Counter",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [],
     "created": 1671667200,
     "difficulty": "medium",
