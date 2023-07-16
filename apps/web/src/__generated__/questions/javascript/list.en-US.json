@@ -1549,7 +1549,7 @@
       "ts"
     ],
     "nextQuestions": [
-      "counter"
+      "make-counter-ii"
     ],
     "premium": true,
     "published": true,
@@ -1579,11 +1579,16 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "jquery-css"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "make-counter",
+      "jquery-css"
+    ],
     "slug": "make-counter-ii",
     "subtitle": null,
     "title": "Make Counter II",
