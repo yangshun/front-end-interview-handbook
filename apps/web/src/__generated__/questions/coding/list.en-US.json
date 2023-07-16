@@ -2670,6 +2670,33 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function that pauses for a specified duration before resuming execution",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/sleep",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "sleep",
+    "subtitle": null,
+    "title": "Sleep",
+    "topics": []
+  },
+  {
     "author": "zhenghao",
     "companies": [],
     "created": 1654992000,
