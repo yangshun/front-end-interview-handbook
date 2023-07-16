@@ -79,7 +79,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
       before: 49,
     },
     checkoutMode: 'subscription',
-    discount: 50,
+    discount: 40,
     planType: 'quarterly',
     priceType: 'recurring',
     recurring: { count: 3, interval: 'month' },

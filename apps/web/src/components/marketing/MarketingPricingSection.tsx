@@ -556,9 +556,10 @@ export default function MarketingPricingSection({
 
   const annualPlanDetails: PricingPlanDetails = {
     description: intl.formatMessage({
-      defaultMessage: 'For serious job seekers or longer term job hunts.',
+      defaultMessage:
+        'Highest value for money with real-time support from the team and community.',
       description: 'Supporting statement for an annual pricing plan',
-      id: 'td80TL',
+      id: 'QrYp6g',
     }),
     includedFeatures: [
       featureAllAccess,
@@ -792,14 +793,14 @@ export default function MarketingPricingSection({
                       />
                     </div>
                     <Text
-                      className="mt-2"
+                      className="mt-3"
                       color="subtitle"
                       display="block"
                       size="body3">
                       <FormattedMessage
-                        defaultMessage="Get {discountPercentage}% off with the code {promoCode}"
+                        defaultMessage="Enjoy extra {discountPercentage}% off with the code {promoCode}"
                         description="Subtitle of discount promotion card"
-                        id="Z4uI1g"
+                        id="ndBo9F"
                         values={{
                           discountPercentage: 20,
                           promoCode: 'SUMMERSALE23',

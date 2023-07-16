@@ -1579,6 +1579,10 @@
     "defaultMessage": "Front end system design",
     "description": "Title for front end system design feature"
   },
+  "QrYp6g": {
+    "defaultMessage": "Highest value for money with real-time support from the team and community.",
+    "description": "Supporting statement for an annual pricing plan"
+  },
   "QsAiLH": {
     "defaultMessage": "Practice creating design system components",
     "description": "Title for interview preparation focus area"
@@ -2026,10 +2030,6 @@
   "Z4VfkU": {
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
     "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
-  },
-  "Z4uI1g": {
-    "defaultMessage": "Get {discountPercentage}% off with the code {promoCode}",
-    "description": "Subtitle of discount promotion card"
   },
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
@@ -2875,6 +2875,10 @@
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
   },
+  "ndBo9F": {
+    "defaultMessage": "Enjoy extra {discountPercentage}% off with the code {promoCode}",
+    "description": "Subtitle of discount promotion card"
+  },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
@@ -3190,10 +3194,6 @@
   "tcKl41": {
     "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
     "description": "Description of system design interview preparation"
-  },
-  "td80TL": {
-    "defaultMessage": "For serious job seekers or longer term job hunts.",
-    "description": "Supporting statement for an annual pricing plan"
   },
   "tfonOP": {
     "defaultMessage": "Premium Study Plans",
