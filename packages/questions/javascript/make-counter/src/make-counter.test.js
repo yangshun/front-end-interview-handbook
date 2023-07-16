@@ -11,13 +11,11 @@ describe('makeCounter', () => {
     describe('returns initial value', () => {
       test('default', () => {
         const counter = makeCounter();
-
         expect(counter()).toBe(0);
       });
 
       test('custom', () => {
         const counter = makeCounter(4);
-
         expect(counter()).toBe(4);
       });
     });
@@ -25,7 +23,6 @@ describe('makeCounter', () => {
     describe('can be repeatedly called', () => {
       test('default', () => {
         const counter = makeCounter();
-
         expect(counter()).toBe(0);
         expect(counter()).toBe(1);
         expect(counter()).toBe(2);
@@ -33,7 +30,6 @@ describe('makeCounter', () => {
 
       test('positive', () => {
         const counter = makeCounter(4);
-
         expect(counter()).toBe(4);
         expect(counter()).toBe(5);
         expect(counter()).toBe(6);
@@ -41,7 +37,6 @@ describe('makeCounter', () => {
 
       test('negative', () => {
         const counter = makeCounter(-4);
-
         expect(counter()).toBe(-4);
         expect(counter()).toBe(-3);
         expect(counter()).toBe(-2);

@@ -9,5 +9,5 @@
   "importance": "low",
   "difficulty": "easy",
   "similar_questions": ["counter"],
-  "next_questions": ["counter"]
+  "next_questions": ["make-counter-ii"]
 }

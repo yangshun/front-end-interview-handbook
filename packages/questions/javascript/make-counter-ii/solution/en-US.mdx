@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import makeCounter from '../src/make-counter-ii';
+import makeCounterClass from '../src/make-counter-ii-class';
+
+## Solution
+
+### Solution 1: Directly return an object
+
+1. The `makeCounter` function accepts an optional parameter `initialValue`, which is set to 0 by default.
+1. Inside the `makeCounter` function, we declare a variable `count` and initialize it with the provided `initialValue`.
+1. Return an object with four methods: `get`, `increment`, `decrement`, and `reset`:
+   - The `get` method simply returns the current value of count.
+   - The `increment` method increments the count by 1 using the prefix increment operator (`++x`) and returns the updated value.
+   - The `decrement` method decrements the count by 1 using the prefix decrement operator (`--x`) and returns the updated value.
+   - The `reset` method resets the `count` to the initial value provided in the `makeCounter` function and returns it.
+
+<MDXCodeBlock>{makeCounter}</MDXCodeBlock>
+
+### Solution 2: Return a `Counter` class
+
+We can also create a separate `Counter` class that contains the 4 required methods. The `makeCounter` function will simply be a wrapper than returns an instance of `Counter` initialized with the `initialValue`. The main difference here is that we need to use instance variables to keep track of the current value and the `initialValue` since we cannot rely on closures.
+
+<MDXCodeBlock>{makeCounterClass}</MDXCodeBlock>

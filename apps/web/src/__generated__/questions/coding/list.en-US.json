@@ -2064,6 +2064,33 @@
   {
     "author": null,
     "companies": [],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 10,
+    "excerpt": "Implement a function that returns a counter object with methods to retrieve and manipulate the value",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/make-counter-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "make-counter-ii",
+    "subtitle": null,
+    "title": "Make Counter II",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1684108800,
     "difficulty": "medium",
     "duration": 40,
