@@ -2250,6 +2250,36 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function that returns the number of arguments it was called with",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/number-of-arguments",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "classnames",
+      "curry"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "number-of-arguments",
+    "subtitle": null,
+    "title": "Number of Arguments",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1670803200,

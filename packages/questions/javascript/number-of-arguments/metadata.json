@@ -1,0 +1,13 @@
+{
+  "slug": "number-of-arguments",
+  "created": "2023-05-06T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": true,
+  "duration": 5,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "similar_questions": ["function-length"],
+  "next_questions": ["classnames", "curry"]
+}
