@@ -27,12 +27,18 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
     }),
     questions: {
       javascript: [
+        'cancellable-interval',
+        'cancellable-timeout',
         'debounce',
         'debounce-ii',
         'promise-all',
         'promise-all-settled',
         'promise-any',
+        'promise-merge',
         'promise-race',
+        'promise-timeout',
+        'resumable-timeout',
+        'sleep',
         'throttle',
       ],
       quiz: [],

@@ -22,7 +22,9 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "cancellable-interval"
+    ],
     "slug": "cancellable-timeout",
     "subtitle": null,
     "title": "Cancellable Timeout",

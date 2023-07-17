@@ -257,7 +257,9 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "cancellable-timeout"
+    ],
     "slug": "cancellable-interval",
     "subtitle": null,
     "title": "Cancellable Interval",
@@ -284,7 +286,9 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "cancellable-interval"
+    ],
     "slug": "cancellable-timeout",
     "subtitle": null,
     "title": "Cancellable Timeout",
