@@ -1355,6 +1355,37 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function that returns the number of parameters expected by a function",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-length",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "curry"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "number-of-arguments"
+    ],
+    "slug": "function-length",
+    "subtitle": null,
+    "title": "Function Length",
+    "topics": []
+  },
+  {
     "author": "zhenghao",
     "companies": [],
     "created": 1656201600,
@@ -2273,7 +2304,9 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "function-length"
+    ],
     "slug": "number-of-arguments",
     "subtitle": null,
     "title": "Number of Arguments",
