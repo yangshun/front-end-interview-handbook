@@ -1754,6 +1754,38 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function to merge the results of two promises into a single value",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-merge",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "promise-all"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all",
+      "promise-all-settled"
+    ],
+    "slug": "promise-merge",
+    "subtitle": null,
+    "title": "Promise Merge",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1655596800,
