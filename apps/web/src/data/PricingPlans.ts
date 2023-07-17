@@ -42,8 +42,8 @@ export type PricingPlansLocalized = Record<
 export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   annual: {
     basePriceInUSD: {
-      after: 119,
-      before: 129,
+      after: 118,
+      before: 128, // Not used
     },
     checkoutMode: 'subscription',
     discount: 70,
@@ -53,19 +53,19 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   },
   lifetime: {
     basePriceInUSD: {
-      after: 199,
+      after: 188,
       before: 250,
     },
     checkoutMode: 'payment',
-    discount: 20,
+    discount: 25,
     planType: 'lifetime',
     priceType: 'one_time',
     recurring: null,
   },
   monthly: {
     basePriceInUSD: {
-      after: 29,
-      before: 49,
+      after: 28,
+      before: 38, // Not used
     },
     checkoutMode: 'subscription',
     discount: 0,
@@ -75,8 +75,8 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   },
   quarterly: {
     basePriceInUSD: {
-      after: 57,
-      before: 49,
+      after: 58,
+      before: 78, // Not used
     },
     checkoutMode: 'subscription',
     discount: 40,

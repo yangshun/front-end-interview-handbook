@@ -557,9 +557,9 @@ export default function MarketingPricingSection({
   const annualPlanDetails: PricingPlanDetails = {
     description: intl.formatMessage({
       defaultMessage:
-        'Highest value for money with real-time support from the team and community.',
+        'Best value for money with real-time support from the team and community.',
       description: 'Supporting statement for an annual pricing plan',
-      id: 'QrYp6g',
+      id: 'BPQrNY',
     }),
     includedFeatures: [
       featureAllAccess,

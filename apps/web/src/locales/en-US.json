@@ -667,6 +667,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Title for paywall over information about companies that asked the question"
   },
+  "BPQrNY": {
+    "defaultMessage": "Best value for money with real-time support from the team and community.",
+    "description": "Supporting statement for an annual pricing plan"
+  },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
     "description": "Placeholder for search input of system design question list"
@@ -1578,10 +1582,6 @@
   "QjhN+w": {
     "defaultMessage": "Front end system design",
     "description": "Title for front end system design feature"
-  },
-  "QrYp6g": {
-    "defaultMessage": "Highest value for money with real-time support from the team and community.",
-    "description": "Supporting statement for an annual pricing plan"
   },
   "QsAiLH": {
     "defaultMessage": "Practice creating design system components",
