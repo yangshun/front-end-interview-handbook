@@ -1341,7 +1341,7 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
+    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
