@@ -1958,6 +1958,36 @@
   {
     "author": null,
     "companies": [],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a function that creates a resumable interval object",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/resumable-interval",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "resumable-interval",
+      "resumable-timeout"
+    ],
+    "slug": "resumable-interval",
+    "subtitle": null,
+    "title": "Resumable Interval",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1671667200,
     "difficulty": "easy",
     "duration": 10,
