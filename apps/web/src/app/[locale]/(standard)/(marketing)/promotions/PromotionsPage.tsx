@@ -162,6 +162,7 @@ function SeasonalDiscountCard() {
 
 function StudentDiscountCard() {
   const intl = useIntl();
+  const discountPercentage = 40;
 
   return (
     <PricingBlockCard
@@ -212,7 +213,7 @@ function StudentDiscountCard() {
               display="inline-flex"
               size="custom"
               weight="custom">
-              40%
+              {discountPercentage}%
             </Text>
             <Text
               className="text-xl font-medium"
@@ -260,7 +261,7 @@ function StudentDiscountCard() {
           description="Subtitle of discount promotion card"
           id="k64L83"
           values={{
-            discountPercentage: 40,
+            discountPercentage,
           }}
         />
       }
@@ -277,6 +278,7 @@ function StudentDiscountCard() {
 
 function ReviewCashbackCard() {
   const intl = useIntl();
+  const discountPercentage = 100;
 
   return (
     <PricingBlockCard
@@ -350,7 +352,7 @@ function ReviewCashbackCard() {
               display="inline-flex"
               size="custom"
               weight="bold">
-              40%
+              {discountPercentage}%
             </Text>
           </div>
           <Text
@@ -406,7 +408,7 @@ function ReviewCashbackCard() {
           description="Subtitle of discount promotion card"
           id="l/9/qK"
           values={{
-            discountPercentage: 40,
+            discountPercentage,
           }}
         />
       }
