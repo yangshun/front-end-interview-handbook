@@ -1,4 +1,4 @@
-import chunk from './chunk';
+import chunk from './chunk-push';
 
 describe('chunk', () => {
   test('empty array', () => {
@@ -7,6 +7,10 @@ describe('chunk', () => {
 
   test('single-element array', () => {
     expect(chunk([1], 3)).toEqual([[1]]);
+  });
+
+  test('size of 1', () => {
+    expect(chunk([1, 2, 3])).toEqual([[1], [2], [3]]);
   });
 
   test('splits into chunks of the given size', () => {

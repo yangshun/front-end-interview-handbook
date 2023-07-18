@@ -1,8 +1,26 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import chunk from '../src/chunk';
+import chunkPush from '../src/chunk-push';
 
 ## Solution
+
+### Solution 1: Using `push()`
+
+1. The `chunk` function takes two parameters: `array` (the input array to be chunked) and `size` (the desired size of each chunk).
+1. It performs the same initial checks to ensure `array` is a valid array and `size` is positive. If not, it returns an empty array `[]`.
+1. Two variables are initialized: `result` to store the chunks and `chunk` to build each individual chunk.
+1. A `for` loop iterates through the `array`. In each iteration, the current element is added to the `chunk` array.
+1. After adding an element to the `chunk`, it checks if the `chunk` has reached the desired `size` or if it has reached the end of the `array`. If either condition is true, it means a chunk is complete, and it's added to the `result` array.
+1. If the chunk is complete, a new, empty `chunk` array is created to start building the next chunk.
+1. The loop continues until all elements of the `array` have been processed.
+1. Finally, the function returns the `result` array containing the chunks.
+
+<MDXCodeBlock>{chunkPush}</MDXCodeBlock>
+
+### Solution 2: Using `slice()`
+
+A more elegant solution that is shorter and requires fewer variables is to extract out the exact slice of the elements from the array.
 
 <MDXCodeBlock>{chunk}</MDXCodeBlock>
 

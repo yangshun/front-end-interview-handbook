@@ -9,6 +9,10 @@ describe('chunk', () => {
     expect(chunk([1], 3)).toEqual([[1]]);
   });
 
+  test('size of 1', () => {
+    expect(chunk([1, 2, 3])).toEqual([[1], [2], [3]]);
+  });
+
   test('splits into chunks of the given size', () => {
     expect(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 3)).toEqual([
       [1, 2, 3],
