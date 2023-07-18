@@ -1,6 +1,33 @@
 [
   {
     "author": null,
+    "companies": [],
+    "created": 1658102400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement the Array.prototype.at() method",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-at",
+    "importance": "mid",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "array-at",
+    "subtitle": null,
+    "title": "Array.prototype.at",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [
       "amazon",
       "apple"

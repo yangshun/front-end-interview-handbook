@@ -1,0 +1,37 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import arrayAt from '../src/array-at';
+import arrayAtSpec from '../src/array-at-spec';
+
+## Solution
+
+The `Array.prototype.at` method allows accessing elements of an array using positive or negative indices, similar to how Python's list indexing works which is convenient when accessing items from the back. Traditionally, to access the last item you'd do `arr[arr.length - 1]`, but with this method you can do `arr.at(-1)`.
+
+For indices that are out of bounds (defined as `index < -array.length || index >= array.length`), `undefined` is returned. To safely access the index, we can allow the index to "wrap around" by adding `array.length` to indices so that negative indices will become the positive counterpart. However, for positive values, this will now cause the index to exceed the array range. Hence we modulo by `array.length` to get the index back within the range.
+
+Note that the specifications state that the `index` is converted to an integer first, so the function works even for string versions of indices.
+
+<MDXCodeBlock>{arrayAt}</MDXCodeBlock>
+
+## Edge Cases
+
+- Using non-integer index such as `[42, 79].at('1')`.
+
+## One-liner Solution
+
+You can cheat the autograder by doing this:
+
+```js
+Array.prototype.myAt = Array.prototype.at;
+```
+
+## Spec Solution
+
+Here's a solution that is based off the [`Array.prototype.at` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at).
+
+<MDXCodeBlock>{arrayAtSpec}</MDXCodeBlock>
+
+## Resources
+
+- [`Array.prototype.at` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+- [`Array.prototype.at` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at)
