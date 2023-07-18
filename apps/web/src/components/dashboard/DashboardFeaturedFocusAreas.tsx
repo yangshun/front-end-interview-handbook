@@ -14,8 +14,8 @@ export default function DashboardFeaturedFocusAreas({
   const intl = useIntl();
   const focusAreas = useFocusAreas();
   const areas = [
-    focusAreas['data-structures-algorithms'],
     focusAreas['async-operations'],
+    focusAreas['data-structures-algorithms'],
     focusAreas['design-system-components'],
     focusAreas.lodash,
     focusAreas['dom-manipulation'],

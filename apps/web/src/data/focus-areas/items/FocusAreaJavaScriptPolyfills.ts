@@ -27,6 +27,7 @@ export function getFocusAreaJavaScriptPolyfills(intl: IntlShape): FocusArea {
     }),
     questions: {
       javascript: [
+        'array-at',
         'array-filter',
         'array-map',
         'array-reduce',
