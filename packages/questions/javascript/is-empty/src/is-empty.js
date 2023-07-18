@@ -1,5 +1,7 @@
-// Refer to https://github.com/lodash/lodash/blob/4.17.15-es/TODO_REPLACE_ME.js
-
+/**
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is empty, else `false`.
+ */
 export default function isEmpty(value) {
   if (value == null) {
     return true;
@@ -16,12 +18,12 @@ export default function isEmpty(value) {
     return value.length === 0;
   }
 
-  // Map/Set.
+  // Maps/Sets.
   if (value instanceof Map || value instanceof Set) {
     return value.size === 0;
   }
 
-  // Plain object.
+  // Plain objects.
   const prototype = Object.getPrototypeOf(value);
   if (prototype === null || prototype === Object.prototype) {
     return Object.keys(value).length === 0;
