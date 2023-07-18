@@ -563,6 +563,33 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement a function that takes multiple functions as arguments and returns a new function that applies those functions in reverse",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compose",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "compose",
+    "subtitle": null,
+    "title": "Compose",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [
       "lyft"

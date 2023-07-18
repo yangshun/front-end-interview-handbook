@@ -1,0 +1,31 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import compose from '../src/compose';
+import composeForLoop from '../src/compose-for-loop';
+import composeRecursion from '../src/compose-recursion';
+
+## Solution
+
+### Solution 1: Using `reduceRight`
+
+1. The `compose` function takes multiple functions as arguments using the rest parameter syntax `...fns`. This allows us to pass any number of functions.
+1. It returns a new function that takes a single argument `x`.
+1. Inside the returned function, the `reduceRight` method is used to apply the functions in reverse order.
+1. The `reduceRight` method starts from the last function in the `fns` array and iterates over the array from right to left.
+1. In each iteration, it applies the current function (`func`) to the intermediate result obtained from the previous iteration or the original `input` in the first iteration.
+1. The result of each function becomes the input for the next function in the chain, effectively composing the functions in reverse order.
+1. The final result of the composed function is returned.
+
+<MDXCodeBlock>{compose}</MDXCodeBlock>
+
+### Solution 2: Using `for` loops
+
+If you're not familiar with `reduceRight`, it can also be written as a `for` loop that traverses the array from the back.
+
+<MDXCodeBlock>{composeForLoop}</MDXCodeBlock>
+
+### Solution 3: Recursion
+
+If iteration is not your thing, here's a recursive solution. Note that it's less memory efficient due to the recursion stack using up memory space (potentially even causing a stack overflow).
+
+<MDXCodeBlock>{composeRecursion}</MDXCodeBlock>
