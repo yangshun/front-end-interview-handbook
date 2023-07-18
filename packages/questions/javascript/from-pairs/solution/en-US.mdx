@@ -1,11 +1,23 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import fromPairs from '../src/from-pairs';
+import fromPairsFromEntries from '../src/from-pairs-from-entries';
 
 ## Solution
 
+### Solution 1: Loop through the `pairs` array
+
+A for-of loop can be used to iterate through `pairs` and set the key and value on a `result` object.
+
 <MDXCodeBlock>{fromPairs}</MDXCodeBlock>
+
+### Solution 2: Use `Object.fromEntries()`
+
+There's a built-in static method on `Object` to do exactly this -- it transforms a list of key-value pairs into an object.
+
+<MDXCodeBlock>{fromPairsFromEntries}</MDXCodeBlock>
 
 ## Resources
 
 - [Lodash `_.fromPairs`](https://lodash.com/docs/#fromPairs)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries)
