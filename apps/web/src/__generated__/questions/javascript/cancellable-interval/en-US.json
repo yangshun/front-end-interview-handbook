@@ -4,7 +4,7 @@
   "metadata": {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "easy",
     "duration": 10,
     "excerpt": "Implement a function that acts like setInterval but returns a function to cancel the interval",

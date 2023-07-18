@@ -4,7 +4,7 @@
   "metadata": {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "medium",
     "duration": 15,
     "excerpt": "Implement a function that resolves a promise if it is fulfilled within a timeout period and rejects otherwise",

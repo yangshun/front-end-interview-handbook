@@ -416,7 +416,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "easy",
     "duration": 10,
     "excerpt": "Implement a function that acts like setInterval but returns a function to cancel the interval",
@@ -445,7 +445,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "easy",
     "duration": 10,
     "excerpt": "Implement a function that acts like setTimeout but returns a function to cancel the pending callback",
@@ -592,7 +592,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "easy",
     "duration": 15,
     "excerpt": "Implement a function that takes multiple functions as arguments and returns a new function that applies those functions in reverse",
@@ -2621,7 +2621,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "medium",
     "duration": 15,
     "excerpt": "Implement a function that resolves a promise if it is fulfilled within a timeout period and rejects otherwise",
@@ -2838,7 +2838,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1683331200,
+    "created": 1689552000,
     "difficulty": "medium",
     "duration": 20,
     "excerpt": "Implement a function that creates a resumable interval object",
