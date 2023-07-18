@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import turtle from '../src/turtle';
+
+## Solution
+
+### State
+
+To model the state of the turtle, we only need the coordinates and direction. Coordinates are numbers stored in the `x` and `y` fields. Since the operations only allow the turtle to turn 90 degrees, which is essentially the cardinal directions North, South, East, West, the `direction` property can be represented by an enum. For this specific case, an integer from 0 - 3 (corresponding to North, South, East, West respectively) is the best representation. The reasons will be explained in more detail below.
+
+### Methods
+
+#### Turning via `left()` and `right()`
+
+When the turtle is facing north (0), turning left will make the turtle face west (3). There are a total of 4 cardinal directions. With the use of the modulo operator, we can conveniently calculate the new direction the turtle will be facing by subtracting 1 (turning left), or adding 1 (turning right) and then taking the modulo of 4 on the new value. Using an integer from 0-3 for the `direction`, makes it convenient to implement the turning logic. To improve readability, we define `const` for these directions.
+
+#### Moving `forward()` and `backward()`
+
+The logic for moving forward/backward has large overlap, and `backward(distance)` is essentially moving `forward(-distance)`. Hence we can create a private helper function to calculate the new x/y coordinates based on the direction the turtle is currently facing:
+
+- While facing north/south, moving forward/backward will increase/decrease the `y` coordinate respectively.
+- While facing east/west, moving forward/backward will increase/decrease the `x` coordinate respectively.
+
+The `_move()` helper method is optional and you can simply implement `backward()` as `return this.forward(-distance)`.
+
+### Method chaining
+
+Method chaining is a common syntax for invoking multiple methods in one statement on the same instance without requiring variables to store the intermediate results. This can be achieved by returning `this` in methods that need to be chained.
+
+<MDXCodeBlock>{turtle}</MDXCodeBlock>
