@@ -9,7 +9,7 @@ The `Array.prototype.at` method allows accessing elements of an array using posi
 
 For indices that are out of bounds (defined as `index < -array.length || index >= array.length`), `undefined` is returned. To safely access the index, we can allow the index to "wrap around" by adding `array.length` to indices so that negative indices will become the positive counterpart. However, for positive values, this will now cause the index to exceed the array range. Hence we modulo by `array.length` to get the index back within the range.
 
-Note that the specifications state that the `index` is converted to an integer first, so the function works even for string versions of indices.
+Note that the specifications state that the `index` is converted to an integer first, so `Array.prototype.at` works even for string versions of indices.
 
 <MDXCodeBlock>{arrayAt}</MDXCodeBlock>
 

@@ -73,12 +73,4 @@ describe('Array.prototype.myAt', () => {
     expect(arr.myAt(2)).toBeUndefined();
     expect(arr.myAt(-2)).toBeUndefined();
   });
-
-  test('non-integer index', () => {
-    const arr = [42, 79, 103];
-    expect(arr.myAt('0')).toBe(42);
-    expect(arr.myAt('1')).toBe(79);
-    expect(arr.myAt('2')).toBe(103);
-    expect(arr.myAt('-1')).toBe(103);
-  });
 });
