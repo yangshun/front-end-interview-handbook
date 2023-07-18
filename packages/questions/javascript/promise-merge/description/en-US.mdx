@@ -16,7 +16,7 @@ The return promise can also be rejected if one of the following happens:
 - The types of the fulfilled results do not match, reject with the string `'Unsupported data types'`.
 - One of the promises fail, reject with the rejected promise's reason.
 
-## Example
+## Examples
 
 ```js
 await promiseMerge(Promise.resolve(1), Promise.resolve(2)); // 3
