@@ -5,6 +5,11 @@ import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
+import {
+  PERPETUAL_PROMO_CODE,
+  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+} from '~/data/PromotionConfig';
+
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
@@ -28,9 +33,9 @@ export default function PromoBanner({
 
   const saleMessage = (
     <FormattedMessage
-      defaultMessage="Summer sale! Get {discountPercentage}% off annual plan with the code SUMMERSALE23, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>"
+      defaultMessage="Summer sale! Get {discountPercentage}% off annual plan with the code {promoCode}, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="0/GLIR"
+      id="JnMOx/"
       values={{
         discount: (chunks) => (
           <Anchor
@@ -52,7 +57,8 @@ export default function PromoBanner({
             {chunks}
           </Anchor>
         ),
-        discountPercentage: 20,
+        discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+        promoCode: PERPETUAL_PROMO_CODE,
         promotion: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"

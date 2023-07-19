@@ -6,6 +6,11 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
+import {
+  PERPETUAL_PROMO_CODE,
+  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+} from '~/data/PromotionConfig';
+
 import PricingBlockCard from '~/components/pricing/PricingBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -35,8 +40,6 @@ function EmailUsLink() {
     </Text>
   );
 }
-
-const seasonalSaleCode = 'SUMMERSALE23';
 
 function SeasonalDiscountCard() {
   const intl = useIntl();
@@ -71,7 +74,7 @@ function SeasonalDiscountCard() {
               display="inline-flex"
               size="custom"
               weight="custom">
-              20%
+              {PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE}%
             </Text>
             <Text
               className="text-xl font-medium tracking-normal"
@@ -110,13 +113,13 @@ function SeasonalDiscountCard() {
                       description: 'Indication that text has been copied',
                       id: 'EHngws',
                     })
-                  : seasonalSaleCode
+                  : PERPETUAL_PROMO_CODE
               }
               size="md"
               type="button"
               variant="primary"
               onClick={() => {
-                onCopy(seasonalSaleCode);
+                onCopy(PERPETUAL_PROMO_CODE);
               }}
             />
           </div>
@@ -135,7 +138,7 @@ function SeasonalDiscountCard() {
           description="Subtitle of discount promotion card"
           id="k64L83"
           values={{
-            discountPercentage: 20,
+            discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
           }}
         />
       }

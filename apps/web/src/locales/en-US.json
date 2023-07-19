@@ -71,10 +71,6 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
-  "0/GLIR": {
-    "defaultMessage": "Summer sale! Get {discountPercentage}% off annual plan with the code SUMMERSALE23, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-  },
   "032cio": {
     "defaultMessage": "Move line up",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
@@ -1138,6 +1134,10 @@
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
+  },
+  "JnMOx/": {
+    "defaultMessage": "Summer sale! Get {discountPercentage}% off annual plan with the code {promoCode}, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "JrmA6j": {
     "defaultMessage": "With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.",

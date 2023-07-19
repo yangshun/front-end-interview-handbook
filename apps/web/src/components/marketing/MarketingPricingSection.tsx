@@ -15,6 +15,10 @@ import type {
   PricingPlansLocalized,
   PricingPlanType,
 } from '~/data/PricingPlans';
+import {
+  PERPETUAL_PROMO_CODE,
+  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+} from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Alert from '~/components/ui/Alert';
@@ -802,8 +806,9 @@ export default function MarketingPricingSection({
                         description="Subtitle of discount promotion card"
                         id="ndBo9F"
                         values={{
-                          discountPercentage: 20,
-                          promoCode: 'SUMMERSALE23',
+                          discountPercentage:
+                            PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+                          promoCode: PERPETUAL_PROMO_CODE,
                         }}
                       />
                     </Text>
