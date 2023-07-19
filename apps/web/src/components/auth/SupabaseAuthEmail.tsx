@@ -13,7 +13,6 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
-import logMessage from '~/logging/logMessage';
 import { useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
@@ -81,12 +80,6 @@ export default function SupabaseAuthEmail({
         setLoading(false);
         if (signInError) {
           setError(signInError.message);
-          logMessage({
-            level: 'error',
-            message: signInError.message,
-            title: 'Sign in error',
-            userIdentifier: email,
-          });
           logEvent('auth.sign_in.fail', {
             email,
             message: signInError.message,
@@ -120,12 +113,6 @@ export default function SupabaseAuthEmail({
 
         if (signUpError) {
           setError(signUpError.message);
-          logMessage({
-            level: 'error',
-            message: signUpError.message,
-            title: 'Sign up error',
-            userIdentifier: email,
-          });
           logEvent('auth.sign_up.fail', {
             email,
             message: signUpError.message,
