@@ -4,11 +4,11 @@
  * @return {Array} Returns the slice of `array`.
  */
 export default function dropRightWhile(array, predicate) {
-  let i = array.length - 1;
+  let index = array.length - 1;
 
-  while (i >= 0 && predicate(array[i], i, array)) {
-    i--;
+  while (index >= 0 && predicate(array[index], index, array)) {
+    index--;
   }
 
-  return array.slice(0, i + 1);
+  return array.slice(0, index + 1);
 }
