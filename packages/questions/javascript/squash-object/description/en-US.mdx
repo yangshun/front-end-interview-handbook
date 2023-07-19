@@ -38,3 +38,14 @@ It should also work with properties that have arrays as the value:
 const object = { a: { b: [1, 2, 3], c: ['foo'] } };
 squashObject(object); // { 'a.b.0': 1, 'a.b.1': 2, 'a.b.2': 3, 'a.c.0': 'foo' }
 ```
+
+Empty keys should be treated as if that "layer" doesn't exist.
+
+```js
+const object = {
+  foo: {
+    '': { '': 1, 1bar: 2 },
+  },
+};
+squashObject(object); // { foo: 1, 'foo.bar': 2 }
+```
