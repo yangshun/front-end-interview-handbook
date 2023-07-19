@@ -29,6 +29,8 @@ Here's an alternative version which uses `Promise.then()` if you prefer not to u
 
 <MDXCodeBlock>{promiseAllThen}</MDXCodeBlock>
 
+Once one of the `Promise`'s resolving functions (`resolve` or `reject`) is called, the promise is in the "settled" state, and subsequent calls to either function can neither change the fulfillment value or rejection reason nor change the eventual state from "fulfilled" to "rejected" or vice versa.
+
 ## Edge Cases
 
 - Empty input array. An empty array should be returned.
