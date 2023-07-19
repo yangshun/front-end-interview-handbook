@@ -42,6 +42,7 @@ describe('camelCaseKeys', () => {
     expect(
       camelCaseKeys({
         foo_bar: true,
+        Boo_Bar: false,
         bar_baz: [{ baz_qux: true }, { foo: true }],
       }),
     ).toStrictEqual({
@@ -53,6 +54,7 @@ describe('camelCaseKeys', () => {
           foo: true,
         },
       ],
+      booBar: false,
       fooBar: true,
     });
   });
