@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry-call';
 
 const empty = () => 0;
 const square = (a) => a * a;

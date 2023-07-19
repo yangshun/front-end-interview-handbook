@@ -67,12 +67,37 @@ describe('curry', () => {
     expect(+curried()()()()(4)(2)(3)).toBe(24);
   });
 
-  test('can access this', () => {
-    const curried = curry(function (...numbers) {
-      return this.multiplier * numbers.reduce((a, b) => a * b, 1);
+  describe('can access this', () => {
+    test('single parameter', () => {
+      const curried = curry(function (val) {
+        return this.multiplier * val;
+      });
+
+      const obj = { multiplier: 5, mul: curried };
+      expect(obj.mul()).toBeInstanceOf(Function);
+      expect(+obj.mul(7)).toBe(35);
     });
 
-    const obj = { multiplier: 5, mul: curried };
-    expect(+obj.mul(7, 2)).toBe(70);
+    test('two arguments', () => {
+      const curried = curry(function (foo, bar) {
+        return this.base * foo + bar;
+      });
+
+      const obj = { base: 5, mul: curried };
+      expect(obj.mul()).toBeInstanceOf(Function);
+      expect(+obj.mul(3)(2)).toBe(17);
+      expect(+obj.mul(3, 2)).toBe(17);
+      expect(+obj.mul(3)()(2)).toBe(17);
+      expect(+obj.mul()(3)()(2)).toBe(17);
+    });
+
+    test('variadic arguments', () => {
+      const curried = curry(function (...numbers) {
+        return this.multiplier * numbers.reduce((a, b) => a * b, 1);
+      });
+
+      const obj = { multiplier: 5, mul: curried };
+      expect(+obj.mul(7, 2)).toBe(70);
+    });
   });
 });

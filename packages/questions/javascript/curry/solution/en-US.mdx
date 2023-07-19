@@ -1,6 +1,8 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import curry from '../src/curry';
+import curryBind from '../src/curry-bind';
+import curryCall from '../src/curry-call';
 
 Currying is not commonly used in real-world development but is a moderately common question for interviews as it tests the candidate's understanding of certain JavaScript fundamentals like arity and closures.
 
@@ -27,10 +29,18 @@ Note that the inner function needs to be defined using arrow functions to preser
 
 <MDXCodeBlock>{curry}</MDXCodeBlock>
 
+An alternative solution using `Function.prototype.call`:
+
+<MDXCodeBlock>{curryCall}</MDXCodeBlock>
+
+Since the innermost function is essentially meant for preserving the `this` scope and passing arguments along, it can be achieved with `Function.prototype.bind`. This solution is also more flexible because it accepts multiple arguments:
+
+<MDXCodeBlock>{curryBind}</MDXCodeBlock>
+
 ## Edge Cases
 
 - Calling the function without any arguments should not have any effect, unless the function does not take in any arguments.
-- Functions which access `this`. Do test this case for curried functions receiving multiple arguments as well.
+- Functions which access `this`. Do test this case for curried functions that are meant to receive multiple arguments as well.
 
 ## Techniques
 

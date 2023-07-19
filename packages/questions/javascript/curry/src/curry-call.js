@@ -5,12 +5,12 @@
 export default function curry(func) {
   return function curried(...args) {
     if (args.length >= func.length) {
-      return func.apply(this, args);
+      return func.call(this, ...args);
     }
 
     return (arg) =>
       arg === undefined
-        ? curried.apply(this, args)
-        : curried.apply(this, [...args, arg]);
+        ? curried.call(this, ...args)
+        : curried.call(this, ...args, arg);
   };
 }

@@ -1,6 +1,8 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import curry from '../src/curry-ii';
+import curryBind from '../src/curry-ii-bind';
+import curryCall from '../src/curry-ii-call';
 
 Currying is not commonly used in real-world development but is a moderately common question for interviews as it tests the candidate's understanding of certain JavaScript fundamentals like arity and closures.
 
@@ -23,14 +25,22 @@ We can keep a record of the curried function arguments so far via closures. Each
 - If they're the same, we call the original function with the arguments.
 - If more arguments are needed, we will return a function that accepts more arguments and invokes the curried function with the new arguments.
 
+The solutions for this question can also work for [Curry](/questions/javascript/curry/), because this solution is a general version that doesn't make any assumptions on the number of arguments needed.
+
 <MDXCodeBlock>{curry}</MDXCodeBlock>
 
-The solution for this question is exactly the same as the solution for [Curry](/questions/javascript/curry/), which doesn't make any assumptions on the number of arguments needed.
+An alternative solution using `Function.prototype.call`:
+
+<MDXCodeBlock>{curryCall}</MDXCodeBlock>
+
+Since the innermost function is essentially meant for preserving the `this` scope and passing arguments along, it can be achieved with `Function.prototype.bind`:
+
+<MDXCodeBlock>{curryBind}</MDXCodeBlock>
 
 ## Edge Cases
 
 - Calling the function without any arguments should not have any effect, unless the function does not take in any arguments.
-- Functions which access `this`.
+- Functions which access `this`. Do test this case for curried functions that are meant to receive multiple arguments as well.
 
 ## Techniques
 
