@@ -2743,6 +2743,10 @@
     "defaultMessage": "LinkedIn profile link",
     "description": "Link to LinkedIn profile"
   },
+  "lD302L": {
+    "defaultMessage": "Recommended duration to spend during interviews",
+    "description": "Recommended duration tooltip displayed on question cards found on question lists"
+  },
   "lDlJyX": {
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
@@ -2842,10 +2846,6 @@
   "n4aKYo": {
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
-  },
-  "n8q6oB": {
-    "defaultMessage": "Recommended duration",
-    "description": "Recommended duration tooltip displayed on question cards found on question lists"
   },
   "n9Ii7+": {
     "defaultMessage": "System Design",

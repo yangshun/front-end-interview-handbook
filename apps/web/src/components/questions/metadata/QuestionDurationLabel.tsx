@@ -22,10 +22,10 @@ export default function QuestionDurationLabel({
   const id = useId();
   const intl = useIntl();
   const label = intl.formatMessage({
-    defaultMessage: 'Recommended duration',
+    defaultMessage: 'Recommended duration to spend during interviews',
     description:
       'Recommended duration tooltip displayed on question cards found on question lists',
-    id: 'n8q6oB',
+    id: 'lD302L',
   });
 
   return (
