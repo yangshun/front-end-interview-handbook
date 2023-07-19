@@ -20,7 +20,7 @@ We'll wrap the `<input>` in a `<form>` for built-in keyboard handling, a11y, and
 
 #### Bulk Selection Checkbox
 
-Did you know that a HTML checkbox actually has 3 states? They are checked, unchecked, and indeterminate. Indeterminate state is not commonly used and cannot be set via HTML attributes. Hence we need to obtain a reference to the checkbox instance and do `checkboxInputElement.indeterminate = true`. This can be done in React via the `useRef` hook.
+Did you know that an HTML checkbox actually has 3 states? They are checked, unchecked, and indeterminate. Indeterminate state is not commonly used and cannot be set via HTML attributes. Hence we need to obtain a reference to the checkbox instance and do `checkboxInputElement.indeterminate = true`. This can be done in React via the `useRef` hook.
 
 We can write a new function called `determineListState` that accepts the `items` and determine the selection state of the list, whether no items are selected, some items are selected, or all items are selected. With this selection. With this state, we can render the appropriate appearance for the bulk selection checkbox. This state is also useful for determining what happens when the bulk selection checkbox is clicked/triggered. We can create a new function called `setAllItemsSelectionState` to return a new set of list items which are set to a specific selection state.
 
