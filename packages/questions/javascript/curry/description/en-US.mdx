@@ -10,26 +10,26 @@ Implement the `curry` function which accepts a function as the only argument and
 ## Examples
 
 ```js
-function addTwo(a, b) {
+function add(a, b) {
   return a + b;
 }
 
-const curriedAddTwo = curry(addTwo);
-curriedAddTwo(3)(4); // 7
+const curriedAdd = curry(add);
+curriedAdd(3)(4); // 7
 
-const alreadyAddedThree = curriedAddTwo(3);
+const alreadyAddedThree = curriedAdd(3);
 alreadyAddedThree(4); // 7
 ```
 
 ```js
-function multiplyThree(a, b, c) {
+function multiplyThreeNumbers(a, b, c) {
   return a * b * c;
 }
 
-const curriedMultiplyThree = curry(multiplyThree);
-curriedMultiplyThree(4)(5)(6); // 120
+const curriedMultiplyThreeNumbers = curry(multiplyThreeNumbers);
+curriedMultiplyThreeNumbers(4)(5)(6); // 120
 
-const containsFour = curriedMultiplyThree(4);
+const containsFour = curriedMultiplyThreeNumbers(4);
 const containsFourMulFive = containsFour(5);
 containsFourMulFive(6); // 120
 ```

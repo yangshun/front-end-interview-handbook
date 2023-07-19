@@ -8,8 +8,6 @@ export default function curry(func) {
       return func.apply(this, args);
     }
 
-    return function (...args2) {
-      return curried.apply(this, [...args, ...args2]);
-    };
+    return (...args2) => curried.apply(this, [...args, ...args2]);
   };
 }

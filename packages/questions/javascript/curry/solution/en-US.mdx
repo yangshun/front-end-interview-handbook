@@ -23,12 +23,14 @@ We can keep a record of the curried function arguments so far via closures. Each
 - If they're the same, we call the original function with the arguments.
 - If more arguments are needed, we will return a function that accepts more arguments and invokes the curried function with the new arguments.
 
+Note that the inner function needs to be defined using arrow functions to preserve the same lexical `this` or manually tracked using a separate variable like in [Debounce](/questions/javascript/debounce).
+
 <MDXCodeBlock>{curry}</MDXCodeBlock>
 
 ## Edge Cases
 
 - Calling the function without any arguments should not have any effect, unless the function does not take in any arguments.
-- Functions which access `this`.
+- Functions which access `this`. Do test this case for curried functions receiving multiple arguments as well.
 
 ## Techniques
 
