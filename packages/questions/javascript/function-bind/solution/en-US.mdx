@@ -1,8 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import myBindJs from '../src/function-bind.js';
-import myBindTs from '../src/function-bind.ts';
-import myBindReflect from '../src/myBindReflect';
+import functionBindJs from '../src/function-bind.js';
+import functionBindTs from '../src/function-bind.ts';
+import functionBindReflect from '../src/function-bind-reflect';
+import functionBindSymbol from '../src/function-bind-symbol';
 
 This question asks us to implement the `Function.prototype.bind` method, which should behave exactly like the native one. It is a common practice to implement modern, shiny new additions to JavaScript using older, more mature language features so that these APIs can still be used on older browsers. This practice is called [polyfilling](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill).
 
@@ -19,9 +20,7 @@ However, writing polyfills that are faithful to the specification and fully comp
 
 The native `bind` is a method on `Function.prototype`, so every function you declare in your program automatically inherits such a method from the prototype chain.
 
-One common use case for `bind` is to preserve the binding of a method when called as a function.
-
-Let me explain what that means. A method call is a function on an object that is being called. For example:
+One common use case for `bind` is to preserve the binding of a method when called as a function. A method call is a function on an object that is being called. For example:
 
 ```jsx
 const person = {
@@ -66,7 +65,9 @@ Now that we understand how `bind` works and its use case, let's try to implement
 
 ## Solution
 
-First, since the native `bind` is on `Function.prototype`, our `bind` also has to be on it. We'll implement it as `Function.prototype.myBind`.
+### Solution 1: Using `call`/`apply`
+
+Firstly, since the native `bind` is on `Function.prototype`, our `bind` also has to be on it. We'll implement it as `Function.prototype.myBind`.
 
 ```jsx
 Function.prototype.myBind = function () {
@@ -74,7 +75,7 @@ Function.prototype.myBind = function () {
 };
 ```
 
-Second, the arguments `Function.prototype.myBind` takes should be identical to the native one, where the first argument is the `this` keyword that the target function is bound to, after that it takes a variadic list of arguments to prepend to the arguments of the bound function.
+Secondly, the arguments `Function.prototype.myBind` accepts should be identical to the native one, where the first argument is the `this` keyword that the target function is bound to, after that it takes a variadic list of arguments to prepend to the arguments of the bound function.
 
 Next, it returns a new function, with its `this` bound to the previous context passed to `Function.prototype.myBind` method. When the returned function is invoked, it gets the prepended arguments passed from `Function.prototype.myBind` as well.
 
@@ -86,9 +87,11 @@ person.getAge.myBind(person); // myBind is a method call and its `this` is bound
 
 Lastly, we can use [`Function.prototype.call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) or [`Function.prototype.apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) inside the returned function, to call the original method with the `thisArg` passed to the `myBind` method.
 
-<MDXCodeBlock languages={{jsx: myBindJs, tsx: myBindTs}} />
+<MDXCodeBlock languages={{ jsx: functionBindJs, tsx: functionBindTs }} />
 
-There is one last thing we need to watch out for: we invoke apply directly on `originalFunc` . While this is fine most of the time but it does impose a reliability hazard in rare cases. Because of how the property resolution mechanism works in JavaScript, if `originalFunc` contains a user-defined method/property with the same name `call`, that shadows `Function.prototype.call`. As a result, it is the user-defined `apply` that (if it exists on `originalFunc`) gets called.
+### Solution 2: Using `Reflect`
+
+Another thing we need to watch out for: we invoke `apply` directly on `originalFunc`. While this is fine most of the time but it does impose a reliability hazard in rare cases. Because of how the property resolution mechanism works in JavaScript, if `originalFunc` contains a user-defined method/property with the same name `call`, that shadows `Function.prototype.call`. As a result, it is the user-defined `apply` that (if it exists on `originalFunc`) gets called.
 
 To make our code more robust, we need to be more explicit here. We can either
 
@@ -97,7 +100,13 @@ To make our code more robust, we need to be more explicit here. We can either
 
 Here is the robust solution:
 
-<MDXCodeBlock>{myBindReflect}</MDXCodeBlock>
+<MDXCodeBlock>{functionBindReflect}</MDXCodeBlock>
+
+### Solution 3: Using `Symbol`
+
+Another approach is to create a `Symbol` and add it as a property to a newly-created `Object` with `thisArg` bound to it.
+
+<MDXCodeBlock>{functionBindSymbol}</MDXCodeBlock>
 
 ## Edge Cases
 
