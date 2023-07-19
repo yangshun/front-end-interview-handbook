@@ -1,4 +1,4 @@
-import chunk from './chunk-push';
+import chunk from './chunk';
 
 describe('chunk', () => {
   test('empty array', () => {
