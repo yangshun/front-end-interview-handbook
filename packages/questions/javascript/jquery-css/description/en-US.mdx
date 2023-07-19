@@ -39,4 +39,9 @@ $('button').css('color'); // 'red'
 
 Implement the jQuery single-character function `$` which only needs to supports the `css()` method that either gets the value of a computed style property or sets a CSS property on the matched element.
 
-**Note**: The official jQuery library selects all matched elements and modified all matched elements. However, for this question we can assume there will only be a maximum of one element matching the selector.
+## Notes
+
+There are some differences with the official `jQuery.css()` implementation:
+
+- The official library selects all matched elements and modified all matched elements. However, for this question we can assume there will only be a maximum of one element matching the selector.
+- jQuery understands and returns the correct value for both `.css('background-color')` and `.css('backgroundColor')` but we only have to support the latter syntax.
