@@ -1,5 +1,4 @@
 import promiseAllSettled from './promise-all-settled';
-// import promiseAllSettled from './solution/promiseAllSettledThen';
 
 describe('promiseAllSettled', () => {
   test('empty input array', async () => {
