@@ -48,7 +48,7 @@ const links = [
     title: 'Practice Questions',
   },
   {
-    description: 'Join the exclusive Discord community for Premium users',
+    description: 'Join the private Discord community for Premium users',
     href: 'https://discord.gg/8suTg77xXz',
     icon: DiscordIcon,
     title: 'Join Discord',
@@ -178,7 +178,6 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                       </span>
                     </div>
                     <div className="min-w-0 flex-1">
-                      {/* TODO: i18n */}
                       <Heading className="text-base font-medium" level="custom">
                         <span className="focus-within:ring-brand rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                           <Anchor

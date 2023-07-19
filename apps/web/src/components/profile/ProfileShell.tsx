@@ -106,7 +106,7 @@ export default function ProfileShell({ user, children }: Props) {
           <div className="min-w-0 flex-1 xl:flex">
             {/* Account profile */}
             <div className="xl:w-64 xl:flex-shrink-0 xl:px-6">
-              <div className="py-6 px-4 sm:px-6 lg:px-8 xl:px-0">
+              <div className="px-4 py-6 sm:px-6 lg:px-8 xl:px-0">
                 <div className="flex items-center justify-between">
                   <div className="flex-1 space-y-8">
                     <div className="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
@@ -124,7 +124,7 @@ export default function ProfileShell({ user, children }: Props) {
                       </div>
                     </div>
                     {/* Meta info */}
-                    <div className="flex flex-col space-y-6 sm:flex-row sm:space-y-0 sm:space-x-8 xl:flex-col xl:space-x-0 xl:space-y-4">
+                    <div className="flex flex-col space-y-6 sm:flex-row sm:space-x-8 sm:space-y-0 xl:flex-col xl:space-x-0 xl:space-y-4">
                       {user?.user_metadata?.full_name && (
                         <Text display="block" weight="bold">
                           {user?.user_metadata?.full_name}
@@ -237,6 +237,7 @@ export default function ProfileShell({ user, children }: Props) {
                             </Text>
                           </div>
                           {(userProfile?.plan === 'lifetime' ||
+                            userProfile?.plan === 'quarter' ||
                             userProfile?.plan === 'year') && (
                             <div className="flex items-center space-x-2">
                               <DiscordIcon
@@ -270,7 +271,7 @@ export default function ProfileShell({ user, children }: Props) {
               )}>
               <div
                 className={clsx(
-                  'border-t pl-4 pr-4 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6',
+                  'border-t pb-4 pl-4 pr-4 pt-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6',
                   themeLineColor,
                 )}>
                 <div className="flex items-center">
@@ -281,7 +282,7 @@ export default function ProfileShell({ user, children }: Props) {
                   />
                 </div>
               </div>
-              <div className="py-8 px-4 sm:px-6 lg:px-8 xl:px-6">
+              <div className="px-4 py-8 sm:px-6 lg:px-8 xl:px-6">
                 {children}
               </div>
             </div>

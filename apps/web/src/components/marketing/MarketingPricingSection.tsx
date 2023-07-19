@@ -510,14 +510,14 @@ export default function MarketingPricingSection({
     id: 'LSKN5A',
   });
   const featureContinuousUpdates = intl.formatMessage({
-    defaultMessage: 'Access to continuously updating question library.',
+    defaultMessage: 'Access to continuously updating questions and content.',
     description: 'Feature of monthly pricing plan',
-    id: 'iqc+V7',
+    id: '++gUWh',
   });
   const featureDiscordAccess = intl.formatMessage({
-    defaultMessage: 'Exclusive lifetime Discord channel access.',
+    defaultMessage: 'Exclusive private Discord channel access for life.',
     description: 'Feature of annual pricing plan',
-    id: 'BCSs45',
+    id: 'O57nUH',
   });
   const featureRealtimeSupport = intl.formatMessage({
     defaultMessage:
@@ -548,7 +548,11 @@ export default function MarketingPricingSection({
       description: 'Supporting statement for a quarterly pricing plan',
       id: 'h63G52',
     }),
-    includedFeatures: [featureAllAccess, featureContinuousUpdates],
+    includedFeatures: [
+      featureAllAccess,
+      featureContinuousUpdates,
+      featureDiscordAccess,
+    ],
     name: intl.formatMessage({
       defaultMessage: 'Quarterly plan',
       description: 'Title of quarterly pricing plan',
@@ -1054,6 +1058,11 @@ export default function MarketingPricingSection({
                     defaultMessage="Prices will be increased as more content is being added to the website."
                     description="Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
                     id="VJ8xZy"
+                  />{' '}
+                  <FormattedMessage
+                    defaultMessage="Subscribe early to lock in this earlybird price."
+                    description="Tip at the bottom of the Pricing section"
+                    id="PhPw02"
                   />
                 </Text>
                 <Text color="secondary" display="block" size="body2">

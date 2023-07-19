@@ -1,4 +1,8 @@
 {
+  "++gUWh": {
+    "defaultMessage": "Access to continuously updating questions and content.",
+    "description": "Feature of monthly pricing plan"
+  },
   "+59/34": {
     "defaultMessage": "Questions to Ask (End of Interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -642,10 +646,6 @@
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
-  },
-  "BCSs45": {
-    "defaultMessage": "Exclusive lifetime Discord channel access.",
-    "description": "Feature of annual pricing plan"
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -1415,6 +1415,10 @@
     "defaultMessage": "An email will be sent to the address above if an associated account exists",
     "description": "Message indicating a successful password reset request"
   },
+  "O57nUH": {
+    "defaultMessage": "Exclusive private Discord channel access for life.",
+    "description": "Feature of annual pricing plan"
+  },
   "O7MAvX": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
     "description": "Title of 1 Month Preparation Plan page"
@@ -1526,6 +1530,10 @@
   "PfOyMR": {
     "defaultMessage": "{duration} mins",
     "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
+  },
+  "PhPw02": {
+    "defaultMessage": "Subscribe early to lock in this earlybird price.",
+    "description": "Tip at the bottom of the Pricing section"
   },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
@@ -2550,10 +2558,6 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
-  },
-  "iqc+V7": {
-    "defaultMessage": "Access to continuously updating question library.",
-    "description": "Feature of monthly pricing plan"
   },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
