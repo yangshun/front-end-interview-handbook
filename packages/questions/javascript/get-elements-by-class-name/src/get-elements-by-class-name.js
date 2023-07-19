@@ -20,13 +20,13 @@ export default function getElementsByClassName(rootElement, classNames) {
       elements.push(element);
     }
 
-    for (let i = 0; i < element.children.length; i++) {
-      traverse(element.children[i]);
+    for (const child of element.children) {
+      traverse(child);
     }
   }
 
-  for (let i = 0; i < rootElement.children.length; i++) {
-    traverse(rootElement.children[i]);
+  for (const child of rootElement.children) {
+    traverse(child);
   }
 
   return elements;

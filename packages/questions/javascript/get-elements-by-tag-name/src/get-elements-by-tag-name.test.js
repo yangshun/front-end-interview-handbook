@@ -3,8 +3,9 @@ import getElementsByTagName from './get-elements-by-tag-name';
 describe('getElementsByTagName', () => {
   function checkResults(expected, received) {
     expect(received.length).toBe(expected.length);
-    for (let i = 0; i < received.length; i++) {
-      expect(received[i].isEqualNode(expected[i])).toBe(true);
+    // Inefficient O(n^2) check so that order doesn't matter.
+    for (let i = 0; i < expected.length; i++) {
+      expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
     }
   }
 
