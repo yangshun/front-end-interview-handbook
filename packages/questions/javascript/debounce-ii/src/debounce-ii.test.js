@@ -198,6 +198,28 @@ describe('debounce', () => {
       }, 500);
     });
 
+    test('callbacks can access `this`', (done) => {
+      const increment = debounce(function (delta) {
+        this.val += delta;
+      }, 50);
+
+      const obj = {
+        val: 2,
+        increment,
+      };
+
+      expect(obj.val).toBe(2);
+      obj.increment(3);
+      expect(obj.val).toBe(2);
+      obj.increment.flush();
+      expect(obj.val).toBe(5);
+
+      setTimeout(() => {
+        expect(obj.val).toBe(5);
+        done();
+      }, 100);
+    });
+
     test('flush after a while', (done) => {
       let i = 0;
       const increment = debounce(() => {
