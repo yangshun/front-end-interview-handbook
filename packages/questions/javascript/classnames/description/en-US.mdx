@@ -3,7 +3,7 @@ title: Classnames
 excerpt: Implement a function that conditionally joins CSS class names together
 ---
 
-[`classnames`](https://github.com/JedWatson/classnames) is a commonly used utility in modern front end applications to conditionally join CSS class names together. If you've written React or Vue applications, you likely have used a library like this.
+[`classnames`](https://github.com/JedWatson/classnames) is a commonly-used utility in modern front end applications to conditionally join CSS class names together. If you've written React applications, you likely have used a similar library.
 
 Implement the `classnames` function.
 
@@ -42,5 +42,5 @@ classNames(
 Falsey values are ignored.
 
 ```js
-classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // 'bar 1'
+classNames(null, false, 'bar', undefined, { baz: null }, ''); // 'bar 1'
 ```

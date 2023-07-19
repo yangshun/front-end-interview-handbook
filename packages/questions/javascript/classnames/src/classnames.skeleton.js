@@ -1,5 +1,5 @@
 /**
- * @param {...(string|Object|Array<string|Object>)} args
+ * @param {...(any|Object|Array<any|Object|Array>)} args
  * @return {string}
  */
 export default function classNames(...args) {
