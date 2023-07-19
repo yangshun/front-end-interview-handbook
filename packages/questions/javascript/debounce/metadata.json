@@ -11,5 +11,5 @@
   "difficulty": "medium",
   "featured": true,
   "similar_questions": ["throttle"],
-  "next_questions": ["throttle", "todo-list", "holy-grail", "debounce-ii"]
+  "next_questions": ["throttle", "debounce-ii", "holy-grail"]
 }

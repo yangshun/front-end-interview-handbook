@@ -12,7 +12,7 @@ describe('debounce', () => {
     let i = 0;
     const increment = debounce(() => {
       i++;
-    }, 50);
+    }, 10);
 
     expect(i).toBe(0);
     increment();
@@ -21,30 +21,49 @@ describe('debounce', () => {
     setTimeout(() => {
       expect(i).toBe(1);
       done();
-    }, 100);
+    }, 20);
   });
 
-  test('uses arguments', (done) => {
-    let i = 21;
-    const increment = debounce((a, b) => {
-      i += a * b;
-    }, 50);
+  describe('uses arguments', () => {
+    test('called once', (done) => {
+      let i = 21;
+      const increment = debounce((a, b) => {
+        i += a * b;
+      }, 10);
 
-    expect(i).toBe(21);
-    increment(3, 7);
-    expect(i).toBe(21);
+      expect(i).toBe(21);
+      increment(3, 7);
+      expect(i).toBe(21);
 
-    setTimeout(() => {
-      expect(i).toBe(42);
-      done();
-    }, 100);
+      setTimeout(() => {
+        expect(i).toBe(42);
+        done();
+      }, 20);
+    });
+
+    test('uses arguments of latest invocation', (done) => {
+      let i = 21;
+      const increment = debounce((a, b) => {
+        i += a * b;
+      }, 10);
+
+      expect(i).toBe(21);
+      increment(3, 7);
+      increment(4, 5);
+      expect(i).toBe(21);
+
+      setTimeout(() => {
+        expect(i).toBe(41);
+        done();
+      }, 20);
+    });
   });
 
   test('execute once even after calling it multiple times', (done) => {
     let i = 0;
     const increment = debounce(() => {
       i++;
-    }, 50);
+    }, 20);
 
     expect(i).toBe(0);
     increment();
@@ -56,12 +75,12 @@ describe('debounce', () => {
     // Should not fire yet.
     setTimeout(() => {
       expect(i).toBe(0);
-    }, 25);
+    }, 10);
 
     setTimeout(() => {
       expect(i).toBe(1);
       done();
-    }, 75);
+    }, 30);
   });
 
   test('duration extended if called again during window', (done) => {
@@ -97,7 +116,7 @@ describe('debounce', () => {
   test('callbacks can access `this`', (done) => {
     const increment = debounce(function (delta) {
       this.val += delta;
-    }, 50);
+    }, 10);
 
     const obj = {
       val: 2,
@@ -111,6 +130,6 @@ describe('debounce', () => {
     setTimeout(() => {
       expect(obj.val).toBe(5);
       done();
-    }, 100);
+    }, 20);
   });
 });

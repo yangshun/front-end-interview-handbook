@@ -854,9 +854,8 @@
     ],
     "nextQuestions": [
       "throttle",
-      "todo-list",
-      "holy-grail",
-      "debounce-ii"
+      "debounce-ii",
+      "holy-grail"
     ],
     "premium": false,
     "published": true,
