@@ -12,7 +12,7 @@ This question evaluates your understanding of closures and first-class functions
 
 ## Solution
 
-The `sum` function returns functions until it is called without any arguments, then it will return the total sum so far. Since we need to retain a running sum of the values added so far, we will need a variable to do that. How do we achieve that without classes? We can use closures.
+The `sum` function returns functions until it is called without any arguments, then it will return the total sum so far. Since we need to retain a running sum of the values added so far, we can use a variable for that. How do we achieve that without classes? The answer is closures.
 
 A closure is the combination of a function bundled together with references to its lexical environment (surrounding state). We can make use of closures to keep a reference to the running total.
 
