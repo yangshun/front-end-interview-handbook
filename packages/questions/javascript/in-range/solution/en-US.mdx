@@ -2,16 +2,29 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import inRange from '../src/in-range';
 import inRangeShort from '../src/in-range-short';
+import inRangeOneLiner from '../src/in-range-one-liner';
 
 ## Solution
 
+## Solution 1: Verbose
+
+In this solution, check if the `end` parameter is being passed into the function by using `end === undefined`. With the `start` and `end` values defined correctly, we can proceed to check if the value falls within range.
+
 <MDXCodeBlock>{inRange}</MDXCodeBlock>
 
-To check for if the `end` parameter is being passed into the function, use `end === undefined`.
+## Solution 2: Shorter
 
-Here's a shorter solution which is more concise but a little less obvious.
+Here's a shorter solution which is more concise but a little less readable. We can use a ternary expression to determine of `start` and `end`.
+
+To check if the value falls within range, we can use `Math.min(start, end)` to determine the lower bound and `Math.max(start, end)` to determine the upper bound.
 
 <MDXCodeBlock>{inRangeShort}</MDXCodeBlock>
+
+## Solution 3: One-liner
+
+This even shorter solution relies on setting a default value for `end` to be 0. This works because if the user omits the `end` parameter, the range becomes `[start, 0]` but will be flipped around by the `Math.min()` and `Math.max()`.
+
+<MDXCodeBlock>{inRangeOneLiner}</MDXCodeBlock>
 
 ## Resources
 

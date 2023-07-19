@@ -8,5 +8,5 @@ export default function inRange(value, startParam, endParam) {
   const [start, end] =
     endParam !== undefined ? [startParam, endParam] : [0, startParam];
 
-  return value >= Math.min(start, end) && value < Math.max(start, end);
+  return Math.min(start, end) <= value && value < Math.max(start, end);
 }
