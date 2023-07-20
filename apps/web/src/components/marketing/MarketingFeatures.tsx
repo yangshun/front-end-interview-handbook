@@ -182,13 +182,13 @@ export default function MarketingFeatures() {
         Features
       </Heading>
       <Section>
-        <dl className="grid gap-6 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-12">
+        <dl className="grid gap-12 sm:grid-cols-2 sm:gap-y-16">
           {features.map((feature) => (
             <div key={feature.name} className="group relative">
               <dt className="flex flex-col items-start gap-y-4">
                 <div
                   className={clsx(
-                    'dark:bg-neutral-800/70 rounded-full p-3',
+                    'rounded-full p-3 dark:bg-neutral-800/70',
                     themeGlassyBorder,
                     themeTextSubtitleColor,
                   )}>
