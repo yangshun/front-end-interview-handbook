@@ -2147,6 +2147,10 @@
     "defaultMessage": "Lifetime plan is a limited time offering and will be removed in future.",
     "description": "Tip at the bottom of the Pricing section"
   },
+  "bBbCZY": {
+    "defaultMessage": "Frequently asked questions",
+    "description": "Title of frequently asked questions page"
+  },
   "bE90WW": {
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
