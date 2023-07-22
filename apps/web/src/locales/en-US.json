@@ -1047,6 +1047,10 @@
     "defaultMessage": "Join Discord (Premium)",
     "description": "Join Discord channel"
   },
+  "IQ9qW7": {
+    "defaultMessage": "Get promo code",
+    "description": "Button label for student discount"
+  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -2191,10 +2195,6 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
-  "bz1Gh7": {
-    "defaultMessage": "Send us an email using your school email with proof that you're currently enrolled in an educational institution.",
-    "description": "Condition for promotion"
-  },
   "c12AhV": {
     "defaultMessage": "Breadcrumb",
     "description": "Screenreader text to indicate breadcrumb component"
@@ -2246,6 +2246,10 @@
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
     "description": "Title of quiz question page"
+  },
+  "cx8XeF": {
+    "defaultMessage": "Invalid student email",
+    "description": "Button label for student discount"
   },
   "cxU8W8": {
     "defaultMessage": "Refer more users to us and earn 15% commission of the first order",
@@ -2474,6 +2478,10 @@
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
     "description": "Label for questions solved in the past"
+  },
+  "grmcEW": {
+    "defaultMessage": "Your account email is a school email that contains \".edu\".",
+    "description": "Condition for promotion"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -2835,6 +2843,10 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
+  "mkx/6U": {
+    "defaultMessage": "Use code at checkout. Code expires in 3 days.",
+    "description": "Instruction to apply discount"
+  },
   "mnJ9uY": {
     "defaultMessage": "Practice building Lodash utility functions",
     "description": "Title for interview preparation focus area"
@@ -3090,6 +3102,10 @@
   "qzlnBr": {
     "defaultMessage": "Accessibility",
     "description": "Title of study plan"
+  },
+  "r/YoFx": {
+    "defaultMessage": "Premium accounts are not eligible",
+    "description": "Button label for student discount"
   },
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
@@ -3478,6 +3494,10 @@
   "z+5YJV": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all User Interface coding questions"
+  },
+  "z1Offf": {
+    "defaultMessage": "Sign up with school email",
+    "description": "Button label"
   },
   "zDt/bH": {
     "defaultMessage": "Next",

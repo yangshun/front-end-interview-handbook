@@ -1,3 +1,4 @@
+import Stripe from 'stripe';
 import { z } from 'zod';
 
 import { publicProcedure, router } from '../trpc';
@@ -7,6 +8,43 @@ import { Prisma, PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const marketingRouter = router({
+  generateStudentDiscount: publicProcedure.mutation(
+    async ({ ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      const profile = await prisma.profile.findFirst({
+        where: {
+          id: user.id,
+        },
+      });
+
+      if (profile == null || profile?.premium || !profile?.stripeCustomer) {
+        return null;
+      }
+
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2022-11-15',
+      });
+
+      const today = new Date();
+      const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
+      const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
+
+      const promotionCode = await stripe.promotionCodes.create({
+        coupon: 'r1nhvjSn', // Test mode.
+        // coupon: 'tgklHrfQ', // Prod.
+        customer: profile.stripeCustomer,
+        expires_at: nextThreeDaysUnix,
+        max_redemptions: 1,
+      });
+
+      return {
+        code: promotionCode.code,
+      };
+    },
+  ),
   signUpWithEmail: publicProcedure
     .input(
       z.object({

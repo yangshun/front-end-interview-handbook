@@ -1,16 +1,20 @@
 'use client';
 
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiFileCopyLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import {
   PERPETUAL_PROMO_CODE,
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+  STUDENT_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import PricingBlockCard from '~/components/pricing/PricingBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -19,6 +23,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+
+import { isValidStudentEmail } from '~/utils/marketing/studentEmail';
+
+import { useUser } from '@supabase/auth-helpers-react';
 
 function EmailUsLink() {
   return (
@@ -165,7 +173,21 @@ function SeasonalDiscountCard() {
 
 function StudentDiscountCard() {
   const intl = useIntl();
-  const discountPercentage = 40;
+  const discountPercentage = STUDENT_DISCOUNT_PERCENTAGE;
+  const user = useUser();
+  const { userProfile } = useUserProfile();
+  const [promoCode, setPromoCode] = useState<string | null>(null);
+  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
+  const {
+    isLoading: isGeneratingStudentDiscount,
+    mutate: generateStudentDiscount,
+  } = trpc.marketing.generateStudentDiscount.useMutation({
+    onSuccess: (data) => {
+      if (data?.code) {
+        setPromoCode(data.code);
+      }
+    },
+  });
 
   return (
     <PricingBlockCard
@@ -178,9 +200,9 @@ function StudentDiscountCard() {
         }),
         intl.formatMessage({
           defaultMessage:
-            "Send us an email using your school email with proof that you're currently enrolled in an educational institution.",
+            'Your account email is a school email that contains ".edu".',
           description: 'Condition for promotion',
-          id: 'bz1Gh7',
+          id: 'grmcEW',
         }),
       ]}
       footer={
@@ -243,18 +265,118 @@ function StudentDiscountCard() {
             />
           </Text>
           <div className="mt-4">
-            <Button
-              display="block"
-              href="mailto:contact@greatfrontend.com?subject=GreatFrontEnd Student Discount"
-              label={intl.formatMessage({
-                defaultMessage: 'Email Us',
-                description: 'Button label to send to a support email',
-                id: 'bsCmcK',
-              })}
-              size="md"
-              type="button"
-              variant="primary"
-            />
+            {(() => {
+              if (user == null) {
+                return (
+                  <Button
+                    display="block"
+                    href={`/sign-up?next=${encodeURIComponent(
+                      '/promotions',
+                    )}&source=student_discount`}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Sign up with school email',
+                      description: 'Button label',
+                      id: 'z1Offf',
+                    })}
+                    size="md"
+                    type="button"
+                    variant="primary"
+                  />
+                );
+              }
+
+              if (userProfile?.isPremium) {
+                return (
+                  <Button
+                    display="block"
+                    isDisabled={true}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Premium accounts are not eligible',
+                      description: 'Button label for student discount',
+                      id: 'r/YoFx',
+                    })}
+                    size="md"
+                    type="button"
+                    variant="secondary"
+                  />
+                );
+              }
+
+              if (user.email != null && !isValidStudentEmail(user.email)) {
+                return (
+                  <Button
+                    display="block"
+                    isDisabled={true}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Invalid student email',
+                      description: 'Button label for student discount',
+                      id: 'cx8XeF',
+                    })}
+                    size="md"
+                    type="button"
+                    variant="secondary"
+                  />
+                );
+              }
+
+              if (promoCode) {
+                return (
+                  <div>
+                    <Button
+                      addonPosition="start"
+                      display="block"
+                      icon={RiFileCopyLine}
+                      label={
+                        isCopied
+                          ? intl.formatMessage({
+                              defaultMessage: 'Copied!',
+                              description:
+                                'Indication that text has been copied',
+                              id: 'EHngws',
+                            })
+                          : promoCode
+                      }
+                      size="md"
+                      type="button"
+                      variant="primary"
+                      onClick={() => {
+                        onCopy(promoCode);
+                      }}
+                    />
+                    <Text
+                      className="mt-2"
+                      color="secondary"
+                      display="block"
+                      size="body3">
+                      <FormattedMessage
+                        defaultMessage="Use code at checkout. Code expires in 3 days."
+                        description="Instruction to apply discount"
+                        id="mkx/6U"
+                      />
+                    </Text>
+                  </div>
+                );
+              }
+
+              return (
+                <Button
+                  display="block"
+                  isDisabled={isGeneratingStudentDiscount}
+                  isLoading={isGeneratingStudentDiscount}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Get promo code',
+                    description: 'Button label for student discount',
+                    id: 'IQ9qW7',
+                  })}
+                  size="md"
+                  type="button"
+                  variant="primary"
+                  onClick={() => {
+                    generateStudentDiscount();
+                  }}
+                />
+              );
+            })()}
           </div>
         </>
       }
