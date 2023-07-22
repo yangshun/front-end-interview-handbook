@@ -1121,7 +1121,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "function-bind"
+      "function-bind",
+      "function-call"
     ],
     "slug": "function-apply",
     "subtitle": null,
@@ -1145,13 +1146,15 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "curry"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "curry",
-      "function-call"
+      "function-call",
+      "function-apply"
     ],
     "slug": "function-bind",
     "subtitle": null,
@@ -1180,7 +1183,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "function-bind"
+      "function-bind",
+      "function-apply"
     ],
     "slug": "function-call",
     "subtitle": null,

@@ -23,7 +23,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "function-bind"
+      "function-bind",
+      "function-call"
     ],
     "slug": "function-apply",
     "subtitle": null,
