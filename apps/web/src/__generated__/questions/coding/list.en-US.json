@@ -1439,6 +1439,35 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1690329600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement the Function.prototype.apply() function that calls the function with a given `this` value and arguments as an array",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-apply",
+    "importance": "mid",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-bind"
+    ],
+    "slug": "function-apply",
+    "subtitle": null,
+    "title": "Function.prototype.apply",
+    "topics": []
+  },
+  {
     "author": "zhenghao",
     "companies": [],
     "created": 1656201600,
