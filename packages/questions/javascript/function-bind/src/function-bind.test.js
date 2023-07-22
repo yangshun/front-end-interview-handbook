@@ -14,6 +14,10 @@ describe('Function.prototype.myBind', () => {
     },
   };
 
+  test('Function.prototype.myBind is a function', () => {
+    expect(typeof Function.prototype.myBind).toBe('function');
+  });
+
   test('`this` is bound', () => {
     const unboundGetName = person.getName;
     expect(() => {

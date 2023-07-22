@@ -1,3 +1,8 @@
+/**
+ * @param {any} thisArg
+ * @param {...*} boundArgs
+ * @return {Function}
+ */
 Function.prototype.myBind = function (thisArg, ...boundArgs) {
   const originalFunc = this;
   if (typeof originalFunc !== 'function') {
