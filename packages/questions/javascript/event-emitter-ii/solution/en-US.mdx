@@ -67,11 +67,11 @@ events = [
   - `emit()` and `sub.off()` operations will require iterating through the array, you can't instantly determine if an event exists and ignore emission of non-existent events.
   - Potentially more space needed to store the data because of the repeated object fields and `eventName` strings.
 
-Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `events` object with `Object.create(null)` or use a ES6 `Map` class.
+Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `_events` object with `Object.create(null)` or use a ES6 `Map` class.
 
 ### Implementing `EventEmitter.on()`
 
-Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `events` object and make the value an empty object (for the map of listenerIds to its listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
+Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `_events` object and make the value an empty object (for the map of `listenerId`s to its listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
 
 ### Implementing `sub.off()`
 
@@ -104,7 +104,7 @@ function on(eventName, listener) {
 }
 ```
 
-We can create a new class `EventSubscription` to instantiate as the object returned from `emitter.off()`, which has the benefit of sharing the method implementation across instances. However, the memory footprint is negligible and is considered overkill.
+We can create a new class `EventSubscription` with an `.off()` method to instantiate as the object returned from `emitter.off()`, which has the benefit of sharing the method implementation across instances. However, the memory footprint is negligible and is not really necessary.
 
 ### Implementing `EventEmitter.emit()`
 
