@@ -1,0 +1,12 @@
+{
+  "slug": "function-call",
+  "created": "2023-07-26T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": true,
+  "duration": 10,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "easy",
+  "similar_questions": ["function-bind"]
+}

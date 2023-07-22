@@ -23,7 +23,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "curry"
+      "curry",
+      "function-call"
     ],
     "slug": "function-bind",
     "subtitle": null,

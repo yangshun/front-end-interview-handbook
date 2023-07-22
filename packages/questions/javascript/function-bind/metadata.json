@@ -9,5 +9,5 @@
   "published": true,
   "importance": "mid",
   "difficulty": "easy",
-  "similar_questions": ["curry"]
+  "similar_questions": ["curry", "function-call"]
 }

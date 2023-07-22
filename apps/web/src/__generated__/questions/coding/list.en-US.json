@@ -1460,11 +1460,41 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "curry"
+      "curry",
+      "function-call"
     ],
     "slug": "function-bind",
     "subtitle": null,
     "title": "Function.prototype.bind",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1690329600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement the Function.prototype.call() function that calls the function with a given `this` value and provided arguments",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-call",
+    "importance": "mid",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-bind"
+    ],
+    "slug": "function-call",
+    "subtitle": null,
+    "title": "Function.prototype.call",
     "topics": []
   },
   {
