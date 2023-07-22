@@ -602,7 +602,7 @@
     "similarQuestions": [],
     "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
     "subtitle": null,
-    "title": "解释CSS 图像精灵（雪碧图），以及您如何在页面或网站上实现它们。",
+    "title": "解释CSS 图片精灵（雪碧图），以及您如何在页面或网站上实现它们。",
     "topics": [
       "css",
       "performance"
@@ -2427,7 +2427,7 @@
     "similarQuestions": [],
     "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag",
     "subtitle": "解释一下浏览器在评估这个属性的内容时的过程。",
-    "title": "为什么你会在图像标签中使用 `srcset` 属性？",
+    "title": "为什么你会在图片标签中使用 `srcset` 属性？",
     "topics": [
       "html"
     ]
