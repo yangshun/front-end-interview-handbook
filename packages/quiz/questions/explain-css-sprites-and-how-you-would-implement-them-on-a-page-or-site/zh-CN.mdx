@@ -1,21 +1,21 @@
 ---
-title: 解释CSS 图像精灵（雪碧图），以及您如何在页面或网站上实现它们。
+title: 解释CSS 图片精灵（雪碧图），以及您如何在页面或网站上实现它们。
 ---
 
-CSS 图像精灵将多个图像合并为一个更大的图像文件，并使用 CSS `background-image`, `background-position` 和 `background-size` 来选择更大图像的特定部分作为所需图像。
+CSS 图片精灵将多个图片合并为一个更大的图片文件，并使用 CSS `background-image`, `background-position` 和 `background-size` 来选择更大图片的特定部分作为所需图片。
 
-它曾经是用于图标的一种常用技术(例如，Gmail使用图像精灵作为其所有图像)。
+它曾经是用于图标的一种常用技术(例如，Gmail使用图片精灵作为其所有图片)。
 
 ## 优点
 
--   减少多个图像的 HTTP 请求数量 (每张spritesheet 只需要一个请求)。 但是使用 HTTP2 加载多个图像已不再是一个问题。
--   预先下载在需要之前不会下载的资产，如只会出现在 `:hover` 伪状态上的图像。 闪烁不会被看到。
+-   减少多个图片的 HTTP 请求数量 (每张spritesheet 只需要一个请求)。 但是使用 HTTP2 加载多个图片已不再是一个问题。
+-   预先下载在需要之前不会下载的资产，如只会出现在 `:hover` 伪状态上的图片。 闪烁不会被看到。
 
 ## 实现方式
 
-1.  使用图像精灵生成器将多个图像包装成一个图像并生成相应的 CSS
-2.  每个图像都有一个对应的 CSS 类，定义了 `background-image` 和 `background-position` 属性。
-3.  要使用此图像，请将相应的类添加到您的元素中。
+1.  使用图片精灵生成器将多个图片包装成一个图片并生成相应的 CSS
+2.  每个图片都有一个对应的 CSS 类，定义了 `background-image` 和 `background-position` 属性。
+3.  要使用此图片，请将相应的类添加到您的元素中。
 
 生成的样式表看起来可能像这样：
 
@@ -45,4 +45,4 @@ CSS 图像精灵将多个图像合并为一个更大的图像文件，并使用 
 
 ## 参考资料
 
--   [在 CSS 中实现图像精灵 - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)
+-   [在 CSS 中实现图片精灵 - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)

@@ -57,7 +57,7 @@ React迫使你把UI写成包含其自身逻辑和外观的组件。 React组件�
 
 ```js
 function Slider({ min, max }) {
-  // Use the props to render a customized component.
+  // 使用 props 来呈现自定义组件。
   return <div>...</div>;
 }
 
@@ -71,9 +71,9 @@ import { createRoot } from 'react-dom/client';
 import Slider from './Slider';
 
 const domNode = document.getElementById('#gfe-slider');
-// React will manage the DOM within this element.
+// React 将管理此元素内的 DOM。
 const root = createRoot(domNode);
-// Display the Slider component within the element.
+// 在元素内显示 Slider 组件。
 root.render(<Slider max={50} min={10} />);
 ```
 
@@ -360,7 +360,7 @@ function Slider({ value, label }) {
 
 ### 避免用某种语言对标签进行硬编码
 
-一些UI组件内有标签字符串（例如，图像轮播有上一个/下一个按钮的标签）。 如果能让这些标签字符串成为组件props/options的一部分，允许自定义这些标签字符串就更好了。
+一些UI组件内有标签字符串（例如，图片轮播有上一个/下一个按钮的标签）。 如果能让这些标签字符串成为组件props/options的一部分，允许自定义这些标签字符串就更好了。
 
 ### 从右到左的语言
 

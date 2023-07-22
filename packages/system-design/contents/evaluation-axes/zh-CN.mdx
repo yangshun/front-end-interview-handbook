@@ -1,104 +1,102 @@
 ---
-title: Front End System Design Interview Evaluation Axes
-description: Specific behaviors and signals interviewers look out for in front end system design interviews.
-seo_title: Evaluation Axes for Front End System Design from Ex-interviewers
-seo_description: Find out how interviewers at Google, Amazon, Meta, Microsoft and other tech companies evaluate you for front end system design interviews
+title: 前端系统设计面试评估轴
+description: 面试官在前端系统设计面试中注意的特定行为和信号。
+seo_title: 前端系统设计的评估轴（来自前面试官）
+seo_description: 了解谷歌、亚马逊、Meta、微软和其他科技公司的面试官如何在前端系统设计面试中对您进行评估。
 ---
 
-During interviews, interviewers look out for signals displayed by candidates before making an overall hiring and leveling recommendation. The more desired behaviors the candidate displays, the higher the likelihood the interviewer will recommend a "Hire" decision. The more detailed and mature the answers are, the higher the leveling recommendation.
+在面试过程中，面试官会观察应聘者所表现出的信号，然后做出整体的录用和评级建议。 候选人表现出的期望行为越多，面试官建议 "录用 "的可能性就越大。 答案越详细、越成熟，推荐等级就越高。
 
-This section lists some of the behaviors that candidates should display. Bear them in mind as you are answering the system design question and demonstrate them confidently during the interview.
+本节列出了候选人应表现出的一些行为。 在回答系统设计问题时，请牢记这些点，并在面试时自信地展示出来。
 
-## Problem Exploration
+## 问题探讨
 
--   Demonstrated thorough understanding of the problem.
--   Explored the requirements sufficiently by asking relevant clarifying questions to minimize ambiguities.
--   Gathered functional and non-functional requirements of the problem.
--   Defined the scope of the problem.
--   Identified the important aspects of the problem to focus on and address.
-
-<div className="mt-6 space-x-1 space-y-1 text-xs">
-  <strong className="font-medium">Relevant framework sections:</strong>
-  Requirements Exploration
-</div>
-
-## Architecture
-
--   Developed an architecture that solved the entire problem sufficiently.
--   Broke down the problem into smaller independent parts of suitable granularity.
--   Identified components of the system and defined their responsibilities clearly.
--   Articulated how these components will work together and defined/described the API between these components.
--   Developed an architecture that can be put into practice.
--   Developed an architecture with scalability and reusability in mind, one that can be extended to support future requirements.
+-   显示出对问题的透彻理解。
+-   通过提出相关的澄清性问题，对需求进行充分的探讨，以最大限度地减少歧义。
+-   收集问题的功能性和非功能性需求。
+-   确定问题的范围。
+-   确定需要关注和解决的问题的重要方面。
 
 <div className="mt-6 space-x-1 space-y-1 text-xs">
-  <strong className="font-medium">Relevant framework sections:</strong>
-  Architecture/High-level Design, Data Model, Interface Definition
+  <strong className="font-medium">相关框架部分:</strong>
+  需求探索
 </div>
 
-## Technical Proficiency
+## 架构
 
--   Demonstrated technical knowledge and proficiency of front end fundamentals, common technologies and APIs.
--   Able to dive into specific front end domain areas where relevant to the problem.
--   Identified areas which need to be paid special attention to and addressed them by proposing solutions and analyzing their tradeoffs.
-
-_Front end domain areas include Performance, Networking, HTML/CSS, Accessibility, Internationalization, Security, Scalability, etc._
+-   开发出一种能够充分解决整个问题的架构。
+-   将问题分解成适当粒度的独立小部分。
+-   确定系统的组成部分并明确其职责。
+-   阐明这些组件将如何协同工作，并定义/描述这些组件之间的API。
+-   开发可付诸实施的架构。
+-   开发的架构具有可扩展性和可重用性，可扩展以支持未来需求。
 
 <div className="mt-6 space-x-1 space-y-1 text-xs">
-  <strong className="font-medium">Relevant framework sections:</strong>
-  Architecture/High-level Design, Optimizations and Deep Dive
+  <strong className="font-medium">相关框架部分:</strong>
+  架构/高层设计、数据模型、接口定义
 </div>
 
-## Exploration and Tradeoffs
+## 技术能力
 
--   Offered various possible solutions to the problems at hand and explained the pros and cons of each solution.
-    -   The "problem" here doesn't necessarily refer to the given system design question.
-    -   While solving the given question, there would be smaller problems to solve/questions to answer and each small problem/question can have various solutions and choices to make.
--   Explained the suitability of the solutions given the context and requirements and provided recommendations for the context of the question.
-    -   Do not insist there is only one possible solution. Good questions usually have a few possible solutions where the suitability of each depends on the context.
-    -   Even if the other solutions are clearly and obviously bad, do still mention them and briefly explain why they are bad.
+-   熟练掌握前端基础知识、常用技术和API。
+-   能够深入到与问题相关的特定前端领域。
+-   确定需要特别关注的领域，并通过提出解决方案和分析其利弊得失来解决这些问题。
+
+前端领域包括性能、网络、HTML/CSS、可访问性、国际化、安全性、可扩展性等。
 
 <div className="mt-6 space-x-1 space-y-1 text-xs">
-  <strong className="font-medium">Relevant framework sections:</strong>
-  Requirements Exploration, Data Model, Interface Definition, Optimizations and Deep
-  Dive
+  <strong className="font-medium">相关框架部分:</strong>
+  架构/高层设计、优化和深入研究
 </div>
 
-## Product and UX Sense
+## 探索与权衡
 
-Relevant framework sections: **Optimizations and Deep Dive**
-
--   Proposed a robust solution that lays the foundation of a good product.
--   Considered user experience when answering: loading states, performance (perceived or actual), mobile friendliness, keyboard friendliness, etc.
--   Considered error cases and suggested ways to handle them.
+-   针对当前问题提出各种可能的解决方案，并解释每种解决方案的利弊。
+    -   这里的 "问题" 并不一定是指给定的系统设计问题。
+    -   在解决给定的问题时，会有更小的问题需要解决/回答，每个小问题都有不同的解决方案和选择。
+-   根据背景和要求解释了解决方案的适用性，并针对问题背景提出了建议。
+    -   不要坚持只有一种可能的解决方案。 好的问题通常有几种可能的解决方案，每种解决方案是否合适取决于具体情况。
+    -   即使其他解决方案明显不好，也要提及并简要解释为什么不好。
 
 <div className="mt-6 space-x-1 space-y-1 text-xs">
-  <strong className="font-medium">Relevant framework sections:</strong>
-  Optimizations and Deep Dive
+  <strong className="font-medium">相关框架部分:</strong>
+  需求探索、数据模型、接口定义、优化和深入研究
 </div>
 
-## Communication and Collaboration
+## 产品和用户体验意识
 
--   Conveyed their thoughts and ideas clearly and concisely.
--   Explained complex concepts with ease.
--   Engaged the interviewer during the session, asks good questions and seeks opinions where relevant.
--   Open to feedback from the interviewer and incorporates the feedback to refine their solutions.
+相关框架章节：**优化和深入研究**
+
+-   提出了一个强大的解决方案，为良好的产品奠定了基础。
+-   回答时考虑用户体验：加载状态、性能（感知或实际）、移动友好性、键盘友好性等。
+-   考虑错误案例并建议处理方法。
 
 <div className="mt-6 space-x-1 space-y-1 text-xs">
-  <strong className="font-medium">Relevant framework sections:</strong>
-  Architecture/High-level Design, Data Model, Interface Definition, Optimizations
-  and Deep Dive
+  <strong className="font-medium">相关框架部分:</strong>
+  优化和深入研究
 </div>
 
-## Summary
+## 沟通与合作
 
-Here's a table summarizing how the evaluation axes can be mapped to the various sections of the **RADIO framework**: Requirements Exploration, Architecture/High-level Design, Data Model, Interface Definition, Optimizations and Deep Dive.
+-   简明扼要地表达自己的想法和观点。
+-   轻松解释复杂概念。
+-   在会议期间与面试官互动，提出好的问题并在相关情况下征求意见。
+-   乐于接受面试官的反馈意见，并根据反馈意见完善自己的解决方案。
 
-| Axis                            |  R  |  A  |  D  |  I  |  O  |
-| ------------------------------- | :-: | :-: | :-: | :-: | :-: |
-| Problem Exploration             |  ✅  |  -  |  -  |  -  |  -  |
-| Architecture                    |  -  |  ✅  |  ✅  |  ✅  |  -  |
-| Technical Proficiency           |  -  |  ✅  |  -  |  -  |  ✅  |
-| Exploration and Tradeoffs       |  -  |  ✅  |  ✅  |  ✅  |  ✅  |
-| Product and UX Sense            |  -  |  -  |  -  |  -  |  ✅  |
-| Communication and Collaboration |  ✅  |  ✅  |  ✅  |  ✅  |  ✅  |
+<div className="mt-6 space-x-1 space-y-1 text-xs">
+  <strong className="font-medium">相关框架部分:</strong>
+  架构/高层设计、数据模型、接口定义、优化和深入研究
+</div>
+
+## 总结
+
+下面的表格总结了如何将评估轴映射到**RADIO框架**的各个部分：需求探索（Requirements Exploration）、架构/高层设计（Architecture/High-level Design）、数据模型（Data Model）、接口定义（Interface Definition）、优化和深度挖掘（Optimizations and Deep Dive）。
+
+| 轴                            |  R  |  A  |  D  |  I  |  O  |
+| ---------------------------- | :-: | :-: | :-: | :-: | :-: |
+| 问题探讨                         |  ✅  |  -  |  -  |  -  |  -  |
+| 架构                           |  -  |  ✅  |  ✅  |  ✅  |  -  |
+| 技术能力                         |  -  |  ✅  |  -  |  -  |  ✅  |
+| 探索与权衡                        |  -  |  ✅  |  ✅  |  ✅  |  ✅  |
+| 产品和用户体验意识                    |  -  |  -  |  -  |  -  |  ✅  |
+| 沟通与合作                        |  ✅  |  ✅  |  ✅  |  ✅  |  ✅  |
