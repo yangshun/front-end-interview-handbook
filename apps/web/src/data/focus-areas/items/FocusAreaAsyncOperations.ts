@@ -31,6 +31,8 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
         'cancellable-timeout',
         'debounce',
         'debounce-ii',
+        'promisify',
+        'promisify-ii',
         'promise-all',
         'promise-all-settled',
         'promise-any',

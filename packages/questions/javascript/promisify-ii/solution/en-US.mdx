@@ -1,0 +1,15 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promisify from '../src/promisify-ii';
+
+**Note:** This is an advanced version of [Promisify](/questions/javascript/promisify), which you should complete first before attempting this question.
+
+## Solution
+
+The only addition you need to make is to check if the `func` argument has the custom `Symbol('util.promisify.custom')` defined and return the corresponding value if so.
+
+<MDXCodeBlock>{promisify}</MDXCodeBlock>
+
+## Resources
+
+- [Custom promisified functions | Node.js](https://nodejs.org/api/util.html#custom-promisified-functions)

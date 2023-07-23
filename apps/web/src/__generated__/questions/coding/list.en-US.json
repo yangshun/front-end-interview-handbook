@@ -2840,6 +2840,62 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1690070400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that takes a function following the common error-first callback style and returns a version that returns promises",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promisify",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "promisify-ii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promisify",
+    "subtitle": null,
+    "title": "Promisify",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1690070400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a promisify function that allows the original function to override the return value",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promisify-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promisify-ii",
+    "subtitle": null,
+    "title": "Promisify",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1670457600,
