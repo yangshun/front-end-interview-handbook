@@ -10,8 +10,8 @@ export default function promiseRace(iterable) {
 
     iterable.forEach(async (item) => {
       try {
-        const value = await item;
-        resolve(value);
+        const result = await item;
+        resolve(result);
       } catch (err) {
         reject(err);
       }

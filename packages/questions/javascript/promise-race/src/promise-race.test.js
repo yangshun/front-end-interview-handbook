@@ -1,5 +1,5 @@
 import promiseRace from './promise-race';
-// import promiseRace from './solution/promiseRaceThen';
+// import promiseRace from './promiseRaceThen';
 
 describe('promiseRace', () => {
   test('empty input array', (done) => {
@@ -250,6 +250,20 @@ describe('promiseRace', () => {
         });
 
         await expect(promiseRace([p0, p1, p2])).rejects.toBe(3);
+      });
+
+      test('delayed throw', async () => {
+        expect.assertions(1);
+        const p0 = new Promise(() => {
+          throw 42;
+        });
+        const p1 = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(2);
+          }, 100);
+        });
+
+        await expect(promiseRace([p0, p1])).rejects.toBe(42);
       });
     });
   });

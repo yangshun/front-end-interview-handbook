@@ -2082,7 +2082,9 @@
   },
   {
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1690070400,
     "difficulty": "medium",
     "duration": 15,
@@ -2133,7 +2135,7 @@
     "similarQuestions": [],
     "slug": "promisify-ii",
     "subtitle": null,
-    "title": "Promisify",
+    "title": "Promisify II",
     "topics": []
   },
   {
