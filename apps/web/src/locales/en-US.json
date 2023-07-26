@@ -223,6 +223,10 @@
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
   },
+  "2wms0e": {
+    "defaultMessage": "For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
+    "description": "Subtitle of Pricing section on Homepage or Pricing page"
+  },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
     "description": "Label for warm up questions"
@@ -282,10 +286,6 @@
   "3z2LJp": {
     "defaultMessage": "Practice",
     "description": "Section heading in footer for links to practice question pages"
-  },
-  "3zCjYE": {
-    "defaultMessage": "For a limited time, we are offering our annual plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
-    "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "3zMEIO": {
     "defaultMessage": "Resume Preparation",

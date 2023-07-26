@@ -615,10 +615,10 @@ export default function MarketingPricingSection({
   const planList = [
     monthlyPlanDetails,
     quarterlyPlanDetails,
-    lifetimePlanDetails,
+    annualPlanDetails,
   ];
 
-  const featuredPlan = annualPlanDetails;
+  const featuredPlan = lifetimePlanDetails;
   const showPPPMessage =
     featuredPlan.plan.conversionFactor <
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
@@ -636,16 +636,16 @@ export default function MarketingPricingSection({
               <MarketingSectionHeader
                 description={
                   <FormattedMessage
-                    defaultMessage="For a limited time, we are offering our annual plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
+                    defaultMessage="For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
                     description="Subtitle of Pricing section on Homepage or Pricing page"
-                    id="3zCjYE"
+                    id="2wms0e"
                     values={{
                       strong: (chunks) => (
                         <strong className="font-semibold">{chunks}</strong>
                       ),
-                      symbol: annualPlan.symbol,
+                      symbol: lifetimePlan.symbol,
                       unitCostLocalizedInCurrency:
-                        annualPlan.unitCostCurrency.withPPP.after,
+                        lifetimePlan.unitCostCurrency.withPPP.after,
                     }}
                   />
                 }
@@ -800,22 +800,24 @@ export default function MarketingPricingSection({
                         plan={featuredPlan.plan}
                       />
                     </div>
-                    <Text
-                      className="mt-3"
-                      color="subtitle"
-                      display="block"
-                      size="body3">
-                      <FormattedMessage
-                        defaultMessage="Enjoy extra {discountPercentage}% off with the code {promoCode}"
-                        description="Subtitle of discount promotion card"
-                        id="ndBo9F"
-                        values={{
-                          discountPercentage:
-                            PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-                          promoCode: PERPETUAL_PROMO_CODE,
-                        }}
-                      />
-                    </Text>
+                    {featuredPlan.plan.canUsePromoCode && (
+                      <Text
+                        className={clsx('mt-3')}
+                        color="subtitle"
+                        display="block"
+                        size="body3">
+                        <FormattedMessage
+                          defaultMessage="Enjoy extra {discountPercentage}% off with the code {promoCode}"
+                          description="Subtitle of discount promotion card"
+                          id="ndBo9F"
+                          values={{
+                            discountPercentage:
+                              PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+                            promoCode: PERPETUAL_PROMO_CODE,
+                          }}
+                        />
+                      </Text>
+                    )}
                   </>
                 }
                 subtitle={featuredPlan.description}
@@ -1000,6 +1002,25 @@ export default function MarketingPricingSection({
                                 plan={plan}
                               />
                             </div>
+                            <Text
+                              className={clsx(
+                                'mt-3',
+                                !plan.canUsePromoCode && 'invisible',
+                              )}
+                              color="subtitle"
+                              display="block"
+                              size="body3">
+                              <FormattedMessage
+                                defaultMessage="Enjoy extra {discountPercentage}% off with the code {promoCode}"
+                                description="Subtitle of discount promotion card"
+                                id="ndBo9F"
+                                values={{
+                                  discountPercentage:
+                                    PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+                                  promoCode: PERPETUAL_PROMO_CODE,
+                                }}
+                              />
+                            </Text>
                           </Section>
                         </div>
                         <Section>
