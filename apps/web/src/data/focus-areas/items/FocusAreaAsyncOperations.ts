@@ -38,6 +38,8 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
         'promise-any',
         'promise-merge',
         'promise-race',
+        'promise-reject',
+        'promise-resolve',
         'promise-timeout',
         'resumable-timeout',
         'sleep',
