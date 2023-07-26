@@ -9,6 +9,8 @@ The `Function.prototype.apply()` function is a built-in method in JavaScript tha
 
 ## Solution
 
+As `Function.prototype.apply()` takes in an array of arguments, we have to define a default empty array parameter for `args` if we are to spread it, because we can only spread iterables.
+
 ### Solution 1: Using `bind`
 
 `bind`, `apply`, and `call` can be viewed as sibling functions. They're highly similar in terms of function signature and usage. Within `Function.prototype` methods, `this` refers to the `Function` object itself. If the `this` context is not used at all, the following will work:
@@ -19,7 +21,7 @@ Function.prototype.myApply = function (thisArg, args = []) {
 };
 ```
 
-However, `thisArg` is still used widely in modern code, so we need another way to do this. `Function.prototype.bind` creates a new function with a specified `this` value and initial arguments, without executing the original function immediately. It allows you to permanently bind a specific context (`this` value) to the function and partially apply arguments if needed. This is exactly what we need to bridge the gap in the solution above.
+However, `thisArg` is still used widely in modern code, so we need another way to do this. `Function.prototype.bind` creates a new function with a specified `this` value and initial arguments, without executing the original function immediately. It allows us to permanently bind a specific context (`this` value) to the function and partially apply arguments if needed. This is exactly what we need to bridge the gap in the solution above.
 
 <MDXCodeBlock>{functionApply}</MDXCodeBlock>
 
