@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseResolve from '../src/promise-resolve';
+import promiseResolveSimple from '../src/promise-resolve-simple';
+
+## Solution
+
+The purpose of `Promise.resolve` is to add a safe wrapper around any value such that can be used with `then()` or `await`-ed.
+
+There are three cases to handle within the static `Promise.resolve` function:
+
+1. If the `value` is a native `Promise`, return it directly without **creating a new instance**. We can check for this case using `value instance of Promise`.
+1. If the `value` is not a thenable, return a promise that's fulfilled with the value. We can use a `Promise` constructor that calls `resolve` with the value.
+1. If the value is a thenable, the `then()` method will be called. The `then()` method has the same signature as a `Promise` constructor.
+
+The first two cases are straightforward. Let's talk a bit about the last case. Since the `Promise` constructor and `then()` has the same parameters, one might be tempted to pass `value.then` to a `new Promise` e.g. `new Promise(value.then)` and call it a day. However, the `then()` will lose the value of `this`. Hence we need to pass in `value.then.bind(value)` instead.
+
+Nested thenables and promises should also be flattened. This is already handled by the `resolve` callbacks of a `Promise` constructor, so we don't have to manually attempt to flatten.
+
+<MDXCodeBlock>{promiseResolve}</MDXCodeBlock>
+
+In fact, the `resolve` function can also handle thenables. So we can simplify the code even further.
+
+<MDXCodeBlock>{promiseResolveSimple}</MDXCodeBlock>

@@ -2056,6 +2056,33 @@
   {
     "author": null,
     "companies": [],
+    "created": 1690329600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function to resolve a given value to a Promise",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-resolve",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promise-resolve",
+    "subtitle": null,
+    "title": "Promise.resolve",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1689552000,
     "difficulty": "medium",
     "duration": 15,
