@@ -945,7 +945,7 @@
     "companies": [],
     "created": 1653177600,
     "difficulty": "hard",
-    "duration": 40,
+    "duration": 45,
     "excerpt": "Implement a function that performs a deep copy of a value, but also handles circular references",
     "featured": false,
     "format": "javascript",
@@ -2106,13 +2106,13 @@
     "topics": []
   },
   {
-    "author": "zhenghao",
+    "author": null,
     "companies": [
       "snap"
     ],
     "created": 1653177600,
-    "difficulty": "hard",
-    "duration": 45,
+    "difficulty": "medium",
+    "duration": 20,
     "excerpt": "Implement a function that converts a JavaScript value into a JSON string",
     "featured": true,
     "format": "javascript",
@@ -2134,6 +2134,37 @@
     "slug": "json-stringify",
     "subtitle": null,
     "title": "JSON.stringify",
+    "topics": []
+  },
+  {
+    "author": "zhenghao",
+    "companies": [
+      "snap"
+    ],
+    "created": 1653177600,
+    "difficulty": "hard",
+    "duration": 45,
+    "excerpt": "Implement a function that converts a JavaScript value into a JSON string",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/json-stringify-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "html-serializer"
+    ],
+    "slug": "json-stringify-ii",
+    "subtitle": null,
+    "title": "JSON.stringify II",
     "topics": []
   },
   {

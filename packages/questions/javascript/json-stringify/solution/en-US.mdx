@@ -1,47 +1,43 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import jsonStringify from '../src/json-stringify';
+import jsonStringifySwitch from '../src/json-stringify-switch';
 
-This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function, e.g. functions, `regex`, and `Date` object.
+## Solution
 
-## Handling Data Types
+Because non-primitive values can contain both primitive and non-primitive values, we have to use a recursive solution.
 
-When passed directly with unsupported type `undefined`, `Symbol`, and `Function`, JSON.stringify outputs `undefined` (not the string `'undefined'`):
+We can think of the `value`s like a tree. Primitive values are nodes that do not have children, and array/object types are nodes that have children of any value type. We can convert each node into a tree by converting each of its children into strings. We can work upwards from the "leaf" nodes, which in this case is primitive values because they cannot contain any children, and build the string up from the leaf nodes all the way to the root.
 
-```js
-JSON.stringify(undefined); // undefined
-JSON.stringify(Symbol('foo')); // undefined
-JSON.stringify(() => {}); // undefined
-```
+Let's define how to stringify each value type:
 
-For other built-in object types (except for `Function` and `Date`) such as `Map`, `Set`, `WeakMap`, `WeakSet`, `Regex`, etc., `JSON.stringify` will return a string of an empty object literal, i.e. `{}`:
+- `null`: Directly convert it into the string `null`.
+- `boolean`: Directly convert `true`/`false` into a string via `String()`.
+- `number`s: Directly convert into a string via `String()`.
+- `string`s: We have to wrap the value with double quotes as it's required by JSON.
+- Arrays: Recursively stringify each child item, then concatenate them with a comma, and wrap them in square brackets: `[` and `]`.
+- Objects: Convert each key/value pair (also called an entry) into a `"key":{stringifiedValue}` format by recursively stringifying the values, concatenate them with a comma, and wrap them in braces: `{` and `}`.
 
-```js
-JSON.stringify(/foo/); // '{}'
-JSON.stringify(new Map()); // '{}'
-JSON.stringify(new Set()); //'{}'
-```
+Now that we know how to stringify each value, we just have to know how to determine the type of value. Since `null`, `boolean`, `number`s can produce the desired string just by using `String()`, we can handle them together as the default case at the bottom. To determine the types:
 
-`NaN` and `Infinity` are converted into `null`, and `Date` objects are encoded into ISO strings by `JSON.stringify` because of `Date.prototype.toJSON`. And yes, we will have to take care of a custom `toJSON` method present in the input value.
+- Arrays: Use `Array.isArray()`.
+- Objects: Use `typeof value === 'object' && value !== null`. The check for `!== null` is important because `typeof null` is `'object'` but we have to handle `null`s differently from objects.
+- Strings: Use `typeof value === 'string'`.
 
-## Cyclic References
-
-Finally, `JSON.stringify` can detect a cyclic object i.e. objects with circular references and bail out from the stringification by throwing an error. We will have to account for that as well.
-
-```js
-const foo = {};
-foo.a = foo;
-
-JSON.stringify(foo); // ❌ Uncaught TypeError: Converting circular structure to JSON
-```
-
-To detect circular references in an object, we can use a `Set` to keep track of property values we have visited while traversing the object. As soon as we find a value that exists in the set already, we know the object has circular references.
-
-Here is how we would write it:
+Here's the code that determines the type of a value and stringify each value type appropriately.
 
 <MDXCodeBlock>{jsonStringify}</MDXCodeBlock>
 
-## Notes
+Here's an alternative that does the typechecking in a cleaner fashion by using `switch` cases:
 
-- There are still uncovered edge cases with the current implementation. Check out [the spec](https://262.ecma-international.org/5.1/#sec-15.12.3) if you are interested in learning more about it.
-- One possible follow-up question could be to make it faster. Our current implementation involves frequent runtime type checks due to the dynamic typing nature of the JavaScript language. One way we can make our own implementation of `JSON.stringify` faster is to have the user provide a schema of the object (e.g. using [JSON Schema](https://json-schema.org/)) so we know the object structure before serialization. This can save us a ton of guesswork. In fact, many `JSON.stringify`-alternative libraries are implemented this way to make serialization faster. One example would be [fast-json-stringify](https://github.com/fastify/fast-json-stringify).
+<MDXCodeBlock>{jsonStringifySwitch}</MDXCodeBlock>
+
+## Limitations
+
+This question is a simplified version of `JSON.stringify` and doesn't handle many other types available in JavaScript nor the formatting options. Some other cases:
+
+- Cyclic references within the objects.
+- Doesn't handle other types like `undefined`, `Function`, `Map`, `Set`, `Symbol`, `RegExp`, `Date`, and more.
+- Double quotes and other special characters like backslashes, tabs, within strings should be escaped.
+
+To practice handling of such cases, try out [`JSON.stringify` II](/questions/javascript/json-stringify-ii).
