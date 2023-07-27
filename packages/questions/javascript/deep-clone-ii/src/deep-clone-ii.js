@@ -2,20 +2,18 @@ const isPrimitiveTypeOrFunction = (value) =>
   typeof value !== 'object' || typeof value === 'function' || value === null;
 
 function getType(value) {
-  const lowerCaseTheFirstLetter = (str) => str[0].toLowerCase() + str.slice(1);
   const type = typeof value;
-  if (type !== 'object') return type;
+  if (type !== 'object') {
+    return type;
+  }
 
-  return lowerCaseTheFirstLetter(
-    Object.prototype.toString.call(value).replace(/^\[object (\S+)\]$/, '$1'),
-  );
+  return Object.prototype.toString
+    .call(value)
+    .replace(/^\[object (\S+)\]$/, '$1')
+    .toLowerCase();
 }
 
-/**
- * @param {*} value
- * @return {*}
- */
-export default function deepClone(value, cache = new Map()) {
+function deepCloneWithCache(value, cache) {
   if (isPrimitiveTypeOrFunction(value)) {
     return value;
   }
@@ -25,7 +23,7 @@ export default function deepClone(value, cache = new Map()) {
   if (type === 'set') {
     const cloned = new Set();
     value.forEach((item) => {
-      cloned.add(deepClone(item));
+      cloned.add(deepCloneWithCache(item));
     });
     return cloned;
   }
@@ -33,7 +31,7 @@ export default function deepClone(value, cache = new Map()) {
   if (type === 'map') {
     const cloned = new Map();
     value.forEach((value, key) => {
-      cloned.set(key, deepClone(value));
+      cloned.set(key, deepCloneWithCache(value));
     });
     return cloned;
   }
@@ -43,14 +41,14 @@ export default function deepClone(value, cache = new Map()) {
   }
 
   if (type === 'array') {
-    return value.map((item) => deepClone(item));
+    return value.map((item) => deepCloneWithCache(item));
   }
 
   if (type === 'date') {
     return new Date(value);
   }
 
-  if (type === 'regExp') {
+  if (type === 'regexp') {
     return new RegExp(value);
   }
 
@@ -64,8 +62,17 @@ export default function deepClone(value, cache = new Map()) {
   for (const key of Reflect.ownKeys(value)) {
     cloned[key] = isPrimitiveTypeOrFunction(value[key])
       ? value[key]
-      : deepClone(value[key], cache);
+      : deepCloneWithCache(value[key], cache);
   }
 
   return cloned;
+}
+
+/**
+ * @template T
+ * @param {T} value
+ * @return {T}
+ */
+export default function deepClone(value) {
+  return deepCloneWithCache(value, new Map());
 }

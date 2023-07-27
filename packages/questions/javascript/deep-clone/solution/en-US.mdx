@@ -20,7 +20,9 @@ Although this approach is acceptable given the input object only contains `null`
 - We can only copy non-symbol-keyed properties whose values are supported by JSON. Unsupported data types are simply ignored.
 - `JSON.stringify` also has other a few surprising behaviors such as converting `Date` objects to ISO timestamp strings, `NaN` and `Infinity` becoming `null` etc.
 
-### Solution 2
+Obviously, your interviewer will not allow you to use this.
+
+### Solution 2: Recursion
 
 Here is a solution that doesn't rely on `JSON.stringify` and `JSON.parse`.
 
@@ -28,23 +30,23 @@ Here is a solution that doesn't rely on `JSON.stringify` and `JSON.parse`.
 
 There are generally two ways we can traverse an object:
 
-- Loop through the keys with the old school `for ... in` statement.
-- Converting the object into an array of keys with `Object.keys`, or an array of a key-value tuple with `Object.entries`.
+- Loop through the keys with the good old `for ... in` statement.
+- Converting the object into an array of keys with `Object.keys()`, or an array of a key-value tuple with `Object.entries()`.
 
-With the `for ... in` statement, inherited enumerable properties are processed as well. On the other hand, `Object.keys` and `Object.entries` only care about the properties directly defined on the object, and this is usually what we want.
+With the `for ... in` statement, inherited enumerable properties are processed as well. On the other hand, `Object.keys()` and `Object.entries()` only care about the properties directly defined on the object, and this is usually what we want.
 
 ## Edge Cases
 
 - [Non-enumerable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) and [symbol-keyed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) properties are ignored.
 - [Property descriptors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) are not respected and copied into the cloned object.
-- If the object has circular references, the current solution will break and cause a stack overflow by recursion into an infinite loop.
-- The prototype is not copied.
+- If the object has circular references, the current solution will break and cause a stack overflow by recursing into an infinite loop.
+- Prototypes are not copied.
 
 We will address these edge cases in [Deep Clone II](/questions/javascript/deep-clone-ii).
 
 ## One-liner Solution
 
-As of this writing, all major browsers have native support for performing deep clone via the `structuredClone` API. Check out [this article](https://web.dev/structured-clone/) if you want to learn more about this API.
+As of writing, all major browsers have native support for performing deep clone via the `structuredClone` API. Check out ["Deep-copying in JavaScript using structuredClone" on web.dev](https://web.dev/structured-clone/) if you want to learn more about `structuredClone`'s features and limitations.
 
 ```js
 const clonedObj = structuredClone(obj);

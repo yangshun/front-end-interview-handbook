@@ -3,14 +3,14 @@ title: Deep Clone II
 excerpt: Implement a function that performs a deep copy of a value, but also handles circular references
 ---
 
-**Note:** This is an advanced version of the [Deep Clone](/questions/javascript/deep-clone) question, you should complete that first before attempting this question.
+**Note:** This is an advanced version of the [Deep Clone](/questions/javascript/deep-clone) question, which you should complete first before attempting this question.
 
-The term "deep clone" is not formally defined in JavaScript's language spec, but is generally well understood in the community. It is usually defined as starting at the top-level entries of the value/object and traversing the object to make copies of all the properties in the object, thus leading to a completely new object that has no references pointing back to the properties in the original object. Any changes made to the deeply-copied object will not affect the original object.
+It is not realistic to expect candidates to produce a complete deep clone solution in typical interview settings, though the interviewer might ask you a simple version a la [Deep Clone](/questions/javascript/deep-clone) and engage you in a discussion regarding the edge cases and how you would handle them.
 
-Implement a `deepClone` function that performs deep clone as thorough as possible, taking note of the following:
+Implement a `deepClone` function that performs a deep clone as thoroughly as possible, while also handling the following:
 
-- The input object can contain any data types.
-- Cover the edge case where the input object is cyclic, i.e. the circular references should also be cloned.
+- The input object can contain any data type.
+- Handle the edge case where the input object is cyclic, i.e. the circular references should also be cloned.
 
 ## Examples
 
