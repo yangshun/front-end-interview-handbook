@@ -12,22 +12,25 @@ function getType(value) {
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
+  // Check for arrays/objects equality.
   const type1 = getType(valueA);
   const type2 = getType(valueB);
 
+  // Only compare the contents if they're both arrays or both objects.
   if (type1 === type2 && shouldDeepCompare(type1) && shouldDeepCompare(type2)) {
-    const kvPairs1 = Object.entries(valueA);
-    const kvPairs2 = Object.entries(valueB);
+    const entriesA = Object.entries(valueA);
+    const entriesB = Object.entries(valueB);
 
-    if (kvPairs1.length !== kvPairs2.length) {
+    if (entriesA.length !== entriesB.length) {
       return false;
     }
 
-    return kvPairs1.every(
-      // Make sure the other objects have the same properties defined.
+    return entriesA.every(
+      // Make sure the other object has the same properties defined.
       ([k, v]) => Object.hasOwn(valueB, k) && deepEqual(v, valueB[k]),
     );
   }
 
+  // Check for primitives + type equality.
   return Object.is(valueA, valueB);
 }
