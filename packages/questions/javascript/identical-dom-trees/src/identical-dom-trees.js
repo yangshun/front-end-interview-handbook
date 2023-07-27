@@ -12,6 +12,7 @@ export default function isSameTree(nodeA, nodeB) {
     return nodeA.textContent === nodeB.textContent;
   }
 
+  // We can assume it's an element node from here on.
   if (nodeA.tagName !== nodeB.tagName) {
     return false;
   }
@@ -30,6 +31,7 @@ export default function isSameTree(nodeA, nodeB) {
       (attrName) =>
         nodeA.getAttribute(attrName) === nodeB.getAttribute(attrName),
     );
+
   if (!hasSameAttributes) {
     return false;
   }
