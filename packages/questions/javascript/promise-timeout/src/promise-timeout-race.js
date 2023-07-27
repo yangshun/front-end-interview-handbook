@@ -1,7 +1,8 @@
 /**
- * @param {Promise<any>} promise
+ * @template T
+ * @param {Promise<T>} promise
  * @param {number} duration
- * @return {Promise<any>}
+ * @return {Promise<T>}
  */
 export default function promiseTimeout(promise, duration) {
   const timeout = new Promise((_, reject) => {
