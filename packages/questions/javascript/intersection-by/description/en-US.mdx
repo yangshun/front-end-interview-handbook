@@ -1,9 +1,9 @@
 ---
 title: Intersection By
-excerpt: Implement a function that returns an array of unique values that are included in all given arrays based on a provided iteratee function.
+excerpt: Implement a function that returns an array of unique values that are included in all given arrays based on a provided iteratee function
 ---
 
-The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It creates an array of unique values that are included in all given arrays based on the result of applying the iteratee function to each value.
+The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It creates an array of unique values that are included in all given arrays based on the result of applying the `iteratee` function to each value. The order and references of result values are determined by the first array.
 
 The iteratee function is invoked with one argument: `value`, where value is the current value being iterated.
 
@@ -38,7 +38,6 @@ const result2 = intersectionBy(
 ## Notes
 
 - In Lodash, `iteratee` is optional and is the last parameter, but in this question it is a required parameter for simplicity.
-- The order of elements in the resulting array is determined by the order in which they appear in the first array.
 - If no arrays are provided, the function will return an empty array.
 - If any of the arrays are empty, the function will return an empty array.
 
