@@ -1,5 +1,7 @@
 'use client';
 
+import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
 import AlertExamples from '~/components/ui/Alert/AlertExamples';
 import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
@@ -27,8 +29,18 @@ import ToastExamples from '~/components/ui/Toast/ToastExamples';
 import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
 
 export default function UILibraryPage() {
+  const { appThemePreference, setAppThemePreference } =
+    useAppThemePreferences();
+
   return (
     <div className="grid gap-y-24 py-12 lg:py-24">
+      <div className="fixed bottom-4 right-4 z-10">
+        <AppThemeSelect
+          colorScheme={appThemePreference}
+          display="block"
+          onChange={setAppThemePreference}
+        />
+      </div>
       <Container>
         <Heading level="heading1">Design System</Heading>
       </Container>
