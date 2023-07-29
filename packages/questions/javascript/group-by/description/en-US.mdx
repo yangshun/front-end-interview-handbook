@@ -1,18 +1,23 @@
 ---
 title: Group By
-excerpt: Implement a function that groups values in a collection based on a function or property name
+excerpt: Implement a function that groups values in an array based on a function or property name
 ---
 
-Implement a function `groupBy(collection, iteratee)` that takes a collection (array or object) and an iteratee function or a property name string, and groups the values in the collection based on the iteratee.
+Implement a function `groupBy(array, iteratee)` that takes a array and an `iteratee` function or a property name string, and groups the values in the array based on the `iteratee`.
+
+`iteratee`s can either be:
+
+- Functions: `iteratee` functions is invoked with one argument: _(value)_.
+- Strings: The property of an object. E.g. `'length'` can be used to return the number of elements of arrays.
 
 ```js
-groupBy(collection, iteratee);
+groupBy(array, iteratee);
 ```
 
 ## Arguments
 
-1. `collection` _(Array|Object)_: The collection to iterate over.
-1. `iteratee` _(Function)_: The iteratee to transform keys. The function is invoked with one argument: (value).
+1. `array` _(Array)_: The array to iterate over.
+1. `iteratee` _(Function)_: The iteratee to transform elements. The function is invoked with one argument: (value).
 
 ## Returns
 

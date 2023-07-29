@@ -4,16 +4,12 @@
  * @returns {Object} Returns the composed aggregate object.
  */
 export default function groupBy(array, iteratee) {
-  const result = {};
-  const iterateeFunc =
-    typeof iteratee === 'function' ? iteratee : (value) => value[iteratee];
+  const result = Object.create(null);
 
   for (const element of array) {
-    const key = iterateeFunc(element);
-    if (!Object.prototype.hasOwnProperty.call(result, key)) {
-      result[key] = [];
-    }
-
+    const key =
+      typeof iteratee === 'function' ? iteratee(element) : element[iteratee];
+    result[key] ??= [];
     result[key].push(element);
   }
 
