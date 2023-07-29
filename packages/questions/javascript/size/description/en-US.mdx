@@ -3,11 +3,13 @@ title: Size
 excerpt: Implement a function that returns the size of collection
 ---
 
-Implement a function `size(collection)` that takes a collection (could be an array, object or string) and returns its size, which represents the number of elements in the collection.
+Implement a function `size(collection)` that takes a collection (an array, object, string, `Map`, `Set`) and returns its size, which represents the number of elements in the collection.
 
 ```js
 size(collection);
 ```
+
+Return 0 if the `collection` type is not one of the supported types.
 
 ## Arguments
 
@@ -20,19 +22,26 @@ _(number)_: Returns the collection size.
 ## Examples
 
 ```js
-// For array
+// Arrays.
 size([1, 2, 3, 4, 5]); // => 5
-
-// For object
+// Object.
 size({ a: 1, b: 2 }); // => 2
-
-// For string
+// Strings.
 size('peanut'); // => 6
+// Sets.
+size(new Set([1, 2, 3])); // => 3
+// Maps.
+size(
+  new Map([
+    [1, 2],
+    [3, 4],
+  ]),
+); // => 2
 ```
 
 ## Edge cases
 
-Your function should handle null and undefined inputs. In such cases, it should return 0.
+Your function should handle `null` and `undefined` inputs. In such cases, it should return 0.
 
 ## Resources
 
