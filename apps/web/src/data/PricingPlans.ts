@@ -56,7 +56,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   lifetime: {
     basePriceInUSD: {
       after: 137,
-      before: 280,
+      before: 274,
     },
     canUsePromoCode: false,
     checkoutMode: 'payment',

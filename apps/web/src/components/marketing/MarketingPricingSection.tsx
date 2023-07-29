@@ -3,7 +3,11 @@ import clsx from 'clsx';
 import type { SVGProps } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
-import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
+import {
+  RiArrowRightLine,
+  RiCheckLine,
+  RiExchangeDollarLine,
+} from 'react-icons/ri';
 import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
@@ -369,8 +373,10 @@ function PricingButtonSection({
 
 function PricingPlanComparisonDiscount({
   plan,
+  showPPPMessage,
 }: Readonly<{
   plan: PricingPlanDetailsLocalized;
+  showPPPMessage: boolean;
 }>) {
   switch (plan.planType) {
     case 'monthly':
@@ -456,6 +462,11 @@ function PricingPlanComparisonDiscount({
         </span>
       );
     case 'lifetime': {
+      if (showPPPMessage) {
+        // Showing PPP strikethrough is enough, will be confusing to show both strikethrough and U.P.
+        return null;
+      }
+
       return (
         <FormattedMessage
           defaultMessage="U.P. {price} <span>({discountPercentage}% off)</span>"
@@ -683,8 +694,9 @@ export default function MarketingPricingSection({
             <Container className="relative flex flex-col gap-y-12">
               {showPPPMessage && (
                 <Alert
+                  icon={RiExchangeDollarLine}
                   title={`Purchasing power parity for ${countryName}`}
-                  variant="primary">
+                  variant="success">
                   We noticed you're in {countryName}. We support Purchasing
                   Power Parity, so a{' '}
                   <strong>
@@ -793,7 +805,10 @@ export default function MarketingPricingSection({
                       display="block"
                       size="body2"
                       weight="medium">
-                      <PricingPlanComparisonDiscount plan={featuredPlan.plan} />
+                      <PricingPlanComparisonDiscount
+                        plan={featuredPlan.plan}
+                        showPPPMessage={showPPPMessage}
+                      />
                     </Text>
                     <div className="mt-6">
                       <PricingButtonSection
@@ -992,7 +1007,10 @@ export default function MarketingPricingSection({
                               )}
                               display="block"
                               size="body3">
-                              <PricingPlanComparisonDiscount plan={plan} />
+                              <PricingPlanComparisonDiscount
+                                plan={plan}
+                                showPPPMessage={showPPPMessage}
+                              />
                             </Text>
                             <div className="mt-8">
                               <PricingButtonSection

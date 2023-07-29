@@ -16,6 +16,7 @@ type AlertVariant = 'danger' | 'info' | 'primary' | 'success' | 'warning';
 
 type Props = Readonly<{
   children: ReactNode;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   title?: string;
   variant: AlertVariant;
 }>;
@@ -61,13 +62,20 @@ const classes: Record<
   },
 };
 
-export default function Alert({ children, title, variant }: Props) {
+export default function Alert({
+  children,
+  icon: IconProp,
+  title,
+  variant,
+}: Props) {
   const {
     backgroundClass,
     iconClass,
     titleClass,
-    icon: Icon,
+    icon: VariantIcon,
   } = classes[variant];
+
+  const Icon = IconProp ?? VariantIcon;
 
   return (
     <div
