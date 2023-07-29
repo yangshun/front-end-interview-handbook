@@ -4,16 +4,12 @@
  * @returns {Object} Returns the composed aggregate object.
  */
 export default function countBy(array, iteratee) {
-  const result = {};
-  const iterateeFunc =
-    typeof iteratee === 'function' ? iteratee : (value) => value[iteratee];
+  const result = Object.create(null);
 
   for (const element of array) {
-    const key = iterateeFunc(element);
-    if (!Object.prototype.hasOwnProperty.call(result, key)) {
-      result[key] = 0;
-    }
-
+    const key =
+      typeof iteratee === 'function' ? iteratee(element) : element[iteratee];
+    result[key] ??= 0;
     result[key]++;
   }
 

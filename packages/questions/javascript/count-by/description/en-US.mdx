@@ -1,18 +1,21 @@
 ---
 title: Count By
-excerpt: Implement a function that sorts a collection into groups according to the result of a specific function, and returns an object composed of keys generated from the results of the iteratee function. Each key's value is the number of times the key was returned by the iteratee function.
+excerpt: Implement a function that counts the number of times a value appears in an array based on a function or property name
 ---
 
-Implement a function `countBy(collection, iteratee)` that takes a collection (array or object) and a iteratee function, and returns an object. The keys of the object are the results of applying the iteratee function to every item in the collection, and the values are the counts of the times each result was returned.
+Implement a function `countBy(array, iteratee)` that creates an object composed of keys generated from the results of running each element of `array` thru `iteratee`. The corresponding value of each key is the number of times the key was returned by `iteratee`. `iteratee`s can either be:
+
+- Functions: `iteratee` functions is invoked with one argument: _(value)_.
+- Strings: The property of an object. E.g. `'length'` can be used to return the number of elements of arrays.
 
 ```js
-countBy(collection, iteratee);
+countBy(array, iteratee);
 ```
 
 ## Arguments
 
-1. `collection` _(Array|Object)_: The collection to iterate over.
-1. `iteratee` _(Function)_: The function invoked per iteration. The function is invoked with one argument: (value).
+1. `array` _(Array)_: The array to iterate over.
+1. `iteratee` _(Function)_: The iteratee function to transform elements. The function is invoked with one argument: _(value)_.
 
 ## Returns
 
@@ -21,15 +24,12 @@ _(Object)_: Returns the composed aggregate object.
 ## Examples
 
 ```js
-countBy([1.3, 2.1, 2.4], Math.floor);
-// => { '1': 1, '2': 2 }
+countBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': 1, '6': 2 }
 
-// The `_.property` iteratee shorthand.
 countBy(['one', 'two', 'three'], 'length');
 // => { '3': 2, '5': 1 }
 ```
-
-In this example, the Math.floor function is used as the iteratee function. The keys of the returned object are the results of applying Math.floor to every item in the array, and the values are the counts of the times each result was returned.
 
 ## Resources
 

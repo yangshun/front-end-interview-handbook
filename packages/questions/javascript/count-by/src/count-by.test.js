@@ -1,29 +1,51 @@
-import countBy from './count-by';
+import countBy from './count-by-alt';
 
-describe('countBy function', () => {
-  test('handles non-empty arrays', () => {
-    expect(countBy([6.1, 4.2, 6.3], Math.floor)).toEqual({ 4: 1, 6: 2 });
-    expect(countBy(['one', 'two', 'three'], 'length')).toEqual({ 3: 2, 5: 1 });
-  });
-
-  test('handles single-element arrays', () => {
-    expect(countBy([6.1], Math.floor)).toEqual({ 6: 1 });
-    expect(countBy(['one'], 'length')).toEqual({ 3: 1 });
-  });
-
-  test('handles two-element arrays', () => {
-    expect(countBy([6.1, 4.2], Math.floor)).toEqual({ 4: 1, 6: 1 });
-    expect(countBy(['one', 'two'], 'length')).toEqual({ 3: 2 });
-  });
-
-  test('handles empty arrays', () => {
+describe('countBy', () => {
+  test('empty array', () => {
     expect(countBy([], Math.floor)).toEqual({});
   });
 
-  test('does not mutate the original array and returns a new object', () => {
+  describe('function iteratees', () => {
+    test('single-element arrays', () => {
+      expect(countBy([6.1], Math.floor)).toEqual({ 6: 1 });
+    });
+
+    test('two-element arrays', () => {
+      expect(countBy([6.1, 4.2], Math.floor)).toEqual({ 4: 1, 6: 1 });
+    });
+
+    test('multiple element arrays', () => {
+      expect(countBy([6.1, 4.2, 6.3], Math.floor)).toEqual({ 4: 1, 6: 2 });
+    });
+
+    test('keys that are also properties', () => {
+      expect(countBy(['one', 'two', 'three'], (val) => 'length')).toEqual({
+        length: 3,
+      });
+    });
+  });
+
+  describe('property iteratees', () => {
+    test('single-element arrays', () => {
+      expect(countBy(['one'], 'length')).toEqual({ 3: 1 });
+    });
+
+    test('two-element arrays', () => {
+      expect(countBy(['one', 'two'], 'length')).toEqual({ 3: 2 });
+    });
+
+    test('multiple element arrays', () => {
+      expect(countBy(['one', 'two', 'three'], 'length')).toEqual({
+        3: 2,
+        5: 1,
+      });
+    });
+  });
+
+  test('does not mutate the original array', () => {
     const arr = [6.1, 4.2, 6.3];
-    const result = countBy(arr, Math.floor);
+    const copy = arr.slice();
     expect(result).toEqual({ 4: 1, 6: 2 });
-    expect(arr).toEqual([6.1, 4.2, 6.3]); // ensure original array is unchanged
+    expect(arr).toEqual(copy); // Ensure original array is unchanged
   });
 });

@@ -472,7 +472,7 @@
     "created": 1690416000,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a function that sorts a collection into groups according to the result of a specific function, and returns an object composed of keys generated from the results of the iteratee function. Each key's value is the number of times the key was returned by the iteratee function.",
+    "excerpt": "Implement a function that counts the number of times a value appears in an array based on a function or property name",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,

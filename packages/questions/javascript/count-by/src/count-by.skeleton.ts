@@ -1,6 +1,6 @@
 function countBy<T>(
-  collection: T[],
-  iteratee: ((value: T) => any) | keyof any,
+  array: Array<T>,
+  iteratee: ((value: T) => any) | string,
 ): { [key: string]: number } {
   throw 'Not implemented!';
 }
