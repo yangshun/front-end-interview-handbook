@@ -32,9 +32,11 @@ export const marketingRouter = router({
       const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
       const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
 
+      const testPromoCode = 'r1nhvjSn';
+      const prodPromoCode = 'tgklHrfQ';
       const promotionCode = await stripe.promotionCodes.create({
-        coupon: 'r1nhvjSn', // Test mode.
-        // coupon: 'tgklHrfQ', // Prod.
+        coupon:
+          process.env.NODE_ENV === 'production' ? prodPromoCode : testPromoCode,
         customer: profile.stripeCustomer,
         expires_at: nextThreeDaysUnix,
         max_redemptions: 1,
