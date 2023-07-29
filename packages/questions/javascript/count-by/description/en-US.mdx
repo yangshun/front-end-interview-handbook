@@ -1,0 +1,36 @@
+---
+title: Count By
+excerpt: Implement a function that sorts a collection into groups according to the result of a specific function, and returns an object composed of keys generated from the results of the iteratee function. Each key's value is the number of times the key was returned by the iteratee function.
+---
+
+Implement a function `countBy(collection, iteratee)` that takes a collection (array or object) and a iteratee function, and returns an object. The keys of the object are the results of applying the iteratee function to every item in the collection, and the values are the counts of the times each result was returned.
+
+```js
+countBy(collection, iteratee);
+```
+
+## Arguments
+
+1. `collection` _(Array|Object)_: The collection to iterate over.
+1. `iteratee` _(Function)_: The function invoked per iteration. The function is invoked with one argument: (value).
+
+## Returns
+
+_(Object)_: Returns the composed aggregate object.
+
+## Examples
+
+```js
+countBy([1.3, 2.1, 2.4], Math.floor);
+// => { '1': 1, '2': 2 }
+
+// The `_.property` iteratee shorthand.
+countBy(['one', 'two', 'three'], 'length');
+// => { '3': 2, '5': 1 }
+```
+
+In this example, the Math.floor function is used as the iteratee function. The keys of the returned object are the results of applying Math.floor to every item in the array, and the values are the counts of the times each result was returned.
+
+## Resources
+
+- [Lodash `_..countBy`](https://lodash.com/docs/#countBy)
