@@ -48,7 +48,6 @@ function PlanLabel({
               bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             }}
           />
-          {contactUs}
         </Text>
       );
     }
