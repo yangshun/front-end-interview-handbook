@@ -1,0 +1,11 @@
+{
+  "slug": "size",
+  "created": "2023-07-28T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy"
+}

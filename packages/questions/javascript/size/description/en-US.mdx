@@ -1,0 +1,39 @@
+---
+title: Size
+excerpt: Implement a function that returns the size of collection
+---
+
+Implement a function `size(collection)` that takes a collection (could be an array, object or string) and returns its size, which represents the number of elements in the collection.
+
+```js
+size(collection);
+```
+
+## Arguments
+
+1. `collection` _(Array|Object)_: The collection to inspect.
+
+## Returns
+
+_(number)_: Returns the collection size.
+
+## Examples
+
+```js
+// For array
+size([1, 2, 3, 4, 5]); // => 5
+
+// For object
+size({ a: 1, b: 2 }); // => 2
+
+// For string
+size('peanut'); // => 6
+```
+
+## Edge cases
+
+Your function should handle null and undefined inputs. In such cases, it should return 0.
+
+## Resources
+
+- [Lodash `_.size`](https://lodash.com/docs/#size)
