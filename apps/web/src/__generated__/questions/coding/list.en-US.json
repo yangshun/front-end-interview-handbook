@@ -659,6 +659,35 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1690416000,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that sorts a collection into groups according to the result of a specific function, and returns an object composed of keys generated from the results of the iteratee function. Each key's value is the number of times the key was returned by the iteratee function.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/count-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by"
+    ],
+    "slug": "count-by",
+    "subtitle": null,
+    "title": "Count By",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -1694,6 +1723,35 @@
     "slug": "grid-lights",
     "subtitle": null,
     "title": "Grid Lights",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1690502400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that groups values in a collection based on a function or property name",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/group-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "count-by"
+    ],
+    "slug": "group-by",
+    "subtitle": null,
+    "title": "Group By",
     "topics": []
   },
   {
@@ -4143,7 +4201,7 @@
     ],
     "slug": "whack-a-mole",
     "subtitle": null,
-    "title": "whack-a-mole",
+    "title": "Whack-A-Mole",
     "topics": []
   },
   {
