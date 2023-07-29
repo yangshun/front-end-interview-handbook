@@ -302,7 +302,10 @@ function StudentDiscountCard() {
                 );
               }
 
-              if (user.email != null && !isValidStudentEmail(user.email)) {
+              if (
+                user.email != null &&
+                !isValidStudentEmail(user.email).valid
+              ) {
                 return (
                   <Button
                     display="block"
