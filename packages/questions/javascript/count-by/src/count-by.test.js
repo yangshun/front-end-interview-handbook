@@ -45,6 +45,7 @@ describe('countBy', () => {
   test('does not mutate the original array', () => {
     const arr = [6.1, 4.2, 6.3];
     const copy = arr.slice();
+    const result = countBy(arr, Math.floor);
     expect(result).toEqual({ 4: 1, 6: 2 });
     expect(arr).toEqual(copy); // Ensure original array is unchanged
   });
