@@ -2,7 +2,7 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import jsonStringify from '../src/json-stringify-ii';
 
-This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function, e.g. functions, `regex`, and `Date` object.
+This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function, e.g. functions, `regex`, and `Date` object. It's extremely unlikely to be asked to implement a solution that handles that many data types during interviews.
 
 ## Handling Data Types
 
@@ -44,4 +44,5 @@ Here is how we would write it:
 ## Notes
 
 - There are still uncovered edge cases with the current implementation. Check out [the spec](https://262.ecma-international.org/5.1/#sec-15.12.3) if you are interested in learning more about it.
-- One possible follow-up question could be to make it faster. Our current implementation involves frequent runtime type checks due to the dynamic typing nature of the JavaScript language. One way we can make our own implementation of `JSON.stringify` faster is to have the user provide a schema of the object (e.g. using [JSON Schema](https://json-schema.org/)) so we know the object structure before serialization. This can save us a ton of guesswork. In fact, many `JSON.stringify`-alternative libraries are implemented this way to make serialization faster. One example would be [fast-json-stringify](https://github.com/fastify/fast-json-stringify).
+  - In particular, special characters like `\n`, `\t` need to be converted into `\\n`, `\\t` respectively.
+- One possible follow-up question could be to make it faster. The current implementation involves frequent runtime type checks due to the dynamic typing nature of the JavaScript language. One way we can make the above implementation of `JSON.stringify` faster is to have the user provide a schema of the object (e.g. using [JSON Schema](https://json-schema.org/)) so we know the object structure before serialization. This can save us a ton of guesswork. In fact, many `JSON.stringify`-alternative libraries are implemented this way to make serialization faster. One example would be [fast-json-stringify](https://github.com/fastify/fast-json-stringify).

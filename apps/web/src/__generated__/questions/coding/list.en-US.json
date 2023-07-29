@@ -2124,7 +2124,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "json-stringify-ii"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,

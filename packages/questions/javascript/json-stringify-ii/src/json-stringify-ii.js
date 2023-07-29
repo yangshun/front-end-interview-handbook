@@ -1,7 +1,7 @@
-const isCyclic = (input) => {
+function isCyclic(input) {
   const seen = new Set();
 
-  const dfsHelper = (value) => {
+  function dfsHelper(value) {
     if (typeof value !== 'object' || value === null) {
       return false;
     }
@@ -10,19 +10,18 @@ const isCyclic = (input) => {
     return Object.values(value).some(
       (value_) => seen.has(value_) || dfsHelper(value_),
     );
-  };
+  }
 
   return dfsHelper(input);
-};
+}
+
+const QUOTE_ESCAPE = /"/g;
 
 /**
  * @param {*} value
  * @return {string}
  */
 export default function jsonStringify(value) {
-  const quotes = '"';
-  const QUOTE_ESCAPE = /"/g;
-
   if (isCyclic(value)) {
     throw new TypeError('Converting circular structure to JSON');
   }
@@ -55,7 +54,8 @@ export default function jsonStringify(value) {
   }
 
   if (type === 'string') {
-    return quotes + value.replace(QUOTE_ESCAPE, '\\"') + quotes;
+    // Wrap in double quotes/
+    return `"${value.replace(QUOTE_ESCAPE, '\\"')}"`;
   }
 
   // At this point `value` is either an array, a plain object,
@@ -65,13 +65,13 @@ export default function jsonStringify(value) {
     return jsonStringify(value.toJSON());
   }
 
-  if (value instanceof Array) {
-    // Array.prototype.toString will be invoked implicitly during string concatenation.
-    return '[' + value.map((item) => jsonStringify(item)) + ']';
+  if (Array.isArray(value)) {
+    const arrayValues = value.map((item) => jsonStringify(item));
+    return `[${arrayValues.join(',')}]`;
   }
 
   // `value` is a plain object.
-  const entries = Object.entries(value)
+  const objectEntries = Object.entries(value)
     .map(([key, value]) => {
       const shouldIgnoreEntry =
         typeof key === 'symbol' ||
@@ -83,10 +83,9 @@ export default function jsonStringify(value) {
         return;
       }
 
-      return quotes + key + quotes + ':' + jsonStringify(value);
+      return `"${key}":${jsonStringify(value)}`;
     })
     .filter((value) => value !== undefined);
 
-  // Again, Object.prototype.toString will be invoked implicitly during string concatenation
-  return '{' + entries + '}';
+  return `{${objectEntries.join(',')}}`;
 }

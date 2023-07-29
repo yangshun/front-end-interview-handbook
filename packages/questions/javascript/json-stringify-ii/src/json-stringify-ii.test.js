@@ -173,6 +173,8 @@ describe('jsonStringify', () => {
     const foo = {};
     foo.a = foo;
 
-    expect(() => jsonStringify(foo)).toThrow();
+    expect(() => {
+      jsonStringify(foo);
+    }).toThrow('Converting circular structure to JSON');
   });
 });

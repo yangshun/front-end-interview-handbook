@@ -4,15 +4,15 @@
  */
 export default function jsonStringify(value) {
   if (Array.isArray(value)) {
-    const arrayValues = value.map((item) => jsonStringify(item)).join(',');
-    return `[${arrayValues}]`;
+    const arrayValues = value.map((item) => jsonStringify(item));
+    return `[${arrayValues.join(',')}]`;
   }
 
   if (typeof value === 'object' && value !== null) {
-    const objectValues = Object.entries(value)
-      .map(([key, value]) => `"${key}":${jsonStringify(value)}`)
-      .join(',');
-    return `{${objectValues}}`;
+    const objectEntries = Object.entries(value).map(
+      ([key, value]) => `"${key}":${jsonStringify(value)}`,
+    );
+    return `{${objectEntries.join(',')}}`;
   }
 
   if (typeof value === 'string') {
