@@ -14,7 +14,7 @@ const zeroDecimalCurrencies = new Set([
   'mga',
   'pyg',
   'rwf',
-  'ugx',
+  // 'ugx', Special case where it's zero decimal but for legacy purposes still need to be multiplied by 100.
   'vnd',
   'vuv',
   'xaf',

@@ -58,7 +58,7 @@ export default async function handler(req: NextRequest) {
     );
   }
 
-  const countryCode = req.geo?.country ?? 'US';
+  const countryCode = 'UG';
 
   try {
     if (isProhibitedCountry(countryCode)) {

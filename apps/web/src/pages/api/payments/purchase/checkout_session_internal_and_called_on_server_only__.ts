@@ -40,6 +40,7 @@ export default async function handler(
     receipt_email: receiptEmail,
     plan_type: planType,
   } = req.query as QueryParams;
+
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2022-11-15',
   });

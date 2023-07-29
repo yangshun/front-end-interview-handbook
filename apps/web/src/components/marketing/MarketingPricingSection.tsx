@@ -703,7 +703,7 @@ export default function MarketingPricingSection({
                       {showPPPMessage && (
                         <Text
                           className={clsx(
-                            'inline-flex items-end gap-x-2 text-lg line-through',
+                            'inline-flex flex-wrap items-end text-lg line-through',
                             featuredPlan.plan.unitCostCurrency.withPPP.after <
                               1000 && 'sm:text-lg',
                           )}
@@ -718,7 +718,7 @@ export default function MarketingPricingSection({
                             )}
                             currency={featuredPlan.plan.currency.toUpperCase()}
                             symbol={featuredPlan.plan.symbol}
-                          />
+                          />{' '}
                           {featuredPlan.numberOfMonths != null ? (
                             <FormattedMessage
                               defaultMessage="/month"
@@ -771,19 +771,21 @@ export default function MarketingPricingSection({
                             )}
                           </PriceLabel>
                         </span>
-                        {featuredPlan.numberOfMonths != null ? (
-                          <FormattedMessage
-                            defaultMessage="/month"
-                            description="Per month"
-                            id="aE1FCD"
-                          />
-                        ) : (
-                          <FormattedMessage
-                            defaultMessage="paid once"
-                            description="Pay the price once"
-                            id="BMBc9O"
-                          />
-                        )}
+                        <span>
+                          {featuredPlan.numberOfMonths != null ? (
+                            <FormattedMessage
+                              defaultMessage="/month"
+                              description="Per month"
+                              id="aE1FCD"
+                            />
+                          ) : (
+                            <FormattedMessage
+                              defaultMessage="paid once"
+                              description="Pay the price once"
+                              id="BMBc9O"
+                            />
+                          )}
+                        </span>
                       </Text>
                     </div>
                     <Text
@@ -906,7 +908,7 @@ export default function MarketingPricingSection({
                               {showPPPMessage && (
                                 <Text
                                   className={clsx(
-                                    'items-baseline gap-x-2 line-through',
+                                    'items-baseline line-through',
                                   )}
                                   color="subtle"
                                   display="flex">
@@ -917,7 +919,7 @@ export default function MarketingPricingSection({
                                     )}
                                     currency={plan.currency.toUpperCase()}
                                     symbol={plan.symbol}
-                                  />
+                                  />{' '}
                                   {numberOfMonths != null ? (
                                     <FormattedMessage
                                       defaultMessage="/month"
@@ -925,14 +927,11 @@ export default function MarketingPricingSection({
                                       id="aE1FCD"
                                     />
                                   ) : (
-                                    <>
-                                      {' '}
-                                      <FormattedMessage
-                                        defaultMessage="paid once"
-                                        description="Pay the price once"
-                                        id="BMBc9O"
-                                      />
-                                    </>
+                                    <FormattedMessage
+                                      defaultMessage="paid once"
+                                      description="Pay the price once"
+                                      id="BMBc9O"
+                                    />
                                   )}
                                 </Text>
                               )}
