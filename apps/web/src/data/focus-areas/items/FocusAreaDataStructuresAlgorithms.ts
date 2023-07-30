@@ -46,6 +46,7 @@ export function getFocusAreaDataStructuresAlgorithms(
         'binary-search',
         'depth-first-search',
         'breadth-first-search',
+        'data-merging',
         'data-selection',
         'event-emitter',
         'event-emitter-ii',

@@ -16,12 +16,12 @@ function setHasOverlap(setA, setB) {
  */
 export default function selectData(sessions, options = {}) {
   const reversedSessions = sessions.slice().reverse(); // Make a copy and reverse.
-  const userSessions = {};
+  const sessionsForUser = new Map();
   const sessionsProcessed = [];
 
   reversedSessions.forEach((session) => {
-    if (options.merge && Object.hasOwn(userSessions, session.user)) {
-      const userSession = userSessions[session.user];
+    if (options.merge && sessionsForUser.has(session.user)) {
+      const userSession = sessionsForUser.get(session.user);
       userSession.duration += session.duration;
       session.equipment.forEach((equipment) => {
         userSession.equipment.add(equipment);
@@ -33,7 +33,7 @@ export default function selectData(sessions, options = {}) {
       };
 
       if (options.merge) {
-        userSessions[session.user] = clonedSession;
+        sessionsForUser.set(session.user, clonedSession);
       }
 
       sessionsProcessed.push(clonedSession);

@@ -832,6 +832,38 @@
     "companies": [
       "soundcloud"
     ],
+    "created": 1690675200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a function to merge rows of data from the same user",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/data-merging",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "unique-array",
+      "data-selection"
+    ],
+    "slug": "data-merging",
+    "subtitle": null,
+    "title": "Data Merging",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [
+      "soundcloud"
+    ],
     "created": 1655596800,
     "difficulty": "hard",
     "duration": 30,

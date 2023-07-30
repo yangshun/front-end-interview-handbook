@@ -21,7 +21,7 @@ Each session has the following fields:
 
 - `user`: User ID of the session's user.
 - `duration`: Duration of the session, in minutes.
-- `equipment`: Array of equipment used during the sessions, in alphabetical order.
+- `equipment`: Array of equipment used during the sessions, in alphabetical order. There are only 5 different equipments.
 
 Implement a method `selectData`, which is used to return sessions from the data. It has the interface `selectData(sessions [, options])`. The options available should include:
 
@@ -31,10 +31,10 @@ Implement a method `selectData`, which is used to return sessions from the data.
 - `merge`: If set to `true`
   - Sessions from the same `user` should be merged into one object. When merging:
     - Sum up the `duration` fields.
-    - Combine all the `equipment` used, de-duplicating the values and sort alphabetically.
+    - Combine all the `equipment` used, de-duplicating the values and sorting alphabetically.
   - The other filter options should be applied to the merged data.
 
-The order of the results should always remain unchanged from the original set, and in the case of merging sessions with duplicate users, the row should take the place of the latest occurrence of that `user`. The input objects should not be modified.
+The order of the results should always remain unchanged from the original set, and in the case of merging user sessions, the row should take the place of the **latest** occurrence of that `user`. The input objects should not be modified.
 
 ## Examples
 

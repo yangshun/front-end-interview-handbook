@@ -34,7 +34,7 @@ We use a new array `sessionsProcessed`, which will eventually contain sessions i
 
 As we iterate through `reversedSessions`, for each session, we see if the `user` has been encountered before. If it is the first time, we add a new entry to `sessionsProcessed`. Otherwise, we update the combined session with the current session data.
 
-To modify the combined session for a user, we create a `userSessions` object with the key being the user ID and value being the combined session object. Modifying the combined session object can be done through looking up the `userSessions` object with the user ID and modifying the value if it exists. The object within `sessionsProcessed` will be updated as well because they are the same object.
+To modify the combined session for a user, we create a `Map` (`sessionsForUser`) with the key being the user ID and value being the combined session object. Modifying the combined session object can be done through looking up `sessionsForUser` with the user ID and modifying the value if it exists. The object within `sessionsProcessed` will be updated as well because they are the same object.
 
 <MDXCodeBlock>{selectData}</MDXCodeBlock>
 
