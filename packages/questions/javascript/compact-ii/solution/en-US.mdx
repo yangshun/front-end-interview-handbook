@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import compact from '../src/compact-ii';
+import compactFunctional from '../src/compact-ii-functional';
+
+## Solution
+
+Since the input value can be deeply nested, a recursive solution will be handy for traversing the nested values. The idea is to recursively visit all values in the input, filtering out the falsey values and keeping only the non-falsey ones.
+
+Since there are only primitives, arrays, and objects for this question, there are three categories of values we need to handle:
+
+1. **Primitives**: This is the base case for the recursion and we can directly return the value. Given the data types available in this question, to check if a value is a primitive, we can use `typeof value !== 'object'` and include a special case for `value == null` since `typeof null` is `'object'`.
+1. **Arrays**: Iterate through the array and if the item is non-falsey, recursively call `compact` on the item, adding the returned compacted item into a new array. Return the new compacted array at the end.
+1. **Objects**: Iterate through the entries of the object and if the object value is non-falsey, recursively call `compact` on the object, putting the returned compacted value into a new object. Return the new compacted object at the end.
+
+<MDXCodeBlock>{compact}</MDXCodeBlock>
+
+Here's a shorter solution that adopts a more functional approach:
+
+<MDXCodeBlock>{compactFunctional}</MDXCodeBlock>
+
+## Edge Cases
+
+- Empty arrays and objects are not considered falsey.
