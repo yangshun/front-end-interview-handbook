@@ -2013,6 +2013,35 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1690761600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function to transform values within an object",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/object-map",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-map"
+    ],
+    "slug": "object-map",
+    "subtitle": null,
+    "title": "Object Map",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1670803200,
