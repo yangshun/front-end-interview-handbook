@@ -1,0 +1,29 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepMap from '../src/deep-map';
+
+## Clarification Questions
+
+- Should we recurse into `Map`s and `Set`s?
+  - To keep the question simple, no. There are no tests cases containing `Map`s and `Set`s but you are free to add support if you wish.
+- What should the value of `this` be within the callback function?
+  - The input `value`.
+
+## Solution
+
+Since the input `value` can be a deeply nested structure, a recursive solution will be handy for traversing the nested values. The idea is to recursively visit all elements in `value` and transforming each element using the `fn` function except if the element is an `Array` or an `Object`, recursion needs to take place instead.
+
+Since arrays and objects need special handling, there are three categories of values we need to handle:
+
+1. **Arrays**: Use `Array.isArray()` to check for this type. Iterate through the array and return a new array of each mapped element. However, we shouldn't directly call `fn` on array elements, instead we should recurse into each element. This is because array elements can be non-primitives as well and more recursing can be required.
+1. **Objects**: A helper function `isPlainObject()` (from [Type Utilities II](/questions/javascript/type-utilities-ii)) is used to check for plain object types. Doing `typeof element === 'object' && element !== null` won't work because there are other value types like `Date` and `Set` that will pass the check. Iterate through the entries of the object and recurse into each object value, similar to array elements.
+1. **Primitives**: This is the base case for the recursion and we can return the value after mapping it with `fn`.
+
+The next tricky part of the question is to provide the value of `this` for the `fn` via `Function.prototype.call()`/`Function.prototype.apply()`. In `Array.prototype.map()`, the `thisArg` value can be provided as a second argument to the `.map()` function and the callback function will be invoked with `thisArg` as the `this` value. In our case, the `this` value within callbacks is not explicitly specified but a reasonable assumption is to use the `value` input as `this`. We need to pass the original `value` object across recursion calls, hence we create a `mapHelper()` helper function that takes in an extra parameter `original`, so that all recursive calls have access to both the current element and the `original` value.
+
+<MDXCodeBlock>{deepMap}</MDXCodeBlock>
+
+## Edge Cases
+
+- Accessing `this` within the callback function.
+- Values with `null`, `Date`, `Symbol`, etc.

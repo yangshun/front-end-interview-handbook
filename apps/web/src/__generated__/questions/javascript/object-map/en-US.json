@@ -18,7 +18,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "deep-map"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,

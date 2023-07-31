@@ -23,7 +23,9 @@
     ],
     "nextQuestions": [
       "contact-form",
-      "curry"
+      "curry",
+      "deep-map",
+      "object-map"
     ],
     "premium": true,
     "published": true,

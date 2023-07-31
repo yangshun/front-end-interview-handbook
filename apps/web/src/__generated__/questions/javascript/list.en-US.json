@@ -85,7 +85,9 @@
     ],
     "nextQuestions": [
       "contact-form",
-      "curry"
+      "curry",
+      "deep-map",
+      "object-map"
     ],
     "premium": true,
     "published": true,
@@ -850,6 +852,36 @@
     "slug": "deep-equal",
     "subtitle": null,
     "title": "Deep Equal",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1690761600,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "Implement a function to recursively transform values",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-map",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-map",
+      "object-map"
+    ],
+    "slug": "deep-map",
+    "subtitle": null,
+    "title": "Deep Map",
     "topics": []
   },
   {
@@ -2029,7 +2061,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "deep-map"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
