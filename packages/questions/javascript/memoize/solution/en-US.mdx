@@ -1,0 +1,31 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import memoize from '../src/memoize';
+
+## Solution
+
+The key to solving this question is to use a cache that stores the results for an input argument. If a cache entry exists for the input argument, return the cached result. Otherwise, call the function as per normal, put the result into the cache with the input argument as the key so that subsequent calls to the function with the same parameter will be a cache hit and return the value directly without calling the original function. This question can be broken down into three parts:
+
+### Determining the cache key
+
+The cache key is a value that has a one-one relationship with the arguments that `func` can be called with. Since there's a restriction on the input types and `func` only has a single input argument, we can directly use the argument directly as the key.
+
+### Deciding on a structure for the cache
+
+Cache lookups have to be fast, ideally with a O(1) time complexity. In JavaScript, objects and `Map`s are able to serve the purpose of a fast lookup for a key and a corresponding value. However, we cannot use JavaScript objects here because it only allows string keys, numbers will be converted into strings when used as keys of the object. However, we can use a `Map`, which differentiates between string keys and number keys of the same value (e.g. `1` vs `'1'`).
+
+The returned function has access to the cache via closures. With closures, each unique memoized function instance will have its own cache.
+
+### Using the cache
+
+Before invoking the original function `func`, the memoized function first checks if the `cache` already contains an entry for the current `arg`. This will result in one of the following two scenarios:
+
+1. The cache contains an entry for `arg`. A cached result exists, it means that the function has been called with the same argument before, and there is no need to recompute the result. In this case, the memoized function simply returns the cached result using `cache.get(arg)`.
+1. The cache does not contain an entry for `arg`. If the cache does not contain a result for the current `arg`, it means that the function is called with a new argument. The memoized function then invokes the original function func using the `Function.prototype.call()` method. `Function.prototype.apply()` can be used as well but `Function.prototype.call()` is simpler to use given there's only one argument. The `Function.prototype.call()` method is used to ensure that the context (`this`) of the original function is preserved when called from the memoized function. The argument `arg` is passed to the original function `func`. After computing the result using the original function, the memoized function stores the result in the cache by associating it with the corresponding `arg` key using `cache.set(arg, result)`. Finally the memoized function returns the computed result.
+
+<MDXCodeBlock>{memoize}</MDXCodeBlock>
+
+## Edge Cases
+
+- In practice, functions can take in multiple arguments of varying types beyond strings and numbers, so the current `memoize` implementation wouldn't be sufficient for those cases.
+- While `this` can be accessed without issues, the results are memoized solely on the input arguments, the same memoized result is returned for the same input arguments even if the `this` value is different between calls.
