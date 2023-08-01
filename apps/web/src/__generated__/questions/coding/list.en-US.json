@@ -1124,6 +1124,35 @@
   {
     "author": null,
     "companies": [],
+    "created": 1690848000,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Implement a function that merges two objects together",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-merge",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-clone"
+    ],
+    "slug": "deep-merge",
+    "subtitle": null,
+    "title": "Deep Merge",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1690761600,
     "difficulty": "medium",
     "duration": 30,
