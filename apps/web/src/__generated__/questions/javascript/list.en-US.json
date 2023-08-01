@@ -2071,6 +2071,33 @@
   {
     "author": null,
     "companies": [],
+    "created": 1690848000,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Implement a function that returns a memoized version of a function which accepts any number of arguments",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/memoize-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "memoize-ii",
+    "subtitle": null,
+    "title": "Memoize II",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1671667200,
     "difficulty": "medium",
     "duration": 20,
