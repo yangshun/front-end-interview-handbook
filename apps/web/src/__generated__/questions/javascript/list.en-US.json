@@ -887,6 +887,35 @@
   {
     "author": null,
     "companies": [],
+    "created": 1690761600,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Implement a function that removes specified keys and their corresponding values from an object, including nested objects or arrays",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-omit",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-map"
+    ],
+    "slug": "deep-omit",
+    "subtitle": null,
+    "title": "Deep Omit",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1671667200,
     "difficulty": "medium",
     "duration": 15,

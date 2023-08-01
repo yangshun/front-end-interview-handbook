@@ -5,7 +5,7 @@ import compactFunctional from '../src/compact-ii-functional';
 
 ## Solution
 
-Since the input value can be deeply nested, a recursive solution will be handy for traversing the nested values. The idea is to recursively visit all values in the input, filtering out the falsey values and keeping only the non-falsey ones.
+Since the input value can be deeply nested, a recursive solution will be handy for traversing the nested values. The idea is to recursively visit all values in the input, iterating through array items and object entries, filtering out the falsey values and keeping only the non-falsey values.
 
 Since there are only primitives, arrays, and objects for this question, there are three categories of values we need to handle:
 
