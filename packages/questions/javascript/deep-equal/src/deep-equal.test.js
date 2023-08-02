@@ -1,4 +1,4 @@
-import deepEqual from './deep-equal-alt';
+import deepEqual from './deep-equal';
 
 describe('deepEqual', () => {
   test('primitive values', () => {
