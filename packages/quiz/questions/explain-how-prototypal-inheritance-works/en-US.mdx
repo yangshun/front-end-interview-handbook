@@ -23,7 +23,7 @@ function Dog(name) {
 }
 
 // Set the child object's prototype to be a new instance of the parent object.
-Dog.prototype = Object.create(Animal.prototype);
+Object.setPrototypeOf(Dog.prototype, Animal.prototype)
 
 // Add a method to the child object's prototype.
 Dog.prototype.bark = function () {
