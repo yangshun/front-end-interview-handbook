@@ -21,9 +21,12 @@ If the callback evaluates to `true`, push the element into the `results`.
 
 ## Notes
 
-Mutating the array in the filter callback is a bad idea and can cause unintended consequences. The provided solution does not follow the TC39 specification for array mutation scenarios, neither does the autograder check for the specification behavior for mutations.
+Mutating the array in the filter callback is a bad idea and can cause unintended consequences. It is a positive signal to mention that mutation of the array within the callback is possible. The provided solution follows the TC39 specification for array mutation scenarios:
 
-You probably won't be asked to implement the specification behavior during interviews but it is still a positive signal to mention that mutation of the array within the callback is possible but your code might not follow the specifications for it.
+- The range of elements processed by `filter` is set before the first callback is called.
+- Elements appended to the array after the call to `filter` begins will not be visited by the callback.
+- If existing elements of the array are changed, their value as passed to the callback will be the value at the time `filter` visits them.
+- Elements that are deleted after the call to `filter` begins and before being visited are not visited.
 
 The `thisArg` doesn't do anything if the callback is defined as an arrow function as arrow functions don't have their own bindings to `this`.
 

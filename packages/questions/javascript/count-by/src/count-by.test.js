@@ -1,4 +1,4 @@
-import countBy from './count-by-alt';
+import countBy from './count-by';
 
 describe('countBy', () => {
   test('empty array', () => {
