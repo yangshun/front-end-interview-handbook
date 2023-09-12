@@ -2067,6 +2067,10 @@
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
   },
+  "ZRUNG5": {
+    "defaultMessage": "Promotions",
+    "description": "Title of Promotions page"
+  },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
     "description": "Section label on Pricing section of Homepage or Pricing page"
@@ -2806,6 +2810,10 @@
   "lyjVwD": {
     "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"
+  },
+  "lyxOq4": {
+    "defaultMessage": "Check out the latest promotions and discounts that GreatFrontEnd offers.",
+    "description": "Description of Promotions page"
   },
   "lz6hfa": {
     "defaultMessage": "Easy",

@@ -13,16 +13,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!',
-      description: 'Description of Pricing page',
-      id: 'wmvMT1',
+        'Check out the latest promotions and discounts that GreatFrontEnd offers.',
+      description: 'Description of Promotions page',
+      id: 'lyxOq4',
     }),
     locale,
-    pathname: '/pricing',
+    pathname: '/promotions',
     title: intl.formatMessage({
-      defaultMessage: 'Pricing',
-      description: 'Title of Pricing page',
-      id: 'PeXK7/',
+      defaultMessage: 'Promotions',
+      description: 'Title of Promotions page',
+      id: 'ZRUNG5',
     }),
   });
 }
