@@ -1,0 +1,8 @@
+{
+  "run": "/src/count-by.run.test.ts",
+  "submit": "/src/count-by.submit.test.ts",
+  "skeleton": {
+    "js": "/src/count-by.skeleton.js",
+    "ts": "/src/count-by.skeleton.ts"
+  }
+}

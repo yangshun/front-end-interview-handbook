@@ -1,0 +1,8 @@
+{
+  "run": "/src/breadth-first-search.run.test.ts",
+  "submit": "/src/breadth-first-search.submit.test.ts",
+  "skeleton": {
+    "js": "/src/breadth-first-search.skeleton.js",
+    "ts": "/src/breadth-first-search.skeleton.ts"
+  }
+}

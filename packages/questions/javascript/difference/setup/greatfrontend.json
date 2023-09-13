@@ -1,0 +1,8 @@
+{
+  "run": "/src/difference.run.test.ts",
+  "submit": "/src/difference.submit.test.ts",
+  "skeleton": {
+    "js": "/src/difference.skeleton.js",
+    "ts": "/src/difference.skeleton.ts"
+  }
+}

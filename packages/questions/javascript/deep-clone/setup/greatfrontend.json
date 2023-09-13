@@ -1,0 +1,8 @@
+{
+  "run": "/src/deep-clone.run.test.ts",
+  "submit": "/src/deep-clone.submit.test.ts",
+  "skeleton": {
+    "js": "/src/deep-clone.skeleton.js",
+    "ts": "/src/deep-clone.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-map.run.test.ts",
+  "submit": "/src/array-map.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-map.skeleton.js",
+    "ts": "/src/array-map.skeleton.ts"
+  }
+}

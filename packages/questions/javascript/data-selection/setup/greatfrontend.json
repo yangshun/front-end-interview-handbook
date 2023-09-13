@@ -1,0 +1,8 @@
+{
+  "run": "/src/data-selection.run.test.ts",
+  "submit": "/src/data-selection.submit.test.ts",
+  "skeleton": {
+    "js": "/src/data-selection.skeleton.js",
+    "ts": "/src/data-selection.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/jquery-class-manipulation.run.test.ts",
+  "submit": "/src/jquery-class-manipulation.submit.test.ts",
+  "skeleton": {
+    "js": "/src/jquery-class-manipulation.skeleton.js",
+    "ts": "/src/jquery-class-manipulation.skeleton.ts"
+  }
+}

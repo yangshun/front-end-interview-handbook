@@ -1,0 +1,8 @@
+{
+  "run": "/src/json-stringify-ii.run.test.ts",
+  "submit": "/src/json-stringify-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/json-stringify-ii.skeleton.js",
+    "ts": "/src/json-stringify-ii.skeleton.ts"
+  }
+}

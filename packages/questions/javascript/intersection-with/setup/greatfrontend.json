@@ -1,0 +1,8 @@
+{
+  "run": "/src/intersection-with.run.test.ts",
+  "submit": "/src/intersection-with.submit.test.ts",
+  "skeleton": {
+    "js": "/src/intersection-with.skeleton.js",
+    "ts": "/src/intersection-with.skeleton.ts"
+  }
+}

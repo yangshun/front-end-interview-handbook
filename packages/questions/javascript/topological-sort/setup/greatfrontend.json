@@ -1,0 +1,8 @@
+{
+  "run": "/src/topological-sort.run.test.ts",
+  "submit": "/src/topological-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/topological-sort.skeleton.js",
+    "ts": "/src/topological-sort.skeleton.ts"
+  }
+}

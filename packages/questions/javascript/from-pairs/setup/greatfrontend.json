@@ -1,0 +1,8 @@
+{
+  "run": "/src/from-pairs.run.test.ts",
+  "submit": "/src/from-pairs.submit.test.ts",
+  "skeleton": {
+    "js": "/src/from-pairs.skeleton.js",
+    "ts": "/src/from-pairs.skeleton.ts"
+  }
+}

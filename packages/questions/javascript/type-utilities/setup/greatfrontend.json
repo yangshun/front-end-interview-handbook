@@ -1,0 +1,8 @@
+{
+  "run": "/src/type-utilities.run.test.ts",
+  "submit": "/src/type-utilities.submit.test.ts",
+  "skeleton": {
+    "js": "/src/type-utilities.skeleton.js",
+    "ts": "/src/type-utilities.skeleton.ts"
+  }
+}

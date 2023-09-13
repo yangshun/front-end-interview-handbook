@@ -1,0 +1,8 @@
+{
+  "run": "/src/unique-array.run.test.ts",
+  "submit": "/src/unique-array.submit.test.ts",
+  "skeleton": {
+    "js": "/src/unique-array.skeleton.js",
+    "ts": "/src/unique-array.skeleton.ts"
+  }
+}

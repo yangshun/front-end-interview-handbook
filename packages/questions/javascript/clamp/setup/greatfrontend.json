@@ -1,0 +1,8 @@
+{
+  "run": "/src/clamp.run.test.ts",
+  "submit": "/src/clamp.submit.test.ts",
+  "skeleton": {
+    "js": "/src/clamp.skeleton.js",
+    "ts": "/src/clamp.skeleton.ts"
+  }
+}

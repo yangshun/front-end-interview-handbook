@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-square.run.test.ts",
+  "submit": "/src/array-square.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-square.skeleton.js",
+    "ts": "/src/array-square.skeleton.ts"
+  }
+}

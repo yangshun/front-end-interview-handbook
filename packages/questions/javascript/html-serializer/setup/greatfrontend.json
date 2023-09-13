@@ -1,0 +1,8 @@
+{
+  "run": "/src/html-serializer.run.test.ts",
+  "submit": "/src/html-serializer.submit.test.ts",
+  "skeleton": {
+    "js": "/src/html-serializer.skeleton.js",
+    "ts": "/src/html-serializer.skeleton.ts"
+  }
+}

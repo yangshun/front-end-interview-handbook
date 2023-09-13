@@ -1,0 +1,8 @@
+{
+  "run": "/src/todo-replace-me.run.test.ts",
+  "submit": "/src/todo-replace-me.submit.test.ts",
+  "skeleton": {
+    "js": "/src/todo-replace-me.skeleton.js",
+    "ts": "/src/todo-replace-me.skeleton.ts"
+  }
+}

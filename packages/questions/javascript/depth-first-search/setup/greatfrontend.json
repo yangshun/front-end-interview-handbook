@@ -1,0 +1,8 @@
+{
+  "run": "/src/depth-first-search.run.test.ts",
+  "submit": "/src/depth-first-search.submit.test.ts",
+  "skeleton": {
+    "js": "/src/depth-first-search.skeleton.js",
+    "ts": "/src/depth-first-search.skeleton.ts"
+  }
+}

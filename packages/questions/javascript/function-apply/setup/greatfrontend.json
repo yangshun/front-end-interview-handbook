@@ -1,0 +1,8 @@
+{
+  "run": "/src/function-apply.run.test.ts",
+  "submit": "/src/function-apply.submit.test.ts",
+  "skeleton": {
+    "js": "/src/function-apply.skeleton.js",
+    "ts": "/src/function-apply.skeleton.ts"
+  }
+}

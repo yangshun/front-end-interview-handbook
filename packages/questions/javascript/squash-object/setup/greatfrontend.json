@@ -1,0 +1,8 @@
+{
+  "run": "/src/squash-object.run.test.ts",
+  "submit": "/src/squash-object.submit.test.ts",
+  "skeleton": {
+    "js": "/src/squash-object.skeleton.js",
+    "ts": "/src/squash-object.skeleton.ts"
+  }
+}

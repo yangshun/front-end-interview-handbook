@@ -1,0 +1,8 @@
+{
+  "run": "/src/group-by.run.test.ts",
+  "submit": "/src/group-by.submit.test.ts",
+  "skeleton": {
+    "js": "/src/group-by.skeleton.js",
+    "ts": "/src/group-by.skeleton.ts"
+  }
+}

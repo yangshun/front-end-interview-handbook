@@ -1,0 +1,8 @@
+{
+  "run": "/src/insertion-sort.run.test.ts",
+  "submit": "/src/insertion-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/insertion-sort.skeleton.js",
+    "ts": "/src/insertion-sort.skeleton.ts"
+  }
+}

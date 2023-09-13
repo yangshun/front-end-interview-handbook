@@ -1,0 +1,8 @@
+{
+  "run": "/src/curry-ii.run.test.ts",
+  "submit": "/src/curry-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/curry-ii.skeleton.js",
+    "ts": "/src/curry-ii.skeleton.ts"
+  }
+}

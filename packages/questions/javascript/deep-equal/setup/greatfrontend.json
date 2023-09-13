@@ -1,0 +1,8 @@
+{
+  "run": "/src/deep-equal.run.test.ts",
+  "submit": "/src/deep-equal.submit.test.ts",
+  "skeleton": {
+    "js": "/src/deep-equal.skeleton.js",
+    "ts": "/src/deep-equal.skeleton.ts"
+  }
+}

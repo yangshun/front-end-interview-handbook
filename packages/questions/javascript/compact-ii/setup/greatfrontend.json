@@ -1,0 +1,8 @@
+{
+  "run": "/src/compact-ii.run.test.ts",
+  "submit": "/src/compact-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/compact-ii.skeleton.js",
+    "ts": "/src/compact-ii.skeleton.ts"
+  }
+}

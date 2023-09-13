@@ -1,0 +1,8 @@
+{
+  "run": "/src/function-call.run.test.ts",
+  "submit": "/src/function-call.submit.test.ts",
+  "skeleton": {
+    "js": "/src/function-call.skeleton.js",
+    "ts": "/src/function-call.skeleton.ts"
+  }
+}

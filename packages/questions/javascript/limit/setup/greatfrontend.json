@@ -1,0 +1,8 @@
+{
+  "run": "/src/limit.run.test.ts",
+  "submit": "/src/limit.submit.test.ts",
+  "skeleton": {
+    "js": "/src/limit.skeleton.js",
+    "ts": "/src/limit.skeleton.ts"
+  }
+}

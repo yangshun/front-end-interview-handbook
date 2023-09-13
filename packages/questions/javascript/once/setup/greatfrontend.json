@@ -1,0 +1,8 @@
+{
+  "run": "/src/once.run.test.ts",
+  "submit": "/src/once.submit.test.ts",
+  "skeleton": {
+    "js": "/src/once.skeleton.js",
+    "ts": "/src/once.skeleton.ts"
+  }
+}

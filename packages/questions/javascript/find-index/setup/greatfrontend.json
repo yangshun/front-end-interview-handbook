@@ -1,0 +1,8 @@
+{
+  "run": "/src/find-index.run.test.ts",
+  "submit": "/src/find-index.submit.test.ts",
+  "skeleton": {
+    "js": "/src/find-index.skeleton.js",
+    "ts": "/src/find-index.skeleton.ts"
+  }
+}

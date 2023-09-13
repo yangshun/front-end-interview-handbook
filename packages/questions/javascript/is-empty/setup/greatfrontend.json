@@ -1,0 +1,8 @@
+{
+  "run": "/src/is-empty.run.test.ts",
+  "submit": "/src/is-empty.submit.test.ts",
+  "skeleton": {
+    "js": "/src/is-empty.skeleton.js",
+    "ts": "/src/is-empty.skeleton.ts"
+  }
+}

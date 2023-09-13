@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-search.run.test.ts",
+  "submit": "/src/binary-search.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-search.skeleton.js",
+    "ts": "/src/binary-search.skeleton.ts"
+  }
+}

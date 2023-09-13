@@ -1,0 +1,8 @@
+{
+  "run": "/src/heap-sort.run.test.ts",
+  "submit": "/src/heap-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/heap-sort.skeleton.js",
+    "ts": "/src/heap-sort.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/selection-sort.run.test.ts",
+  "submit": "/src/selection-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/selection-sort.skeleton.js",
+    "ts": "/src/selection-sort.skeleton.ts"
+  }
+}

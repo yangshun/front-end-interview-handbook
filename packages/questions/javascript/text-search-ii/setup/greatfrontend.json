@@ -1,0 +1,8 @@
+{
+  "run": "/src/text-search-ii.run.test.ts",
+  "submit": "/src/text-search-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/text-search-ii.skeleton.js",
+    "ts": "/src/text-search-ii.skeleton.ts"
+  }
+}

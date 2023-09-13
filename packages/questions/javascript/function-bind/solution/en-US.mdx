@@ -1,9 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import functionBindJs from '../src/function-bind.js';
-import functionBindTs from '../src/function-bind.ts';
-import functionBindReflect from '../src/function-bind-reflect';
-import functionBindSymbol from '../src/function-bind-symbol';
+import functionBindJs from '../setup/src/function-bind.js';
+import functionBindTs from '../setup/src/function-bind.ts';
+import functionBindReflect from '../setup/src/function-bind-reflect';
+import functionBindSymbol from '../setup/src/function-bind-symbol';
 
 This question asks us to implement the `Function.prototype.bind` method, which should behave exactly like the native one. It is a common practice to implement modern, shiny new additions to JavaScript using older, more mature language features so that these APIs can still be used on older browsers. This practice is called [polyfilling](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill).
 

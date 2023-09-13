@@ -1,0 +1,8 @@
+{
+  "run": "/src/compose.run.test.ts",
+  "submit": "/src/compose.submit.test.ts",
+  "skeleton": {
+    "js": "/src/compose.skeleton.js",
+    "ts": "/src/compose.skeleton.ts"
+  }
+}

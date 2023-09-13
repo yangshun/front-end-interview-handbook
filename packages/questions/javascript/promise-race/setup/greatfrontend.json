@@ -1,0 +1,8 @@
+{
+  "run": "/src/promise-race.run.test.ts",
+  "submit": "/src/promise-race.submit.test.ts",
+  "skeleton": {
+    "js": "/src/promise-race.skeleton.js",
+    "ts": "/src/promise-race.skeleton.ts"
+  }
+}

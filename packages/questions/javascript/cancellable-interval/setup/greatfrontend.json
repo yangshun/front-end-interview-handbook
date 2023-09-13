@@ -1,0 +1,8 @@
+{
+  "run": "/src/cancellable-interval.run.test.ts",
+  "submit": "/src/cancellable-interval.submit.test.ts",
+  "skeleton": {
+    "js": "/src/cancellable-interval.skeleton.js",
+    "ts": "/src/cancellable-interval.skeleton.ts"
+  }
+}

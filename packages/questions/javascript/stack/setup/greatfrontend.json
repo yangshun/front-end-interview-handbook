@@ -1,0 +1,8 @@
+{
+  "run": "/src/stack.run.test.ts",
+  "submit": "/src/stack.submit.test.ts",
+  "skeleton": {
+    "js": "/src/stack.skeleton.js",
+    "ts": "/src/stack.skeleton.ts"
+  }
+}

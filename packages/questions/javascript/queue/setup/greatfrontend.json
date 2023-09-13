@@ -1,0 +1,8 @@
+{
+  "run": "/src/queue.run.test.ts",
+  "submit": "/src/queue.submit.test.ts",
+  "skeleton": {
+    "js": "/src/queue.skeleton.js",
+    "ts": "/src/queue.skeleton.ts"
+  }
+}

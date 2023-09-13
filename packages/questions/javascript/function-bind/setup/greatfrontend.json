@@ -1,0 +1,8 @@
+{
+  "run": "/src/function-bind.run.test.ts",
+  "submit": "/src/function-bind.submit.test.ts",
+  "skeleton": {
+    "js": "/src/function-bind.skeleton.js",
+    "ts": "/src/function-bind.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/flatten.run.test.ts",
+  "submit": "/src/flatten.submit.test.ts",
+  "skeleton": {
+    "js": "/src/flatten.skeleton.js",
+    "ts": "/src/flatten.skeleton.ts"
+  }
+}

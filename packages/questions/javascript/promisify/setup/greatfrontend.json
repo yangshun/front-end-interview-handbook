@@ -1,0 +1,8 @@
+{
+  "run": "/src/promisify.run.test.ts",
+  "submit": "/src/promisify.submit.test.ts",
+  "skeleton": {
+    "js": "/src/promisify.skeleton.js",
+    "ts": "/src/promisify.skeleton.ts"
+  }
+}

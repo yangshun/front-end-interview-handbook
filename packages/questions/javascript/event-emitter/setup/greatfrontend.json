@@ -1,0 +1,8 @@
+{
+  "run": "/src/event-emitter.run.test.ts",
+  "submit": "/src/event-emitter.submit.test.ts",
+  "skeleton": {
+    "js": "/src/event-emitter.skeleton.js",
+    "ts": "/src/event-emitter.skeleton.ts"
+  }
+}

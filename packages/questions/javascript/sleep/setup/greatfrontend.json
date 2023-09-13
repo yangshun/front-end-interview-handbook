@@ -1,0 +1,8 @@
+{
+  "run": "/src/sleep.run.test.ts",
+  "submit": "/src/sleep.submit.test.ts",
+  "skeleton": {
+    "js": "/src/sleep.skeleton.js",
+    "ts": "/src/sleep.skeleton.ts"
+  }
+}

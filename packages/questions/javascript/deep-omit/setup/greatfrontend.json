@@ -1,0 +1,8 @@
+{
+  "run": "/src/deep-omit.run.test.ts",
+  "submit": "/src/deep-omit.submit.test.ts",
+  "skeleton": {
+    "js": "/src/deep-omit.skeleton.js",
+    "ts": "/src/deep-omit.skeleton.ts"
+  }
+}

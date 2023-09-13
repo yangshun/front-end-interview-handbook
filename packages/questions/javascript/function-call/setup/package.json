@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/function-call",
+  "version": "0.0.1",
+  "main": "/src/function-call.js",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

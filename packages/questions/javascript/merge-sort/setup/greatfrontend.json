@@ -1,0 +1,8 @@
+{
+  "run": "/src/merge-sort.run.test.ts",
+  "submit": "/src/merge-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/merge-sort.skeleton.js",
+    "ts": "/src/merge-sort.skeleton.ts"
+  }
+}

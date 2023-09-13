@@ -1,0 +1,8 @@
+{
+  "run": "/src/deep-map.run.test.ts",
+  "submit": "/src/deep-map.submit.test.ts",
+  "skeleton": {
+    "js": "/src/deep-map.skeleton.js",
+    "ts": "/src/deep-map.skeleton.ts"
+  }
+}

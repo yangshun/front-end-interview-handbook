@@ -1,0 +1,8 @@
+{
+  "run": "/src/memoize.run.test.ts",
+  "submit": "/src/memoize.submit.test.ts",
+  "skeleton": {
+    "js": "/src/memoize.skeleton.js",
+    "ts": "/src/memoize.skeleton.ts"
+  }
+}

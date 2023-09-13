@@ -1,0 +1,8 @@
+{
+  "run": "/src/camel-case-keys.run.test.ts",
+  "submit": "/src/camel-case-keys.submit.test.ts",
+  "skeleton": {
+    "js": "/src/camel-case-keys.skeleton.js",
+    "ts": "/src/camel-case-keys.skeleton.ts"
+  }
+}

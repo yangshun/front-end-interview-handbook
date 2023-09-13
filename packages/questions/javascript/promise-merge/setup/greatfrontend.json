@@ -1,0 +1,8 @@
+{
+  "run": "/src/promise-merge.run.test.ts",
+  "submit": "/src/promise-merge.submit.test.ts",
+  "skeleton": {
+    "js": "/src/promise-merge.skeleton.js",
+    "ts": "/src/promise-merge.skeleton.ts"
+  }
+}

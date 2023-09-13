@@ -1,0 +1,8 @@
+{
+  "run": "/src/fill.run.test.ts",
+  "submit": "/src/fill.submit.test.ts",
+  "skeleton": {
+    "js": "/src/fill.skeleton.js",
+    "ts": "/src/fill.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/quick-sort.run.test.ts",
+  "submit": "/src/quick-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/quick-sort.skeleton.js",
+    "ts": "/src/quick-sort.skeleton.ts"
+  }
+}

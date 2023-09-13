@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-reduce.run.test.ts",
+  "submit": "/src/array-reduce.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-reduce.skeleton.js",
+    "ts": "/src/array-reduce.skeleton.ts"
+  }
+}

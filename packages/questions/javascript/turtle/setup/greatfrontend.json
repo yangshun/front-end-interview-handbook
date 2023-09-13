@@ -1,0 +1,8 @@
+{
+  "run": "/src/turtle.run.test.ts",
+  "submit": "/src/turtle.submit.test.ts",
+  "skeleton": {
+    "js": "/src/turtle.skeleton.js",
+    "ts": "/src/turtle.skeleton.ts"
+  }
+}

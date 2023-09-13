@@ -1,0 +1,8 @@
+{
+  "run": "/src/promise-timeout.run.test.ts",
+  "submit": "/src/promise-timeout.submit.test.ts",
+  "skeleton": {
+    "js": "/src/promise-timeout.skeleton.js",
+    "ts": "/src/promise-timeout.skeleton.ts"
+  }
+}

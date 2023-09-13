@@ -1,6 +1,6 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import squashObject from '../src/squash-object';
+import squashObject from '../setup/src/squash-object';
 
 This is a pretty tricky question, because not only do we need to traverse the object using recursion, but we also have to change the shape of the object, i.e. glueing all keys of a given path when we reach a primitive value. This also requires we keep track of the keys while traversing down the tree (the object).
 

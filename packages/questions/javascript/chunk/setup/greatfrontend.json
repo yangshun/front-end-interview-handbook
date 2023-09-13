@@ -1,0 +1,8 @@
+{
+  "run": "/src/chunk.run.test.ts",
+  "submit": "/src/chunk.submit.test.ts",
+  "skeleton": {
+    "js": "/src/chunk.skeleton.js",
+    "ts": "/src/chunk.skeleton.ts"
+  }
+}

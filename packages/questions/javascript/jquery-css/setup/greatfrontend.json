@@ -1,0 +1,8 @@
+{
+  "run": "/src/jquery-css.run.test.ts",
+  "submit": "/src/jquery-css.submit.test.ts",
+  "skeleton": {
+    "js": "/src/jquery-css.skeleton.js",
+    "ts": "/src/jquery-css.skeleton.ts"
+  }
+}

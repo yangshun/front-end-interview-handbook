@@ -1,0 +1,8 @@
+{
+  "run": "/src/make-counter.run.test.ts",
+  "submit": "/src/make-counter.submit.test.ts",
+  "skeleton": {
+    "js": "/src/make-counter.skeleton.js",
+    "ts": "/src/make-counter.skeleton.ts"
+  }
+}

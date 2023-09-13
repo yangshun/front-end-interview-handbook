@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/identical-dom-trees",
+  "version": "0.0.1",
+  "main": "/src/identical-dom-trees.js",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

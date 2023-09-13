@@ -1,0 +1,8 @@
+{
+  "run": "/src/table-of-contents.run.test.ts",
+  "submit": "/src/table-of-contents.submit.test.ts",
+  "skeleton": {
+    "js": "/src/table-of-contents.skeleton.js",
+    "ts": "/src/table-of-contents.skeleton.ts"
+  }
+}

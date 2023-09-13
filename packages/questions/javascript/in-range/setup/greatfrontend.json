@@ -1,0 +1,8 @@
+{
+  "run": "/src/in-range.run.test.ts",
+  "submit": "/src/in-range.submit.test.ts",
+  "skeleton": {
+    "js": "/src/in-range.skeleton.js",
+    "ts": "/src/in-range.skeleton.ts"
+  }
+}

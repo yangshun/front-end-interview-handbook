@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-filter.run.test.ts",
+  "submit": "/src/array-filter.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-filter.skeleton.js",
+    "ts": "/src/array-filter.skeleton.ts"
+  }
+}

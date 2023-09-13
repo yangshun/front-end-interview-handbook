@@ -1,0 +1,8 @@
+{
+  "run": "/src/resumable-interval.run.test.ts",
+  "submit": "/src/resumable-interval.submit.test.ts",
+  "skeleton": {
+    "js": "/src/resumable-interval.skeleton.js",
+    "ts": "/src/resumable-interval.skeleton.ts"
+  }
+}

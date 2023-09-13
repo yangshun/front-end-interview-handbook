@@ -12,7 +12,7 @@ import {
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const locales = glob
-    // This assumes if the locale file is present for the description
+    // This assumes that if the locale file is present for the description
     // it's also present for the solution.
     .sync(path.join(questionPath, 'description', '*.mdx'))
     // Files are named after their locales.

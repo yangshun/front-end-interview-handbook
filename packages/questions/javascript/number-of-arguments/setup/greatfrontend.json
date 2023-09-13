@@ -1,0 +1,8 @@
+{
+  "run": "/src/number-of-arguments.run.test.ts",
+  "submit": "/src/number-of-arguments.submit.test.ts",
+  "skeleton": {
+    "js": "/src/number-of-arguments.skeleton.js",
+    "ts": "/src/number-of-arguments.skeleton.ts"
+  }
+}

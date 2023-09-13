@@ -1,0 +1,8 @@
+{
+  "run": "/src/debounce-ii.run.test.ts",
+  "submit": "/src/debounce-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/debounce-ii.skeleton.js",
+    "ts": "/src/debounce-ii.skeleton.ts"
+  }
+}

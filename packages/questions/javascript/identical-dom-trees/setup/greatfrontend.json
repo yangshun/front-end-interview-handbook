@@ -1,0 +1,8 @@
+{
+  "run": "/src/identical-dom-trees.run.test.ts",
+  "submit": "/src/identical-dom-trees.submit.test.ts",
+  "skeleton": {
+    "js": "/src/identical-dom-trees.skeleton.js",
+    "ts": "/src/identical-dom-trees.skeleton.ts"
+  }
+}

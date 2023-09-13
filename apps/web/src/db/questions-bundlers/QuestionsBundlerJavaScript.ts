@@ -15,7 +15,12 @@ import type {
 
 async function readQuestionJavaScriptSkeletonJS(slug: string): Promise<string> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
-  const skeletonPath = path.join(questionPath, 'src', `${slug}.skeleton.js`);
+  const skeletonPath = path.join(
+    questionPath,
+    'setup',
+    'src',
+    `${slug}.skeleton.js`,
+  );
 
   return fs.readFileSync(skeletonPath).toString().trim();
 }
@@ -25,7 +30,12 @@ async function readQuestionJavaScriptSkeletonTS(
 ): Promise<string | null> {
   try {
     const questionPath = getQuestionSrcPathJavaScript(slug);
-    const skeletonPath = path.join(questionPath, 'src', `${slug}.skeleton.ts`);
+    const skeletonPath = path.join(
+      questionPath,
+      'setup',
+      'src',
+      `${slug}.skeleton.ts`,
+    );
 
     return fs.readFileSync(skeletonPath).toString().trim();
   } catch {
@@ -36,7 +46,12 @@ async function readQuestionJavaScriptSkeletonTS(
 async function readQuestionJavaScriptTests(slug: string): Promise<string> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
 
-  const testPath = path.join(questionPath, 'src', `${slug}.test.js`);
+  const testPath = path.join(
+    questionPath,
+    'setup',
+    'src',
+    `${slug}.submit.test.ts`,
+  );
 
   return fs.readFileSync(testPath).toString().trim();
 }

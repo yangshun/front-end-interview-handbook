@@ -1,0 +1,8 @@
+{
+  "run": "/src/cancellable-timeout.run.test.ts",
+  "submit": "/src/cancellable-timeout.submit.test.ts",
+  "skeleton": {
+    "js": "/src/cancellable-timeout.skeleton.js",
+    "ts": "/src/cancellable-timeout.skeleton.ts"
+  }
+}

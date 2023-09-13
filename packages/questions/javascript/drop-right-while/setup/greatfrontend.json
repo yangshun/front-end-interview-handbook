@@ -1,0 +1,8 @@
+{
+  "run": "/src/drop-right-while.run.test.ts",
+  "submit": "/src/drop-right-while.submit.test.ts",
+  "skeleton": {
+    "js": "/src/drop-right-while.skeleton.js",
+    "ts": "/src/drop-right-while.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/promise-all.run.test.ts",
+  "submit": "/src/promise-all.submit.test.ts",
+  "skeleton": {
+    "js": "/src/promise-all.skeleton.js",
+    "ts": "/src/promise-all.skeleton.ts"
+  }
+}

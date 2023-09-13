@@ -1,0 +1,8 @@
+{
+  "run": "/src/get-elements-by-tag-name.run.test.ts",
+  "submit": "/src/get-elements-by-tag-name.submit.test.ts",
+  "skeleton": {
+    "js": "/src/get-elements-by-tag-name.skeleton.js",
+    "ts": "/src/get-elements-by-tag-name.skeleton.ts"
+  }
+}

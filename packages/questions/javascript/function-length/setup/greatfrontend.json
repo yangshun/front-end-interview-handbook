@@ -1,0 +1,8 @@
+{
+  "run": "/src/function-length.run.test.ts",
+  "submit": "/src/function-length.submit.test.ts",
+  "skeleton": {
+    "js": "/src/function-length.skeleton.js",
+    "ts": "/src/function-length.skeleton.ts"
+  }
+}

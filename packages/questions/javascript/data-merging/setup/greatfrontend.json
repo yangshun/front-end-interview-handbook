@@ -1,0 +1,8 @@
+{
+  "run": "/src/data-merging.run.test.ts",
+  "submit": "/src/data-merging.submit.test.ts",
+  "skeleton": {
+    "js": "/src/data-merging.skeleton.js",
+    "ts": "/src/data-merging.skeleton.ts"
+  }
+}

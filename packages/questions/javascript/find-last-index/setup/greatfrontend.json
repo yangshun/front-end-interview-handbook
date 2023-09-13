@@ -1,0 +1,8 @@
+{
+  "run": "/src/find-last-index.run.test.ts",
+  "submit": "/src/find-last-index.submit.test.ts",
+  "skeleton": {
+    "js": "/src/find-last-index.skeleton.js",
+    "ts": "/src/find-last-index.skeleton.ts"
+  }
+}

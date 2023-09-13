@@ -1,0 +1,8 @@
+{
+  "run": "/src/deep-merge.run.test.ts",
+  "submit": "/src/deep-merge.submit.test.ts",
+  "skeleton": {
+    "js": "/src/deep-merge.skeleton.js",
+    "ts": "/src/deep-merge.skeleton.ts"
+  }
+}

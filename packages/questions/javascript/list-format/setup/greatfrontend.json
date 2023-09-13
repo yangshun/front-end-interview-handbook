@@ -1,0 +1,8 @@
+{
+  "run": "/src/list-format.run.test.ts",
+  "submit": "/src/list-format.submit.test.ts",
+  "skeleton": {
+    "js": "/src/list-format.skeleton.js",
+    "ts": "/src/list-format.skeleton.ts"
+  }
+}
