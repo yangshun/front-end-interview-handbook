@@ -84,13 +84,14 @@ async function generateSetupForQuestion(slug: string) {
     'frameworks',
   );
 
-  const allFiles = glob
+  const allFilesForQuestion = glob
     .sync(path.join(frameworksPath, '**/*.*'))
     .filter(
       (path_) => !(path_.endsWith('mdx') || path_.endsWith('setup.json')),
     );
 
-  const groupedFiles = lodash.groupBy(allFiles, (filePath) => {
+  // Group folders for a question by (framework, setup).
+  const groupedFiles = lodash.groupBy(allFilesForQuestion, (filePath) => {
     const parts = path.relative(frameworksPath, filePath).split('/');
 
     return parts[0] + '/' + parts[1];
@@ -111,11 +112,13 @@ async function generateSetupForQuestion(slug: string) {
       //   `Unsupported setup type: ${setupType}`,
       // );
 
-      const [code, files, baseSetup] = await Promise.all([
+      const [writeupMdx, files, baseSetup] = await Promise.all([
+        // Read either description or solution Markdown file.
         readMDXFile(
           path.join(frameworksPath, framework, setupType, 'index.mdx'),
           {},
         ),
+        // Read files needed.
         paths.reduce<Record<string, SandpackFile>>((accFiles, fullPath) => {
           const relativePath = path.relative(
             path.join(frameworksPath, framework, setupType, 'setup'),
@@ -131,6 +134,7 @@ async function generateSetupForQuestion(slug: string) {
 
           return accFiles;
         }, {}),
+        // Read setup.json.
         (() => {
           const baseSetupPath = path.join(
             frameworksPath,
@@ -153,7 +157,7 @@ async function generateSetupForQuestion(slug: string) {
         files,
         framework,
         setupType,
-        writeup: code,
+        writeup: writeupMdx,
       };
     }),
   );
