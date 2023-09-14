@@ -107,7 +107,7 @@ export async function preprocessJavaScriptQuestion(
 
   // Read files which have a .raw.ts in {questionPath}/src.
   const rawFiles = fs
-    .readdirSync(path.join(questionPath, 'src'))
+    .readdirSync(path.join(questionPath, 'setup', 'src'))
     .filter((fileName) => fileName.endsWith('.raw.ts'));
 
   if (rawFiles.length === 0) {
@@ -117,7 +117,7 @@ export async function preprocessJavaScriptQuestion(
   await Promise.all(
     rawFiles.map(async (rawFile) => {
       preprocessRawFile(
-        path.join(questionPath, 'src', rawFile),
+        path.join(questionPath, 'setup', 'src', rawFile),
         prettierConfig,
       );
     }),
