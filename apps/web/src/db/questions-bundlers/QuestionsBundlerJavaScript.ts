@@ -1,4 +1,6 @@
 import fs from 'fs';
+// TODO: Move glob to globby.
+import { globby } from 'globby';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
@@ -10,48 +12,36 @@ import {
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
   QuestionJavaScript,
+  QuestionJavaScriptV2,
   QuestionMetadata,
 } from '../../components/questions/common/QuestionsTypes';
 
-async function readQuestionJavaScriptSkeletonJS(slug: string): Promise<string> {
+type QuestionJavaScriptLanguage = 'js' | 'ts';
+
+async function readQuestionJavaScriptSkeleton(
+  slug: string,
+  language: QuestionJavaScriptLanguage,
+): Promise<string> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
+  const gfeConfig = await readQuestionJavaScriptGFEConfig(slug);
   const skeletonPath = path.join(
     questionPath,
     'setup',
-    'src',
-    `${slug}.skeleton.js`,
+    gfeConfig.skeleton[language],
   );
 
   return fs.readFileSync(skeletonPath).toString().trim();
 }
 
-async function readQuestionJavaScriptSkeletonTS(
+type QuestionJavaScriptTestMode = 'run' | 'submit';
+
+async function readQuestionJavaScriptTests(
   slug: string,
-): Promise<string | null> {
-  try {
-    const questionPath = getQuestionSrcPathJavaScript(slug);
-    const skeletonPath = path.join(
-      questionPath,
-      'setup',
-      'src',
-      `${slug}.skeleton.ts`,
-    );
-
-    return fs.readFileSync(skeletonPath).toString().trim();
-  } catch {
-    return null;
-  }
-}
-
-async function readQuestionJavaScriptTests(slug: string): Promise<string> {
+  mode: QuestionJavaScriptTestMode,
+): Promise<string> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
-
-  const testPath = path.join(
-    questionPath,
-    'setup',
-    'src',
-    `${slug}.submit.test.ts`,
-  );
+  const gfeConfig = await readQuestionJavaScriptGFEConfig(slug);
+  const testPath = path.join(questionPath, 'setup', gfeConfig[mode]);
 
   return fs.readFileSync(testPath).toString().trim();
 }
@@ -111,9 +101,9 @@ export async function readQuestionJavaScript(
       readQuestionMetadataJavaScript(slug, locale),
       readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
       readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
-      readQuestionJavaScriptSkeletonJS(slug),
-      readQuestionJavaScriptSkeletonTS(slug),
-      readQuestionJavaScriptTests(slug),
+      readQuestionJavaScriptSkeleton(slug, 'js'),
+      readQuestionJavaScriptSkeleton(slug, 'ts'),
+      readQuestionJavaScriptTests(slug, 'submit'),
     ]);
 
   return {
@@ -126,6 +116,127 @@ export async function readQuestionJavaScript(
     },
     solution,
     tests,
+  };
+}
+
+async function readQuestionJavaScriptFiles(
+  slug: string,
+): Promise<Record<string, string>> {
+  const questionPath = getQuestionSrcPathJavaScript(slug);
+  const [workspace, gfeConfig] = await Promise.all([
+    readQuestionJavaScriptWorkspaceConfig(slug),
+    readQuestionJavaScriptGFEConfig(slug),
+  ]);
+  const setupPath = path.join(questionPath, 'setup');
+
+  const files = await globby('**/*', {
+    cwd: setupPath,
+    ignore: [
+      'README.md',
+      'node_modules',
+      'greatfrontend.json',
+      gfeConfig.skeleton.js.replace(/^\//, ''),
+      gfeConfig.skeleton.ts.replace(/^\//, ''),
+    ],
+  });
+
+  const compulsoryFiles = [workspace.main, workspace.run, workspace.submit];
+
+  compulsoryFiles.forEach((filePath) => {
+    if (!files.includes(filePath.replace(/^\//, ''))) {
+      throw `"${filePath}" not found for JavaScript question "${slug}"`;
+    }
+  });
+
+  return files
+    .map((file) => ({
+      contents: fs.readFileSync(path.join(setupPath, file)).toString(),
+      file,
+    }))
+    .reduce(
+      (prev, { file, contents }) => ({
+        ...prev,
+        ['/' + file]: contents,
+      }),
+      {},
+    );
+}
+
+async function readQuestionJavaScriptGFEConfig(slug: string): Promise<
+  Readonly<{
+    run: string;
+    skeleton: Readonly<{
+      js: string;
+      ts: string;
+    }>;
+    submit: string;
+  }>
+> {
+  const questionPath = getQuestionSrcPathJavaScript(slug);
+
+  return JSON.parse(
+    fs
+      .readFileSync(path.join(questionPath, 'setup', 'greatfrontend.json'))
+      .toString(),
+  );
+}
+
+async function readQuestionJavaScriptWorkspaceConfig(slug: string): Promise<
+  Readonly<{
+    main: string;
+    run: string;
+    submit: string;
+  }>
+> {
+  const questionPath = getQuestionSrcPathJavaScript(slug);
+  const questionGFEConfig = await readQuestionJavaScriptGFEConfig(slug);
+  const pkgJSON = JSON.parse(
+    fs
+      .readFileSync(path.join(questionPath, 'setup', 'package.json'))
+      .toString(),
+  );
+
+  return {
+    main: pkgJSON.main,
+    run: questionGFEConfig.run,
+    submit: questionGFEConfig.submit,
+  };
+}
+
+export async function readQuestionJavaScriptV2(
+  slug: string,
+  locale = 'en-US',
+): Promise<QuestionJavaScriptV2> {
+  const questionPath = getQuestionSrcPathJavaScript(slug);
+  const [
+    metadata,
+    description,
+    solution,
+    skeletonJS,
+    skeletonTS,
+    files,
+    workspace,
+  ] = await Promise.all([
+    readQuestionMetadataJavaScript(slug, locale),
+    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
+    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
+    readQuestionJavaScriptSkeleton(slug, 'js'),
+    readQuestionJavaScriptSkeleton(slug, 'ts'),
+    readQuestionJavaScriptFiles(slug),
+    readQuestionJavaScriptWorkspaceConfig(slug),
+  ]);
+
+  return {
+    description,
+    files,
+    format: 'javascript',
+    metadata,
+    skeleton: {
+      js: skeletonJS,
+      ts: skeletonTS,
+    },
+    solution,
+    workspace,
   };
 }
 

@@ -55,6 +55,7 @@
     "cors": "^2.8.5",
     "esbuild": "^0.17.8",
     "framer-motion": "^9.0.4",
+    "globby": "^13.2.2",
     "gray-matter": "^4.0.3",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",

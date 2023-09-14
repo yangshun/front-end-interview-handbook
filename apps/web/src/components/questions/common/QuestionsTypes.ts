@@ -118,6 +118,18 @@ export type QuestionJavaScript = QuestionBase & {
   } | null;
   readonly tests: string | null;
 };
+export type QuestionJavaScriptV2 = QuestionBase & {
+  files: Record<string, string>;
+  skeleton: {
+    js: string;
+    ts: string;
+  };
+  workspace: Readonly<{
+    main: string;
+    run: string;
+    submit: string;
+  }>;
+};
 
 export type QuestionUserInterface = QuestionBase & {
   readonly framework: QuestionFramework;
