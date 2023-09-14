@@ -1,0 +1,53 @@
+{
+  "description": "var Component=(()=>{var m=Object.create;var t=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var s=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var x=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),g=(r,e)=>{for(var l in e)t(r,l,{get:e[l],enumerable:!0})},d=(r,e,l,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of s(e))!b.call(r,c)&&c!==l&&t(r,c,{get:()=>e[c],enumerable:!(i=u(e,c))||i.enumerable});return r};var w=(r,e,l)=>(l=r!=null?m(p(r)):{},d(e||!r||!r.__esModule?t(l,\"default\",{value:r,enumerable:!0}):l,r)),f=r=>d(t({},\"__esModule\",{value:!0}),r);var h=x((R,o)=>{o.exports=_jsx_runtime});var C={};g(C,{default:()=>v,frontmatter:()=>j});var n=w(h()),j={title:\"Clamp\",excerpt:\"Implement a function to clamp a number within the inclusive lower and upper bounds\"};function a(r){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ol:\"ol\",li:\"li\",em:\"em\",pre:\"pre\",ul:\"ul\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Implement a function \",(0,n.jsx)(e.code,{children:\"clamp(number, lower, upper)\"}),\" to restrict a number within the inclusive \",(0,n.jsx)(e.code,{children:\"lower\"}),\" and \",(0,n.jsx)(e.code,{children:\"upper\"}),\" bounds.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Arguments\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"value\"}),\" \",(0,n.jsx)(e.em,{children:\"(number)\"}),\": The number to clamp.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"lower\"}),\" \",(0,n.jsx)(e.em,{children:\"(number)\"}),\": The lower bound.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"upper\"}),\" \",(0,n.jsx)(e.em,{children:\"(number)\"}),\": The upper bound.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Returns\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.em,{children:\"(number)\"}),\": Returns the clamped number.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Examples\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// Within the bounds, return as-is.\nclamp(3, 0, 5); // => 3\n\n// Smaller than the lower bound.\nclamp(-10, -3, 5); // => -3\n\n// Bigger than the upper bound.\nclamp(10, -5, 5); // => 5\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/#clamp\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.clamp\"})]})}),`\n`]})]})}function _(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(a,r)})):a(r)}var v=_;return f(C);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/clamp\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/clamp.js\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n",
+    "/src/clamp.js": "/**\n * @param {number} value The number to clamp.\n * @param {number} lower The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the clamped number.\n */\nexport default function clamp(value, lower, upper) {\n  return Math.min(upper, Math.max(lower, value));\n}\n",
+    "/src/clamp.lodash.test.js": "import { clamp } from 'lodash';\n\ndescribe('clamp', () => {\n  test('should clamp positive numbers', () => {\n    expect(clamp(10, -5, 5)).toBe(5);\n    expect(clamp(10.6, -5.6, 5.4)).toBe(5.4);\n    expect(clamp(Infinity, -5, 5)).toBe(5);\n  });\n\n  describe('in range', () => {\n    test('negative numbers', () => {\n      expect(clamp(-4, -5, 5)).toBe(-4);\n      expect(clamp(-5, -5, 5)).toBe(-5);\n      expect(clamp(-5.5, -5.6, 5.6)).toBe(-5.5);\n    });\n\n    test('positive numbers', () => {\n      expect(clamp(4, -5, 5)).toBe(4);\n      expect(clamp(5, -5, 5)).toBe(5);\n      expect(clamp(4.5, -5.1, 5.2)).toBe(4.5);\n    });\n\n    test('should not alter `0` in range', () => {\n      expect(1 / clamp(0, -5, 5)).toBe(Infinity);\n    });\n  });\n\n  describe('out of bound', () => {\n    test('should clamp negative numbers', () => {\n      expect(clamp(-10, -5, 5)).toBe(-5);\n      expect(clamp(-10.2, -5.5, 5.5)).toBe(-5.5);\n      expect(clamp(-Infinity, -5, 5)).toBe(-5);\n    });\n\n    test('should clamp to `0`', () => {\n      expect(1 / clamp(-10, 0, 5)).toBe(Infinity);\n    });\n  });\n});\n",
+    "/src/clamp.run.test.ts": "import clamp from './clamp';\n\ndescribe('clamp', () => {\n  test('should clamp positive numbers', () => {\n    expect(clamp(10, -5, 5)).toBe(5);\n    expect(clamp(10.6, -5.6, 5.4)).toBe(5.4);\n    expect(clamp(Infinity, -5, 5)).toBe(5);\n  });\n\n  describe('in range', () => {\n    test('negative numbers', () => {\n      expect(clamp(-4, -5, 5)).toBe(-4);\n      expect(clamp(-5, -5, 5)).toBe(-5);\n      expect(clamp(-5.5, -5.6, 5.6)).toBe(-5.5);\n    });\n\n    test('positive numbers', () => {\n      expect(clamp(4, -5, 5)).toBe(4);\n      expect(clamp(5, -5, 5)).toBe(5);\n      expect(clamp(4.5, -5.1, 5.2)).toBe(4.5);\n    });\n\n    test('should not alter `0` in range', () => {\n      expect(1 / clamp(0, -5, 5)).toBe(Infinity);\n    });\n  });\n\n  describe('out of bound', () => {\n    test('should clamp negative numbers', () => {\n      expect(clamp(-10, -5, 5)).toBe(-5);\n      expect(clamp(-10.2, -5.5, 5.5)).toBe(-5.5);\n      expect(clamp(-Infinity, -5, 5)).toBe(-5);\n    });\n\n    test('should clamp to `0`', () => {\n      expect(1 / clamp(-10, 0, 5)).toBe(Infinity);\n    });\n  });\n});\n",
+    "/src/clamp.submit.test.ts": "import clamp from './clamp';\n\ndescribe('clamp', () => {\n  test('should clamp positive numbers', () => {\n    expect(clamp(10, -5, 5)).toBe(5);\n    expect(clamp(10.6, -5.6, 5.4)).toBe(5.4);\n    expect(clamp(Infinity, -5, 5)).toBe(5);\n  });\n\n  describe('in range', () => {\n    test('negative numbers', () => {\n      expect(clamp(-4, -5, 5)).toBe(-4);\n      expect(clamp(-5, -5, 5)).toBe(-5);\n      expect(clamp(-5.5, -5.6, 5.6)).toBe(-5.5);\n    });\n\n    test('positive numbers', () => {\n      expect(clamp(4, -5, 5)).toBe(4);\n      expect(clamp(5, -5, 5)).toBe(5);\n      expect(clamp(4.5, -5.1, 5.2)).toBe(4.5);\n    });\n\n    test('should not alter `0` in range', () => {\n      expect(1 / clamp(0, -5, 5)).toBe(Infinity);\n    });\n  });\n\n  describe('out of bound', () => {\n    test('should clamp negative numbers', () => {\n      expect(clamp(-10, -5, 5)).toBe(-5);\n      expect(clamp(-10.2, -5.5, 5.5)).toBe(-5.5);\n      expect(clamp(-Infinity, -5, 5)).toBe(-5);\n    });\n\n    test('should clamp to `0`', () => {\n      expect(1 / clamp(-10, 0, 5)).toBe(Infinity);\n    });\n  });\n});\n"
+  },
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function to clamp a number within the inclusive lower and upper bounds",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/clamp",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "in-range"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "in-range"
+    ],
+    "slug": "clamp",
+    "subtitle": null,
+    "title": "Clamp",
+    "topics": []
+  },
+  "skeleton": {
+    "js": "/**\n * @param {number} value The number to clamp.\n * @param {number} lower The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the clamped number.\n */\nexport default function clamp(value, lower, upper) {\n  throw 'Not implemented';\n}",
+    "ts": "export default function clamp(value: number, lower: number, upper: number) {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var t=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var l in e)t(n,l,{get:e[l],enumerable:!0})},c=(n,e,l,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of x(e))!f.call(n,o)&&o!==l&&t(n,o,{get:()=>e[o],enumerable:!(a=p(e,o))||a.enumerable});return n};var w=(n,e,l)=>(l=n!=null?h(b(n)):{},c(e||!n||!n.__esModule?t(l,\"default\",{value:n,enumerable:!0}):l,n)),M=n=>c(t({},\"__esModule\",{value:!0}),n);var s=_((T,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>v});var r=w(s());var d=MDXCodeBlock;var i=`/**\n * @param {number} value The number to clamp.\n * @param {number} lower The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the clamped number.\n */\nexport default function clamp(value, lower, upper) {\n  return Math.min(upper, Math.max(lower, value));\n}\n`;function m(n){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\",a:\"a\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,r.jsx)(d,{children:i}),`\n`,(0,r.jsx)(e.h2,{children:\"Edge Cases\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.code,{children:\"upper\"}),\" is smaller than \",(0,r.jsx)(e.code,{children:\"lower\"}),\". We can assume we aren't given this case.\"]}),`\n`]}),`\n`,(0,r.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:(0,r.jsxs)(e.a,{href:\"https://lodash.com/docs/#clamp\",children:[\"Lodash \",(0,r.jsx)(e.code,{children:\"_.clamp\"})]})}),`\n`]})]})}function C(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(m,n)})):m(n)}var v=C;return M(D);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/clamp.js",
+    "run": "/src/clamp.run.test.ts",
+    "submit": "/src/clamp.submit.test.ts"
+  }
+}
