@@ -1,5 +1,8 @@
 interface Array<T> {
-  myMap<U>(callbackFn: (value: T) => U, thisArg?: any): Array<U>;
+  myMap<U>(
+    callbackFn: (value: T, index: number, array: Array<T>) => U,
+    thisArg?: any,
+  ): Array<U>;
 }
 
 Array.prototype.myMap = function (callbackFn, thisArg) {

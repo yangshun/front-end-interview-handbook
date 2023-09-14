@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import arrayAt from '../setup/src/array-at';
+import arrayAtJs from '../setup/src/array-at.js';
+import arrayAtTs from '../setup/src/array-at.ts';
 import arrayAtSpec from '../setup/src/array-at-spec';
 
 ## Solution
@@ -11,7 +12,7 @@ For indices that are out of bounds (defined as `index < -array.length || index >
 
 Note that the specifications state that the `index` is converted to an integer first, so `Array.prototype.at` works even for string versions of indices.
 
-<MDXCodeBlock>{arrayAt}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: arrayAtJs, tsx: arrayAtTs }} />
 
 ## Edge Cases
 

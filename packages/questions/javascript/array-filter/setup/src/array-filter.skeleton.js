@@ -1,6 +1,6 @@
 /**
  * @template T
- * @param { (value: T) => boolean } callbackFn
+ * @param { (value: T, index: number, array: Array<T>) => boolean } callbackFn
  * @param {any} [thisArg]
  * @return {Array<T>}
  */

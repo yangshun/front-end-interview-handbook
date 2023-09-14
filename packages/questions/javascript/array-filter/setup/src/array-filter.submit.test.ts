@@ -1,17 +1,18 @@
 import './array-filter';
 
-const isEven = (element) => element % 2 === 0;
-const isOdd = (element) => element % 2 === 1;
-const isEvenIndex = (_, index) => index % 2 === 0;
-const isOddIndex = (_, index) => index % 2 === 1;
-const isSquareEven = (_, index, array) =>
+const isEven = (element: any, index: number) => element % 2 === 0;
+const isOdd = (element: any, index: number) => element % 2 === 1;
+const isEvenIndex = (_: any, index: number) => index % 2 === 0;
+const isOddIndex = (_: any, index: number) => index % 2 === 1;
+const isSquareEven = (_: any, index: number, array: Array<any>) =>
   (array[index] * array[index]) % 2 === 0;
-const isSquareOdd = (_, index, array) =>
+const isSquareOdd = (_: any, index: number, array: Array<any>) =>
   (array[index] * array[index]) % 2 === 1;
-const isThisProductEven = function (element) {
+const isThisProductEven = function (this: any, element: number) {
   return (element * this) % 2 === 0;
 };
-const isThisProductEvenArrowFn = (element) => (element * this) % 2 === 0;
+const isThisProductEvenArrowFn = (element: number) =>
+  (element * this!) % 2 === 0;
 
 describe('Array.prototype.myFilter', () => {
   test('empty array', () => {

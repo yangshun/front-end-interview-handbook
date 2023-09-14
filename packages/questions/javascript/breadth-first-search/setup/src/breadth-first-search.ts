@@ -1,9 +1,7 @@
-/**
- * @param {Record<string, Array<string>>} graph The adjacency list representing the graph.
- * @param {string} source The source node to start traversal from. Has to be a valid node if graph is non-empty.
- * @return {Array<string>} A BFS-traversed order of nodes.
- */
-export default function breadthFirstSearch(graph, source) {
+export default function breadthFirstSearch(
+  graph: Record<string, Array<string>>,
+  source: string,
+): Array<string> {
   // If there are no nodes in the graph, just return an empty array
   if (Object.keys(graph).length === 0) {
     return [];
@@ -11,16 +9,16 @@ export default function breadthFirstSearch(graph, source) {
 
   // Create a queue to store the nodes to be visited.
   // Add the root node since we're doing a level-order BFS.
-  const queue = new Queue();
+  const queue = new Queue<string>();
   queue.enqueue(source);
 
   // Initialize a set that tracks visited nodes.
-  const visited = new Set();
+  const visited = new Set<string>();
 
   // While there are nodes to visit.
   while (!queue.isEmpty()) {
     // Dequeue the node at the front of the queue.
-    const node = queue.dequeue();
+    const node = queue.dequeue()!;
 
     // Mark the node as visited.
     visited.add(node);
@@ -53,25 +51,32 @@ export default function breadthFirstSearch(graph, source) {
  * q.dequeue(); //'a'
  * q.isEmpty(); // False
  */
-class Node {
-  constructor(value) {
+class Node<T> {
+  value: T;
+  next: Node<T> | null;
+
+  constructor(value: T) {
     this.value = value;
     this.next = null;
   }
 }
 
-class Queue {
+class Queue<T> {
+  head: Node<T> | null;
+  tail: Node<T> | null;
+  length: number;
+
   constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.length === 0;
   }
 
-  enqueue(item) {
+  enqueue(item: T): void {
     const newNode = new Node(item);
     if (this.isEmpty()) {
       this.head = newNode;
@@ -82,7 +87,7 @@ class Queue {
     this.length++;
   }
 
-  dequeue() {
+  dequeue(): T | null {
     if (this.isEmpty() || !this.head) {
       return null;
     } else {

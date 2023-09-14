@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import breadthFirstSearch from '../setup/src/breadth-first-search';
+import breadthFirstSearchJs from '../setup/src/breadth-first-search.js';
+import breadthFirstSearchTs from '../setup/src/breadth-first-search.ts';
 import breadthFirstSearchRecursive from '../setup/src/breadthFirstSearchRecursive';
 
 ## Clarification Questions
@@ -16,7 +17,9 @@ If unspecified:
 
 The solution implements the algorithm outlined in the description.
 
-<MDXCodeBlock>{breadthFirstSearch}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: breadthFirstSearchJs, tsx: breadthFirstSearchTs }}
+/>
 
 ## Recursive solution
 

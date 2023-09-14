@@ -1,11 +1,13 @@
 import './array-reduce';
 
-const add = (prev, curr) => prev + curr;
-const multiplyByIndex = (prev, curr, index) => prev + curr * index;
-const subtract = (prev, curr) => prev - curr;
-const sumOfSquares = (prev, curr, index, array) => prev + curr * array[index];
-const combineObj = (prev, curr) => ({ ...prev, ...curr });
-const combineArr = (prev, curr) => [...prev, curr];
+const add = (prev: any, curr: any) => prev + curr;
+const multiplyByIndex = (prev: number, curr: number, index: number) =>
+  prev + curr * index;
+const subtract = (prev: number, curr: number) => prev - curr;
+const sumOfSquares = (prev: any, curr: any, index: number, array: Array<any>) =>
+  prev + curr * array[index];
+const combineObj = (prev: Object, curr: Object) => ({ ...prev, ...curr });
+const combineArr = (prev: Array<any>, curr: any) => [...prev, curr];
 
 describe('Array.prototype.myReduce', () => {
   test('empty array equals initial value', () => {

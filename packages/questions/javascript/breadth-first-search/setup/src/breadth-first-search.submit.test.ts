@@ -2,7 +2,7 @@ import breadthFirstSearch from './breadth-first-search';
 
 describe('breadthFirstSearch', () => {
   test('empty graph', () => {
-    expect(breadthFirstSearch({}, null)).toEqual([]);
+    expect(breadthFirstSearch({}, '')).toEqual([]);
   });
 
   test('graphs with one node', () => {

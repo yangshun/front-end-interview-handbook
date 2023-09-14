@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import binarySearch from '../setup/src/binary-search';
+import binarySearchJs from '../setup/src/binary-search.js';
+import binarySearchTs from '../setup/src/binary-search.ts';
 import binarySearchRecursive from '../setup/src/binarySearchRecursive';
 
 Binary search is an efficient search algorithm that reduces the search space by half at each step, which means it can find the target element in O(log(n)) time, where n is the size of the input array. This makes it much faster than linear search, which has a time complexity of O(n).
@@ -20,7 +21,7 @@ If unspecified:
 
 Note: This question tackles a standard binary search which uses an iterative approach and assumes the array is already sorted. Refer to the 'Notes' section for other alternatives.
 
-<MDXCodeBlock>{binarySearch}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: binarySearchJs, tsx: binarySearchTs }} />
 
 If the interviewer asks for a recursive approach:
 

@@ -1,5 +1,3 @@
-export default function camelCaseKeys<
-  T extends Record<string, unknown> | Array<unknown>,
->(object: T): T {
+export default function camelCaseKeys(object: Object): Object {
   throw 'Not implemented!';
 }

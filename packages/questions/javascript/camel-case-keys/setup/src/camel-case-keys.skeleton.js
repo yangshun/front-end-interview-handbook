@@ -1,7 +1,6 @@
 /**
- * @template {Record<string, unknown>|Array<unknown>} T
- * @param {T} object
- * @return {T}
+ * @param Object
+ * @return Object
  */
 export default function camelCaseKeys(object) {
   throw 'Not implemented!';

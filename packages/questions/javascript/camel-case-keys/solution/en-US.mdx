@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import camelCaseKeys from '../setup/src/camel-case-keys';
+import camelCaseKeysJs from '../setup/src/camel-case-keys.js';
+import camelCaseKeysTs from '../setup/src/camel-case-keys.ts';
 
 This question is similar to [Squash Object](/questions/javascript/squash-object), where we need a function to apply some changes to the keys of an object.
 
@@ -38,7 +39,7 @@ Now that we have figured out how to traverse the object, next we need to check t
 
 The next thing to talk about is how we can should identify snake-cased keys and camel case-ify them. One simple way to achieve that is to use `String.prototype.split()` to divide keys into substrings separated by `_`, and join them back to a new string with substrings being capitalized (except for the first one). Another way to do is to use regex, which can be extended easily if we want to support other naming conventions, such as Pascal case.
 
-<MDXCodeBlock>{camelCaseKeys}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: camelCaseKeysJs, tsx: camelCaseKeysTs }} />
 
 ## Resources
 

@@ -1,18 +1,10 @@
-/**
- * @param {string} str
- * @return {string}
- */
-function camelCase(str) {
+function camelCase(str: string): string {
   return str
     .toLowerCase()
     .replace(/([_])([a-z])/g, (_match, _p1, p2) => p2.toUpperCase());
 }
 
-/**
- * @param Object
- * @return Object
- */
-export default function camelCaseKeys(object) {
+export default function camelCaseKeys(object: Object): Object {
   if (Array.isArray(object)) {
     return object.map((item) => camelCaseKeys(item));
   }

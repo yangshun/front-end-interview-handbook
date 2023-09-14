@@ -1,13 +1,14 @@
 import './array-map';
 
-const identity = (element) => element;
-const square = (element) => element * element;
-const multiplyByIndex = (element, index) => element * index;
-const squareAlt = (element, index, array) => element * array[index];
-const usesThis = function (element) {
+const identity = <T>(element: T) => element;
+const square = (element: any) => element * element;
+const multiplyByIndex = (element: number, index: number) => element * index;
+const squareAlt = (element: number, index: number, array: Array<number>) =>
+  element * array[index];
+const usesThis = function (this: any, element: number) {
   return element * this;
 };
-const usesThisArrowFn = (element) => element * this;
+const usesThisArrowFn = (element: number) => element * this!;
 
 describe('Array.prototype.myMap', () => {
   test('empty array', () => {
