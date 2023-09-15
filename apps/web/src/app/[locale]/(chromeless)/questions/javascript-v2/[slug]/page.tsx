@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
 import { readQuestionJavaScriptContentsV2 } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
@@ -10,8 +11,6 @@ import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
-
-import JavaScriptCodingWorkspacePage from './JavaScriptCodingWorkspacePage';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -40,8 +39,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const t0 = performance.now();
-
   const supabaseAdmin = createSupabaseAdminClientGFE();
   const { slug, locale } = params;
 
@@ -115,7 +112,11 @@ export default async function Page({ params }: Props) {
         url={`${getSiteUrl()}${question.metadata.href}`}
         useAppDir={true}
       />
-      <JavaScriptCodingWorkspacePage question={question} />
+      <JavaScriptCodingWorkspacePage
+        nextQuestions={nextQuestions}
+        question={question}
+        similarQuestions={similarQuestions}
+      />
     </>
   );
 }

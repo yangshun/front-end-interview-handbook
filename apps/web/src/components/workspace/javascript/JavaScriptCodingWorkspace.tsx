@@ -21,6 +21,8 @@ import type { QuestionMetadata } from '~/components/questions/common/QuestionsTy
 import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
+import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
+import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
@@ -221,12 +223,16 @@ function JavaScriptCodingWorkspaceTestsSubmitSection({
 function JavaScriptCodingWorkspaceImpl({
   defaultLanguage,
   description,
+  nextQuestions,
+  similarQuestions,
   metadata,
   solution,
 }: Readonly<{
   defaultLanguage: JavaScriptCodingLanguage;
   description: string | null;
   metadata: QuestionMetadata;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   solution: string | null;
 }>) {
   const isQuestionLocked = false;
@@ -286,11 +292,13 @@ function JavaScriptCodingWorkspaceImpl({
               <QuestionMetadataSection metadata={metadata} />
             </div>
           </div>
-          <div className="p-4">
+          <div className="flex flex-col gap-y-8 p-4">
             <QuestionContentProse
               contents={description}
               isContentsHidden={isQuestionLocked}
             />
+            <QuestionNextQuestions questions={nextQuestions} />
+            <QuestionSimilarQuestions questions={similarQuestions} />
           </div>
         </div>
       ),
@@ -532,6 +540,8 @@ export default function JavaScriptCodingWorkspace({
   defaultLanguage,
   description,
   metadata,
+  nextQuestions,
+  similarQuestions,
   skeleton,
   solution,
   workspace,
@@ -540,6 +550,8 @@ export default function JavaScriptCodingWorkspace({
   defaultLanguage: JavaScriptCodingLanguage;
   description: string | null;
   metadata: QuestionMetadata;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: JavaScriptCodingSkeleton;
   solution: string | null;
   workspace: JavaScriptCodingWorkspaceConfig;
@@ -567,6 +579,8 @@ export default function JavaScriptCodingWorkspace({
               defaultLanguage={defaultLanguage}
               description={description}
               metadata={metadata}
+              nextQuestions={nextQuestions}
+              similarQuestions={similarQuestions}
               solution={solution}
             />
           </JavaScriptCodingWorkspaceContextProvider>

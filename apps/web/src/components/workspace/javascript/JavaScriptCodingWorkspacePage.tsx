@@ -1,15 +1,26 @@
 'use client';
 
-import type { QuestionJavaScriptV2 } from '~/components/questions/common/QuestionsTypes';
+import type {
+  QuestionJavaScriptV2,
+  QuestionMetadata,
+} from '~/components/questions/common/QuestionsTypes';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
+  isQuestionLockedForUser: boolean;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionJavaScriptV2;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function JavaScriptPage({ question }: Props) {
+export default function JavaScriptPage({
+  isQuestionLockedForUser,
+  question,
+  nextQuestions,
+  similarQuestions,
+}: Props) {
   const { description, workspace, files, skeleton, solution, metadata } =
     question;
   const language = 'js' as const;
@@ -40,7 +51,10 @@ export default function JavaScriptPage({ question }: Props) {
         defaultFiles={finalFiles}
         defaultLanguage={language}
         description={description}
+        isQuestionLockedForUser={isQuestionLockedForUser}
         metadata={metadata}
+        nextQuestions={nextQuestions}
+        similarQuestions={similarQuestions}
         skeleton={skeleton}
         solution={solution}
         workspace={workspace}
