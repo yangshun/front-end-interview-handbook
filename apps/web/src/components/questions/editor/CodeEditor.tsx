@@ -7,9 +7,7 @@ import useMonacoTheme from '~/hooks/useMonacoTheme';
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
 import EmptyState from '~/components/ui/EmptyState';
 
-import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
-
-loader.config({ paths: { vs: '/monaco-editor/min/vs' } });
+import MonacoEditor, { useMonaco } from '@monaco-editor/react';
 
 type Props = Readonly<{
   filePath: string;

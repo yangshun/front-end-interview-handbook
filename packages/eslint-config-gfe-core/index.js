@@ -95,6 +95,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': ERROR,
     '@typescript-eslint/no-duplicate-enum-values': ERROR,
     '@typescript-eslint/no-for-in-array': ERROR,
+    '@typescript-eslint/no-empty-function': OFF,
     '@typescript-eslint/no-non-null-assertion': OFF,
     '@typescript-eslint/no-unused-vars': [WARN, { argsIgnorePattern: '^_' }],
     '@typescript-eslint/prefer-optional-chain': ERROR,

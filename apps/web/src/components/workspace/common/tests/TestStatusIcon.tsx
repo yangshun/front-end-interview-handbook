@@ -1,0 +1,30 @@
+import {
+  failTextClassName,
+  passTextClassName,
+  runningTextClassName,
+  skipTextClassName,
+} from './style';
+import type { TestStatus } from './types';
+
+export default function TestStatusIcon({
+  status,
+}: Readonly<{
+  status: TestStatus;
+}>) {
+  return (
+    <span className="w-3 h-3 pt-1 flex items-center text-lg shrink-0">
+      {(() => {
+        switch (status) {
+          case 'pass':
+            return <span className={passTextClassName}>✓</span>;
+          case 'fail':
+            return <span className={failTextClassName}>✕</span>;
+          case 'running':
+            return <span className={runningTextClassName}>ᐅ</span>;
+          case 'idle':
+            return <span className={skipTextClassName}>○</span>;
+        }
+      })()}
+    </span>
+  );
+}

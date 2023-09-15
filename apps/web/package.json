@@ -10,7 +10,6 @@
     "sitemap": "next-sitemap",
     "start": "npm run gen:all && next start",
     "lint": "next lint",
-    "lint:fix": "eslint src questions --fix",
     "test": "jest",
     "tsc": "tsc",
     "gen": "cross-env NODE_ENV=production ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-gen-cli.ts",
