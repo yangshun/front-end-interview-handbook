@@ -29,6 +29,7 @@ import {
   CodingWorkspaceProvider,
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
+import CodingWorkspaceQuestionListSlideOutButton from '../common/CodingWorkspaceQuestionListSlideOutButton';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -391,8 +392,10 @@ function JavaScriptCodingWorkspaceImpl({
           }
         />
       </div>
-      <div className="flex items-center justify-between px-2 py-3">
-        <div>Sandpack: {sandpack.status}</div>
+      <div className="flex items-center justify-between px-3 py-3">
+        <div className="flex items-center gap-x-2">
+          <CodingWorkspaceQuestionListSlideOutButton />
+        </div>
         <div className="flex items-center gap-x-2">
           <CodingWorkspaceTimer />
           <Button
