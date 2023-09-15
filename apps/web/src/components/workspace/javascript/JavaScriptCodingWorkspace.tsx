@@ -3,12 +3,14 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
 
+import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -102,6 +104,7 @@ function JavaScriptCodingCodeEditor({
   return (
     <div className="flex w-full flex-col">
       <div className="flex justify-end gap-x-1.5 px-1 py-1.5">
+        <CodingWorkspaceThemeSelect />
         <CodingWorkspaceEditorShortcutsButton />
         <CodingWorkspaceResetButton
           onClick={() => {
@@ -484,22 +487,24 @@ export default function JavaScriptCodingWorkspace({
   );
 
   return (
-    <TilesProvider defaultValue={defaultLayout}>
-      <CodingWorkspaceProvider
-        value={{
-          defaultFiles,
-        }}>
-        <JavaScriptCodingWorkspaceContextProvider
-          skeleton={skeleton}
-          workspace={workspace}>
-          <JavaScriptCodingWorkspaceImpl
-            defaultLanguage={defaultLanguage}
-            description={description}
-            metadata={metadata}
-            solution={solution}
-          />
-        </JavaScriptCodingWorkspaceContextProvider>
-      </CodingWorkspaceProvider>
-    </TilesProvider>
+    <CodingPreferencesProvider>
+      <TilesProvider defaultValue={defaultLayout}>
+        <CodingWorkspaceProvider
+          value={{
+            defaultFiles,
+          }}>
+          <JavaScriptCodingWorkspaceContextProvider
+            skeleton={skeleton}
+            workspace={workspace}>
+            <JavaScriptCodingWorkspaceImpl
+              defaultLanguage={defaultLanguage}
+              description={description}
+              metadata={metadata}
+              solution={solution}
+            />
+          </JavaScriptCodingWorkspaceContextProvider>
+        </CodingWorkspaceProvider>
+      </TilesProvider>
+    </CodingPreferencesProvider>
   );
 }

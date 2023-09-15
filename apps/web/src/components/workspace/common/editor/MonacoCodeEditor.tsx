@@ -6,6 +6,7 @@ import React, { useRef } from 'react';
 import getLanguageFromFilePath from './getLanguageFromFilePath';
 import useMonacoEditorAddActions from './useMonacoEditorAddActions';
 import useMonacoEditorOnShown from './useMonacoEditorOnShown';
+import useMonacoEditorTheme from './useMonacoEditorTheme';
 
 import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 
@@ -35,6 +36,7 @@ export default function MonacoCodeEditor({
   const monaco = useMonaco();
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
+  const themeKey = useMonacoEditorTheme();
 
   useMonacoEditorAddActions(monaco, editorRef.current);
   useMonacoEditorOnShown(editorContainerRef.current, onFocus);
@@ -53,7 +55,7 @@ export default function MonacoCodeEditor({
           },
         }}
         path={filePath}
-        theme="vs-dark"
+        theme={themeKey}
         value={value ?? ''}
         onChange={(val) => onChange(val ?? '')}
         onMount={(editorInstance) => {
