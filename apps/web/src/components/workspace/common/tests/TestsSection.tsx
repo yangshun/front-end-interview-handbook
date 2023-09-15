@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import {
+  RiCheckboxLine,
   RiFileList2Line,
   RiFlaskLine,
   RiListCheck3,
   RiPencilLine,
   RiPlayLine,
-  RiSurveyLine,
 } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
@@ -448,7 +448,7 @@ export default function TestsSection({
                                         onClick={submit}
                                       />
                                     }
-                                    icon={RiSurveyLine}
+                                    icon={RiCheckboxLine}
                                     subtitle={
                                       <FormattedMessage
                                         defaultMessage="Submit your code to check against <button>all test cases</button>."

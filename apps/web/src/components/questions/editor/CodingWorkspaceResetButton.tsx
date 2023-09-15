@@ -14,17 +14,17 @@ export default function CodingWorkspaceResetButton({ onClick }: Props) {
       icon={RiArrowGoBackLine}
       isLabelHidden={true}
       label={intl.formatMessage({
-        defaultMessage: 'Reset to initial code',
+        defaultMessage: 'Reset this file',
         description:
           'Label for button that allows users to reset their coding workspace to the initial code',
-        id: 'FInmLy',
+        id: 'k79xTX',
       })}
       size="xs"
       tooltip={intl.formatMessage({
-        defaultMessage: 'Reset to initial code',
+        defaultMessage: 'Reset this file',
         description:
           'Tooltip for button that allows users to reset their coding workspace to the initial code',
-        id: 'SWOTIA',
+        id: 'gopXdP',
       })}
       tooltipPosition="start"
       variant="tertiary"

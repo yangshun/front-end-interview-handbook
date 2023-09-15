@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import {
+  RiArrowGoBackLine,
   RiCheckboxLine,
   RiCodeLine,
   RiFileList2Line,
@@ -17,6 +18,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import LogoLink from '~/components/global/Logo';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
@@ -26,7 +28,6 @@ import QuestionMetadataSection from '~/components/questions/metadata/QuestionMet
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
@@ -121,17 +122,20 @@ function JavaScriptCodingCodeEditor({
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex justify-end gap-x-1.5 px-1 py-1.5">
-        <CodingWorkspaceThemeSelect />
-        <CodingWorkspaceEditorShortcutsButton />
-        <CodingWorkspaceResetButton
-          onClick={() => {
-            if (!confirm('Reset code to original? Changes will be lost!')) {
-              return;
-            }
-            resetFile(filePath);
-          }}
-        />
+      <div className="flex items-center justify-between px-1 py-1.5">
+        <QuestionCodingWorkingLanguageSelect value="js" onChange={() => {}} />
+        <div className="flex items-center gap-x-1.5">
+          <CodingWorkspaceThemeSelect />
+          <CodingWorkspaceEditorShortcutsButton />
+          <CodingWorkspaceResetButton
+            onClick={() => {
+              if (!confirm('Reset code to original? Changes will be lost!')) {
+                return;
+              }
+              resetFile(filePath);
+            }}
+          />
+        </div>
       </div>
       <MonacoCodeEditor
         filePath={filePath}
@@ -239,7 +243,7 @@ function JavaScriptCodingWorkspaceImpl({
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
   );
-  const { workspace, skeleton } = useJavaScriptCodingWorkspaceContext();
+  const { workspace } = useJavaScriptCodingWorkspaceContext();
 
   const monaco = useMonaco();
 
@@ -371,6 +375,19 @@ function JavaScriptCodingWorkspaceImpl({
           <LogoLink />
         </div>
         <div className="flex items-center gap-x-2">
+          <Button
+            addonPosition="start"
+            icon={RiArrowGoBackLine}
+            isDisabled={status !== 'idle'}
+            label="Reset question"
+            size="xs"
+            variant="secondary"
+            onClick={() => {
+              if (confirm('Reset all changed made to this question?')) {
+                resetAllFiles();
+              }
+            }}
+          />
           <DropdownMenu
             align="end"
             icon={VscLayout}
@@ -487,17 +504,6 @@ function JavaScriptCodingWorkspaceImpl({
         </div>
         <div className="flex items-center gap-x-2">
           <CodingWorkspaceTimer />
-          <Button
-            isDisabled={status !== 'idle'}
-            label="Reset Code"
-            size="xs"
-            variant="tertiary"
-            onClick={() => {
-              if (confirm('Reset all files?')) {
-                resetAllFiles();
-              }
-            }}
-          />
           <Button
             addonPosition="start"
             icon={RiPlayLine}

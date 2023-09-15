@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RxPause, RxReset, RxStopwatch } from 'react-icons/rx';
+import { RiArrowGoBackLine } from 'react-icons/ri';
+import { RxPause, RxStopwatch } from 'react-icons/rx';
 
 export default function CodingWorkspaceTimer() {
   const [timePassedInSeconds, setTimePassedInSeconds] = useState(0);
@@ -60,7 +61,7 @@ export default function CodingWorkspaceTimer() {
           setTimePassedInSeconds(0);
           clearTimer();
         }}>
-        <RxReset className="h-3 w-3" />
+        <RiArrowGoBackLine className="h-3 w-3" />
       </button>
     </div>
   );

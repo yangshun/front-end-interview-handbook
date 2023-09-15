@@ -52,7 +52,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y overflow-hidden border sm:grid',
+        'isolate divide-y overflow-hidden rounded-md border sm:grid',
         themeLineColor,
         themeDivideColor,
       )}>
