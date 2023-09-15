@@ -32,9 +32,8 @@ const withNextI18nostic = nextI18nostic();
  **/
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  reactStrictMode: true,
+  // reactStrictMode: true, // TODO: re-enable this and fix the stale tests issue with coding workspace.
   experimental: {
-    appDir: true,
     serverComponentsExternalPackages: ['mdx-bundler'],
   },
   transpilePackages: ['next-i18nostic'],
