@@ -20,6 +20,10 @@
   src: url('./fonts/Inter-italic-latin.var.woff2') format('woff2');
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -31,8 +35,28 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+@media (pointer: fine) {
+  .thin-scrollbar {
+    scrollbar-width: thin;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffffff22;
+    border-radius: 4px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ffffff44;
+  }
 }
 
 .dark {

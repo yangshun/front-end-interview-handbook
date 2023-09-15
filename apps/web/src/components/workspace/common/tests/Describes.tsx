@@ -15,13 +15,13 @@ export default function Describes({ describes }: Props) {
         }
 
         const tests = Object.values(describe.tests ?? {});
-        const describes = Object.values(describe.describes ?? {});
+        const describesInner = Object.values(describe.describes ?? {});
 
         return (
           <div key={describe.name} className="flex flex-col gap-y-2">
             <div>{describe.name}</div>
             <Tests tests={tests} />
-            <Describes describes={describes} />
+            <Describes describes={describesInner} />
           </div>
         );
       })}

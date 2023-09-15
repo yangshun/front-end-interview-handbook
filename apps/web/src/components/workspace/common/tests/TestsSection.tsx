@@ -96,7 +96,6 @@ export default function TestsSection({
     let currentSpec = '';
 
     const unsubscribe = listen((data): void => {
-      console.log({ data });
       // Ignore if message isn't for the current spec.
       if (
         ('path' in data && data.path !== state.currentSpecPath) ||
@@ -404,9 +403,9 @@ export default function TestsSection({
           <div className="flex h-10 shrink-0 items-center justify-between px-2">
             <div className="flex grow items-center gap-6">
               <span>Tests: {state.status}</span>
-              <span>Sandpack: {sandpack.status}</span>
               <button
                 className="p-2"
+                type="button"
                 onClick={() =>
                   setState({
                     ...state,
@@ -420,6 +419,7 @@ export default function TestsSection({
             <div className="flex items-center gap-2">
               <button
                 className="p-2"
+                type="button"
                 onClick={() => onShowTestsCases?.(specMode)}>
                 {specMode === 'run' ? (
                   <>Edit test cases</>

@@ -7,7 +7,7 @@ export default function CodingWorkspaceTimer() {
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
-  const [isTimerHovered, setIsTimeHovered] = useState(false);
+  const [isTimerHovered, setIsTimerHovered] = useState(false);
 
   function clearTimer() {
     clearInterval(timer);
@@ -17,12 +17,13 @@ export default function CodingWorkspaceTimer() {
   return (
     <div
       className={clsx(
-        'group flex gap-x-1 px-2 py-1.5 border border-neutral-600 rounded-full items-center',
+        'group flex items-center gap-x-1 rounded-full border border-neutral-600 px-2 py-1',
         isTimerHovered && 'bg-neutral-700',
       )}>
       <button
-        className="text-xs font-mono flex gap-x-1 items-center"
+        className="flex items-center gap-x-1 font-mono text-xs"
         title={timer === null ? 'Start' : 'Pause'}
+        type="button"
         onClick={() => {
           if (timer == null) {
             const timerId = setInterval(() => {
@@ -35,10 +36,10 @@ export default function CodingWorkspaceTimer() {
           }
         }}
         onMouseEnter={() => {
-          setIsTimeHovered(true);
+          setIsTimerHovered(true);
         }}
         onMouseLeave={() => {
-          setIsTimeHovered(false);
+          setIsTimerHovered(false);
         }}>
         {timer == null ? (
           <RxStopwatch aria-hidden={true} className="h-3 w-4" />
@@ -49,11 +50,12 @@ export default function CodingWorkspaceTimer() {
       </button>
       <button
         className={clsx(
-          'p-1 hover:bg-neutral-700 rounded-full',
+          'rounded-full p-1 hover:bg-neutral-700',
           timePassedInSeconds === 0 && 'opacity-25',
         )}
         disabled={timePassedInSeconds === 0}
         title="Reset"
+        type="button"
         onClick={() => {
           setTimePassedInSeconds(0);
           clearTimer();

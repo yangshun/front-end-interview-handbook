@@ -9,8 +9,8 @@ type Props = Readonly<{
   path: string;
 }>;
 
-export default function FormattedError({ error, path }: Props) {
-  const html = formatDiffMessage(error, path);
+export default function FormattedError({ error }: Props) {
+  const html = formatDiffMessage(error);
 
   if (!html) {
     return null;
@@ -19,7 +19,7 @@ export default function FormattedError({ error, path }: Props) {
   return (
     <div
       dangerouslySetInnerHTML={{ __html: html }}
-      className="p-3 font-mono whitespace-pre overflow-x-auto rounded text-neutral-400 border border-neutral-800"
+      className="overflow-x-auto whitespace-pre rounded border border-neutral-800 p-3 font-mono text-neutral-400"
     />
   );
 }
@@ -33,7 +33,7 @@ const escapeHtml = (unsafe: string): string => {
     .replace(/'/g, '&#039;');
 };
 
-const formatDiffMessage = (error: TestError, path: string): string => {
+const formatDiffMessage = (error: TestError): string => {
   let finalMessage = '';
 
   if (error.matcherResult) {
@@ -64,18 +64,14 @@ const formatDiffMessage = (error: TestError, path: string): string => {
     finalMessage = '';
   }
 
-  if (
-    error.mappedErrors &&
-    error.mappedErrors[0] &&
-    error.mappedErrors[0]._originalScriptCode
-  ) {
+  if (error.mappedErrors?.[0]?._originalScriptCode) {
     const mappedError = error.mappedErrors[0];
 
     const _originalScriptCode = mappedError._originalScriptCode || [];
 
     const widestNumber =
       Math.max(
-        ..._originalScriptCode.map((code) => (code.lineNumber + '').length),
+        ..._originalScriptCode.map((code) => String(code.lineNumber).length),
       ) + 2;
 
     const margin = Array.from({ length: widestNumber }).map(() => ' ');
@@ -86,7 +82,7 @@ const formatDiffMessage = (error: TestError, path: string): string => {
     _originalScriptCode
       .filter((s) => s.content.trim())
       .forEach((code) => {
-        const currentLineMargin = (code.lineNumber + '').length;
+        const currentLineMargin = String(code.lineNumber).length;
         const newMargin = [...margin];
 
         newMargin.length -= currentLineMargin;
@@ -116,7 +112,7 @@ const formatDiffMessage = (error: TestError, path: string): string => {
             ? `<span class="${failTextClassName}">></span> `
             : '') +
           newMargin.join('') +
-          escapeHtml('' + code.lineNumber) +
+          escapeHtml(String(code.lineNumber)) +
           ' | ' +
           content +
           '</div>' +

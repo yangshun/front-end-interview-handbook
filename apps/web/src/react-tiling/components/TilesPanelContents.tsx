@@ -154,9 +154,9 @@ function TilePanelTab({
     <div
       ref={tabRef}
       className={clsx(
-        'group relative isolate flex grow items-center gap-x-0.5 rounded',
+        'group relative isolate flex grow items-center gap-x-0.5 rounded font-medium',
         isOver ? 'bg-neutral-800' : 'bg-neutral-900 hover:bg-neutral-800',
-        isActive ? 'text-neutral-100' : 'text-neutral-400',
+        isActive ? 'text-neutral-50' : 'text-neutral-400',
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
       <TabButton
@@ -433,7 +433,7 @@ export default function TilesPanelContents({
 }>) {
   return (
     <Panel
-      className="flex flex-col divide-y divide-neutral-800/60 rounded-lg bg-neutral-900"
+      className="flex flex-col rounded-lg bg-neutral-900"
       defaultSize={defaultSize}
       id={panelId}
       order={order}>
@@ -465,17 +465,10 @@ export default function TilesPanelContents({
         <div className="flex h-full items-center gap-x-1 px-2">
           <button
             className="rounded p-0.5 hover:bg-neutral-800"
-            title="Split horizontal"
+            title="Split editor right"
             type="button"
             onClick={() => onSplit('horizontal', panelId)}>
             <VscSplitHorizontal className="h-4 w-4 text-neutral-500" />
-          </button>
-          <button
-            className="rounded p-0.5 hover:bg-neutral-800"
-            title="Split vertical"
-            type="button"
-            onClick={() => onSplit('vertical', panelId)}>
-            <VscSplitVertical className="h-4 w-4 text-neutral-500" />
           </button>
           {tabs.every((tab) => tab.closeable) && (
             <button

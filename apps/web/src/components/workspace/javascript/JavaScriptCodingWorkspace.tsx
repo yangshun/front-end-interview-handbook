@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 
+import Button from '~/components/ui/Button';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
 
@@ -28,18 +29,16 @@ import {
   CodingWorkspaceProvider,
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
-import CodingWorkspaceFloatingBar from '../CodingWorkspaceFloatingBar';
+import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
-import useMonacoEditorRegisterEditorOpener from '../common/editor/useMonacoEditorRegisterEditorOpener';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
-import CodingFileExplorer from '../common/explorer/CodingFileExplorer';
 import useRestartSandpack from '../useRestartSandpack';
 
 import {
   SandpackConsole,
-  SandpackLayout,
+  SandpackTests,
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
@@ -74,7 +73,7 @@ function NewTabContents({
             className="rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
             type="button"
             onClick={() => {
-              onSelectTabType(tabType);
+              onSelectTabType(tabType as TabsType);
             }}>
             {tabDetails.label}
           </button>
@@ -139,7 +138,11 @@ function JavaScriptCodingWorkspaceTestsRunSection({
     }
   }, [dispatch, status]);
 
-  return (
+  const test = false;
+
+  return test ? (
+    <SandpackTests watchMode={false} />
+  ) : (
     <TestsSection
       specMode="run"
       specPath={specPath}
@@ -198,6 +201,7 @@ function JavaScriptCodingWorkspaceImpl({
   solution: string;
 }>) {
   const { dispatch } = useTilesContext();
+  const { status, runTests, submit } = useCodingWorkspaceContext();
   const { language, setLanguage, resetAllFiles } =
     useJavaScriptCodingWorkspaceContext();
 
@@ -230,18 +234,6 @@ function JavaScriptCodingWorkspaceImpl({
   );
 
   useMonacoEditorModels(monaco, files);
-  useMonacoEditorRegisterEditorOpener(
-    monaco,
-    (filePathToOpen: string, fromFilePath?: string) => {
-      if (!files[filePathToOpen]) {
-        // Non-existent file cannot be opened.
-        return;
-      }
-
-      // TODO: Hook up with opening action.
-      console.log(filePathToOpen, fromFilePath);
-    },
-  );
 
   const predefinedTabs: PredefinedTabsContents = {
     console: { contents: <SandpackConsole />, label: 'Console' },
@@ -313,10 +305,10 @@ function JavaScriptCodingWorkspaceImpl({
   });
 
   return (
-    <>
-      <div className="flex justify-between p-4">
+    <div className="flex h-full w-full flex-col">
+      <div className="flex items-center justify-between px-2 py-3">
         <div>Sandpack: {sandpack.status}</div>
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-2">
           <button
             type="button"
             onClick={() => {
@@ -350,15 +342,6 @@ function JavaScriptCodingWorkspaceImpl({
           <button
             type="button"
             onClick={() => {
-              if (confirm('Reset all files?')) {
-                resetAllFiles();
-              }
-            }}>
-            Reset All
-          </button>
-          <button
-            type="button"
-            onClick={() => {
               const newLanguage = language === 'js' ? 'ts' : 'js';
 
               setLanguage(newLanguage);
@@ -368,12 +351,7 @@ function JavaScriptCodingWorkspaceImpl({
           </button>
         </div>
       </div>
-      <SandpackLayout>
-        {/* <SandpackTests watchMode={false} /> */}
-      </SandpackLayout>
-      <div
-        className="font-sm flex w-full p-2"
-        style={{ height: 'calc(100vh - 49px)' }}>
+      <div className="flex w-full grow px-2">
         <TilesPanelRoot
           disablePointerEventsDuringResize={true}
           getResizeHandlerProps={(direction) => ({
@@ -411,9 +389,39 @@ function JavaScriptCodingWorkspaceImpl({
             )
           }
         />
-        <CodingWorkspaceFloatingBar className="absolute bottom-12 left-1/2 z-10" />
       </div>
-    </>
+      <div className="flex items-center justify-between px-2 py-3">
+        <div>Sandpack: {sandpack.status}</div>
+        <div className="flex items-center gap-x-2">
+          <CodingWorkspaceTimer />
+          <Button
+            isDisabled={status !== 'idle'}
+            label="Reset Code"
+            size="xs"
+            variant="tertiary"
+            onClick={() => {
+              if (confirm('Reset all files?')) {
+                resetAllFiles();
+              }
+            }}
+          />
+          <Button
+            isDisabled={status !== 'idle'}
+            label="Run"
+            size="xs"
+            variant="secondary"
+            onClick={runTests}
+          />
+          <Button
+            isDisabled={status !== 'idle'}
+            label="Submit"
+            size="xs"
+            variant="primary"
+            onClick={submit}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
