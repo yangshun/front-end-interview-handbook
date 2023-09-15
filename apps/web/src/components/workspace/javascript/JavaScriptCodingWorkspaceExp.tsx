@@ -38,8 +38,11 @@ import CodingFileExplorer from '../common/explorer/CodingFileExplorer';
 import useRestartSandpack from '../useRestartSandpack';
 
 import {
+  SandpackCodeEditor,
   SandpackConsole,
+  SandpackFileExplorer,
   SandpackLayout,
+  SandpackTests,
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
@@ -204,7 +207,7 @@ function JavaScriptCodingWorkspaceImpl({
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files, updateFile } = sandpack;
 
-  useRestartSandpack();
+  // UseRestartSandpack();
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
@@ -417,7 +420,7 @@ function JavaScriptCodingWorkspaceImpl({
   );
 }
 
-export default function JavaScriptCodingWorkspace({
+export default function JavaScriptCodingWorkspaceExp({
   defaultFiles,
   defaultLanguage,
   skeleton,
