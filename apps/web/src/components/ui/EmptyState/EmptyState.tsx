@@ -27,10 +27,11 @@ type EmptyStateVariant =
 
 type Props = Readonly<{
   action?: React.ReactNode;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconClassName?: string;
-  subtitle?: string;
-  title: string;
-  variant: EmptyStateVariant;
+  subtitle?: React.ReactNode;
+  title: React.ReactNode;
+  variant?: EmptyStateVariant;
 }>;
 
 const icons: Record<
@@ -59,12 +60,13 @@ const colors: Record<EmptyStateVariant, TextColor> = {
 
 export default function EmptyState({
   action,
+  icon,
   iconClassName,
   subtitle,
   title,
-  variant,
+  variant = 'empty',
 }: Props) {
-  const Icon = icons[variant];
+  const Icon = icon ?? icons[variant];
 
   return (
     <div className="mx-auto max-w-md py-6 text-center sm:py-12">
