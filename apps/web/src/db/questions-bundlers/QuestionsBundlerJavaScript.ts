@@ -129,34 +129,41 @@ async function readQuestionJavaScriptFiles(
   ]);
   const setupPath = path.join(questionPath, 'setup');
 
-  const files = await globby('**/*', {
-    cwd: setupPath,
-    ignore: [
-      'README.md',
-      'node_modules',
-      'greatfrontend.json',
-      gfeConfig.skeleton.js.replace(/^\//, ''),
-      gfeConfig.skeleton.ts.replace(/^\//, ''),
-    ],
-  });
+  const files = (
+    await globby('**/*', {
+      cwd: setupPath,
+      ignore: [
+        'README.md',
+        'node_modules',
+        'greatfrontend.json',
+        gfeConfig.skeleton.js.replace(/^\//, ''),
+        gfeConfig.skeleton.ts.replace(/^\//, ''),
+      ],
+    })
+  ).map((filePath) => '/' + filePath);
 
   const compulsoryFiles = [workspace.main, workspace.run, workspace.submit];
 
   compulsoryFiles.forEach((filePath) => {
-    if (!files.includes(filePath.replace(/^\//, ''))) {
+    if (!files.includes(filePath)) {
       throw `"${filePath}" not found for JavaScript question "${slug}"`;
     }
   });
 
-  return files
-    .map((file) => ({
-      contents: fs.readFileSync(path.join(setupPath, file)).toString(),
-      file,
+  const filteredFiles = files.filter(
+    (filePath) =>
+      !filePath.includes('/src') || compulsoryFiles.includes(filePath),
+  );
+
+  return filteredFiles
+    .map((filePath) => ({
+      contents: fs.readFileSync(path.join(setupPath, filePath)).toString(),
+      filePath,
     }))
     .reduce(
-      (prev, { file, contents }) => ({
+      (prev, { filePath, contents }) => ({
         ...prev,
-        ['/' + file]: contents,
+        [filePath]: contents,
       }),
       {},
     );
