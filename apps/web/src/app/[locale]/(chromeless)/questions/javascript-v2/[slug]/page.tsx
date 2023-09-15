@@ -61,7 +61,8 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
+  const isQuestionLockedForUser =
+    question.metadata.premium && !canViewPremiumContent;
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
   const nextQuestions = sortQuestionsMultiple(
@@ -113,6 +114,8 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <JavaScriptCodingWorkspacePage
+        canViewPremiumContent={canViewPremiumContent}
+        isQuestionLockedForUser={isQuestionLockedForUser}
         nextQuestions={nextQuestions}
         question={question}
         similarQuestions={similarQuestions}

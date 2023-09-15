@@ -9,13 +9,15 @@ import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScr
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
+  canViewPremiumContent: boolean;
   isQuestionLockedForUser: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionJavaScriptV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function JavaScriptPage({
+export default function JavaScriptCodingWorkspacePage({
+  canViewPremiumContent,
   isQuestionLockedForUser,
   question,
   nextQuestions,
@@ -48,6 +50,7 @@ export default function JavaScriptPage({
       }}
       theme="dark">
       <JavaScriptCodingWorkspace
+        canViewPremiumContent={canViewPremiumContent}
         defaultFiles={finalFiles}
         defaultLanguage={language}
         description={description}
