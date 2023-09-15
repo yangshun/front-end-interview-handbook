@@ -6,9 +6,12 @@ import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
 import { Panel } from 'react-resizable-panels';
 
 import {
+  themeBackgroundColor,
   themeBackgroundLayerColor,
+  themeBackgroundLayerColorHover,
   themeDivideColor,
   themeIconColor,
+  themeLineColor,
 } from '~/components/ui/theme';
 
 import type { PanelDropTarget } from '../actions/tabDrop';
@@ -161,7 +164,7 @@ function TilePanelTab({
       ref={tabRef}
       className={clsx(
         'group relative isolate flex grow items-center gap-x-0.5 rounded font-medium',
-        isOver ? 'bg-neutral-800' : 'bg-neutral-900 hover:bg-neutral-800',
+        isOver ? themeBackgroundLayerColor : [themeBackgroundLayerColorHover],
         isActive ? 'text-neutral-50' : 'text-neutral-400',
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
@@ -439,10 +442,12 @@ export default function TilesPanelContents({
 }>) {
   return (
     <Panel
-      className={clsx('flex flex-col rounded-lg', themeBackgroundLayerColor, [
-        'divide-y',
-        themeDivideColor,
-      ])}
+      className={clsx(
+        'flex flex-col rounded-lg',
+        ['border', themeLineColor],
+        themeBackgroundColor,
+        ['divide-y', themeDivideColor],
+      )}
       defaultSize={defaultSize}
       id={panelId}
       order={order}>
@@ -473,7 +478,7 @@ export default function TilesPanelContents({
         />
         <div className="flex h-full items-center gap-x-1 px-2">
           <button
-            className="rounded p-0.5 hover:bg-neutral-800"
+            className="rounded p-0.5 hover:bg-neutral-900"
             title="Split editor right"
             type="button"
             onClick={() => onSplit('horizontal', panelId)}>
@@ -483,7 +488,7 @@ export default function TilesPanelContents({
           </button>
           {tabs.every((tab) => tab.closeable) && (
             <button
-              className="rounded p-0.5 hover:bg-neutral-800"
+              className="rounded p-0.5 hover:bg-neutral-900"
               title="Close all"
               type="button"
               onClick={() => onClose(panelId)}>

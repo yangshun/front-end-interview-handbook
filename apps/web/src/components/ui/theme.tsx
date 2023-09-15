@@ -47,6 +47,9 @@ export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-500');
 export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-950');
 export const themeBackgroundInvertColor = clsx('bg-neutral-950 dark:bg-white');
 export const themeBackgroundLayerColor = clsx('bg-white dark:bg-neutral-900');
+export const themeBackgroundLayerColorHover = clsx(
+  'hover:bg-white dark:hover:bg-neutral-900',
+);
 export const themeBackgroundEmphasized = clsx(
   'bg-neutral-50 dark:bg-neutral-900',
 );

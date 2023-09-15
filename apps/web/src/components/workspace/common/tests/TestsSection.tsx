@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import {
-  RiEye2Line,
-  RiEyeLine,
   RiFileList2Line,
   RiFlaskLine,
+  RiListCheck3,
   RiPencilLine,
   RiPlayLine,
   RiSurveyLine,
@@ -15,8 +14,10 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import {
+  themeBackgroundEmphasized,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import SpecsConsolidated from './SpecsConsolidated';
 import SpecsInline from './SpecsInline';
@@ -371,7 +372,7 @@ export default function TestsSection({
   const suiteResults = getAllSuiteResults(specs);
 
   return (
-    <div className="relative flex h-full w-full bg-neutral-900">
+    <div className="relative flex h-full w-full">
       <iframe ref={iframe} style={{ display: 'none' }} title="Sandpack Tests" />
       <div className="flex w-full flex-col">
         <div className="flex grow overflow-y-auto">
@@ -517,7 +518,11 @@ export default function TestsSection({
         <div className={clsx('border-t', themeLineColor)}>
           {state.status === 'complete' && testResults.total > 0 && (
             <div className="shrink-0 px-3 pt-3">
-              <div className="w-full rounded bg-neutral-800 p-3">
+              <div
+                className={clsx(
+                  'w-full rounded p-3',
+                  themeBackgroundEmphasized,
+                )}>
                 <Summary
                   duration={duration}
                   suites={suiteResults}
@@ -591,7 +596,7 @@ export default function TestsSection({
                   <Button
                     addonPosition="start"
                     className="-mr-1"
-                    icon={RiEyeLine}
+                    icon={RiListCheck3}
                     label="View test cases"
                     size="xs"
                     variant="tertiary"
