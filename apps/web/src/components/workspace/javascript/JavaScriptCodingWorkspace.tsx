@@ -11,8 +11,10 @@ import {
   RiPlayLine,
   RiTerminalBoxLine,
 } from 'react-icons/ri';
+import { VscLayout } from 'react-icons/vsc';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
+import LogoLink from '~/components/global/Logo';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
@@ -22,7 +24,9 @@ import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWork
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
@@ -42,7 +46,8 @@ import {
 } from './JavaScriptCodingWorkspaceContext';
 import {
   getJavaScriptCodingWorkspaceLayout,
-  getJavaScriptCodingWorkspaceLayoutAdvanced,
+  getJavaScriptCodingWorkspaceLayoutGrid,
+  getJavaScriptCodingWorkspaceLayoutThreeColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import {
@@ -362,48 +367,72 @@ function JavaScriptCodingWorkspaceImpl({
   return (
     <div className="flex h-full w-full flex-col">
       <div className="flex items-center justify-between px-3 py-3">
-        <div></div>
-        <div className="flex gap-x-2">
-          <button
-            type="button"
-            onClick={() => {
-              dispatch({
-                payload: {
-                  panels: getJavaScriptCodingWorkspaceLayout(
-                    activeFile,
-                    visibleFiles,
-                  ),
-                },
-                type: 'layout-change',
-              });
-            }}>
-            Basic Layout
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              dispatch({
-                payload: {
-                  panels: getJavaScriptCodingWorkspaceLayoutAdvanced(
-                    activeFile,
-                    visibleFiles,
-                  ),
-                },
-                type: 'layout-change',
-              });
-            }}>
-            Advanced Layout
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              const newLanguage = language === 'js' ? 'ts' : 'js';
-
-              setLanguage(newLanguage);
-              updateFile(workspace.main, skeleton[newLanguage]);
-            }}>
-            {language}
-          </button>
+        <div className="flex items-center gap-x-8">
+          <LogoLink />
+        </div>
+        <div className="flex items-center gap-x-2">
+          <DropdownMenu
+            align="end"
+            icon={VscLayout}
+            isLabelHidden={true}
+            label="Layout"
+            size="xs">
+            {[
+              {
+                label: 'Default layout',
+                value: 'default',
+              },
+              {
+                label: 'Three-column layout',
+                value: 'three-column',
+              },
+              {
+                label: 'Grid layout',
+                value: 'grid',
+              },
+            ].map(({ label, value }) => (
+              <DropdownMenu.Item
+                key={value}
+                isSelected={false}
+                label={label}
+                onClick={() => {
+                  if (value === 'default') {
+                    dispatch({
+                      payload: {
+                        panels: getJavaScriptCodingWorkspaceLayout(
+                          activeFile,
+                          visibleFiles,
+                        ),
+                      },
+                      type: 'layout-change',
+                    });
+                  }
+                  if (value === 'three-column') {
+                    dispatch({
+                      payload: {
+                        panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
+                          activeFile,
+                          visibleFiles,
+                        ),
+                      },
+                      type: 'layout-change',
+                    });
+                  }
+                  if (value === 'grid') {
+                    dispatch({
+                      payload: {
+                        panels: getJavaScriptCodingWorkspaceLayoutGrid(
+                          workspace.main,
+                          workspace.run,
+                        ),
+                      },
+                      type: 'layout-change',
+                    });
+                  }
+                }}
+              />
+            ))}
+          </DropdownMenu>
         </div>
       </div>
       <div className="flex w-full grow px-3">

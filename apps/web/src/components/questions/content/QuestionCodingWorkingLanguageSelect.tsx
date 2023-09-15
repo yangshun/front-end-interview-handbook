@@ -38,7 +38,7 @@ export default function QuestionCodingWorkingLanguageSelect({
         id: 'IXT5w0',
       })}
       options={options}
-      size="sm"
+      size="xs"
       value={value}
       onChange={(newValue) => {
         onChange(newValue);
