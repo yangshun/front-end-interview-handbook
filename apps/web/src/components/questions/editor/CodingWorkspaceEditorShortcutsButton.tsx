@@ -1,7 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { RiInformationLine } from 'react-icons/ri';
+import {
+  RiInformationLine,
+  RiKeyboardBoxLine,
+  RiKeyboardLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -212,7 +216,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
   return (
     <div>
       <Button
-        icon={RiInformationLine}
+        icon={RiKeyboardBoxLine}
         isLabelHidden={true}
         label={intl.formatMessage({
           defaultMessage: 'Editor shortcuts',
@@ -226,7 +230,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           id: 'w3T2Ld',
         })}
         tooltipPosition="start"
-        variant="secondary"
+        variant="tertiary"
         onClick={() => {
           setShowInformation(true);
         }}
@@ -261,7 +265,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
                     {keys.map((keyParam) => (
                       <span
                         key={keyParam}
-                        className="bg-brand-lightest text-brand-darker rounded-md py-0.5 px-1">
+                        className="bg-brand-lightest text-brand-darker dark:text-brand-light rounded-md px-1 py-0.5 dark:bg-neutral-700">
                         {renderPlatformSpecificKey(keyParam)}
                       </span>
                     ))}
@@ -273,11 +277,11 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           <Divider />
           <Text color="secondary" display="block" size="body3">
             <FormattedMessage
-              defaultMessage="Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>."
+              defaultMessage="Full list of shortcuts can be found on the <link>Visual Studio Code website</link>."
               description="Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
-              id="YIsqrq"
+              id="rWhQtZ"
               values={{
-                Anchor: (chunks) => (
+                link: (chunks) => (
                   <Anchor href="https://code.visualstudio.com/docs/getstarted/keybindings#_basic-editing">
                     {chunks}
                   </Anchor>

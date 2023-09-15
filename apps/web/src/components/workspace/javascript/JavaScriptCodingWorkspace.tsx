@@ -6,6 +6,7 @@ import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
+import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -103,6 +104,7 @@ function JavaScriptCodingCodeEditor({
           className="text-neutral-500"
           title="Reset code"
           type="button"
+        <CodingWorkspaceEditorShortcutsButton />
           onClick={() => {
             if (!confirm('Reset code to original? Changes will be lost!')) {
               return;
