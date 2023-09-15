@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
 
+import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
@@ -415,6 +416,10 @@ function JavaScriptCodingWorkspaceImpl({
       <div className="flex items-center justify-between px-3 py-3">
         <div className="flex items-center gap-x-2">
           <CodingWorkspaceQuestionListSlideOutButton />
+          <QuestionReportIssueButton
+            format="javascript"
+            title={metadata.title}
+          />
         </div>
         <div className="flex items-center gap-x-2">
           <CodingWorkspaceTimer />
