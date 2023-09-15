@@ -3,10 +3,7 @@ import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
 
-import {
-  readQuestionJavaScriptContents,
-  readQuestionJavaScriptContentsV2,
-} from '~/db/QuestionsContentsReader';
+import { readQuestionJavaScriptContentsV2 } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -15,7 +12,6 @@ import { fetchUser } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import JavaScriptCodingWorkspacePage from './JavaScriptCodingWorkspacePage';
-import QuestionJavaScriptCodingWorkspacePage from './QuestionJavaScriptCodingWorkspacePage';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;

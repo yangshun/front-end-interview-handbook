@@ -533,7 +533,11 @@ export default function TestsSection({
                   switch (state.status) {
                     case 'complete':
                       return (
-                        <Badge label="Complete" size="sm" variant="info" />
+                        <Badge
+                          label="Tests completed"
+                          size="sm"
+                          variant="info"
+                        />
                       );
                     case 'idle':
                       return <Badge label="Idle" size="sm" variant="neutral" />;
@@ -547,7 +551,11 @@ export default function TestsSection({
                       );
                     case 'running':
                       return (
-                        <Badge label="Running" size="sm" variant="warning" />
+                        <Badge
+                          label="Running tests"
+                          size="sm"
+                          variant="warning"
+                        />
                       );
                   }
                 })()}
