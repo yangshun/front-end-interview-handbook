@@ -1,5 +1,5 @@
 import { gatherDts } from './gatherDts';
-import { PackageName, PackageVersion } from './types';
+import type { PackageName, PackageVersion } from './types';
 import { stripLeadingPeriodAndSlash } from './utils';
 
 const CDN_URL = 'https://cdn.jsdelivr.net/';
@@ -37,21 +37,15 @@ export async function fetchDtsList(
     const packageJson = await fetchPackageJson(packageName, packageVersion);
     const dtsMap = gatherDts(packageJson);
     const packageCdnUrl = makePackageUrl(packageName, packageVersion);
-    const urls = Object.entries(dtsMap).map(([modulePath, dtsPath]) => {
-      // Remove leading '.' and './'.
-      const normalizedModulePath = stripLeadingPeriodAndSlash(modulePath);
-      const path =
-        packageName +
-        (normalizedModulePath === ''
-          ? normalizedModulePath
-          : '/' + normalizedModulePath);
-
+    const urls = Object.entries(dtsMap).map(([dtsPath]) => {
       const dtsRelativePath = stripLeadingPeriodAndSlash(dtsPath);
       const dtsCdnUrl = packageCdnUrl + dtsRelativePath;
 
-      return { module, dtsCdnUrl, dtsRelativePath };
+      return { dtsCdnUrl, dtsRelativePath, module };
     });
 
     return urls;
-  } catch {}
+  } catch {
+    //
+  }
 }

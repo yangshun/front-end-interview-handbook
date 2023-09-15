@@ -1,11 +1,11 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 
 export type TilesActionTabChangeId = Readonly<{
-  type: 'tab-change-id';
   payload: Readonly<{
-    oldTabId: string;
     newTabId: string;
+    oldTabId: string;
   }>;
+  type: 'tab-change-id';
 }>;
 
 export default function tabChangeId(
@@ -13,6 +13,7 @@ export default function tabChangeId(
   payload: TilesActionTabChangeId['payload'],
 ): TilesPanelConfig {
   const { oldTabId, newTabId } = payload;
+
   return tabChangeIdImpl(tiles, oldTabId, newTabId);
 }
 
@@ -23,12 +24,14 @@ function tabChangeIdImpl(
 ): TilesPanelConfig {
   if (panel.type === 'item') {
     const index = panel.tabs.findIndex(({ id }) => id === oldTabId);
+
     // Non-existing tab ID, no-op.
     if (index < 0) {
       return panel;
     }
 
     const newTabs = panel.tabs.slice();
+
     newTabs[index] = {
       ...newTabs[index],
       id: newTabId,
@@ -36,16 +39,16 @@ function tabChangeIdImpl(
 
     return {
       ...panel,
-      tabs: newTabs,
       activeTabId:
         panel.activeTabId === oldTabId ? newTabId : panel.activeTabId,
+      tabs: newTabs,
     };
   }
 
   return {
     ...panel,
-    items: panel.items.map((panel) =>
-      tabChangeIdImpl(panel, oldTabId, newTabId),
+    items: panel.items.map((panelItem) =>
+      tabChangeIdImpl(panelItem, oldTabId, newTabId),
     ),
   };
 }

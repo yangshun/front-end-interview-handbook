@@ -1,10 +1,11 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 
 export default function queryTabByPattern(
   tiles: TilesPanelConfig,
   regex: RegExp,
-): ReadonlyArray<Readonly<{ tabId: string; panelId: string }>> {
-  const matchedTabs: Array<Readonly<{ tabId: string; panelId: string }>> = [];
+): ReadonlyArray<Readonly<{ panelId: string, tabId: string; }>> {
+  const matchedTabs: Array<Readonly<{ panelId: string, tabId: string; }>> = [];
+
   if (tiles.type === 'item') {
     tiles.tabs.forEach(({ id }) => {
       if (regex.test(id)) {
@@ -20,6 +21,7 @@ export default function queryTabByPattern(
 
   for (const item of tiles.items) {
     const tabs = queryTabByPattern(item, regex);
+
     matchedTabs.push(...tabs);
   }
 

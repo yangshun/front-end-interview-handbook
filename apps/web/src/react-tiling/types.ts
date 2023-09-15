@@ -1,31 +1,25 @@
 export type TilesPanelGroupDirection = 'horizontal' | 'vertical';
 export type TilesPanelItemTab = Readonly<{
-  id: string;
-  closeable: boolean;
   allowOverflow?: boolean;
+  closeable: boolean;
+  id: string;
 }>;
 
 export type TilesPanelItemConfig = Readonly<{
-  id: string;
-  type: 'item';
   activeTabId: string | null;
+  id: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
+  type: 'item';
 }>;
 
 export type TilesPanelGroupConfig = Readonly<{
-  id: string;
-  type: 'group';
   direction: TilesPanelGroupDirection;
+  id: string;
   items: ReadonlyArray<TilesPanelConfig>;
+  type: 'group';
 }>;
 
-export type TilesPanelConfig = TilesPanelItemConfig | TilesPanelGroupConfig;
+export type TilesPanelConfig = TilesPanelGroupConfig | TilesPanelItemConfig;
 
 export type TilesPanelDropAreaSection =
-  | 'tab'
-  | 'tabs-row'
-  | 'center'
-  | 'left'
-  | 'right'
-  | 'top'
-  | 'bottom';
+  'bottom' | 'center' | 'left' | 'right' | 'tab' | 'tabs-row' | 'top';

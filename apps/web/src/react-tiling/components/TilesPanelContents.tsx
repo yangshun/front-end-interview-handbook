@@ -1,20 +1,20 @@
-import {
+import clsx from 'clsx';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useDrag, useDrop } from 'react-dnd';
+import { RiAddLine, RiCloseLine } from 'react-icons/ri';
+import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
+import { Panel } from 'react-resizable-panels';
+
+import type { PanelDropTarget } from '../actions/tabDrop';
+import type {
   TilesPanelDropAreaSection,
   TilesPanelGroupDirection,
   TilesPanelItemTab,
 } from '../types';
-import { Panel } from 'react-resizable-panels';
-import { RiAddLine, RiCloseLine } from 'react-icons/ri';
-import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
-import clsx from 'clsx';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useDrag, useDrop } from 'react-dnd';
-import { PanelDropTarget } from '../actions/tabDrop';
 
 function TabButton({
   onClick,
   onMouseDown,
-  onMouseUp,
   ...props
 }: React.HtmlHTMLAttributes<HTMLButtonElement>) {
   const buttonElRef = useRef<HTMLButtonElement>(null);
@@ -46,6 +46,13 @@ function TabButton({
   return (
     <button
       ref={buttonElRef}
+      type="button"
+      onClick={(event) => {
+        if (isLocked) {
+          return;
+        }
+        onClick?.(event);
+      }}
       onMouseDown={(event) => {
         // Mouse down is used to make the tab immediately active
         // as opposed to use onClick because we want it to fire when dragging.
@@ -55,12 +62,6 @@ function TabButton({
         setIsLocked(true);
         // The button is unlocked after the interaction.
       }}
-      onClick={(event) => {
-        if (isLocked) {
-          return;
-        }
-        onClick?.(event);
-      }}
       {...props}
     />
   );
@@ -68,10 +69,10 @@ function TabButton({
 
 type DragItem = Readonly<{
   index: number;
-  tabId: string;
   panelId: string;
-  type: string;
   tabCloseable: boolean;
+  tabId: string;
+  type: string;
 }>;
 
 function TilePanelTab({
@@ -86,17 +87,17 @@ function TilePanelTab({
   onDrop,
 }: Readonly<{
   closeable: boolean;
-  tabId: string;
   index: number;
   isActive: boolean;
-  panelId: string;
   label: string;
   onClick: () => void;
   onClose: () => void;
   onDrop: (
-    src: Readonly<{ panelId: string; tabId: string; tabCloseable: boolean }>,
+    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
     dst: Readonly<{ panelId: string; tabId: string }>,
   ) => void;
+  panelId: string;
+  tabId: string;
 }>) {
   const tabRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<DragItem, void, { isOver: boolean }>({
@@ -110,6 +111,7 @@ function TilePanelTab({
       if (!tabRef.current) {
         return;
       }
+
       const { panelId: srcPanelId, tabId: srcTabId } = item;
 
       // Don't replace items with themselves.
@@ -125,16 +127,17 @@ function TilePanelTab({
     unknown,
     { isDragging: boolean }
   >({
-    type: 'tab',
-    item: () => {
-      return { tabId, index, type: 'tab', panelId, tabCloseable: closeable };
-    },
     collect: (monitor) => {
       return {
         isDragging: monitor.isDragging(),
       };
     },
+    item: () => {
+      return { index, panelId, tabCloseable: closeable, tabId, type: 'tab' };
+    },
+    type: 'tab',
   });
+
   drag(drop(tabRef));
 
   useEffect(() => {
@@ -151,13 +154,13 @@ function TilePanelTab({
     <div
       ref={tabRef}
       className={clsx(
-        'group grow flex items-center relative gap-x-0.5 isolate rounded',
+        'group relative isolate flex grow items-center gap-x-0.5 rounded',
         isOver ? 'bg-neutral-800' : 'bg-neutral-900 hover:bg-neutral-800',
         isActive ? 'text-neutral-100' : 'text-neutral-400',
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
       <TabButton
-        className={clsx('text-xs whitespace-nowrap', isDragging && 'invisible')}
+        className={clsx('whitespace-nowrap text-xs', isDragging && 'invisible')}
         onClick={onClick}
         onMouseDown={onClick}>
         <span aria-hidden={true} className="absolute inset-0" />
@@ -165,14 +168,15 @@ function TilePanelTab({
       </TabButton>
       {closeable && (
         <button
-          title="Close tab"
           className={clsx(
-            'ml-1 rounded p-0.5 hover:bg-neutral-700 z-20',
+            'z-20 ml-1 rounded p-0.5 hover:bg-neutral-700',
             isDragging && 'invisible',
-            !isActive && 'opacity-0 group-hover:opacity-100 focus:opacity-100',
+            !isActive && 'opacity-0 focus:opacity-100 group-hover:opacity-100',
           )}
+          title="Close tab"
+          type="button"
           onClick={onClose}>
-          <RiCloseLine className="h-3 w-3 text-neutral-500 shrink-0" />
+          <RiCloseLine className="h-3 w-3 shrink-0 text-neutral-500" />
         </button>
       )}
     </div>
@@ -189,25 +193,20 @@ function TilesPanelTabsSection({
   getTabLabel,
 }: Readonly<{
   activeTabId: string | null;
-  panelId: string;
-  tabs: ReadonlyArray<TilesPanelItemTab>;
+  getTabLabel: (tabId: string) => string;
+  onTabClose: (tabId: string) => void;
   onTabDrop: (
-    src: Readonly<{ panelId: string; tabId: string; tabCloseable: boolean }>,
+    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
     dst: PanelDropTarget,
   ) => void;
   onTabSetActive: (tabId: string) => void;
-  onTabClose: (tabId: string) => void;
-  getTabLabel: (tabId: string) => string;
+  panelId: string;
+  tabs: ReadonlyArray<TilesPanelItemTab>;
 }>) {
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<DragItem, void, { isOver: boolean }>({
     accept: 'tab',
-    collect(monitor) {
-      return {
-        isOver: monitor.canDrop() && !!monitor.isOver(),
-      };
-    },
     canDrop(item) {
       // Item to be dropped is already at the last position
       // in the same panel, it cannot be dropped.
@@ -217,6 +216,11 @@ function TilesPanelTabsSection({
         tabs.at(-1)?.id === item.tabId
       );
     },
+    collect(monitor) {
+      return {
+        isOver: monitor.canDrop() && !!monitor.isOver(),
+      };
+    },
     drop(item) {
       if (!tabRightEmptySpaceRef.current) {
         return;
@@ -224,6 +228,7 @@ function TilesPanelTabsSection({
 
       if (item.panelId === panelId) {
         const lastTab = tabs.at(-1);
+
         // Item to be dropped is already at the last position
         // in the same panel, nothing to do.
         if (lastTab != null && lastTab.id === item.tabId) {
@@ -231,17 +236,17 @@ function TilesPanelTabsSection({
         }
       }
 
-      onTabDrop(item, { panelId, dropAreaSection: 'tabs-row' });
+      onTabDrop(item, { dropAreaSection: 'tabs-row', panelId });
     },
   });
 
   drop(tabRightEmptySpaceRef);
 
   return (
-    <div className="flex grow h-full overflow-x-auto">
+    <div className="flex h-full grow overflow-x-auto">
       <div
-        className="flex overflow-x-auto overflow-y-hidden h-full gap-x-2 thin-scrollbar py-1.5"
         ref={tabListRef}
+        className="thin-scrollbar flex h-full gap-x-2 overflow-x-auto overflow-y-hidden py-1.5"
         onWheel={(event) => {
           if (!event.deltaY || !tabListRef.current) {
             return;
@@ -251,16 +256,17 @@ function TilesPanelTabsSection({
         }}>
         {tabs.map((tabItem, index) => {
           const isActive = activeTabId === tabItem.id;
-          const key = tabItem.id + ' ' + index;
+          const key = String(tabItem.id) + ' ' + String(index);
 
           return (
-            <div className={clsx('flex h-full flex-col')} key={key}>
+            <div key={key} className={clsx('flex h-full flex-col')}>
               <TilePanelTab
                 closeable={tabItem.closeable}
-                panelId={panelId}
-                tabId={tabItem.id}
                 index={index}
                 isActive={isActive}
+                label={getTabLabel(tabItem.id)}
+                panelId={panelId}
+                tabId={tabItem.id}
                 onClick={() => {
                   onTabSetActive(tabItem.id);
                 }}
@@ -270,15 +276,14 @@ function TilesPanelTabsSection({
                 onDrop={(src, dst) => {
                   onTabDrop(src, { dropAreaSection: 'tab', ...dst });
                 }}
-                label={getTabLabel(tabItem.id)}
               />
             </div>
           );
         })}
       </div>
       <div
-        className={clsx('h-full grow', isOver && 'bg-neutral-800')}
         ref={tabRightEmptySpaceRef}
+        className={clsx('h-full grow', isOver && 'bg-neutral-800')}
       />
     </div>
   );
@@ -292,11 +297,11 @@ type TilesPanelBodyDropAreaSection = Exclude<
 >;
 
 const dropAreaSectionClasses: Record<TilesPanelBodyDropAreaSection, string> = {
+  bottom: 'translate-y-1/2 scale-y-50',
   center: '',
   left: 'scale-x-50',
   right: 'translate-x-1/2 scale-x-50',
   top: 'scale-y-50',
-  bottom: 'translate-y-1/2 scale-y-50',
 };
 
 function TilesPanelBody({
@@ -306,16 +311,16 @@ function TilesPanelBody({
   onTabDrop,
 }: Readonly<{
   children: React.ReactNode;
-  panelId: string;
-  tabs: ReadonlyArray<TilesPanelItemTab>;
   onTabDrop: (
     dropAreaSection: TilesPanelBodyDropAreaSection,
     src: Readonly<{
       panelId: string;
-      tabId: string;
       tabCloseable: boolean;
+      tabId: string;
     }>,
   ) => void;
+  panelId: string;
+  tabs: ReadonlyArray<TilesPanelItemTab>;
 }>) {
   const [dropAreaSection, setDropAreaSection] =
     useState<TilesPanelBodyDropAreaSection>('center');
@@ -323,15 +328,22 @@ function TilesPanelBody({
   const [{ isOver, canDrop }, drop] = useDrop<
     DragItem,
     void,
-    { isOver: boolean; canDrop: boolean }
+    { canDrop: boolean; isOver: boolean }
   >({
     accept: 'tab',
-    collect: (monitor) => ({
-      isOver: monitor.canDrop() && monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
     canDrop: (item) =>
       !(item != null && item.panelId === panelId && tabs.length === 1),
+    collect: (monitor) => ({
+      canDrop: monitor.canDrop(),
+      isOver: monitor.canDrop() && monitor.isOver(),
+    }),
+    drop(item) {
+      if (!tabPanelBodyRef.current) {
+        return;
+      }
+
+      onTabDrop(dropAreaSection, item);
+    },
     hover(_item, monitor) {
       // Determine rectangle on screen.
       const hoverBoundingRect =
@@ -367,22 +379,16 @@ function TilesPanelBody({
 
       setDropAreaSection(dropAreaSectionValue);
     },
-    drop(item) {
-      if (!tabPanelBodyRef.current) {
-        return;
-      }
-
-      onTabDrop(dropAreaSection, item);
-    },
   });
 
   drop(tabPanelBodyRef);
+
   return (
-    <div ref={tabPanelBodyRef} className="grow relative">
+    <div ref={tabPanelBodyRef} className="relative grow">
       {isOver && (
         <div
           className={clsx(
-            'absolute inset-0 bg-indigo-500 opacity-20 z-10',
+            'absolute inset-0 z-10 bg-indigo-500 opacity-20',
             'origin-top-left transition-transform',
             dropAreaSectionClasses[dropAreaSection],
           )}
@@ -408,63 +414,66 @@ export default function TilesPanelContents({
   onSplit,
   onTabSetActive,
 }: Readonly<{
-  id: string;
   activeTabId: string | null;
   defaultSize?: number;
-  tabs: ReadonlyArray<TilesPanelItemTab>;
-  order?: number;
   getTabLabel: (tabId: string) => string;
-  renderTab: (tabId: string) => JSX.Element;
-  onClose: (panelId: string) => void;
-  onAddTab: (panelId: string) => void;
-  onTabSetActive: (panelId: string, tabId: string) => void;
-  onTabClose: (panelId: string, tabId: string) => void;
+  id: string;
+  onAddTab: (panelIdParam: string) => void;
+  onClose: (panelIdParam: string) => void;
+  onSplit: (direction: TilesPanelGroupDirection, panelIdParam: string) => void;
+  onTabClose: (panelIdParam: string, tabId: string) => void;
   onTabDrop: (
-    src: Readonly<{ panelId: string; tabId: string; tabCloseable: boolean }>,
+    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
     dst: PanelDropTarget,
   ) => void;
-  onSplit: (direction: TilesPanelGroupDirection, panelId: string) => void;
+  onTabSetActive: (panelIdParam: string, tabId: string) => void;
+  order?: number;
+  renderTab: (tabId: string) => JSX.Element;
+  tabs: ReadonlyArray<TilesPanelItemTab>;
 }>) {
   return (
     <Panel
+      className="flex flex-col divide-y divide-neutral-800/60 rounded-lg bg-neutral-900"
+      defaultSize={defaultSize}
       id={panelId}
-      className="flex flex-col bg-neutral-900 rounded-lg divide-y divide-neutral-800/60"
-      order={order}
-      defaultSize={defaultSize}>
-      <div className="h-10 flex justify-between items-center shrink-0">
+      order={order}>
+      <div className="flex h-10 shrink-0 items-center justify-between">
         <span className="flex h-full items-center px-2">
           <button
-            title="New tab"
             className="rounded p-1 hover:bg-neutral-800"
+            title="New tab"
+            type="button"
             onClick={() => {
               onAddTab(panelId);
             }}>
-            <RiAddLine className="h-4 w-4 text-neutral-500 shrink-0" />
+            <RiAddLine className="h-4 w-4 shrink-0 text-neutral-500" />
           </button>
         </span>
         <TilesPanelTabsSection
-          panelId={panelId}
           activeTabId={activeTabId}
+          getTabLabel={getTabLabel}
+          panelId={panelId}
           tabs={tabs}
+          onTabClose={(tabId: string) => {
+            onTabClose(panelId, tabId);
+          }}
           onTabDrop={onTabDrop}
           onTabSetActive={(tabId: string) => {
             onTabSetActive(panelId, tabId);
           }}
-          onTabClose={(tabId: string) => {
-            onTabClose(panelId, tabId);
-          }}
-          getTabLabel={getTabLabel}
         />
-        <div className="flex px-2 gap-x-1 h-full items-center">
+        <div className="flex h-full items-center gap-x-1 px-2">
           <button
-            title="Split horizontal"
             className="rounded p-0.5 hover:bg-neutral-800"
+            title="Split horizontal"
+            type="button"
             onClick={() => onSplit('horizontal', panelId)}>
             <VscSplitHorizontal className="h-4 w-4 text-neutral-500" />
           </button>
           <button
-            title="Split vertical"
             className="rounded p-0.5 hover:bg-neutral-800"
+            title="Split vertical"
+            type="button"
             onClick={() => onSplit('vertical', panelId)}>
             <VscSplitVertical className="h-4 w-4 text-neutral-500" />
           </button>
@@ -472,6 +481,7 @@ export default function TilesPanelContents({
             <button
               className="rounded p-0.5 hover:bg-neutral-800"
               title="Close all"
+              type="button"
               onClick={() => onClose(panelId)}>
               <RiCloseLine className="h-4 w-4 text-neutral-500" />
             </button>
@@ -483,19 +493,19 @@ export default function TilesPanelContents({
         tabs={tabs}
         onTabDrop={(dropAreaSection, src) => {
           onTabDrop(src, {
-            panelId,
             dropAreaSection,
+            panelId,
           });
         }}>
         {tabs.map((tab) => (
           <div
             key={tab.id}
-            role="tabpanel"
             className={clsx(
-              'flex absolute inset-0',
+              'absolute inset-0 flex',
               !tab.allowOverflow && 'overflow-y-auto',
               tab.id !== activeTabId && 'hidden',
-            )}>
+            )}
+            role="tabpanel">
             {renderTab(tab.id)}
           </div>
         ))}

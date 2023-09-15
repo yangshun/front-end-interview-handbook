@@ -1,5 +1,6 @@
-import { describe, expect, test } from '@jest/globals';
 import tabOpen from './tabOpen';
+
+import { describe, expect, test } from '@jest/globals';
 
 describe('tabOpen', () => {
   describe('root level', () => {
@@ -7,23 +8,23 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
-            panelId: 'foo',
             newTabId: '3',
+            panelId: 'foo',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -53,24 +54,24 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
+            newTabId: '3',
             panelId: 'foo',
             tabId: '1',
-            newTabId: '3',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -100,24 +101,24 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
+            newTabId: '3',
             panelId: 'foo',
             tabId: '2',
-            newTabId: '3',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -147,24 +148,24 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
+            newTabId: '3',
             panelId: 'foo',
             tabId: '4',
-            newTabId: '3',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -196,45 +197,45 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'bar',
-            type: 'group',
             direction: 'horizontal',
+            id: 'bar',
             items: [
               {
-                id: 'foo',
-                type: 'item',
                 activeTabId: '1',
+                id: 'foo',
                 tabs: [
                   {
-                    id: '1',
                     closeable: true,
+                    id: '1',
                   },
                   {
-                    id: '2',
                     closeable: true,
+                    id: '2',
                   },
                 ],
+                type: 'item',
               },
               {
-                id: 'baz',
-                type: 'item',
                 activeTabId: '5',
+                id: 'baz',
                 tabs: [
                   {
-                    id: '5',
                     closeable: true,
+                    id: '5',
                   },
                   {
-                    id: '6',
                     closeable: true,
+                    id: '6',
                   },
                 ],
+                type: 'item',
               },
             ],
+            type: 'group',
           },
           {
-            panelId: 'foo',
             newTabId: '3',
+            panelId: 'foo',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -286,46 +287,46 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'bar',
-            type: 'group',
             direction: 'horizontal',
+            id: 'bar',
             items: [
               {
-                id: 'foo',
-                type: 'item',
                 activeTabId: '1',
+                id: 'foo',
                 tabs: [
                   {
-                    id: '1',
                     closeable: true,
+                    id: '1',
                   },
                   {
-                    id: '2',
                     closeable: true,
+                    id: '2',
                   },
                 ],
+                type: 'item',
               },
               {
-                id: 'baz',
-                type: 'item',
                 activeTabId: '5',
+                id: 'baz',
                 tabs: [
                   {
-                    id: '5',
                     closeable: true,
+                    id: '5',
                   },
                   {
-                    id: '6',
                     closeable: true,
+                    id: '6',
                   },
                 ],
+                type: 'item',
               },
             ],
+            type: 'group',
           },
           {
+            newTabId: '3',
             panelId: 'foo',
             tabId: '1',
-            newTabId: '3',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -377,46 +378,46 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'bar',
-            type: 'group',
             direction: 'horizontal',
+            id: 'bar',
             items: [
               {
-                id: 'foo',
-                type: 'item',
                 activeTabId: '1',
+                id: 'foo',
                 tabs: [
                   {
-                    id: '1',
                     closeable: true,
+                    id: '1',
                   },
                   {
-                    id: '2',
                     closeable: true,
+                    id: '2',
                   },
                 ],
+                type: 'item',
               },
               {
-                id: 'baz',
-                type: 'item',
                 activeTabId: '5',
+                id: 'baz',
                 tabs: [
                   {
-                    id: '5',
                     closeable: true,
+                    id: '5',
                   },
                   {
-                    id: '6',
                     closeable: true,
+                    id: '6',
                   },
                 ],
+                type: 'item',
               },
             ],
+            type: 'group',
           },
           {
+            newTabId: '3',
             panelId: 'foo',
             tabId: '2',
-            newTabId: '3',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -468,46 +469,46 @@ describe('tabOpen', () => {
       expect(
         tabOpen(
           {
-            id: 'bar',
-            type: 'group',
             direction: 'horizontal',
+            id: 'bar',
             items: [
               {
-                id: 'foo',
-                type: 'item',
                 activeTabId: '1',
+                id: 'foo',
                 tabs: [
                   {
-                    id: '1',
                     closeable: true,
+                    id: '1',
                   },
                   {
-                    id: '2',
                     closeable: true,
+                    id: '2',
                   },
                 ],
+                type: 'item',
               },
               {
-                id: 'baz',
-                type: 'item',
                 activeTabId: '5',
+                id: 'baz',
                 tabs: [
                   {
-                    id: '5',
                     closeable: true,
+                    id: '5',
                   },
                   {
-                    id: '6',
                     closeable: true,
+                    id: '6',
                   },
                 ],
+                type: 'item',
               },
             ],
+            type: 'group',
           },
           {
+            newTabId: '3',
             panelId: 'foo',
             tabId: '6',
-            newTabId: '3',
           },
         ),
       ).toMatchInlineSnapshot(`

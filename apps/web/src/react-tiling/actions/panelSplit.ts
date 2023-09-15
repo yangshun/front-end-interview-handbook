@@ -1,18 +1,18 @@
-import { TilesPanelConfig, TilesPanelGroupDirection } from '../types';
+import type { TilesPanelConfig, TilesPanelGroupDirection } from '../types';
 import getUniqueId from '../utils/getUniqueId';
 
-type TilesActionPanelSplitNewPanelOrder = 'before' | 'after';
+type TilesActionPanelSplitNewPanelOrder = 'after' | 'before';
 
 export type TilesActionPanelSplit = Readonly<{
-  type: 'panel-split';
   payload: Readonly<{
     direction: TilesPanelGroupDirection;
-    panelId: string;
     newPanelOrder: TilesActionPanelSplitNewPanelOrder;
-    newTabId?: string;
     newTabCloseable?: boolean;
+    newTabId?: string;
     onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
+    panelId: string;
   }>;
+  type: 'panel-split';
 }>;
 
 export default function panelSplit(
@@ -34,8 +34,8 @@ export default function panelSplit(
     panelId,
     newPanelOrder,
     {
-      newTabId,
       newTabCloseable,
+      newTabId,
     },
     {
       onTabsOpen: (...tabIds) => {
@@ -45,6 +45,7 @@ export default function panelSplit(
   );
 
   onTabsOpen?.(addedTabs);
+
   return newTiles;
 }
 
@@ -57,8 +58,8 @@ function panelSplitImpl(
     newTabId,
     newTabCloseable,
   }: {
-    newTabId: string | null;
     newTabCloseable: boolean;
+    newTabId: string | null;
   },
   {
     onTabsOpen,
@@ -73,32 +74,34 @@ function panelSplitImpl(
     }
 
     const newTabId_ = newTabId ?? getUniqueId();
+
     onTabsOpen?.(newTabId_);
+
     const existingPanel = {
       ...panel,
-      type: 'item',
       id: getUniqueId(),
+      type: 'item',
     } as const;
     const newPanel = {
       activeTabId: newTabId_,
-      type: 'item',
       id: getUniqueId(),
       tabs: [
         {
-          id: newTabId_,
           closeable: newTabCloseable,
+          id: newTabId_,
         },
       ],
+      type: 'item',
     } as const;
 
     return {
-      type: 'group',
-      id: panel.id,
       direction,
+      id: panel.id,
       items:
         newPanelOrder === 'after'
           ? [existingPanel, newPanel]
           : [newPanel, existingPanel],
+      type: 'group',
     };
   }
 
@@ -109,17 +112,19 @@ function panelSplitImpl(
   // Split within parent instead.
   if (panelToSplitIndex > -1 && panel.direction === direction) {
     const newTabId_ = newTabId ?? getUniqueId();
+
     onTabsOpen?.(newTabId_);
+
     const newPanel = {
       activeTabId: newTabId_,
-      type: 'item',
       id: getUniqueId(),
       tabs: [
         {
-          id: newTabId_,
           closeable: newTabCloseable,
+          id: newTabId_,
         },
       ],
+      type: 'item',
     } as const;
     const splitIndex =
       newPanelOrder === 'after' ? panelToSplitIndex + 1 : panelToSplitIndex;
@@ -143,8 +148,8 @@ function panelSplitImpl(
         panelIdToSplit,
         newPanelOrder,
         {
-          newTabId,
           newTabCloseable,
+          newTabId,
         },
         {
           onTabsOpen,

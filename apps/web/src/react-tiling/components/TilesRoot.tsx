@@ -1,6 +1,7 @@
-import { TilesPanelConfig } from '../types';
+import type { Props} from './TilesPanelRoot';
+import { TilesPanelRoot } from './TilesPanelRoot';
 import { TilesProvider } from '../state/TilesProvider';
-import { Props, TilesPanelRoot } from './TilesPanelRoot';
+import type { TilesPanelConfig } from '../types';
 
 export default function TilesRoot({
   defaultValue,

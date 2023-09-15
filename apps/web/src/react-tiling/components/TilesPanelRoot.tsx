@@ -1,7 +1,8 @@
-import { ReactNode, CSSProperties } from 'react';
-import { useTilesContext } from '../state/useTilesContext';
-import { TilesPanelGroupDirection } from '../types';
+import type { CSSProperties,ReactNode } from 'react';
+
 import TilesPanel from './TilesPanel';
+import { useTilesContext } from '../state/useTilesContext';
+import type { TilesPanelGroupDirection } from '../types';
 
 export type Props = Readonly<{
   disablePointerEventsDuringResize?: boolean;
@@ -10,10 +11,10 @@ export type Props = Readonly<{
     className?: string;
     style?: CSSProperties;
   }>;
-  renderTab: (tabId: string) => JSX.Element;
   getTabLabel: (tabId: string) => string;
-  onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
   onTabsClose?: (tabIds: ReadonlyArray<string>) => void;
+  onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
+  renderTab: (tabId: string) => JSX.Element;
 }>;
 
 export function TilesPanelRoot({
@@ -34,61 +35,61 @@ export function TilesPanelRoot({
       getResizeHandlerProps={getResizeHandlerProps}
       getTabLabel={getTabLabel}
       renderTab={renderTab}
-      onSplit={(direction, panelId: string) => {
+      onAddTab={(panelId: string) => {
         dispatch({
-          type: 'panel-split',
           payload: {
-            direction,
-            panelId,
-            newPanelOrder: 'after',
             onTabsOpen,
-          },
-        });
-      }}
-      onTabDrop={(src, dst) => {
-        dispatch({
-          type: 'tab-drop',
-          payload: {
-            src,
-            dst,
-          },
-        });
-      }}
-      onTabSetActive={(panelId: string, tabId: string) => {
-        dispatch({
-          type: 'tab-set-active',
-          payload: {
             panelId,
-            tabId,
           },
+          type: 'tab-open',
         });
       }}
       onClose={(panelId: string) => {
         dispatch({
-          type: 'panel-close',
           payload: {
-            panelId,
             onTabsClose,
+            panelId,
           },
+          type: 'panel-close',
+        });
+      }}
+      onSplit={(direction, panelId: string) => {
+        dispatch({
+          payload: {
+            direction,
+            newPanelOrder: 'after',
+            onTabsOpen,
+            panelId,
+          },
+          type: 'panel-split',
         });
       }}
       onTabClose={(panelId: string, tabId: string) => {
         dispatch({
+          payload: {
+            onTabsClose,
+            panelId,
+            tabId,
+          },
           type: 'tab-close',
+        });
+      }}
+      onTabDrop={(src, dst) => {
+        dispatch({
+          payload: {
+            dst,
+            src,
+          },
+          type: 'tab-drop',
+        });
+      }}
+      onTabSetActive={(panelId: string, tabId: string) => {
+        dispatch({
           payload: {
             panelId,
             tabId,
-            onTabsClose,
           },
-        });
-      }}
-      onAddTab={(panelId: string) => {
-        dispatch({
-          type: 'tab-open',
-          payload: {
-            panelId,
-            onTabsOpen,
-          },
+          type: 'tab-set-active',
         });
       }}
     />

@@ -1,18 +1,19 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 import getUniqueId from '../utils/getUniqueId';
 
-type NewTabPosition = 'before' | 'after';
+type NewTabPosition = 'after' | 'before';
 
 export type TilesActionTabOpen = Readonly<{
-  type: 'tab-open';
   payload: Readonly<{
-    panelId: string;
-    tabId?: string; // Insertion point.
-    newTabId?: string;
     newTabCloseable?: boolean;
+    // Insertion point.
+    newTabId?: string;
     newTabPosition?: NewTabPosition;
     onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
+    panelId: string;
+    tabId?: string;
   }>;
+  type: 'tab-open';
 }>;
 
 export default function tabOpen(
@@ -33,8 +34,8 @@ export default function tabOpen(
     panelId,
     tabId ?? null,
     {
-      newTabId,
       newTabCloseable,
+      newTabId,
       newTabPosition,
     },
     {
@@ -45,6 +46,7 @@ export default function tabOpen(
   );
 
   onTabsOpen?.(addedTabs);
+
   return newTiles;
 }
 
@@ -57,8 +59,8 @@ function tabOpenImpl(
     newTabCloseable,
     newTabPosition,
   }: {
-    newTabId: string | null;
     newTabCloseable: boolean;
+    newTabId: string | null;
     newTabPosition: NewTabPosition;
   },
   {
@@ -74,12 +76,13 @@ function tabOpenImpl(
 
     const newId = newTabId ?? getUniqueId();
     const newTab = {
-      id: newId,
       closeable: newTabCloseable,
+      id: newId,
     };
 
     onTabsOpen?.(newId);
-    const insertionIndex = panel.tabs.findIndex(({ id }) => id == tabId);
+
+    const insertionIndex = panel.tabs.findIndex(({ id }) => id === tabId);
     // Either no tab to insert or tab to be inserted cannot be found.
     const shouldAppend = tabId == null || insertionIndex === -1;
 
@@ -104,12 +107,12 @@ function tabOpenImpl(
 
   return {
     ...panel,
-    items: panel.items.map((panel) =>
+    items: panel.items.map((panelItem) =>
       tabOpenImpl(
-        panel,
+        panelItem,
         panelId,
         tabId,
-        { newTabId, newTabCloseable, newTabPosition },
+        { newTabCloseable, newTabId, newTabPosition },
         { onTabsOpen },
       ),
     ),

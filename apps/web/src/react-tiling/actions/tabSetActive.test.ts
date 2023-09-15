@@ -1,24 +1,25 @@
-import { describe, expect, test } from '@jest/globals';
 import tabSetActive from './tabSetActive';
+
+import { describe, expect, test } from '@jest/globals';
 
 describe('tabSetActive', () => {
   test('first level tabs', () => {
     expect(
       tabSetActive(
         {
-          id: 'foo',
-          type: 'item',
           activeTabId: '1',
+          id: 'foo',
           tabs: [
             {
-              id: '1',
               closeable: true,
+              id: '1',
             },
             {
-              id: '2',
               closeable: true,
+              id: '2',
             },
           ],
+          type: 'item',
         },
         {
           tabId: '2',
@@ -48,48 +49,48 @@ describe('tabSetActive', () => {
       expect(
         tabSetActive(
           {
-            id: 'foo',
-            type: 'group',
             direction: 'horizontal',
+            id: 'foo',
             items: [
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [
                   {
-                    id: 'foo',
-                    type: 'item',
                     activeTabId: '1',
+                    id: 'foo',
                     tabs: [
                       {
-                        id: '1',
                         closeable: true,
+                        id: '1',
                       },
                       {
-                        id: '2',
                         closeable: true,
+                        id: '2',
                       },
                     ],
+                    type: 'item',
                   },
                   {
-                    id: 'barz',
-                    type: 'item',
                     activeTabId: '3',
+                    id: 'barz',
                     tabs: [
                       {
-                        id: '3',
                         closeable: true,
+                        id: '3',
                       },
                       {
-                        id: '4',
                         closeable: true,
+                        id: '4',
                       },
                     ],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
             ],
+            type: 'group',
           },
           {
             tabId: '2',
@@ -147,52 +148,52 @@ describe('tabSetActive', () => {
       expect(
         tabSetActive(
           {
-            id: 'foo',
-            type: 'group',
             direction: 'horizontal',
+            id: 'foo',
             items: [
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [
                   {
-                    id: 'foo',
-                    type: 'item',
                     activeTabId: '1',
+                    id: 'foo',
                     tabs: [
                       {
-                        id: '1',
                         closeable: true,
+                        id: '1',
                       },
                       {
-                        id: '2',
                         closeable: true,
+                        id: '2',
                       },
                     ],
+                    type: 'item',
                   },
                   {
-                    id: 'barz',
-                    type: 'item',
                     activeTabId: '3',
+                    id: 'barz',
                     tabs: [
                       {
-                        id: '3',
                         closeable: true,
+                        id: '3',
                       },
                       {
-                        id: '4',
                         closeable: true,
+                        id: '4',
                       },
                     ],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
             ],
+            type: 'group',
           },
           {
-            tabId: '2',
             panelId: 'barz',
+            tabId: '2',
           },
         ),
       ).toMatchInlineSnapshot(`
@@ -249,48 +250,48 @@ describe('tabSetActive', () => {
       expect(
         tabSetActive(
           {
-            id: 'foo',
-            type: 'group',
             direction: 'horizontal',
+            id: 'foo',
             items: [
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [
                   {
-                    id: 'foo',
-                    type: 'item',
                     activeTabId: '1',
+                    id: 'foo',
                     tabs: [
                       {
-                        id: '1',
                         closeable: true,
+                        id: '1',
                       },
                       {
-                        id: '2',
                         closeable: true,
+                        id: '2',
                       },
                     ],
+                    type: 'item',
                   },
                   {
-                    id: 'barz',
-                    type: 'item',
                     activeTabId: '3',
+                    id: 'barz',
                     tabs: [
                       {
-                        id: '3',
                         closeable: true,
+                        id: '3',
                       },
                       {
-                        id: '4',
                         closeable: true,
+                        id: '4',
                       },
                     ],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
             ],
+            type: 'group',
           },
           {
             tabId: '5',

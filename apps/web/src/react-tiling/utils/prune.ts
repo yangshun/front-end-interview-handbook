@@ -1,4 +1,4 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 
 export default function prune(
   panel: TilesPanelConfig,
@@ -13,14 +13,17 @@ export default function prune(
   }
 
   const newPanelItems: Array<TilesPanelConfig> = [];
+
   panel.items.forEach((item) => {
     const panelItem = prune(item);
+
     if (panelItem == null) {
       return;
     }
 
     if (panelItem.type === 'group' && panel.direction === panelItem.direction) {
       newPanelItems.push(...panelItem.items);
+
       return;
     }
 

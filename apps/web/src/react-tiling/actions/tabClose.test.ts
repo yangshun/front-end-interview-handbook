@@ -1,5 +1,6 @@
-import { describe, expect, test } from '@jest/globals';
 import tabClose from './tabClose';
+
+import { describe, expect, test } from '@jest/globals';
 
 describe('tabClose', () => {
   describe('root level', () => {
@@ -7,19 +8,19 @@ describe('tabClose', () => {
       expect(
         tabClose(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
             panelId: 'foo',
@@ -45,19 +46,19 @@ describe('tabClose', () => {
       expect(
         tabClose(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
             panelId: 'foo',
@@ -83,15 +84,15 @@ describe('tabClose', () => {
       expect(
         tabClose(
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
             ],
+            type: 'item',
           },
           {
             panelId: 'foo',
@@ -119,41 +120,41 @@ describe('tabClose', () => {
       expect(
         tabClose(
           {
-            id: 'bar',
-            type: 'group',
             direction: 'horizontal',
+            id: 'bar',
             items: [
               {
-                id: 'foo',
-                type: 'item',
                 activeTabId: '1',
+                id: 'foo',
                 tabs: [
                   {
-                    id: '1',
                     closeable: true,
+                    id: '1',
                   },
                   {
-                    id: '2',
                     closeable: true,
+                    id: '2',
                   },
                 ],
+                type: 'item',
               },
               {
-                id: 'baz',
-                type: 'item',
                 activeTabId: '5',
+                id: 'baz',
                 tabs: [
                   {
-                    id: '5',
                     closeable: true,
+                    id: '5',
                   },
                   {
-                    id: '6',
                     closeable: true,
+                    id: '6',
                   },
                 ],
+                type: 'item',
               },
             ],
+            type: 'group',
           },
           {
             panelId: 'foo',
@@ -201,41 +202,41 @@ describe('tabClose', () => {
       expect(
         tabClose(
           {
-            id: 'bar',
-            type: 'group',
             direction: 'horizontal',
+            id: 'bar',
             items: [
               {
-                id: 'foo',
-                type: 'item',
                 activeTabId: '1',
+                id: 'foo',
                 tabs: [
                   {
-                    id: '1',
                     closeable: true,
+                    id: '1',
                   },
                   {
-                    id: '2',
                     closeable: true,
+                    id: '2',
                   },
                 ],
+                type: 'item',
               },
               {
-                id: 'baz',
-                type: 'item',
                 activeTabId: '5',
+                id: 'baz',
                 tabs: [
                   {
-                    id: '5',
                     closeable: true,
+                    id: '5',
                   },
                   {
-                    id: '6',
                     closeable: true,
+                    id: '6',
                   },
                 ],
+                type: 'item',
               },
             ],
+            type: 'group',
           },
           {
             panelId: 'foo',
@@ -284,37 +285,37 @@ describe('tabClose', () => {
         expect(
           tabClose(
             {
-              id: 'bar',
-              type: 'group',
               direction: 'horizontal',
+              id: 'bar',
               items: [
                 {
-                  id: 'foo',
-                  type: 'item',
                   activeTabId: '1',
+                  id: 'foo',
                   tabs: [
                     {
-                      id: '1',
                       closeable: true,
+                      id: '1',
                     },
                     {
-                      id: '2',
                       closeable: true,
+                      id: '2',
                     },
                   ],
+                  type: 'item',
                 },
                 {
-                  id: 'baz',
-                  type: 'item',
                   activeTabId: '5',
+                  id: 'baz',
                   tabs: [
                     {
-                      id: '5',
                       closeable: true,
+                      id: '5',
                     },
                   ],
+                  type: 'item',
                 },
               ],
+              type: 'group',
             },
             {
               panelId: 'baz',
@@ -344,37 +345,37 @@ describe('tabClose', () => {
         expect(
           tabClose(
             {
-              id: 'bar',
-              type: 'group',
               direction: 'horizontal',
+              id: 'bar',
               items: [
                 {
-                  id: 'foo',
-                  type: 'item',
                   activeTabId: '1',
+                  id: 'foo',
                   tabs: [
                     {
-                      id: '1',
                       closeable: true,
+                      id: '1',
                     },
                     {
-                      id: '2',
                       closeable: true,
+                      id: '2',
                     },
                   ],
+                  type: 'item',
                 },
                 {
-                  id: 'baz',
-                  type: 'item',
                   activeTabId: '5',
+                  id: 'baz',
                   tabs: [
                     {
-                      id: '5',
                       closeable: true,
+                      id: '5',
                     },
                   ],
+                  type: 'item',
                 },
               ],
+              type: 'group',
             },
             {
               panelId: 'baz',

@@ -1,52 +1,53 @@
-import { describe, expect, test } from '@jest/globals';
 import panelSplit from './panelSplit';
+
+import { describe, expect, test } from '@jest/globals';
 
 describe('panelSplit', () => {
   describe('same direction as parent', () => {
     test('new panel after', () => {
       const newPanels = panelSplit(
         {
-          id: 'bar',
-          type: 'group',
           direction: 'horizontal',
+          id: 'bar',
           items: [
             {
-              id: 'foo',
-              type: 'item',
               activeTabId: '1',
+              id: 'foo',
               tabs: [
                 {
-                  id: '1',
                   closeable: true,
+                  id: '1',
                 },
                 {
-                  id: '2',
                   closeable: true,
+                  id: '2',
                 },
               ],
+              type: 'item',
             },
             {
-              id: 'baz',
-              type: 'item',
               activeTabId: '3',
+              id: 'baz',
               tabs: [
                 {
-                  id: '3',
                   closeable: true,
+                  id: '3',
                 },
                 {
-                  id: '4',
                   closeable: true,
+                  id: '4',
                 },
               ],
+              type: 'item',
             },
           ],
+          type: 'group',
         },
         {
           direction: 'horizontal',
-          panelId: 'foo',
           newPanelOrder: 'after',
           newTabId: '5',
+          panelId: 'foo',
         },
       );
 
@@ -105,47 +106,47 @@ describe('panelSplit', () => {
     test('new panel before', () => {
       const newPanels = panelSplit(
         {
-          id: 'bar',
-          type: 'group',
           direction: 'horizontal',
+          id: 'bar',
           items: [
             {
-              id: 'foo',
-              type: 'item',
               activeTabId: '1',
+              id: 'foo',
               tabs: [
                 {
-                  id: '1',
                   closeable: true,
+                  id: '1',
                 },
                 {
-                  id: '2',
                   closeable: true,
+                  id: '2',
                 },
               ],
+              type: 'item',
             },
             {
-              id: 'baz',
-              type: 'item',
               activeTabId: '3',
+              id: 'baz',
               tabs: [
                 {
-                  id: '3',
                   closeable: true,
+                  id: '3',
                 },
                 {
-                  id: '4',
                   closeable: true,
+                  id: '4',
                 },
               ],
+              type: 'item',
             },
           ],
+          type: 'group',
         },
         {
           direction: 'horizontal',
-          panelId: 'foo',
           newPanelOrder: 'before',
           newTabId: '5',
+          panelId: 'foo',
         },
       );
 
@@ -206,47 +207,47 @@ describe('panelSplit', () => {
     test('new panel after', () => {
       const newPanels = panelSplit(
         {
-          id: 'bar',
-          type: 'group',
           direction: 'horizontal',
+          id: 'bar',
           items: [
             {
-              id: 'foo',
-              type: 'item',
               activeTabId: '1',
+              id: 'foo',
               tabs: [
                 {
-                  id: '1',
                   closeable: true,
+                  id: '1',
                 },
                 {
-                  id: '2',
                   closeable: true,
+                  id: '2',
                 },
               ],
+              type: 'item',
             },
             {
-              id: 'baz',
-              type: 'item',
               activeTabId: '3',
+              id: 'baz',
               tabs: [
                 {
-                  id: '3',
                   closeable: true,
+                  id: '3',
                 },
                 {
-                  id: '4',
                   closeable: true,
+                  id: '4',
                 },
               ],
+              type: 'item',
             },
           ],
+          type: 'group',
         },
         {
           direction: 'vertical',
-          panelId: 'foo',
           newPanelOrder: 'after',
           newTabId: '5',
+          panelId: 'foo',
         },
       );
 
@@ -312,47 +313,47 @@ describe('panelSplit', () => {
     test('new panel before', () => {
       const newPanels = panelSplit(
         {
-          id: 'bar',
-          type: 'group',
           direction: 'horizontal',
+          id: 'bar',
           items: [
             {
-              id: 'foo',
-              type: 'item',
               activeTabId: '1',
+              id: 'foo',
               tabs: [
                 {
-                  id: '1',
                   closeable: true,
+                  id: '1',
                 },
                 {
-                  id: '2',
                   closeable: true,
+                  id: '2',
                 },
               ],
+              type: 'item',
             },
             {
-              id: 'baz',
-              type: 'item',
               activeTabId: '3',
+              id: 'baz',
               tabs: [
                 {
-                  id: '3',
                   closeable: true,
+                  id: '3',
                 },
                 {
-                  id: '4',
                   closeable: true,
+                  id: '4',
                 },
               ],
+              type: 'item',
             },
           ],
+          type: 'group',
         },
         {
           direction: 'vertical',
-          panelId: 'foo',
           newPanelOrder: 'before',
           newTabId: '5',
+          panelId: 'foo',
         },
       );
 
@@ -419,47 +420,47 @@ describe('panelSplit', () => {
   test('non-existing panel', () => {
     const newPanels = panelSplit(
       {
-        id: 'bar',
-        type: 'group',
         direction: 'horizontal',
+        id: 'bar',
         items: [
           {
-            id: 'foo',
-            type: 'item',
             activeTabId: '1',
+            id: 'foo',
             tabs: [
               {
-                id: '1',
                 closeable: true,
+                id: '1',
               },
               {
-                id: '2',
                 closeable: true,
+                id: '2',
               },
             ],
+            type: 'item',
           },
           {
-            id: 'baz',
-            type: 'item',
             activeTabId: '3',
+            id: 'baz',
             tabs: [
               {
-                id: '3',
                 closeable: true,
+                id: '3',
               },
               {
-                id: '4',
                 closeable: true,
+                id: '4',
               },
             ],
+            type: 'item',
           },
         ],
+        type: 'group',
       },
       {
         direction: 'horizontal',
-        panelId: 'xxx',
         newPanelOrder: 'before',
         newTabId: '5',
+        panelId: 'xxx',
       },
     );
 

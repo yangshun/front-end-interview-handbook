@@ -1,8 +1,10 @@
-import { CSSProperties, Fragment, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
+import { Fragment } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
+
 import TilesPanelContents from './TilesPanelContents';
-import { TilesPanelConfig } from '../types';
-import { PanelDropTarget } from '../actions/tabDrop';
+import type { PanelDropTarget } from '../actions/tabDrop';
+import type { TilesPanelConfig } from '../types';
 
 export default function TilesPanel({
   level,
@@ -22,8 +24,6 @@ export default function TilesPanel({
   ...props
 }: Readonly<{
   defaultSize?: number;
-  level: number;
-  order?: number;
   disablePointerEventsDuringResize?: boolean;
   getResizeHandlerProps: (direction: 'horizontal' | 'vertical') => Readonly<{
     children?: ReactNode;
@@ -31,43 +31,46 @@ export default function TilesPanel({
     style?: CSSProperties;
   }>;
   getTabLabel: (tabId: string) => string;
-  renderTab: (tabId: string) => JSX.Element;
-  onSplit: (direction: 'horizontal' | 'vertical', panelId: string) => void;
+  level: number;
   onAddTab: (panelId: string) => void;
-  onTabSetActive: (panelId: string, tabId: string) => void;
   onClose: (panelId: string) => void;
+  onSplit: (direction: 'horizontal' | 'vertical', panelId: string) => void;
   onTabClose: (panelId: string, tabId: string) => void;
   onTabDrop: (
-    src: Readonly<{ panelId: string; tabId: string; tabCloseable: boolean }>,
+    src: Readonly<{ panelId: string; tabCloseable: boolean, tabId: string; }>,
     dst: PanelDropTarget,
   ) => void;
+  onTabSetActive: (panelId: string, tabId: string) => void;
+  order?: number;
+  renderTab: (tabId: string) => JSX.Element;
 }> &
   TilesPanelConfig) {
   if (props.type === 'item') {
     const panel = (
       <TilesPanelContents
         key={id}
-        order={order}
-        defaultSize={defaultSize}
-        tabs={props.tabs}
-        id={id}
         activeTabId={props.activeTabId}
+        defaultSize={defaultSize}
         getTabLabel={getTabLabel}
+        id={id}
+        order={order}
         renderTab={renderTab}
+        tabs={props.tabs}
         onAddTab={onAddTab}
-        onTabSetActive={onTabSetActive}
         onClose={onClose}
+        onSplit={onSplit}
         onTabClose={onTabClose}
         onTabDrop={(src, dst) => {
           onTabDrop(src, dst);
         }}
-        onSplit={onSplit}
+        onTabSetActive={onTabSetActive}
       />
     );
+
     return level === 0 ? (
       <PanelGroup
-        disablePointerEventsDuringResize={disablePointerEventsDuringResize}
-        direction="horizontal">
+        direction="horizontal"
+        disablePointerEventsDuringResize={disablePointerEventsDuringResize}>
         {panel}
       </PanelGroup>
     ) : (
@@ -79,9 +82,9 @@ export default function TilesPanel({
 
   const group = (
     <PanelGroup
+      direction={groupDirection}
       disablePointerEventsDuringResize={disablePointerEventsDuringResize}
-      id={String(id)}
-      direction={groupDirection}>
+      id={String(id)}>
       {props.items.map((item, index) => (
         <Fragment key={'fragment-' + item.id}>
           {index > 0 && (
@@ -94,20 +97,20 @@ export default function TilesPanel({
           )}
           <TilesPanel
             key={item.id}
-            level={level + 1}
-            order={index + 1}
             defaultSize={100 / Math.max(props.items.length, 1)}
             disablePointerEventsDuringResize={disablePointerEventsDuringResize}
+            level={level + 1}
+            order={index + 1}
             {...item}
             getResizeHandlerProps={getResizeHandlerProps}
             getTabLabel={getTabLabel}
             renderTab={renderTab}
             onAddTab={onAddTab}
             onClose={onClose}
-            onTabClose={onTabClose}
-            onTabSetActive={onTabSetActive}
-            onTabDrop={onTabDrop}
             onSplit={onSplit}
+            onTabClose={onTabClose}
+            onTabDrop={onTabDrop}
+            onTabSetActive={onTabSetActive}
           />
         </Fragment>
       ))}
@@ -117,7 +120,7 @@ export default function TilesPanel({
   return level === 0 ? (
     group
   ) : (
-    <Panel id={String(id)} order={order} key={id}>
+    <Panel key={id} id={String(id)} order={order}>
       {group}
     </Panel>
   );

@@ -1,18 +1,11 @@
-import { TilesActionTabOpen } from './tabOpen';
-import { TilesActionTabClose } from './tabClose';
-import { TilesActionTabDrop } from './tabDrop';
-import { TilesActionTabChangeId } from './tabChangeId';
-import { TilesActionTabSetActive } from './tabSetActive';
-import { TilesActionPanelClose } from './panelClose';
-import { TilesActionPanelSplit } from './panelSplit';
-import { TilesActionLayoutChange } from './layoutChange';
+import type { TilesActionLayoutChange } from './layoutChange';
+import type { TilesActionPanelClose } from './panelClose';
+import type { TilesActionPanelSplit } from './panelSplit';
+import type { TilesActionTabChangeId } from './tabChangeId';
+import type { TilesActionTabClose } from './tabClose';
+import type { TilesActionTabDrop } from './tabDrop';
+import type { TilesActionTabOpen } from './tabOpen';
+import type { TilesActionTabSetActive } from './tabSetActive';
 
 export type TilesAction =
-  | TilesActionLayoutChange
-  | TilesActionPanelSplit
-  | TilesActionPanelClose
-  | TilesActionTabChangeId
-  | TilesActionTabOpen
-  | TilesActionTabClose
-  | TilesActionTabSetActive
-  | TilesActionTabDrop;
+  TilesActionLayoutChange | TilesActionPanelClose | TilesActionPanelSplit | TilesActionTabChangeId | TilesActionTabClose | TilesActionTabDrop | TilesActionTabOpen | TilesActionTabSetActive;

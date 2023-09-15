@@ -1,11 +1,11 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 
 export type TilesActionTabSetActive = Readonly<{
-  type: 'tab-set-active';
   payload: Readonly<{
     panelId?: string;
     tabId: string;
   }>;
+  type: 'tab-set-active';
 }>;
 
 export default function tabSetActive(
@@ -13,6 +13,7 @@ export default function tabSetActive(
   payload: TilesActionTabSetActive['payload'],
 ): TilesPanelConfig {
   const { panelId = null, tabId } = payload;
+
   return tabSetActiveImpl(tiles, { panelId, tabId });
 }
 
@@ -45,8 +46,8 @@ function tabSetActiveImpl(
 
   return {
     ...panel,
-    items: panel.items.map((panel) =>
-      tabSetActiveImpl(panel, { panelId, tabId }),
+    items: panel.items.map((panelItem) =>
+      tabSetActiveImpl(panelItem, { panelId, tabId }),
     ),
   };
 }

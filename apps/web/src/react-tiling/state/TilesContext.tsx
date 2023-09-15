@@ -1,15 +1,16 @@
 import { createContext } from 'react';
-import { TilesPanelConfig } from '../types';
-import { TilesAction } from '../actions/actions';
+
+import type { TilesAction } from '../actions/actions';
+import type { TilesPanelConfig } from '../types';
 
 type Context = Readonly<{
   dispatch: (action: TilesAction) => void;
   getTabById: (
     tabId: string,
-  ) => Readonly<{ tabId: string; panelId: string }> | null;
+  ) => Readonly<{ panelId: string, tabId: string; }> | null;
   queryTabByPattern: (
     regex: RegExp,
-  ) => ReadonlyArray<Readonly<{ tabId: string; panelId: string }>>;
+  ) => ReadonlyArray<Readonly<{ panelId: string, tabId: string; }>>;
   tiles: TilesPanelConfig;
 }>;
 

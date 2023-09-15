@@ -1,15 +1,16 @@
-import { describe, expect, test } from '@jest/globals';
 import prune from './prune';
+
+import { describe, expect, test } from '@jest/globals';
 
 describe('prune', () => {
   describe('item', () => {
     test('empty tabs', () => {
       expect(
         prune({
-          id: 'foo',
-          type: 'item',
           activeTabId: 'tab-1',
+          id: 'foo',
           tabs: [],
+          type: 'item',
         }),
       ).toEqual(null);
     });
@@ -17,10 +18,10 @@ describe('prune', () => {
     test('non-empty tabs', () => {
       expect(
         prune({
-          id: 'foo',
-          type: 'item',
           activeTabId: 'tab-1',
-          tabs: [{ id: 'tab-1', closeable: true }],
+          id: 'foo',
+          tabs: [{ closeable: true, id: 'tab-1' }],
+          type: 'item',
         }),
       ).toMatchInlineSnapshot(`
         {
@@ -42,10 +43,10 @@ describe('prune', () => {
     test('empty', () => {
       expect(
         prune({
-          id: 'foo',
-          type: 'group',
           direction: 'horizontal',
+          id: 'foo',
           items: [],
+          type: 'group',
         }),
       ).toEqual(null);
     });
@@ -54,36 +55,36 @@ describe('prune', () => {
       test('remove nested group', () => {
         expect(
           prune({
-            id: 'foo',
-            type: 'group',
             direction: 'horizontal',
+            id: 'foo',
             items: [
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [
                   {
-                    id: 'baz',
-                    type: 'group',
                     direction: 'horizontal',
+                    id: 'baz',
                     items: [],
+                    type: 'group',
                   },
                   {
-                    id: 'fooz',
-                    type: 'item',
                     activeTabId: 'tab-1',
-                    tabs: [{ id: 'tab-1', closeable: true }],
+                    id: 'fooz',
+                    tabs: [{ closeable: true, id: 'tab-1' }],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
               {
-                id: 'foozx',
-                type: 'item',
                 activeTabId: 'tab-1',
-                tabs: [{ id: 'tab-1', closeable: true }],
+                id: 'foozx',
+                tabs: [{ closeable: true, id: 'tab-1' }],
+                type: 'item',
               },
             ],
+            type: 'group',
           }),
         ).toMatchInlineSnapshot(`
           {
@@ -121,24 +122,24 @@ describe('prune', () => {
       test('remove multiple levels', () => {
         expect(
           prune({
-            id: 'foo',
-            type: 'group',
             direction: 'horizontal',
+            id: 'foo',
             items: [
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [
                   {
-                    id: 'baz',
-                    type: 'group',
                     direction: 'horizontal',
+                    id: 'baz',
                     items: [],
+                    type: 'group',
                   },
                 ],
+                type: 'group',
               },
             ],
+            type: 'group',
           }),
         ).toEqual(null);
       });
@@ -146,23 +147,23 @@ describe('prune', () => {
       test('remove multiple empty items', () => {
         expect(
           prune({
-            id: 'foo',
-            type: 'group',
             direction: 'horizontal',
+            id: 'foo',
             items: [
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [],
+                type: 'group',
               },
               {
-                id: 'bar',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'bar',
                 items: [],
+                type: 'group',
               },
             ],
+            type: 'group',
           }),
         ).toEqual(null);
       });
@@ -173,17 +174,17 @@ describe('prune', () => {
     test('single level', () => {
       expect(
         prune({
-          id: 'foo',
-          type: 'group',
           direction: 'horizontal',
+          id: 'foo',
           items: [
             {
-              id: 'qux',
-              type: 'item',
               activeTabId: 'tab-1',
-              tabs: [{ id: 'tab-1', closeable: true }],
+              id: 'qux',
+              tabs: [{ closeable: true, id: 'tab-1' }],
+              type: 'item',
             },
           ],
+          type: 'group',
         }),
       ).toMatchInlineSnapshot(`
         {
@@ -204,36 +205,36 @@ describe('prune', () => {
       test('single same direction child', () => {
         expect(
           prune({
-            id: 'a',
-            type: 'group',
             direction: 'horizontal',
+            id: 'a',
             items: [
               {
-                id: 'b',
-                type: 'item',
                 activeTabId: 'tab-1',
-                tabs: [{ id: 'tab-1', closeable: true }],
+                id: 'b',
+                tabs: [{ closeable: true, id: 'tab-1' }],
+                type: 'item',
               },
               {
-                id: 'c',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'c',
                 items: [
                   {
-                    id: 'd',
-                    type: 'item',
                     activeTabId: 'tab-2',
-                    tabs: [{ id: 'tab-2', closeable: true }],
+                    id: 'd',
+                    tabs: [{ closeable: true, id: 'tab-2' }],
+                    type: 'item',
                   },
                   {
-                    id: 'e',
-                    type: 'item',
                     activeTabId: 'tab-3',
-                    tabs: [{ id: 'tab-3', closeable: true }],
+                    id: 'e',
+                    tabs: [{ closeable: true, id: 'tab-3' }],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
             ],
+            type: 'group',
           }),
         ).toMatchInlineSnapshot(`
           {
@@ -282,49 +283,49 @@ describe('prune', () => {
       test('multiple same direction child', () => {
         expect(
           prune({
-            id: 'a',
-            type: 'group',
             direction: 'horizontal',
+            id: 'a',
             items: [
               {
-                id: 'b',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'b',
                 items: [
                   {
-                    id: 'c',
-                    type: 'item',
                     activeTabId: 'tab-1',
-                    tabs: [{ id: 'tab-1', closeable: true }],
+                    id: 'c',
+                    tabs: [{ closeable: true, id: 'tab-1' }],
+                    type: 'item',
                   },
                   {
-                    id: 'd',
-                    type: 'item',
                     activeTabId: 'tab-2',
-                    tabs: [{ id: 'tab-2', closeable: true }],
+                    id: 'd',
+                    tabs: [{ closeable: true, id: 'tab-2' }],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
               {
-                id: 'e',
-                type: 'group',
                 direction: 'horizontal',
+                id: 'e',
                 items: [
                   {
-                    id: 'f',
-                    type: 'item',
                     activeTabId: 'tab-3',
-                    tabs: [{ id: 'tab-3', closeable: true }],
+                    id: 'f',
+                    tabs: [{ closeable: true, id: 'tab-3' }],
+                    type: 'item',
                   },
                   {
-                    id: 'g',
-                    type: 'item',
                     activeTabId: 'tab-4',
-                    tabs: [{ id: 'tab-4', closeable: true }],
+                    id: 'g',
+                    tabs: [{ closeable: true, id: 'tab-4' }],
+                    type: 'item',
                   },
                 ],
+                type: 'group',
               },
             ],
+            type: 'group',
           }),
         ).toMatchInlineSnapshot(`
           {
@@ -385,24 +386,24 @@ describe('prune', () => {
     test('deep', () => {
       expect(
         prune({
-          id: 'foo',
-          type: 'group',
           direction: 'horizontal',
+          id: 'foo',
           items: [
             {
-              id: 'fooz',
-              type: 'group',
               direction: 'horizontal',
+              id: 'fooz',
               items: [
                 {
-                  id: 'qux',
-                  type: 'item',
                   activeTabId: 'tab-1',
-                  tabs: [{ id: 'tab-1', closeable: true }],
+                  id: 'qux',
+                  tabs: [{ closeable: true, id: 'tab-1' }],
+                  type: 'item',
                 },
               ],
+              type: 'group',
             },
           ],
+          type: 'group',
         }),
       ).toMatchInlineSnapshot(`
         {
@@ -423,23 +424,23 @@ describe('prune', () => {
   test('nothing to remove', () => {
     expect(
       prune({
-        id: 'foo',
-        type: 'group',
         direction: 'horizontal',
+        id: 'foo',
         items: [
           {
-            id: 'qux',
-            type: 'item',
             activeTabId: 'tab-1',
-            tabs: [{ id: 'tab-1', closeable: true }],
+            id: 'qux',
+            tabs: [{ closeable: true, id: 'tab-1' }],
+            type: 'item',
           },
           {
-            id: 'quxz',
-            type: 'item',
             activeTabId: 'tab-1',
-            tabs: [{ id: 'tab-1', closeable: true }],
+            id: 'quxz',
+            tabs: [{ closeable: true, id: 'tab-1' }],
+            type: 'item',
           },
         ],
+        type: 'group',
       }),
     ).toMatchInlineSnapshot(`
       {

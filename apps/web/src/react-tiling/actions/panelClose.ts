@@ -1,18 +1,18 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 import prune from '../utils/prune';
 
 export type TilesActionPanelClose = Readonly<{
-  type: 'panel-close';
   payload: Readonly<{
-    panelId: string;
     onTabsClose?: (tabIds: ReadonlyArray<string>) => void;
+    panelId: string;
   }>;
+  type: 'panel-close';
 }>;
 
 export default function panelClose(
   tiles: TilesPanelConfig,
   payload: TilesActionPanelClose['payload'],
-  shouldPrune: boolean = true,
+  shouldPrune = true,
 ): TilesPanelConfig {
   const { panelId, onTabsClose } = payload;
   const closedTabs: Array<string> = [];
@@ -31,6 +31,7 @@ export default function panelClose(
   }
 
   onTabsClose?.(closedTabs);
+
   return newTiles ?? tiles;
 }
 
@@ -46,6 +47,7 @@ function panelCloseImpl(
   if (panel.type === 'item') {
     if (panel.id === panelIdToRemove) {
       onTabsClose?.(...panel.tabs.map((tab) => tab.id));
+
       return null;
     }
 

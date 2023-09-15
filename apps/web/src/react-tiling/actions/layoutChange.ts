@@ -1,16 +1,14 @@
-import { TilesPanelConfig, TilesPanelGroupDirection } from '../types';
-import getUniqueId from '../utils/getUniqueId';
-
+import type { TilesPanelConfig } from '../types';
 
 export type TilesActionLayoutChange = Readonly<{
-  type: 'layout-change';
   payload: Readonly<{
-    panels: TilesPanelConfig
+    panels: TilesPanelConfig;
   }>;
+  type: 'layout-change';
 }>;
 
 export default function layoutChange(
-  tiles: TilesPanelConfig,
+  _tiles: TilesPanelConfig,
   payload: TilesActionLayoutChange['payload'],
 ) {
   return payload.panels;

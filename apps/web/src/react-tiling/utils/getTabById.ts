@@ -1,14 +1,14 @@
-import { TilesPanelConfig } from '../types';
+import type { TilesPanelConfig } from '../types';
 
 export default function getTabById(
   tiles: TilesPanelConfig,
   tabId: string,
-): Readonly<{ tabId: string; panelId: string }> | null {
+): Readonly<{ panelId: string, tabId: string; }> | null {
   if (tiles.type === 'item') {
     if (tiles.tabs.find(({ id }) => id === tabId)) {
       return {
-        tabId,
         panelId: tiles.id,
+        tabId,
       };
     }
 
@@ -17,6 +17,7 @@ export default function getTabById(
 
   for (const item of tiles.items) {
     const result = getTabById(item, tabId);
+
     if (result) {
       return result;
     }

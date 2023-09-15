@@ -8,31 +8,22 @@ export type PackageExportsFallback = ReadonlyArray<PackageExportsEntryPath>;
 export type PackageExportsEntryOrFallback =
   | PackageExportsEntry
   | PackageExportsFallback;
-export type PackageExportsEntryObject = Readonly<{
-  // E.g. require, import, node, default, types.
-  // Because TypeScript allows specifying versions within the key,
-  // it's not possible to statically type this field.
-  [environment: string]: PackageExportsEntryOrFallback;
-}>;
+export type PackageExportsEntryObject = Readonly<Record<string, PackageExportsEntryOrFallback>>;
 export type PackageExportsSubmodules = Record<
   string, // The keys start with period (e.g. './canary', './client')
   PackageExportsEntryOrFallback
 >;
 export type PackageExportsEntry =
-  | PackageExportsEntryPath
-  | PackageExportsEntryObject;
+  PackageExportsEntryObject | PackageExportsEntryPath;
 export type PackageExportsField =
-  | PackageExportsEntryPath
-  | PackageExportsSubmodules
-  | PackageExportsEntryObject
-  | PackageExportsFallback;
+  PackageExportsEntryObject | PackageExportsEntryPath | PackageExportsFallback | PackageExportsSubmodules;
 
 export type PackageJSON = Readonly<{
-  name: string;
-  version: string;
   dependencies?: PackageDependencies;
   devDependencies?: PackageDependencies;
+  exports?: PackageExportsField;
+  name: string;
   types?: string;
   typings?: string;
-  exports?: PackageExportsField;
+  version: string;
 }>;

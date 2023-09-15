@@ -1,8 +1,8 @@
-import { TilesPanelConfig, TilesPanelDropAreaSection } from '../types';
-import prune from '../utils/prune';
 import panelSplit from './panelSplit';
 import tabClose from './tabClose';
 import tabOpen from './tabOpen';
+import type { TilesPanelConfig, TilesPanelDropAreaSection } from '../types';
+import prune from '../utils/prune';
 
 type PanelTab = Readonly<{
   panelId: string;
@@ -15,21 +15,21 @@ type PanelTabCloseable = PanelTab &
 
 export type PanelDropTarget =
   | Readonly<{
-      panelId: string;
       dropAreaSection: 'tab';
+      panelId: string;
       tabId: string;
     }>
   | Readonly<{
-      panelId: string;
       dropAreaSection: Exclude<TilesPanelDropAreaSection, 'tab'>;
+      panelId: string;
     }>;
 
 export type TilesActionTabDrop = Readonly<{
-  type: 'tab-drop';
   payload: Readonly<{
-    src: PanelTabCloseable;
     dst: PanelDropTarget;
+    src: PanelTabCloseable;
   }>;
+  type: 'tab-drop';
 }>;
 
 export default function tabDrop(
@@ -37,6 +37,7 @@ export default function tabDrop(
   payload: TilesActionTabDrop['payload'],
 ): TilesPanelConfig {
   const newTiles = tabDropImpl(tiles, payload);
+
   return prune(newTiles) ?? tiles;
 }
 
@@ -58,20 +59,22 @@ function tabDropImpl(
 
     // Transferring across panels.
     const newTiles = tabClose(tiles, src, false);
+
     return tabOpen(newTiles, {
       ...dst,
-      newTabId: src.tabId,
       newTabCloseable: src.tabCloseable,
+      newTabId: src.tabId,
     });
   }
 
   // Dropped on the empty space in the tabs row.
   if (dst.dropAreaSection === 'tabs-row') {
     const newTiles = tabClose(tiles, src, false);
+
     return tabOpen(newTiles, {
       ...dst,
-      newTabId: src.tabId,
       newTabCloseable: src.tabCloseable,
+      newTabId: src.tabId,
     });
   }
 
@@ -82,10 +85,11 @@ function tabDropImpl(
     }
 
     const newTiles = tabClose(tiles, src, false);
+
     return tabOpen(newTiles, {
       ...dst,
-      newTabId: src.tabId,
       newTabCloseable: src.tabCloseable,
+      newTabId: src.tabId,
     });
   }
 
@@ -98,9 +102,9 @@ function tabDropImpl(
       dst.dropAreaSection === 'left' || dst.dropAreaSection === 'top'
         ? 'before'
         : 'after',
-    panelId: dst.panelId,
-    newTabId: src.tabId,
     newTabCloseable: src.tabCloseable,
+    newTabId: src.tabId,
+    panelId: dst.panelId,
   });
 }
 
@@ -117,10 +121,11 @@ function tabReorder(
       return panel;
     }
 
-    const srcTabIndex = panel.tabs.findIndex(({ id }) => id == srcTabId);
-    const dstTabIndex = panel.tabs.findIndex(({ id }) => id == dstTabId);
+    const srcTabIndex = panel.tabs.findIndex(({ id }) => id === srcTabId);
+    const dstTabIndex = panel.tabs.findIndex(({ id }) => id === dstTabId);
     const newTabs = [...panel.tabs];
     const srcTab = newTabs[srcTabIndex];
+
     newTabs.splice(srcTabIndex, 1);
     newTabs.splice(dstTabIndex, 0, srcTab);
 
@@ -132,6 +137,6 @@ function tabReorder(
 
   return {
     ...panel,
-    items: panel.items.map((panel) => tabReorder(panel, src, dst)),
+    items: panel.items.map((panelItem) => tabReorder(panelItem, src, dst)),
   };
 }

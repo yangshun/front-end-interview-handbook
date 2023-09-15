@@ -1,24 +1,25 @@
-import { ReactNode, useReducer, useState } from 'react';
-import { TilesPanelConfig } from '../types';
-import { TilesContext } from './TilesContext';
-import { TilesAction } from '../actions/actions';
-import panelSplit from '../actions/panelSplit';
-import panelClose from '../actions/panelClose';
-import tabOpen from '../actions/tabOpen';
-import tabClose from '../actions/tabClose';
-import tabSetActive from '../actions/tabSetActive';
-import tabChangeId from '../actions/tabChangeId';
-import tabDrop from '../actions/tabDrop';
-
+import type { ReactNode } from 'react';
+import { useReducer } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+
+import { TilesContext } from './TilesContext';
+import type { TilesAction } from '../actions/actions';
+import layoutChange from '../actions/layoutChange';
+import panelClose from '../actions/panelClose';
+import panelSplit from '../actions/panelSplit';
+import tabChangeId from '../actions/tabChangeId';
+import tabClose from '../actions/tabClose';
+import tabDrop from '../actions/tabDrop';
+import tabOpen from '../actions/tabOpen';
+import tabSetActive from '../actions/tabSetActive';
+import type { TilesPanelConfig } from '../types';
 import getTabById from '../utils/getTabById';
 import queryTabByPattern from '../utils/queryTabByPattern';
-import layoutChange from '../actions/layoutChange';
 
 type Props = Readonly<{
-  defaultValue: TilesPanelConfig;
   children: ReactNode;
+  defaultValue: TilesPanelConfig;
 }>;
 
 function reducer(
@@ -60,9 +61,9 @@ function TilesProviderImpl({ children, defaultValue }: Props) {
     <TilesContext.Provider
       value={{
         dispatch,
-        tiles,
-        queryTabByPattern: (regex: RegExp) => queryTabByPattern(tiles, regex),
         getTabById: (tabId: string) => getTabById(tiles, tabId),
+        queryTabByPattern: (regex: RegExp) => queryTabByPattern(tiles, regex),
+        tiles,
       }}>
       {children}
     </TilesContext.Provider>

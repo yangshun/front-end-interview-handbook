@@ -1,12 +1,12 @@
-import {
-  PackageExportsEntryPath,
-  PackageJSON,
-  PackageExportsFallback,
+import type {
+  PackageExportsEntry,
+  PackageExportsEntryObject,
   PackageExportsEntryOrFallback,
+  PackageExportsEntryPath,
+  PackageExportsFallback,
   PackageExportsField,
   PackageExportsSubmodules,
-  PackageExportsEntryObject,
-  PackageExportsEntry,
+  PackageJSON,
 } from './types';
 
 type ModuleToDeclarationPaths = Record<string, string>;
@@ -125,6 +125,7 @@ function gatherExportsField(
 
   if (typeof exportsFieldValue === 'object') {
     const keys = Object.keys(exportsFieldValue);
+
     if (keys.length > 0 && keys.every((key) => key.startsWith('.'))) {
       // Declarations for submodules.
       return gatherExportSubmodules(
