@@ -1,13 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
-
-import useMonacoTheme from '~/hooks/useMonacoTheme';
-
-import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
 import EmptyState from '~/components/ui/EmptyState';
+import useMonacoEditorTheme from '~/components/workspace/common/editor/useMonacoEditorTheme';
 
-import MonacoEditor, { useMonaco } from '@monaco-editor/react';
+import MonacoEditor from '@monaco-editor/react';
 
 type Props = Readonly<{
   filePath: string;
@@ -32,16 +28,7 @@ function getLanguageFromFilePath(filePath: string): string {
 // A controlled component because we need to allow resetting to
 // the initial code.
 export default function CodeEditor({ value, filePath, onChange }: Props) {
-  const monaco = useMonaco();
-  const { themeKey } = useCodingPreferences();
-  const monacoTheme = useMonacoTheme(themeKey);
-
-  useEffect(() => {
-    if (monaco && monacoTheme) {
-      monaco.editor.defineTheme(themeKey, monacoTheme);
-      monaco.editor.setTheme(themeKey);
-    }
-  }, [monaco, monacoTheme, themeKey]);
+  const themeKey = useMonacoEditorTheme();
 
   const language = getLanguageFromFilePath(filePath);
 

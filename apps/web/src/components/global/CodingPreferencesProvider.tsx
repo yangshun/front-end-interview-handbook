@@ -5,7 +5,7 @@ import type themeList from 'monaco-themes/themes/themelist.json';
 import { createContext, useContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
-type ThemeKey = keyof typeof themeList;
+export type MonacoEditorThemeKey = keyof typeof themeList;
 
 type CodingPreferencesContextType = Readonly<{
   consoleFontSize: string;
@@ -14,11 +14,11 @@ type CodingPreferencesContextType = Readonly<{
   setConsoleFontSize: (fontSize: string) => void;
   setConsoleShouldPreserveLogs: (shouldPreserveLogs: boolean) => void;
   setConsoleTheme: (theme: Variants) => void;
-  setThemeKey: (themeKey: ThemeKey) => void;
-  themeKey: ThemeKey;
+  setThemeKey: (themeKey: MonacoEditorThemeKey) => void;
+  themeKey: MonacoEditorThemeKey;
 }>;
 
-const DEFAULT_THEME: ThemeKey = 'dracula';
+const DEFAULT_THEME: MonacoEditorThemeKey = 'dracula';
 const DEFAULT_CONSOLE_SHOULD_PRESERVE_LOGS = false;
 const DEFAULT_CONSOLE_FONT_SIZE = '12px';
 const DEFAULT_CONSOLE_THEME = 'dark';
@@ -47,7 +47,7 @@ type Props = Readonly<{
 }>;
 
 export default function CodingPreferencesProvider({ children }: Props) {
-  const [themeKey, setThemeKey] = useLocalStorage<ThemeKey>(
+  const [themeKey, setThemeKey] = useLocalStorage<MonacoEditorThemeKey>(
     'gfe:editor:theme',
     DEFAULT_THEME,
   );
