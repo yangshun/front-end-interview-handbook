@@ -7,6 +7,7 @@ import type { QuestionMetadata } from '~/components/questions/common/QuestionsTy
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
+import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -99,20 +100,16 @@ function JavaScriptCodingCodeEditor({
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex justify-end p-2">
-        <button
-          className="text-neutral-500"
-          title="Reset code"
-          type="button"
+      <div className="flex justify-end gap-x-1.5 px-1 py-1.5">
         <CodingWorkspaceEditorShortcutsButton />
+        <CodingWorkspaceResetButton
           onClick={() => {
             if (!confirm('Reset code to original? Changes will be lost!')) {
               return;
             }
             resetFile(filePath);
-          }}>
-          <RiArrowGoBackLine className="h-4 w-4 shrink-0" />
-        </button>
+          }}
+        />
       </div>
       <MonacoCodeEditor
         filePath={filePath}

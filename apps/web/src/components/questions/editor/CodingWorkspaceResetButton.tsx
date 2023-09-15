@@ -27,7 +27,7 @@ export default function CodingWorkspaceResetButton({ onClick }: Props) {
         id: 'SWOTIA',
       })}
       tooltipPosition="start"
-      variant="secondary"
+      variant="tertiary"
       onClick={onClick}
     />
   );
