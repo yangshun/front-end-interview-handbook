@@ -5,6 +5,12 @@ import { RiAddLine, RiCloseLine } from 'react-icons/ri';
 import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
 import { Panel } from 'react-resizable-panels';
 
+import {
+  themeBackgroundLayerColor,
+  themeDivideColor,
+  themeIconColor,
+} from '~/components/ui/theme';
+
 import type { PanelDropTarget } from '../actions/tabDrop';
 import type {
   TilesPanelDropAreaSection,
@@ -433,7 +439,10 @@ export default function TilesPanelContents({
 }>) {
   return (
     <Panel
-      className="flex flex-col rounded-lg bg-neutral-900"
+      className={clsx('flex flex-col rounded-lg', themeBackgroundLayerColor, [
+        'divide-y',
+        themeDivideColor,
+      ])}
       defaultSize={defaultSize}
       id={panelId}
       order={order}>
@@ -468,7 +477,9 @@ export default function TilesPanelContents({
             title="Split editor right"
             type="button"
             onClick={() => onSplit('horizontal', panelId)}>
-            <VscSplitHorizontal className="h-4 w-4 text-neutral-500" />
+            <VscSplitHorizontal
+              className={clsx('h-4 w-4 shrink-0', themeIconColor)}
+            />
           </button>
           {tabs.every((tab) => tab.closeable) && (
             <button
@@ -476,7 +487,9 @@ export default function TilesPanelContents({
               title="Close all"
               type="button"
               onClick={() => onClose(panelId)}>
-              <RiCloseLine className="h-4 w-4 text-neutral-500" />
+              <RiCloseLine
+                className={clsx('h-4 w-4 shrink-0', themeIconColor)}
+              />
             </button>
           )}
         </div>

@@ -27,7 +27,7 @@ export default function Specs({
   status,
 }: Props) {
   return (
-    <div className="flex flex-col gap-y-6 p-4">
+    <div className="flex flex-col gap-y-6 p-3">
       {specs
         .filter((spec) => !isEmpty(spec))
         .map((spec) => {
@@ -54,7 +54,7 @@ export default function Specs({
           return (
             <div
               key={spec.name}
-              className={clsx('w-full font-mono flex flex-col gap-y-6')}>
+              className={clsx('flex w-full flex-col gap-y-6 font-mono')}>
               {showSpecFile && (
                 <div className="flex items-center">
                   {status === 'complete' ? (
@@ -91,7 +91,7 @@ export default function Specs({
                   return (
                     <div
                       key={`failing-${test.name}`}
-                      className={clsx('w-full flex flex-col gap-2')}>
+                      className={clsx('flex w-full flex-col gap-2')}>
                       <div className={clsx('font-bold', failTextClassName)}>
                         ● {test.blocks.join(' › ')} › {test.name}
                       </div>
@@ -118,11 +118,11 @@ export default function Specs({
 function SpecLabel({
   children,
   className,
-}: Readonly<{ children: React.ReactNode, className: string; }>) {
+}: Readonly<{ children: React.ReactNode; className: string }>) {
   return (
     <span
       className={clsx(
-        'py-1 px-2 font-mono uppercase mr-2 rounded-sm',
+        'mr-2 rounded-sm px-2 py-1 font-mono uppercase',
         className,
       )}>
       {children}
@@ -140,14 +140,14 @@ function FilePath({
 
   return (
     <button
-      className={clsx('font-mono pointer inline-block')}
+      className={clsx('pointer inline-block font-mono')}
       type="button"
       onClick={onClick}>
-      <span className={clsx('text-white decoration-dotted underline')}>
+      <span className={clsx('text-white underline decoration-dotted')}>
         {basePath}
       </span>
       <span
-        className={clsx('text-white font-bold decoration-dotted underline')}>
+        className={clsx('font-bold text-white underline decoration-dotted')}>
         {fileName}
       </span>
     </button>

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
-import { RiArrowGoBackLine } from 'react-icons/ri';
+import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
@@ -9,6 +9,7 @@ import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
 
@@ -43,11 +44,7 @@ import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesL
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import useRestartSandpack from '../useRestartSandpack';
 
-import {
-  SandpackConsole,
-  SandpackTests,
-  useSandpack,
-} from '@codesandbox/sandpack-react';
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
 type TabsType =
@@ -145,11 +142,7 @@ function JavaScriptCodingWorkspaceTestsRunSection({
     }
   }, [dispatch, status]);
 
-  const test = false;
-
-  return test ? (
-    <SandpackTests watchMode={false} />
-  ) : (
+  return (
     <TestsSection
       specMode="run"
       specPath={specPath}
@@ -336,8 +329,8 @@ function JavaScriptCodingWorkspaceImpl({
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="flex items-center justify-between px-2 py-3">
-        <div>Sandpack: {sandpack.status}</div>
+      <div className="flex items-center justify-between px-3 py-3">
+        <div></div>
         <div className="flex gap-x-2">
           <button
             type="button"
@@ -381,7 +374,7 @@ function JavaScriptCodingWorkspaceImpl({
           </button>
         </div>
       </div>
-      <div className="flex w-full grow px-2">
+      <div className="flex w-full grow px-3">
         <TilesPanelRoot
           disablePointerEventsDuringResize={true}
           getResizeHandlerProps={(direction) => ({
@@ -438,6 +431,8 @@ function JavaScriptCodingWorkspaceImpl({
             }}
           />
           <Button
+            addonPosition="start"
+            icon={RiPlayLine}
             isDisabled={status !== 'idle'}
             label="Run"
             size="xs"
@@ -445,6 +440,7 @@ function JavaScriptCodingWorkspaceImpl({
             onClick={runTests}
           />
           <Button
+            addonPosition="start"
             isDisabled={status !== 'idle'}
             label="Submit"
             size="xs"

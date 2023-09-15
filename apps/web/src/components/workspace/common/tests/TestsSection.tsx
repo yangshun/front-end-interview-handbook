@@ -1,4 +1,22 @@
+import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
+import {
+  RiEye2Line,
+  RiEyeLine,
+  RiFileList2Line,
+  RiFlaskLine,
+  RiPencilLine,
+  RiPlayLine,
+  RiSurveyLine,
+} from 'react-icons/ri';
+import { FormattedMessage } from 'react-intl';
+
+import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
+import EmptyState from '~/components/ui/EmptyState';
+import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 import SpecsConsolidated from './SpecsConsolidated';
 import SpecsInline from './SpecsInline';
@@ -51,7 +69,8 @@ export default function TestsSection({
   onComplete,
   onShowTestsCases,
 }: Props) {
-  const { status, executionComplete } = useCodingWorkspaceContext();
+  const { status, executionComplete, runTests, submit } =
+    useCodingWorkspaceContext();
   const { getClient, iframe, listen, sandpack } = useSandpackClient();
 
   const [state, setState] = useState<State>(INITIAL_STATE);
@@ -367,30 +386,137 @@ export default function TestsSection({
 
             return (
               <div className="flex w-full grow flex-col">
-                {specs.length === 0 && state.status === 'complete' ? (
-                  <div>
-                    <p>No test files found.</p>
-                  </div>
-                ) : state.layout === 'inline' ? (
-                  <SpecsInline
-                    openSpec={openSpec}
-                    specs={specs}
-                    status={state.status}
-                  />
-                ) : (
-                  <SpecsConsolidated
-                    openSpec={openSpec}
-                    specs={specs}
-                    status={state.status}
-                  />
-                )}
+                {(() => {
+                  if (state.status === 'idle') {
+                    return (
+                      <div className="flex grow items-center justify-center">
+                        {(() => {
+                          switch (specMode) {
+                            case 'run':
+                              return (
+                                <div className="flex flex-col items-center">
+                                  <EmptyState
+                                    action={
+                                      <Button
+                                        addonPosition="start"
+                                        icon={RiPlayLine}
+                                        isDisabled={status !== 'idle'}
+                                        label="Run"
+                                        variant="secondary"
+                                        onClick={runTests}
+                                      />
+                                    }
+                                    icon={RiFlaskLine}
+                                    subtitle={
+                                      <FormattedMessage
+                                        defaultMessage="Run your code with <button>custom test cases</button> before submitting."
+                                        description="Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+                                        id="t2Ll2e"
+                                        values={{
+                                          button: (chunks) => (
+                                            <Anchor
+                                              href="#"
+                                              onClick={() =>
+                                                onShowTestsCases?.(specMode)
+                                              }>
+                                              {chunks}
+                                            </Anchor>
+                                          ),
+                                        }}
+                                      />
+                                    }
+                                    title={
+                                      <FormattedMessage
+                                        defaultMessage="Test your code"
+                                        description="Title of test panel for coding workspace"
+                                        id="HdWLAV"
+                                      />
+                                    }
+                                  />
+                                </div>
+                              );
+                            case 'submit':
+                              return (
+                                <div className="flex flex-col items-center">
+                                  <EmptyState
+                                    action={
+                                      <Button
+                                        isDisabled={status !== 'idle'}
+                                        label="Submit"
+                                        variant="primary"
+                                        onClick={submit}
+                                      />
+                                    }
+                                    icon={RiSurveyLine}
+                                    subtitle={
+                                      <FormattedMessage
+                                        defaultMessage="Submit your code to check against <button>all test cases</button>."
+                                        description="Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+                                        id="ZJQ+uw"
+                                        values={{
+                                          button: (chunks) => (
+                                            <Anchor
+                                              href="#"
+                                              onClick={() =>
+                                                onShowTestsCases?.(specMode)
+                                              }>
+                                              {chunks}
+                                            </Anchor>
+                                          ),
+                                        }}
+                                      />
+                                    }
+                                    title={
+                                      <FormattedMessage
+                                        defaultMessage="Submit your code"
+                                        description="Title of test panel for coding workspace"
+                                        id="as1hw8"
+                                      />
+                                    }
+                                  />
+                                </div>
+                              );
+                          }
+                        })()}
+                      </div>
+                    );
+                  }
+
+                  if (state.status === 'complete') {
+                    if (specs.length === 0) {
+                      return (
+                        <div className="flex grow items-center justify-center">
+                          <p>No test files found.</p>
+                        </div>
+                      );
+                    }
+
+                    if (state.layout === 'inline') {
+                      return (
+                        <SpecsInline
+                          openSpec={openSpec}
+                          specs={specs}
+                          status={state.status}
+                        />
+                      );
+                    }
+
+                    return (
+                      <SpecsConsolidated
+                        openSpec={openSpec}
+                        specs={specs}
+                        status={state.status}
+                      />
+                    );
+                  }
+                })()}
               </div>
             );
           })()}
         </div>
-        <div className="border-t border-neutral-800">
+        <div className={clsx('border-t', themeLineColor)}>
           {state.status === 'complete' && testResults.total > 0 && (
-            <div className="shrink-0 px-4 pt-4">
+            <div className="shrink-0 px-3 pt-3">
               <div className="w-full rounded bg-neutral-800 p-3">
                 <Summary
                   duration={duration}
@@ -400,34 +526,72 @@ export default function TestsSection({
               </div>
             </div>
           )}
-          <div className="flex h-10 shrink-0 items-center justify-between px-2">
-            <div className="flex grow items-center gap-6">
-              <span>Tests: {state.status}</span>
-              <button
-                className="p-2"
-                type="button"
-                onClick={() =>
-                  setState({
-                    ...state,
-                    layout:
-                      state.layout === 'inline' ? 'consolidated' : 'inline',
-                  })
-                }>
-                Layout
-              </button>
+          <div className="flex shrink-0 items-center justify-between px-3 pb-2 pt-2">
+            <div className="flex grow items-center">
+              <span>
+                {(() => {
+                  switch (state.status) {
+                    case 'complete':
+                      return (
+                        <Badge label="Complete" size="sm" variant="info" />
+                      );
+                    case 'idle':
+                      return <Badge label="Idle" size="sm" variant="neutral" />;
+                    case 'initializing':
+                      return (
+                        <Badge
+                          label="Initializing"
+                          size="sm"
+                          variant="neutral"
+                        />
+                      );
+                    case 'running':
+                      return (
+                        <Badge label="Running" size="sm" variant="warning" />
+                      );
+                  }
+                })()}
+              </span>
             </div>
-            <div className="flex items-center gap-2">
-              <button
-                className="p-2"
-                type="button"
-                onClick={() => onShowTestsCases?.(specMode)}>
+            {state.status === 'complete' && (
+              <div className="flex items-center gap-2">
+                <Button
+                  addonPosition="start"
+                  icon={RiFileList2Line}
+                  label="Toggle results layout"
+                  size="xs"
+                  variant="tertiary"
+                  onClick={() =>
+                    setState({
+                      ...state,
+                      layout:
+                        state.layout === 'inline' ? 'consolidated' : 'inline',
+                    })
+                  }
+                />
                 {specMode === 'run' ? (
-                  <>Edit test cases</>
+                  <Button
+                    addonPosition="start"
+                    className="-mr-1"
+                    icon={RiPencilLine}
+                    label="Edit test cases"
+                    size="xs"
+                    variant="tertiary"
+                    onClick={() => onShowTestsCases?.(specMode)}
+                  />
                 ) : (
-                  <>View test cases</>
+                  <Button
+                    addonPosition="start"
+                    className="-mr-1"
+                    icon={RiEyeLine}
+                    label="View test cases"
+                    size="xs"
+                    variant="tertiary"
+                    onClick={() => onShowTestsCases?.(specMode)}
+                  />
                 )}
-              </button>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

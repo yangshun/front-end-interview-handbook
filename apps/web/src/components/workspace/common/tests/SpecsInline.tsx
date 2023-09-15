@@ -27,7 +27,7 @@ export default function SpecsInline({
   status,
 }: Props) {
   return (
-    <div className="flex flex-col gap-y-6 p-4">
+    <div className="flex flex-col gap-y-6 p-3">
       {specs
         .filter((spec) => !isEmpty(spec))
         .map((spec) => {
@@ -53,7 +53,7 @@ export default function SpecsInline({
           return (
             <div
               key={spec.name}
-              className={clsx('w-full flex flex-col gap-y-6')}>
+              className={clsx('flex w-full flex-col gap-y-6')}>
               {showSpecFile && (
                 <div className="flex items-center">
                   {status === 'complete' ? (
@@ -79,7 +79,7 @@ export default function SpecsInline({
                   />
                 </div>
               )}
-              <div className="flex flex-col border border-neutral-800 rounded-md divide-y divide-neutral-800 overflow-clip">
+              <div className="flex flex-col divide-y divide-neutral-800 overflow-clip rounded-md border border-neutral-800">
                 {allTests.map((test) => {
                   const fullTestName = [...test.blocks, test.name].join(' › ');
 
@@ -87,7 +87,7 @@ export default function SpecsInline({
                     <div
                       key={fullTestName}
                       className={clsx(
-                        'w-full p-3 hover:bg-neutral-800 transition-colors flex flex-col gap-y-2',
+                        'flex w-full flex-col gap-y-2 p-3 transition-colors hover:bg-neutral-800',
                       )}>
                       <div className={clsx('flex justify-between gap-2')}>
                         <div className="flex gap-2">
@@ -118,11 +118,11 @@ export default function SpecsInline({
 function SpecLabel({
   children,
   className,
-}: Readonly<{ children: React.ReactNode, className: string; }>) {
+}: Readonly<{ children: React.ReactNode; className: string }>) {
   return (
     <span
       className={clsx(
-        'py-1 px-2 font-mono uppercase mr-2 rounded-sm',
+        'mr-2 rounded-sm px-2 py-1 font-mono uppercase',
         className,
       )}>
       {children}
@@ -140,14 +140,14 @@ function FilePath({
 
   return (
     <button
-      className={clsx('font-mono pointer inline-block')}
+      className={clsx('pointer inline-block font-mono')}
       type="button"
       onClick={onClick}>
-      <span className={clsx('text-white decoration-dotted underline')}>
+      <span className={clsx('text-white underline decoration-dotted')}>
         {basePath}
       </span>
       <span
-        className={clsx('text-white font-bold decoration-dotted underline')}>
+        className={clsx('font-bold text-white underline decoration-dotted')}>
         {fileName}
       </span>
     </button>
