@@ -6,13 +6,13 @@ import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScr
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
-  setup: QuestionJavaScriptV2;
+  question: QuestionJavaScriptV2;
 }>;
 
-export default function JavaScriptPage({ setup }: Props) {
-  const { workspace, files, skeleton } = setup;
+export default function JavaScriptPage({ question }: Props) {
+  const { description, workspace, files, skeleton, solution, metadata } =
+    question;
   const language = 'js' as const;
-  const solution = files[workspace.main];
 
   const finalFiles = {
     ...files,
@@ -39,6 +39,8 @@ export default function JavaScriptPage({ setup }: Props) {
       <JavaScriptCodingWorkspace
         defaultFiles={finalFiles}
         defaultLanguage={language}
+        description={description}
+        metadata={metadata}
         skeleton={skeleton}
         solution={solution}
         workspace={workspace}

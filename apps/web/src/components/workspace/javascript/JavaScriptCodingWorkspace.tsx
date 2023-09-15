@@ -3,7 +3,12 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
+import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
+import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
+import Heading from '~/components/ui/Heading';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
 
@@ -197,11 +202,16 @@ function JavaScriptCodingWorkspaceTestsSubmitSection({
 
 function JavaScriptCodingWorkspaceImpl({
   defaultLanguage,
+  description,
+  metadata,
   solution,
 }: Readonly<{
   defaultLanguage: JavaScriptCodingLanguage;
-  solution: string;
+  description: string | null;
+  metadata: QuestionMetadata;
+  solution: string | null;
 }>) {
+  const isQuestionLocked = false;
   const { dispatch } = useTilesContext();
   const { status, runTests, submit } = useCodingWorkspaceContext();
   const { language, setLanguage, resetAllFiles } =
@@ -241,15 +251,25 @@ function JavaScriptCodingWorkspaceImpl({
     console: { contents: <CodingWorkspaceConsole />, label: 'Console' },
     description: {
       contents: (
-        <div className="space-y-4 p-4">
-          <h2 className="text-lg font-semibold">Description</h2>
-          <p className="text-sm">
-            One morning, when Gregor Samsa woke from troubled dreams, he found
-            himself transformed in his bed into a horrible vermin. He lay on his
-            armour-like back, and if he lifted his head a little he could see
-            his brown belly, slightly domed and divided by arches into stiff
-            sections.
-          </p>
+        <div className="flex w-full flex-col">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-x-4 p-4">
+              <Heading level="heading5">{metadata.title}</Heading>
+            </div>
+            <div
+              className={clsx(
+                'flex items-center gap-x-4 p-4',
+                themeBackgroundLayerEmphasized,
+              )}>
+              <QuestionMetadataSection metadata={metadata} />
+            </div>
+          </div>
+          <div className="p-4">
+            <QuestionContentProse
+              contents={description}
+              isContentsHidden={isQuestionLocked}
+            />
+          </div>
         </div>
       ),
       label: 'Description',
@@ -262,9 +282,13 @@ function JavaScriptCodingWorkspaceImpl({
     },
     solution: {
       contents: (
-        <div className="space-y-4 p-4">
-          <h2 className="text-lg font-semibold">Solution</h2>
-          <pre>{solution}</pre>
+        <div className="w-full">
+          <div className="p-4">
+            <QuestionContentProse
+              contents={solution}
+              isContentsHidden={isQuestionLocked}
+            />
+          </div>
         </div>
       ),
       label: 'Solution',
@@ -279,9 +303,13 @@ function JavaScriptCodingWorkspaceImpl({
     },
     test_cases: {
       contents: (
-        <div className="space-y-4 p-4">
-          <h2 className="text-lg font-semibold">Test Cases</h2>
-          <pre>{files[workspace.submit].code}</pre>
+        <div className="w-full">
+          <div className="p-4">
+            <QuestionContentsJavaScriptTestsCode
+              contents={files[workspace.submit].code}
+              isContentsHidden={isQuestionLocked}
+            />
+          </div>
         </div>
       ),
       label: 'All Test Cases',
@@ -432,14 +460,18 @@ function JavaScriptCodingWorkspaceImpl({
 export default function JavaScriptCodingWorkspace({
   defaultFiles,
   defaultLanguage,
+  description,
+  metadata,
   skeleton,
   solution,
   workspace,
 }: Readonly<{
   defaultFiles: Record<string, string>;
   defaultLanguage: JavaScriptCodingLanguage;
+  description: string | null;
+  metadata: QuestionMetadata;
   skeleton: JavaScriptCodingSkeleton;
-  solution: string;
+  solution: string | null;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>) {
   const { sandpack } = useSandpack();
@@ -462,6 +494,8 @@ export default function JavaScriptCodingWorkspace({
           workspace={workspace}>
           <JavaScriptCodingWorkspaceImpl
             defaultLanguage={defaultLanguage}
+            description={description}
+            metadata={metadata}
             solution={solution}
           />
         </JavaScriptCodingWorkspaceContextProvider>
