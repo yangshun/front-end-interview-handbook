@@ -30,6 +30,7 @@ import {
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
+import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
@@ -236,7 +237,7 @@ function JavaScriptCodingWorkspaceImpl({
   useMonacoEditorModels(monaco, files);
 
   const predefinedTabs: PredefinedTabsContents = {
-    console: { contents: <SandpackConsole />, label: 'Console' },
+    console: { contents: <CodingWorkspaceConsole />, label: 'Console' },
     description: {
       contents: (
         <div className="space-y-4 p-4">

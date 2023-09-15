@@ -351,7 +351,7 @@ export default function JavaScriptConsole({
   const hasLogs = logs.length > 0;
 
   return (
-    <div className="relative flex h-full flex-col overflow-x-auto">
+    <div className="relative flex h-full w-full flex-col overflow-x-auto">
       {!isScrollPositionAtBottom && (
         <div className="absolute bottom-2 right-2 z-10">
           <Button

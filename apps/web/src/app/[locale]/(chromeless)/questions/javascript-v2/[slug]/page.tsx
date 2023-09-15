@@ -119,7 +119,7 @@ export default async function Page({ params }: Props) {
         url={`${getSiteUrl()}${question.metadata.href}`}
         useAppDir={true}
       />
-      <JavaScriptCodingWorkspacePage setup={question} />
+      <JavaScriptCodingWorkspacePage question={question} />
     </>
   );
 }
