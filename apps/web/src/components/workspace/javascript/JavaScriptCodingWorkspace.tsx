@@ -1,7 +1,16 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
-import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
+import {
+  RiCheckboxLine,
+  RiCodeLine,
+  RiFileList2Line,
+  RiFlaskLine,
+  RiLightbulbLine,
+  RiListCheck3,
+  RiPlayLine,
+  RiTerminalBoxLine,
+} from 'react-icons/ri';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
@@ -14,7 +23,7 @@ import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWork
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
 
@@ -62,7 +71,11 @@ type TabsType =
 
 export type PredefinedTabsContents = Record<
   TabsType,
-  Readonly<{ contents: ReactNode; label: string }>
+  Readonly<{
+    contents: ReactNode;
+    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    label: string;
+  }>
 >;
 
 function NewTabContents({
@@ -244,7 +257,11 @@ function JavaScriptCodingWorkspaceImpl({
   useMonacoEditorModels(monaco, files);
 
   const predefinedTabs: PredefinedTabsContents = {
-    console: { contents: <CodingWorkspaceConsole />, label: 'Console' },
+    console: {
+      contents: <CodingWorkspaceConsole />,
+      icon: RiTerminalBoxLine,
+      label: 'Console',
+    },
     description: {
       contents: (
         <div className="flex w-full flex-col">
@@ -255,7 +272,7 @@ function JavaScriptCodingWorkspaceImpl({
             <div
               className={clsx(
                 'flex items-center gap-x-4 p-4',
-                themeBackgroundLayerEmphasized,
+                themeBackgroundEmphasized,
               )}>
               <QuestionMetadataSection metadata={metadata} />
             </div>
@@ -268,13 +285,15 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         </div>
       ),
+      icon: RiFileList2Line,
       label: 'Description',
     },
     run_tests: {
       contents: (
         <JavaScriptCodingWorkspaceTestsRunSection specPath={workspace.run} />
       ),
-      label: 'Run Tests',
+      icon: RiPlayLine,
+      label: 'Run tests',
     },
     solution: {
       contents: (
@@ -287,6 +306,7 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         </div>
       ),
+      icon: RiLightbulbLine,
       label: 'Solution',
     },
     submit: {
@@ -295,6 +315,7 @@ function JavaScriptCodingWorkspaceImpl({
           specPath={workspace.submit}
         />
       ),
+      icon: RiCheckboxLine,
       label: 'Submit',
     },
     test_cases: {
@@ -308,12 +329,20 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         </div>
       ),
-      label: 'All Test Cases',
+      icon: RiListCheck3,
+      label: 'All test cases',
     },
   };
 
   const [tabContents, setTabContents] = useState<
-    Record<string, Readonly<{ contents: ReactNode; label: string }>>
+    Record<
+      string,
+      Readonly<{
+        contents: ReactNode;
+        icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+        label: string;
+      }>
+    >
   >({
     ...predefinedTabs,
     ...Object.fromEntries(
@@ -321,9 +350,9 @@ function JavaScriptCodingWorkspaceImpl({
         file,
         {
           contents: <JavaScriptCodingCodeEditor filePath={file} />,
-          label: {
-            [workspace.main]: 'Code',
-            [workspace.run]: 'Test Cases',
+          ...{
+            [workspace.main]: { icon: RiCodeLine, label: 'Code' },
+            [workspace.run]: { icon: RiFlaskLine, label: 'Test cases' },
           }[file],
         },
       ]),
@@ -396,7 +425,10 @@ function JavaScriptCodingWorkspaceImpl({
               direction === 'vertical' && 'w-2',
             ),
           })}
-          getTabLabel={(tabId) => tabContents[tabId]?.label ?? `New tab`}
+          getTabLabel={(tabId) => ({
+            icon: tabContents[tabId]?.icon,
+            label: tabContents[tabId]?.label ?? `New tab`,
+          })}
           renderTab={(tabId) =>
             tabContents[tabId] != null ? (
               <div className="flex h-full w-full">

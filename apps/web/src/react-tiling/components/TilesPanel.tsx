@@ -30,14 +30,17 @@ export default function TilesPanel({
     className?: string;
     style?: CSSProperties;
   }>;
-  getTabLabel: (tabId: string) => string;
+  getTabLabel: (tabId: string) => Readonly<{
+    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    label: string;
+  }>;
   level: number;
   onAddTab: (panelId: string) => void;
   onClose: (panelId: string) => void;
   onSplit: (direction: 'horizontal' | 'vertical', panelId: string) => void;
   onTabClose: (panelId: string, tabId: string) => void;
   onTabDrop: (
-    src: Readonly<{ panelId: string; tabCloseable: boolean, tabId: string; }>,
+    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
     dst: PanelDropTarget,
   ) => void;
   onTabSetActive: (panelId: string, tabId: string) => void;

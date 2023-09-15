@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { RiAddLine, RiCloseLine } from 'react-icons/ri';
-import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
+import { VscSplitHorizontal } from 'react-icons/vsc';
 import { Panel } from 'react-resizable-panels';
 
 import {
@@ -87,6 +87,7 @@ type DragItem = Readonly<{
 function TilePanelTab({
   closeable,
   tabId,
+  icon: Icon,
   index,
   isActive,
   label,
@@ -96,6 +97,7 @@ function TilePanelTab({
   onDrop,
 }: Readonly<{
   closeable: boolean;
+  icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
   index: number;
   isActive: boolean;
   label: string;
@@ -169,10 +171,14 @@ function TilePanelTab({
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
       <TabButton
-        className={clsx('whitespace-nowrap text-xs', isDragging && 'invisible')}
+        className={clsx(
+          'flex gap-x-1.5 whitespace-nowrap text-xs',
+          isDragging && 'invisible',
+        )}
         onClick={onClick}
         onMouseDown={onClick}>
         <span aria-hidden={true} className="absolute inset-0" />
+        {Icon && <Icon className="h-4 w-4 shrink-0" />}
         {label}
       </TabButton>
       {closeable && (
@@ -202,7 +208,10 @@ function TilesPanelTabsSection({
   getTabLabel,
 }: Readonly<{
   activeTabId: string | null;
-  getTabLabel: (tabId: string) => string;
+  getTabLabel: (tabId: string) => Readonly<{
+    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    label: string;
+  }>;
   onTabClose: (tabId: string) => void;
   onTabDrop: (
     src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
@@ -266,14 +275,16 @@ function TilesPanelTabsSection({
         {tabs.map((tabItem, index) => {
           const isActive = activeTabId === tabItem.id;
           const key = String(tabItem.id) + ' ' + String(index);
+          const { icon, label } = getTabLabel(tabItem.id);
 
           return (
             <div key={key} className={clsx('flex h-full flex-col')}>
               <TilePanelTab
                 closeable={tabItem.closeable}
+                icon={icon}
                 index={index}
                 isActive={isActive}
-                label={getTabLabel(tabItem.id)}
+                label={label}
                 panelId={panelId}
                 tabId={tabItem.id}
                 onClick={() => {
@@ -425,7 +436,10 @@ export default function TilesPanelContents({
 }: Readonly<{
   activeTabId: string | null;
   defaultSize?: number;
-  getTabLabel: (tabId: string) => string;
+  getTabLabel: (tabId: string) => Readonly<{
+    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    label: string;
+  }>;
   id: string;
   onAddTab: (panelIdParam: string) => void;
   onClose: (panelIdParam: string) => void;
@@ -452,7 +466,7 @@ export default function TilesPanelContents({
       id={panelId}
       order={order}>
       <div className="flex h-10 shrink-0 items-center justify-between">
-        <span className="flex h-full items-center px-2">
+        <span className="flex h-full items-center pl-2 pr-0.5">
           <button
             className="rounded p-1 hover:bg-neutral-800"
             title="New tab"

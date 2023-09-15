@@ -1,4 +1,4 @@
-import type { CSSProperties,ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 import TilesPanel from './TilesPanel';
 import { useTilesContext } from '../state/useTilesContext';
@@ -11,7 +11,10 @@ export type Props = Readonly<{
     className?: string;
     style?: CSSProperties;
   }>;
-  getTabLabel: (tabId: string) => string;
+  getTabLabel: (tabId: string) => Readonly<{
+    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    label: string;
+  }>;
   onTabsClose?: (tabIds: ReadonlyArray<string>) => void;
   onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
   renderTab: (tabId: string) => JSX.Element;
