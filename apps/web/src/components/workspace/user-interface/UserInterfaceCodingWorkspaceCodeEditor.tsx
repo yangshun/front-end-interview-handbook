@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useCallback } from 'react';
 import { RiFolder3Line } from 'react-icons/ri';
 
@@ -5,6 +6,7 @@ import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import Button from '~/components/ui/Button';
+import { themeDivideColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
@@ -26,8 +28,9 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
   }, [filePath]);
 
   return (
-    <div className="flex w-full flex-col">
-      <div className="flex items-center justify-between px-3 py-1.5">
+    <div
+      className={clsx('flex w-full flex-col', ['divide-y', themeDivideColor])}>
+      <div className="flex items-center justify-between gap-x-2 px-3 py-1.5">
         <div className="-ml-1">
           <Button
             icon={RiFolder3Line}

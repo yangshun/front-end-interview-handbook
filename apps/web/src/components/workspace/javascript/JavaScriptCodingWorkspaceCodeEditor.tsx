@@ -1,7 +1,10 @@
+import clsx from 'clsx';
+
 import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
+import { themeDivideColor } from '~/components/ui/theme';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
@@ -20,8 +23,9 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
   const isMainFile = filePath === workspace.main;
 
   return (
-    <div className="flex w-full flex-col">
-      <div className="flex items-center justify-between px-3 py-1.5">
+    <div
+      className={clsx('flex w-full flex-col', ['divide-y', themeDivideColor])}>
+      <div className="flex items-center justify-between gap-x-2 px-3 py-1.5">
         <div>
           {isMainFile && (
             <QuestionCodingWorkingLanguageSelect
