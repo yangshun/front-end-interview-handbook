@@ -15,7 +15,7 @@
     "gen": "cross-env NODE_ENV=production ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-gen-cli.ts",
     "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-watcher.ts",
     "gen:ts": "ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-javascript-preprocess.ts",
-    "gen:migrate": "ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-javascript-migrate.ts",
+    "gen:migrate": "ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-ui-migrate.ts",
     "gen:all": "npm run gen:clean && npm run gen:ts && npm run gen",
     "gen:clean": "rimraf src/__generated__",
     "postinstall": "prisma generate",
