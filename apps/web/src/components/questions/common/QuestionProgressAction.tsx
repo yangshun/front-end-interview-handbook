@@ -15,12 +15,12 @@ import {
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
 
-import type { QuestionBase } from './QuestionsTypes';
+import type { QuestionMetadata } from './QuestionsTypes';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  question: QuestionBase;
+  metadata: QuestionMetadata;
   questionProgress?: QuestionProgress | null;
   signInModalContents?: React.ReactNode;
 }>;
@@ -28,7 +28,7 @@ type Props = Readonly<{
 export default function QuestionProgressAction({
   signInModalContents,
   questionProgress,
-  question,
+  metadata,
 }: Props) {
   const searchParams = useSearchParams();
 
@@ -43,6 +43,7 @@ export default function QuestionProgressAction({
     return (
       <>
         <Button
+          addonPosition="start"
           icon={RiCheckLine}
           label={intl.formatMessage({
             defaultMessage: 'Mark as complete',
@@ -123,7 +124,7 @@ export default function QuestionProgressAction({
         variant="success"
         onClick={() => {
           deleteProgressMutation.mutate(
-            { format: question.metadata.format, slug: question.metadata.slug },
+            { format: metadata.format, slug: metadata.slug },
             {
               onError: () => {
                 showToast({
@@ -145,7 +146,7 @@ export default function QuestionProgressAction({
                       'Success message shown when a question is marked as complete',
                     id: 'oR0ECI',
                   }),
-                  variant: 'success',
+                  variant: 'info',
                 });
               },
             },
@@ -157,22 +158,24 @@ export default function QuestionProgressAction({
 
   return (
     <Button
+      addonPosition="start"
+      icon={RiCheckLine}
       isDisabled={addProgressMutation.isLoading}
       isLoading={addProgressMutation.isLoading}
       label={intl.formatMessage({
-        defaultMessage: 'Mark as Complete',
+        defaultMessage: 'Mark as complete',
         description: 'Mark the question as complete',
-        id: 'Se6J8o',
+        id: 'lfKH/E',
       })}
       size="xs"
       variant="secondary"
       onClick={() => {
         addProgressMutation.mutate(
           {
-            format: question.metadata.format,
+            format: metadata.format,
             listKey: searchParams?.get('list') ?? undefined,
             progressId: questionProgress?.id,
-            slug: question.metadata.slug,
+            slug: metadata.slug,
             status: 'complete',
           },
           {
@@ -202,8 +205,8 @@ export default function QuestionProgressAction({
           },
         );
         logEvent('question.mark_complete', {
-          format: question.metadata.format,
-          slug: question.metadata.slug,
+          format: metadata.format,
+          slug: metadata.slug,
         });
       }}
     />

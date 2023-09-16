@@ -393,7 +393,7 @@ function Contents({
               <div className="flex items-center space-x-2">
                 {showCompletionButton && (
                   <QuestionProgressAction
-                    question={question}
+                    metadata={question.metadata}
                     questionProgress={questionProgress}
                     signInModalContents={
                       nextQuestions.length > 0 && (

@@ -269,7 +269,7 @@ function MiddleRightPaneContents({
                   }}
                 />
                 <QuestionProgressAction
-                  question={question}
+                  metadata={question.metadata}
                   questionProgress={questionProgress}
                   signInModalContents={
                     nextQuestions.length > 0 && (

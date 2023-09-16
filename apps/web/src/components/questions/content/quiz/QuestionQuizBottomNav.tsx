@@ -48,7 +48,7 @@ export default function QuestionQuizBottomNav({
                 isSuccess ? 'opacity-100' : 'opacity-0',
               )}>
               <QuestionProgressAction
-                question={question}
+                metadata={question.metadata}
                 questionProgress={questionProgress}
               />
             </div>

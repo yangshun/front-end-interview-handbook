@@ -109,7 +109,7 @@ export default function QuestionContentsSystemDesign({
               isSuccess ? 'opacity-100' : 'opacity-0',
             )}>
             <QuestionProgressAction
-              question={question}
+              metadata={question.metadata}
               questionProgress={questionProgress}
             />
           </div>
