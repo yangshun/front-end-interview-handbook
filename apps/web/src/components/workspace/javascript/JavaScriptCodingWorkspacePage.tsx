@@ -5,6 +5,7 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
+import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
@@ -46,7 +47,7 @@ export default function JavaScriptCodingWorkspacePage({
         }}
         files={finalFiles}
         options={{
-          bundlerURL: 'https://bundler.greatfrontend.com',
+          ...sandpackProviderOptions,
           classes: {
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-layout': 'h-full',
