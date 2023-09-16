@@ -17,22 +17,17 @@ import { VscLayout } from 'react-icons/vsc';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
-import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
-import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
-import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
-import JavaScriptCodingQuestionDescription from './JavaScriptCodingQuestionDescription';
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
+import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
 import type {
   JavaScriptCodingLanguage,
   JavaScriptCodingSkeleton,
@@ -47,6 +42,7 @@ import {
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
+import JavaScriptCodingWorkspaceQuestionDescription from './JavaScriptCodingWorkspaceQuestionDescription';
 import JavaScriptCodingWorkspaceTestsRunPanel from './JavaScriptCodingWorkspaceRunPanel';
 import JavaScriptCodingWorkspaceTestsSubmitPanel from './JavaScriptCodingWorkspaceSubmitPanel';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
@@ -105,43 +101,6 @@ function NewTabContents({
           </button>
         ))}
       </div>
-    </div>
-  );
-}
-
-function JavaScriptCodingCodeEditor({
-  filePath,
-}: Readonly<{
-  filePath: string;
-}>) {
-  const { resetFile } = useJavaScriptCodingWorkspaceContext();
-  const { sandpack } = useSandpack();
-  const { files, updateFile } = sandpack;
-
-  return (
-    <div className="flex w-full flex-col">
-      <div className="flex items-center justify-between px-1 py-1.5">
-        <QuestionCodingWorkingLanguageSelect value="js" onChange={() => {}} />
-        <div className="flex items-center gap-x-1.5">
-          <CodingWorkspaceThemeSelect />
-          <CodingWorkspaceEditorShortcutsButton />
-          <CodingWorkspaceResetButton
-            onClick={() => {
-              if (!confirm('Reset code to original? Changes will be lost!')) {
-                return;
-              }
-              resetFile(filePath);
-            }}
-          />
-        </div>
-      </div>
-      <MonacoCodeEditor
-        filePath={filePath}
-        value={files[filePath].code}
-        onChange={(val) => {
-          updateFile(filePath, val ?? '');
-        }}
-      />
     </div>
   );
 }
@@ -206,7 +165,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
     description: {
       contents: (
-        <JavaScriptCodingQuestionDescription
+        <JavaScriptCodingWorkspaceQuestionDescription
           canViewPremiumContent={canViewPremiumContent}
           description={description}
           metadata={metadata}
@@ -275,7 +234,7 @@ function JavaScriptCodingWorkspaceImpl({
       visibleFiles.map((file) => [
         file,
         {
-          contents: <JavaScriptCodingCodeEditor filePath={file} />,
+          contents: <JavaScriptCodingWorkspaceCodeEditor filePath={file} />,
           ...{
             [workspace.main]: { icon: RiCodeLine, label: 'Code' },
             [workspace.run]: { icon: RiFlaskLine, label: 'Test cases' },
