@@ -49,7 +49,7 @@ type Props = Readonly<{
   writeup: string | null;
 }>;
 
-export default function UserInterfaceCodingWorkspaceQuestionWriteup({
+export default function UserInterfaceCodingWorkspaceWriteup({
   canViewPremiumContent,
   framework,
   metadata,

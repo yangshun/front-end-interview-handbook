@@ -57,6 +57,7 @@ export default function UserInterfaceCodingWorkspacePage({
       <UserInterfaceCodingWorkspace
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={files!} // TODO(redesign): remove when the field is made compulsory
+        framework={question.framework}
         metadata={question.metadata}
         mode={mode}
         nextQuestions={nextQuestions}

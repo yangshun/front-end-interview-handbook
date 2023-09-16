@@ -14,6 +14,7 @@ import { VscLayout } from 'react-icons/vsc';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
 import type {
+  QuestionFramework,
   QuestionMetadata,
   QuestionUserInterfaceWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
@@ -32,7 +33,7 @@ import {
   getUserInterfaceCodingWorkspaceLayoutAdvanced,
 } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTabContents from './UserInterfaceCodingWorkspaceNewTabContents';
-import UserInterfaceCodingWorkspaceQuestionWriteup from './UserInterfaceCodingWorkspaceQuestionWriteup';
+import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
@@ -70,6 +71,7 @@ function extractFileNameFromPath(filePath: string) {
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultFiles,
+  framework,
   metadata,
   mode,
   nextQuestions,
@@ -78,6 +80,7 @@ function UserInterfaceCodingWorkspaceImpl({
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
+  framework: QuestionFramework;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -223,8 +226,9 @@ function UserInterfaceCodingWorkspaceImpl({
     },
     writeup: {
       contents: (
-        <UserInterfaceCodingWorkspaceQuestionWriteup
+        <UserInterfaceCodingWorkspaceWriteup
           canViewPremiumContent={canViewPremiumContent}
+          framework={framework}
           metadata={metadata}
           mode={mode}
           nextQuestions={nextQuestions}
@@ -233,7 +237,7 @@ function UserInterfaceCodingWorkspaceImpl({
         />
       ),
       icon: RiFileList2Line,
-      label: mode === 'practice' ? 'Description' : 'solution',
+      label: mode === 'practice' ? 'Description' : 'Solution',
     },
   };
 
@@ -409,6 +413,7 @@ function UserInterfaceCodingWorkspaceImpl({
 export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
+  framework,
   metadata,
   mode,
   nextQuestions,
@@ -417,6 +422,7 @@ export default function UserInterfaceCodingWorkspace({
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
+  framework: QuestionFramework;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -437,6 +443,7 @@ export default function UserInterfaceCodingWorkspace({
         <UserInterfaceCodingWorkspaceImpl
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={defaultFiles}
+          framework={framework}
           metadata={metadata}
           mode={mode}
           nextQuestions={nextQuestions}
