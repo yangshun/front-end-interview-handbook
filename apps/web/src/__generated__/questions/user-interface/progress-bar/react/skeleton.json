@@ -9,24 +9,28 @@
     "environment": "create-react-app",
     "main": "/App.js",
     "visibleFiles": [
-      "/App.js",
-      "/ProgressBar.js",
-      "/styles.css"
+      "/src/App.js",
+      "/src/ProgressBar.js",
+      "/src/styles.css"
     ],
+    "activeFile": "/src/ProgressBar.js",
     "files": {
-      "/App.js": {
-        "code": "import ProgressBar from './ProgressBar';\n\nimport './styles.css';\n\nexport default function App() {\n  return (\n    <div>\n      <ProgressBar />\n    </div>\n  );\n}\n"
-      },
-      "/index.js": {
-        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
-      },
-      "/ProgressBar.js": {
-        "code": "export default function ProgressBar() {\n  return <div className=\"progress\"></div>;\n}\n"
+      "/package.json": {
+        "code": "{\n  \"name\": \"@gfe-questions/progress-bar-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}"
       },
       "/public/index.html": {
         "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
       },
-      "/styles.css": {
+      "/src/App.js": {
+        "code": "import ProgressBar from './ProgressBar';\n\nimport './styles.css';\n\nexport default function App() {\n  return (\n    <div>\n      <ProgressBar />\n    </div>\n  );\n}\n"
+      },
+      "/src/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/src/ProgressBar.js": {
+        "code": "export default function ProgressBar() {\n  return <div className=\"progress\"></div>;\n}\n"
+      },
+      "/src/styles.css": {
         "code": "body {\n  font-family: sans-serif;\n}\n\n.progress {\n  background-color: rgb(233, 236, 239);\n  border: 1px solid #c5c5c5;\n  border-radius: 8px;\n  height: 20px;\n}\n"
       }
     }

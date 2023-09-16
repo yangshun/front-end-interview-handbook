@@ -9,25 +9,28 @@
     "environment": "create-react-app",
     "main": "/App.js",
     "visibleFiles": [
-      "/App.js",
-      "/Clock.js",
-      "/styles.css"
+      "/src/App.js",
+      "/src/Clock.js",
+      "/src/styles.css"
     ],
-    "activeFile": "/Clock.js",
+    "activeFile": "/src/Clock.js",
     "files": {
-      "/App.js": {
-        "code": "import Clock from './Clock';\n\nimport './styles.css';\n\nexport default function App() {\n  return <Clock />;\n}\n"
-      },
-      "/Clock.js": {
-        "code": "export default function Clock() {\n  return <div>10:35:54</div>;\n}\n"
-      },
-      "/index.js": {
-        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      "/package.json": {
+        "code": "{\n  \"name\": \"@gfe-questions/digital-clock-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}"
       },
       "/public/index.html": {
         "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
       },
-      "/styles.css": {
+      "/src/App.js": {
+        "code": "import Clock from './Clock';\n\nimport './styles.css';\n\nexport default function App() {\n  return <Clock />;\n}\n"
+      },
+      "/src/Clock.js": {
+        "code": "export default function Clock() {\n  return <div>10:35:54</div>;\n}\n"
+      },
+      "/src/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/src/styles.css": {
         "code": "body {\n  font-family: sans-serif;\n}\n"
       }
     }

@@ -13,6 +13,9 @@
       "/index.html": {
         "code": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div>\n      <div>\n        <button>HTML</button>\n        <button>CSS</button>\n        <button>JavaScript</button>\n      </div>\n      <div>\n        <p>The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web\n        browser.</p>\n        <p>Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup\n        language such as HTML or XML.</p>\n        <p>JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide\n        Web, alongside HTML and CSS.</p>\n      </div>\n    </div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
       },
+      "/package.json": {
+        "code": "{\n  \"name\": \"@gfe-questions/tabs-vanilla-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}"
+      },
       "/src/index.js": {
         "code": "import './styles.css';\n\n// Write your JavaScript here.\n"
       },

@@ -9,25 +9,28 @@
     "environment": "create-react-app",
     "main": "/App.js",
     "visibleFiles": [
-      "/App.js",
-      "/styles.css",
-      "/submitForm.js"
+      "/src/App.js",
+      "/src/styles.css",
+      "/src/submitForm.js"
     ],
-    "activeFile": "/App.js",
+    "activeFile": "/src/App.js",
     "files": {
-      "/App.js": {
-        "code": "import './styles.css';\nimport submitForm from './submitForm';\n\nexport default function App() {\n  return (\n    <form\n      // Ignore the onSubmit prop, it's used by GFE to\n      // intercept the form submit event to check your solution.\n      onSubmit={submitForm}>\n      <input type=\"text\" />\n    </form>\n  );\n}\n"
-      },
-      "/index.js": {
-        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      "/package.json": {
+        "code": "{\n  \"name\": \"@gfe-questions/contact-form-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}"
       },
       "/public/index.html": {
         "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
       },
-      "/styles.css": {
+      "/src/App.js": {
+        "code": "import './styles.css';\nimport submitForm from './submitForm';\n\nexport default function App() {\n  return (\n    <form\n      // Ignore the onSubmit prop, it's used by GFE to\n      // intercept the form submit event to check your solution.\n      onSubmit={submitForm}>\n      <input type=\"text\" />\n    </form>\n  );\n}\n"
+      },
+      "/src/index.js": {
+        "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      },
+      "/src/styles.css": {
         "code": "body {\n  font-family: sans-serif;\n}\n"
       },
-      "/submitForm.js": {
+      "/src/submitForm.js": {
         "code": "const SUBMIT_URL =\n  'https://www.greatfrontend.com/api/questions/contact-form';\n\nexport default async function submitForm(event) {\n  event.preventDefault();\n  const form = event.target;\n\n  try {\n    if (form.action !== SUBMIT_URL) {\n      alert('Incorrect form action value');\n      return;\n    }\n\n    if (form.method.toLowerCase() !== 'post') {\n      alert('Incorrect form method value');\n      return;\n    }\n\n    const formData = new FormData(form);\n    const response = await fetch(SUBMIT_URL, {\n      method: 'POST',\n      headers: {\n        'Content-Type': 'application/json',\n      },\n      body: JSON.stringify({\n        name: formData.get('name'),\n        email: formData.get('email'),\n        message: formData.get('message'),\n      }),\n    });\n\n    const text = await response.text();\n    alert(text);\n  } catch (_) {\n    alert('Error submitting form!');\n  }\n}\n"
       }
     }
