@@ -4,6 +4,7 @@ import type {
   QuestionJavaScriptV2,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
+import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
@@ -26,10 +27,15 @@ export default function JavaScriptCodingWorkspacePage({
   const { description, workspace, files, skeleton, solution, metadata } =
     question;
   const [language] = useCodingWorkspaceWorkingLanguage();
+  const { code } = useJavaScriptQuestionCode(
+    question.metadata,
+    language,
+    question.skeleton,
+  );
 
   const finalFiles = {
     ...files,
-    [workspace.main]: skeleton[language],
+    [workspace.main]: code,
   };
 
   return (

@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScriptSkeleton,
@@ -23,6 +25,7 @@ type Payload = Readonly<{
   version: 'v1';
 }>;
 
+// Actually this doesn't need to be a hook...
 export default function useJavaScriptQuestionCode(
   metadata: QuestionMetadata,
   language: QuestionCodingWorkingLanguage,
@@ -31,24 +34,27 @@ export default function useJavaScriptQuestionCode(
   let loadedCodeFromClientStorage = false;
   const questionKey = makeQuestionKey(metadata, language);
 
-  function saveCode(code: string) {
-    setTimeout(() => {
-      const savePayload: Payload = {
-        code,
-        format: 'javascript',
-        language,
-        version: 'v1',
-      };
+  const saveCode = useCallback(
+    (code: string) => {
+      setTimeout(() => {
+        const savePayload: Payload = {
+          code,
+          format: 'javascript',
+          language,
+          version: 'v1',
+        };
 
-      window.localStorage.setItem(questionKey, JSON.stringify(savePayload));
-    }, 0);
-  }
+        window.localStorage.setItem(questionKey, JSON.stringify(savePayload));
+      }, 0);
+    },
+    [language, questionKey],
+  );
 
-  function deleteCodeFromClientStorage() {
+  const deleteCodeFromClientStorage = useCallback(() => {
     setTimeout(() => {
       window.localStorage.removeItem(questionKey);
     }, 0);
-  }
+  }, [questionKey]);
 
   const code = (() => {
     const defaultCode = skeleton?.[language] ?? '';

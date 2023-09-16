@@ -1,12 +1,15 @@
 import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 import { createContext, useCallback, useContext } from 'react';
 
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScriptSkeleton,
 } from '~/components/questions/common/QuestionsTypes';
+import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
 
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
+import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -49,18 +52,34 @@ JavaScriptCodingWorkspaceContext.displayName =
 
 type Props = Readonly<{
   children: ReactNode;
+  metadata: QuestionMetadata;
   skeleton: QuestionJavaScriptSkeleton;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>;
 
 export function JavaScriptCodingWorkspaceContextProvider({
   children,
+  metadata,
   skeleton,
   workspace,
 }: Props) {
   const { sandpack } = useSandpack();
-  const { updateFile, resetFile } = sandpack;
+  const { updateFile, resetFile, files } = sandpack;
   const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
+
+  const { saveCode, deleteCodeFromClientStorage } = useJavaScriptQuestionCode(
+    metadata,
+    language,
+    skeleton,
+  );
+
+  const mainFile = files[workspace.main];
+
+  useEffect(() => {
+    if (mainFile.code != null) {
+      saveCode(mainFile.code);
+    }
+  }, [mainFile.code, saveCode]);
 
   const resetFileCustom = useCallback(
     (filePath: string) => {
@@ -75,8 +94,14 @@ export function JavaScriptCodingWorkspaceContextProvider({
 
   const resetAllFiles = useCallback(() => {
     resetFileCustom(workspace.main);
-    resetFile(workspace.run);
-  }, [resetFile, resetFileCustom, workspace.run, workspace.main]);
+    resetFileCustom(workspace.run);
+    deleteCodeFromClientStorage();
+  }, [
+    resetFileCustom,
+    workspace.main,
+    workspace.run,
+    deleteCodeFromClientStorage,
+  ]);
 
   return (
     <JavaScriptCodingWorkspaceContext.Provider
