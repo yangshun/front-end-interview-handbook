@@ -9,6 +9,7 @@ import { QuestionFrameworkLabels } from '~/components/questions/common/Questions
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
 import { readQuestionUserInterfaceV2 } from '~/db/QuestionsContentsReader';
@@ -151,7 +152,8 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
+  const isQuestionLockedForUser =
+    question.metadata.premium && !canViewPremiumContent;
   const { url } = frameworkAgnosticLinks(question, mode);
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
@@ -205,13 +207,17 @@ export default async function Page({ params }: Props) {
         url={url}
         useAppDir={true}
       />
-      <UserInterfaceCodingWorkspacePage
-        canViewPremiumContent={canViewPremiumContent}
-        mode={mode}
-        nextQuestions={nextQuestions}
-        question={question}
-        similarQuestions={similarQuestions}
-      />
+      {isQuestionLockedForUser ? (
+        <CodingWorkspacePaywallPage />
+      ) : (
+        <UserInterfaceCodingWorkspacePage
+          canViewPremiumContent={canViewPremiumContent}
+          mode={mode}
+          nextQuestions={nextQuestions}
+          question={question}
+          similarQuestions={similarQuestions}
+        />
+      )}
     </>
   );
 }

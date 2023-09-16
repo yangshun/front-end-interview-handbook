@@ -5,7 +5,7 @@ import PromoBanner from '~/components/global/banners/PromoBanner';
 import NavbarImpl from '~/components/global/navbar/NavbarImpl';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 
-export default function JavaScriptCodingWorkspacePaywallPage() {
+export default function CodingWorkspacePaywallPage() {
   return (
     <>
       <PromoBanner />

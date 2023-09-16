@@ -2,8 +2,8 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
-import JavaScriptCodingWorkspacePaywallPage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePaywallPage';
 
 import { readQuestionJavaScriptContentsV2 } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
@@ -115,7 +115,7 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (
-        <JavaScriptCodingWorkspacePaywallPage />
+        <CodingWorkspacePaywallPage />
       ) : (
         <JavaScriptCodingWorkspacePage
           canViewPremiumContent={canViewPremiumContent}
