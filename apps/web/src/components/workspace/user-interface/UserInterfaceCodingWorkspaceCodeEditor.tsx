@@ -6,6 +6,7 @@ import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 import { themeDivideColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
@@ -15,8 +16,10 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 
 export default function UserInterfaceCodingWorkspaceCodeEditor({
   filePath,
+  showNotSavedBanner,
 }: Readonly<{
   filePath: string;
+  showNotSavedBanner: boolean;
 }>) {
   const { sandpack } = useSandpack();
   const { files, updateFile, setActiveFile, resetFile } = sandpack;
@@ -62,6 +65,15 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           />
         </div>
       </div>
+      {showNotSavedBanner && (
+        <Text
+          className={clsx('bg-brand-dark p-2 text-center')}
+          color="light"
+          size="body3">
+          You are viewing the solution. Changes made to the code will not be
+          saved.
+        </Text>
+      )}
       <MonacoCodeEditor
         filePath={filePath}
         value={files[filePath].code}

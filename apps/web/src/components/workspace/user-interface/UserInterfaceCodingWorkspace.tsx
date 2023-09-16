@@ -139,7 +139,10 @@ function UserInterfaceCodingWorkspaceImpl({
       ...tabContents,
       [filePath]: {
         contents: (
-          <UserInterfaceCodingWorkspaceCodeEditor filePath={filePath} />
+          <UserInterfaceCodingWorkspaceCodeEditor
+            filePath={filePath}
+            showNotSavedBanner={mode === 'solution'}
+          />
         ),
         icon: RiCodeLine,
         label: extractFileNameFromPath(filePath),
@@ -248,7 +251,10 @@ function UserInterfaceCodingWorkspaceImpl({
         filePath,
         {
           contents: (
-            <UserInterfaceCodingWorkspaceCodeEditor filePath={filePath} />
+            <UserInterfaceCodingWorkspaceCodeEditor
+              filePath={filePath}
+              showNotSavedBanner={mode === 'solution'}
+            />
           ),
           icon: RiCodeLine,
           label: extractFileNameFromPath(filePath),
@@ -380,6 +386,7 @@ function UserInterfaceCodingWorkspaceImpl({
                             contents: (
                               <UserInterfaceCodingWorkspaceCodeEditor
                                 filePath={data.payload.file}
+                                showNotSavedBanner={mode === 'solution'}
                               />
                             ),
                             icon: RiCodeLine,
