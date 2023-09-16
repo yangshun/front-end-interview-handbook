@@ -16,6 +16,10 @@
       "href": "/questions/user-interface/counter/react"
     },
     {
+      "framework": "angular",
+      "href": "/questions/user-interface/counter/angular"
+    },
+    {
       "framework": "vanilla",
       "href": "/questions/user-interface/counter/vanilla"
     }
