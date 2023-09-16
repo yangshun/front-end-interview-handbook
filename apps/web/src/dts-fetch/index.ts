@@ -37,7 +37,7 @@ export async function fetchDtsList(
     const packageJson = await fetchPackageJson(packageName, packageVersion);
     const dtsMap = gatherDts(packageJson);
     const packageCdnUrl = makePackageUrl(packageName, packageVersion);
-    const urls = Object.entries(dtsMap).map(([dtsPath]) => {
+    const urls = Object.values(dtsMap).map((dtsPath) => {
       const dtsRelativePath = stripLeadingPeriodAndSlash(dtsPath);
       const dtsCdnUrl = packageCdnUrl + dtsRelativePath;
 
