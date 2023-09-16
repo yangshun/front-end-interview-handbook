@@ -67,7 +67,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
     <div className="flex w-full flex-col">
       <div className="flex flex-col">
         <div className="flex items-center justify-between gap-x-4 p-4">
-          <div className="flex items-center gap-x-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <Heading level="heading5">
               <span>
                 {metadata.title} {mode === 'solution' && ' Solution'}

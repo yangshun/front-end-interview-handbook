@@ -30,6 +30,7 @@ import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
+import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
 import {
   JavaScriptCodingWorkspaceContextProvider,
@@ -50,7 +51,6 @@ import {
   CodingWorkspaceProvider,
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
-import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -335,7 +335,7 @@ function JavaScriptCodingWorkspaceImpl({
           />
         </div>
       </div>
-      <CodingWorkspaceBottomBar
+      <JavaScriptCodingWorkspaceBottomBar
         metadata={metadata}
         nextQuestions={nextQuestions}
       />
