@@ -57,19 +57,21 @@ export default function QuestionCompanies({
             })}
           />
         ) : recognizedCompanies.length > 0 ? (
-          recognizedCompanies.map((company) => (
-            <Fragment key={company}>
-              <span
-                className={clsx(
-                  'relative inline-flex items-center rounded-full border px-3 py-0.5',
-                  themeLineColor,
-                )}>
-                <Text color="secondary" size="body3">
-                  {companyNames[company].label}
-                </Text>
-              </span>{' '}
-            </Fragment>
-          ))
+          <div className="flex flex-wrap gap-x-2">
+            {recognizedCompanies.map((company) => (
+              <Fragment key={company}>
+                <span
+                  className={clsx(
+                    'relative inline-flex items-center rounded-full border px-3 py-0.5',
+                    themeLineColor,
+                  )}>
+                  <Text color="secondary" size="body3">
+                    {companyNames[company].label}
+                  </Text>
+                </span>{' '}
+              </Fragment>
+            ))}
+          </div>
         ) : (
           <Text color="secondary" display="block" size="body2">
             <FormattedMessage
