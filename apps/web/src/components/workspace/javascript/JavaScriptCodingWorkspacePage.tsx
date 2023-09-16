@@ -31,34 +31,36 @@ export default function JavaScriptCodingWorkspacePage({
   };
 
   return (
-    <SandpackProvider
-      customSetup={{
-        environment: 'parcel',
-      }}
-      files={finalFiles}
-      options={{
-        bundlerURL: 'https://bundler.greatfrontend.com',
-        classes: {
-          'sp-input': 'touch-none select-none pointer-events-none',
-          'sp-layout': 'h-full',
-          'sp-stack': 'h-full',
-          'sp-wrapper': '!w-full !h-screen',
-        },
-        visibleFiles: [workspace.main, workspace.run],
-      }}
-      theme="dark">
-      <JavaScriptCodingWorkspace
-        canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={finalFiles}
-        defaultLanguage={language}
-        description={description}
-        metadata={metadata}
-        nextQuestions={nextQuestions}
-        similarQuestions={similarQuestions}
-        skeleton={skeleton}
-        solution={solution}
-        workspace={workspace}
-      />
-    </SandpackProvider>
+    <div className="min-h-[500px] w-full">
+      <SandpackProvider
+        customSetup={{
+          environment: 'parcel',
+        }}
+        files={finalFiles}
+        options={{
+          bundlerURL: 'https://bundler.greatfrontend.com',
+          classes: {
+            'sp-input': 'touch-none select-none pointer-events-none',
+            'sp-layout': 'h-full',
+            'sp-stack': 'h-full',
+            'sp-wrapper': '!w-full !h-screen',
+          },
+          visibleFiles: [workspace.main, workspace.run],
+        }}
+        theme="dark">
+        <JavaScriptCodingWorkspace
+          canViewPremiumContent={canViewPremiumContent}
+          defaultFiles={finalFiles}
+          defaultLanguage={language}
+          description={description}
+          metadata={metadata}
+          nextQuestions={nextQuestions}
+          similarQuestions={similarQuestions}
+          skeleton={skeleton}
+          solution={solution}
+          workspace={workspace}
+        />
+      </SandpackProvider>
+    </div>
   );
 }

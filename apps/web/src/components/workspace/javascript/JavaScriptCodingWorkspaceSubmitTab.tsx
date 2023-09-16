@@ -16,7 +16,7 @@ import TestsSection from '../common/tests/TestsSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-export default function JavaScriptCodingWorkspaceTestsSubmitPanel({
+export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,
   specPath,
 }: Readonly<{

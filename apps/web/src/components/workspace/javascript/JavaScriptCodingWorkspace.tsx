@@ -42,9 +42,10 @@ import {
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
+import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceQuestionDescription from './JavaScriptCodingWorkspaceQuestionDescription';
-import JavaScriptCodingWorkspaceTestsRunPanel from './JavaScriptCodingWorkspaceRunPanel';
-import JavaScriptCodingWorkspaceTestsSubmitPanel from './JavaScriptCodingWorkspaceSubmitPanel';
+import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
+import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import {
   CodingWorkspaceProvider,
@@ -77,33 +78,6 @@ export type PredefinedTabsContents = Record<
     label: string;
   }>
 >;
-
-function NewTabContents({
-  predefinedTabs,
-  onSelectTabType,
-}: Readonly<{
-  onSelectTabType: (tabType: TabsType) => void;
-  predefinedTabs: PredefinedTabsContents;
-}>) {
-  return (
-    <div className="flex flex-col gap-2 p-4">
-      <p className="text-sm font-medium">Tools</p>
-      <div className="flex flex-wrap gap-2">
-        {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
-          <button
-            key={tabType}
-            className="rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
-            type="button"
-            onClick={() => {
-              onSelectTabType(tabType as TabsType);
-            }}>
-            {tabDetails.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
@@ -178,7 +152,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
     run_tests: {
       contents: (
-        <JavaScriptCodingWorkspaceTestsRunPanel specPath={workspace.run} />
+        <JavaScriptCodingWorkspaceTestsRunTab specPath={workspace.run} />
       ),
       icon: RiPlayLine,
       label: 'Run tests',
@@ -196,7 +170,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
     submit: {
       contents: (
-        <JavaScriptCodingWorkspaceTestsSubmitPanel
+        <JavaScriptCodingWorkspaceTestsSubmitTab
           metadata={metadata}
           specPath={workspace.submit}
         />
@@ -329,47 +303,49 @@ function JavaScriptCodingWorkspaceImpl({
           </DropdownMenu>
         </div>
       </div>
-      <div className="flex w-full grow px-3">
-        <TilesPanelRoot
-          disablePointerEventsDuringResize={true}
-          getResizeHandlerProps={(direction) => ({
-            children: (
-              <div
-                className={clsx(
-                  'transition-color absolute rounded-full ease-in-out group-hover:bg-indigo-400',
-                  direction === 'horizontal' && 'inset-x-0 inset-y-1',
-                  direction === 'vertical' && 'inset-x-1 inset-y-0',
-                )}
-              />
-            ),
-            className: clsx(
-              'relative bg-transparent group',
-              direction === 'horizontal' && 'h-3',
-              direction === 'vertical' && 'w-3',
-            ),
-          })}
-          getTabLabel={(tabId) => ({
-            icon: tabContents[tabId]?.icon,
-            label: tabContents[tabId]?.label ?? `New tab`,
-          })}
-          renderTab={(tabId) =>
-            tabContents[tabId] != null ? (
-              <div className="flex h-full w-full">
-                {tabContents[tabId].contents}
-              </div>
-            ) : (
-              <NewTabContents
-                predefinedTabs={predefinedTabs}
-                onSelectTabType={(tabType) => {
-                  setTabContents({
-                    ...tabContents,
-                    [tabId]: { ...tabContents[tabType] },
-                  });
-                }}
-              />
-            )
-          }
-        />
+      <div className="flex grow overflow-x-auto">
+        <div className="flex w-full min-w-[1024px] grow px-3">
+          <TilesPanelRoot
+            disablePointerEventsDuringResize={true}
+            getResizeHandlerProps={(direction) => ({
+              children: (
+                <div
+                  className={clsx(
+                    'transition-color absolute rounded-full ease-in-out group-hover:bg-indigo-400',
+                    direction === 'horizontal' && 'inset-x-0 inset-y-1',
+                    direction === 'vertical' && 'inset-x-1 inset-y-0',
+                  )}
+                />
+              ),
+              className: clsx(
+                'relative bg-transparent group',
+                direction === 'horizontal' && 'h-3',
+                direction === 'vertical' && 'w-3',
+              ),
+            })}
+            getTabLabel={(tabId) => ({
+              icon: tabContents[tabId]?.icon,
+              label: tabContents[tabId]?.label ?? `New tab`,
+            })}
+            renderTab={(tabId) =>
+              tabContents[tabId] != null ? (
+                <div className="flex h-full w-full">
+                  {tabContents[tabId].contents}
+                </div>
+              ) : (
+                <JavaScriptCodingWorkspaceNewTab
+                  predefinedTabs={predefinedTabs}
+                  onSelectTabType={(tabType) => {
+                    setTabContents({
+                      ...tabContents,
+                      [tabId]: { ...tabContents[tabType] },
+                    });
+                  }}
+                />
+              )
+            }
+          />
+        </div>
       </div>
       <JavaScriptCodingWorkspaceBottomBar
         metadata={metadata}

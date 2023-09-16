@@ -5,7 +5,7 @@ import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import TestsSection from '../common/tests/TestsSection';
 
-export default function JavaScriptCodingWorkspaceTestsRunPanel({
+export default function JavaScriptCodingWorkspaceTestsRunTab({
   specPath,
 }: Readonly<{
   specPath: string;
