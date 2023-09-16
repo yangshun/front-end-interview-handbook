@@ -1,7 +1,10 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext } from 'react';
 
-import type { QuestionCodingWorkingLanguage } from '~/components/questions/common/QuestionsTypes';
+import type {
+  QuestionCodingWorkingLanguage,
+  QuestionJavaScriptSkeleton,
+} from '~/components/questions/common/QuestionsTypes';
 
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 
@@ -13,14 +16,9 @@ export type JavaScriptCodingWorkspaceConfig = Readonly<{
   submit: string;
 }>;
 
-export type JavaScriptCodingSkeleton = Record<
-  QuestionCodingWorkingLanguage,
-  string
->;
-
 export type QuestionJavaScriptV2 = Readonly<{
   files: Record<string, string>;
-  skeleton: JavaScriptCodingSkeleton;
+  skeleton: QuestionJavaScriptSkeleton;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>;
 
@@ -29,7 +27,7 @@ type Context = Readonly<{
   resetAllFiles: () => void;
   resetFile: (filePath: string) => void;
   setLanguage: (language: QuestionCodingWorkingLanguage) => void;
-  skeleton: JavaScriptCodingSkeleton;
+  skeleton: QuestionJavaScriptSkeleton;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>;
 
@@ -51,7 +49,7 @@ JavaScriptCodingWorkspaceContext.displayName =
 
 type Props = Readonly<{
   children: ReactNode;
-  skeleton: JavaScriptCodingSkeleton;
+  skeleton: QuestionJavaScriptSkeleton;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>;
 

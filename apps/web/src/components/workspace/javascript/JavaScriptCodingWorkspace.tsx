@@ -16,7 +16,10 @@ import { VscLayout } from 'react-icons/vsc';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type {
+  QuestionJavaScriptSkeleton,
+  QuestionMetadata,
+} from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import Button from '~/components/ui/Button';
@@ -28,10 +31,7 @@ import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
-import type {
-  JavaScriptCodingSkeleton,
-  JavaScriptCodingWorkspaceConfig,
-} from './JavaScriptCodingWorkspaceContext';
+import type { JavaScriptCodingWorkspaceConfig } from './JavaScriptCodingWorkspaceContext';
 import {
   JavaScriptCodingWorkspaceContextProvider,
   useJavaScriptCodingWorkspaceContext,
@@ -368,7 +368,7 @@ export default function JavaScriptCodingWorkspace({
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  skeleton: JavaScriptCodingSkeleton;
+  skeleton: QuestionJavaScriptSkeleton;
   solution: string | null;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>) {
@@ -389,6 +389,7 @@ export default function JavaScriptCodingWorkspace({
             defaultFiles,
           }}>
           <JavaScriptCodingWorkspaceContextProvider
+            metadata={metadata}
             skeleton={skeleton}
             workspace={workspace}>
             <JavaScriptCodingWorkspaceImpl

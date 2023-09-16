@@ -469,7 +469,7 @@ export default function JavaScriptWorkspace({
     saveCode,
     deleteCodeFromClientStorage,
     loadedCodeFromClientStorage,
-  } = useJavaScriptQuestionCode(question, language);
+  } = useJavaScriptQuestionCode(question.metadata, language, question.skeleton);
 
   return (
     <SandpackProvider

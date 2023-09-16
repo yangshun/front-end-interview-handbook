@@ -1,17 +1,18 @@
 import type {
   QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
+  QuestionJavaScriptSkeleton,
+  QuestionMetadata,
 } from '../common/QuestionsTypes';
 
 function makeQuestionKey(
-  question: QuestionJavaScript,
+  metadata: QuestionMetadata,
   language: QuestionCodingWorkingLanguage,
 ): string {
   switch (language) {
     case 'js':
-      return `gfe:javascript:${question.metadata.slug}`;
+      return `gfe:javascript:${metadata.slug}`;
     case 'ts':
-      return `gfe:javascript:${question.metadata.slug}:ts`;
+      return `gfe:javascript:${metadata.slug}:ts`;
   }
 }
 
@@ -23,11 +24,12 @@ type Payload = Readonly<{
 }>;
 
 export default function useJavaScriptQuestionCode(
-  question: QuestionJavaScript,
+  metadata: QuestionMetadata,
   language: QuestionCodingWorkingLanguage,
+  skeleton: QuestionJavaScriptSkeleton | null,
 ) {
   let loadedCodeFromClientStorage = false;
-  const questionKey = makeQuestionKey(question, language);
+  const questionKey = makeQuestionKey(metadata, language);
 
   function saveCode(code: string) {
     setTimeout(() => {
@@ -49,7 +51,7 @@ export default function useJavaScriptQuestionCode(
   }
 
   const code = (() => {
-    const defaultCode = question.skeleton?.[language] ?? '';
+    const defaultCode = skeleton?.[language] ?? '';
 
     try {
       if (typeof window === 'undefined') {
