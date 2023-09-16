@@ -226,6 +226,7 @@ function UserInterfaceCodingWorkspaceImpl({
         <UserInterfaceCodingWorkspaceQuestionWriteup
           canViewPremiumContent={canViewPremiumContent}
           metadata={metadata}
+          mode={mode}
           nextQuestions={nextQuestions}
           similarQuestions={similarQuestions}
           writeup={writeup}
