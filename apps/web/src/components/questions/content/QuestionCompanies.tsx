@@ -5,30 +5,33 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import useCompanyNames from '~/hooks/useCompanyNames';
 
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
+import type { QuestionCompany } from '~/components/questions/common/QuestionsTypes';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeLineColor } from '~/components/ui/theme';
 
-import type { QuestionMetadata } from '../common/QuestionsTypes';
-
 type Props = Readonly<{
   canViewPremiumContent?: boolean;
-  question: QuestionMetadata;
+  companies: ReadonlyArray<QuestionCompany>;
 }>;
 
 export default function QuestionCompanies({
   canViewPremiumContent = false,
-  question,
+  companies,
 }: Props) {
   const companyNames = useCompanyNames();
-  const companies = question.companies.filter(
+  const recognizedCompanies = companies.filter(
     (company) => companyNames[company] != null,
   );
   const intl = useIntl();
 
+  if (recognizedCompanies.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-y-4">
       <Heading className="text-base font-semibold" level="custom">
         <FormattedMessage
           defaultMessage="Companies"
@@ -53,8 +56,8 @@ export default function QuestionCompanies({
               id: 'BPE/qv',
             })}
           />
-        ) : companies.length > 0 ? (
-          companies.map((company) => (
+        ) : recognizedCompanies.length > 0 ? (
+          recognizedCompanies.map((company) => (
             <Fragment key={company}>
               <span
                 className={clsx(

@@ -141,7 +141,7 @@ export default function QuestionContentsJavaScript({
               <Divider />
               <QuestionCompanies
                 canViewPremiumContent={canViewPremiumContent}
-                question={metadata}
+                companies={metadata.companies}
               />
             </>
           )}

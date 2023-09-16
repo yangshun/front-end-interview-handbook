@@ -79,7 +79,7 @@ export default function QuestionContentsSystemDesign({
                 <Divider />
                 <QuestionCompanies
                   canViewPremiumContent={canViewPremiumContent}
-                  question={metadata}
+                  companies={metadata.companies}
                 />
               </>
             )}

@@ -59,12 +59,10 @@ export default function JavaScriptCodingWorkspaceQuestionDescription({
       </div>
       <div className="flex flex-col gap-y-8 p-4">
         <QuestionContentProse contents={description} />
-        {metadata.companies && metadata.companies.length > 0 && (
-          <QuestionCompanies
-            canViewPremiumContent={canViewPremiumContent}
-            question={metadata}
-          />
-        )}
+        <QuestionCompanies
+          canViewPremiumContent={canViewPremiumContent}
+          companies={metadata.companies}
+        />
         <QuestionNextQuestions questions={nextQuestions} />
         <QuestionSimilarQuestions questions={similarQuestions} />
       </div>

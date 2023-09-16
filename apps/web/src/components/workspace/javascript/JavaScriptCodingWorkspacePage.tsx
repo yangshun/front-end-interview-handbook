@@ -53,7 +53,6 @@ export default function JavaScriptCodingWorkspacePage({
         <JavaScriptCodingWorkspace
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={finalFiles}
-          defaultLanguage={language}
           description={description}
           metadata={metadata}
           nextQuestions={nextQuestions}

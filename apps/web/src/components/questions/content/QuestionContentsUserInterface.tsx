@@ -200,7 +200,7 @@ export default function QuestionContentsUserInterface({
               <Divider />
               <QuestionCompanies
                 canViewPremiumContent={canViewPremiumContent}
-                question={metadata}
+                companies={metadata.companies}
               />
             </>
           )}

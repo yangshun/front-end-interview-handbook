@@ -11,6 +11,10 @@ export default function QuestionSimilarQuestions({
 }: Readonly<{
   questions: ReadonlyArray<QuestionMetadata>;
 }>) {
+  if (questions.length === 0) {
+    return null;
+  }
+
   return (
     <div className="grid gap-y-4">
       <Heading className="font-semibold" level="custom">
