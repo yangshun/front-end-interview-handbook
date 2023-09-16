@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
@@ -40,7 +42,7 @@ export default function QuestionPaywall({
       className={clsx(
         background &&
           clsx(
-            'dark:bg-neutral-950/60 rounded-lg border bg-white/60 px-8 backdrop-blur',
+            'rounded-lg border bg-white/60 px-8 backdrop-blur dark:bg-neutral-950/60',
             themeLineColor,
           ),
       )}>

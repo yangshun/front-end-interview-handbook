@@ -3,6 +3,7 @@ import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
+import JavaScriptCodingWorkspacePaywallPage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePaywallPage';
 
 import { readQuestionJavaScriptContentsV2 } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
@@ -113,13 +114,16 @@ export default async function Page({ params }: Props) {
         url={`${getSiteUrl()}${question.metadata.href}`}
         useAppDir={true}
       />
-      <JavaScriptCodingWorkspacePage
-        canViewPremiumContent={canViewPremiumContent}
-        isQuestionLockedForUser={isQuestionLockedForUser}
-        nextQuestions={nextQuestions}
-        question={question}
-        similarQuestions={similarQuestions}
-      />
+      {isQuestionLockedForUser ? (
+        <JavaScriptCodingWorkspacePaywallPage />
+      ) : (
+        <JavaScriptCodingWorkspacePage
+          canViewPremiumContent={canViewPremiumContent}
+          nextQuestions={nextQuestions}
+          question={question}
+          similarQuestions={similarQuestions}
+        />
+      )}
     </>
   );
 }

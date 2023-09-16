@@ -225,7 +225,6 @@ function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultLanguage,
   description,
-  isQuestionLockedForUser,
   nextQuestions,
   similarQuestions,
   metadata,
@@ -234,7 +233,6 @@ function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent: boolean;
   defaultLanguage: JavaScriptCodingLanguage;
   description: string | null;
-  isQuestionLockedForUser: boolean;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
@@ -297,18 +295,13 @@ function JavaScriptCodingWorkspaceImpl({
             </div>
           </div>
           <div className="flex flex-col gap-y-8 p-4">
-            <QuestionContentProse
-              contents={description}
-              isContentsHidden={isQuestionLockedForUser}
-            />
-            {!isQuestionLockedForUser &&
-              metadata.companies &&
-              metadata.companies.length > 0 && (
-                <QuestionCompanies
-                  canViewPremiumContent={canViewPremiumContent}
-                  question={metadata}
-                />
-              )}
+            <QuestionContentProse contents={description} />
+            {metadata.companies && metadata.companies.length > 0 && (
+              <QuestionCompanies
+                canViewPremiumContent={canViewPremiumContent}
+                question={metadata}
+              />
+            )}
             <QuestionNextQuestions questions={nextQuestions} />
             <QuestionSimilarQuestions questions={similarQuestions} />
           </div>
@@ -328,10 +321,7 @@ function JavaScriptCodingWorkspaceImpl({
       contents: (
         <div className="w-full">
           <div className="p-4">
-            <QuestionContentProse
-              contents={solution}
-              isContentsHidden={isQuestionLockedForUser}
-            />
+            <QuestionContentProse contents={solution} />
           </div>
         </div>
       ),
@@ -353,7 +343,6 @@ function JavaScriptCodingWorkspaceImpl({
           <div className="p-4">
             <QuestionContentsJavaScriptTestsCode
               contents={files[workspace.submit].code}
-              isContentsHidden={isQuestionLockedForUser}
             />
           </div>
         </div>
@@ -552,7 +541,6 @@ export default function JavaScriptCodingWorkspace({
   defaultFiles,
   defaultLanguage,
   description,
-  isQuestionLockedForUser,
   metadata,
   nextQuestions,
   similarQuestions,
@@ -564,7 +552,6 @@ export default function JavaScriptCodingWorkspace({
   defaultFiles: Record<string, string>;
   defaultLanguage: JavaScriptCodingLanguage;
   description: string | null;
-  isQuestionLockedForUser: boolean;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
@@ -595,7 +582,6 @@ export default function JavaScriptCodingWorkspace({
               canViewPremiumContent={canViewPremiumContent}
               defaultLanguage={defaultLanguage}
               description={description}
-              isQuestionLockedForUser={isQuestionLockedForUser}
               metadata={metadata}
               nextQuestions={nextQuestions}
               similarQuestions={similarQuestions}

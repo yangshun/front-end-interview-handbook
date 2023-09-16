@@ -10,7 +10,6 @@ import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
-  isQuestionLockedForUser: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionJavaScriptV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
@@ -18,7 +17,6 @@ type Props = Readonly<{
 
 export default function JavaScriptCodingWorkspacePage({
   canViewPremiumContent,
-  isQuestionLockedForUser,
   question,
   nextQuestions,
   similarQuestions,
@@ -54,7 +52,6 @@ export default function JavaScriptCodingWorkspacePage({
         defaultFiles={finalFiles}
         defaultLanguage={language}
         description={description}
-        isQuestionLockedForUser={isQuestionLockedForUser}
         metadata={metadata}
         nextQuestions={nextQuestions}
         similarQuestions={similarQuestions}
