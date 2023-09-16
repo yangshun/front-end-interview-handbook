@@ -13,18 +13,23 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
 }: Readonly<{
   filePath: string;
 }>) {
-  const { resetFile, language, setLanguage } =
+  const { resetFile, language, setLanguage, workspace } =
     useJavaScriptCodingWorkspaceContext();
   const { sandpack } = useSandpack();
   const { files, updateFile } = sandpack;
+  const isMainFile = filePath === workspace.main;
 
   return (
     <div className="flex w-full flex-col">
       <div className="flex items-center justify-between px-3 py-1.5">
-        <QuestionCodingWorkingLanguageSelect
-          value={language}
-          onChange={setLanguage}
-        />
+        <div>
+          {isMainFile && (
+            <QuestionCodingWorkingLanguageSelect
+              value={language}
+              onChange={setLanguage}
+            />
+          )}
+        </div>
         <div className="-mr-2 flex items-center gap-x-1.5">
           <CodingWorkspaceThemeSelect />
           <CodingWorkspaceEditorShortcutsButton />
