@@ -1,7 +1,8 @@
 {
   "visibleFiles": [
-    "/App.js",
-    "/StarRating.js",
-    "/styles.css"
-  ]
+    "/src/App.js",
+    "/src/StarRating.js",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/StarRating.js"
 }

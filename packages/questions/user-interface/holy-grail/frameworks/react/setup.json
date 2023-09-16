@@ -1,8 +1,8 @@
 {
   "visibleFiles": [
-    "/App.js",
-    "/styles.css",
+    "/src/App.js",
+    "/src/styles.css",
     "/public/index.html"
   ],
-  "activeFile": "/App.js"
+  "activeFile": "/src/App.js"
 }

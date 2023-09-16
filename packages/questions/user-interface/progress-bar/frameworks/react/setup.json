@@ -1,7 +1,8 @@
 {
   "visibleFiles": [
-    "/App.js",
-    "/ProgressBar.js",
-    "/styles.css"
-  ]
+    "/src/App.js",
+    "/src/ProgressBar.js",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/ProgressBar.js"
 }

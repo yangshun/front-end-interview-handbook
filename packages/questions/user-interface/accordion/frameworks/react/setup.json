@@ -1,8 +1,8 @@
 {
   "visibleFiles": [
-    "/App.js",
-    "/Accordion.js",
-    "/styles.css"
+    "/src/App.js",
+    "/src/Accordion.js",
+    "/src/styles.css"
   ],
   "activeFile": "/Accordion.js"
 }

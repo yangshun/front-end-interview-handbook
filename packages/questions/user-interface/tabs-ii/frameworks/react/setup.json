@@ -1,4 +1,8 @@
 {
-  "visibleFiles": ["/App.js", "/Tabs.js", "/styles.css"],
-  "activeFile": "/Tabs.js"
+  "visibleFiles": [
+    "/src/App.js",
+    "/src/Tabs.js",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/Tabs.js"
 }

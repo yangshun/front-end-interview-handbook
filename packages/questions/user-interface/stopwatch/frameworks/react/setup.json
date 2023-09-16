@@ -1,8 +1,8 @@
 {
   "visibleFiles": [
-    "/App.js",
-    "/Stopwatch.js",
-    "/styles.css"
+    "/src/App.js",
+    "/src/Stopwatch.js",
+    "/src/styles.css"
   ],
-  "activeFile": "/Stopwatch.js"
+  "activeFile": "/src/Stopwatch.js"
 }

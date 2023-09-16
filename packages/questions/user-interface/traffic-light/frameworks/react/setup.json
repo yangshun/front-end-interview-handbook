@@ -1,8 +1,8 @@
 {
   "visibleFiles": [
-    "/App.js",
-    "/TrafficLight.js",
-    "/styles.css"
+    "/src/App.js",
+    "/src/TrafficLight.js",
+    "/src/styles.css"
   ],
-  "activeFile": "/TrafficLight.js"
+  "activeFile": "/src/TrafficLight.js"
 }
