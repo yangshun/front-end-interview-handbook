@@ -1,0 +1,39 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "lyft"
+  ],
+  "created": 1656892800,
+  "difficulty": "medium",
+  "duration": 25,
+  "excerpt": "Build a 7-segment digital clock that shows the current time",
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/digital-clock/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/digital-clock/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/digital-clock",
+  "importance": "mid",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": false,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "digital-clock",
+  "subtitle": null,
+  "title": "Digital Clock",
+  "topics": []
+}

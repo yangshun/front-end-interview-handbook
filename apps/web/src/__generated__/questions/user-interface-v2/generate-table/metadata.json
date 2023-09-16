@@ -1,0 +1,38 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "google"
+  ],
+  "created": 1675123200,
+  "difficulty": "easy",
+  "duration": 15,
+  "excerpt": "Generate a table of numbers given the rows and columns",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/generate-table/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/generate-table/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/generate-table",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "generate-table",
+  "subtitle": null,
+  "title": "Generate Table",
+  "topics": []
+}

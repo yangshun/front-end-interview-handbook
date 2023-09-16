@@ -1,0 +1,38 @@
+{
+  "author": "yangshun",
+  "companies": [],
+  "created": 1658188800,
+  "difficulty": "easy",
+  "duration": 20,
+  "excerpt": "Build a component that resembles a Tweet from Twitter",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/tweet/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/tweet/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/tweet",
+  "importance": "mid",
+  "languages": [
+    "html",
+    "css"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "holy-grail"
+  ],
+  "slug": "tweet",
+  "subtitle": null,
+  "title": "Tweet",
+  "topics": []
+}

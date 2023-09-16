@@ -1,0 +1,45 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "uber"
+  ],
+  "created": 1656720000,
+  "difficulty": "easy",
+  "duration": 15,
+  "excerpt": "Build a progress bar component that shows the percentage completion of an operation",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/progress-bar/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/progress-bar/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/progress-bar",
+  "importance": "mid",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "progress-bars",
+    "flatten",
+    "star-rating"
+  ],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "star-rating"
+  ],
+  "slug": "progress-bar",
+  "subtitle": null,
+  "title": "Progress Bar",
+  "topics": []
+}

@@ -1,0 +1,42 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "cisco",
+    "uber"
+  ],
+  "created": 1670889600,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build a stopwatch widget that can measure how much time has passed",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/stopwatch/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/stopwatch/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/stopwatch",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "digital-clock"
+  ],
+  "slug": "stopwatch",
+  "subtitle": null,
+  "title": "Stopwatch",
+  "topics": []
+}
