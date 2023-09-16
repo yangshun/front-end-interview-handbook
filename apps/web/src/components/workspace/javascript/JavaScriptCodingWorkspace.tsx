@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   RiArrowGoBackLine,
   RiCheckboxLine,
@@ -26,7 +26,6 @@ import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWork
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
-import TestsSection from '~/components/workspace/common/tests/TestsSection';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
@@ -48,6 +47,8 @@ import {
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
+import JavaScriptCodingWorkspaceTestsRunPanel from './JavaScriptCodingWorkspaceRunPanel';
+import JavaScriptCodingWorkspaceTestsSubmitPanel from './JavaScriptCodingWorkspaceSubmitPanel';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import {
   CodingWorkspaceProvider,
@@ -145,76 +146,6 @@ function JavaScriptCodingCodeEditor({
   );
 }
 
-function JavaScriptCodingWorkspaceTestsRunSection({
-  specPath,
-}: Readonly<{
-  specPath: string;
-}>) {
-  const { dispatch } = useTilesContext();
-  const { status } = useCodingWorkspaceContext();
-
-  useEffect(() => {
-    if (status === 'running_tests') {
-      dispatch({
-        payload: {
-          tabId: 'run_tests',
-        },
-        type: 'tab-set-active',
-      });
-    }
-  }, [dispatch, status]);
-
-  return (
-    <TestsSection
-      specMode="run"
-      specPath={specPath}
-      onShowTestsCases={() => {
-        dispatch({
-          payload: {
-            tabId: specPath,
-          },
-          type: 'tab-set-active',
-        });
-      }}
-    />
-  );
-}
-
-function JavaScriptCodingWorkspaceTestsSubmitSection({
-  specPath,
-}: Readonly<{
-  specPath: string;
-}>) {
-  const { dispatch } = useTilesContext();
-  const { status } = useCodingWorkspaceContext();
-
-  useEffect(() => {
-    if (status === 'submitting') {
-      dispatch({
-        payload: {
-          tabId: 'submit',
-        },
-        type: 'tab-set-active',
-      });
-    }
-  }, [dispatch, status]);
-
-  return (
-    <TestsSection
-      specMode="submit"
-      specPath={specPath}
-      onShowTestsCases={() => {
-        dispatch({
-          payload: {
-            tabId: 'test_cases',
-          },
-          type: 'tab-set-active',
-        });
-      }}
-    />
-  );
-}
-
 function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultLanguage,
@@ -233,12 +164,12 @@ function JavaScriptCodingWorkspaceImpl({
   solution: string | null;
 }>) {
   const { dispatch } = useTilesContext();
-  const { status, runTests, submit } = useCodingWorkspaceContext();
+  const { status } = useCodingWorkspaceContext();
   const { language, setLanguage, resetAllFiles } =
     useJavaScriptCodingWorkspaceContext();
 
   const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles, files, updateFile } = sandpack;
+  const { activeFile, visibleFiles, files } = sandpack;
 
   useRestartSandpack();
 
@@ -288,7 +219,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
     run_tests: {
       contents: (
-        <JavaScriptCodingWorkspaceTestsRunSection specPath={workspace.run} />
+        <JavaScriptCodingWorkspaceTestsRunPanel specPath={workspace.run} />
       ),
       icon: RiPlayLine,
       label: 'Run tests',
@@ -306,7 +237,8 @@ function JavaScriptCodingWorkspaceImpl({
     },
     submit: {
       contents: (
-        <JavaScriptCodingWorkspaceTestsSubmitSection
+        <JavaScriptCodingWorkspaceTestsSubmitPanel
+          metadata={metadata}
           specPath={workspace.submit}
         />
       ),

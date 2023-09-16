@@ -21,6 +21,7 @@ type LoggingAction =
   | 'hydration.success'
   | 'pageview'
   | 'question.mark_complete'
+  | 'question.run'
   | 'question.submit'
   | 'sandpack.timeout'
   | 'web_vitals';

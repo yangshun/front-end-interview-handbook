@@ -23,6 +23,7 @@ import SpecsConsolidated from './SpecsConsolidated';
 import SpecsInline from './SpecsInline';
 import Summary from './Summary';
 import type { Spec, Test } from './types';
+import type { TestResults } from './types';
 import {
   flatMap,
   getAllSuiteResults,
@@ -58,7 +59,7 @@ const INITIAL_STATE: State = {
 };
 
 export type Props = Readonly<{
-  onComplete?: (specs: Record<string, Spec>) => void;
+  onComplete?: (testResults: TestResults) => void;
   onShowTestsCases: (type: SpecMode) => void;
   specMode: SpecMode;
   specPath: string;
@@ -183,7 +184,14 @@ export default function TestsSection({
 
           return setState((prevState) => {
             if (onComplete !== undefined) {
-              onComplete(prevState.specs);
+              const specs = Object.values(prevState.specs).filter(
+                (spec) => !!spec.name,
+              );
+
+              // Call in next tick as React still updating this component.
+              setTimeout(() => {
+                onComplete(getAllTestResults(specs));
+              }, 0);
             }
 
             return {

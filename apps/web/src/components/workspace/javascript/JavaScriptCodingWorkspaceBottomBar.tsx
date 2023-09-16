@@ -8,6 +8,7 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
+import logEvent from '~/logging/logEvent';
 
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import CodingWorkspaceQuestionListSlideOutButton from '../common/CodingWorkspaceQuestionListSlideOutButton';
@@ -50,7 +51,13 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           label="Run"
           size="xs"
           variant="secondary"
-          onClick={runTests}
+          onClick={() => {
+            logEvent('question.run', {
+              format: metadata.format,
+              slug: metadata.slug,
+            });
+            runTests();
+          }}
         />
         <Button
           addonPosition="start"
@@ -58,7 +65,13 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           label="Submit"
           size="xs"
           variant="primary"
-          onClick={submit}
+          onClick={() => {
+            logEvent('question.submit', {
+              format: metadata.format,
+              slug: metadata.slug,
+            });
+            submit();
+          }}
         />
       </div>
     </div>
