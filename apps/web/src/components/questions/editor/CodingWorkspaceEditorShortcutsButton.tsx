@@ -229,7 +229,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           description: 'Tooltip for button to open code editor shortcuts',
           id: 'w3T2Ld',
         })}
-        tooltipPosition="start"
+        tooltipPosition="above"
         variant="tertiary"
         onClick={() => {
           setShowInformation(true);

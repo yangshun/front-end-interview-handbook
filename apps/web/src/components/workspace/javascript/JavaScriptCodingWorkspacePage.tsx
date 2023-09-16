@@ -40,35 +40,33 @@ export default function JavaScriptCodingWorkspacePage({
   };
 
   return (
-    <div className="min-h-[500px] w-full">
-      <SandpackProvider
-        customSetup={{
-          environment: 'parcel',
-        }}
-        files={finalFiles}
-        options={{
-          ...sandpackProviderOptions,
-          classes: {
-            'sp-input': 'touch-none select-none pointer-events-none',
-            'sp-layout': 'h-full',
-            'sp-stack': 'h-full',
-            'sp-wrapper': '!w-full !h-screen',
-          },
-          visibleFiles: [workspace.main, workspace.run],
-        }}
-        theme="dark">
-        <JavaScriptCodingWorkspace
-          canViewPremiumContent={canViewPremiumContent}
-          defaultFiles={finalFiles}
-          description={description}
-          metadata={metadata}
-          nextQuestions={nextQuestions}
-          similarQuestions={similarQuestions}
-          skeleton={skeleton}
-          solution={solution}
-          workspace={workspace}
-        />
-      </SandpackProvider>
-    </div>
+    <SandpackProvider
+      customSetup={{
+        environment: 'parcel',
+      }}
+      files={finalFiles}
+      options={{
+        ...sandpackProviderOptions,
+        classes: {
+          'sp-input': 'touch-none select-none pointer-events-none',
+          'sp-layout': 'h-full',
+          'sp-stack': 'h-full',
+          'sp-wrapper': '!w-full !h-screen',
+        },
+        visibleFiles: [workspace.main, workspace.run],
+      }}
+      theme="dark">
+      <JavaScriptCodingWorkspace
+        canViewPremiumContent={canViewPremiumContent}
+        defaultFiles={finalFiles}
+        description={description}
+        metadata={metadata}
+        nextQuestions={nextQuestions}
+        similarQuestions={similarQuestions}
+        skeleton={skeleton}
+        solution={solution}
+        workspace={workspace}
+      />
+    </SandpackProvider>
   );
 }

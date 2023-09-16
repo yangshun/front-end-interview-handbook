@@ -1,5 +1,3 @@
-'use client';
-
 import type { editor } from 'monaco-editor';
 import React, { useRef } from 'react';
 

@@ -1,0 +1,72 @@
+import { useCallback } from 'react';
+import { RiFolder3Line } from 'react-icons/ri';
+
+import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
+import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
+import Button from '~/components/ui/Button';
+import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
+
+import { useTilesContext } from '~/react-tiling/state/useTilesContext';
+
+import { useSandpack } from '@codesandbox/sandpack-react';
+
+export default function UserInterfaceCodingWorkspaceCodeEditor({
+  filePath,
+}: Readonly<{
+  filePath: string;
+}>) {
+  const { sandpack } = useSandpack();
+  const { files, updateFile, setActiveFile, resetFile } = sandpack;
+  const { dispatch } = useTilesContext();
+
+  const onFocus = useCallback(() => {
+    setActiveFile(filePath);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filePath]);
+
+  return (
+    <div className="flex w-full flex-col">
+      <div className="flex items-center justify-between px-3 py-1.5">
+        <div className="-ml-1">
+          <Button
+            icon={RiFolder3Line}
+            isLabelHidden={true}
+            label="File explorer"
+            size="xs"
+            tooltip="File explorer"
+            variant="tertiary"
+            onClick={() => {
+              dispatch({
+                payload: {
+                  tabId: 'file_explorer',
+                },
+                type: 'tab-set-active',
+              });
+            }}
+          />
+        </div>
+        <div className="-mr-2 flex items-center gap-x-1.5">
+          <CodingWorkspaceThemeSelect />
+          <CodingWorkspaceEditorShortcutsButton />
+          <CodingWorkspaceResetButton
+            onClick={() => {
+              if (!confirm('Reset code to original? Changes will be lost!')) {
+                return;
+              }
+              resetFile(filePath);
+            }}
+          />
+        </div>
+      </div>
+      <MonacoCodeEditor
+        filePath={filePath}
+        value={files[filePath].code}
+        onChange={(val) => {
+          updateFile(filePath, val ?? '');
+        }}
+        onFocus={onFocus}
+      />
+    </div>
+  );
+}

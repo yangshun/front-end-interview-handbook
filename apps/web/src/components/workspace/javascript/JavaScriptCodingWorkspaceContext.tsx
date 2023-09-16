@@ -5,6 +5,7 @@ import { createContext, useCallback, useContext } from 'react';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScriptSkeleton,
+  QuestionJavaScriptWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
 import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
 
@@ -13,16 +14,10 @@ import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
-export type JavaScriptCodingWorkspaceConfig = Readonly<{
-  main: string;
-  run: string;
-  submit: string;
-}>;
-
 export type QuestionJavaScriptV2 = Readonly<{
   files: Record<string, string>;
   skeleton: QuestionJavaScriptSkeleton;
-  workspace: JavaScriptCodingWorkspaceConfig;
+  workspace: QuestionJavaScriptWorkspace;
 }>;
 
 type Context = Readonly<{
@@ -31,7 +26,7 @@ type Context = Readonly<{
   resetFile: (filePath: string) => void;
   setLanguage: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: QuestionJavaScriptSkeleton;
-  workspace: JavaScriptCodingWorkspaceConfig;
+  workspace: QuestionJavaScriptWorkspace;
 }>;
 
 const JavaScriptCodingWorkspaceContext = createContext<Context>({
@@ -54,7 +49,7 @@ type Props = Readonly<{
   children: ReactNode;
   metadata: QuestionMetadata;
   skeleton: QuestionJavaScriptSkeleton;
-  workspace: JavaScriptCodingWorkspaceConfig;
+  workspace: QuestionJavaScriptWorkspace;
 }>;
 
 export function JavaScriptCodingWorkspaceContextProvider({

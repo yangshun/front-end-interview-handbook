@@ -15,18 +15,18 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
-  description: string | null;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  writeup: string | null;
 }>;
 
-export default function JavaScriptCodingWorkspaceQuestionDescription({
+export default function UserInterfaceCodingWorkspaceQuestionWriteup({
   canViewPremiumContent,
   metadata,
-  description,
   nextQuestions,
   similarQuestions,
+  writeup,
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
   const intl = useIntl();
@@ -60,7 +60,7 @@ export default function JavaScriptCodingWorkspaceQuestionDescription({
         </div>
       </div>
       <div className="flex flex-col gap-y-8 p-4">
-        <QuestionContentProse contents={description} />
+        <QuestionContentProse contents={writeup} />
         <QuestionCompanies
           canViewPremiumContent={canViewPremiumContent}
           companies={metadata.companies}

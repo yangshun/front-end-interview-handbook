@@ -1,13 +1,16 @@
-import type {
-  ReactNode} from 'react';
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import type { ReactNode } from 'react';
+import { createContext, useCallback, useContext, useState } from 'react';
 
-export type TabContents = Readonly<Record<string, Readonly<{ contents: ReactNode, label: string; }>>>;
+export type CodingWorkspaceTabContents = Readonly<
+  Record<
+    string,
+    Readonly<{
+      contents: ReactNode;
+      icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+      label: string;
+    }>
+  >
+>;
 
 type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';
 

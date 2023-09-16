@@ -1,6 +1,10 @@
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { SandboxTemplate } from '@codesandbox/sandpack-react';
+import type {
+  SandboxEnvironment,
+  SandboxTemplate,
+  SandpackFiles,
+} from '@codesandbox/sandpack-react';
 
 export type QuestionSlug = string;
 export type QuestionCompany =
@@ -70,6 +74,11 @@ export type QuestionUserInterfaceSandpackSetup = SandboxTemplate & {
   readonly activeFile?: string;
   readonly visibleFiles?: Array<string>;
 };
+export type QuestionUserInterfaceBundleV2 = Readonly<{
+  files: SandpackFiles;
+  workspace: QuestionUserInterfaceWorkspace;
+  writeup: string | null;
+}>;
 
 export type QuestionMetadata = {
   readonly author: string | null;
@@ -119,20 +128,33 @@ export type QuestionJavaScriptSkeleton = Record<
   QuestionCodingWorkingLanguage,
   string
 >;
+export type QuestionJavaScriptWorkspace = Readonly<{
+  main: string;
+  run: string;
+  submit: string;
+}>;
 export type QuestionJavaScriptV2 = QuestionBase & {
   files: Record<string, string>;
   skeleton: QuestionJavaScriptSkeleton;
-  workspace: Readonly<{
-    main: string;
-    run: string;
-    submit: string;
-  }>;
+  workspace: QuestionJavaScriptWorkspace;
 };
+
+export type QuestionUserInterfaceWorkspace = Readonly<{
+  activeFile?: string;
+  environment: SandboxEnvironment;
+  visibleFiles?: Array<string>;
+}>;
 
 export type QuestionUserInterface = QuestionBase & {
   readonly framework: QuestionFramework;
   readonly skeletonSetup: QuestionUserInterfaceSandpackSetup | null;
   readonly solutionSetup: QuestionUserInterfaceSandpackSetup | null;
+};
+
+export type QuestionUserInterfaceV2 = QuestionBase & {
+  readonly framework: QuestionFramework;
+  readonly skeletonBundle: QuestionUserInterfaceBundleV2 | null;
+  readonly solutionBundle: QuestionUserInterfaceBundleV2 | null;
 };
 
 export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {

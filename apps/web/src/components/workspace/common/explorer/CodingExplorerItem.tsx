@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { sortBy } from 'lodash-es';
 import type { PropsWithChildren, ReactNode } from 'react';
 import { useMemo, useState } from 'react';
+import { RiCodeLine } from 'react-icons/ri';
 import {
   VscChromeClose,
   VscEdit,
-  VscFileCode,
   VscFolder,
   VscFolderOpened,
 } from 'react-icons/vsc';
@@ -44,10 +44,11 @@ function ExplorerItem({
   return (
     <button
       className={clsx(
-        'group flex items-center justify-start gap-2 truncate py-1 pr-4 text-sm hover:bg-gray-100/10 hover:text-gray-100',
+        'group flex items-center justify-start gap-2 truncate py-1 pr-4 text-sm hover:bg-neutral-100/10 hover:text-neutral-100',
         className,
       )}
       style={{ paddingLeft: 8 + indent * 12 }}
+      type="button"
       onClick={(e) => {
         if (isRenaming) {
           e.preventDefault();
@@ -67,7 +68,7 @@ function ExplorerItem({
             }}>
             <input
               autoFocus={true}
-              className="bg-gray-800"
+              className="bg-neutral-800"
               value={renameText}
               onBlur={(e) => {
                 if (!onRename?.(renameText)) {
@@ -92,9 +93,9 @@ function ExplorerItem({
         )}
       </span>
       {!isRenaming && (
-        <div className="-mr-2 hidden gap-1 text-gray-600 group-hover:flex">
+        <div className="-mr-2 hidden gap-1 text-neutral-600 group-hover:flex">
           <VscEdit
-            className="h-4 w-4 hover:text-gray-500"
+            className="h-4 w-4 hover:text-neutral-500"
             onClick={(e) => {
               e.stopPropagation();
               onRenameStart?.();
@@ -102,7 +103,7 @@ function ExplorerItem({
             }}
           />
           <VscChromeClose
-            className="h-4 w-4 hover:text-gray-500"
+            className="h-4 w-4 hover:text-neutral-500"
             onClick={(e) => {
               e.stopPropagation();
               onDelete?.();
@@ -146,8 +147,8 @@ export function ExplorerFile({
 
   return (
     <ExplorerItem
-      className={clsx(isActive ? 'bg-gray-100/10' : 'text-gray-500')}
-      icon={<VscFileCode className="flex-none" height={16} width={16} />}
+      className={clsx(isActive ? 'bg-neutral-100/10' : 'text-neutral-500')}
+      icon={<RiCodeLine className="h-4 w-4 flex-none" />}
       indent={indent}
       isRenaming={isRenaming}
       name={name}
@@ -215,7 +216,7 @@ export function ExplorerDirectory({
       {fullPath !== '/' && (
         <ExplorerItem
           key={fullPath}
-          className="text-gray-500"
+          className="text-neutral-500"
           icon={<FolderIcon className="flex-none" height={16} width={16} />}
           indent={indent}
           isRenaming={isRenaming}

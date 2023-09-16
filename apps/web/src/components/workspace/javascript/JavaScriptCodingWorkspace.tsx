@@ -18,6 +18,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import LogoLink from '~/components/global/Logo';
 import type {
   QuestionJavaScriptSkeleton,
+  QuestionJavaScriptWorkspace,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
@@ -29,9 +30,7 @@ import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
-import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
-import type { JavaScriptCodingWorkspaceConfig } from './JavaScriptCodingWorkspaceContext';
 import {
   JavaScriptCodingWorkspaceContextProvider,
   useJavaScriptCodingWorkspaceContext,
@@ -46,10 +45,12 @@ import JavaScriptCodingWorkspaceQuestionDescription from './JavaScriptCodingWork
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
+import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
 import {
   CodingWorkspaceProvider,
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
+import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -189,16 +190,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
   };
 
-  const [tabContents, setTabContents] = useState<
-    Record<
-      string,
-      Readonly<{
-        contents: ReactNode;
-        icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
-        label: string;
-      }>
-    >
-  >({
+  const [tabContents, setTabContents] = useState<CodingWorkspaceTabContents>({
     ...predefinedTabs,
     ...Object.fromEntries(
       visibleFiles.map((file) => [
@@ -343,7 +335,7 @@ function JavaScriptCodingWorkspaceImpl({
           />
         </div>
       </div>
-      <JavaScriptCodingWorkspaceBottomBar
+      <CodingWorkspaceBottomBar
         metadata={metadata}
         nextQuestions={nextQuestions}
       />
@@ -370,7 +362,7 @@ export default function JavaScriptCodingWorkspace({
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
   solution: string | null;
-  workspace: JavaScriptCodingWorkspaceConfig;
+  workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { sandpack } = useSandpack();
 
