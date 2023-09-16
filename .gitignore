@@ -38,3 +38,6 @@ dist
 
 # i18n
 crowdin.yml
+
+# angular
+.angular

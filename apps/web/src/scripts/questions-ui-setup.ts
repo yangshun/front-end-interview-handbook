@@ -23,7 +23,11 @@ import type {
   SandpackFile,
 } from '@codesandbox/sandpack-react';
 
-const SUPPORTED_FRAMEWORKS = new Set<QuestionFramework>(['vanilla', 'react']);
+const SUPPORTED_FRAMEWORKS = new Set<QuestionFramework>([
+  'vanilla',
+  'react',
+  'angular',
+]);
 // Const SUPPORTED_SETUP_TYPE = new Set<QuestionUserInterfaceSetupType>([
 //   'solution',
 //   'skeleton',
