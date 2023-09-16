@@ -16,22 +16,15 @@ import { VscLayout } from 'react-icons/vsc';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
-import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
-import QuestionCompanies from '~/components/questions/content/QuestionCompanies';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
-import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
-import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
-import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import Heading from '~/components/ui/Heading';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 import TestsSection from '~/components/workspace/common/tests/TestsSection';
 
@@ -39,6 +32,8 @@ import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
+import JavaScriptCodingQuestionDescription from './JavaScriptCodingQuestionDescription';
+import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import type {
   JavaScriptCodingLanguage,
   JavaScriptCodingSkeleton,
@@ -58,7 +53,6 @@ import {
   CodingWorkspaceProvider,
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
-import CodingWorkspaceQuestionListSlideOutButton from '../common/CodingWorkspaceQuestionListSlideOutButton';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -281,31 +275,13 @@ function JavaScriptCodingWorkspaceImpl({
     },
     description: {
       contents: (
-        <div className="flex w-full flex-col">
-          <div className="flex flex-col">
-            <div className="flex items-center gap-x-4 p-4">
-              <Heading level="heading5">{metadata.title}</Heading>
-            </div>
-            <div
-              className={clsx(
-                'flex items-center gap-x-4 p-4',
-                themeBackgroundEmphasized,
-              )}>
-              <QuestionMetadataSection metadata={metadata} />
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-8 p-4">
-            <QuestionContentProse contents={description} />
-            {metadata.companies && metadata.companies.length > 0 && (
-              <QuestionCompanies
-                canViewPremiumContent={canViewPremiumContent}
-                question={metadata}
-              />
-            )}
-            <QuestionNextQuestions questions={nextQuestions} />
-            <QuestionSimilarQuestions questions={similarQuestions} />
-          </div>
-        </div>
+        <JavaScriptCodingQuestionDescription
+          canViewPremiumContent={canViewPremiumContent}
+          description={description}
+          metadata={metadata}
+          nextQuestions={nextQuestions}
+          similarQuestions={similarQuestions}
+        />
       ),
       icon: RiFileList2Line,
       label: 'Description',
@@ -384,6 +360,7 @@ function JavaScriptCodingWorkspaceImpl({
           <LogoLink />
         </div>
         <div className="flex items-center gap-x-2">
+          <CodingWorkspaceTimer />
           <Button
             addonPosition="start"
             icon={RiArrowGoBackLine}
@@ -469,15 +446,15 @@ function JavaScriptCodingWorkspaceImpl({
               <div
                 className={clsx(
                   'transition-color absolute rounded-full ease-in-out group-hover:bg-indigo-400',
-                  direction === 'horizontal' && 'inset-x-0 inset-y-0.5',
-                  direction === 'vertical' && 'inset-x-0.5 inset-y-0',
+                  direction === 'horizontal' && 'inset-x-0 inset-y-1',
+                  direction === 'vertical' && 'inset-x-1 inset-y-0',
                 )}
               />
             ),
             className: clsx(
               'relative bg-transparent group',
-              direction === 'horizontal' && 'h-2',
-              direction === 'vertical' && 'w-2',
+              direction === 'horizontal' && 'h-3',
+              direction === 'vertical' && 'w-3',
             ),
           })}
           getTabLabel={(tabId) => ({
@@ -503,35 +480,10 @@ function JavaScriptCodingWorkspaceImpl({
           }
         />
       </div>
-      <div className="flex items-center justify-between px-3 py-3">
-        <div className="flex items-center gap-x-2">
-          <CodingWorkspaceQuestionListSlideOutButton />
-          <QuestionReportIssueButton
-            format="javascript"
-            title={metadata.title}
-          />
-        </div>
-        <div className="flex items-center gap-x-2">
-          <CodingWorkspaceTimer />
-          <Button
-            addonPosition="start"
-            icon={RiPlayLine}
-            isDisabled={status !== 'idle'}
-            label="Run"
-            size="xs"
-            variant="secondary"
-            onClick={runTests}
-          />
-          <Button
-            addonPosition="start"
-            isDisabled={status !== 'idle'}
-            label="Submit"
-            size="xs"
-            variant="primary"
-            onClick={submit}
-          />
-        </div>
-      </div>
+      <JavaScriptCodingWorkspaceBottomBar
+        metadata={metadata}
+        nextQuestions={nextQuestions}
+      />
     </div>
   );
 }
