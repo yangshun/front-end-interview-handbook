@@ -6,6 +6,8 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
+import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
+
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
@@ -23,7 +25,7 @@ export default function JavaScriptCodingWorkspacePage({
 }: Props) {
   const { description, workspace, files, skeleton, solution, metadata } =
     question;
-  const language = 'js' as const;
+  const [language] = useCodingWorkspaceWorkingLanguage();
 
   const finalFiles = {
     ...files,

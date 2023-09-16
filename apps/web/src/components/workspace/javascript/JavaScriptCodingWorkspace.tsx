@@ -29,7 +29,6 @@ import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
 import type {
-  JavaScriptCodingLanguage,
   JavaScriptCodingSkeleton,
   JavaScriptCodingWorkspaceConfig,
 } from './JavaScriptCodingWorkspaceContext';
@@ -81,7 +80,6 @@ export type PredefinedTabsContents = Record<
 
 function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
-  defaultLanguage,
   description,
   nextQuestions,
   similarQuestions,
@@ -89,7 +87,6 @@ function JavaScriptCodingWorkspaceImpl({
   solution,
 }: Readonly<{
   canViewPremiumContent: boolean;
-  defaultLanguage: JavaScriptCodingLanguage;
   description: string | null;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -98,8 +95,7 @@ function JavaScriptCodingWorkspaceImpl({
 }>) {
   const { dispatch } = useTilesContext();
   const { status } = useCodingWorkspaceContext();
-  const { language, setLanguage, resetAllFiles } =
-    useJavaScriptCodingWorkspaceContext();
+  const { language, resetAllFiles } = useJavaScriptCodingWorkspaceContext();
 
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
@@ -358,7 +354,6 @@ function JavaScriptCodingWorkspaceImpl({
 export default function JavaScriptCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
-  defaultLanguage,
   description,
   metadata,
   nextQuestions,
@@ -369,7 +364,6 @@ export default function JavaScriptCodingWorkspace({
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;
-  defaultLanguage: JavaScriptCodingLanguage;
   description: string | null;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -399,7 +393,6 @@ export default function JavaScriptCodingWorkspace({
             workspace={workspace}>
             <JavaScriptCodingWorkspaceImpl
               canViewPremiumContent={canViewPremiumContent}
-              defaultLanguage={defaultLanguage}
               description={description}
               metadata={metadata}
               nextQuestions={nextQuestions}

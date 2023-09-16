@@ -26,6 +26,7 @@ import QuestionCodingListSlideOut from '~/components/questions/listings/items/Qu
 import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeLineColor } from '~/components/ui/theme';
+import useCodingWorkspaceWorkingLanguage from '~/components/workspace/common/useCodingWorkspaceWorkingLanguage';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
@@ -119,8 +120,7 @@ export default function QuestionJavaScriptCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [language, setLanguage] =
-    useLocalStorage<QuestionCodingWorkingLanguage>('gfe:coding:language', 'js');
+  const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
 
   const { data: questionProgress } = useQueryQuestionProgress(
     question.metadata,

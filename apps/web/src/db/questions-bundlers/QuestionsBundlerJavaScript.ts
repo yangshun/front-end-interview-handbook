@@ -11,16 +11,15 @@ import {
 } from './QuestionsBundlerJavaScriptConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
+  QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionJavaScriptV2,
   QuestionMetadata,
 } from '../../components/questions/common/QuestionsTypes';
 
-type QuestionJavaScriptLanguage = 'js' | 'ts';
-
 async function readQuestionJavaScriptSkeleton(
   slug: string,
-  language: QuestionJavaScriptLanguage,
+  language: QuestionCodingWorkingLanguage,
 ): Promise<string> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const gfeConfig = await readQuestionJavaScriptGFEConfig(slug);

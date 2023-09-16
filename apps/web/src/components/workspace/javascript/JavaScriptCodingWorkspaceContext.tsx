@@ -1,15 +1,11 @@
-import type {
-  ReactNode} from 'react';
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import type { ReactNode } from 'react';
+import { createContext, useCallback, useContext } from 'react';
+
+import type { QuestionCodingWorkingLanguage } from '~/components/questions/common/QuestionsTypes';
+
+import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
-
-export type JavaScriptCodingLanguage = 'js' | 'ts';
 
 export type JavaScriptCodingWorkspaceConfig = Readonly<{
   main: string;
@@ -17,10 +13,10 @@ export type JavaScriptCodingWorkspaceConfig = Readonly<{
   submit: string;
 }>;
 
-export type JavaScriptCodingSkeleton = Readonly<{
-  js: string;
-  ts: string;
-}>;
+export type JavaScriptCodingSkeleton = Record<
+  QuestionCodingWorkingLanguage,
+  string
+>;
 
 export type QuestionJavaScriptV2 = Readonly<{
   files: Record<string, string>;
@@ -29,10 +25,10 @@ export type QuestionJavaScriptV2 = Readonly<{
 }>;
 
 type Context = Readonly<{
-  language: JavaScriptCodingLanguage;
+  language: QuestionCodingWorkingLanguage;
   resetAllFiles: () => void;
   resetFile: (filePath: string) => void;
-  setLanguage: (language: JavaScriptCodingLanguage) => void;
+  setLanguage: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: JavaScriptCodingSkeleton;
   workspace: JavaScriptCodingWorkspaceConfig;
 }>;
@@ -66,7 +62,7 @@ export function JavaScriptCodingWorkspaceContextProvider({
 }: Props) {
   const { sandpack } = useSandpack();
   const { updateFile, resetFile } = sandpack;
-  const [language, setLanguage] = useState<JavaScriptCodingLanguage>('js');
+  const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
 
   const resetFileCustom = useCallback(
     (filePath: string) => {
