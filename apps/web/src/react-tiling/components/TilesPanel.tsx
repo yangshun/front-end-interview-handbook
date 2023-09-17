@@ -123,7 +123,7 @@ export default function TilesPanel({
   return level === 0 ? (
     group
   ) : (
-    <Panel key={id} id={String(id)} order={order}>
+    <Panel key={id} defaultSize={defaultSize} id={String(id)} order={order}>
       {group}
     </Panel>
   );
