@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import { sortBy } from 'lodash-es';
 import type { PropsWithChildren, ReactNode } from 'react';
 import { useMemo, useState } from 'react';
-import { RiCodeLine } from 'react-icons/ri';
 import {
-  VscChromeClose,
-  VscEdit,
-  VscFolder,
-  VscFolderOpened,
-} from 'react-icons/vsc';
+  RiCloseLine,
+  RiCodeLine,
+  RiFolderFill,
+  RiFolderOpenFill,
+  RiPencilFill,
+} from 'react-icons/ri';
 
+import { codingExplorerFilePathToIcon } from './CodingExplorerFilePathToIcon';
 import { useCodingFileExplorerContext } from './CodingFileExplorer';
 import type { FileExplorerDirectory, FileExplorerFile } from './types';
 
@@ -17,6 +18,7 @@ export type ExplorerItemProps = PropsWithChildren<{
   className?: string;
   icon?: ReactNode;
   indent: number;
+  isActive?: boolean;
   isRenaming: boolean;
   name: string;
   onClick?: () => void;
@@ -32,6 +34,7 @@ function ExplorerItem({
   name,
   icon,
   indent,
+  isActive = false,
   isRenaming,
   onClick,
   onDelete,
@@ -44,7 +47,8 @@ function ExplorerItem({
   return (
     <button
       className={clsx(
-        'group flex items-center justify-start gap-2 truncate py-1 pr-4 text-sm hover:bg-neutral-100/10 hover:text-neutral-100',
+        'group flex items-center justify-start gap-2 truncate rounded py-1 pr-4 text-sm ',
+        isActive ? 'bg-neutral-900' : 'hover:text-brand text-neutral-500',
         className,
       )}
       style={{ paddingLeft: 8 + indent * 12 }}
@@ -94,7 +98,7 @@ function ExplorerItem({
       </span>
       {!isRenaming && (
         <div className="-mr-2 hidden gap-1 text-neutral-600 group-hover:flex">
-          <VscEdit
+          <RiPencilFill
             className="h-4 w-4 hover:text-neutral-500"
             onClick={(e) => {
               e.stopPropagation();
@@ -102,7 +106,7 @@ function ExplorerItem({
               true;
             }}
           />
-          <VscChromeClose
+          <RiCloseLine
             className="h-4 w-4 hover:text-neutral-500"
             onClick={(e) => {
               e.stopPropagation();
@@ -144,12 +148,13 @@ export function ExplorerFile({
 
   const isRenaming = renamingItem === fullPath;
   const isActive = activeFile === fullPath;
+  const Icon = codingExplorerFilePathToIcon(fullPath)?.icon ?? RiCodeLine;
 
   return (
     <ExplorerItem
-      className={clsx(isActive ? 'bg-neutral-100/10' : 'text-neutral-500')}
-      icon={<RiCodeLine className="h-4 w-4 flex-none" />}
+      icon={<Icon className="h-4 w-4 flex-none" />}
       indent={indent}
+      isActive={isActive}
       isRenaming={isRenaming}
       name={name}
       onClick={() => {
@@ -199,7 +204,7 @@ export function ExplorerDirectory({
 
   const isRenaming = renamingItem === fullPath;
   const isDirectoryOpen = openDirectories.has(fullPath);
-  const FolderIcon = isDirectoryOpen ? VscFolderOpened : VscFolder;
+  const FolderIcon = isDirectoryOpen ? RiFolderOpenFill : RiFolderFill;
   const itemProps = {
     indent: indent + 1,
   };
