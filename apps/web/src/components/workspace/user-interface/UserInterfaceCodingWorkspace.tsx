@@ -1,14 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
-import {
-  RiArrowGoBackLine,
-  RiCodeLine,
-  RiFileList2Line,
-  RiFolder3Line,
-  RiTerminalBoxLine,
-  RiWindowLine,
-} from 'react-icons/ri';
+import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -37,7 +30,9 @@ import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceW
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
+import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
+import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -46,6 +41,7 @@ import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoL
 import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJSONDefaults';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
+import { codingExplorerFilePathToIcon } from '../common/explorer/CodingExplorerFilePathToIcon';
 import useRestartSandpack from '../useRestartSandpack';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
@@ -63,10 +59,6 @@ export type PredefinedTabsContents = Record<
     label: string;
   }>
 >;
-
-function extractFileNameFromPath(filePath: string) {
-  return filePath.replace(/^\//, '').split('/').at(-1) ?? '';
-}
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
@@ -144,8 +136,8 @@ function UserInterfaceCodingWorkspaceImpl({
             showNotSavedBanner={mode === 'solution'}
           />
         ),
-        icon: RiCodeLine,
-        label: extractFileNameFromPath(filePath),
+        icon: codingExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
+        label: codingWorkspaceExtractFileNameFromPath(filePath),
       },
     });
 
@@ -212,19 +204,19 @@ function UserInterfaceCodingWorkspaceImpl({
   const predefinedTabs: PredefinedTabsContents = {
     console: {
       contents: <CodingWorkspaceConsole />,
-      icon: RiTerminalBoxLine,
+      icon: CodingWorkspaceTabIcons.console.icon,
       label: 'Console',
     },
     file_explorer: {
       contents: <UserInterfaceCodingWorkspaceFileExplorer />,
-      icon: RiFolder3Line,
+      icon: CodingWorkspaceTabIcons.explorer.icon,
       label: 'File explorer',
     },
     preview: {
       contents: (
         <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
       ),
-      icon: RiWindowLine,
+      icon: CodingWorkspaceTabIcons.browser.icon,
       label: 'Browser',
     },
     writeup: {
@@ -239,7 +231,10 @@ function UserInterfaceCodingWorkspaceImpl({
           writeup={writeup}
         />
       ),
-      icon: RiFileList2Line,
+      icon:
+        mode === 'practice'
+          ? CodingWorkspaceTabIcons.description.icon
+          : CodingWorkspaceTabIcons.solution.icon,
       label: mode === 'practice' ? 'Description' : 'Solution',
     },
   };
@@ -256,8 +251,8 @@ function UserInterfaceCodingWorkspaceImpl({
               showNotSavedBanner={mode === 'solution'}
             />
           ),
-          icon: RiCodeLine,
-          label: extractFileNameFromPath(filePath),
+          icon: codingExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
+          label: codingWorkspaceExtractFileNameFromPath(filePath),
         },
       ]),
     ),
@@ -389,8 +384,12 @@ function UserInterfaceCodingWorkspaceImpl({
                                 showNotSavedBanner={mode === 'solution'}
                               />
                             ),
-                            icon: RiCodeLine,
-                            label: extractFileNameFromPath(data.payload.file),
+                            icon:
+                              codingExplorerFilePathToIcon(data.payload.file)
+                                ?.icon ?? RiCodeLine,
+                            label: codingWorkspaceExtractFileNameFromPath(
+                              data.payload.file,
+                            ),
                           },
                         });
 

@@ -1,17 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import {
-  RiArrowGoBackLine,
-  RiCheckboxLine,
-  RiCodeLine,
-  RiFileList2Line,
-  RiFlaskLine,
-  RiLightbulbLine,
-  RiListCheck3,
-  RiPlayLine,
-  RiTerminalBoxLine,
-} from 'react-icons/ri';
+import { RiArrowGoBackLine } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -51,6 +41,7 @@ import {
   CodingWorkspaceProvider,
   useCodingWorkspaceContext,
 } from '../CodingWorkspaceContext';
+import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -131,7 +122,7 @@ function JavaScriptCodingWorkspaceImpl({
   const predefinedTabs: PredefinedTabsContents = {
     console: {
       contents: <CodingWorkspaceConsole />,
-      icon: RiTerminalBoxLine,
+      icon: CodingWorkspaceTabIcons.console.icon,
       label: 'Console',
     },
     description: {
@@ -144,14 +135,14 @@ function JavaScriptCodingWorkspaceImpl({
           similarQuestions={similarQuestions}
         />
       ),
-      icon: RiFileList2Line,
+      icon: CodingWorkspaceTabIcons.description.icon,
       label: 'Description',
     },
     run_tests: {
       contents: (
         <JavaScriptCodingWorkspaceTestsRunTab specPath={workspace.run} />
       ),
-      icon: RiPlayLine,
+      icon: CodingWorkspaceTabIcons.run.icon,
       label: 'Run tests',
     },
     solution: {
@@ -162,7 +153,7 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         </div>
       ),
-      icon: RiLightbulbLine,
+      icon: CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
     },
     submit: {
@@ -172,7 +163,7 @@ function JavaScriptCodingWorkspaceImpl({
           specPath={workspace.submit}
         />
       ),
-      icon: RiCheckboxLine,
+      icon: CodingWorkspaceTabIcons.submit.icon,
       label: 'Submit',
     },
     test_cases: {
@@ -185,7 +176,7 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         </div>
       ),
-      icon: RiListCheck3,
+      icon: CodingWorkspaceTabIcons.test_cases_all.icon,
       label: 'All test cases',
     },
   };
@@ -198,8 +189,14 @@ function JavaScriptCodingWorkspaceImpl({
         {
           contents: <JavaScriptCodingWorkspaceCodeEditor filePath={file} />,
           ...{
-            [workspace.main]: { icon: RiCodeLine, label: 'Code' },
-            [workspace.run]: { icon: RiFlaskLine, label: 'Test cases' },
+            [workspace.main]: {
+              icon: CodingWorkspaceTabIcons.code.icon,
+              label: 'Code',
+            },
+            [workspace.run]: {
+              icon: CodingWorkspaceTabIcons.test_cases.icon,
+              label: 'Test cases',
+            },
           }[file],
         },
       ]),
