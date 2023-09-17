@@ -25,7 +25,7 @@ import {
   getUserInterfaceCodingWorkspaceLayout,
   getUserInterfaceCodingWorkspaceLayoutAdvanced,
 } from './UserInterfaceCodingWorkspaceLayouts';
-import UserInterfaceCodingWorkspaceNewTabContents from './UserInterfaceCodingWorkspaceNewTabContents';
+import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
 import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
@@ -362,7 +362,7 @@ function UserInterfaceCodingWorkspaceImpl({
                     {tabContents[tabId].contents}
                   </div>
                 ) : (
-                  <UserInterfaceCodingWorkspaceNewTabContents
+                  <UserInterfaceCodingWorkspaceNewTab
                     predefinedTabs={predefinedTabs}
                     onSelectTabType={(data) => {
                       if (data.type === 'code') {

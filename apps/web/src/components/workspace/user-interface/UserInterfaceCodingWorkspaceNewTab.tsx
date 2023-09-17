@@ -1,9 +1,13 @@
+import { RiCodeLine } from 'react-icons/ri';
+
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import type {
   PredefinedTabsContents,
   StaticTabsType,
 } from './UserInterfaceCodingWorkspace';
+import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
+import { codingExplorerFilePathToIcon } from '../common/explorer/CodingExplorerFilePathToIcon';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -16,7 +20,7 @@ type UserInterfaceCodingNewTabTypeData =
       type: StaticTabsType;
     };
 
-export default function UserInterfaceCodingWorkspaceNewTabContents({
+export default function UserInterfaceCodingWorkspaceNewTab({
   predefinedTabs,
   onSelectTabType,
 }: Readonly<{
@@ -36,16 +40,17 @@ export default function UserInterfaceCodingWorkspaceNewTabContents({
   return (
     <div className="flex flex-col gap-4 p-4">
       <div className="flex flex-col gap-2">
-        <p className="text-sm font-medium">Tools</p>
+        <p className="text-sm font-medium">Tabs</p>
         <div className="flex flex-wrap gap-2">
           {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
             <button
               key={tabType}
-              className="rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
+              className="flex gap-x-1.5 rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
               type="button"
               onClick={() => {
                 onSelectTabType({ type: tabType });
               }}>
+              <tabDetails.icon className="h-4 w-4 shrink-0" />
               {tabDetails.label}
             </button>
           ))}
@@ -55,20 +60,28 @@ export default function UserInterfaceCodingWorkspaceNewTabContents({
         <div className="flex flex-col gap-2">
           <p className="text-sm font-medium">Files</p>
           <div className="flex flex-wrap gap-2">
-            {unopenedFiles.map(([file, { code }]) => (
-              <button
-                key={file}
-                className="rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
-                type="button"
-                onClick={() => {
-                  onSelectTabType({
-                    payload: { code, file },
-                    type: 'code',
-                  });
-                }}>
-                <code>{file.replace(/^\//, '')}</code>
-              </button>
-            ))}
+            {unopenedFiles.map(([filePath, { code }]) => {
+              const Icon =
+                codingExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine;
+
+              return (
+                <button
+                  key={filePath}
+                  className="flex gap-x-1.5 rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
+                  type="button"
+                  onClick={() => {
+                    onSelectTabType({
+                      payload: { code, file: filePath },
+                      type: 'code',
+                    });
+                  }}>
+                  <Icon className="h-4 w-4 shrink-0" />
+                  <code>
+                    {codingWorkspaceExtractFileNameFromPath(filePath)}
+                  </code>
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
