@@ -1,5 +1,8 @@
 import { RiCodeLine } from 'react-icons/ri';
 
+import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
+
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import type {
@@ -40,25 +43,31 @@ export default function UserInterfaceCodingWorkspaceNewTab({
   return (
     <div className="flex flex-col gap-4 p-4">
       <div className="flex flex-col gap-2">
-        <p className="text-sm font-medium">Tabs</p>
+        <Text display="block" size="body2" weight="medium">
+          Tabs
+        </Text>
         <div className="flex flex-wrap gap-2">
           {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
-            <button
+            <Button
               key={tabType}
-              className="flex gap-x-1.5 rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
-              type="button"
+              addonPosition="start"
+              icon={tabDetails.icon}
+              label={tabDetails.label}
+              variant="secondary"
               onClick={() => {
-                onSelectTabType({ type: tabType });
-              }}>
-              <tabDetails.icon className="h-4 w-4 shrink-0" />
-              {tabDetails.label}
-            </button>
+                onSelectTabType({
+                  type: tabType as keyof PredefinedTabsContents,
+                });
+              }}
+            />
           ))}
         </div>
       </div>
       {unopenedFiles.length > 0 && (
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-medium">Files</p>
+          <Text display="block" size="body2" weight="medium">
+            Files
+          </Text>
           <div className="flex flex-wrap gap-2">
             {unopenedFiles.map(([filePath, { code }]) => {
               const Icon =
@@ -66,21 +75,20 @@ export default function UserInterfaceCodingWorkspaceNewTab({
                 RiCodeLine;
 
               return (
-                <button
+                <Button
                   key={filePath}
-                  className="flex gap-x-1.5 rounded-full border border-neutral-700 px-3 py-1.5 text-xs transition-colors hover:bg-neutral-700"
-                  type="button"
+                  addonPosition="start"
+                  className="font-mono"
+                  icon={Icon}
+                  label={codingWorkspaceExtractFileNameFromPath(filePath)}
+                  variant="secondary"
                   onClick={() => {
                     onSelectTabType({
                       payload: { code, file: filePath },
                       type: 'code',
                     });
-                  }}>
-                  <Icon className="h-4 w-4 shrink-0" />
-                  <code>
-                    {codingWorkspaceExtractFileNameFromPath(filePath)}
-                  </code>
-                </button>
+                  }}
+                />
               );
             })}
           </div>
