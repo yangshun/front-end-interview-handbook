@@ -10,8 +10,8 @@ import {
   RiPencilFill,
 } from 'react-icons/ri';
 
-import { codingExplorerFilePathToIcon } from './CodingExplorerFilePathToIcon';
-import { useCodingFileExplorerContext } from './CodingFileExplorer';
+import { useCodingWorkspaceExplorerContext } from './CodingWorkspaceExplorer';
+import { codingWorkspaceExplorerFilePathToIcon } from './codingWorkspaceExplorerFilePathToIcon';
 import type { FileExplorerDirectory, FileExplorerFile } from './types';
 
 export type ExplorerItemProps = PropsWithChildren<{
@@ -43,6 +43,7 @@ function ExplorerItem({
   onRenameStart,
 }: ExplorerItemProps) {
   const [renameText, setRenameText] = useState(name);
+  const { readOnly } = useCodingWorkspaceExplorerContext();
 
   return (
     <button
@@ -96,7 +97,7 @@ function ExplorerItem({
           children
         )}
       </span>
-      {!isRenaming && (
+      {!isRenaming && !readOnly && (
         <div className="-mr-2 hidden gap-1 text-neutral-600 group-hover:flex">
           <RiPencilFill
             className="h-4 w-4 hover:text-neutral-500"
@@ -119,9 +120,9 @@ function ExplorerItem({
   );
 }
 
-export type ExplorerPassdownProps = {
+export type ExplorerPassdownProps = Readonly<{
   indent: number;
-};
+}>;
 
 export function ExplorerFile({
   name,
@@ -144,11 +145,12 @@ export function ExplorerFile({
     renamingItem,
     setActiveFile,
     startItemRename,
-  } = useCodingFileExplorerContext();
+  } = useCodingWorkspaceExplorerContext();
 
   const isRenaming = renamingItem === fullPath;
   const isActive = activeFile === fullPath;
-  const Icon = codingExplorerFilePathToIcon(fullPath)?.icon ?? RiCodeLine;
+  const Icon =
+    codingWorkspaceExplorerFilePathToIcon(fullPath)?.icon ?? RiCodeLine;
 
   return (
     <ExplorerItem
@@ -200,7 +202,7 @@ export function ExplorerDirectory({
     renamingItem,
     setDirectoryOpen,
     startItemRename,
-  } = useCodingFileExplorerContext();
+  } = useCodingWorkspaceExplorerContext();
 
   const isRenaming = renamingItem === fullPath;
   const isDirectoryOpen = openDirectories.has(fullPath);

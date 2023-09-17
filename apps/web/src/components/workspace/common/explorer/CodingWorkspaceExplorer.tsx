@@ -1,16 +1,17 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
-import { ExplorerDirectory } from './CodingExplorerItem';
+import { ExplorerDirectory } from './CodingWorkspaceExplorerItem';
 import type { FileExplorerItem } from './types';
 import { getAllFilesInDirectory, parseFiles } from './utils';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
-type CodingFileExplorerContextType = Readonly<{
+type CodingWorkspaceExplorerContextType = Readonly<{
   activeFile: string;
   cancelItemRename: () => void;
   deleteItem: (fullPath: string) => void;
   openDirectories: Set<string>;
+  readOnly: boolean;
   renameItem: (item: FileExplorerItem, newPath: string) => boolean;
   renamingItem: string | null;
   setActiveFile: (fullPath: string) => void;
@@ -18,27 +19,33 @@ type CodingFileExplorerContextType = Readonly<{
   startItemRename: (fullPath: string) => void;
 }>;
 
-const CodingFileExplorerContext = createContext<CodingFileExplorerContextType>({
-  activeFile: '',
-  cancelItemRename: () => {},
-  deleteItem: () => {},
-  openDirectories: new Set(),
-  renameItem: () => true,
-  renamingItem: null,
-  setActiveFile: () => {},
-  setDirectoryOpen: () => {},
-  startItemRename: () => {},
-});
+const CodingFileExplorerContext =
+  createContext<CodingWorkspaceExplorerContextType>({
+    activeFile: '',
+    cancelItemRename: () => {},
+    deleteItem: () => {},
+    openDirectories: new Set(),
+    readOnly: true,
+    renameItem: () => true,
+    renamingItem: null,
+    setActiveFile: () => {},
+    setDirectoryOpen: () => {},
+    startItemRename: () => {},
+  });
 
-export function useCodingFileExplorerContext() {
+export function useCodingWorkspaceExplorerContext() {
   return useContext(CodingFileExplorerContext);
 }
 
 type Props = Readonly<{
   onOpenFile?: (fileName: string, fromFilePath?: string) => void;
+  readOnly?: boolean;
 }>;
 
-export default function CodingFileExplorer({ onOpenFile }: Props) {
+export default function CodingWorkspaceExplorer({
+  readOnly = true,
+  onOpenFile,
+}: Props) {
   const {
     sandpack: {
       files,
@@ -138,6 +145,7 @@ export default function CodingFileExplorer({ onOpenFile }: Props) {
         },
         deleteItem: handleDelete,
         openDirectories,
+        readOnly,
         renameItem: handleRename,
         renamingItem,
         setActiveFile: (fullPath) => {
@@ -159,7 +167,7 @@ export default function CodingFileExplorer({ onOpenFile }: Props) {
           setRenamingItem(fullPath);
         },
       }}>
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <ExplorerDirectory {...rootDirectory} indent={-1} />
       </div>
     </CodingFileExplorerContext.Provider>

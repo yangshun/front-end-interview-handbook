@@ -20,7 +20,7 @@ import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
-import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceFileExplorer';
+import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
 import {
   getUserInterfaceCodingWorkspaceLayout,
   getUserInterfaceCodingWorkspaceLayoutAdvanced,
@@ -41,7 +41,7 @@ import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoL
 import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJSONDefaults';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
-import { codingExplorerFilePathToIcon } from '../common/explorer/CodingExplorerFilePathToIcon';
+import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import useRestartSandpack from '../useRestartSandpack';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
@@ -136,7 +136,8 @@ function UserInterfaceCodingWorkspaceImpl({
             showNotSavedBanner={mode === 'solution'}
           />
         ),
-        icon: codingExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
+        icon:
+          codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
         label: codingWorkspaceExtractFileNameFromPath(filePath),
       },
     });
@@ -251,7 +252,8 @@ function UserInterfaceCodingWorkspaceImpl({
               showNotSavedBanner={mode === 'solution'}
             />
           ),
-          icon: codingExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
+          icon:
+            codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
           label: codingWorkspaceExtractFileNameFromPath(filePath),
         },
       ]),
@@ -385,8 +387,9 @@ function UserInterfaceCodingWorkspaceImpl({
                               />
                             ),
                             icon:
-                              codingExplorerFilePathToIcon(data.payload.file)
-                                ?.icon ?? RiCodeLine,
+                              codingWorkspaceExplorerFilePathToIcon(
+                                data.payload.file,
+                              )?.icon ?? RiCodeLine,
                             label: codingWorkspaceExtractFileNameFromPath(
                               data.payload.file,
                             ),

@@ -1,7 +1,7 @@
 import type { CodingWorkspaceTabIcon } from '../../CodingWorkspaceTabIcons';
 import { CodingWorkspaceTabIcons } from '../../CodingWorkspaceTabIcons';
 
-export function codingExplorerFilePathToIcon(
+export function codingWorkspaceExplorerFilePathToIcon(
   filePath: string,
 ): CodingWorkspaceTabIcon | null {
   if (

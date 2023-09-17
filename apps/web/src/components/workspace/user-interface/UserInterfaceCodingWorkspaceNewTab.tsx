@@ -7,7 +7,7 @@ import type {
   StaticTabsType,
 } from './UserInterfaceCodingWorkspace';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
-import { codingExplorerFilePathToIcon } from '../common/explorer/CodingExplorerFilePathToIcon';
+import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -62,7 +62,8 @@ export default function UserInterfaceCodingWorkspaceNewTab({
           <div className="flex flex-wrap gap-2">
             {unopenedFiles.map(([filePath, { code }]) => {
               const Icon =
-                codingExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine;
+                codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ??
+                RiCodeLine;
 
               return (
                 <button

@@ -87,7 +87,7 @@ export default function SpecsInline({
                     <div
                       key={fullTestName}
                       className={clsx(
-                        'flex w-full flex-col gap-y-2 p-3 transition-colors hover:bg-neutral-800',
+                        'flex w-full flex-col gap-y-2 p-3 transition-colors hover:bg-neutral-900',
                       )}>
                       <div className={clsx('flex justify-between gap-2')}>
                         <div className="flex gap-2">
