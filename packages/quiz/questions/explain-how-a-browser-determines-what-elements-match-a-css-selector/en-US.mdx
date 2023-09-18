@@ -4,4 +4,4 @@ title: Explain how a browser determines what elements match a CSS selector.
 
 This question is related to the question about [writing efficient CSS](/questions/quiz/what-are-some-of-the-gotchas-for-writing-efficient-css). Browsers match selectors from rightmost (key selector) to the left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
 
-For example, with a selector `p span`, browsers firstly find all the `<span>` elements and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches the selector, and can stop traversing its parents.
+For example, with a selector `p span`,  browsers find all the <span> elements and traverse up their parent chain, checking each ancestor element up to the root to find a <p> element. For each <span>, the browser continues traversing the DOM to find all matching <p> ancestors.
