@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import { useIntl } from 'react-intl';
+import { useIsMounted } from 'usehooks-ts';
 
 import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
@@ -7,6 +9,8 @@ import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWork
 import { themeDivideColor } from '~/components/ui/theme';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -16,11 +20,36 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
 }: Readonly<{
   filePath: string;
 }>) {
+  const {
+    showLoadedFilesFromLocalStorageMessage,
+    setShowLoadedFilesFromLocalStorageMessage,
+  } = useCodingWorkspaceContext();
   const { resetFile, language, setLanguage, workspace } =
     useJavaScriptCodingWorkspaceContext();
   const { sandpack } = useSandpack();
+  const intl = useIntl();
+  const isMounted = useIsMounted();
+
   const { files, updateFile } = sandpack;
   const isMainFile = filePath === workspace.main;
+
+  function resetCode() {
+    const shouldDiscard = window.confirm(
+      intl.formatMessage({
+        defaultMessage: 'Your existing code will be discarded, are you sure?',
+        description:
+          'Text on browser confirmation pop-up when user attempts to use the reset button to reset their code',
+        id: '8aQEL8',
+      }),
+    );
+
+    if (!shouldDiscard) {
+      return;
+    }
+
+    setShowLoadedFilesFromLocalStorageMessage(false);
+    resetFile(filePath);
+  }
 
   return (
     <div
@@ -37,16 +66,17 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
         <div className="-mr-2 flex items-center gap-x-1.5">
           <CodingWorkspaceThemeSelect />
           <CodingWorkspaceEditorShortcutsButton />
-          <CodingWorkspaceResetButton
-            onClick={() => {
-              if (!confirm('Reset code to original? Changes will be lost!')) {
-                return;
-              }
-              resetFile(filePath);
-            }}
-          />
+          <CodingWorkspaceResetButton onClick={resetCode} />
         </div>
       </div>
+      {showLoadedFilesFromLocalStorageMessage && isMounted() && (
+        <CodingWorkspaceLoadedFilesBanner
+          onHide={() => {
+            setShowLoadedFilesFromLocalStorageMessage(false);
+          }}
+          onResetToDefaultCode={resetCode}
+        />
+      )}
       <MonacoCodeEditor
         filePath={filePath}
         value={files[filePath].code}

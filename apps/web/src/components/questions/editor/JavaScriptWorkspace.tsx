@@ -465,11 +465,12 @@ export default function JavaScriptWorkspace({
   showToolbar?: boolean;
 }>) {
   const {
-    code,
+    code: loadedCode,
     saveCode,
     deleteCodeFromClientStorage,
     loadedCodeFromClientStorage,
-  } = useJavaScriptQuestionCode(question.metadata, language, question.skeleton);
+  } = useJavaScriptQuestionCode(question.metadata, language);
+  const code = loadedCode ?? question.skeleton?.[language] ?? '';
 
   return (
     <SandpackProvider

@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
-import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
 import type {
   QuestionJavaScriptSkeleton,
@@ -13,6 +12,7 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
+import { deleteLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
@@ -48,6 +48,7 @@ import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
+import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 import useRestartSandpack from '../useRestartSandpack';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -80,8 +81,8 @@ function JavaScriptCodingWorkspaceImpl({
   solution: string | null;
 }>) {
   const { dispatch } = useTilesContext();
-  const { status } = useCodingWorkspaceContext();
-  const { language, resetAllFiles } = useJavaScriptCodingWorkspaceContext();
+  const { status, resetToDefaultCode } = useCodingWorkspaceContext();
+  const { language } = useJavaScriptCodingWorkspaceContext();
 
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
@@ -213,8 +214,8 @@ function JavaScriptCodingWorkspaceImpl({
             size="xs"
             variant="secondary"
             onClick={() => {
-              if (confirm('Reset all changed made to this question?')) {
-                resetAllFiles();
+              if (confirm('Reset all changes made to this question?')) {
+                resetToDefaultCode();
               }
             }}
           />
@@ -337,6 +338,7 @@ function JavaScriptCodingWorkspaceImpl({
 export default function JavaScriptCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
+  loadedFilesFromLocalStorage,
   nextQuestions,
   question,
   similarQuestions,
@@ -345,6 +347,7 @@ export default function JavaScriptCodingWorkspace({
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;
+  loadedFilesFromLocalStorage: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionJavaScriptV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
@@ -352,40 +355,57 @@ export default function JavaScriptCodingWorkspace({
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
+  const [language] = useCodingWorkspaceWorkingLanguage();
   const { sandpack } = useSandpack();
 
-  const { activeFile, visibleFiles } = sandpack;
+  const { activeFile, visibleFiles, updateFile } = sandpack;
 
   const defaultLayout = getJavaScriptCodingWorkspaceLayout(
     activeFile,
     visibleFiles,
   );
 
+  const deleteCodeFromLocalStorage = useCallback(() => {
+    deleteLocalJavaScriptQuestionCode(metadata, language);
+  }, [language, metadata]);
+
+  const resetToDefaultCode = useCallback(() => {
+    deleteCodeFromLocalStorage();
+    updateFile(defaultFiles);
+    updateFile(workspace.main, skeleton[language]);
+  }, [
+    defaultFiles,
+    deleteCodeFromLocalStorage,
+    language,
+    skeleton,
+    updateFile,
+    workspace.main,
+  ]);
+
   return (
-    <CodingPreferencesProvider>
-      <TilesProvider defaultValue={defaultLayout}>
-        <CodingWorkspaceProvider
-          value={{
-            defaultFiles,
-            // TODO(workspace): implement
-            deleteCodeFromLocalStorage: () => {},
-            question,
-          }}>
-          <JavaScriptCodingWorkspaceContextProvider
+    <TilesProvider defaultValue={defaultLayout}>
+      <CodingWorkspaceProvider
+        loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
+        value={{
+          defaultFiles,
+          deleteCodeFromLocalStorage,
+          question,
+          resetToDefaultCode,
+        }}>
+        <JavaScriptCodingWorkspaceContextProvider
+          metadata={metadata}
+          skeleton={skeleton}
+          workspace={workspace}>
+          <JavaScriptCodingWorkspaceImpl
+            canViewPremiumContent={canViewPremiumContent}
+            description={description}
             metadata={metadata}
-            skeleton={skeleton}
-            workspace={workspace}>
-            <JavaScriptCodingWorkspaceImpl
-              canViewPremiumContent={canViewPremiumContent}
-              description={description}
-              metadata={metadata}
-              nextQuestions={nextQuestions}
-              similarQuestions={similarQuestions}
-              solution={solution}
-            />
-          </JavaScriptCodingWorkspaceContextProvider>
-        </CodingWorkspaceProvider>
-      </TilesProvider>
-    </CodingPreferencesProvider>
+            nextQuestions={nextQuestions}
+            similarQuestions={similarQuestions}
+            solution={solution}
+          />
+        </JavaScriptCodingWorkspaceContextProvider>
+      </CodingWorkspaceProvider>
+    </TilesProvider>
   );
 }

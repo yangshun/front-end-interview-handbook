@@ -7,8 +7,9 @@ import type {
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
-import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
+import { saveJavaScriptQuestionCodeLocally } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
 
+import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
 
@@ -16,7 +17,6 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Context = Readonly<{
   language: QuestionCodingWorkingLanguage;
-  resetAllFiles: () => void;
   resetFile: (filePath: string) => void;
   setLanguage: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: QuestionJavaScriptSkeleton;
@@ -25,7 +25,6 @@ type Context = Readonly<{
 
 const JavaScriptCodingWorkspaceContext = createContext<Context>({
   language: 'js',
-  resetAllFiles: () => {},
   resetFile: () => {},
   setLanguage: () => {},
   skeleton: { js: '', ts: '' },
@@ -52,51 +51,43 @@ export function JavaScriptCodingWorkspaceContextProvider({
   skeleton,
   workspace,
 }: Props) {
+  const { deleteCodeFromLocalStorage } = useCodingWorkspaceContext();
   const { sandpack } = useSandpack();
   const { updateFile, resetFile, files } = sandpack;
   const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
-
-  const { saveCode, deleteCodeFromClientStorage } = useJavaScriptQuestionCode(
-    metadata,
-    language,
-    skeleton,
-  );
 
   const mainFile = files[workspace.main];
 
   useEffect(() => {
     if (mainFile.code != null) {
-      saveCode(mainFile.code);
+      saveJavaScriptQuestionCodeLocally(metadata, language, mainFile.code);
     }
-  }, [mainFile.code, saveCode]);
+  }, [language, mainFile.code, metadata]);
 
   const resetFileCustom = useCallback(
     (filePath: string) => {
       if (filePath === workspace.main) {
+        deleteCodeFromLocalStorage();
+
         return updateFile(filePath, skeleton[language]);
       }
 
       resetFile(filePath);
     },
-    [language, resetFile, workspace.main, skeleton, updateFile],
+    [
+      workspace.main,
+      resetFile,
+      deleteCodeFromLocalStorage,
+      updateFile,
+      skeleton,
+      language,
+    ],
   );
-
-  const resetAllFiles = useCallback(() => {
-    resetFileCustom(workspace.main);
-    resetFileCustom(workspace.run);
-    deleteCodeFromClientStorage();
-  }, [
-    resetFileCustom,
-    workspace.main,
-    workspace.run,
-    deleteCodeFromClientStorage,
-  ]);
 
   return (
     <JavaScriptCodingWorkspaceContext.Provider
       value={{
         language,
-        resetAllFiles,
         resetFile: resetFileCustom,
         setLanguage,
         skeleton,

@@ -1,10 +1,11 @@
 'use client';
 
+import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import type {
   QuestionJavaScriptV2,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
-import useJavaScriptQuestionCode from '~/components/questions/editor/useJavaScriptQuestionCode';
+import { loadLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
@@ -25,13 +26,20 @@ export default function JavaScriptCodingWorkspacePage({
   nextQuestions,
   similarQuestions,
 }: Props) {
-  const { workspace, files, skeleton, solution, metadata } = question;
+  const { workspace, files, skeleton } = question;
   const [language] = useCodingWorkspaceWorkingLanguage();
-  const { code } = useJavaScriptQuestionCode(
+  const loadedCode = loadLocalJavaScriptQuestionCode(
     question.metadata,
     language,
-    question.skeleton,
   );
+  const loadedFilesFromLocalStorage = loadedCode != null;
+
+  const code = loadedCode ?? question.skeleton[language];
+
+  const skeletonFiles = {
+    ...files,
+    [workspace.main]: question.skeleton[language],
+  };
 
   const finalFiles = {
     ...files,
@@ -39,31 +47,34 @@ export default function JavaScriptCodingWorkspacePage({
   };
 
   return (
-    <SandpackProvider
-      customSetup={{
-        environment: 'parcel',
-      }}
-      files={finalFiles}
-      options={{
-        ...sandpackProviderOptions,
-        classes: {
-          'sp-input': 'touch-none select-none pointer-events-none',
-          'sp-layout': 'h-full',
-          'sp-stack': 'h-full',
-          'sp-wrapper': '!w-full !h-screen',
-        },
-        visibleFiles: [workspace.main, workspace.run],
-      }}
-      theme="dark">
-      <JavaScriptCodingWorkspace
-        canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={finalFiles}
-        nextQuestions={nextQuestions}
-        question={question}
-        similarQuestions={similarQuestions}
-        skeleton={skeleton}
-        workspace={workspace}
-      />
-    </SandpackProvider>
+    <CodingPreferencesProvider>
+      <SandpackProvider
+        customSetup={{
+          environment: 'parcel',
+        }}
+        files={finalFiles}
+        options={{
+          ...sandpackProviderOptions,
+          classes: {
+            'sp-input': 'touch-none select-none pointer-events-none',
+            'sp-layout': 'h-full',
+            'sp-stack': 'h-full',
+            'sp-wrapper': '!w-full !h-screen',
+          },
+          visibleFiles: [workspace.main, workspace.run],
+        }}
+        theme="dark">
+        <JavaScriptCodingWorkspace
+          canViewPremiumContent={canViewPremiumContent}
+          defaultFiles={skeletonFiles}
+          loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
+          nextQuestions={nextQuestions}
+          question={question}
+          similarQuestions={similarQuestions}
+          skeleton={skeleton}
+          workspace={workspace}
+        />
+      </SandpackProvider>
+    </CodingPreferencesProvider>
   );
 }
