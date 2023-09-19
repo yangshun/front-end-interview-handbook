@@ -53,17 +53,20 @@ export default function Banner({
         size === 'xs' && 'text-2xs md:text-xs',
         className,
       )}>
-      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-        <div className="pr-16 sm:px-16 sm:text-center">
+      <div
+        className={clsx(
+          'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8',
+          size === 'md' && 'py-3',
+          size === 'sm' && 'py-2',
+          size === 'xs' && 'py-1.5',
+        )}>
+        <div className="pr-8 sm:px-8 sm:text-center">
           <p className="font-medium">{children}</p>
         </div>
         {onHide != null && (
           <div
             className={clsx(
-              'absolute inset-y-0 right-0 flex items-start sm:items-start',
-              size === 'md' && 'pr-2 pt-2.5',
-              size === 'sm' && 'pr-2 pt-2.5',
-              size === 'xs' && 'pr-2 pt-2',
+              'absolute inset-y-0 right-0 flex h-full items-start pr-2 sm:items-center',
             )}>
             <button
               className={clsx(
