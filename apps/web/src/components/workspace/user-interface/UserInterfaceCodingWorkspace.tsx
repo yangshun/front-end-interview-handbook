@@ -12,8 +12,10 @@ import type {
   QuestionUserInterfaceWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+import { questionUserInterfaceSolutionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import EmptyState from '~/components/ui/EmptyState';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
@@ -48,7 +50,13 @@ import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
-type TabsType = 'code' | 'console' | 'file_explorer' | 'preview' | 'writeup';
+type TabsType =
+  | 'code'
+  | 'console'
+  | 'description'
+  | 'file_explorer'
+  | 'preview'
+  | 'solution';
 
 export type StaticTabsType = Exclude<TabsType, 'code'>;
 export type PredefinedTabsContents = Record<
@@ -63,21 +71,23 @@ export type PredefinedTabsContents = Record<
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultFiles,
+  description,
   framework,
   metadata,
   mode,
   nextQuestions,
   similarQuestions,
-  writeup,
+  solution,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
+  description: string | null;
   framework: QuestionFramework;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  writeup: string | null;
+  solution: string | null;
 }>) {
   const { sandpack } = useSandpack();
   const { dispatch, getTabById, queryTabByPattern } = useTilesContext();
@@ -202,11 +212,32 @@ function UserInterfaceCodingWorkspaceImpl({
     });
   }
 
+  const frameworkSolutionPath = questionUserInterfaceSolutionPath(
+    metadata,
+    framework,
+  );
+
   const predefinedTabs: PredefinedTabsContents = {
     console: {
       contents: <CodingWorkspaceConsole />,
       icon: CodingWorkspaceTabIcons.console.icon,
       label: 'Console',
+    },
+    description: {
+      contents: (
+        <UserInterfaceCodingWorkspaceWriteup
+          canViewPremiumContent={canViewPremiumContent}
+          contentType="description"
+          framework={framework}
+          metadata={metadata}
+          mode={mode}
+          nextQuestions={nextQuestions}
+          similarQuestions={similarQuestions}
+          writeup={description}
+        />
+      ),
+      icon: CodingWorkspaceTabIcons.description.icon,
+      label: 'Description',
     },
     file_explorer: {
       contents: <UserInterfaceCodingWorkspaceFileExplorer />,
@@ -220,23 +251,37 @@ function UserInterfaceCodingWorkspaceImpl({
       icon: CodingWorkspaceTabIcons.browser.icon,
       label: 'Browser',
     },
-    writeup: {
-      contents: (
-        <UserInterfaceCodingWorkspaceWriteup
-          canViewPremiumContent={canViewPremiumContent}
-          framework={framework}
-          metadata={metadata}
-          mode={mode}
-          nextQuestions={nextQuestions}
-          similarQuestions={similarQuestions}
-          writeup={writeup}
-        />
-      ),
-      icon:
-        mode === 'practice'
-          ? CodingWorkspaceTabIcons.description.icon
-          : CodingWorkspaceTabIcons.solution.icon,
-      label: mode === 'practice' ? 'Description' : 'Solution',
+    solution: {
+      contents:
+        mode === 'practice' ? (
+          <div className="flex w-full items-center p-2">
+            <EmptyState
+              action={
+                <Button
+                  href={frameworkSolutionPath}
+                  label="Go to solution"
+                  variant="secondary"
+                />
+              }
+              icon={CodingWorkspaceTabIcons.solution.icon}
+              subtitle="View the full solution on a new page"
+              title="Solution"
+            />
+          </div>
+        ) : (
+          <UserInterfaceCodingWorkspaceWriteup
+            canViewPremiumContent={canViewPremiumContent}
+            contentType="solution"
+            framework={framework}
+            metadata={metadata}
+            mode={mode}
+            nextQuestions={nextQuestions}
+            similarQuestions={similarQuestions}
+            writeup={solution}
+          />
+        ),
+      icon: CodingWorkspaceTabIcons.solution.icon,
+      label: 'Solution',
     },
   };
 
@@ -310,8 +355,10 @@ function UserInterfaceCodingWorkspaceImpl({
                       dispatch({
                         payload: {
                           panels: getUserInterfaceCodingWorkspaceLayout(
+                            mode,
                             activeFile,
                             visibleFiles,
+                            frameworkSolutionPath,
                           ),
                         },
                         type: 'layout-change',
@@ -321,8 +368,10 @@ function UserInterfaceCodingWorkspaceImpl({
                       dispatch({
                         payload: {
                           panels: getUserInterfaceCodingWorkspaceLayoutAdvanced(
+                            mode,
                             activeFile,
                             visibleFiles,
+                            frameworkSolutionPath,
                           ),
                         },
                         type: 'layout-change',
@@ -422,22 +471,24 @@ function UserInterfaceCodingWorkspaceImpl({
 export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
+  description,
   framework,
   metadata,
   mode,
   nextQuestions,
   similarQuestions,
-  writeup,
+  solution,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
+  description: string | null;
   framework: QuestionFramework;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  solution: string | null;
   workspace: QuestionUserInterfaceWorkspace;
-  writeup: string | null;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
@@ -446,18 +497,21 @@ export default function UserInterfaceCodingWorkspace({
     <CodingPreferencesProvider>
       <TilesProvider
         defaultValue={getUserInterfaceCodingWorkspaceLayout(
+          mode,
           activeFile,
           visibleFiles,
+          questionUserInterfaceSolutionPath(metadata, framework),
         )}>
         <UserInterfaceCodingWorkspaceImpl
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={defaultFiles}
+          description={description}
           framework={framework}
           metadata={metadata}
           mode={mode}
           nextQuestions={nextQuestions}
           similarQuestions={similarQuestions}
-          writeup={writeup}
+          solution={solution}
         />
       </TilesProvider>
     </CodingPreferencesProvider>

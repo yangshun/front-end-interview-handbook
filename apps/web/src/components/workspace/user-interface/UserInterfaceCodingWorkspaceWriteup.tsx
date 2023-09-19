@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
@@ -12,35 +13,26 @@ import QuestionCompanies from '~/components/questions/content/QuestionCompanies'
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
 import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
+import {
+  questionUserInterfaceDescriptionPath,
+  questionUserInterfaceSolutionPath,
+} from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
+import Alert from '~/components/ui/Alert';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
+import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-function restParamForDescription(
-  frameworkDefault: QuestionFramework | null,
-  framework: QuestionFramework,
-) {
-  return framework === (frameworkDefault ?? 'vanilla') ? '' : framework;
-}
-
-function restParamForSolution(
-  frameworkDefault: QuestionFramework | null,
-  framework: QuestionFramework,
-) {
-  return (
-    framework === (frameworkDefault ?? 'vanilla')
-      ? ['solution']
-      : [framework, 'solution']
-  ).join('/');
-}
-
 type Props = Readonly<{
   canViewPremiumContent: boolean;
+  contentType: 'description' | 'solution';
   framework: QuestionFramework;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
@@ -51,6 +43,7 @@ type Props = Readonly<{
 
 export default function UserInterfaceCodingWorkspaceWriteup({
   canViewPremiumContent,
+  contentType,
   framework,
   metadata,
   nextQuestions,
@@ -70,7 +63,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <Heading level="heading5">
               <span>
-                {metadata.title} {mode === 'solution' && ' Solution'}
+                {metadata.title} {contentType === 'solution' && ' Solution'}
               </span>
             </Heading>
             <div>
@@ -112,18 +105,14 @@ export default function UserInterfaceCodingWorkspaceWriteup({
               if (frameworkItem == null) {
                 return;
               }
+
               router.push(
-                `/questions/user-interface/${metadata.slug}/${
-                  mode === 'practice'
-                    ? restParamForDescription(
-                        metadata.frameworkDefault,
-                        frameworkValue,
-                      )
-                    : restParamForSolution(
-                        metadata.frameworkDefault,
-                        frameworkValue,
-                      )
-                }`,
+                contentType === 'description'
+                  ? questionUserInterfaceDescriptionPath(
+                      metadata,
+                      frameworkValue,
+                    )
+                  : questionUserInterfaceSolutionPath(metadata, frameworkValue),
               );
             }}
           />
@@ -135,6 +124,27 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           )}>
           <QuestionMetadataSection metadata={metadata} />
         </div>
+        {contentType === 'description' && mode === 'solution' && (
+          <div className="px-4 pt-4">
+            <Alert variant="info">
+              <div className="flex flex-col items-start gap-2">
+                <Text display="block" size="body2">
+                  You are viewing the description from the solution page.
+                </Text>
+                <Button
+                  href={questionUserInterfaceDescriptionPath(
+                    metadata,
+                    framework,
+                  )}
+                  icon={RiArrowRightLine}
+                  label="Go to the question's main page"
+                  size="sm"
+                  variant="secondary"
+                />
+              </div>
+            </Alert>
+          </div>
+        )}
       </div>
       <div className="flex flex-col gap-y-8 p-4">
         <QuestionContentProse contents={writeup} />

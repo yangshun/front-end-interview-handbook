@@ -1,5 +1,6 @@
-import { BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi';
+import { BiLogoTypescript } from 'react-icons/bi';
 import { CgBrowser } from 'react-icons/cg';
+import { IoLogoJavascript } from 'react-icons/io';
 import {
   RiAngularjsFill,
   RiBracesFill,
@@ -16,6 +17,7 @@ import {
   RiPlayLine,
   RiTerminalBoxLine,
 } from 'react-icons/ri';
+import { SiTypescript } from 'react-icons/si';
 
 export type CodingWorkspaceTabIconType =
   | 'angular'
@@ -70,7 +72,7 @@ export const CodingWorkspaceTabIcons: Record<
     icon: RiHtml5Fill,
   },
   js: {
-    icon: BiLogoJavascript,
+    icon: IoLogoJavascript,
   },
   json: {
     icon: RiBracesFill,

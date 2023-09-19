@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { createContext, useContext, useMemo, useState } from 'react';
 
+import Alert from '~/components/ui/Alert';
 import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
@@ -171,18 +172,16 @@ export default function CodingWorkspaceExplorer({
           setRenamingItem(fullPath);
         },
       }}>
-      <div className="flex w-full flex-col gap-y-3">
+      <div className="flex w-full grow flex-col justify-between gap-y-3">
         <div className="flex w-full flex-col">
           <ExplorerDirectory {...rootDirectory} indent={-1} />
         </div>
-        <div className="px-1">
-          <div className={clsx('rounded p-3', themeBackgroundEmphasized)}>
-            <Text size="body3">
-              For now, files cannot be created or renamed. It's acceptable to
-              write multiple components within a single file during interviews.
-            </Text>
-          </div>
-        </div>
+        <Alert variant="warning">
+          <Text size="body2">
+            For now, files cannot be created or renamed. It's acceptable to
+            write multiple components within a single file during interviews.
+          </Text>
+        </Alert>
       </div>
     </CodingFileExplorerContext.Provider>
   );

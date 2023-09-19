@@ -6,7 +6,7 @@ export default function UserInterfaceCodingWorkspaceExplorer() {
   const { openFile } = useCodingWorkspaceContext();
 
   return (
-    <div className="w-full p-2">
+    <div className="flex w-full p-2">
       <CodingWorkspaceExplorer onOpenFile={openFile} />
     </div>
   );

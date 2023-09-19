@@ -1,20 +1,30 @@
+import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
+// TODO: improve id type-safety.
 export function getUserInterfaceCodingWorkspaceLayout(
+  mode: QuestionUserInterfaceMode,
   activeFile: string,
   files: ReadonlyArray<string>,
+  solutionHref: string,
 ): TilesPanelConfig {
   return {
     direction: 'horizontal',
     id: 'root',
     items: [
       {
-        activeTabId: 'writeup',
+        activeTabId: mode === 'practice' ? 'description' : 'solution',
         id: 'left-column',
         tabs: [
           {
             closeable: false,
-            id: 'writeup',
+            id: 'description',
+          },
+          {
+            closeable: false,
+            href: mode === 'practice' ? solutionHref : undefined,
+            id: 'solution',
           },
         ],
         type: 'item',
@@ -56,8 +66,10 @@ export function getUserInterfaceCodingWorkspaceLayout(
 }
 
 export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
+  mode: QuestionUserInterfaceMode,
   activeFile: string,
   files: ReadonlyArray<string>,
+  solutionHref: string,
 ): TilesPanelConfig {
   return {
     direction: 'horizontal',
@@ -68,12 +80,17 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
         id: 'left-column',
         items: [
           {
-            activeTabId: 'writeup',
+            activeTabId: mode === 'practice' ? 'description' : 'solution',
             id: 'left-top',
             tabs: [
               {
                 closeable: false,
-                id: 'writeup',
+                id: 'description',
+              },
+              {
+                closeable: false,
+                href: mode === 'practice' ? solutionHref : undefined,
+                id: 'solution',
               },
             ],
             type: 'item',

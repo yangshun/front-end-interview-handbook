@@ -70,8 +70,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           className={clsx('bg-brand-dark p-2 text-center')}
           color="light"
           size="body3">
-          You are viewing the solution. Changes made to the code will not be
-          saved.
+          You are viewing the solution code. Changes will not be saved.
         </Text>
       )}
       <MonacoCodeEditor
