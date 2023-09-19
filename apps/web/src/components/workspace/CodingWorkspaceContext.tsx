@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
 import type { QuestionBase } from '../questions/common/QuestionsTypes';
-import { deleteLocalUserInterfaceQuestionCode } from '../questions/editor/userInterfaceQuestionCodeStorage';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
 
@@ -24,6 +23,7 @@ type BaseContext<T extends QuestionBase> = Readonly<{
   deleteCodeFromLocalStorage: () => void;
   openFile?: (filePath: string, fromFilePath?: string) => void;
   question: T;
+  resetToDefaultCode: () => void;
 }>;
 
 type Props<T extends QuestionBase> = Readonly<{
@@ -49,6 +49,7 @@ const CodingWorkspaceContext = createContext<ContextValue<any>>({
   executionComplete: () => {},
   openFile: () => {},
   question: {},
+  resetToDefaultCode: () => {},
   runTests: () => {},
   setShowLoadedFilesFromLocalStorageMessage: () => {},
   showLoadedFilesFromLocalStorageMessage: false,
@@ -81,11 +82,23 @@ export function CodingWorkspaceProvider<T extends QuestionBase>({
     setStatus('idle');
   }, []);
 
+  function deleteCodeFromLocalStorage() {
+    setShowLoadedFilesFromLocalStorageMessage(false);
+    value.deleteCodeFromLocalStorage();
+  }
+
+  function resetToDefaultCode() {
+    deleteCodeFromLocalStorage();
+    value.resetToDefaultCode();
+  }
+
   return (
     <CodingWorkspaceContext.Provider
       value={{
         ...value,
+        deleteCodeFromLocalStorage,
         executionComplete,
+        resetToDefaultCode,
         runTests,
         setShowLoadedFilesFromLocalStorageMessage,
         showLoadedFilesFromLocalStorageMessage,

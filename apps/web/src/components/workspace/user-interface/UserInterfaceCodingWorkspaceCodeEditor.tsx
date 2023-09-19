@@ -7,7 +7,7 @@ import { useIsMounted } from 'usehooks-ts';
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
-import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/userInterfaceQuestionCodeStorage';
+import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
@@ -18,6 +18,7 @@ import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEdi
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -30,13 +31,13 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
 }>) {
   const { sandpack } = useSandpack();
   const intl = useIntl();
-  const { files, updateFile, setActiveFile, resetFile, resetAllFiles } =
-    sandpack;
+  const { files, updateFile, setActiveFile } = sandpack;
   const { dispatch } = useTilesContext();
   const {
+    defaultFiles,
     showLoadedFilesFromLocalStorageMessage,
     setShowLoadedFilesFromLocalStorageMessage,
-    deleteCodeFromLocalStorage,
+    resetToDefaultCode,
   } = useCodingWorkspaceContext();
   const isMounted = useIsMounted();
 
@@ -45,7 +46,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filePath]);
 
-  function resetToDefaultCode() {
+  function reset() {
     const shouldDiscard = window.confirm(
       intl.formatMessage({
         defaultMessage: 'Your existing code will be discarded, are you sure?',
@@ -59,9 +60,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
       return;
     }
 
-    setShowLoadedFilesFromLocalStorageMessage(false);
-    resetAllFiles();
-    deleteCodeFromLocalStorage();
+    resetToDefaultCode();
   }
 
   return (
@@ -94,7 +93,22 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
               if (!confirm('Reset code to original? Changes will be lost!')) {
                 return;
               }
-              resetFile(filePath);
+
+              if (defaultFiles[filePath] == null) {
+                return;
+              }
+
+              setShowLoadedFilesFromLocalStorageMessage(false);
+
+              const defaultFile = defaultFiles[filePath];
+
+              if (typeof defaultFile === 'string') {
+                updateFile(filePath, defaultFile);
+
+                return;
+              }
+
+              updateFile(filePath, defaultFile?.code);
             }}
           />
         </div>
@@ -105,31 +119,12 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
         </Banner>
       )}
       {showLoadedFilesFromLocalStorageMessage && isMounted() && (
-        <Banner
-          size="xs"
-          variant="primary"
+        <CodingWorkspaceLoadedFilesBanner
           onHide={() => {
             setShowLoadedFilesFromLocalStorageMessage(false);
-          }}>
-          <FormattedMessage
-            defaultMessage="Your previous code was restored. <link>Reset to default</link>"
-            description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
-            id="0Vl72x"
-            values={{
-              link: (chunks) => (
-                <Anchor
-                  className="text-neutral-100 underline"
-                  href="#"
-                  variant="unstyled"
-                  onClick={() => {
-                    resetToDefaultCode();
-                  }}>
-                  {chunks}
-                </Anchor>
-              ),
-            }}
-          />
-        </Banner>
+          }}
+          onResetToDefaultCode={reset}
+        />
       )}
       <MonacoCodeEditor
         filePath={filePath}

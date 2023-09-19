@@ -13,7 +13,7 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { questionUserInterfaceSolutionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/userInterfaceQuestionCodeStorage';
+import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import EmptyState from '~/components/ui/EmptyState';
@@ -134,6 +134,11 @@ function UserInterfaceCodingWorkspaceImpl({
   const deleteCodeFromLocalStorage = useCallback(() => {
     deleteLocalUserInterfaceQuestionCode(question);
   }, [question]);
+
+  function resetToDefaultCode() {
+    deleteCodeFromLocalStorage();
+    sandpack.updateFile(defaultFiles);
+  }
 
   function openFile(filePath: string, fromFilePath: string | undefined) {
     setTabContents({
@@ -311,6 +316,7 @@ function UserInterfaceCodingWorkspaceImpl({
         defaultFiles,
         deleteCodeFromLocalStorage,
         question,
+        resetToDefaultCode,
       }}>
       <div className="flex h-full w-full flex-col">
         <div className="flex items-center justify-between px-3 py-3">
@@ -326,9 +332,8 @@ function UserInterfaceCodingWorkspaceImpl({
               size="xs"
               variant="secondary"
               onClick={() => {
-                if (confirm('Reset all changed made to this question?')) {
-                  resetAllFiles();
-                  deleteCodeFromLocalStorage();
+                if (confirm('Reset to initial code?')) {
+                  resetToDefaultCode();
                 }
               }}
             />

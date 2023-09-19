@@ -5,7 +5,7 @@ import type {
   QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/editor/userInterfaceQuestionCodeStorage';
+import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 
@@ -27,19 +27,20 @@ export default function UserInterfaceCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const loadedFiles = loadLocalUserInterfaceQuestionCode(question);
+  const loadedFilesFromLocalStorage =
+    mode === 'practice' && loadedFiles != null;
 
-  const files =
+  const defaultFiles =
     mode === 'practice'
-      ? loadedFiles ?? question.skeletonBundle?.files
+      ? question.skeletonBundle?.files
       : question.solutionBundle?.files;
 
+  const files =
+    mode === 'practice' ? loadedFiles ?? defaultFiles : defaultFiles;
   const workspace =
     mode === 'practice'
       ? question.skeletonBundle?.workspace
       : question.solutionBundle?.workspace;
-
-  const loadedFilesFromLocalStorage =
-    mode === 'practice' && loadedFiles != null;
 
   return (
     <SandpackProvider
@@ -61,7 +62,7 @@ export default function UserInterfaceCodingWorkspacePage({
       theme="dark">
       <UserInterfaceCodingWorkspace
         canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={files!} // TODO(redesign): remove when the field is made compulsory
+        defaultFiles={defaultFiles!} // TODO(redesign): remove ! when the field is made compulsory
         loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}
         nextQuestions={nextQuestions}
