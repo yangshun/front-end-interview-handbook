@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import { Fragment } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
-import TilesPanelContents from './TilesPanelContents';
+import TilesPanelItem from './TilesPanelItem';
 import type { PanelDropTarget } from '../actions/tabDrop';
 import type { TilesPanelConfig } from '../types';
 
@@ -50,7 +50,7 @@ export default function TilesPanel({
   TilesPanelConfig) {
   if (props.type === 'item') {
     const panel = (
-      <TilesPanelContents
+      <TilesPanelItem
         key={id}
         activeTabId={props.activeTabId}
         defaultSize={defaultSize}

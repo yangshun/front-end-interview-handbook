@@ -22,4 +22,18 @@ export type TilesPanelGroupConfig = Readonly<{
 export type TilesPanelConfig = TilesPanelGroupConfig | TilesPanelItemConfig;
 
 export type TilesPanelDropAreaSection =
-  'bottom' | 'center' | 'left' | 'right' | 'tab' | 'tabs-row' | 'top';
+  | 'bottom'
+  | 'center'
+  | 'left'
+  | 'right'
+  | 'tab'
+  | 'tabs-row'
+  | 'top';
+
+export type TilesPanelDragItem = Readonly<{
+  index: number;
+  panelId: string;
+  tabCloseable: boolean;
+  tabId: string;
+  type: string;
+}>;
