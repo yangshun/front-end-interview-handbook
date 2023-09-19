@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
@@ -8,10 +8,12 @@ import LogoLink from '~/components/global/Logo';
 import type {
   QuestionFramework,
   QuestionMetadata,
+  QuestionUserInterfaceV2,
   QuestionUserInterfaceWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { questionUserInterfaceSolutionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/userInterfaceQuestionCodeStorage';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import EmptyState from '~/components/ui/EmptyState';
@@ -67,24 +69,21 @@ export type UserInterfaceCodingWorkspacePredefinedTabsContents =
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultFiles,
-  description,
-  framework,
-  metadata,
+  loadedFilesFromLocalStorage,
   mode,
+  question,
   nextQuestions,
   similarQuestions,
-  solution,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
-  description: string | null;
-  framework: QuestionFramework;
-  metadata: QuestionMetadata;
+  loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionUserInterfaceV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  solution: string | null;
 }>) {
+  const { framework, metadata, description, solution } = question;
   const { sandpack } = useSandpack();
   const { dispatch, getTabById, queryTabByPattern } = useTilesContext();
   const { activeFile, visibleFiles, files, resetAllFiles } = sandpack;
@@ -131,6 +130,10 @@ function UserInterfaceCodingWorkspaceImpl({
       type: 'tab-set-active',
     });
   }, [activeFile, dispatch]);
+
+  const deleteCodeFromLocalStorage = useCallback(() => {
+    deleteLocalUserInterfaceQuestionCode(question);
+  }, [question]);
 
   function openFile(filePath: string, fromFilePath: string | undefined) {
     setTabContents({
@@ -303,9 +306,11 @@ function UserInterfaceCodingWorkspaceImpl({
 
   return (
     <CodingWorkspaceProvider
+      loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
       value={{
         defaultFiles,
-        openFile,
+        deleteCodeFromLocalStorage,
+        question,
       }}>
       <div className="flex h-full w-full flex-col">
         <div className="flex items-center justify-between px-3 py-3">
@@ -323,6 +328,7 @@ function UserInterfaceCodingWorkspaceImpl({
               onClick={() => {
                 if (confirm('Reset all changed made to this question?')) {
                   resetAllFiles();
+                  deleteCodeFromLocalStorage();
                 }
               }}
             />
@@ -467,27 +473,23 @@ function UserInterfaceCodingWorkspaceImpl({
 export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
-  description,
-  framework,
-  metadata,
+  loadedFilesFromLocalStorage,
   mode,
+  question,
   nextQuestions,
   similarQuestions,
-  solution,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
-  description: string | null;
-  framework: QuestionFramework;
-  metadata: QuestionMetadata;
+  loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionUserInterfaceV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  solution: string | null;
-  workspace: QuestionUserInterfaceWorkspace;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
+  const { metadata, framework } = question;
 
   return (
     <CodingPreferencesProvider>
@@ -501,13 +503,11 @@ export default function UserInterfaceCodingWorkspace({
         <UserInterfaceCodingWorkspaceImpl
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={defaultFiles}
-          description={description}
-          framework={framework}
-          metadata={metadata}
+          loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
           mode={mode}
           nextQuestions={nextQuestions}
+          question={question}
           similarQuestions={similarQuestions}
-          solution={solution}
         />
       </TilesProvider>
     </CodingPreferencesProvider>

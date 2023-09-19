@@ -14,12 +14,6 @@ import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
-export type QuestionJavaScriptV2 = Readonly<{
-  files: Record<string, string>;
-  skeleton: QuestionJavaScriptSkeleton;
-  workspace: QuestionJavaScriptWorkspace;
-}>;
-
 type Context = Readonly<{
   language: QuestionCodingWorkingLanguage;
   resetAllFiles: () => void;

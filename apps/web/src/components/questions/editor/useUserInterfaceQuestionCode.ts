@@ -15,6 +15,7 @@ type Payload = Readonly<{
   version: 'v1';
 }>;
 
+// TODO(workspace): delete
 export default function useUserInterfaceQuestionCode(
   question: QuestionUserInterface,
 ) {

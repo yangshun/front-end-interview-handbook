@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
+import type { QuestionBase } from '../questions/common/QuestionsTypes';
+import { deleteLocalUserInterfaceQuestionCode } from '../questions/editor/userInterfaceQuestionCodeStorage';
+
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
 
 export type CodingWorkspaceTabContents<Key extends string = string> = Readonly<
@@ -16,39 +19,55 @@ export type CodingWorkspaceTabContents<Key extends string = string> = Readonly<
 
 type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';
 
-type BaseContext = Readonly<{
+type BaseContext<T extends QuestionBase> = Readonly<{
   defaultFiles: SandpackFiles;
+  deleteCodeFromLocalStorage: () => void;
   openFile?: (filePath: string, fromFilePath?: string) => void;
+  question: T;
+}>;
+
+type Props<T extends QuestionBase> = Readonly<{
+  children: ReactNode;
+  loadedFilesFromLocalStorage?: boolean;
+  value: BaseContext<T>;
 }>;
 
 type AdditionalContext = Readonly<{
   executionComplete: () => void;
   runTests: () => void;
+  setShowLoadedFilesFromLocalStorageMessage: (show: boolean) => void;
+  showLoadedFilesFromLocalStorageMessage: boolean;
   status: Status;
   submit: () => void;
 }>;
 
-type Context = AdditionalContext & BaseContext;
+type ContextValue<T extends QuestionBase> = AdditionalContext & BaseContext<T>;
 
-const CodingWorkspaceContext = createContext<Context>({
+const CodingWorkspaceContext = createContext<ContextValue<any>>({
   defaultFiles: {},
+  deleteCodeFromLocalStorage: () => {},
   executionComplete: () => {},
   openFile: () => {},
+  question: {},
   runTests: () => {},
+  setShowLoadedFilesFromLocalStorageMessage: () => {},
+  showLoadedFilesFromLocalStorageMessage: false,
   status: 'idle',
   submit: () => {},
 });
 
 CodingWorkspaceContext.displayName = 'CodingWorkspaceContext';
 
-export function CodingWorkspaceProvider({
+export function CodingWorkspaceProvider<T extends QuestionBase>({
   children,
   value,
-}: Readonly<{
-  children: ReactNode;
-  value: BaseContext;
-}>) {
+  loadedFilesFromLocalStorage = false,
+}: Props<T>) {
   const [status, setStatus] = useState<Status>('idle');
+  const [
+    showLoadedFilesFromLocalStorageMessage,
+    setShowLoadedFilesFromLocalStorageMessage,
+  ] = useState(loadedFilesFromLocalStorage);
 
   const runTests = useCallback(() => {
     setStatus('running_tests');
@@ -68,6 +87,8 @@ export function CodingWorkspaceProvider({
         ...value,
         executionComplete,
         runTests,
+        setShowLoadedFilesFromLocalStorageMessage,
+        showLoadedFilesFromLocalStorageMessage,
         status,
         submit,
       }}>
@@ -76,6 +97,8 @@ export function CodingWorkspaceProvider({
   );
 }
 
-export function useCodingWorkspaceContext() {
-  return useContext(CodingWorkspaceContext);
+export function useCodingWorkspaceContext<T extends QuestionBase>() {
+  const context = useContext(CodingWorkspaceContext);
+
+  return context as ContextValue<T>;
 }

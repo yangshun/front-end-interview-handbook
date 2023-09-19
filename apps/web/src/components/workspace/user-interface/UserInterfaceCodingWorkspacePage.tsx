@@ -5,6 +5,7 @@ import type {
   QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/editor/userInterfaceQuestionCodeStorage';
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 
@@ -25,15 +26,20 @@ export default function UserInterfaceCodingWorkspacePage({
   question,
   similarQuestions,
 }: Props) {
+  const loadedFiles = loadLocalUserInterfaceQuestionCode(question);
+
   const files =
     mode === 'practice'
-      ? question.skeletonBundle?.files
+      ? loadedFiles ?? question.skeletonBundle?.files
       : question.solutionBundle?.files;
 
   const workspace =
     mode === 'practice'
       ? question.skeletonBundle?.workspace
       : question.solutionBundle?.workspace;
+
+  const loadedFilesFromLocalStorage =
+    mode === 'practice' && loadedFiles != null;
 
   return (
     <SandpackProvider
@@ -56,14 +62,11 @@ export default function UserInterfaceCodingWorkspacePage({
       <UserInterfaceCodingWorkspace
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={files!} // TODO(redesign): remove when the field is made compulsory
-        description={question.description}
-        framework={question.framework}
-        metadata={question.metadata}
+        loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}
         nextQuestions={nextQuestions}
+        question={question}
         similarQuestions={similarQuestions}
-        solution={question.solution}
-        workspace={workspace!} // TODO(redesign): remove when the field is made compulsory
       />
     </SandpackProvider>
   );

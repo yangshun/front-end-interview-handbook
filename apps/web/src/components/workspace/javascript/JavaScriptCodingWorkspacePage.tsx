@@ -25,8 +25,7 @@ export default function JavaScriptCodingWorkspacePage({
   nextQuestions,
   similarQuestions,
 }: Props) {
-  const { description, workspace, files, skeleton, solution, metadata } =
-    question;
+  const { workspace, files, skeleton, solution, metadata } = question;
   const [language] = useCodingWorkspaceWorkingLanguage();
   const { code } = useJavaScriptQuestionCode(
     question.metadata,
@@ -59,12 +58,10 @@ export default function JavaScriptCodingWorkspacePage({
       <JavaScriptCodingWorkspace
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={finalFiles}
-        description={description}
-        metadata={metadata}
         nextQuestions={nextQuestions}
+        question={question}
         similarQuestions={similarQuestions}
         skeleton={skeleton}
-        solution={solution}
         workspace={workspace}
       />
     </SandpackProvider>

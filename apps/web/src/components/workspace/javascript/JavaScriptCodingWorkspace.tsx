@@ -7,6 +7,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import LogoLink from '~/components/global/Logo';
 import type {
   QuestionJavaScriptSkeleton,
+  QuestionJavaScriptV2,
   QuestionJavaScriptWorkspace,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
@@ -336,24 +337,21 @@ function JavaScriptCodingWorkspaceImpl({
 export default function JavaScriptCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
-  description,
-  metadata,
   nextQuestions,
+  question,
   similarQuestions,
   skeleton,
-  solution,
   workspace,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;
-  description: string | null;
-  metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionJavaScriptV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
-  solution: string | null;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
+  const { description, metadata, solution } = question;
   const { sandpack } = useSandpack();
 
   const { activeFile, visibleFiles } = sandpack;
@@ -369,6 +367,9 @@ export default function JavaScriptCodingWorkspace({
         <CodingWorkspaceProvider
           value={{
             defaultFiles,
+            // TODO(workspace): implement
+            deleteCodeFromLocalStorage: () => {},
+            question,
           }}>
           <JavaScriptCodingWorkspaceContextProvider
             metadata={metadata}
