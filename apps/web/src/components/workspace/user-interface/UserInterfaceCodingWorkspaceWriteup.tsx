@@ -19,7 +19,6 @@ import {
 } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Alert from '~/components/ui/Alert';
-import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

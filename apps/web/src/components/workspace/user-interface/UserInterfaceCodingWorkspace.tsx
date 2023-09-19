@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';

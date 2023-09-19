@@ -1,9 +1,7 @@
-import clsx from 'clsx';
 import { createContext, useContext, useMemo, useState } from 'react';
 
 import Alert from '~/components/ui/Alert';
 import Text from '~/components/ui/Text';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 import { ExplorerDirectory } from './CodingWorkspaceExplorerItem';
 import type { FileExplorerItem } from './types';

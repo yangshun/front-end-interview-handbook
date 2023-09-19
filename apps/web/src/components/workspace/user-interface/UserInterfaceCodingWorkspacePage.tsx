@@ -29,8 +29,7 @@ export default function UserInterfaceCodingWorkspacePage({
     mode === 'practice'
       ? question.skeletonBundle?.files
       : question.solutionBundle?.files;
-  const writeup =
-    mode === 'practice' ? question.description : question.solution;
+
   const workspace =
     mode === 'practice'
       ? question.skeletonBundle?.workspace

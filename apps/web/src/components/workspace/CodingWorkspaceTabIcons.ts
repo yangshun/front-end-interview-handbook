@@ -17,7 +17,6 @@ import {
   RiPlayLine,
   RiTerminalBoxLine,
 } from 'react-icons/ri';
-import { SiTypescript } from 'react-icons/si';
 
 export type CodingWorkspaceTabIconType =
   | 'angular'

@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
 import { RiListUnordered } from 'react-icons/ri';
-import { useLocalStorage } from 'usehooks-ts';
 
 import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 

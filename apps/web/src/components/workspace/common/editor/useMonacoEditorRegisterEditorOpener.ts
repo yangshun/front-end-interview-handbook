@@ -1,4 +1,4 @@
-import type { editor,Uri } from 'monaco-editor';
+import type { editor, Uri } from 'monaco-editor';
 import { useEffect } from 'react';
 
 import type { Monaco } from '@monaco-editor/react';
@@ -12,13 +12,19 @@ export default function useMonacoEditorRegisterEditorOpener(
       return;
     }
 
-    const { dispose } = monaco.editor?.registerEditorOpener({
+    const disposer = monaco?.editor?.registerEditorOpener?.({
       openCodeEditor: (source: editor.ICodeEditor, resource: Uri) => {
         onOpenFile(resource.path, source.getModel()?.uri.path);
 
         return true;
       },
     });
+
+    if (disposer == null) {
+      return;
+    }
+
+    const { dispose } = disposer;
 
     return () => {
       dispose();

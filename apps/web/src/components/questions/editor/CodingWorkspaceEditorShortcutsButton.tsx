@@ -1,11 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  RiInformationLine,
-  RiKeyboardBoxLine,
-  RiKeyboardLine,
-} from 'react-icons/ri';
+import { RiKeyboardBoxLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';

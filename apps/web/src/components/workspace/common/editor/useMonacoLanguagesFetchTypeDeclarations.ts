@@ -2,7 +2,11 @@ import type { IDisposable } from 'monaco-editor';
 import { useEffect, useRef } from 'react';
 
 import { fetchDtsList } from '~/dts-fetch';
-import type { PackageJSON, PackageName, PackageVersion } from '~/dts-fetch/types';
+import type {
+  PackageJSON,
+  PackageName,
+  PackageVersion,
+} from '~/dts-fetch/types';
 
 import type { Monaco } from '@monaco-editor/react';
 
@@ -25,10 +29,7 @@ async function fetchPackageTypeDeclarations(
   packageName: PackageName,
   packageVersion: PackageVersion,
 ): Promise<PackageModuleTypeDeclarations | null> {
-  if (
-    packageTypeDefs[packageName] &&
-    packageTypeDefs[packageName][packageVersion]
-  ) {
+  if (packageTypeDefs[packageName]?.[packageVersion]) {
     return packageTypeDefs[packageName][packageVersion];
   }
 
@@ -137,7 +138,7 @@ export default function useMonacoLanguagesFetchTypeDeclarations(
         loadedDeps.current[packageName] = dispose;
       });
 
-    const {current} = loadedDeps;
+    const { current } = loadedDeps;
 
     return () => {
       Object.values(current).forEach((dispose) => dispose());
