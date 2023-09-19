@@ -6,14 +6,15 @@ import { VscLayout } from 'react-icons/vsc';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
 import type {
-  QuestionFramework,
   QuestionMetadata,
   QuestionUserInterfaceV2,
-  QuestionUserInterfaceWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { questionUserInterfaceSolutionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
+import {
+  deleteLocalUserInterfaceQuestionCode,
+  saveUserInterfaceQuestionCodeLocally,
+} from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import EmptyState from '~/components/ui/EmptyState';
@@ -86,9 +87,14 @@ function UserInterfaceCodingWorkspaceImpl({
   const { framework, metadata, description, solution } = question;
   const { sandpack } = useSandpack();
   const { dispatch, getTabById, queryTabByPattern } = useTilesContext();
-  const { activeFile, visibleFiles, files, resetAllFiles } = sandpack;
+  const { activeFile, visibleFiles, files } = sandpack;
 
   useRestartSandpack();
+  useEffect(() => {
+    if (mode === 'practice') {
+      saveUserInterfaceQuestionCodeLocally(question, sandpack.files);
+    }
+  });
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
@@ -315,6 +321,7 @@ function UserInterfaceCodingWorkspaceImpl({
       value={{
         defaultFiles,
         deleteCodeFromLocalStorage,
+        openFile,
         question,
         resetToDefaultCode,
       }}>
