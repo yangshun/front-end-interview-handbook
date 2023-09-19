@@ -143,5 +143,5 @@ export default function useMonacoLanguagesFetchTypeDeclarations(
     return () => {
       Object.values(current).forEach((dispose) => dispose());
     };
-  }, [loadedDeps, monaco, packageJSONString]);
+  }, [loadedDeps, monaco, packageJSONString, shouldUseTypeScript]);
 }

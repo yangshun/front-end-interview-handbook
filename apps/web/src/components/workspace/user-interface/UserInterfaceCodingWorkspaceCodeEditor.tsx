@@ -1,17 +1,14 @@
 import clsx from 'clsx';
 import { useCallback } from 'react';
 import { RiFolder3Line } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
-import { deleteLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
-import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
-import Text from '~/components/ui/Text';
 import { themeDivideColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 

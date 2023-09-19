@@ -1,5 +1,4 @@
 import type {
-  QuestionUserInterface,
   QuestionUserInterfaceSandpackSetup,
   QuestionUserInterfaceV2,
 } from '../common/QuestionsTypes';
