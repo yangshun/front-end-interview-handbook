@@ -93,6 +93,7 @@ export default function TilesPanelTabsSection({
             <div key={key} className={clsx('flex h-full flex-col')}>
               <TilesPanelTab
                 closeable={tabItem.closeable}
+                href={tabItem.href}
                 icon={icon}
                 index={index}
                 isActive={isActive}

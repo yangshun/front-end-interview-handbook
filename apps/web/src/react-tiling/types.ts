@@ -2,6 +2,7 @@ export type TilesPanelGroupDirection = 'horizontal' | 'vertical';
 export type TilesPanelItemTab = Readonly<{
   allowOverflow?: boolean;
   closeable: boolean;
+  href?: string;
   id: string;
 }>;
 

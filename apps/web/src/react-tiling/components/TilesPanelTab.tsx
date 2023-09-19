@@ -8,6 +8,8 @@ import {
   themeBackgroundLayerColorHover,
 } from '~/components/ui/theme';
 
+import { I18nLink } from '~/next-i18nostic/src';
+
 import type { TilesPanelDragItem } from '../types';
 
 function TabButton({
@@ -67,17 +69,19 @@ function TabButton({
 
 export default function TilesPanelTab({
   closeable,
-  tabId,
+  href,
   icon: Icon,
   index,
   isActive,
   label,
   panelId,
+  tabId,
   onClick,
   onClose,
   onDrop,
 }: Readonly<{
   closeable: boolean;
+  href?: string;
   icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
   index: number;
   isActive: boolean;
@@ -155,17 +159,26 @@ export default function TilesPanelTab({
         isActive ? 'text-neutral-50' : 'text-neutral-400',
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
-      <TabButton
-        className={clsx(
-          'flex gap-x-1.5 whitespace-nowrap text-xs',
-          isDragging && 'invisible',
-        )}
-        onClick={onClick}
-        onMouseDown={onClick}>
-        <span aria-hidden={true} className="absolute inset-0" />
-        {Icon && <Icon className="h-4 w-4 shrink-0" />}
-        {label}
-      </TabButton>
+      {href ? (
+        <I18nLink
+          className={clsx('flex gap-x-1.5 whitespace-nowrap text-xs')}
+          href={href}>
+          {Icon && <Icon className="h-4 w-4 shrink-0" />}
+          {label}
+        </I18nLink>
+      ) : (
+        <TabButton
+          className={clsx(
+            'flex gap-x-1.5 whitespace-nowrap text-xs',
+            isDragging && 'invisible',
+          )}
+          onClick={onClick}
+          onMouseDown={onClick}>
+          <span aria-hidden={true} className="absolute inset-0" />
+          {Icon && <Icon className="h-4 w-4 shrink-0" />}
+          {label}
+        </TabButton>
+      )}
       {closeable && (
         <button
           className={clsx(
