@@ -50,7 +50,7 @@ import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
-type TabsType =
+type UserInterfaceCodingWorkspaceTabsType =
   | 'code'
   | 'console'
   | 'description'
@@ -58,15 +58,12 @@ type TabsType =
   | 'preview'
   | 'solution';
 
-export type StaticTabsType = Exclude<TabsType, 'code'>;
-export type PredefinedTabsContents = Record<
-  StaticTabsType,
-  Readonly<{
-    contents: ReactNode;
-    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
-    label: string;
-  }>
+export type UserInterfaceCodingWorkspacePredefinedTabsType = Exclude<
+  UserInterfaceCodingWorkspaceTabsType,
+  'code'
 >;
+export type UserInterfaceCodingWorkspacePredefinedTabsContents =
+  CodingWorkspaceTabContents<UserInterfaceCodingWorkspacePredefinedTabsType>;
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
@@ -217,7 +214,7 @@ function UserInterfaceCodingWorkspaceImpl({
     framework,
   );
 
-  const predefinedTabs: PredefinedTabsContents = {
+  const predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents = {
     console: {
       contents: <CodingWorkspaceConsole />,
       icon: CodingWorkspaceTabIcons.console.icon,

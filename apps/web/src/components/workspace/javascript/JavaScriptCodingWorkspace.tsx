@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
@@ -53,7 +52,7 @@ import useRestartSandpack from '../useRestartSandpack';
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
-type TabsType =
+export type JavaScriptCodingWorkspacePredefinedTabsType =
   | 'console'
   | 'description'
   | 'run_tests'
@@ -61,14 +60,8 @@ type TabsType =
   | 'submit'
   | 'test_cases';
 
-export type PredefinedTabsContents = Record<
-  TabsType,
-  Readonly<{
-    contents: ReactNode;
-    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
-    label: string;
-  }>
->;
+export type JavaScriptCodingWorkspacePredefinedTabsContents =
+  CodingWorkspaceTabContents<JavaScriptCodingWorkspacePredefinedTabsType>;
 
 function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
@@ -119,7 +112,7 @@ function JavaScriptCodingWorkspaceImpl({
 
   useMonacoEditorModels(monaco, files);
 
-  const predefinedTabs: PredefinedTabsContents = {
+  const predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents = {
     console: {
       contents: <CodingWorkspaceConsole />,
       icon: CodingWorkspaceTabIcons.console.icon,

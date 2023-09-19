@@ -1,14 +1,19 @@
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import type { PredefinedTabsContents } from './JavaScriptCodingWorkspace';
+import type {
+  JavaScriptCodingWorkspacePredefinedTabsContents,
+  JavaScriptCodingWorkspacePredefinedTabsType,
+} from './JavaScriptCodingWorkspace';
 
 export default function JavaScriptCodingWorkspaceNewTab({
   predefinedTabs,
   onSelectTabType,
 }: Readonly<{
-  onSelectTabType: (tabType: keyof PredefinedTabsContents) => void;
-  predefinedTabs: PredefinedTabsContents;
+  onSelectTabType: (
+    tabType: JavaScriptCodingWorkspacePredefinedTabsType,
+  ) => void;
+  predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents;
 }>) {
   return (
     <div className="flex flex-col gap-2 p-4">
@@ -24,7 +29,9 @@ export default function JavaScriptCodingWorkspaceNewTab({
             label={tabDetails.label}
             variant="secondary"
             onClick={() => {
-              onSelectTabType(tabType as keyof PredefinedTabsContents);
+              onSelectTabType(
+                tabType as JavaScriptCodingWorkspacePredefinedTabsType,
+              );
             }}
           />
         ))}

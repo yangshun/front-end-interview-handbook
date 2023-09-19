@@ -6,8 +6,8 @@ import Text from '~/components/ui/Text';
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import type {
-  PredefinedTabsContents,
-  StaticTabsType,
+  UserInterfaceCodingWorkspacePredefinedTabsContents,
+  UserInterfaceCodingWorkspacePredefinedTabsType,
 } from './UserInterfaceCodingWorkspace';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
@@ -20,7 +20,7 @@ type UserInterfaceCodingNewTabTypeData =
       type: 'code';
     }
   | {
-      type: StaticTabsType;
+      type: UserInterfaceCodingWorkspacePredefinedTabsType;
     };
 
 export default function UserInterfaceCodingWorkspaceNewTab({
@@ -28,7 +28,7 @@ export default function UserInterfaceCodingWorkspaceNewTab({
   onSelectTabType,
 }: Readonly<{
   onSelectTabType: (data: UserInterfaceCodingNewTabTypeData) => void;
-  predefinedTabs: PredefinedTabsContents;
+  predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents;
 }>) {
   const { sandpack } = useSandpack();
   const { files } = sandpack;
@@ -56,7 +56,7 @@ export default function UserInterfaceCodingWorkspaceNewTab({
               variant="secondary"
               onClick={() => {
                 onSelectTabType({
-                  type: tabType as keyof PredefinedTabsContents,
+                  type: tabType as UserInterfaceCodingWorkspacePredefinedTabsType,
                 });
               }}
             />

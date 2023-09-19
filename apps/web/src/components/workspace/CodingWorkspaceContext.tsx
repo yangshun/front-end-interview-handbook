@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
-export type CodingWorkspaceTabContents = Readonly<
+import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
+
+export type CodingWorkspaceTabContents<Key extends string = string> = Readonly<
   Record<
-    string,
+    Key,
     Readonly<{
       contents: ReactNode;
       icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
@@ -15,7 +17,7 @@ export type CodingWorkspaceTabContents = Readonly<
 type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';
 
 type BaseContext = Readonly<{
-  defaultFiles: Record<string, string>;
+  defaultFiles: SandpackFiles;
   openFile?: (filePath: string, fromFilePath?: string) => void;
 }>;
 
