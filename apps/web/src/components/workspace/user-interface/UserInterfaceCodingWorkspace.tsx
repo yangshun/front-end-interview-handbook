@@ -2,9 +2,8 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
 
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
-import LogoLink from '~/components/global/Logo';
-import NavAppThemeDropdown from '~/components/global/navbar/NavAppThemeDropdown';
 import type {
   QuestionMetadata,
   QuestionUserInterfaceV2,
@@ -325,21 +324,10 @@ function UserInterfaceCodingWorkspaceImpl({
         question,
         resetToDefaultCode,
       }}>
-      <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
-        <div className="flex items-center justify-between px-3 py-3">
-          <div className="flex items-center gap-x-8">
-            <LogoLink />
-          </div>
-          <div className="flex items-center gap-x-2">
-            <div className="hidden md:inline">
-              <UserInterfaceCodingWorkspaceLayoutButton
-                frameworkSolutionPath={frameworkSolutionPath}
-                mode={mode}
-              />
-            </div>
-            <NavAppThemeDropdown />
-          </div>
-        </div>
+      <div
+        ref={copyRef}
+        className="flex h-full w-full flex-col pt-3 text-sm"
+        style={{ height: FooterlessContainerHeight }}>
         <div className="flex grow overflow-x-auto">
           <div className="flex w-full min-w-[1024px] grow px-3">
             <TilesPanelRoot
@@ -348,16 +336,16 @@ function UserInterfaceCodingWorkspaceImpl({
                 children: (
                   <div
                     className={clsx(
-                      'transition-color absolute rounded-full ease-in-out group-hover:bg-indigo-400',
-                      direction === 'horizontal' && 'inset-x-0 inset-y-0.5',
-                      direction === 'vertical' && 'inset-x-0.5 inset-y-0',
+                      'transition-color group-hover:bg-brand absolute rounded-full ease-in-out',
+                      direction === 'horizontal' && 'inset-x-0 inset-y-1',
+                      direction === 'vertical' && 'inset-x-1 inset-y-0',
                     )}
                   />
                 ),
                 className: clsx(
                   'relative bg-transparent group',
-                  direction === 'horizontal' && 'h-2',
-                  direction === 'vertical' && 'w-2',
+                  direction === 'horizontal' && 'h-3',
+                  direction === 'vertical' && 'w-3',
                 ),
               })}
               getTabLabel={(tabId) => ({
@@ -433,6 +421,12 @@ function UserInterfaceCodingWorkspaceImpl({
               />
               <div className="hidden md:inline">
                 <CodingWorkspaceTimer />
+              </div>
+              <div className="hidden md:inline">
+                <UserInterfaceCodingWorkspaceLayoutButton
+                  frameworkSolutionPath={frameworkSolutionPath}
+                  mode={mode}
+                />
               </div>
             </>
           }

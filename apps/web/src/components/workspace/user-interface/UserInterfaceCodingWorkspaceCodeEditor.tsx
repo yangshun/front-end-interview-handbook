@@ -90,7 +90,17 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           <CodingWorkspaceEditorShortcutsButton />
           <CodingWorkspaceResetButton
             onClick={() => {
-              if (!confirm('Reset code to original? Changes will be lost!')) {
+              if (
+                !confirm(
+                  intl.formatMessage({
+                    defaultMessage:
+                      'Your existing code will be discarded, are you sure?',
+                    description:
+                      'Text on browser confirmation pop-up when user attempts to use the reset button to reset their code',
+                    id: '8aQEL8',
+                  }),
+                )
+              ) {
                 return;
               }
 
