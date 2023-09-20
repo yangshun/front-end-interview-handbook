@@ -10,23 +10,23 @@ import {
   runBackgroundClassName,
 } from './style';
 import TestDuration from './TestDuration';
-import type { Status } from './TestsSection';
+import type { TestsRunStatus } from './TestsRunStatusBadge';
 import TestStatusIcon from './TestStatusIcon';
 import type { Spec } from './types';
 import { getSpecTestResults, getTests, isEmpty } from './utils';
 
 type Props = Readonly<{
   openSpec: (name: string) => void;
+  runStatus: TestsRunStatus;
   showSpecFile?: boolean;
   specs: Array<Spec>;
-  status: Status;
 }>;
 
 export default function SpecsInline({
   specs,
   showSpecFile = false,
   openSpec,
-  status,
+  runStatus,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-6 p-3">
@@ -58,7 +58,7 @@ export default function SpecsInline({
               className={clsx('flex w-full flex-col gap-y-6')}>
               {showSpecFile && (
                 <div className="flex items-center">
-                  {status === 'complete' ? (
+                  {runStatus === 'complete' ? (
                     stats.fail > 0 ? (
                       <SpecLabel className={clsx(failBackgroundClassName)}>
                         Fail

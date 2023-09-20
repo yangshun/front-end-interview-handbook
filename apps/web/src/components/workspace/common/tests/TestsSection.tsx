@@ -522,8 +522,8 @@ export default function TestsSection({
                       return (
                         <SpecsInline
                           openSpec={openSpec}
+                          runStatus={state.status}
                           specs={specs}
-                          status={state.status}
                         />
                       );
                     }
@@ -531,8 +531,8 @@ export default function TestsSection({
                     return (
                       <SpecsConsolidated
                         openSpec={openSpec}
+                        runStatus={state.status}
                         specs={specs}
-                        status={state.status}
                       />
                     );
                   }

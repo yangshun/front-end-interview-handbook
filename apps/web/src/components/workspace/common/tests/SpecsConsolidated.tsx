@@ -9,23 +9,23 @@ import {
   runBackgroundClassName,
 } from './style';
 import Tests from './Tests';
-import type { Status } from './TestsSection';
+import type { TestsRunStatus } from './TestsRunStatusBadge';
 import TestStatusIcon from './TestStatusIcon';
 import type { Spec } from './types';
 import { getFailingTests, getSpecTestResults, isEmpty } from './utils';
 
 type Props = Readonly<{
   openSpec: (name: string) => void;
+  runStatus: TestsRunStatus;
   showSpecFile?: boolean;
   specs: Array<Spec>;
-  status: Status;
 }>;
 
 export default function Specs({
+  runStatus,
   specs,
   showSpecFile = false,
   openSpec,
-  status,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-6 p-3">
@@ -58,7 +58,7 @@ export default function Specs({
               className={clsx('flex w-full flex-col gap-y-6 font-mono')}>
               {showSpecFile && (
                 <div className="flex items-center">
-                  {status === 'complete' ? (
+                  {runStatus === 'complete' ? (
                     stats.fail > 0 ? (
                       <SpecLabel className={clsx(failBackgroundClassName)}>
                         Fail
