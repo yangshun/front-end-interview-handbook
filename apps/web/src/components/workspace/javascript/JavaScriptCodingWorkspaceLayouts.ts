@@ -1,6 +1,6 @@
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
-export function getJavaScriptCodingWorkspaceLayout(
+export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
   activeFile: string,
   files: ReadonlyArray<string>,
 ): TilesPanelConfig {

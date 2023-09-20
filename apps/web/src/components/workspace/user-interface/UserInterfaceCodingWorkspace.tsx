@@ -34,7 +34,6 @@ import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
 import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
-import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoEditorRegisterEditorOpener from '../common/editor/useMonacoEditorRegisterEditorOpener';
@@ -407,6 +406,12 @@ function UserInterfaceCodingWorkspaceImpl({
         <CodingWorkspaceBottomBar
           leftElements={
             <>
+              <div className="hidden md:inline">
+                <UserInterfaceCodingWorkspaceLayoutButton
+                  frameworkSolutionPath={frameworkSolutionPath}
+                  mode={mode}
+                />
+              </div>
               <Button
                 addonPosition="start"
                 icon={RiArrowGoBackLine}
@@ -419,15 +424,6 @@ function UserInterfaceCodingWorkspaceImpl({
                   }
                 }}
               />
-              <div className="hidden md:inline">
-                <CodingWorkspaceTimer />
-              </div>
-              <div className="hidden md:inline">
-                <UserInterfaceCodingWorkspaceLayoutButton
-                  frameworkSolutionPath={frameworkSolutionPath}
-                  mode={mode}
-                />
-              </div>
             </>
           }
           metadata={metadata}

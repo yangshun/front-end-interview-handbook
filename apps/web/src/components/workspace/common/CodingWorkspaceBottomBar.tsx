@@ -9,6 +9,7 @@ import Divider from '~/components/ui/Divider';
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import CodingWorkspaceQuestionListSlideOutButton from './CodingWorkspaceQuestionListSlideOutButton';
+import CodingWorkspaceTimer from './CodingWorkspaceTimer';
 
 type Props = Readonly<{
   leftElements?: ReactNode;
@@ -33,6 +34,9 @@ export default function CodingWorkspaceBottomBar({
         {leftElements}
       </div>
       <div className="flex items-center gap-x-2">
+        <div className="hidden md:inline">
+          <CodingWorkspaceTimer />
+        </div>
         <QuestionProgressAction
           metadata={metadata}
           questionProgress={questionProgress}

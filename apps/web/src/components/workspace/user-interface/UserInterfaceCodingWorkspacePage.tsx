@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
   QuestionMetadata,
@@ -30,6 +32,8 @@ export default function UserInterfaceCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const { appTheme } = useAppThemePreferences();
+  const isDark = appTheme === 'dark';
+
   const loadedFiles = loadLocalUserInterfaceQuestionCode(question);
   const loadedFilesFromLocalStorage =
     mode === 'practice' && loadedFiles != null;
@@ -59,7 +63,10 @@ export default function UserInterfaceCodingWorkspacePage({
           'sp-input': 'touch-none select-none pointer-events-none',
           'sp-layout': 'h-full',
           'sp-stack': 'h-full',
-          'sp-wrapper': '!w-full text-sm !bg-[#070708]',
+          'sp-wrapper': clsx(
+            '!w-full !text-sm',
+            '!bg-neutral-50 dark:!bg-[#070708]',
+          ),
         },
         visibleFiles: workspace?.visibleFiles ?? undefined,
       }}

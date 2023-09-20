@@ -9,7 +9,6 @@ import logEvent from '~/logging/logEvent';
 import JavaScriptCodingWorkspaceLayoutButton from './JavaScriptCodingWorkspaceLayoutButton';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
-import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
@@ -28,6 +27,9 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     <CodingWorkspaceBottomBar
       leftElements={
         <>
+          <div className="hidden md:inline">
+            <JavaScriptCodingWorkspaceLayoutButton />
+          </div>
           <Button
             addonPosition="start"
             icon={RiArrowGoBackLine}
@@ -41,12 +43,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
               }
             }}
           />
-          <div className="hidden md:inline">
-            <CodingWorkspaceTimer />
-          </div>
-          <div className="hidden md:inline">
-            <JavaScriptCodingWorkspaceLayoutButton />
-          </div>
         </>
       }
       metadata={metadata}

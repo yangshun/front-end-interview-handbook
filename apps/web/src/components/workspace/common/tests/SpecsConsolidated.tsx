@@ -28,7 +28,7 @@ export default function Specs({
   openSpec,
 }: Props) {
   return (
-    <div className="flex flex-col gap-y-6 p-3">
+    <div className="flex flex-col gap-y-6 p-3 text-xs">
       {specs
         .filter((spec) => !isEmpty(spec))
         .map((spec) => {

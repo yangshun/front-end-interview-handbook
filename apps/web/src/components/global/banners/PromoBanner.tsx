@@ -83,7 +83,7 @@ export default function PromoBanner({
     />
   );
 
-  const wereHiringMessage = (
+  const weAreHiringMessage = (
     <FormattedMessage
       defaultMessage="We're hiring question and solution authors! Check out the <link>job description</link>!"
       description="Text on Promo Banner"
@@ -93,6 +93,7 @@ export default function PromoBanner({
           <Anchor
             className="whitespace-nowrap font-medium"
             href="/hiring"
+            target="_blank"
             underline={true}
             variant="flat"
             onClick={() => {
@@ -126,7 +127,7 @@ export default function PromoBanner({
         onHide={() => {
           setShowGlobalBanner(false);
         }}>
-        {isPremium ? wereHiringMessage : saleMessage}
+        {isPremium ? weAreHiringMessage : saleMessage}
       </Banner>
     </div>
   );

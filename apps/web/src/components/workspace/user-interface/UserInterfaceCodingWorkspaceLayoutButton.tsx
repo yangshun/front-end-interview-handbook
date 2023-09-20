@@ -48,7 +48,7 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
           label={label}
           onClick={() => {
             if (value === 'default') {
-              dispatch({
+              return dispatch({
                 payload: {
                   panels: getUserInterfaceCodingWorkspaceLayout(
                     mode,
@@ -61,7 +61,7 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
               });
             }
             if (value === 'coding-focused') {
-              dispatch({
+              return dispatch({
                 payload: {
                   panels: getUserInterfaceCodingWorkspaceLayoutAdvanced(
                     mode,

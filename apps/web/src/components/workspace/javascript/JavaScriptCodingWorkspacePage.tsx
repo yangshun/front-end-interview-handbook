@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
@@ -29,6 +31,8 @@ export default function JavaScriptCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const { appTheme } = useAppThemePreferences();
+  const isDark = appTheme === 'dark';
+
   const { workspace, files, skeleton } = question;
   const [language] = useCodingWorkspaceWorkingLanguage();
   const loadedCode = loadLocalJavaScriptQuestionCode(
@@ -62,7 +66,10 @@ export default function JavaScriptCodingWorkspacePage({
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-layout': 'h-full',
             'sp-stack': 'h-full',
-            'sp-wrapper': '!w-full text-sm !bg-[#070708]',
+            'sp-wrapper': clsx(
+              '!w-full !text-sm',
+              '!bg-neutral-50 dark:!bg-[#070708]',
+            ),
           },
           visibleFiles: [workspace.main, workspace.run],
         }}

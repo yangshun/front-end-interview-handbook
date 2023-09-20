@@ -30,6 +30,7 @@ export default function FormattedError({ error }: Props) {
       className={clsx(
         'overflow-x-auto whitespace-pre rounded p-3',
         themeBackgroundEmphasized,
+        'text-xs',
         ['border', themeLineColor],
         ['font-mono', themeTextSecondaryColor],
       )}

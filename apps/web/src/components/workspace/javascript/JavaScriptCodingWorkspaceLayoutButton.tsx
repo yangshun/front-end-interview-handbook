@@ -6,9 +6,9 @@ import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import {
-  getJavaScriptCodingWorkspaceLayout,
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
+  getJavaScriptCodingWorkspaceLayoutTwoColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -28,8 +28,8 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
       size="xs">
       {[
         {
-          label: 'Default layout',
-          value: 'default',
+          label: 'Two-column layout',
+          value: 'two-column',
         },
         {
           label: 'Three-column layout',
@@ -45,10 +45,10 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
           isSelected={false}
           label={label}
           onClick={() => {
-            if (value === 'default') {
-              dispatch({
+            if (value === 'two-column') {
+              return dispatch({
                 payload: {
-                  panels: getJavaScriptCodingWorkspaceLayout(
+                  panels: getJavaScriptCodingWorkspaceLayoutTwoColumns(
                     activeFile,
                     visibleFiles,
                   ),
@@ -57,7 +57,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
               });
             }
             if (value === 'three-column') {
-              dispatch({
+              return dispatch({
                 payload: {
                   panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
                     activeFile,
@@ -68,7 +68,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
               });
             }
             if (value === 'grid') {
-              dispatch({
+              return dispatch({
                 payload: {
                   panels: getJavaScriptCodingWorkspaceLayoutGrid(
                     workspace.main,
