@@ -199,7 +199,7 @@ function JavaScriptCodingWorkspaceImpl({
   });
 
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex h-full w-full flex-col text-sm">
       <div className="flex items-center justify-between px-3 py-3">
         <div className="flex items-center gap-x-8">
           <LogoLink />

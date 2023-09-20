@@ -62,7 +62,7 @@ export default function JavaScriptCodingWorkspacePage({
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-layout': 'h-full',
             'sp-stack': 'h-full',
-            'sp-wrapper': '!w-full !h-screen',
+            'sp-wrapper': '!w-full !h-screen text-sm',
           },
           visibleFiles: [workspace.main, workspace.run],
         }}
