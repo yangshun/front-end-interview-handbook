@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { Fragment } from 'react';
+import type { PanelProps } from 'react-resizable-panels';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import TilesPanelItem from './TilesPanelItem';
@@ -23,7 +24,7 @@ export default function TilesPanel({
   getResizeHandlerProps,
   ...props
 }: Readonly<{
-  defaultSize?: number;
+  defaultSize?: PanelProps['defaultSize'];
   disablePointerEventsDuringResize?: boolean;
   getResizeHandlerProps: (direction: 'horizontal' | 'vertical') => Readonly<{
     children?: ReactNode;
@@ -100,7 +101,9 @@ export default function TilesPanel({
           )}
           <TilesPanel
             key={item.id}
-            defaultSize={100 / Math.max(props.items.length, 1)}
+            defaultSize={
+              item.defaultSize ?? 100 / Math.max(props.items.length, 1)
+            }
             disablePointerEventsDuringResize={disablePointerEventsDuringResize}
             level={level + 1}
             order={index + 1}

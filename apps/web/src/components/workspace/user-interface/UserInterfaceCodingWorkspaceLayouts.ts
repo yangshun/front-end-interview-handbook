@@ -15,6 +15,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
     items: [
       {
         activeTabId: mode === 'practice' ? 'description' : 'solution',
+        defaultSize: 35,
         id: 'left-column',
         tabs: [
           {
@@ -31,6 +32,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
       },
       {
         activeTabId: activeFile,
+        defaultSize: 40,
         id: 'center-column',
         tabs: [
           {
@@ -47,6 +49,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
       },
       {
         activeTabId: 'preview',
+        defaultSize: 25,
         id: 'right-column',
         tabs: [
           {
@@ -76,6 +79,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
     id: 'root',
     items: [
       {
+        defaultSize: 35,
         direction: 'vertical',
         id: 'left-column',
         items: [
@@ -111,6 +115,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
       },
       {
         activeTabId: activeFile,
+        defaultSize: 40,
         id: 'center-column',
         tabs: [
           ...files.map((file) => ({
@@ -122,11 +127,13 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
         type: 'item',
       },
       {
+        defaultSize: 25,
         direction: 'vertical',
         id: 'right-column',
         items: [
           {
             activeTabId: 'preview',
+            defaultSize: 60,
             id: 'right-top',
             tabs: [
               {
@@ -138,6 +145,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
           },
           {
             activeTabId: 'console',
+            defaultSize: 40,
             id: 'right-bottom',
             tabs: [
               {

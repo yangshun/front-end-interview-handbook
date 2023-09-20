@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { RiAddLine, RiCloseLine } from 'react-icons/ri';
 import { VscSplitHorizontal } from 'react-icons/vsc';
+import type { PanelProps } from 'react-resizable-panels';
 import { Panel } from 'react-resizable-panels';
 
 import Button from '~/components/ui/Button';
@@ -31,7 +32,7 @@ export default function TilesPanelItem({
   onTabSetActive,
 }: Readonly<{
   activeTabId: string | null;
-  defaultSize?: number;
+  defaultSize?: PanelProps['defaultSize'];
   getTabLabel: (tabId: string) => Readonly<{
     icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;

@@ -1,3 +1,5 @@
+import type { PanelProps } from 'react-resizable-panels';
+
 export type TilesPanelGroupDirection = 'horizontal' | 'vertical';
 export type TilesPanelItemTab = Readonly<{
   allowOverflow?: boolean;
@@ -8,12 +10,14 @@ export type TilesPanelItemTab = Readonly<{
 
 export type TilesPanelItemConfig = Readonly<{
   activeTabId: string | null;
+  defaultSize?: PanelProps['defaultSize'];
   id: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
   type: 'item';
 }>;
 
 export type TilesPanelGroupConfig = Readonly<{
+  defaultSize?: PanelProps['defaultSize'];
   direction: TilesPanelGroupDirection;
   id: string;
   items: ReadonlyArray<TilesPanelConfig>;
