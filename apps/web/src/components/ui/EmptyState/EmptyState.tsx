@@ -3,6 +3,7 @@ import {
   RiCheckboxCircleLine,
   RiCodeBoxLine,
   RiEmotionSadLine,
+  RiFlaskLine,
   RiGhost2Line,
   RiLockLine,
   RiLoginBoxLine,
@@ -17,6 +18,7 @@ import Text from '../Text';
 
 type EmptyStateVariant =
   | 'editor_loading'
+  | 'tests_loading'
   | 'empty'
   | 'error'
   | 'exit'
@@ -45,6 +47,7 @@ const icons: Record<
   login: RiLoginBoxLine,
   not_subscribed: RiLockLine,
   success: RiCheckboxCircleLine,
+  tests_loading: RiFlaskLine,
   under_construction: RiToolsLine,
 };
 const colors: Record<EmptyStateVariant, TextColor> = {
@@ -55,6 +58,7 @@ const colors: Record<EmptyStateVariant, TextColor> = {
   login: 'disabled',
   not_subscribed: 'disabled',
   success: 'success',
+  tests_loading: 'disabled',
   under_construction: 'disabled',
 };
 

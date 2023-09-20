@@ -13,6 +13,7 @@ import { FormattedMessage } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
+import Spinner from '~/components/ui/Spinner';
 import {
   themeBackgroundEmphasized,
   themeLineColor,
@@ -404,7 +405,11 @@ export default function TestsSection({
             if (state.status === 'initializing') {
               return (
                 <div className="flex grow items-center justify-center">
-                  Loading
+                  <EmptyState
+                    iconClassName="animate-bounce"
+                    title="Loading tests"
+                    variant="tests_loading"
+                  />
                 </div>
               );
             }

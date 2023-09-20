@@ -1,6 +1,8 @@
 import type { editor } from 'monaco-editor';
 import React, { useRef } from 'react';
 
+import EmptyState from '~/components/ui/EmptyState';
+
 import getLanguageFromFilePath from './getLanguageFromFilePath';
 import useMonacoEditorAddActions from './useMonacoEditorAddActions';
 import useMonacoEditorOnShown from './useMonacoEditorOnShown';
@@ -46,6 +48,13 @@ export default function MonacoCodeEditor({
       <MonacoEditor
         keepCurrentModel={true}
         language={language}
+        loading={
+          <EmptyState
+            iconClassName="animate-bounce"
+            title="Loading editor"
+            variant="editor_loading"
+          />
+        }
         options={{
           fixedOverflowWidgets: true,
           minimap: {
