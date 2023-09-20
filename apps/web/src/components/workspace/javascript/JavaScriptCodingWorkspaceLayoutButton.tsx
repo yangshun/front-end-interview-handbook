@@ -1,6 +1,9 @@
+import { useState } from 'react';
+import { RiLayout2Line, RiLayoutGridLine } from 'react-icons/ri';
+import { TbColumns3 } from 'react-icons/tb';
 import { VscLayout } from 'react-icons/vsc';
 
-import DropdownMenu from '~/components/ui/DropdownMenu';
+import Button from '~/components/ui/Button';
 
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
@@ -10,6 +13,8 @@ import {
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
   getJavaScriptCodingWorkspaceLayoutTwoColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
+import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
+import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -18,69 +23,94 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
   const { activeFile, visibleFiles } = sandpack;
   const { dispatch } = useTilesContext();
   const { workspace } = useJavaScriptCodingWorkspaceContext();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const layouts: ReadonlyArray<CodingWorkspaceLayoutItem> = [
+    {
+      description: (
+        <>
+          Three-column layout showing the basic essentials for JavaScript
+          questions.
+        </>
+      ),
+      icon: TbColumns3,
+      id: 'three-column',
+      name: 'Three-column layout (default)',
+      onClick: () => {
+        dispatch({
+          payload: {
+            panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
+              activeFile,
+              visibleFiles,
+            ),
+          },
+          type: 'layout-change',
+        });
+        setIsOpen(false);
+      },
+    },
+    {
+      description: (
+        <>
+          Classic layout that prioritizes readability of question description
+          and solution.
+        </>
+      ),
+      icon: RiLayout2Line,
+      id: 'two-column',
+      name: 'Two-column layout',
+      onClick: () => {
+        dispatch({
+          payload: {
+            panels: getJavaScriptCodingWorkspaceLayoutTwoColumns(
+              activeFile,
+              visibleFiles,
+            ),
+          },
+          type: 'layout-change',
+        });
+        setIsOpen(false);
+      },
+    },
+    {
+      description: (
+        <>Additional tabs shown by default. Suitable for large displays.</>
+      ),
+      icon: RiLayoutGridLine,
+      id: 'grid',
+      name: 'Grid layout',
+      onClick: () => {
+        dispatch({
+          payload: {
+            panels: getJavaScriptCodingWorkspaceLayoutGrid(
+              workspace.main,
+              workspace.run,
+            ),
+          },
+          type: 'layout-change',
+        });
+        setIsOpen(false);
+      },
+    },
+  ];
 
   return (
-    <DropdownMenu
-      align="end"
-      icon={VscLayout}
-      isLabelHidden={true}
-      label="Layout"
-      size="xs">
-      {[
-        {
-          label: 'Two-column layout',
-          value: 'two-column',
-        },
-        {
-          label: 'Three-column layout',
-          value: 'three-column',
-        },
-        {
-          label: 'Grid layout',
-          value: 'grid',
-        },
-      ].map(({ label, value }) => (
-        <DropdownMenu.Item
-          key={value}
-          isSelected={false}
-          label={label}
-          onClick={() => {
-            if (value === 'two-column') {
-              return dispatch({
-                payload: {
-                  panels: getJavaScriptCodingWorkspaceLayoutTwoColumns(
-                    activeFile,
-                    visibleFiles,
-                  ),
-                },
-                type: 'layout-change',
-              });
-            }
-            if (value === 'three-column') {
-              return dispatch({
-                payload: {
-                  panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
-                    activeFile,
-                    visibleFiles,
-                  ),
-                },
-                type: 'layout-change',
-              });
-            }
-            if (value === 'grid') {
-              return dispatch({
-                payload: {
-                  panels: getJavaScriptCodingWorkspaceLayoutGrid(
-                    workspace.main,
-                    workspace.run,
-                  ),
-                },
-                type: 'layout-change',
-              });
-            }
-          }}
-        />
-      ))}
-    </DropdownMenu>
+    <div>
+      <Button
+        addonPosition="start"
+        icon={VscLayout}
+        label="Layout"
+        size="xs"
+        variant="secondary"
+        onClick={() => setIsOpen(true)}
+      />
+      <CodingWorkspaceLayoutDialog
+        isShown={isOpen}
+        layouts={layouts}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      />
+    </div>
   );
 }

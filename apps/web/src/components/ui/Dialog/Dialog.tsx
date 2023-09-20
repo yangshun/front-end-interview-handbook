@@ -44,7 +44,7 @@ export default function DialogImpl({
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="dark:bg-neutral-950/60 fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity" />
+          <div className="fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity dark:bg-neutral-950/60" />
         </Transition.Child>
         <div className="fixed inset-0 z-40 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
@@ -64,7 +64,7 @@ export default function DialogImpl({
                   'sm:w-full sm:max-w-sm',
                   'text-left shadow-xl transition-all',
                 )}>
-                <div className="grid gap-y-2.5 px-6 pt-6 pb-4">
+                <div className="grid gap-y-2.5 px-6 pb-4 pt-6">
                   <Dialog.Title as="div">
                     <Heading level="heading6">{title}</Heading>
                   </Dialog.Title>
@@ -75,7 +75,7 @@ export default function DialogImpl({
                   </Section>
                 </div>
                 {primaryButton && (
-                  <div className={clsx('flex justify-end gap-2 py-4 px-6')}>
+                  <div className={clsx('flex justify-end gap-2 px-6 py-4')}>
                     {secondaryButton}
                     {primaryButton}
                   </div>
