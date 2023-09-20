@@ -1,5 +1,6 @@
 'use client';
 
+import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
   QuestionMetadata,
   QuestionUserInterfaceV2,
@@ -26,6 +27,7 @@ export default function UserInterfaceCodingWorkspacePage({
   question,
   similarQuestions,
 }: Props) {
+  const { appTheme } = useAppThemePreferences();
   const loadedFiles = loadLocalUserInterfaceQuestionCode(question);
   const loadedFilesFromLocalStorage =
     mode === 'practice' && loadedFiles != null;
@@ -59,7 +61,7 @@ export default function UserInterfaceCodingWorkspacePage({
         },
         visibleFiles: workspace?.visibleFiles ?? undefined,
       }}
-      theme="dark">
+      theme={appTheme === 'dark' ? 'dark' : undefined}>
       <UserInterfaceCodingWorkspace
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={defaultFiles!} // TODO(redesign): remove ! when the field is made compulsory

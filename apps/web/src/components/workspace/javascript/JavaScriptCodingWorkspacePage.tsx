@@ -1,6 +1,7 @@
 'use client';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
+import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
   QuestionJavaScriptV2,
   QuestionMetadata,
@@ -26,6 +27,7 @@ export default function JavaScriptCodingWorkspacePage({
   nextQuestions,
   similarQuestions,
 }: Props) {
+  const { appTheme } = useAppThemePreferences();
   const { workspace, files, skeleton } = question;
   const [language] = useCodingWorkspaceWorkingLanguage();
   const loadedCode = loadLocalJavaScriptQuestionCode(
@@ -63,7 +65,7 @@ export default function JavaScriptCodingWorkspacePage({
           },
           visibleFiles: [workspace.main, workspace.run],
         }}
-        theme="dark">
+        theme={appTheme === 'dark' ? 'dark' : undefined}>
         <JavaScriptCodingWorkspace
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={skeletonFiles}

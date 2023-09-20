@@ -6,7 +6,7 @@ import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
-import { themeDivideColor } from '~/components/ui/theme';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
@@ -52,9 +52,12 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
   }
 
   return (
-    <div
-      className={clsx('flex w-full flex-col', ['divide-y', themeDivideColor])}>
-      <div className="flex items-center justify-between gap-x-2 px-3 py-1.5">
+    <div className={clsx('flex w-full flex-col')}>
+      <div
+        className={clsx(
+          'flex items-center justify-between gap-x-2 px-3 py-1.5',
+          ['border-b', themeLineColor],
+        )}>
         <div>
           {isMainFile && (
             <QuestionCodingWorkingLanguageSelect
@@ -69,7 +72,7 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
           <CodingWorkspaceResetButton onClick={resetCode} />
         </div>
       </div>
-      {showLoadedFilesFromLocalStorageMessage && isMounted() && (
+      {isMainFile && showLoadedFilesFromLocalStorageMessage && isMounted() && (
         <CodingWorkspaceLoadedFilesBanner
           onHide={() => {
             setShowLoadedFilesFromLocalStorageMessage(false);

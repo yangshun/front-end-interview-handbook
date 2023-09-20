@@ -18,6 +18,7 @@ const languageMapping: Record<string, string> = {
   tsx: 'typescript',
 };
 
+// TODO(workspace): delete.
 function getLanguageFromFilePath(filePath: string): string {
   const parts = filePath.split('.');
   const ext = parts[parts.length - 1];

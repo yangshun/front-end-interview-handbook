@@ -47,8 +47,8 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
     <TestsSection
       specMode="submit"
       specPath={specPath}
-      onComplete={(testResults) => {
-        if (testResults.pass !== testResults.total) {
+      onComplete={(outcome) => {
+        if (outcome !== 'accepted') {
           return;
         }
 

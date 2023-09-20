@@ -9,7 +9,7 @@ import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWork
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
-import { themeDivideColor } from '~/components/ui/theme';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';
@@ -61,9 +61,12 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
   }
 
   return (
-    <div
-      className={clsx('flex w-full flex-col', ['divide-y', themeDivideColor])}>
-      <div className="flex items-center justify-between gap-x-2 px-3 py-1.5">
+    <div className={clsx('flex w-full flex-col')}>
+      <div
+        className={clsx(
+          'flex items-center justify-between gap-x-2 px-3 py-1.5',
+          ['border-b', themeLineColor],
+        )}>
         <div className="-ml-1">
           <Button
             icon={RiFolder3Line}
