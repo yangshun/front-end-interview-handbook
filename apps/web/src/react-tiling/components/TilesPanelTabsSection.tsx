@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDrop } from 'react-dnd';
 
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
+
 import TilesPanelTab from './TilesPanelTab';
 import type { PanelDropTarget } from '../actions/tabDrop';
 import type { TilesPanelDragItem, TilesPanelItemTab } from '../types';
@@ -116,7 +118,10 @@ export default function TilesPanelTabsSection({
       </div>
       <div
         ref={tabRightEmptySpaceRef}
-        className={clsx('h-full grow', isOver && 'bg-neutral-800')}
+        className={clsx(
+          'h-full grow',
+          isOver && 'bg-brand-lightest dark:bg-neutral-800',
+        )}
       />
     </div>
   );

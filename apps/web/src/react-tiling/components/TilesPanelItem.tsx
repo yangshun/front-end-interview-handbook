@@ -3,6 +3,7 @@ import { RiAddLine, RiCloseLine } from 'react-icons/ri';
 import { VscSplitHorizontal } from 'react-icons/vsc';
 import { Panel } from 'react-resizable-panels';
 
+import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,
   themeDivideColor,
@@ -61,17 +62,18 @@ export default function TilesPanelItem({
       defaultSize={defaultSize}
       id={panelId}
       order={order}>
-      <div className="flex h-10 shrink-0 items-center justify-between">
-        <span className="flex h-full items-center pl-2 pr-0.5">
-          <button
-            className="rounded p-1 hover:bg-neutral-800"
-            title="New tab"
-            type="button"
+      <div className="flex h-10 shrink-0 items-center justify-between px-2">
+        <span className="flex h-full items-center pr-0.5">
+          <Button
+            icon={RiAddLine}
+            isLabelHidden={true}
+            label="New tab"
+            size="xs"
+            variant="tertiary"
             onClick={() => {
               onAddTab(panelId);
-            }}>
-            <RiAddLine className="h-4 w-4 shrink-0 text-neutral-500" />
-          </button>
+            }}
+          />
         </span>
         <TilesPanelTabsSection
           activeTabId={activeTabId}
@@ -86,26 +88,26 @@ export default function TilesPanelItem({
             onTabSetActive(panelId, tabId);
           }}
         />
-        <div className="flex h-full items-center gap-x-1 px-2">
-          <button
-            className="rounded p-0.5 hover:bg-neutral-900"
-            title="Split editor right"
-            type="button"
-            onClick={() => onSplit('horizontal', panelId)}>
-            <VscSplitHorizontal
-              className={clsx('h-4 w-4 shrink-0', themeIconColor)}
-            />
-          </button>
+        <div className="flex h-full items-center">
+          <Button
+            icon={VscSplitHorizontal}
+            isLabelHidden={true}
+            label="Split editor right"
+            size="xs"
+            variant="tertiary"
+            onClick={() => onSplit('horizontal', panelId)}
+          />
           {tabs.every((tab) => tab.closeable) && (
-            <button
-              className="rounded p-0.5 hover:bg-neutral-900"
-              title="Close all"
-              type="button"
-              onClick={() => onClose(panelId)}>
-              <RiCloseLine
-                className={clsx('h-4 w-4 shrink-0', themeIconColor)}
-              />
-            </button>
+            <Button
+              icon={RiCloseLine}
+              isLabelHidden={true}
+              label="Close all tabs"
+              size="xs"
+              variant="tertiary"
+              onClick={() => {
+                onClose(panelId);
+              }}
+            />
           )}
         </div>
       </div>

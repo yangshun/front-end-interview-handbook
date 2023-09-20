@@ -4,8 +4,13 @@ import { useDrag, useDrop } from 'react-dnd';
 import { RiCloseLine } from 'react-icons/ri';
 
 import {
+  themeBackgroundEmphasized,
+  themeBackgroundEmphasizedHover,
   themeBackgroundLayerColor,
   themeBackgroundLayerColorHover,
+  themeTextColor,
+  themeTextSecondaryColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
@@ -155,8 +160,12 @@ export default function TilesPanelTab({
       ref={tabRef}
       className={clsx(
         'group relative isolate flex grow items-center gap-x-0.5 rounded font-medium',
-        isOver ? themeBackgroundLayerColor : [themeBackgroundLayerColorHover],
-        isActive ? 'text-neutral-50' : 'text-neutral-400',
+        isOver
+          ? 'bg-brand-lightest dark:bg-neutral-900'
+          : 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+        isActive
+          ? 'text-brand-dark dark:text-neutral-100'
+          : themeTextSubtleColor,
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
       {href ? (
@@ -182,14 +191,16 @@ export default function TilesPanelTab({
       {closeable && (
         <button
           className={clsx(
-            'z-20 ml-1 rounded p-0.5 hover:bg-neutral-700',
+            'z-20 ml-1 rounded p-0.5',
+            'hover:bg-neutral-200 dark:hover:bg-neutral-700',
+            'text-neutral-500',
             isDragging && 'invisible',
             !isActive && 'opacity-0 focus:opacity-100 group-hover:opacity-100',
           )}
           title="Close tab"
           type="button"
           onClick={onClose}>
-          <RiCloseLine className="h-3 w-3 shrink-0 text-neutral-500" />
+          <RiCloseLine className="h-3 w-3 shrink-0" />
         </button>
       )}
     </div>
