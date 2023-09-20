@@ -18,14 +18,10 @@ import { useCodingPreferences } from '~/components/global/CodingPreferencesProvi
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Dialog from '~/components/ui/Dialog';
+import EmptyState from '~/components/ui/EmptyState';
 import Select from '~/components/ui/Select';
-import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import {
-  themeDivideColor,
-  themeLineColor,
-  themeTextFainterColor,
-} from '~/components/ui/theme';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
 import useConsoleStyles from './useConsoleStyles';
 
@@ -36,29 +32,16 @@ type Props = Readonly<{
   onClear: () => void;
   onShouldPreserveLogsChange: (value: boolean) => void;
   shouldPreserveLogs: boolean;
-  showExplicitInvocationMessage?: boolean;
 }>;
 
 type LogLevelFilter = Methods | 'all';
 
-function NoLogs({
-  showExplicitInvocationMessage,
-}: Readonly<{
-  showExplicitInvocationMessage?: boolean;
-}>) {
+function NoLogs() {
   return (
     <div className="flex h-full grow items-center justify-center px-4 py-4 sm:px-6 lg:px-4">
-      <div className="grid gap-y-2">
-        <div className="flex justify-center">
-          <RiTerminalBoxLine
-            className={clsx('h-12 w-12 shrink-0', themeTextFainterColor)}
-          />
-        </div>
-        <Text
-          className="text-center"
-          color="secondary"
-          display="block"
-          size="body2">
+      <EmptyState
+        icon={RiTerminalBoxLine}
+        subtitle={
           <FormattedMessage
             defaultMessage="<code>console.log()</code> statements will appear here."
             description="Text in coding workspace's console to let users know that they can expect console logs to be found there"
@@ -67,21 +50,15 @@ function NoLogs({
               code: (chunks) => <code>{chunks}</code>,
             }}
           />
-        </Text>
-        <Text
-          className="text-center"
-          color="secondary"
-          display="block"
-          size="body2">
-          {showExplicitInvocationMessage && (
-            <FormattedMessage
-              defaultMessage="To test your function without submitting, call the function below the declaration."
-              description="Text in coding workspace's console to inform users they have to call the function themselves to test"
-              id="1mtNyQ"
-            />
-          )}
-        </Text>
-      </div>
+        }
+        title={
+          <FormattedMessage
+            defaultMessage="JavaScript Console"
+            description="Title of JavaScript console panel"
+            id="TL822E"
+          />
+        }
+      />
     </div>
   );
 }
@@ -91,7 +68,6 @@ export default function JavaScriptConsole({
   onClear,
   shouldPreserveLogs,
   onShouldPreserveLogsChange,
-  showExplicitInvocationMessage = false,
 }: Props) {
   const intl = useIntl();
   const consoleRef = useRef<HTMLDivElement>(null);
@@ -369,11 +345,7 @@ export default function JavaScriptConsole({
         </div>
       )}
       {toolbar}
-      {hasLogs ? (
-        consoleComponent
-      ) : (
-        <NoLogs showExplicitInvocationMessage={showExplicitInvocationMessage} />
-      )}
+      {hasLogs ? consoleComponent : <NoLogs />}
     </div>
   );
 }

@@ -308,7 +308,6 @@ function Contents({
                 mode={devToolsMode}
                 result={result}
                 runAttempt={runAttempt}
-                showExplicitInvocationMessage={true}
                 onChangeMode={setDevToolsMode}
               />
             </div>

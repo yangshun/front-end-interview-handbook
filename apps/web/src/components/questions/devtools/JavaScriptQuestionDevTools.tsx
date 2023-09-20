@@ -19,7 +19,6 @@ type Props = Readonly<{
   onChangeMode: (mode: JavaScriptQuestionDevToolsMode) => void;
   result?: CodingQuestionSubmissionResult | null;
   runAttempt?: number;
-  showExplicitInvocationMessage?: boolean;
 }>;
 
 export default function JavaScriptQuestionDevTools({
@@ -28,7 +27,6 @@ export default function JavaScriptQuestionDevTools({
   isRunningCode = false,
   mode,
   result,
-  showExplicitInvocationMessage,
   onChangeMode,
 }: Props) {
   const { consoleShouldPreserveLogs, setConsoleShouldPreserveLogs } =
@@ -90,7 +88,6 @@ export default function JavaScriptQuestionDevTools({
                 <JavaScriptConsole
                   logs={logs}
                   shouldPreserveLogs={consoleShouldPreserveLogs}
-                  showExplicitInvocationMessage={showExplicitInvocationMessage}
                   onClear={reset}
                   onShouldPreserveLogsChange={setConsoleShouldPreserveLogs}
                 />

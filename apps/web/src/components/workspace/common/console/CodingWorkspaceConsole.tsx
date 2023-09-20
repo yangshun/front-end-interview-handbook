@@ -3,13 +3,7 @@ import JavaScriptConsole from '~/components/questions/devtools/JavaScriptConsole
 
 import { useSandpackConsole } from '@codesandbox/sandpack-react';
 
-type Props = Readonly<{
-  showExplicitInvocationMessage?: boolean;
-}>;
-
-export default function CodingWorkspaceConsole({
-  showExplicitInvocationMessage,
-}: Props) {
+export default function CodingWorkspaceConsole() {
   const { consoleShouldPreserveLogs, setConsoleShouldPreserveLogs } =
     useCodingPreferences();
 
@@ -22,7 +16,6 @@ export default function CodingWorkspaceConsole({
     <JavaScriptConsole
       logs={logs}
       shouldPreserveLogs={consoleShouldPreserveLogs}
-      showExplicitInvocationMessage={showExplicitInvocationMessage}
       onClear={reset}
       onShouldPreserveLogsChange={setConsoleShouldPreserveLogs}
     />
