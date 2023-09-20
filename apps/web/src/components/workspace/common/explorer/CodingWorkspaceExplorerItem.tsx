@@ -10,6 +10,14 @@ import {
   RiPencilFill,
 } from 'react-icons/ri';
 
+import {
+  themeBackgroundEmphasized,
+  themeTextBrandColor,
+  themeTextBrandHoverColor,
+  themeTextSecondaryColor,
+  themeTextSubtleColor,
+} from '~/components/ui/theme';
+
 import { useCodingWorkspaceExplorerContext } from './CodingWorkspaceExplorer';
 import { codingWorkspaceExplorerFilePathToIcon } from './codingWorkspaceExplorerFilePathToIcon';
 import type { FileExplorerDirectory, FileExplorerFile } from './types';
@@ -48,8 +56,10 @@ function ExplorerItem({
   return (
     <button
       className={clsx(
-        'group flex items-center justify-start gap-2 truncate rounded py-1 pr-4 text-sm ',
-        isActive ? 'bg-neutral-900' : 'hover:text-brand text-neutral-500',
+        'group flex items-center justify-start gap-2 truncate rounded py-1 pr-4 text-sm',
+        isActive
+          ? [themeTextBrandColor, 'bg-brand-lightest dark:bg-neutral-900']
+          : [themeTextSubtleColor, themeTextBrandHoverColor],
         className,
       )}
       style={{ paddingLeft: 8 + indent * 12 }}
