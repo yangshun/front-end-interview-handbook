@@ -1,4 +1,12 @@
+import clsx from 'clsx';
 import * as React from 'react';
+
+import {
+  themeBackgroundEmphasized,
+  themeLineColor,
+  themeTextColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { failTextClassName, passTextClassName } from './style';
 
@@ -19,7 +27,12 @@ export default function FormattedError({ error }: Props) {
   return (
     <div
       dangerouslySetInnerHTML={{ __html: html }}
-      className="overflow-x-auto whitespace-pre rounded border border-neutral-800 p-3 font-mono text-neutral-400"
+      className={clsx(
+        'overflow-x-auto whitespace-pre rounded p-3',
+        themeBackgroundEmphasized,
+        ['border', themeLineColor],
+        ['font-mono', themeTextSecondaryColor],
+      )}
     />
   );
 }
@@ -43,11 +56,11 @@ const formatDiffMessage = (error: TestError): string => {
       .replace(/(Difference:)/m, `<span>$1</span>`)
       .replace(
         /(Expected:)(.*)/m,
-        `<span class="${'text-white'}">$1</span><span class="${passTextClassName}">$2</span>`,
+        `<span class="${themeTextColor}">$1</span><span class="${passTextClassName}">$2</span>`,
       )
       .replace(
         /(Received:)(.*)/m,
-        `<span class="${'text-white'}">$1</span><span class="${failTextClassName}">$2</span>`,
+        `<span class="${themeTextColor}">$1</span><span class="${failTextClassName}">$2</span>`,
       )
       .replace(/^(-.*)/gm, `<span class="${failTextClassName}">$1</span>`)
       .replace(
@@ -57,7 +70,7 @@ const formatDiffMessage = (error: TestError): string => {
   } else if (error.name || error.message) {
     const titleString = [error.name, error.message].join(': ');
 
-    finalMessage = `<span class="${'text-white'}">${escapeHtml(
+    finalMessage = `<span class="${themeTextColor}">${escapeHtml(
       titleString,
     )}</span>`;
   } else {
@@ -99,11 +112,11 @@ const formatDiffMessage = (error: TestError): string => {
         const content = escapeHtml(code.content)
           .replace(
             /(describe|test|it)(\()(&#039;|&quot;|`)(.*)(&#039;|&quot;|`)/m,
-            `<span>$1$2$3</span><span class="${'text-white'}">$4</span><span>$5</span>`,
+            `<span>$1$2$3</span><span class="${themeTextColor}">$4</span><span>$5</span>`,
           )
           .replace(
             /(expect\()(.*)(\)\..*)(to[\w\d]*)(\()(.*)(\))/m,
-            `<span>$1</span><span class="${failTextClassName}">$2</span><span>$3</span><span class="${'text-white'}">$4</span><span>$5</span><span class="${passTextClassName}">$6</span><span>$7</span>`,
+            `<span>$1</span><span class="${failTextClassName}">$2</span><span>$3</span><span class="${themeTextColor}">$4</span><span>$5</span><span class="${passTextClassName}">$6</span><span>$7</span>`,
           );
 
         finalMessage +=

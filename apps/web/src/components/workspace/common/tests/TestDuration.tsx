@@ -1,3 +1,5 @@
+import Text from '~/components/ui/Text';
+
 type Props = Readonly<{
   duration?: number;
 }>;
@@ -8,8 +10,8 @@ export default function TestDuration({ duration }: Props) {
   }
 
   return (
-    <span className="text-xs text-neutral-400 whitespace-nowrap">
+    <Text className="whitespace-nowrap" color="subtle" size="body3">
       {duration} ms
-    </span>
+    </Text>
   );
 }

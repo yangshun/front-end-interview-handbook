@@ -22,6 +22,10 @@ import {
 import SpecsConsolidated from './SpecsConsolidated';
 import SpecsInline from './SpecsInline';
 import Summary from './Summary';
+import type { TestsOutcome } from './TestsOutcomeBadge';
+import TestsOutcomeBadge from './TestsOutcomeBadge';
+import type { TestsRunStatus } from './TestsRunStatusBadge';
+import TestsRunStatusBadge from './TestsRunStatusBadge';
 import type { Spec, Test } from './types';
 import type { TestResults } from './types';
 import {
@@ -36,22 +40,23 @@ import { useCodingWorkspaceContext } from '../../CodingWorkspaceContext';
 
 import { useSandpackClient } from '@codesandbox/sandpack-react';
 
-export type Status = 'complete' | 'idle' | 'initializing' | 'running';
 type SpecsLayout = 'consolidated' | 'inline';
 type SpecMode = 'run' | 'submit';
 
 type State = Readonly<{
   currentSpecPath: string | null;
   layout: SpecsLayout;
+  outcome: TestsOutcome;
   pendingTestRun: string | null;
   specs: Record<string, Spec>;
   specsCount: number;
-  status: Status;
+  status: TestsRunStatus;
 }>;
 
 const INITIAL_STATE: State = {
   currentSpecPath: null,
   layout: 'inline',
+  outcome: 'none',
   pendingTestRun: null,
   specs: {},
   specsCount: 0,
@@ -59,7 +64,7 @@ const INITIAL_STATE: State = {
 };
 
 export type Props = Readonly<{
-  onComplete?: (testResults: TestResults) => void;
+  onComplete?: (outcome: TestsOutcome) => void;
   onShowTestsCases: (type: SpecMode) => void;
   specMode: SpecMode;
   specPath: string;
@@ -175,6 +180,7 @@ export default function TestsSection({
 
           return setState((prevState) => ({
             ...prevState,
+            outcome: 'none',
             status: 'running',
           }));
         }
@@ -183,19 +189,31 @@ export default function TestsSection({
           executionComplete();
 
           return setState((prevState) => {
-            if (onComplete !== undefined) {
-              const specs = Object.values(prevState.specs).filter(
-                (spec) => !!spec.name,
-              );
+            const specs = Object.values(prevState.specs).filter(
+              (spec) => !!spec.name,
+            );
+            const testResults = getAllTestResults(specs);
+            const outcome: TestsOutcome = (() => {
+              if (testResults.total === 0) {
+                return 'none';
+              }
+              if (testResults.pass === testResults.total) {
+                return 'accepted';
+              }
 
+              return 'wrong_answer';
+            })();
+
+            if (onComplete !== undefined) {
               // Call in next tick as React still updating this component.
               setTimeout(() => {
-                onComplete(getAllTestResults(specs));
+                onComplete(outcome);
               }, 0);
             }
 
             return {
               ...prevState,
+              outcome,
               status: 'complete',
             };
           });
@@ -543,34 +561,11 @@ export default function TestsSection({
             <div className="flex grow items-center">
               <span>
                 {(() => {
-                  switch (state.status) {
-                    case 'complete':
-                      return (
-                        <Badge
-                          label="Tests completed"
-                          size="sm"
-                          variant="info"
-                        />
-                      );
-                    case 'idle':
-                      return <Badge label="Idle" size="sm" variant="neutral" />;
-                    case 'initializing':
-                      return (
-                        <Badge
-                          label="Initializing"
-                          size="sm"
-                          variant="neutral"
-                        />
-                      );
-                    case 'running':
-                      return (
-                        <Badge
-                          label="Running tests"
-                          size="sm"
-                          variant="warning"
-                        />
-                      );
+                  if (specMode === 'run' || state.outcome === 'none') {
+                    return <TestsRunStatusBadge status={state.status} />;
                   }
+
+                  return <TestsOutcomeBadge outcome={state.outcome} />;
                 })()}
               </span>
             </div>

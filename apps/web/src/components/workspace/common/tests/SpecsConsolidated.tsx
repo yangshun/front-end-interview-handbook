@@ -10,6 +10,7 @@ import {
 } from './style';
 import Tests from './Tests';
 import type { Status } from './TestsSection';
+import TestStatusIcon from './TestStatusIcon';
 import type { Spec } from './types';
 import { getFailingTests, getSpecTestResults, isEmpty } from './utils';
 
@@ -92,8 +93,15 @@ export default function Specs({
                     <div
                       key={`failing-${test.name}`}
                       className={clsx('flex w-full flex-col gap-2')}>
-                      <div className={clsx('font-bold', failTextClassName)}>
-                        ● {test.blocks.join(' › ')} › {test.name}
+                      <div
+                        className={clsx(
+                          'flex items-center gap-x-2 font-bold',
+                          failTextClassName,
+                        )}>
+                        <TestStatusIcon status={test.status} />
+                        <div>
+                          {test.blocks.join(' › ')} › {test.name}
+                        </div>
                       </div>
                       {test.errors
                         .filter((error) => error.name != null)

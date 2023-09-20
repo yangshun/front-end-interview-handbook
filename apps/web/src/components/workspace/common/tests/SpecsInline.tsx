@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+
 import FormattedError from './FormattedError';
 import {
   failBackgroundClassName,
@@ -79,7 +81,12 @@ export default function SpecsInline({
                   />
                 </div>
               )}
-              <div className="flex flex-col divide-y divide-neutral-800 overflow-clip rounded-md border border-neutral-800">
+              <div
+                className={clsx(
+                  'flex flex-col overflow-clip rounded-md',
+                  ['border', themeLineColor],
+                  ['divide-y', themeDivideColor],
+                )}>
                 {allTests.map((test) => {
                   const fullTestName = [...test.blocks, test.name].join(' › ');
 
@@ -87,11 +94,12 @@ export default function SpecsInline({
                     <div
                       key={fullTestName}
                       className={clsx(
-                        'flex w-full flex-col gap-y-2 p-3 transition-colors hover:bg-neutral-900',
+                        'flex w-full flex-col gap-y-2 p-3 transition-colors',
                       )}>
                       <div className={clsx('flex justify-between gap-2')}>
-                        <div className="flex gap-2">
-                          <TestStatusIcon status={test.status} /> {fullTestName}
+                        <div className="flex items-center gap-3">
+                          <TestStatusIcon status={test.status} />{' '}
+                          <code className="text-xs">{fullTestName}</code>
                         </div>
                         <TestDuration duration={test.duration} />
                       </div>
