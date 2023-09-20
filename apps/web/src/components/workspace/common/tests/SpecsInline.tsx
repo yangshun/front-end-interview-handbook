@@ -29,7 +29,7 @@ export default function SpecsInline({
   runStatus,
 }: Props) {
   return (
-    <div className="flex flex-col gap-y-6 p-3">
+    <div className="flex flex-col gap-y-6">
       {specs
         .filter((spec) => !isEmpty(spec))
         .map((spec) => {
@@ -82,11 +82,10 @@ export default function SpecsInline({
                 </div>
               )}
               <div
-                className={clsx(
-                  'flex flex-col overflow-clip rounded-md',
-                  ['border', themeLineColor],
-                  ['divide-y', themeDivideColor],
-                )}>
+                className={clsx('flex flex-col overflow-clip', [
+                  'divide-y',
+                  themeDivideColor,
+                ])}>
                 {allTests.map((test) => {
                   const fullTestName = [...test.blocks, test.name].join(' › ');
 
