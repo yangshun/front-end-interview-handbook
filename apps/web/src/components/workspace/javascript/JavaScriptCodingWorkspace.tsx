@@ -10,6 +10,7 @@ import type {
   QuestionJavaScriptWorkspace,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
+import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
@@ -26,13 +27,13 @@ import {
   JavaScriptCodingWorkspaceContextProvider,
   useJavaScriptCodingWorkspaceContext,
 } from './JavaScriptCodingWorkspaceContext';
+import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
 import {
   getJavaScriptCodingWorkspaceLayout,
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
-import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
@@ -80,6 +81,7 @@ function JavaScriptCodingWorkspaceImpl({
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   solution: string | null;
 }>) {
+  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { dispatch } = useTilesContext();
   const { status, resetToDefaultCode } = useCodingWorkspaceContext();
   const { language } = useJavaScriptCodingWorkspaceContext();
@@ -199,7 +201,7 @@ function JavaScriptCodingWorkspaceImpl({
   });
 
   return (
-    <div className="flex h-full w-full flex-col text-sm">
+    <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
       <div className="flex items-center justify-between px-3 py-3">
         <div className="flex items-center gap-x-8">
           <LogoLink />

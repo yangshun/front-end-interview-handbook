@@ -10,6 +10,7 @@ import type {
   QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
 import { questionUserInterfaceSolutionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import {
   deleteLocalUserInterfaceQuestionCode,
@@ -85,6 +86,8 @@ function UserInterfaceCodingWorkspaceImpl({
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const { framework, metadata, description, solution } = question;
+
+  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { sandpack } = useSandpack();
   const { dispatch, getTabById, queryTabByPattern } = useTilesContext();
   const { activeFile, visibleFiles, files } = sandpack;
@@ -325,7 +328,7 @@ function UserInterfaceCodingWorkspaceImpl({
         question,
         resetToDefaultCode,
       }}>
-      <div className="flex h-full w-full flex-col text-sm">
+      <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
         <div className="flex items-center justify-between px-3 py-3">
           <div className="flex items-center gap-x-8">
             <LogoLink />
