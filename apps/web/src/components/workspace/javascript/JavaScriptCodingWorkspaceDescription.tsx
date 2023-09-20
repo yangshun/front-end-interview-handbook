@@ -20,7 +20,7 @@ type Props = Readonly<{
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function JavaScriptCodingWorkspaceQuestionDescription({
+export default function JavaScriptCodingWorkspaceDescription({
   canViewPremiumContent,
   metadata,
   description,

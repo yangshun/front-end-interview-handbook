@@ -32,7 +32,7 @@ import {
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
-import JavaScriptCodingWorkspaceQuestionDescription from './JavaScriptCodingWorkspaceQuestionDescription';
+import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
@@ -122,7 +122,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
     description: {
       contents: (
-        <JavaScriptCodingWorkspaceQuestionDescription
+        <JavaScriptCodingWorkspaceDescription
           canViewPremiumContent={canViewPremiumContent}
           description={description}
           metadata={metadata}

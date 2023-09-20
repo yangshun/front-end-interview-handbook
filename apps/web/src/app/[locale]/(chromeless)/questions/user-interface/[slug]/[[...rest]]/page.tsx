@@ -208,7 +208,7 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (
-        <CodingWorkspacePaywallPage />
+        <CodingWorkspacePaywallPage metadata={question.metadata} />
       ) : (
         <UserInterfaceCodingWorkspacePage
           canViewPremiumContent={canViewPremiumContent}
