@@ -9,13 +9,13 @@ function makeQuestionKey(question: QuestionUserInterfaceV2): string {
   return `gfe:user-interface:${question.framework}:${question.metadata.slug}`;
 }
 
-type PayloadV1 = Readonly<{
+export type PayloadV1 = Readonly<{
   setup: QuestionUserInterfaceSandpackSetup;
   type: 'user-interface';
   version: 'v1';
 }>;
 
-type PayloadV2 = Readonly<{
+export type PayloadV2 = Readonly<{
   files: SandpackFiles;
   type: 'user-interface';
   version: 'v2';

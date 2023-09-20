@@ -1,19 +1,42 @@
-import type {
-  QuestionUserInterface,
-  QuestionUserInterfaceSandpackSetup,
-} from '../common/QuestionsTypes';
+import type { PayloadV1, PayloadV2 } from './UserInterfaceQuestionCodeStorage';
+import type { QuestionUserInterface } from '../common/QuestionsTypes';
 
-import type { SandpackFile } from '@codesandbox/sandpack-react';
+import type {
+  SandboxEnvironment,
+  SandpackFile,
+} from '@codesandbox/sandpack-react';
 
 function makeQuestionKey(question: QuestionUserInterface): string {
   return `gfe:user-interface:${question.framework}:${question.metadata.slug}`;
 }
 
-type Payload = Readonly<{
-  setup: QuestionUserInterfaceSandpackSetup;
-  type: 'user-interface';
-  version: 'v1';
-}>;
+const defaultSetups: Record<
+  string,
+  Readonly<{
+    dependencies: Record<string, string>;
+    entry: string;
+    environment: SandboxEnvironment;
+    main: string;
+    visibleFiles?: Array<string>;
+  }>
+> = {
+  react: {
+    dependencies: {
+      react: '^18.2.0',
+      'react-dom': '^18.2.0',
+      'react-scripts': '^4.0.0',
+    },
+    entry: '/index.js',
+    environment: 'create-react-app',
+    main: '/App.js',
+  },
+  vanilla: {
+    dependencies: {},
+    entry: '/src/index.js',
+    environment: 'parcel',
+    main: '/src/index.js',
+  },
+};
 
 // TODO(workspace): delete
 export default function useUserInterfaceQuestionCode(
@@ -28,7 +51,7 @@ export default function useUserInterfaceQuestionCode(
         return;
       }
 
-      const savePayload: Payload = {
+      const savePayload: PayloadV1 = {
         setup: {
           ...question.skeletonSetup,
           files,
@@ -64,9 +87,26 @@ export default function useUserInterfaceQuestionCode(
 
       loadedFilesFromClientStorage = true;
 
-      const payload = JSON.parse(savedPayload) as Payload;
+      const payload = JSON.parse(savedPayload) as
+        | PayloadV1
+        | PayloadV2
+        | null
+        | undefined;
 
-      return payload.setup;
+      if (!payload) {
+        return null;
+      }
+
+      if (payload.version === 'v1') {
+        return payload.setup;
+      }
+
+      const v2Payload = payload as PayloadV2;
+
+      return {
+        files: v2Payload.files,
+        ...defaultSetups[question.framework],
+      };
     } catch (error) {
       console.error(error);
 
