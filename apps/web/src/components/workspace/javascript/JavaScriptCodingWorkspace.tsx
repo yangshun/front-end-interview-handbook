@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 
-import LogoLink from '~/components/global/Logo';
-import NavAppThemeDropdown from '~/components/global/navbar/NavAppThemeDropdown';
+import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import type {
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptV2,
@@ -24,7 +23,6 @@ import {
   useJavaScriptCodingWorkspaceContext,
 } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
-import JavaScriptCodingWorkspaceLayoutButton from './JavaScriptCodingWorkspaceLayoutButton';
 import { getJavaScriptCodingWorkspaceLayout } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
@@ -189,18 +187,10 @@ function JavaScriptCodingWorkspaceImpl({
   });
 
   return (
-    <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
-      <div className="flex items-center justify-between px-3 py-3">
-        <div className="flex items-center gap-x-8">
-          <LogoLink />
-        </div>
-        <div className="flex items-center gap-x-2">
-          <div className="hidden md:inline">
-            <JavaScriptCodingWorkspaceLayoutButton />
-          </div>
-          <NavAppThemeDropdown />
-        </div>
-      </div>
+    <div
+      ref={copyRef}
+      className="flex h-full w-full flex-col pt-3 text-sm"
+      style={{ height: FooterlessContainerHeight }}>
       <div className="flex grow overflow-x-auto">
         <div className="flex w-full min-w-[1024px] grow px-3">
           <TilesPanelRoot
@@ -209,7 +199,7 @@ function JavaScriptCodingWorkspaceImpl({
               children: (
                 <div
                   className={clsx(
-                    'transition-color absolute rounded-full ease-in-out group-hover:bg-indigo-400',
+                    'transition-color group-hover:bg-brand absolute rounded-full ease-in-out',
                     direction === 'horizontal' && 'inset-x-0 inset-y-1',
                     direction === 'vertical' && 'inset-x-1 inset-y-0',
                   )}
