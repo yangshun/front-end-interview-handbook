@@ -747,7 +747,7 @@ export default function NavbarImpl() {
     <Navbar
       // Sync offset with banner height.
       ref={navbarRef}
-      className={isHidden ? undefined : '!top-14 lg:!top-10'}
+      className={isHidden ? undefined : '!top-14 lg:!top-8'}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}

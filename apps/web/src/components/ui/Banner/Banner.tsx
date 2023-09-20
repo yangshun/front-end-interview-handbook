@@ -50,7 +50,7 @@ export default function Banner({
         textColorClass,
         size === 'md' && 'text-xs sm:text-sm md:text-base',
         size === 'sm' && 'text-xs md:text-sm',
-        size === 'xs' && 'text-2xs md:text-xs',
+        size === 'xs' && 'text-xs',
         className,
       )}>
       <div
@@ -58,7 +58,7 @@ export default function Banner({
           'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8',
           size === 'md' && 'py-3',
           size === 'sm' && 'py-2',
-          size === 'xs' && 'py-1.5',
+          size === 'xs' && 'py-2',
         )}>
         <div className="pr-8 sm:px-8 sm:text-center">
           <p className="font-medium">{children}</p>
@@ -66,7 +66,7 @@ export default function Banner({
         {onHide != null && (
           <div
             className={clsx(
-              'absolute inset-y-0 right-0 flex h-full items-start pr-2 sm:items-center',
+              'absolute inset-y-0 right-0 flex h-full items-start pr-2 pt-2 sm:items-center sm:pt-0',
             )}>
             <button
               className={clsx(

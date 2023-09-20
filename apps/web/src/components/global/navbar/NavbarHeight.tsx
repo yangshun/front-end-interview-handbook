@@ -3,7 +3,7 @@
 import useIsBannerHidden from '../banners/useIsBannerHidden';
 
 const navbarHeight = 65;
-const bannerHeight = 40;
+const bannerHeight = 32;
 
 export default function NavbarHeight() {
   const isHidden = useIsBannerHidden();
