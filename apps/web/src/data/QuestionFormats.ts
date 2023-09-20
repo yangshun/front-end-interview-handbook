@@ -5,7 +5,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import AngularLogo from '~/components/icons/AngularLogo';
+import AngularLogoMonochrome from '~/components/icons/AngularLogoMonochrome';
 import CSS3LogoMonochrome from '~/components/icons/CSS3LogoMonochrome';
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrome';
@@ -124,7 +124,7 @@ export function useQuestionTechnologyLists() {
   > = {
     angular: {
       href: '/questions/angular',
-      icon: AngularLogo,
+      icon: AngularLogoMonochrome,
       key: 'angular',
       longName: intl.formatMessage({
         defaultMessage: 'Angular Questions',

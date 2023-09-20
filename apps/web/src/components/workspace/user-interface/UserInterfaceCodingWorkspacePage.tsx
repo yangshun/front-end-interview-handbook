@@ -32,7 +32,6 @@ export default function UserInterfaceCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const { appTheme } = useAppThemePreferences();
-  const isDark = appTheme === 'dark';
 
   const loadedFiles = loadLocalUserInterfaceQuestionCode(question);
   const loadedFilesFromLocalStorage =

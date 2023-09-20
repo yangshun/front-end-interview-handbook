@@ -31,7 +31,6 @@ export default function JavaScriptCodingWorkspacePage({
   similarQuestions,
 }: Props) {
   const { appTheme } = useAppThemePreferences();
-  const isDark = appTheme === 'dark';
 
   const { workspace, files, skeleton } = question;
   const [language] = useCodingWorkspaceWorkingLanguage();

@@ -13,7 +13,6 @@ import { FormattedMessage } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import Spinner from '~/components/ui/Spinner';
 import {
   themeBackgroundEmphasized,
   themeLineColor,
@@ -577,7 +576,7 @@ export default function TestsSection({
                 <Button
                   addonPosition="start"
                   icon={RiFileList2Line}
-                  label="Toggle results layout"
+                  label="Toggle layout"
                   size="xs"
                   variant="tertiary"
                   onClick={() =>

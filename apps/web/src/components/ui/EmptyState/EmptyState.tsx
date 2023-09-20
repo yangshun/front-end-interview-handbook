@@ -18,13 +18,13 @@ import Text from '../Text';
 
 type EmptyStateVariant =
   | 'editor_loading'
-  | 'tests_loading'
   | 'empty'
   | 'error'
   | 'exit'
   | 'login'
   | 'not_subscribed'
   | 'success'
+  | 'tests_loading'
   | 'under_construction';
 
 type Props = Readonly<{
