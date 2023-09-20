@@ -26,7 +26,7 @@ export default function CodingWorkspaceBottomBar({
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
 
   return (
-    <div className="flex items-center justify-between px-3 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-3">
       <div className="flex items-center gap-x-2">
         <CodingWorkspaceQuestionListSlideOutButton />
         <QuestionReportIssueButton format="javascript" title={metadata.title} />

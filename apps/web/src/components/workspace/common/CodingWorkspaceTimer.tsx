@@ -24,7 +24,7 @@ export default function CodingWorkspaceTimer() {
   return (
     <div
       className={clsx(
-        'group flex items-center gap-x-1 rounded-full px-2 py-1',
+        'group flex h-7 items-center gap-x-1 rounded-full px-2',
         ['border', themeElementBorderColor],
         themeBackgroundColor,
         isTimerHovered && 'hover:bg-neutral-100 dark:hover:bg-neutral-900',

@@ -107,7 +107,7 @@ export default function TilesPanelBody({
       {isOver && (
         <div
           className={clsx(
-            'absolute inset-0 z-10 bg-indigo-500 opacity-20',
+            'bg-brand-darker absolute inset-0 z-10 opacity-20',
             'origin-top-left transition-transform',
             dropAreaSectionClasses[dropAreaSection],
           )}

@@ -27,10 +27,10 @@ export default function Summary({ suites, tests, duration }: Props) {
   };
 
   return (
-    <div className={clsx('font-mono font-bold')}>
+    <div className="font-mono text-xs font-bold">
       {suites.total > 1 && (
         <div className={clsx('mb-2')}>
-          <span className={clsx('font-bold whitespace-pre-wrap')}>
+          <span className={clsx('whitespace-pre-wrap font-bold')}>
             {widestLabel}
           </span>
           {suites.fail > 0 && (
