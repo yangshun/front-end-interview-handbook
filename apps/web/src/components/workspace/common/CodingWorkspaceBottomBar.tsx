@@ -11,12 +11,14 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import CodingWorkspaceQuestionListSlideOutButton from './CodingWorkspaceQuestionListSlideOutButton';
 
 type Props = Readonly<{
+  leftElements?: ReactNode;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
 }>;
 
 export default function CodingWorkspaceBottomBar({
+  leftElements,
   metadata,
   nextQuestions,
   rightElements,
@@ -28,6 +30,7 @@ export default function CodingWorkspaceBottomBar({
       <div className="flex items-center gap-x-2">
         <CodingWorkspaceQuestionListSlideOutButton />
         <QuestionReportIssueButton format="javascript" title={metadata.title} />
+        {leftElements}
       </div>
       <div className="flex items-center gap-x-2">
         <QuestionProgressAction

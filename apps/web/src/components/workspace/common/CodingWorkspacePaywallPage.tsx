@@ -1,11 +1,14 @@
 'use client';
 
+import { RiArrowLeftLine } from 'react-icons/ri';
+
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import PromoBanner from '~/components/global/banners/PromoBanner';
 import NavbarImpl from '~/components/global/navbar/NavbarImpl';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -30,7 +33,16 @@ export default function CodingWorkspacePaywallPage({ metadata }: Props) {
             <QuestionMetadataSection metadata={metadata} />
           </div>
           <Section>
-            <QuestionPaywall />
+            <div className="flex flex-col items-center gap-y-4">
+              <QuestionPaywall />
+              <Button
+                addonPosition="start"
+                href="/prepare/coding"
+                icon={RiArrowLeftLine}
+                label="Back to questions list"
+                variant="secondary"
+              />
+            </div>
           </Section>
         </div>
       </Container>

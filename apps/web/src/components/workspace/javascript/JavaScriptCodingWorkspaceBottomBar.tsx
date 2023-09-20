@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { RiPlayLine } from 'react-icons/ri';
+import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
@@ -8,6 +8,7 @@ import logEvent from '~/logging/logEvent';
 
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
+import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
@@ -19,10 +20,31 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
   nextQuestions,
 }: Props) {
-  const { status, runTests, submit } = useCodingWorkspaceContext();
+  const { status, runTests, submit, resetToDefaultCode } =
+    useCodingWorkspaceContext();
 
   return (
     <CodingWorkspaceBottomBar
+      leftElements={
+        <>
+          <Button
+            addonPosition="start"
+            icon={RiArrowGoBackLine}
+            isDisabled={status !== 'idle'}
+            label="Reset question"
+            size="xs"
+            variant="secondary"
+            onClick={() => {
+              if (confirm('Reset all changes made to this question?')) {
+                resetToDefaultCode();
+              }
+            }}
+          />
+          <div className="hidden md:inline">
+            <CodingWorkspaceTimer />
+          </div>
+        </>
+      }
       metadata={metadata}
       nextQuestions={nextQuestions}
       rightElements={

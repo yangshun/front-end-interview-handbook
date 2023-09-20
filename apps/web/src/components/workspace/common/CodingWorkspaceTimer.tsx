@@ -4,9 +4,9 @@ import { RiArrowGoBackLine } from 'react-icons/ri';
 import { RxPause, RxStopwatch } from 'react-icons/rx';
 
 import {
-  themeBackgroundEmphasized,
+  themeBackgroundColor,
   themeBackgroundEmphasizedHover,
-  themeLineColor,
+  themeElementBorderColor,
 } from '~/components/ui/theme';
 
 export default function CodingWorkspaceTimer() {
@@ -25,8 +25,9 @@ export default function CodingWorkspaceTimer() {
     <div
       className={clsx(
         'group flex items-center gap-x-1 rounded-full px-2 py-1',
-        ['border', themeLineColor],
-        isTimerHovered && themeBackgroundEmphasized,
+        ['border', themeElementBorderColor],
+        themeBackgroundColor,
+        isTimerHovered && 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
       )}>
       <button
         className="flex items-center gap-x-1 font-mono text-xs"

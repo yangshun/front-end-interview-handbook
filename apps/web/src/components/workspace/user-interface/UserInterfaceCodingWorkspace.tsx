@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
-import { VscLayout } from 'react-icons/vsc';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import LogoLink from '~/components/global/Logo';
+import NavAppThemeDropdown from '~/components/global/navbar/NavAppThemeDropdown';
 import type {
   QuestionMetadata,
   QuestionUserInterfaceV2,
@@ -17,7 +17,6 @@ import {
   saveUserInterfaceQuestionCodeLocally,
 } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
 import Button from '~/components/ui/Button';
-import DropdownMenu from '~/components/ui/DropdownMenu';
 import EmptyState from '~/components/ui/EmptyState';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
@@ -26,10 +25,8 @@ import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
 import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import {
-  getUserInterfaceCodingWorkspaceLayout,
-  getUserInterfaceCodingWorkspaceLayoutAdvanced,
-} from './UserInterfaceCodingWorkspaceLayouts';
+import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutButton';
+import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
 import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
@@ -88,8 +85,8 @@ function UserInterfaceCodingWorkspaceImpl({
   const { framework, metadata, description, solution } = question;
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const { sandpack } = useSandpack();
   const { dispatch, getTabById, queryTabByPattern } = useTilesContext();
+  const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
 
   useRestartSandpack();
@@ -334,70 +331,13 @@ function UserInterfaceCodingWorkspaceImpl({
             <LogoLink />
           </div>
           <div className="flex items-center gap-x-2">
-            <CodingWorkspaceTimer />
-            <Button
-              addonPosition="start"
-              icon={RiArrowGoBackLine}
-              label="Reset question"
-              size="xs"
-              variant="secondary"
-              onClick={() => {
-                if (confirm('Reset to initial code?')) {
-                  resetToDefaultCode();
-                }
-              }}
-            />
-            <DropdownMenu
-              align="end"
-              icon={VscLayout}
-              isLabelHidden={true}
-              label="Layout"
-              size="xs">
-              {[
-                {
-                  label: 'Default layout',
-                  value: 'default',
-                },
-                {
-                  label: 'Coding-focused',
-                  value: 'coding-focused',
-                },
-              ].map(({ label, value }) => (
-                <DropdownMenu.Item
-                  key={value}
-                  isSelected={false}
-                  label={label}
-                  onClick={() => {
-                    if (value === 'default') {
-                      dispatch({
-                        payload: {
-                          panels: getUserInterfaceCodingWorkspaceLayout(
-                            mode,
-                            activeFile,
-                            visibleFiles,
-                            frameworkSolutionPath,
-                          ),
-                        },
-                        type: 'layout-change',
-                      });
-                    }
-                    if (value === 'coding-focused') {
-                      dispatch({
-                        payload: {
-                          panels: getUserInterfaceCodingWorkspaceLayoutAdvanced(
-                            mode,
-                            activeFile,
-                            visibleFiles,
-                            frameworkSolutionPath,
-                          ),
-                        },
-                        type: 'layout-change',
-                      });
-                    }
-                  }}
-                />
-              ))}
-            </DropdownMenu>
+            <div className="hidden md:inline">
+              <UserInterfaceCodingWorkspaceLayoutButton
+                frameworkSolutionPath={frameworkSolutionPath}
+                mode={mode}
+              />
+            </div>
+            <NavAppThemeDropdown />
           </div>
         </div>
         <div className="flex grow overflow-x-auto">
@@ -477,6 +417,25 @@ function UserInterfaceCodingWorkspaceImpl({
           </div>
         </div>
         <CodingWorkspaceBottomBar
+          leftElements={
+            <>
+              <Button
+                addonPosition="start"
+                icon={RiArrowGoBackLine}
+                label="Reset question"
+                size="xs"
+                variant="secondary"
+                onClick={() => {
+                  if (confirm('Reset to initial code?')) {
+                    resetToDefaultCode();
+                  }
+                }}
+              />
+              <div className="hidden md:inline">
+                <CodingWorkspaceTimer />
+              </div>
+            </>
+          }
           metadata={metadata}
           nextQuestions={nextQuestions}
         />

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeDivideColor } from '~/components/ui/theme';
 
 import FormattedError from './FormattedError';
 import {

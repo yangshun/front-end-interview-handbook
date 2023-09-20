@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
-import { RiArrowGoBackLine } from 'react-icons/ri';
-import { VscLayout } from 'react-icons/vsc';
 
 import LogoLink from '~/components/global/Logo';
+import NavAppThemeDropdown from '~/components/global/navbar/NavAppThemeDropdown';
 import type {
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptV2,
@@ -14,12 +13,9 @@ import useQuestionLogEventCopyContents from '~/components/questions/common/useQu
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
-import Button from '~/components/ui/Button';
-import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
@@ -28,22 +24,15 @@ import {
   useJavaScriptCodingWorkspaceContext,
 } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
-import {
-  getJavaScriptCodingWorkspaceLayout,
-  getJavaScriptCodingWorkspaceLayoutGrid,
-  getJavaScriptCodingWorkspaceLayoutThreeColumns,
-} from './JavaScriptCodingWorkspaceLayouts';
+import JavaScriptCodingWorkspaceLayoutButton from './JavaScriptCodingWorkspaceLayoutButton';
+import { getJavaScriptCodingWorkspaceLayout } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
-import {
-  CodingWorkspaceProvider,
-  useCodingWorkspaceContext,
-} from '../CodingWorkspaceContext';
+import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
 import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
-import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
@@ -82,14 +71,13 @@ function JavaScriptCodingWorkspaceImpl({
   solution: string | null;
 }>) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const { dispatch } = useTilesContext();
-  const { status, resetToDefaultCode } = useCodingWorkspaceContext();
-  const { language } = useJavaScriptCodingWorkspaceContext();
 
   const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles, files } = sandpack;
+  const { visibleFiles, files } = sandpack;
 
   useRestartSandpack();
+
+  const { language } = useJavaScriptCodingWorkspaceContext();
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
@@ -207,82 +195,10 @@ function JavaScriptCodingWorkspaceImpl({
           <LogoLink />
         </div>
         <div className="flex items-center gap-x-2">
-          <CodingWorkspaceTimer />
-          <Button
-            addonPosition="start"
-            icon={RiArrowGoBackLine}
-            isDisabled={status !== 'idle'}
-            label="Reset question"
-            size="xs"
-            variant="secondary"
-            onClick={() => {
-              if (confirm('Reset all changes made to this question?')) {
-                resetToDefaultCode();
-              }
-            }}
-          />
-          <DropdownMenu
-            align="end"
-            icon={VscLayout}
-            isLabelHidden={true}
-            label="Layout"
-            size="xs">
-            {[
-              {
-                label: 'Default layout',
-                value: 'default',
-              },
-              {
-                label: 'Three-column layout',
-                value: 'three-column',
-              },
-              {
-                label: 'Grid layout',
-                value: 'grid',
-              },
-            ].map(({ label, value }) => (
-              <DropdownMenu.Item
-                key={value}
-                isSelected={false}
-                label={label}
-                onClick={() => {
-                  if (value === 'default') {
-                    dispatch({
-                      payload: {
-                        panels: getJavaScriptCodingWorkspaceLayout(
-                          activeFile,
-                          visibleFiles,
-                        ),
-                      },
-                      type: 'layout-change',
-                    });
-                  }
-                  if (value === 'three-column') {
-                    dispatch({
-                      payload: {
-                        panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
-                          activeFile,
-                          visibleFiles,
-                        ),
-                      },
-                      type: 'layout-change',
-                    });
-                  }
-                  if (value === 'grid') {
-                    dispatch({
-                      payload: {
-                        panels: getJavaScriptCodingWorkspaceLayoutGrid(
-                          workspace.main,
-                          workspace.run,
-                        ),
-                      },
-                      type: 'layout-change',
-                    });
-                  }
-                }}
-              />
-            ))}
-          </DropdownMenu>
+          <div className="hidden md:inline">
+            <JavaScriptCodingWorkspaceLayoutButton />
+          </div>
+          <NavAppThemeDropdown />
         </div>
       </div>
       <div className="flex grow overflow-x-auto">
