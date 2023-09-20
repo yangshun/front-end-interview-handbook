@@ -46,7 +46,7 @@ export default function MarketingHomePage({
   });
 
   return (
-    <main className="dark bg-[#070708] pb-12 md:pb-24">
+    <main className="bg-[#070708] pb-12 md:pb-24" data-mode="dark">
       <MarketingHero />
       <Section>
         <MarketingHomepageFeaturesRow />

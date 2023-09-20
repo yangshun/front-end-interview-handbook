@@ -45,7 +45,7 @@ export default function UIExamplesGroup({
               </Container>
             </div>
             {darkMode !== 'none' && (
-              <div className="dark bg-neutral-950 text-white">
+              <div className="bg-neutral-950 text-white" data-mode="dark">
                 <Container>
                   <div
                     className={clsx('grid w-full py-12', gapClasses[gapSize])}>
@@ -68,7 +68,9 @@ export default function UIExamplesGroup({
                   )}>
                   {children}
                 </div>
-                <div className="dark bg-neutral-950 text-white lg:bg-transparent lg:pl-12">
+                <div
+                  className="bg-neutral-950 text-white lg:bg-transparent lg:pl-12"
+                  data-mode="dark">
                   <div
                     className={clsx('grid w-full py-12', gapClasses[gapSize])}>
                     {children}

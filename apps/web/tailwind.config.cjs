@@ -68,7 +68,7 @@ const blue = {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: ['class', '[data-mode="dark"]'],
   content: [
     './app/**/*.{js,jsx,ts,tsx,md,mdx}',
     './src/**/*.{js,jsx,ts,tsx,md,mdx}',

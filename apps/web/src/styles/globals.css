@@ -59,7 +59,7 @@ a {
   }
 }
 
-.dark {
+[data-mode='dark'] {
   color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
 }
 
@@ -72,12 +72,12 @@ a {
   text-align: center;
 }
 
-.dark .glassbox {
+[data-mode='dark'] .glassbox {
   background: hsla(0, 0%, 9%, 0.3);
   position: relative;
 }
 
-.dark .glassbox::before {
+[data-mode='dark'] .glassbox::before {
   background: conic-gradient(
       from 90deg at 50% 50%,
       #3f3f4640 0deg,
