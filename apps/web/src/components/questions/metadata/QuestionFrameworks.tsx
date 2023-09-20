@@ -29,7 +29,7 @@ const frameworkIcons: Record<
     style?: CSSProperties;
   }>
 > = {
-  angular: { icon: AngularLogo },
+  angular: { icon: AngularLogo, style: { transform: 'scale(1.1)' } },
   react: { icon: ReactLogo, style: { fill: 'rgb(20, 158, 202)' } },
   vanilla: { icon: HTML5Logo },
   vue: { icon: VueLogoMonochrome },

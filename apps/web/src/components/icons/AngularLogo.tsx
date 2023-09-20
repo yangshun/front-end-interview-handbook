@@ -1,14 +1,18 @@
 export default function AngularLogo(props: React.ComponentProps<'svg'>) {
   return (
-    <svg
-      fill="currentCOlor"
-      height="512"
-      viewBox="0 0 512 512"
-      width="512"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}>
-      <polygon points="213.57 256 298.42 256 255.99 166.64 213.57 256" />
-      <path d="M256,32,32,112,78.12,384,256,480l177.75-96L480,112Zm88,320-26.59-56H194.58L168,352H128L256,72,384,352Z" />
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="m16 2-13.034 4.648 1.988 17.234 11.046 6.118 11.046-6.118 1.988-17.234z"
+        fill="#dd0031"
+      />
+      <path
+        d="m16 2v3.108-.014 14.182 10.724l11.046-6.118 1.988-17.234z"
+        fill="#c3002f"
+      />
+      <path
+        d="m16 5.094-8.148 18.27h3.038l1.638-4.088h6.916l1.638 4.088h3.038zm2.38 11.662h-4.76l2.38-5.726z"
+        fill="#fff"
+      />
     </svg>
   );
 }
