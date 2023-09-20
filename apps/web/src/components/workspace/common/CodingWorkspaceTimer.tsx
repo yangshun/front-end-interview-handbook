@@ -3,6 +3,12 @@ import { useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { RxPause, RxStopwatch } from 'react-icons/rx';
 
+import {
+  themeBackgroundEmphasized,
+  themeBackgroundEmphasizedHover,
+  themeLineColor,
+} from '~/components/ui/theme';
+
 export default function CodingWorkspaceTimer() {
   const [timePassedInSeconds, setTimePassedInSeconds] = useState(0);
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | undefined>(
@@ -18,8 +24,9 @@ export default function CodingWorkspaceTimer() {
   return (
     <div
       className={clsx(
-        'group flex items-center gap-x-1 rounded-full border border-neutral-600 px-2 py-1',
-        isTimerHovered && 'bg-neutral-700',
+        'group flex items-center gap-x-1 rounded-full px-2 py-1',
+        ['border', themeLineColor],
+        isTimerHovered && themeBackgroundEmphasized,
       )}>
       <button
         className="flex items-center gap-x-1 font-mono text-xs"
@@ -51,7 +58,8 @@ export default function CodingWorkspaceTimer() {
       </button>
       <button
         className={clsx(
-          'rounded-full p-1 hover:bg-neutral-700',
+          'rounded-full p-1',
+          themeBackgroundEmphasizedHover,
           timePassedInSeconds === 0 && 'opacity-25',
         )}
         disabled={timePassedInSeconds === 0}
