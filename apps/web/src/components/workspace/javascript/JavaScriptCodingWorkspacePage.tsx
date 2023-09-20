@@ -11,6 +11,7 @@ import sandpackProviderOptions from '~/components/questions/evaluator/sandpackPr
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
+import SandpackTimeoutLogger from '../SandpackTimeoutLogger';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
@@ -76,6 +77,7 @@ export default function JavaScriptCodingWorkspacePage({
           skeleton={skeleton}
           workspace={workspace}
         />
+        <SandpackTimeoutLogger instance="workspace.js" />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

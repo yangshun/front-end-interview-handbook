@@ -10,6 +10,8 @@ import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/edito
 import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 
+import SandpackTimeoutLogger from '../SandpackTimeoutLogger';
+
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
@@ -71,6 +73,7 @@ export default function UserInterfaceCodingWorkspacePage({
         question={question}
         similarQuestions={similarQuestions}
       />
+      <SandpackTimeoutLogger instance="workspace.ui" />
     </SandpackProvider>
   );
 }
