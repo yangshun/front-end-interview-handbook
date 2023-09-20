@@ -11,7 +11,6 @@ import {
 import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import {
@@ -27,7 +26,6 @@ import TestsOutcomeBadge from './TestsOutcomeBadge';
 import type { TestsRunStatus } from './TestsRunStatusBadge';
 import TestsRunStatusBadge from './TestsRunStatusBadge';
 import type { Spec, Test } from './types';
-import type { TestResults } from './types';
 import {
   flatMap,
   getAllSuiteResults,

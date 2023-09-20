@@ -9,7 +9,7 @@ import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWork
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeLineColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { useTilesContext } from '~/react-tiling/state/useTilesContext';

@@ -6,7 +6,7 @@ import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/
 import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';

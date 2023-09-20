@@ -7,7 +7,6 @@ import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,
   themeDivideColor,
-  themeIconColor,
   themeLineColor,
 } from '~/components/ui/theme';
 

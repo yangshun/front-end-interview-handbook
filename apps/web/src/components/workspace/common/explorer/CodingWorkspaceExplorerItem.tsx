@@ -11,10 +11,8 @@ import {
 } from 'react-icons/ri';
 
 import {
-  themeBackgroundEmphasized,
   themeTextBrandColor,
   themeTextBrandHoverColor,
-  themeTextSecondaryColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 

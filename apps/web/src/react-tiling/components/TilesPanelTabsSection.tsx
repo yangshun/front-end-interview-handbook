@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDrop } from 'react-dnd';
 
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
-
 import TilesPanelTab from './TilesPanelTab';
 import type { PanelDropTarget } from '../actions/tabDrop';
 import type { TilesPanelDragItem, TilesPanelItemTab } from '../types';

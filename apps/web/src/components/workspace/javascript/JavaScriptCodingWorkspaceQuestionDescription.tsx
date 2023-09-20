@@ -9,7 +9,6 @@ import QuestionSimilarQuestions from '~/components/questions/content/QuestionSim
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -56,7 +55,7 @@ export default function JavaScriptCodingWorkspaceQuestionDescription({
         <div
           className={clsx(
             'flex items-center gap-x-4 p-4',
-            themeBackgroundEmphasized,
+            'bg-neutral-100 dark:bg-neutral-900',
           )}>
           <QuestionMetadataSection metadata={metadata} />
         </div>
