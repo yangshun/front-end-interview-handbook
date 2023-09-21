@@ -21,8 +21,28 @@ export type PayloadV2 = Readonly<{
   version: 'v2';
 }>;
 
+function migrateFilesFromV1toV2(
+  v1Files: SandpackFiles,
+  v2SkeletonFiles: SandpackFiles,
+) {
+  const newFiles = { ...v2SkeletonFiles };
+
+  Object.keys(newFiles).forEach((filePath) => {
+    if (filePath.startsWith('/src')) {
+      const potentialOriginalFilePath = filePath.replace(/^\/src/, '');
+
+      if (v1Files[potentialOriginalFilePath]) {
+        newFiles[filePath] = v1Files[potentialOriginalFilePath];
+      }
+    }
+  });
+
+  return newFiles;
+}
+
 export function loadLocalUserInterfaceQuestionCode(
   question: QuestionUserInterfaceV2,
+  v2SkeletonFiles: SandpackFiles,
 ) {
   const questionKey = makeQuestionKey(question);
 
@@ -50,9 +70,13 @@ export function loadLocalUserInterfaceQuestionCode(
 
     if (payload.version === 'v1') {
       const v1Payload = payload as PayloadV1;
+      const { files: v1Files } = v1Payload.setup;
 
-      // TODO(workspace): Migrate to v2 files format.
-      return v1Payload.setup.files;
+      if (question.framework === 'react') {
+        return migrateFilesFromV1toV2(v1Files, v2SkeletonFiles);
+      }
+
+      return v1Files;
     }
 
     return (payload as PayloadV2).files;

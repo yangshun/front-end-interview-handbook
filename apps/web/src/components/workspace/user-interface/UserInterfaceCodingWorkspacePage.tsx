@@ -33,7 +33,10 @@ export default function UserInterfaceCodingWorkspacePage({
 }: Props) {
   const { appTheme } = useAppThemePreferences();
 
-  const loadedFiles = loadLocalUserInterfaceQuestionCode(question);
+  const loadedFiles = loadLocalUserInterfaceQuestionCode(
+    question,
+    question.skeletonBundle!.files,
+  );
   const loadedFilesFromLocalStorage =
     mode === 'practice' && loadedFiles != null;
 
@@ -44,6 +47,7 @@ export default function UserInterfaceCodingWorkspacePage({
 
   const files =
     mode === 'practice' ? loadedFiles ?? defaultFiles : defaultFiles;
+
   const workspace =
     mode === 'practice'
       ? question.skeletonBundle?.workspace
@@ -72,7 +76,7 @@ export default function UserInterfaceCodingWorkspacePage({
       theme={appTheme === 'dark' ? 'dark' : undefined}>
       <UserInterfaceCodingWorkspace
         canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={defaultFiles!} // TODO(redesign): remove ! when the field is made compulsory
+        defaultFiles={defaultFiles!} // TODO(workspace): remove ! when the field is made compulsory
         loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}
         nextQuestions={nextQuestions}
