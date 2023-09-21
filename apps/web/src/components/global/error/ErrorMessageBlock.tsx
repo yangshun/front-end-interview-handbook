@@ -1,28 +1,15 @@
-import { useEffect } from 'react';
-
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 export default function ErrorMessageBlock() {
-  // Force refresh after 3 seconds.
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.location.reload();
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   return (
     <div className="flex flex-col gap-y-4 py-12 text-center">
       <h1 className="text-lg">
-        <Text>There's a newer version of the site available.</Text>
+        <Text>An error has occurred and we're looking into it.</Text>
       </h1>
       <div>
         <Button
-          label="Reload Page"
+          label="Reload page"
           size="lg"
           type="button"
           variant="primary"
