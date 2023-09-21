@@ -2,16 +2,16 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
+import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
-import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
+import { readQuestionJavaScriptContentsV2 } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
-
-import QuestionJavaScriptCodingWorkspacePage from './QuestionJavaScriptCodingWorkspacePage';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const { question } = readQuestionJavaScriptContents(slug, locale);
+  const { question } = readQuestionJavaScriptContentsV2(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt!,
@@ -40,13 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const t0 = performance.now();
-
   const supabaseAdmin = createSupabaseAdminClientGFE();
   const { slug, locale } = params;
 
   const user = await fetchUser();
-  const { question } = readQuestionJavaScriptContents(slug, locale);
+  const { question } = readQuestionJavaScriptContentsV2(slug, locale);
 
   let canViewPremiumContent = false;
 
@@ -64,7 +62,8 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
+  const isQuestionLockedForUser =
+    question.metadata.premium && !canViewPremiumContent;
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
   const nextQuestions = sortQuestionsMultiple(
@@ -98,6 +97,23 @@ export default async function Page({ params }: Props) {
     ],
   );
 
+  // TODO(workspace): delete when all JS questions have been migrated.
+  if (question.workspace.main.endsWith('.js')) {
+    const oldMain = question.workspace.main;
+    const newMain = oldMain.replace(/\.js$/, '.ts');
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    question.workspace.main = newMain;
+    question.files[newMain] = question.files[oldMain];
+    delete question.files[oldMain];
+
+    const pkgJSON = JSON.parse(question.files['/package.json']);
+
+    pkgJSON.main = newMain;
+    question.files['/package.json'] = JSON.stringify(pkgJSON, null, 2);
+  }
+
   return (
     <>
       <ArticleJsonLd
@@ -115,21 +131,16 @@ export default async function Page({ params }: Props) {
         url={`${getSiteUrl()}${question.metadata.href}`}
         useAppDir={true}
       />
-      <QuestionJavaScriptCodingWorkspacePage
-        canViewPremiumContent={canViewPremiumContent}
-        isQuestionLocked={isQuestionLocked}
-        nextQuestions={nextQuestions}
-        question={{
-          description: isQuestionLocked ? null : question.description,
-          format: question.format,
-          metadata: question.metadata,
-          skeleton: isQuestionLocked ? null : question.skeleton,
-          solution: isQuestionLocked ? null : question.solution,
-          tests: isQuestionLocked ? null : question.tests,
-        }}
-        serverDuration={performance.now() - t0}
-        similarQuestions={similarQuestions}
-      />
+      {isQuestionLockedForUser ? (
+        <CodingWorkspacePaywallPage metadata={question.metadata} />
+      ) : (
+        <JavaScriptCodingWorkspacePage
+          canViewPremiumContent={canViewPremiumContent}
+          nextQuestions={nextQuestions}
+          question={question}
+          similarQuestions={similarQuestions}
+        />
+      )}
     </>
   );
 }

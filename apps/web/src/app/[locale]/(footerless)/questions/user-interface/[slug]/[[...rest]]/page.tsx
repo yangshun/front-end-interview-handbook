@@ -1,13 +1,18 @@
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
-import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
+import type {
+  QuestionUserInterface,
+  QuestionUserInterfaceV2,
+} from '~/components/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
+import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
-import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
+import { readQuestionUserInterfaceV2 } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -15,8 +20,6 @@ import {
   createSupabaseAdminClientGFE,
   fetchUser,
 } from '~/supabase/SupabaseServerGFE';
-
-import QuestionUserInterfaceCodingWorkspacePage from './QuestionUserInterfaceCodingWorkspacePage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -27,7 +30,7 @@ type Props = Readonly<{
 }>;
 
 function frameworkAgnosticLinks(
-  question: QuestionUserInterface,
+  question: QuestionUserInterface | QuestionUserInterfaceV2,
   mode: QuestionUserInterfaceMode,
 ) {
   const frameworkAgnosticPathname = `${question.metadata.href}${
@@ -50,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     mode,
     codeId,
   } = determineFrameworkAndMode(rest);
-  const question = await readQuestionUserInterface(
+  const question = await readQuestionUserInterfaceV2(
     slug,
     parsedFramework,
     codeId,
@@ -120,8 +123,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const t0 = performance.now();
-
   const { slug, rest, locale } = params;
   const {
     mode,
@@ -131,7 +132,7 @@ export default async function Page({ params }: Props) {
 
   const [user, question] = await Promise.all([
     fetchUser(),
-    readQuestionUserInterface(slug, parsedFramework, codeId),
+    readQuestionUserInterfaceV2(slug, parsedFramework, codeId),
   ]);
 
   let canViewPremiumContent = false;
@@ -151,7 +152,8 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
+  const isQuestionLockedForUser =
+    question.metadata.premium && !canViewPremiumContent;
   const { url } = frameworkAgnosticLinks(question, mode);
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
@@ -205,23 +207,17 @@ export default async function Page({ params }: Props) {
         url={url}
         useAppDir={true}
       />
-      <QuestionUserInterfaceCodingWorkspacePage
-        canViewPremiumContent={canViewPremiumContent}
-        isQuestionLocked={isQuestionLocked}
-        mode={mode}
-        nextQuestions={nextQuestions}
-        question={{
-          description: isQuestionLocked ? null : question.description,
-          format: question.format,
-          framework: question.framework,
-          metadata: question.metadata,
-          skeletonSetup: isQuestionLocked ? null : question.skeletonSetup,
-          solution: isQuestionLocked ? null : question.solution,
-          solutionSetup: isQuestionLocked ? null : question.solutionSetup,
-        }}
-        serverDuration={performance.now() - t0}
-        similarQuestions={similarQuestions}
-      />
+      {isQuestionLockedForUser ? (
+        <CodingWorkspacePaywallPage metadata={question.metadata} />
+      ) : (
+        <UserInterfaceCodingWorkspacePage
+          canViewPremiumContent={canViewPremiumContent}
+          mode={mode}
+          nextQuestions={nextQuestions}
+          question={question}
+          similarQuestions={similarQuestions}
+        />
+      )}
     </>
   );
 }
