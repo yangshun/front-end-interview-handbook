@@ -101,7 +101,7 @@ function Chart({
 
   return (
     <div
-      className="relative block scale-[0.66] items-center"
+      className="relative block scale-[0.66] items-center md:scale-100"
       style={{
         height: totalHeight,
         width: totalWidth,
