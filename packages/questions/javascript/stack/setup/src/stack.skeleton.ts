@@ -1,5 +1,7 @@
 export default class Stack<T> {
-  constructor() {}
+  constructor() {
+    throw 'Not implemented!';
+  }
 
   /**
    * Pushes an item onto the top of the stack.
