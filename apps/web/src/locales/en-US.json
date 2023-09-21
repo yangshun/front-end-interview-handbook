@@ -183,10 +183,6 @@
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
   },
-  "1mtNyQ": {
-    "defaultMessage": "To test your function without submitting, call the function below the declaration.",
-    "description": "Text in coding workspace's console to inform users they have to call the function themselves to test"
-  },
   "1wkHv2": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
     "description": "Subtext above email settings."
@@ -218,6 +214,10 @@
   "2a4of9": {
     "defaultMessage": "Change to horizontal",
     "description": "Tooltip for changing to horizontal layout for coding workspace"
+  },
+  "2a6qgD": {
+    "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
+    "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
@@ -883,10 +883,6 @@
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
-  "FInmLy": {
-    "defaultMessage": "Reset to initial code",
-    "description": "Label for button that allows users to reset their coding workspace to the initial code"
-  },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
@@ -1018,6 +1014,10 @@
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
     "description": "How to answer collaboration situation questions in behavioral interviews"
+  },
+  "HdWLAV": {
+    "defaultMessage": "Test your code",
+    "description": "Title of test panel for coding workspace"
   },
   "Hj6BTz": {
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
@@ -1687,17 +1687,9 @@
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
   },
-  "SWOTIA": {
-    "defaultMessage": "Reset to initial code",
-    "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
-  },
   "SdXQye": {
     "defaultMessage": "Add selection to next find match",
     "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
-  },
-  "Se6J8o": {
-    "defaultMessage": "Mark as Complete",
-    "description": "Mark the question as complete"
   },
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
@@ -1726,6 +1718,10 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
+  },
+  "TL822E": {
+    "defaultMessage": "JavaScript Console",
+    "description": "Title of JavaScript console panel"
   },
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
@@ -1995,10 +1991,6 @@
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
   },
-  "YIsqrq": {
-    "defaultMessage": "Full list of shortcuts can be found on the <Anchor>Visual Studio Code website</Anchor>.",
-    "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
-  },
   "YJmwAv": {
     "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
@@ -2062,6 +2054,10 @@
   "ZHuDIg": {
     "defaultMessage": "Joined on {date}",
     "description": "Date the user joined the service"
+  },
+  "ZJQ+uw": {
+    "defaultMessage": "Submit your code to check against <button>all test cases</button>.",
+    "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
   },
   "ZN/wJM": {
     "defaultMessage": "Completed",
@@ -2134,6 +2130,10 @@
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
+  },
+  "as1hw8": {
+    "defaultMessage": "Submit your code",
+    "description": "Title of test panel for coding workspace"
   },
   "au4m82": {
     "defaultMessage": "JavaScript",
@@ -2483,6 +2483,10 @@
     "defaultMessage": "Solved previously, mark as completed",
     "description": "Label for questions solved in the past"
   },
+  "gopXdP": {
+    "defaultMessage": "Reset this file",
+    "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
+  },
   "grmcEW": {
     "defaultMessage": "Your account email is a school email that contains \".edu\".",
     "description": "Condition for promotion"
@@ -2675,6 +2679,10 @@
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
     "description": "Subtitle of discount promotion card"
   },
+  "k79xTX": {
+    "defaultMessage": "Reset this file",
+    "description": "Label for button that allows users to reset their coding workspace to the initial code"
+  },
   "k964KU": {
     "defaultMessage": "HTML",
     "description": "CSS questions category short title"
@@ -2786,6 +2794,10 @@
   "ldOgfx": {
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
+  },
+  "lfKH/E": {
+    "defaultMessage": "Mark as complete",
+    "description": "Mark the question as complete"
   },
   "lfY3AI": {
     "defaultMessage": "Spread the word and get rewarded",
@@ -3123,6 +3135,10 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "rWhQtZ": {
+    "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
+    "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
   "rfI2w+": {
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
@@ -3186,6 +3202,10 @@
   "t+g7fF": {
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
+  },
+  "t2Ll2e": {
+    "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
+    "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",
