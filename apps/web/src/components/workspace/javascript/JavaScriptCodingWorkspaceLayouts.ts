@@ -54,7 +54,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
                 id: 'run_tests',
               },
               {
-                closeable: false,
+                closeable: true,
                 id: 'console',
               },
               {
@@ -123,7 +123,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
             id: 'run_tests',
           },
           {
-            closeable: false,
+            closeable: true,
             id: 'console',
           },
           {
@@ -186,7 +186,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
             id: 'center-bottom',
             tabs: [
               {
-                closeable: false,
+                closeable: true,
                 id: 'console',
               },
             ],

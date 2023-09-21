@@ -36,7 +36,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
         id: 'center-column',
         tabs: [
           {
-            closeable: false,
+            closeable: true,
             id: 'file_explorer',
           },
           ...files.map((file) => ({
@@ -57,7 +57,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
             id: 'preview',
           },
           {
-            closeable: false,
+            closeable: true,
             id: 'console',
           },
         ],
@@ -104,7 +104,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
             id: 'left-bottom',
             tabs: [
               {
-                closeable: false,
+                closeable: true,
                 id: 'file_explorer',
               },
             ],
@@ -149,7 +149,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
             id: 'right-bottom',
             tabs: [
               {
-                closeable: false,
+                closeable: true,
                 id: 'console',
               },
             ],
