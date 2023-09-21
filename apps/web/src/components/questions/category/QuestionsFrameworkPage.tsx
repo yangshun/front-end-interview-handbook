@@ -42,8 +42,10 @@ export default function QuestionsFrameworkPage({
     <Container
       className={clsx(
         'flex flex-col',
-        'py-4 md:py-6 lg:py-8',
+        'py-6 lg:py-8',
         'gap-y-8 md:gap-y-10 2xl:gap-y-12',
+        // Workaround to make inner contents always 1080px on >= lg screens
+        'lg:!max-w-[calc(1080px_+_4rem)] xl:!max-w-[calc(1080px_+_7.5rem)]',
       )}
       variant="normal">
       <QuestionCategoryTitleSection
