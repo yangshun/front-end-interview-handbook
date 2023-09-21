@@ -1,18 +1,13 @@
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
-import type {
-  QuestionUserInterface,
-  QuestionUserInterfaceV2,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
-import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
-import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
-import { readQuestionUserInterfaceV2 } from '~/db/QuestionsContentsReader';
+import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -20,6 +15,8 @@ import {
   createSupabaseAdminClientGFE,
   fetchUser,
 } from '~/supabase/SupabaseServerGFE';
+
+import QuestionUserInterfaceCodingWorkspacePage from './QuestionUserInterfaceCodingWorkspacePage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,7 +27,7 @@ type Props = Readonly<{
 }>;
 
 function frameworkAgnosticLinks(
-  question: QuestionUserInterface | QuestionUserInterfaceV2,
+  question: QuestionUserInterface,
   mode: QuestionUserInterfaceMode,
 ) {
   const frameworkAgnosticPathname = `${question.metadata.href}${
@@ -53,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     mode,
     codeId,
   } = determineFrameworkAndMode(rest);
-  const question = await readQuestionUserInterfaceV2(
+  const question = await readQuestionUserInterface(
     slug,
     parsedFramework,
     codeId,
@@ -123,6 +120,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  const t0 = performance.now();
+
   const { slug, rest, locale } = params;
   const {
     mode,
@@ -132,7 +131,7 @@ export default async function Page({ params }: Props) {
 
   const [user, question] = await Promise.all([
     fetchUser(),
-    readQuestionUserInterfaceV2(slug, parsedFramework, codeId),
+    readQuestionUserInterface(slug, parsedFramework, codeId),
   ]);
 
   let canViewPremiumContent = false;
@@ -152,8 +151,7 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLockedForUser =
-    question.metadata.premium && !canViewPremiumContent;
+  const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
   const { url } = frameworkAgnosticLinks(question, mode);
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
@@ -207,17 +205,23 @@ export default async function Page({ params }: Props) {
         url={url}
         useAppDir={true}
       />
-      {isQuestionLockedForUser ? (
-        <CodingWorkspacePaywallPage metadata={question.metadata} />
-      ) : (
-        <UserInterfaceCodingWorkspacePage
-          canViewPremiumContent={canViewPremiumContent}
-          mode={mode}
-          nextQuestions={nextQuestions}
-          question={question}
-          similarQuestions={similarQuestions}
-        />
-      )}
+      <QuestionUserInterfaceCodingWorkspacePage
+        canViewPremiumContent={canViewPremiumContent}
+        isQuestionLocked={isQuestionLocked}
+        mode={mode}
+        nextQuestions={nextQuestions}
+        question={{
+          description: isQuestionLocked ? null : question.description,
+          format: question.format,
+          framework: question.framework,
+          metadata: question.metadata,
+          skeletonSetup: isQuestionLocked ? null : question.skeletonSetup,
+          solution: isQuestionLocked ? null : question.solution,
+          solutionSetup: isQuestionLocked ? null : question.solutionSetup,
+        }}
+        serverDuration={performance.now() - t0}
+        similarQuestions={similarQuestions}
+      />
     </>
   );
 }
