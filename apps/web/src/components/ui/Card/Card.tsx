@@ -16,6 +16,7 @@ type Props = Readonly<{
   border?: boolean;
   children: ReactNode;
   className?: string;
+  disableBackground?: boolean;
   disableSpotlight?: boolean;
   padding?: boolean;
   pattern?: boolean;
@@ -37,10 +38,7 @@ const cardOuterContainerSpotlightClassNames = clsx(
   'after:z-30',
 );
 
-const cardOuterContainerClassNames = clsx(
-  themeBackgroundColor,
-  'p-px overflow-hidden',
-);
+const cardOuterContainerClassNames = 'p-px overflow-hidden';
 
 function isAllowedBrowser() {
   if (typeof navigator === 'undefined') {
@@ -56,6 +54,7 @@ export default function Card({
   children,
   className,
   border = true,
+  disableBackground = false,
   disableSpotlight = false,
   padding = true,
   pattern = true,
@@ -103,6 +102,7 @@ export default function Card({
       className={clsx(
         'relative isolate grid grid-cols-1 rounded-lg',
         cardOuterContainerClassNames,
+        !disableBackground && themeBackgroundColor,
         hiddenClasses,
         !disableSpotlight &&
           isAllowedBrowser() &&
@@ -110,14 +110,14 @@ export default function Card({
       )}>
       <div
         className={clsx(
-          'z-100 before:m-[-1px] !absolute top-0 h-full w-full rounded-[inherit]',
+          'z-100 !absolute top-0 h-full w-full rounded-[inherit] before:m-[-1px]',
           border && themeGlassyBorder,
         )}
       />
       <div
         className={clsx(
           'relative isolate z-20 overflow-clip rounded-[inherit]',
-          'bg-neutral-50 dark:bg-neutral-900',
+          !disableBackground && 'bg-neutral-50 dark:bg-neutral-900',
           padding && 'px-6 py-5',
           nonHiddenClasses,
         )}

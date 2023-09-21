@@ -11,6 +11,7 @@ import {
   themeRadialGlowBackground,
 } from '~/components/ui/theme';
 
+import Card from '../ui/Card';
 import Heading from '../ui/Heading';
 import Text from '../ui/Text';
 
@@ -100,7 +101,7 @@ function Chart({
 
   return (
     <div
-      className="relative block items-center"
+      className="relative block scale-[0.66] items-center"
       style={{
         height: totalHeight,
         width: totalWidth,
@@ -293,24 +294,45 @@ function Chart({
 export default function MarketingContinuousUpdates() {
   const [activePointIndex, setActivePointIndex] = useState<number | null>(null);
 
+  const chart = (
+    <Chart
+      activePointIndex={activePointIndex}
+      gridSize={48}
+      height={chartHeight}
+      paddingX={0}
+      paddingY={32}
+      width={48 * (counts.length - 1)}
+      onChangeActivePointIndex={setActivePointIndex}
+    />
+  );
+
   return (
     <div
       className={clsx(
-        'lg:rounded-t-[48px] isolate lg:mx-8',
+        'isolate rounded-t-3xl lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
       <Container className="relative">
         <div className="mx-auto grid grid-cols-1 gap-8 py-24 md:grid-cols-5">
           <div className="mx-auto max-w-2xl md:col-span-5 lg:col-span-3 lg:mx-0 lg:max-w-prose lg:pr-24">
-            <Heading level="heading2">
+            <Heading
+              className="mb-12 text-center lg:text-left"
+              level="heading2">
               <FormattedMessage
                 defaultMessage="We're still growing our question base"
                 description="Question base section title"
                 id="RQm9cE"
               />
             </Heading>
+            <div className="mb-6 lg:hidden">
+              <Card
+                className="flex h-[200px] items-center justify-center"
+                pattern={false}>
+                {chart}
+              </Card>
+            </div>
             <Text
-              className="relative mt-10 max-w-5xl text-lg md:text-xl"
+              className="relative max-w-5xl text-base md:text-xl"
               color="secondary"
               display="block"
               size="custom">
@@ -321,7 +343,7 @@ export default function MarketingContinuousUpdates() {
               />
             </Text>
             <Text
-              className="relative mt-10 max-w-5xl text-lg md:text-xl"
+              className="relative mt-10 max-w-5xl text-base md:text-xl"
               color="secondary"
               display="block"
               size="custom">
@@ -332,7 +354,7 @@ export default function MarketingContinuousUpdates() {
               />
             </Text>
             <Text
-              className="relative mt-10 max-w-5xl text-lg md:text-xl"
+              className="relative mt-10 max-w-5xl text-base md:text-xl"
               color="secondary"
               display="block"
               size="custom">
@@ -354,15 +376,7 @@ export default function MarketingContinuousUpdates() {
             </Text>
           </div>
           <div className="mt-3 hidden rounded-lg lg:col-span-2 lg:flex lg:items-center">
-            <Chart
-              activePointIndex={activePointIndex}
-              gridSize={48}
-              height={chartHeight}
-              paddingX={0}
-              paddingY={32}
-              width={48 * (counts.length - 1)}
-              onChangeActivePointIndex={setActivePointIndex}
-            />
+            {chart}
           </div>
         </div>
       </Container>

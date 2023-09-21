@@ -214,17 +214,17 @@ export default function MarketingHero() {
     <div className="relative isolate lg:mx-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden lg:rounded-b-[48px]">
+        className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-3xl lg:rounded-b-[48px]">
         <MarketingHeroBackground className="h-full min-w-[1200px]" />
         <div className="absolute h-full w-full">
           <MarketingParticles className="relative h-full w-full" />
         </div>
       </div>
       <div className="relative pb-8 pt-0 sm:pb-16 md:pb-20">
-        <div className={clsx('mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:pt-24')}>
+        <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:pt-24">
           <div className="flex flex-col items-center gap-y-8">
             <div className="flex flex-col items-center gap-y-16">
-              <div className="flex flex-col items-center gap-y-7">
+              <div className="flex flex-col items-center gap-y-6 sm:gap-y-7">
                 <Anchor
                   className={clsx(
                     'group relative inline-flex items-center gap-x-1 rounded-full',
@@ -345,9 +345,10 @@ export default function MarketingHero() {
                 }}
               />
             </Text>
-            <div className="flex flex-col gap-x-2 gap-y-4 sm:flex-row">
-              <div className="flex flex-col items-center gap-2">
+            <div className="mt-8 flex flex-col gap-x-2 gap-y-4 self-stretch sm:mt-0 sm:flex-row sm:self-auto">
+              <div className="flex flex-col items-center gap-2 self-stretch">
                 <Button
+                  className="self-stretch sm:self-auto"
                   href="/prepare"
                   icon={RiArrowRightLine}
                   label={intl.formatMessage({

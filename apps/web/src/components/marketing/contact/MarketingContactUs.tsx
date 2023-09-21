@@ -25,7 +25,7 @@ export default function MarketingContactUs() {
       <MarketingEmailSubscribe />
       <div
         className={clsx(
-          'rounded-[48px] p-12 md:p-16 lg:p-20',
+          'rounded-2xl lg:rounded-[48px] px-4 p-8 md:p-16 lg:p-20',
           themeBackgroundEmphasized,
         )}>
         <div className="mx-auto grid max-w-3xl gap-y-8">
@@ -38,7 +38,7 @@ export default function MarketingContactUs() {
               />
             </Heading>
             <Text
-              className="text-center text-lg md:text-xl"
+              className="text-center text-base md:text-xl"
               color="secondary"
               display="block"
               size="custom">

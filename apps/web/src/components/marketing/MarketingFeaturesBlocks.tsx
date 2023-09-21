@@ -79,7 +79,7 @@ export default function MarketingFeaturesBlocks({
   return (
     <div
       className={clsx(
-        'isolate lg:mx-8 lg:rounded-t-[48px]',
+        'isolate lg:mx-8 rounded-t-3xl lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
       <Container className="flex flex-col gap-y-24 py-24 lg:gap-y-32 lg:py-32">

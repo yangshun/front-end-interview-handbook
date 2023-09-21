@@ -25,10 +25,10 @@ export default function MarketingFeaturedQuestions({
   return (
     <div
       className={clsx(
-        'lg:rounded-t-[48px] isolate lg:mx-8',
+        'rounded-t-3xl lg:rounded-t-[48px] isolate lg:mx-8',
         themeRadialGlowBackground,
       )}>
-      <Container className="flex flex-col gap-y-24 pb-32 pt-[72px] lg:gap-y-32">
+      <Container className="flex flex-col gap-y-16 pb-24 lg:pb-32 pt-[72px] lg:gap-y-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
             description={

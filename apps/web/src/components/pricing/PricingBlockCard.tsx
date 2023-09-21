@@ -36,13 +36,13 @@ export default function PricingBlockCard({
   return (
     <div
       className={clsx(
-        'mx-auto max-w-lg overflow-hidden rounded-3xl border lg:grid lg:max-w-none lg:grid-cols-3',
+        'mx-auto max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border lg:grid lg:max-w-none lg:grid-cols-3',
         !glow && [themeGlassyBorder, themeLineColor],
         glow && ['border-brand', themeBrandShadow],
       )}>
       <div
         className={clsx(
-          'col-span-2 flex flex-col gap-y-6 p-8',
+          'col-span-2 flex flex-col gap-y-6 p-6 lg:p-8',
           themeBackgroundColor,
         )}>
         <div className="flex flex-col gap-y-2">
@@ -89,7 +89,7 @@ export default function PricingBlockCard({
       <Section>
         <div
           className={clsx(
-            'min-w-[300px] p-8 lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-8',
+            'min-w-[300px] p-6 lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-8',
             'dark:bg-[#21223d] bg-neutral-100',
           )}>
           {rightSectionContents}

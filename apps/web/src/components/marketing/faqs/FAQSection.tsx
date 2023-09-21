@@ -39,7 +39,7 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                         'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
                       )}>
                       <Text
-                        className="text-base sm:text-lg md:text-xl"
+                        className="text-sm sm:text-lg md:text-xl"
                         color="subtitle"
                         display="block"
                         size="custom"

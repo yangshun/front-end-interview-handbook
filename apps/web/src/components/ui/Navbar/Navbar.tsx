@@ -86,7 +86,7 @@ function Navbar(
             </div>
             {endAddOnItems}
           </div>
-          <div className="-my-2 -mr-2 lg:hidden">
+          <div className="-my-2 sm:-mr-2 lg:hidden">
             <Button
               icon={RiMenuFill}
               isLabelHidden={true}

@@ -237,14 +237,14 @@ export default function MarketingEmbedSection({
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
 
   return (
-    <div className="relative py-24 lg:py-32">
+    <div className="relative pt-16 pb-24 lg:pb-32">
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 top-0 h-full w-full">
         <MarketingEmbedSectionBackground className="hidden h-full w-full invert dark:block dark:invert-0" />
       </div>
       <Container className={clsx('relative flex flex-col gap-y-8')}>
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-4 lg:gap-y-6">
           <Heading className="mx-auto" level="heading6">
             <FormattedMessage
               defaultMessage="Try our questions here"
@@ -306,7 +306,7 @@ export default function MarketingEmbedSection({
               description: 'Link to questions page',
               id: '+Eg6gK',
             })}
-            size="lg"
+            size="md"
             variant="secondary"
           />
         </div>

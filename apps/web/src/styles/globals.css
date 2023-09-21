@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .theme-bg-radial-glow {
+    position: relative;
+  }
+  .theme-bg-radial-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 600px;
+    background-position: top;
+    background-size: cover;
+    background-image: radial-gradient(78.57% 78.57% at 50.65% 0.84%, #E9D5FF 0%, #8383FD 0%, rgba(15, 23, 42, 0.0001) 100%);
+    opacity: 0.5;
+    z-index: -1;
+    border-radius: inherit;
+  }
+}
+
 @font-face {
   font-family: 'Inter var';
   font-weight: 100 900;

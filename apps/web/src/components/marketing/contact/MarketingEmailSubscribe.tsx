@@ -6,6 +6,7 @@ import fbq from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
+import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -102,14 +103,14 @@ export default function MarketingEmailSubscribe() {
     mutate: signUpWithEmail,
   } = trpc.marketing.signUpWithEmail.useMutation();
 
-  return (
-    <div className="lg:min-h-[400px] lg:rounded-[48px] relative isolate flex flex-col justify-center gap-y-8 overflow-hidden md:gap-y-12 md:p-16 lg:p-20">
+  const content = (
+    <div className="relative isolate flex flex-col justify-center gap-y-8 overflow-hidden px-4 py-6 md:gap-y-12 lg:min-h-[400px] lg:rounded-[48px] lg:p-20">
       <Background
         aria-hidden={true}
         className="absolute inset-0 -z-10 hidden h-full lg:block"
       />
       <div className="flex flex-col gap-y-3 sm:text-center md:gap-y-4">
-        <Heading className="mx-auto max-w-3xl" level="heading3">
+        <Heading className="mx-auto max-w-3xl max-lg:text-xl" level="heading3">
           <FormattedMessage
             defaultMessage="Get notified about new front end resources, interview tips and practice questions"
             description="Title for newsletter sign up section"
@@ -146,7 +147,7 @@ export default function MarketingEmailSubscribe() {
           <div className="min-w-0 grow">
             <TextInput
               autoComplete="email"
-              className="grow bg-white !text-neutral-800 !ring-transparent placeholder:text-neutral-400"
+              className="grow max-lg:!border max-lg:!border-neutral-700 !ring-transparent lg:bg-white lg:!text-neutral-800 lg:placeholder:text-neutral-400"
               errorMessage={failureReason?.message}
               id={emailId}
               isLabelHidden={true}
@@ -189,5 +190,18 @@ export default function MarketingEmailSubscribe() {
         )}
       </div>
     </div>
+  );
+
+  return (
+    <>
+      <div className="hidden lg:contents">{content}</div>
+      <Card
+        className="block lg:hidden"
+        disableBackground={true}
+        padding={false}
+        pattern={false}>
+        {content}
+      </Card>
+    </>
   );
 }

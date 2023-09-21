@@ -637,13 +637,13 @@ export default function MarketingPricingSection({
   return (
     <div
       className={clsx(
-        'isolate pb-24 lg:mx-8 lg:rounded-t-[48px]',
+        'isolate rounded-t-3xl pb-24 lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
       <div className="pt-24">
         <div className="mx-auto px-4 sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl">
           <Container className="text-center">
-            <div className={clsx('flex max-w-4xl flex-col pb-8 lg:max-w-none')}>
+            <div className="flex max-w-4xl flex-col pb-8 lg:max-w-none">
               <MarketingSectionHeader
                 description={
                   <FormattedMessage
@@ -690,7 +690,7 @@ export default function MarketingPricingSection({
           </Container>
         </div>
         <Section>
-          <div className={clsx('mt-8 pb-16 sm:mt-12 sm:pb-20')}>
+          <div className="mt-4 lg:mt-8 pb-10 sm:mt-12 sm:pb-20">
             <Container className="relative flex flex-col gap-y-12">
               {showPPPMessage && (
                 <Alert
@@ -1082,7 +1082,7 @@ export default function MarketingPricingSection({
                 )}
               </div>
               <div className="mt-5 px-8">
-                <Text color="secondary" display="block" size="body2">
+                <Text color="secondary" display="block" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
@@ -1090,7 +1090,7 @@ export default function MarketingPricingSection({
                     id="Xka4d3"
                   />
                 </Text>
-                <Text color="secondary" display="block" size="body2">
+                <Text color="secondary" display="block" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Prices will be increased as more content is being added to the website."
@@ -1103,7 +1103,7 @@ export default function MarketingPricingSection({
                     id="PhPw02"
                   />
                 </Text>
-                <Text color="secondary" display="block" size="body2">
+                <Text color="secondary" display="block" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Lifetime plan is a limited time offering and will be removed in future."
@@ -1112,7 +1112,7 @@ export default function MarketingPricingSection({
                   />
                 </Text>
                 {lifetimePlan.symbol === '$' && (
-                  <Text color="secondary" display="block" size="body2">
+                  <Text color="secondary" display="block" size="body3">
                     *{' '}
                     <FormattedMessage
                       defaultMessage="Prices shown are in {currency}."

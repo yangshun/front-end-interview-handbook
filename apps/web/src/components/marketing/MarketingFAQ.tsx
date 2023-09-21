@@ -30,7 +30,7 @@ export default function FrequentlyAskedQuestions() {
   const intl = useIntl();
 
   return (
-    <Container className="relative flex flex-col gap-y-12 py-32">
+    <Container className="max-lg:theme-bg-radial-glow relative isolate flex flex-col gap-y-12 py-24 max-lg:rounded-t-3xl lg:py-32">
       <MarketingSectionHeader
         description={
           <FormattedMessage

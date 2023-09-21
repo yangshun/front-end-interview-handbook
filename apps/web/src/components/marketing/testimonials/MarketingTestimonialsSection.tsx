@@ -30,7 +30,7 @@ export default function MarketingTestimonialsSection() {
   ];
 
   return (
-    <Container className="py-24 sm:py-32">
+    <Container className="max-lg:rounded-t-3xl max-lg:theme-bg-radial-glow isolate py-24 sm:py-32">
       <div className="mx-auto max-w-3xl">
         <MarketingSectionHeader
           heading={
