@@ -1,23 +1,23 @@
 export function isBoolean(value: unknown): boolean {
-  throw 'Not implemented!';
+  return value === true || value === false;
 }
 
 export function isNumber(value: unknown): boolean {
-  throw 'Not implemented!';
+  return typeof value === 'number';
 }
 
 export function isNull(value: unknown): boolean {
-  throw 'Not implemented!';
+  return value === null;
 }
 
 export function isString(value: unknown): boolean {
-  throw 'Not implemented!';
+  return typeof value === 'string';
 }
 
 export function isSymbol(value: unknown): boolean {
-  throw 'Not implemented!';
+  return typeof value === 'symbol';
 }
 
 export function isUndefined(value: unknown): boolean {
-  throw 'Not implemented!';
+  return value === undefined;
 }

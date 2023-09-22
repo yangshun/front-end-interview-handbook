@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import solution from '../setup/src/type-utilities';
+import typeUtilitiesJs from '../setup/src/type-utilities.js';
+import typeUtilitiesTs from '../setup/src/type-utilities.ts';
 
 ## Solution
 
@@ -10,7 +11,7 @@ Most of the functions involve only one line and you might not even need to write
 
 It's also important to note the difference between `null` and `undefined`. `null == undefined` is `true`, so we need to use `===` if the intention is to checking for exact `null` and `undefined` values.
 
-<MDXCodeBlock>{solution}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: typeUtilitiesJs, tsx: typeUtilitiesTs }} />
 
 ## Techniques
 

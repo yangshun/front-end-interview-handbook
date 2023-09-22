@@ -7,7 +7,7 @@ import {
   isUndefined,
 } from './type-utilities';
 
-describe('Type utilities for primitives', () => {
+describe('type-utilities', () => {
   describe('isBoolean', () => {
     test('true', () => {
       expect(isBoolean(true)).toBe(true);
