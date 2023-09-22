@@ -6,10 +6,10 @@ describe('Function.prototype.myBind', () => {
     getName() {
       return this.name;
     },
-    dummy(a, b, c) {
+    dummy(a: number, b: number, c: number) {
       return [a, b, c];
     },
-    greeting(prefix, message) {
+    greeting(prefix: string, message: string) {
       return `${prefix} ${this.name}, ${message}`;
     },
   };

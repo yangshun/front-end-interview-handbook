@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/function-bind",
   "version": "0.0.1",
-  "main": "/src/function-bind.js",
+  "main": "/src/function-bind.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

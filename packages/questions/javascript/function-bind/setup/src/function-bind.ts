@@ -4,7 +4,7 @@ interface Function {
 
 Function.prototype.myBind = function (thisArg, ...boundArgs) {
   const originalMethod = this;
-  return function (...args) {
+  return function (...args: any[]) {
     return originalMethod.apply(thisArg, [...boundArgs, ...args]);
   };
 };
