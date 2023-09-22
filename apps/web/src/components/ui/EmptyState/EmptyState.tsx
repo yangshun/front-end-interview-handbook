@@ -13,7 +13,7 @@ import {
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
-import type { TextColor } from '../Text';
+import type { TextColor, TextSize } from '../Text';
 import Text from '../Text';
 
 type EmptyStateVariant =
@@ -27,14 +27,34 @@ type EmptyStateVariant =
   | 'tests_loading'
   | 'under_construction';
 
+type EmptyStateSize = 'md' | 'sm';
+
 type Props = Readonly<{
   action?: React.ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconClassName?: string;
+  size?: EmptyStateSize;
   subtitle?: React.ReactNode;
   title: React.ReactNode;
   variant?: EmptyStateVariant;
 }>;
+
+const sizes: Record<
+  EmptyStateSize,
+  Readonly<{
+    subtitle: TextSize;
+    title: TextSize;
+  }>
+> = {
+  md: {
+    subtitle: 'body2',
+    title: 'body',
+  },
+  sm: {
+    subtitle: 'body3',
+    title: 'body2',
+  },
+};
 
 const icons: Record<
   EmptyStateVariant,
@@ -67,10 +87,12 @@ export default function EmptyState({
   icon,
   iconClassName,
   subtitle,
+  size = 'md',
   title,
   variant = 'empty',
 }: Props) {
   const Icon = icon ?? icons[variant];
+  const { title: titleSize, subtitle: subtitleSize } = sizes[size];
 
   return (
     <div className="mx-auto max-w-md py-6 text-center sm:py-12">
@@ -81,13 +103,17 @@ export default function EmptyState({
         />
       </Text>
       <Heading className="mt-4" level="custom">
-        <Text display="block" size="body" weight="medium">
+        <Text display="block" size={titleSize} weight="medium">
           {title}
         </Text>
       </Heading>
       <Section>
         {subtitle && (
-          <Text className="mt-1" color="secondary" display="block" size="body2">
+          <Text
+            className="mt-1"
+            color="secondary"
+            display="block"
+            size={subtitleSize}>
             {subtitle}
           </Text>
         )}
