@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import flatten from '../setup/src/flatten';
+import flattenJs from '../setup/src/flatten.js';
+import flattenTs from '../setup/src/flatten.ts';
 import flattenFlatMap from '../setup/src/flattenFlatMap';
 import flattenGenerator from '../setup/src/flattenGenerator';
 import flattenInPlace from '../setup/src/flattenInPlace';
@@ -40,7 +41,7 @@ A more concise approach, compared to the previous one, is to use `Array.prototyp
 
 A recursion approach fits well here given the recursive and nesting nature of this question. And it will simplify our code a lot.
 
-<MDXCodeBlock>{flatten}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: flattenJs, tsx: flattenTs }} />
 
 Although a recursive approach always has the risk overflowing the call stack, as of this writing, in chrome, the number of recursive calls you can make is around 10 thousands and in Firefox it is 50 thousands, so this shouldn't be a problem in practice. However, when the cost of recursion becomes a concern, we can use a [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to lazily extract the flattened items from the array. We will see that solution later.
 
