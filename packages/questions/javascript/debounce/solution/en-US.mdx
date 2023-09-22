@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import debounce from '../setup/src/debounce';
+import debounceJs from '../setup/src/debounce.js';
+import debounceTs from '../setup/src/debounce.ts';
 import debounceArrowFunction from '../setup/src/debounceArrowFunction';
 
 Debounce, along with [throttle](/questions/javascript/throttle), are among the most common front end interview questions; it's the front end equivalent of inverting a binary tree. Hence you should make sure that you are very familiar with the question.
@@ -25,7 +26,7 @@ You may be tempted to use `func(...args)` but `this` will be lost if callback fu
 - `func.apply(thisArg, args)`
 - `func.call(thisArg, ...args)`
 
-<MDXCodeBlock>{debounce}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
 
 ## Edge Cases
 

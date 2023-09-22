@@ -27,7 +27,7 @@ describe('debounce', () => {
   describe('uses arguments', () => {
     test('called once', (done) => {
       let i = 21;
-      const increment = debounce((a, b) => {
+      const increment = debounce((a: number, b: number) => {
         i += a * b;
       }, 10);
 
@@ -43,7 +43,7 @@ describe('debounce', () => {
 
     test('uses arguments of latest invocation', (done) => {
       let i = 21;
-      const increment = debounce((a, b) => {
+      const increment = debounce((a: number, b: number) => {
         i += a * b;
       }, 10);
 
@@ -114,7 +114,7 @@ describe('debounce', () => {
   });
 
   test('callbacks can access `this`', (done) => {
-    const increment = debounce(function (delta) {
+    const increment = debounce(function (this: any, delta: number) {
       this.val += delta;
     }, 10);
 
