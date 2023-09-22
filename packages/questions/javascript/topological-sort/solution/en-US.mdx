@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import topologicalSort from '../setup/src/topological-sort';
+import topologicalSortJs from '../setup/src/topological-sort.js';
+import topologicalSortTs from '../setup/src/topological-sort.ts';
 
 Topological sort is an algorithm that produces a linear ordering of the vertices of a Directed Acyclic Graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering. Topological sort implemented with Kahn's algorithm has linear time complexity, which makes it relatively efficient for large graphs.
 
@@ -14,7 +15,7 @@ If unspecified:
 
 ## Solution
 
-<MDXCodeBlock>{topologicalSort}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: topologicalSortJs, tsx: topologicalSortTs }} />
 
 ## Edge Cases
 

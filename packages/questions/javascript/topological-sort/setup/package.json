@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/topological-sort",
   "version": "0.0.1",
-  "main": "/src/topological-sort.js",
+  "main": "/src/topological-sort.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"
