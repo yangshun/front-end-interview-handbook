@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import limit from '../setup/src/limit';
+import limitJs from '../setup/src/limit.js';
+import limitTs from '../setup/src/limit.ts';
 
 ## Solution
 
@@ -11,7 +12,7 @@ We can use closures to capture state required by the returned function. The retu
 - `count`: A boolean variable indicating the number of times the function has been invoked before. `func` will only be invoked if `count < n`.
 - `value`: Since we need to return the value of the last invocation for subsequent invocations exceeding `n`, we have to save the result of the last invocation and return it directly for those situation.
 
-<MDXCodeBlock>{limit}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: limitJs, tsx: limitTs }} />
 
 Note that the callback function is invoked with the `this` binding and arguments of the created function, hence we cannot return an arrow function if we want the value of `this` to refer to the object calling the created function.
 
