@@ -1,6 +1,6 @@
 import sort from './merge-sort';
 
-describe('sort', () => {
+describe('mergeSort', () => {
   test('empty', () => {
     expect(sort([])).toEqual([]);
   });

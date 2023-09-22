@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import recursiveMergeSort from '../setup/src/merge-sort';
+import mergeSortJs from '../setup/src/merge-sort.js';
+import mergeSortTs from '../setup/src/merge-sort.ts';
 
 Merge sort is a stable comparison-based algorithm, with a time complexity of O(nlog(n)) in all cases. It is commonly used in practice as a general-purpose algorithm for sorting arrays of all sizes.
 
@@ -19,7 +20,7 @@ If unspecified:
 
 Note: This question tackles a standard merge sort which is recursive and not "in-place" for an output in ascending order.
 
-<MDXCodeBlock>{recursiveMergeSort}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: mergeSortJs, tsx: mergeSortTs }} />
 
 ## Edge Cases
 
