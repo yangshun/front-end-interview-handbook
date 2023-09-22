@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import classnames from '../setup/src/classnames';
+import classnamesJs from '../setup/src/classnames.js';
+import classnamesTs from '../setup/src/classnames.ts';
 import classnamesLib from '../setup/src/classnamesLib';
 
 ## Solution
@@ -20,7 +21,7 @@ Here's how we will handle each data type:
 - **Array**: Invoke the `classNames` function recursively
 - **Object**: Loop through the key/value pairs and add the keys with truthy values into the `classes` collection
 
-<MDXCodeBlock>{classnames}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: classnamesJs, tsx: classnamesTs }} />
 
 ## Follow Up: De-duplicating classes
 

@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/classnames",
   "version": "0.0.1",
-  "main": "/src/classnames.js",
+  "main": "/src/classnames.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"
