@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import insertionSort from '../setup/src/insertion-sort';
+import insertionSortJs from '../setup/src/insertion-sort.js';
+import insertionSortTs from '../setup/src/insertion-sort.ts';
 
 Insertion sort is a stable, in-place, comparison-based algorithm that works well for small to medium-sized arrays as well as arrays that are partially sorted.
 
@@ -21,7 +22,7 @@ If unspecified:
 
 Note: This question tackles in-place sorting for an output in ascending order. Refer to the 'Notes' section below on how to handle other cases.
 
-<MDXCodeBlock>{insertionSort}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: insertionSortJs, tsx: insertionSortTs }} />
 
 ## Edge Cases
 
