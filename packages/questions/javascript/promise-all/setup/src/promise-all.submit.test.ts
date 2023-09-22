@@ -1,5 +1,4 @@
 import promiseAll from './promise-all';
-// import promiseAll from './solution/promiseAllThen';
 
 describe('promiseAll', () => {
   test('empty input array', async () => {
