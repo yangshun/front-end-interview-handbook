@@ -2,7 +2,7 @@ import depthFirstSearch from './depth-first-search';
 
 describe('depthFirstSearch', () => {
   test('empty graph', () => {
-    expect(depthFirstSearch({}, null)).toEqual([]);
+    expect(depthFirstSearch({}, 'A')).toEqual([]);
   });
 
   test('graphs with one node', () => {

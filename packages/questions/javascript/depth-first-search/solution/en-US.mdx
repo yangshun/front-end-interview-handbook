@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import depthFirstSearch from '../setup/src/depth-first-search';
+import depthFirstSearchJs from '../setup/src/depth-first-search.js';
+import depthFirstSearchTs from '../setup/src/depth-first-search.ts';
 import depthFirstSearchRecursive from '../setup/src/depthFirstSearchRecursive';
 
 ## Clarification Questions
@@ -16,7 +17,9 @@ If unspecified:
 
 The solution implements the algorithm outlined in the description.
 
-<MDXCodeBlock>{depthFirstSearch}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: depthFirstSearchJs, tsx: depthFirstSearchTs }}
+/>
 
 We can also perform DFS recursively, which is can be more intuitive in certain cases. The recursion call stack is an implicit stack to track which nodes to visit next.
 
