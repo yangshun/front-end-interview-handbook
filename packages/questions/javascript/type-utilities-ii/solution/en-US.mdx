@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import solution from '../setup/src/type-utilities-ii';
+import typeUtilitesIIJs from '../setup/src/type-utilities-ii.js';
+import typeUtilitesIITs from '../setup/src/type-utilities-ii.ts';
 
 ## Solution
 
@@ -29,7 +30,7 @@ To check for the first case, `Object.getPrototypeOf(value)` will be exactly `nul
 
 Lodash's implementation of `isPlainObject` traverses the object's prototype chain but that's unnecessary if we check the constructor.
 
-<MDXCodeBlock>{solution}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: typeUtilitesIIJs, tsx: typeUtilitesIITs }} />
 
 ## Techniques
 

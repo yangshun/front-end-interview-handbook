@@ -5,7 +5,7 @@ import {
   isPlainObject,
 } from './type-utilities-ii';
 
-describe('Type utilities for non-primitives', () => {
+describe('type-utilities-ii', () => {
   describe('isArray', () => {
     test('array', () => {
       expect(isArray([])).toBe(true);
@@ -17,7 +17,6 @@ describe('Type utilities for non-primitives', () => {
     });
 
     test('non-array', () => {
-      expect(isArray()).toBe(false);
       expect(isArray(true)).toBe(false);
       expect(isArray(false)).toBe(false);
       expect(isArray('true')).toBe(false);
@@ -37,14 +36,14 @@ describe('Type utilities for non-primitives', () => {
 
   describe('isFunction', () => {
     test('function declarations', () => {
-      function identity(x) {
+      function identity<T>(x: T): T {
         return x;
       }
       expect(isFunction(identity)).toBe(true);
     });
 
     test('arrow functions', () => {
-      const identity = (x) => {
+      const identity = <T>(x: T) => {
         return x;
       };
       expect(isFunction(identity)).toBe(true);
@@ -85,7 +84,9 @@ describe('Type utilities for non-primitives', () => {
 
     test('class instance', () => {
       class Foo {
-        constructor(value) {
+        value: number;
+
+        constructor(value: number) {
           this.value = value;
         }
       }
@@ -94,11 +95,11 @@ describe('Type utilities for non-primitives', () => {
     });
 
     test('function instance', () => {
-      function Foo(value) {
+      function Foo(this: any, value: number) {
         this.value = value;
       }
 
-      expect(isObject(new Foo(1))).toBe(true);
+      expect(isObject(new (Foo as any)(1))).toBe(true);
     });
 
     test('non-object', () => {
@@ -116,7 +117,7 @@ describe('Type utilities for non-primitives', () => {
 
   describe('isPlainObject', () => {
     test('object literals', () => {
-      function Foo(value) {
+      function Foo(this: any, value: any) {
         this.value = value;
       }
 
@@ -131,7 +132,9 @@ describe('Type utilities for non-primitives', () => {
 
     test('class instance', () => {
       class Foo {
-        constructor(value) {
+        value: number;
+
+        constructor(value: number) {
           this.value = value;
         }
       }
@@ -140,11 +143,11 @@ describe('Type utilities for non-primitives', () => {
     });
 
     test('function instance', () => {
-      function Foo(value) {
+      function Foo(this: any, value: any) {
         this.value = value;
       }
 
-      expect(isPlainObject(new Foo(1))).toBe(false);
+      expect(isPlainObject(new (Foo as any)(1))).toBe(false);
     });
 
     test('non-plain objects', () => {

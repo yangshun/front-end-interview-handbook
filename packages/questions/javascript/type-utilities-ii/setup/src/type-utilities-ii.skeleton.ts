@@ -1,15 +1,15 @@
-export function isArray(value: any): boolean {
+export function isArray(value: unknown): boolean {
   throw 'Not implemented!';
 }
 
-export function isFunction(value: any): boolean {
+export function isFunction(value: unknown): boolean {
   throw 'Not implemented!';
 }
 
-export function isObject(value: any): boolean {
+export function isObject(value: unknown): boolean {
   throw 'Not implemented!';
 }
 
-export function isPlainObject(value: any): boolean {
+export function isPlainObject(value: unknown): boolean {
   throw 'Not implemented!';
 }
