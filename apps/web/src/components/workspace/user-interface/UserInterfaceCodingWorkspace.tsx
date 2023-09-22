@@ -272,6 +272,7 @@ function UserInterfaceCodingWorkspaceImpl({
                 />
               }
               icon={CodingWorkspaceTabIcons.solution.icon}
+              size="sm"
               subtitle="View the full solution on a new page"
               title="Solution"
             />

@@ -41,6 +41,7 @@ function NoLogs() {
     <div className="flex h-full grow items-center justify-center px-4 py-4 sm:px-6 lg:px-4">
       <EmptyState
         icon={RiTerminalBoxLine}
+        size="sm"
         subtitle={
           <FormattedMessage
             defaultMessage="<code>console.log()</code> statements will appear here."

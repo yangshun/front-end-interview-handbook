@@ -51,6 +51,7 @@ export default function MonacoCodeEditor({
         loading={
           <EmptyState
             iconClassName="animate-bounce"
+            size="sm"
             title="Loading editor"
             variant="editor_loading"
           />

@@ -406,6 +406,7 @@ export default function TestsSection({
                 <div className="flex grow items-center justify-center">
                   <EmptyState
                     iconClassName="animate-bounce"
+                    size="sm"
                     title="Loading tests"
                     variant="tests_loading"
                   />
@@ -436,6 +437,7 @@ export default function TestsSection({
                                       />
                                     }
                                     icon={RiFlaskLine}
+                                    size="sm"
                                     subtitle={
                                       <FormattedMessage
                                         defaultMessage="Run your code with <button>custom test cases</button> before submitting."
@@ -477,6 +479,7 @@ export default function TestsSection({
                                       />
                                     }
                                     icon={RiCheckboxLine}
+                                    size="sm"
                                     subtitle={
                                       <FormattedMessage
                                         defaultMessage="Submit your code to check against <button>all test cases</button>."
