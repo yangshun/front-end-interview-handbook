@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import heapSort from '../setup/src/heap-sort';
+import heapSortJs from '../setup/src/heap-sort.js';
+import heapSortTs from '../setup/src/heap-sort.ts';
 import heapifyMin from '../setup/src/heapifyMin';
 
 Heap sort is an in-place, comparison-based algorithm that works well for large sized arrays since it has a time complexity of O(nlog(n)).
@@ -22,7 +23,7 @@ If unspecified:
 
 Note: This question tackles in-place sorting for an output in ascending order. Refer to the 'Notes' section below on how to handle other cases.
 
-<MDXCodeBlock>{heapSort}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: heapSortJs, tsx: heapSortTs }} />
 
 ## Edge Cases
 
