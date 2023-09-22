@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/quick-sort",
   "version": "0.0.1",
-  "main": "/src/quick-sort.js",
+  "main": "/src/quick-sort.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

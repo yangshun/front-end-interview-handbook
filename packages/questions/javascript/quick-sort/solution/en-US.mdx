@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import quickSort from '../setup/src/quick-sort';
+import quickSortJs from '../setup/src/quick-sort.js';
+import quickSortTs from '../setup/src/quick-sort.ts';
 
 Quick sort is generally regarded as the most efficient general-purpose sorting algorithm for any array size, being faster than merge sort on average. The standard form of quick sort is generally done recursively and in-place. However, it is an unstable sort and hence merge sort could be preferred in cases where stability is important.
 
@@ -19,7 +20,7 @@ If unspecified:
 
 Note: This question tackles a standard quick sort which is recursive and in-place for an output in ascending order.
 
-<MDXCodeBlock>{quickSort}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: quickSortJs, tsx: quickSortTs }} />
 
 ## Edge Cases
 
