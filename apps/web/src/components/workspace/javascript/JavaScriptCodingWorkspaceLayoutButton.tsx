@@ -35,7 +35,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
       ),
       icon: TbColumns3,
       id: 'three-column',
-      name: 'Three-column layout (default)',
+      name: 'Three-column layout',
       onClick: () => {
         dispatch({
           payload: {
@@ -58,7 +58,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
       ),
       icon: RiLayout2Line,
       id: 'two-column',
-      name: 'Two-column layout',
+      name: 'Two-column layout (default)',
       onClick: () => {
         dispatch({
           payload: {

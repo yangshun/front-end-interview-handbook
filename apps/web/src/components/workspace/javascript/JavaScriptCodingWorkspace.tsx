@@ -23,7 +23,7 @@ import {
   useJavaScriptCodingWorkspaceContext,
 } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
-import { getJavaScriptCodingWorkspaceLayoutThreeColumns } from './JavaScriptCodingWorkspaceLayouts';
+import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
@@ -268,7 +268,7 @@ export default function JavaScriptCodingWorkspace({
 
   const { activeFile, visibleFiles, updateFile } = sandpack;
 
-  const defaultLayout = getJavaScriptCodingWorkspaceLayoutThreeColumns(
+  const defaultLayout = getJavaScriptCodingWorkspaceLayoutTwoColumns(
     activeFile,
     visibleFiles,
   );
