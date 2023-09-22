@@ -1,16 +1,16 @@
-import sort from './heap-sort';
+import heapSort from './heap-sort';
 
 describe('heapSort', () => {
   test('empty', () => {
-    expect(sort([])).toEqual([]);
+    expect(heapSort([])).toEqual([]);
   });
 
   test('one element', () => {
-    expect(sort([1])).toEqual([1]);
+    expect(heapSort([1])).toEqual([1]);
   });
 
   test('two elements', () => {
-    expect(sort([2, 1])).toEqual([1, 2]);
-    expect(sort([1, 2])).toEqual([1, 2]);
+    expect(heapSort([2, 1])).toEqual([1, 2]);
+    expect(heapSort([1, 2])).toEqual([1, 2]);
   });
 });

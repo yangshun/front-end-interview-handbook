@@ -1,16 +1,16 @@
-import sort from './insertion-sort';
+import insertionSort from './insertion-sort';
 
-describe('sort', () => {
+describe('insertionSort', () => {
   test('empty', () => {
-    expect(sort([])).toEqual([]);
+    expect(insertionSort([])).toEqual([]);
   });
 
   test('one element', () => {
-    expect(sort([1])).toEqual([1]);
+    expect(insertionSort([1])).toEqual([1]);
   });
 
   test('two elements', () => {
-    expect(sort([2, 1])).toEqual([1, 2]);
-    expect(sort([1, 2])).toEqual([1, 2]);
+    expect(insertionSort([2, 1])).toEqual([1, 2]);
+    expect(insertionSort([1, 2])).toEqual([1, 2]);
   });
 });
