@@ -19,7 +19,9 @@ describe('countBy', () => {
     });
 
     test('keys that are also properties', () => {
-      expect(countBy(['one', 'two', 'three'], (val) => 'length')).toEqual({
+      expect(
+        countBy(['one', 'two', 'three'], (val: string) => 'length'),
+      ).toEqual({
         length: 3,
       });
     });
