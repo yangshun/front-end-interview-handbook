@@ -3,6 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
+import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
@@ -86,9 +87,11 @@ export default function QuestionContentsJavaScriptTestsCode({
       JavaScriptTestCodesEmitter.off('focus_on_test', highlight);
     };
   }, []);
+
   if (isContentsHidden) {
     return <QuestionPaywall />;
   }
+
   if (contents == null) {
     return (
       <EmptyState
@@ -104,14 +107,16 @@ export default function QuestionContentsJavaScriptTestsCode({
   }
 
   return (
-    <div className="flex flex-col gap-y-2">
-      <Text color="secondary" display="block" size="body2">
-        <FormattedMessage
-          defaultMessage="For your reference, these are the Jest tests that your code will run against."
-          description="Text indicating to users that the below section are test cases that their code will be tested against"
-          id="nPkj31"
-        />
-      </Text>
+    <div className="flex flex-col gap-y-4">
+      <Alert variant="info">
+        <Text color="secondary" display="block" size="body2">
+          <FormattedMessage
+            defaultMessage="For your reference, these are the tests used when your code is submitted. They cannot be modified."
+            description="Text indicating to users that the below section are test cases that their code will be tested against"
+            id="qh0zg0"
+          />
+        </Text>
+      </Alert>
       <Prose>
         <div ref={codeRef}>
           <MDXCodeBlock showCopyButton={false}>{contents}</MDXCodeBlock>

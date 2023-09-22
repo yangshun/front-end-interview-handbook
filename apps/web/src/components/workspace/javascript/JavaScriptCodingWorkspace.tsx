@@ -160,7 +160,7 @@ function JavaScriptCodingWorkspaceImpl({
         </div>
       ),
       icon: CodingWorkspaceTabIcons.test_cases_all.icon,
-      label: 'All test cases',
+      label: 'Submission tests',
     },
   };
 

@@ -564,15 +564,13 @@ export default function TestsSection({
           )}
           <div className="flex shrink-0 items-center justify-between px-3 pb-2 pt-2">
             <div className="flex grow items-center">
-              <span>
-                {(() => {
-                  if (specMode === 'run' || state.outcome === 'none') {
-                    return <TestsRunStatusBadge status={state.status} />;
-                  }
+              {(() => {
+                if (specMode === 'run' || state.outcome === 'none') {
+                  return <TestsRunStatusBadge status={state.status} />;
+                }
 
-                  return <TestsOutcomeBadge outcome={state.outcome} />;
-                })()}
-              </span>
+                return <TestsOutcomeBadge outcome={state.outcome} />;
+              })()}
             </div>
             {state.status === 'complete' && (
               <div className="flex items-center gap-2">

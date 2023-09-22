@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { themeDivideColor } from '~/components/ui/theme';
+import { themeBackgroundColor, themeDivideColor } from '~/components/ui/theme';
 
 import FormattedError from './FormattedError';
 import {
@@ -88,29 +88,38 @@ export default function SpecsInline({
                 ])}>
                 {allTests.map((test) => {
                   const fullTestName = [...test.blocks, test.name].join(' › ');
+                  const testErrors = test.errors.filter(
+                    (error) => error.name != null,
+                  );
 
                   return (
                     <div
                       key={fullTestName}
                       className={clsx(
-                        'flex w-full flex-col gap-y-2 p-3 transition-colors',
+                        'flex w-full flex-col transition-colors',
                       )}>
-                      <div className={clsx('flex justify-between gap-2')}>
+                      <div
+                        className={clsx(
+                          'sticky top-0 flex justify-between gap-2 p-3',
+                          themeBackgroundColor,
+                        )}>
                         <div className="flex items-center gap-3">
                           <TestStatusIcon status={test.status} />{' '}
                           <code className="text-xs">{fullTestName}</code>
                         </div>
                         <TestDuration duration={test.duration} />
                       </div>
-                      {test.errors
-                        .filter((error) => error.name != null)
-                        .map((error) => (
-                          <div
-                            key={error.name}
-                            className="w-full overflow-x-auto">
-                            <FormattedError error={error} path={test.path} />
-                          </div>
-                        ))}
+                      {testErrors.length > 0 && (
+                        <div className="pb-3">
+                          {testErrors.map((error) => (
+                            <div
+                              key={error.name}
+                              className="w-full overflow-x-auto px-3">
+                              <FormattedError error={error} path={test.path} />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
