@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import insertionSort from '../setup/src/selection-sort';
+import selectionSortJs from '../setup/src/selection-sort.js';
+import selectionSortTs from '../setup/src/selection-sort.ts';
 
 Selection sort is a sorting algorithm that works great for small arrays, or arrays which are largely already sorted.
 
@@ -21,7 +22,7 @@ If unspecified:
 
 Note: This question tackles sorting for an output in ascending order. Refer to the 'Notes' section below on how to handle other cases.
 
-<MDXCodeBlock>{insertionSort}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: selectionSortJs, tsx: selectionSortTs }} />
 
 ## Edge Cases
 
