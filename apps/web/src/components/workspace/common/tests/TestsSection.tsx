@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import {
   RiCheckboxLine,
-  RiFileList2Line,
   RiFlaskLine,
   RiListCheck3,
   RiPencilLine,
@@ -13,37 +12,23 @@ import { FormattedMessage } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import {
-  themeBackgroundEmphasized,
-  themeLineColor,
-} from '~/components/ui/theme';
+import { themeLineColor } from '~/components/ui/theme';
 
-import SpecsConsolidated from './SpecsConsolidated';
 import SpecsInline from './SpecsInline';
-import Summary from './Summary';
 import type { TestsOutcome } from './TestsOutcomeBadge';
 import TestsOutcomeBadge from './TestsOutcomeBadge';
 import type { TestsRunStatus } from './TestsRunStatusBadge';
 import TestsRunStatusBadge from './TestsRunStatusBadge';
 import type { Spec, Test } from './types';
-import {
-  flatMap,
-  getAllSuiteResults,
-  getAllTestResults,
-  getDuration,
-  set,
-  splitTail,
-} from './utils';
+import { flatMap, getAllTestResults, set, splitTail } from './utils';
 import { useCodingWorkspaceContext } from '../../CodingWorkspaceContext';
 
 import { useSandpackClient } from '@codesandbox/sandpack-react';
 
-type SpecsLayout = 'consolidated' | 'inline';
 type SpecMode = 'run' | 'submit';
 
 type State = Readonly<{
   currentSpecPath: string | null;
-  layout: SpecsLayout;
   outcome: TestsOutcome;
   pendingTestRun: string | null;
   specs: Record<string, Spec>;
@@ -53,7 +38,6 @@ type State = Readonly<{
 
 const INITIAL_STATE: State = {
   currentSpecPath: null,
-  layout: 'inline',
   outcome: 'none',
   pendingTestRun: null,
   specs: {},
@@ -195,6 +179,11 @@ export default function TestsSection({
               if (testResults.total === 0) {
                 return 'none';
               }
+
+              if (testResults.skip > 0) {
+                return 'indeterminate';
+              }
+
               if (testResults.pass === testResults.total) {
                 return 'accepted';
               }
@@ -391,9 +380,7 @@ export default function TestsSection({
   };
 
   const specs = Object.values(state.specs).filter((spec) => !!spec.name);
-  const duration = getDuration(specs);
   const testResults = getAllTestResults(specs);
-  const suiteResults = getAllSuiteResults(specs);
 
   return (
     <div className="relative flex h-full w-full">
@@ -523,18 +510,8 @@ export default function TestsSection({
                       );
                     }
 
-                    if (state.layout === 'inline') {
-                      return (
-                        <SpecsInline
-                          openSpec={openSpec}
-                          runStatus={state.status}
-                          specs={specs}
-                        />
-                      );
-                    }
-
                     return (
-                      <SpecsConsolidated
+                      <SpecsInline
                         openSpec={openSpec}
                         runStatus={state.status}
                         specs={specs}
@@ -546,72 +523,47 @@ export default function TestsSection({
             );
           })()}
         </div>
-        <div className={clsx('border-t', themeLineColor)}>
-          {state.status === 'complete' && testResults.total > 0 && (
-            <div className="shrink-0 px-3 pt-3">
-              <div
-                className={clsx(
-                  'w-full rounded p-3',
-                  themeBackgroundEmphasized,
-                )}>
-                <Summary
-                  duration={duration}
-                  suites={suiteResults}
-                  tests={testResults}
-                />
-              </div>
-            </div>
-          )}
-          <div className="flex shrink-0 items-center justify-between px-3 pb-2 pt-2">
-            <div className="flex grow items-center">
-              {(() => {
-                if (specMode === 'run' || state.outcome === 'none') {
-                  return <TestsRunStatusBadge status={state.status} />;
-                }
-
-                return <TestsOutcomeBadge outcome={state.outcome} />;
-              })()}
-            </div>
-            {state.status === 'complete' && (
-              <div className="flex items-center gap-2">
-                <Button
-                  addonPosition="start"
-                  icon={RiFileList2Line}
-                  label="Toggle layout"
-                  size="xs"
-                  variant="tertiary"
-                  onClick={() =>
-                    setState({
-                      ...state,
-                      layout:
-                        state.layout === 'inline' ? 'consolidated' : 'inline',
-                    })
-                  }
-                />
-                {specMode === 'run' ? (
-                  <Button
-                    addonPosition="start"
-                    className="-mr-1"
-                    icon={RiPencilLine}
-                    label="Edit test cases"
-                    size="xs"
-                    variant="tertiary"
-                    onClick={() => onShowTestsCases?.(specMode)}
-                  />
-                ) : (
-                  <Button
-                    addonPosition="start"
-                    className="-mr-1"
-                    icon={RiListCheck3}
-                    label="View test cases"
-                    size="xs"
-                    variant="tertiary"
-                    onClick={() => onShowTestsCases?.(specMode)}
-                  />
-                )}
-              </div>
+        <div
+          className={clsx(
+            'flex shrink-0 items-center justify-between border-t px-3 py-1.5',
+            themeLineColor,
+          )}>
+          <div className="flex grow items-center">
+            {state.outcome === 'none' && (
+              <TestsRunStatusBadge status={state.status} />
+            )}
+            {state.status === 'complete' && testResults.total > 0 && (
+              <TestsOutcomeBadge
+                outcome={state.outcome}
+                results={testResults}
+              />
             )}
           </div>
+          {state.status === 'complete' && (
+            <div className="flex items-center gap-2">
+              {specMode === 'run' ? (
+                <Button
+                  addonPosition="start"
+                  className="-mr-1"
+                  icon={RiPencilLine}
+                  label="Edit test cases"
+                  size="xs"
+                  variant="tertiary"
+                  onClick={() => onShowTestsCases?.(specMode)}
+                />
+              ) : (
+                <Button
+                  addonPosition="start"
+                  className="-mr-1"
+                  icon={RiListCheck3}
+                  label="View test cases"
+                  size="xs"
+                  variant="tertiary"
+                  onClick={() => onShowTestsCases?.(specMode)}
+                />
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ type Props = Readonly<{
 export default function TestsRunStatusBadge({ status }: Props) {
   return (
     <Text
-      className="inline-flex items-center gap-x-1"
+      className="inline-flex items-center gap-x-2"
       color="subtle"
       size="body3">
       {(() => {
@@ -21,7 +21,7 @@ export default function TestsRunStatusBadge({ status }: Props) {
             return (
               <>
                 <RiCheckLine aria-hidden="true" className="h-4 w-4 shrink-0" />
-                Tests completed running
+                Run completed
               </>
             );
           case 'idle':

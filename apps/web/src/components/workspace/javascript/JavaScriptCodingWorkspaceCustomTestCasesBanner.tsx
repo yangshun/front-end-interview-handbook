@@ -19,9 +19,9 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
         setShowCustomTestCasesMessage(false);
       }}>
       <FormattedMessage
-        defaultMessage="These are custom test cases you can run your code against."
-        description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
-        id="IPeBvB"
+        defaultMessage="Run your code against this subset of test cases."
+        description="Message to explain the custom tests cases"
+        id="OERnmz"
       />
     </Banner>
   );
