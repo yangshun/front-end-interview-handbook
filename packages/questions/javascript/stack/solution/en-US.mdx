@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import solution from '../setup/src/stack';
+import stackJs from '../setup/src/stack.js';
+import stackTs from '../setup/src/stack.ts';
 import linkedListSolution from '../setup/src/linkedListSolution';
 
 ## Solution
@@ -9,7 +10,7 @@ import linkedListSolution from '../setup/src/linkedListSolution';
 
 The stack abstract data type can be easily implement in JavaScript with JavaScript `Array`s. The main thing to note when implementing stacks is that that the operations should be O(1). Thankfully, JavaScript `Array`'s `push()` and `pop()` operations are O(1) and the method signatures match the `Stack`'s. Many of the methods are just simple wrappers around `Array` methods.
 
-<MDXCodeBlock>{solution}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: stackJs, tsx: stackTs }} />
 
 ### Linked List-based Solution
 

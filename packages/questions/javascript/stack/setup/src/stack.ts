@@ -1,40 +1,42 @@
 export default class Stack<T> {
+  _items: Array<T>;
+
   constructor() {
-    throw 'Not implemented!';
+    this._items = [];
   }
 
   /**
    * Pushes an item onto the top of the stack.
    */
   push(item: T): number {
-    throw 'Not implemented!';
+    return this._items.push(item);
   }
 
   /**
    * Remove an item at the top of the stack.
    */
   pop(): T | undefined {
-    throw 'Not implemented!';
+    return this._items.pop();
   }
 
   /**
    * Determines if the stack is empty.
    */
   isEmpty(): boolean {
-    throw 'Not implemented!';
+    return this.length() === 0;
   }
 
   /**
    * Returns the item at the top of the stack without removing it from the stack.
    */
   peek(): T | undefined {
-    throw 'Not implemented!';
+    return this.isEmpty() ? undefined : this._items[this.length() - 1];
   }
 
   /**
    * Returns the number of items in the stack.
    */
   length(): number {
-    throw 'Not implemented!';
+    return this._items.length;
   }
 }
