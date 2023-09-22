@@ -74,7 +74,7 @@ describe('Queue', () => {
     expect(q.back()).toBe(undefined);
   });
 
-  test('integration()', () => {
+  test('integration', () => {
     const q = new Queue();
     q.enqueue(100);
     expect(q.length()).toBe(1);

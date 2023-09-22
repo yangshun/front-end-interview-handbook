@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import solution from '../setup/src/queue';
+import queueJs from '../setup/src/queue.js';
+import queueTs from '../setup/src/queue.ts';
 
 ## Solution
 
@@ -22,7 +23,7 @@ Since the time complexity of `length()` has to be O(1) and counting the number o
 
 Note that the autograder doesn't check if the time complexity of your `enqueue()` and `dequeue()` operations are O(1), but if you're only using a single JavaScript array to solve this question, then it's almost certainly not achieving O(1) time complexity for either of those operations.
 
-<MDXCodeBlock>{solution}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: queueJs, tsx: queueTs }} />
 
 ## Edge Cases
 
