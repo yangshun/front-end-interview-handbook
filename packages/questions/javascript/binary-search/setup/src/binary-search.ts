@@ -1,9 +1,7 @@
-/**
- * @param {Array<number>} arr The input integer array to be searched.
- * @param {number} target The target integer to search within the array.
- * @return {number} The index of target element in the array, or -1 if not found.
- */
-export default function binarySearch(arr: Array<number>, target: number) {
+export default function binarySearch(
+  arr: Array<number>,
+  target: number,
+): number {
   // Initialize the left and right indices of the array
   let left = 0;
   let right = arr.length - 1;
