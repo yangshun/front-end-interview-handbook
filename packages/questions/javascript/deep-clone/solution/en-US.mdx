@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import deepClone from '../setup/src/deep-clone';
+import deepCloneJs from '../setup/src/deep-clone.js';
+import deepCloneTs from '../setup/src/deep-clone.ts';
 
 Writing out a complete deep clone solution from scratch is almost impossible under typical interview constraints. In typical interview settings, the scope is fairly limited, and interviewers are more interested in how you would detect different data types and your ability to leverage various built-in APIs and `Object` methods to traverse a given object.
 
@@ -11,8 +12,9 @@ Writing out a complete deep clone solution from scratch is almost impossible und
 The easiest (but flawed) way to deep copy an object in JavaScript is to first serialize it and then deserialize it back via `JSON.stringify` and `JSON.parse`.
 
 ```js
-const obj = { user: { role: 'admin' } };
-const clonedObj = JSON.parse(JSON.stringify(obj)); // {user: {role: "admin"}}
+export default function deepClone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
 ```
 
 Although this approach is acceptable given the input object only contains `null`, `boolean`, `number`, `string`, you should be aware of the downsides of this approach:
@@ -26,7 +28,7 @@ Obviously, your interviewer will not allow you to use this.
 
 Here is a solution that doesn't rely on `JSON.stringify` and `JSON.parse`.
 
-<MDXCodeBlock>{deepClone}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: deepCloneJs, tsx: deepCloneTs }} />
 
 There are generally two ways we can traverse an object:
 
