@@ -9,6 +9,7 @@ import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWork
 import { themeLineColor } from '~/components/ui/theme';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
+import JavaScriptCodingWorkspaceCustomTestCasesBanner from './JavaScriptCodingWorkspaceCustomTestCasesBanner';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
@@ -32,6 +33,7 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
 
   const { files, updateFile } = sandpack;
   const isMainFile = filePath === workspace.main;
+  const isRunFile = filePath === workspace.run;
 
   function resetCode() {
     const shouldDiscard = window.confirm(
@@ -79,6 +81,9 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
           }}
           onResetToDefaultCode={resetCode}
         />
+      )}
+      {isRunFile && isMounted() && (
+        <JavaScriptCodingWorkspaceCustomTestCasesBanner />
       )}
       <MonacoCodeEditor
         filePath={filePath}
