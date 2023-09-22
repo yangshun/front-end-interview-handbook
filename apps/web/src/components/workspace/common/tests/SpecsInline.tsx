@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeDivideColor } from '~/components/ui/theme';
 
 import FormattedError from './FormattedError';
@@ -103,10 +104,10 @@ export default function SpecsInline({
                           'sticky top-0 flex justify-between gap-2 p-3',
                           themeBackgroundColor,
                         )}>
-                        <div className="flex items-center gap-3">
+                        <Text className="flex items-center gap-3" size="body3">
                           <TestStatusIcon status={test.status} />{' '}
                           <code className="text-xs">{fullTestName}</code>
-                        </div>
+                        </Text>
                         <TestDuration duration={test.duration} />
                       </div>
                       {testErrors.length > 0 && (

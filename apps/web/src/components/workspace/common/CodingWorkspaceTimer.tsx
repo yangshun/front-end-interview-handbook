@@ -7,6 +7,7 @@ import {
   themeBackgroundColor,
   themeBackgroundEmphasizedHover,
   themeElementBorderColor,
+  themeTextColor,
 } from '~/components/ui/theme';
 
 export default function CodingWorkspaceTimer() {
@@ -27,6 +28,7 @@ export default function CodingWorkspaceTimer() {
         'group flex h-7 items-center gap-x-1 rounded-full px-2',
         ['border', themeElementBorderColor],
         themeBackgroundColor,
+        themeTextColor,
         isTimerHovered && 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
       )}>
       <button

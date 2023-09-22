@@ -1431,6 +1431,10 @@
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
   },
+  "OERnmz": {
+    "defaultMessage": "Run your code against this subset of test cases.",
+    "description": "Message to explain the custom tests cases"
+  },
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation System Design page"
@@ -2899,10 +2903,6 @@
     "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
     "description": "Answer to 'What does free updates include?' on Homepage's FAQ sections"
   },
-  "nPkj31": {
-    "defaultMessage": "For your reference, these are the Jest tests that your code will run against.",
-    "description": "Text indicating to users that the below section are test cases that their code will be tested against"
-  },
   "nSDLrS": {
     "defaultMessage": "More settings",
     "description": "Button label to show more settings for the console in the coding workspace"
@@ -3102,6 +3102,10 @@
   "qfX/3p": {
     "defaultMessage": "Tests",
     "description": "Label for Tests tab on the coding workspace"
+  },
+  "qh0zg0": {
+    "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
+    "description": "Text indicating to users that the below section are test cases that their code will be tested against"
   },
   "qhHM6u": {
     "defaultMessage": "Try our questions here",
