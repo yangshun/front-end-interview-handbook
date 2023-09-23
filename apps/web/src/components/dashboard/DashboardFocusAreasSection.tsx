@@ -63,7 +63,7 @@ export default function QuestionFocusAreasSection({
           />
         )}
       </div>
-      <CardContainer className="@4xl:grid-cols-4 grid grid-cols-2 grid-rows-1 gap-6">
+      <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
         {focusAreas.map(
           ({ href, name, type, shortDescription, questions }, index) => {
             const Icon = getFocusAreaTheme(type).iconSolid;
