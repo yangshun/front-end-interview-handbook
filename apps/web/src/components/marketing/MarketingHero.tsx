@@ -233,7 +233,7 @@ export default function MarketingHero() {
                     'bg-brand/20 hover:bg-brand/30 transition-colors',
                     'shiny shadow-sm',
                   )}
-                  href="/hiring"
+                  href="/jobs"
                   variant="unstyled">
                   We're hiring!
                   <RiBriefcaseLine

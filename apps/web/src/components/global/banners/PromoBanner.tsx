@@ -92,7 +92,7 @@ export default function PromoBanner({
         link: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"
-            href="/hiring"
+            href="/jobs"
             target="_blank"
             underline={true}
             variant="flat"

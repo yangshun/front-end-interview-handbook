@@ -77,7 +77,7 @@ function useFooterNavigation() {
         }),
       },
       {
-        href: '/hiring',
+        href: '/jobs',
         key: 'hiring',
         name: intl.formatMessage({
           defaultMessage: "We're Hiring",
@@ -269,7 +269,7 @@ export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className={clsx('bg-[#070708] border-t', themeLineColor)}>
+      className={clsx('border-t bg-[#070708]', themeLineColor)}>
       <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
