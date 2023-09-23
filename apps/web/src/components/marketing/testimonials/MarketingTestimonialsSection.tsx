@@ -6,6 +6,7 @@ import { useTestimonials } from '~/data/Testimonials';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Marquee from '~/components/ui/Marquee';
 
 import TestimonialCard from './TestimonialCard';
 import MarketingSectionHeader from '../MarketingSectionHeader';
@@ -30,7 +31,7 @@ export default function MarketingTestimonialsSection() {
   ];
 
   return (
-    <Container className="max-lg:rounded-t-3xl max-lg:theme-bg-radial-glow isolate py-24 sm:py-32">
+    <Container className="max-lg:theme-bg-radial-glow isolate py-24 max-lg:rounded-t-3xl sm:py-32">
       <div className="mx-auto max-w-3xl">
         <MarketingSectionHeader
           heading={
@@ -50,7 +51,7 @@ export default function MarketingTestimonialsSection() {
         />
       </div>
       <Section>
-        <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+        <div className="mx-auto mt-16 hidden max-w-2xl sm:mt-20 lg:mx-0 lg:flow-root lg:max-w-none">
           <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
             {testimonials.map((testimonial) => (
               <div
@@ -59,6 +60,23 @@ export default function MarketingTestimonialsSection() {
                 <TestimonialCard {...testimonial} />
               </div>
             ))}
+          </CardContainer>
+        </div>
+        <div className="mt-12 lg:hidden">
+          <CardContainer className="relative h-[500px]">
+            <Marquee periodSeconds={100} startEndGap={24}>
+            <div className="grid grid-rows-1 gap-6 w-max grid-flow-col">
+              {testimonials.map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className="w-auto max-w-[75vw]">
+                  <div className="flex flex-col whitespace-normal">
+                    <TestimonialCard {...testimonial} />
+                  </div>
+                </div>
+              ))}
+            </div>
+            </Marquee>
           </CardContainer>
         </div>
       </Section>
