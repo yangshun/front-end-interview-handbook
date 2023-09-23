@@ -33,7 +33,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
         items: [
           {
             activeTabId: activeFile,
-            defaultSize: 65,
+            defaultSize: 95,
             id: 'right-top',
             tabs: [
               ...files.map((file) => ({
@@ -46,7 +46,9 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
           },
           {
             activeTabId: 'run_tests',
-            defaultSize: 35,
+            collapsed: true,
+            collapsible: true,
+            defaultSize: 5,
             id: 'right-bottom',
             tabs: [
               {
@@ -54,7 +56,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
                 id: 'run_tests',
               },
               {
-                closeable: true,
+                closeable: false,
                 id: 'console',
               },
               {
@@ -123,7 +125,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
             id: 'run_tests',
           },
           {
-            closeable: true,
+            closeable: false,
             id: 'console',
           },
           {
@@ -186,7 +188,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
             id: 'center-bottom',
             tabs: [
               {
-                closeable: true,
+                closeable: false,
                 id: 'console',
               },
             ],

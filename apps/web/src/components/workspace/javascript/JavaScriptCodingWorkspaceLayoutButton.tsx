@@ -29,17 +29,17 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
     {
       description: (
         <>
-          Three-column layout showing the basic essentials for JavaScript
-          questions.
+          Classic layout that prioritizes readability of question description
+          and solution.
         </>
       ),
-      icon: TbColumns3,
-      id: 'three-column',
-      name: 'Three-column layout',
+      icon: RiLayout2Line,
+      id: 'two-column',
+      name: 'Two-column layout (default)',
       onClick: () => {
         dispatch({
           payload: {
-            panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
+            panels: getJavaScriptCodingWorkspaceLayoutTwoColumns(
               activeFile,
               visibleFiles,
             ),
@@ -52,17 +52,17 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
     {
       description: (
         <>
-          Classic layout that prioritizes readability of question description
-          and solution.
+          Three-column layout showing the basic essentials for JavaScript
+          questions.
         </>
       ),
-      icon: RiLayout2Line,
-      id: 'two-column',
-      name: 'Two-column layout (default)',
+      icon: TbColumns3,
+      id: 'three-column',
+      name: 'Three-column layout',
       onClick: () => {
         dispatch({
           payload: {
-            panels: getJavaScriptCodingWorkspaceLayoutTwoColumns(
+            panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
               activeFile,
               visibleFiles,
             ),

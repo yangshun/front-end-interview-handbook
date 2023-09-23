@@ -15,7 +15,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
     items: [
       {
         activeTabId: mode === 'practice' ? 'description' : 'solution',
-        defaultSize: 35,
+        defaultSize: 30,
         id: 'left-column',
         tabs: [
           {
@@ -49,7 +49,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
       },
       {
         activeTabId: 'preview',
-        defaultSize: 25,
+        defaultSize: 30,
         id: 'right-column',
         tabs: [
           {
