@@ -11,6 +11,7 @@ import {
   themeBackgroundLayerColor,
   themeBackgroundLayerEmphasizedHover,
   themeIconColor,
+  themeLineColor,
 } from '~/components/ui/theme';
 
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -45,9 +46,9 @@ function JobPostingItem({
   return (
     <div
       className={clsx(
-        'group relative flex items-center rounded-lg p-8 transition-colors',
-        themeBackgroundLayerColor,
-        themeBackgroundLayerEmphasizedHover,
+        'group relative flex items-center rounded-lg p-6 transition-colors md:p-8',
+        ['border', themeLineColor],
+        [themeBackgroundLayerColor, themeBackgroundLayerEmphasizedHover],
       )}>
       <div className="flex grow flex-col gap-y-4">
         <Text
@@ -93,14 +94,32 @@ export default function Page() {
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
       variant="narrow">
-      <Heading level="heading2">Open positions</Heading>
+      <div className="flex flex-col gap-y-6">
+        <Heading level="heading2">Open positions</Heading>
+        <Text className="text-lg" color="subtitle" size="custom">
+          Join us in building innovative products that are well-loved by Front
+          End Engineers.
+        </Text>
+      </div>
       <Section>
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <JobPostingItem
+            department="Engineering"
+            href="/jobs/front-end-software-engineer"
+            location="Remote"
+            title="Front End Software Engineer"
+          />
           <JobPostingItem
             department="Engineering"
             href="/jobs/senior-front-end-contributor"
             location="Remote"
             title="Senior Front End Contributor"
+          />
+          <JobPostingItem
+            department="Marketing"
+            href="/jobs/technical-marketing-specialist"
+            location="Remote"
+            title="Technical Marketing Specialist"
           />
         </div>
       </Section>

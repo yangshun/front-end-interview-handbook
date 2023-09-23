@@ -44,10 +44,9 @@ export default function JobPage({
           <div className="md:order-last">
             <div
               className={clsx(
-                'divide-y rounded border',
-                themeLineColor,
-                themeDivideColor,
-                themeBackgroundEmphasized,
+                'rounded',
+                ['border', themeLineColor],
+                ['divide-y', themeDivideColor],
               )}>
               <div className="grid gap-y-2 p-4">
                 <Text display="block" size="body2" weight="medium">
@@ -77,7 +76,7 @@ export default function JobPage({
                 <Button
                   display="block"
                   href={href}
-                  label="Apply Now"
+                  label="Apply now"
                   variant="primary"
                 />
               </div>
@@ -87,6 +86,38 @@ export default function JobPage({
             <Prose>
               <Content />
             </Prose>
+            <div
+              className={clsx(
+                'mt-8 flex flex-col gap-y-4 rounded-lg border px-6 md:p-8',
+                themeBackgroundEmphasized,
+                themeLineColor,
+              )}>
+              <Heading level="heading5">
+                We are excited to hear from you
+              </Heading>
+              <Prose>
+                <p>
+                  At GreatFrontEnd, we look for people with intense passion in
+                  the front end domain. You're encouraged to apply even if your
+                  background does not exactly align with the job requirements.
+                </p>
+                <p>
+                  Your abilities and enthusiasm will be recognized and
+                  distinguished, especially if your career has taken a unique
+                  path. We value diverse viewpoints and individuals who think
+                  critically and are unafraid to question preconceptions. Come
+                  join us.
+                </p>
+              </Prose>
+              <div className="mt-4">
+                <Button
+                  href={href}
+                  label="Apply now"
+                  size="md"
+                  variant="primary"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </Section>
