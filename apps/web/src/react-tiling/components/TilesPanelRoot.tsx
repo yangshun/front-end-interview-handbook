@@ -1,12 +1,12 @@
 import type { CSSProperties, ReactNode } from 'react';
+import type { PanelGroupProps } from 'react-resizable-panels';
 
 import TilesPanel from './TilesPanel';
 import { useTilesContext } from '../state/useTilesContext';
-import type { TilesPanelGroupDirection } from '../types';
 
 export type Props = Readonly<{
   disablePointerEventsDuringResize?: boolean;
-  getResizeHandlerProps: (direction: TilesPanelGroupDirection) => Readonly<{
+  getResizeHandlerProps: (direction: PanelGroupProps['direction']) => Readonly<{
     children?: ReactNode;
     className?: string;
     style?: CSSProperties;
@@ -33,6 +33,7 @@ export function TilesPanelRoot({
   return (
     <TilesPanel
       level={0}
+      parentDirection="horizontal"
       {...tiles}
       disablePointerEventsDuringResize={disablePointerEventsDuringResize}
       getResizeHandlerProps={getResizeHandlerProps}

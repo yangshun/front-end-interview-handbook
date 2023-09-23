@@ -7,6 +7,7 @@ import { TilesContext } from './TilesContext';
 import type { TilesAction } from '../actions/actions';
 import layoutChange from '../actions/layoutChange';
 import panelClose from '../actions/panelClose';
+import panelCollapse from '../actions/panelCollapse';
 import panelSplit from '../actions/panelSplit';
 import tabChangeId from '../actions/tabChangeId';
 import tabClose from '../actions/tabClose';
@@ -32,6 +33,9 @@ function reducer(
     }
     case 'panel-close': {
       return panelClose(tiles, action.payload);
+    }
+    case 'panel-collapse': {
+      return panelCollapse(tiles, action.payload);
     }
     case 'tab-open': {
       return tabOpen(tiles, action.payload);

@@ -1,11 +1,13 @@
-import type { TilesPanelConfig, TilesPanelGroupDirection } from '../types';
+import type { PanelGroupProps } from 'react-resizable-panels';
+
+import type { TilesPanelConfig } from '../types';
 import getUniqueId from '../utils/getUniqueId';
 
 type TilesActionPanelSplitNewPanelOrder = 'after' | 'before';
 
 export type TilesActionPanelSplit = Readonly<{
   payload: Readonly<{
-    direction: TilesPanelGroupDirection;
+    direction: PanelGroupProps['direction'];
     newPanelOrder: TilesActionPanelSplitNewPanelOrder;
     newTabCloseable?: boolean;
     newTabId?: string;
@@ -51,7 +53,7 @@ export default function panelSplit(
 
 function panelSplitImpl(
   panel: TilesPanelConfig,
-  direction: TilesPanelGroupDirection,
+  direction: PanelGroupProps['direction'],
   panelIdToSplit: string,
   newPanelOrder: TilesActionPanelSplitNewPanelOrder,
   {

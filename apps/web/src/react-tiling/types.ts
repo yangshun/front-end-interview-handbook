@@ -1,6 +1,5 @@
-import type { PanelProps } from 'react-resizable-panels';
+import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
 
-export type TilesPanelGroupDirection = 'horizontal' | 'vertical';
 export type TilesPanelItemTab = Readonly<{
   allowOverflow?: boolean;
   closeable: boolean;
@@ -10,6 +9,8 @@ export type TilesPanelItemTab = Readonly<{
 
 export type TilesPanelItemConfig = Readonly<{
   activeTabId: string | null;
+  collapsed?: boolean;
+  collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
   id: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
@@ -18,7 +19,7 @@ export type TilesPanelItemConfig = Readonly<{
 
 export type TilesPanelGroupConfig = Readonly<{
   defaultSize?: PanelProps['defaultSize'];
-  direction: TilesPanelGroupDirection;
+  direction: PanelGroupProps['direction'];
   id: string;
   items: ReadonlyArray<TilesPanelConfig>;
   type: 'group';

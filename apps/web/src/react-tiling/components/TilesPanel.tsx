@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { Fragment } from 'react';
-import type { PanelProps } from 'react-resizable-panels';
+import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import TilesPanelItem from './TilesPanelItem';
@@ -14,6 +14,7 @@ export default function TilesPanel({
   disablePointerEventsDuringResize,
   getTabLabel,
   renderTab,
+  parentDirection,
   onAddTab,
   onClose,
   onTabClose,
@@ -26,7 +27,7 @@ export default function TilesPanel({
 }: Readonly<{
   defaultSize?: PanelProps['defaultSize'];
   disablePointerEventsDuringResize?: boolean;
-  getResizeHandlerProps: (direction: 'horizontal' | 'vertical') => Readonly<{
+  getResizeHandlerProps: (direction: PanelGroupProps['direction']) => Readonly<{
     children?: ReactNode;
     className?: string;
     style?: CSSProperties;
@@ -38,7 +39,7 @@ export default function TilesPanel({
   level: number;
   onAddTab: (panelId: string) => void;
   onClose: (panelId: string) => void;
-  onSplit: (direction: 'horizontal' | 'vertical', panelId: string) => void;
+  onSplit: (direction: PanelGroupProps['direction'], panelId: string) => void;
   onTabClose: (panelId: string, tabId: string) => void;
   onTabDrop: (
     src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
@@ -46,6 +47,7 @@ export default function TilesPanel({
   ) => void;
   onTabSetActive: (panelId: string, tabId: string) => void;
   order?: number;
+  parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: string) => JSX.Element;
 }> &
   TilesPanelConfig) {
@@ -54,10 +56,14 @@ export default function TilesPanel({
       <TilesPanelItem
         key={id}
         activeTabId={props.activeTabId}
+        collapsed={props.collapsed}
+        collapsible={props.collapsible}
         defaultSize={defaultSize}
         getTabLabel={getTabLabel}
         id={id}
+        level={level}
         order={order}
+        parentDirection={parentDirection}
         renderTab={renderTab}
         tabs={props.tabs}
         onAddTab={onAddTab}
@@ -110,6 +116,7 @@ export default function TilesPanel({
             {...item}
             getResizeHandlerProps={getResizeHandlerProps}
             getTabLabel={getTabLabel}
+            parentDirection={groupDirection}
             renderTab={renderTab}
             onAddTab={onAddTab}
             onClose={onClose}

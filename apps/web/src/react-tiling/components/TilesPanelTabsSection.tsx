@@ -6,20 +6,13 @@ import TilesPanelTab from './TilesPanelTab';
 import type { PanelDropTarget } from '../actions/tabDrop';
 import type { TilesPanelDragItem, TilesPanelItemTab } from '../types';
 
-export default function TilesPanelTabsSection({
-  activeTabId,
-  tabs,
-  panelId,
-  onTabDrop,
-  onTabSetActive,
-  onTabClose,
-  getTabLabel,
-}: Readonly<{
+type Props = Readonly<{
   activeTabId: string | null;
   getTabLabel: (tabId: string) => Readonly<{
     icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
+  mode?: 'interactive' | 'readonly';
   onTabClose: (tabId: string) => void;
   onTabDrop: (
     src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
@@ -28,7 +21,18 @@ export default function TilesPanelTabsSection({
   onTabSetActive: (tabId: string) => void;
   panelId: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
-}>) {
+}>;
+
+export default function TilesPanelTabsSection({
+  activeTabId,
+  tabs,
+  panelId,
+  mode = 'interactive',
+  onTabDrop,
+  onTabSetActive,
+  onTabClose,
+  getTabLabel,
+}: Props) {
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
@@ -85,7 +89,7 @@ export default function TilesPanelTabsSection({
           tabListRef.current.scrollLeft += event.deltaY + event.deltaX;
         }}>
         {tabs.map((tabItem, index) => {
-          const isActive = activeTabId === tabItem.id;
+          const isActive = mode === 'interactive' && activeTabId === tabItem.id;
           const key = String(tabItem.id) + ' ' + String(index);
           const { icon, label } = getTabLabel(tabItem.id);
 

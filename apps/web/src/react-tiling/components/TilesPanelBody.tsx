@@ -23,13 +23,9 @@ const dropAreaSectionClasses: Record<TilesPanelBodyDropAreaSection, string> = {
   top: 'scale-y-50',
 };
 
-export default function TilesPanelBody({
-  children,
-  panelId,
-  tabs,
-  onTabDrop,
-}: Readonly<{
+type Props = Readonly<{
   children: React.ReactNode;
+  hidden?: boolean;
   onTabDrop: (
     dropAreaSection: TilesPanelBodyDropAreaSection,
     src: Readonly<{
@@ -40,7 +36,15 @@ export default function TilesPanelBody({
   ) => void;
   panelId: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
-}>) {
+}>;
+
+export default function TilesPanelBody({
+  children,
+  hidden = false,
+  panelId,
+  tabs,
+  onTabDrop,
+}: Props) {
   const [dropAreaSection, setDropAreaSection] =
     useState<TilesPanelBodyDropAreaSection>('center');
   const tabPanelBodyRef = useRef<HTMLDivElement>(null);
@@ -103,7 +107,9 @@ export default function TilesPanelBody({
   drop(tabPanelBodyRef);
 
   return (
-    <div ref={tabPanelBodyRef} className="relative grow">
+    <div
+      ref={tabPanelBodyRef}
+      className={clsx('relative grow', hidden && 'hidden')}>
       {isOver && (
         <div
           className={clsx(

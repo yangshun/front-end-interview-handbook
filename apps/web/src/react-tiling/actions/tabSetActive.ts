@@ -41,6 +41,7 @@ function tabSetActiveImpl(
     return {
       ...panel,
       activeTabId: tabId,
+      collapsed: false,
     };
   }
 
