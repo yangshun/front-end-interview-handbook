@@ -1,10 +1,11 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import clamp from '../setup/src/clamp';
+import clampJs from '../setup/src/clamp.ts';
+import clampTs from '../setup/src/clamp.ts';
 
 ## Solution
 
-<MDXCodeBlock>{clamp}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: clampJs, tsx: clampTs }} />
 
 ## Edge Cases
 

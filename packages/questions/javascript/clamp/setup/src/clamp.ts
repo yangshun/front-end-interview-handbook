@@ -3,5 +3,5 @@ export default function clamp(
   lower: number,
   upper: number,
 ): number {
-  throw 'Not implemented';
+  return Math.min(upper, Math.max(lower, value));
 }

@@ -1,13 +1,7 @@
 import { clamp } from 'lodash';
 
 describe('clamp', () => {
-  test('should clamp positive numbers', () => {
-    expect(clamp(10, -5, 5)).toBe(5);
-    expect(clamp(10.6, -5.6, 5.4)).toBe(5.4);
-    expect(clamp(Infinity, -5, 5)).toBe(5);
-  });
-
-  describe('in range', () => {
+  describe('within range', () => {
     test('negative numbers', () => {
       expect(clamp(-4, -5, 5)).toBe(-4);
       expect(clamp(-5, -5, 5)).toBe(-5);
@@ -25,8 +19,14 @@ describe('clamp', () => {
     });
   });
 
-  describe('out of bound', () => {
-    test('should clamp negative numbers', () => {
+  describe('out of bounds', () => {
+    test('positive numbers', () => {
+      expect(clamp(4, -5, 2)).toBe(2);
+      expect(clamp(5, -5, 3)).toBe(3);
+      expect(clamp(4.5, 1, 3.2)).toBe(3.2);
+    });
+
+    test('negative numbers', () => {
       expect(clamp(-10, -5, 5)).toBe(-5);
       expect(clamp(-10.2, -5.5, 5.5)).toBe(-5.5);
       expect(clamp(-Infinity, -5, 5)).toBe(-5);
