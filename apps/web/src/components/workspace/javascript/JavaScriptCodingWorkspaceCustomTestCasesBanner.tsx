@@ -14,6 +14,7 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
   return (
     <Banner
       size="xs"
+      truncate={true}
       variant="primary"
       onHide={() => {
         setShowCustomTestCasesMessage(false);

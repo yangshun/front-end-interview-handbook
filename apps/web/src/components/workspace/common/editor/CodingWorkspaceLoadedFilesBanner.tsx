@@ -13,7 +13,7 @@ export default function CodingWorkspaceLoadedFilesBanner({
   onResetToDefaultCode,
 }: Props) {
   return (
-    <Banner size="xs" variant="primary" onHide={onHide}>
+    <Banner size="xs" truncate={true} variant="primary" onHide={onHide}>
       <FormattedMessage
         defaultMessage="Your code was restored from client storage. <link>Reset to default</link>"
         description="Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"

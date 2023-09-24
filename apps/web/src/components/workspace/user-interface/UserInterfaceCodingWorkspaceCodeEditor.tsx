@@ -124,7 +124,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
         </div>
       </div>
       {showNotSavedBanner && (
-        <Banner size="xs" variant="primary">
+        <Banner size="xs" truncate={true} variant="primary">
           You are viewing the solution code. Changes will not be saved.
         </Banner>
       )}
