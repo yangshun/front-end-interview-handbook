@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import turtle from '../setup/src/turtle';
+import turtleJs from '../setup/src/turtle.js';
+import turtleTs from '../setup/src/turtle.ts';
 
 ## Solution
 
@@ -27,4 +28,4 @@ The `_move()` helper method is optional and you can simply implement `backward()
 
 Method chaining is a common syntax for invoking multiple methods in one statement on the same instance without requiring variables to store the intermediate results. This can be achieved by returning `this` in methods that need to be chained.
 
-<MDXCodeBlock>{turtle}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: turtleJs, tsx: turtleTs }} />
