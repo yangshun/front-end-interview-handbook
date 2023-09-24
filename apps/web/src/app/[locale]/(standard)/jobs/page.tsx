@@ -113,7 +113,7 @@ export default function Page() {
             department="Engineering"
             href="/jobs/senior-front-end-contributor"
             location="Remote"
-            title="Senior Front End Contributor"
+            title="Senior Front End Contributor (Vue)"
           />
           <JobPostingItem
             department="Marketing"
