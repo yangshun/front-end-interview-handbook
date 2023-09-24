@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
+import Text from '../Text';
+
 type BannerVariant = 'primary' | 'special';
 
 type Props = Readonly<{
@@ -9,6 +11,7 @@ type Props = Readonly<{
   className?: string;
   onHide?: () => void;
   size?: 'md' | 'sm' | 'xs';
+  truncate?: boolean;
   variant?: BannerVariant;
 }>;
 
@@ -37,6 +40,7 @@ export default function Banner({
   children,
   size = 'md',
   variant = 'primary',
+  truncate,
   onHide,
 }: Props) {
   const { backgroundColorClass, buttonClass, textColorClass } =
@@ -48,20 +52,29 @@ export default function Banner({
         'relative flex items-center',
         backgroundColorClass,
         textColorClass,
-        size === 'md' && 'text-xs sm:text-sm md:text-base',
-        size === 'sm' && 'text-xs md:text-sm',
-        size === 'xs' && 'text-xs',
         className,
       )}>
       <div
         className={clsx(
-          'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8',
+          'mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8',
           size === 'md' && 'py-3',
           size === 'sm' && 'py-2',
           size === 'xs' && 'py-2',
         )}>
         <div className="pr-8 sm:px-8 sm:text-center">
-          <p className="font-medium">{children}</p>
+          <Text
+            className={clsx(
+              size === 'md' && 'text-xs sm:text-sm md:text-base',
+              size === 'sm' && 'text-xs md:text-sm',
+              size === 'xs' && 'text-xs',
+              truncate && 'truncate',
+            )}
+            color="inherit"
+            display="block"
+            size="custom"
+            weight="medium">
+            {children}
+          </Text>
         </div>
         {onHide != null && (
           <div
