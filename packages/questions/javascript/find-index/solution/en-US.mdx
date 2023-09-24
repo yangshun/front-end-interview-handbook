@@ -1,10 +1,11 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import findIndex from '../setup/src/find-index';
+import findIndexJs from '../setup/src/find-index.js';
+import findIndexTs from '../setup/src/find-index.ts';
 
 ## Solution
 
-<MDXCodeBlock>{findIndex}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: findIndexJs, tsx: findIndexTs }} />
 
 ## Resources
 
