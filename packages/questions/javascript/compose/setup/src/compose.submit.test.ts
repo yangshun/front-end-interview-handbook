@@ -1,8 +1,8 @@
 import compose from './compose';
 
-const identity = (x) => x;
-const double = (x) => x * 2;
-const square = (x) => x * x;
+const identity = <T>(x: T): T => x;
+const double = (x: number) => x * 2;
+const square = (x: number) => x * x;
 
 describe('compose', () => {
   test('returns a function', () => {

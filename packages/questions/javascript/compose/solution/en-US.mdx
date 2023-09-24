@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import compose from '../setup/src/compose';
+import composeJs from '../setup/src/compose.js';
+import composeTs from '../setup/src/compose.ts';
 import composeForLoop from '../setup/src/compose-for-loop';
 import composeRecursion from '../setup/src/compose-recursion';
 
@@ -16,7 +17,7 @@ import composeRecursion from '../setup/src/compose-recursion';
 1. The result of each function becomes the input for the next function in the chain, effectively composing the functions in reverse order.
 1. The final result of the composed function is returned.
 
-<MDXCodeBlock>{compose}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: composeJs, tsx: composeTs }} />
 
 ### Solution 2: Using `for` loops
 
