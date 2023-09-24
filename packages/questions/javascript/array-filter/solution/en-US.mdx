@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import filter from '../setup/src/array-filter';
+import filterJs from '../setup/src/array-filter.js';
+import filterTs from '../setup/src/array-filter.ts';
 import filterSpec from '../setup/src/filterSpec';
 
 This question is pretty straightforward and just tests that you know how to access the array values within `Array.prototype` methods (using `this`).
@@ -11,7 +12,7 @@ Initialize a new array to store the filtered results. As we loop through the arr
 
 If the callback evaluates to `true`, push the element into the `results`.
 
-<MDXCodeBlock>{filter}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: filterJs, tsx: filterTs }} />
 
 ## Edge Cases
 
