@@ -39,7 +39,7 @@ export default function TilesPanelTabsSection({
       return !(
         item != null &&
         item.panelId === panelId &&
-        tabs.at(-1)?.id === item.tabId
+        tabs[tabs.length - 1]?.id === item.tabId
       );
     },
     collect(monitor) {
@@ -53,7 +53,7 @@ export default function TilesPanelTabsSection({
       }
 
       if (item.panelId === panelId) {
-        const lastTab = tabs.at(-1);
+        const lastTab = tabs[tabs.length - 1];
 
         // Item to be dropped is already at the last position
         // in the same panel, nothing to do.

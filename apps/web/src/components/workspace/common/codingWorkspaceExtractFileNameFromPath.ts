@@ -1,3 +1,5 @@
 export function codingWorkspaceExtractFileNameFromPath(filePath: string) {
-  return filePath?.replace(/^\//, '')?.split('/').at(-1) ?? '';
+  const parts = (filePath ?? '').replace(/^\//, '').split('/');
+
+  return parts.length > 0 ? parts[parts.length - 1] : '';
 }

@@ -63,7 +63,7 @@ function tabCloseImpl(
 
       const tabIndex = panel.tabs.findIndex((tab) => tab.id === tabId);
 
-      return newTabs.at(tabIndex >= newTabs.length ? -1 : tabIndex)?.id;
+      return newTabs[Math.min(tabIndex, newTabs.length - 1)]?.id;
     })();
 
     onTabsClose?.(tabId);
