@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { forwardRef, Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
-import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundLayerColor,
   themeLineColor,
@@ -48,8 +47,6 @@ function Navbar(
   const leftLinks = links.filter(({ position }) => position === 'start');
   const rightLinks = links.filter(({ position }) => position === 'end');
 
-  const divider = <Divider className="my-2" />;
-
   function closeMobileNav() {
     setIsMobileNavOpen(false);
   }
@@ -60,7 +57,7 @@ function Navbar(
       className={clsx(
         'sticky top-0 z-30 backdrop-blur',
         ['border-b', themeLineColor],
-        transparent && 'dark:bg-neutral-950/60 bg-white',
+        transparent && 'bg-white dark:bg-neutral-950/60',
         'transition-[background-color]',
         className,
       )}>
@@ -149,14 +146,16 @@ function Navbar(
                     </button>
                   </div>
                 </Transition.Child>
-                <div className="h-0 flex-1 overflow-y-auto pb-4 pt-5">
+                <div className="flex h-0 flex-1 flex-col pb-4 pt-5">
                   <div className="flex flex-shrink-0 items-center px-4">
                     {logo}
                   </div>
-                  <nav aria-label="Sidebar" className="mt-5">
-                    {leftLinks.length > 0 && (
-                      <div className="grid gap-y-1 px-2">
-                        {leftLinks.map((navItem) => (
+                  <nav
+                    aria-label="Sidebar"
+                    className="mt-5 flex flex-1 flex-col justify-between overflow-hidden">
+                    <div className="flex flex-col overflow-y-auto">
+                      {leftLinks.length > 0 &&
+                        leftLinks.map((navItem) => (
                           <NavbarSidebarItem
                             key={navItem.itemKey}
                             {...navItem}
@@ -166,32 +165,19 @@ function Navbar(
                             }}
                           />
                         ))}
-                      </div>
-                    )}
-                    {rightLinks.length > 0 && (
-                      <>
-                        {leftLinks.length > 0 && divider}
-                        <div className="grid gap-y-1 px-2">
-                          {rightLinks.map((navItem) => (
-                            <NavbarSidebarItem
-                              key={navItem.itemKey}
-                              {...navItem}
-                              onClick={(event) => {
-                                closeMobileNav();
-                                navItem.onClick?.(event);
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                    {renderMobileSidebarAddOnItems && (
-                      <>
-                        {(leftLinks.length > 0 || rightLinks.length > 0) &&
-                          divider}
-                        {renderMobileSidebarAddOnItems({ closeMobileNav })}
-                      </>
-                    )}
+                      {rightLinks.length > 0 &&
+                        rightLinks.map((navItem) => (
+                          <NavbarSidebarItem
+                            key={navItem.itemKey}
+                            {...navItem}
+                            onClick={(event) => {
+                              closeMobileNav();
+                              navItem.onClick?.(event);
+                            }}
+                          />
+                        ))}
+                    </div>
+                    {renderMobileSidebarAddOnItems?.({ closeMobileNav })}
                   </nav>
                 </div>
                 {mobileSidebarBottomItems && (
