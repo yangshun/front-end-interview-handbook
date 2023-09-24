@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { LuExpand, LuShrink } from 'react-icons/lu';
 import {
   RiAddLine,
@@ -32,8 +32,9 @@ import type { TilesPanelItemTab } from '../types';
 const MAXIMUM_LEVEL_FOR_SPLITTING = 2;
 
 export default function TilesPanelItem({
+  activeTabId,
   id: panelId,
-  collapsed,
+  collapsed = false,
   collapsible,
   defaultSize = 100,
   fullScreen,
@@ -43,7 +44,7 @@ export default function TilesPanelItem({
   getTabLabel,
   parentDirection,
   renderTab,
-  activeTabId,
+  sizeAfterExpansion,
 }: Readonly<{
   activeTabId: string | null;
   collapsed?: boolean;
@@ -59,6 +60,7 @@ export default function TilesPanelItem({
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: string) => JSX.Element;
+  sizeAfterExpansion?: number;
   tabs: ReadonlyArray<TilesPanelItemTab>;
 }>) {
   const { dispatch } = useTilesContext();
@@ -75,10 +77,11 @@ export default function TilesPanelItem({
 
     if (collapsed === false) {
       ref.current?.expand();
-      // TODO(workspace): fix hardcoding.
-      ref.current?.resize(50);
+      if (sizeAfterExpansion) {
+        ref.current?.resize(sizeAfterExpansion);
+      }
     }
-  }, [collapsed, collapsible]);
+  }, [collapsed, collapsible, sizeAfterExpansion]);
 
   const showSplitButton =
     !fullScreen && !collapsed && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
@@ -180,6 +183,42 @@ export default function TilesPanelItem({
               }
             />
           )}
+          {(!collapsible || (collapsible && !collapsed)) &&
+            (fullScreen ? (
+              <Button
+                icon={LuShrink}
+                isLabelHidden={true}
+                label="Shrink"
+                size="xs"
+                variant="tertiary"
+                onClick={() => {
+                  dispatch({
+                    payload: {
+                      fullScreen: false,
+                      panelId,
+                    },
+                    type: 'panel-full-screen',
+                  });
+                }}
+              />
+            ) : (
+              <Button
+                icon={LuExpand}
+                isLabelHidden={true}
+                label="Expand"
+                size="xs"
+                variant="tertiary"
+                onClick={() => {
+                  dispatch({
+                    payload: {
+                      fullScreen: true,
+                      panelId,
+                    },
+                    type: 'panel-full-screen',
+                  });
+                }}
+              />
+            ))}
           {!fullScreen &&
             collapsible &&
             (collapsed ? (
@@ -221,42 +260,6 @@ export default function TilesPanelItem({
                       panelId,
                     },
                     type: 'panel-collapse',
-                  });
-                }}
-              />
-            ))}
-          {(!collapsible || (collapsible && !collapsed)) &&
-            (fullScreen ? (
-              <Button
-                icon={LuShrink}
-                isLabelHidden={true}
-                label="Shrink"
-                size="xs"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      fullScreen: false,
-                      panelId,
-                    },
-                    type: 'panel-full-screen',
-                  });
-                }}
-              />
-            ) : (
-              <Button
-                icon={LuExpand}
-                isLabelHidden={true}
-                label="Expand"
-                size="xs"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      fullScreen: true,
-                      panelId,
-                    },
-                    type: 'panel-full-screen',
                   });
                 }}
               />

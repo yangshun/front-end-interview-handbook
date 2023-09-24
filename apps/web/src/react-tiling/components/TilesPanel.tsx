@@ -6,19 +6,9 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import TilesPanelItem from './TilesPanelItem';
 import type { TilesPanelConfig } from '../types';
+import type { TilesPanelItemConfig } from '../types';
 
-export default function TilesPanel({
-  level,
-  order,
-  id,
-  disablePointerEventsDuringResize,
-  getTabLabel,
-  renderTab,
-  parentDirection,
-  defaultSize = 100,
-  getResizeHandlerProps,
-  ...props
-}: Readonly<{
+type TilesPanelCommonProps = Readonly<{
   defaultSize?: PanelProps['defaultSize'];
   disablePointerEventsDuringResize?: boolean;
   getResizeHandlerProps: (direction: PanelGroupProps['direction']) => Readonly<{
@@ -34,8 +24,32 @@ export default function TilesPanel({
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: string) => JSX.Element;
+}>;
+type TilesPanelItemTypeProps = Readonly<{
+  sizeAfterExpansion?: number;
+  type: 'item';
 }> &
-  TilesPanelConfig) {
+  TilesPanelCommonProps &
+  TilesPanelItemConfig;
+
+type TilesPanelGroupTypeProps = Readonly<{
+  type: 'group';
+}> &
+  TilesPanelCommonProps &
+  TilesPanelConfig;
+
+export default function TilesPanel({
+  level,
+  order,
+  id,
+  disablePointerEventsDuringResize,
+  getTabLabel,
+  renderTab,
+  parentDirection,
+  defaultSize = 100,
+  getResizeHandlerProps,
+  ...props
+}: TilesPanelGroupTypeProps | TilesPanelItemTypeProps) {
   if (props.type === 'item') {
     const panel = (
       <TilesPanelItem
@@ -51,6 +65,7 @@ export default function TilesPanel({
         order={order}
         parentDirection={parentDirection}
         renderTab={renderTab}
+        sizeAfterExpansion={props.sizeAfterExpansion}
         tabs={props.tabs}
       />
     );
@@ -75,32 +90,38 @@ export default function TilesPanel({
       direction={groupDirection}
       disablePointerEventsDuringResize={disablePointerEventsDuringResize}
       id={String(id)}>
-      {props.items.map((item, index) => (
-        <Fragment key={'fragment-' + item.id}>
-          {index > 0 && (
-            <PanelResizeHandle
-              key={'handle-' + item.id}
-              {...getResizeHandlerProps(
-                groupDirection === 'horizontal' ? 'vertical' : 'horizontal',
-              )}
+      {props.items.map((item, index) => {
+        const itemSizeEqual = 100 / Math.max(props.items.length, 1);
+
+        return (
+          <Fragment key={'fragment-' + item.id}>
+            {index > 0 && (
+              <PanelResizeHandle
+                key={'handle-' + item.id}
+                {...getResizeHandlerProps(
+                  groupDirection === 'horizontal' ? 'vertical' : 'horizontal',
+                )}
+              />
+            )}
+            <TilesPanel
+              key={item.id}
+              defaultSize={item.defaultSize ?? itemSizeEqual}
+              disablePointerEventsDuringResize={
+                disablePointerEventsDuringResize
+              }
+              getResizeHandlerProps={getResizeHandlerProps}
+              getTabLabel={getTabLabel}
+              level={level + 1}
+              order={index + 1}
+              parentDirection={groupDirection}
+              renderTab={renderTab}
+              {...(item.type === 'item'
+                ? { ...item, sizeAfterExpansion: itemSizeEqual }
+                : item)}
             />
-          )}
-          <TilesPanel
-            key={item.id}
-            defaultSize={
-              item.defaultSize ?? 100 / Math.max(props.items.length, 1)
-            }
-            disablePointerEventsDuringResize={disablePointerEventsDuringResize}
-            level={level + 1}
-            order={index + 1}
-            {...item}
-            getResizeHandlerProps={getResizeHandlerProps}
-            getTabLabel={getTabLabel}
-            parentDirection={groupDirection}
-            renderTab={renderTab}
-          />
-        </Fragment>
-      ))}
+          </Fragment>
+        );
+      })}
     </PanelGroup>
   );
 

@@ -84,9 +84,9 @@ function panelSplitImpl(
 
     const existingPanel = {
       ...panel,
+      fullScreen: false,
       id: getUniqueId(),
       type: 'item',
-      fullScreen: false,
     } as const;
     const newPanel = {
       activeTabId: newTabId_,
