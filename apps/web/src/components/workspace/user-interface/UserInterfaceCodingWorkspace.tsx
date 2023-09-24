@@ -297,20 +297,23 @@ function UserInterfaceCodingWorkspaceImpl({
   const [tabContents, setTabContents] = useState<CodingWorkspaceTabContents>({
     ...predefinedTabs,
     ...Object.fromEntries(
-      visibleFiles.map((filePath) => [
-        filePath,
-        {
-          contents: (
-            <UserInterfaceCodingWorkspaceCodeEditor
-              filePath={filePath}
-              showNotSavedBanner={mode === 'solution'}
-            />
-          ),
-          icon:
-            codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
-          label: codingWorkspaceExtractFileNameFromPath(filePath),
-        },
-      ]),
+      visibleFiles
+        .filter((filePath) => filePath != null)
+        .map((filePath) => [
+          filePath,
+          {
+            contents: (
+              <UserInterfaceCodingWorkspaceCodeEditor
+                filePath={filePath}
+                showNotSavedBanner={mode === 'solution'}
+              />
+            ),
+            icon:
+              codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ??
+              RiCodeLine,
+            label: codingWorkspaceExtractFileNameFromPath(filePath),
+          },
+        ]),
     ),
   });
 

@@ -69,28 +69,30 @@ export default function UserInterfaceCodingWorkspaceNewTab({
             Files
           </Text>
           <div className="flex flex-wrap gap-2">
-            {unopenedFiles.map(([filePath, { code }]) => {
-              const Icon =
-                codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ??
-                RiCodeLine;
+            {unopenedFiles
+              .filter((filePath) => filePath != null)
+              .map(([filePath, { code }]) => {
+                const Icon =
+                  codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ??
+                  RiCodeLine;
 
-              return (
-                <Button
-                  key={filePath}
-                  addonPosition="start"
-                  className="font-mono"
-                  icon={Icon}
-                  label={codingWorkspaceExtractFileNameFromPath(filePath)}
-                  variant="secondary"
-                  onClick={() => {
-                    onSelectTabType({
-                      payload: { code, file: filePath },
-                      type: 'code',
-                    });
-                  }}
-                />
-              );
-            })}
+                return (
+                  <Button
+                    key={filePath}
+                    addonPosition="start"
+                    className="font-mono"
+                    icon={Icon}
+                    label={codingWorkspaceExtractFileNameFromPath(filePath)}
+                    variant="secondary"
+                    onClick={() => {
+                      onSelectTabType({
+                        payload: { code, file: filePath },
+                        type: 'code',
+                      });
+                    }}
+                  />
+                );
+              })}
           </div>
         </div>
       )}
