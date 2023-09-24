@@ -25,7 +25,6 @@ import {
 
 import TilesPanelBody from './TilesPanelBody';
 import TilesPanelTabsSection from './TilesPanelTabsSection';
-import type { PanelDropTarget } from '../actions/tabDrop';
 import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelItemTab } from '../types';
 
@@ -43,12 +42,6 @@ export default function TilesPanelItem({
   parentDirection,
   renderTab,
   activeTabId,
-  onAddTab,
-  onClose,
-  onTabClose,
-  onTabDrop,
-  onSplit,
-  onTabSetActive,
 }: Readonly<{
   activeTabId: string | null;
   collapsed?: boolean;
@@ -60,25 +53,13 @@ export default function TilesPanelItem({
   }>;
   id: string;
   level: number;
-  onAddTab: (panelIdParam: string) => void;
-  onClose: (panelIdParam: string) => void;
-  onSplit: (
-    direction: PanelGroupProps['direction'],
-    panelIdParam: string,
-  ) => void;
-  onTabClose: (panelIdParam: string, tabId: string) => void;
-  onTabDrop: (
-    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
-    dst: PanelDropTarget,
-  ) => void;
-  onTabSetActive: (panelIdParam: string, tabId: string) => void;
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: string) => JSX.Element;
   tabs: ReadonlyArray<TilesPanelItemTab>;
 }>) {
-  const ref = useRef<ImperativePanelHandle>(null);
   const { dispatch } = useTilesContext();
+  const ref = useRef<ImperativePanelHandle>(null);
 
   useEffect(() => {
     if (!collapsible) {
@@ -136,7 +117,12 @@ export default function TilesPanelItem({
               tooltip="New tab"
               variant="tertiary"
               onClick={() => {
-                onAddTab(panelId);
+                dispatch({
+                  payload: {
+                    panelId,
+                  },
+                  type: 'tab-open',
+                });
               }}
             />
           </span>
@@ -147,13 +133,6 @@ export default function TilesPanelItem({
           mode={collapsed ? 'readonly' : 'interactive'}
           panelId={panelId}
           tabs={tabs}
-          onTabClose={(tabId: string) => {
-            onTabClose(panelId, tabId);
-          }}
-          onTabDrop={onTabDrop}
-          onTabSetActive={(tabId: string) => {
-            onTabSetActive(panelId, tabId);
-          }}
         />
         <div className="flex h-full items-center">
           {showSplitButton && parentDirection === 'horizontal' && (
@@ -164,7 +143,16 @@ export default function TilesPanelItem({
               size="xs"
               tooltip="Split right"
               variant="tertiary"
-              onClick={() => onSplit('horizontal', panelId)}
+              onClick={() =>
+                dispatch({
+                  payload: {
+                    direction: 'horizontal',
+                    newPanelOrder: 'after',
+                    panelId,
+                  },
+                  type: 'panel-split',
+                })
+              }
             />
           )}
           {showSplitButton && parentDirection === 'vertical' && (
@@ -175,7 +163,16 @@ export default function TilesPanelItem({
               size="xs"
               tooltip="Split down"
               variant="tertiary"
-              onClick={() => onSplit('vertical', panelId)}
+              onClick={() =>
+                dispatch({
+                  payload: {
+                    direction: 'vertical',
+                    newPanelOrder: 'after',
+                    panelId,
+                  },
+                  type: 'panel-split',
+                })
+              }
             />
           )}
           {collapsible &&
@@ -231,7 +228,12 @@ export default function TilesPanelItem({
               tooltip="Close all tabs"
               variant="tertiary"
               onClick={() => {
-                onClose(panelId);
+                dispatch({
+                  payload: {
+                    panelId,
+                  },
+                  type: 'panel-close',
+                });
               }}
             />
           )}
@@ -242,9 +244,15 @@ export default function TilesPanelItem({
         panelId={panelId}
         tabs={tabs}
         onTabDrop={(dropAreaSection, src) => {
-          onTabDrop(src, {
-            dropAreaSection,
-            panelId,
+          dispatch({
+            payload: {
+              dst: {
+                dropAreaSection,
+                panelId,
+              },
+              src,
+            },
+            type: 'tab-drop',
           });
         }}>
         {tabs.map((tab) => (

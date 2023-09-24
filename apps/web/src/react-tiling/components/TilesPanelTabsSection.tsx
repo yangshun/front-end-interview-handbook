@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useDrop } from 'react-dnd';
 
 import TilesPanelTab from './TilesPanelTab';
-import type { PanelDropTarget } from '../actions/tabDrop';
+import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelDragItem, TilesPanelItemTab } from '../types';
 
 type Props = Readonly<{
@@ -13,12 +13,6 @@ type Props = Readonly<{
     label: string;
   }>;
   mode?: 'interactive' | 'readonly';
-  onTabClose: (tabId: string) => void;
-  onTabDrop: (
-    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
-    dst: PanelDropTarget,
-  ) => void;
-  onTabSetActive: (tabId: string) => void;
   panelId: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
 }>;
@@ -28,11 +22,9 @@ export default function TilesPanelTabsSection({
   tabs,
   panelId,
   mode = 'interactive',
-  onTabDrop,
-  onTabSetActive,
-  onTabClose,
   getTabLabel,
 }: Props) {
+  const { dispatch } = useTilesContext();
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
@@ -70,7 +62,16 @@ export default function TilesPanelTabsSection({
         }
       }
 
-      onTabDrop(item, { dropAreaSection: 'tabs-row', panelId });
+      dispatch({
+        payload: {
+          dst: {
+            dropAreaSection: 'tabs-row',
+            panelId,
+          },
+          src: item,
+        },
+        type: 'tab-drop',
+      });
     },
   });
 
@@ -105,13 +106,25 @@ export default function TilesPanelTabsSection({
                 panelId={panelId}
                 tabId={tabItem.id}
                 onClick={() => {
-                  onTabSetActive(tabItem.id);
-                }}
-                onClose={() => {
-                  onTabClose(tabItem.id);
+                  dispatch({
+                    payload: {
+                      panelId,
+                      tabId: tabItem.id,
+                    },
+                    type: 'tab-set-active',
+                  });
                 }}
                 onDrop={(src, dst) => {
-                  onTabDrop(src, { dropAreaSection: 'tab', ...dst });
+                  dispatch({
+                    payload: {
+                      dst: {
+                        dropAreaSection: 'tab',
+                        ...dst,
+                      },
+                      src,
+                    },
+                    type: 'tab-drop',
+                  });
                 }}
               />
             </div>

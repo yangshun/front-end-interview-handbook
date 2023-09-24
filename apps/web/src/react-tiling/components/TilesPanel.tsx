@@ -4,7 +4,6 @@ import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import TilesPanelItem from './TilesPanelItem';
-import type { PanelDropTarget } from '../actions/tabDrop';
 import type { TilesPanelConfig } from '../types';
 
 export default function TilesPanel({
@@ -15,13 +14,7 @@ export default function TilesPanel({
   getTabLabel,
   renderTab,
   parentDirection,
-  onAddTab,
-  onClose,
-  onTabClose,
-  onTabDrop,
-  onSplit,
   defaultSize = 100,
-  onTabSetActive,
   getResizeHandlerProps,
   ...props
 }: Readonly<{
@@ -37,15 +30,6 @@ export default function TilesPanel({
     label: string;
   }>;
   level: number;
-  onAddTab: (panelId: string) => void;
-  onClose: (panelId: string) => void;
-  onSplit: (direction: PanelGroupProps['direction'], panelId: string) => void;
-  onTabClose: (panelId: string, tabId: string) => void;
-  onTabDrop: (
-    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
-    dst: PanelDropTarget,
-  ) => void;
-  onTabSetActive: (panelId: string, tabId: string) => void;
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: string) => JSX.Element;
@@ -66,14 +50,6 @@ export default function TilesPanel({
         parentDirection={parentDirection}
         renderTab={renderTab}
         tabs={props.tabs}
-        onAddTab={onAddTab}
-        onClose={onClose}
-        onSplit={onSplit}
-        onTabClose={onTabClose}
-        onTabDrop={(src, dst) => {
-          onTabDrop(src, dst);
-        }}
-        onTabSetActive={onTabSetActive}
       />
     );
 
@@ -118,12 +94,6 @@ export default function TilesPanel({
             getTabLabel={getTabLabel}
             parentDirection={groupDirection}
             renderTab={renderTab}
-            onAddTab={onAddTab}
-            onClose={onClose}
-            onSplit={onSplit}
-            onTabClose={onTabClose}
-            onTabDrop={onTabDrop}
-            onTabSetActive={onTabSetActive}
           />
         </Fragment>
       ))}

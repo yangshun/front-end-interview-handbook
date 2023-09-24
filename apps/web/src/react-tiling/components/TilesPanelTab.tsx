@@ -7,6 +7,7 @@ import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
 
+import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelDragItem } from '../types';
 
 function TabButton({
@@ -74,7 +75,6 @@ export default function TilesPanelTab({
   panelId,
   tabId,
   onClick,
-  onClose,
   onDrop,
 }: Readonly<{
   closeable: boolean;
@@ -84,7 +84,6 @@ export default function TilesPanelTab({
   isActive: boolean;
   label: string;
   onClick: () => void;
-  onClose: () => void;
   onDrop: (
     src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
     dst: Readonly<{ panelId: string; tabId: string }>,
@@ -92,6 +91,7 @@ export default function TilesPanelTab({
   panelId: string;
   tabId: string;
 }>) {
+  const { dispatch } = useTilesContext();
   const tabRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
     TilesPanelDragItem,
@@ -191,7 +191,15 @@ export default function TilesPanelTab({
           )}
           title="Close tab"
           type="button"
-          onClick={onClose}>
+          onClick={() => {
+            dispatch({
+              payload: {
+                panelId,
+                tabId,
+              },
+              type: 'tab-close',
+            });
+          }}>
           <RiCloseLine className="h-3 w-3 shrink-0" />
         </button>
       )}
