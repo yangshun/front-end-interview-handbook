@@ -1,7 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import chunk from '../setup/src/chunk';
-import chunkPush from '../setup/src/chunk-push';
+import chunkJs from '../setup/src/chunk.js';
+import chunkTs from '../setup/src/chunk.ts';
+import chunkPushJs from '../setup/src/chunk-push.js';
+import chunkPushTs from '../setup/src/chunk-push.ts';
 
 ## Solution
 
@@ -16,13 +18,13 @@ import chunkPush from '../setup/src/chunk-push';
 1. The loop continues until all elements of the `array` have been processed.
 1. Finally, the function returns the `result` array containing the chunks.
 
-<MDXCodeBlock>{chunkPush}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: chunkPushJs, tsx: chunkPushTs }} />
 
 ### Solution 2: Using `slice()`
 
 A more elegant solution that is shorter and requires fewer variables is to extract out the exact slice of the elements from the array.
 
-<MDXCodeBlock>{chunk}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: chunkJs, tsx: chunkTs }} />
 
 ## Note
 
