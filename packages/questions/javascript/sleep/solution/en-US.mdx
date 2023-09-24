@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import sleep from '../setup/src/sleep';
+import sleepJs from '../setup/src/sleep.js';
+import sleepTs from '../setup/src/sleep.ts';
 
 ## Solution
 
@@ -8,7 +9,7 @@ import sleep from '../setup/src/sleep';
 1. It returns a `Promise` that will resolve after the specified `duration`.
 1. Inside the `Promise` constructor, use `setTimeout` to delay the execution of the `resolve` function, effectively pausing the execution for the specified time.
 
-<MDXCodeBlock>{sleep}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: sleepJs, tsx: sleepTs }} />
 
 ## Blocking version of `sleep()`
 

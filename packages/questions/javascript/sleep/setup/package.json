@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/sleep",
   "version": "0.0.1",
-  "main": "/src/sleep.js",
+  "main": "/src/sleep.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

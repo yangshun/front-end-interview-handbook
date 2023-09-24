@@ -1,6 +1,6 @@
 /**
  * @param {number} duration
- * @return {Promise<any>}
+ * @return {Promise<void>}
  */
 export default async function sleep(duration) {
   throw 'Not implemented';

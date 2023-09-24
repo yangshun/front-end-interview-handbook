@@ -3,9 +3,7 @@ import sleep from './sleep';
 describe('sleep', () => {
   test('returns a promise', () => {
     const sleepPromise = sleep(1);
-    expect(sleepPromise.then).toBeTruthy();
-    expect(sleepPromise.catch).toBeTruthy();
-    expect(sleepPromise.finally).toBeTruthy();
+    expect(sleepPromise instanceof Promise).toBe(true);
   });
 
   describe('executes after delay', () => {
