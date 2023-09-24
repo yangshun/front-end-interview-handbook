@@ -10,6 +10,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
     items: [
       {
         activeTabId: 'description',
+        collapsible: true,
         id: 'left-column',
         tabs: [
           {
@@ -33,6 +34,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
         items: [
           {
             activeTabId: activeFile,
+            collapsible: true,
             defaultSize: 95,
             id: 'right-top',
             tabs: [
@@ -84,6 +86,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
     items: [
       {
         activeTabId: 'description',
+        collapsible: true,
         defaultSize: 35,
         id: 'left-column',
         tabs: [
@@ -104,6 +107,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
       },
       {
         activeTabId: activeFile,
+        collapsible: true,
         defaultSize: 35,
         id: 'center-column',
         tabs: [
@@ -117,6 +121,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
       },
       {
         activeTabId: 'run_tests',
+        collapsible: true,
         defaultSize: 30,
         id: 'right-column',
         tabs: [
@@ -150,6 +155,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
     items: [
       {
         activeTabId: 'description',
+        collapsible: true,
         id: 'left-column',
         tabs: [
           {
@@ -173,6 +179,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         items: [
           {
             activeTabId: mainFile,
+            collapsible: true,
             id: 'center-top',
             tabs: [
               {
@@ -185,6 +192,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
           },
           {
             activeTabId: 'console',
+            collapsible: true,
             id: 'center-bottom',
             tabs: [
               {
@@ -203,6 +211,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         items: [
           {
             activeTabId: runFile,
+            collapsible: true,
             id: 'right-top',
             tabs: [
               {
@@ -215,6 +224,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
           },
           {
             activeTabId: 'run_tests',
+            collapsible: true,
             id: 'right-bottom',
             tabs: [
               {

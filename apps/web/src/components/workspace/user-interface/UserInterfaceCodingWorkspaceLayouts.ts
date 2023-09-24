@@ -15,6 +15,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
     items: [
       {
         activeTabId: mode === 'practice' ? 'description' : 'solution',
+        collapsible: true,
         defaultSize: 30,
         id: 'left-column',
         tabs: [
@@ -32,6 +33,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
       },
       {
         activeTabId: activeFile,
+        collapsible: true,
         defaultSize: 40,
         id: 'center-column',
         tabs: [
@@ -49,6 +51,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
       },
       {
         activeTabId: 'preview',
+        collapsible: true,
         defaultSize: 30,
         id: 'right-column',
         tabs: [
@@ -85,6 +88,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
         items: [
           {
             activeTabId: mode === 'practice' ? 'description' : 'solution',
+            collapsible: true,
             id: 'left-top',
             tabs: [
               {
@@ -101,6 +105,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
           },
           {
             activeTabId: 'file_explorer',
+            collapsible: true,
             id: 'left-bottom',
             tabs: [
               {
@@ -115,6 +120,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
       },
       {
         activeTabId: activeFile,
+        collapsible: true,
         defaultSize: 40,
         id: 'center-column',
         tabs: [
@@ -133,6 +139,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
         items: [
           {
             activeTabId: 'preview',
+            collapsible: true,
             defaultSize: 60,
             id: 'right-top',
             tabs: [
@@ -145,6 +152,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
           },
           {
             activeTabId: 'console',
+            collapsible: true,
             defaultSize: 40,
             id: 'right-bottom',
             tabs: [
