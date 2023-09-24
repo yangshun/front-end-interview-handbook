@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import cancellableTimeout from '../setup/src/cancellable-timeout';
+import cancellableTimeoutJs from '../setup/src/cancellable-timeout.js';
+import cancellableTimeoutTs from '../setup/src/cancellable-timeout.ts';
 import cancellableTimeoutAlt from '../setup/src/cancellable-timeout-alt';
 import cancellableTimeoutBoolean from '../setup/src/cancellable-timeout-boolean';
 
@@ -12,7 +13,9 @@ The benefit of returning a cancel function as opposed to a `timerId` is that the
 
 `setTimeout` returns a timer ID. To cancel the timer, we can call `clearTimeout(timerId)`. One simple way to solve this question is to return a function that does exactly that. We can forward all the parameters to `setTimeout`.
 
-<MDXCodeBlock>{cancellableTimeout}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: cancellableTimeoutJs, tsx: cancellableTimeoutTs }}
+/>
 
 We can simplify the code a little and forward all the parameters to `setTimeout`.
 
