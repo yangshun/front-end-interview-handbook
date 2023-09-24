@@ -1,11 +1,12 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import compact from '../setup/src/compact';
+import compactJs from '../setup/src/compact.js';
+import compactTs from '../setup/src/compact.ts';
 import compactFilter from '../setup/src/compact-filter';
 
 ## Solution
 
-<MDXCodeBlock>{compact}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: compactJs, tsx: compactTs }} />
 
 Here's a simpler solution that leverages `Array.prototype.filter`.
 
