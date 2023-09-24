@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import compact from '../setup/src/compact-ii';
+import compactJs from '../setup/src/compact-ii.js';
+import compactTs from '../setup/src/compact-ii.ts';
 import compactFunctional from '../setup/src/compact-ii-functional';
 
 ## Solution
@@ -13,7 +14,7 @@ Since there are only primitives, arrays, and objects for this question, there ar
 1. **Arrays**: Iterate through the array and if the item is non-falsey, recursively call `compact` on the item, adding the returned compacted item into a new array. Return the new compacted array at the end.
 1. **Objects**: Iterate through the entries of the object and if the object value is non-falsey, recursively call `compact` on the object, putting the returned compacted value into a new object. Return the new compacted object at the end.
 
-<MDXCodeBlock>{compact}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: compactJs, tsx: compactTs }} />
 
 Here's a shorter solution that adopts a more functional approach:
 

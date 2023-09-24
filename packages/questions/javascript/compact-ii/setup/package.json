@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/compact-ii",
   "version": "0.0.1",
-  "main": "/src/compact-ii.js",
+  "main": "/src/compact-ii.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

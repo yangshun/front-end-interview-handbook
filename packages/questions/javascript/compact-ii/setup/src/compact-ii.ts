@@ -1,8 +1,4 @@
-/**
- * @param {Array|Object} value
- * @return {Array|Object}
- */
-export default function compact(value) {
+export default function compact<T extends Array<any> | Object>(value: T): T {
   // Handle primitives.
   if (typeof value !== 'object' || value == null) {
     return value;
@@ -10,14 +6,14 @@ export default function compact(value) {
 
   // Handle arrays.
   if (Array.isArray(value)) {
-    const compactArr = [];
+    const compactArr: Array<any> = [];
     value.forEach((item) => {
       if (item) {
         compactArr.push(compact(item));
       }
     });
 
-    return compactArr;
+    return compactArr as T;
   }
 
   // Lastly handle objects.
@@ -27,5 +23,6 @@ export default function compact(value) {
       compactObj[key] = compact(val);
     }
   });
+
   return compactObj;
 }
