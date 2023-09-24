@@ -24,6 +24,7 @@ const dropAreaSectionClasses: Record<TilesPanelBodyDropAreaSection, string> = {
 };
 
 type Props = Readonly<{
+  allowDropping?: boolean;
   children: React.ReactNode;
   hidden?: boolean;
   onTabDrop: (
@@ -39,6 +40,7 @@ type Props = Readonly<{
 }>;
 
 export default function TilesPanelBody({
+  allowDropping = true,
   children,
   hidden = false,
   panelId,
@@ -55,6 +57,7 @@ export default function TilesPanelBody({
   >({
     accept: 'tab',
     canDrop: (item) =>
+      allowDropping &&
       !(item != null && item.panelId === panelId && tabs.length === 1),
     collect: (monitor) => ({
       canDrop: monitor.canDrop(),

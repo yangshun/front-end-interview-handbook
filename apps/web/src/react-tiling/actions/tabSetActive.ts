@@ -30,12 +30,18 @@ function tabSetActiveImpl(
   if (panel.type === 'item') {
     // Scope to specific panel.
     if (panelId != null && panelId !== panel.id) {
-      return panel;
+      return {
+        ...panel,
+        fullScreen: false,
+      };
     }
 
     // Non-existing tab ID, no-op.
     if (!panel.tabs.find(({ id }) => id === tabId)) {
-      return panel;
+      return {
+        ...panel,
+        fullScreen: false,
+      };
     }
 
     return {

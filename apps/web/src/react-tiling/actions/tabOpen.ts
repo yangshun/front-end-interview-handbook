@@ -71,7 +71,10 @@ function tabOpenImpl(
 ): TilesPanelConfig {
   if (panel.type === 'item') {
     if (panel.id !== panelId) {
-      return panel;
+      return {
+        ...panel,
+        fullScreen: false,
+      };
     }
 
     const newId = newTabId ?? getUniqueId();

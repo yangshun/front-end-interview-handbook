@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
 import { Fragment } from 'react';
 import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
@@ -43,6 +44,7 @@ export default function TilesPanel({
         collapsed={props.collapsed}
         collapsible={props.collapsible}
         defaultSize={defaultSize}
+        fullScreen={props.fullScreen}
         getTabLabel={getTabLabel}
         id={id}
         level={level}
@@ -55,6 +57,7 @@ export default function TilesPanel({
 
     return level === 0 ? (
       <PanelGroup
+        className="relative"
         direction="horizontal"
         disablePointerEventsDuringResize={disablePointerEventsDuringResize}>
         {panel}
@@ -68,6 +71,7 @@ export default function TilesPanel({
 
   const group = (
     <PanelGroup
+      className={clsx(level === 0 && 'relative')}
       direction={groupDirection}
       disablePointerEventsDuringResize={disablePointerEventsDuringResize}
       id={String(id)}>

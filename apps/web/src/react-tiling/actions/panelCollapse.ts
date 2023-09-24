@@ -27,6 +27,7 @@ function panelCollapseImpl(
       return {
         ...panel,
         collapsed,
+        fullScreen: false,
       };
     }
 

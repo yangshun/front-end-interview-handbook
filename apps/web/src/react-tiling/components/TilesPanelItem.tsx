@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { LuExpand, LuShrink } from 'react-icons/lu';
 import {
   RiAddLine,
   RiCloseLine,
@@ -35,6 +36,7 @@ export default function TilesPanelItem({
   collapsed,
   collapsible,
   defaultSize = 100,
+  fullScreen,
   tabs,
   level,
   order,
@@ -47,6 +49,7 @@ export default function TilesPanelItem({
   collapsed?: boolean;
   collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
+  fullScreen?: boolean;
   getTabLabel: (tabId: string) => Readonly<{
     icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -77,7 +80,8 @@ export default function TilesPanelItem({
     }
   }, [collapsed, collapsible]);
 
-  const showSplitButton = !collapsed && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
+  const showSplitButton =
+    !fullScreen && !collapsed && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
 
   return (
     <Panel
@@ -87,6 +91,7 @@ export default function TilesPanelItem({
         ['border', themeLineColor],
         themeBackgroundColor,
         ['divide-y', themeDivideColor],
+        fullScreen && 'absolute inset-0 z-10',
       )}
       collapsedSize={5}
       collapsible={collapsible}
@@ -175,7 +180,8 @@ export default function TilesPanelItem({
               }
             />
           )}
-          {collapsible &&
+          {!fullScreen &&
+            collapsible &&
             (collapsed ? (
               <Button
                 icon={
@@ -219,6 +225,42 @@ export default function TilesPanelItem({
                 }}
               />
             ))}
+          {(!collapsible || (collapsible && !collapsed)) &&
+            (fullScreen ? (
+              <Button
+                icon={LuShrink}
+                isLabelHidden={true}
+                label="Shrink"
+                size="xs"
+                variant="tertiary"
+                onClick={() => {
+                  dispatch({
+                    payload: {
+                      fullScreen: false,
+                      panelId,
+                    },
+                    type: 'panel-full-screen',
+                  });
+                }}
+              />
+            ) : (
+              <Button
+                icon={LuExpand}
+                isLabelHidden={true}
+                label="Expand"
+                size="xs"
+                variant="tertiary"
+                onClick={() => {
+                  dispatch({
+                    payload: {
+                      fullScreen: true,
+                      panelId,
+                    },
+                    type: 'panel-full-screen',
+                  });
+                }}
+              />
+            ))}
           {tabs.every((tab) => tab.closeable) && (
             <Button
               icon={RiCloseLine}
@@ -240,6 +282,7 @@ export default function TilesPanelItem({
         </div>
       </div>
       <TilesPanelBody
+        allowDropping={!fullScreen}
         hidden={collapsed}
         panelId={panelId}
         tabs={tabs}

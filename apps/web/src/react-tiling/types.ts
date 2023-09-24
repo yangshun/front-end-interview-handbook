@@ -12,6 +12,7 @@ export type TilesPanelItemConfig = Readonly<{
   collapsed?: boolean;
   collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
+  fullScreen?: boolean;
   id: string;
   tabs: ReadonlyArray<TilesPanelItemTab>;
   type: 'item';

@@ -118,7 +118,10 @@ function tabReorder(
 
   if (panel.type === 'item') {
     if (panel.id !== srcPanelId) {
-      return panel;
+      return {
+        ...panel,
+        fullScreen: false,
+      };
     }
 
     const srcTabIndex = panel.tabs.findIndex(({ id }) => id === srcTabId);

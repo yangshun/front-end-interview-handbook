@@ -72,7 +72,10 @@ function panelSplitImpl(
   // Only items can be split.
   if (panel.type === 'item') {
     if (panel.id !== panelIdToSplit) {
-      return panel;
+      return {
+        ...panel,
+        fullScreen: false,
+      };
     }
 
     const newTabId_ = newTabId ?? getUniqueId();
@@ -83,6 +86,7 @@ function panelSplitImpl(
       ...panel,
       id: getUniqueId(),
       type: 'item',
+      fullScreen: false,
     } as const;
     const newPanel = {
       activeTabId: newTabId_,

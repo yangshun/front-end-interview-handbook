@@ -48,7 +48,10 @@ function tabCloseImpl(
 ): TilesPanelConfig | null {
   if (panel.type === 'item') {
     if (panel.id !== panelId) {
-      return panel;
+      return {
+        ...panel,
+        fullScreen: false,
+      };
     }
 
     const newTabs = panel.tabs.filter((tab) => tab.id !== tabId);
