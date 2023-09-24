@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import map from '../setup/src/array-map';
+import arrayMapJs from '../setup/src/array-map.js';
+import arrayMapTs from '../setup/src/array-map.ts';
 import mapSpec from '../setup/src/mapSpec';
 
 This question is pretty straightforward and just tests that you know how to access the array values within `Array.prototype` methods (using `this`).
@@ -9,7 +10,7 @@ This question is pretty straightforward and just tests that you know how to acce
 
 Initialize a new array to store the mapped results. As we loop through the array (via `this`), call the callback on each array element with the following parameters: `element`, `index`, `array`, and `this`. This can be done by either using `Function.prototype.call` or `Function.prototype.apply`.
 
-<MDXCodeBlock>{map}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: arrayMapJs, tsx: arrayMapTs }} />
 
 ## Edge Cases
 
