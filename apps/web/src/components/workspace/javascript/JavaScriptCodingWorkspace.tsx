@@ -131,7 +131,7 @@ function JavaScriptCodingWorkspaceImpl({
     solution: {
       contents: (
         <div className="w-full">
-          <div className="p-4">
+          <div className="mx-auto max-w-3xl p-4">
             <QuestionContentProse contents={solution} />
           </div>
         </div>
@@ -152,7 +152,7 @@ function JavaScriptCodingWorkspaceImpl({
     test_cases: {
       contents: (
         <div className="w-full">
-          <div className="p-4">
+          <div className="mx-auto max-w-3xl p-4">
             <QuestionContentsJavaScriptTestsCode
               contents={files[workspace.submit].code}
             />

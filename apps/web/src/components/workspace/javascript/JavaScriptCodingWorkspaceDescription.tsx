@@ -8,6 +8,7 @@ import QuestionNextQuestions from '~/components/questions/content/QuestionNextQu
 import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Badge from '~/components/ui/Badge';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
@@ -31,43 +32,39 @@ export default function JavaScriptCodingWorkspaceDescription({
   const intl = useIntl();
 
   return (
-    <div className="flex w-full flex-col">
-      <div className="flex flex-col">
-        <div className="flex items-center justify-between gap-x-4 p-4">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Heading level="heading5">{metadata.title}</Heading>
-            <div>
-              {questionProgress?.status === 'complete' && (
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Completed',
-                    description:
-                      'Label indicating that the question has been completed',
-                    id: 'iIQL6V',
-                  })}
-                  size="sm"
-                  variant="success"
-                />
-              )}
+    <div className="w-full">
+      <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
+        <div className="flex flex-col gap-y-8">
+          <div className="flex items-center justify-between gap-x-4">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Heading level="heading5">{metadata.title}</Heading>
+              <div>
+                {questionProgress?.status === 'complete' && (
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description:
+                        'Label indicating that the question has been completed',
+                      id: 'iIQL6V',
+                    })}
+                    size="sm"
+                    variant="success"
+                  />
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className={clsx(
-            'flex items-center gap-x-4 p-4',
-            'bg-neutral-100 dark:bg-neutral-900',
-          )}>
           <QuestionMetadataSection metadata={metadata} />
         </div>
-      </div>
-      <div className="flex flex-col gap-y-8 p-4">
-        <QuestionContentProse contents={description} />
-        <QuestionCompanies
-          canViewPremiumContent={canViewPremiumContent}
-          companies={metadata.companies}
-        />
-        <QuestionNextQuestions questions={nextQuestions} />
-        <QuestionSimilarQuestions questions={similarQuestions} />
+        <div className="flex flex-col gap-y-8">
+          <QuestionContentProse contents={description} />
+          <QuestionCompanies
+            canViewPremiumContent={canViewPremiumContent}
+            companies={metadata.companies}
+          />
+          <QuestionNextQuestions questions={nextQuestions} />
+          <QuestionSimilarQuestions questions={similarQuestions} />
+        </div>
       </div>
     </div>
   );

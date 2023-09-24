@@ -91,7 +91,7 @@ export default function TilesPanelItem({
         ['border', themeLineColor],
         themeBackgroundColor,
         ['divide-y', themeDivideColor],
-        fullScreen && 'absolute inset-0 z-10',
+        fullScreen && 'absolute inset-0 z-20',
       )}
       collapsedSize={5}
       collapsible={collapsible}
