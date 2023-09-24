@@ -90,6 +90,7 @@ function panelSplitImpl(
     } as const;
     const newPanel = {
       activeTabId: newTabId_,
+      collapsible: true,
       id: getUniqueId(),
       tabs: [
         {
@@ -123,6 +124,7 @@ function panelSplitImpl(
 
     const newPanel = {
       activeTabId: newTabId_,
+      collapsible: true,
       id: getUniqueId(),
       tabs: [
         {

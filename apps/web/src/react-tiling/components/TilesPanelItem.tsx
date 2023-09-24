@@ -18,10 +18,12 @@ import type {
 import { Panel } from 'react-resizable-panels';
 
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundColor,
   themeDivideColor,
   themeLineColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import TilesPanelBody from './TilesPanelBody';
@@ -86,9 +88,85 @@ export default function TilesPanelItem({
   const showSplitButton =
     !fullScreen && !collapsed && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
 
+  const commonProps = {
+    collapsible,
+    defaultSize,
+    id: panelId,
+    onCollapse: (collapsedValue: boolean) =>
+      dispatch({
+        payload: {
+          collapsed: collapsedValue,
+          panelId,
+        },
+        type: 'panel-collapse',
+      }),
+    order,
+    ref,
+  };
+
+  if (parentDirection === 'horizontal' && collapsed) {
+    return (
+      <Panel
+        {...commonProps}
+        className={clsx(
+          'flex flex-col items-stretch rounded-lg py-2',
+          ['border', themeLineColor],
+          themeBackgroundColor,
+        )}
+        collapsedSize={3}>
+        <div className="flex justify-center">
+          <Button
+            icon={RiExpandLeftRightFill}
+            isLabelHidden={true}
+            label="Expand"
+            size="xs"
+            variant="tertiary"
+            onClick={() => {
+              dispatch({
+                payload: {
+                  collapsed: false,
+                  panelId,
+                },
+                type: 'panel-collapse',
+              });
+            }}
+          />
+        </div>
+        <Divider className="mb-2 mt-1" />
+        <div className="flex flex-col items-center gap-y-4">
+          {tabs.map((tabItem) => {
+            const { icon, label } = getTabLabel(tabItem.id);
+
+            return (
+              <Button
+                key={tabItem.id}
+                className={themeTextSubtleColor}
+                href={tabItem.href}
+                icon={icon}
+                isLabelHidden={true}
+                label={label}
+                size="xs"
+                variant="tertiary"
+                onClick={() => {
+                  dispatch({
+                    payload: {
+                      panelId,
+                      tabId: tabItem.id,
+                    },
+                    type: 'tab-set-active',
+                  });
+                }}
+              />
+            );
+          })}
+        </div>
+      </Panel>
+    );
+  }
+
   return (
     <Panel
-      ref={ref}
+      {...commonProps}
       className={clsx(
         'flex flex-col rounded-lg',
         ['border', themeLineColor],
@@ -96,20 +174,7 @@ export default function TilesPanelItem({
         ['divide-y', themeDivideColor],
         fullScreen && 'absolute inset-0 z-20',
       )}
-      collapsedSize={5}
-      collapsible={collapsible}
-      defaultSize={defaultSize}
-      id={panelId}
-      order={order}
-      onCollapse={(collapsedValue) => {
-        dispatch({
-          payload: {
-            collapsed: collapsedValue,
-            panelId,
-          },
-          type: 'panel-collapse',
-        });
-      }}>
+      collapsedSize={5}>
       <div
         className={clsx(
           'flex shrink-0 items-center justify-between px-2',

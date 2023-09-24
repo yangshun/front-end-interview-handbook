@@ -15,7 +15,9 @@ export const themeTextSubtitleColor = clsx(
 export const themeTextSecondaryColor = clsx(
   'text-neutral-600 dark:text-neutral-400',
 );
-export const themeTextSubtleColor = clsx('text-neutral-500');
+export const themeTextSubtleColor = clsx(
+  'text-neutral-500 dark:text-neutral-500',
+);
 export const themeTextFaintColor = clsx(
   'text-neutral-400 dark:text-neutral-600',
 );
