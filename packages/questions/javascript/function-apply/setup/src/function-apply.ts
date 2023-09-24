@@ -1,7 +1,7 @@
 interface Function {
-  myApply(thisArg: any, args: any[]): any;
+  myApply(this: any, thisArg: any, argArray?: any[]): any;
 }
 
-Function.prototype.myApply = function (thisArg, args = []) {
-  return this.bind(thisArg)(...args);
+Function.prototype.myApply = function (thisArg, argArray = []) {
+  return this.bind(thisArg)(...argArray);
 };

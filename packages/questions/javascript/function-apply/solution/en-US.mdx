@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import functionApply from '../setup/src/function-apply';
+import functionApplyJs from '../setup/src/function-apply.js';
+import functionApplyTs from '../setup/src/function-apply.ts';
 import functionApplyAlt from '../setup/src/function-apply-alt';
 import functionApplyCall from '../setup/src/function-apply-call';
 import functionApplySymbol from '../setup/src/function-apply-symbol';
@@ -9,23 +10,23 @@ The `Function.prototype.apply()` function is a built-in method in JavaScript tha
 
 ## Solution
 
-As `Function.prototype.apply()` takes in an array of arguments, we have to define a default empty array parameter for `args` if we are to spread it, because we can only spread iterables.
+As `Function.prototype.apply()` takes in an array of arguments, we have to define a default empty array parameter for `argArray` if we are to spread it, because we can only spread iterables.
 
 ### Solution 1: Using `bind`
 
 `bind`, `apply`, and `call` can be viewed as sibling functions. They're highly similar in terms of function signature and usage. Within `Function.prototype` methods, `this` refers to the `Function` object itself. If the `this` context is not used at all, the following will work:
 
 ```js
-Function.prototype.myApply = function (thisArg, args = []) {
-  return this(...args);
+Function.prototype.myApply = function (thisArg, argArray = []) {
+  return this(...argArray);
 };
 ```
 
 However, `thisArg` is still used widely in modern code, so we need another way to do this. `Function.prototype.bind` creates a new function with a specified `this` value and initial arguments, without executing the original function immediately. It allows us to permanently bind a specific context (`this` value) to the function and partially apply arguments if needed. This is exactly what we need to bridge the gap in the solution above.
 
-<MDXCodeBlock>{functionApply}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: functionApplyJs, tsx: functionApplyTs }} />
 
-Or you can also pass the `args` into `bind()` before executing it.
+Or you can also pass the `argArray` into `bind()` before executing it.
 
 <MDXCodeBlock>{functionApplyAlt}</MDXCodeBlock>
 

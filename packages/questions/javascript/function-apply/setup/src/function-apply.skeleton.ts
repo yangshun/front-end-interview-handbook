@@ -1,5 +1,5 @@
 interface Function {
-  myApply(thisArg: any, args: any[]): any;
+  myApply(this: any, thisArg: any, argArray?: any[]): any;
 }
 
 Function.prototype.myApply = function (thisArg, args) {
