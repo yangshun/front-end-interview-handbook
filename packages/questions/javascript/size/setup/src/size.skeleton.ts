@@ -1,4 +1,4 @@
-function size(
+export default function size(
   collection:
     | Array<any>
     | Object

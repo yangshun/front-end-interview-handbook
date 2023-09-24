@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import size from '../setup/src/size';
+import sizeJs from '../setup/src/size.js';
+import sizeTs from '../setup/src/size.ts';
 
 ## Solution
 
@@ -8,7 +9,7 @@ This question evaluates one's knowledge on the different JavaScript types and ho
 
 It's crucial to know how to differentiate between the different object types. `typeof collection` gives you `'object'` for `Array`s, `Map`s, `Set`s, `Object`s, and even `null`! Hence it's necessary to check for the more specific types earlier in the code and use the appropriate API to obtain the collection length.
 
-<MDXCodeBlock>{size}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: sizeJs, tsx: sizeTs }} />
 
 ## Resources
 
