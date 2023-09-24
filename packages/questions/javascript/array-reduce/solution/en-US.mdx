@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import reduce from '../setup/src/array-reduce';
+import arrayReduceJs from '../setup/src/array-reduce.js';
+import arrayReduceTs from '../setup/src/array-reduce.ts';
 import reduceSpec from '../setup/src/reduceSpec';
 
 This question might seem easy on first glance, but the nuances make the question trickier than it seems on the surface. Knowing the nuances differentiates senior candidates and gives you bonus points. Are you aware that:
@@ -12,7 +13,7 @@ This question might seem easy on first glance, but the nuances make the question
 
 The rest of the implementation is straightforward with these nuances taken into account. As we loop through the array (via `this`), call the callback on each array element with the following parameters: `acc`, `element`, `index`, and `this`. The returned value will become the new `acc` to be passed to the next call of the `callbackFn`.
 
-<MDXCodeBlock>{reduce}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: arrayReduceJs, tsx: arrayReduceTs }} />
 
 ## Edge Cases
 
