@@ -59,7 +59,7 @@ describe('setCancellableInterval', () => {
     let count = 0;
 
     const cancel = setCancellableInterval(
-      (foo, bar) => {
+      (foo: number, bar: number) => {
         count++;
         i += foo;
         i *= bar;
