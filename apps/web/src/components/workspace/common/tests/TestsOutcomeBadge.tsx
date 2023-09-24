@@ -1,13 +1,8 @@
 import clsx from 'clsx';
 
-import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
-import {
-  failTextClassName,
-  passTextClassName,
-  skipTextClassName,
-} from './style';
+import { skipTextClassName } from './style';
 import type { TestResults } from './types';
 
 export type TestsOutcome =

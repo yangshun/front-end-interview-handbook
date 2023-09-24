@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -24,7 +23,6 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { useI18nRouter } from '~/next-i18nostic/src';

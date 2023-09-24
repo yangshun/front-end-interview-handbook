@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
@@ -8,7 +7,6 @@ import QuestionNextQuestions from '~/components/questions/content/QuestionNextQu
 import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Badge from '~/components/ui/Badge';
-import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
