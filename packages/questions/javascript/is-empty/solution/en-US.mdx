@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import isEmpty from '../setup/src/is-empty';
+import isEmptyJs from '../setup/src/is-empty.js';
+import isEmptyTs from '../setup/src/is-empty.ts';
 
 ## Solution
 
@@ -10,7 +11,7 @@ The order of checking isn't too important, but `Object` is a base type for many 
 
 Note that Lodash's implementation of `isEmpty` also checks for less common data types like `arguments` objects and DOM collections but we've excluded that from the solution.
 
-<MDXCodeBlock>{isEmpty}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: isEmptyJs, tsx: isEmptyTs }} />
 
 ## Resources
 

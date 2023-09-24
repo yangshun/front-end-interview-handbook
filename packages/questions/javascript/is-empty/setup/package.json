@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/is-empty",
   "version": "0.0.1",
-  "main": "/src/is-empty.js",
+  "main": "/src/is-empty.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

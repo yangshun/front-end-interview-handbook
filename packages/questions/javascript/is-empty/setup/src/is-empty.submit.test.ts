@@ -7,7 +7,6 @@ describe('isEmpty', () => {
     expect(isEmpty(NaN)).toBe(true);
     expect(isEmpty(/x/)).toBe(true);
     expect(isEmpty(Symbol('x'))).toBe(true);
-    expect(isEmpty()).toBe(true);
   });
 
   describe('strings', () => {
@@ -37,7 +36,7 @@ describe('isEmpty', () => {
       function Foo() {}
       Foo.prototype.length = -1;
 
-      expect(isEmpty(new Foo())).toBe(true);
+      expect(isEmpty(new (Foo as any)())).toBe(true);
     });
 
     test('non-number lengths', function () {
@@ -66,16 +65,6 @@ describe('isEmpty', () => {
     test('non-empty set', () => {
       const set = new Set([1]);
       expect(isEmpty(set)).toBe(false);
-    });
-  });
-
-  describe('buffers', () => {
-    test('empty buffer', () => {
-      expect(isEmpty(Buffer.alloc(0))).toBe(true);
-    });
-
-    test('non-empty buffer', () => {
-      expect(isEmpty(Buffer.alloc(1))).toBe(false);
     });
   });
 

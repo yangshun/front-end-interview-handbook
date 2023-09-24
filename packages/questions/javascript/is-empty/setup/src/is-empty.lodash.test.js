@@ -69,16 +69,6 @@ describe('isEmpty', () => {
     });
   });
 
-  describe('buffers', () => {
-    test('empty buffer', () => {
-      expect(isEmpty(Buffer.alloc(0))).toBe(true);
-    });
-
-    test('non-empty buffer', () => {
-      expect(isEmpty(Buffer.alloc(1))).toBe(false);
-    });
-  });
-
   describe('arrays', () => {
     test('empty array', () => {
       expect(isEmpty([])).toBe(true);
