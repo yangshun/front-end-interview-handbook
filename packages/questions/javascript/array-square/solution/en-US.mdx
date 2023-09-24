@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import square from '../setup/src/array-square';
+import arraySquareJs from '../setup/src/array-square.js';
+import arraySquareTs from '../setup/src/array-square.ts';
 import squareMap from '../setup/src/squareMap';
 
 ## Solution
@@ -11,7 +12,7 @@ Creation of a new array can be done using `new Array(length)` or creating an emp
 
 Elements of the array can be accessed via `this[index]`.
 
-<MDXCodeBlock>{square}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: arraySquareJs, tsx: arraySquareTs }} />
 
 Simpler version using `Array.prototype.map()`.
 
