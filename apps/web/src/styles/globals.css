@@ -7,7 +7,7 @@
     position: relative;
   }
   .theme-bg-radial-glow::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -16,7 +16,12 @@
     height: 600px;
     background-position: top;
     background-size: cover;
-    background-image: radial-gradient(78.57% 78.57% at 50.65% 0.84%, #E9D5FF 0%, #8383FD 0%, rgba(15, 23, 42, 0.0001) 100%);
+    background-image: radial-gradient(
+      78.57% 78.57% at 50.65% 0.84%,
+      #e9d5ff 0%,
+      #8383fd 0%,
+      rgba(15, 23, 42, 0.0001) 100%
+    );
     opacity: 0.5;
     z-index: -1;
     border-radius: inherit;
@@ -71,11 +76,19 @@ a {
   }
 
   .thin-scrollbar::-webkit-scrollbar-thumb {
-    background: #ffffff22;
+    background: #00000022;
     border-radius: 4px;
   }
 
+  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffffff22;
+  }
+
   .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00000044;
+  }
+
+  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #ffffff44;
   }
 }
