@@ -1,12 +1,13 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import functionLength from '../setup/src/function-length';
+import functionLengthJs from '../setup/src/function-length.js';
+import functionLengthTs from '../setup/src/function-length.ts';
 
 ## Solution
 
 All function instances have a `length` property which indicates the number of parameters expected by the function.
 
-<MDXCodeBlock>{functionLength}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: functionLengthJs, tsx: functionLengthTs }} />
 
 ## Notes
 
