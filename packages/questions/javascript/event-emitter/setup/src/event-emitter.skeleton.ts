@@ -1,7 +1,7 @@
 interface IEventEmitter {
   on(eventName: string, listener: Function): IEventEmitter;
   off(eventName: string, listener: Function): IEventEmitter;
-  emit(eventName: string, ...args: any[]): boolean;
+  emit(eventName: string, ...args: Array<any>): boolean;
 }
 
 // You are free to use alternative approaches of
@@ -20,7 +20,7 @@ export default class EventEmitter implements IEventEmitter {
     throw 'Not implemented!';
   }
 
-  emit(eventName: string, ...args: any[]): boolean {
+  emit(eventName: string, ...args: Array<any>): boolean {
     throw 'Not implemented!';
   }
 }

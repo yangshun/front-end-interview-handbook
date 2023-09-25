@@ -95,7 +95,7 @@ describe('EventEmitter', () => {
         const emitter = new EventEmitter();
 
         let sum = 0;
-        emitter.on('foo', (a) => {
+        emitter.on('foo', (a: number) => {
           sum = a;
         });
         emitter.emit('foo', 3);
@@ -109,7 +109,7 @@ describe('EventEmitter', () => {
         const emitter = new EventEmitter();
 
         let sum = 0;
-        emitter.on('foo', (a, b) => {
+        emitter.on('foo', (a: number, b: number) => {
           sum = a + b;
         });
         emitter.emit('foo', 3, 5);
@@ -123,7 +123,7 @@ describe('EventEmitter', () => {
         const emitter = new EventEmitter();
 
         let product = 0;
-        emitter.on('foo', (a, b, c) => {
+        emitter.on('foo', (a: number, b: number, c: number) => {
           product = a * b * c;
         });
         emitter.emit('foo', 3, 5, 6);
@@ -146,7 +146,7 @@ describe('EventEmitter', () => {
       const emitter = new EventEmitter();
 
       let sum = 0;
-      function addTwoNumbers(a, b) {
+      function addTwoNumbers(a: number, b: number) {
         sum = a + b;
       }
       emitter.on('foo', addTwoNumbers);
@@ -162,7 +162,7 @@ describe('EventEmitter', () => {
       const emitter = new EventEmitter();
 
       let sum = 0;
-      function addTwoNumbers(a, b) {
+      function addTwoNumbers(a: number, b: number) {
         sum = a + b;
       }
       emitter.on('foo', addTwoNumbers);
@@ -170,7 +170,7 @@ describe('EventEmitter', () => {
       expect(sum).toBe(7);
 
       let product = 0;
-      function multiplyTwoNumbers(a, b) {
+      function multiplyTwoNumbers(a: number, b: number) {
         product = a * b;
       }
       emitter.on('foo', multiplyTwoNumbers);
@@ -193,7 +193,7 @@ describe('EventEmitter', () => {
       const emitter = new EventEmitter();
 
       let sum = 0;
-      function addTwoNumbers(a, b) {
+      function addTwoNumbers(a: number, b: number) {
         sum = a + b;
       }
       emitter.on('foo', addTwoNumbers);

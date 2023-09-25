@@ -6,237 +6,28 @@ describe('EventEmitter', () => {
     expect(emitter).toBeInstanceOf(EventEmitter);
   });
 
-  describe('methods can be chained', () => {
-    test('on() can be chained', () => {
-      const emitter = new EventEmitter();
-      emitter.on('foo', () => {}).on('foo', () => {});
+  test('subscribe', () => {
+    const emitter = new EventEmitter();
+    let a = 0;
+    emitter.on('foo', () => {
+      a = 1;
     });
+    emitter.emit('foo');
 
-    test('off() can be chained', () => {
-      const emitter = new EventEmitter();
-      emitter.off('foo', () => {}).off('foo', () => {});
-    });
+    expect(a).toBe(1);
   });
 
-  describe('subscribe', () => {
-    test('single listener', () => {
-      const emitter = new EventEmitter();
-      let a = 0;
-      emitter.on('foo', () => {
-        a = 1;
-      });
-      emitter.emit('foo');
+  test('emit', () => {
+    const emitter = new EventEmitter();
 
-      expect(a).toBe(1);
+    let sum = 0;
+    emitter.on('foo', (a: number) => {
+      sum = a;
     });
+    emitter.emit('foo', 3);
+    expect(sum).toBe(3);
 
-    test('multiple listeners', () => {
-      const emitter = new EventEmitter();
-      let a = 0,
-        b = 1;
-      emitter.on('foo', () => {
-        a = 1;
-      });
-      emitter.on('foo', () => {
-        b = 3;
-      });
-      emitter.emit('foo');
-
-      expect(a).toBe(1);
-      expect(b).toBe(3);
-    });
-
-    test('multiple events', () => {
-      const emitter = new EventEmitter();
-      let a = 0,
-        b = 1;
-      emitter.on('foo', () => {
-        a = 1;
-      });
-      emitter.on('bar', () => {
-        b = 3;
-      });
-      emitter.emit('foo');
-      expect(a).toBe(1);
-      expect(b).toBe(1);
-
-      emitter.emit('bar');
-      expect(b).toBe(3);
-    });
-
-    test('same listener added multiple times', () => {
-      const emitter = new EventEmitter();
-
-      let num = 1;
-      function square() {
-        num *= 2;
-      }
-
-      emitter.on('square', square);
-      emitter.emit('square');
-      expect(num).toBe(2);
-
-      emitter.on('square', square);
-      emitter.emit('square');
-      expect(num).toBe(8);
-    });
-  });
-
-  describe('emit', () => {
-    test('existing event returns true', () => {
-      const emitter = new EventEmitter();
-
-      emitter.on('foo', () => {});
-      expect(emitter.emit('foo')).toBe(true);
-    });
-
-    describe('listeners are invoked with arguments', () => {
-      test('single argument', () => {
-        const emitter = new EventEmitter();
-
-        let sum = 0;
-        emitter.on('foo', (a) => {
-          sum = a;
-        });
-        emitter.emit('foo', 3);
-        expect(sum).toBe(3);
-
-        emitter.emit('foo', 5);
-        expect(sum).toBe(5);
-      });
-
-      test('two arguments', () => {
-        const emitter = new EventEmitter();
-
-        let sum = 0;
-        emitter.on('foo', (a, b) => {
-          sum = a + b;
-        });
-        emitter.emit('foo', 3, 5);
-        expect(sum).toBe(8);
-
-        emitter.emit('foo', 4, 13);
-        expect(sum).toBe(17);
-      });
-
-      test('three arguments', () => {
-        const emitter = new EventEmitter();
-
-        let product = 0;
-        emitter.on('foo', (a, b, c) => {
-          product = a * b * c;
-        });
-        emitter.emit('foo', 3, 5, 6);
-        expect(product).toBe(90);
-
-        emitter.emit('foo', 4, 13, 9);
-        expect(product).toBe(468);
-      });
-    });
-
-    test('non-existing event returns false', () => {
-      const emitter = new EventEmitter();
-
-      expect(emitter.emit('foo')).toBe(false);
-    });
-  });
-
-  describe('unsubscribe', () => {
-    test('single listener', () => {
-      const emitter = new EventEmitter();
-
-      let sum = 0;
-      function addTwoNumbers(a, b) {
-        sum = a + b;
-      }
-      emitter.on('foo', addTwoNumbers);
-      expect(emitter.emit('foo', 2, 5)).toBe(true);
-      expect(sum).toBe(7);
-
-      emitter.off('foo', addTwoNumbers);
-      expect(emitter.emit('foo', -3, 9)).toBe(false);
-      expect(sum).toBe(7);
-    });
-
-    test('multiple listeners', () => {
-      const emitter = new EventEmitter();
-
-      let sum = 0;
-      function addTwoNumbers(a, b) {
-        sum = a + b;
-      }
-      emitter.on('foo', addTwoNumbers);
-      expect(emitter.emit('foo', 2, 5)).toBe(true);
-      expect(sum).toBe(7);
-
-      let product = 0;
-      function multiplyTwoNumbers(a, b) {
-        product = a * b;
-      }
-      emitter.on('foo', multiplyTwoNumbers);
-      expect(emitter.emit('foo', 4, 5)).toBe(true);
-      expect(sum).toBe(9);
-      expect(product).toBe(20);
-
-      emitter.off('foo', addTwoNumbers);
-      expect(emitter.emit('foo', -3, 9)).toBe(true);
-      expect(sum).toBe(9);
-      expect(product).toBe(-27);
-
-      emitter.off('foo', multiplyTwoNumbers);
-      expect(emitter.emit('foo', 3, 7)).toBe(false);
-      expect(sum).toBe(9);
-      expect(product).toBe(-27);
-    });
-
-    test('multiple events', () => {
-      const emitter = new EventEmitter();
-
-      let sum = 0;
-      function addTwoNumbers(a, b) {
-        sum = a + b;
-      }
-      emitter.on('foo', addTwoNumbers);
-      expect(emitter.emit('foo', 2, 5)).toBe(true);
-      expect(sum).toBe(7);
-
-      expect(emitter.emit('bar', 3, 7)).toBe(false);
-      emitter.on('bar', addTwoNumbers);
-      expect(emitter.emit('bar', 3, 7)).toBe(true);
-      expect(sum).toBe(10);
-
-      emitter.off('foo', addTwoNumbers);
-      expect(emitter.emit('foo', -3, 9)).toBe(false);
-      expect(sum).toBe(10);
-
-      emitter.off('bar', addTwoNumbers);
-      expect(emitter.emit('bar', -3, 9)).toBe(false);
-      expect(sum).toBe(10);
-    });
-
-    test('same listener added multiple times removed correctly', () => {
-      const emitter = new EventEmitter();
-
-      let num = 1;
-      function square() {
-        num *= 2;
-      }
-
-      emitter.on('square', square);
-      emitter.emit('square');
-      expect(num).toBe(2);
-
-      emitter.on('square', square);
-      emitter.emit('square');
-      expect(num).toBe(8);
-
-      emitter.off('square', square);
-      emitter.emit('square');
-      expect(num).toBe(16);
-
-      emitter.off('square', square);
-      emitter.emit('square');
-      expect(num).toBe(16);
-    });
+    emitter.emit('foo', 5);
+    expect(sum).toBe(5);
   });
 });
