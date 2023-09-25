@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import debounce from '../setup/src/debounce-ii';
+import debounceJs from '../setup/src/debounce-ii.js';
+import debounceTs from '../setup/src/debounce-ii.ts';
 
 **Note:** This is an advanced version of [Debounce](/questions/javascript/debounce), you should complete that first before attempting this question.
 
@@ -31,7 +32,7 @@ Since `invoke` can be called from two places (within the `setTimeout` after a de
 
 The implementation of `clearTimer` is simple, we can do `setTimeout(timeoutId)` and set `timeoutId` to be `null`.
 
-<MDXCodeBlock>{debounce}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
 
 ## Edge Cases
 
