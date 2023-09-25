@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import mergeData from '../setup/src/data-merging';
+import mergeDataJs from '../setup/src/data-merging.js';
+import mergeDataTs from '../setup/src/data-merging.ts';
 
 ## Solution
 
@@ -15,7 +16,7 @@ We can initialize a new array `results`, and adding user sessions into it. Befor
 
 The values within `results` and `sessionsForUser` point to the same object instances, such that updating the object instance will update the contents of both containers. To efficiently combine the `equipment` field, we can use a `Set` while processing and convert the field back into an array at the end just before returning. The time complexity required for sorting of the `equipment` field while merging is considered constant because there are only 5 different equipments.
 
-<MDXCodeBlock>{mergeData}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: mergeDataJs, tsx: mergeDataTs }} />
 
 ## Techniques
 

@@ -1,5 +1,5 @@
-export default function mergeData(
-  sessions: Array<{ user: number; duration: number; equipment: Array<string> }>,
-): Array<any> {
+type Session = { user: number; duration: number; equipment: Array<string> };
+
+export default function mergeData(sessions: Array<Session>): Array<Session> {
   throw 'Not implemented!';
 }

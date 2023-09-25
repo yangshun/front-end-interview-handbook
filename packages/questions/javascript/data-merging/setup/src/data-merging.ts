@@ -1,9 +1,11 @@
-/**
- * @param {Array<{user: number, duration: number, equipment: Array<string>}>} sessions
- * @return {Array<{user: number, duration: number, equipment: Array<string>}>}
- */
-export default function mergeData(sessions) {
-  const results = [];
+type Session = { user: number; duration: number; equipment: Array<string> };
+
+export default function mergeData(sessions: Array<Session>): Array<Session> {
+  const results: Array<{
+    user: number;
+    duration: number;
+    equipment: Set<string>;
+  }> = [];
   const sessionsForUser = new Map();
 
   sessions.forEach((session) => {
