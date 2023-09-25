@@ -1,7 +1,8 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import solution from '../setup/src/event-emitter-ii';
-import solutionFunctionPrototype from '../setup/src/eventEmitterFunctionPrototype';
+import eventEmitterJs from '../setup/src/event-emitter-ii.js';
+import eventEmitterTs from '../setup/src/event-emitter-ii.ts';
+import eventEmitterFunctionPrototype from '../setup/src/eventEmitterFunctionPrototype';
 
 An event-based interaction model is the most common way of building user interfaces. The DOM is also built around this model with the `document.addEventListener()` and `document.removeEventListener()` APIs to allow responding to events like `click`, `hover`, `input`, etc.
 
@@ -114,11 +115,11 @@ To pass the rest of the arguments to each listener, we have to use `...args` in 
 
 ### Class-based Solution
 
-<MDXCodeBlock>{solution}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: eventEmitterJs, tsx: eventEmitterTs }} />
 
 ### Function prototype-based Solution
 
-<MDXCodeBlock>{solutionFunctionPrototype}</MDXCodeBlock>
+<MDXCodeBlock>{eventEmitterFunctionPrototype}</MDXCodeBlock>
 
 ## Edge Cases
 
