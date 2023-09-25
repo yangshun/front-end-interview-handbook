@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import curry from '../setup/src/curry-iii';
+import curryJs from '../setup/src/curry-iii.js';
+import curryTs from '../setup/src/curry-iii.ts';
 
 This solution assumes you have completed the [Curry II](/questions/javascript/curry-ii) question and fully understand its solution.
 
@@ -31,7 +32,7 @@ This is not what we want. We want to call arbitrary logic when a function is use
 
 Hence the solution to this question can be obtained by modifying the solution of Curry II slightly and calling `func.apply(this, args)` within the method of `Symbol.toPrimitive`.
 
-<MDXCodeBlock>{curry}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: curryJs, tsx: curryTs }} />
 
 ## Edge Cases
 

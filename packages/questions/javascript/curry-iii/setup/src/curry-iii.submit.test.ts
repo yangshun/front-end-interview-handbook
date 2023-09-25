@@ -1,9 +1,9 @@
 import curry from './curry-iii';
 
-function multiply(...numbers) {
+function multiply(...numbers: Array<number>) {
   return numbers.reduce((a, b) => a * b, 1);
 }
-function sum(...numbers) {
+function sum(...numbers: Array<number>) {
   return numbers.reduce((a, b) => a + b, 0);
 }
 
@@ -69,7 +69,7 @@ describe('curry', () => {
 
   describe('can access this', () => {
     test('single parameter', () => {
-      const curried = curry(function (val) {
+      const curried = curry(function (this: any, val: number) {
         return this.multiplier * val;
       });
 
@@ -79,7 +79,7 @@ describe('curry', () => {
     });
 
     test('two arguments', () => {
-      const curried = curry(function (foo, bar) {
+      const curried = curry(function (this: any, foo: number, bar: number) {
         return this.base * foo + bar;
       });
 
@@ -92,7 +92,7 @@ describe('curry', () => {
     });
 
     test('variadic arguments', () => {
-      const curried = curry(function (...numbers) {
+      const curried = curry(function (this: any, ...numbers: Array<number>) {
         return this.multiplier * numbers.reduce((a, b) => a * b, 1);
       });
 
