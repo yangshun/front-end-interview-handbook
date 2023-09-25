@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import curry from '../setup/src/curry-ii';
+import curryJs from '../setup/src/curry-ii.js';
+import curryTs from '../setup/src/curry-ii.ts';
 import curryBind from '../setup/src/curry-ii-bind';
 import curryCall from '../setup/src/curry-ii-call';
 
@@ -27,7 +28,7 @@ We can keep a record of the curried function arguments so far via closures. Each
 
 The solutions for this question can also work for [Curry](/questions/javascript/curry/), because this solution is a general version that doesn't make any assumptions on the number of arguments needed.
 
-<MDXCodeBlock>{curry}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: curryJs, tsx: curryTs }} />
 
 An alternative solution using `Function.prototype.call`:
 
