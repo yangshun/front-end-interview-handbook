@@ -95,7 +95,7 @@ Another thing we need to watch out for: we invoke `apply` directly on `originalF
 
 To make our code more robust, we need to be more explicit here. We can either
 
-- Call `apply` via `Function.prototype.call`: [`Function.prototype.apply.call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) as in `Function.prototype.apply.call(originalFunc, context, [...boundArgs, ...args])`.
+- Call `apply` via `Function.prototype.call`: [`Function.prototype.apply.call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) as in `Function.prototype.apply.call(originalFunc, context, [...argArray, ...args])`.
 - Use [`Reflect.apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply#description): A lesser known API added to JavaScript in ES6 to call a target function with arguments as specified.
 
 Here is the robust solution:

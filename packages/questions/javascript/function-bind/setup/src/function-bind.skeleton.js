@@ -1,8 +1,8 @@
 /**
  * @param {any} thisArg
- * @param {...*} boundArgs
+ * @param {...*} argArray
  * @return {Function}
  */
-Function.prototype.myBind = function (thisArg, ...boundArgs) {
+Function.prototype.myBind = function (thisArg, ...argArray) {
   throw 'Not implemented!';
 };

@@ -1,7 +1,11 @@
 interface Function {
-  myBind(thisArg: any, ...boundArgs: any[]): Function;
+  myBind(this: Function, thisArg: any, ...argArray: any[]): Function;
 }
 
-Function.prototype.myBind = function (thisArg: any, ...boundArgs: any[]) {
+Function.prototype.myBind = function (
+  this: Function,
+  thisArg: any,
+  ...argArray: any[]
+) {
   throw 'Not implemented!';
 };

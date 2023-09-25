@@ -1,11 +1,11 @@
 /**
  * @param {any} thisArg
- * @param {...*} boundArgs
+ * @param {...*} argArray
  * @return {Function}
  */
-Function.prototype.myBind = function (thisArg, ...boundArgs) {
+Function.prototype.myBind = function (thisArg, ...argArray) {
   const originalMethod = this;
   return function (...args) {
-    return originalMethod.apply(thisArg, [...boundArgs, ...args]);
+    return originalMethod.apply(thisArg, [...argArray, ...args]);
   };
 };

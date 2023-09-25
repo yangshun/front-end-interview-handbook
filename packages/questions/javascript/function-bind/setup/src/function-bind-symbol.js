@@ -1,9 +1,9 @@
 /**
  * @param {any} thisArg
- * @param {...*} boundArgs
+ * @param {...*} argArray
  * @return {Function}
  */
-Function.prototype.myBind = function (thisArg, ...boundArgs) {
+Function.prototype.myBind = function (thisArg, ...argArray) {
   const sym = Symbol();
   const wrapperObj = Object(thisArg);
   Object.defineProperty(wrapperObj, sym, {
@@ -12,6 +12,6 @@ Function.prototype.myBind = function (thisArg, ...boundArgs) {
   });
 
   return function (...args) {
-    return wrapperObj[sym](...boundArgs, ...args);
+    return wrapperObj[sym](...argArray, ...args);
   };
 };
