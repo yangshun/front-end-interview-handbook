@@ -4,13 +4,16 @@ describe('Function.prototype.myCall', () => {
   const person = {
     name: 'John',
   };
-  function getName() {
+
+  function getName(this: any) {
     return this.name;
   }
-  function sum(...args) {
+
+  function sum(...args: Array<number>) {
     return args.reduce((acc, num) => acc + num, 0);
   }
-  function greeting(prefix, message) {
+
+  function greeting(this: any, prefix: string, message: string) {
     return `${prefix} ${this.name}, ${message}`;
   }
 

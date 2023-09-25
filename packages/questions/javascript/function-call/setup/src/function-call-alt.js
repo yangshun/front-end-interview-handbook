@@ -1,8 +1,8 @@
 /**
  * @param {any} thisArg
- * @param {...*} args
+ * @param {...*} argArray
  * @return {any}
  */
-Function.prototype.myCall = function (thisArg, ...args) {
-  return this.bind(thisArg, ...args)();
+Function.prototype.myCall = function (thisArg, ...argArray) {
+  return this.bind(thisArg, ...argArray)();
 };

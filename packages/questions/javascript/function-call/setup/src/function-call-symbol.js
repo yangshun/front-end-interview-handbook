@@ -1,9 +1,9 @@
 /**
  * @param {any} thisArg
- * @param {...*} args
+ * @param {...*} argArray
  * @return {any}
  */
-Function.prototype.myCall = function (thisArg, ...args) {
+Function.prototype.myCall = function (thisArg, ...argArray) {
   const sym = Symbol();
   const wrapperObj = Object(thisArg);
   Object.defineProperty(wrapperObj, sym, {
@@ -11,5 +11,5 @@ Function.prototype.myCall = function (thisArg, ...args) {
     value: this,
   });
 
-  return wrapperObj[sym](...args);
+  return wrapperObj[sym](...argArray);
 };

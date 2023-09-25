@@ -1,8 +1,8 @@
 /**
  * @param {any} thisArg
- * @param {...*} args
+ * @param {...*} argArray
  * @return {any}
  */
-Function.prototype.myCall = function (thisArg, ...args) {
+Function.prototype.myCall = function (thisArg, ...argArray) {
   throw 'Not implemented!';
 };

@@ -1,7 +1,7 @@
 interface Function {
-  myCall(thisArg: any, ...args: any[]): any;
+  myCall(this: Function, thisArg: any, ...argArray: any[]): any;
 }
 
-Function.prototype.myCall = function (thisArg, ...args) {
+Function.prototype.myCall = function (thisArg, ...argArray) {
   throw 'Not implemented!';
 };

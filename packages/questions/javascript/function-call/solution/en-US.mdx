@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import functionCall from '../setup/src/function-call';
+import functionCallJs from '../setup/src/function-call.js';
+import functionCallTs from '../setup/src/function-call.ts';
 import functionCallAlt from '../setup/src/function-call-alt';
 import functionCallApply from '../setup/src/function-call-apply';
 import functionCallSymbol from '../setup/src/function-call-symbol';
@@ -14,16 +15,16 @@ The `Function.prototype.call()` function is a built-in method in JavaScript that
 `bind`, `apply`, and `call` can be viewed as sibling functions. They're highly similar in terms of function signature and usage. Within `Function.prototype` methods, `this` refers to the `Function` object itself. If the `this` context is not used at all, the following will work:
 
 ```js
-Function.prototype.myCall = function (thisArg, ...args) {
-  return this(...args);
+Function.prototype.myCall = function (thisArg, ...argArray) {
+  return this(...argArray);
 };
 ```
 
 However, `thisArg` is still used widely in modern code, so we need another way to do this. `Function.prototype.bind` creates a new function with a specified `this` value and initial arguments, without executing the original function immediately. It allows you to permanently bind a specific context (`this` value) to the function and partially apply arguments if needed. This is exactly what we need to bridge the gap in the solution above.
 
-<MDXCodeBlock>{functionCall}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: functionCallJs, tsx: functionCallTs }} />
 
-Or you can also pass the `args` into `bind()` before executing it.
+Or you can also pass the `argArray` into `bind()` before executing it.
 
 <MDXCodeBlock>{functionCallAlt}</MDXCodeBlock>
 
