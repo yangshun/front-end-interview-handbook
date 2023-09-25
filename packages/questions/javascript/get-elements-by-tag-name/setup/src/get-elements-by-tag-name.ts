@@ -1,13 +1,11 @@
-/**
- * @param {Element} element
- * @param {string} tagName
- * @return {Array<Element>}
- */
-export default function getElementsByTagName(element, tagNameParam) {
-  const elements = [];
+export default function getElementsByTagName(
+  element: Element,
+  tagNameParam: string,
+): Array<Element> {
+  const elements: Array<Element> = [];
   const tagName = tagNameParam.toUpperCase();
 
-  function traverse(el) {
+  function traverse(el: Element) {
     if (el == null) {
       return;
     }

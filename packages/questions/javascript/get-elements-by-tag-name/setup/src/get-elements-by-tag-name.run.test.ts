@@ -1,14 +1,17 @@
 import getElementsByTagName from './get-elements-by-tag-name';
 
-describe('getElementsByTagName', () => {
-  function checkResults(expected, received) {
-    expect(received.length).toBe(expected.length);
-    // Inefficient O(n^2) check so that order doesn't matter.
-    for (let i = 0; i < expected.length; i++) {
-      expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
-    }
+function checkResults(
+  expected: HTMLCollectionOf<Element>,
+  received: Array<Element>,
+) {
+  expect(received.length).toBe(expected.length);
+  // Inefficient O(n^2) check so that order doesn't matter.
+  for (let i = 0; i < expected.length; i++) {
+    expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
   }
+}
 
+describe('getElementsByTagName', () => {
   test('empty tree', () => {
     const document = new DOMParser().parseFromString(``, 'text/html');
     const divs = getElementsByTagName(document.body, 'div');
@@ -83,121 +86,5 @@ describe('getElementsByTagName', () => {
     const expected = document.body.getElementsByTagName('div');
 
     checkResults(expected, divs);
-  });
-
-  describe('deeply-nested trees', () => {
-    test('shallow', () => {
-      const document = new DOMParser().parseFromString(
-        `<div>
-          <span>Span</span>
-          <p>Paragraph</p>
-          <div></div>
-        </div>`,
-        'text/html',
-      );
-
-      const divs = getElementsByTagName(document.body, 'div');
-      const expectedDivs = document.body.getElementsByTagName('div');
-      checkResults(expectedDivs, divs);
-
-      const spans = getElementsByTagName(document.body, 'span');
-      const expectedSpans = document.body.getElementsByTagName('span');
-      checkResults(expectedSpans, spans);
-    });
-
-    test('moderately deep', () => {
-      const document = new DOMParser().parseFromString(
-        `<div>
-          <span>Span</span>
-          <p>Paragraph</p>
-          <div>
-            <div>
-              <span>Hello</span>
-            </div>
-          </div>
-        </div>
-        <div>Hello</div>`,
-        'text/html',
-      );
-
-      const divs = getElementsByTagName(document.body, 'div');
-      const expectedDivs = document.body.getElementsByTagName('div');
-      checkResults(expectedDivs, divs);
-
-      const spans = getElementsByTagName(document.body, 'span');
-      const expectedSpans = document.body.getElementsByTagName('span');
-      checkResults(expectedSpans, spans);
-    });
-
-    test('very deep', () => {
-      const document = new DOMParser().parseFromString(
-        `<div>
-          <span>Span</span>
-          <p>Paragraph</p>
-          <div>
-            <div>
-              <div>
-                <div>
-                  <div>
-                    <div>
-                      Deep div
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          Hello
-          <div>
-            <div>
-              <div>
-                <div>
-                  <div>
-                    <div>
-                      Deep div
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>`,
-        'text/html',
-      );
-
-      const divs = getElementsByTagName(document.body, 'div');
-      const expectedDivs = document.body.getElementsByTagName('div');
-      checkResults(expectedDivs, divs);
-
-      const spans = getElementsByTagName(document.body, 'span');
-      const expectedSpans = document.body.getElementsByTagName('span');
-      checkResults(expectedSpans, spans);
-    });
-  });
-
-  test('non-lower case tag name', () => {
-    const document = new DOMParser().parseFromString(
-      `<div>
-          <span>Span</span>
-          <p>Paragraph</p>
-          <div>
-            <div>
-              <span>Hello</span>
-            </div>
-          </div>
-        </div>
-        <div>Hello</div>`,
-      'text/html',
-    );
-
-    const divs = getElementsByTagName(document.body, 'DIV');
-    const expectedDivs = document.body.getElementsByTagName('DIV');
-    checkResults(expectedDivs, divs);
-
-    const spans = getElementsByTagName(document.body, 'sPaN');
-    const expectedSpans = document.body.getElementsByTagName('sPaN');
-    checkResults(expectedSpans, spans);
   });
 });

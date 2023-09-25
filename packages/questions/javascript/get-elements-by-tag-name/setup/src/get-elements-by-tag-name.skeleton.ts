@@ -1,5 +1,5 @@
 export default function getElementsByTagName(
-  rootElement: Element,
+  el: Element,
   tagName: string,
 ): Array<Element> {
   throw 'Not implemented!';

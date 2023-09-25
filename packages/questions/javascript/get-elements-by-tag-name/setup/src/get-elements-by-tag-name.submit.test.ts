@@ -1,14 +1,17 @@
 import getElementsByTagName from './get-elements-by-tag-name';
 
-describe('getElementsByTagName', () => {
-  function checkResults(expected, received) {
-    expect(received.length).toBe(expected.length);
-    // Inefficient O(n^2) check so that order doesn't matter.
-    for (let i = 0; i < expected.length; i++) {
-      expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
-    }
+function checkResults(
+  expected: HTMLCollectionOf<Element>,
+  received: Array<Element>,
+) {
+  expect(received.length).toBe(expected.length);
+  // Inefficient O(n^2) check so that order doesn't matter.
+  for (let i = 0; i < expected.length; i++) {
+    expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
   }
+}
 
+describe('getElementsByTagName', () => {
   test('empty tree', () => {
     const document = new DOMParser().parseFromString(``, 'text/html');
     const divs = getElementsByTagName(document.body, 'div');
