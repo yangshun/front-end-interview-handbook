@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import deepClone from '../setup/src/deep-clone-ii';
+import deepCloneJs from '../setup/src/deep-clone-ii.js';
+import deepCloneTs from '../setup/src/deep-clone-ii.ts';
 
 **Note:** This is an advanced version of the [Deep Clone](/questions/javascript/deep-clone) question, which you should complete first before attempting this question.
 
@@ -19,7 +20,7 @@ Since we want to implement it as thoroughly as possible, here are a few things t
 - The input object's prototype should not be lost after the copying. We can use `Object.getPrototypeOf()` to get a reference to the prototype of a given object.
 - We should account for circular references in the input object and avoid erroring. We can achieve this by having a `cache` (a `Map` underneath) that acts as a cache to store visited properties. After cloning an object, we can put the cloned object in `cache` with the original object as the key. If we encounter the same value again in the original object while cloning, we can retrieve the cloned value from the `cache`.
 
-<MDXCodeBlock>{deepClone}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: deepCloneJs, tsx: deepCloneTs }} />
 
 ## One-liner Solution
 

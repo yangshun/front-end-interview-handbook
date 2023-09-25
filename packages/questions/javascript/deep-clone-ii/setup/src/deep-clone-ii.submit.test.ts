@@ -42,7 +42,7 @@ describe('deepClone', () => {
       reg: /\/bar\/ig/,
       [symbol]: 'baz',
     };
-    const clonedObj = deepClone(obj);
+    const clonedObj: any = deepClone(obj);
     expect(clonedObj).toStrictEqual({
       num: 0,
       str: '',
@@ -73,7 +73,7 @@ describe('deepClone', () => {
   });
 
   test('object with circular references', () => {
-    const obj = { a: {} };
+    const obj: any = { a: {} };
     obj.a.b = obj;
     const clonedObj = deepClone(obj);
     clonedObj.a.b = 'something new';
@@ -83,7 +83,7 @@ describe('deepClone', () => {
   test('object prototype is also copied', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     const Foo = function () {};
-    let foo = new Foo();
+    let foo = new (Foo as any)();
     const cloned = deepClone(foo);
 
     expect(Object.getPrototypeOf(cloned)).toStrictEqual(

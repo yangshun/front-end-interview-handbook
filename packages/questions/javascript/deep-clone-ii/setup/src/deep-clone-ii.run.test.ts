@@ -1,6 +1,5 @@
 import deepClone from './deep-clone-ii';
 
-// TODO: Change tests to test for non-serializable properties in Jest.
 describe('deepClone', () => {
   test('single primitive value', () => {
     expect(deepClone(123)).toStrictEqual(123);
@@ -27,67 +26,11 @@ describe('deepClone', () => {
     expect(obj).toStrictEqual({ role: 'foo', [symbol]: 'bar' });
   });
 
-  test('object with one-level nesting', () => {
-    const symbol = Symbol('s');
-    const date = new Date();
-    const obj = {
-      num: 0,
-      str: '',
-      boolean: true,
-      unf: undefined,
-      nul: null,
-      obj: { name: 'foo', id: 1 },
-      arr: [0, 1, 2],
-      date,
-      reg: /\/bar\/ig/,
-      [symbol]: 'baz',
-    };
-    const clonedObj = deepClone(obj);
-    expect(clonedObj).toStrictEqual({
-      num: 0,
-      str: '',
-      boolean: true,
-      unf: undefined,
-      nul: null,
-      obj: { name: 'foo', id: 1 },
-      arr: [0, 1, 2],
-      date,
-      reg: /\/bar\/ig/,
-      [symbol]: 'baz',
-    });
-    clonedObj.name = 'bar';
-    clonedObj.arr.pop();
-
-    expect(obj).toStrictEqual({
-      num: 0,
-      str: '',
-      boolean: true,
-      unf: undefined,
-      nul: null,
-      obj: { name: 'foo', id: 1 },
-      arr: [0, 1, 2],
-      date,
-      reg: /\/bar\/ig/,
-      [symbol]: 'baz',
-    });
-  });
-
   test('object with circular references', () => {
-    const obj = { a: {} };
+    const obj: any = { a: {} };
     obj.a.b = obj;
     const clonedObj = deepClone(obj);
     clonedObj.a.b = 'something new';
     expect(obj.a.b).toStrictEqual(obj);
-  });
-
-  test('object prototype is also copied', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const Foo = function () {};
-    let foo = new Foo();
-    const cloned = deepClone(foo);
-
-    expect(Object.getPrototypeOf(cloned)).toStrictEqual(
-      Object.getPrototypeOf(foo),
-    );
   });
 });

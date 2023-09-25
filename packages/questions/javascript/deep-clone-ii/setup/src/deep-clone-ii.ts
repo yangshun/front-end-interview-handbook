@@ -1,10 +1,10 @@
-function isPrimitiveTypeOrFunction(value) {
+function isPrimitiveTypeOrFunction(value: unknown): boolean {
   return (
     typeof value !== 'object' || typeof value === 'function' || value === null
   );
 }
 
-function getType(value) {
+function getType(value: unknown) {
   const type = typeof value;
   if (type !== 'object') {
     return type;
@@ -16,7 +16,7 @@ function getType(value) {
     .toLowerCase();
 }
 
-function deepCloneWithCache(value, cache) {
+function deepCloneWithCache<T>(value: T, cache: Map<any, any>): T {
   if (isPrimitiveTypeOrFunction(value)) {
     return value;
   }
@@ -25,18 +25,18 @@ function deepCloneWithCache(value, cache) {
 
   if (type === 'set') {
     const cloned = new Set();
-    value.forEach((item) => {
+    (value as Set<any>).forEach((item) => {
       cloned.add(deepCloneWithCache(item, cache));
     });
-    return cloned;
+    return cloned as T;
   }
 
   if (type === 'map') {
     const cloned = new Map();
-    value.forEach((value_, key) => {
+    (value as Map<any, any>).forEach((value_, key) => {
       cloned.set(key, deepCloneWithCache(value_, cache));
     });
-    return cloned;
+    return cloned as T;
   }
 
   if (type === 'function') {
@@ -44,15 +44,17 @@ function deepCloneWithCache(value, cache) {
   }
 
   if (type === 'array') {
-    return value.map((item) => deepCloneWithCache(item));
+    return (value as Array<any>).map((item) =>
+      deepCloneWithCache(item, cache),
+    ) as T;
   }
 
   if (type === 'date') {
-    return new Date(value);
+    return new Date(value as Date) as T;
   }
 
   if (type === 'regexp') {
-    return new RegExp(value);
+    return new RegExp(value as RegExp) as T;
   }
 
   if (cache.has(value)) {
@@ -62,8 +64,8 @@ function deepCloneWithCache(value, cache) {
   const cloned = Object.create(Object.getPrototypeOf(value));
 
   cache.set(value, cloned);
-  for (const key of Reflect.ownKeys(value)) {
-    const item = value[key];
+  for (const key of Reflect.ownKeys(value as Object)) {
+    const item = (value as any)[key];
     cloned[key] = isPrimitiveTypeOrFunction(item)
       ? item
       : deepCloneWithCache(item, cache);
@@ -72,11 +74,6 @@ function deepCloneWithCache(value, cache) {
   return cloned;
 }
 
-/**
- * @template T
- * @param {T} value
- * @return {T}
- */
-export default function deepClone(value) {
+export default function deepClone<T>(value: T): T {
   return deepCloneWithCache(value, new Map());
 }
