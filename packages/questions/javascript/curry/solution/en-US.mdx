@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import curry from '../setup/src/curry';
+import curryJs from '../setup/src/curry.js';
+import curryTs from '../setup/src/curry.ts';
 import curryBind from '../setup/src/curry-bind';
 import curryCall from '../setup/src/curry-call';
 
@@ -27,7 +28,7 @@ We can keep a record of the curried function arguments so far via closures. Each
 
 Note that the inner function needs to be defined using arrow functions to preserve the same lexical `this` or manually tracked using a separate variable like in [Debounce](/questions/javascript/debounce).
 
-<MDXCodeBlock>{curry}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: curryJs, tsx: curryTs }} />
 
 An alternative solution using `Function.prototype.call`:
 

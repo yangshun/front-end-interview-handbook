@@ -1,9 +1,9 @@
 import curry from './curry';
 
 const empty = () => 0;
-const square = (a) => a * a;
-const add = (a, b) => a * b;
-const mulThree = (a, b, c) => a * b * c;
+const square = (a: number) => a * a;
+const add = (a: number, b: number) => a * b;
+const mulThree = (a: number, b: number, c: number) => a * b * c;
 
 describe('curry', () => {
   test('returns function', () => {
@@ -49,7 +49,7 @@ describe('curry', () => {
 
   describe('can access this', () => {
     test('single parameter', () => {
-      const curried = curry(function (val) {
+      const curried = curry(function (this: any, val: number) {
         return this.multiplier * val;
       });
 
@@ -59,7 +59,7 @@ describe('curry', () => {
     });
 
     test('multiple arguments', () => {
-      const curried = curry(function (foo, bar) {
+      const curried = curry(function (this: any, foo: number, bar: number) {
         return this.base * foo + bar;
       });
 
