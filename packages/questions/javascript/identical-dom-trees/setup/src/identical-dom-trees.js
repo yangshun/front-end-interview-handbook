@@ -3,7 +3,7 @@
  * @param {Node} nodeB
  * @return {boolean}
  */
-export default function isSameTree(nodeA, nodeB) {
+export default function identicalDOMTrees(nodeA, nodeB) {
   if (nodeA.nodeType !== nodeB.nodeType) {
     return false;
   }
@@ -37,6 +37,6 @@ export default function isSameTree(nodeA, nodeB) {
   }
 
   return Array.prototype.every.call(nodeA.childNodes, (childA, index) =>
-    isSameTree(childA, nodeB.childNodes[index]),
+    identicalDOMTrees(childA, nodeB.childNodes[index]),
   );
 }

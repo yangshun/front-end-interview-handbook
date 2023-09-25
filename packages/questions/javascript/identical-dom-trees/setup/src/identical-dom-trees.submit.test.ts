@@ -1,10 +1,10 @@
-import isSameTree from './identical-dom-trees';
+import identicalDOMTrees from './identical-dom-trees';
 
-describe('isSameTree', () => {
+describe('identicalDOMTrees', () => {
   test('single nodes', () => {
     const treeA = document.createElement('div');
     const treeB = document.createElement('div');
-    expect(isSameTree(treeA, treeB)).toBe(true);
+    expect(identicalDOMTrees(treeA, treeB)).toBe(true);
   });
 
   test('nodes with same children', () => {
@@ -16,7 +16,7 @@ describe('isSameTree', () => {
       `<div><span>Foo</span><p>Para</p></div>`,
       'text/html',
     );
-    expect(isSameTree(treeA.body, treeB.body)).toBe(true);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(true);
   });
 
   test('nodes with different children', () => {
@@ -28,7 +28,7 @@ describe('isSameTree', () => {
       `<div><span>Bar</span><p>Para</p></div>`,
       'text/html',
     );
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 
   test('nodes with different tagnames', () => {
@@ -38,7 +38,7 @@ describe('isSameTree', () => {
     );
     const treeB = new DOMParser().parseFromString(`<p>Foo</p>`, 'text/html');
 
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 
   test('nodes with same attributes', () => {
@@ -51,7 +51,7 @@ describe('isSameTree', () => {
       'text/html',
     );
 
-    expect(isSameTree(treeA.body, treeB.body)).toBe(true);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(true);
   });
 
   test('nodes with different attributes', () => {
@@ -64,7 +64,7 @@ describe('isSameTree', () => {
       'text/html',
     );
 
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 
   test('nodes with different styles', () => {
@@ -77,7 +77,7 @@ describe('isSameTree', () => {
       'text/html',
     );
 
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 
   test('nodes with different comment and text nodes', () => {
@@ -90,7 +90,7 @@ describe('isSameTree', () => {
       'text/html',
     );
 
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 
   test('nodes with different numbers of children', () => {
@@ -109,7 +109,7 @@ describe('isSameTree', () => {
       </div>`,
       'text/html',
     );
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 
   test('nodes with nested elements', () => {
@@ -135,7 +135,7 @@ describe('isSameTree', () => {
       </div>`,
       'text/html',
     );
-    expect(isSameTree(treeA.body, treeB.body)).toBe(true);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(true);
   });
 
   test('nodes with nested elements in different order', () => {
@@ -161,6 +161,6 @@ describe('isSameTree', () => {
       </div>`,
       'text/html',
     );
-    expect(isSameTree(treeA.body, treeB.body)).toBe(false);
+    expect(identicalDOMTrees(treeA.body, treeB.body)).toBe(false);
   });
 });

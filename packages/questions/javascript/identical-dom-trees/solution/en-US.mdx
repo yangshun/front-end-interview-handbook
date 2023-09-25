@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import isSameTree from '../setup/src/identical-dom-trees';
+import identicalDOMTreesJs from '../setup/src/identical-dom-trees.js';
+import identicalDOMTreesTs from '../setup/src/identical-dom-trees.ts';
 
 This question is the front end version of the [Same Tree](https://leetcode.com/problems/same-tree/) question on LeetCode. It tests your knowledge of recursion / tree traversals and the Document Object Model (DOM).
 
@@ -28,7 +29,9 @@ If you have worked on the [deep equal](/questions/javascript/deep-equal) questio
 
 Here is the solution:
 
-<MDXCodeBlock>{isSameTree}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: identicalDOMTreesJs, tsx: identicalDOMTreesTs }}
+/>
 
 ## Notes on native DOM APIs
 
@@ -45,7 +48,7 @@ Here are the DOM APIs we have covered in this solution:
 There is a new API called `isEqualNode` that tests whether two nodes are equal. Check out [`Node.isEqualNode()` API on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/isEqualNode).
 
 ```js
-function isSameTree(treeA, treeB) {
+function identicalDOMTrees(treeA, treeB) {
   return treeA.isEqualNode(treeB);
 }
 ```

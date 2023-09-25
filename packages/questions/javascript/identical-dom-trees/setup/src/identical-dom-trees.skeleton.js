@@ -3,6 +3,6 @@
  * @param {Node} nodeB
  * @return {boolean}
  */
-export default function isSameTree(nodeA, nodeB) {
+export default function identicalDOMTrees(nodeA, nodeB) {
   throw 'Not implemented!';
 }
