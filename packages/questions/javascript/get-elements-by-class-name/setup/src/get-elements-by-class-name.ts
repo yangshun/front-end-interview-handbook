@@ -1,17 +1,15 @@
-function isSubset(a, b) {
+function isSubset(a: Set<string>, b: DOMTokenList) {
   return Array.from(a).every((value) => b.contains(value));
 }
 
-/**
- * @param {Element} element
- * @param {string} classNames
- * @return {Array<Element>}
- */
-export default function getElementsByClassName(element, classNames) {
-  const elements = [];
+export default function getElementsByClassName(
+  element: Element,
+  classNames: string,
+): Array<Element> {
+  const elements: Array<Element> = [];
   const classNamesSet = new Set(classNames.trim().split(/\s+/));
 
-  function traverse(el) {
+  function traverse(el: Element) {
     if (el == null) {
       return;
     }

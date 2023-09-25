@@ -1,14 +1,17 @@
 import getElementsByClassName from './get-elements-by-class-name';
 
-describe('getElementsByClassName', () => {
-  function checkResults(expected, received) {
-    expect(received.length).toBe(expected.length);
-    // Inefficient O(n^2) check so that order doesn't matter.
-    for (let i = 0; i < expected.length; i++) {
-      expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
-    }
+function checkResults(
+  expected: HTMLCollectionOf<Element>,
+  received: Array<Element>,
+) {
+  expect(received.length).toBe(expected.length);
+  // Inefficient O(n^2) check so that order doesn't matter.
+  for (let i = 0; i < expected.length; i++) {
+    expect(received.some((node) => node.isEqualNode(expected[i]))).toBe(true);
   }
+}
 
+describe('getElementsByClassName', () => {
   test('empty tree', () => {
     const doc = new DOMParser().parseFromString(``, 'text/html');
     const els = getElementsByClassName(doc.body, 'foo');

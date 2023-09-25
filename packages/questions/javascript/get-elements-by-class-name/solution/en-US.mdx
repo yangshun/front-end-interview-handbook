@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import getElementsByClassName from '../setup/src/get-elements-by-class-name';
+import getElementsByClassNameJs from '../setup/src/get-elements-by-class-name.js';
+import getElementsByClassNameTs from '../setup/src/get-elements-by-class-name.ts';
 
 This question assesses you on the basic DOM traversal APIs, recursion, and knowledge of CSS - how elements are matched according to the element's class name. The approach to solve this question is similar to [getElementsByTagName](/questions/javascript/get-elements-by-tag-name).
 
@@ -18,7 +19,9 @@ We can maintain an `elements` array to collect the matching elements while recur
 
 Remember that the element argument itself is not included in the results.
 
-<MDXCodeBlock>{getElementsByClassName}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: getElementsByClassNameJs, tsx: getElementsByClassNameTs }}
+/>
 
 ## Edge Cases
 
