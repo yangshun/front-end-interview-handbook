@@ -1,9 +1,9 @@
 /**
- * @param {Object} object
- * @param {string|Array<string>} path
+ * @param {Object} objectParam
+ * @param {string|Array<string>} pathParam
  * @param {*} [defaultValue]
  * @return {*}
  */
-export default function get(object, path, defaultValue) {
+export default function get(objectParam, pathParam, defaultValue) {
   throw 'Not implemented!';
 }

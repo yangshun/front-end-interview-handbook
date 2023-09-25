@@ -1,6 +1,6 @@
 export default function get<T>(
-  object: object,
-  path: string | Array<string>,
+  objectParam: Record<string, any>,
+  pathParam: string | Array<string>,
   defaultValue?: T,
 ): T {
   throw 'Not implemented!';

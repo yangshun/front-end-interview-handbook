@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/get",
   "version": "0.0.1",
-  "main": "/src/get.js",
+  "main": "/src/get.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"
