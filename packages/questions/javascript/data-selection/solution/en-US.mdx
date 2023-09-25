@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import selectData from '../setup/src/data-selection';
+import selectDataJs from '../setup/src/data-selection.js';
+import selectDataTs from '../setup/src/data-selection.ts';
 
 This question assesses one's familiarity with JavaScript language.
 
@@ -36,7 +37,7 @@ As we iterate through `reversedSessions`, for each session, we see if the `user`
 
 To modify the combined session for a user, we create a `Map` (`sessionsForUser`) with the key being the user ID and value being the combined session object. Modifying the combined session object can be done through looking up `sessionsForUser` with the user ID and modifying the value if it exists. The object within `sessionsProcessed` will be updated as well because they are the same object.
 
-<MDXCodeBlock>{selectData}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: selectDataJs, tsx: selectDataTs }} />
 
 ## Techniques
 

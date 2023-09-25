@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/data-selection",
   "version": "0.0.1",
-  "main": "/src/data-selection.js",
+  "main": "/src/data-selection.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"
