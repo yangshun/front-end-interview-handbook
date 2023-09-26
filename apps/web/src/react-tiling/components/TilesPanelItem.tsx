@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
-import { LuExpand, LuShrink } from 'react-icons/lu';
 import {
   RiAddLine,
   RiCloseLine,
@@ -8,6 +7,9 @@ import {
   RiContractUpDownFill,
   RiExpandLeftRightFill,
   RiExpandUpDownFill,
+  RiFullscreenExitLine,
+  RiFullscreenLine,
+  RiMoreLine,
 } from 'react-icons/ri';
 import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
 import type {
@@ -19,6 +21,7 @@ import { Panel } from 'react-resizable-panels';
 
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 import {
   themeBackgroundColor,
   themeDivideColor,
@@ -84,9 +87,6 @@ export default function TilesPanelItem({
       }
     }
   }, [collapsed, collapsible, sizeAfterExpansion]);
-
-  const showSplitButton =
-    !fullScreen && !collapsed && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
 
   const commonProps = {
     collapsible,
@@ -164,6 +164,21 @@ export default function TilesPanelItem({
     );
   }
 
+  const mode: 'collapsed' | 'default' | 'maximized' = (() => {
+    if (fullScreen) {
+      return 'maximized';
+    }
+
+    if (collapsible && collapsed) {
+      return 'collapsed';
+    }
+
+    return 'default';
+  })();
+
+  const showSplitButton =
+    mode === 'default' && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
+
   return (
     <Panel
       {...commonProps}
@@ -208,144 +223,145 @@ export default function TilesPanelItem({
           tabs={tabs}
         />
         <div className="flex h-full items-center">
-          {showSplitButton && parentDirection === 'horizontal' && (
+          {mode === 'maximized' && (
             <Button
-              icon={VscSplitHorizontal}
+              icon={RiFullscreenExitLine}
               isLabelHidden={true}
-              label="Split right"
+              label="Shrink"
               size="xs"
-              tooltip="Split right"
-              variant="tertiary"
-              onClick={() =>
-                dispatch({
-                  payload: {
-                    direction: 'horizontal',
-                    newPanelOrder: 'after',
-                    panelId,
-                  },
-                  type: 'panel-split',
-                })
-              }
-            />
-          )}
-          {showSplitButton && parentDirection === 'vertical' && (
-            <Button
-              icon={VscSplitVertical}
-              isLabelHidden={true}
-              label="Split down"
-              size="xs"
-              tooltip="Split down"
-              variant="tertiary"
-              onClick={() =>
-                dispatch({
-                  payload: {
-                    direction: 'vertical',
-                    newPanelOrder: 'after',
-                    panelId,
-                  },
-                  type: 'panel-split',
-                })
-              }
-            />
-          )}
-          {(!collapsible || (collapsible && !collapsed)) &&
-            (fullScreen ? (
-              <Button
-                icon={LuShrink}
-                isLabelHidden={true}
-                label="Shrink"
-                size="xs"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      fullScreen: false,
-                      panelId,
-                    },
-                    type: 'panel-full-screen',
-                  });
-                }}
-              />
-            ) : (
-              <Button
-                icon={LuExpand}
-                isLabelHidden={true}
-                label="Expand"
-                size="xs"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      fullScreen: true,
-                      panelId,
-                    },
-                    type: 'panel-full-screen',
-                  });
-                }}
-              />
-            ))}
-          {!fullScreen &&
-            collapsible &&
-            (collapsed ? (
-              <Button
-                icon={
-                  parentDirection === 'vertical'
-                    ? RiExpandUpDownFill
-                    : RiExpandLeftRightFill
-                }
-                isLabelHidden={true}
-                label="Expand"
-                size="xs"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      collapsed: false,
-                      panelId,
-                    },
-                    type: 'panel-collapse',
-                  });
-                }}
-              />
-            ) : (
-              <Button
-                icon={
-                  parentDirection === 'vertical'
-                    ? RiContractUpDownFill
-                    : RiContractLeftRightFill
-                }
-                isLabelHidden={true}
-                label="Collapse"
-                size="xs"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      collapsed: true,
-                      panelId,
-                    },
-                    type: 'panel-collapse',
-                  });
-                }}
-              />
-            ))}
-          {tabs.every((tab) => tab.closeable) && (
-            <Button
-              icon={RiCloseLine}
-              isLabelHidden={true}
-              label="Close all tabs"
-              size="xs"
-              tooltip="Close all tabs"
               variant="tertiary"
               onClick={() => {
                 dispatch({
                   payload: {
+                    fullScreen: false,
                     panelId,
                   },
-                  type: 'panel-close',
+                  type: 'panel-full-screen',
                 });
               }}
             />
+          )}
+          {mode === 'collapsed' && (
+            <Button
+              icon={
+                parentDirection === 'vertical'
+                  ? RiExpandUpDownFill
+                  : RiExpandLeftRightFill
+              }
+              isLabelHidden={true}
+              label="Expand"
+              size="xs"
+              variant="tertiary"
+              onClick={() => {
+                dispatch({
+                  payload: {
+                    collapsed: false,
+                    panelId,
+                  },
+                  type: 'panel-collapse',
+                });
+              }}
+            />
+          )}
+          {mode === 'default' && (
+            <DropdownMenu
+              align="end"
+              icon={RiMoreLine}
+              isLabelHidden={true}
+              label="Actions"
+              showChevron={false}
+              size="xs"
+              variant="flat">
+              {[
+                showSplitButton
+                  ? {
+                      icon: VscSplitHorizontal,
+                      label: 'Split right',
+                      onClick: () =>
+                        dispatch({
+                          payload: {
+                            direction: 'horizontal',
+                            newPanelOrder: 'after',
+                            panelId,
+                          },
+                          type: 'panel-split',
+                        }),
+                      value: 'split-right',
+                    }
+                  : null,
+                showSplitButton
+                  ? {
+                      icon: VscSplitVertical,
+                      label: 'Split down',
+                      onClick: () =>
+                        dispatch({
+                          payload: {
+                            direction: 'vertical',
+                            newPanelOrder: 'after',
+                            panelId,
+                          },
+                          type: 'panel-split',
+                        }),
+                      value: 'split-down',
+                    }
+                  : null,
+                {
+                  icon: RiFullscreenLine,
+                  label: 'Maximize',
+                  onClick: () =>
+                    dispatch({
+                      payload: {
+                        fullScreen: true,
+                        panelId,
+                      },
+                      type: 'panel-full-screen',
+                    }),
+                  value: 'maximize',
+                },
+                {
+                  icon:
+                    parentDirection === 'vertical'
+                      ? RiContractUpDownFill
+                      : RiContractLeftRightFill,
+                  label: 'Collapse',
+                  onClick: () => {
+                    dispatch({
+                      payload: {
+                        collapsed: true,
+                        panelId,
+                      },
+                      type: 'panel-collapse',
+                    });
+                  },
+                  value: 'collapse',
+                },
+                tabs.every((tab) => tab.closeable)
+                  ? {
+                      icon: RiCloseLine,
+                      label: 'Close all tabs',
+                      onClick: () => {
+                        dispatch({
+                          payload: {
+                            panelId,
+                          },
+                          type: 'panel-close',
+                        });
+                      },
+                      value: 'close-all-tabs',
+                    }
+                  : null,
+              ]
+                .filter((item) => Boolean(item))
+                .map((item) => (
+                  <DropdownMenu.Item
+                    key={item!.value}
+                    icon={item!.icon}
+                    isSelected={false}
+                    label={item!.label}
+                    onClick={item!.onClick}
+                  />
+                ))}
+            </DropdownMenu>
           )}
         </div>
       </div>
