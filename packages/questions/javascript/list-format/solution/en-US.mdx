@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import listFormat from '../setup/src/list-format';
+import listFormatJs from '../setup/src/list-format.js';
+import listFormatTs from '../setup/src/list-format.ts';
 
 This question is inspired by the JavaScript API `Intl.ListFormat.prototype.format()` function.
 
@@ -18,7 +19,7 @@ The second section is a little trickier, but we can observe the following:
 - The `length` option splits the array into two parts.
 - The first part will be joined with a `, ` and the second will be joined with `and`. - Whether to show `X other(s)` for the second part is dependent on whether the `length` value is a valid value within the range `[0, items.length]`.
 
-<MDXCodeBlock>{listFormat}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: listFormatJs, tsx: listFormatTs }} />
 
 ## Notes
 

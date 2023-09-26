@@ -1,8 +1,7 @@
 import listFormat from './list-format';
 
 describe('listFormat', () => {
-  test('empty case', () => {
-    expect(listFormat()).toEqual('');
+  test('empty', () => {
     expect(listFormat([])).toEqual('');
   });
 
