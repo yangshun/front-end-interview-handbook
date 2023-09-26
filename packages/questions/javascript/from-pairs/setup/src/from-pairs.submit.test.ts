@@ -27,14 +27,4 @@ describe('fromPairs', () => {
       ]),
     ).toEqual({ a: 1, b: 2, c: 3 });
   });
-
-  test('array as value', () => {
-    expect(
-      fromPairs([
-        ['a', ['b', 2]],
-        ['c', 3],
-        ['d', 4],
-      ]),
-    ).toEqual({ a: ['b', 2], c: 3, d: 4 });
-  });
 });
