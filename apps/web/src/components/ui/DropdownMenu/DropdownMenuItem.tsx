@@ -7,6 +7,7 @@ import { Menu } from '@headlessui/react';
 
 type Props = Readonly<{
   href?: string;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isSelected?: boolean;
   label: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLElement>;
@@ -14,6 +15,7 @@ type Props = Readonly<{
 
 export default function DropdownMenuItem({
   href,
+  icon: Icon,
   isSelected = false,
   label,
   onClick,
@@ -24,9 +26,11 @@ export default function DropdownMenuItem({
         const props = {
           children: (
             <Text
+              className="items-center gap-x-2"
               color={isSelected ? 'active' : 'secondary'}
-              display="block"
+              display="flex"
               size="body2">
+              {Icon && <Icon className="h-4 w-4 shrink-0" />}
               {label}
             </Text>
           ),

@@ -1,27 +1,39 @@
 import { useState } from 'react';
-import { RiSortDesc } from 'react-icons/ri';
+import {
+  Ri24HoursLine,
+  RiPriceTag2Line,
+  RiPriceTagLine,
+  RiSortDesc,
+  RiStarLine,
+  RiThumbUpLine,
+} from 'react-icons/ri';
 
 import DropdownMenu from './DropdownMenu';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const menuItems = [
   {
+    icon: RiStarLine,
     label: 'Most Popular',
     value: 'most-popular',
   },
   {
+    icon: RiThumbUpLine,
     label: 'Best Rating',
     value: 'best-rating',
   },
   {
+    icon: Ri24HoursLine,
     label: 'Newest',
     value: 'newest',
   },
   {
+    icon: RiPriceTagLine,
     label: 'Price: Low to High',
     value: 'price-high-to-low',
   },
   {
+    icon: RiPriceTag2Line,
     label: 'Price: High to Low',
     value: 'price-low-to-high',
   },
@@ -34,9 +46,10 @@ export default function DropdownMenuExamples() {
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Dropdown Menu">
       <div className="flex gap-x-12">
         <DropdownMenu icon={RiSortDesc} label="Sort By">
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
@@ -46,9 +59,10 @@ export default function DropdownMenuExamples() {
           ))}
         </DropdownMenu>
         <DropdownMenu icon={RiSortDesc} label="Sort By" size="sm">
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
@@ -58,9 +72,10 @@ export default function DropdownMenuExamples() {
           ))}
         </DropdownMenu>
         <DropdownMenu icon={RiSortDesc} label="Sort By" size="xs">
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
@@ -72,9 +87,10 @@ export default function DropdownMenuExamples() {
       </div>
       <div className="flex gap-x-12">
         <DropdownMenu label="Align Start">
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
@@ -84,9 +100,10 @@ export default function DropdownMenuExamples() {
           ))}
         </DropdownMenu>
         <DropdownMenu align="end" label="Align End">
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
@@ -98,9 +115,10 @@ export default function DropdownMenuExamples() {
       </div>
       <div className="flex gap-x-12">
         <DropdownMenu icon={RiSortDesc} isLabelHidden={true} label="Sort By">
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
@@ -114,9 +132,10 @@ export default function DropdownMenuExamples() {
           isLabelHidden={true}
           label="Sort By"
           showChevron={false}>
-          {menuItems.map(({ label, value }) => (
+          {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
+              icon={icon}
               isSelected={value === selectedValue}
               label={label}
               onClick={() => {
