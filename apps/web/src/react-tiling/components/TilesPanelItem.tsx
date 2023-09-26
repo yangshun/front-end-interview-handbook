@@ -1,17 +1,6 @@
 import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
-import {
-  RiAddLine,
-  RiCloseLine,
-  RiContractLeftRightFill,
-  RiContractUpDownFill,
-  RiExpandLeftRightFill,
-  RiExpandUpDownFill,
-  RiFullscreenExitLine,
-  RiFullscreenLine,
-  RiMoreLine,
-} from 'react-icons/ri';
-import { VscSplitHorizontal, VscSplitVertical } from 'react-icons/vsc';
+import { RiAddLine, RiExpandLeftRightFill } from 'react-icons/ri';
 import type {
   ImperativePanelHandle,
   PanelGroupProps,
@@ -21,7 +10,6 @@ import { Panel } from 'react-resizable-panels';
 
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import DropdownMenu from '~/components/ui/DropdownMenu';
 import {
   themeBackgroundColor,
   themeDivideColor,
@@ -29,12 +17,15 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import TilesPanelActions from './TilesPanelActions';
 import TilesPanelBody from './TilesPanelBody';
 import TilesPanelTabsSection from './TilesPanelTabsSection';
 import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelItemTab } from '../types';
 
 const MAXIMUM_LEVEL_FOR_SPLITTING = 2;
+
+export type TilesPanelItemMode = 'collapsed' | 'default' | 'maximized';
 
 export default function TilesPanelItem({
   activeTabId,
@@ -104,7 +95,19 @@ export default function TilesPanelItem({
     ref,
   };
 
-  if (parentDirection === 'horizontal' && collapsed) {
+  const mode: TilesPanelItemMode = (() => {
+    if (fullScreen) {
+      return 'maximized';
+    }
+
+    if (collapsible && collapsed) {
+      return 'collapsed';
+    }
+
+    return 'default';
+  })();
+
+  if (parentDirection === 'horizontal' && mode === 'collapsed') {
     return (
       <Panel
         {...commonProps}
@@ -164,18 +167,6 @@ export default function TilesPanelItem({
     );
   }
 
-  const mode: 'collapsed' | 'default' | 'maximized' = (() => {
-    if (fullScreen) {
-      return 'maximized';
-    }
-
-    if (collapsible && collapsed) {
-      return 'collapsed';
-    }
-
-    return 'default';
-  })();
-
   const showSplitButton =
     mode === 'default' && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
 
@@ -223,146 +214,13 @@ export default function TilesPanelItem({
           tabs={tabs}
         />
         <div className="flex h-full items-center">
-          {mode === 'maximized' && (
-            <Button
-              icon={RiFullscreenExitLine}
-              isLabelHidden={true}
-              label="Shrink"
-              size="xs"
-              variant="tertiary"
-              onClick={() => {
-                dispatch({
-                  payload: {
-                    fullScreen: false,
-                    panelId,
-                  },
-                  type: 'panel-full-screen',
-                });
-              }}
-            />
-          )}
-          {mode === 'collapsed' && (
-            <Button
-              icon={
-                parentDirection === 'vertical'
-                  ? RiExpandUpDownFill
-                  : RiExpandLeftRightFill
-              }
-              isLabelHidden={true}
-              label="Expand"
-              size="xs"
-              variant="tertiary"
-              onClick={() => {
-                dispatch({
-                  payload: {
-                    collapsed: false,
-                    panelId,
-                  },
-                  type: 'panel-collapse',
-                });
-              }}
-            />
-          )}
-          {mode === 'default' && (
-            <DropdownMenu
-              align="end"
-              icon={RiMoreLine}
-              isLabelHidden={true}
-              label="Actions"
-              showChevron={false}
-              size="xs"
-              variant="flat">
-              {[
-                showSplitButton
-                  ? {
-                      icon: VscSplitHorizontal,
-                      label: 'Split right',
-                      onClick: () =>
-                        dispatch({
-                          payload: {
-                            direction: 'horizontal',
-                            newPanelOrder: 'after',
-                            panelId,
-                          },
-                          type: 'panel-split',
-                        }),
-                      value: 'split-right',
-                    }
-                  : null,
-                showSplitButton
-                  ? {
-                      icon: VscSplitVertical,
-                      label: 'Split down',
-                      onClick: () =>
-                        dispatch({
-                          payload: {
-                            direction: 'vertical',
-                            newPanelOrder: 'after',
-                            panelId,
-                          },
-                          type: 'panel-split',
-                        }),
-                      value: 'split-down',
-                    }
-                  : null,
-                {
-                  icon: RiFullscreenLine,
-                  label: 'Maximize',
-                  onClick: () =>
-                    dispatch({
-                      payload: {
-                        fullScreen: true,
-                        panelId,
-                      },
-                      type: 'panel-full-screen',
-                    }),
-                  value: 'maximize',
-                },
-                {
-                  icon:
-                    parentDirection === 'vertical'
-                      ? RiContractUpDownFill
-                      : RiContractLeftRightFill,
-                  label: 'Collapse',
-                  onClick: () => {
-                    dispatch({
-                      payload: {
-                        collapsed: true,
-                        panelId,
-                      },
-                      type: 'panel-collapse',
-                    });
-                  },
-                  value: 'collapse',
-                },
-                tabs.every((tab) => tab.closeable)
-                  ? {
-                      icon: RiCloseLine,
-                      label: 'Close all tabs',
-                      onClick: () => {
-                        dispatch({
-                          payload: {
-                            panelId,
-                          },
-                          type: 'panel-close',
-                        });
-                      },
-                      value: 'close-all-tabs',
-                    }
-                  : null,
-              ]
-                .filter((item) => Boolean(item))
-                .map((item) => (
-                  <DropdownMenu.Item
-                    key={item!.value}
-                    icon={item!.icon}
-                    isSelected={false}
-                    label={item!.label}
-                    onClick={item!.onClick}
-                  />
-                ))}
-            </DropdownMenu>
-          )}
+          <TilesPanelActions
+            closeable={tabs.every((tab) => tab.closeable)}
+            mode={mode}
+            panelId={panelId}
+            parentDirection={parentDirection}
+            showSplitButton={showSplitButton}
+          />
         </div>
       </div>
       <TilesPanelBody
