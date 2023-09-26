@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import makeCounter from '../setup/src/make-counter';
+import makeCounterJs from '../setup/src/make-counter.js';
+import makeCounterTs from '../setup/src/make-counter.ts';
 import makeCounterPostfixIncrement from '../setup/src/make-counter-postfix-increment';
 import makeCounterMutateParameter from '../setup/src/make-counter-mutate-parameter';
 
@@ -17,7 +18,7 @@ This question evaluates your knowledge on closures and higher-order functions.
 
 It's necessary to initialize `count` with one less than `initialValue` because in the returned function we increment before returning. Doing this will allow the first call of the returned function to return the `initialValue`.
 
-<MDXCodeBlock>{makeCounter}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: makeCounterJs, tsx: makeCounterTs }} />
 
 ### Solution 2: Postfix increment
 

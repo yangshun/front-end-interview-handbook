@@ -3,8 +3,7 @@ import makeCounter from './make-counter';
 describe('makeCounter', () => {
   test('returns a function', () => {
     const counter = makeCounter();
-
-    expect(typeof counter === 'function').toBe(true);
+    expect(counter).toBeInstanceOf(Function);
   });
 
   describe('calling the function', () => {
