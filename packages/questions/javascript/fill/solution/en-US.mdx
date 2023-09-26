@@ -1,10 +1,11 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import fill from '../setup/src/fill';
+import fillJs from '../setup/src/fill.js';
+import fillTs from '../setup/src/fill.ts';
 
 ## Solution
 
-<MDXCodeBlock>{fill}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: fillJs, tsx: fillTs }} />
 
 ## Edge Cases
 

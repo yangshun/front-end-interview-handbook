@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/drop-while",
   "version": "0.0.1",
-  "main": "/src/drop-while.js",
+  "main": "/src/drop-while.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

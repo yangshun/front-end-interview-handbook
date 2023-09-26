@@ -1,8 +1,8 @@
-export default function fill(
-  array: Array<unknown>,
+export default function fill<T>(
+  array: Array<T>,
   value: any,
   start: number = 0,
   end: number = array.length,
-): Array<unknown> {
+): Array<T> {
   throw 'Not implemented!';
 }
