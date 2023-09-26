@@ -11,6 +11,7 @@ import { Menu, Transition } from '@headlessui/react';
 
 export type DropdownMenuAlignment = 'end' | 'start';
 export type DropdownMenuSize = 'md' | 'sm' | 'xs';
+export type DropdownMenuVariant = 'bordered' | 'flat';
 
 type Props = Readonly<{
   align?: DropdownMenuAlignment;
@@ -21,6 +22,7 @@ type Props = Readonly<{
   label: string;
   showChevron?: boolean;
   size?: DropdownMenuSize;
+  variant?: DropdownMenuVariant;
 }>;
 
 DropdownMenu.Item = DropdownMenuItem;
@@ -66,6 +68,11 @@ const sizeIconClasses: Record<DropdownMenuSize, string> = {
   xs: 'h-4 w-4',
 };
 
+const variantClasses: Record<DropdownMenuVariant, string> = {
+  bordered: 'border border-neutral-300 dark:border-neutral-700',
+  flat: '',
+};
+
 export default function DropdownMenu({
   align = 'start',
   children,
@@ -73,6 +80,7 @@ export default function DropdownMenu({
   label,
   showChevron = true,
   size = 'md',
+  variant = 'bordered',
   icon: Icon,
 }: Props) {
   return (
@@ -84,7 +92,7 @@ export default function DropdownMenu({
             'group inline-flex items-center justify-center',
             'rounded-full',
             'transition-colors',
-            'border border-neutral-300 dark:border-neutral-700',
+            variantClasses[variant],
             [
               'bg-white dark:bg-neutral-950',
               'hover:bg-neutral-100 dark:hover:bg-neutral-900',

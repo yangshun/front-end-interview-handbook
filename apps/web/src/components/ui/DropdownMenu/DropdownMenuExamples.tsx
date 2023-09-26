@@ -144,6 +144,24 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
+        <DropdownMenu
+          icon={RiSortDesc}
+          isLabelHidden={true}
+          label="Sort By"
+          showChevron={false}
+          variant="flat">
+          {menuItems.map(({ icon, label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              icon={icon}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
       </div>
     </UIExamplesGroup>
   );
