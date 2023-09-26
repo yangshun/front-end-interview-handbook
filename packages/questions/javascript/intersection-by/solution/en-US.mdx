@@ -1,10 +1,11 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import intersectionBy from '../setup/src/intersection-by';
+import intersectionByJs from '../setup/src/intersection-by.js';
+import intersectionByTs from '../setup/src/intersection-by.ts';
 
 ## Solution
 
-<MDXCodeBlock>{intersectionBy}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: intersectionByJs, tsx: intersectionByTs }} />
 
 The solution first maps each array using the iteratee function to transform the values. Then, it filters the values from the first mapped array that are present in all the other mapped arrays. Finally, it maps the intersected values back to the original values from the first array.
 

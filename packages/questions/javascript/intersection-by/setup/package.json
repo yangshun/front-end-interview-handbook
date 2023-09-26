@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/intersection-by",
   "version": "0.0.1",
-  "main": "/src/intersection-by.js",
+  "main": "/src/intersection-by.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"
