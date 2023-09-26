@@ -1,6 +1,6 @@
-export default function difference(
-  array: Array<unknown>,
-  values: Array<unknown>,
-): Array<unknown> {
+export default function difference<T>(
+  array: Array<T>,
+  values: Array<T>,
+): Array<T> {
   throw 'Not implemented!';
 }

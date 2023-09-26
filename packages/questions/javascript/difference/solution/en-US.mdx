@@ -1,10 +1,11 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import difference from '../setup/src/difference';
+import differenceJs from '../setup/src/difference.js';
+import differenceTs from '../setup/src/difference.ts';
 
 ## Solution
 
-<MDXCodeBlock>{difference}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: differenceJs, tsx: differenceTs }} />
 
 ## Edge Cases
 
