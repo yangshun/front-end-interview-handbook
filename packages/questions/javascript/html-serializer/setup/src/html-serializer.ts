@@ -1,9 +1,7 @@
-/**
- * @param {Object} element
- * @return {string}
- */
-export default function serializeHTML(element, indent = '\t') {
-  function traverse(element, depth = 0) {
+type Element = string | { tag: string; children: Array<string | Element> };
+
+export default function serializeHTML(element: Element, indent = '\t'): string {
+  function traverse(element: Element, depth = 0): string {
     if (typeof element === 'string') {
       return `${indent.repeat(depth)}${element}`;
     }

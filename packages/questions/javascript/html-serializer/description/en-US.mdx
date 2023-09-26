@@ -3,7 +3,7 @@ title: HTML Serializer
 excerpt: Implement a function to serialize an object into an HTML string with indentation
 ---
 
-Given an object which resembles a DOM tree, implement a function that serializes the object into a formatted string with proper indentation (one tab per nesting level) and one tag per line.
+Given an object which resembles a DOM tree, implement a function that serializes the object into a formatted string with proper indentation (one tab (`\t` character) per nesting level) and one tag per line.
 
 ## Examples
 
@@ -16,17 +16,17 @@ const tree = {
   ],
 };
 
-serializeNode(tree);
+serializeHTML(tree);
 // Output:
 `<body>
-	<div>
-		<span>
-			foo
-			bar
-		</span>
-	</div>
-	<div>
-		baz
-	</div>
+  <div>
+    <span>
+      foo
+      bar
+    </span>
+  </div>
+  <div>
+    baz
+  </div>
 </body>`;
 ```

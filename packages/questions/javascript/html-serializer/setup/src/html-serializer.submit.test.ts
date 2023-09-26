@@ -1,10 +1,10 @@
-import serializeNode from './html-serializer';
+import serializeHTML from './html-serializer';
 
 describe('HTML serializer', () => {
   describe('single tag', () => {
     test('single children', () => {
       expect(
-        serializeNode({
+        serializeHTML({
           tag: 'div',
           children: ['foo'],
         }),
@@ -13,14 +13,14 @@ describe('HTML serializer', () => {
 
     test('single tag two children', () => {
       expect(
-        serializeNode({ children: ['bar1', 'bar2'], tag: 'span' }),
+        serializeHTML({ children: ['bar1', 'bar2'], tag: 'span' }),
       ).toEqual('<span>\n\tbar1\n\tbar2\n</span>');
     });
   });
 
   test('deeply nested', () => {
     expect(
-      serializeNode({
+      serializeHTML({
         tag: 'body',
         children: [
           { tag: 'div', children: [{ tag: 'span', children: ['foo', 'bar'] }] },

@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import serializeNode from '../setup/src/html-serializer';
+import serializeHTMLJs from '../setup/src/html-serializer.js';
+import serializeHTMLTs from '../setup/src/html-serializer.ts';
 
 This seems like an unusual question because normally we don't programmatically generate HTML strings from an object. We normally just write JSX or other template syntax and let Prettier do the formatting.
 
@@ -57,7 +58,7 @@ Note that we probably don't want to manipulate the strings directly during each 
 Here is an initial but incomplete solution:
 
 ```js
-function serializeNode(root) {
+function serializeHTML(root) {
   function traverse(root) {
     return root.children
       ? [`<${root.tag}>`, ...root.children.flatMap(traverse), `</${root.tag}>`]
@@ -90,7 +91,7 @@ We can tell that the level of indentation is dictated by the current depth of re
 
 Here is the final solution:
 
-<MDXCodeBlock>{serializeNode}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: serializeHTMLJs, tsx: serializeHTMLTs }} />
 
 ## Edge Cases
 

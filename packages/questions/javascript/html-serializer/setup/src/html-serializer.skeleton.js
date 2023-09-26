@@ -1,7 +1,7 @@
 /**
- * @param {Node} node
+ * @param {Object} element
  * @return {string}
  */
-export default function serializeNode(node) {
+export default function serializeHTML(element) {
   throw 'Not implemented!';
 }
