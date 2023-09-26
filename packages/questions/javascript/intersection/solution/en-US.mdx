@@ -1,11 +1,11 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import intersection from '../setup/src/intersection';
+import intersectionJs from '../setup/src/intersection.js';
+import intersectionTs from '../setup/src/intersection.ts';
 
 ## Solution
 
-<MDXCodeBlock>{intersection}</MDXCodeBlock>
-
+<MDXCodeBlock languages={{ jsx: intersectionJs, tsx: intersectionTs }} />
 ## Resources
 
 - [Lodash `_.intersection`](https://lodash.com/docs/#intersection)
