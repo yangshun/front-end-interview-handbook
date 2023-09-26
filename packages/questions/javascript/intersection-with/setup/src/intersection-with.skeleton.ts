@@ -1,6 +1,6 @@
 export default function intersectionWith<T>(
   comparator: (a: T, b: T) => boolean,
-  ...arrays: T[][]
-): T[] {
+  ...arrays: Array<Array<T>>
+): Array<T> {
   throw 'Not implemented!';
 }
