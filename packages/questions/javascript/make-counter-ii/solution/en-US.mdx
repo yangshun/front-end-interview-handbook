@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import makeCounter from '../setup/src/make-counter-ii';
+import makeCounterJs from '../setup/src/make-counter-ii.js';
+import makeCounterTs from '../setup/src/make-counter-ii.ts';
 import makeCounterClass from '../setup/src/make-counter-ii-class';
 
 ## Solution
@@ -15,7 +16,7 @@ import makeCounterClass from '../setup/src/make-counter-ii-class';
    - The `decrement` method decrements the count by 1 using the prefix decrement operator (`--x`) and returns the updated value.
    - The `reset` method resets the `count` to the initial value provided in the `makeCounter` function and returns it.
 
-<MDXCodeBlock>{makeCounter}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: makeCounterJs, tsx: makeCounterTs }} />
 
 ### Solution 2: Return a `Counter` class
 

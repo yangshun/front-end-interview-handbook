@@ -5,6 +5,6 @@ interface Counter {
   reset: () => number;
 }
 
-export default function makeCounter(initialValue?: number): Counter {
+export default function makeCounter(initialValue: number): Counter {
   throw 'Not implemented';
 }
