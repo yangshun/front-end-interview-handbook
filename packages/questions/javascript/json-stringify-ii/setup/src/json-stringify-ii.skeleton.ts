@@ -1,3 +1,3 @@
-export default function jsonStringify(value: any): string {
+export default function jsonStringify(value: unknown): string {
   throw 'Not implemented!';
 }

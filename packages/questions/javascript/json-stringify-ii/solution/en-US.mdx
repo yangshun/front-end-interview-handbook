@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import jsonStringify from '../setup/src/json-stringify-ii';
+import jsonStringifyJs from '../setup/src/json-stringify-ii.js';
+import jsonStringifyTs from '../setup/src/json-stringify-ii.ts';
 
 This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function, e.g. functions, `regex`, and `Date` object. It's extremely unlikely to be asked to implement a solution that handles that many data types during interviews.
 
@@ -39,7 +40,7 @@ To detect circular references in an object, we can use a `Set` to keep track of 
 
 Here is how we would write it:
 
-<MDXCodeBlock>{jsonStringify}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: jsonStringifyJs, tsx: jsonStringifyTs }} />
 
 ## Notes
 

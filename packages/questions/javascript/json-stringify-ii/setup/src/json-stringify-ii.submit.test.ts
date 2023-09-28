@@ -2,15 +2,14 @@ import jsonStringify from './json-stringify-ii';
 
 describe('jsonStringify', () => {
   describe('primitives', () => {
-    test('empty', () => {
-      expect(jsonStringify()).toEqual(undefined);
-    });
     test('undefined', () => {
       expect(jsonStringify(undefined)).toEqual(undefined);
     });
+
     test('null', () => {
       expect(jsonStringify(null)).toEqual('null');
     });
+
     test('boolean', () => {
       expect(jsonStringify(true)).toEqual('true');
       expect(jsonStringify(false)).toEqual('false');
@@ -170,7 +169,7 @@ describe('jsonStringify', () => {
   });
 
   test('cyclic objects', () => {
-    const foo = {};
+    const foo: any = {};
     foo.a = foo;
 
     expect(() => {
