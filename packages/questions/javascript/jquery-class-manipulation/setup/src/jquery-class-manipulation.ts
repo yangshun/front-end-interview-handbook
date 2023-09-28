@@ -1,25 +1,18 @@
-/**
- * @param {string} className
- * @return {Set<string>}
- */
-function classNameTokenSet(className) {
+interface JQuery {
+  toggleClass: (className: string, state?: boolean) => JQuery;
+  addClass: (className: string) => JQuery;
+  removeClass: (className: string) => JQuery;
+}
+
+function classNameTokenSet(className: string): Set<string> {
   return new Set(className.trim().split(/\s+/));
 }
 
-/**
- * @param {string} selector
- * @return {{toggleClass: Function, addClass: Function, removeClass: Function}}
- */
-export default function $(selector) {
+export default function $(selector: string): JQuery {
   const element = document.querySelector(selector);
 
   return {
-    /**
-     * @param {string} className
-     * @param {boolean} state
-     * @return {Object|void}
-     */
-    toggleClass: function (className, state) {
+    toggleClass: function (className: string, state?: boolean): JQuery {
       // No-op if there is no matching element.
       if (element == null) {
         return this;
@@ -39,19 +32,11 @@ export default function $(selector) {
       element.className = Array.from(elementClasses).join(' ');
       return this;
     },
-    /**
-     * @param {string} className
-     * @return {Object}
-     */
-    addClass: function (className) {
+    addClass: function (className: string): JQuery {
       this.toggleClass(className, true);
       return this;
     },
-    /**
-     * @param {string} className
-     * @return {Object}
-     */
-    removeClass: function (className) {
+    removeClass: function (className): JQuery {
       this.toggleClass(className, false);
       return this;
     },

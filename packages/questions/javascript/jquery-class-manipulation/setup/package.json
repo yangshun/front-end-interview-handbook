@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/jquery-class-manipulation",
   "version": "0.0.1",
-  "main": "/src/jquery-class-manipulation.js",
+  "main": "/src/jquery-class-manipulation.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

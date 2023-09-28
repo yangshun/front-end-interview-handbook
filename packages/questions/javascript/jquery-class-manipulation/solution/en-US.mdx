@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import jQueryClassManipulation from '../setup/src/jquery-class-manipulation';
+import jQueryClassManipulationJs from '../setup/src/jquery-class-manipulation.js';
+import jQueryClassManipulationTs from '../setup/src/jquery-class-manipulation.ts';
 import jQueryClassManipulationClass from '../setup/src/jQueryClassManipulationClass';
 
 **Note:** If you haven't completed the [`jQuery.css`](/questions/javascript/jquery-css) question, you should attempt that first.
@@ -22,7 +23,9 @@ Lastly, we modify the element's `className` by concatenating the classes back in
 
 `addClass` and `removeClass` can be implemented trivially by using `toggleClass` with `state` set as `true` and `false` respectively.
 
-<MDXCodeBlock>{jQueryClassManipulation}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: jQueryClassManipulationJs, tsx: jQueryClassManipulationTs }}
+/>
 
 ## Alternative Solution
 
