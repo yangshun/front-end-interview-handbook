@@ -26,6 +26,7 @@ describe('jQuery.css', () => {
 
     test('no elements match the selector', () => {
       expect(() => {
+        // @ts-ignore
         $('no-such-thing').css('color', 'red').css('fontSize', '12px');
       }).not.toThrow();
     });
@@ -35,41 +36,45 @@ describe('jQuery.css', () => {
       $('button').css('backgroundColor', 'tomato');
       $('button').css('fontSize', '12px');
 
-      expect(document.querySelector('button').style.color).toBe('red');
-      expect(document.querySelector('button').style.backgroundColor).toBe(
+      expect(document.querySelector('button')!.style.color).toBe('red');
+      expect(document.querySelector('button')!.style.backgroundColor).toBe(
         'tomato',
       );
-      expect(document.querySelector('button').style.fontSize).toBe('12px');
+      expect(document.querySelector('button')!.style.fontSize).toBe('12px');
 
       $('button').css('color', 'orange');
-      expect(document.querySelector('button').style.color).toBe('orange');
+      expect(document.querySelector('button')!.style.color).toBe('orange');
     });
 
     test('chain calls', () => {
+      // @ts-ignore
       $('button')
         .css('color', 'red')
+        // @ts-ignore
         .css('backgroundColor', 'tomato')
         .css('fontSize', '12px');
 
-      expect(document.querySelector('button').style.color).toBe('red');
-      expect(document.querySelector('button').style.backgroundColor).toBe(
+      expect(document.querySelector('button')!.style.color).toBe('red');
+      expect(document.querySelector('button')!.style.backgroundColor).toBe(
         'tomato',
       );
-      expect(document.querySelector('button').style.fontSize).toBe('12px');
+      expect(document.querySelector('button')!.style.fontSize).toBe('12px');
     });
 
     test('overwrites previous styles', () => {
+      // @ts-ignore
       $('button')
         .css('color', 'red')
+        // @ts-ignore
         .css('backgroundColor', 'tomato')
         .css('fontSize', '12px')
         .css('color', 'orange');
 
-      expect(document.querySelector('button').style.color).toBe('orange');
-      expect(document.querySelector('button').style.backgroundColor).toBe(
+      expect(document.querySelector('button')!.style.color).toBe('orange');
+      expect(document.querySelector('button')!.style.backgroundColor).toBe(
         'tomato',
       );
-      expect(document.querySelector('button').style.fontSize).toBe('12px');
+      expect(document.querySelector('button')!.style.fontSize).toBe('12px');
     });
   });
 });

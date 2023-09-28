@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import jQuery from '../setup/src/jquery-css';
+import jQueryJs from '../setup/src/jquery-css.js';
+import jQueryTs from '../setup/src/jquery-css.ts';
 import jQueryClass from '../setup/src/jQueryClass';
 
 ## Clarification Questions
@@ -14,7 +15,7 @@ The toughest part of this question is how to implement method chaining on object
 
 Getting and setting the CSS properties is straightforward with the use of the [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) property.
 
-<MDXCodeBlock>{jQuery}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: jQueryJs, tsx: jQueryTs }} />
 
 ## Alternative Solution
 

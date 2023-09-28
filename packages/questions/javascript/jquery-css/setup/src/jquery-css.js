@@ -9,7 +9,7 @@ export default function $(selector) {
     /**
      * @param {string} prop
      * @param {boolean|string|number} value
-     * @return {Object|void}
+     * @return {Object|void|string}
      */
     css: function (prop, value) {
       // Getter case.
