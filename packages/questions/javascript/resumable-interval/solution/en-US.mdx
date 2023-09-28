@@ -1,7 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import resumableInterval from '../setup/src/resumable-interval';
-import resumableIntervalStateMachine from '../setup/src/resumable-interval-state-machine';
+import resumableIntervalJs from '../setup/src/resumable-interval.js';
+import resumableIntervalTs from '../setup/src/resumable-interval.ts';
+import resumableIntervalStateMachineJs from '../setup/src/resumable-interval-state-machine.js';
+import resumableIntervalStateMachineTs from '../setup/src/resumable-interval-state-machine.ts';
 
 **Note:** It is recommended to have completed the [Cancellable Interval](/questions/javascript/cancellable-interval) question before attempting this question.
 
@@ -25,7 +27,9 @@ In the `pause` function, once we have determined the interval is not in the `sto
 
 In the `stop` function, set `stopped` to `true` and call `clearInterval(timerId)` to stop the interval callback. It doesn't matter if the interval is still running because `clearInterval(null)` is a no-op.
 
-<MDXCodeBlock>{resumableInterval}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: resumableIntervalJs, tsx: resumableIntervalTs }}
+/>
 
 We don't have to worry about `this` within the callback function because there's no option to pass a `thisArg` to `setInterval` unlike `Array.prototype.forEach()`/`Array.prototype.reduce()`. Read more about [this on MDN](https://developer.mozilla.org/en-US/docs/Web/API/setInterval#the_this_problem).
 
@@ -44,7 +48,12 @@ If the `newState` and the current `state` is the same, there's nothing to be don
 
 Although there's some duplication in the values of the key, it is much easier to determine at a glance that the state transitions are correct. Compare to the other approach, this state machine approach requires much fewer conditional statements and state assignment statements!
 
-<MDXCodeBlock>{resumableIntervalStateMachine}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{
+    jsx: resumableIntervalStateMachineJs,
+    tsx: resumableIntervalStateMachineTs,
+  }}
+/>
 
 ## Resources
 

@@ -1,8 +1,8 @@
-type Resumable = Readonly<{
+interface Resumable {
   start: () => void;
   pause: () => void;
   stop: () => void;
-}>;
+}
 
 export default function createResumableInterval(
   callback: Function,

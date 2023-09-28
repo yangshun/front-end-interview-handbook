@@ -1,15 +1,19 @@
-/**
- * @param {Function} callback
- * @param {number} delay
- * @param {...any} args
- * @returns {{start: Function, pause: Function, stop: Function}}
- */
-export default function createResumableInterval(callback, delay, ...args) {
-  let timerId;
-  let state = 'paused';
+interface Resumable {
+  start: () => void;
+  pause: () => void;
+  stop: () => void;
+}
 
-  function nextState(action) {
-    const newState = stateMachine[state][action];
+export default function createResumableInterval(
+  callback: Function,
+  delay?: number,
+  ...args: Array<any>
+): Resumable {
+  let timerId: number | null;
+  let state: State = 'paused';
+
+  function nextState(action: Action) {
+    const newState: State = stateMachine[state][action];
     if (newState === state) {
       return;
     }
@@ -18,7 +22,7 @@ export default function createResumableInterval(callback, delay, ...args) {
     switch (state) {
       case 'paused':
       case 'stopped':
-        clearInterval(timerId);
+        clearInterval(timerId ?? undefined);
         timerId = null;
         return;
       case 'running':
@@ -35,7 +39,11 @@ export default function createResumableInterval(callback, delay, ...args) {
   };
 }
 
-const stateMachine = {
+type State = 'stopped' | 'paused' | 'running';
+type Action = 'pause' | 'start' | 'stop';
+type StateMachine = Record<State, Record<Action, State>>;
+
+const stateMachine: StateMachine = {
   stopped: {
     pause: 'stopped',
     start: 'stopped',
