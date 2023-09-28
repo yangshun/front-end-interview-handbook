@@ -501,23 +501,21 @@ export default function TestsSection({
                     );
                   }
 
-                  if (state.status === 'complete') {
-                    if (specs.length === 0) {
-                      return (
-                        <div className="flex grow items-center justify-center">
-                          <p>No test files found.</p>
-                        </div>
-                      );
-                    }
-
+                  if (state.status === 'complete' && specs.length === 0) {
                     return (
-                      <SpecsInline
-                        openSpec={openSpec}
-                        runStatus={state.status}
-                        specs={specs}
-                      />
+                      <div className="flex grow items-center justify-center">
+                        <p>No test files found.</p>
+                      </div>
                     );
                   }
+
+                  return (
+                    <SpecsInline
+                      openSpec={openSpec}
+                      runStatus={state.status}
+                      specs={specs}
+                    />
+                  );
                 })()}
               </div>
             );
