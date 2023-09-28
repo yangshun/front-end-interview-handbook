@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import textSearch from '../setup/src/text-search-ii';
+import textSearchJs from '../setup/src/text-search-ii.js';
+import textSearchTs from '../setup/src/text-search-ii.ts';
 
 This question evaluates one's ability to manipulate arrays and strings in JavaScript, which is certainly an essential skill for Front End development.
 
@@ -50,7 +51,7 @@ The beginning of a span of consecutive chunks of `true` is where we insert the o
 
 To identify which characters need to be bold, we do a naive substring match at each character in `string` for each query. Flipping the boolean value at each matching character's index to `true`. However, because of the "one character can only match the same query once" condition, we have to increment `i` to go past the current query when there's a match.
 
-<MDXCodeBlock>{textSearch}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: textSearchJs, tsx: textSearchTs }} />
 
 ## Notes
 
