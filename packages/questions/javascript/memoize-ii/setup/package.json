@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/memoize-ii",
   "version": "0.0.1",
-  "main": "/src/memoize-ii.js",
+  "main": "/src/memoize-ii.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

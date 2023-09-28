@@ -24,7 +24,7 @@ describe('memoize', () => {
 
   test('single argument', () => {
     let count = 0;
-    function double(x) {
+    function double(x: number): number {
       count++;
       return x * 2;
     }
@@ -44,7 +44,7 @@ describe('memoize', () => {
 
   test('two arguments', () => {
     let count = 0;
-    function mul(a, b) {
+    function mul(a: number, b: number) {
       count++;
       return a * b;
     }
@@ -64,7 +64,7 @@ describe('memoize', () => {
 
   test('strings', () => {
     let count = 0;
-    function repeat(x) {
+    function repeat(x: string) {
       count++;
       return x + x;
     }
@@ -84,7 +84,7 @@ describe('memoize', () => {
 
   test('differentiates strings and numbers', () => {
     let count = 0;
-    function identity(x) {
+    function identity<T>(x: T): T {
       count++;
       return x;
     }
@@ -103,7 +103,7 @@ describe('memoize', () => {
   describe('variadic arguments', () => {
     test('arguments of same type', () => {
       let count = 0;
-      function product(...args) {
+      function product(...args: Array<number>) {
         count++;
         return args.reduce((acc, num) => acc * num, 1);
       }
@@ -123,7 +123,7 @@ describe('memoize', () => {
 
     test('arguments of different type', () => {
       let count = 0;
-      function repeat(str, times) {
+      function repeat(str: string, times: number) {
         count++;
         return Array(times).fill(str).join('');
       }
@@ -144,7 +144,7 @@ describe('memoize', () => {
 
   test('can access `this`', () => {
     let count = 0;
-    function mul(x) {
+    function mul(this: any, x: number) {
       count++;
       return this.age * x;
     }

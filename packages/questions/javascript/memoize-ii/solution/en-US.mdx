@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import memoize from '../setup/src/memoize-ii';
+import memoizeJs from '../setup/src/memoize-ii.js';
+import memoizeTs from '../setup/src/memoize-ii.ts';
 import memoizeTrie from '../setup/src/memoize-ii-trie';
 
 ## Solution
@@ -35,7 +36,7 @@ Before invoking the original function `func`, the memoized function first checks
 1. The cache contains an entry for `key`. A cached result exists, it means that the function has been called with the same arguments before, and there is no need to recompute the result. In this case, the memoized function simply returns the cached result using `cache.get(key)`.
 1. The cache does not contain an entry these `args`. If the cache does not contain a result for the current `args`, it means that the function is called with arguments that haven't been seen before. The memoized function then invokes the original function func using `Function.prototype.apply()`. `Function.prototype.apply()` is used to ensure that the context (`this`) of the original function is preserved when called from the memoized function. The arguments are passed to the original function `func` and after computing the result using the original function, the memoized function stores the result in the cache by associating it with the corresponding key using `cache.set(key, result)`. Finally the memoized function returns the computed result.
 
-<MDXCodeBlock>{memoize}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: memoizeJs, tsx: memoizeTs }} />
 
 ### Solution 2: Trie-based cache
 
