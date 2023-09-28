@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import jsonStringify from '../setup/src/json-stringify';
+import jsonStringifyJs from '../setup/src/json-stringify.js';
+import jsonStringifyTs from '../setup/src/json-stringify.ts';
 import jsonStringifySwitch from '../setup/src/json-stringify-switch';
 
 ## Solution
@@ -26,7 +27,7 @@ Now that we know how to stringify each value, we just have to know how to determ
 
 Here's the code that determines the type of a value and stringify each value type appropriately.
 
-<MDXCodeBlock>{jsonStringify}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: jsonStringifyJs, tsx: jsonStringifyTs }} />
 
 Here's an alternative that does the typechecking in a cleaner fashion by using `switch` cases:
 
