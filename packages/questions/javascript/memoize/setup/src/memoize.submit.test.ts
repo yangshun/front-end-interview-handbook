@@ -3,12 +3,12 @@ import memoize from './memoize';
 describe('memoize', () => {
   test('returns a function', () => {
     const memoizedFn = memoize(() => {});
-    expect(typeof memoizedFn).toBe('function');
+    expect(memoizedFn).toBeInstanceOf(Function);
   });
 
   test('numbers', () => {
     let count = 0;
-    function double(x) {
+    function double(x: number) {
       count++;
       return x * 2;
     }
@@ -24,7 +24,7 @@ describe('memoize', () => {
 
   test('strings', () => {
     let count = 0;
-    function repeat(x) {
+    function repeat(x: string) {
       count++;
       return x + x;
     }
@@ -40,7 +40,7 @@ describe('memoize', () => {
 
   test('memoize different arguments', () => {
     let count = 0;
-    function double(x) {
+    function double(x: string) {
       count++;
       return x + x;
     }
@@ -58,7 +58,7 @@ describe('memoize', () => {
 
   test('differentiates strings and numbers', () => {
     let count = 0;
-    function identity(x) {
+    function identity<T>(x: T) {
       count++;
       return x;
     }
@@ -76,7 +76,7 @@ describe('memoize', () => {
 
   test('can access `this`', () => {
     let count = 0;
-    function mul(x) {
+    function mul(this: any, x: number) {
       count++;
       return this.age * x;
     }

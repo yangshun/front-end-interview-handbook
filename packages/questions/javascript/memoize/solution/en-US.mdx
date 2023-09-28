@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import memoize from '../setup/src/memoize';
+import memoizeJs from '../setup/src/memoize.js';
+import memoizeTs from '../setup/src/memoize.ts';
 
 ## Solution
 
@@ -23,7 +24,7 @@ Before invoking the original function `func`, the memoized function first checks
 1. The cache contains an entry for `arg`. A cached result exists, it means that the function has been called with the same argument before, and there is no need to recompute the result. In this case, the memoized function simply returns the cached result using `cache.get(arg)`.
 1. The cache does not contain an entry for `arg`. If the cache does not contain a result for the current `arg`, it means that the function is called with a new argument. The memoized function then invokes the original function func using the `Function.prototype.call()` method. `Function.prototype.apply()` can be used as well but `Function.prototype.call()` is simpler to use given there's only one argument. The `Function.prototype.call()` method is used to ensure that the context (`this`) of the original function is preserved when called from the memoized function. The argument `arg` is passed to the original function `func`. After computing the result using the original function, the memoized function stores the result in the cache by associating it with the corresponding `arg` key using `cache.set(arg, result)`. Finally the memoized function returns the computed result.
 
-<MDXCodeBlock>{memoize}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: memoizeJs, tsx: memoizeTs }} />
 
 ## Edge Cases
 
