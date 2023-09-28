@@ -48,6 +48,10 @@ export type EmbedUIQuestion = Readonly<{
     skeleton: QuestionUserInterfaceBundle;
     solution: QuestionUserInterfaceBundle;
   }>;
+  svelte: Readonly<{
+    skeleton: QuestionUserInterfaceBundle;
+    solution: QuestionUserInterfaceBundle;
+  }>;
   vanilla: Readonly<{
     skeleton: QuestionUserInterfaceBundle;
     solution: QuestionUserInterfaceBundle;

@@ -56,10 +56,16 @@ export type QuestionCodingFormat =
   | 'data-structures-algorithms'
   | 'user-interface'
   | 'utilities';
-export type QuestionFramework = 'angular' | 'react' | 'vanilla' | 'vue';
+export type QuestionFramework =
+  | 'angular'
+  | 'react'
+  | 'svelte'
+  | 'vanilla'
+  | 'vue';
 export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
   angular: 'Angular',
   react: 'React',
+  svelte: 'Svelte',
   vanilla: 'Vanilla JS',
   vue: 'Vue',
 };

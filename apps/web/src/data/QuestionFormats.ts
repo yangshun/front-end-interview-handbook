@@ -10,6 +10,7 @@ import CSS3LogoMonochrome from '~/components/icons/CSS3LogoMonochrome';
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
+import SvelteLogo from '~/components/icons/SvelteLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import type { QuestionUserFacingFormat } from '~/components/questions/common/QuestionsTypes';
 import {
@@ -117,10 +118,11 @@ export function useQuestionFormatLists() {
 
   return questionFormatLists;
 }
+
 export function useQuestionTechnologyLists() {
   const intl = useIntl();
   const questionTechnologyLists: QuestionFormatLists<
-    'angular' | 'css' | 'html' | 'js' | 'react' | 'vanilla' | 'vue'
+    'angular' | 'css' | 'html' | 'js' | 'react' | 'svelte' | 'vanilla' | 'vue'
   > = {
     angular: {
       href: '/questions/angular',
@@ -220,6 +222,26 @@ export function useQuestionTechnologyLists() {
         defaultMessage: 'Search React questions',
         description: 'Placeholder for search input of React question list',
         id: '+xshpk',
+      }),
+    },
+    svelte: {
+      href: '/questions/svelte',
+      icon: SvelteLogo,
+      key: 'angular',
+      longName: intl.formatMessage({
+        defaultMessage: 'Svelte Questions',
+        description: 'Svelte questions category long title',
+        id: '+ESKYF',
+      }),
+      name: intl.formatMessage({
+        defaultMessage: 'Svelte',
+        description: 'Svelte questions category short title',
+        id: 'y1y4Uh',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Svelte questions',
+        description: 'Placeholder for search input of Svelte question list',
+        id: 'R68iHH',
       }),
     },
     vanilla: {

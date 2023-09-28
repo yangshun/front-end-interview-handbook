@@ -27,6 +27,7 @@ const SUPPORTED_FRAMEWORKS = new Set<QuestionFramework>([
   'vanilla',
   'react',
   'angular',
+  'svelte',
 ]);
 // Const SUPPORTED_SETUP_TYPE = new Set<QuestionUserInterfaceSetupType>([
 //   'solution',
@@ -70,6 +71,12 @@ const DEFAULT_FRAMEWORK_SETUPS: Record<
     entry: '/index.js',
     environment: 'create-react-app',
     main: '/App.js',
+  },
+  svelte: {
+    dependencies: { svelte: '^3.58.0' },
+    entry: '',
+    environment: 'svelte',
+    main: '/src/index.js',
   },
   vanilla: {
     dependencies: {},

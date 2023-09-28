@@ -7,6 +7,7 @@ import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
 import AngularLogo from '~/components/icons/AngularLogo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
 import ReactLogo from '~/components/icons/ReactLogo';
+import SvelteLogo from '~/components/icons/SvelteLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
@@ -31,6 +32,7 @@ const frameworkIcons: Record<
 > = {
   angular: { icon: AngularLogo, style: { transform: 'scale(1.1)' } },
   react: { icon: ReactLogo, style: { fill: 'rgb(20, 158, 202)' } },
+  svelte: { icon: SvelteLogo, style: { color: '#ff3e00' } },
   vanilla: { icon: HTML5Logo },
   vue: { icon: VueLogoMonochrome },
 };
