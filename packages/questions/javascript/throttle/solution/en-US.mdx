@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import throttle from '../setup/src/throttle';
+import throttleJs from '../setup/src/throttle.js';
+import throttleTs from '../setup/src/throttle.ts';
 
 Throttle, along with [debounce](/questions/javascript/debounce), are among the most common front end interview questions; it's the front end equivalent of inverting a binary tree. Hence you should make sure that you are very familiar with both questions.
 
@@ -41,7 +42,7 @@ Hence we have to use `Function.prototype.apply()`/`Function.prototype.call()` wh
 - `func.apply(thisArg, args)`
 - `func.call(thisArg, ...args)`
 
-<MDXCodeBlock>{throttle}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: throttleJs, tsx: throttleTs }} />
 
 Note that there are many variations of `throttle` and this implementation only covers the most common behavior. Some other variations:
 

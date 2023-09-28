@@ -2,10 +2,8 @@ import throttle from './throttle';
 
 describe('throttle', () => {
   test('can be initialized', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     const increment = throttle(() => {}, 50);
-
-    expect(increment).toBeTruthy();
+    expect(increment).toBeInstanceOf(Function);
   });
 
   test('invokes callback immediately', () => {
