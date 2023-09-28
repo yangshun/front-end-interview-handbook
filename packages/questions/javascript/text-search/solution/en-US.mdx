@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import textSearch from '../setup/src/text-search';
+import textSearchJs from '../setup/src/text-search.js';
+import textSearchTs from '../setup/src/text-search.ts';
 
 This question evaluates one's ability to manipulate arrays and strings in JavaScript, which is certainly an essential skill for Front End development.
 
@@ -40,7 +41,7 @@ To identify which characters need to be bold, we do a naive substring match at e
 
 Because we separate out the function into two steps: (1) identification of bold characters, (2) rendering of the `<b>` tags, we will not run into the issue of combining the tags for consecutive matches.
 
-<MDXCodeBlock>{textSearch}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: textSearchJs, tsx: textSearchTs }} />
 
 ## Edge Cases
 
