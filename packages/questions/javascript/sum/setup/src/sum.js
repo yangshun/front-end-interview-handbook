@@ -1,9 +1,9 @@
 /**
- * @param {number} number
+ * @param {number} valueA
  * @return {Function}
  */
-export default function sum(numberA) {
-  return function (numberB) {
-    return numberB === undefined ? numberA : sum(numberA + numberB);
+export default function sum(valueA) {
+  return function (valueB) {
+    return valueB === undefined ? valueA : sum(valueA + valueB);
   };
 }

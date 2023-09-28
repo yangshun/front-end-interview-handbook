@@ -1,7 +1,7 @@
 /**
- * @param {number} number
+ * @param {number} value
  * @return {Function}
  */
-export default function sum(number) {
+export default function sum(value) {
   throw 'Not implemented!';
 }

@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import sum from '../setup/src/sum';
+import sumJs from '../setup/src/sum.js';
+import sumTs from '../setup/src/sum.ts';
 import sumArrowFunction from '../setup/src/sumArrowFunction';
 
 This question evaluates your understanding of closures and first-class functions - functions in JavaScript are variables that can be returned and passed into other functions as arguments.
@@ -20,7 +21,7 @@ We declare an inner function that will be returned for subsequent calls to the f
 
 We can check for the presence of an argument by using `argument === undefined`. Note that we shouldn't be using `==` here because `null == undefined` is `true`.
 
-<MDXCodeBlock>{sum}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: sumJs, tsx: sumTs }} />
 
 ### One-liner using Arrow Functions
 
