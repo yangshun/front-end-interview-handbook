@@ -1,7 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import numberOfArguments from '../setup/src/number-of-arguments';
-import numberOfArgumentsRest from '../setup/src/number-of-arguments-rest';
+import numberOfArgumentsJs from '../setup/src/number-of-arguments.js';
+import numberOfArgumentsTs from '../setup/src/number-of-arguments.ts';
+import numberOfArgumentsRestJs from '../setup/src/number-of-arguments-rest.js';
+import numberOfArgumentsRestTs from '../setup/src/number-of-arguments-rest.ts';
 
 ## Solution
 
@@ -9,13 +11,17 @@ import numberOfArgumentsRest from '../setup/src/number-of-arguments-rest';
 
 The `arguments` object is an array-like object that is accessible inside functions and it contains values or arguments passed to that function. Hence we an use `arguments.length` to determine the number of arguments passed.
 
-<MDXCodeBlock>{numberOfArguments}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: numberOfArgumentsJs, tsx: numberOfArgumentsTs }}
+/>
 
 ### Solution 2: Using rest parameters
 
 The rest parameter syntax allows a function to accept a variable number of arguments as an array. It can be used with named parameters before it, but by using it solely as the function's parameters (like in the skeleton code), it captures all arguments passed to the function.
 
-<MDXCodeBlock>{numberOfArgumentsRest}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: numberOfArgumentsRestJs, tsx: numberOfArgumentsRestTs }}
+/>
 
 ## Edge Cases
 
