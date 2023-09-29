@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import deepEqual from '../setup/src/deep-equal';
+import deepEqualJs from '../setup/src/deep-equal.js';
+import deepEqualTs from '../setup/src/deep-equal.ts';
 import deepEqualAlt from '../setup/src/deep-equal-alt';
 
 ## Solution
@@ -60,7 +61,7 @@ Now let's work on the case where both input values are objects or arrays. Becaus
 
 Here is the complete solution:
 
-<MDXCodeBlock>{deepEqual}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: deepEqualJs, tsx: deepEqualTs }} />
 
 ### Solution 2: Handling primitives first
 

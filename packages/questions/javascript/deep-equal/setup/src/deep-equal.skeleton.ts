@@ -1,3 +1,3 @@
-export default function deepEqual(valueA: any, valueB: any): boolean {
+export default function deepEqual(valueA: unknown, valueB: unknown): boolean {
   throw 'Not implemented!';
 }
