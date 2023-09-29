@@ -1,3 +1,3 @@
-export default function tableOfContents(doc: Node): string {
+export default function tableOfContents(doc: Document): string {
   throw 'Not implemented!';
 }

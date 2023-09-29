@@ -1,9 +1,14 @@
-function stringify(contents) {
-  function stringifyNode(node) {
+type Node = {
+  text: string | null;
+  children: Array<Node>;
+};
+
+function stringify(contents: Node): string {
+  function stringifyNode(node: Node): string {
     return `<li>${node.text}${stringifyChildren(node.children)}</li>`;
   }
 
-  function stringifyChildren(children) {
+  function stringifyChildren(children: Array<Node>): string {
     return children.length > 0
       ? `<ul>${children.map(stringifyNode).join('')}</ul>`
       : '';
@@ -14,19 +19,15 @@ function stringify(contents) {
 
 const headingTags = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
 
-/**
- * @param {Document} doc
- * @return {string}
- */
-export default function tableOfContents(doc) {
+export default function tableOfContents(doc: Document): string {
   const rootNode = {
     text: null,
     children: [],
   };
-  const stack = [rootNode];
+  const stack: Array<Node> = [rootNode];
   let currentLevel = 0;
 
-  function traverse(element) {
+  function traverse(element: Element) {
     if (element == null || element.tagName == null) {
       return;
     }

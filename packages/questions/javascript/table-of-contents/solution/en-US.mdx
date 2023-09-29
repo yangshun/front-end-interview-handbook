@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import tableOfContentsSolution from '../setup/src/table-of-contents';
+import tableOfContentsJs from '../setup/src/table-of-contents.js';
+import tableOfContentsTs from '../setup/src/table-of-contents.ts';
 
 This is a practical question which is used in many content-heavy sites such as blogs, documentation websites, Google Docs, and as mentioned in the question, screen readers.
 
@@ -44,7 +45,7 @@ Again, we'll make use of recursion here. We'll define two helper functions, one 
 - `stringifyNode`: Each node will be rendered as an `<li>` element. We render the `text` and `children`, if present.
 - `stringifyChildren`: Each `children` is an array, which is rendered as a `<ul>`. And we can call `stringifyNode` on each node in the `children`. We shouldn't be rendering empty `<ul>`, so we should check whether `children.length` is bigger than 0 before creating the string.
 
-<MDXCodeBlock>{tableOfContentsSolution}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: tableOfContentsJs, tsx: tableOfContentsTs }} />
 
 ## Edge Cases
 

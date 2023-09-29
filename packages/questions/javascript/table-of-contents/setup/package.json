@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/table-of-contents",
   "version": "0.0.1",
-  "main": "/src/table-of-contents.js",
+  "main": "/src/table-of-contents.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

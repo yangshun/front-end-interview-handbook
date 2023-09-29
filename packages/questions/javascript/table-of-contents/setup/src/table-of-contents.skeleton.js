@@ -1,5 +1,5 @@
 /**
- * @param {Node} doc
+ * @param {Document} doc
  * @return {string}
  */
 export default function tableOfContents(doc) {
