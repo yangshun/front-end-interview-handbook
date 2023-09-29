@@ -1,15 +1,15 @@
 import squashObject from './squash-object';
 
 describe('squashObject', () => {
-  test('empty object', () => {
+  test('empty', () => {
     expect(squashObject({})).toEqual({});
   });
 
-  test('object with no nesting', () => {
+  test('no nesting', () => {
     expect(squashObject({ a: '1', b: 'b' })).toEqual({ a: '1', b: 'b' });
   });
 
-  test('object with one level of nesting', () => {
+  test('one level of nesting', () => {
     expect(
       squashObject({
         a: 5,
@@ -20,7 +20,7 @@ describe('squashObject', () => {
     ).toEqual({ a: 5, 'c.f': 9 });
   });
 
-  test('object with multiple levels of nesting', () => {
+  test('multiple levels of nesting', () => {
     expect(
       squashObject({
         a: 5,
@@ -36,7 +36,7 @@ describe('squashObject', () => {
     ).toEqual({ a: 5, b: 6, 'c.f': 9, 'c.g.m': 17, 'c.g.n': 3 });
   });
 
-  test('object with arrays', () => {
+  test('arrays', () => {
     expect(
       squashObject({
         a: ['hi', 'bye'],
@@ -47,7 +47,7 @@ describe('squashObject', () => {
     });
   });
 
-  test('object with null-ish values', () => {
+  test('null-ish values', () => {
     expect(
       squashObject({
         a: {
@@ -65,7 +65,7 @@ describe('squashObject', () => {
     });
   });
 
-  describe('object with empty keys', () => {
+  describe('empty keys', () => {
     test('single layer of empty key', () => {
       expect(
         squashObject({
@@ -99,7 +99,7 @@ describe('squashObject', () => {
     });
   });
 
-  test('object with everything', () => {
+  test('everything', () => {
     expect(
       squashObject({
         a: 'hi',

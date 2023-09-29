@@ -1,9 +1,9 @@
-/**
- * @param {Object} obj
- * @return {Object}
- */
-export default function squashObject(obj) {
-  function squashImpl(obj_, path, output) {
+export default function squashObject(obj: Object): Object {
+  function squashImpl(
+    obj_: Object,
+    path: Array<string>,
+    output: Record<string, any>,
+  ) {
     for (const [key, value] of Object.entries(obj_)) {
       if (typeof value !== 'object' || value === null) {
         output[path.concat(key).filter(Boolean).join('.')] = value;

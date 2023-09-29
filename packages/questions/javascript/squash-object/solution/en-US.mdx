@@ -1,15 +1,16 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import squashObject from '../setup/src/squash-object';
+import squashObjectJs from '../setup/src/squash-object.js';
+import squashObjectTs from '../setup/src/squash-object.ts';
 
 This is a pretty tricky question, because not only do we need to traverse the object using recursion, but we also have to change the shape of the object, i.e. glueing all keys of a given path when we reach a primitive value. This also requires we keep track of the keys while traversing down the tree (the object).
 
 There are generally two ways we can explore an object:
 
 1. Loop through the keys with the old school `for ... in` statement.
-1. Converting the object into an array of keys with `Object.keys`, or an array of a key-value tuple with `Object.entries`.
+1. Converting the object into an array of keys with `Object.keys()`, or an array of a key-value tuple with `Object.entries()`.
 
-With the `for ... in` statement, inherited enumerable properties are be processed as well. So normally you'd add a `Object.hasOwn()` check to make sure the property is not inherited from its prototype. On the other hand, `Object.keys` and `Object.entries` only care about the properties directly defined on the object, and this is usually what we want.
+With the `for ... in` statement, inherited enumerable properties are be processed as well. So normally you'd add a `Object.hasOwn()` check to make sure the property is not inherited from its prototype. On the other hand, `Object.keys()` and `Object.entries()` only care about the properties directly defined on the object, and this is usually what we want.
 
 Here is how we would go about visiting each property. When the value of a given property is an object, we would have to repeat the process with recursion.
 
@@ -27,9 +28,9 @@ function squashObject(object) {
 
 We also need to keep track of the keys that are on the path to the current value so that we can squash them to form the new keys of the output object. To do that, we need to pass the keys down to the recursion call. We add a new parameter call `path` that is an array of strings that stores the key explored on a given path. When the current value is a primitive value, i.e. we are the end of the object, we join `path` together to form the key and assign the value to it.
 
-Here is the solution.
+Here is the solution that defines an inner recursive helper function that accepts the `path` and `output` parameters.
 
-<MDXCodeBlock>{squashObject}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: squashObjectJs, tsx: squashObjectTs }} />
 
 If this still looks confusing to you, no worries because most people find recursion to be hard to follow and comprehend. The thinking involves holding in your head multiple levels of the call stack at the same time and it takes time and practice to get used to.
 
