@@ -1,3 +1,3 @@
-export default function deepMap(value: any, fn: Function): any {
+export default function deepMap(value: unknown, fn: Function): unknown {
   throw 'Not implemented';
 }

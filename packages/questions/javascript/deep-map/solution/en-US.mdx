@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import deepMap from '../setup/src/deep-map';
+import deepMapJs from '../setup/src/deep-map.js';
+import deepMapTs from '../setup/src/deep-map.ts';
 
 ## Clarification Questions
 
@@ -21,7 +22,7 @@ Since arrays and objects need special handling, there are three categories of va
 
 The next tricky part of the question is to provide the value of `this` for the `fn` via `Function.prototype.call()`/`Function.prototype.apply()`. In `Array.prototype.map()`, the `thisArg` value can be provided as a second argument to the `.map()` function and the callback function will be invoked with `thisArg` as the `this` value. In our case, the `this` value within callbacks is not explicitly specified but a reasonable assumption is to use the `value` input as `this`. We need to pass the original `value` object across recursion calls, hence we create a `mapHelper()` helper function that takes in an extra parameter `original`, so that all recursive calls have access to both the current element and the `original` value.
 
-<MDXCodeBlock>{deepMap}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: deepMapJs, tsx: deepMapTs }} />
 
 ## Edge Cases
 

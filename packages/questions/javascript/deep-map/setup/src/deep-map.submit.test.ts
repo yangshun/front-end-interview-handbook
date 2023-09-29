@@ -1,11 +1,11 @@
 import deepMap from './deep-map';
 
-const identity = (x) => x;
+const identity = <T>(x: T) => x;
 const dummy = () => 'dummy';
-const square = (x) => x * x;
-const negate = (x) => !x;
-const length = (x) => x.length;
-const double = (x) => x * 2;
+const square = (x: number) => x * x;
+const negate = (x: boolean) => !x;
+const length = (x: { length: number }) => x.length;
+const double = (x: number) => x * 2;
 
 describe('deepMap', () => {
   describe('primitives', () => {
@@ -133,8 +133,8 @@ describe('deepMap', () => {
 
   test('can access `this`', () => {
     expect(
-      deepMap({ bar: 3, foo: 2 }, function (x) {
-        return x * this.foo;
+      deepMap({ bar: 3, foo: 2 }, function (this: any, x: number) {
+        return this.foo * x;
       }),
     ).toEqual({
       foo: 4,
