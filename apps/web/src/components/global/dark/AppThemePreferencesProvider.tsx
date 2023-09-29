@@ -21,7 +21,6 @@ const AppThemePreferencesContext =
   createContext<AppThemePreferencesContextType>({
     appTheme: DEFAULT_APP_THEME,
     appThemePreference: DEFAULT_APP_THEME_PREFERENCE,
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setAppThemePreference: () => {},
   });
 

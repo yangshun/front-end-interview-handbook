@@ -27,13 +27,9 @@ const CodingPreferencesContext = createContext<CodingPreferencesContextType>({
   consoleFontSize: DEFAULT_CONSOLE_FONT_SIZE,
   consoleShouldPreserveLogs: DEFAULT_CONSOLE_SHOULD_PRESERVE_LOGS,
   consoleTheme: DEFAULT_CONSOLE_THEME,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setConsoleFontSize: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setConsoleShouldPreserveLogs: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setConsoleTheme: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setThemeKey: () => {},
   themeKey: DEFAULT_THEME,
 });

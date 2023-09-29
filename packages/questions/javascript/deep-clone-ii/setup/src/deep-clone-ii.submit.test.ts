@@ -81,7 +81,6 @@ describe('deepClone', () => {
   });
 
   test('object prototype is also copied', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     const Foo = function () {};
     let foo = new (Foo as any)();
     const cloned = deepClone(foo);

@@ -22,14 +22,12 @@ export default function ToastExamples() {
           <Toast
             title={capitalize(variant) + ' Title'}
             variant={variant}
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
             onExpire={() => {}}
           />
           <Toast
             subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
             title={capitalize(variant) + ' Title'}
             variant={variant}
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
             onExpire={() => {}}
           />
         </div>

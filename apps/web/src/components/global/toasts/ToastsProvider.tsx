@@ -8,7 +8,6 @@ type Context = Readonly<{
 }>;
 
 export const ToastContext = createContext<Context>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   showToast: (_: ToastMessage) => {},
 });
 

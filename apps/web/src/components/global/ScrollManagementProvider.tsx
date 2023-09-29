@@ -8,7 +8,6 @@ type ScrollManagementContextType = Readonly<{
 }>;
 
 const ScrollManagementContext = createContext<ScrollManagementContextType>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShouldScrollToTop: () => {},
 });
 

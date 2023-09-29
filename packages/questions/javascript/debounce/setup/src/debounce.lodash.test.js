@@ -2,9 +2,7 @@ import { debounce } from 'lodash';
 
 describe('debounce', () => {
   test('can be initialized', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     const increment = debounce(() => {}, 50);
-
     expect(increment).toBeTruthy();
   });
 

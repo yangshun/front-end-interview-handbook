@@ -19,10 +19,8 @@ type MousePositionContext = Readonly<{
 }>;
 
 export const MousePositionContext = React.createContext<MousePositionContext>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   addCard: () => {},
   containerRect: null,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   removeCard: () => {},
 });
 

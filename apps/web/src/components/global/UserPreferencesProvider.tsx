@@ -19,11 +19,8 @@ const DEFAULT_SHOW_FEEDBACK_WIDGET = true;
 const DEFAULT_SHOW_GLOBAL_BANNER = true;
 
 const UserPreferencesContext = createContext<UserPreferencesContextType>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowFeedbackWidget: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowGlobalBanner: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setShowSidebar: () => {},
   showFeedbackWidget: DEFAULT_SHOW_FEEDBACK_WIDGET,
   showGlobalBanner: DEFAULT_SHOW_GLOBAL_BANNER,
