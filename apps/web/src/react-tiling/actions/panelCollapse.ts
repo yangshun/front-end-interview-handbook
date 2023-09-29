@@ -8,20 +8,20 @@ export type TilesActionPanelCollapse = Readonly<{
   type: 'panel-collapse';
 }>;
 
-export default function panelCollapse(
-  tiles: TilesPanelConfig,
+export default function panelCollapse<TabType>(
+  tiles: TilesPanelConfig<TabType>,
   payload: TilesActionPanelCollapse['payload'],
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   const { panelId, collapsed } = payload;
 
   return panelCollapseImpl(tiles, panelId, collapsed);
 }
 
-function panelCollapseImpl(
-  panel: TilesPanelConfig,
+function panelCollapseImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
   panelIdToCollapse: string,
   collapsed: boolean,
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   if (panel.type === 'item') {
     if (panel.id === panelIdToCollapse) {
       return {

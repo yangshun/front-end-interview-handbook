@@ -65,7 +65,7 @@ function TabButton({
   );
 }
 
-export default function TilesPanelTab({
+export default function TilesPanelTab<TabType extends string>({
   closeable,
   href,
   icon: Icon,
@@ -85,16 +85,16 @@ export default function TilesPanelTab({
   label: string;
   onClick: () => void;
   onDrop: (
-    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: string }>,
-    dst: Readonly<{ panelId: string; tabId: string }>,
+    src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: TabType }>,
+    dst: Readonly<{ panelId: string; tabId: TabType }>,
   ) => void;
   panelId: string;
-  tabId: string;
+  tabId: TabType;
 }>) {
   const { dispatch } = useTilesContext();
   const tabRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
-    TilesPanelDragItem,
+    TilesPanelDragItem<TabType>,
     void,
     { isOver: boolean }
   >({
@@ -120,7 +120,7 @@ export default function TilesPanelTab({
     },
   });
   const [{ isDragging }, drag] = useDrag<
-    TilesPanelDragItem,
+    TilesPanelDragItem<TabType>,
     unknown,
     { isDragging: boolean }
   >({

@@ -4,47 +4,48 @@ import tabOpen from './tabOpen';
 import type { TilesPanelConfig, TilesPanelDropAreaSection } from '../types';
 import prune from '../utils/prune';
 
-type PanelTab = Readonly<{
+type PanelTab<TabType> = Readonly<{
   panelId: string;
-  tabId: string;
+  tabId: TabType;
 }>;
-type PanelTabCloseable = PanelTab &
+
+type PanelTabCloseable<TabType> = PanelTab<TabType> &
   Readonly<{
     tabCloseable: boolean;
   }>;
 
-export type PanelDropTarget =
+export type PanelDropTarget<TabType> =
   | Readonly<{
       dropAreaSection: 'tab';
       panelId: string;
-      tabId: string;
+      tabId: TabType;
     }>
   | Readonly<{
       dropAreaSection: Exclude<TilesPanelDropAreaSection, 'tab'>;
       panelId: string;
     }>;
 
-export type TilesActionTabDrop = Readonly<{
+export type TilesActionTabDrop<TabType> = Readonly<{
   payload: Readonly<{
-    dst: PanelDropTarget;
-    src: PanelTabCloseable;
+    dst: PanelDropTarget<TabType>;
+    src: PanelTabCloseable<TabType>;
   }>;
   type: 'tab-drop';
 }>;
 
-export default function tabDrop(
-  tiles: TilesPanelConfig,
-  payload: TilesActionTabDrop['payload'],
-): TilesPanelConfig {
+export default function tabDrop<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionTabDrop<TabType>['payload'],
+): TilesPanelConfig<TabType> {
   const newTiles = tabDropImpl(tiles, payload);
 
   return prune(newTiles) ?? tiles;
 }
 
-function tabDropImpl(
-  tiles: TilesPanelConfig,
-  payload: TilesActionTabDrop['payload'],
-): TilesPanelConfig {
+function tabDropImpl<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionTabDrop<TabType>['payload'],
+): TilesPanelConfig<TabType> {
   const { src, dst } = payload;
 
   // Dropped on a tab item.
@@ -108,11 +109,11 @@ function tabDropImpl(
   });
 }
 
-function tabReorder(
-  panel: TilesPanelConfig,
-  src: PanelTabCloseable,
-  dst: PanelTab,
-): TilesPanelConfig {
+function tabReorder<TabType>(
+  panel: TilesPanelConfig<TabType>,
+  src: PanelTabCloseable<TabType>,
+  dst: PanelTab<TabType>,
+): TilesPanelConfig<TabType> {
   const { tabId: srcTabId, panelId: srcPanelId } = src;
   const { tabId: dstTabId } = dst;
 

@@ -3,23 +3,23 @@ import getUniqueId from '../utils/getUniqueId';
 
 type NewTabPosition = 'after' | 'before';
 
-export type TilesActionTabOpen = Readonly<{
+export type TilesActionTabOpen<TabType> = Readonly<{
   payload: Readonly<{
     newTabCloseable?: boolean;
-    // Insertion point.
-    newTabId?: string;
+    newTabId?: TabType;
     newTabPosition?: NewTabPosition;
-    onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
+    onTabsOpen?: (tabIds: ReadonlyArray<TabType>) => void;
     panelId: string;
-    tabId?: string;
+    // Insertion point.
+    tabId?: TabType;
   }>;
   type: 'tab-open';
 }>;
 
-export default function tabOpen(
-  tiles: TilesPanelConfig,
-  payload: TilesActionTabOpen['payload'],
-): TilesPanelConfig {
+export default function tabOpen<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionTabOpen<TabType>['payload'],
+): TilesPanelConfig<TabType> {
   const {
     panelId,
     tabId,
@@ -28,7 +28,7 @@ export default function tabOpen(
     newTabPosition = 'before',
     onTabsOpen,
   } = payload;
-  const addedTabs: Array<string> = [];
+  const addedTabs: Array<TabType> = [];
   const newTiles = tabOpenImpl(
     tiles,
     panelId,
@@ -50,25 +50,25 @@ export default function tabOpen(
   return newTiles;
 }
 
-function tabOpenImpl(
-  panel: TilesPanelConfig,
+function tabOpenImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
   panelId: string,
-  tabId: string | null,
+  tabId: TabType | null,
   {
     newTabId,
     newTabCloseable,
     newTabPosition,
   }: {
     newTabCloseable: boolean;
-    newTabId: string | null;
+    newTabId: TabType | null;
     newTabPosition: NewTabPosition;
   },
   {
     onTabsOpen,
   }: {
-    onTabsOpen?: (...tabIds: ReadonlyArray<string>) => void;
+    onTabsOpen?: (...tabIds: ReadonlyArray<TabType>) => void;
   } = {},
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   if (panel.type === 'item') {
     if (panel.id !== panelId) {
       return {
@@ -77,7 +77,7 @@ function tabOpenImpl(
       };
     }
 
-    const newId = newTabId ?? getUniqueId();
+    const newId = newTabId ?? (getUniqueId() as TabType);
     const newTab = {
       closeable: newTabCloseable,
       id: newId,

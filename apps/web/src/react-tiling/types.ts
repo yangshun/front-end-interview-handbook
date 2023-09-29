@@ -1,32 +1,34 @@
 import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
 
-export type TilesPanelItemTab = Readonly<{
+export type TilesPanelItemTab<TabType> = Readonly<{
   allowOverflow?: boolean;
   closeable: boolean;
   href?: string;
-  id: string;
+  id: TabType;
 }>;
 
-export type TilesPanelItemConfig = Readonly<{
-  activeTabId: string | null;
+export type TilesPanelItemConfig<TabType> = Readonly<{
+  activeTabId: TabType | null;
   collapsed?: boolean;
   collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
   fullScreen?: boolean;
   id: string;
-  tabs: ReadonlyArray<TilesPanelItemTab>;
+  tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
   type: 'item';
 }>;
 
-export type TilesPanelGroupConfig = Readonly<{
+export type TilesPanelGroupConfig<TabType> = Readonly<{
   defaultSize?: PanelProps['defaultSize'];
   direction: PanelGroupProps['direction'];
   id: string;
-  items: ReadonlyArray<TilesPanelConfig>;
+  items: ReadonlyArray<TilesPanelConfig<TabType>>;
   type: 'group';
 }>;
 
-export type TilesPanelConfig = TilesPanelGroupConfig | TilesPanelItemConfig;
+export type TilesPanelConfig<TabType> =
+  | TilesPanelGroupConfig<TabType>
+  | TilesPanelItemConfig<TabType>;
 
 export type TilesPanelDropAreaSection =
   | 'bottom'
@@ -37,10 +39,10 @@ export type TilesPanelDropAreaSection =
   | 'tabs-row'
   | 'top';
 
-export type TilesPanelDragItem = Readonly<{
+export type TilesPanelDragItem<TabType> = Readonly<{
   index: number;
   panelId: string;
   tabCloseable: boolean;
-  tabId: string;
+  tabId: TabType;
   type: string;
 }>;

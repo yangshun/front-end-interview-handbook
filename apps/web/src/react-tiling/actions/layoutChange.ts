@@ -1,15 +1,15 @@
 import type { TilesPanelConfig } from '../types';
 
-export type TilesActionLayoutChange = Readonly<{
+export type TilesActionLayoutChange<TabType> = Readonly<{
   payload: Readonly<{
-    panels: TilesPanelConfig;
+    panels: TilesPanelConfig<TabType>;
   }>;
   type: 'layout-change';
 }>;
 
-export default function layoutChange(
-  _tiles: TilesPanelConfig,
-  payload: TilesActionLayoutChange['payload'],
+export default function layoutChange<TabType>(
+  _tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionLayoutChange<TabType>['payload'],
 ) {
   return payload.panels;
 }

@@ -8,7 +8,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
   activeFile: string,
   files: ReadonlyArray<string>,
   solutionHref: string,
-): TilesPanelConfig {
+): TilesPanelConfig<string> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -76,7 +76,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
   activeFile: string,
   files: ReadonlyArray<string>,
   solutionHref: string,
-): TilesPanelConfig {
+): TilesPanelConfig<string> {
   return {
     direction: 'horizontal',
     id: 'root',

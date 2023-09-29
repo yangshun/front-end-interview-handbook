@@ -1,27 +1,27 @@
 import type { TilesPanelConfig } from '../types';
 
-export type TilesActionTabChangeId = Readonly<{
+export type TilesActionTabChangeId<TabType> = Readonly<{
   payload: Readonly<{
-    newTabId: string;
-    oldTabId: string;
+    newTabId: TabType;
+    oldTabId: TabType;
   }>;
   type: 'tab-change-id';
 }>;
 
-export default function tabChangeId(
-  tiles: TilesPanelConfig,
-  payload: TilesActionTabChangeId['payload'],
-): TilesPanelConfig {
+export default function tabChangeId<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionTabChangeId<TabType>['payload'],
+): TilesPanelConfig<TabType> {
   const { oldTabId, newTabId } = payload;
 
   return tabChangeIdImpl(tiles, oldTabId, newTabId);
 }
 
-function tabChangeIdImpl(
-  panel: TilesPanelConfig,
-  oldTabId: string,
-  newTabId: string,
-): TilesPanelConfig {
+function tabChangeIdImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
+  oldTabId: TabType,
+  newTabId: TabType,
+): TilesPanelConfig<TabType> {
   if (panel.type === 'item') {
     const index = panel.tabs.findIndex(({ id }) => id === oldTabId);
 

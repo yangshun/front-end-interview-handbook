@@ -8,20 +8,20 @@ export type TilesActionPanelFullScreen = Readonly<{
   type: 'panel-full-screen';
 }>;
 
-export default function panelFullScreen(
-  tiles: TilesPanelConfig,
+export default function panelFullScreen<TabType>(
+  tiles: TilesPanelConfig<TabType>,
   payload: TilesActionPanelFullScreen['payload'],
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   const { panelId, fullScreen } = payload;
 
   return panelFullScreenImpl(tiles, panelId, fullScreen);
 }
 
-function panelFullScreenImpl(
-  panel: TilesPanelConfig,
+function panelFullScreenImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
   panelIdToFullScreen: string,
   fullScreen: boolean,
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   if (panel.type === 'item') {
     if (panel.id === panelIdToFullScreen) {
       return {

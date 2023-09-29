@@ -5,21 +5,21 @@ import getUniqueId from '../utils/getUniqueId';
 
 type TilesActionPanelSplitNewPanelOrder = 'after' | 'before';
 
-export type TilesActionPanelSplit = Readonly<{
+export type TilesActionPanelSplit<TabType> = Readonly<{
   payload: Readonly<{
     direction: PanelGroupProps['direction'];
     newPanelOrder: TilesActionPanelSplitNewPanelOrder;
     newTabCloseable?: boolean;
-    newTabId?: string;
-    onTabsOpen?: (tabIds: ReadonlyArray<string>) => void;
+    newTabId?: TabType;
+    onTabsOpen?: (tabIds: ReadonlyArray<TabType>) => void;
     panelId: string;
   }>;
   type: 'panel-split';
 }>;
 
-export default function panelSplit(
-  tiles: TilesPanelConfig,
-  payload: TilesActionPanelSplit['payload'],
+export default function panelSplit<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionPanelSplit<TabType>['payload'],
 ) {
   const {
     direction,
@@ -29,7 +29,7 @@ export default function panelSplit(
     newTabCloseable = true,
     onTabsOpen,
   } = payload;
-  const addedTabs: Array<string> = [];
+  const addedTabs: Array<TabType> = [];
   const newTiles = panelSplitImpl(
     tiles,
     direction,
@@ -51,24 +51,24 @@ export default function panelSplit(
   return newTiles;
 }
 
-function panelSplitImpl(
-  panel: TilesPanelConfig,
+function panelSplitImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
   direction: PanelGroupProps['direction'],
   panelIdToSplit: string,
   newPanelOrder: TilesActionPanelSplitNewPanelOrder,
   {
-    newTabId,
     newTabCloseable,
+    newTabId,
   }: {
     newTabCloseable: boolean;
-    newTabId: string | null;
+    newTabId: TabType | null;
   },
   {
     onTabsOpen,
   }: {
-    onTabsOpen?: (...tabIds: ReadonlyArray<string>) => void;
+    onTabsOpen?: (...tabIds: ReadonlyArray<TabType>) => void;
   } = {},
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   // Only items can be split.
   if (panel.type === 'item') {
     if (panel.id !== panelIdToSplit) {
@@ -78,7 +78,8 @@ function panelSplitImpl(
       };
     }
 
-    const newTabId_ = newTabId ?? getUniqueId();
+    // TODO(workspace): Allow injected ID generation or a specific type.
+    const newTabId_ = newTabId ?? (getUniqueId() as TabType);
 
     onTabsOpen?.(newTabId_);
 
@@ -118,7 +119,8 @@ function panelSplitImpl(
 
   // Split within parent instead.
   if (panelToSplitIndex > -1 && panel.direction === direction) {
-    const newTabId_ = newTabId ?? getUniqueId();
+    // TODO(workspace): Allow injected ID generation or a specific type.
+    const newTabId_ = newTabId ?? (getUniqueId() as TabType);
 
     onTabsOpen?.(newTabId_);
 

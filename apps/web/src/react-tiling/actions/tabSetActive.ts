@@ -1,32 +1,32 @@
 import type { TilesPanelConfig } from '../types';
 
-export type TilesActionTabSetActive = Readonly<{
+export type TilesActionTabSetActive<TabType> = Readonly<{
   payload: Readonly<{
     panelId?: string;
-    tabId: string;
+    tabId: TabType;
   }>;
   type: 'tab-set-active';
 }>;
 
-export default function tabSetActive(
-  tiles: TilesPanelConfig,
-  payload: TilesActionTabSetActive['payload'],
-): TilesPanelConfig {
+export default function tabSetActive<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionTabSetActive<TabType>['payload'],
+): TilesPanelConfig<TabType> {
   const { panelId = null, tabId } = payload;
 
   return tabSetActiveImpl(tiles, { panelId, tabId });
 }
 
-function tabSetActiveImpl(
-  panel: TilesPanelConfig,
+function tabSetActiveImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
   {
     panelId,
     tabId,
   }: Readonly<{
     panelId: string | null;
-    tabId: string;
+    tabId: TabType;
   }>,
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   if (panel.type === 'item') {
     // Scope to specific panel.
     if (panelId != null && panelId !== panel.id) {

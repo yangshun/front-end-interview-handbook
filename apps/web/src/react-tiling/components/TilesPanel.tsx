@@ -8,7 +8,7 @@ import TilesPanelItem from './TilesPanelItem';
 import type { TilesPanelConfig } from '../types';
 import type { TilesPanelItemConfig } from '../types';
 
-type TilesPanelCommonProps = Readonly<{
+type TilesPanelCommonProps<TabType> = Readonly<{
   defaultSize?: PanelProps['defaultSize'];
   disablePointerEventsDuringResize?: boolean;
   getResizeHandlerProps: (direction: PanelGroupProps['direction']) => Readonly<{
@@ -16,29 +16,29 @@ type TilesPanelCommonProps = Readonly<{
     className?: string;
     style?: CSSProperties;
   }>;
-  getTabLabel: (tabId: string) => Readonly<{
-    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+  getTabLabel: (tabId: TabType) => Readonly<{
+    icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
   level: number;
   order?: number;
   parentDirection: PanelGroupProps['direction'];
-  renderTab: (tabId: string) => JSX.Element;
+  renderTab: (tabId: TabType) => JSX.Element;
 }>;
-type TilesPanelItemTypeProps = Readonly<{
+type TilesPanelItemTypeProps<TabType> = Readonly<{
   sizeAfterExpansion?: number;
   type: 'item';
 }> &
-  TilesPanelCommonProps &
-  TilesPanelItemConfig;
+  TilesPanelCommonProps<TabType> &
+  TilesPanelItemConfig<TabType>;
 
-type TilesPanelGroupTypeProps = Readonly<{
+type TilesPanelGroupTypeProps<TabType> = Readonly<{
   type: 'group';
 }> &
-  TilesPanelCommonProps &
-  TilesPanelConfig;
+  TilesPanelCommonProps<TabType> &
+  TilesPanelConfig<TabType>;
 
-export default function TilesPanel({
+export default function TilesPanel<TabType extends string>({
   level,
   order,
   id,
@@ -49,7 +49,7 @@ export default function TilesPanel({
   defaultSize = 100,
   getResizeHandlerProps,
   ...props
-}: TilesPanelGroupTypeProps | TilesPanelItemTypeProps) {
+}: TilesPanelGroupTypeProps<TabType> | TilesPanelItemTypeProps<TabType>) {
   if (props.type === 'item') {
     const panel = (
       <TilesPanelItem

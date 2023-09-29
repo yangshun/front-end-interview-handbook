@@ -9,14 +9,14 @@ import type { TilesActionTabDrop } from './tabDrop';
 import type { TilesActionTabOpen } from './tabOpen';
 import type { TilesActionTabSetActive } from './tabSetActive';
 
-export type TilesAction =
-  | TilesActionLayoutChange
-  | TilesActionPanelClose
+export type TilesAction<TabType extends string> =
+  | TilesActionLayoutChange<TabType>
+  | TilesActionPanelClose<TabType>
   | TilesActionPanelCollapse
   | TilesActionPanelFullScreen
-  | TilesActionPanelSplit
-  | TilesActionTabChangeId
-  | TilesActionTabClose
-  | TilesActionTabDrop
-  | TilesActionTabOpen
-  | TilesActionTabSetActive;
+  | TilesActionPanelSplit<TabType>
+  | TilesActionTabChangeId<TabType>
+  | TilesActionTabClose<TabType>
+  | TilesActionTabDrop<TabType>
+  | TilesActionTabOpen<TabType>
+  | TilesActionTabSetActive<TabType>;

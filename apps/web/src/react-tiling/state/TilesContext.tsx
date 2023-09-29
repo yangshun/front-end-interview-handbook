@@ -1,20 +1,21 @@
+import type { Dispatch } from 'react';
 import { createContext } from 'react';
 
 import type { TilesAction } from '../actions/actions';
 import type { TilesPanelConfig } from '../types';
 
-type Context = Readonly<{
-  dispatch: (action: TilesAction) => void;
+export type TilesContextValue<TabType extends string> = Readonly<{
+  dispatch: Dispatch<TilesAction<TabType>>;
   getTabById: (
-    tabId: string,
-  ) => Readonly<{ panelId: string, tabId: string; }> | null;
+    tabId: TabType,
+  ) => Readonly<{ panelId: string; tabId: TabType }> | null;
   queryTabByPattern: (
     regex: RegExp,
-  ) => ReadonlyArray<Readonly<{ panelId: string, tabId: string; }>>;
-  tiles: TilesPanelConfig;
+  ) => ReadonlyArray<Readonly<{ panelId: string; tabId: TabType }>>;
+  tiles: TilesPanelConfig<TabType>;
 }>;
 
-export const TilesContext = createContext<Context>({
+export const TilesContext = createContext<TilesContextValue<any>>({
   dispatch: () => {},
   // @ts-expect-error: Ensure non-null during initialization.
   tiles: null,

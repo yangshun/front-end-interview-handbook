@@ -6,29 +6,29 @@ import TilesPanelTab from './TilesPanelTab';
 import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelDragItem, TilesPanelItemTab } from '../types';
 
-type Props = Readonly<{
-  activeTabId: string | null;
-  getTabLabel: (tabId: string) => Readonly<{
-    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+type Props<TabType> = Readonly<{
+  activeTabId: TabType | null;
+  getTabLabel: (tabId: TabType) => Readonly<{
+    icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
   mode?: 'interactive' | 'readonly';
   panelId: string;
-  tabs: ReadonlyArray<TilesPanelItemTab>;
+  tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
 }>;
 
-export default function TilesPanelTabsSection({
+export default function TilesPanelTabsSection<TabType extends string>({
   activeTabId,
   tabs,
   panelId,
   mode = 'interactive',
   getTabLabel,
-}: Props) {
+}: Props<TabType>) {
   const { dispatch } = useTilesContext();
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
-    TilesPanelDragItem,
+    TilesPanelDragItem<TabType>,
     void,
     { isOver: boolean }
   >({

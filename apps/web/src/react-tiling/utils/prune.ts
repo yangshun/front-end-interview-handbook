@@ -1,8 +1,8 @@
 import type { TilesPanelConfig } from '../types';
 
-export default function prune(
-  panel: TilesPanelConfig,
-): TilesPanelConfig | null {
+export default function prune<TabType>(
+  panel: TilesPanelConfig<TabType>,
+): TilesPanelConfig<TabType> | null {
   if (panel.type === 'item') {
     // This panel should be removed.
     if (panel.tabs.length === 0) {
@@ -12,7 +12,7 @@ export default function prune(
     return panel;
   }
 
-  const newPanelItems: Array<TilesPanelConfig> = [];
+  const newPanelItems: Array<TilesPanelConfig<TabType>> = [];
 
   panel.items.forEach((item) => {
     const panelItem = prune(item);

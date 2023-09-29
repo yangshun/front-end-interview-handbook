@@ -3,7 +3,7 @@ import type { TilesPanelConfig } from '~/react-tiling/types';
 export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
   activeFile: string,
   files: ReadonlyArray<string>,
-): TilesPanelConfig {
+): TilesPanelConfig<string> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -79,7 +79,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
 export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
   activeFile: string,
   files: ReadonlyArray<string>,
-): TilesPanelConfig {
+): TilesPanelConfig<string> {
   return {
     direction: 'horizontal',
     id: 'root',

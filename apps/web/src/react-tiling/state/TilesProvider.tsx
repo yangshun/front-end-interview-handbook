@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, Reducer } from 'react';
 import { useReducer } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -19,15 +19,15 @@ import type { TilesPanelConfig } from '../types';
 import getTabById from '../utils/getTabById';
 import queryTabByPattern from '../utils/queryTabByPattern';
 
-type Props = Readonly<{
+type Props<TabType> = Readonly<{
   children: ReactNode;
-  defaultValue: TilesPanelConfig;
+  defaultValue: TilesPanelConfig<TabType>;
 }>;
 
-function reducer(
-  tiles: TilesPanelConfig,
-  action: TilesAction,
-): TilesPanelConfig {
+function reducer<TabType extends string>(
+  tiles: TilesPanelConfig<TabType>,
+  action: TilesAction<TabType>,
+): TilesPanelConfig<TabType> {
   switch (action.type) {
     case 'panel-split': {
       return panelSplit(tiles, action.payload);
@@ -62,14 +62,19 @@ function reducer(
   }
 }
 
-function TilesProviderImpl({ children, defaultValue }: Props) {
-  const [tiles, dispatch] = useReducer(reducer, defaultValue);
+function TilesProviderImpl<TabType extends string>({
+  children,
+  defaultValue,
+}: Props<TabType>) {
+  const [tiles, dispatch] = useReducer<
+    Reducer<TilesPanelConfig<TabType>, TilesAction<TabType>>
+  >(reducer, defaultValue);
 
   return (
     <TilesContext.Provider
       value={{
         dispatch,
-        getTabById: (tabId: string) => getTabById(tiles, tabId),
+        getTabById: (tabId: TabType) => getTabById(tiles, tabId),
         queryTabByPattern: (regex: RegExp) => queryTabByPattern(tiles, regex),
         tiles,
       }}>
@@ -78,7 +83,10 @@ function TilesProviderImpl({ children, defaultValue }: Props) {
   );
 }
 
-export function TilesProvider({ children, defaultValue }: Props) {
+export function TilesProvider<TabType extends string>({
+  children,
+  defaultValue,
+}: Props<TabType>) {
   return (
     <DndProvider backend={HTML5Backend}>
       <TilesProviderImpl defaultValue={defaultValue}>

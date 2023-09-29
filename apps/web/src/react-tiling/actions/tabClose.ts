@@ -1,22 +1,22 @@
 import type { TilesPanelConfig } from '../types';
 import prune from '../utils/prune';
 
-export type TilesActionTabClose = Readonly<{
+export type TilesActionTabClose<TabType> = Readonly<{
   payload: Readonly<{
-    onTabsClose?: (tabIds: ReadonlyArray<string>) => void;
+    onTabsClose?: (tabIds: ReadonlyArray<TabType>) => void;
     panelId: string;
-    tabId: string;
+    tabId: TabType;
   }>;
   type: 'tab-close';
 }>;
 
-export default function tabClose(
-  tiles: TilesPanelConfig,
-  payload: TilesActionTabClose['payload'],
+export default function tabClose<TabType>(
+  tiles: TilesPanelConfig<TabType>,
+  payload: TilesActionTabClose<TabType>['payload'],
   shouldPrune = true,
-): TilesPanelConfig {
+): TilesPanelConfig<TabType> {
   const { panelId, tabId, onTabsClose } = payload;
-  const closedTabs: Array<string> = [];
+  const closedTabs: Array<TabType> = [];
   let newTiles = tabCloseImpl(tiles, panelId, tabId, {
     onTabsClose: (...tabIds) => {
       closedTabs.push(...tabIds);
@@ -36,16 +36,16 @@ export default function tabClose(
   return newTiles ?? tiles;
 }
 
-function tabCloseImpl(
-  panel: TilesPanelConfig,
+function tabCloseImpl<TabType>(
+  panel: TilesPanelConfig<TabType>,
   panelId: string,
-  tabId: string,
+  tabId: TabType,
   {
     onTabsClose,
   }: {
-    onTabsClose?: (...tabIds: ReadonlyArray<string>) => void;
+    onTabsClose?: (...tabIds: ReadonlyArray<TabType>) => void;
   } = {},
-): TilesPanelConfig | null {
+): TilesPanelConfig<TabType> | null {
   if (panel.type === 'item') {
     if (panel.id !== panelId) {
       return {

@@ -27,7 +27,7 @@ const MAXIMUM_LEVEL_FOR_SPLITTING = 2;
 
 export type TilesPanelItemMode = 'collapsed' | 'default' | 'maximized';
 
-export default function TilesPanelItem({
+export default function TilesPanelItem<TabType extends string>({
   activeTabId,
   id: panelId,
   collapsed = false,
@@ -42,22 +42,22 @@ export default function TilesPanelItem({
   renderTab,
   sizeAfterExpansion,
 }: Readonly<{
-  activeTabId: string | null;
+  activeTabId: TabType | null;
   collapsed?: boolean;
   collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
   fullScreen?: boolean;
-  getTabLabel: (tabId: string) => Readonly<{
-    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+  getTabLabel: (tabId: TabType) => Readonly<{
+    icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
   id: string;
   level: number;
   order?: number;
   parentDirection: PanelGroupProps['direction'];
-  renderTab: (tabId: string) => JSX.Element;
+  renderTab: (tabId: TabType) => JSX.Element;
   sizeAfterExpansion?: number;
-  tabs: ReadonlyArray<TilesPanelItemTab>;
+  tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
 }>) {
   const { dispatch } = useTilesContext();
   const ref = useRef<ImperativePanelHandle>(null);
