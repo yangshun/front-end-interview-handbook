@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import objectMap from '../setup/src/object-map';
+import objectMapJs from '../setup/src/object-map.js';
+import objectMapTs from '../setup/src/object-map.ts';
 import objectMapEntries from '../setup/src/object-map-entries';
 
 ## Clarification Questions
@@ -14,7 +15,7 @@ import objectMapEntries from '../setup/src/object-map-entries';
 
 The only tricky part of the question is to provide the value of `this` for the `fn` via `Function.prototype.call()`/`Function.prototype.apply()`. In `Array.prototype.map()`, the `thisArg` value can be provided as a second argument to the `.map()` function and the callback function will the invoked with `thisArg` as the `this` value. In our case, the `this` value within callbacks is not explicitly specified but a reasonable assumption is to use the `obj` input as `this`.
 
-<MDXCodeBlock>{objectMap}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: objectMapJs, tsx: objectMapTs }} />
 
 A shorter solution that uses a more functional approach:
 

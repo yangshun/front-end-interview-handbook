@@ -1,6 +1,6 @@
 import objectMap from './object-map';
 
-const double = (x) => x * 2;
+const double = (x: number) => x * 2;
 
 describe('objectMap', () => {
   test('empty', () => {
@@ -17,8 +17,8 @@ describe('objectMap', () => {
 
   test('can access `this`', () => {
     expect(
-      objectMap({ bar: 3, foo: 2 }, function (x) {
-        return x * this.foo;
+      objectMap({ bar: 3, foo: 2 }, function (this: any, x: number) {
+        return this.foo * x;
       }),
     ).toEqual({
       foo: 4,

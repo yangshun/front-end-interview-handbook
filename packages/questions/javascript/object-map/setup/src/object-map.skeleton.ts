@@ -1,3 +1,6 @@
-export default function objectMap(obj: Object, fn: Function): Object {
+export default function objectMap<V, R>(
+  obj: Record<string, V>,
+  fn: (val: V) => R,
+): Record<string, R> {
   throw 'Not implemented';
 }
