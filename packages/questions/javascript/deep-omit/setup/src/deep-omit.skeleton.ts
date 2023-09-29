@@ -1,3 +1,3 @@
-export default function deepOmit(obj: Object, keys: Array<string>) {
+export default function deepOmit(val: unknown, keys: Array<string>): unknown {
   throw 'Not implemented';
 }
