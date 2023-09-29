@@ -4,7 +4,7 @@ import Text from '~/components/ui/Text';
 import type {
   JavaScriptCodingWorkspacePredefinedTabsContents,
   JavaScriptCodingWorkspacePredefinedTabsType,
-} from './JavaScriptCodingWorkspace';
+} from './JavaScriptCodingWorkspaceTypes';
 
 export default function JavaScriptCodingWorkspaceNewTab({
   predefinedTabs,

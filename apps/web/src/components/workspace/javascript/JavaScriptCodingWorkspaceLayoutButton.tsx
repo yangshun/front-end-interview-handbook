@@ -5,14 +5,13 @@ import { VscLayout } from 'react-icons/vsc';
 
 import Button from '~/components/ui/Button';
 
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
-
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import {
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
   getJavaScriptCodingWorkspaceLayoutTwoColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
 import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 
@@ -21,7 +20,7 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 export default function JavaScriptCodingWorkspaceLayoutButton() {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
-  const { dispatch } = useTilesContext();
+  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { workspace } = useJavaScriptCodingWorkspaceContext();
   const [isOpen, setIsOpen] = useState(false);
 

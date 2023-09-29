@@ -9,8 +9,8 @@ import {
   useMutationQuestionProgressAdd,
   useQueryQuestionProgress,
 } from '~/db/QuestionsProgressClient';
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import TestsSection from '../common/tests/TestsSection';
 
@@ -24,7 +24,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   specPath: string;
 }>) {
   const intl = useIntl();
-  const { dispatch } = useTilesContext();
+  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { status } = useCodingWorkspaceContext();
   const addProgressMutation = useMutationQuestionProgressAdd();
   const user = useUser();

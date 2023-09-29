@@ -5,15 +5,14 @@ import type { QuestionBase } from '../questions/common/QuestionsTypes';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
 
-export type CodingWorkspaceTabContents<Key extends string = string> = Readonly<
-  Record<
-    Key,
-    Readonly<{
+export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
+  Partial<{
+    [K in TabType]: Readonly<{
       contents: ReactNode;
       icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
       label: string;
-    }>
-  >
+    }>;
+  }>
 >;
 
 type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';

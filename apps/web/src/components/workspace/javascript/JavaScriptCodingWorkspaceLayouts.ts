@@ -1,9 +1,12 @@
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
+import type { JavaScriptCodingWorkspaceTabsType } from './JavaScriptCodingWorkspaceTypes';
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
+
 export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
   activeFile: string,
   files: ReadonlyArray<string>,
-): TilesPanelConfig<string> {
+): TilesPanelConfig<JavaScriptCodingWorkspaceTabsType> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -33,7 +36,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
         id: 'right-column',
         items: [
           {
-            activeTabId: activeFile,
+            activeTabId: codingWorkspaceTabFileId(activeFile),
             collapsible: true,
             defaultSize: 95,
             id: 'right-top',
@@ -41,7 +44,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
               ...files.map((file) => ({
                 allowOverflow: true,
                 closeable: false,
-                id: file,
+                id: codingWorkspaceTabFileId(file),
               })),
             ],
             type: 'item',
@@ -79,7 +82,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
 export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
   activeFile: string,
   files: ReadonlyArray<string>,
-): TilesPanelConfig<string> {
+): TilesPanelConfig<JavaScriptCodingWorkspaceTabsType> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -106,7 +109,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
         type: 'item',
       },
       {
-        activeTabId: activeFile,
+        activeTabId: codingWorkspaceTabFileId(activeFile),
         collapsible: true,
         defaultSize: 35,
         id: 'center-column',
@@ -114,7 +117,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
           ...files.map((file) => ({
             allowOverflow: true,
             closeable: false,
-            id: file,
+            id: codingWorkspaceTabFileId(file),
           })),
         ],
         type: 'item',
@@ -148,7 +151,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
 export function getJavaScriptCodingWorkspaceLayoutGrid(
   mainFile: string,
   runFile: string,
-): TilesPanelConfig {
+): TilesPanelConfig<JavaScriptCodingWorkspaceTabsType> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -178,14 +181,14 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         id: 'center-column',
         items: [
           {
-            activeTabId: mainFile,
+            activeTabId: codingWorkspaceTabFileId(mainFile),
             collapsible: true,
             id: 'center-top',
             tabs: [
               {
                 allowOverflow: true,
                 closeable: false,
-                id: mainFile,
+                id: codingWorkspaceTabFileId(mainFile),
               },
             ],
             type: 'item',
@@ -210,14 +213,14 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         id: 'right-column',
         items: [
           {
-            activeTabId: runFile,
+            activeTabId: codingWorkspaceTabFileId(runFile),
             collapsible: true,
             id: 'right-top',
             tabs: [
               {
                 allowOverflow: true,
                 closeable: false,
-                id: runFile,
+                id: codingWorkspaceTabFileId(runFile),
               },
             ],
             type: 'item',

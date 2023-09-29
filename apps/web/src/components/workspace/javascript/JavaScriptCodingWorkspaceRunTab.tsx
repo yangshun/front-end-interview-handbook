@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
-
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 import TestsSection from '../common/tests/TestsSection';
 
 export default function JavaScriptCodingWorkspaceTestsRunTab({
@@ -10,7 +10,7 @@ export default function JavaScriptCodingWorkspaceTestsRunTab({
 }: Readonly<{
   specPath: string;
 }>) {
-  const { dispatch } = useTilesContext();
+  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { status } = useCodingWorkspaceContext();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function JavaScriptCodingWorkspaceTestsRunTab({
       onShowTestsCases={() => {
         dispatch({
           payload: {
-            tabId: specPath,
+            tabId: codingWorkspaceTabFileId(specPath),
           },
           type: 'tab-set-active',
         });

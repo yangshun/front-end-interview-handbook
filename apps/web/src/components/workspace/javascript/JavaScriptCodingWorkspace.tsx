@@ -27,6 +27,10 @@ import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCoding
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
+import type {
+  JavaScriptCodingWorkspacePredefinedTabsContents,
+  JavaScriptCodingWorkspaceTabsType,
+} from './JavaScriptCodingWorkspaceTypes';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
@@ -36,22 +40,15 @@ import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 import useRestartSandpack from '../useRestartSandpack';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
-export type JavaScriptCodingWorkspacePredefinedTabsType =
-  | 'console'
-  | 'description'
-  | 'run_tests'
-  | 'solution'
-  | 'submit'
-  | 'test_cases';
-
-export type JavaScriptCodingWorkspacePredefinedTabsContents =
-  CodingWorkspaceTabContents<JavaScriptCodingWorkspacePredefinedTabsType>;
+const JavaScriptCodingWorkspaceTilesPanelRoot =
+  TilesPanelRoot<JavaScriptCodingWorkspaceTabsType>;
 
 function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
@@ -71,7 +68,7 @@ function JavaScriptCodingWorkspaceImpl({
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
 
   const { sandpack } = useSandpack();
-  const { visibleFiles, files } = sandpack;
+  const { files } = sandpack;
 
   useRestartSandpack();
 
@@ -164,26 +161,24 @@ function JavaScriptCodingWorkspaceImpl({
     },
   };
 
-  const [tabContents, setTabContents] = useState<CodingWorkspaceTabContents>({
+  const [tabContents, setTabContents] = useState<
+    CodingWorkspaceTabContents<JavaScriptCodingWorkspaceTabsType>
+  >({
     ...predefinedTabs,
-    ...Object.fromEntries(
-      visibleFiles.map((file) => [
-        file,
-        {
-          contents: <JavaScriptCodingWorkspaceCodeEditor filePath={file} />,
-          ...{
-            [workspace.main]: {
-              icon: CodingWorkspaceTabIcons.code.icon,
-              label: 'Code',
-            },
-            [workspace.run]: {
-              icon: CodingWorkspaceTabIcons.test_cases.icon,
-              label: 'Test cases',
-            },
-          }[file],
-        },
-      ]),
-    ),
+    [codingWorkspaceTabFileId(workspace.main)]: {
+      contents: (
+        <JavaScriptCodingWorkspaceCodeEditor filePath={workspace.main} />
+      ),
+      icon: CodingWorkspaceTabIcons.code.icon,
+      label: 'Code',
+    },
+    [codingWorkspaceTabFileId(workspace.run)]: {
+      contents: (
+        <JavaScriptCodingWorkspaceCodeEditor filePath={workspace.run} />
+      ),
+      icon: CodingWorkspaceTabIcons.test_cases.icon,
+      label: 'Test cases',
+    },
   });
 
   return (
@@ -193,7 +188,7 @@ function JavaScriptCodingWorkspaceImpl({
       style={{ height: FooterlessContainerHeight }}>
       <div className="flex grow overflow-x-auto">
         <div className="flex w-full min-w-[1024px] grow px-3">
-          <TilesPanelRoot
+          <JavaScriptCodingWorkspaceTilesPanelRoot
             disablePointerEventsDuringResize={true}
             getResizeHandlerProps={(direction) => ({
               children: (
@@ -218,7 +213,7 @@ function JavaScriptCodingWorkspaceImpl({
             renderTab={(tabId) =>
               tabContents[tabId] != null ? (
                 <div className="flex h-full w-full">
-                  {tabContents[tabId].contents}
+                  {tabContents[tabId]!.contents}
                 </div>
               ) : (
                 <JavaScriptCodingWorkspaceNewTab
