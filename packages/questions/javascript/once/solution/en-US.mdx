@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import once from '../setup/src/once';
+import onceJs from '../setup/src/once.js';
+import onceTs from '../setup/src/once.ts';
 
 ## Solution
 
@@ -10,7 +11,7 @@ We can use closures to capture state required by the returned function. The retu
 - `ranOnce`: A boolean variable indicating if the callback function has been invoked before. If the value is `true`, `func` will not be invoked again.
 - `value`: Since we need to return the value of the first invocation for subsequent invocations, we have to save the result of the first invocation and return it directly for subsequent invocations.
 
-<MDXCodeBlock>{once}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: onceJs, tsx: onceTs }} />
 
 Note that the callback function is invoked with the `this` binding and arguments of the created function, hence we cannot return an arrow function if we want the value of `this` to refer to the object calling the created function.
 
