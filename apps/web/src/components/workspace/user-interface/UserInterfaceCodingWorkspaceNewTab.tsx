@@ -3,14 +3,17 @@ import { RiCodeLine } from 'react-icons/ri';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
-
 import type {
   UserInterfaceCodingWorkspacePredefinedTabsContents,
   UserInterfaceCodingWorkspacePredefinedTabsType,
-} from './UserInterfaceCodingWorkspace';
+} from './UserInterfaceCodingWorkspaceTypes';
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import {
+  codingWorkspaceTabFileId,
+  codingWorkspaceTabFilePattern,
+} from '../common/tabs/codingWorkspaceTabId';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -32,12 +35,12 @@ export default function UserInterfaceCodingWorkspaceNewTab({
 }>) {
   const { sandpack } = useSandpack();
   const { files } = sandpack;
-  const { queryTabByPattern } = useTilesContext();
+  const { queryTabByPattern } = useUserInterfaceCodingWorkspaceTilesContext();
   const openedFiles = new Set(
-    queryTabByPattern(/^\//).map(({ tabId }) => tabId),
+    queryTabByPattern(codingWorkspaceTabFilePattern).map(({ tabId }) => tabId),
   );
   const unopenedFiles = Object.entries(files).filter(
-    ([file]) => !openedFiles.has(file),
+    ([file]) => !openedFiles.has(codingWorkspaceTabFileId(file)),
   );
 
   return (

@@ -12,8 +12,7 @@ import Button from '~/components/ui/Button';
 import { themeLineColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
-
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 
@@ -29,7 +28,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
   const { sandpack } = useSandpack();
   const intl = useIntl();
   const { files, updateFile, setActiveFile } = sandpack;
-  const { dispatch } = useTilesContext();
+  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const {
     defaultFiles,
     showLoadedFilesFromLocalStorageMessage,

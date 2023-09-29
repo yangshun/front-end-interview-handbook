@@ -20,14 +20,18 @@ import EmptyState from '~/components/ui/EmptyState';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
 
 import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
 import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
 import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutButton';
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
+import type {
+  UserInterfaceCodingWorkspacePredefinedTabsContents,
+  UserInterfaceCodingWorkspaceTabsType,
+} from './UserInterfaceCodingWorkspaceTypes';
 import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
@@ -42,26 +46,19 @@ import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJ
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceTabId';
+import {
+  codingWorkspaceTabFileId,
+  codingWorkspaceTabFilePattern,
+} from '../common/tabs/codingWorkspaceTabId';
 import useRestartSandpack from '../useRestartSandpack';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
-type UserInterfaceCodingWorkspaceTabsType =
-  | 'code'
-  | 'console'
-  | 'description'
-  | 'file_explorer'
-  | 'preview'
-  | 'solution';
-
-export type UserInterfaceCodingWorkspacePredefinedTabsType = Exclude<
-  UserInterfaceCodingWorkspaceTabsType,
-  'code'
->;
-export type UserInterfaceCodingWorkspacePredefinedTabsContents =
-  CodingWorkspaceTabContents<UserInterfaceCodingWorkspacePredefinedTabsType>;
+const UserInterfaceCodingWorkspaceTilesPanelRoot =
+  TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
@@ -83,7 +80,8 @@ function UserInterfaceCodingWorkspaceImpl({
   const { framework, metadata, description, solution } = question;
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const { dispatch, getTabById, queryTabByPattern } = useTilesContext();
+  const { dispatch, getTabById, queryTabByPattern } =
+    useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
 
@@ -129,7 +127,7 @@ function UserInterfaceCodingWorkspaceImpl({
   useEffect(() => {
     dispatch({
       payload: {
-        tabId: activeFile,
+        tabId: codingWorkspaceTabFileId(activeFile),
       },
       type: 'tab-set-active',
     });
@@ -145,9 +143,11 @@ function UserInterfaceCodingWorkspaceImpl({
   }
 
   function openFile(filePath: string, fromFilePath: string | undefined) {
+    const tabIdForFile = codingWorkspaceTabFileId(filePath);
+
     setTabContents({
       ...tabContents,
-      [filePath]: {
+      [tabIdForFile]: {
         contents: (
           <UserInterfaceCodingWorkspaceCodeEditor
             filePath={filePath}
@@ -160,7 +160,7 @@ function UserInterfaceCodingWorkspaceImpl({
       },
     });
 
-    const result = getTabById(filePath);
+    const result = getTabById(tabIdForFile);
 
     // File is already open. Just have to make it active.
     if (result != null) {
@@ -175,14 +175,14 @@ function UserInterfaceCodingWorkspaceImpl({
     }
 
     if (fromFilePath != null) {
-      const fromFileTab = getTabById(fromFilePath);
+      const fromFileTab = getTabById(codingWorkspaceTabFileId(fromFilePath));
 
       if (fromFileTab != null) {
         // Open in the same panel as the source file.
         dispatch({
           payload: {
             newTabCloseable: true,
-            newTabId: filePath,
+            newTabId: tabIdForFile,
             newTabPosition: 'after',
             panelId: fromFileTab.panelId,
             tabId: fromFileTab.tabId,
@@ -194,13 +194,13 @@ function UserInterfaceCodingWorkspaceImpl({
       }
     }
 
-    const matchedTabs = queryTabByPattern(/^\//);
+    const matchedTabs = queryTabByPattern(codingWorkspaceTabFilePattern);
 
     if (matchedTabs.length > 0) {
       dispatch({
         payload: {
           newTabCloseable: true,
-          newTabId: filePath,
+          newTabId: tabIdForFile,
           panelId: matchedTabs[0].panelId,
         },
         type: 'tab-open',
@@ -212,8 +212,8 @@ function UserInterfaceCodingWorkspaceImpl({
     dispatch({
       payload: {
         newTabCloseable: true,
-        newTabId: filePath,
-        // TODO: Remove hardcoding of panelId.
+        newTabId: tabIdForFile,
+        // TODO(workspace): Remove hardcoding of panelId.
         panelId: 'center-column',
       },
       type: 'tab-open',
@@ -294,13 +294,15 @@ function UserInterfaceCodingWorkspaceImpl({
     },
   };
 
-  const [tabContents, setTabContents] = useState<CodingWorkspaceTabContents>({
+  const [tabContents, setTabContents] = useState<
+    CodingWorkspaceTabContents<UserInterfaceCodingWorkspaceTabsType>
+  >({
     ...predefinedTabs,
     ...Object.fromEntries(
       visibleFiles
-        .filter((filePath) => filePath != null)
+        .filter((filePath) => files[filePath] != null)
         .map((filePath) => [
-          filePath,
+          codingWorkspaceTabFileId(filePath),
           {
             contents: (
               <UserInterfaceCodingWorkspaceCodeEditor
@@ -333,7 +335,7 @@ function UserInterfaceCodingWorkspaceImpl({
         style={{ height: FooterlessContainerHeight }}>
         <div className="flex grow overflow-x-auto">
           <div className="flex w-full min-w-[1024px] grow px-3">
-            <TilesPanelRoot
+            <UserInterfaceCodingWorkspaceTilesPanelRoot
               disablePointerEventsDuringResize={true}
               getResizeHandlerProps={(direction) => ({
                 children: (
@@ -358,14 +360,16 @@ function UserInterfaceCodingWorkspaceImpl({
               renderTab={(tabId) =>
                 tabContents[tabId] != null ? (
                   <div className="flex h-full w-full">
-                    {tabContents[tabId].contents}
+                    {tabContents[tabId]!.contents}
                   </div>
                 ) : (
                   <UserInterfaceCodingWorkspaceNewTab
                     predefinedTabs={predefinedTabs}
                     onSelectTabType={(data) => {
                       if (data.type === 'code') {
-                        const newTabId = data.payload.file;
+                        const newTabId = codingWorkspaceTabFileId(
+                          data.payload.file,
+                        );
 
                         dispatch({
                           payload: {

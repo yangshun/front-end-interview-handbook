@@ -5,12 +5,11 @@ import { VscDebugConsole, VscLayout } from 'react-icons/vsc';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import Button from '~/components/ui/Button';
 
-import { useTilesContext } from '~/react-tiling/state/useTilesContext';
-
 import {
   getUserInterfaceCodingWorkspaceLayout,
   getUserInterfaceCodingWorkspaceLayoutAdvanced,
 } from './UserInterfaceCodingWorkspaceLayouts';
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
 import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 
@@ -27,7 +26,7 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
 }: Props) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
-  const { dispatch } = useTilesContext();
+  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const [isOpen, setIsOpen] = useState(false);
 
   const layouts: ReadonlyArray<CodingWorkspaceLayoutItem> = [

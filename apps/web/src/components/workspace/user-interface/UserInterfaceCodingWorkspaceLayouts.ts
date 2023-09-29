@@ -2,13 +2,15 @@ import type { QuestionUserInterfaceMode } from '~/components/questions/common/Qu
 
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
-// TODO: improve id type-safety.
+import type { UserInterfaceCodingWorkspaceTabsType } from './UserInterfaceCodingWorkspaceTypes';
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
+
 export function getUserInterfaceCodingWorkspaceLayout(
   mode: QuestionUserInterfaceMode,
   activeFile: string,
   files: ReadonlyArray<string>,
   solutionHref: string,
-): TilesPanelConfig<string> {
+): TilesPanelConfig<UserInterfaceCodingWorkspaceTabsType> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -32,7 +34,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
         type: 'item',
       },
       {
-        activeTabId: activeFile,
+        activeTabId: codingWorkspaceTabFileId(activeFile),
         collapsible: true,
         defaultSize: 40,
         id: 'center-column',
@@ -44,7 +46,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
           ...files.map((file) => ({
             allowOverflow: true,
             closeable: file !== activeFile,
-            id: file,
+            id: codingWorkspaceTabFileId(file),
           })),
         ],
         type: 'item',
@@ -76,7 +78,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
   activeFile: string,
   files: ReadonlyArray<string>,
   solutionHref: string,
-): TilesPanelConfig<string> {
+): TilesPanelConfig<UserInterfaceCodingWorkspaceTabsType> {
   return {
     direction: 'horizontal',
     id: 'root',
@@ -119,7 +121,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
         type: 'group',
       },
       {
-        activeTabId: activeFile,
+        activeTabId: codingWorkspaceTabFileId(activeFile),
         collapsible: true,
         defaultSize: 40,
         id: 'center-column',
@@ -127,7 +129,7 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
           ...files.map((file) => ({
             allowOverflow: true,
             closeable: true,
-            id: file,
+            id: codingWorkspaceTabFileId(file),
           })),
         ],
         type: 'item',
