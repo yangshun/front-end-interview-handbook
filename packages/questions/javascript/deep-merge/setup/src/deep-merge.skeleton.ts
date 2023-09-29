@@ -1,3 +1,3 @@
-export default function deepMerge(objA: Object, objB: Object): Object {
+export default function deepMerge(valA: unknown, valB: unknown): unknown {
   throw 'Not implemented';
 }

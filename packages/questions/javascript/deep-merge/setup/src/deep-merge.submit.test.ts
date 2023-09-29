@@ -76,6 +76,12 @@ describe('deepMerge', () => {
 
   describe('arrays', () => {
     test('array values', () => {
+      expect(deepMerge([], [3, 4])).toEqual([3, 4]);
+      expect(deepMerge([1, 2], [])).toEqual([1, 2]);
+      expect(deepMerge([1, 2], [3, 4])).toEqual([1, 2, 3, 4]);
+    });
+
+    test('array within objects', () => {
       expect(deepMerge({ foo: 3, bar: null }, { bar: [1, 2, 3] })).toEqual({
         foo: 3,
         bar: [1, 2, 3],

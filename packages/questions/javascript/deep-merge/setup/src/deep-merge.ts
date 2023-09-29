@@ -1,9 +1,4 @@
-/**
- * @param {Object|Array} valA
- * @param {Object|Array} valB
- * @returns Object|Array
- */
-export default function deepMerge(valA, valB) {
+export default function deepMerge(valA: unknown, valB: unknown): unknown {
   // Both values are arrays.
   if (Array.isArray(valA) && Array.isArray(valB)) {
     return [...valA, ...valB];
@@ -11,12 +6,15 @@ export default function deepMerge(valA, valB) {
 
   // Both values are objects.
   if (isPlainObject(valA) && isPlainObject(valB)) {
-    const newObj = { ...valA };
-    for (const key in valB) {
+    const objA = valA as any;
+    const objB = valB as any;
+    const newObj = { ...objA };
+
+    for (const key in objB) {
       if (Object.prototype.hasOwnProperty.call(valA, key)) {
-        newObj[key] = deepMerge(valA[key], valB[key]);
+        newObj[key] = deepMerge(objA[key], objB[key]);
       } else {
-        newObj[key] = valB[key];
+        newObj[key] = objB[key];
       }
     }
     return newObj;
@@ -26,7 +24,7 @@ export default function deepMerge(valA, valB) {
   return valB;
 }
 
-function isPlainObject(value) {
+function isPlainObject(value: unknown): boolean {
   if (value == null) {
     return false;
   }
