@@ -1000,7 +1000,7 @@ function foo() {
   console.log(qux); // qux
 }
 
-console.log(bar); // ReferenceError: bar is not defined
+console.log(bar); // undefined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
