@@ -1,12 +1,12 @@
-import type { Props } from './TilesPanelRoot';
+import type { Props as PanelRootProps } from './TilesPanelRoot';
 import { TilesPanelRoot } from './TilesPanelRoot';
+import type { Props as ProviderProps } from '../state/TilesProvider';
 import { TilesProvider } from '../state/TilesProvider';
-import type { TilesPanelConfig } from '../types';
 
 export default function TilesRoot<TabType extends string>({
   defaultValue,
   ...props
-}: Props<TabType> & Readonly<{ defaultValue: TilesPanelConfig<TabType> }>) {
+}: PanelRootProps<TabType> & ProviderProps<TabType>) {
   return (
     <TilesProvider defaultValue={defaultValue}>
       <TilesPanelRoot {...props} />

@@ -19,7 +19,8 @@ import type { TilesPanelConfig } from '../types';
 import getTabById from '../utils/getTabById';
 import queryTabByPattern from '../utils/queryTabByPattern';
 
-type Props<TabType> = Readonly<{
+export type Props<TabType> = Readonly<{
+  activeTabScrollIntoView?: boolean;
   children: ReactNode;
   defaultValue: TilesPanelConfig<TabType>;
 }>;
@@ -65,6 +66,7 @@ function reducer<TabType extends string>(
 function TilesProviderImpl<TabType extends string>({
   children,
   defaultValue,
+  activeTabScrollIntoView = true,
 }: Props<TabType>) {
   const [tiles, dispatch] = useReducer<
     Reducer<TilesPanelConfig<TabType>, TilesAction<TabType>>
@@ -73,6 +75,7 @@ function TilesProviderImpl<TabType extends string>({
   return (
     <TilesContext.Provider
       value={{
+        activeTabScrollIntoView,
         dispatch,
         getTabById: (tabId: TabType) => getTabById(tiles, tabId),
         queryTabByPattern: (regex: RegExp) => queryTabByPattern(tiles, regex),
@@ -85,13 +88,11 @@ function TilesProviderImpl<TabType extends string>({
 
 export function TilesProvider<TabType extends string>({
   children,
-  defaultValue,
+  ...props
 }: Props<TabType>) {
   return (
     <DndProvider backend={HTML5Backend}>
-      <TilesProviderImpl defaultValue={defaultValue}>
-        {children}
-      </TilesProviderImpl>
+      <TilesProviderImpl {...props}>{children}</TilesProviderImpl>
     </DndProvider>
   );
 }

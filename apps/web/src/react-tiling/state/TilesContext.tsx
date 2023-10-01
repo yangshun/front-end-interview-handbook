@@ -5,6 +5,7 @@ import type { TilesAction } from '../actions/actions';
 import type { TilesPanelConfig } from '../types';
 
 export type TilesContextValue<TabType extends string> = Readonly<{
+  activeTabScrollIntoView: boolean;
   dispatch: Dispatch<TilesAction<TabType>>;
   getTabById: (
     tabId: TabType,
@@ -16,6 +17,7 @@ export type TilesContextValue<TabType extends string> = Readonly<{
 }>;
 
 export const TilesContext = createContext<TilesContextValue<any>>({
+  activeTabScrollIntoView: true,
   dispatch: () => {},
   // @ts-expect-error: Ensure non-null during initialization.
   tiles: null,

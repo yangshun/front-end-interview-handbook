@@ -91,7 +91,7 @@ export default function TilesPanelTab<TabType extends string>({
   panelId: string;
   tabId: TabType;
 }>) {
-  const { dispatch } = useTilesContext();
+  const { dispatch, activeTabScrollIntoView } = useTilesContext();
   const tabRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
     TilesPanelDragItem<TabType>,
@@ -138,7 +138,7 @@ export default function TilesPanelTab<TabType extends string>({
   drag(drop(tabRef));
 
   useEffect(() => {
-    if (isActive) {
+    if (isActive && activeTabScrollIntoView) {
       setTimeout(() => {
         // If the tab is active, scroll it into view
         tabRef.current?.scrollIntoView({
@@ -148,7 +148,7 @@ export default function TilesPanelTab<TabType extends string>({
         // Add a small delay otherwise it doesn't scroll into view :/
       }, 50);
     }
-  }, [isActive]);
+  }, [activeTabScrollIntoView, isActive]);
 
   return (
     <div
