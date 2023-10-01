@@ -1,7 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promiseTimeout from '../setup/src/promise-timeout';
-import promiseTimeoutRace from '../setup/src/promise-timeout-race';
+import promiseTimeoutJs from '../setup/src/promise-timeout.js';
+import promiseTimeoutTs from '../setup/src/promise-timeout.ts';
+import promiseTimeoutRaceJs from '../setup/src/promise-timeout-race.js';
+import promiseTimeoutRaceTs from '../setup/src/promise-timeout-race.ts';
 
 ## Solution
 
@@ -11,13 +13,15 @@ import promiseTimeoutRace from '../setup/src/promise-timeout-race';
 1. We use `setTimeout` to set up the timeout mechanism. When the timeout is reached, the returned promise will `reject()` with the custom error message.
 1. If the promise is settled before the timeout, we should clear the timer. We can keep a reference the id returned from `setTimeout`, and in the `.finally()` method, clear the timeout using `clearTimeout` so that the `reject()` within the timeout is not unnecessarily called.
 
-<MDXCodeBlock>{promiseTimeout}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promiseTimeoutJs, tsx: promiseTimeoutTs }} />
 
 ### Using `Promise.race()`
 
 The `setTimeout` is also an async operation and hence be wrapped in a `Promise`. We can simplify the execution logic by using `Promise.race()`; whichever promise that is settled first will determine the outcome of the returned `Promise`.
 
-<MDXCodeBlock>{promiseTimeoutRace}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: promiseTimeoutRaceJs, tsx: promiseTimeoutRaceTs }}
+/>
 
 ## Edge Cases
 

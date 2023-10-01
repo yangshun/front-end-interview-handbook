@@ -3,7 +3,7 @@ import promiseTimeout from './promise-timeout';
 describe('promiseTimeout', () => {
   test('returns a promise', () => {
     const promise = promiseTimeout(Promise.resolve(1), 100);
-    expect(promise instanceof Promise).toBe(true);
+    expect(promise).toBeInstanceOf(Promise);
   });
 
   describe('settled', () => {
