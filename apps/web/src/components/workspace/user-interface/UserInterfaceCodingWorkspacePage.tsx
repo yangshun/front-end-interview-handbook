@@ -1,89 +1,58 @@
 'use client';
 
-import clsx from 'clsx';
-
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
+  QuestionFramework,
   QuestionMetadata,
   QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
-import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
-import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
+import {
+  questionUserInterfaceDescriptionPath,
+  questionUserInterfaceSolutionPath,
+} from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 
-import SandpackTimeoutLogger from '../SandpackTimeoutLogger';
+import { useI18nRouter } from '~/next-i18nostic/src';
 
-import { SandpackProvider } from '@codesandbox/sandpack-react';
+import UserInterfaceCodingWorkspaceSection from './UserInterfaceCodingWorkspaceSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
+  embed?: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterfaceV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function UserInterfaceCodingWorkspacePage({
-  canViewPremiumContent,
-  mode,
-  nextQuestions,
-  question,
-  similarQuestions,
-}: Props) {
-  const { appTheme } = useAppThemePreferences();
-
-  const loadedFiles = loadLocalUserInterfaceQuestionCode(
-    question,
-    question.skeletonBundle!.files,
-  );
-  const loadedFilesFromLocalStorage =
-    mode === 'practice' && loadedFiles != null;
-
-  const defaultFiles =
-    mode === 'practice'
-      ? question.skeletonBundle?.files
-      : question.solutionBundle?.files;
-
-  const files =
-    mode === 'practice' ? loadedFiles ?? defaultFiles : defaultFiles;
-
-  const workspace =
-    mode === 'practice'
-      ? question.skeletonBundle?.workspace
-      : question.solutionBundle?.workspace;
+export default function UserInterfaceCodingWorkspacePage(props: Props) {
+  const router = useI18nRouter();
+  const {
+    question: { metadata },
+  } = props;
 
   return (
-    <SandpackProvider
-      customSetup={{
-        environment: workspace?.environment,
+    <UserInterfaceCodingWorkspaceSection
+      {...props}
+      embed={false}
+      fillViewportHeight={true}
+      timeoutLoggerInstance="workspace.ui"
+      onFrameworkChange={(value, contentType) => {
+        const frameworkValue = value as QuestionFramework;
+        const frameworkItem = metadata.frameworks.find(
+          ({ framework: frameworkItemValue }) =>
+            frameworkItemValue === frameworkValue,
+        );
+
+        if (frameworkItem == null) {
+          return;
+        }
+
+        router.push(
+          contentType === 'description'
+            ? questionUserInterfaceDescriptionPath(metadata, frameworkValue)
+            : questionUserInterfaceSolutionPath(metadata, frameworkValue),
+        );
       }}
-      files={files}
-      options={{
-        ...sandpackProviderOptions,
-        activeFile: workspace?.activeFile,
-        classes: {
-          'sp-input': 'touch-none select-none pointer-events-none',
-          'sp-layout': 'h-full',
-          'sp-stack': 'h-full',
-          'sp-wrapper': clsx(
-            '!w-full !text-sm',
-            '!bg-neutral-50 dark:!bg-[#070708]',
-          ),
-        },
-        visibleFiles: workspace?.visibleFiles ?? undefined,
-      }}
-      theme={appTheme === 'dark' ? 'dark' : undefined}>
-      <UserInterfaceCodingWorkspace
-        canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={defaultFiles!} // TODO(workspace): remove ! when the field is made compulsory
-        loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
-        mode={mode}
-        nextQuestions={nextQuestions}
-        question={question}
-        similarQuestions={similarQuestions}
-      />
-      <SandpackTimeoutLogger instance="workspace.ui" />
-    </SandpackProvider>
+    />
   );
 }

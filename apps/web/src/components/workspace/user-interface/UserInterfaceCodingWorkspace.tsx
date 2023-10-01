@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
 
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import type {
+  QuestionFramework,
   QuestionMetadata,
   QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
@@ -61,18 +61,25 @@ const UserInterfaceCodingWorkspaceTilesPanelRoot =
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
+  embed,
   defaultFiles,
   loadedFilesFromLocalStorage,
   mode,
   question,
   nextQuestions,
   similarQuestions,
+  onFrameworkChange,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
+  embed: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onFrameworkChange: (
+    framework: QuestionFramework,
+    contentType: 'description' | 'solution',
+  ) => void;
   question: QuestionUserInterfaceV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
@@ -241,6 +248,7 @@ function UserInterfaceCodingWorkspaceImpl({
           nextQuestions={nextQuestions}
           similarQuestions={similarQuestions}
           writeup={description}
+          onFrameworkChange={onFrameworkChange}
         />
       ),
       icon: CodingWorkspaceTabIcons.description.icon,
@@ -253,7 +261,15 @@ function UserInterfaceCodingWorkspaceImpl({
     },
     preview: {
       contents: (
-        <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
+        <SandpackPreview
+          className={
+            embed
+              ? 'dark:[&>.sp-preview-container]:hue-rotate-180 dark:[&>.sp-preview-container]:invert'
+              : undefined
+          }
+          showNavigator={true}
+          showOpenInCodeSandbox={false}
+        />
       ),
       icon: CodingWorkspaceTabIcons.browser.icon,
       label: 'Browser',
@@ -286,6 +302,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             similarQuestions={similarQuestions}
             writeup={solution}
+            onFrameworkChange={onFrameworkChange}
           />
         ),
       icon: CodingWorkspaceTabIcons.solution.icon,
@@ -328,10 +345,7 @@ function UserInterfaceCodingWorkspaceImpl({
         question,
         resetToDefaultCode,
       }}>
-      <div
-        ref={copyRef}
-        className="flex h-full w-full flex-col pt-3 text-sm"
-        style={{ height: FooterlessContainerHeight }}>
+      <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
         <div className="flex grow overflow-x-auto">
           <div className="flex w-full min-w-[1024px] grow px-3">
             <UserInterfaceCodingWorkspaceTilesPanelRoot
@@ -410,32 +424,34 @@ function UserInterfaceCodingWorkspaceImpl({
             />
           </div>
         </div>
-        <CodingWorkspaceBottomBar
-          leftElements={
-            <>
-              <div className="hidden md:inline">
-                <UserInterfaceCodingWorkspaceLayoutButton
-                  frameworkSolutionPath={frameworkSolutionPath}
-                  mode={mode}
+        {!embed && (
+          <CodingWorkspaceBottomBar
+            leftElements={
+              <>
+                <div className="hidden md:inline">
+                  <UserInterfaceCodingWorkspaceLayoutButton
+                    frameworkSolutionPath={frameworkSolutionPath}
+                    mode={mode}
+                  />
+                </div>
+                <Button
+                  addonPosition="start"
+                  icon={RiArrowGoBackLine}
+                  label="Reset question"
+                  size="xs"
+                  variant="secondary"
+                  onClick={() => {
+                    if (confirm('Reset to initial code?')) {
+                      resetToDefaultCode();
+                    }
+                  }}
                 />
-              </div>
-              <Button
-                addonPosition="start"
-                icon={RiArrowGoBackLine}
-                label="Reset question"
-                size="xs"
-                variant="secondary"
-                onClick={() => {
-                  if (confirm('Reset to initial code?')) {
-                    resetToDefaultCode();
-                  }
-                }}
-              />
-            </>
-          }
-          metadata={metadata}
-          nextQuestions={nextQuestions}
-        />
+              </>
+            }
+            metadata={metadata}
+            nextQuestions={nextQuestions}
+          />
+        )}
       </div>
     </CodingWorkspaceProvider>
   );
@@ -443,18 +459,25 @@ function UserInterfaceCodingWorkspaceImpl({
 
 export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent,
+  embed,
   defaultFiles,
   loadedFilesFromLocalStorage,
   mode,
   question,
   nextQuestions,
   similarQuestions,
+  onFrameworkChange,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
+  embed: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onFrameworkChange: (
+    framework: QuestionFramework,
+    contentType: 'description' | 'solution',
+  ) => void;
   question: QuestionUserInterfaceV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
@@ -474,11 +497,13 @@ export default function UserInterfaceCodingWorkspace({
         <UserInterfaceCodingWorkspaceImpl
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={defaultFiles}
+          embed={embed}
           loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
           mode={mode}
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
+          onFrameworkChange={onFrameworkChange}
         />
       </TilesProvider>
     </CodingPreferencesProvider>

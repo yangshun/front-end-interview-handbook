@@ -9,7 +9,7 @@ import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import logEvent from '~/logging/logEvent';
 
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
-import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceBundleV2 } from '../questions/common/QuestionsTypes';
 import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
 import SandpackTimeoutLogger from '../workspace/SandpackTimeoutLogger';
 
@@ -27,27 +27,27 @@ const previewPartPercentage = 100 - editorPartPercentage;
 
 type Props = Readonly<{
   solutions: Readonly<{
-    todoListReact: QuestionUserInterfaceBundle;
-    todoListVanilla: QuestionUserInterfaceBundle;
+    todoListReact: QuestionUserInterfaceBundleV2;
+    todoListVanilla: QuestionUserInterfaceBundleV2;
   }>;
 }>;
 
 export default function MarketingFeatureSolutions({ solutions }: Props) {
   const { todoListReact, todoListVanilla } = solutions;
   const [selectedTab, setSelectedTab] = useState('react');
-  const { sandpack: setup } =
+  const { workspace, files } =
     selectedTab === 'vanilla'
       ? {
           ...todoListVanilla,
-          sandpack: {
-            ...todoListVanilla.sandpack,
+          workspace: {
+            ...todoListVanilla.workspace,
             activeFile: '/src/index.js',
           },
         }
       : {
           ...todoListReact,
-          sandpack: {
-            ...todoListReact.sandpack,
+          workspace: {
+            ...todoListReact.workspace,
             activeFile: '/App.js',
           },
         };
@@ -86,21 +86,21 @@ export default function MarketingFeatureSolutions({ solutions }: Props) {
       </div>
       <SandpackProvider
         customSetup={{
-          dependencies: setup?.dependencies,
-          entry: setup?.entry,
-          environment: setup?.environment as SandboxEnvironment | undefined,
+          // Dependencies: setup?.dependencies,
+          // entry: setup?.entry,
+          environment: workspace?.environment as SandboxEnvironment | undefined,
         }}
-        files={setup?.files}
+        files={files}
         options={{
           ...sandpackProviderOptions,
-          activeFile: setup?.activeFile,
+          activeFile: workspace?.activeFile,
           classes: {
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-wrapper': '!w-[200%] !scale-50 !origin-top-left -mb-[200px]',
           },
           initMode: 'user-visible',
           initModeObserverOptions: { rootMargin: `1000px 0px` },
-          visibleFiles: setup?.visibleFiles,
+          visibleFiles: workspace?.visibleFiles,
         }}
         theme={MarketingCodeMirrorTheme}>
         <SandpackLayout>

@@ -17,7 +17,10 @@ import {
 } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
-import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
+import type {
+  QuestionUserInterfaceBundle,
+  QuestionUserInterfaceBundleV2,
+} from '../questions/common/QuestionsTypes';
 import Card from '../ui/Card';
 
 function FeatureBlock({
@@ -156,8 +159,8 @@ export default function MarketingFeaturesBlocks({
   solutions,
 }: Readonly<{
   solutions: Readonly<{
-    todoListReact: QuestionUserInterfaceBundle;
-    todoListVanilla: QuestionUserInterfaceBundle;
+    todoListReact: QuestionUserInterfaceBundleV2;
+    todoListVanilla: QuestionUserInterfaceBundleV2;
   }>;
 }>) {
   return (

@@ -141,7 +141,10 @@ export default function TilesPanelTab<TabType extends string>({
     if (isActive) {
       setTimeout(() => {
         // If the tab is active, scroll it into view
-        tabRef.current?.scrollIntoView({ behavior: 'smooth' });
+        tabRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
         // Add a small delay otherwise it doesn't scroll into view :/
       }, 50);
     }

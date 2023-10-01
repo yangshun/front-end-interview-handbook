@@ -1,233 +1,56 @@
-import clsx from 'clsx';
+'use client';
+
 import { useState } from 'react';
-import { RiListUnordered } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
-import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
 import type {
   QuestionMetadata,
-  QuestionUserInterfaceBundle,
+  QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
-import { QuestionFrameworkLabels } from '~/components/questions/common/QuestionsTypes';
-import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
-import type { QuestionContentsSection } from '~/components/questions/content/QuestionContentsSectionTabs';
-import QuestionContentsSectionTabs from '~/components/questions/content/QuestionContentsSectionTabs';
-import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
-import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
-import Button from '~/components/ui/Button';
-import Divider from '~/components/ui/Divider';
-import Select from '~/components/ui/Select';
-import Text from '~/components/ui/Text';
-import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
-import SandpackTimeoutLogger from '~/components/workspace/SandpackTimeoutLogger';
+import UserInterfaceCodingWorkspaceSection from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSection';
 
 import logEvent from '~/logging/logEvent';
 
 import MarketingCodeMirrorTheme from '../coding/MarketingCodeMirrorTheme';
 import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
-import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
-import {
-  SandpackCodeEditor,
-  SandpackLayout,
-  SandpackPreview,
-  SandpackProvider,
-} from '@codesandbox/sandpack-react';
-
 export type EmbedUIQuestion = Readonly<{
-  angular: Readonly<{
-    skeleton: QuestionUserInterfaceBundle;
-    solution: QuestionUserInterfaceBundle;
-  }>;
+  angular: QuestionUserInterfaceV2;
   metadata: QuestionMetadata;
-  react: Readonly<{
-    skeleton: QuestionUserInterfaceBundle;
-    solution: QuestionUserInterfaceBundle;
-  }>;
-  svelte: Readonly<{
-    skeleton: QuestionUserInterfaceBundle;
-    solution: QuestionUserInterfaceBundle;
-  }>;
-  vanilla: Readonly<{
-    skeleton: QuestionUserInterfaceBundle;
-    solution: QuestionUserInterfaceBundle;
-  }>;
-  vue: Readonly<{
-    skeleton: QuestionUserInterfaceBundle;
-    solution: QuestionUserInterfaceBundle;
-  }>;
+  react: QuestionUserInterfaceV2;
+  svelte: QuestionUserInterfaceV2;
+  vanilla: QuestionUserInterfaceV2;
+  vue: QuestionUserInterfaceV2;
 }>;
 
 type Props = Readonly<{
   question: EmbedUIQuestion;
 }>;
 
-const editorPartPercentage = 60;
-const previewPartPercentage = 100 - editorPartPercentage;
-const height = '100%';
-
 export default function MarketingEmbedUIQuestion({ question }: Props) {
   const intl = useIntl();
   const [framework, setFramework] = useState<QuestionFramework>('react');
 
-  const [selectedSection, setSelectedSection] =
-    useState<QuestionContentsSection>('description');
-  const { writeup, sandpack: setup } =
-    question[framework][
-      selectedSection === 'description' ? 'skeleton' : 'solution'
-    ];
-
   return (
-    <div className="relative flex h-full w-full flex-col">
-      <div className="h-0 grow lg:grid lg:grid-cols-5">
-        <div className="overflow-y-scroll lg:col-span-2 lg:flex lg:flex-col">
-          <div className="flex flex-col gap-y-4 p-4 sm:grow">
-            <div className="flex justify-between">
-              <Text
-                className="text-base font-semibold sm:text-xl"
-                size="custom">
-                {question.metadata.title}
-              </Text>
-              <Select
-                isLabelHidden={true}
-                label={intl.formatMessage({
-                  defaultMessage: 'Framework',
-                  description: 'Question framework',
-                  id: 'xbmWBx',
-                })}
-                options={question.metadata.frameworks.map((frameworkItem) => ({
-                  label: QuestionFrameworkLabels[frameworkItem.framework],
-                  value: frameworkItem.framework,
-                }))}
-                size="sm"
-                value={framework}
-                onChange={(value) => {
-                  setFramework(value as QuestionFramework);
-                }}
-              />
-            </div>
-            <QuestionMetadataSection
-              elements={['author', 'languages']}
-              metadata={question.metadata}
-            />
-            <div className="mt-3 sm:mt-4">
-              <QuestionContentsSectionTabs
-                sections={['description', 'solution']}
-                selectedSection={selectedSection}
-                size="xs"
-                onSelectSection={setSelectedSection}
-              />
-            </div>
-            <QuestionContentProse contents={writeup} />
-            <Divider />
-            <div className="space-y-2">
-              <div className="text-base font-medium sm:text-lg">
-                {intl.formatMessage({
-                  defaultMessage: 'Companies',
-                  description: 'Companies section label',
-                  id: '5rd3TN',
-                })}
-              </div>
-              <QuestionPaywallSmall
-                subtitle={intl.formatMessage({
-                  defaultMessage:
-                    'Purchase premium to see companies which ask this question.',
-                  description:
-                    'Subtitle for paywall over information about companies that asked the question',
-                  id: 'vp4zbB',
-                })}
-                title={intl.formatMessage({
-                  defaultMessage: 'Premium Feature',
-                  description:
-                    'Title for paywall over information about companies that asked the question',
-                  id: 'BPE/qv',
-                })}
-              />
-            </div>
-          </div>
-          <div
-            className={clsx(
-              'flex items-center justify-between border-t px-4 py-2',
-              themeBackgroundColor,
-              themeLineColor,
-            )}>
-            <Button
-              addonPosition="start"
-              href="/prepare/coding"
-              icon={RiListUnordered}
-              label="All Questions"
-              size="xs"
-              variant="secondary"
-            />
-          </div>
-        </div>
-        <div className="flex grow overflow-y-auto sm:h-full lg:col-span-3">
-          <SandpackProvider
-            customSetup={{
-              dependencies: setup?.dependencies,
-              entry: setup?.entry,
-              environment: setup?.environment as SandboxEnvironment | undefined,
-            }}
-            files={setup?.files}
-            options={{
-              ...sandpackProviderOptions,
-              activeFile: setup?.activeFile,
-              classes: {
-                'sp-button': clsx(
-                  '!text-neutral-600 dark:!text-neutral-400',
-                  'hover:!text-neutral-900 dark:hover:!text-neutral-100',
-                ),
-                'sp-input': clsx(
-                  'touch-none select-none pointer-events-none',
-                  '!bg-neutral-50 dark:!bg-neutral-900',
-                ),
-                'sp-layout': 'h-full',
-                'sp-navigator': '!bg-white dark:!bg-neutral-950',
-                'sp-tab-button': clsx(
-                  'dark:data-[active=true]:!text-brand-light data-[active=true]:!text-brand-dark',
-                  '!text-neutral-600 dark:!text-neutral-400',
-                  'hover:!text-brand-dark dark:hover:!text-brand-light',
-                ),
-                'sp-tabs': '!bg-white dark:!bg-neutral-950',
-                'sp-wrapper': '!h-full grow !w-full',
-              },
-              initMode: 'user-visible',
-              initModeObserverOptions: { rootMargin: `600px 0px` },
-              visibleFiles: setup?.visibleFiles,
-            }}
-            theme={MarketingCodeMirrorTheme}>
-            <SandpackLayout>
-              <SandpackCodeEditor
-                showLineNumbers={true}
-                showTabs={true}
-                style={{
-                  // Reference: https://github.com/codesandbox/sandpack/blob/d1301bdbcf80c063e6ed63451f5b48ce55ea46e5/sandpack-react/src/presets/Sandpack.tsx
-                  flexGrow: editorPartPercentage,
-                  flexShrink: editorPartPercentage,
-                  height,
-                }}
-                wrapContent={false}
-              />
-              <SandpackPreview
-                className="dark:[&>.sp-preview-container]:hue-rotate-180 dark:[&>.sp-preview-container]:invert"
-                showNavigator={true}
-                showOpenInCodeSandbox={false}
-                style={{
-                  // Reference: https://github.com/codesandbox/sandpack/blob/d1301bdbcf80c063e6ed63451f5b48ce55ea46e5/sandpack-react/src/presets/Sandpack.tsx
-                  flexGrow: previewPartPercentage,
-                  flexShrink: previewPartPercentage,
-                  height,
-                }}
-              />
-            </SandpackLayout>
-            <SandpackTimeoutLogger instance="marketing.embed.ui" />
-          </SandpackProvider>
-        </div>
-      </div>
+    <div className="relative flex h-full w-full flex-col gap-3">
+      <UserInterfaceCodingWorkspaceSection
+        key={framework}
+        canViewPremiumContent={false}
+        embed={true}
+        mode="practice"
+        nextQuestions={[]}
+        question={question[framework]}
+        similarQuestions={[]}
+        theme={MarketingCodeMirrorTheme}
+        timeoutLoggerInstance="marketing.embed.ui"
+        onFrameworkChange={(value) => {
+          setFramework(value);
+        }}
+      />
       <Anchor
         href={question.metadata.href}
         target="_blank"

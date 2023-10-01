@@ -61,8 +61,8 @@ export default function MarketingHomePage({
         />
         <MarketingFeaturesBlocks
           solutions={{
-            todoListReact: uiCodingQuestion.react.solution,
-            todoListVanilla: uiCodingQuestion.vanilla.solution,
+            todoListReact: uiCodingQuestion.react.solutionBundle!,
+            todoListVanilla: uiCodingQuestion.vanilla.solutionBundle!,
           }}
         />
         <div ref={loadBottomHalfMarkerRef} />

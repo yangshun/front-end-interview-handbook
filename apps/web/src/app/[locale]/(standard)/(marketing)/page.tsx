@@ -7,6 +7,7 @@ import { QuestionCount } from '~/components/questions/listings/stats/QuestionCou
 import {
   readQuestionJavaScriptContents,
   readQuestionUserInterface,
+  readQuestionUserInterfaceV2,
 } from '~/db/QuestionsContentsReader';
 import {
   fetchQuestionsListJavaScript,
@@ -93,8 +94,8 @@ export default async function Page({ params }: Props) {
     todoListVanillaSolutionBundle,
   ] = await Promise.all([
     readQuestionJavaScriptContents('flatten', locale),
-    readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
-    readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
+    readQuestionUserInterfaceV2('todo-list', 'react', 'solution-improved'),
+    readQuestionUserInterfaceV2('todo-list', 'vanilla', 'solution-template'),
   ]);
 
   const [
@@ -136,26 +137,8 @@ export default async function Page({ params }: Props) {
       uiCodingQuestion={
         {
           metadata: todoListReactSolutionBundle.metadata,
-          react: {
-            skeleton: {
-              sandpack: todoListReactSolutionBundle.skeletonSetup!,
-              writeup: todoListReactSolutionBundle.description,
-            },
-            solution: {
-              sandpack: todoListReactSolutionBundle.solutionSetup!,
-              writeup: todoListReactSolutionBundle.solution,
-            },
-          },
-          vanilla: {
-            skeleton: {
-              sandpack: todoListVanillaSolutionBundle.skeletonSetup!,
-              writeup: todoListVanillaSolutionBundle.description,
-            },
-            solution: {
-              sandpack: todoListVanillaSolutionBundle.solutionSetup!,
-              writeup: todoListVanillaSolutionBundle.solution,
-            },
-          },
+          react: todoListReactSolutionBundle,
+          vanilla: todoListVanillaSolutionBundle,
           // TODO: Add angular and vue
         } as EmbedUIQuestion // TODO: Remove this after adding angular and vue
       }

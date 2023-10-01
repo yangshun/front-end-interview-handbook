@@ -12,10 +12,7 @@ import QuestionCompanies from '~/components/questions/content/QuestionCompanies'
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
 import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
-import {
-  questionUserInterfaceDescriptionPath,
-  questionUserInterfaceSolutionPath,
-} from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import { questionUserInterfaceDescriptionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Alert from '~/components/ui/Alert';
 import Badge from '~/components/ui/Badge';
@@ -25,7 +22,6 @@ import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
-import { useI18nRouter } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -34,6 +30,10 @@ type Props = Readonly<{
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onFrameworkChange: (
+    framework: QuestionFramework,
+    contentType: 'description' | 'solution',
+  ) => void;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   writeup: string | null;
 }>;
@@ -42,6 +42,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   canViewPremiumContent,
   contentType,
   framework,
+  onFrameworkChange,
   metadata,
   nextQuestions,
   similarQuestions,
@@ -50,7 +51,6 @@ export default function UserInterfaceCodingWorkspaceWriteup({
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
   const intl = useIntl();
-  const router = useI18nRouter();
   const questionTechnologyLists = useQuestionTechnologyLists();
 
   return (
@@ -110,24 +110,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             size="sm"
             value={framework}
             onChange={(value) => {
-              const frameworkValue = value as QuestionFramework;
-              const frameworkItem = metadata.frameworks.find(
-                ({ framework: frameworkItemValue }) =>
-                  frameworkItemValue === frameworkValue,
-              );
-
-              if (frameworkItem == null) {
-                return;
-              }
-
-              router.push(
-                contentType === 'description'
-                  ? questionUserInterfaceDescriptionPath(
-                      metadata,
-                      frameworkValue,
-                    )
-                  : questionUserInterfaceSolutionPath(metadata, frameworkValue),
-              );
+              onFrameworkChange(value, contentType);
             }}
           />
         </div>
