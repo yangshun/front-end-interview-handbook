@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/sum",
   "version": "0.0.1",
-  "main": "/src/sum.js",
+  "main": "/src/sum.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

@@ -97,23 +97,6 @@ export default async function Page({ params }: Props) {
     ],
   );
 
-  // TODO(workspace): delete when all JS questions have been migrated.
-  if (question.workspace.main.endsWith('.js')) {
-    const oldMain = question.workspace.main;
-    const newMain = oldMain.replace(/\.js$/, '.ts');
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    question.workspace.main = newMain;
-    question.files[newMain] = question.files[oldMain];
-    delete question.files[oldMain];
-
-    const pkgJSON = JSON.parse(question.files['/package.json']);
-
-    pkgJSON.main = newMain;
-    question.files['/package.json'] = JSON.stringify(pkgJSON, null, 2);
-  }
-
   return (
     <>
       <ArticleJsonLd
