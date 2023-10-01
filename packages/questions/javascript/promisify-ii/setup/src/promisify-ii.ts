@@ -6,5 +6,15 @@ type WithSymbol<T> = { [promisifyCustomSymbol]: Return<T> };
 type Param<T> = Func | WithSymbol<T>;
 
 export default function promisify<T>(func: Param<T>): Return<T> {
-  throw 'Not implemented';
+  if ((func as WithSymbol<T>)[promisifyCustomSymbol]) {
+    return (func as WithSymbol<T>)[promisifyCustomSymbol];
+  }
+
+  return function (...args) {
+    return new Promise<T>((resolve, reject) => {
+      (func as Func).call(this, ...args, (err: any, result: T) =>
+        err ? reject(err) : resolve(result),
+      );
+    });
+  };
 }

@@ -1,13 +1,13 @@
 import promisify from './promisify-ii';
 
 describe('promisify', () => {
-  function delayedResolve(cb) {
+  function delayedResolve(cb: Function) {
     setTimeout(() => {
       cb(null, 42);
     }, 10);
   }
 
-  function asyncError(x, cb) {
+  function asyncError(x: number, cb: Function) {
     setTimeout(() => {
       cb(x);
     }, 10);
@@ -16,12 +16,12 @@ describe('promisify', () => {
   describe('returns correct types', () => {
     test('returns a function', () => {
       const promisified = promisify(delayedResolve);
-      expect(typeof promisified).toBe('function');
+      expect(promisified).toBeInstanceOf(Function);
     });
 
-    test('promisified returns a promise', () => {
+    test('calling promisified returns a promise', () => {
       const promisified = promisify(delayedResolve);
-      expect(promisified() instanceof Promise).toBe(true);
+      expect(promisified()).toBeInstanceOf(Promise);
     });
   });
 
@@ -35,7 +35,7 @@ describe('promisify', () => {
       });
 
       test('one argument', async () => {
-        function asyncIdentity(x, cb) {
+        function asyncIdentity(x: number, cb: Function) {
           setTimeout(() => {
             cb(null, x);
           }, 10);
@@ -48,7 +48,7 @@ describe('promisify', () => {
       });
 
       test('two arguments', async () => {
-        function asyncAdd(a, b, cb) {
+        function asyncAdd(a: number, b: number, cb: Function) {
           setTimeout(() => {
             cb(null, a + b);
           }, 10);
@@ -74,7 +74,7 @@ describe('promisify', () => {
 
   test('can access `this`', async () => {
     expect.assertions(1);
-    function asyncAdd(a, b, cb) {
+    function asyncAdd(this: any, a: number, b: number, cb: Function) {
       setTimeout(() => {
         cb(null, a + b + this.base);
       }, 10);
@@ -111,16 +111,16 @@ describe('promisify', () => {
   describe('custom', () => {
     test('resolve', async () => {
       expect.assertions(1);
-      function asyncIdentityCustom(cb, x) {
+      function asyncIdentityCustom<T>(cb: Function, x: T) {
         setTimeout(() => {
           cb(null, x);
         }, 10);
       }
-      const customPromisify = (x) =>
+      const customPromisify = <T>(x: T) =>
         new Promise((resolve) => {
-          asyncIdentityCustom((_, res) => resolve(res), x);
+          asyncIdentityCustom((_: unknown, res: T) => resolve(res), x);
         });
-      asyncIdentityCustom[Symbol.for('util.promisify.custom')] =
+      (asyncIdentityCustom as any)[Symbol.for('util.promisify.custom')] =
         customPromisify;
 
       const promisified = promisify(asyncIdentityCustom);
@@ -130,16 +130,17 @@ describe('promisify', () => {
 
     test('reject', async () => {
       expect.assertions(1);
-      function asyncErrorCustom(cb, x) {
+      function asyncErrorCustom(cb: Function, x: number) {
         setTimeout(() => {
           cb(x);
         }, 10);
       }
-      const customPromisify = (x) =>
+      const customPromisify = (x: number) =>
         new Promise((_, reject) => {
-          asyncErrorCustom((err) => reject(err), x);
+          asyncErrorCustom((err: any) => reject(err), x);
         });
-      asyncErrorCustom[Symbol.for('util.promisify.custom')] = customPromisify;
+      (asyncErrorCustom as any)[Symbol.for('util.promisify.custom')] =
+        customPromisify;
 
       try {
         const promisified = promisify(asyncErrorCustom);

@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promisify from '../setup/src/promisify-ii';
+import promisifyJs from '../setup/src/promisify-ii.js';
+import promisifyTs from '../setup/src/promisify-ii.ts';
 
 **Note:** This is an advanced version of [Promisify](/questions/javascript/promisify), which you should complete first before attempting this question.
 
@@ -8,7 +9,7 @@ import promisify from '../setup/src/promisify-ii';
 
 The only addition you need to make is to check if the `func` argument has the custom `Symbol('util.promisify.custom')` defined and return the corresponding value if so.
 
-<MDXCodeBlock>{promisify}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promisifyJs, tsx: promisifyTs }} />
 
 ## Resources
 
