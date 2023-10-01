@@ -1,8 +1,4 @@
-/**
- * @param {Array} iterable
- * @return {Promise<Array>}
- */
-export default function promiseAll(iterable: Array<any>): Promise<Array<any>> {
+export default function promiseAll<T>(iterable: Array<T>): Promise<Array<T>> {
   return new Promise((resolve, reject) => {
     const results = new Array(iterable.length);
     let unresolved = iterable.length;

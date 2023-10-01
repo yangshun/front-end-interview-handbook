@@ -1,3 +1,3 @@
-export default function promiseAll(iterable: Array<any>): Promise<Array<any>> {
+export default function promiseAll<T>(iterable: Array<T>): Promise<Array<T>> {
   throw 'Not implemented!';
 }

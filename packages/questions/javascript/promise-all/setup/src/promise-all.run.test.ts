@@ -1,6 +1,11 @@
 import promiseAll from './promise-all';
 
 describe('promiseAll', () => {
+  test('returns promise', () => {
+    const p = promiseAll([]);
+    expect(p).toBeInstanceOf(Promise);
+  });
+
   test('empty input array', async () => {
     expect.assertions(1);
     const res = await promiseAll([]);
