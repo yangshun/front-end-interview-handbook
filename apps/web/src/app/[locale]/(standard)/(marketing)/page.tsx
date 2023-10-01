@@ -6,7 +6,6 @@ import { QuestionCount } from '~/components/questions/listings/stats/QuestionCou
 
 import {
   readQuestionJavaScriptContents,
-  readQuestionUserInterface,
   readQuestionUserInterfaceV2,
 } from '~/db/QuestionsContentsReader';
 import {

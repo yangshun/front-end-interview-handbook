@@ -237,13 +237,15 @@ export default function MarketingEmbedSection({
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
 
   return (
-    <div className="relative pt-16 pb-24 lg:pb-32">
+    <div className="relative pb-24 pt-16 lg:pb-32">
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 top-0 h-full w-full">
         <MarketingEmbedSectionBackground className="hidden h-full w-full invert dark:block dark:invert-0" />
       </div>
-      <Container className={clsx('relative flex flex-col gap-y-8')}>
+      <Container
+        className={clsx('relative flex flex-col gap-y-8')}
+        variant="screen-2xl">
         <div className="flex flex-col gap-y-4 lg:gap-y-6">
           <Heading className="mx-auto" level="heading6">
             <FormattedMessage
@@ -275,7 +277,7 @@ export default function MarketingEmbedSection({
           </div>
         </div>
         <MarketingHeroBrowserWindowFrame>
-          <div style={{ height: 500 }}>
+          <div style={{ height: 600 }}>
             {selectedTab === 'user-interface' && (
               <MarketingEmbedUIQuestion question={uiEmbedExample} />
             )}

@@ -18,6 +18,7 @@ import type { SandpackTheme } from '@codesandbox/sandpack-react';
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
+  activeTabScrollIntoView?: boolean;
   canViewPremiumContent: boolean;
   embed?: boolean;
   fillViewportHeight?: boolean;
@@ -34,6 +35,7 @@ type Props = Readonly<{
 }>;
 
 export default function UserInterfaceCodingWorkspaceSection({
+  activeTabScrollIntoView,
   canViewPremiumContent,
   mode,
   nextQuestions,
@@ -92,6 +94,7 @@ export default function UserInterfaceCodingWorkspaceSection({
       }}
       theme={theme ?? (appTheme === 'dark' ? 'dark' : undefined)}>
       <UserInterfaceCodingWorkspace
+        activeTabScrollIntoView={activeTabScrollIntoView}
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={defaultFiles!} // TODO(workspace): remove ! when the field is made compulsory
         embed={embed}

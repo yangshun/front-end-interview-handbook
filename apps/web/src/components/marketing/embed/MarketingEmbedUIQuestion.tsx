@@ -39,6 +39,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
     <div className="relative flex h-full w-full flex-col gap-3">
       <UserInterfaceCodingWorkspaceSection
         key={framework}
+        activeTabScrollIntoView={false}
         canViewPremiumContent={false}
         embed={true}
         mode="practice"

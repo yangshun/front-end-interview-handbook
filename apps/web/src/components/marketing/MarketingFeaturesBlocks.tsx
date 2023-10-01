@@ -17,10 +17,7 @@ import {
 } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
-import type {
-  QuestionUserInterfaceBundle,
-  QuestionUserInterfaceBundleV2,
-} from '../questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceBundleV2 } from '../questions/common/QuestionsTypes';
 import Card from '../ui/Card';
 
 function FeatureBlock({

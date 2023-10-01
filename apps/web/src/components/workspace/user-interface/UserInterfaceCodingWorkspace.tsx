@@ -458,6 +458,7 @@ function UserInterfaceCodingWorkspaceImpl({
 }
 
 export default function UserInterfaceCodingWorkspace({
+  activeTabScrollIntoView = true,
   canViewPremiumContent,
   embed,
   defaultFiles,
@@ -468,6 +469,7 @@ export default function UserInterfaceCodingWorkspace({
   similarQuestions,
   onFrameworkChange,
 }: Readonly<{
+  activeTabScrollIntoView?: boolean;
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
   embed: boolean;
@@ -488,6 +490,7 @@ export default function UserInterfaceCodingWorkspace({
   return (
     <CodingPreferencesProvider>
       <TilesProvider
+        activeTabScrollIntoView={activeTabScrollIntoView}
         defaultValue={getUserInterfaceCodingWorkspaceLayout(
           mode,
           activeFile,
