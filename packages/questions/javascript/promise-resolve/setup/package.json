@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/promise-resolve",
   "version": "0.0.1",
-  "main": "/src/promise-resolve.js",
+  "main": "/src/promise-resolve.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

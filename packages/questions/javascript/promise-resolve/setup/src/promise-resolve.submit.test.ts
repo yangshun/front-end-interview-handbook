@@ -1,28 +1,27 @@
 import promiseResolve from './promise-resolve';
-// const promiseResolve = Promise.resolve.bind(Promise);
 
+// TODO: fix tests passing even if resolved value is incorrect.
 describe('promiseResolve', () => {
   test('returns promise', () => {
-    expect(promiseResolve(1) instanceof Promise).toBe(true);
+    expect(promiseResolve(1)).toBeInstanceOf(Promise);
   });
 
   describe('non-promise', () => {
     test('returns promise', () => {
-      expect(promiseResolve(1) instanceof Promise).toBe(true);
+      expect(promiseResolve(1)).toBeInstanceOf(Promise);
     });
 
-    test('resolves', async () => {
+    test('resolves', () => {
       const p = promiseResolve(42);
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
   });
 
   describe('promise', () => {
     test('returns promise', () => {
       expect(
-        promiseResolve(new Promise((resolve) => resolve(42))) instanceof
-          Promise,
-      ).toBe(true);
+        promiseResolve(new Promise((resolve) => resolve(42))),
+      ).toBeInstanceOf(Promise);
     });
 
     test('returns the same promise instance', () => {
@@ -30,23 +29,23 @@ describe('promiseResolve', () => {
       expect(promiseResolve(p)).toBe(p);
     });
 
-    test('resolves', async () => {
+    test('resolves', () => {
       const p = promiseResolve(new Promise((resolve) => resolve(42)));
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
 
-    test('nested', async () => {
+    test('nested', () => {
       const p = promiseResolve(
         new Promise((resolve) =>
           resolve(new Promise((resolve) => resolve(42))),
         ),
       );
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
 
-    test('rejects', async () => {
+    test('rejects', () => {
       const p = promiseResolve(new Promise((_, reject) => reject(42)));
-      expect(p).rejects.toBe(42);
+      return expect(p).rejects.toBe(42);
     });
 
     test('use with then', (done) => {
@@ -63,54 +62,54 @@ describe('promiseResolve', () => {
     test('returns promise', () => {
       expect(
         promiseResolve({
-          then(resolve) {
+          then(resolve: Function) {
             resolve(42);
           },
-        }) instanceof Promise,
-      ).toBe(true);
+        }),
+      ).toBeInstanceOf(Promise);
     });
 
-    test('resolves', async () => {
+    test('resolves', () => {
       const p = promiseResolve({
-        then(resolve) {
+        then(resolve: Function) {
           resolve(42);
         },
       });
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
 
-    test('throw', async () => {
+    test('throw', () => {
       const p = promiseResolve({
-        then(resolve) {
+        then() {
           throw 42;
         },
       });
-      expect(p).rejects.toBe(42);
+      return expect(p).rejects.toBe(42);
     });
 
-    test('throw after resolving', async () => {
+    test('throw after resolving', () => {
       const p = promiseResolve({
-        then(resolve) {
+        then(resolve: Function) {
           resolve(42);
           throw 42;
         },
       });
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
 
-    test('rejects', async () => {
+    test('rejects', () => {
       const p = promiseResolve({
-        then(_, reject) {
+        then(_, reject: Function) {
           reject(42);
         },
       });
-      expect(p).rejects.toBe(42);
+      return expect(p).rejects.toBe(42);
     });
 
     test('use with then', (done) => {
       expect.assertions(1);
       const p = promiseResolve({
-        then(resolve) {
+        then(resolve: Function) {
           resolve(42);
         },
       });
@@ -120,31 +119,31 @@ describe('promiseResolve', () => {
       });
     });
 
-    test('nested', async () => {
+    test('nested', () => {
       const p = promiseResolve({
-        then(resolve) {
+        then(resolve: Function) {
           resolve({
-            then(resolve) {
+            then(resolve: Function) {
               resolve(42);
             },
           });
         },
       });
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
 
-    test('can access `this`', async () => {
+    test('can access `this`', () => {
       const p = promiseResolve({
         value: 42,
-        then(resolve) {
+        then(this: any, resolve: Function) {
           resolve(this.value);
         },
       });
-      expect(p).resolves.toBe(42);
+      return expect(p).resolves.toBe(42);
     });
   });
 
-  test('use with Promise.all()', async () => {
+  test('use with Promise.all()', () => {
     const p0 = promiseResolve(3);
     const p1 = new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -152,7 +151,7 @@ describe('promiseResolve', () => {
       }, 100);
     });
 
-    expect(Promise.all([p0, p1])).resolves.toBe([3, 'foo']);
+    return expect(Promise.all([p0, p1])).resolves.toStrictEqual([3, 'foo']);
   });
 
   test('use with Promise.allSettled()', async () => {

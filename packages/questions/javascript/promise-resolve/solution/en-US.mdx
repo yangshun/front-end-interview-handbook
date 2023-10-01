@@ -1,7 +1,9 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promiseResolve from '../setup/src/promise-resolve';
-import promiseResolveSimple from '../setup/src/promise-resolve-simple';
+import promiseResolveJs from '../setup/src/promise-resolve.js';
+import promiseResolveTs from '../setup/src/promise-resolve.ts';
+import promiseResolveSimpleJs from '../setup/src/promise-resolve-simple.js';
+import promiseResolveSimpleTs from '../setup/src/promise-resolve-simple.ts';
 
 ## Solution
 
@@ -17,8 +19,10 @@ The first two cases are straightforward. Let's talk a bit about the last case. S
 
 Nested thenables and promises should also be flattened. This is already handled by the `resolve` callbacks of a `Promise` constructor, so we don't have to manually attempt to flatten.
 
-<MDXCodeBlock>{promiseResolve}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promiseResolveJs, tsx: promiseResolveTs }} />
 
 In fact, the `resolve` function can also handle thenables. So we can simplify the code even further.
 
-<MDXCodeBlock>{promiseResolveSimple}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: promiseResolveSimpleJs, tsx: promiseResolveSimpleTs }}
+/>
