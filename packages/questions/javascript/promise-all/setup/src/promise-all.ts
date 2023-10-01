@@ -1,10 +1,14 @@
-export default function promiseAll<T>(iterable: Array<T>): Promise<Array<T>> {
+type ReturnValue<T> = { -readonly [P in keyof T]: Awaited<T[P]> };
+
+export default function promiseAll<T extends readonly unknown[] | []>(
+  iterable: T,
+): Promise<ReturnValue<T>> {
   return new Promise((resolve, reject) => {
     const results = new Array(iterable.length);
     let unresolved = iterable.length;
 
     if (unresolved === 0) {
-      resolve(results);
+      resolve(results as ReturnValue<T>);
       return;
     }
 
@@ -15,7 +19,7 @@ export default function promiseAll<T>(iterable: Array<T>): Promise<Array<T>> {
         unresolved -= 1;
 
         if (unresolved === 0) {
-          resolve(results);
+          resolve(results as ReturnValue<T>);
         }
       } catch (err) {
         reject(err);
