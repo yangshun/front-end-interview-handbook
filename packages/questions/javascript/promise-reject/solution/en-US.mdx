@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promiseReject from '../setup/src/promise-reject';
+import promiseRejectJs from '../setup/src/promise-reject.js';
+import promiseRejectTs from '../setup/src/promise-reject.ts';
 
 ## Solution
 
@@ -8,4 +9,4 @@ import promiseReject from '../setup/src/promise-reject';
 
 The only thing we need to note is to wrap the `reason` value in a new `Promise` object even when `reason` is already a `Promise`.
 
-<MDXCodeBlock>{promiseReject}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promiseRejectJs, tsx: promiseRejectTs }} />

@@ -1,3 +1,3 @@
 export default function promiseReject<T = never>(reason: any): Promise<T> {
-  throw 'Not implemented';
+  return new Promise((_, reject) => reject(reason));
 }

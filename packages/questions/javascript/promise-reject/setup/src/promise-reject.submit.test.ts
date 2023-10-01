@@ -1,5 +1,4 @@
 import promiseReject from './promise-reject';
-// const promiseReject = Promise.reject.bind(Promise);
 
 describe('promiseReject', () => {
   describe('non-promise', () => {
@@ -7,7 +6,7 @@ describe('promiseReject', () => {
       expect.assertions(1);
       try {
         const p = promiseReject(1);
-        expect(p instanceof Promise).toBe(true);
+        expect(p).toBeInstanceOf(Promise);
         await p;
       } catch {}
     });
@@ -23,7 +22,7 @@ describe('promiseReject', () => {
       expect.assertions(1);
       try {
         const p = promiseReject(new Promise((resolve) => resolve(42)));
-        expect(p instanceof Promise).toBe(true);
+        expect(p).toBeInstanceOf(Promise);
         await p;
       } catch {}
     });
@@ -87,7 +86,7 @@ describe('promiseReject', () => {
 
     try {
       await Promise.any([p0]);
-    } catch (err) {
+    } catch (err: any) {
       expect(err).toBeInstanceOf(AggregateError);
       expect(err.errors).toEqual([2]);
     }
