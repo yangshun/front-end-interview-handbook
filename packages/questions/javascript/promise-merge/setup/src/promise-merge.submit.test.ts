@@ -88,15 +88,17 @@ describe('promiseMerge', () => {
 
     test('supported data types but not mergeable', async () => {
       const promise = promiseMerge(
-        new Promise((resolve) => setTimeout(() => resolve(1, 5))),
-        new Promise((resolve) => setTimeout(() => resolve([], 10))),
+        new Promise((resolve) => setTimeout(() => resolve(1), 5)),
+        new Promise((resolve) => setTimeout(() => resolve([]), 10)),
       );
       await expect(promise).rejects.toEqual('Unsupported data types');
     });
 
     test('unsupported data types', async () => {
       const promise = promiseMerge(
+        // @ts-expect-error
         new Promise((resolve) => setTimeout(() => resolve(new Set([1]), 5))),
+        // @ts-expect-error
         new Promise((resolve) => setTimeout(() => resolve(new Set([2]), 10))),
       );
       await expect(promise).rejects.toEqual('Unsupported data types');

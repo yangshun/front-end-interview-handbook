@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promiseMerge from '../setup/src/promise-merge';
+import promiseMergeJs from '../setup/src/promise-merge.js';
+import promiseMergeTs from '../setup/src/promise-merge.ts';
 import promiseMergeAll from '../setup/src/promise-merge-all';
 import promiseMergeSeries from '../setup/src/promise-merge-series';
 
@@ -17,7 +18,7 @@ We can keep track of the state of the promises by tracking the number of unresol
 
 Merging the results is straightforward if you know how to check for the common data types, which we have covered in [Type Utilities](/questions/javascript/type-utilities) and [Type Utilities II](/questions/javascript/type-utilities-ii). Since only merging of plain objects is supported, we need to differentiate between plain objects and other objects like `Set`s and `Map`s.
 
-<MDXCodeBlock>{promiseMerge}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promiseMergeJs, tsx: promiseMergeTs }} />
 
 Notice that the logic to keep track of the resolved promise results can get repetitive, and it gets worse if the function supports more than 2 promises. Thankfully, there's actually a built-in construct to help with managing state of multiple promises: `Promise.all`, which we can use to simplify the code.
 
