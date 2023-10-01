@@ -1,7 +1,7 @@
 {
   "name": "@gfe-questions/promise-all-settled",
   "version": "0.0.1",
-  "main": "/src/promise-all-settled.js",
+  "main": "/src/promise-all-settled.ts",
   "devDependencies": {
     "@types/jest": "29.5.0",
     "typescript": "5.0.2"

@@ -1,6 +1,11 @@
 import promiseAllSettled from './promise-all-settled';
 
 describe('promiseAllSettled', () => {
+  test('returns promise', () => {
+    const p = promiseAllSettled([]);
+    expect(p).toBeInstanceOf(Promise);
+  });
+
   test('empty input array', async () => {
     expect.assertions(1);
     const res = await promiseAllSettled([]);

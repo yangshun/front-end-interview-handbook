@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promiseAllSettled from '../setup/src/promise-all-settled';
+import promiseAllSettledJs from '../setup/src/promise-all-settled.js';
+import promiseAllSettledTs from '../setup/src/promise-all-settled.ts';
 import promiseAllSettledThen from '../setup/src/promiseAllSettledThen';
 
 **Note:** If you haven't completed the [`Promise.all`](/questions/javascript/promise-all) question, you should attempt that first.
@@ -27,7 +28,9 @@ To know when all the input array values have an outcome, keep track of how many 
 
 One thing to note here is that because the input array can contain non-`Promise` values, if we are not `await`-ing them, we need to wrap each value with `Promise.resolve()` which allows us to use `.then()` on each of them and we don't have to differentiate between `Promise` vs non-`Promise` values and whether they need to be resolved.
 
-<MDXCodeBlock>{promiseAllSettled}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: promiseAllSettledJs, tsx: promiseAllSettledTs }}
+/>
 
 Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`.
 
