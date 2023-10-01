@@ -1,7 +1,11 @@
 import promiseRace from './promise-race';
-// import promiseRace from './promiseRaceThen';
 
 describe('promiseRace', () => {
+  test('returns a promise', () => {
+    const promise = promiseRace([]);
+    expect(promise).toBeInstanceOf(Promise);
+  });
+
   test('empty input array', (done) => {
     expect.assertions(1);
     const promise = promiseRace([]);
