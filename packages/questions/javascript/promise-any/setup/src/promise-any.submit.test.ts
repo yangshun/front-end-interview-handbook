@@ -1,13 +1,17 @@
 import promiseAny from './promise-any';
-// import promiseAny from './solution/promiseAnyThen';
 
 describe('promiseAny', () => {
+  test('returns promise', () => {
+    const p = promiseAny([]);
+    expect(p).toBeInstanceOf(Promise);
+  });
+
   test('empty input array', async () => {
     expect.assertions(2);
 
     try {
       await promiseAny([]);
-    } catch (err) {
+    } catch (err: any) {
       expect(err).toBeInstanceOf(AggregateError);
       expect(err.errors).toEqual([]);
     }
@@ -51,7 +55,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([2]);
         }
@@ -67,7 +71,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([2]);
         }
@@ -144,7 +148,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0, p1]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([2, 3]);
         }
@@ -165,7 +169,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0, p1]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([3, 2]);
         }
@@ -182,7 +186,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0, p1]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([42, 2]);
         }
@@ -228,7 +232,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0, p1]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([42, 43]);
         }
@@ -275,7 +279,7 @@ describe('promiseAny', () => {
 
         try {
           await promiseAny([p0, p1, p2]);
-        } catch (err) {
+        } catch (err: any) {
           expect(err).toBeInstanceOf(AggregateError);
           expect(err.errors).toEqual([1, 2, 3]);
         }

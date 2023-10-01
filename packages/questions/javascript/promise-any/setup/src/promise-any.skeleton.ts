@@ -1,5 +1,3 @@
-export default function promiseAny<T extends readonly unknown[] | []>(
-  iterable: T,
-): Promise<Awaited<T[number]>> {
+export default function promiseAny<T>(iterable: Array<T>): Promise<T> {
   throw 'Not implemented!';
 }

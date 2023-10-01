@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promiseAny from '../setup/src/promise-any';
+import promiseAnyJs from '../setup/src/promise-any.js';
+import promiseAnyTs from '../setup/src/promise-any.ts';
 import promiseAnyThen from '../setup/src/promiseAnyThen';
 
 **Note:** If you haven't completed the [`Promise.all`](/questions/javascript/promise-all) question, you should attempt that first.
@@ -31,7 +32,7 @@ To know when all the input array values are no longer pending, we keep track of 
 
 One thing to note here is that because the input array can contain non-`Promise` values, if we are not `await`-ing them, we need to wrap each value with `Promise.resolve()` which allows us to use `.then()` on each of them and we don't have to differentiate between `Promise` vs non-`Promise` values and whether they need to be resolved.
 
-<MDXCodeBlock>{promiseAny}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promiseAnyJs, tsx: promiseAnyTs }} />
 
 Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`.
 
