@@ -1,6 +1,7 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import promisify from '../setup/src/promisify';
+import promisifyJs from '../setup/src/promisify.js';
+import promisifyTs from '../setup/src/promisify.ts';
 
 ## Solution
 
@@ -15,7 +16,7 @@ With the `promisify` function, you can convert any callback-based function into 
 
 To preserve the `this` value, the returned function should not be defined using arrow functions and `func` should be invoked with `call`/`apply` and the correct `thisArg` value.
 
-<MDXCodeBlock>{promisify}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: promisifyJs, tsx: promisifyTs }} />
 
 ### Notes
 

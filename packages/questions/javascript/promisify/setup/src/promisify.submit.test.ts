@@ -1,13 +1,13 @@
 import promisify from './promisify';
 
 describe('promisify', () => {
-  function delayedResolve(cb) {
+  function delayedResolve(cb: Function) {
     setTimeout(() => {
       cb(null, 42);
     }, 10);
   }
 
-  function asyncError(x, cb) {
+  function asyncError(x: number, cb: Function) {
     setTimeout(() => {
       cb(x);
     }, 10);
@@ -16,12 +16,12 @@ describe('promisify', () => {
   describe('returns correct types', () => {
     test('returns a function', () => {
       const promisified = promisify(delayedResolve);
-      expect(typeof promisified).toBe('function');
+      expect(promisified).toBeInstanceOf(Function);
     });
 
-    test('promisified returns a promise', () => {
+    test('calling promisified returns a promise', () => {
       const promisified = promisify(delayedResolve);
-      expect(promisified() instanceof Promise).toBe(true);
+      expect(promisified()).toBeInstanceOf(Promise);
     });
   });
 
@@ -35,7 +35,7 @@ describe('promisify', () => {
       });
 
       test('one argument', async () => {
-        function asyncIdentity(x, cb) {
+        function asyncIdentity<T>(x: T, cb: Function) {
           setTimeout(() => {
             cb(null, x);
           }, 10);
@@ -48,7 +48,7 @@ describe('promisify', () => {
       });
 
       test('two arguments', async () => {
-        function asyncAdd(a, b, cb) {
+        function asyncAdd(a: number, b: number, cb: Function) {
           setTimeout(() => {
             cb(null, a + b);
           }, 10);
@@ -74,7 +74,7 @@ describe('promisify', () => {
 
   test('can access `this`', async () => {
     expect.assertions(1);
-    function asyncAdd(a, b, cb) {
+    function asyncAdd(this: any, a: number, b: number, cb: Function) {
       setTimeout(() => {
         cb(null, a + b + this.base);
       }, 10);
