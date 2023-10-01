@@ -46,7 +46,6 @@ import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJ
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
-import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceTabId';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,

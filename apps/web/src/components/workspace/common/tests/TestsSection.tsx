@@ -47,6 +47,7 @@ const INITIAL_STATE: State = {
 
 export type Props = Readonly<{
   onComplete?: (outcome: TestsOutcome) => void;
+  onShowTestCase: (type: SpecMode, index: number, path: Array<string>) => void;
   onShowTestsCases: (type: SpecMode) => void;
   specMode: SpecMode;
   specPath: string;
@@ -57,6 +58,7 @@ export default function TestsSection({
   specPath,
   onComplete,
   onShowTestsCases,
+  onShowTestCase,
 }: Props) {
   const { status, executionComplete, runTests, submit } =
     useCodingWorkspaceContext();
@@ -514,6 +516,9 @@ export default function TestsSection({
                       openSpec={openSpec}
                       runStatus={state.status}
                       specs={specs}
+                      onShowTestCase={(index, displayPath) => {
+                        onShowTestCase(specMode, index, displayPath);
+                      }}
                     />
                   );
                 })()}

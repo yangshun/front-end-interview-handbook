@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeDivideColor } from '~/components/ui/theme';
 
@@ -17,6 +18,7 @@ import type { Spec } from './types';
 import { getSpecTestResults, getTests, isEmpty } from './utils';
 
 type Props = Readonly<{
+  onShowTestCase: (index: number, displayPath: Array<string>) => void;
   openSpec: (name: string) => void;
   runStatus: TestsRunStatus;
   showSpecFile?: boolean;
@@ -28,6 +30,7 @@ export default function SpecsInline({
   showSpecFile = false,
   openSpec,
   runStatus,
+  onShowTestCase,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-6">
@@ -88,7 +91,8 @@ export default function SpecsInline({
                   themeDivideColor,
                 ])}>
                 {allTests.map((test) => {
-                  const fullTestName = [...test.blocks, test.name].join(' › ');
+                  const nameSegments = [...test.blocks, test.name];
+                  const fullTestName = nameSegments.join(' › ');
                   const testErrors = test.errors.filter(
                     (error) => error.name != null,
                   );
@@ -106,7 +110,21 @@ export default function SpecsInline({
                         )}>
                         <Text className="flex items-center gap-3" size="body3">
                           <TestStatusIcon status={test.status} />{' '}
-                          <code className="text-xs">{fullTestName}</code>
+                          <code className="text-xs">
+                            {nameSegments.map((nameSegment, index) => (
+                              <React.Fragment key={nameSegment}>
+                                {index > 0 && <span> › </span>}
+                                <Anchor
+                                  className="hover:underline"
+                                  variant="unstyled"
+                                  onClick={() => {
+                                    onShowTestCase(index, nameSegments);
+                                  }}>
+                                  {nameSegment}
+                                </Anchor>
+                              </React.Fragment>
+                            ))}
+                          </code>
                         </Text>
                         <TestDuration duration={test.duration} />
                       </div>

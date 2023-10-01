@@ -15,6 +15,10 @@
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
   },
+  "+ESKYF": {
+    "defaultMessage": "Svelte Questions",
+    "description": "Svelte questions category long title"
+  },
   "+Eg6gK": {
     "defaultMessage": "View full questions list",
     "description": "Link to questions page"
@@ -1610,6 +1614,10 @@
   "R5FPug": {
     "defaultMessage": "Contact Us",
     "description": "Title of Contact Us page"
+  },
+  "R68iHH": {
+    "defaultMessage": "Search Svelte questions",
+    "description": "Placeholder for search input of Svelte question list"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -3482,6 +3490,10 @@
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
     "description": "Subtitle for company-tagged questions feature"
+  },
+  "y1y4Uh": {
+    "defaultMessage": "Svelte",
+    "description": "Svelte questions category short title"
   },
   "y3aYKb": {
     "defaultMessage": "User Interface",

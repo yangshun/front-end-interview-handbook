@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import JavaScriptTestCodesEmitter from '~/components/questions/content/JavaScriptTestCodesEmitter';
 
 import {
   useMutationQuestionProgressAdd,
@@ -72,6 +73,18 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
             status: 'complete',
           });
         }
+      }}
+      onShowTestCase={(_, index, displayPath) => {
+        dispatch({
+          payload: {
+            tabId: 'test_cases',
+          },
+          type: 'tab-set-active',
+        });
+        JavaScriptTestCodesEmitter.emit('focus_on_test', {
+          index,
+          path: displayPath,
+        });
       }}
       onShowTestsCases={() => {
         dispatch({

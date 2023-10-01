@@ -28,6 +28,14 @@ export default function JavaScriptCodingWorkspaceTestsRunTab({
     <TestsSection
       specMode="run"
       specPath={specPath}
+      onShowTestCase={() => {
+        dispatch({
+          payload: {
+            tabId: codingWorkspaceTabFileId(specPath),
+          },
+          type: 'tab-set-active',
+        });
+      }}
       onShowTestsCases={() => {
         dispatch({
           payload: {
