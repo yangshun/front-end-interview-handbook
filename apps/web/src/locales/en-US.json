@@ -2851,10 +2851,6 @@
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
   },
-  "m9168P": {
-    "defaultMessage": "All Questions",
-    "description": "Link label to access all questions"
-  },
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"

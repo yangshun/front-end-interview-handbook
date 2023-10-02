@@ -5,7 +5,7 @@ import { sortQuestions } from '~/components/questions/listings/filters/Questions
 import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
 
 import {
-  readQuestionJavaScriptContents,
+  readQuestionJavaScriptContentsV2,
   readQuestionUserInterfaceV2,
 } from '~/db/QuestionsContentsReader';
 import {
@@ -92,7 +92,7 @@ export default async function Page({ params }: Props) {
     todoListReactSolutionBundle,
     todoListVanillaSolutionBundle,
   ] = await Promise.all([
-    readQuestionJavaScriptContents('flatten', locale),
+    readQuestionJavaScriptContentsV2('flatten', locale),
     readQuestionUserInterfaceV2('todo-list', 'react', 'solution-improved'),
     readQuestionUserInterfaceV2('todo-list', 'vanilla', 'solution-template'),
   ]);

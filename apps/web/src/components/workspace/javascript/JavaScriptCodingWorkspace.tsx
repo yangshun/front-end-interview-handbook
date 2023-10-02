@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import type {
+  QuestionCodingWorkingLanguage,
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptV2,
   QuestionJavaScriptWorkspace,
@@ -41,7 +41,6 @@ import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoL
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
-import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 import useRestartSandpack from '../useRestartSandpack';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -57,9 +56,11 @@ function JavaScriptCodingWorkspaceImpl({
   similarQuestions,
   metadata,
   solution,
+  embed,
 }: Readonly<{
   canViewPremiumContent: boolean;
   description: string | null;
+  embed: boolean;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
@@ -182,12 +183,10 @@ function JavaScriptCodingWorkspaceImpl({
   });
 
   return (
-    <div
-      ref={copyRef}
-      className="flex h-full w-full flex-col pt-3 text-sm"
-      style={{ height: FooterlessContainerHeight }}>
+    <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
       <div className="flex grow overflow-x-auto">
-        <div className="flex w-full min-w-[1024px] grow px-3">
+        <div
+          className={clsx('flex w-full grow px-3', !embed && 'min-w-[1024px]')}>
           <JavaScriptCodingWorkspaceTilesPanelRoot
             disablePointerEventsDuringResize={true}
             getResizeHandlerProps={(direction) => ({
@@ -230,10 +229,12 @@ function JavaScriptCodingWorkspaceImpl({
           />
         </div>
       </div>
-      <JavaScriptCodingWorkspaceBottomBar
-        metadata={metadata}
-        nextQuestions={nextQuestions}
-      />
+      {!embed && (
+        <JavaScriptCodingWorkspaceBottomBar
+          metadata={metadata}
+          nextQuestions={nextQuestions}
+        />
+      )}
     </div>
   );
 }
@@ -247,18 +248,23 @@ export default function JavaScriptCodingWorkspace({
   similarQuestions,
   skeleton,
   workspace,
+  embed,
+  language,
+  onLanguageChange,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;
+  embed: boolean;
+  language: QuestionCodingWorkingLanguage;
   loadedFilesFromLocalStorage: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onLanguageChange: (newLanguage: QuestionCodingWorkingLanguage) => void;
   question: QuestionJavaScriptV2;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
-  const [language] = useCodingWorkspaceWorkingLanguage();
   const { sandpack } = useSandpack();
 
   const { activeFile, visibleFiles, updateFile } = sandpack;
@@ -296,12 +302,15 @@ export default function JavaScriptCodingWorkspace({
           resetToDefaultCode,
         }}>
         <JavaScriptCodingWorkspaceContextProvider
+          language={language}
           metadata={metadata}
           skeleton={skeleton}
-          workspace={workspace}>
+          workspace={workspace}
+          onLanguageChange={onLanguageChange}>
           <JavaScriptCodingWorkspaceImpl
             canViewPremiumContent={canViewPremiumContent}
             description={description}
+            embed={embed}
             metadata={metadata}
             nextQuestions={nextQuestions}
             similarQuestions={similarQuestions}

@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeDivideColor } from '~/components/ui/theme';
 
@@ -114,14 +113,14 @@ export default function SpecsInline({
                             {nameSegments.map((nameSegment, index) => (
                               <React.Fragment key={nameSegment}>
                                 {index > 0 && <span> › </span>}
-                                <Anchor
+                                <button
                                   className="hover:underline"
-                                  variant="unstyled"
+                                  type="button"
                                   onClick={() => {
                                     onShowTestCase(index, nameSegments);
                                   }}>
                                   {nameSegment}
-                                </Anchor>
+                                </button>
                               </React.Fragment>
                             ))}
                           </code>

@@ -347,7 +347,11 @@ function UserInterfaceCodingWorkspaceImpl({
       }}>
       <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
         <div className="flex grow overflow-x-auto">
-          <div className="flex w-full min-w-[1024px] grow px-3">
+          <div
+            className={clsx(
+              'flex w-full grow px-3',
+              !embed && 'min-w-[1024px]',
+            )}>
             <UserInterfaceCodingWorkspaceTilesPanelRoot
               disablePointerEventsDuringResize={true}
               getResizeHandlerProps={(direction) => ({

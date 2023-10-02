@@ -34,7 +34,6 @@ export default function UserInterfaceCodingWorkspacePage(props: Props) {
     <UserInterfaceCodingWorkspaceSection
       {...props}
       embed={false}
-      fillViewportHeight={true}
       timeoutLoggerInstance="workspace.ui"
       onFrameworkChange={(value, contentType) => {
         const frameworkValue = value as QuestionFramework;

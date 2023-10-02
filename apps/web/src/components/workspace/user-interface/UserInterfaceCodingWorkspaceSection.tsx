@@ -21,7 +21,6 @@ type Props = Readonly<{
   activeTabScrollIntoView?: boolean;
   canViewPremiumContent: boolean;
   embed?: boolean;
-  fillViewportHeight?: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   onFrameworkChange: (
@@ -41,7 +40,6 @@ export default function UserInterfaceCodingWorkspaceSection({
   nextQuestions,
   question,
   similarQuestions,
-  fillViewportHeight = false,
   theme,
   embed = false,
   timeoutLoggerInstance,
@@ -90,7 +88,7 @@ export default function UserInterfaceCodingWorkspaceSection({
         visibleFiles: workspace?.visibleFiles ?? undefined,
       }}
       style={{
-        height: fillViewportHeight ? footerlessContainerHeight : '100%',
+        height: embed ? '100%' : footerlessContainerHeight,
       }}
       theme={theme ?? (appTheme === 'dark' ? 'dark' : undefined)}>
       <UserInterfaceCodingWorkspace

@@ -10,7 +10,6 @@ import type {
 import { saveJavaScriptQuestionCodeLocally } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
 
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
-import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
 import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -40,7 +39,9 @@ JavaScriptCodingWorkspaceContext.displayName =
 
 type Props = Readonly<{
   children: ReactNode;
+  language: QuestionCodingWorkingLanguage;
   metadata: QuestionMetadata;
+  onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: QuestionJavaScriptSkeleton;
   workspace: QuestionJavaScriptWorkspace;
 }>;
@@ -50,11 +51,12 @@ export function JavaScriptCodingWorkspaceContextProvider({
   metadata,
   skeleton,
   workspace,
+  language,
+  onLanguageChange,
 }: Props) {
   const { deleteCodeFromLocalStorage } = useCodingWorkspaceContext();
   const { sandpack } = useSandpack();
   const { updateFile, resetFile, files } = sandpack;
-  const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
 
   const mainFile = files[workspace.main];
 
@@ -89,7 +91,7 @@ export function JavaScriptCodingWorkspaceContextProvider({
       value={{
         language,
         resetFile: resetFileCustom,
-        setLanguage,
+        setLanguage: onLanguageChange,
         skeleton,
         workspace,
       }}>
