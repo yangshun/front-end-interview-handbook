@@ -12,6 +12,7 @@ import type {
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import UserInterfaceCodingWorkspaceSection from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSection';
+import UserInterfaceCodingWorkspaceWriteup from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceWriteup';
 
 import logEvent from '~/logging/logEvent';
 
@@ -19,12 +20,14 @@ import MarketingCodeMirrorTheme from '../coding/MarketingCodeMirrorTheme';
 import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
 export type EmbedUIQuestion = Readonly<{
-  angular: QuestionUserInterface;
+  frameworks: {
+    angular: QuestionUserInterface;
+    react: QuestionUserInterface;
+    svelte: QuestionUserInterface;
+    vanilla: QuestionUserInterface;
+    vue: QuestionUserInterface;
+  };
   metadata: QuestionMetadata;
-  react: QuestionUserInterface;
-  svelte: QuestionUserInterface;
-  vanilla: QuestionUserInterface;
-  vue: QuestionUserInterface;
 }>;
 
 type Props = Readonly<{
@@ -37,21 +40,34 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
 
   return (
     <div className="relative flex h-full w-full flex-col gap-3">
-      <UserInterfaceCodingWorkspaceSection
-        key={framework}
-        activeTabScrollIntoView={false}
-        canViewPremiumContent={false}
-        embed={true}
-        mode="practice"
-        nextQuestions={[]}
-        question={question[framework]}
-        similarQuestions={[]}
-        theme={MarketingCodeMirrorTheme}
-        timeoutLoggerInstance="marketing.embed.ui"
-        onFrameworkChange={(value) => {
-          setFramework(value);
-        }}
-      />
+      <div className="h-0 grow overflow-y-auto lg:hidden">
+        <UserInterfaceCodingWorkspaceWriteup
+          canViewPremiumContent={false}
+          contentType="description"
+          framework={framework}
+          metadata={question.metadata}
+          mode="practice"
+          nextQuestions={[]}
+          similarQuestions={[]}
+          writeup={question.frameworks[framework].description}
+          onFrameworkChange={setFramework}
+        />
+      </div>
+      <div className="hidden lg:contents">
+        <UserInterfaceCodingWorkspaceSection
+          key={framework}
+          activeTabScrollIntoView={false}
+          canViewPremiumContent={false}
+          embed={true}
+          mode="practice"
+          nextQuestions={[]}
+          question={question.frameworks[framework]}
+          similarQuestions={[]}
+          theme={MarketingCodeMirrorTheme}
+          timeoutLoggerInstance="marketing.embed.ui"
+          onFrameworkChange={setFramework}
+        />
+      </div>
       <Anchor
         href={question.metadata.href}
         target="_blank"

@@ -135,11 +135,13 @@ export default async function Page({ params }: Props) {
       ).slice(0, QUESTIONS_TO_SHOW)}
       uiCodingQuestion={
         {
+          frameworks: {
+            // TODO(workspace): Add other supported frameworks
+            react: todoListReactSolutionBundle,
+            vanilla: todoListVanillaSolutionBundle,
+          },
           metadata: todoListReactSolutionBundle.metadata,
-          react: todoListReactSolutionBundle,
-          vanilla: todoListVanillaSolutionBundle,
-          // TODO(workspace): Add angular and vue
-        } as EmbedUIQuestion // TODO: Remove this after adding angular and vue
+        } as EmbedUIQuestion
       }
       userInterfaceQuestions={sortQuestions(
         userInterfaceQuestions.filter((question) => question.featured),
