@@ -45,7 +45,7 @@ export function getUserInterfaceCodingWorkspaceLayout(
           },
           ...files.map((file) => ({
             allowOverflow: true,
-            closeable: file !== activeFile,
+            closeable: true,
             id: codingWorkspaceTabFileId(file),
           })),
         ],

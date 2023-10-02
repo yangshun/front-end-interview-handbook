@@ -200,14 +200,14 @@ function UserInterfaceCodingWorkspaceImpl({
       }
     }
 
-    const matchedTabs = queryTabByPattern(codingWorkspaceTabFilePattern);
+    const otherCodeTabs = queryTabByPattern(codingWorkspaceTabFilePattern);
 
-    if (matchedTabs.length > 0) {
+    if (otherCodeTabs.length > 0) {
       dispatch({
         payload: {
           newTabCloseable: true,
           newTabId: tabIdForFile,
-          panelId: matchedTabs[0].panelId,
+          panelId: otherCodeTabs[0].panelId,
         },
         type: 'tab-open',
       });
@@ -215,15 +215,18 @@ function UserInterfaceCodingWorkspaceImpl({
       return;
     }
 
-    dispatch({
-      payload: {
-        newTabCloseable: true,
-        newTabId: tabIdForFile,
-        // TODO(workspace): Remove hardcoding of panelId.
-        panelId: 'center-column',
-      },
-      type: 'tab-open',
-    });
+    const fileExplorerTab = getTabById('file_explorer');
+
+    if (fileExplorerTab != null) {
+      dispatch({
+        payload: {
+          newTabCloseable: true,
+          newTabId: tabIdForFile,
+          panelId: fileExplorerTab?.panelId,
+        },
+        type: 'tab-open',
+      });
+    }
   }
 
   const frameworkSolutionPath = questionUserInterfaceSolutionPath(
