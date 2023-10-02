@@ -19,7 +19,7 @@ import MarketingEmbedUIQuestion from './embed/MarketingEmbedUIQuestion';
 import MarketingHeroBrowserWindowFrame from './embed/MarketingHeroBrowserWindowFrame';
 import MarketingQuestionCardMarquee from './MarketingQuestionCardMarquee';
 import type {
-  QuestionJavaScriptV2,
+  QuestionJavaScript,
   QuestionMetadata,
 } from '../questions/common/QuestionsTypes';
 import Heading from '../ui/Heading';
@@ -229,7 +229,7 @@ export default function MarketingEmbedSection({
   uiEmbedExample,
 }: Readonly<{
   featuredQuestions: ReadonlyArray<QuestionMetadata>;
-  javaScriptEmbedExample: QuestionJavaScriptV2;
+  javaScriptEmbedExample: QuestionJavaScript;
   uiEmbedExample: EmbedUIQuestion;
 }>) {
   const intl = useIntl();

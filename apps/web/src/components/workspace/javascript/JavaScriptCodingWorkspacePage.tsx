@@ -1,7 +1,7 @@
 'use client';
 
 import type {
-  QuestionJavaScriptV2,
+  QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 
@@ -11,7 +11,7 @@ import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorki
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  question: QuestionJavaScriptV2;
+  question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 

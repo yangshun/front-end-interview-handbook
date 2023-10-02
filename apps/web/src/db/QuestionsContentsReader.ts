@@ -6,7 +6,6 @@ import path from 'path';
 import type {
   QuestionFramework,
   QuestionJavaScript,
-  QuestionJavaScriptV2,
   QuestionMetadata,
   QuestionQuiz,
   QuestionSystemDesign,
@@ -16,10 +15,7 @@ import type {
   QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
 
-import {
-  getQuestionOutPathJavaScript,
-  getQuestionOutPathJavaScriptV2,
-} from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
+import { getQuestionOutPathJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { getQuestionOutPathQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionOutPathSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import {
@@ -29,7 +25,6 @@ import {
 
 // Add functions which read from the generated content files.
 
-// TODO(workspace): delete
 export function readQuestionJavaScriptContents(
   slug: string,
   requestedLocale = 'en-US',
@@ -59,38 +54,6 @@ export function readQuestionJavaScriptContents(
   return {
     loadedLocale,
     question: JSON.parse(String(response)) as QuestionJavaScript,
-  };
-}
-
-export function readQuestionJavaScriptContentsV2(
-  slug: string,
-  requestedLocale = 'en-US',
-): Readonly<{
-  loadedLocale: string;
-  question: QuestionJavaScriptV2;
-}> {
-  let loadedLocale = requestedLocale;
-  const response = (() => {
-    try {
-      return fs.readFileSync(
-        path.join(
-          getQuestionOutPathJavaScriptV2(slug),
-          `${requestedLocale}.json`,
-        ),
-      );
-    } catch {
-      loadedLocale = 'en-US';
-
-      // Fallback to English.
-      return fs.readFileSync(
-        path.join(getQuestionOutPathJavaScriptV2(slug), `${loadedLocale}.json`),
-      );
-    }
-  })();
-
-  return {
-    loadedLocale,
-    question: JSON.parse(String(response)) as QuestionJavaScriptV2,
   };
 }
 

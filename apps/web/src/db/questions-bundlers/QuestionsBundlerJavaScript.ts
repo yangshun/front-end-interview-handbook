@@ -13,7 +13,6 @@ import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
-  QuestionJavaScriptV2,
   QuestionMetadata,
 } from '../../components/questions/common/QuestionsTypes';
 
@@ -30,19 +29,6 @@ async function readQuestionJavaScriptSkeleton(
   );
 
   return fs.readFileSync(skeletonPath).toString().trim();
-}
-
-type QuestionJavaScriptTestMode = 'run' | 'submit';
-
-async function readQuestionJavaScriptTests(
-  slug: string,
-  mode: QuestionJavaScriptTestMode,
-): Promise<string> {
-  const questionPath = getQuestionSrcPathJavaScript(slug);
-  const gfeConfig = await readQuestionJavaScriptGFEConfig(slug);
-  const testPath = path.join(questionPath, 'setup', gfeConfig[mode]);
-
-  return fs.readFileSync(testPath).toString().trim();
 }
 
 async function readQuestionMetadataJavaScript(
@@ -87,34 +73,6 @@ async function readQuestionMetadataWithFallbackJavaScript(
   return {
     loadedLocale,
     metadata,
-  };
-}
-
-export async function readQuestionJavaScript(
-  slug: string,
-  locale = 'en-US',
-): Promise<QuestionJavaScript> {
-  const questionPath = getQuestionSrcPathJavaScript(slug);
-  const [metadata, description, solution, skeletonJS, skeletonTS, tests] =
-    await Promise.all([
-      readQuestionMetadataJavaScript(slug, locale),
-      readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
-      readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
-      readQuestionJavaScriptSkeleton(slug, 'js'),
-      readQuestionJavaScriptSkeleton(slug, 'ts'),
-      readQuestionJavaScriptTests(slug, 'submit'),
-    ]);
-
-  return {
-    description,
-    format: 'javascript',
-    metadata,
-    skeleton: {
-      js: skeletonJS,
-      ts: skeletonTS,
-    },
-    solution,
-    tests,
   };
 }
 
@@ -209,10 +167,10 @@ async function readQuestionJavaScriptWorkspaceConfig(slug: string): Promise<
   };
 }
 
-export async function readQuestionJavaScriptV2(
+export async function readQuestionJavaScript(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionJavaScriptV2> {
+): Promise<QuestionJavaScript> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const [
     metadata,

@@ -5,7 +5,7 @@ import { sortQuestionsMultiple } from '~/components/questions/listings/filters/Q
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
-import { readQuestionJavaScriptContentsV2 } from '~/db/QuestionsContentsReader';
+import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const { question } = readQuestionJavaScriptContentsV2(slug, locale);
+  const { question } = readQuestionJavaScriptContents(slug, locale);
 
   return defaultMetadata({
     description: question.metadata.excerpt!,
@@ -44,7 +44,7 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
   const user = await fetchUser();
-  const { question } = readQuestionJavaScriptContentsV2(slug, locale);
+  const { question } = readQuestionJavaScriptContents(slug, locale);
 
   let canViewPremiumContent = false;
 

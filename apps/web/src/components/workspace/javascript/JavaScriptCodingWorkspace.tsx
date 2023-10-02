@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScriptSkeleton,
-  QuestionJavaScriptV2,
+  QuestionJavaScript,
   QuestionJavaScriptWorkspace,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
@@ -259,7 +259,7 @@ export default function JavaScriptCodingWorkspace({
   loadedFilesFromLocalStorage: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   onLanguageChange: (newLanguage: QuestionCodingWorkingLanguage) => void;
-  question: QuestionJavaScriptV2;
+  question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
   workspace: QuestionJavaScriptWorkspace;

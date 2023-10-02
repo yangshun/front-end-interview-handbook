@@ -12,7 +12,7 @@ import MarketingFeaturesBlocks from '~/components/marketing/MarketingFeaturesBlo
 import MarketingHero from '~/components/marketing/MarketingHero';
 import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepageFeaturesRow';
 import type {
-  QuestionJavaScriptV2,
+  QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -23,7 +23,7 @@ const MarketingHomePageBottom = dynamic(
 );
 
 type Props = Readonly<{
-  javaScriptEmbedExample: QuestionJavaScriptV2;
+  javaScriptEmbedExample: QuestionJavaScript;
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;

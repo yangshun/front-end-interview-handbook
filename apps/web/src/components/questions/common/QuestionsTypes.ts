@@ -126,10 +126,7 @@ export type QuestionBase = {
 export type QuestionSystemDesign = QuestionBase;
 
 export type QuestionCodingWorkingLanguage = 'js' | 'ts';
-export type QuestionJavaScript = QuestionBase & {
-  readonly skeleton: QuestionJavaScriptSkeleton | null;
-  readonly tests: string | null;
-};
+
 export type QuestionJavaScriptSkeleton = Record<
   QuestionCodingWorkingLanguage,
   string
@@ -139,7 +136,7 @@ export type QuestionJavaScriptWorkspace = Readonly<{
   run: string;
   submit: string;
 }>;
-export type QuestionJavaScriptV2 = QuestionBase & {
+export type QuestionJavaScript = QuestionBase & {
   files: Record<string, string>;
   skeleton: QuestionJavaScriptSkeleton;
   workspace: QuestionJavaScriptWorkspace;

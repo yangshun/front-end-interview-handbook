@@ -5,7 +5,7 @@ import gtag from '~/lib/gtag';
 
 import type {
   QuestionCodingWorkingLanguage,
-  QuestionJavaScriptV2,
+  QuestionJavaScript,
 } from '~/components/questions/common/QuestionsTypes';
 import JavaScriptTestCodesEmitter from '~/components/questions/content/JavaScriptTestCodesEmitter';
 import Anchor from '~/components/ui/Anchor';
@@ -17,7 +17,7 @@ import logEvent from '~/logging/logEvent';
 export default function MarketingEmbedJavaScriptQuestion({
   javaScriptEmbedExample,
 }: Readonly<{
-  javaScriptEmbedExample: QuestionJavaScriptV2;
+  javaScriptEmbedExample: QuestionJavaScript;
 }>) {
   const [language, setLanguage] = useState<QuestionCodingWorkingLanguage>('js');
   const intl = useIntl();

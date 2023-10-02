@@ -5,7 +5,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
   QuestionCodingWorkingLanguage,
-  QuestionJavaScriptV2,
+  QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import { loadLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
@@ -22,7 +22,7 @@ type Props = Readonly<{
   language: QuestionCodingWorkingLanguage;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
-  question: QuestionJavaScriptV2;
+  question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   timeoutLoggerInstance: string;
 }>;
