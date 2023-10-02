@@ -1,8 +1,8 @@
 // eslint-disable-next-line init-declarations
-declare const fileTabType: unique symbol;
+declare const __fileTabType: unique symbol;
 
 export type CodingWorkspaceTabFileType = string & {
-  [fileTabType]: true;
+  [__fileTabType]: true;
 };
 
 export function codingWorkspaceTabFileId(
@@ -12,3 +12,18 @@ export function codingWorkspaceTabFileId(
 }
 
 export const codingWorkspaceTabFilePattern = /^file:/;
+
+// eslint-disable-next-line init-declarations
+declare const __submissionTabType: unique symbol;
+
+export type CodingWorkspaceTabSubmissionType = string & {
+  [__submissionTabType]: true;
+};
+
+export function codingWorkspaceTabSubmissionId(
+  submissionId: string,
+): CodingWorkspaceTabSubmissionType {
+  return `submission:${submissionId}` as CodingWorkspaceTabSubmissionType;
+}
+
+export const codingWorkspaceTabSubmissionPattern = /^submission:/;

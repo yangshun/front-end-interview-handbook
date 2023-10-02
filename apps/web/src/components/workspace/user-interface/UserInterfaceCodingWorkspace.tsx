@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
 
-import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import type {
   QuestionFramework,
   QuestionMetadata,

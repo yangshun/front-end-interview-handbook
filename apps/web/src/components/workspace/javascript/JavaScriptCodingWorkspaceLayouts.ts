@@ -28,6 +28,10 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
             closeable: false,
             id: 'test_cases',
           },
+          {
+            closeable: false,
+            id: 'submissions',
+          },
         ],
         type: 'item',
       },
@@ -104,6 +108,10 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
           {
             closeable: false,
             id: 'test_cases',
+          },
+          {
+            closeable: false,
+            id: 'submissions',
           },
         ],
         type: 'item',

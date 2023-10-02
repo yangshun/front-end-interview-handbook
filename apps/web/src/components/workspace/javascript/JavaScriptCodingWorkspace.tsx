@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
+import { RiCodeLine } from 'react-icons/ri';
 
 import type {
   QuestionCodingWorkingLanguage,
@@ -23,11 +24,14 @@ import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDes
 import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
+import JavaScriptCodingWorkspaceSubmissionList from './JavaScriptCodingWorkspaceSubmissionList';
+import JavaScriptCodingWorkspaceSubmissionTab from './JavaScriptCodingWorkspaceSubmissionTab';
 import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
 import type {
   JavaScriptCodingWorkspacePredefinedTabsContents,
   JavaScriptCodingWorkspaceTabsType,
 } from './JavaScriptCodingWorkspaceTypes';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
@@ -37,7 +41,11 @@ import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
-import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
+import {
+  codingWorkspaceTabFileId,
+  codingWorkspaceTabSubmissionId,
+  codingWorkspaceTabSubmissionPattern,
+} from '../common/tabs/codingWorkspaceTabId';
 import useRestartSandpack from '../useRestartSandpack';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -72,6 +80,8 @@ function JavaScriptCodingWorkspaceImpl({
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
+  const { dispatch, getTabById, queryTabByPattern } =
+    useJavaScriptCodingWorkspaceTilesContext();
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
 
@@ -103,6 +113,68 @@ function JavaScriptCodingWorkspaceImpl({
   );
 
   useMonacoEditorModels(monaco, files);
+
+  function openSubmission(submissionId: string) {
+    const tabIdForSubmission = codingWorkspaceTabSubmissionId(submissionId);
+
+    setTabContents({
+      ...tabContents,
+      [tabIdForSubmission]: {
+        contents: (
+          <JavaScriptCodingWorkspaceSubmissionTab
+            metadata={metadata}
+            submissionId={submissionId}
+          />
+        ),
+        icon: RiCodeLine,
+        label: 'Submission',
+      },
+    });
+
+    const result = getTabById(tabIdForSubmission);
+
+    // Submission is already open. Just have to make it active.
+    if (result != null) {
+      dispatch({
+        payload: {
+          tabId: result.tabId,
+        },
+        type: 'tab-set-active',
+      });
+
+      return;
+    }
+
+    const otherSubmissionTabs = queryTabByPattern(
+      codingWorkspaceTabSubmissionPattern,
+    );
+
+    if (otherSubmissionTabs.length > 0) {
+      dispatch({
+        payload: {
+          newTabCloseable: true,
+          newTabId: tabIdForSubmission,
+          panelId: otherSubmissionTabs[0].panelId,
+        },
+        type: 'tab-open',
+      });
+
+      return;
+    }
+
+    const descriptionTab = getTabById('description');
+
+    if (descriptionTab != null) {
+      dispatch({
+        payload: {
+          newTabCloseable: true,
+          newTabId: tabIdForSubmission,
+          panelId: descriptionTab?.panelId,
+        },
+        type: 'tab-open',
+      });
+    }
+  }
 
   const predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents = {
     console: {
@@ -140,6 +212,11 @@ function JavaScriptCodingWorkspaceImpl({
       ),
       icon: CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
+    },
+    submissions: {
+      contents: <JavaScriptCodingWorkspaceSubmissionList metadata={metadata} />,
+      icon: CodingWorkspaceTabIcons.submissions.icon,
+      label: 'Submissions',
     },
     submit: {
       contents: (
@@ -209,6 +286,7 @@ function JavaScriptCodingWorkspaceImpl({
       value={{
         defaultFiles,
         deleteCodeFromLocalStorage,
+        openSubmission,
         question,
         resetToDefaultCode,
       }}>

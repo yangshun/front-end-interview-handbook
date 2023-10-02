@@ -3,6 +3,7 @@ import { CgBrowser } from 'react-icons/cg';
 import { IoLogoJavascript } from 'react-icons/io';
 import {
   RiAngularjsFill,
+  RiArchiveLine,
   RiBracesFill,
   RiCheckboxLine,
   RiCodeLine,
@@ -32,6 +33,7 @@ export type CodingWorkspaceTabIconType =
   | 'npm'
   | 'run'
   | 'solution'
+  | 'submissions'
   | 'submit'
   | 'test_cases_all'
   | 'test_cases'
@@ -84,6 +86,9 @@ export const CodingWorkspaceTabIcons: Record<
   },
   solution: {
     icon: RiLightbulbLine,
+  },
+  submissions: {
+    icon: RiArchiveLine,
   },
   submit: {
     icon: RiCheckboxLine,

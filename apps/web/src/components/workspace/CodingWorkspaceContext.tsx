@@ -21,6 +21,7 @@ type BaseContext<T extends QuestionBase> = Readonly<{
   defaultFiles: SandpackFiles;
   deleteCodeFromLocalStorage: () => void;
   openFile?: (filePath: string, fromFilePath?: string) => void;
+  openSubmission?: (submissionId: string) => void;
   question: T;
   resetToDefaultCode: () => void;
 }>;
@@ -47,6 +48,7 @@ const CodingWorkspaceContext = createContext<ContextValue<any>>({
   deleteCodeFromLocalStorage: () => {},
   executionComplete: () => {},
   openFile: () => {},
+  openSubmission: () => {},
   question: {},
   resetToDefaultCode: () => {},
   runTests: () => {},
