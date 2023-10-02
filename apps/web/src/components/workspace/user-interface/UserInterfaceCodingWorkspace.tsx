@@ -6,7 +6,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import type {
   QuestionFramework,
   QuestionMetadata,
-  QuestionUserInterfaceV2,
+  QuestionUserInterface,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
@@ -80,7 +80,7 @@ function UserInterfaceCodingWorkspaceImpl({
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: QuestionUserInterfaceV2;
+  question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const { framework, metadata, description, solution } = question;
@@ -484,7 +484,7 @@ export default function UserInterfaceCodingWorkspace({
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: QuestionUserInterfaceV2;
+  question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const { sandpack } = useSandpack();

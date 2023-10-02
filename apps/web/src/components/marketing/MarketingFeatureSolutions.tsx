@@ -9,7 +9,7 @@ import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import logEvent from '~/logging/logEvent';
 
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
-import type { QuestionUserInterfaceBundleV2 } from '../questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
 import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
 import SandpackTimeoutLogger from '../workspace/SandpackTimeoutLogger';
 
@@ -27,8 +27,8 @@ const previewPartPercentage = 100 - editorPartPercentage;
 
 type Props = Readonly<{
   solutions: Readonly<{
-    todoListReact: QuestionUserInterfaceBundleV2;
-    todoListVanilla: QuestionUserInterfaceBundleV2;
+    todoListReact: QuestionUserInterfaceBundle;
+    todoListVanilla: QuestionUserInterfaceBundle;
   }>;
 }>;
 

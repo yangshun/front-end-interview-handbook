@@ -1,10 +1,7 @@
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
-import type {
-  QuestionUserInterface,
-  QuestionUserInterfaceV2,
-} from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/questions/common/QuestionUserInterfacePath';
@@ -12,7 +9,7 @@ import { sortQuestionsMultiple } from '~/components/questions/listings/filters/Q
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
-import { readQuestionUserInterfaceV2 } from '~/db/QuestionsContentsReader';
+import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -30,7 +27,7 @@ type Props = Readonly<{
 }>;
 
 function frameworkAgnosticLinks(
-  question: QuestionUserInterface | QuestionUserInterfaceV2,
+  question: QuestionUserInterface,
   mode: QuestionUserInterfaceMode,
 ) {
   const frameworkAgnosticPathname = `${question.metadata.href}${
@@ -53,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     mode,
     codeId,
   } = determineFrameworkAndMode(rest);
-  const question = await readQuestionUserInterfaceV2(
+  const question = await readQuestionUserInterface(
     slug,
     parsedFramework,
     codeId,
@@ -132,7 +129,7 @@ export default async function Page({ params }: Props) {
 
   const [user, question] = await Promise.all([
     fetchUser(),
-    readQuestionUserInterfaceV2(slug, parsedFramework, codeId),
+    readQuestionUserInterface(slug, parsedFramework, codeId),
   ]);
 
   let canViewPremiumContent = false;

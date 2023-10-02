@@ -1,11 +1,11 @@
 import type {
+  QuestionUserInterface,
   QuestionUserInterfaceSandpackSetup,
-  QuestionUserInterfaceV2,
 } from '../common/QuestionsTypes';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 
-function makeQuestionKey(question: QuestionUserInterfaceV2): string {
+function makeQuestionKey(question: QuestionUserInterface): string {
   return `gfe:user-interface:${question.framework}:${question.metadata.slug}`;
 }
 
@@ -41,7 +41,7 @@ function migrateFilesFromV1toV2(
 }
 
 export function loadLocalUserInterfaceQuestionCode(
-  question: QuestionUserInterfaceV2,
+  question: QuestionUserInterface,
   v2SkeletonFiles: SandpackFiles,
 ) {
   const questionKey = makeQuestionKey(question);
@@ -88,7 +88,7 @@ export function loadLocalUserInterfaceQuestionCode(
 }
 
 export function saveUserInterfaceQuestionCodeLocally(
-  question: QuestionUserInterfaceV2,
+  question: QuestionUserInterface,
   files: SandpackFiles | null,
 ) {
   const questionKey = makeQuestionKey(question);
@@ -109,7 +109,7 @@ export function saveUserInterfaceQuestionCodeLocally(
 }
 
 export function deleteLocalUserInterfaceQuestionCode(
-  question: QuestionUserInterfaceV2,
+  question: QuestionUserInterface,
 ) {
   const questionKey = makeQuestionKey(question);
 

@@ -3,7 +3,7 @@
 import type {
   QuestionFramework,
   QuestionMetadata,
-  QuestionUserInterfaceV2,
+  QuestionUserInterface,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import {
@@ -20,7 +20,7 @@ type Props = Readonly<{
   embed?: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  question: QuestionUserInterfaceV2;
+  question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 

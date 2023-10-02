@@ -7,7 +7,7 @@ import gtag from '~/lib/gtag';
 
 import type {
   QuestionMetadata,
-  QuestionUserInterfaceV2,
+  QuestionUserInterface,
 } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
@@ -19,12 +19,12 @@ import MarketingCodeMirrorTheme from '../coding/MarketingCodeMirrorTheme';
 import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
 export type EmbedUIQuestion = Readonly<{
-  angular: QuestionUserInterfaceV2;
+  angular: QuestionUserInterface;
   metadata: QuestionMetadata;
-  react: QuestionUserInterfaceV2;
-  svelte: QuestionUserInterfaceV2;
-  vanilla: QuestionUserInterfaceV2;
-  vue: QuestionUserInterfaceV2;
+  react: QuestionUserInterface;
+  svelte: QuestionUserInterface;
+  vanilla: QuestionUserInterface;
+  vue: QuestionUserInterface;
 }>;
 
 type Props = Readonly<{

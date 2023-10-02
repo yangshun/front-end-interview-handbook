@@ -11,17 +11,12 @@ import type {
   QuestionSystemDesign,
   QuestionUserInterface,
   QuestionUserInterfaceBundle,
-  QuestionUserInterfaceBundleV2,
-  QuestionUserInterfaceV2,
 } from '~/components/questions/common/QuestionsTypes';
 
 import { getQuestionOutPathJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { getQuestionOutPathQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionOutPathSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
-import {
-  getQuestionOutPathUserInterface,
-  getQuestionOutPathUserInterfaceV2,
-} from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
+import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
 // Add functions which read from the generated content files.
 
@@ -118,7 +113,6 @@ export function readQuestionSystemDesignContents(
   };
 }
 
-// TODO(workspace): delete.
 export async function readQuestionUserInterface(
   slug: string,
   frameworkParam?: QuestionFramework | null,
@@ -136,86 +130,19 @@ export async function readQuestionUserInterface(
   const framework = frameworkParam ?? metadata.frameworkDefault ?? 'vanilla';
 
   const skeletonBundle = (() => {
-    try {
-      const response = fs.readFileSync(
-        path.join(questionOutDir, framework, `skeleton.json`),
-      );
-
-      return JSON.parse(String(response)) as QuestionUserInterfaceBundle;
-    } catch (err) {
-      console.error(err);
-
-      return null;
-    }
-  })();
-
-  const solutionBundle = (() => {
-    try {
-      const response = fs.readFileSync(
-        path.join(questionOutDir, framework, `${codeId ?? 'solution'}.json`),
-      );
-
-      return JSON.parse(String(response)) as QuestionUserInterfaceBundle;
-    } catch (err) {
-      console.error(err);
-
-      return null;
-    }
-  })();
-
-  return {
-    description: skeletonBundle?.writeup ?? null,
-    format: 'user-interface',
-    framework,
-    metadata,
-    skeletonSetup: skeletonBundle?.sandpack ?? null,
-    solution: solutionBundle?.writeup ?? null,
-    solutionSetup: solutionBundle?.sandpack ?? null,
-  };
-}
-
-export async function readQuestionUserInterfaceV2(
-  slug: string,
-  frameworkParam?: QuestionFramework | null,
-  codeId?: string,
-): Promise<QuestionUserInterfaceV2> {
-  const questionOutDir = getQuestionOutPathUserInterfaceV2(slug);
-  const metadata = (() => {
     const response = fs.readFileSync(
-      path.join(questionOutDir, `metadata.json`),
+      path.join(questionOutDir, framework, `skeleton.json`),
     );
 
-    return JSON.parse(String(response)) as QuestionMetadata;
-  })();
-
-  const framework = frameworkParam ?? metadata.frameworkDefault ?? 'vanilla';
-
-  const skeletonBundle = (() => {
-    try {
-      const response = fs.readFileSync(
-        path.join(questionOutDir, framework, `skeleton.json`),
-      );
-
-      return JSON.parse(String(response)) as QuestionUserInterfaceBundleV2;
-    } catch (err) {
-      console.error(err);
-
-      return null;
-    }
+    return JSON.parse(String(response)) as QuestionUserInterfaceBundle;
   })();
 
   const solutionBundle = (() => {
-    try {
-      const response = fs.readFileSync(
-        path.join(questionOutDir, framework, `${codeId ?? 'solution'}.json`),
-      );
+    const response = fs.readFileSync(
+      path.join(questionOutDir, framework, `${codeId ?? 'solution'}.json`),
+    );
 
-      return JSON.parse(String(response)) as QuestionUserInterfaceBundleV2;
-    } catch (err) {
-      console.error(err);
-
-      return null;
-    }
+    return JSON.parse(String(response)) as QuestionUserInterfaceBundle;
   })();
 
   return {
@@ -224,7 +151,7 @@ export async function readQuestionUserInterfaceV2(
     framework,
     metadata,
     skeletonBundle,
-    solution: solutionBundle?.writeup ?? null,
+    solution: solutionBundle.writeup ?? null,
     solutionBundle,
   };
 }

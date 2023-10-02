@@ -6,7 +6,7 @@ import { QuestionCount } from '~/components/questions/listings/stats/QuestionCou
 
 import {
   readQuestionJavaScriptContents,
-  readQuestionUserInterfaceV2,
+  readQuestionUserInterface,
 } from '~/db/QuestionsContentsReader';
 import {
   fetchQuestionsListJavaScript,
@@ -93,8 +93,8 @@ export default async function Page({ params }: Props) {
     todoListVanillaSolutionBundle,
   ] = await Promise.all([
     readQuestionJavaScriptContents('flatten', locale),
-    readQuestionUserInterfaceV2('todo-list', 'react', 'solution-improved'),
-    readQuestionUserInterfaceV2('todo-list', 'vanilla', 'solution-template'),
+    readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
+    readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
   ]);
 
   const [
@@ -138,7 +138,7 @@ export default async function Page({ params }: Props) {
           metadata: todoListReactSolutionBundle.metadata,
           react: todoListReactSolutionBundle,
           vanilla: todoListVanillaSolutionBundle,
-          // TODO: Add angular and vue
+          // TODO(workspace): Add angular and vue
         } as EmbedUIQuestion // TODO: Remove this after adding angular and vue
       }
       userInterfaceQuestions={sortQuestions(

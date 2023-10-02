@@ -5,7 +5,7 @@ import { useAppThemePreferences } from '~/components/global/dark/AppThemePrefere
 import type {
   QuestionFramework,
   QuestionMetadata,
-  QuestionUserInterfaceV2,
+  QuestionUserInterface,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
@@ -27,7 +27,7 @@ type Props = Readonly<{
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: QuestionUserInterfaceV2;
+  question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   theme?: SandpackTheme;
   timeoutLoggerInstance: string;
@@ -56,16 +56,16 @@ export default function UserInterfaceCodingWorkspaceSection({
 
   const defaultFiles =
     mode === 'practice'
-      ? question.skeletonBundle?.files
-      : question.solutionBundle?.files;
+      ? question.skeletonBundle.files
+      : question.solutionBundle.files;
 
   const files =
     mode === 'practice' ? loadedFiles ?? defaultFiles : defaultFiles;
 
   const workspace =
     mode === 'practice'
-      ? question.skeletonBundle?.workspace
-      : question.solutionBundle?.workspace;
+      ? question.skeletonBundle.workspace
+      : question.solutionBundle.workspace;
 
   return (
     <SandpackProvider
@@ -94,7 +94,7 @@ export default function UserInterfaceCodingWorkspaceSection({
       <UserInterfaceCodingWorkspace
         activeTabScrollIntoView={activeTabScrollIntoView}
         canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={defaultFiles!} // TODO(workspace): remove ! when the field is made compulsory
+        defaultFiles={defaultFiles}
         embed={embed}
         loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}

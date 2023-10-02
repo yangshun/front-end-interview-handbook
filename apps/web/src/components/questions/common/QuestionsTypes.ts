@@ -72,18 +72,14 @@ export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
 
 export type QuestionUserInterfaceSetupType = 'skeleton' | 'solution';
 
-export type QuestionUserInterfaceBundle = Readonly<{
-  sandpack: QuestionUserInterfaceSandpackSetup;
-  writeup: string | null;
-}>;
 export type QuestionUserInterfaceSandpackSetup = SandboxTemplate & {
   readonly activeFile?: string;
   readonly visibleFiles?: Array<string>;
 };
-export type QuestionUserInterfaceBundleV2 = Readonly<{
+export type QuestionUserInterfaceBundle = Readonly<{
   files: SandpackFiles;
   workspace: QuestionUserInterfaceWorkspace;
-  writeup: string | null;
+  writeup: string;
 }>;
 
 export type QuestionMetadata = {
@@ -150,14 +146,8 @@ export type QuestionUserInterfaceWorkspace = Readonly<{
 
 export type QuestionUserInterface = QuestionBase & {
   readonly framework: QuestionFramework;
-  readonly skeletonSetup: QuestionUserInterfaceSandpackSetup | null;
-  readonly solutionSetup: QuestionUserInterfaceSandpackSetup | null;
-};
-
-export type QuestionUserInterfaceV2 = QuestionBase & {
-  readonly framework: QuestionFramework;
-  readonly skeletonBundle: QuestionUserInterfaceBundleV2 | null;
-  readonly solutionBundle: QuestionUserInterfaceBundleV2 | null;
+  readonly skeletonBundle: QuestionUserInterfaceBundle;
+  readonly solutionBundle: QuestionUserInterfaceBundle;
 };
 
 export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {
