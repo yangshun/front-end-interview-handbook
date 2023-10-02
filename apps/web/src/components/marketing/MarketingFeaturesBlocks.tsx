@@ -122,11 +122,11 @@ function FeatureBlockCarousel({
   return (
     <>
       <div className="hidden lg:contents">{children}</div>
-      <div>
+      <div className="lg:hidden">
         <div className="overflow-x-hidden lg:hidden">
           <div
             ref={scrollContainerRef}
-            className="flex snap-x scroll-pl-6 gap-2 overflow-x-scroll px-6">
+            className="flex snap-x scroll-pl-6 gap-3 overflow-x-scroll px-6">
             {children.map((child, index) => (
               <div
                 key={index}
