@@ -495,27 +495,25 @@ export default function UserInterfaceCodingWorkspace({
   const { metadata, framework } = question;
 
   return (
-    <CodingPreferencesProvider>
-      <TilesProvider
-        activeTabScrollIntoView={activeTabScrollIntoView}
-        defaultValue={getUserInterfaceCodingWorkspaceLayout(
-          mode,
-          activeFile,
-          visibleFiles,
-          questionUserInterfaceSolutionPath(metadata, framework),
-        )}>
-        <UserInterfaceCodingWorkspaceImpl
-          canViewPremiumContent={canViewPremiumContent}
-          defaultFiles={defaultFiles}
-          embed={embed}
-          loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
-          mode={mode}
-          nextQuestions={nextQuestions}
-          question={question}
-          similarQuestions={similarQuestions}
-          onFrameworkChange={onFrameworkChange}
-        />
-      </TilesProvider>
-    </CodingPreferencesProvider>
+    <TilesProvider
+      activeTabScrollIntoView={activeTabScrollIntoView}
+      defaultValue={getUserInterfaceCodingWorkspaceLayout(
+        mode,
+        activeFile,
+        visibleFiles,
+        questionUserInterfaceSolutionPath(metadata, framework),
+      )}>
+      <UserInterfaceCodingWorkspaceImpl
+        canViewPremiumContent={canViewPremiumContent}
+        defaultFiles={defaultFiles}
+        embed={embed}
+        loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
+        mode={mode}
+        nextQuestions={nextQuestions}
+        question={question}
+        similarQuestions={similarQuestions}
+        onFrameworkChange={onFrameworkChange}
+      />
+    </TilesProvider>
   );
 }

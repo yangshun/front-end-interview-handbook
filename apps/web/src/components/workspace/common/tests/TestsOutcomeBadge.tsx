@@ -5,11 +5,7 @@ import Text from '~/components/ui/Text';
 import { skipTextClassName } from './style';
 import type { TestResults } from './types';
 
-export type TestsOutcome =
-  | 'accepted'
-  | 'indeterminate'
-  | 'none'
-  | 'wrong_answer';
+export type TestsOutcome = 'correct' | 'indeterminate' | 'none' | 'wrong';
 
 type Props = Readonly<{
   outcome: TestsOutcome;
@@ -19,12 +15,12 @@ type Props = Readonly<{
 export default function TestsOutcomeBadge({ outcome, results }: Props) {
   return (
     <div className="flex gap-x-4">
-      {outcome === 'accepted' && (
+      {outcome === 'correct' && (
         <Text color="success" size="body3" weight="medium">
-          Accepted
+          Correct
         </Text>
       )}
-      {outcome === 'wrong_answer' && (
+      {outcome === 'wrong' && (
         <Text color="error" size="body3" weight="medium">
           Wrong answer
         </Text>

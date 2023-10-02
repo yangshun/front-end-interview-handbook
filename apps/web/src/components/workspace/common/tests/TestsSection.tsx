@@ -187,10 +187,10 @@ export default function TestsSection({
               }
 
               if (testResults.pass === testResults.total) {
-                return 'accepted';
+                return 'correct';
               }
 
-              return 'wrong_answer';
+              return 'wrong';
             })();
 
             if (onComplete !== undefined) {

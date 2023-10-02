@@ -49,7 +49,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
       specMode="submit"
       specPath={specPath}
       onComplete={(outcome) => {
-        if (outcome !== 'accepted') {
+        if (outcome !== 'correct') {
           return;
         }
 

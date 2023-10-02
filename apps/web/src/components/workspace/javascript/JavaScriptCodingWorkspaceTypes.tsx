@@ -6,6 +6,7 @@ export type JavaScriptCodingWorkspacePredefinedTabsType =
   | 'description'
   | 'run_tests'
   | 'solution'
+  | 'submissions'
   | 'submit'
   | 'test_cases';
 export type JavaScriptCodingWorkspaceTabsType =

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import footerlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
   QuestionFramework,
@@ -68,42 +69,44 @@ export default function UserInterfaceCodingWorkspaceSection({
       : question.solutionBundle.workspace;
 
   return (
-    <SandpackProvider
-      customSetup={{
-        environment: workspace?.environment,
-      }}
-      files={files}
-      options={{
-        ...sandpackProviderOptions,
-        activeFile: workspace?.activeFile,
-        classes: {
-          'sp-input': 'touch-none select-none pointer-events-none',
-          'sp-layout': 'h-full',
-          'sp-stack': 'h-full',
-          'sp-wrapper': clsx(
-            '!w-full !text-sm flex-1',
-            !embed && '!bg-neutral-50 dark:!bg-[#070708] !pt-3',
-          ),
-        },
-        visibleFiles: workspace?.visibleFiles ?? undefined,
-      }}
-      style={{
-        height: embed ? '100%' : footerlessContainerHeight,
-      }}
-      theme={theme ?? (appTheme === 'dark' ? 'dark' : undefined)}>
-      <UserInterfaceCodingWorkspace
-        activeTabScrollIntoView={activeTabScrollIntoView}
-        canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={defaultFiles}
-        embed={embed}
-        loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
-        mode={mode}
-        nextQuestions={nextQuestions}
-        question={question}
-        similarQuestions={similarQuestions}
-        onFrameworkChange={onFrameworkChange}
-      />
-      <SandpackTimeoutLogger instance={timeoutLoggerInstance} />
-    </SandpackProvider>
+    <CodingPreferencesProvider>
+      <SandpackProvider
+        customSetup={{
+          environment: workspace?.environment,
+        }}
+        files={files}
+        options={{
+          ...sandpackProviderOptions,
+          activeFile: workspace?.activeFile,
+          classes: {
+            'sp-input': 'touch-none select-none pointer-events-none',
+            'sp-layout': 'h-full',
+            'sp-stack': 'h-full',
+            'sp-wrapper': clsx(
+              '!w-full !text-sm flex-1',
+              !embed && '!bg-neutral-50 dark:!bg-[#070708] !pt-3',
+            ),
+          },
+          visibleFiles: workspace?.visibleFiles ?? undefined,
+        }}
+        style={{
+          height: embed ? '100%' : footerlessContainerHeight,
+        }}
+        theme={theme ?? (appTheme === 'dark' ? 'dark' : undefined)}>
+        <UserInterfaceCodingWorkspace
+          activeTabScrollIntoView={activeTabScrollIntoView}
+          canViewPremiumContent={canViewPremiumContent}
+          defaultFiles={defaultFiles}
+          embed={embed}
+          loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
+          mode={mode}
+          nextQuestions={nextQuestions}
+          question={question}
+          similarQuestions={similarQuestions}
+          onFrameworkChange={onFrameworkChange}
+        />
+        <SandpackTimeoutLogger instance={timeoutLoggerInstance} />
+      </SandpackProvider>
+    </CodingPreferencesProvider>
   );
 }
