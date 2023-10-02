@@ -1,10 +1,10 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import gtag from '~/lib/gtag';
-import { useResizablePaneDivider } from '~/hooks/useResizablePaneDivider';
 
-import QuestionPaneDivider from '~/components/questions/common/QuestionPaneDivider';
 import QuestionPaywallSmall from '~/components/questions/common/QuestionPaywallSmall';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
@@ -14,6 +14,7 @@ import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
+import { themeLineBackgroundColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 
@@ -531,97 +532,106 @@ const questionMetadata: QuestionMetadata = {
 export default function MarketingEmbedSystemDesignQuestion() {
   const intl = useIntl();
   const [selectedTab, setSelectedTab] = useState('architecture');
-  const { startDrag, size: leftPaneWidth } = useResizablePaneDivider(450);
 
   return (
     <div aria-hidden={true} className="relative flex h-full w-full flex-col">
-      <style>{`@media (min-width:1024px) {
-        #left-section { width: ${leftPaneWidth}px; }
-      }`}</style>
-      <div className="h-0 w-full grow lg:flex">
-        <div className="shrink-0 overflow-y-auto" id="left-section">
-          <div className="flex flex-col gap-y-4 p-4">
-            <Text className="text-base font-semibold sm:text-lg" size="custom">
-              {intl.formatMessage({
-                defaultMessage: 'Design a News Feed (e.g. Facebook)',
-                description: 'System design question title',
-                id: 'cgTXiW',
-              })}
-            </Text>
-            <QuestionMetadataSection
-              elements={['author', 'difficulty', 'duration']}
-              metadata={questionMetadata}
-            />
-            <Divider />
-            <div className="flex flex-col gap-y-2">
+      <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
+        <Panel defaultSize={40} maxSize={60}>
+          <div className="h-full overflow-y-auto">
+            <div className="flex flex-col gap-y-4 p-4">
               <Text
-                className="text-base font-medium"
-                display="block"
+                className="text-base font-semibold sm:text-lg"
                 size="custom">
                 {intl.formatMessage({
-                  defaultMessage: 'Companies',
-                  description: 'Companies section label',
-                  id: '5rd3TN',
+                  defaultMessage: 'Design a News Feed (e.g. Facebook)',
+                  description: 'System design question title',
+                  id: 'cgTXiW',
                 })}
               </Text>
-              <QuestionPaywallSmall
-                subtitle={intl.formatMessage({
-                  defaultMessage:
-                    'Purchase premium to see companies which ask this question.',
-                  description:
-                    'Subtitle for paywall over information about companies that asked the question',
-                  id: 'vp4zbB',
-                })}
-                title={intl.formatMessage({
-                  defaultMessage: 'Premium Feature',
-                  description:
-                    'Title for paywall over information about companies that asked the question',
-                  id: 'BPE/qv',
-                })}
+              <QuestionMetadataSection
+                elements={['author', 'difficulty', 'duration']}
+                metadata={questionMetadata}
+              />
+              <Divider />
+              <div className="flex flex-col gap-y-2">
+                <Text
+                  className="text-base font-medium"
+                  display="block"
+                  size="custom">
+                  {intl.formatMessage({
+                    defaultMessage: 'Companies',
+                    description: 'Companies section label',
+                    id: '5rd3TN',
+                  })}
+                </Text>
+                <QuestionPaywallSmall
+                  subtitle={intl.formatMessage({
+                    defaultMessage:
+                      'Purchase premium to see companies which ask this question.',
+                    description:
+                      'Subtitle for paywall over information about companies that asked the question',
+                    id: 'vp4zbB',
+                  })}
+                  title={intl.formatMessage({
+                    defaultMessage: 'Premium Feature',
+                    description:
+                      'Title for paywall over information about companies that asked the question',
+                    id: 'BPE/qv',
+                  })}
+                />
+              </div>
+              <Divider />
+              <Prose>
+                <p>
+                  Design a news feed application that contains a list of feed
+                  posts users can interact with.
+                </p>
+                <img
+                  alt="News Feed Example"
+                  className="mx-auto w-full max-w-md"
+                  src="/img/questions/news-feed-facebook/news-feed-example.png"
+                />
+              </Prose>
+            </div>
+          </div>
+        </Panel>
+        <PanelResizeHandle
+          className={clsx(
+            'z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 bg-clip-padding transition-colors lg:block',
+            themeLineBackgroundColor,
+            'hover:bg-brand-light dark:hover:bg-brand',
+            'hover:border-brand-light dark:hover:border-brand border-transparent',
+          )}
+        />
+        <Panel>
+          <div className="flex h-full grow flex-col gap-4 overflow-y-auto p-4">
+            <div>
+              <TabsUnderline
+                label="Select solution section"
+                size="sm"
+                tabs={[
+                  { label: 'Requirements', value: 'requirements' },
+                  { label: 'Architecture', value: 'architecture' },
+                  { label: 'Data Model', value: 'data-model' },
+                  { label: 'API', value: 'interface' },
+                  { label: 'Optimizations', value: 'optimizations' },
+                ]}
+                value={selectedTab}
+                onSelect={setSelectedTab}
               />
             </div>
-            <Divider />
             <Prose>
-              <p>
-                Design a news feed application that contains a list of feed
-                posts users can interact with.
-              </p>
-              <img
-                alt="News Feed Example"
-                className="mx-auto w-full max-w-md"
-                src="/img/questions/news-feed-facebook/news-feed-example.png"
-              />
+              {selectedTab === 'requirements' && <Requirements />}
+              {selectedTab === 'architecture' && <Architecture />}
+              {selectedTab === 'data-model' && <DataModel />}
+              {selectedTab === 'interface' && <Interface />}
+              {selectedTab === 'optimizations' && <Optimizations />}
+              <Divider />
+              <ReadFullQuestionAlert />
             </Prose>
           </div>
-        </div>
-        <QuestionPaneDivider onMouseDown={(event) => startDrag(event)} />
-        <div className="flex grow flex-col gap-4 overflow-y-auto p-4">
-          <div>
-            <TabsUnderline
-              label="Select solution section"
-              size="sm"
-              tabs={[
-                { label: 'Requirements', value: 'requirements' },
-                { label: 'Architecture', value: 'architecture' },
-                { label: 'Data Model', value: 'data-model' },
-                { label: 'API', value: 'interface' },
-                { label: 'Optimizations', value: 'optimizations' },
-              ]}
-              value={selectedTab}
-              onSelect={setSelectedTab}
-            />
-          </div>
-          <Prose>
-            {selectedTab === 'requirements' && <Requirements />}
-            {selectedTab === 'architecture' && <Architecture />}
-            {selectedTab === 'data-model' && <DataModel />}
-            {selectedTab === 'interface' && <Interface />}
-            {selectedTab === 'optimizations' && <Optimizations />}
-            <Divider />
-            <ReadFullQuestionAlert />
-          </Prose>
-        </div>
-      </div>
+        </Panel>
+      </PanelGroup>
       <Anchor
         href={questionMetadata.href}
         passHref={true}
