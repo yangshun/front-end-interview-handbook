@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import { themeGlassyBorder } from '~/components/ui/theme';
+import { themeBrandShadow } from '~/components/ui/theme';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -11,13 +11,13 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
   return (
     <div
       className={clsx(
-        'w-full overflow-hidden rounded-lg shadow-xl ring-1 ring-neutral-900/5 sm:rounded-xl',
-        'dark:bg-neutral-950/10 bg-white/60 backdrop-blur',
-        themeGlassyBorder,
+        'w-full overflow-hidden rounded-lg ring-1 ring-neutral-900/5 sm:rounded-xl',
+        'bg-white/60 backdrop-blur dark:bg-neutral-950/10',
+        ['border-brand border', themeBrandShadow],
       )}>
       <div
         className={clsx(
-          'md:grid-cols-[4rem_1fr_4rem] grid grid-cols-[3rem_1fr_3rem]',
+          'grid grid-cols-[3rem_1fr_3rem] md:grid-cols-[4rem_1fr_4rem]',
           'items-center gap-6 border-b border-neutral-200 px-4 py-3 dark:border-transparent md:px-6',
         )}>
         <div className="flex items-center gap-x-2">
@@ -28,9 +28,9 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
         <div>
           <div
             className={clsx(
-              'sm:w-3/5 mx-auto flex items-center justify-center gap-1 rounded-full bg-white/10 py-1',
+              'mx-auto flex items-center justify-center gap-1 rounded-full bg-white/10 py-1 sm:w-3/5',
               'text-xs font-medium leading-6 text-neutral-800 dark:text-neutral-200',
-              'dark:ring-neutral-900/5 ring-1 ring-inset ring-neutral-200',
+              'ring-1 ring-inset ring-neutral-200 dark:ring-neutral-900/5',
             )}>
             <svg
               className="h-3.5 w-3.5 text-neutral-700 dark:text-neutral-300"

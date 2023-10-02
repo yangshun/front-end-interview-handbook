@@ -345,12 +345,11 @@ function JavaScriptCodingWorkspaceImpl({
               />
             </div>
           </div>
-          {!embed && (
-            <JavaScriptCodingWorkspaceBottomBar
-              metadata={metadata}
-              nextQuestions={nextQuestions}
-            />
-          )}
+          <JavaScriptCodingWorkspaceBottomBar
+            metadata={metadata}
+            mode={embed ? 'minimal' : 'full'}
+            nextQuestions={nextQuestions}
+          />
         </div>
       </JavaScriptCodingWorkspaceContextProvider>
     </CodingWorkspaceProvider>

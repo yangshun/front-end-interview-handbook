@@ -12,74 +12,88 @@ import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  mode: 'full' | 'minimal';
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
+  mode,
   nextQuestions,
 }: Props) {
   const { status, runTests, submit, resetToDefaultCode } =
     useCodingWorkspaceContext();
 
+  const runSubmitButtons = (
+    <>
+      <Button
+        addonPosition="start"
+        icon={RiPlayLine}
+        isDisabled={status !== 'idle'}
+        label="Run"
+        size="xs"
+        variant="secondary"
+        onClick={() => {
+          logEvent('question.run', {
+            format: metadata.format,
+            slug: metadata.slug,
+          });
+          runTests();
+        }}
+      />
+      <Button
+        addonPosition="start"
+        isDisabled={status !== 'idle'}
+        label="Submit"
+        size="xs"
+        variant="primary"
+        onClick={() => {
+          logEvent('question.submit', {
+            format: metadata.format,
+            slug: metadata.slug,
+          });
+          submit();
+        }}
+      />
+    </>
+  );
+
+  if (mode === 'minimal') {
+    return (
+      <div className="flex flex-wrap items-center justify-end gap-2 px-3 py-3">
+        {runSubmitButtons}
+      </div>
+    );
+  }
+
   return (
     <CodingWorkspaceBottomBar
       leftElements={
-        <>
-          <div className="hidden md:inline">
-            <JavaScriptCodingWorkspaceLayoutButton />
-          </div>
-          <Button
-            addonPosition="start"
-            icon={RiArrowGoBackLine}
-            isDisabled={status !== 'idle'}
-            label="Reset question"
-            size="xs"
-            variant="secondary"
-            onClick={() => {
-              if (confirm('Reset all changes made to this question?')) {
-                resetToDefaultCode();
-              }
-            }}
-          />
-        </>
+        mode === 'full' && (
+          <>
+            <div className="hidden md:inline">
+              <JavaScriptCodingWorkspaceLayoutButton />
+            </div>
+            <Button
+              addonPosition="start"
+              icon={RiArrowGoBackLine}
+              isDisabled={status !== 'idle'}
+              label="Reset question"
+              size="xs"
+              variant="secondary"
+              onClick={() => {
+                if (confirm('Reset all changes made to this question?')) {
+                  resetToDefaultCode();
+                }
+              }}
+            />
+          </>
+        )
       }
       metadata={metadata}
       nextQuestions={nextQuestions}
-      rightElements={
-        <>
-          <Button
-            addonPosition="start"
-            icon={RiPlayLine}
-            isDisabled={status !== 'idle'}
-            label="Run"
-            size="xs"
-            variant="secondary"
-            onClick={() => {
-              logEvent('question.run', {
-                format: metadata.format,
-                slug: metadata.slug,
-              });
-              runTests();
-            }}
-          />
-          <Button
-            addonPosition="start"
-            isDisabled={status !== 'idle'}
-            label="Submit"
-            size="xs"
-            variant="primary"
-            onClick={() => {
-              logEvent('question.submit', {
-                format: metadata.format,
-                slug: metadata.slug,
-              });
-              submit();
-            }}
-          />
-        </>
-      }
+      rightElements={runSubmitButtons}
     />
   );
 }
