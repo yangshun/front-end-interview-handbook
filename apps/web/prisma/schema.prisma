@@ -40,15 +40,16 @@ model FeedbackMessage {
 }
 
 model Profile {
-  id               String             @id(map: "profile_pkey") @db.Uuid
-  premium          Boolean            @default(false)
-  plan             String?
-  stripeCustomer   String?
-  createdAt        DateTime           @default(now()) @db.Timestamptz(6)
-  Event            Event[]
-  QuestionProgress QuestionProgress[]
-  LearningSession  LearningSession[]
-  SitePerformance  SitePerformance[]
+  id                           String                         @id(map: "profile_pkey") @db.Uuid
+  premium                      Boolean                        @default(false)
+  plan                         String?
+  stripeCustomer               String?
+  createdAt                    DateTime                       @default(now()) @db.Timestamptz(6)
+  Event                        Event[]
+  QuestionProgress             QuestionProgress[]
+  LearningSession              LearningSession[]
+  SitePerformance              SitePerformance[]
+  QuestionJavaScriptSubmission QuestionJavaScriptSubmission[]
 }
 
 model QuestionProgress {
@@ -59,6 +60,27 @@ model QuestionProgress {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   userId    String   @db.Uuid
   profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+enum QuestionJavaScriptSubmissionResult {
+  CORRECT
+  WRONG
+}
+
+enum QuestionWorkingLanguage {
+  JS
+  TS
+}
+
+model QuestionJavaScriptSubmission {
+  id        String                             @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  slug      String
+  code      String
+  language  QuestionWorkingLanguage
+  result    QuestionJavaScriptSubmissionResult
+  createdAt DateTime                           @default(now()) @db.Timestamptz(6)
+  userId    String                             @db.Uuid
+  profile   Profile                            @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model SitePerformance {
