@@ -1,4 +1,7 @@
 import clsx from 'clsx';
+import { RiArrowRightLine } from 'react-icons/ri';
+
+import { trpc } from '~/hooks/trpc';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
@@ -12,18 +15,12 @@ import {
   themeLineColor,
 } from '~/components/ui/theme';
 
+import { staticLowerCase } from '~/utils/typescript/stringTransform';
+
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
-}>;
-
-type Submission = Readonly<{
-  code: string;
-  createdAt: number;
-  id: string;
-  language: 'js' | 'ts';
-  result: 'correct' | 'wrong';
 }>;
 
 const dateFormatter = new Intl.DateTimeFormat('en-SG', {
@@ -35,26 +32,14 @@ export default function JavaScriptCodingWorkspaceSubmissionList({
   metadata,
 }: Props) {
   const { openSubmission } = useCodingWorkspaceContext();
-  const submissions: Array<Submission> = [
-    {
-      code: 'hello',
-      createdAt: Date.now(),
-      id: '1',
-      language: 'js',
-      result: 'correct',
-    },
-    {
-      code: 'hello ts',
-      createdAt: Date.now(),
-      id: '2',
-      language: 'ts',
-      result: 'wrong',
-    },
-  ];
+  const { data: submissions } =
+    trpc.questionSubmission.javaScriptGetAll.useQuery({
+      slug: metadata.slug,
+    });
 
   return (
     <div className="w-full">
-      {submissions.length === 0 ? (
+      {submissions == null || submissions?.length === 0 ? (
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
             <EmptyState title="No submissions" variant="empty" />
@@ -71,7 +56,7 @@ export default function JavaScriptCodingWorkspaceSubmissionList({
             )}>
             <table className="w-full">
               <tbody className={clsx(['divide-y', themeDivideColor])}>
-                {submissions.map(({ id, createdAt, language, result }) => (
+                {submissions?.map(({ id, createdAt, language, result }) => (
                   <tr key={id} className={clsx(themeBackgroundEmphasizedHover)}>
                     <td className="px-3 py-2">
                       <Text
@@ -82,18 +67,22 @@ export default function JavaScriptCodingWorkspaceSubmissionList({
                       </Text>
                     </td>
                     <td className="px-3 py-2">
-                      <QuestionLanguages languages={[language]} />
+                      <QuestionLanguages
+                        languages={[staticLowerCase(language)]}
+                      />
                     </td>
                     <td className="px-3 py-2">
-                      {result === 'correct' && (
+                      {result === 'CORRECT' && (
                         <Badge label="Correct" size="sm" variant="success" />
                       )}
-                      {result === 'wrong' && (
+                      {result === 'WRONG' && (
                         <Badge label="Wrong" size="sm" variant="danger" />
                       )}
                     </td>
                     <td className="px-3 py-2 text-right">
                       <Button
+                        icon={RiArrowRightLine}
+                        isLabelHidden={true}
                         label="View"
                         size="xs"
                         variant="secondary"

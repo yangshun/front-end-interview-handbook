@@ -4,6 +4,7 @@ import { marketingRouter } from './marketing';
 import { purchasesRouter } from './purchases';
 import { questionListsRouter } from './question-lists';
 import { questionProgressRouter } from './question-progress';
+import { questionSubmissionRouter } from './question-submission';
 import { questionsRouter } from './questions';
 import { router } from '../trpc';
 
@@ -14,6 +15,7 @@ export const appRouter = router({
   purchases: purchasesRouter,
   questionLists: questionListsRouter,
   questionProgress: questionProgressRouter,
+  questionSubmission: questionSubmissionRouter,
   questions: questionsRouter,
 });
 

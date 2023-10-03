@@ -16,6 +16,7 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Context = Readonly<{
   language: QuestionCodingWorkingLanguage;
+  mainFileCode: string;
   resetFile: (filePath: string) => void;
   setLanguage: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: QuestionJavaScriptSkeleton;
@@ -24,6 +25,7 @@ type Context = Readonly<{
 
 const JavaScriptCodingWorkspaceContext = createContext<Context>({
   language: 'js',
+  mainFileCode: '',
   resetFile: () => {},
   setLanguage: () => {},
   skeleton: { js: '', ts: '' },
@@ -59,12 +61,13 @@ export function JavaScriptCodingWorkspaceContextProvider({
   const { updateFile, resetFile, files } = sandpack;
 
   const mainFile = files[workspace.main];
+  const mainFileCode = mainFile.code;
 
   useEffect(() => {
-    if (mainFile.code != null) {
-      saveJavaScriptQuestionCodeLocally(metadata, language, mainFile.code);
+    if (mainFileCode != null) {
+      saveJavaScriptQuestionCodeLocally(metadata, language, mainFileCode);
     }
-  }, [language, mainFile.code, metadata]);
+  }, [language, mainFileCode, metadata]);
 
   const resetFileCustom = useCallback(
     (filePath: string) => {
@@ -90,6 +93,7 @@ export function JavaScriptCodingWorkspaceContextProvider({
     <JavaScriptCodingWorkspaceContext.Provider
       value={{
         language,
+        mainFileCode,
         resetFile: resetFileCustom,
         setLanguage: onLanguageChange,
         skeleton,

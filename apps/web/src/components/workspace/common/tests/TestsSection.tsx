@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   RiCheckboxLine,
   RiFlaskLine,
@@ -65,6 +65,12 @@ export default function TestsSection({
   const { getClient, iframe, listen, sandpack } = useSandpackClient();
 
   const [state, setState] = useState<State>(INITIAL_STATE);
+
+  // HACK: Callbacks used within the sandpack events effect are stale so
+  // we use a ref to obtain the latest values.
+  const onCompleteRef = useRef<(outcome: TestsOutcome) => void>();
+
+  onCompleteRef.current = onComplete;
 
   const runSpec = useCallback((): void => {
     if (sandpack.status === 'idle') {
@@ -193,10 +199,10 @@ export default function TestsSection({
               return 'wrong';
             })();
 
-            if (onComplete !== undefined) {
+            if (onCompleteRef.current !== undefined) {
               // Call in next tick as React still updating this component.
               setTimeout(() => {
-                onComplete(outcome);
+                onCompleteRef.current?.(outcome);
               }, 0);
             }
 
