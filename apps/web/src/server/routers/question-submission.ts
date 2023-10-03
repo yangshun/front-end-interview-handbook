@@ -4,7 +4,7 @@ import { publicProcedure, router } from '../trpc';
 
 import {
   PrismaClient,
-  QuestionJavaScriptSubmissionResult,
+  QuestionSubmissionResult,
   QuestionWorkingLanguage,
 } from '@prisma/client';
 
@@ -21,8 +21,8 @@ export const questionSubmissionRouter = router({
           QuestionWorkingLanguage.TS,
         ]),
         result: z.enum([
-          QuestionJavaScriptSubmissionResult.CORRECT,
-          QuestionJavaScriptSubmissionResult.WRONG,
+          QuestionSubmissionResult.CORRECT,
+          QuestionSubmissionResult.WRONG,
         ]),
         slug: z.string(),
       }),
