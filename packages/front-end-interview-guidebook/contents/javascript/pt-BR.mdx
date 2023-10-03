@@ -1,119 +1,119 @@
 ---
-title: Front End Interview JavaScript Questions — How to Prepare
-description: Guide to preparing for JavaScript questions in front end / web developer interviews — Concepts to know, interview rubrics, and 70+ important practice questions.
+title: Perguntas de entrevista de Front-End JavaScript — Como se preparar
+description: Guia para se preparar para perguntas de JavaScript em entrevistas para desenvolvedores front-end / web — Conceitos a saber, rubricas de entrevista e mais de 70 perguntas de prática importantes.
 ---
 
-The difference between coding JavaScript coding questions vs algorithmic coding questions is that the former is usually specific to the front end domain and it makes the most sense to use JavaScript (or [TypeScript](https://www.typescriptlang.org/)) to complete them. You will also probably need to make use of browser/JavaScript-specific APIs and/or utilize HTML/CSS/JavaScript knowledge.
+Guia para se preparar para perguntas de JavaScript em entrevistas para desenvolvedores front-end / web — Conceitos a saber, rubricas de entrevista e mais de 70 perguntas de prática importantes. Você provavelmente também precisará usar APIs específicas de navegador/JavaScript e/ou utilizar conhecimentos de HTML/CSS/JavaScript.
 
-These JavaScript coding questions tend to be practical in nature and can come in one or more of the following categories:
+Exato, você provavelmente precisará utilizar Apis específicas do navegador/JavaScript e/ou aplicar conhecimentos em Html/Css/JavaScript:
 
-1.  Implement standard built-in classes or methods in the JavaScript language.
-2.  Implement a utility function/class commonly found in popular libraries.
+1.  Implemente classes ou métodos padrão incorporados na linguagem JavaScript.
+2.  Implemente uma função/utilitário/classe comumente encontrada em bibliotecas populares.
 
-## Examples
+## Exemplos
 
-### JavaScript Standard Built-in Classes/methods
+### Classes/Métodos Padrão Incorporados em JavaScript
 
-It may seem redundant to implement standard classes/methods when they are already part of the language. However, browsers inconsistencies used to be a rampant problem and some language APIs are not found in older browsers. Hence developers had to resort to polyfilling, the act of providing modern functionality on older browsers that do not natively support it by implementing these APIs in downloaded JavaScript. Being able to implement these native functions also shows good understanding of front end fundamentals.
+Pode parecer redundante implementar classes/métodos padrão quando eles já fazem parte da linguagem. No entanto, inconsistências entre navegadores costumavam ser um problema comum, e algumas APIs da linguagem não eram encontradas em navegadores mais antigos. Portanto, os desenvolvedores tiveram que recorrer ao polyfilling, que é o ato de fornecer funcionalidade moderna em navegadores mais antigos que não a suportam nativamente, implementando essas APIs em JavaScript baixado. Ser capaz de implementar essas funções nativas também demonstra um bom entendimento dos fundamentos do desenvolvimento front-end.
 
--   `Array` methods: [`Array.prototype.map`](/questions/javascript/array-map), [`Array.prototype.reduce`](/questions/javascript/array-reduce), [`Array.prototype.filter`](/questions/javascript/array-filter).
--   `Promise` and other `Promise`-related functions: [`Promise.all`](/questions/javascript/promise-all), [`Promise.any`](/questions/javascript/promise-any).
--   DOM methods: [`document.getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), [`document.getElementsByClassName`](/questions/javascript/get-elements-by-class-name).
+-   Métodos `Array`: [`Array.prototype.map`](/questions/javascript/array-map), [`Array.prototype.reduce`](/questions/javascript/array-reduce), [`Array.prototype.filter`](/questions/javascript/array-filter).
+-   `Promise` e outras funções `Promise`: [`Promise.all`](/questions/javascript/promise-all), [`Promise.any`](/questions/javascript/promise-any).
+-   Métodos DOM: [`document.getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), [`document.getElementsByClassName`](/questions/javascript/get-elements-by-class-name).
 
-There's more to these functions than meets the eye. Let's take the innocent `Array.prototype.map` for example. Are you aware that:
+Há mais nessas funções do que aparenta à primeira vista. Vamos pegar o inocente `Array.prototype.map`, por exemplo. Você está ciente de que:
 
-1.  It passes 4 arguments to the callback, including the `index` and `this`?
-2.  It keeps the "holes" in sparse arrays, aka `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`.
-3.  The range of elements processed by `map` is set before the first call to _callbackfn_. Elements which are appended to the array after the call to `map` begins will not be visited by _callbackfn_. If existing elements of the array are changed, their value as passed to _callbackfn_ will be the value at the time `map` visits them; elements that are deleted after the call to `map` begins and before being visited are not visited. Source: [`Array.prototype.map` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
+1.  Ele passa 4 argumentos para o retorno de chamada, incluindo o `índice` e o `this`?
+2.  Ele mantém os "buracos" em matrizes esparsas, como `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`.
+3.  A faixa de elementos processados pelo `map` é definida antes da primeira chamada a `_callbackfn_`. Elementos que são adicionados ao array após o início da chamada para `map` não serão visitados por `_callbackfn_`. Se os elementos existentes do array forem alterados, o valor passado para `_callbackfn_` será o valor no momento em que `map` os visitar; elementos que forem excluídos após o início da chamada para `map` e antes de serem visitados não serão visitados. Fonte: [`Array.prototype.map` Especificação do ECMAScript](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
 
-Your implementation doesn't have to handle all of these cases, especially the array mutation one. However, it's a positive signal if you mentioned these cases. The closer your implementation is to the specification, the more senior/experienced you will appear to be.
+Sua implementação não precisa lidar com todos esses casos, especialmente o da mutação do array. No entanto, é um sinal positivo se você mencionar esses casos durante a implementação. Quanto mais próxima for a sua implementação da especificação, mais sênior/experiente você parecerá ser.
 
-### Utility Function/Class from Popular Libraries
+### Função/Classe utilitária de bibliotecas populares
 
-These functions/classes are commonly needed when building software with JavaScript but aren't in the standard language (for now).
+Essas funções/classes são comumente necessárias ao construir software com JavaScript, mas não fazem parte da linguagem padrão (por enquanto).
 
--   Lodash/Underscore functions: [`debounce`](/questions/javascript/debounce), [`throttle`](/questions/javascript/throttle), [`flatten`](/questions/javascript/flatten), [`curry`](/questions/javascript/curry), [`cloneDeep`](/questions/javascript/deep-clone).
--   jQuery methods: [`jQuery.css`](/questions/javascript/jquery-css), [`jQuery.toggleClass`](/questions/javascript/jquery-class-manipulation).
--   Popular libraries:
+-   Funções Lodash/Underscore: [`debounce`](/questions/javascript/debounce), [`throttle`](/questions/javascript/throttle), [`flatten`](/questions/javascript/flatten), [`curry`](/questions/javascript/curry), [`cloneDeep`](/questions/javascript/deep-clone).
+-   Métodos jQuery: [`jQuery.css`](/questions/javascript/jquery-css), [`jQuery.toggleClass`](/questions/javascript/jquery-class-manipulation).
+-   Bibliotecas populares:
     -   [`classnames`](/questions/javascript/classnames)
-    -   `test`/`expect` functions from testing frameworks like [Jest](https://jestjs.io/)/[Mocha](https://mochajs.org/)
-    -   [`Emitter`](/questions/javascript/event-emitter) (which exists as part of Node.js and many third party libraries)
+    -   `test`/`expect` funções de testes de frameworks como [Jest](https://jestjs.io/)/[Mocha](https://mochajs.org/)
+    -   [`Emitter`](/questions/javascript/event-emitter) (que existe como parte do Node.js e muitas bibliotecas de terceiros)
     -   [Immutable.js](https://immutable-js.com/)
     -   [Backbone.js](https://backbonejs.org/)
 
-If you take a look at the source code of these libraries, you might find some of the implementation to be quite complex. This is because there are lots of obscure real world use cases that the library has to support. Similar to the standard functions, you're not expected to handle all of these edge cases within an interview setting but you get points for calling them out.
+Se você der uma olhada no código-fonte dessas bibliotecas, poderá encontrar algumas das implementações bastante complexas. Isso ocorre porque existem muitos casos de uso do mundo real obscuros que a biblioteca precisa suportar. Semelhante às funções padrão, você não é esperado para lidar com todos esses casos extremos durante uma entrevista, mas ganha pontos por reconhecê-los.
 
-## What to do during JavaScript Coding Interviews
+## O que fazer durante entrevistas de codificação em JavaScript
 
-JavaScript coding interviews share a lot of similarities with algorithmic coding interviews. In general, you should:
+Entrevistas de codificação em JavaScript compartilham muitas semelhanças com entrevistas de codificação algorítmica. Em geral, você deve:
 
-1.  Find out what platform you are coding on and familiarize yourself with the coding environment:
-    -   The supported editor shortcuts.
-    -   Whether you can execute code.
-    -   Whether you can install 3rd party dependencies.
-2.  Make your self introduction under a minute. Unless requested, do not take longer than this otherwise you might not have enough time to code.
-3.  Ask clarifying questions upon receiving the question. Clarify the following:
-    -   Can you use newer JavaScript syntax (ES2016 and beyond)?
-    -   Whether the code is meant to run in the browser or on the server (e.g. Node.js).
-    -   Browser support, as this will affect the browser APIs you can use.
-4.  Propose a solution to your interviewer. Unlike coding interviews, the focus of JavaScript coding interviews is usually not on complex data structures and algorithms. It's possible and likely you can jump straight to the optimal solution with the best choice of data structures and algorithms.
-5.  Code out your solution and explain your code to your interviewer while you are coding.
-6.  After coding, read through your code once and try to spot basic errors like typos, using variables before initializing them, using APIs incorrectly, etc.
-7.  Outline some basic test cases and some edge cases. Test your code with these cases and determine if your code passes them. If it fails, debug the issue(s) and fix them.
-8.  Optional: Explain the time/space complexity if the code involved algorithmic optimizations and smart choice of data structures.
-9.  Explain any tradeoffs you made, cases you explicitly didn't handle, and how you would improve the code if you had more time.
-10. The interview might not end here, the interviewer might have follow-up questions for you on this question or give you another question. Be prepared for them.
+1.  Descubra em qual plataforma você está codificando e familiarize-se com o ambiente de codificação:
+    -   Os atalhos de editor suportados.
+    -   Se você pode executar código.
+    -   Se você pode instalar dependências de terceiros.
+2.  Faça sua apresentação pessoal em menos de um minuto. A menos que seja solicitado, não leve mais tempo do que isso, caso contrário, você pode não ter tempo suficiente para programar.
+3.  Faça perguntas de esclarecimento ao receber a pergunta. Esclareça o seguinte:
+    -   Você pode usar a sintaxe mais recente do JavaScript (ES2016 e posteriores)?
+    -   Se o código se destina a ser executado no navegador ou no servidor (por exemplo, Node.js).
+    -   O suporte do navegador é importante, pois isso afetará as APIs do navegador que você pode utilizar.
+4.  Proponha uma solução ao seu entrevistador. Ao contrário de entrevistas de programação convencionais, o foco das entrevistas de codificação em JavaScript geralmente não está em estruturas de dados complexas e algoritmos. É possível e provavelmente você pode ir direto para a solução ideal com a melhor escolha de estruturas de dados e algoritmos.
+5.  Codifique sua solução e explique o código ao seu entrevistador enquanto você está programando.
+6.  Após codificar, leia seu código uma vez e tente identificar erros básicos, como erros de digitação, uso de variáveis antes de inicializá-las, uso incorreto de APIs, etc.
+7.  Elabore alguns casos de teste básicos e alguns casos limite (edge cases). Teste seu código com esses casos e determine se o código os passa com sucesso. Se falhar, depure o(s) problema(s) e corrija-os.
+8.  Opcional: Explique a complexidade de tempo/espaço se o código envolver otimizações algorítmicas e uma escolha inteligente de estruturas de dados.
+9.  Explique qualquer trade-off que você tenha feito, casos que você não tratou explicitamente e como você melhoraria o código se tivesse mais tempo.
+10. A entrevista pode não terminar aqui; o entrevistador pode ter perguntas de acompanhamento sobre esta questão ou apresentar outra pergunta. Esteja preparado para elas.
 
-## How to Prepare for JavaScript Coding Interviews
+## Como se preparar para entrevistas de codificação em JavaScript
 
-1.  Be familiar with HTML, CSS, JavaScript, and DOM concepts by referring to the "Important Concepts" below. The [Quiz section](/front-end-interview-guidebook/quiz) can also be a good start since you might be asked on these concepts in the form of quiz questions during coding.
-2.  Pick a [study plan](/get-started) and practice the [JavaScript coding questions](/questions/js/coding/utilities) recommended for the selected study plan. It's also alright to study for a certain topic as you are doing the questions.
+1.  Esteja familiarizado com os conceitos de HTML, CSS, JavaScript e DOM, consultando os "Conceitos Importantes" abaixo. A seção de [Quiz](/front-end-interview-guidebook/quiz) também pode ser um bom começo, já que você pode ser questionado sobre esses conceitos na forma de perguntas de quiz durante a codificação.
+2.  Escolha um [plano de estudos](/get-started) e pratique as [perguntas de codificação JavaScript](/questions/js/coding/utilities) recomendadas para o plano de estudos selecionado. Também está tudo bem estudar um tópico específico enquanto você está fazendo as perguntas.
 
-## Important Concepts
+## Conceitos Importantes
 
-| Category            | Important Topics                                                                                                                                                                                                                                                                                                                             |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data Structures     | Arrays, Maps, Stacks, Trees, Sets                                                                                                                                                                                                                                                                                                            |
-| Algorithms          | Binary Search, Breadth-first Search, Depth-first Search, Recursion                                                                                                                                                                                                                                                                           |
-| JavaScript Language | Data types (checking for types, type coercion), Scope, Closures, Callbacks, How `this` keyword works, Object-oriented Programming in JavaScript (prototypes, classes, methods), Arrow functions vs normal functions, Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`, `Promise`, Handling variadic arguments |
-| DOM                 | DOM traversal, DOM creation, DOM manipulation, Accessing element/node properties, Event delegation                                                                                                                                                                                                                                           |
-| Runtime APIs        | Timer (`setTimeout`, `setInterval`)                                                                                                                                                                                                                                                                                                          |
+| Categoria                 | Tópicos Importantes                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Estruturas de Dados       | Arrays, Maps, Stacks, Trees, Sets                                                                                                                                                                                                                                                                                                                                              |
+| Algoritmos                | Busca Binária, Busca em Largura (Breadth-first Search), Busca em Profundidade (Depth-first Search), Recursão                                                                                                                                                                                                                                                                   |
+| Linguagem JavaScript      | Tipos de dados (verificação de tipos, coerção de tipos), Escopo, Closures, Callbacks, Funcionamento da palavra-chave `this`, Programação Orientada a Objetos em JavaScript (protótipos, classes, métodos), Funções de seta vs. funções normais, Invocando funções via `Function.prototype.apply()`/`Function.prototype.call()`, Promises, Manipulação de argumentos variádicos |
+| DOM                       | Navegação no DOM, Criação no DOM, Manipulação no DOM, Acesso a propriedades de elementos/nós, Delegação de Eventos                                                                                                                                                                                                                                                             |
+| APIs em Tempo de Execução | Temporizador (`setTimeout`, `setInterval`)                                                                                                                                                                                                                                                                                                                                     |
 
-## JavaScript Coding Interview Rubrics
+## Critérios de Avaliação para Entrevistas de Codificação em JavaScript
 
-JavaScript coding interviews are similar to algorithmic coding interviews and the way to go about the interviews should be similar. Naturally, there will be some overlaps with algorithmic coding interviews regarding how candidates are evaluated during JavaScript coding interviews.
+As entrevistas de codificação em JavaScript são semelhantes às entrevistas de codificação algorítmica, e a abordagem para essas entrevistas deve ser semelhante. Naturalmente, haverá alguma sobreposição com entrevistas de codificação algorítmica no que diz respeito à avaliação dos candidatos durante entrevistas de codificação em JavaScript.
 
--   **Problem Solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs.
--   **Software Engineering Foundation**: Familiarity with data structures, algorithms, runtime complexity analysis, use of design patterns, design solution with clean abstractions.
--   **Domain Expertise**: Understanding of the front end domain and the relevant languages: Browser (DOM and DOM APIs), HTML, CSS, JavaScript, Performance.
--   **Communication**: Ask questions to clarify details and clearly explaining one's approach and considerations.
--   **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise.
+-   **Resolução de Problemas**: Utilize uma abordagem sistemática e lógica para compreender e resolver um problema. Divida o problema em problemas menores e independentes. Avalie diferentes abordagens e suas compensações (tradeoffs).
+-   **Fundamentos de Engenharia de Software**: Familiaridade com estruturas de dados, algoritmos, análise de complexidade de tempo de execução, uso de padrões de design e elaboração de soluções com abstrações limpas.
+-   **Expertise no Domínio**: Compreensão do domínio de front-end e das linguagens relevantes: Navegador (DOM e APIs DOM), HTML, CSS, JavaScript, Desempenho.
+-   **Comunicação**: Fazer perguntas para esclarecer detalhes e explicar claramente a abordagem e as considerações.
+-   **Verificação**: Identificar vários cenários para testar o código, incluindo casos extremos. Seja capaz de diagnosticar e corrigir quaisquer problemas que surjam.
 
-## Useful Tips
+## Dicas Úteis
 
--   **Wishful thinking**. JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during JavaScript coding interviews. However, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it directly in your solution without implementing it.
--   **Pure functions**. Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
--   **Choose data structures wisely.** Pay attention to your choice of data structures and be aware of the time complexities of the code. Be familiar with the time/space complexities of the basic JavaScript Array, Object, Set, Map operations should you want to use them in your solution. Some of these time/space complexities differ across languages. Don't write code that runs in O(n<sup>2</sup>) if it can accomplished in O(n) runtime with the use of hash maps.
--   **`this` matters**. If a function accepts a callback function as a parameter, consider how the `this` variable should behave. For many built-in functions, `this` is provided as one of the arguments the callback function is invoked with.
--   **Mutations within callback functions.** Beware of callback functions mutating the data structure it is operating on. You probably do not need to handle this case during interviews but you should explicitly mention such cases if it's relevant.
--   **Recursion edge cases**.
-    -   If you have identified that solving the question requires recursion, ask about the input size and how to handle the case of recursion stack overflow. Usually you won't have to handle it but raising this issue is a good signal.
-    -   Nested deep data structures can have recursive references to itself, which makes certain operations like serialization much trickier. Ask the interviewer if you have to handle such cases. Usually you won't have to handle it but raising this issue is a good signal.
+-   **Pensamento Positivo**. A biblioteca padrão do JavaScript não possui algumas estruturas de dados e algoritmos úteis, como fila, heap, pesquisa binária, que podem facilitar sua vida durante entrevistas de codificação em JavaScript. No entanto, você pode perguntar ao entrevistador se pode considerar que uma determinada estrutura de dados/algoritmo existe e usá-la diretamente em sua solução sem implementá-la.
+-   **Funções Puras**. Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
+-   **Escolha as estruturas de dados sabiamente.** Preste atenção à escolha das estruturas de dados e esteja ciente das complexidades temporais do código. Esteja familiarizado com as complexidades de tempo/espaço das operações básicas de Array, Object, Set e Map em JavaScript, caso deseje usá-las em sua solução. Alguns desses tempos/complexidades de espaço podem variar entre diferentes linguagens de programação. É importante estar ciente das particularidades da linguagem que você está usando para garantir que suas escolhas sejam apropriadas para o contexto específico. Não escreva código que seja executado em O(n<sup>2</sup>) se ele puder ser executado em O(n) com o uso de hash mapas.
+-   **`this` importa**. Se uma função aceita uma função de retorno de chamada como parâmetro, considere como a variável `this` deve se comportar. Para muitas funções internas, `this` é fornecido como um dos argumentos com os quais a função de retorno de chamada é invocada.
+-   **Mutação dentro de funções de retorno de chamada.** Cuidado com as funções de retorno de chamada que realizam mutações na estrutura de dados na qual estão operando. Provavelmente, você não precisa lidar com esse caso durante entrevistas, mas deve mencionar explicitamente esses casos se forem relevantes.
+-   **Casos limites de recursão**.
+    -   Se você identificou que resolver a pergunta requer recursão, pergunte sobre o tamanho da entrada e como lidar com o caso de estouro de pilha de recursão. Normalmente, você não precisará lidar com isso, mas levantar essa questão é um bom sinal.
+    -   Estruturas de dados profundamente aninhadas podem ter referências recursivas a si mesmas, o que torna certas operações, como serialização, muito mais complexas. Pergunte ao entrevistador se você precisa lidar com tais casos. Normalmente, você não precisará lidar com isso, mas levantar essa questão é um bom sinal.
 
-## Best Practice Questions
+## **Perguntas sobre Melhores Práticas**
 
-From experience, the best JavaScript coding interview questions to practice, as determined by frequency and important concepts covered are:
+Pela minha experiência, as melhores perguntas de entrevista de codificação em JavaScript para praticar, conforme determinado pela frequência e pelos conceitos importantes abordados são:
 
 -   [Debounce](/questions/javascript/debounce)
--   [Throttle](/questions/javascript/throttle)
+-   [Throttle](/questions/javascript/debounce)
 -   [Array.prototype.filter](/questions/javascript/array-filter)
 -   [Promise.all](/questions/javascript/promise-all)
 -   [Curry](/questions/javascript/curry)
 -   [Flatten](/questions/javascript/flatten)
 -   [getElementsByTagName](/questions/javascript/get-elements-by-class-name)
 -   [Deep Clone](/questions/javascript/deep-clone)
--   [Data Selection](/questions/javascript/data-selection)
+-   [Seleção de Dados](/questions/javascript/data-seletion)
 
-GreatFrontEnd has a [comprehensive list of JavaScript coding questions](/questions/js/coding/utilities) that you can practice. There are also automated tests cases you can run your code against to verify the correctness and solutions written by ex-FAANG Senior Engineers.
+A GreatFrontEnd possui uma [lista abrangente de perguntas de codificação JavaScript](/questions/js/coding/utilities) que você pode praticar. Também existem casos de testes automatizados que você pode executar em seu código para verificar a correção e soluções escritas por ex-engenheiros sênior da FAANG.
 
-Note that we are intentionally vague in some of the questions and don't present the full requirements upfront in the question description. However, we'll cover as much ground as possible in the solution. It may be frustrating while reading the solutions to see that you've missed out some things, but this trains you to think ahead and consider what are the possible areas you have to take note of when working on the solution. Better to find out during practice than during actual interviews.
+Note que, de propósito, somos vagos em algumas das perguntas e não apresentamos os requisitos completos de imediato na descrição da pergunta. No entanto, abordaremos o máximo possível na solução. Pode ser frustrante ao ler as soluções perceber que você deixou passar algumas coisas, mas isso o treina a pensar adiante e considerar quais são as áreas possíveis que você deve observar ao trabalhar na solução. É mais proveitoso descobrir durante a preparação do que durante entrevistas de verdade.

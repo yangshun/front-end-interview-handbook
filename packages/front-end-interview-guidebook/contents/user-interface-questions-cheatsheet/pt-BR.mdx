@@ -1,160 +1,160 @@
 ---
-title: Front End User Interface Questions Cheatsheet
-description: Top tips to improve the user interfaces you have to build during front end / web developer interviews - Code structure, managing state, accessibility and more.
+title: Resumo de Perguntas de Interface de Usuário Front-End
+description: Principais dicas para melhorar as interfaces de usuário que você precisa construir durante entrevistas para desenvolvedores front-end/web - Estrutura de código, gerenciamento de estado, acessibilidade e muito mais.
 ---
 
-Here are some tips you can use to improve the user interfaces you have to build/design during front end interviews. These can be applied to both [User Interface Coding Interviews](/front-end-interview-guidebook/user-interface) and [Front End System Design Interviews](/system-design/types-of-questions).
+Aqui estão algumas dicas que você pode usar para melhorar as interfaces de usuário que você precisa construir ou projetar durante entrevistas para desenvolvedores front-end. Essas dicas podem ser aplicadas tanto a [Entrevistas de Codificação de Interface de Usuário](/front-end-interview-guidebook/user-interface) quanto a [Entrevistas de Design de Sistema Front End](/system-design/types-of-questions).
 
-## General
+## Geral
 
--   **Break down the problem**: Break down the problem into stages/milestones that build on top of each other and write your code progressively.
--   **Test frequently**: Test the UI in the browser after you complete every feature so that you can catch bugs early. Bugs caught earlier are easier to fix. Make sure the current feature is working before moving on to the next feature.
--   **Use JavaScript frameworks if possible**: Your life will be very hard if you choose to build complicated UI using Vanilla JavaScript as the code can get very long and messy quickly. We recommend building apps and games using a framework if possible.
--   **Think ahead and plan accordingly**: Think about what features your interviewer might ask you to add next. Design your code in a way that makes it easy for new features to be added.
+-   **Divida o problema**: Divida o problema em etapas/marcos que se constroem progressivamente e escreva seu código de forma progressiva.
+-   **Teste frequentemente**: Teste a interface de usuário no navegador após concluir cada recurso para que você possa identificar bugs precocemente. Bugs detectados mais cedo são mais fáceis de corrigir. Certifique-se de que o recurso atual está funcionando antes de passar para o próximo recurso.
+-   **Use frameworks JavaScript, se possível**: Sua vida será muito mais fácil se você optar por construir interfaces de usuário complexas usando JavaScript puro (Vanilla JavaScript), já que o código pode ficar muito longo e confuso rapidamente. Recomendamos construir aplicativos e jogos usando um framework, se possível.
+-   **Pense antecipadamente e planeje adequadamente**: Pense em quais recursos seu entrevistador pode pedir para adicionar a seguir. Projete seu código de forma que seja fácil adicionar novos recursos.
 
-## Component Organization
+## Organização de Componentes
 
-How do you structure your code?
+Como você estrutura seu código?
 
--   **Adopt the [Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern/)**: To achieve good decoupling, rendering code should be agnostic to the source of data. Separate components into an outer one that provides the data and an inner stateless one that renders the view based on the data. This makes it easy for the view to switch from local component/app state to data loaded from the network and vice versa, you only have to change the outer component and the inner component can be used as-is.
--   **Break down the app into subcomponents**: If the UI has multiple parts, break the UI into smaller components and identify the props/state needed by each component.
--   **Minimal API surface area**: Don't pass excess data to inner components which don't need them.
--   **Component instantiation**: When asked to build UI components, define APIs (usually functions) to allow creating multiple independent instances of the components along with configurable options and defaults. Avoid writing code (e.g. relying on global variables) that prevents separate UI component instances from being created.
-    -   **Vanilla JavaScript**: Create a function that takes in a DOM element (the container element) and an options object. Within the function you can dynamically create DOM elements and append to the container element. Another source of inspiration for a component API is [jQuery UI](https://jqueryui.com), but that has a dependency on jQuery.
-    -   **Other JavaScript UI frameworks**: Most modern JavaScript UI frameworks like React forces you to think in terms of components by default.
+-   **Adote o [Padrão Contêiner/Apresentação](https://www.patterns.dev/posts/presentational-container-pattern/)**: Para alcançar um bom desacoplamento, o código de renderização deve ser independente da origem dos dados. Separe os componentes em um externo que fornece os dados e um interno sem estado que renderiza a visualização com base nos dados. Isso facilita a transição da visualização do estado local do componente/aplicativo para os dados carregados da rede e vice-versa. Você só precisa alterar o componente externo, e o componente interno pode ser usado como está.
+-   **Divida o aplicativo em subcomponentes**: Se a interface do usuário tiver várias partes, divida-a em componentes menores e identifique as props/estado necessários para cada componente.
+-   **Área de superfície da API mínima**: Não passe dados em excesso para componentes internos que não os necessitam.
+-   **Instanciação de Componentes**: Ao criar componentes de interface do usuário, defina APIs (geralmente funções) que permitam a criação de várias instâncias independentes dos componentes, juntamente com opções configuráveis e valores padrão. Evite escrever código (por exemplo, dependendo de variáveis globais) que impeça a criação de instâncias separadas de componentes de interface do usuário.
+    -   **JavaScript Puro (Vanilla JavaScript)**: Crie uma função que receba um elemento DOM (o elemento de contêiner) e um objeto de opções. Dentro da função, você pode criar dinamicamente elementos DOM e anexá-los ao elemento de contêiner. Outra fonte de inspiração para uma API de componente é o [jQuery UI](https://jqueryui.com), mas ele tem uma dependência do jQuery.
+    -   **Outros Frameworks de UI em JavaScript**: A maioria dos modernos frameworks de UI em JavaScript, como o React, o obriga a pensar em termos de componentes por padrão.
 
-## State Design
+## Design de Estado
 
-State is data that changes over time in your UI, commonly due to user interactions or background events (network request response, passing of time, WebSocket events).
+Estado é a informação que muda ao longo do tempo em sua interface do usuário, geralmente devido a interações do usuário ou eventos em segundo plano (resposta de solicitações de rede, passagem do tempo, eventos WebSocket).
 
-Most UI questions in interviews will require state and designing the state well is paramount.
+A maioria das perguntas de entrevistas relacionadas à interface do usuário exigirá o uso de estado, e projetar o estado de forma adequada é de extrema importância.
 
--   **Determine the minimum state needed in your UI**: The smaller the state, the easier it is to read and understand the code -> lower likelihood for bugs.
-    -   Identify essential state vs derived state. Derived state is state that can be calculated from essential state.
--   **Separate rendering code vs data management code**: Make the UI a function of your data and separate your code into two groups (rendering code and data management code) for better readability. If you use JavaScript frameworks such as React, you will more or less be forced to do so.
--   **Use the state-reducer pattern for complex state interactions**: If the question requires many state fields and certain actions require changing multiple fields at once, use a [reducer to consolidate state update logic](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer). First popularized by Redux, the state-reducer pattern encourages you to determine the state of your UI, actions that can be taken, and how to combine actions with state to derive the next state. If you are using React, you can achieve this pattern via the [`useReducer` React hook](https://reactjs.org/docs/hooks-reference.html#usereducer). Redux is usually overkill for interviews and `useReducer` should be sufficient.
+-   **Determine o estado mínimo necessário em sua interface do usuário**: Quanto menor o estado, mais fácil é ler e entender o código -> menor probabilidade de erros.
+    -   Identificar o estado essencial versus o estado derivado. Estado derivado é um estado que pode ser calculado a partir do estado essencial.
+-   **Separe o código de renderização do código de gerenciamento de dados**: Torne a interface do usuário uma função de seus dados e separe seu código em dois grupos (código de renderização e código de gerenciamento de dados) para uma melhor legibilidade. Se você estiver usando frameworks JavaScript como o React, mais ou menos será obrigado a fazer isso.
+-   **Utilize o padrão de redutor de estado para interações de estado complexas**: Se a pergunta exigir muitos campos de estado e certas ações requererem a alteração de vários campos ao mesmo tempo, utilize um [redutor para consolidar a lógica de atualização de estado](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer). Primeiramente popularizado pelo Redux, o padrão de redutor de estado o incentiva a determinar o estado da sua interface de usuário, as ações que podem ser realizadas e como combinar ações com o estado para derivar o próximo estado. Se você estiver usando o React, é possível alcançar esse padrão por meio do gancho (hook) [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer) do React. Geralmente, o Redux é excessivo para entrevistas, e `useReducer` deve ser suficiente.
 
-[React's](https://beta.reactjs.org) docs on ["Managing State"](https://beta.reactjs.org/learn/managing-state) is an excellent resource on how to design and use component state correctly. Some of the ideas mentioned aren't specific to React and can be applied to any UI frameworks.
+A documentação do [React](https://beta.reactjs.org) sobre ["Gerenciamento de Estado"](https://beta.reactjs.org/learn/managing-state) é um excelente recurso sobre como projetar e usar o estado de componentes corretamente. Algumas das ideias mencionadas não são específicas do React e podem ser aplicadas a qualquer estrutura de interface do usuário (UI).
 
 ## JavaScript
 
-Is your JavaScript using modern language syntax and good practices while avoiding bad practices?
+O seu JavaScript utiliza uma sintaxe moderna da linguagem e boas práticas, evitando práticas ruins?
 
--   **Use a style guide**: Use a JavaScript style guide like [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). During development, static analysis tools like [ESLint](https://eslint.org) can help you to enforce some of these good practices. However, these tools might not be available during interviews. Try to get accustomed to writing code with good coding style without help from a tool.
--   **Leave the global environment alone**: This applies to Vanilla JavaScript scenarios. Avoid polluting global scope by declaring global variables and global functions. Write an Immediately-Invoked Function Expression (IIFE) and put all custom code within it.
+-   **Utilize um guia de estilo**: Utilize um guia de estilo de JavaScript como o [Guia de Estilo JavaScript da Airbnb](https://github.com/airbnb/javascript). Durante o desenvolvimento, ferramentas de análise estática como o [ESLint](https://eslint.org) podem ajudar a aplicar algumas dessas boas práticas. No entanto, essas ferramentas podem não estar disponíveis durante entrevistas. Tente se acostumar a escrever código com um bom estilo de codificação sem depender de uma ferramenta.
+-   **Não altere o ambiente global**: Isso se aplica a cenários de JavaScript puro (Vanilla JavaScript). Evite poluir o escopo global ao declarar variáveis e funções globais. Escreva uma Expressão de Função Imediatamente Invocada (IIFE) e coloque todo o código personalizado dentro dela.
 
 ## HTML
 
-Are you writing semantic HTML with the right attributes?
+Você está escrevendo HTML semântico com os atributos corretos?
 
--   **Semantic tags**: Use heading tags for titles, button tags for interactive elements, list tags for sequential elements, and so on. Don't use `<div>`s for everything!
--   **Heading hierarchy**: Ensure heading tags have a hierarchy and there's not more than one `<h1>` in the DOM.
--   **Interactive elements**: Use `<button>` for elements that require interaction. Resist adding click handlers to `<div>` and `<span>`s.
+-   **Tags semânticas**: Use tags de cabeçalho para títulos, tags de botão para elementos interativos, tags de lista para elementos sequenciais, e assim por diante. Não utilize `<div>` para tudo!
+-   **Hierarquia de títulos**: Garanta que as tags de cabeçalho tenham uma hierarquia e que não haja mais de um `<h1>` no DOM.
+-   **Elementos interativos**: Utilize `<button>` para elementos que requerem interação. Evite adicionar manipuladores de clique (click handlers) a elementos `<div>` e `<span>`.
 
-### Forms
+### Formulários
 
-Forms are complex on its own and deserves its own section.
+Os formulários são complexos por si só e merecem sua própria seção.
 
--   **Link labels and inputs**: `<input>`s should be linked to `<label>`s using `id` and `for`.
--   **Wrap inputs in a form**: `<input>`s should be wrapped in a `<form>` so that clicking on buttons and hitting Enter will submit the form. Remember to add `event.preventDefault()` if the network request is meant to be made using Ajax.
--   **Inputs should have appropriate types**: `<input>`s should have appropriate `type` like `email`, `password`, `number`, etc.
--   **Leverage native HTML form validation**: Where possible, use the `required` attribute combined with other attributes like `pattern`, `min`, `max`, and so on.
+-   **Vincular rótulos e entradas**: Os elementos `<input>` devem ser vinculados aos elementos `<label>` usando os atributos `id` e `for`.
+-   **Agrupe entradas em um formulário**: Os elementos `<input>` devem ser envolvidos em um elemento `<form>` para que ao clicar nos botões e pressionar Enter o formulário seja enviado. Lembre-se de adicionar `event.preventDefault()` se a solicitação de rede deve ser feita usando Ajax.
+-   **Os campos de entrada devem ter tipos apropriados**: Os elementos `<input>` devem ter o atributo `type` apropriado, como `email`, `password`, `number`, etc.
+-   **Aproveite a validação nativa de formulários HTML**: Sempre que possível, utilize o atributo `required` combinado com outros atributos como `pattern`, `min`, `max`, etc.
 
 ## CSS/Styling
 
-Is your CSS written in a scalable and easy-to-understand manner?
+Seu CSS está escrito de forma escalável e fácil de entender?
 
--   **Write Vanilla CSS**: Learn to write CSS without reliance on preprocessors like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/). Not all environments will allow using processors and interview questions are likely small and do not really benefit from the features CSS preprocessors bring. The most useful feature of CSS processors is the use of variables, which is available natively via CSS custom properties (variables).
--   **Adopt a CSS naming convention**: Consider adopting a CSS naming methodology like [Block Element Modifier](https://getbem.com) when writing your classes.
--   **Avoid `#id` selectors in components**: When building UI components meant to be reused (e.g. buttons, tabs, menus, modals, etc), avoid using `#id` selectors in the HTML as `id`s are meant to be globally unique but you can have multiple instances of the component.
--   **Organize your CSS**: Read about how to [organize your CSS in big projects](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing) and how to have a [Scalable and Modular Architecture for CSS](http://smacss.com/).
+-   **Escreva CSS puro**: Aprenda a escrever CSS sem depender de pré-processadores como [Sass](https://sass-lang.com/) e [Less](https://lesscss.org/). Nem todos os ambientes permitirão o uso de processadores, e as perguntas de entrevista provavelmente são pequenas e não se beneficiam realmente dos recursos que os pré-processadores CSS trazem. A funcionalidade mais útil dos processadores CSS é o uso de variáveis, que está disponível nativamente por meio das propriedades personalizadas CSS (variáveis).
+-   **Adote uma convenção de nomenclatura CSS**: Considere adotar uma metodologia de nomenclatura CSS como o [Block Element Modifier (BEM)](https://getbem.com) ao escrever suas classes.
+-   **Evite seletores `#id` em componentes**: Ao construir componentes de interface do usuário destinados a serem reutilizados (por exemplo, botões, abas, menus, modais etc.), evite usar seletores `#id` no HTML, pois os `id` devem ser globalmente exclusivos, mas você pode ter várias instâncias do componente.
+-   **Organize seu CSS**: Leia sobre como [organizar seu CSS em projetos grandes](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing) e como ter uma [Arquitetura Escalável e Modular para CSS](http://smacss.com/).
 
-## User Experience
+## Experiência do Usuário
 
-Does your UI provide a great user experience?
+Sua interface de usuário proporciona uma ótima experiência para o usuário?
 
--   **Mobile-friendliness**: Check if you need to make your UI work well on mobile.
-    -   CSS media queries can be used to render a different layout on mobile.
-    -   Make interactive elements like buttons large enough to be pressed (recommend at least 44 x 44 px) and spaced widely enough.
--   **Error states**: Reflect errors promptly and clearly — form validation errors, network request errors.
--   **Handle rendering images of different dimensions**: Make your UI work for rendering images of all sizes/dimensions yet preserving the original aspect ratios.
-    -   Use CSS `background-image` together with `background-position: contain` so that the image fits within your defined area. If it is ok for the image to be cropped off (e.g. for gradient backgrounds), use `background-position: cover`.
-    -   `<img>` tags have a similar `object-fit` property with `contain` and `cover` values.
--   **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
+-   **Amigável para dispositivos móveis**: Verifique se você precisa fazer com que sua interface de usuário funcione bem em dispositivos móveis.
+    -   As consultas de mídia CSS podem ser usadas para renderizar um layout diferente em dispositivos móveis.
+    -   Faça elementos interativos, como botões, grandes o suficiente para serem pressionados (recomendamos pelo menos 44 x 44 px) e com espaço suficiente entre eles.
+-   **Estados de erro**: Reflita os erros prontamente e de forma clara - erros de validação de formulário, erros de solicitação de rede.
+-   **Lidar com a renderização de imagens de diferentes dimensões**: Faça sua interface de usuário funcionar para renderizar imagens de todas as dimensões, preservando ao mesmo tempo as proporções originais.
+    -   Use `background-image` do CSS em conjunto com `background-position: contain` para que a imagem se ajuste dentro da área definida. Se for aceitável que a imagem seja cortada (por exemplo, para fundos degradê), use `background-position: cover`.
+    -   As tags `<img>` têm uma propriedade semelhante chamada `object-fit` com valores `contain` e `cover`.
+-   **Atualizações otimistas**: Técnica avançada em que o estado de sucesso é refletido mesmo que a solicitação de rede ainda esteja pendente. Se a solicitação falhar, reverta as alterações na interface do usuário e exiba uma mensagem de erro.
 
-## Network
+## Rede
 
-Does your UI handle the unpredictable nature of network requests and conditions?
+Sua interface do usuário lida com a natureza imprevisível das solicitações e condições de rede?
 
--   **Reflect network request states**: If the UI involves making network requests, clearly show the pending/success/failure state of the requests
-    -   **Pending**: Disable fields/buttons, show a spinner.
-    -   **Error**: Show an error message.
-    -   **Success**: Update the UI and/or show a success message.
--   **Race conditions**: A common reason is due to parallel network requests where the response order is not guaranteed. A request made later could receive a response earlier. If your UI is susceptible to this, you can keep track of the latest requests and ignore the results from the earlier ones. Alternatively, make it such that your UI cannot fire multiple network requests at once, e.g. by disabling elements which trigger network requests after they're clicked.
--   **Prevent duplicate requests**: Buttons should be disabled after submission to avoid making duplicate network requests.
--   **Consolidating requests**: If the UI is making too many network requests, you can:
-    -   **Debounce/throttle**: Rate limit the number of network requests fired.
-    -   **Batch requests**: Group requests together and make only one single request. This requires the server side to support such a format.
--   **Caching**: If a request with the same parameters has been made recently, can you reuse the previous response and save on a network round trip?
--   **Request timeouts**: You might want to artificially show that the request has failed (timed out) if the request doesn't receive a response after a stipulated duration.
--   **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
+-   **Reflita os estados da solicitação de rede**: Se a interface do usuário envolver a realização de solicitações de rede, mostre claramente o estado pendente/sucesso/falha das solicitações
+    -   **Pendente**: Desativar campos/botões, mostrar um spinner.
+    -   **Erro**: Mostrar uma mensagem de erro.
+    -   **Sucesso**: Atualizar a interface do usuário e/ou mostrar uma mensagem de sucesso.
+-   **Condições de corrida**: Uma razão comum é devido a solicitações de rede paralelas, onde a ordem de resposta não é garantida. Uma solicitação feita posteriormente poderia receber uma resposta mais cedo. Se a sua interface de usuário for suscetível a isso, você pode acompanhar as solicitações mais recentes e ignorar os resultados das mais antigas. Alternativamente, faça com que sua interface de usuário não possa enviar várias solicitações de rede ao mesmo tempo, por exemplo, desabilitando elementos que acionam solicitações de rede após serem clicados.
+-   **Evitar solicitações duplicadas**: Os botões devem ser desabilitados após o envio para evitar a realização de solicitações de rede duplicadas.
+-   **Consolidando solicitações**: Se a interface de usuário estiver fazendo um grande número de solicitações de rede, você pode:
+    -   **Debounce/throttle**: Limite a taxa de solicitações de rede disparadas.
+    -   **Solicitações em lote**: Agrupe solicitações juntas e faça apenas uma única solicitação. Isso requer que o lado do servidor suporte esse formato.
+-   **Caching**: Se uma solicitação com os mesmos parâmetros foi feita recentemente, você pode reutilizar a resposta anterior e economizar uma ida e volta na rede?
+-   **Tempo limite da solicitação**: Você pode querer artificialmente mostrar que a solicitação falhou (expirou) se a solicitação não receber uma resposta após uma duração estipulada.
+-   **Atualizações otimistas**: Técnica avançada na qual o estado de sucesso é refletido mesmo quando a solicitação de rede ainda está pendente. Se a solicitação falhar, reverta as alterações na interface de usuário e exiba uma mensagem de erro.
 
-## Accessibility (a11y)
+## Acessibilidade (a11y)
 
-Handling accessibility in UI is a huge plus and in some cases a requirement for senior engineers.
+Lidar com acessibilidade na interface de usuário é uma grande vantagem e, em alguns casos, um requisito para engenheiros sênior.
 
--   Can you use the UI with the keyboard only?
--   Can you use your UI component with a screen reader?
--   Can your UI component work without color?
--   Can your UI component work without sound?
+-   Você consegue usar a interface de usuário apenas com o teclado?
+-   Você consegue usar o componente da sua interface com um leitor de tela?
+-   Seu componente de interface pode funcionar sem cores?
+-   Seu componente de interface pode funcionar sem som?
 
-Source: [Accessible UI Components for the web](https://medium.com/@addyosmani/accessible-ui-components-for-the-web-39e727101a67)
+Fonte: [Componentes de UI Acessíveis para o web](https://medium.com/@addyosmani/accessible-ui-components-for-the-web-39e727101a67)
 
--   **Screen readers, ARIA roles, states, and properties**:
-    -   Add the right `aria-role`s for custom built elements not built using custom HTML tags.
-    -   Use `aria-label`s to describe elements where text is not shown (e.g. icon-only buttons).
-    -   Link error messages elements with the elements responsible for them via `aria-describedby`/`aria-errormessage`.
-    -   **Image `alt` text**: Add `alt` attribute to `<img>` elements so that screen readers can describe the image.
--   **Keyboard interactions**
-    -   Add the `tabindex` attribute to elements you want to be focusable via keyboard tabbing.
-    -   Elements can be triggered via keyboard.
-    -   Check that the focus order makes sense.
--   **Visual issues**
-    -   **Color contrast**: Sufficient color contrast between text/images and the background.
-    -   **Size of elements**: font size, interactive element size should be large enough for their intended medium.
+-   **Leitores de tela, papéis, estados e propriedades ARIA**:
+    -   Adicione os `aria-role`s corretos para elementos personalizados construídos sem o uso de tags HTML personalizadas.
+    -   Use `aria-label`s para descrever elementos onde o texto não é exibido (por exemplo, botões apenas com ícones).
+    -   Vincule elementos de mensagens de erro aos elementos responsáveis por eles por meio de `aria-describedby` ou `aria-errormessage`.
+    -   **Texto `alt` de imagens**: Adicione o atributo `alt` aos elementos `<img>` para que leitores de tela possam descrever a imagem.
+-   **Interações por teclado**
+    -   Adicione o atributo `tabindex` aos elementos que você deseja que sejam focáveis através da navegação por teclado.
+    -   Elementos podem ser acionados via teclado.
+    -   Verifique se a ordem de foco faz sentido.
+-   **Problemas visuais**
+    -   **Contraste de cores**: Contraste de cores suficiente entre texto/imagens e o plano de fundo.
+    -   **Tamanho dos elementos**: o tamanho da fonte e dos elementos interativos deve ser grande o suficiente para o meio pretendido.
 
-web.dev by Google has a [free in-depth course on accessibility](https://web.dev/learn/accessibility/) which we highly recommend.
+o web.dev, do Google, oferece um [curso abrangente e gratuito sobre acessibilidade](https://web.dev/learn/accessibility/), o qual recomendamos fortemente.
 
-## Edge Cases
+## Casos extremos
 
-There's probably not enough time to handle all edge cases scenarios in your code during the interview, but it'd be good to mention them to the interviewer for brownie points.
+Provavelmente não há tempo suficiente para lidar com todos os cenários de casos extremos no seu código durante a entrevista, mas é bom mencioná-los ao entrevistador para ganhar pontos extras.
 
--   **Handle long strings**: Strings in UI (e.g. headings/button labels) can cause the UI to behave weirdly such as overflowing and affect the position of surrounding elements. Long strings can be a result of user input or translations.
--   **Empty states**: Show an empty state message/placeholder to indicate absence of contents e.g. when the list is empty. Showing nothing might make the user think that there's a pending network request and that data is still being fetched.
--   **Too many items in a list**: Showing too many items on a single page can lead to poor UX (user has to scroll a lot) and poor performance in terms of responsiveness and memory consumption.
-    -   **Pagination**: Break up a long list of items into multiple pages.
-    -   [**Virtual lists**](https://www.patterns.dev/posts/virtual-lists): Rendering only visible rows of content in a dynamic list instead of the entire list.
-    -   Truncate the excess content and show an ellipsis. The `word-break` CSS property will come in handy useful.
-    -   Limit the content to the first X characters/words and hide the excess content behind a "Show More" button.
+-   **Lidar com strings longas**: Strings na interface de usuário (por exemplo, títulos/rótulos de botões) podem fazer com que a interface de usuário se comporte de maneira estranha, como o overflow de texto, afetando a posição de elementos circundantes. Strings longas podem ser resultado de entradas do usuário ou de traduções.
+-   **Estados vazios**: Mostrar uma mensagem/indicador de estado vazio para indicar a ausência de conteúdo, por exemplo, quando a lista está vazia. Mostrar nada pode fazer com que o usuário pense que há uma solicitação de rede pendente e que os dados ainda estão sendo buscados.
+-   **Muitos itens em uma lista**: Mostrar muitos itens em uma única página pode resultar em uma má experiência do usuário (o usuário precisa rolar muito) e baixo desempenho em termos de responsividade e consumo de memória.
+    -   **Paginação**: Divida uma longa lista de itens em várias páginas.
+    -   [**Listas virtuais**](https://www.patterns.dev/posts/virtual-lists): Renderização apenas das linhas visíveis de conteúdo em uma lista dinâmica em vez da lista inteira.
+    -   Truncar o conteúdo excedente e mostrar uma elipse. A propriedade CSS `word-break` será útil.
+    -   Limite o conteúdo às primeiras X caracteres/palavras e oculte o conteúdo excedente atrás de um botão "Mostrar Mais".
 
 ## Performance
 
--   **Throttle/debounce**: Throttle and debounce are rate limiting techniques to prevent unnecessary operations. This technique can be used for operations which aren't super time-sensitive like network requests and scroll/resizing event callbacks.
--   **Caching**: The results of duplicate computations / network requests can be cached in browser memory/storage and not repeated.
--   **On demand loading**: Lazy load data/component code only when they are needed, instead of loading all at the start.
--   **Prefetch/preload data**: Reduce network latency by prefetching/preloading data right before it is needed so that updates appear instantly.
--   **Too many items in a list**: Refer to the point under "Edge Cases" above.
+-   **Throttle/debounce**: Throttle e debounce são técnicas de limitação de taxa para evitar operações desnecessárias. Essa técnica pode ser usada para operações que não são extremamente sensíveis ao tempo, como solicitações de rede e callbacks de eventos de rolagem/redimensionamento.
+-   **Cache**: Os resultados de cálculos duplicados ou solicitações de rede podem ser armazenados em memória/armazenamento do navegador e não repetidos.
+-   **Carregamento sob demanda**: Carregue os dados/código do componente apenas quando forem necessários, em vez de carregar tudo no início.
+-   **Pré-carregamento de dados**: Reduza a latência de rede pré-carregando dados imediatamente antes de serem necessários, para que as atualizações apareçam instantaneamente.
+-   **Muitos itens em uma lista**: Consulte o ponto sob "Casos Especiais" acima.
 
-## Security
+## Segurança
 
--   **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
--   **Output encoding for "URL Contexts"**: If user-supplied input can be used in URL query parameters, use `encodeURIComponent` to prevent unintended values from becoming part of the URL (e.g. extra query parameters).
--   **Cross Site Request Forgery**: Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).
+-   **Scripting Cross-site (XSS)**: Evitar atribuir a [`Element.innerHTML`]\(https://developer.mozilla. rg/en-US/docs/Web/API/Element/innerHTML) ou `dangerouslySetInnerHTML` do React ao renderizar conteúdo no DOM se ele vier de usuários para impedir script entre sites, atribuir ao [`Node. extContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) ou use o método experimental[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) em vez disso. Consulte o [Folha de Dicas de Prevenção de XSS do OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+-   **Codificação de saída para "Contextos de URL"**: Se a entrada fornecida pelo usuário puder ser usada em parâmetros de consulta de URL, use `encodeURIComponent` para evitar que valores indesejados façam parte da URL (por exemplo, parâmetros de consulta extras).
+-   **Cross Site Request Forgery (CSRF)**: Consulte a [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) para obter informações sobre prevenção de CSRF e outras vulnerabilidades de segurança.
 
-## Internationalization (i18n)
+## Internacionalização (i18n)
 
-Does your UI work for multiple languages? How easy is it to add support for more languages?
+Sua interface de usuário funciona para múltiplos idiomas? Quão fácil é adicionar suporte para mais idiomas?
 
--   **Avoid hardcoding of labels in a certain language**: Some UI components have label strings within them (e.g. image carousel has labels for prev/next buttons). It'd be good to allow customization of these label strings by making them part of component props/options.
--   **UI can render long strings**: Refer to the section above on rendering long strings.
--   **Right-to-left languages**: Some languages (e.g. Arabic, Hebrew) are read from right-to-left and the UI has to be flipped horizontally. Use [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) to make your layout work for different [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes).
+-   **Evite a codificação rígida de rótulos em um determinado idioma**: Alguns componentes de interface do usuário têm strings de rótulo incorporadas (por exemplo, um carrossel de imagens tem rótulos para os botões anterior/próximo). Seria bom permitir a personalização dessas strings de rótulo tornando-as parte das props/opções do componente.
+-   **A UI pode renderizar strings longas**: Consulte a seção acima sobre a renderização de strings longas.
+-   **Idiomas da direita para a esquerda**: Alguns idiomas (por exemplo, árabe, hebraico) são lidos da direita para a esquerda, e a interface do usuário precisa ser virada horizontalmente. Use [propriedades lógicas CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) para fazer seu layout funcionar para diferentes [modos de escrita](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes).

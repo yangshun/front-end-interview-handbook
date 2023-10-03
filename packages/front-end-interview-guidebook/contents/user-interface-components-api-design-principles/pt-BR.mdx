@@ -1,22 +1,22 @@
 ---
-title: User Interface Components API Design Principles
-description: Best practices for designing developer interface components APIs, useful for UI components coding and system design interviews
+title: Princípios de Design de API para Componentes de Interface do Usuário
+description: Melhores práticas para projetar APIs de componentes de interface do desenvolvedor, úteis para entrevistas de codificação de componentes de IU e design de sistemas
 ---
 
-User Interface component libraries like [Bootstrap](https://getbootstrap.com/) and [Material UI](https://mui.com/) help developers build UI faster by providing commonly used components like buttons, tabs, modals, etc so that developers do not have to reinvent the wheel by building these components from scratch whenever they start on a new project.
+Bibliotecas de componentes de interface de usuário como [Bootstrap](https://getbootstrap.com/) e [Material UI](https://mui.com/) ajudam os desenvolvedores a criar UI mais rapidamente, fornecendo componentes comumente usados, como botões, guias, modais, etc, para que os desenvolvedores não precisem reinventar a roda construindo esses componentes do zero sempre que iniciarem um novo projeto.
 
-Often during front end interviews, you will be asked to build UI components and design an API to initialize them. Designing good component APIs is bread and butter for Front End Engineers. This page covers some of the top tips and best practices for designing UI component APIs. Some of these tips may be framework-specific but can be generalized for other component-based UI frameworks.
+Frequentemente, durante entrevistas de front-end, você será solicitado a construir componentes de IU e projetar uma API para inicializá-los. Designing good component APIs is bread and butter for Front End Engineers. This page covers some of the top tips and best practices for designing UI component APIs. Algumas dessas dicas podem ser específicas para determinados frameworks, mas podem ser generalizadas para outros frameworks de interface de usuário baseados em componentes.
 
-## Initialization
+## Inicialização
 
 ### jQuery-style
 
-Before modern JavaScript UI libraries/frameworks like [React](https://reactjs.org/), [Angular](https://angular.io/), and [Vue](https://vuejs.org/) came into the picture, [jQuery](https://jquery.com/) (and [jQuery UI](https://jqueryui.com/)) was the most popular way to build UI. jQuery UI popularized the idea of initializing UI components via "constructors" which involved two arguments:
+Antes das modernas bibliotecas de IU JavaScript como [React](https://reactjs.org/), [Angular](https://angular.io/), e [Vue](https://vuejs.org/) aparecerem, [jQuery]\(https://jquery. om/) (e [jQuery UI](https://jqueryui.com/)) era a maneira mais popular de construir a interface do usuário. A jQuery UI popularizou a ideia de inicializar os componentes da UI através de "construtores" que envolvia dois argumentos:
 
-1.  **Root Element**: A root DOM element to render the contents.
-2.  **Customization Options**: Optional, additional, customization options usually in the form of a plain JavaScript object.
+1.  **Elemento Raiz**: Um elemento raiz da DOM para renderizar o conteúdo.
+2.  **Opções de Customização**: Opcionais, opções adicionais de customização, geralmente na forma de um objeto JavaScript simples.
 
-Using jQuery UI, one can turn a DOM element into a [slider](https://api.jqueryui.com/slider/) (among many other UI components) with a single line of code:
+Usando o jQuery UI, é possível transformar um elemento DOM em um [slider](https://api.jqueryui.com/slider/) (entre muitos outros componentes de UI) com uma única linha de código:
 
 ```html
 <div id="gfe-slider"></div>
@@ -25,67 +25,67 @@ Using jQuery UI, one can turn a DOM element into a [slider](https://api.jqueryui
 </script>
 ```
 
-**jQuery refresher**: jQuery UI's `slider()` method (constructor) takes in a JavaScript object which serves as customization options. Doing `$('#slider')` selects the `<div id="slider">` element and returns a jQuery object that contains convenient methods to "do something" with the element such as `addClass`, `removeClass`, etc and other DOM manipulation methods. Within jQuery methods, the selected element can be accessed via the `this` keyword. jQuery APIs are built around this "select an element and do something with it" approach, hence the `slider()` method does not need an argument for the root DOM element.
+**jQuery refresher**: o método `slider()` do jQuery UI (construtor) recebe um objeto JavaScript que serve como opções de personalização. Ao fazer `$('#slider')` seleciona-se o elemento `<div id="slider">` e retorna um objeto jQuery que contém métodos convenientes para "fazer algo" com o elemento como `addClass`, `removeClass`, etc e outros métodos de manipulação da DOM. Dentro dos métodos do jQuery, o elemento selecionado pode ser acessado através da palavra-chave `this`. as APIs do jQuery são construídas em torno dessa abordagem de "selecionar um elemento e fazer algo com ele", portanto o método `slider()` não precisa de um argumento para o elemento raiz da DOM.
 
-The slider can be customized by passing in a plain JavaScript object of options:
+O slider pode ser customizado passando um objeto JavaScript simples com opções:
 
 ```html
 <div id="gfe-slider"></div>
 <script>
-  $('#gfe-slider').slider({
+  $('#gfe-slider'). liderar({
     animate: true,
     max: 50,
     min: 10,
-    // See other options here: https://api.jqueryui.com/slider/
+    // Veja outras opções aqui: https://api. queryui.com/slider/
   });
 </script>
 ```
 
-### Vanilla JavaScript Style
+### Estilo JavaScript Puro
 
-There's no vanilla JavaScript style for initializing components since vanilla JavaScript is not a standard or framework. But if you have read enough of GreatFrontEnd's solutions for our vanilla JavaScript [UI coding questions](/questions/vanilla), you'll see that the API we recommend is similar to jQuery's, the constructor takes in a root element and options:
+Não existe um estilo de JavaScript puro para inicializar componentes, uma vez que JavaScript puro não é um padrão ou framework. Mas se você já leu as soluções do GreatFrontEnd, para nossas [perguntas sobre codificação de UI](/questions/vanilla), você verá que a API que recomendamos é semelhante ao do jQuery, o construtor recebe um elemento raiz e opções:
 
 ```js
-function slider(rootEl, options) {
-  // Do something with rootEl and options.
+function slider(rootEl, opções) {
+  // Faça algo com rootEl e as opções.
 }
 ```
 
 ### React
 
-React forces you to write UI as components which contain its own logic and appearance. React components are JavaScript functions that return markup (a description of how to render itself). React components can take in `props`, which are essentially customization of a component's options.
+O React te obriga a escrever a interface de usuário como componentes, que contêm sua própria lógica e aparência. Componentes do React são funções JavaScript que retornam marcações (uma descrição de como renderizar a si mesmos). Componentes do React podem receber `props`, que são essencialmente personalizações das opções de um componente.
 
 ```js
 function Slider({ min, max }) {
-  // Use the props to render a customized component.
+  // Use as props para renderizar um componente personalizado.
   return <div>...</div>;
 }
 
 <Slider max={50} min={10} />;
 ```
 
-Components do not take in a root element. To render the element into the page, a separate API is used.
+Componentes não recebem um elemento raiz. Para renderizar o elemento na página, uma API separada é utilizada.
 
 ```jsx
 import { createRoot } from 'react-dom/client';
 import Slider from './Slider';
 
 const domNode = document.getElementById('#gfe-slider');
-// React will manage the DOM within this element.
+// O React vai gerenciar o DOM dentro deste elemento.
 const root = createRoot(domNode);
-// Display the Slider component within the element.
+// Exibe o componente Slider dentro do elemento.
 root.render(<Slider max={50} min={10} />);
 ```
 
-You will usually not need to call `createRoot()` yourself if the entire page a React app because there will only be one `createRoot` call for the root/page-level component.
+Geralmente, você não precisará chamar createRoot() manualmente se toda a página for uma aplicação React, pois haverá apenas uma chamada de createRoot para o componente raiz/nível da página.
 
-## Customizing Appearance
+## Customizando a Aparência
 
-Even though UI components in UI libraries provide default styling, developers will usually want to customize them with their company/product's branding and theme colors. Hence all UI components will allow for customization of the appearance, via a few methods:
+Embora os componentes de interface de usuário em bibliotecas de UI forneçam estilos padrão, os desenvolvedores geralmente desejam personalizá-los com a identidade visual e as cores de tema de sua empresa/produto. Portanto, todos os componentes de interface de usuário permitirão a personalização da aparência, por meio de alguns métodos:
 
-### Class Injection
+### Injeção de classe
 
-The idea here is simple, components accept a prop/option to allow the developer to provide their own classes and these classes are added to the actual DOM elements. This approach is not very robust because if the component also adds its own styling via classes, there could be conflicting properties within the component's classes and developer-provided classes.
+A ideia aqui é simples, os componentes aceitam uma prop/opção para permitir que o desenvolvedor forneça suas próprias classes, e essas classes são adicionadas aos elementos DOM reais. Essa abordagem não é muito robusta, pois se o componente também adicionar seus próprios estilos por meio de classes, pode haver propriedades conflitantes entre as classes do componente e as classes fornecidas pelo desenvolvedor.
 
 #### React
 
@@ -117,9 +117,9 @@ function Slider({ className, value }) {
 }
 ```
 
-Through class injection, developers can change the text `color` of the component to be `red`.
+Através da injeção de classes, os desenvolvedores podem alterar a cor do texto do componente para ser "vermelha".
 
-If there are many DOM elements within the component to be targeted and one single `className` prop is not sufficient, you can also have multiple differently-named props for `className`s of different elements:
+Se houver muitos elementos DOM dentro do componente a serem direcionados e uma única propriedade `className` não for suficiente, você também pode ter várias propriedades com nomes diferentes para as classes de diferentes elementos:
 
 ```jsx
 import { useId } from 'react';
@@ -145,17 +145,17 @@ function Slider({ label, value, className, classNameLabel, classNameTrack }) {
 
 #### jQuery
 
-In jQuery, classes can also be passed as a field on the options.
+No jQuery, classes também podem ser passadas como um campo nas opções.
 
 ```js
 $('#gfe-slider').slider({
-  // In reality, jQuery UI takes in a `classes` field instead
-  // since there are multiple elements.
+  // Na verdade, o jQuery UI recebe um campo `classes` em vez disso
+  // já que existem vários elementos.
   class: 'my-custom-slider',
 });
 ```
 
-In reality, all of jQuery UI's component initializers take in the `classes` field to allow adding additional classes to individual elements. The following example is taken from [jQuery UI Slider](https://api.jqueryui.com/slider/#option-classes):
+Na realidade, todos os inicializadores de componentes do jQuery UI recebem o campo `classes` para permitir a adição de classes adicionais a elementos individuais. O exemplo a seguir é retirado de[jQuery UI Slider](https://api.jqueryui.com/slider/#option-classes):
 
 ```js
 $('#gfe-slider').slider({
@@ -167,9 +167,9 @@ $('#gfe-slider').slider({
 });
 ```
 
-#### Non-deterministic Styling
+#### Estilização não determinística
 
-Class injection has an unobvious downside — the final visual result is non-deterministic and may not be what is expected. Take the following code for example:
+A injeção de classes tem uma desvantagem não óbvia — o resultado visual final é não-determinístico e pode não ser o esperado. Considere o seguinte código como exemplo:
 
 ```jsx
 import clsx from 'clsx';
@@ -194,30 +194,30 @@ function Slider({ className, value }) {
 ```
 
 ```css
-/* Developer's custom stylesheet */
+/* Folha de estilos customizada do desenvolvedor */
 .my-custom-slider {
-  color: red; /* .gfe-slider also defines a value for color. */
+  color: red; /* .gfe-slider também define um valor para a cor. */
 }
 ```
 
-In the example above, both `.gfe-slider` and `.my-custom-slider` classes specify the `color` and because these two selectors have the same specificity, the winning style is actually the class that appears later on the HTML page. If the loading order of the stylesheet is not guaranteed (e.g. if stylesheets are lazily loaded), the visual result will not be deterministic. This is when developers start using hacks like `!important` or `.my-custom-slider.my-custom-slider` to let their selectors win the specificity war and the CSS code starts becoming unmaintainable.
+No exemplo acima, tanto as classes `.gfe-slider` quanto `.my-custom-slider` especificam o `color`, e como esses dois seletores têm a mesma especificidade, o estilo vencedor é na verdade a classe que aparece mais tarde na página HTML. Se a ordem de carregamento da folha de estilos não for garantida (por exemplo, se as folhas de estilos forem carregadas de forma preguiçosa), o resultado visual não será determinístico. É nesse momento que os desenvolvedores começam a usar "hacks" como `!important` ou `.my-custom-slider.my-custom-slider` para fazer com que seus seletores vençam a guerra de especificidade, e o código CSS começa a se tornar difícil de manter.
 
-In jQuery UI, if a custom class is added, the existing default value is not used. This removes the "winning style" ambiguity but the user must now reimplement all the necessary styles present in the original class. This approach can also be applied to React components to resolve the ambiguity.
+No jQuery UI, se uma classe personalizada for adicionada, o valor padrão existente não será utilizado. Isso elimina a ambiguidade do "estilo vencedor", mas o usuário agora precisa reimplementar todos os estilos necessários presentes na classe original. Essa abordagem também pode ser aplicada a componentes do React para resolver a ambiguidade.
 
-Despite its possible flaws, class injection is still a very popular option.
+Apesar de suas possíveis falhas, a injeção de classes ainda é uma opção muito popular.
 
-### CSS Selector Hooks
+### Hooks de Seletores CSS
 
-Technically speaking, developers can achieve customization if they read the source code of the component and define their custom styling by using the same classes. However, doing this is dangerous as relying on a component's internals and there's no guarantee that the class names won't change in future.
+Tecnicamente falando, os desenvolvedores podem alcançar a personalização se lerem o código-fonte do componente e definirem seus estilos personalizados usando as mesmas classes. No entanto, fazer isso é perigoso, pois depende das partes internas de um componente e não há garantia de que os nomes das classes não mudarão no futuro.
 
-If UI library authors can make these classes/attributes part of their API, which comes with these guarantees:
+Se os autores de bibliotecas de UI puderem tornar essas classes/atributos parte de sua API, que oferece essas garantias:
 
-1.  The list of selectors is published for external reference.
-2.  Existing published selectors will not be changed. If they are changed, it will be a breaking change and a version bump is needed as per semver.
+1.  A lista de seletores é publicada para referência externa.
+2.  Os seletores publicados existentes não serão alterados. Se forem alterados, será uma mudança que quebra a compatibilidade e será necessário fazer um incremento de versão de acordo com o semver.
 
-Then it's an acceptable practice and developers can "hook" onto them (target them) by using these selectors in their stylesheets.
+Nesse caso, é uma prática aceitável e os desenvolvedores podem "conectar-se" a eles (selecioná-los) usando esses seletores em suas folhas de estilo.
 
-An example of hooking into a component's selectors:
+Um exemplo de conexão com seletores de um componente:
 
 ```jsx
 import { useId } from 'react';
@@ -237,21 +237,21 @@ function Slider({ label, value }) {
 ```
 
 ```css
-/* UI library default stylesheet */
-.gfe-slider {
+/* Biblioteca de UI padrão de estilo */
+. fe-slider {
   font-size: 12px;
 }
 
-/* No other classes are defined in this stylesheet,
-gfe-slider-label and gfe-slider-range are added
-to the component just for developers to gain access
-to the underlying elements. */
+/* Nenhuma outra classe é definida nesta folha de estilos,
+gfe-slider-label e gfe-slider-range são adicionados
+ao componente apenas para que os desenvolvedores tenham acesso
+aos elementos subjacentes. */
 ```
 
 ```css
-/* Developer's custom stylesheet */
+/* Folha de estilo personalizada do desenvolvedor */
 .gfe-slider {
-  font-size: 16px; /* Conflicts with the default .gfe-slider */
+  font-size: 16px; /* Conflitos com o padrão .gfe-slider */
   padding: 10px 20px;
 }
 
@@ -264,7 +264,7 @@ to the underlying elements. */
 }
 ```
 
-This approach saves developers the hassle of passing in classes into the component as they only have to write CSS to customize the styling. [Reach UI](https://reach.tech/styling), a headless UI component library for React, uses element selectors. Each component has a `data-reach-*` attribute on the underlying DOM element.
+Essa abordagem poupa os desenvolvedores do trabalho de passar classes para o componente, pois eles só precisam escrever CSS para personalizar o estilo. [Reach UI](https://reach.tech/styling), uma biblioteca de componentes de UI para React, usa seletores de elementos. Cada componente possui um atributo \`data-reach-\* no elemento DOM subjacente.
 
 ```css
 [data-reach-menu-item] {
@@ -272,17 +272,17 @@ This approach saves developers the hassle of passing in classes into the compone
 }
 ```
 
-However, this approach still suffers from the non-deterministic styling issue as per "class injection" and doesn't easily allow per-instance styling. If per-instance styling is desired, this approach can be combined with the class injection approach.
+No entanto, essa abordagem ainda sofre com o problema de estilização não determinística, como na "injeção de classes", e não permite facilmente a estilização por instância. Se a estilização por instância for desejada, essa abordagem pode ser combinada com a abordagem de injeção de classes.
 
-### Theme Object
+### Objeto de Tema
 
-Instead of taking in classes, the component takes in an object of key/values for styling. This is useful if there is only a strict subset of properties to customize, or if you want to restrict styling to only a few properties.
+Em vez de receber classes, o componente recebe um objeto de chaves/valores para estilização. Isso é útil se houver apenas um subconjunto restrito de propriedades para personalizar ou se você quiser restringir a estilização a apenas algumas propriedades.
 
 ```jsx
 const defaultTheme = { color: 'black', height: 12 };
 
 function Slider({ value, label, theme }) {
-  // Combine with default.
+  // Combinar com o padrão.
   const finalTheme = { ...defaultTheme, ...theme };
 
   return (
@@ -309,19 +309,19 @@ function Slider({ value, label, theme }) {
 <Slider themeOptions={{ color: 'red', height: 24 }} {...props} />;
 ```
 
-However, since no classes with conflicting styles are used, and inline styles have higher specificity than classes, there's no specificity conflict and the inline styles will win. However, the number of options that need to be supported can grow really quickly. Inline styles are also present in the DOM per component instance, which can be bad for performance if this component is rendered hundreds/thousands of times within a page.
+No entanto, como não são usadas classes com estilos conflitantes e os estilos em linha têm maior especificidade do que as classes, não há conflito de especificidade e os estilos em linha serão aplicados. No entanto, o número de opções que precisam ser suportadas pode aumentar rapidamente. Os estilos em linha também estão presentes no DOM por instância do componente, o que pode ser prejudicial para o desempenho se esse componente for renderizado centenas/milhares de vezes em uma página.
 
-The theme object is just a way to restrict the styling to certain properties and optionally, an accepted set of values, the values do not need be used as inline styles and instead can be combined with other styling approaches.
+O objeto de tema é apenas uma maneira de restringir a estilização a determinadas propriedades e, opcionalmente, a um conjunto aceito de valores. Os valores não precisam ser usados como estilos em linha e podem ser combinados com outras abordagens de estilização.
 
 ### CSS Preprocessor Compilation
 
-UI libraries are usually written with CSS preprocessors like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/). [Bootstrap](https://getbootstrap.com/) is written with Sass and they provide a way to [customize the Sass variables](https://getbootstrap.com/docs/5.3/customize/sass/) used so that developers can generate a custom UI library stylesheet.
+Bibliotecas de UI geralmente são escritas com pré-processadores de CSS como [Sass] \(https://sass-lang.com/) e [Less](https://lesscss.org/). [Bootstrap](https://getbootstrap.com/) é escrito com Sass e eles fornecem uma maneira de [personalizar as variáveis Sas]\(https://getbootstrap. om/docs/5.3/customize/sass/) usados para que os desenvolvedores possam gerar uma biblioteca de biblioteca de UI personalizada.
 
-This approach is great because it doesn't rely on overriding CSS selectors to achieve customization. There's also less amount of resulting CSS and no redundant overridden styles. The downside is that a compilation step is needed.
+Essa abordagem é excelente porque não depende de substituir seletores CSS para alcançar a personalização. Também há uma quantidade menor de CSS resultante e nenhum estilo redundante sobreposto. A desvantagem é que é necessário um passo de compilação.
 
-### CSS Variables / Custom Properties
+### Variáveis CSS / Propriedades Personalizadas
 
-[CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or more formally known as CSS custom properties) are entities defined by CSS authors that contain specific values to be reused throughout a document. The `var()` function, it accepts fallback values if the given variable is not set.
+[Variáveis CSS]\(https://developer.mozilla. rg/en-US/docs/Web/CSS/Using_CSS_custom_properties) (ou mais formalmente conhecido como propriedades personalizadas CSS) são entidades definidas por autores de CSS que contêm valores específicos para serem reutilizados através de um documento. A função `var()`, aceita valores de fallback se a variável determinada não estiver definida.
 
 ```jsx
 function Slider({ value, label }) {
@@ -337,38 +337,38 @@ function Slider({ value, label }) {
 ```css
 /* UI library default stylesheet */
 .gfe-slider {
-  /* Fallback of 12px if not set. */
+  /*Reserva de 12px caso não seja definido. */
   font-size: var(--gfe-slider-font-size, 12px);
 }
 ```
 
 ```css
-/* Developer's custom stylesheet */
+/* Folha de estilo personalizada do desenvolvedor */
 :root {
   --gfe-slider-font-size: 15px;
 }
 ```
 
-The developer can define a value for `--gfe-slider-font-size` globally via the `:root` selector and set the font size for the `.gfe-slider` class to be 15px. The benefit of this approach is that it doesn't require JavaScript, however, per-component customization will be more troublesome (but still possible).
+O desenvolvedor pode definir um valor para `--gfe-slider-font-size` globalmente através do seletor `:root` e definir o tamanho da fonte para a classe `.gfe-slider` como 15px. O benefício dessa abordagem é que ela não requer JavaScript, no entanto, a personalização por componente será mais trabalhosa (mas ainda possível).
 
 ### Render Props
 
-In React, render props are function props that a component uses to know what to render. It is useful for separating behavior from presentation. Many behavioral/headless UI libraries like [Radix](https://www.radix-ui.com/), [Headless UI](https://headlessui.com/), and [Reach UI](https://reach.tech/menu-button) make heavy use of render props.
+No React, as "render props" são props de função que um componente usa para saber o que renderizar. Isso é útil para separar comportamento da apresentação. Muitas bibliotecas de UI comportamentais/headless como [Radix](https://www.radix-ui.com/), [Headless UI](https://headlessui.com/) e [Reach UI](https://reach.tech/menu-button) fazem amplo uso de "render props".
 
-{/* TODO: Section on manipulation of component after initialization */}
+{/* TODO: Seção sobre manipulação do componente após a inicialização */}
 
-## Internationalization (i18n)
+## Internacionalização (i18n)
 
-Does your UI work for multiple languages? How easy is it to add support for more languages?
+Minha interface de usuário funciona para múltiplos idiomas? Quão fácil é adicionar suporte para mais idiomas?
 
-### Avoid hardcoding of labels in a certain language
+### Evitar codificação rígida de rótulos em um determinado idioma
 
-Some UI components have label strings within them (e.g. image carousel has labels for prev/next buttons). It'd be good to allow customization of these label strings by making them part of component props/options.
+Alguns componentes de interface de usuário possuem strings de rótulo dentro deles (por exemplo, um carrossel de imagens possui rótulos para os botões anterior/próximo). Seria bom permitir a personalização dessas strings de rótulo tornando-as parte das props/opções do componente.
 
-### Right-to-left languages
+### Idiomas da direita para a esquerda
 
-Some languages (e.g. Arabic, Hebrew) are read from right-to-left and the UI has to be flipped horizontally. The component can take in a `direction` prop/option and change the order of how elements are rendered. For example, the prev and next buttons will be on the right and left respectively in an RTL language.
+Alguns idiomas (como árabe, hebraico) são lidos da direita para a esquerda, e a interface do usuário precisa ser espelhada horizontalmente. O componente pode pegar uma prop/opção `direction` e alterar a ordem de como os elementos são renderizados. Por exemplo, os botões de anterior e próximo estarão à direita e à esquerda, respectivamente, em um idioma da direita para a esquerda (RTL).
 
-Use [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) to futureproof your styles and let your layout work for different [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes).
+Use [propriedades lógicas CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) para tornar seus estilos mais à prova de futuro e permitir que seu layout funcione para diferentes [modos de escrita](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes).
 
-{/* TODO: Give examples of how to implement RTL. */}
+{/* TODO: Dê exemplos de como implementar RTL. */}
