@@ -5,6 +5,7 @@ import { publicProcedure, router } from '../trpc';
 import {
   PrismaClient,
   QuestionSubmissionResult,
+  QuestionUserInterfaceFramework,
   QuestionWorkingLanguage,
 } from '@prisma/client';
 
@@ -77,6 +78,77 @@ export const questionSubmissionRouter = router({
       }
 
       return await prisma.questionJavaScriptSubmission.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+        where: {
+          slug,
+          userId: user.id,
+        },
+      });
+    }),
+  userInterfaceAdd: publicProcedure
+    .input(
+      z.object({
+        code: z.string(),
+        framework: z.enum([
+          // TODO: Read from Prisma directly.
+          QuestionUserInterfaceFramework.REACT,
+          QuestionUserInterfaceFramework.VANILLA,
+          QuestionUserInterfaceFramework.ANGULAR,
+          QuestionUserInterfaceFramework.VUE,
+          QuestionUserInterfaceFramework.SVELTE,
+        ]),
+        slug: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { code, slug, framework }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      return await prisma.questionUserInterfaceSubmission.create({
+        data: {
+          code,
+          framework,
+          slug,
+          userId: user.id,
+        },
+      });
+    }),
+  userInterfaceGet: publicProcedure
+    .input(
+      z.object({
+        submissionId: z.string(),
+      }),
+    )
+    .query(async ({ input: { submissionId }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      return await prisma.questionUserInterfaceSubmission.findFirst({
+        orderBy: {
+          createdAt: 'desc',
+        },
+        where: {
+          id: submissionId,
+          userId: user.id,
+        },
+      });
+    }),
+  userInterfaceGetAll: publicProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .query(async ({ input: { slug }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      return await prisma.questionUserInterfaceSubmission.findMany({
         orderBy: {
           createdAt: 'desc',
         },
