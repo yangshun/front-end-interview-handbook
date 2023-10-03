@@ -1,15 +1,20 @@
 import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
-import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceTabId';
+import type {
+  CodingWorkspaceTabFileType,
+  CodingWorkspaceTabSubmissionType,
+} from '../common/tabs/codingWorkspaceTabId';
 
 export type UserInterfaceCodingWorkspacePredefinedTabsType =
   | 'console'
   | 'description'
   | 'file_explorer'
   | 'preview'
-  | 'solution';
+  | 'solution'
+  | 'versions';
 
 export type UserInterfaceCodingWorkspaceTabsType =
   | CodingWorkspaceTabFileType
+  | CodingWorkspaceTabSubmissionType
   | UserInterfaceCodingWorkspacePredefinedTabsType;
 
 export type UserInterfaceCodingWorkspacePredefinedTabsContents =

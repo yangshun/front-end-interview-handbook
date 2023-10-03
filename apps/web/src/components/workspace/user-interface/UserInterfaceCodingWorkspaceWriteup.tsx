@@ -23,6 +23,8 @@ import Text from '~/components/ui/Text';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
+import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
+
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   contentType: 'description' | 'solution';
@@ -50,6 +52,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   writeup,
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
+  const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();
   const questionTechnologyLists = useQuestionTechnologyLists();
 
@@ -70,6 +73,16 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 size="sm"
                 variant="secondary"
               />
+            </div>
+          </Alert>
+        )}
+        {contentType === 'description' && save != null && (
+          <Alert variant="info">
+            <div className="flex flex-col items-start gap-2">
+              <Text display="block" size="body2">
+                You are currently editing code from your saved version:{' '}
+                <strong>"{save.name}"</strong>
+              </Text>
             </div>
           </Alert>
         )}

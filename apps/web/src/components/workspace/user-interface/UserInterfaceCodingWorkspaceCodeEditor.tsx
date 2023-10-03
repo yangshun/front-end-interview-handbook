@@ -9,11 +9,14 @@ import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWork
 import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 import { themeLineColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
+import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
@@ -28,6 +31,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
   const { sandpack } = useSandpack();
   const intl = useIntl();
   const { files, updateFile, setActiveFile } = sandpack;
+  const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const {
     defaultFiles,
@@ -66,24 +70,52 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           'flex items-center justify-between gap-x-2 px-3 py-1.5',
           ['border-b', themeLineColor],
         )}>
-        <div className="-ml-1">
-          <Button
-            icon={RiFolder3Line}
-            isLabelHidden={true}
-            label="File explorer"
-            size="xs"
-            tooltip="File explorer"
-            variant="tertiary"
-            onClick={() => {
-              dispatch({
-                payload: {
-                  tabId: 'file_explorer',
-                },
-                type: 'tab-set-active',
-              });
-            }}
-          />
-        </div>
+        {save == null ? (
+          <div className="-ml-1">
+            <Button
+              icon={RiFolder3Line}
+              isLabelHidden={true}
+              label="File explorer"
+              size="xs"
+              tooltip="File explorer"
+              variant="tertiary"
+              onClick={() => {
+                dispatch({
+                  payload: {
+                    tabId: 'file_explorer',
+                  },
+                  type: 'tab-set-active',
+                });
+              }}
+            />
+          </div>
+        ) : (
+          <Text
+            className="gap-x-1 whitespace-nowrap"
+            color="subtle"
+            display="flex"
+            size="body3">
+            <span className="flex items-center gap-x-1">
+              <CodingWorkspaceTabIcons.versions.icon className="h-4 w-4" />{' '}
+              Version:{' '}
+            </span>
+            <Text color="active" size="body3" weight="medium">
+              <button
+                className="hover:underline"
+                type="button"
+                onClick={() => {
+                  dispatch({
+                    payload: {
+                      tabId: 'versions',
+                    },
+                    type: 'tab-set-active',
+                  });
+                }}>
+                {save.name}
+              </button>
+            </Text>
+          </Text>
+        )}
         <div className="-mr-2 flex items-center gap-x-1.5">
           <CodingWorkspaceThemeSelect />
           <CodingWorkspaceEditorShortcutsButton />

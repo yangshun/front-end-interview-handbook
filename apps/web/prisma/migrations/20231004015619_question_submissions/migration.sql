@@ -21,19 +21,21 @@ CREATE TABLE "QuestionJavaScriptSubmission" (
 );
 
 -- CreateTable
-CREATE TABLE "QuestionUserInterfaceSubmission" (
+CREATE TABLE "QuestionUserInterfaceSave" (
     "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
+    "name" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
-    "code" TEXT NOT NULL,
+    "files" TEXT NOT NULL,
     "framework" "QuestionUserInterfaceFramework" NOT NULL,
     "createdAt" TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "userId" UUID NOT NULL,
 
-    CONSTRAINT "QuestionUserInterfaceSubmission_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "QuestionUserInterfaceSave_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
 ALTER TABLE "QuestionJavaScriptSubmission" ADD CONSTRAINT "QuestionJavaScriptSubmission_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Profile"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE "QuestionUserInterfaceSubmission" ADD CONSTRAINT "QuestionUserInterfaceSubmission_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Profile"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "QuestionUserInterfaceSave" ADD CONSTRAINT "QuestionUserInterfaceSave_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Profile"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;

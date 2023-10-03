@@ -1,0 +1,104 @@
+import clsx from 'clsx';
+import { RiArrowRightUpLine } from 'react-icons/ri';
+
+import { trpc } from '~/hooks/trpc';
+
+import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import QuestionFrameworkIcon from '~/components/questions/metadata/QuestionFrameworkIcon';
+import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
+import EmptyState from '~/components/ui/EmptyState';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundEmphasizedHover,
+  themeDivideColor,
+  themeLineColor,
+} from '~/components/ui/theme';
+
+import { staticLowerCase } from '~/utils/typescript/stringTransform';
+
+import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
+
+type Props = Readonly<{
+  metadata: QuestionMetadata;
+}>;
+
+const dateFormatter = new Intl.DateTimeFormat('en-SG', {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+});
+
+export default function UserInterfaceCodingWorkspaceSubmissionList({
+  metadata,
+}: Props) {
+  const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
+    slug: metadata.slug,
+  });
+
+  const { save } = useUserInterfaceCodingWorkspaceSavesContext();
+
+  return (
+    <div className="w-full">
+      {saves == null || saves?.length === 0 ? (
+        <div className="flex h-full flex-col p-4">
+          <div className="flex grow items-center justify-center">
+            <EmptyState title="No versions" variant="empty" />
+          </div>
+        </div>
+      ) : (
+        <div className="p-4">
+          <div
+            className={clsx(
+              'overflow-auto',
+              'rounded-md',
+              ['border', themeLineColor],
+              ['divide-y', themeDivideColor],
+            )}>
+            <table className="w-full">
+              <tbody className={clsx(['divide-y', themeDivideColor])}>
+                {saves?.map(({ id, updatedAt, framework, name }) => (
+                  <tr key={id} className={clsx(themeBackgroundEmphasizedHover)}>
+                    <td className="w-5 py-2 pl-3">
+                      <QuestionFrameworkIcon
+                        framework={staticLowerCase(framework)}
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <div className="flex gap-x-2 gap-y-1">
+                        <Text
+                          className="whitespace-nowrap"
+                          size="body2"
+                          weight="medium">
+                          {name}
+                        </Text>
+                        {save?.id === id && (
+                          <Badge label="Current" size="sm" variant="info" />
+                        )}
+                      </div>
+                      <Text
+                        className="whitespace-nowrap"
+                        color="secondary"
+                        size="body3">
+                        {dateFormatter.format(new Date(updatedAt))}
+                      </Text>
+                    </td>
+                    <td className="px-3 py-2 text-right">
+                      <Button
+                        href={`/questions/user-interface/${metadata.slug}/s/${id}`}
+                        icon={RiArrowRightUpLine}
+                        isLabelHidden={true}
+                        label="View"
+                        size="xs"
+                        variant="secondary"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

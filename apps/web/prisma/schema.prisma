@@ -40,17 +40,17 @@ model FeedbackMessage {
 }
 
 model Profile {
-  id                              String                            @id(map: "profile_pkey") @db.Uuid
-  premium                         Boolean                           @default(false)
-  plan                            String?
-  stripeCustomer                  String?
-  createdAt                       DateTime                          @default(now()) @db.Timestamptz(6)
-  Event                           Event[]
-  QuestionProgress                QuestionProgress[]
-  LearningSession                 LearningSession[]
-  SitePerformance                 SitePerformance[]
-  QuestionJavaScriptSubmission    QuestionJavaScriptSubmission[]
-  QuestionUserInterfaceSubmission QuestionUserInterfaceSubmission[]
+  id                           String                         @id(map: "profile_pkey") @db.Uuid
+  premium                      Boolean                        @default(false)
+  plan                         String?
+  stripeCustomer               String?
+  createdAt                    DateTime                       @default(now()) @db.Timestamptz(6)
+  Event                        Event[]
+  QuestionProgress             QuestionProgress[]
+  LearningSession              LearningSession[]
+  SitePerformance              SitePerformance[]
+  QuestionJavaScriptSubmission QuestionJavaScriptSubmission[]
+  QuestionUserInterfaceSave    QuestionUserInterfaceSave[]
 }
 
 model QuestionProgress {
@@ -92,12 +92,14 @@ enum QuestionUserInterfaceFramework {
   VUE
 }
 
-model QuestionUserInterfaceSubmission {
+model QuestionUserInterfaceSave {
   id        String                         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name      String
   slug      String
-  code      String
+  files     String
   framework QuestionUserInterfaceFramework
   createdAt DateTime                       @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime                       @updatedAt
   userId    String                         @db.Uuid
   profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

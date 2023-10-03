@@ -25,6 +25,8 @@ import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorks
 import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutButton';
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
+import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
+import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
 import type {
   UserInterfaceCodingWorkspacePredefinedTabsContents,
   UserInterfaceCodingWorkspaceTabsType,
@@ -310,6 +312,11 @@ function UserInterfaceCodingWorkspaceImpl({
       icon: CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
     },
+    versions: {
+      contents: <UserInterfaceCodingWorkspaceSavesList metadata={metadata} />,
+      icon: CodingWorkspaceTabIcons.versions.icon,
+      label: 'Saved versions',
+    },
   };
 
   const [tabContents, setTabContents] = useState<
@@ -456,6 +463,11 @@ function UserInterfaceCodingWorkspaceImpl({
             }
             metadata={metadata}
             nextQuestions={nextQuestions}
+            rightElements={
+              mode === 'practice' ? (
+                <UserInterfaceCodingWorkspaceSaveButton question={question} />
+              ) : undefined
+            }
           />
         )}
       </div>

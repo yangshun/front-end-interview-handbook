@@ -30,6 +30,10 @@ export function getUserInterfaceCodingWorkspaceLayout(
             href: mode === 'practice' ? solutionHref : undefined,
             id: 'solution',
           },
+          {
+            closeable: false,
+            id: 'versions',
+          },
         ],
         type: 'item',
       },
@@ -101,6 +105,10 @@ export function getUserInterfaceCodingWorkspaceLayoutAdvanced(
                 closeable: false,
                 href: mode === 'practice' ? solutionHref : undefined,
                 id: 'solution',
+              },
+              {
+                closeable: false,
+                id: 'versions',
               },
             ],
             type: 'item',

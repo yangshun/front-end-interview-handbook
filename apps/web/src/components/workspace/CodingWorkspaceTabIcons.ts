@@ -17,6 +17,7 @@ import {
   RiNpmjsFill,
   RiPlayLine,
   RiTerminalBoxLine,
+  RiTimeLine,
 } from 'react-icons/ri';
 
 export type CodingWorkspaceTabIconType =
@@ -37,7 +38,8 @@ export type CodingWorkspaceTabIconType =
   | 'submit'
   | 'test_cases_all'
   | 'test_cases'
-  | 'ts';
+  | 'ts'
+  | 'versions';
 
 export type CodingWorkspaceTabIcon = Readonly<{
   className?: string;
@@ -95,6 +97,9 @@ export const CodingWorkspaceTabIcons: Record<
   },
   test_cases: {
     icon: RiFlaskLine,
+  },
+  versions: {
+    icon: RiTimeLine,
   },
   test_cases_all: {
     icon: RiListCheck3,
