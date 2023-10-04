@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/ToastsProvider';
 import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
@@ -22,10 +23,18 @@ function UpdateSaveButton({
 }: Readonly<{
   save: QuestionUserInterfaceSave;
 }>) {
+  const { showToast } = useToast();
   const { sandpack } = useSandpack();
   const { files } = sandpack;
   const userInterfaceUpdateSubmissionMutation =
-    trpc.questionSave.userInterfaceUpdate.useMutation();
+    trpc.questionSave.userInterfaceUpdate.useMutation({
+      onSuccess: () => {
+        showToast({
+          title: `Successfully updated "${save.name}"`,
+          variant: 'info',
+        });
+      },
+    });
 
   return (
     <Button
@@ -50,6 +59,7 @@ function NewSaveButton({
   question: QuestionUserInterface;
 }>) {
   const router = useI18nRouter();
+  const { showToast } = useToast();
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: question.metadata.slug,
   });
@@ -64,6 +74,11 @@ function NewSaveButton({
     trpc.questionSave.userInterfaceAdd.useMutation({
       onSuccess: (data) => {
         setIsDialogOpen(false);
+        showToast({
+          title: `Successfully created "${saveName}"`,
+          variant: 'success',
+        });
+        // TODO(submission): Add study list parameter if exists.
         router.push(
           `/questions/user-interface/${question.metadata.slug}/s/${data?.id}`,
         );
@@ -111,7 +126,6 @@ function NewSaveButton({
         secondaryButton={
           <Button
             isDisabled={userInterfaceAddSubmissionMutation.isLoading}
-            isLoading={userInterfaceAddSubmissionMutation.isLoading}
             label="Cancel"
             variant="secondary"
             onClick={() => {

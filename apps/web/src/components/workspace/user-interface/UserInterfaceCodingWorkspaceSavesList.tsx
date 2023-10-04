@@ -1,12 +1,21 @@
 import clsx from 'clsx';
-import { RiArrowRightUpLine } from 'react-icons/ri';
+import { useState } from 'react';
+import {
+  RiArrowRightUpLine,
+  RiDeleteBinLine,
+  RiEditLine,
+  RiMoreLine,
+} from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
+import ConfirmationDialog from '~/components/common/ConfirmationDialog';
+import { useToast } from '~/components/global/toasts/ToastsProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFrameworkIcon from '~/components/questions/metadata/QuestionFrameworkIcon';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
@@ -34,8 +43,16 @@ export default function UserInterfaceCodingWorkspaceSubmissionList({
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: metadata.slug,
   });
+  const { showToast } = useToast();
+
+  const userInterfaceSaveDeleteMutation =
+    trpc.questionSave.userInterfaceDelete.useMutation();
 
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
+  const [saveDeletionData, setSaveDeletionData] = useState<{
+    id: string;
+    name: string;
+  } | null>(null);
 
   return (
     <div className="w-full">
@@ -82,15 +99,42 @@ export default function UserInterfaceCodingWorkspaceSubmissionList({
                         {dateFormatter.format(new Date(updatedAt))}
                       </Text>
                     </td>
-                    <td className="px-3 py-2 text-right">
-                      <Button
-                        href={`/questions/user-interface/${metadata.slug}/s/${id}`}
-                        icon={RiArrowRightUpLine}
-                        isLabelHidden={true}
-                        label="View"
-                        size="xs"
-                        variant="secondary"
-                      />
+                    <td className="px-3 py-2">
+                      <div className="flex justify-end gap-x-2">
+                        <Button
+                          href={`/questions/user-interface/${metadata.slug}/s/${id}`}
+                          icon={RiArrowRightUpLine}
+                          isLabelHidden={true}
+                          label="View"
+                          size="xs"
+                          variant="secondary"
+                        />
+                        <DropdownMenu
+                          align="end"
+                          icon={RiMoreLine}
+                          isLabelHidden={true}
+                          label="More actions"
+                          showChevron={false}
+                          size="xs"
+                          variant="flat">
+                          <DropdownMenu.Item
+                            icon={RiEditLine}
+                            label="Rename"
+                            onClick={() => {}}
+                          />
+                          <DropdownMenu.Item
+                            color="error"
+                            icon={RiDeleteBinLine}
+                            label="Delete"
+                            onClick={() => {
+                              setSaveDeletionData({
+                                id,
+                                name,
+                              });
+                            }}
+                          />
+                        </DropdownMenu>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -99,6 +143,36 @@ export default function UserInterfaceCodingWorkspaceSubmissionList({
           </div>
         </div>
       )}
+      <ConfirmationDialog
+        confirmButtonVariant="danger"
+        isConfirming={userInterfaceSaveDeleteMutation.isLoading}
+        isShown={saveDeletionData != null}
+        title={`Delete "${saveDeletionData?.name}"`}
+        onCancel={() => {
+          setSaveDeletionData(null);
+        }}
+        onConfirm={() => {
+          if (saveDeletionData == null) {
+            return;
+          }
+
+          userInterfaceSaveDeleteMutation.mutate(
+            {
+              saveId: saveDeletionData.id,
+            },
+            {
+              onSuccess: (data) => {
+                setSaveDeletionData(null);
+                showToast({
+                  title: `Successfully deleted "${data?.name}"`,
+                  variant: 'info',
+                });
+              },
+            },
+          );
+        }}>
+        This is an irreversible action. Are you sure?
+      </ConfirmationDialog>
     </div>
   );
 }

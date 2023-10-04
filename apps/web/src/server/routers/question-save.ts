@@ -40,6 +40,24 @@ export const questionSaveRouter = router({
         });
       },
     ),
+  userInterfaceDelete: publicProcedure
+    .input(
+      z.object({
+        saveId: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { saveId }, ctx: { user } }) => {
+      if (!user) {
+        return null;
+      }
+
+      // TODO(acl): prevent unauthorized deletions.
+      return await prisma.questionUserInterfaceSave.delete({
+        where: {
+          id: saveId,
+        },
+      });
+    }),
   userInterfaceGet: publicProcedure
     .input(
       z.object({
@@ -51,6 +69,7 @@ export const questionSaveRouter = router({
         return null;
       }
 
+      // TODO(acl): prevent unauthorized reads.
       return await prisma.questionUserInterfaceSave.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -95,6 +114,7 @@ export const questionSaveRouter = router({
         return null;
       }
 
+      // TODO(acl): prevent unauthorized updates.
       return await prisma.questionUserInterfaceSave.update({
         data: {
           files,
