@@ -15,6 +15,7 @@ import QuestionSimilarQuestions from '~/components/questions/content/QuestionSim
 import { questionUserInterfaceDescriptionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
 import Alert from '~/components/ui/Alert';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -24,6 +25,7 @@ import Text from '~/components/ui/Text';
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -55,6 +57,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();
   const questionTechnologyLists = useQuestionTechnologyLists();
+  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
     <div className="w-full">
@@ -64,15 +67,28 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             <div className="flex flex-col items-start gap-2">
               <Text display="block" size="body2">
                 You are viewing the description from the solution page. To
-                practice this question, go back to the question's main page.
+                practice this question,{' '}
+                <Anchor
+                  href={questionUserInterfaceDescriptionPath(
+                    metadata,
+                    framework,
+                  )}>
+                  go back
+                </Anchor>{' '}
+                to the workspace page or{' '}
+                <Anchor
+                  onClick={() => {
+                    dispatch({
+                      payload: {
+                        tabId: 'versions',
+                      },
+                      type: 'tab-set-active',
+                    });
+                  }}>
+                  load a saved version
+                </Anchor>
+                .
               </Text>
-              <Button
-                href={questionUserInterfaceDescriptionPath(metadata, framework)}
-                icon={RiArrowRightLine}
-                label="Practice this question"
-                size="sm"
-                variant="secondary"
-              />
             </div>
           </Alert>
         )}
