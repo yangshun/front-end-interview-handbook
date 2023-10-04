@@ -1,4 +1,3 @@
-import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
@@ -17,7 +16,6 @@ import QuestionMetadataSection from '~/components/questions/metadata/QuestionMet
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';

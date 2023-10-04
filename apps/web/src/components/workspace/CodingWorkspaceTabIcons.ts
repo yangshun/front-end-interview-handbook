@@ -98,13 +98,13 @@ export const CodingWorkspaceTabIcons: Record<
   test_cases: {
     icon: RiFlaskLine,
   },
-  versions: {
-    icon: RiTimeLine,
-  },
   test_cases_all: {
     icon: RiListCheck3,
   },
   ts: {
     icon: BiLogoTypescript,
+  },
+  versions: {
+    icon: RiTimeLine,
   },
 };
