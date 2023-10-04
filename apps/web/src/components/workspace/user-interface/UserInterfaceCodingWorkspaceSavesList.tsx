@@ -70,8 +70,8 @@ export default function UserInterfaceCodingWorkspaceSavesList({
                     <td className="px-3 py-2">
                       <div className="flex gap-x-2 gap-y-1">
                         <Anchor
-                          // TODO(submission): factor in list parameter
-                          href={`/questions/user-interface/${metadata.slug}/s/${savedItem.id}`}
+                          // TODO(submission): Add study list parameter if exists.
+                          href={`/questions/user-interface/${metadata.slug}/v/${savedItem.id}`}
                           variant="unstyled">
                           <Text
                             className="whitespace-nowrap"

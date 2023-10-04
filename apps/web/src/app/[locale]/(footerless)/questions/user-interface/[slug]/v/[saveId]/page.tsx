@@ -1,5 +1,3 @@
-import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSavesPage';

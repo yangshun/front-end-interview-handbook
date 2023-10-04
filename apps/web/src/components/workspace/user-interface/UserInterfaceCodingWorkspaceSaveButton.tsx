@@ -80,7 +80,7 @@ function NewSaveButton({
         });
         // TODO(submission): Add study list parameter if exists.
         router.push(
-          `/questions/user-interface/${question.metadata.slug}/s/${data?.id}`,
+          `/questions/user-interface/${question.metadata.slug}/v/${data?.id}`,
         );
       },
     });
