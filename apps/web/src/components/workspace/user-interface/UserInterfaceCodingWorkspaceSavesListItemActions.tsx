@@ -1,17 +1,11 @@
 import { useState } from 'react';
-import {
-  RiArrowRightUpLine,
-  RiDeleteBinLine,
-  RiEditLine,
-  RiMoreLine,
-} from 'react-icons/ri';
+import { RiDeleteBinLine, RiEditLine, RiMoreLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/ToastsProvider';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -20,12 +14,10 @@ import TextInput from '~/components/ui/TextInput';
 import type { QuestionUserInterfaceSave } from '@prisma/client';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
   save: QuestionUserInterfaceSave;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSavesListItemActions({
-  metadata,
   save,
 }: Props) {
   const intl = useIntl();
@@ -61,15 +53,6 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
 
   return (
     <div className="flex justify-end gap-x-2">
-      <Button
-        // TODO(submission): add list
-        href={`/questions/user-interface/${metadata.slug}/s/${save.id}`}
-        icon={RiArrowRightUpLine}
-        isLabelHidden={true}
-        label="View"
-        size="xs"
-        variant="secondary"
-      />
       <DropdownMenu
         align="end"
         icon={RiMoreLine}

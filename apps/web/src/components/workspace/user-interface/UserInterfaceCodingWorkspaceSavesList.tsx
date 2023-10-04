@@ -4,6 +4,7 @@ import { trpc } from '~/hooks/trpc';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFrameworkIcon from '~/components/questions/metadata/QuestionFrameworkIcon';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
@@ -57,7 +58,10 @@ export default function UserInterfaceCodingWorkspaceSavesList({
                 {saves?.map((savedItem) => (
                   <tr
                     key={savedItem.id}
-                    className={clsx(themeBackgroundEmphasizedHover)}>
+                    className={clsx(
+                      'relative',
+                      themeBackgroundEmphasizedHover,
+                    )}>
                     <td className="w-5 py-2 pl-3">
                       <QuestionFrameworkIcon
                         framework={staticLowerCase(savedItem.framework)}
@@ -65,12 +69,18 @@ export default function UserInterfaceCodingWorkspaceSavesList({
                     </td>
                     <td className="px-3 py-2">
                       <div className="flex gap-x-2 gap-y-1">
-                        <Text
-                          className="whitespace-nowrap"
-                          size="body2"
-                          weight="medium">
-                          {savedItem.name}
-                        </Text>
+                        <Anchor
+                          // TODO(submission): factor in list parameter
+                          href={`/questions/user-interface/${metadata.slug}/s/${savedItem.id}`}
+                          variant="unstyled">
+                          <Text
+                            className="whitespace-nowrap"
+                            size="body2"
+                            weight="medium">
+                            {savedItem.name}{' '}
+                          </Text>
+                          <span className="absolute inset-0" />
+                        </Anchor>
                         {save?.id === savedItem.id && (
                           <Badge label="Current" size="sm" variant="info" />
                         )}
@@ -84,7 +94,6 @@ export default function UserInterfaceCodingWorkspaceSavesList({
                     </td>
                     <td className="px-3 py-2">
                       <UserInterfaceCodingWorkspaceSavesListItemActions
-                        metadata={metadata}
                         save={{
                           ...savedItem,
                           createdAt: new Date(savedItem.createdAt),
