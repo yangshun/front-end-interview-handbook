@@ -1,12 +1,10 @@
 import clsx from 'clsx';
-import { RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
 import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
@@ -57,39 +55,39 @@ export default function JavaScriptCodingWorkspaceSubmissionList({
             <table className="w-full">
               <tbody className={clsx(['divide-y', themeDivideColor])}>
                 {submissions?.map(({ id, createdAt, language, result }) => (
-                  <tr key={id} className={clsx(themeBackgroundEmphasizedHover)}>
+                  <tr
+                    key={id}
+                    className={clsx(
+                      'relative',
+                      themeBackgroundEmphasizedHover,
+                    )}>
                     <td className="px-3 py-2">
-                      <Text
-                        className="whitespace-nowrap"
-                        size="body3"
-                        weight="medium">
-                        {dateFormatter.format(new Date(createdAt))}
-                      </Text>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          openSubmission?.(id);
+                        }}>
+                        <Text
+                          className="whitespace-nowrap"
+                          size="body3"
+                          weight="medium">
+                          {dateFormatter.format(new Date(createdAt))}
+                        </Text>
+                        <span className="absolute inset-0" />
+                      </button>
                     </td>
                     <td className="px-3 py-2">
                       <QuestionLanguages
                         languages={[staticLowerCase(language)]}
                       />
                     </td>
-                    <td className="px-3 py-2">
+                    <td className="px-3 py-2 text-right">
                       {result === 'CORRECT' && (
                         <Badge label="Correct" size="sm" variant="success" />
                       )}
                       {result === 'WRONG' && (
                         <Badge label="Wrong" size="sm" variant="danger" />
                       )}
-                    </td>
-                    <td className="px-3 py-2 text-right">
-                      <Button
-                        icon={RiArrowRightLine}
-                        isLabelHidden={true}
-                        label="View"
-                        size="xs"
-                        variant="secondary"
-                        onClick={() => {
-                          openSubmission?.(id);
-                        }}
-                      />
                     </td>
                   </tr>
                 ))}
