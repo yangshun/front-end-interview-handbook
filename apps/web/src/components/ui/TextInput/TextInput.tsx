@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import type { ChangeEvent, InputHTMLAttributes } from 'react';
+import type { ChangeEvent, ForwardedRef, InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import React, { useId } from 'react';
 
 import Text from '../Text/Text';
@@ -83,27 +84,30 @@ const heightClasses: Record<TextInputSize, string> = {
   xs: 'h-7',
 };
 
-export default function TextInput({
-  autoComplete,
-  autoFocus,
-  className,
-  defaultValue,
-  description,
-  endIcon: EndIcon,
-  errorMessage,
-  id: idParam,
-  isDisabled,
-  isLabelHidden = false,
-  label,
-  name,
-  placeholder,
-  required,
-  size = 'md',
-  startIcon: StartIcon,
-  type = 'text',
-  value,
-  onChange,
-}: Props) {
+function TextInput(
+  {
+    autoComplete,
+    autoFocus,
+    className,
+    defaultValue,
+    description,
+    endIcon: EndIcon,
+    errorMessage,
+    id: idParam,
+    isDisabled,
+    isLabelHidden = false,
+    label,
+    name,
+    placeholder,
+    required,
+    size = 'md',
+    startIcon: StartIcon,
+    type = 'text',
+    value,
+    onChange,
+  }: Props,
+  ref: ForwardedRef<HTMLInputElement>,
+) {
   const hasError = !!errorMessage;
   const generatedId = useId();
   const id = idParam ?? generatedId;
@@ -148,6 +152,7 @@ export default function TextInput({
           </div>
         )}
         <input
+          ref={ref}
           aria-describedby={
             hasError || description != null ? messageId : undefined
           }
@@ -213,3 +218,5 @@ export default function TextInput({
     </div>
   );
 }
+
+export default forwardRef(TextInput);
