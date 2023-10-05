@@ -3,9 +3,9 @@ export function getSiteUrl(): string {
     return `http://localhost:${process.env.PORT || 3000}`;
   }
 
-  return `https://${
-    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-      ? 'www.greatfrontend.com'
-      : process.env.NEXT_PUBLIC_VERCEL_URL
-  }`;
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview') {
+    return 'https://dev.greatfrontend.com';
+  }
+
+  return 'https://www.greatfrontend.com';
 }

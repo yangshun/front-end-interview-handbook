@@ -21,13 +21,16 @@ const queryClient = new QueryClient({
     },
   },
 });
+
 const trpcClient = trpc.createClient({
   links: [
     loggerLink({
-      enabled: () => process.env.NODE_ENV === 'development',
+      enabled: () =>
+        process.env.NODE_ENV === 'development' ||
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview',
     }),
     httpBatchLink({
-      url: `${getSiteUrl()}/api/trpc`,
+      url: '/api/trpc',
     }),
   ],
 });
