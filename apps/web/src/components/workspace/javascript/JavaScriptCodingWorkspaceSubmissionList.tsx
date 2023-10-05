@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
 import Badge from '~/components/ui/Badge';
@@ -29,6 +30,27 @@ const dateFormatter = new Intl.DateTimeFormat('en-SG', {
 export default function JavaScriptCodingWorkspaceSubmissionList({
   metadata,
 }: Props) {
+  const { userProfile } = useUserProfile();
+
+  if (userProfile == null) {
+    return (
+      <div className="w-full">
+        <div className="flex h-full flex-col p-4">
+          <div className="flex grow items-center justify-center">
+            <EmptyState
+              title="You must be signed in to view your submissions"
+              variant="empty"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return <JavaScriptCodingWorkspaceSubmissionListImpl metadata={metadata} />;
+}
+
+function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
   const { openSubmission } = useCodingWorkspaceContext();
   const { data: submissions } =
     trpc.questionSubmission.javaScriptGetAll.useQuery({
