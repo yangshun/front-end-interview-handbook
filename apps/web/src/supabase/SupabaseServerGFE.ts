@@ -2,6 +2,7 @@
 // The last time I tried the logging routes failed, saying that this can only be used in server components.
 // import 'server-only';
 
+import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 
 import type { Database } from './database.types';
@@ -60,6 +61,7 @@ export async function fetchUser(authToken?: string): Promise<User | null> {
     }
 
     const supabaseAdmin = createSupabaseAdminClientGFE();
+    // TODO(supabase): replace with parseJWTAccessToken() to avoid a server round trip?
     const {
       data: { user },
     } = await supabaseAdmin.auth.getUser(tokens.accessToken);
@@ -71,7 +73,7 @@ export async function fetchUser(authToken?: string): Promise<User | null> {
   }
 }
 
-export function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
+function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
   accessToken: string | null;
   providerRefreshToken: string | null;
   providerToken: string | null;
@@ -100,18 +102,20 @@ export function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
   }
 }
 
-export function parseJWTAccessToken(token: string): Readonly<{
-  // User ID.
-  email: string;
-  sub: string; // User Email.
-}> {
+type JwtPayload = Readonly<{
+  email: string; // User Email.
+  sub: string; // User ID.
+}>;
+
+export function parseJWTAccessToken(token: string): JwtPayload {
   const { accessToken } = decodeSupabaseAuthTokens(token);
 
   if (!accessToken) {
     throw new Error('Unable to parse Supabase auth token');
   }
 
-  return JSON.parse(
-    Buffer.from(accessToken.split('.')[1], 'base64').toString(),
-  );
+  return jwt.verify(
+    accessToken,
+    process.env.SUPABASE_JWT_SECRET!,
+  ) as JwtPayload;
 }
