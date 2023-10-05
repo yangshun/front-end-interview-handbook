@@ -35,7 +35,8 @@ export default function AppContextProvider({ children }: Props) {
     () => ({
       serverMismatch:
         // Only check in prod.
-        process.env.NODE_ENV === 'production' && clientCommit !== serverCommit,
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' &&
+        clientCommit !== serverCommit,
     }),
     [serverCommit],
   );
