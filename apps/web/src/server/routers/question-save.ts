@@ -95,6 +95,12 @@ export const questionSaveRouter = router({
         orderBy: {
           createdAt: 'desc',
         },
+        select: {
+          framework: true,
+          id: true,
+          name: true,
+          updatedAt: true,
+        },
         where: {
           slug,
           userId: user.id,

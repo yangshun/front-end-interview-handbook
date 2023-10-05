@@ -94,11 +94,8 @@ export default function UserInterfaceCodingWorkspaceSavesList({
                     </td>
                     <td className="px-3 py-2">
                       <UserInterfaceCodingWorkspaceSavesListItemActions
-                        save={{
-                          ...savedItem,
-                          createdAt: new Date(savedItem.createdAt),
-                          updatedAt: new Date(savedItem.updatedAt),
-                        }}
+                        saveId={savedItem.id}
+                        saveName={savedItem.name}
                       />
                     </td>
                   </tr>

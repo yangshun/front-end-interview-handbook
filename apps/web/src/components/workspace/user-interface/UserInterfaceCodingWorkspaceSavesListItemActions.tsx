@@ -11,14 +11,14 @@ import Dialog from '~/components/ui/Dialog';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import TextInput from '~/components/ui/TextInput';
 
-import type { QuestionUserInterfaceSave } from '@prisma/client';
-
 type Props = Readonly<{
-  save: QuestionUserInterfaceSave;
+  saveId: string;
+  saveName: string;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSavesListItemActions({
-  save,
+  saveId,
+  saveName,
 }: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
@@ -31,19 +31,19 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
     trpc.questionSave.userInterfaceUpdate.useMutation();
   const [isEditing, setIsEditing] = useState(false);
   // Note that this value will be stale if the name is updated in the background.
-  const [newSaveName, setNewSaveName] = useState(save.name);
+  const [newSaveName, setNewSaveName] = useState(saveName);
 
   function saveEdits() {
     userInterfaceSaveUpdateMutation.mutate(
       {
         name: newSaveName,
-        saveId: save.id,
+        saveId,
       },
       {
         onSuccess: (data) => {
           setIsEditing(false);
           showToast({
-            title: `"${save.name}" renamed to "${data?.name}"`,
+            title: `"${saveName}" renamed to "${data?.name}"`,
             variant: 'info',
           });
         },
@@ -81,14 +81,14 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         confirmButtonVariant="danger"
         isConfirming={userInterfaceSaveDeleteMutation.isLoading}
         isShown={isDeleting}
-        title={`Delete "${save.name}"`}
+        title={`Delete "${saveName}"`}
         onCancel={() => {
           setIsDeleting(false);
         }}
         onConfirm={() => {
           userInterfaceSaveDeleteMutation.mutate(
             {
-              saveId: save.id,
+              saveId,
             },
             {
               onSuccess: (data) => {
