@@ -20,16 +20,21 @@ UserInterfaceCodingWorkspaceSavesContext.displayName =
 
 type Props = Readonly<{
   children: ReactNode;
-  saveId: string;
+  save: QuestionUserInterfaceSave;
 }>;
 
 export function UserInterfaceCodingWorkspaceSavesContextProvider({
   children,
-  saveId,
+  save,
 }: Props) {
-  const { data: saveData } = trpc.questionSave.userInterfaceGet.useQuery({
-    saveId,
-  });
+  const { data: saveData } = trpc.questionSave.userInterfaceGet.useQuery(
+    {
+      saveId: save.id,
+    },
+    {
+      initialData: save,
+    },
+  );
 
   return (
     <UserInterfaceCodingWorkspaceSavesContext.Provider

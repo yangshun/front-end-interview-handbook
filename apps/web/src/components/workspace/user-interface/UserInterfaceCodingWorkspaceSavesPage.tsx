@@ -52,7 +52,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
 
   return (
     <CodingPreferencesProvider>
-      <UserInterfaceCodingWorkspaceSavesContextProvider saveId={save.id}>
+      <UserInterfaceCodingWorkspaceSavesContextProvider save={save}>
         <SandpackProvider
           customSetup={{
             environment: workspace?.environment,
