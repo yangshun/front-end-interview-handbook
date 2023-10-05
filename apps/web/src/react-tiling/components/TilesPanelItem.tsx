@@ -116,13 +116,13 @@ export default function TilesPanelItem<TabType extends string>({
           ['border', themeLineColor],
           themeBackgroundColor,
         )}
-        collapsedSize={3}>
+        collapsedSize={5}>
         <div className="flex justify-center">
           <Button
             icon={RiExpandLeftRightFill}
             isLabelHidden={true}
             label="Expand"
-            size="xs"
+            size="lg"
             variant="tertiary"
             onClick={() => {
               dispatch({
@@ -135,7 +135,7 @@ export default function TilesPanelItem<TabType extends string>({
             }}
           />
         </div>
-        <Divider className="mb-2 mt-1" />
+        <Divider className="my-2" />
         <div className="flex flex-col items-center gap-y-4">
           {tabs.map((tabItem) => {
             const { icon, label } = getTabLabel(tabItem.id);
@@ -148,7 +148,7 @@ export default function TilesPanelItem<TabType extends string>({
                 icon={icon}
                 isLabelHidden={true}
                 label={label}
-                size="xs"
+                size="lg"
                 variant="tertiary"
                 onClick={() => {
                   dispatch({
