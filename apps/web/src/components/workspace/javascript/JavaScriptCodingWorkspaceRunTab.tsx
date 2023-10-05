@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import JavaScriptSelfTestCodesEmitter from '~/components/questions/content/JavaScriptSelfTestCodesEmitter';
+
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
@@ -28,12 +30,16 @@ export default function JavaScriptCodingWorkspaceTestsRunTab({
     <TestsSection
       specMode="run"
       specPath={specPath}
-      onShowTestCase={() => {
+      onShowTestCase={(_, index, displayPath) => {
         dispatch({
           payload: {
             tabId: codingWorkspaceTabFileId(specPath),
           },
           type: 'tab-set-active',
+        });
+        JavaScriptSelfTestCodesEmitter.emit('focus_on_test', {
+          index,
+          path: displayPath,
         });
       }}
       onShowTestsCases={() => {

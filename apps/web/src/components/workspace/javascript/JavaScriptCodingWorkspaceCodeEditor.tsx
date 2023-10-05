@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { editor } from 'monaco-editor';
 import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
@@ -18,8 +19,10 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 
 export default function JavaScriptCodingWorkspaceCodeEditor({
   filePath,
+  onMount,
 }: Readonly<{
   filePath: string;
+  onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
 }>) {
   const {
     showLoadedFilesFromLocalStorageMessage,
@@ -91,6 +94,7 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
         onChange={(val) => {
           updateFile(filePath, val ?? '');
         }}
+        onMount={onMount}
       />
     </div>
   );

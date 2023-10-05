@@ -1,5 +1,7 @@
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import type { editor } from 'monaco-editor';
+import { Range } from 'monaco-editor';
+import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import type {
@@ -10,6 +12,7 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
+import JavaScriptSelfTestCodesEmitter from '~/components/questions/content/JavaScriptSelfTestCodesEmitter';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
@@ -95,6 +98,8 @@ function JavaScriptCodingWorkspaceImpl({
   );
 
   const monaco = useMonaco();
+  const [selfTestMonacoEditor, setSelfTestMonacoEditor] =
+    useState<editor.IStandaloneCodeEditor>();
 
   useMonacoLanguagesLoadTSConfig(
     monaco,
@@ -113,6 +118,60 @@ function JavaScriptCodingWorkspaceImpl({
   );
 
   useMonacoEditorModels(monaco, files);
+
+  useEffect(() => {
+    JavaScriptSelfTestCodesEmitter.on(
+      'focus_on_test',
+      ({ index, path: fullPath }) => {
+        if (!selfTestMonacoEditor) {
+          return;
+        }
+
+        const path = fullPath.slice(0, index + 1);
+        const parentPath = path.slice(0, path.length - 1);
+        const testName = path[path.length - 1];
+        const sep = '[\\s\\S\\n\\r]*?';
+        const regex = `${parentPath.join(sep)}${sep}(${testName})`;
+
+        const match = selfTestMonacoEditor
+          ?.getModel()
+          ?.findNextMatch(
+            regex,
+            { column: 1, lineNumber: 1 },
+            true,
+            true,
+            null,
+            true,
+          );
+
+        if (!match) {
+          return;
+        }
+
+        const endPosition = match.range.getEndPosition().delta(0, 1);
+        const startPosition = endPosition.delta(0, -(testName.length + 2));
+
+        const range = Range.fromPositions(startPosition, endPosition);
+
+        selfTestMonacoEditor.revealRangeNearTopIfOutsideViewport(range);
+
+        const collection = selfTestMonacoEditor.createDecorationsCollection([
+          {
+            options: {
+              inlineClassName: 'bg-amber-300',
+            },
+            range,
+          },
+        ]);
+
+        setTimeout(() => {
+          collection.clear();
+        }, 1000);
+      },
+    );
+
+    return () => JavaScriptSelfTestCodesEmitter.off('focus_on_test');
+  }, [selfTestMonacoEditor]);
 
   function openSubmission(submissionId: string) {
     const tabIdForSubmission = codingWorkspaceTabSubmissionId(submissionId);
@@ -256,7 +315,10 @@ function JavaScriptCodingWorkspaceImpl({
     },
     [codingWorkspaceTabFileId(workspace.run)]: {
       contents: (
-        <JavaScriptCodingWorkspaceCodeEditor filePath={workspace.run} />
+        <JavaScriptCodingWorkspaceCodeEditor
+          filePath={workspace.run}
+          onMount={setSelfTestMonacoEditor}
+        />
       ),
       icon: CodingWorkspaceTabIcons.test_cases.icon,
       label: 'Test cases',

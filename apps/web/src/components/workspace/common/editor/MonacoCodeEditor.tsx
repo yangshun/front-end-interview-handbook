@@ -24,12 +24,14 @@ type Props = Readonly<{
   filePath: string;
   onChange: (value: string) => void;
   onFocus?: () => void;
+  onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
   value: string | null;
 }>;
 
 export default function MonacoCodeEditor({
   filePath,
   value,
+  onMount,
   onChange,
   onFocus,
 }: Props) {
@@ -68,6 +70,7 @@ export default function MonacoCodeEditor({
         onChange={(val) => onChange(val ?? '')}
         onMount={(editorInstance) => {
           editorRef.current = editorInstance;
+          onMount?.(editorInstance);
         }}
       />
     </div>

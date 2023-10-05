@@ -215,10 +215,6 @@
     "defaultMessage": "Ontario, Canada",
     "description": "Nafis Hasnain's location"
   },
-  "2a4of9": {
-    "defaultMessage": "Change to horizontal",
-    "description": "Tooltip for changing to horizontal layout for coding workspace"
-  },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -331,10 +327,6 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
-  "4zNzv1": {
-    "defaultMessage": "Select navigation item in DevTool",
-    "description": "Label for tabs in the coding workspace DevTool"
-  },
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
@@ -346,10 +338,6 @@
   "55uCRp": {
     "defaultMessage": "Premium",
     "description": "Tooltip for Premium questions label"
-  },
-  "562PkG": {
-    "defaultMessage": "Dismiss",
-    "description": "Label for dismiss button of previously restored prompt that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
   "58dfbv": {
     "defaultMessage": "Language",
@@ -402,10 +390,6 @@
   "6A9LIb": {
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
-  },
-  "6IwcDT": {
-    "defaultMessage": "Show",
-    "description": "Label for button that shows the details of the code execution to the user in the coding workspace"
   },
   "6KA0W1": {
     "defaultMessage": "Summer Discount",
@@ -586,10 +570,6 @@
   "94CGBX": {
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
-  },
-  "94oFfy": {
-    "defaultMessage": "Completed",
-    "description": "Label indicating that the question has been completed by the user"
   },
   "97HVxk": {
     "defaultMessage": "Key features",
@@ -903,10 +883,6 @@
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
   },
-  "FkGppk": {
-    "defaultMessage": "Submit",
-    "description": "Label for button to submit code for testing within coding workspace"
-  },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
@@ -1091,10 +1067,6 @@
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
-  "Iz2KAM": {
-    "defaultMessage": "{numberOfTotalTests} total",
-    "description": "Line in DevTools showing the total number of test cases for this question"
-  },
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
@@ -1102,10 +1074,6 @@
   "JCFm+V": {
     "defaultMessage": "Authors",
     "description": "description"
-  },
-  "JEcwe6": {
-    "defaultMessage": "Solution",
-    "description": "Header for question solution section in coding workspace"
   },
   "JJ0V4Y": {
     "defaultMessage": "Duration: Low to High",
@@ -1159,10 +1127,6 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
   },
-  "K08edE": {
-    "defaultMessage": "Show only failed tests",
-    "description": "Checkbox for whether to show only failed test cases"
-  },
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
@@ -1170,10 +1134,6 @@
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
-  },
-  "KaGCVb": {
-    "defaultMessage": "Select question section",
-    "description": "Label for tabs to select question section to display in the coding workspace (e.g. solutions, tests, or others)"
   },
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
@@ -1202,10 +1162,6 @@
   "KtYnhS": {
     "defaultMessage": "Create a new account",
     "description": "Subtitle of Sign Up page"
-  },
-  "Ku1Crp": {
-    "defaultMessage": "Wrong Answer",
-    "description": "Status label for incorrect answer given"
   },
   "Ku3VdX": {
     "defaultMessage": "Uber",
@@ -1371,10 +1327,6 @@
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
   },
-  "NMKLAX": {
-    "defaultMessage": "Console",
-    "description": "Label for Console tab on the coding workspace"
-  },
   "NMtINV": {
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
@@ -1386,10 +1338,6 @@
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
     "description": "Subtitle for HTML questions list page"
-  },
-  "NZo2FG": {
-    "defaultMessage": "Description",
-    "description": "Header for the question description section"
   },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
@@ -1470,10 +1418,6 @@
   "OcBA+t": {
     "defaultMessage": "What does \"free updates\" include?",
     "description": "Question on Homepage's FAQ section - on the scope of complimentary updates to the GreatFrontEnd interview platform"
-  },
-  "OkgtcI": {
-    "defaultMessage": "Change to vertical",
-    "description": "Tooltip for changing to vertical layout for coding workspace"
   },
   "Ol7K0w": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
@@ -1562,10 +1506,6 @@
   "Q1WOVj": {
     "defaultMessage": "Manage Subscription",
     "description": "Label for button to manage subscription"
-  },
-  "Q2pP1Q": {
-    "defaultMessage": "Test Cases",
-    "description": "Header for question test cases section in coding workspace"
   },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
@@ -1882,10 +1822,6 @@
   "VlrCm6": {
     "defaultMessage": "Pricing",
     "description": "Link label to the pricing page"
-  },
-  "VoNloX": {
-    "defaultMessage": "{numberOfFailedTests} failed",
-    "description": "Line in DevTools showing the number of test cases failed when running the code submitted by the user"
   },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
@@ -2211,10 +2147,6 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
-  "c12AhV": {
-    "defaultMessage": "Breadcrumb",
-    "description": "Screenreader text to indicate breadcrumb component"
-  },
   "c2hcfm": {
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
@@ -2371,10 +2303,6 @@
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
   },
-  "f3e84v": {
-    "defaultMessage": "Accepted",
-    "description": "Status label for question answered correctly"
-  },
   "f5UO3s": {
     "defaultMessage": "Review Cashback",
     "description": "Promotion title"
@@ -2394,10 +2322,6 @@
   "fJYFo8": {
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
-  },
-  "fQHORb": {
-    "defaultMessage": "Show DevTool",
-    "description": "Label for button to expand the DevTool"
   },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
@@ -2459,10 +2383,6 @@
     "defaultMessage": "Back to study plans",
     "description": "Link text to navigate to study plans page"
   },
-  "fvztbG": {
-    "defaultMessage": "Submit your code to check against the tests.",
-    "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
-  },
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
@@ -2486,10 +2406,6 @@
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
-  },
-  "geCoTi": {
-    "defaultMessage": "Hide DevTool",
-    "description": "Label for button to collapse the DevTool"
   },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
@@ -2659,10 +2575,6 @@
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
   },
-  "jgldKV": {
-    "defaultMessage": "Select question section",
-    "description": "Label for tabs within coding workspace"
-  },
   "jlTtgt": {
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
@@ -2815,10 +2727,6 @@
     "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
   },
-  "lkCg86": {
-    "defaultMessage": "Description",
-    "description": "Header for question description section in coding workspace"
-  },
   "lmBDjV": {
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
@@ -2895,10 +2803,6 @@
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
   },
-  "nFYr2a": {
-    "defaultMessage": "Your previous code was restored. <Anchor>Reset to default</Anchor>",
-    "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
-  },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
@@ -2938,10 +2842,6 @@
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
-  },
-  "nzauMv": {
-    "defaultMessage": "Compilation Error",
-    "description": "Status label for compilation error when code is run"
   },
   "o+1cag": {
     "defaultMessage": "Clear Console",
@@ -3051,10 +2951,6 @@
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
   },
-  "px5rU7": {
-    "defaultMessage": "Solution",
-    "description": "Header for the question solution section"
-  },
   "q0+3Lk": {
     "defaultMessage": "Accessibility",
     "description": "Accessibility topic for quiz questions"
@@ -3102,10 +2998,6 @@
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
-  },
-  "qfX/3p": {
-    "defaultMessage": "Tests",
-    "description": "Label for Tests tab on the coding workspace"
   },
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
@@ -3167,10 +3059,6 @@
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
   },
-  "s3LMhK": {
-    "defaultMessage": "Home",
-    "description": "Home button on breadcrumb component"
-  },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
@@ -3226,10 +3114,6 @@
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
-  },
-  "tJIZWT": {
-    "defaultMessage": "Layout",
-    "description": "Label for button that changes the layout of the coding workspace"
   },
   "tNAIsO": {
     "defaultMessage": "JavaScript Questions",
@@ -3355,10 +3239,6 @@
     "defaultMessage": "While Offer Lasts",
     "description": "Label to indicate offer is a limited time deal"
   },
-  "vO1Ejd": {
-    "defaultMessage": "Hide Details",
-    "description": "Label for button that allows users to collapse details of the code execution in the coding workspace"
-  },
   "vfVwh2": {
     "defaultMessage": "1 Week",
     "description": "Short label for one week study plan"
@@ -3378,10 +3258,6 @@
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
-  },
-  "vqTecf": {
-    "defaultMessage": "Evaluating tests against code...",
-    "description": "Loading text that appears when the tests cases are running (after the user submits their code in the coding workspace)"
   },
   "vrK3ev": {
     "defaultMessage": "Prepare for Front End Behavioral Interviews",
@@ -3562,10 +3438,6 @@
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",
     "description": "Header for all practice questions section in study plans"
-  },
-  "zpxxHX": {
-    "defaultMessage": "{numberOfPassedTests} passed",
-    "description": "Line in DevTools showing the number of test cases passed when running the code submitted by the user"
   },
   "zqNjnp": {
     "defaultMessage": "CSS",
