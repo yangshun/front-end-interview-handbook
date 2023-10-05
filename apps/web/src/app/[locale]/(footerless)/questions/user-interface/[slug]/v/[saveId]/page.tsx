@@ -1,9 +1,12 @@
+import type { Metadata } from 'next/types';
+
 import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSavesPage';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 import {
   createSupabaseAdminClientGFE,
@@ -19,23 +22,43 @@ type Props = Readonly<{
   }>;
 }>;
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug, saveId } = params;
+
+  const [question, save] = await Promise.all([
+    readQuestionUserInterface(slug),
+    prisma.questionUserInterfaceSave.findFirst({
+      where: {
+        id: saveId,
+      },
+    }),
+  ]);
+
+  return defaultMetadata({
+    locale,
+    pathname: question.metadata.href + `/v/${saveId}`,
+    title:
+      save == null
+        ? question.metadata.title
+        : `${save?.name} | ${question.metadata.title}`,
+  });
+}
+
 export default async function Page({ params }: Props) {
   const { slug, saveId } = params;
 
-  const user = await fetchUser();
-  const save = await prisma.questionUserInterfaceSave.findFirst({
-    orderBy: {
-      createdAt: 'desc',
-    },
-    where: {
-      id: saveId,
-      userId: user?.id,
-    },
-  });
+  const [user, save] = await Promise.all([
+    fetchUser(),
+    prisma.questionUserInterfaceSave.findFirst({
+      where: {
+        id: saveId,
+      },
+    }),
+  ]);
 
   if (save == null) {
     // TODO(submission): show error page for not found save.
-    return <div>No such save or not allowed to view.</div>;
+    return <div className="p-4 text-center">No such save.</div>;
   }
 
   const question = await readQuestionUserInterface(
