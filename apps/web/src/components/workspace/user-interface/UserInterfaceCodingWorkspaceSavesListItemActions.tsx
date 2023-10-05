@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { RiDeleteBinLine, RiEditLine, RiMoreLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -22,6 +22,7 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
 }: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const userInterfaceSaveDeleteMutation =
     trpc.questionSave.userInterfaceDelete.useMutation();
@@ -66,6 +67,9 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
           label="Rename"
           onClick={() => {
             setIsEditing(true);
+            setTimeout(() => {
+              inputRef.current?.select();
+            }, 17);
           }}
         />
         <DropdownMenu.Item
@@ -103,7 +107,6 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         }}>
         This is an irreversible action. Are you sure?
       </ConfirmationDialog>
-
       <Dialog
         isShown={isEditing}
         primaryButton={
@@ -137,7 +140,7 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
             saveEdits();
           }}>
           <TextInput
-            autoFocus={true}
+            ref={inputRef}
             isDisabled={userInterfaceSaveUpdateMutation.isLoading}
             isLabelHidden={true}
             label="Name"

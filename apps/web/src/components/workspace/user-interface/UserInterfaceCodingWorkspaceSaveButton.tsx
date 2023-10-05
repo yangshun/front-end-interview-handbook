@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -63,6 +63,7 @@ function NewSaveButton({
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: question.metadata.slug,
   });
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const { sandpack } = useSandpack();
   const { files } = sandpack;
@@ -108,6 +109,9 @@ function NewSaveButton({
         variant="primary"
         onClick={() => {
           setIsDialogOpen(true);
+          setTimeout(() => {
+            inputRef.current?.select();
+          }, 17);
         }}
       />
       <Dialog
@@ -153,7 +157,7 @@ function NewSaveButton({
               saveToServer();
             }}>
             <TextInput
-              autoFocus={true}
+              ref={inputRef}
               isDisabled={userInterfaceAddSubmissionMutation.isLoading}
               label="Name your save"
               placeholder="My awesome code"
