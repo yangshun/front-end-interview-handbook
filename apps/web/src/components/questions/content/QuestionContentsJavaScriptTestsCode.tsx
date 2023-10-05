@@ -2,24 +2,25 @@ import { useEffect, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
-import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
 import JavaScriptTestCodesEmitter from './JavaScriptTestCodesEmitter';
+
 type Props = Readonly<{
   contents: string | null;
   isContentsHidden?: boolean;
+  specPath: string;
 }>;
 
 function highlightElement(
   el: HTMLElement | null,
-  testPath: ReadonlyArray<string>,
+  specParts: ReadonlyArray<string>,
   targetTestPathIndex: number,
 ) {
-  if (el == null || testPath.length === 0) {
+  if (el == null || specParts.length === 0) {
     return;
   }
 
@@ -29,7 +30,7 @@ function highlightElement(
   let tokenContainingPath: Element | null = null;
 
   for (let i = 0; i < tokens.length; i++) {
-    const currentPath = testPath[currentIndex];
+    const currentPath = specParts[currentIndex];
 
     if (tokens[i].textContent === `'${currentPath}'`) {
       tokenContainingPath = tokens[i];
@@ -39,31 +40,32 @@ function highlightElement(
       break;
     }
   }
+
   if (tokenContainingPath == null) {
     return;
   }
+
   tokenContainingPath.scrollIntoView({
     behavior: 'smooth',
     block: 'center',
     inline: 'nearest',
   });
-  setTimeout(() => {
-    const highlightClassTokens = [
-      '!bg-amber-300',
-      '!text-neutral-900',
-      'transition-colors',
-    ];
 
-    tokenContainingPath?.classList.add(...highlightClassTokens);
-    setTimeout(() => {
-      tokenContainingPath?.classList.remove(...highlightClassTokens);
-    }, 1000);
-  }, 500);
+  const highlightClassTokens = [
+    '!bg-brand',
+    '!text-white',
+    'transition-colors',
+  ];
+
+  tokenContainingPath?.classList.add(...highlightClassTokens);
+  setTimeout(() => {
+    tokenContainingPath?.classList.remove(...highlightClassTokens);
+  }, 1000);
 }
 
 export default function QuestionContentsJavaScriptTestsCode({
   contents,
-  isContentsHidden = false,
+  specPath,
 }: Props) {
   const codeRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
@@ -71,14 +73,20 @@ export default function QuestionContentsJavaScriptTestsCode({
   useEffect(() => {
     function highlight({
       index,
-      path,
+      filePath,
+      specParts,
     }: Readonly<{
+      filePath: string;
       index: number;
-      path: ReadonlyArray<string>;
+      specParts: ReadonlyArray<string>;
     }>) {
+      if (specPath !== filePath) {
+        return;
+      }
+
       // Push to next tick in case the test cases panel not shown yet.
       setTimeout(() => {
-        highlightElement(codeRef.current, path, index);
+        highlightElement(codeRef.current, specParts, index);
       }, 100);
     }
     JavaScriptTestCodesEmitter.on('focus_on_test', highlight);
@@ -86,11 +94,7 @@ export default function QuestionContentsJavaScriptTestsCode({
     return () => {
       JavaScriptTestCodesEmitter.off('focus_on_test', highlight);
     };
-  }, []);
-
-  if (isContentsHidden) {
-    return <QuestionPaywall />;
-  }
+  }, [specPath]);
 
   if (contents == null) {
     return (

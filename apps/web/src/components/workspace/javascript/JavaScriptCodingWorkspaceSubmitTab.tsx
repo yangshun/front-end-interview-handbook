@@ -94,7 +94,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           });
         }
       }}
-      onShowTestCase={(_, index, displayPath) => {
+      onShowTestCase={(_, index, specParts) => {
         dispatch({
           payload: {
             tabId: 'test_cases',
@@ -102,8 +102,9 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           type: 'tab-set-active',
         });
         JavaScriptTestCodesEmitter.emit('focus_on_test', {
+          filePath: specPath,
           index,
-          path: displayPath,
+          specParts,
         });
       }}
       onShowTestsCases={() => {

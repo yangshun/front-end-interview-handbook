@@ -2,12 +2,9 @@ import mitt from 'mitt';
 
 type Events = Readonly<{
   focus_on_test: Readonly<{
+    filePath: string;
     index: number;
-    path: ReadonlyArray<string>;
-  }>;
-  show_test_cases: Readonly<{
-    index: number;
-    path: ReadonlyArray<string>;
+    specParts: ReadonlyArray<string>;
   }>;
 }>;
 

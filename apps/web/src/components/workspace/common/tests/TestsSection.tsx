@@ -47,7 +47,11 @@ const INITIAL_STATE: State = {
 
 export type Props = Readonly<{
   onComplete?: (outcome: TestsOutcome) => void;
-  onShowTestCase: (type: SpecMode, index: number, path: Array<string>) => void;
+  onShowTestCase: (
+    type: SpecMode,
+    index: number,
+    specParts: Array<string>,
+  ) => void;
   onShowTestsCases: (type: SpecMode) => void;
   specMode: SpecMode;
   specPath: string;

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import type {
@@ -10,7 +10,6 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
-import JavaScriptSelfTestCodesEmitter from '~/components/questions/content/JavaScriptSelfTestCodesEmitter';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
@@ -236,6 +235,7 @@ function JavaScriptCodingWorkspaceImpl({
           <div className="mx-auto max-w-3xl p-4">
             <QuestionContentsJavaScriptTestsCode
               contents={files[workspace.submit].code}
+              specPath={workspace.submit}
             />
           </div>
         </div>
@@ -258,7 +258,7 @@ function JavaScriptCodingWorkspaceImpl({
     },
     [codingWorkspaceTabFileId(workspace.run)]: {
       contents: (
-        <JavaScriptCodingWorkspaceTestsEditor testsPath={workspace.run} />
+        <JavaScriptCodingWorkspaceTestsEditor specPath={workspace.run} />
       ),
       icon: CodingWorkspaceTabIcons.test_cases.icon,
       label: 'Test cases',

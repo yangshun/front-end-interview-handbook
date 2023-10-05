@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -7,7 +7,6 @@ import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
 } from '~/components/questions/common/QuestionsTypes';
-import JavaScriptTestCodesEmitter from '~/components/questions/content/JavaScriptTestCodesEmitter';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import JavaScriptCodingWorkspaceDescription from '~/components/workspace/javascript/JavaScriptCodingWorkspaceDescription';
@@ -22,25 +21,6 @@ export default function MarketingEmbedJavaScriptQuestion({
 }>) {
   const [language, setLanguage] = useState<QuestionCodingWorkingLanguage>('js');
   const intl = useIntl();
-
-  useEffect(() => {
-    function showTestCasesSection(
-      params: Readonly<{
-        index: number;
-        path: ReadonlyArray<string>;
-      }>,
-    ) {
-      setTimeout(() => {
-        JavaScriptTestCodesEmitter.emit('focus_on_test', params);
-      }, 100);
-    }
-
-    JavaScriptTestCodesEmitter.on('show_test_cases', showTestCasesSection);
-
-    return () => {
-      JavaScriptTestCodesEmitter.off('show_test_cases', showTestCasesSection);
-    };
-  }, []);
 
   return (
     <div className="relative flex h-full w-full flex-col">
