@@ -2,11 +2,8 @@ import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import prisma from '~/server/prisma';
 import { createServerSupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
-
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 const cors = Cors({
   methods: ['POST'],

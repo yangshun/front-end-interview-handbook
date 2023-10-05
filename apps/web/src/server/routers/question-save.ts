@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
+import prisma from '~/server/prisma';
+
 import { publicProcedure, router } from '../trpc';
 
-import { PrismaClient, QuestionUserInterfaceFramework } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { QuestionUserInterfaceFramework } from '@prisma/client';
 
 export const questionSaveRouter = router({
   userInterfaceAdd: publicProcedure
@@ -12,7 +12,7 @@ export const questionSaveRouter = router({
       z.object({
         files: z.string(),
         framework: z.enum([
-          // TODO: Read from Prisma directly.
+          // TODO(prisma): Read from Prisma directly.
           QuestionUserInterfaceFramework.REACT,
           QuestionUserInterfaceFramework.VANILLA,
           QuestionUserInterfaceFramework.ANGULAR,

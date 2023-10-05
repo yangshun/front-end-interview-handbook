@@ -4,13 +4,12 @@ import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-i
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import prisma from '~/server/prisma';
 import {
   createSupabaseAdminClientGFE,
   fetchUser,
 } from '~/supabase/SupabaseServerGFE';
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
-
-import { PrismaClient } from '@prisma/client';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -19,8 +18,6 @@ type Props = Readonly<{
     slug: string;
   }>;
 }>;
-
-const prisma = new PrismaClient();
 
 export default async function Page({ params }: Props) {
   const { slug, saveId } = params;

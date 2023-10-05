@@ -1,11 +1,8 @@
 import cookie from 'cookie';
 import { z } from 'zod';
 
+import prisma from '../prisma';
 import { publicProcedure, router } from '../trpc';
-
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export const feedbackRouter = router({
   submitFeedback: publicProcedure

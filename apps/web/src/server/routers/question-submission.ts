@@ -1,14 +1,13 @@
 import { z } from 'zod';
 
+import prisma from '~/server/prisma';
+
 import { publicProcedure, router } from '../trpc';
 
 import {
-  PrismaClient,
   QuestionSubmissionResult,
   QuestionWorkingLanguage,
 } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export const questionSubmissionRouter = router({
   javaScriptAdd: publicProcedure
@@ -16,11 +15,12 @@ export const questionSubmissionRouter = router({
       z.object({
         code: z.string(),
         language: z.enum([
-          // TODO: Read from Prisma directly.
+          // TODO(prisma): Read from Prisma directly.
           QuestionWorkingLanguage.JS,
           QuestionWorkingLanguage.TS,
         ]),
         result: z.enum([
+          // TODO(prisma): Read from Prisma directly.
           QuestionSubmissionResult.CORRECT,
           QuestionSubmissionResult.WRONG,
         ]),

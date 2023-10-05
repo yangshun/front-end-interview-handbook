@@ -4,12 +4,9 @@ import type { QuestionFormat } from '~/components/questions/common/QuestionsType
 
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion } from '~/db/QuestionsUtils';
+import prisma from '~/server/prisma';
 
 import { publicProcedure, router } from '../trpc';
-
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export const questionProgressRouter = router({
   add: publicProcedure

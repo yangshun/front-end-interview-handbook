@@ -2,9 +2,7 @@ import 'server-only';
 
 import type { QuestionFormat } from '~/components/questions/common/QuestionsTypes';
 
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '~/server/prisma';
 
 export type QuestionCompletionCount = Partial<
   Record<QuestionFormat, Record<string, number>>

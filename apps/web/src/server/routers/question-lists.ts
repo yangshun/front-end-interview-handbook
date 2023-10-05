@@ -1,12 +1,9 @@
 import { z } from 'zod';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
+import prisma from '~/server/prisma';
 
 import { publicProcedure, router } from '../trpc';
-
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export const questionListsRouter = router({
   getActiveSession: publicProcedure

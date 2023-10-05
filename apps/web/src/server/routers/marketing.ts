@@ -1,11 +1,11 @@
 import Stripe from 'stripe';
 import { z } from 'zod';
 
+import prisma from '~/server/prisma';
+
 import { publicProcedure, router } from '../trpc';
 
-import { Prisma, PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { Prisma } from '@prisma/client';
 
 export const marketingRouter = router({
   generateStudentDiscount: publicProcedure.mutation(
