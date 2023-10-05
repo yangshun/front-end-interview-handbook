@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFrameworkIcon from '~/components/questions/metadata/QuestionFrameworkIcon';
 import Anchor from '~/components/ui/Anchor';
@@ -31,6 +32,27 @@ const dateFormatter = new Intl.DateTimeFormat('en-SG', {
 export default function UserInterfaceCodingWorkspaceSavesList({
   metadata,
 }: Props) {
+  const { userProfile } = useUserProfile();
+
+  if (userProfile == null) {
+    return (
+      <div className="w-full">
+        <div className="flex h-full flex-col p-4">
+          <div className="flex grow items-center justify-center">
+            <EmptyState
+              title="You must be signed in to view your saved versions"
+              variant="empty"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return <UserInterfaceCodingWorkspaceSavesListImpl metadata={metadata} />;
+}
+
+function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: metadata.slug,
   });
@@ -42,7 +64,7 @@ export default function UserInterfaceCodingWorkspaceSavesList({
       {saves == null || saves?.length === 0 ? (
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
-            <EmptyState title="No versions" variant="empty" />
+            <EmptyState title="No saved versions" variant="empty" />
           </div>
         </div>
       ) : (

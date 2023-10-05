@@ -16,6 +16,7 @@ import QuestionMetadataSection from '~/components/questions/metadata/QuestionMet
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
@@ -94,9 +95,15 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           <Alert variant="info">
             <div className="flex flex-col items-start gap-2">
               <Text display="block" size="body2">
-                You are currently editing code from your saved version:{' '}
-                <strong>"{save.name}"</strong>
+                You are currently editing code from the saved version:{' '}
+                <strong>"{save.name}"</strong>.
               </Text>
+              <Button
+                href={questionUserInterfaceDescriptionPath(metadata, framework)}
+                label="Start a new version"
+                size="sm"
+                variant="secondary"
+              />
             </div>
           </Alert>
         )}

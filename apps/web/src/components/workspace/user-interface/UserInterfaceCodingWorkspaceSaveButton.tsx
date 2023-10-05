@@ -17,6 +17,7 @@ import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodi
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 import type { QuestionUserInterfaceSave } from '@prisma/client';
+import { useUser } from '@supabase/auth-helpers-react';
 
 function UpdateSaveButton({
   save,
@@ -178,6 +179,13 @@ export default function UserInterfaceCodingWorkspaceSaveButton({
 }>) {
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const hasExistingSave = save != null;
+  const user = useUser();
+
+  // Don't allow updating of save file if the current user
+  // doesn't own the save.
+  if (user == null || (hasExistingSave && user?.id !== save.userId)) {
+    return null;
+  }
 
   return (
     <div>

@@ -26,7 +26,7 @@ export const questionSaveRouter = router({
     .mutation(
       async ({ input: { files, name, slug, framework }, ctx: { user } }) => {
         if (!user) {
-          return null;
+          throw 'User account required. Register or sign in first.';
         }
 
         return await prisma.questionUserInterfaceSave.create({
@@ -48,7 +48,7 @@ export const questionSaveRouter = router({
     )
     .mutation(async ({ input: { saveId }, ctx: { user } }) => {
       if (!user) {
-        return null;
+        throw 'User account required. Register or sign in first.';
       }
 
       // TODO(acl): prevent unauthorized deletions.
@@ -66,7 +66,7 @@ export const questionSaveRouter = router({
     )
     .query(async ({ input: { saveId }, ctx: { user } }) => {
       if (!user) {
-        return null;
+        throw 'User account required. Register or sign in first.';
       }
 
       // TODO(acl): prevent unauthorized reads.
@@ -88,7 +88,7 @@ export const questionSaveRouter = router({
     )
     .query(async ({ input: { slug }, ctx: { user } }) => {
       if (!user) {
-        return null;
+        throw 'User account required. Register or sign in first.';
       }
 
       return await prisma.questionUserInterfaceSave.findMany({
@@ -117,7 +117,7 @@ export const questionSaveRouter = router({
     )
     .mutation(async ({ input: { files, name, saveId }, ctx: { user } }) => {
       if (!user) {
-        return null;
+        throw 'User account required. Register or sign in first.';
       }
 
       // TODO(acl): prevent unauthorized updates.
