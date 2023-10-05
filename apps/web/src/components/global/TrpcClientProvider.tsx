@@ -4,8 +4,6 @@ import type { ReactNode } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import { getSiteUrl } from '~/seo/siteUrl';
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
