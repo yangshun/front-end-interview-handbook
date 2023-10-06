@@ -7,6 +7,7 @@ import {
   RiBracesFill,
   RiCheckboxLine,
   RiCodeLine,
+  RiDatabase2Line,
   RiFileList2Line,
   RiFlaskLine,
   RiFolder3Line,
@@ -17,7 +18,6 @@ import {
   RiNpmjsFill,
   RiPlayLine,
   RiTerminalBoxLine,
-  RiTimeLine,
 } from 'react-icons/ri';
 
 export type CodingWorkspaceTabIconType =
@@ -105,6 +105,6 @@ export const CodingWorkspaceTabIcons: Record<
     icon: BiLogoTypescript,
   },
   versions: {
-    icon: RiTimeLine,
+    icon: RiDatabase2Line,
   },
 };

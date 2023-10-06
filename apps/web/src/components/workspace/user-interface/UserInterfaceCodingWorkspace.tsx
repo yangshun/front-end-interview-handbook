@@ -315,7 +315,7 @@ function UserInterfaceCodingWorkspaceImpl({
     versions: {
       contents: <UserInterfaceCodingWorkspaceSavesList metadata={metadata} />,
       icon: CodingWorkspaceTabIcons.versions.icon,
-      label: 'Saved versions',
+      label: 'Saved code',
     },
   };
 
