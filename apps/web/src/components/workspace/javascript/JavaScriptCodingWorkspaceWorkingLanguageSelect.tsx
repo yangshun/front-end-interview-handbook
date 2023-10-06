@@ -2,7 +2,7 @@ import { useIntl } from 'react-intl';
 
 import Select from '~/components/ui/Select';
 
-import type { QuestionCodingWorkingLanguage } from '../common/QuestionsTypes';
+import type { QuestionCodingWorkingLanguage } from '../../questions/common/QuestionsTypes';
 
 const options: ReadonlyArray<{
   label: string;
@@ -23,7 +23,7 @@ type Props = Readonly<{
   value: QuestionCodingWorkingLanguage;
 }>;
 
-export default function QuestionCodingWorkingLanguageSelect({
+export default function JavaScriptCodingWorkspaceWorkingLanguageSelect({
   value,
   onChange,
 }: Props) {

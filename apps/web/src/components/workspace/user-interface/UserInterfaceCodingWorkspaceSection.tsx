@@ -9,11 +9,11 @@ import type {
   QuestionUserInterface,
 } from '~/components/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import { loadLocalUserInterfaceQuestionCode } from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
-import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
+import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
+import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 
-import SandpackTimeoutLogger from '../SandpackTimeoutLogger';
+import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
 
 import type { SandpackTheme } from '@codesandbox/sandpack-react';
 import { SandpackProvider } from '@codesandbox/sandpack-react';

@@ -1,5 +1,5 @@
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
-import JavaScriptConsole from '~/components/questions/devtools/JavaScriptConsole';
+import JavaScriptConsole from '~/components/workspace/common/console/JavaScriptConsole';
 
 import { useSandpackConsole } from '@codesandbox/sandpack-react';
 

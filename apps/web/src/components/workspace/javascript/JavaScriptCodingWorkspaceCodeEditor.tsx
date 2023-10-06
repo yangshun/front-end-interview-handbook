@@ -3,15 +3,15 @@ import type { editor } from 'monaco-editor';
 import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
-import QuestionCodingWorkingLanguageSelect from '~/components/questions/content/QuestionCodingWorkingLanguageSelect';
-import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
-import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
-import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
 import { themeLineColor } from '~/components/ui/theme';
+import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
+import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
+import JavaScriptCodingWorkspaceWorkingLanguageSelect from '~/components/workspace/javascript/JavaScriptCodingWorkspaceWorkingLanguageSelect';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceCustomTestCasesBanner from './JavaScriptCodingWorkspaceCustomTestCasesBanner';
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 
@@ -65,7 +65,7 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
         )}>
         <div>
           {isMainFile && (
-            <QuestionCodingWorkingLanguageSelect
+            <JavaScriptCodingWorkspaceWorkingLanguageSelect
               value={language}
               onChange={setLanguage}
             />

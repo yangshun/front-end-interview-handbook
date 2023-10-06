@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
 import { useEffect, useState } from 'react';
 
-import JavaScriptTestCodesEmitter from '~/components/questions/content/JavaScriptTestCodesEmitter';
+import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
 

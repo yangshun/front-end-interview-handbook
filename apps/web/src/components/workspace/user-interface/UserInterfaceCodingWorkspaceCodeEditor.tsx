@@ -4,9 +4,9 @@ import { RiFolder3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
-import CodingWorkspaceEditorShortcutsButton from '~/components/questions/editor/CodingWorkspaceEditorShortcutsButton';
-import CodingWorkspaceResetButton from '~/components/questions/editor/CodingWorkspaceResetButton';
-import CodingWorkspaceThemeSelect from '~/components/questions/editor/CodingWorkspaceThemeSelect';
+import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
+import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -15,8 +15,8 @@ import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEdi
 
 import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
-import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
+import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 
 import { useSandpack } from '@codesandbox/sandpack-react';

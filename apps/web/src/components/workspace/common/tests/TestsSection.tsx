@@ -21,7 +21,7 @@ import type { TestsRunStatus } from './TestsRunStatusBadge';
 import TestsRunStatusBadge from './TestsRunStatusBadge';
 import type { Spec, Test } from './types';
 import { flatMap, getAllTestResults, set, splitTail } from './utils';
-import { useCodingWorkspaceContext } from '../../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 
 import { useSandpackClient } from '@codesandbox/sandpack-react';
 

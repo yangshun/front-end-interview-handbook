@@ -15,13 +15,13 @@ import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
 } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
+import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
-import SandpackTimeoutLogger from '../SandpackTimeoutLogger';
+import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 import type { QuestionUserInterfaceSave } from '@prisma/client';

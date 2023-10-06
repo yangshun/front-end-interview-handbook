@@ -8,11 +8,11 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
-import { loadLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
-import sandpackProviderOptions from '~/components/questions/evaluator/sandpackProviderOptions';
+import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
+import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 
-import SandpackTimeoutLogger from '../SandpackTimeoutLogger';
+import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 

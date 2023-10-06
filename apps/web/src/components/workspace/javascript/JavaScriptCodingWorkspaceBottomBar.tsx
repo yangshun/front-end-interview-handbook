@@ -7,7 +7,7 @@ import Button from '~/components/ui/Button';
 import logEvent from '~/logging/logEvent';
 
 import JavaScriptCodingWorkspaceLayoutButton from './JavaScriptCodingWorkspaceLayoutButton';
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 
 type Props = Readonly<{

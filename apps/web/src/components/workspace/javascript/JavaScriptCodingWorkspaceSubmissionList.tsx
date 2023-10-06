@@ -16,7 +16,7 @@ import {
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
 
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;

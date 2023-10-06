@@ -10,8 +10,8 @@ import logEvent from '~/logging/logEvent';
 
 import MarketingCodeMirrorTheme from './coding/MarketingCodeMirrorTheme';
 import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
-import sandpackProviderOptions from '../questions/evaluator/sandpackProviderOptions';
-import SandpackTimeoutLogger from '../workspace/SandpackTimeoutLogger';
+import sandpackProviderOptions from '../workspace/common/sandpack/sandpackProviderOptions';
+import SandpackTimeoutLogger from '../workspace/common/sandpack/SandpackTimeoutLogger';
 
 import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
 import {

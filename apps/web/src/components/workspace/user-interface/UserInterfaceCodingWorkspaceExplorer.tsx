@@ -1,6 +1,6 @@
 import CodingWorkspaceExplorer from '~/components/workspace/common/explorer/CodingWorkspaceExplorer';
 
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 
 export default function UserInterfaceCodingWorkspaceExplorer() {
   const { openFile } = useCodingWorkspaceContext();

@@ -1,5 +1,5 @@
-import type { CodingWorkspaceTabIcon } from '../../CodingWorkspaceTabIcons';
-import { CodingWorkspaceTabIcons } from '../../CodingWorkspaceTabIcons';
+import type { CodingWorkspaceTabIcon } from '../CodingWorkspaceTabIcons';
+import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
 
 export function codingWorkspaceExplorerFilePathToIcon(
   filePath: string,

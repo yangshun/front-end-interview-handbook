@@ -11,8 +11,8 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
 import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
-import QuestionContentsJavaScriptTestsCode from '~/components/questions/content/QuestionContentsJavaScriptTestsCode';
-import { deleteLocalJavaScriptQuestionCode } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
+import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascript/JavaScriptCodingWorkspaceTestsCode';
+import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
@@ -33,10 +33,10 @@ import type {
   JavaScriptCodingWorkspaceTabsType,
 } from './JavaScriptCodingWorkspaceTypes';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
-import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
-import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
-import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
-import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
+import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
+import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
+import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
+import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
@@ -47,7 +47,7 @@ import {
   codingWorkspaceTabSubmissionId,
   codingWorkspaceTabSubmissionPattern,
 } from '../common/tabs/codingWorkspaceTabId';
-import useRestartSandpack from '../useRestartSandpack';
+import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
@@ -233,7 +233,7 @@ function JavaScriptCodingWorkspaceImpl({
       contents: (
         <div className="w-full">
           <div className="mx-auto max-w-3xl p-4">
-            <QuestionContentsJavaScriptTestsCode
+            <JavaScriptCodingWorkspaceTestsCode
               contents={files[workspace.submit].code}
               specPath={workspace.submit}
             />

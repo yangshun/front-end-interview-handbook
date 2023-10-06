@@ -63,7 +63,7 @@ function highlightElement(
   }, 1000);
 }
 
-export default function QuestionContentsJavaScriptTestsCode({
+export default function JavaScriptCodingWorkspaceTestsCode({
   contents,
   specPath,
 }: Props) {

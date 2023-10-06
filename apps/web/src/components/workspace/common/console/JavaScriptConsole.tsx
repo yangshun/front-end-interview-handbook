@@ -23,7 +23,7 @@ import Select from '~/components/ui/Select';
 import TextInput from '~/components/ui/TextInput';
 import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
-import useConsoleStyles from './useConsoleStyles';
+import { getConsoleStyles } from './JavaScriptConsoleStyles';
 
 import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/components/Console/utils/getType';
 
@@ -79,7 +79,7 @@ export default function JavaScriptConsole({
   const [query, setQuery] = useState('');
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
 
-  const consoleStyles = useConsoleStyles(consoleTheme, consoleFontSize);
+  const consoleStyles = getConsoleStyles(consoleTheme, consoleFontSize);
 
   const [logLevelFilter, setLogLevelFilter] = useState<LogLevelFilter>('all');
   const getLogLevelFilter = (val: LogLevelFilter) => {
@@ -114,7 +114,7 @@ export default function JavaScriptConsole({
 
   const toolbar = (
     <div className={clsx('flex flex-col border-b', themeLineColor)}>
-      <div className="flex flex-row items-center gap-x-2 p-2">
+      <div className="flex flex-row items-center gap-x-2 px-2 py-1">
         <Button
           icon={RiDeleteBinLine}
           isLabelHidden={true}
@@ -132,7 +132,7 @@ export default function JavaScriptConsole({
             id: '5RlLAP',
           })}
           tooltipPosition="end"
-          variant="secondary"
+          variant="tertiary"
           onClick={() => {
             onClear();
           }}
@@ -223,7 +223,7 @@ export default function JavaScriptConsole({
             id: 'nSDLrS',
           })}
           tooltipPosition="start"
-          variant="secondary"
+          variant="tertiary"
           onClick={() => {
             setShowAdvancedOptions(!showAdvancedOptions);
           }}

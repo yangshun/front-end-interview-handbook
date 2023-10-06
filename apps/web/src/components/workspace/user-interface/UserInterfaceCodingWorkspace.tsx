@@ -13,7 +13,7 @@ import { questionUserInterfaceSolutionPath } from '~/components/questions/conten
 import {
   deleteLocalUserInterfaceQuestionCode,
   saveUserInterfaceQuestionCodeLocally,
-} from '~/components/questions/editor/UserInterfaceQuestionCodeStorage';
+} from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 
@@ -33,10 +33,10 @@ import type {
 } from './UserInterfaceCodingWorkspaceTypes';
 import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
-import { codingFilesShouldUseTypeScript } from '../codingFilesShouldUseTypeScript';
-import type { CodingWorkspaceTabContents } from '../CodingWorkspaceContext';
-import { CodingWorkspaceProvider } from '../CodingWorkspaceContext';
-import { CodingWorkspaceTabIcons } from '../CodingWorkspaceTabIcons';
+import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
+import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
+import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
+import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
@@ -51,7 +51,7 @@ import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '../common/tabs/codingWorkspaceTabId';
-import useRestartSandpack from '../useRestartSandpack';
+import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';

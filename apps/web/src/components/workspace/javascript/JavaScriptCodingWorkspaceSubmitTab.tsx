@@ -6,7 +6,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import JavaScriptTestCodesEmitter from '~/components/questions/content/JavaScriptTestCodesEmitter';
+import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
 import {
   useMutationQuestionProgressAdd,
@@ -16,7 +16,7 @@ import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import TestsSection from '../common/tests/TestsSection';
 
 import { useUser } from '@supabase/auth-helpers-react';

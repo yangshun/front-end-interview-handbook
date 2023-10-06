@@ -7,9 +7,9 @@ import type {
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptWorkspace,
 } from '~/components/questions/common/QuestionsTypes';
-import { saveJavaScriptQuestionCodeLocally } from '~/components/questions/editor/JavaScriptQuestionCodeStorage';
+import { saveJavaScriptQuestionCodeLocally } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
