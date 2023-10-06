@@ -20,14 +20,12 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
   question: QuestionSystemDesign;
-  serverDuration: number;
 }>;
 
 export default function QuestionsSystemDesignPage({
   canViewPremiumContent,
   isQuestionLocked,
   question,
-  serverDuration,
 }: Props) {
   const isAvailable =
     process.env.NODE_ENV === 'development'
@@ -89,7 +87,6 @@ export default function QuestionsSystemDesignPage({
             hasCompletedQuestion={false}
             isQuestionLocked={isQuestionLocked}
             question={question}
-            serverDuration={serverDuration}
           />
         )}
       </SystemDesignPaywall>

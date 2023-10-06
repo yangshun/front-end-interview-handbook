@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const t0 = performance.now();
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
   const canViewPremiumContent: boolean = await (async () => {
@@ -86,7 +85,6 @@ export default async function Page({ params }: Props) {
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,
         }}
-        serverDuration={performance.now() - t0}
       />
     </>
   );

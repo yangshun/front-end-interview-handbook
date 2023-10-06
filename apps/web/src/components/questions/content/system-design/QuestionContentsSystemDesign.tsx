@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
-import StatisticsPanel from '~/components/debug/StatisticsPanel';
 import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import Badge from '~/components/ui/Badge';
 import Divider from '~/components/ui/Divider';
@@ -22,7 +21,6 @@ type Props = Readonly<{
   hasCompletedQuestion: boolean;
   isQuestionLocked: boolean;
   question: QuestionBase;
-  serverDuration: number;
 }>;
 
 export default function QuestionContentsSystemDesign({
@@ -30,7 +28,6 @@ export default function QuestionContentsSystemDesign({
   hasCompletedQuestion,
   isQuestionLocked,
   question,
-  serverDuration,
 }: Props) {
   const intl = useIntl();
   const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
@@ -69,7 +66,6 @@ export default function QuestionContentsSystemDesign({
           </Section>
         </div>
       </div>
-      <StatisticsPanel serverDuration={serverDuration} />
       <Section>
         <div className="flex flex-col gap-y-8">
           {!isQuestionLocked &&
