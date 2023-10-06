@@ -11,6 +11,8 @@ import Text from '~/components/ui/Text';
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
 
+import JavaScriptCodingWorkspacePushCodeToEditorButton from './JavaScriptCodingWorkspacePushCodeToEditorButton';
+
 type Props = Readonly<{
   metadata: QuestionMetadata;
   submissionId: string;
@@ -66,7 +68,14 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
             </Text>
           </div>
           <Prose textSize="sm">
-            <MDXCodeBlock>{submission.code}</MDXCodeBlock>
+            <MDXCodeBlock
+              renderExtraButtons={() => (
+                <JavaScriptCodingWorkspacePushCodeToEditorButton
+                  contents={submission.code}
+                />
+              )}>
+              {submission.code}
+            </MDXCodeBlock>
           </Prose>
         </div>
       )}

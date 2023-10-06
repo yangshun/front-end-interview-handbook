@@ -3,7 +3,7 @@
 import type { Language } from 'prism-react-renderer';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import codeTheme from 'prism-react-renderer/themes/dracula';
-import type { ComponentProps, ReactElement } from 'react';
+import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import { useState } from 'react';
 import { RiCheckLine, RiFileCopyLine } from 'react-icons/ri';
 
@@ -24,10 +24,11 @@ const languagesLabel: LanguagesLabels = {
   typescript: 'TypeScript',
 };
 
-type Props = ComponentProps<'pre'> &
+export type Props = ComponentProps<'pre'> &
   Readonly<{
     language?: Language;
     languages?: LanguagesCode;
+    renderExtraButtons?: (code: string) => ReactNode;
     showCopyButton?: boolean;
   }>;
 
@@ -36,7 +37,6 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
 
   return (
     <Button
-      className="absolute right-2 top-2 p-1"
       icon={isCopied ? RiCheckLine : RiFileCopyLine}
       isLabelHidden={true}
       label={isCopied ? 'Copied!' : 'Copy code to clipboard'}
@@ -71,6 +71,7 @@ function convertContentToCode(children: React.ReactNode): string | null {
 export default function MDXCodeBlock({
   children,
   showCopyButton = true,
+  renderExtraButtons,
   language = 'jsx',
   languages = {},
 }: Props): JSX.Element {
@@ -127,7 +128,12 @@ export default function MDXCodeBlock({
         className="relative"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}>
-        {isHovered && showCopyButton && <CopyButton contents={selectedCode} />}
+        {isHovered && (
+          <div className="absolute right-2 top-2 flex gap-x-1 p-1">
+            {renderExtraButtons?.(selectedCode)}
+            {showCopyButton && <CopyButton contents={selectedCode} />}
+          </div>
+        )}
         <Highlight
           {...defaultProps}
           code={selectedCode.trim()}

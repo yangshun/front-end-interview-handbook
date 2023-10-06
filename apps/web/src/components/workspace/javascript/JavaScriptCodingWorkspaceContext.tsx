@@ -17,6 +17,7 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 type Context = Readonly<{
   language: QuestionCodingWorkingLanguage;
   mainFileCode: string;
+  replaceMainEditorContents: ((code: string) => void) | null;
   resetFile: (filePath: string) => void;
   setLanguage: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: QuestionJavaScriptSkeleton;
@@ -26,6 +27,7 @@ type Context = Readonly<{
 const JavaScriptCodingWorkspaceContext = createContext<Context>({
   language: 'js',
   mainFileCode: '',
+  replaceMainEditorContents: null,
   resetFile: () => {},
   setLanguage: () => {},
   skeleton: { js: '', ts: '' },
@@ -89,11 +91,16 @@ export function JavaScriptCodingWorkspaceContextProvider({
     ],
   );
 
+  function replaceMainEditorContents(code: string) {
+    updateFile(workspace.main, code);
+  }
+
   return (
     <JavaScriptCodingWorkspaceContext.Provider
       value={{
         language,
         mainFileCode,
+        replaceMainEditorContents,
         resetFile: resetFileCustom,
         setLanguage: onLanguageChange,
         skeleton,
