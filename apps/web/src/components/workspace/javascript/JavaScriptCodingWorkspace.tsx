@@ -10,7 +10,6 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
-import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascript/JavaScriptCodingWorkspaceTestsCode';
 

@@ -7,8 +7,8 @@ import Button from '~/components/ui/Button';
 import logEvent from '~/logging/logEvent';
 
 import JavaScriptCodingWorkspaceLayoutButton from './JavaScriptCodingWorkspaceLayoutButton';
-import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
+import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;

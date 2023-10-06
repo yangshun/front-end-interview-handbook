@@ -4,13 +4,13 @@ import { RiFolder3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
-import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
-import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
-import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeLineColor } from '~/components/ui/theme';
+import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
+import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
+import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
