@@ -44,74 +44,59 @@ function FocusAreaCard({
   const theme = getFocusAreaTheme(type);
 
   return (
-    <div className="@container contents">
-      <div
-        className={clsx(
-          '@lg:px-8 @lg:py-5 group relative flex flex-1 items-center gap-6 rounded-lg px-4 py-4',
-          'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
-          themeGlassyBorder,
-        )}>
-        <div className="@lg:self-auto @lg:items-center @lg:flex-row @lg:gap-6 flex flex-1 flex-col gap-2 self-stretch">
-          <div className="flex items-center gap-3">
-            <div
-              className={clsx(
-                '@lg:h-20 @lg:w-20 flex h-8 w-8 items-center justify-center rounded',
-                theme.gradient.className,
-              )}>
-              <theme.iconOutline className="@lg:h-10 @lg:w-10 h-5 w-5 text-white" />
-            </div>
-            <Anchor className="@lg:hidden" href={href} variant="unstyled">
-              <span aria-hidden={true} className="absolute inset-0" />
-              <Heading level="heading6">{name}</Heading>
-            </Anchor>
+    <div
+      className={clsx(
+        'group relative flex flex-1 items-center gap-6 rounded-lg p-4',
+        'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
+        themeGlassyBorder,
+      )}>
+      <div className="flex flex-1 flex-col gap-3 self-stretch">
+        <div className="flex items-center gap-3">
+          <div
+            className={clsx(
+              'flex h-10 w-10 items-center justify-center rounded',
+              theme.gradient.className,
+            )}>
+            <theme.iconOutline className="h-6 w-6 text-white" />
           </div>
-          <div className="flex flex-1 flex-col justify-between gap-4">
-            <div className="flex flex-col gap-1">
-              <div className="flex gap-x-4">
-                <Anchor
-                  className="@lg:inline hidden"
-                  href={href}
-                  variant="unstyled">
-                  <span aria-hidden={true} className="absolute inset-0" />
-                  <Heading level="heading6">{name}</Heading>
-                </Anchor>
-                {isStarted && (
-                  <span>
-                    <Badge
-                      label={intl.formatMessage({
-                        defaultMessage: 'Started',
-                        description: 'Started on study plan label',
-                        id: 'cKn3cK',
-                      })}
-                      size="sm"
-                      variant="info"
-                    />
-                  </span>
-                )}
-              </div>
-              <Text color="secondary" size="body2">
-                {shortDescription}
-              </Text>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
-              <QuestionCountLabel count={questionCount} showIcon={true} />
-              <QuestionDifficultySummary
-                easy={difficultySummary.easy}
-                hard={difficultySummary.hard}
-                medium={difficultySummary.medium}
-                showIcon={true}
+          <Anchor href={href} variant="unstyled">
+            <span aria-hidden={true} className="absolute inset-0" />
+            <Heading level="heading6">{name}</Heading>
+          </Anchor>
+          {isStarted && (
+            <span>
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Started',
+                  description: 'Started on study plan label',
+                  id: 'cKn3cK',
+                })}
+                size="sm"
+                variant="info"
               />
-              {isStarted && (
-                <CompletionCountSummary
-                  completed={completionCount}
-                  total={questionCount}
-                />
-              )}
-            </div>
-          </div>
+            </span>
+          )}
         </div>
-        <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 text-neutral-400 transition-colors" />
+        <Text className="grow" color="secondary" size="body2">
+          {shortDescription}
+        </Text>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+          <QuestionCountLabel count={questionCount} showIcon={true} />
+          <QuestionDifficultySummary
+            easy={difficultySummary.easy}
+            hard={difficultySummary.hard}
+            medium={difficultySummary.medium}
+            showIcon={true}
+          />
+          {isStarted && (
+            <CompletionCountSummary
+              completed={completionCount}
+              total={questionCount}
+            />
+          )}
+        </div>
       </div>
+      <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 text-neutral-400 transition-colors" />
     </div>
   );
 }
