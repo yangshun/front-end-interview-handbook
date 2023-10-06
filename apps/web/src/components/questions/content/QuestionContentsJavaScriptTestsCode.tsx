@@ -111,7 +111,7 @@ export default function QuestionContentsJavaScriptTestsCode({
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col">
       <Alert variant="info">
         <Text color="secondary" display="block" size="body2">
           <FormattedMessage
@@ -121,7 +121,7 @@ export default function QuestionContentsJavaScriptTestsCode({
           />
         </Text>
       </Alert>
-      <Prose>
+      <Prose textSize="sm">
         <div ref={codeRef}>
           <MDXCodeBlock showCopyButton={false}>{contents}</MDXCodeBlock>
         </div>

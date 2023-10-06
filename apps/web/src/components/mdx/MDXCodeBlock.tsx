@@ -142,7 +142,6 @@ export default function MDXCodeBlock({
                 });
 
                 return (
-                  // eslint-disable-next-line react/no-array-index-key
                   <div key={lineKey} {...lineProps}>
                     {line.map((token, index_) => {
                       const { key: tokenKey, ...tokenProps } = getTokenProps({
@@ -150,10 +149,7 @@ export default function MDXCodeBlock({
                         token,
                       });
 
-                      return (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <span key={tokenKey} {...tokenProps} />
-                      );
+                      return <span key={tokenKey} {...tokenProps} />;
                     })}
                   </div>
                 );

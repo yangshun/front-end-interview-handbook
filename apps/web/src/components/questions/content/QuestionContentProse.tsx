@@ -46,7 +46,7 @@ export default function QuestionContentProse({
   }
 
   return (
-    <Prose>
+    <Prose textSize="sm">
       <Contents components={MDXComponents} />
     </Prose>
   );

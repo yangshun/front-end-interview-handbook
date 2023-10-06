@@ -5,5 +5,9 @@ type Props = Readonly<{
 }>;
 
 export default function Abstract({ children }: Props) {
-  return <div className="lead">{children}</div>;
+  return (
+    <div className="text-lg text-neutral-700 dark:text-neutral-400">
+      {children}
+    </div>
+  );
 }

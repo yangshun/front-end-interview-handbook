@@ -75,7 +75,6 @@ module.exports = {
     './questions/**/*.{js,jsx,ts,tsx,md,mdx}',
   ],
   theme: {
-    typography: require('./typography.cjs'),
     extend: {
       animation: {
         marquee: 'marquee linear infinite',
@@ -126,6 +125,7 @@ module.exports = {
         3: '.046875em',
         4: '.0625em',
       },
+      typography: require('./typography.cjs'),
     },
   },
   plugins: [

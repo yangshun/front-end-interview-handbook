@@ -65,7 +65,7 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
               {dateFormatter.format(new Date(submission.createdAt))}
             </Text>
           </div>
-          <Prose>
+          <Prose textSize="sm">
             <MDXCodeBlock>{submission.code}</MDXCodeBlock>
           </Prose>
         </div>
