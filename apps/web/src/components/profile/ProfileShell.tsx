@@ -108,10 +108,10 @@ export default function ProfileShell({ user, children }: Props) {
             <div className="xl:w-64 xl:flex-shrink-0 xl:px-6">
               <div className="px-4 py-6 sm:px-6 lg:px-8 xl:px-0">
                 <div className="flex items-center justify-between">
-                  <div className="flex-1 space-y-8">
-                    <div className="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
+                  <div className="w-full flex-1 gap-y-8">
+                    <div className="gap-y-8 sm:flex sm:items-center sm:justify-between sm:gap-y-0 xl:block xl:gap-y-8">
                       {/* Profile */}
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center gap-x-3">
                         {user?.user_metadata?.avatar_url && (
                           <div className="h-24 w-24 flex-shrink-0">
                             <img
@@ -124,17 +124,20 @@ export default function ProfileShell({ user, children }: Props) {
                       </div>
                     </div>
                     {/* Meta info */}
-                    <div className="flex flex-col space-y-6 sm:flex-row sm:space-x-8 sm:space-y-0 xl:flex-col xl:space-x-0 xl:space-y-4">
+                    <div className="flex flex-col flex-wrap gap-4 sm:flex-row sm:gap-x-8 xl:flex-col xl:gap-x-0 xl:gap-y-4">
                       {user?.user_metadata?.full_name && (
-                        <Text display="block" weight="bold">
+                        <Text
+                          className="truncate"
+                          display="block"
+                          weight="bold">
                           {user?.user_metadata?.full_name}
                         </Text>
                       )}
                       {!isUserProfileLoading && (
                         <>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center gap-x-2">
                             {userProfile?.isPremium ? (
-                              <span className="to-brand-dark inline-flex items-center space-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
+                              <span className="to-brand-dark inline-flex items-center gap-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
                                 <RiStarLine
                                   aria-hidden="true"
                                   className="text-white-400 h-5 w-5 shrink-0"
@@ -162,17 +165,20 @@ export default function ProfileShell({ user, children }: Props) {
                               />
                             )}
                           </div>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center gap-x-2">
                             <RiMailLine
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-500"
                             />
-                            <Text color="secondary" size="body2">
+                            <Text
+                              className="truncate"
+                              color="secondary"
+                              size="body2">
                               {user.email}
                             </Text>
                           </div>
                           {process.env.NODE_ENV === 'development' && (
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center gap-x-2">
                               <RiUserLine
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
@@ -183,7 +189,7 @@ export default function ProfileShell({ user, children }: Props) {
                             </div>
                           )}
                           {userProfile?.createdAt && (
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center gap-x-2">
                               <RiCalendarLine
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
@@ -208,7 +214,7 @@ export default function ProfileShell({ user, children }: Props) {
                           {/* Signed in via GitHub  */}
                           {user?.user_metadata.user_name &&
                             user?.user_metadata.iss.includes('github.com') && (
-                              <div className="flex items-center space-x-2">
+                              <div className="flex items-center gap-x-2">
                                 <GitHubIcon
                                   aria-hidden="true"
                                   className="h-5 w-5 shrink-0 text-neutral-500"
@@ -221,7 +227,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 </Text>
                               </div>
                             )}
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center gap-x-2">
                             <DiscordIcon
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-500"
@@ -239,7 +245,7 @@ export default function ProfileShell({ user, children }: Props) {
                           {(userProfile?.plan === 'lifetime' ||
                             userProfile?.plan === 'quarter' ||
                             userProfile?.plan === 'year') && (
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center gap-x-2">
                               <DiscordIcon
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-pink-500"
