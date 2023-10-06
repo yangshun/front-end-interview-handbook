@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
@@ -20,6 +22,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
+import { themeBackgroundLayerColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -151,6 +154,13 @@ export default function UserInterfaceCodingWorkspaceWriteup({
         <QuestionMetadataSection metadata={metadata} />
         <div className="flex flex-col gap-y-8">
           <QuestionContentProse contents={writeup} />
+          <div
+            className={clsx(
+              'rounded-md p-4 text-center',
+              themeBackgroundLayerColor,
+            )}>
+            <SolutionPreviewButton />
+          </div>
           <QuestionCompanies
             canViewPremiumContent={canViewPremiumContent}
             companies={metadata.companies}
@@ -160,5 +170,47 @@ export default function UserInterfaceCodingWorkspaceWriteup({
         </div>
       </div>
     </div>
+  );
+}
+
+function SolutionPreviewButton() {
+  const { dispatch, getTabById } =
+    useUserInterfaceCodingWorkspaceTilesContext();
+
+  function onClick() {
+    const result = getTabById('solution_preview');
+
+    if (result != null) {
+      dispatch({
+        payload: {
+          tabId: result.tabId,
+        },
+        type: 'tab-set-active',
+      });
+
+      return;
+    }
+
+    const descriptionTab = getTabById('description');
+
+    dispatch({
+      payload: {
+        newTabCloseable: true,
+        newTabId: 'solution_preview',
+        panelId: descriptionTab!.panelId,
+        tabId: descriptionTab?.tabId,
+      },
+      type: 'tab-open',
+    });
+  }
+
+  return (
+    <Button
+      icon={RiArrowRightUpLine}
+      label="See what you're building"
+      size="sm"
+      variant="secondary"
+      onClick={onClick}
+    />
   );
 }

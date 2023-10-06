@@ -27,6 +27,7 @@ import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWork
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
 import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
 import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
+import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
 import type {
   UserInterfaceCodingWorkspacePredefinedTabsContents,
   UserInterfaceCodingWorkspaceTabsType,
@@ -311,6 +312,15 @@ function UserInterfaceCodingWorkspaceImpl({
         ),
       icon: CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
+    },
+    solution_preview: {
+      contents: (
+        <UserInterfaceCodingWorkspaceSolutionPreviewTab
+          bundle={question.solutionBundle}
+        />
+      ),
+      icon: CodingWorkspaceTabIcons.browser.icon,
+      label: 'Solution preview',
     },
     versions: {
       contents: <UserInterfaceCodingWorkspaceSavesList metadata={metadata} />,

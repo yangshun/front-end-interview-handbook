@@ -9,6 +9,7 @@ export type UserInterfaceCodingWorkspacePredefinedTabsType =
   | 'description'
   | 'file_explorer'
   | 'preview'
+  | 'solution_preview'
   | 'solution'
   | 'versions';
 
