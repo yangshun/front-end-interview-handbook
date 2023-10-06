@@ -12,6 +12,7 @@ import {
   themeGradientBlueGreen,
   themeGradientGreenYellow,
   themeLineBackgroundColor,
+  themeTextBrandColor,
   themeTextBrandGroupHoverColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -61,23 +62,21 @@ export default function DashboardPageHeader() {
 
   return (
     <div className="grid grid-cols-1 items-stretch justify-between gap-4 sm:flex sm:flex-row">
-      <div className="grid gap-y-6">
-        <Heading level="heading5">
-          {userProfile != null ? (
-            <FormattedMessage
-              defaultMessage="Welcome back!"
-              description="Message greeting the user on preparation dashboard page"
-              id="w1Jqfl"
-            />
-          ) : (
-            <FormattedMessage
-              defaultMessage="Preparation dashboard"
-              description="Preparation dashboard section title"
-              id="r0Ddhm"
-            />
-          )}
-        </Heading>
-      </div>
+      <Heading level="heading5">
+        {userProfile != null ? (
+          <FormattedMessage
+            defaultMessage="Welcome back!"
+            description="Message greeting the user on preparation dashboard page"
+            id="w1Jqfl"
+          />
+        ) : (
+          <FormattedMessage
+            defaultMessage="Preparation dashboard"
+            description="Preparation dashboard section title"
+            id="r0Ddhm"
+          />
+        )}
+      </Heading>
       {userProfile != null ? (
         <div
           className={clsx(
@@ -115,11 +114,13 @@ export default function DashboardPageHeader() {
                   id="/F80kH"
                   values={{
                     link: (chunk) => (
-                      <Anchor
-                        className="whitespace-nowrap font-semibold"
-                        href="/front-end-interview-guidebook">
+                      <span
+                        className={clsx(
+                          'whitespace-nowrap font-semibold',
+                          themeTextBrandColor,
+                        )}>
                         {chunk}
-                      </Anchor>
+                      </span>
                     ),
                   }}
                 />
