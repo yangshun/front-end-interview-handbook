@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
+import Timestamp from '~/components/common/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionFrameworkIcon from '~/components/questions/metadata/QuestionFrameworkIcon';
@@ -23,11 +24,6 @@ import UserInterfaceCodingWorkspaceSavesListItemActions from './UserInterfaceCod
 type Props = Readonly<{
   metadata: QuestionMetadata;
 }>;
-
-const dateFormatter = new Intl.DateTimeFormat('en-SG', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-});
 
 export default function UserInterfaceCodingWorkspaceSavesList({
   metadata,
@@ -111,7 +107,7 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
                         className="whitespace-nowrap"
                         color="secondary"
                         size="body3">
-                        {dateFormatter.format(new Date(savedItem.updatedAt))}
+                        <Timestamp date={savedItem.updatedAt} />
                       </Text>
                     </td>
                     <td className="px-3 py-2">

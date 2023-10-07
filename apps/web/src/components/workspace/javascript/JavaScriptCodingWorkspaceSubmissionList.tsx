@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
+import Timestamp from '~/components/common/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
@@ -21,11 +22,6 @@ import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 type Props = Readonly<{
   metadata: QuestionMetadata;
 }>;
-
-const dateFormatter = new Intl.DateTimeFormat('en-SG', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-});
 
 export default function JavaScriptCodingWorkspaceSubmissionList({
   metadata,
@@ -93,7 +89,7 @@ function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
                           className="whitespace-nowrap"
                           size="body3"
                           weight="medium">
-                          {dateFormatter.format(new Date(createdAt))}
+                          <Timestamp date={createdAt} />
                         </Text>
                         <span className="absolute inset-0" />
                       </button>

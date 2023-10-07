@@ -1,5 +1,6 @@
 import { trpc } from '~/hooks/trpc';
 
+import Timestamp from '~/components/common/Timestamp';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
@@ -17,11 +18,6 @@ type Props = Readonly<{
   metadata: QuestionMetadata;
   submissionId: string;
 }>;
-
-const dateFormatter = new Intl.DateTimeFormat('en-SG', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-});
 
 export default function JavaScriptCodingWorkspaceSubmissionTab({
   metadata,
@@ -63,8 +59,7 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
               color="secondary"
               size="body2"
               weight="medium">
-              Submitted at{' '}
-              {dateFormatter.format(new Date(submission.createdAt))}
+              Submitted at <Timestamp date={submission.createdAt} />
             </Text>
           </div>
           <Prose textSize="sm">

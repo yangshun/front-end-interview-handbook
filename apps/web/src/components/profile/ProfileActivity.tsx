@@ -19,6 +19,7 @@ import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
+import Timestamp from '../common/Timestamp';
 
 function NoCompletedQuestions() {
   const intl = useIntl();
@@ -149,11 +150,9 @@ export default function ProfileActivity() {
                   )}
                 </div>
                 <Section>
-                  <div>
-                    <Text color="secondary" size="body2">
-                      {new Date(createdAt).toLocaleDateString()}
-                    </Text>
-                  </div>
+                  <Text color="secondary" display="block" size="body3">
+                    <Timestamp date={createdAt} />
+                  </Text>
                 </Section>
               </div>
             </li>
