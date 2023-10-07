@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { uniqBy } from 'lodash-es';
 import { RiInboxLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -14,9 +15,14 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import {
+  themeBackgroundEmphasizedHover,
+  themeDivideColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
+import { hashQuestion } from '~/db/QuestionsUtils';
 
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
 import Timestamp from '../common/Timestamp';
@@ -95,7 +101,9 @@ export default function ProfileActivity() {
     return <NoCompletedQuestions />;
   }
 
-  const questionsProgressWithMetadata = questionProgress
+  const questionsProgressWithMetadata = uniqBy(questionProgress, (progress) =>
+    hashQuestion(progress.format, progress.slug),
+  )
     .map((progress) => ({
       createdAt: progress.createdAt,
       metadata: getQuestionMetadata(
@@ -109,10 +117,7 @@ export default function ProfileActivity() {
   return (
     <div className="flex flex-col gap-y-4">
       <Heading
-        className={clsx(
-          'flex flex-row justify-between border-b pb-4',
-          themeLineColor,
-        )}
+        className={clsx('flex flex-row justify-between', themeLineColor)}
         level="heading6">
         <FormattedMessage
           defaultMessage="Completed Questions"
@@ -124,21 +129,26 @@ export default function ProfileActivity() {
       <Section>
         <ul
           className={clsx(
-            'relative z-0 divide-y',
-            themeLineColor,
-            themeDivideColor,
+            'relative z-0 rounded-md',
+            ['border', themeLineColor],
+            ['divide-y', themeDivideColor],
           )}
           role="list">
           {questionsProgressWithMetadata.map(({ metadata, createdAt }) => (
-            <li key={createdAt} className="relative py-5 sm:py-6">
-              <div className="flex items-center justify-between space-x-4">
-                <div className="flex w-3/4 flex-col space-y-1 sm:flex-row sm:items-center sm:space-x-3">
-                  <Heading className="text-md w-1/2 font-medium" level="custom">
-                    <Anchor href={metadata?.href} variant="flat">
+            <li
+              key={createdAt}
+              className={clsx(
+                'relative px-4 py-3',
+                themeBackgroundEmphasizedHover,
+              )}>
+              <div className="flex items-center justify-between gap-x-4">
+                <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
+                  <Text className="text-md w-1/2" size="body2" weight="medium">
+                    <Anchor href={metadata?.href} variant="blend">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {metadata!.title}
                     </Anchor>
-                  </Heading>
+                  </Text>
                   {metadata?.languages && (
                     <div className="w-1/2">
                       <QuestionLanguages
