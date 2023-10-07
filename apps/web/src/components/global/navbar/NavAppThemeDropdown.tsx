@@ -1,5 +1,4 @@
-import { useMemo } from 'react';
-import { RiMoonLine, RiSunLine } from 'react-icons/ri';
+import { RiMoonLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
@@ -12,21 +11,15 @@ export default function NavAppThemeDropdown() {
   const { appThemePreference, appTheme, setAppThemePreference } =
     useAppThemePreferences();
 
-  const icon = useMemo(() => {
-    switch (appTheme) {
-      case 'light':
-        return RiSunLine;
-      case 'dark':
-        return RiMoonLine;
-    }
-  }, [appTheme]);
-
   const appThemeOptions = useAppThemeOptions();
+  const Icon =
+    appThemeOptions.filter((option) => option.value === appTheme)?.[0].icon ??
+    RiMoonLine;
 
   return (
     <DropdownMenu
       align="end"
-      icon={icon}
+      icon={Icon}
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Theme',
@@ -35,9 +28,10 @@ export default function NavAppThemeDropdown() {
       })}
       showChevron={false}
       size="sm">
-      {appThemeOptions.map(({ label, value }) => (
+      {appThemeOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}
+          icon={icon}
           isSelected={appThemePreference === value}
           label={label}
           onClick={() => {
