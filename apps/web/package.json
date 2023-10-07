@@ -24,7 +24,9 @@
     "ppp": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/ppp-update.ts",
     "supabase": "supabase gen types typescript --project-id vaqybtnqyonvlwtskzmv --schema public > src/supabase/database.types.ts && npm run run eslint \"src/supabase/database.types.ts\" --no-ignore --fix",
     "intl:js": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-intl.ts",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "prisma:migrate": "dotenv -e .env.development.local -- prisma migrate dev",
+    "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy"
   },
   "dependencies": {
     "@axiomhq/axiom-node": "^0.11.0",
@@ -122,6 +124,7 @@
     "chokidar": "^3.5.3",
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
+    "dotenv-cli": "^7.3.0",
     "encoding": "^0.1.13",
     "eslint": "8.34.0",
     "eslint-config-next": "13.4.19",
