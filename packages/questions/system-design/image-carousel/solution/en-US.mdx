@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 ### How are the images specified?
 
@@ -18,13 +18,13 @@ Yes the images should animate with horizontal translation.
 
 ---
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 Since this component doesn't need any server data, our architecture will just consist of the client side components.
 
 ![Image Carousel Architecture](/img/questions/image-carousel/image-carousel-architecture.png)
 
-### Component Responsibilities
+### Component responsibilities
 
 - **ViewModel + Model**: The brain of the component, holds the configuration and state of the component, orchestrates events between the components and informs the "Image" component which image to render.
 - **Image**: Displays the currently selected image.
@@ -33,13 +33,13 @@ Since this component doesn't need any server data, our architecture will just co
 
 There's no need to separate the "Model" and the "ViewModel" in this component because it's a small component.
 
-### Flux Architecture
+### Flux architecture
 
 A [Flux](https://facebook.github.io/flux/)/[Redux](https://redux.js.org/)/[Reducer](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context)-like architecture is recommended to abstract away the action sources from the action logic/implementation. Some actions can be triggered by interacting with various UI elements, periodically by a timer, or keypresses.
 
 ---
 
-## Data Model
+## Data model
 
 Only the "ViewModel" will hold any state and data, the other components are part of the view and won't hold data. It can contain the following fields:
 
@@ -52,7 +52,7 @@ Only the "ViewModel" will hold any state and data, the other components are part
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 Since we're talking about designing a UI component here, API will focus on the external API of the components: what configuration options are provided so that developers can use the component in a customized fashion.
 
@@ -108,9 +108,9 @@ These are non-essential APIs but worth a discussion if there's time.
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
-### Implementing Layout
+### Layout implementation
 
 #### Images
 
@@ -179,7 +179,7 @@ CSS `object-fit` is a feature that is similar to how `background-size` works for
 
 This way is preferred since it's more semantic to use `<img>` tags than `<div>`s with `background-image`s.
 
-#### Vertically-center Buttons
+#### Vertically-center buttons
 
 To vertically center the buttons, we can use `position: absolute` on the buttons along with some `transform: translateY(-50%)` to shift it up by half its height.
 
@@ -217,7 +217,7 @@ To vertically center the buttons, we can use `position: absolute` on the buttons
 }
 ```
 
-### User Experience
+### User experience
 
 - **Scroll snapping**: Use [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) and show the scrollbar so that users can still use native scrollbars to scroll through the images but the images will "snap" nicely and the scroll position will nicely align to show a full image once scrolling stops. Mobile users expect to be able to swipe through the images and CSS scroll snap helps you achieve this on mobile devices easily.
 - **Interactive elements should be large enough**. The Prev/Next buttons should be at least 44px tall and wide to be easy to tap on mobile devices. One trick is to increase the hit area of the button to the entire leftmost/rightmost section. The dots are probably too small on mobile for precise interactions and can just be hidden or made non-interactive.
@@ -231,7 +231,7 @@ Most images on the carousel are never shown to the user, especially those at the
 
 Hence the images can be loaded only when they are on-screen (or about to be shown). This can be implemented using JavaScript or just via HTML. A pure HTML methods involves using the [`<img loading="lazy">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading) attribute, which defers loading images that aren't currently within the visible viewport.
 
-#### Preloading of Images
+#### Preloading of images
 
 JavaScript can be used if fine-grain control regarding image loading is desired. To help minimize the scenario where an image needs to be shown but hasn't finished loading, the component can pre-emptively load the next image with the following code:
 
@@ -260,13 +260,13 @@ preloadImage.src = url;
   <figcaption>Airbnb image carousel lazy loading example on mobile</figcaption>
 </figure>
 
-#### Device-specific Images
+#### Device-specific images
 
 It'd be a waste to load high resolution images on a mobile device where the screen size is too small to display the details anyway. A good feature to add would be to allow the user to provide images of different sizes to be displayed on different devices. This can be implemented using JavaScript, the `srcset` attribute on `<img>` tags, or the new `<picture>` tag.
 
 {/* TODO Compare the approaches */}
 
-#### Virtualized Lists
+#### Virtualized lists
 
 If there are too many images, we can use [virtualized lists](https://www.patterns.dev/posts/virtual-lists/) to render only the visible images in the DOM.
 
@@ -286,12 +286,12 @@ Image carousels are notorious for having poor accessibility due to how much effo
 - Enable swiping to scroll through images (this is already the case with an `overflow-x: scroll` + [CSS scroll snap](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) implementation).
 - Progress dots be spaced further apart or made non-interactive.
 
-#### Screen Readers
+#### Screen readers
 
 - `<img>` tags should have a meaningful `alt` description specified or use an empty string.
 - Add `aria-label`s to the Prev/Next buttons since there's no visible label within them.
 
-#### Keyboard Support
+#### Keyboard support
 
 - Use the `<button>` HTML tag for the Prev/Next buttons where possible so that the buttons are focusable.
 - Add `<div role="region" aria-label="Image Carousel" tabindex="0">` to make the carousel focusable and attach Left/Right keydown handlers to allow scrolling through the images with the keyboard.

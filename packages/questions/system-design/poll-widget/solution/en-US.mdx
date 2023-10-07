@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 These are questions you should be asking your interviewer to dive deeper into the problem and refine the requirements.
 
@@ -37,7 +37,7 @@ Anyone can vote regardless of whether they are logged in or out. Votes should be
 
 ## Architecture
 
-### Rendering Approach
+### Rendering approach
 
 We should first evaluate the possible rendering approaches because it will affect the architecture and subsequent discussions.
 
@@ -139,7 +139,7 @@ The discussion below will assume an `<iframe>` embed approach.
 
 ![Poll Widget Architecture](/img/questions/poll-widget/poll-widget-architecture.png)
 
-### Component Responsibilities
+### Component responsibilities
 
 - **Host Website**: Host website that embeds the widget as an `<iframe>`.
 - **App Server**: Renders the widget UI as a website by serving the HTML, CSS, JavaScript needed.
@@ -151,7 +151,7 @@ _Note: The **App Server** and **API Server** have been split into separate compo
 
 ---
 
-## Data Model
+## Data model
 
 The data model for a polling widget is quite simple. Something like this will be sufficient:
 
@@ -190,7 +190,7 @@ Only the `selectedOptions` field is client-only state, the rest of the fields ar
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 There are three kinds of APIs to discuss:
 
@@ -339,21 +339,21 @@ The server returns something like:
   - Doesn't scale well when there are lots of responses, the network payload will be huge.
   - The client needs to do the tabulation of votes which can be expensive on low-end devices and when there are many votes.
 
-##### **Which to Choose?**
+##### **Which to choose?**
 
 Directly returning the counts is usually the superior option as there is usually no need to do tabulation or manipulation of the data on the client, which does not scale for popular votes with tens of thousands of votes.
 
-#### Submitting Votes and Unvoting
+#### Submitting votes and unvoting
 
 The vote submission/unvoting APIs can accept a list of option IDs and return the updated poll results in a similar format as the poll results fetching API.
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 {/* TODO: Talk about rendering approach: SSR vs CSR */}
 
-### Persisting Votes Across Sessions
+### Persisting votes across sessions
 
 Because anyone can vote without having to log in first, we will need a way to identify users across sessions, otherwise the user will not see that they have already voted after the browser tab is closed.
 
@@ -363,11 +363,11 @@ This helps the poll widget website to identify users to track the options they h
 
 Note that users can work around this by using different browsers or on different devices. The only way to prevent this sort of abuse is to have user authentication.
 
-### Rendering the Poll Options
+### Rendering the poll options
 
 The polling results consists of multiple bars of various widths and there are multiple ways to render such a result. It's worth discussing the various ways of rendering bars of varying widths.
 
-#### What a Full Bar Represents
+#### What a full bar represents
 
 A full bar can have two common representations:
 
@@ -382,7 +382,7 @@ The first option is the more common option and is used by Reddit and Twitter.
 
 {/* TODO: Add demo to illustrate */}
 
-#### Rendering Bars of Dynamic Widths
+#### Rendering bars of dynamic widths
 
 The number of votes for an option over the total number of votes will be the proportion of the full width to render the bar. E.g. 400 votes for an option over a total of 1000 votes will mean that the bar should be rendered 40% of the full width. Since there are infinitely many possible values for the width, it is not practical to use static CSS classes to render a bar for a specific width. A better way would be to use inline styles that are dynamically generated during rendering.
 
@@ -408,7 +408,7 @@ We should use a % of the full width of the widget instead of hardcoded px values
 
 If we are fine with some loss of precision, then we could have 101 classnames for percentages of 0 to 100. But in general, this is not a great approach and inline styles is the preferred approach.
 
-### User Experience
+### User experience
 
 - When the poll is still loading, instead of showing a spinner, use a [shimmer loading effect](https://docs.flutter.dev/cookbook/effects/shimmer-loading) in the shape of bars to hint that this is a poll and also reduce layout thrash after the poll is loaded.
 - Poll results should be hidden before user has voted, to reduce bias.
@@ -416,13 +416,13 @@ If we are fine with some loss of precision, then we could have 101 classnames fo
 
 ### Performance
 
-#### Fast Rendering
+#### Fast rendering
 
 As mentioned earlier, to achieve fast rendering of the results, the server API should return the tabulated results, not raw results so that the client does not need to do any tabulation of results.
 
 Prefer to use server-side rendering for the initial load rather than `fetch` the poll results over AJAX for a fast initial load.
 
-#### Fast Interactions via Optimistic Updates
+#### Fast interactions via optimistic updates
 
 Optimistic update is a technique where the browser shows the new UI state after a server request is fired, even before a response is received from the server. Because the client has the current results during initial load, it is possible to increment the newly-voted option and compute the new ratio of all the bars on the client side.
 
@@ -433,13 +433,13 @@ However, there are a few caveats:
 
 In most cases, the client can render an optimistic update first and render again with the most updated results from the server.
 
-#### Scalability Issues
+#### Scalability issues
 
 Given there are only a maximum of 6 options, we will not run into the issue of rendering too many options and a large resulting DOM size. But if we do, we can use virtualized lists within a container with a max height to prevent the component from being too tall and only render the on-screen options within the container.
 
 ### Accessibility
 
-#### Screen Readers
+#### Screen readers
 
 Polling widgets are inherently very visual UI elements and we need to take special care to ensure users relying on screen readers can still understand what is being shown on the screen.
 
@@ -447,7 +447,7 @@ Polling widgets are inherently very visual UI elements and we need to take speci
 - Use `aria-live` to announce updates for any change in values of the results when the client receives a server response.
 - ARIA roles for options: `role="radiogroup"` and `role="radio"` for polls where only one option can be selected.
 
-#### Keyboard Interaction
+#### Keyboard interaction
 
 - `<button>`s are preferred for rendering poll options but if there's a reason to use `<div>`s, they should be made focusable by adding the `tabindex="0"` and `role="button"` attributes.
 

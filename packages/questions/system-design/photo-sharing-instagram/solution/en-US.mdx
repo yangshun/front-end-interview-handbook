@@ -1,6 +1,6 @@
 **Note:** This application shares many similarities with the [News Feed](/questions/system-design/news-feed-facebook) application and the image carousels within the feed post will benefit from the [Image Carousel solution](/questions/system-design/image-carousel). Please have a read of that question before starting on this. For this question, we will focus on things that haven't been covered, the discussion will be centered around the photos and images.
 
-## Requirements Exploration
+## Requirements exploration
 
 ### What are the core features to be supported?
 
@@ -21,7 +21,7 @@ Primarily mobile, but should be usable on desktop and tablet as well.
 
 ---
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 ### Server-side Rendering or Client-side Rendering?
 
@@ -34,7 +34,7 @@ Photo sharing applications have the following characteristics:
 
 These are also characteristics of a [News Feed](/questions/system-design/news-feed-facebook) where there's a good amount of static content which also require interaction. Hence a combination of server-side rendering with hydration would be ideal. In reality, [instagram.com](https://instagram.com) is built using the same technology stack as facebook.com which uses React server-side rendering with hydration.
 
-### Architecture Diagram
+### Architecture diagram
 
 ![Photo Sharing Architecture Diagram](/img/questions/photo-sharing-instagram/photo-sharing-architecture.png)
 
@@ -47,7 +47,7 @@ These are also characteristics of a [News Feed](/questions/system-design/news-fe
 
 ---
 
-## Data Model
+## Data model
 
 A photo feed shows a list of image posts fetched from the server, hence most of the data involved in the application will be server-originated data. The only client-side data needed is for user-uploaded images and user-written captions in the post composer.
 
@@ -63,7 +63,7 @@ Just like in the [News Feed](/questions/system-design/news-feed-facebook), a nor
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 ### Feed List API
 
@@ -115,7 +115,7 @@ Cons:
 
 Comparing the two approaches, approach #2 of separate APIs would be better. The image uploading API can be a general one that is used across the entire website and not just for the post creation flow.
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 ### News Feed Optimizations
 

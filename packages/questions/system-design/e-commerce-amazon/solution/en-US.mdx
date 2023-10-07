@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 ### What are the core features to be supported?
 
@@ -36,11 +36,11 @@ Users can purchase as a guest without being signed in.
 
 ---
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 ![E-commerce Website Architecture Diagram](/img/questions/e-commerce-amazon/e-commerce-amazon-architecture.png)
 
-### Component Responsibilities
+### Component responsibilities
 
 - **Server**: Provides HTTP APIs to fetch products data, cart items, modify the carts and create orders.
 - **Controller**: Controls the flow of data within the application and makes network requests to the server.
@@ -51,12 +51,12 @@ Users can purchase as a guest without being signed in.
   - **Cart**: Displays added cart items and allows changing of quantity and deleting added items.
   - **Checkout**: Displays address and payment forms the user has to complete in order to place the order.
 
-### Server-side Rendering or Client-side Rendering?
+### Server-side rendering or client-side rendering?
 
 Firstly let's understand what the two terms mean:
 
-- **Server-side Rendering (SSR)**: The traditional way of building websites where the server fetches all necessary data, uses them to create the final markup and sends down the HTML needed every time a user visits a page. Most of the rendering work is done on the server.
-- **Client-side Rendering (CSR)**: The server sends down initial HTML which contains the JavaScript to bootstrap the application. The client then fetches the necessary data, combines it with templates and creates the final page, all within the browser. CSR is typically used with Single-page Application models and subsequent navigation don't require a full page refresh. Most of the rendering work is done on the client.
+- **Server-side rendering (SSR)**: The traditional way of building websites where the server fetches all necessary data, uses them to create the final markup and sends down the HTML needed every time a user visits a page. Most of the rendering work is done on the server.
+- **Client-side rendering (CSR)**: The server sends down initial HTML which contains the JavaScript to bootstrap the application. The client then fetches the necessary data, combines it with templates and creates the final page, all within the browser. CSR is typically used with Single-page Application models and subsequent navigation don't require a full page refresh. Most of the rendering work is done on the client.
 
 Benefits of SSR:
 
@@ -70,7 +70,7 @@ Downsides of SSR:
 
 SEO is important for e-commerce websites, hence SSR should be a priority.
 
-### Single-page Application (SPA) or Multi-page Application (MPA)?
+### Single-page application (SPA) or Multi-page application (MPA)?
 
 SPAs by default use CSR and MPAs by default use SSR. While CSR and SSR are two ends of the rendering spectrum, somewhere in the middle lies a hybrid mode called universal rendering (or SSR with hydration) where the server renders the full HTML but after that, rendering and navigation becomes client-side.
 
@@ -88,7 +88,7 @@ Real world technologies to implement the following rendering and architecture ch
 <sup>\*</sup> Refers to the default mode of server-side web frameworks which render
 HTML and routing is done on server side.
 
-### What Top E-commerce Sites Use
+### What top e-commerce sites use
 
 Let's take a look at e-commerce sites in the wild and their rendering choices:
 
@@ -105,7 +105,7 @@ The discussion below assumes that we'll be using a universal rendering approach 
 
 ---
 
-## Data Model
+## Data model
 
 There are quite a number of entities involved in an e-commerce website due to the complexity of the user flow spanning across multiple pages.
 
@@ -124,7 +124,7 @@ Few points for discussion:
 - `Cart` and `CartItem` have `total_price` and `price` fields respectively fetched as part of the server response instead of having the client compute the price (multiply the quantity by the `unit_price`) to give the flexibility of applying discounts due to bulk purchase or use of promo codes. The price computation logic is defined on the server, so the final price should be computed on the server and the client should rely on the server to calculate the total price instead of making its own calculations.
 - Since our website has an international audience, we should have localized prices in the user's currency, hence the `currency` field.
 
-## Interface Definition (API)
+## Interface definition (API)
 
 We need the following HTTP APIs:
 
@@ -141,7 +141,7 @@ We will omit discussing about the APIs between the client components because the
 
 We can also assume that a user only has a maximum of one cart and the user's current cart can be retrieved on the server. Hence we can omit passing the cart ID as arguments for any APIs related to cart modification.
 
-### Fetch Products Listing
+### Fetch products listing
 
 | Field       | Value                       |
 | ----------- | --------------------------- |
@@ -157,7 +157,7 @@ We can also assume that a user only has a maximum of one cart and the user's cur
 | `page`    | number | Page number to fetch                          |
 | `country` | string | Country for the user, determines the currency |
 
-#### Sample Response
+#### Sample response
 
 ```json
 {
@@ -188,7 +188,7 @@ We use offset-based pagination here as opposed to cursor-based pagination becaus
 
 For a more in-depth comparison between offset-based pagination and cursor-based pagination, refer to the [News Feed question](/questions/system-design/news-feed-facebook).
 
-### Fetch Product Details
+### Fetch product details
 
 | Field       | Value                             |
 | ----------- | --------------------------------- |
@@ -203,7 +203,7 @@ For a more in-depth comparison between offset-based pagination and cursor-based 
 | `productId` | number | ID of product to be fetched                   |
 | `country`   | string | Country for the user, determines the currency |
 
-#### Sample Response
+#### Sample response
 
 ```json
 {
@@ -220,7 +220,7 @@ For a more in-depth comparison between offset-based pagination and cursor-based 
 }
 ```
 
-### Add a Product to Cart
+### Add a product to cart
 
 | Field       | Value                     |
 | ----------- | ------------------------- |
@@ -234,7 +234,7 @@ For a more in-depth comparison between offset-based pagination and cursor-based 
 | ----------- | ------ | ------------------------- |
 | `productId` | number | ID of product to be added |
 
-#### Sample Response
+#### Sample response
 
 The updated cart object is returned.
 
@@ -258,7 +258,7 @@ The updated cart object is returned.
 }
 ```
 
-### Change Quantity of Product in Cart
+### Change quantity of product in cart
 
 | Field       | Value                                    |
 | ----------- | ---------------------------------------- |
@@ -273,7 +273,7 @@ The updated cart object is returned.
 | `productId` | number | ID of product to be modified |
 | `quantity`  | number | New quantity of the product  |
 
-#### Sample Response
+#### Sample response
 
 The updated cart object is returned.
 
@@ -297,7 +297,7 @@ The updated cart object is returned.
 }
 ```
 
-### Remove Product from Cart
+### Remove product from cart
 
 | Field       | Value                          |
 | ----------- | ------------------------------ |
@@ -311,7 +311,7 @@ The updated cart object is returned.
 | ----------- | ------ | --------------------------- |
 | `productId` | number | ID of product to be removed |
 
-#### Sample Response
+#### Sample response
 
 The updated cart object is returned.
 
@@ -324,7 +324,7 @@ The updated cart object is returned.
 }
 ```
 
-### Place Order
+### Place order
 
 | Field       | Value                       |
 | ----------- | --------------------------- |
@@ -340,7 +340,7 @@ The updated cart object is returned.
 | `address_details` | object | Object containing address fields |
 | `payment_details` | object | Object containing payment method fields (credit card) |
 
-#### Sample Response
+#### Sample response
 
 The order object is returned upon successful order creation.
 
@@ -374,13 +374,13 @@ The order object is returned upon successful order creation.
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 ### Performance
 
 Performance is absolutely critical for e-commerce websites. Seemingly small performance improvements can lead to significant revenue and conversion increases. A [study by Google and Deloitte](https://web.dev/milliseconds-make-millions/) showed that even a 0.1 second improvement in load times can improve conversion rates across the purchase funnel. [web.dev by Google has a long list of case studies of how improving site performance led to improved conversions](https://web.dev/tags/case-study/).
 
-#### General Performance Tips
+#### General performance tips
 
 - Code split JavaScript by routes/pages.
 - Split content into separate sections and prioritize above-the-fold content while lazy loading below-the-fold content.
@@ -402,7 +402,7 @@ Know the various core web vital metrics, what they are, and how to improve them.
 - [Cumulative Layout Shift (CLS)](https://web.dev/cls/): Measures visual stability because it helps quantify how often users experience unexpected layout shifts. A low CLS helps ensure that the page is delightful.
   - Include size attributes on images and video elements or reserve space for these elements using CSS [`aspect-ratio`](https://developer.mozilla.org/docs/Web/CSS/aspect-ratio) to reserve the required space for images while the images are loading. Use CSS [`min-height`](https://developer.mozilla.org/docs/Web/CSS/min-height) to minimize layout shifts while elements are lazy loaded.
 
-### Search Engine Optimization
+### Search engine optimization
 
 SEO is extremely important for e-commerce websites as organic search is the primary way people discover products.
 
@@ -427,13 +427,13 @@ Images are one of the largest contributors to page size and serving optimized im
   - Using `<link rel="preload">` so they download as soon as possible.
 - [Adaptive loading](https://web.dev/adaptive-loading-cds-2019/) of images, loading high-quality images for devices on fast networks and using lower-quality images for devices on slow networks.
 
-### Form Optimizations
+### Form optimizations
 
 Filling in forms is a huge part of the checkout flow and a very troublesome one at that. It is the last step of the checkout process and nailing a good checkout experience will greatly help in the conversion rate.
 
 Completing forms is especially painful for mobile devices and extra attention has to be given to optimize forms for mobile. There are two kinds of forms to fill out during checkout, which are the shipping address forms and credit card forms.
 
-#### Country-specific Address Forms
+#### Country-specific address forms
 
 Different countries have different address formats. To optimize for global shipping, having localized address forms help greatly in improving conversions and that users do not drop off when filling out the address forms because they do not know how to understand certain fields. For example:
 
@@ -478,7 +478,7 @@ It is a hassle to have to find out these country-specific knowledge and also bui
 
 _Further reading: [Frank's Compulsive Guide to Postal Addresses](http://www.columbia.edu/~fdc/postal/) provides useful links and extensive guidance for address formats in over 200 countries._
 
-#### Optimize Autofill
+#### Optimize autofilling
 
 Filling up forms, especially long ones, are prone to typo errors. Most modern browsers have a feature called autofill, where they help users enter data faster and avoid filling up the same form data again by using values from similar forms filled previously.
 
@@ -513,7 +513,7 @@ Read more about forms:
 - [Autofilling | web.dev](https://web.dev/learn/forms/autofill/)
 - [Autofill on Browsers: A Deep Dive | eBay Engineering Blog](https://tech.ebayinc.com/engineering/autofill-deep-dive/).
 
-#### Alternative Ways of Address Input
+#### Alternative ways of address input
 
 Instead of making users fill up a form containing granular address fields, there are other approaches which may be easier, at the cost of engineering complexity or reliance on external services:
 
@@ -549,11 +549,11 @@ Leverage client-side validation and clearly communicate any form errors. Connect
 
 _Source: [Help users find the error message for a form control | web.dev](https://web.dev/learn/forms/accessibility/#help-users-find-the-error-message-for-a-form-control)_
 
-#### Focus States
+#### Focus states
 
 Make the currently focused form control visually different from the other form inputs to help users identify which element is being focused.
 
-#### Best Practices for Payment and Address Forms
+#### Best practices for payment and address forms
 
 Read more about building good [Payment forms](https://web.dev/learn/forms/payment/) and [Address forms](https://web.dev/learn/forms/address/) and [general form best practices](https://web.dev/payment-and-address-form-best-practices/) on web.dev.
 
@@ -593,7 +593,7 @@ Since payment details are highly sensitive, we have to make sure the website is 
 
 _Source: [Security and privacy | web.dev](https://web.dev/learn/forms/security-privacy/)_
 
-### User Experience
+### User experience
 
 - Make the checkout page clean (e.g. minimal navbar and footer) and remove distractions to reduce bounce rate.
 - Allow persisting cart contents (either in database or cookies) as some people spend time researching and considering, only making the purchase during subsequent sessions. You don't want them to have to add all of the items to their cart again.

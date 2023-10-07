@@ -7,7 +7,7 @@
   </p>
 </div>
 
-## Requirements Exploration
+## Requirements exploration
 
 ### What are the core functionalities needed?
 
@@ -33,11 +33,11 @@ We can assume it's a 1:1 messaging service.
 
 ---
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 The main difference between traditional applications vs chat applications that can be used offline is that if the application loses network connectivity, some functionality like browsing on-device messages and searching should ideally still work. This greatly influences the application architecture such and it will differ a great deal from conventional web applications.
 
-### Tricky Scenarios to be Handled
+### Tricky scenarios to be Handled
 
 Firstly, let's be aware of the various tricky scenarios that we need to handle in a chat application and their implications.
 
@@ -52,17 +52,17 @@ Firstly, let's be aware of the various tricky scenarios that we need to handle i
 
 Our chosen architecture should handle all these scenarios.
 
-### Client-side Database
+### Client-side database
 
 One way to store data on the client is to use a client-side database (henceforth referred to as database). The UI reads data from the database as if it's a client-only application as opposed to traditional applications where the UI directly makes HTTP queries and displays the fetched data. The UI is not and should not be aware of where the database got its data from. Where the database gets its data from should be an implementation detail of the data layer.
 
 Different tabs in the same browser access the same client-side database. This ensures consistent data between tabs and helps to solve the UI consistency issue in the "using the application on different tabs in the same browser" scenario. However, we have to take note of not inserting into the database twice when we are notified of a "new message" event.
 
-### Data Syncer
+### Data syncer
 
 The Data Syncer is a module that is in-charge of syncing the client database with the server.
 
-#### Sending Messages
+#### Sending messages
 
 When the user sends out a message (or any update made by the user in general), we want to reflect the changes immediately. It is poor user experience to wait for the server's confirmation before showing an updated UI.
 
@@ -86,11 +86,11 @@ During database syncing, after the server has received and acknowledged the acti
 
 As there can be multiple messages being sent in parallel across different conversations (and in real applications, even more actions like reactions, deleting messages), there is a need for a scheduler to ensure that actions are sent to the server in the right order, request statuses are tracked, request failures are retried, etc.
 
-#### Receiving Real-time Updates
+#### Receiving real-time updates
 
 Because we want to receive message updates in real-time, the application needs to be informed about new messages from the back end as soon as possible. We'll discuss a few ways of getting real-time updates in the "Optimizations" section.
 
-### Server-side Rendering or Client-side Rendering?
+### Server-side rendering or Client-side rendering?
 
 Chat applications have the following characteristics:
 
@@ -101,11 +101,11 @@ Chat applications have the following characteristics:
 
 Considering the above, a pure client-side rendering and single-page application overall architecture will work well. We can use server-side rendering (SSR) with client-side hydration like for [News Feed](/questions/system-design/news-feed-facebook) and [Photo Sharing applications](/questions/system-design/photo-sharing-instagram) for a fast initial load but the benefits of SSR will only be limited to performance gains because chat applications don't need to be SEO-friendly. The additional engineering complexity of enabling SSR might not be worth it.
 
-### Architecture Diagram
+### Architecture diagram
 
 ![Chat Application Architecture](/img/questions/chat-application-messenger/chat-application-architecture.png)
 
-#### Component Responsibilities
+#### Component responsibilities
 
 - **Chat UI**: Contains a list of conversations and the currently selected conversation/conversation
   - **Conversations List**: Presents a list of conversations (user, last message, last message timestamp).
@@ -118,11 +118,11 @@ Considering the above, a pure client-side rendering and single-page application 
 
 ---
 
-## Data Model
+## Data model
 
 To keep it simple, we will focus only on the chatting functionality of the application.
 
-### Client-side Database
+### Client-side database
 
 Most of the data needed by the application will be stored in the client-side database. Any data that is needed for offline functionality should go into the database. Here's an entity-relationship diagram of the database tables.
 
@@ -151,7 +151,7 @@ Note that the `DraftMessage` and `SendMessageRequest` tables are not synced to t
   - `fail`: When the server returns an error or the send request has timed out. We keep track of the number of times it has failed in `fail_count` so that we know whether to keep retrying (with exponential backoff) or stop retrying after a certain number of failures.
   - `success`: Indicates that the message has been received and acknowledged by the server. Strictly speaking, this enum value is not needed because when the client receives the server acknowledgement, this row can be removed from the table.
 
-### Client-only State
+### Client-only state
 
 These are state fields that do not need to be persisted in the database, i.e. it's ok to lose this data if the user exits the application by closing the browser tab/window.
 
@@ -161,7 +161,7 @@ These are state fields that do not need to be persisted in the database, i.e. it
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 The following APIs are needed:
 
@@ -171,7 +171,7 @@ The following APIs are needed:
 - Fetch conversations
 - Fetch conversation messages
 
-### Send Message
+### Send message
 
 1. Add a row to the `Message` table with a `sending` status.
 1. Add a row the `SendMessageRequest` table with `pending` status.
@@ -179,7 +179,7 @@ The following APIs are needed:
 1. Any `DraftMessage` rows for the current conversation/conversation are deleted.
 1. At this point, there are no synchronous steps left to be done. The Message Scheduler will be in-charge of syncing the `pending` messages with the server.
 
-### Sync Outgoing Messages
+### Sync outgoing messages
 
 The Message Scheduler will be in-charge of syncing outgoing messages with the server. It will maintain its own task queue and watch the `SendMessageRequest` table. Because the task queue needs to be in-sync across tabs, it should not be stored in browser memory and can also use another table.
 
@@ -189,7 +189,7 @@ Whenever the table is not empty, it will fetch the first X rows (ordered by id) 
 - `in_flight`: Check the `last_sent_at` timestamp. If it has exceeded the timeout threshold, update the row's `status` to be `fail` and update the `fail_count` by 1.
 - `fail`: Enqueue a task to retry sending this message sometime in the future. The delay duration depends on the `fail_count`. With an exponential backoff retry strategy, the delay duration will increase exponentially with the `fail_count`.
 
-### Server Events
+### Server events
 
 The Data Syncer will receive real-time updates from the server in the form of events. Each event can have a type and a payload field. The shape of the payload depends on the actual event.
 
@@ -206,7 +206,7 @@ The Data Syncer will receive real-time updates from the server in the form of ev
 
 These are the various events necessary:
 
-#### `message_sent` Event
+#### `message_sent` event
 
 1. Update the `Message`'s `status` to be `sent`.
 1. Clean up this message in the Message Scheduler:
@@ -215,20 +215,20 @@ These are the various events necessary:
 1. Update UI
    - Notify the Conversation UI to be updated if that message's conversation is currently shown.
 
-#### `message_delivered` Event
+#### `message_delivered` event
 
 1. Update the `Message`'s `status` to be `delivered`.
 1. Update UI
    - Notify the Conversation UI to be updated if that message's conversation is currently shown.
 
-#### `message_failed` Event
+#### `message_failed` event
 
 1. Update the row corresponding to this message in the `SendMessageRequest` table's and change the `status` to be `fail` and increment `fail_count` by 1.
    1. Note that we don't modify the `status` of the row in the `Message` table to be `fail` yet. The message is not deemed to be failed yet until we have retried sending it.
 1. Update UI
    - Notify the Conversation UI to be updated if that message's conversation is currently shown.
 
-#### `incoming_message` Event
+#### `incoming_message` event
 
 1. Append the new message into the `Message` table.
    1. Create a new row in the `Conversation` table if it doesn't exist.
@@ -237,7 +237,7 @@ These are the various events necessary:
    - Notify the Conversations List UI to be updated. Update the UI to surface this conversation to the top. If the Conversations List is sorted by decreasing timestamp of each conversation's latest message, it will be automatically surfaced to the top.
    - Notify the Conversation UI to be updated if that message's conversation is currently shown.
 
-#### `sync` Event
+#### `sync` event
 
 {/* TODO */}
 
@@ -248,11 +248,11 @@ Possible ways of indicating the client state to the server:
 1. **Client's last update timestamp**: The server will gather all the new entities (messages, conversations) created after the timestamp and send to the client for the client to insert into the db.
 1. **Each conversation's cursor**: A database cursor is a mechanism that enables traversal over records in a database. Similar to the cursor-based pagination APIs, a cursor can be used to indicate the last message in the conversation that the client received, and what messages are after the message.
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
-### Client Database
+### Client database
 
-#### Deciding on Client-side Storage
+#### Deciding on client-side storage
 
 There are a few ways of storing data on the client: Cookies, Web Storage, and IndexedDB. Refer to the quiz question for a [comparison between cookies and Web Storage mechanisms](/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage).
 
@@ -260,13 +260,13 @@ Cookies is out of the question due to the extremely small capacity (4kb per doma
 
 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) is our best choice here, which is a low-level API for client-side storage of significant amounts of **structured data**, including files/blobs. Other useful features include database indexes, tables, cursors, transactions, mostly over asynchronous APIs.
 
-#### Syncing Across Tabs
+#### Syncing across tabs
 
 Since IndexedDB is a client-side storage mechanism, the data is accessible across tabs and it solves the "users should see the same messages in the application on different tabs in the same browser." scenario outlined at the top.
 
 However, browsers tabs are not aware of `IndexedDB` data changes in other tabs. To inform the other tabs about changes in the database, use the [`BroadcastChannel`](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel) which allows communication between different windows/tabs/frames of the same origin.
 
-#### Syncing Client Database with the Server
+#### Syncing client database with the server
 
 Bidirectional syncing of messages between the client and server is complex.
 
@@ -274,7 +274,7 @@ Bidirectional syncing of messages between the client and server is complex.
 - **Fetching new messages**: The client needs to tell the server when the last update was (could be the last message received, or the timestamp it last pulled from the server) and the server figures out what messages have not been sent to the client and send them.
 - **Sending out pending messages**: Messages sent while the application is offline should be stored in a pending outgoing messages queue and sent out when the application goes online.
 
-#### Other Issues
+#### Other issues
 
 - Unsupported environments like private/incognito mode on Firefox and Safari.
 - Storage limits.
@@ -284,7 +284,7 @@ Bidirectional syncing of messages between the client and server is complex.
 
 {/* TODO: Discuss some of these issues in detail. */}
 
-### Real-time Updates
+### Real-time updates
 
 Real-time messaging means that recipients of the messages receive new messages instantly (or near instantly) without them having to reboot the application/refresh the page or manually trigger a button to fetch new messages.
 
@@ -329,15 +329,15 @@ Implement basic keyboard shortcuts:
     conversations.
   - On certain desktop clients, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + number brings you to the n<sup>th</sup> conversation in your list of conversation.
 
-### Offline Support
+### Offline support
 
 The application can be built as a Progressive Web Application (PWA) which uses service workers to cache assets (HTML/JS/CSS) so that the application has both the code and data required to be used offline.
 
 Using PWAs also allow for browser notifications which is useful for informing the user that there's a new message even when the tab is not in focus/visible.
 
-### User Experience
+### User experience
 
-#### Maintaining Scroll Position
+#### Maintaining scroll position
 
 Scroll position is a tricky issue to deal with in messaging apps due to the possibility of new messages being added to the list above and below.
 
@@ -357,15 +357,15 @@ The following are events that can change potentially change the (scroll/client) 
 
 The scroll positions should be maintained (either at the bottom or showing the same contents) depending on the scenarios listed above.
 
-#### Other Possible Improvements
+#### Other possible improvements
 
 - Add a "Scroll to Bottom" button that's visible when the user has scrolled upwards within the conversation messages.
 
-### Gradient Effect
+### Gradient effect
 
 This article by CSS Trick shows you various approaches for implementing [Messenger's chat message gradient background](https://css-tricks.com/recreating-the-facebook-messenger-gradient-effect-with-css/).
 
-### Stale Clients
+### Stale clients
 
 For extremely stale clients, they will have to download the entire list of absent messages since the last sync which can be huge. This leads to a significant delay between starting up the application and being able to use it. Few will enjoy the process of waiting for tens of thousands of messages to be fetched and inserted into the client database before they can use the app.
 

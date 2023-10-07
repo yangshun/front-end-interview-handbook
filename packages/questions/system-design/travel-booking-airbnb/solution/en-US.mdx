@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 ### What are the core features to be supported?
 
@@ -35,15 +35,15 @@ The requirements and nature of a travel booking website are very similar to the 
 
 ---
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 {/* TODO: Architecture diagram */}
 
-### Server-side Rendering (SSR) or Client-side Rendering?
+### Server-side rendering (SSR) or Client-side rendering?
 
 Like [e-commerce websites](/questions/system-design/e-commerce-amazon), performance and SEO are critical. Hence server-side rendering is a must because of the performance and SEO benefits.
 
-### Single-page Application (SPA) or Multi-page Application (MPA)?
+### Single-page application (SPA) or Multi-page application (MPA)?
 
 As long SSR is being used, whether SPA or MPA doesn't matter as much. Both are viable, as long as the website has optimized performance.
 
@@ -53,7 +53,7 @@ For an SSR + interaction-heavy use case, we can leverage universal/isomorphic re
 
 Airbnb is one of the pioneers of building universal/isomorphic apps with the invention of [Rendr](https://github.com/rendrjs/rendr), a library that renders Backbone.js apps on the client and the server. Rendr is no longer being used these days with the rise of React and Next.js. Next.js which is the most popular choice for building universal React-powered web apps that desire server-side rendering with hydration.
 
-### What Top Travel Booking Sites Use
+### What top travel booking sites use
 
 Let's take a look at travel booking sites in the wild and their rendering choices:
 
@@ -80,7 +80,7 @@ The discussion below assumes that we'll be using an MPA architecture that uses s
 
 ---
 
-## Data Model
+## Data model
 
 | Entity | Source | Belongs To | Fields |
 | --- | --- | --- | --- |
@@ -92,7 +92,7 @@ We have omitted the entities related to payments and addresses since they are co
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 We will need the following HTTP APIs:
 
@@ -163,7 +163,7 @@ For this case, due to the sheer number of query parameters if each amenity crite
 
 There's no [fixed standard on how to encode arrays and objects into the query string of URLs](https://stackoverflow.com/questions/6243051/how-to-pass-an-array-within-a-query-string) and the format tend to be implementation dependent. The most important thing to note is for a consistent format between the server and the client.
 
-#### Sample Response
+#### Sample response
 
 ```json
 {
@@ -207,7 +207,7 @@ For a more in-depth comparison between offset-based pagination and cursor-based 
 
 If infinite scroll is desired, then a cursor-based pagination approach might be required. Offset-based pagination can still be used, but the client will need to go through the trouble of filtering out duplicated results.
 
-### Fetch Accommodation Details
+### Fetch accommodation details
 
 Strictly speaking, if the accommodation details page is always opened in a new tab, then the details data will only ever be needed to be fetched on the server to create the initial HTML; it will not be fetched from the client, so a standalone HTTP API is not needed.
 
@@ -224,7 +224,7 @@ Strictly speaking, if the accommodation details page is always opened in a new t
 | `accommodationId` | number | ID of accommodation to be fetched             |
 | `country`         | string | Country for the user, determines the currency |
 
-#### Sample Response
+#### Sample response
 
 ```json
 {
@@ -256,7 +256,7 @@ Strictly speaking, if the accommodation details page is always opened in a new t
 }
 ```
 
-### Make Reservation
+### Make reservation
 
 | Field       | Value                     |
 | ----------- | ------------------------- |
@@ -276,7 +276,7 @@ Strictly speaking, if the accommodation details page is always opened in a new t
 <sup>\*</sup> The format of the `dates` field should be consistent with the selected
 date range format in the search API.
 
-#### Sample Response
+#### Sample response
 
 A reservation object is returned upon successful reservation.
 
@@ -311,7 +311,7 @@ A reservation object is returned upon successful reservation.
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 To recap, the most important aspects of a travel booking website are: **Performance**, **Search Engine Optimization**, **Localization**, and **Wide Device Support**.
 
@@ -349,52 +349,52 @@ Performance is known to affect conversions, so for websites where the aim is to 
 - **Image formats**: Use `webp` format for photos and SVGs for icons where possible.
   - [Optimizing image sprites for high-density displays with SVG | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/optimizing-image-sprites-for-high-density-displays-with-svg/)
 
-#### Code Splitting
+#### Code splitting
 
 - [Expedia's Vrbo prioritizes above-the-fold contents and loads code for it first](https://medium.com/expedia-group-tech/improving-vrbo-homepage-loading-experience-e4b2207535f4).
 - Page/route-level code splitting to prevent huge JavaScript bundles if using a single-page app architecture.
 - Lazy load UI components that are not shown on initial render: (1) below the fold elements (e.g. footer), (2) elements that only appear after interaction (e.g. popover, modal).
 
-#### Performance Monitoring
+#### Performance monitoring
 
 - Use tools like Lighthouse and Web Vitals to profile websites and measure performance.
 - Airbnb came up with their own [Page Performance Score](https://medium.com/airbnb-engineering/creating-airbnbs-page-performance-score-5f664be0936) and [defined the metrics which mattered for web performance](https://medium.com/airbnb-engineering/measuring-web-performance-at-airbnb-122da8d3ea3f).
 - Set up performance budgets that run on CI.
 
-#### React-specific Tips
+#### React-specific tips
 
 - React-specific performance optimizations done by Airbnb: [React Performance Fixes on Airbnb Listing Pages | The Airbnb Tech Blog](https://medium.com/airbnb-engineering/recent-web-performance-fixes-on-airbnb-listing-pages-6cd8d93df6f4)
 - [12 Tips to Improve Client Side Page Performance | Expedia Group Technology](https://medium.com/expedia-group-tech/12-tips-to-improve-client-side-page-performance-88c7bec27933)
 
-#### Bundling Optimizations
+#### Bundling optimizations
 
 - Module federation: [Using Webpack Module Federation to Create an App Shell | Expedia Group Technology](https://medium.com/expedia-group-tech/using-webpack-module-federation-to-share-an-app-shell-7d23633510e)
 - [Optimizing a Page: Resource Hints, Critical CSS, and Webpack | Expedia Group Technology](https://medium.com/expedia-group-tech/optimize-a-page-resource-hint-critical-css-webpack-c8cc7319fb87)
 
-#### Virtual list/windowing for long lists with infinite scrolling.
+#### Virtual list/windowing for long lists with infinite scrolling
 
 Use virtual list/windowing for long lists with infinite scrolling. Read more about [List Virtualization on patterns.dev](https://www.patterns.dev/posts/virtual-lists/)
 
-#### Progressive Web Apps
+#### Progressive web apps
 
 - [Progressive Web Apps with Service Workers | Booking.com Engineering](https://medium.com/booking-com-development/progressive-web-apps-with-service-workers-887e80abf9ef)
 
-#### Other Performance Tips
+#### Other performance tips
 
 - When using client-side rendering, split up listing response into multiple payloads so as to show results faster. To quickly show results, the response payload can be split into a few chunks, e.g. returning the first 5 results (or whichever many that are above the fold), then loading the rest of the results on the page after that.
 - [Web Applications: Analyzing Client-Side Performance | Expedia Group Technology](https://medium.com/expedia-group-tech/web-applications-analyzing-client-side-performance-37e9cc4ad86b)
 - [Go Fast or Go Home: The Process of Optimizing for Client Performance](https://medium.com/expedia-group-tech/go-fast-or-go-home-the-process-of-optimizing-for-client-performance-57bb497402e)
 
-### Search Engine Optimization (SEO)
+### Search engine optimization (SEO)
 
-#### Bookmarkable Search Results
+#### Bookmarkable search results
 
 When searching on these travel sites, notice that the search query and filter will be reflected in the URL. If you load the URL in a new window, the same results and search query are shown. Syncing the search query with the URL is an important feature because:
 
 1. Allows the particular search to be bookmarked, which is a common action users do when doing research for travel.
 1. Other sites like travel blogs to link to the results page of specific search filters (e.g. vacations rentals in San Francisco). This helps to improve the site's SEO and discoverability.
 
-#### Generate Pages for Popular Searches
+#### Generate pages for popular searches
 
 When you search for "Vacation in San Francisco" in a search engine, you will most likely see results from popular travel sites like Expedia, Airbnb, TripAdvisor, among many others. These pages aren't content articles; they're the site's search results page with some pre-filled filters. How is this accomplished?
 
@@ -409,7 +409,7 @@ Having readable URLs helps with SEO rankings, especially if the URL contains the
 
 With this technique, search engines will think that travel sites have many different content pages when in reality they are all rendering the same results page but with different listings. It's great for SEO.
 
-#### Dynamic Rendering — Serve Crawlers Different Pages
+#### Dynamic rendering – serve crawlers different pages
 
 Sites can also leverage [dynamic rendering](https://developers.google.com/search/docs/crawling-indexing/javascript/dynamic-rendering), Dynamic rendering involves using a web server to differentiate between requests made by crawlers and those made by users. When a request is made by a crawler, it is routed to a renderer that generates a version of the content that is optimized for the crawler, such as a static HTML version. Requests made by real users are handled as normal.
 
@@ -441,7 +441,7 @@ Some of the following is extracted from our [Quiz Questions](/questions/quiz) on
 - [Building Airbnb's Internationalization Platform](https://medium.com/airbnb-engineering/building-airbnbs-internationalization-platform-45cf0104b63c)
 - [Adding support for Arabic and Hebrew languages on Airbnb](https://medium.com/airbnb-engineering/adding-support-for-arabic-and-hebrew-languages-on-airbnb-355f35a4e6b7)
 
-### Wide Device Support
+### Wide device support
 
 - **Responsive images**: Serving the most suitable image for the device, as mentioned in the image optimization section above.
   - [Images on the Web: Part 1 — Responsive Images | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-the-web-part-1-responsive-images-5dc0066461bd)
@@ -454,9 +454,9 @@ Some of the following is extracted from our [Quiz Questions](/questions/quiz) on
   - Less aggressive preloading strategy on mobile since mobile data can be more expensive.
   - Interactive elements should be larger on mobile.
 
-### User Experience
+### User experience
 
-#### Preserving Search Context
+#### Preserving search context
 
 For most travel sites, clicking on the listings will open the listing details in a new tab. The reason to do so is because users tend to browse multiple listings after narrowing down the search results and opening the listing details in a new page allow users to easily dive into the details of a listing and go back to where they left off if the listing didn't meet their expectations or if they want to see other listings.
 
@@ -467,7 +467,7 @@ The alternative is to open the listing details within a full-screen modal on the
 - Image `alt` tags: If there are no descriptions provided for images uploaded by users, it's ok to have empty `alt` tags.
 - [Expedia Accessibility Guidelines](https://accessibility.expedia.biz/pages/exagindex) covers topics like Color, Controls, Keyboard and Input Modalities, Forms, Images, Content Structure, Reading Order and Navigation Order, etc.
 
-### Form Optimizations
+### Form optimizations
 
 Form optimizations have been covered in detail in the [e-commerce websites question](/questions/system-design/e-commerce-amazon). To recap:
 
@@ -477,7 +477,7 @@ Form optimizations have been covered in detail in the [e-commerce websites quest
 - Clear focus states.
 - Read more about building good [Payment forms](https://web.dev/learn/forms/payment/) and [general form best practices](https://web.dev/payment-and-address-form-best-practices/) on web.dev.
 
-### Other Topics
+### Other topics
 
 - Map
   - Markers which are in close proximity can be can be [clustered together](https://developers.google.com/maps/documentation/javascript/marker-clustering)

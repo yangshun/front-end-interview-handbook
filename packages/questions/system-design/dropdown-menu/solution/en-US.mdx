@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 ### Can there be multiple dropdown menus open at once?
 
@@ -24,7 +24,7 @@ All devices — mobile, tablet, desktop.
 
 {/* ## TODO: Background, discuss when dropdown menus should be used. */}
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 An example usage of the dropdown menu in React, with event handlers omitted.
 
@@ -50,7 +50,7 @@ In React, components can communicate with its parents using context or props. We
 
 ---
 
-## Data Model
+## Data model
 
 Note that for designing components, it might make sense to design the interface/API first or both data model and API concurrently. It depends on the component at hand. Feel free to jump between the two sections.
 
@@ -65,9 +65,9 @@ See below for configuration options which are also part of the data model.
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
-### General Props
+### General props
 
 These props apply to most of the components.
 
@@ -111,7 +111,7 @@ Designing good APIs for customizing UI components can be found in the [Front End
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 ### Rendering
 
@@ -186,7 +186,7 @@ The component can also allow customization of alignment, in all directions aroun
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-#### Maximum Height
+#### Maximum height
 
 Since there is no maximum allowable number of items in the menu, we can set a default maximum height for the menu such that the excess items can be accessed by scrolling within the menu. This height can also be customized.
 
@@ -199,7 +199,7 @@ The dropdown menu c a n either be :
 
 The pros of rendering in the HTML first is better runtime performance due to fewer DOM operations needed to show the menu. The downside is that the HTML can be unnecessarily bloated especially if the user never interacts with the dropdown menu at all. Since the menu items usually don't contribute towards SEO and there likely won't be that many elements, the benefits of rendering the menu beforehand in HTML are relatively minor.
 
-### Automatic Flipping When Near the Edge
+### Automatic flipping when near the edge
 
 Smart dropdown menus will know its position relative to the viewport and can flip itself when there is insufficient space to display the full menu in its current position. [Reach UI's Menu](https://reach.tech/menu-button) has autoflipping implemented.
 
@@ -278,11 +278,11 @@ Here's how to implement click outside to dismiss behavior in React:
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-#### Focus Management
+#### Focus management
 
 When the menu is open, focus is trapped and pressing <kbd>Tab</kbd> shouldn't shift focus on another element. When the menu is closed, focus returns to the button.
 
-#### Keyboard Interactions
+#### Keyboard interactions
 
 There are two WAI-ARIA patterns to follow: the [Menu Button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/) and the [Menu pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/). The latter is needed after the menu is open.
 
@@ -311,7 +311,7 @@ When the focus is on the menu items:
 | <kbd>End</kbd> | If arrow key wrapping is not supported, moves focus to the last item. |
 | <kbd>Esc</kbd> | Closes the menu that contains focus and returns focus to the button. |
 
-#### WAI-ARIA Roles, States, and Properties
+#### WAI-ARIA roles, states, and properties
 
 - Button
   - The element that opens the menu has role `button`.

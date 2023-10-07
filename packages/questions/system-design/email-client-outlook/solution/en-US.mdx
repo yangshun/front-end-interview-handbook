@@ -7,7 +7,7 @@
   </p>
 </div>
 
-## Requirements Exploration
+## Requirements exploration
 
 ### What are the core functionalities needed?
 
@@ -35,20 +35,20 @@ Threading of message conversations will be good but not required.
 
 ---
 
-## Background Knowledge
+## Background knowledge
 
 Email client applications are quite different from your traditional web applications due to the fact that server requests are made using non-HTTP protocols like SMTP and IMAP. It is unlikely interviewers will require candidates to be familiar with how the common email protocols work, so you can assume you are working with HTTP-based APIs for sending and retrieving emails.
 
 Nevertheless, we'll cover some fundamental email system concepts for the sake of learning.
 
-### Parts of Email Systems
+### Parts of email systems
 
 - **Mail User Agent (MUA)**: An application where users can compose, send, receive, and read email messages. Other non-core functionalities include searching, flagging, address books, etc. These can be desktop applications with graphical user interfaces (Outlook, Apple Mail), or command line programs.
 - **Mail Transfer Agent (MTA)**: A software that transfers email messages from one host to another using the SMTP protocol. MTAs can exist on both users' devices and mail servers.
 - **Mail Servers**: Computers which host the MTAs and stores the email messages in a mailbox.
 - **Mailbox**: A mailbox is a conceptual entity that does not necessarily pertain to storage and is identified by an email address. It contains email messages and typically exists on mail servers.
 
-### Mail Transport Protocols
+### Mail transport protocols
 
 If you have set up email clients before, you might have come across the terms SMTP, POP and IMAP. SMTP is an outgoing email protocol used to send messages while POP and IMAP are incoming email protocols that email servers support to allow clients to retrieve messages.
 
@@ -162,12 +162,9 @@ Let's assume the following users with the respective roles, services, and types 
 We'll go through the flows detailing how messages are sent between the various types of clients.
 
 <figure>
-  <img
-    alt="Email flow"
-    className="mx-auto w-full max-w-7xl"
-    loading="lazy"
-    src="/img/questions/email-client-outlook/email-flow.png"
-  />
+
+![Email flow](/img/questions/email-client-outlook/email-flow.png)
+
   <figcaption>How email messages travel from senders to recipient</figcaption>
 </figure>
 
@@ -179,7 +176,7 @@ We'll go through the flows detailing how messages are sent between the various t
 - The DNS lookup stage for the MX (Mail Exchange) record is omitted for simplicity. SMTP servers use the domain name of the recipient's email address to look up DNS records for that domain (MX records in particular) to determine the address of the mail server.
 - MTAs are pretty general terms but they all use SMTP to send messages. SMTP servers are MTAs.
 
-#### Email Client -> Email Client
+#### Email client -> Email client
 
 1. Alice (alice@gmail.com) wants to send an email to Bob (bob@outlook.com).
 1. Alice's email client desktop app sends the message to the MTA, a software running on her computer.
@@ -189,7 +186,7 @@ We'll go through the flows detailing how messages are sent between the various t
 1. Outlook's IMAP servers retrieve the message from the database and send it back to Bob's desktop client over IMAP.
 1. Bob's email desktop client displays the new email message from Alice.
 
-#### Email Client -> Webmail
+#### Email client -> Webmail
 
 1. Alice (alice@gmail.com) wants to send an email to David (david@outlook.com).
 1. Alice's email client desktop app sends the message to the MTA, a software running on her computer.
@@ -201,7 +198,7 @@ We'll go through the flows detailing how messages are sent between the various t
 1. The servers hosting `outlook.live.com` sends the response to David's browser over HTTP.
 1. David's browser displays the new email message from Alice.
 
-#### Webmail -> Email Client
+#### Webmail -> Email client
 
 1. Carol (carol@gmail.com) wants to send an email to Bob (bob@outlook.com).
 1. Carol accesses Gmail webmail by visiting `https://www.gmail.com` in her browser.
@@ -225,11 +222,11 @@ We'll go through the flows detailing how messages are sent between the various t
 1. The servers hosting `outlook.live.com` sends the response to David's browser over HTTP.
 1. David's browser displays the new email message from Carol.
 
-### Types of Email Systems
+### Types of email systems
 
 Email systems can be broadly categorized into the following types:
 
-#### Store and Forward Servers
+#### Store and forward servers
 
 Store and forward email servers usually run on POP, where messages are kept on the server only until a user first accesses and downloads them. It is a simple and straightforward design.
 
@@ -245,7 +242,7 @@ Store and forward email servers usually run on POP, where messages are kept on t
 - Users are responsible for backing up and restoring their messages. Without any backup, messages will be lost forever if devices are spoilt/stolen.
 - Functionality such as searching/sorting of messages has to be done locally on the device, which can be computationally intensive for mailboxes containing large amount of messages. In the case of messages being stored across multiple devices, searching is only within the messages on the current device which can be inconvenient.
 
-#### Server-only Mailboxes
+#### Server-only mailboxes
 
 In such system, servers act as the source of truth for the messages and even after clients download the messages, the server retains them. Clients do not cache or persist the messages after downloading them. Such servers can run on IMAP and webmail is a common example of such a model.
 
@@ -260,7 +257,7 @@ In such system, servers act as the source of truth for the messages and even aft
 - Requires internet connection to view the messages.
 - Sufficient server storage space is required as it is the source of truth for messages.
 
-#### Server Mailbox with Client-side Cache
+#### Server mailbox with client-side cache
 
 A hybrid model combines the best characteristics of both the store and forward servers and the server-only mailbox by having a permanent server mailbox with clients caching/persisting the downloaded messages. Most desktop email clients operate using this model and is the most complex out of the above.
 
@@ -280,16 +277,16 @@ A hybrid model combines the best characteristics of both the store and forward s
 
 _Reference: [NinjaMail: the Design of a High-Performance Clustered, Distributed E-mail System](https://people.eecs.berkeley.edu/~kubitron/papers/ninja/pdf/ninjamail-workshop.pdf)_
 
-### Native HTML Apps
+### Native HTML apps
 
 {/* TODO */}
 
 - How to build native apps
 - Talk about examples (Electron/Nativefier/Tauri) and their differences:
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
-### Desktop Client vs Webmail
+### Desktop client vs Webmail
 
 - Separate into Client app vs Isomorphic core.
 - Abstract out database layer so can select db depending on runtime environment.
@@ -299,7 +296,7 @@ _Reference: [NinjaMail: the Design of a High-Performance Clustered, Distributed 
   - Keyboard shortcuts that don't conflict with the browser's
   - Badge
 
-### Flux/Redux Architecture
+### Flux/Redux architecture
 
 Use a Flux architecture reducer architecture/Command query request separation. Many different actions in the application which can be abstracted out as application-wide commands and have multiple trigger sources (e.g. UI element interaction, File menu interaction, Keyboard shortcut).
 
@@ -309,17 +306,17 @@ Use a Flux architecture reducer architecture/Command query request separation. M
 
 - [Mailspring's list of actions](https://github.com/Foundry376/Mailspring/blob/master/app/src/flux/actions.ts)
 
-### SSR vs CSR
+### Server-side rendering vs Client-side rendering
 
 - CSR because it's an app.
 
-### Task Queue
+### Task queue
 
 - Mutable operations will update the local data store immediately, and queue changes to sync back to your mail provider.
 
 ---
 
-## Data Model
+## Data model
 
 {/* TODO */}
 
@@ -327,7 +324,7 @@ Work-in-progress
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 {/* TODO */}
 
@@ -335,7 +332,7 @@ Work-in-progress
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 - Go through the different email protocols: IMAP, SMTP, POP, etc.
 
@@ -386,7 +383,7 @@ Work-in-progress
 
 Work-in-progress
 
-#### Message Format
+#### Message format
 
 {/* TODO */}
 
@@ -397,7 +394,7 @@ Work-in-progress
 - Resume attachment.
 - Async attachment flow.
 
-### Keyboard Shortcuts
+### Keyboard shortcuts
 
 - Implement different shortcuts in popular clients like Gmail, Apple Mail, Outlook, etc.
 

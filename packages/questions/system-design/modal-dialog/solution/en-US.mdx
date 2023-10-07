@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 ### What are the components of the modal?
 
@@ -16,7 +16,7 @@ All devices — mobile, tablet, desktop.
 
 {/* ## TODO: Background, discuss when modals should be used. */}
 
-## Architecture/High-level Design
+## Architecture / high-level design
 
 Modals, like many components that reveal content, have a trigger element and the contents elements. Modals can be opened through user actions or background actions, so we should decouple the trigger source from the modal contents.
 
@@ -49,7 +49,7 @@ In React, components can communicate with its parents using context or props. We
 
 ---
 
-## Data Model
+## Data model
 
 Note that for designing components, it might make sense to design the interface/API first or both data model and API concurrently. It depends on the component at hand. Feel free to jump between the two sections.
 
@@ -63,9 +63,9 @@ See below for configuration options which are also part of the data model.
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
-### General Props
+### General props
 
 These props apply to most of the components.
 
@@ -96,7 +96,7 @@ Basic version doesn't need props other than `children`.
 
 Basic version doesn't need props other than `children`.
 
-### Customizing Appearance
+### Customizing appearance
 
 Designing good APIs for customizing UI components can be found in the [Front End Interview Guidebook's UI Components API Design Principles Section](/front-end-interview-guidebook/user-interface-components-api-design-principles).
 
@@ -104,11 +104,11 @@ Most of the modal's contents in the header/body/footer will be provided by the u
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 ### Rendering
 
-#### Breaking Out of DOM Hierarchy
+#### Breaking out of DOM hierarchy
 
 Rendering the modal is more tricky than it seems due to the fact that modals are being displayed over the page and does not follow the normal flow of page elements. It's important to render the modal outside of the DOM hierarchy of the parents, because if the parents contain styling that clips its contents, the modal contents might not be fully visible. Here's an example from the [React docs](https://beta.reactjs.org/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) demonstrating the issue.
 
@@ -144,7 +144,7 @@ To help users focus on the content within the modal, there is usually an overlay
 }
 ```
 
-#### Centered Modal
+#### Centered modal
 
 To center the modal contents within the modal overlay, we can add the following styles to the `.modal-overlay`:
 
@@ -183,11 +183,11 @@ Here's a basic example of a modal with an overlay and optional vertical center m
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-#### Maximum Height
+#### Maximum height
 
 Since the modal can contain a lot of contents, we can set a default maximum height for the modal such that the excess items will be scrollable within `Modal.Body`. This height can also be customized by specifying the `maxHeight` prop.
 
-#### Scroll Lock
+#### Scroll lock
 
 When the modal is shown, the modal contents are in focus. To prevent the user from scrolling the background contents, the page should lock page-level scrolling. One way is to add `overflow: hidden` to `<body>`.
 
@@ -204,7 +204,7 @@ The pros of rendering in the HTML first is better runtime performance due to few
 
 ### Accessibility (a11y)
 
-#### Mouse Interactions
+#### Mouse interactions
 
 Typically, clicking outside the modal (on the overlay) will close the modal. We have to ensure that clicks within the modal do not close the modal.
 
@@ -241,7 +241,7 @@ Here's an example in React:
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-#### Focus Management
+#### Focus management
 
 Possibly the most complicated aspect of implementing a modal is focus management. Contents within modals are meant to be treated like a separate document; using the <kbd>Tab</kbd> key cycles through focusable elements within the dialog only and focus can never be on elements outside of the component for as long as the modal is shown. This behavior/phenomenon is known as "focus trapping".
 
@@ -262,7 +262,7 @@ When a modal closes, focus returns to the element that opened the modal (unless 
 
 In practice, focus trapping can be done via or [focus-trap](https://focus-trap.github.io/focus-trap/) libraries or if using React, the [`react-focus-lock`](https://github.com/theKashey/react-focus-lock) library which is what [React UI's Dialog](https://reach.tech/dialog) uses.
 
-#### Keyboard Interactions
+#### Keyboard interactions
 
 The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
@@ -274,7 +274,7 @@ The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/
 
 Focus trapping is essential for the required <kbd>Tab</kbd>-ing behavior, otherwise the focus will "leak" out of the modal.
 
-#### WAI-ARIA Roles, States, and Properties
+#### WAI-ARIA roles, states, and properties
 
 The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
@@ -286,11 +286,11 @@ The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/
   - A label specified by `aria-label`.
 - Optional `aria-describedby` property is set on the element with the `dialog` role to indicate which element or elements in the dialog contain content that describes the primary purpose or message of the dialog. Read the full guidance at [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
-#### `<dialog>` Element
+#### `<dialog>` element
 
 HTML now has a native `<dialog>` element that can be used in creating modal dialogs as it provides usability and accessibility features that must be replicated if using other elements for a similar purpose. However, it is still relatively new and browser compatibility is not great. Moreover, behaviors like focus trapping still has to be manually implemented, which makes using the `<dialog>` element less compelling.
 
-### Animations and Transitions
+### Animations and transitions
 
 If animation of the modal elements is desired and the transitions of the overlay and the contents need to be independent (e.g. overlay fades in while the contents translates up vertically), the DOM structure will have to be changed and the contents cannot be rendered within the overlay's DOM. A structure similar to like this will be required:
 
@@ -331,7 +331,7 @@ For RTL languages, the modal elements have to be horizontally flipped. To achiev
 
 ![Modal Dialog Right-to-left Example](/img/questions/modal-dialog/modal-dialog-rtl.png)
 
-### Stacked Modals
+### Stacked modals
 
 It is possible for modal contents to contain triggers that present even more modals.
 
@@ -339,7 +339,7 @@ It is possible for modal contents to contain triggers that present even more mod
 - Dismissing a modal via the <kbd>Esc</kbd> key or clicking outside the topmost modal's contents should only dismiss the topmost modal and not all the modals.
 - Dismissing a lower layer modal should also dismiss all the modals on top of it (or make this behavior customizable).
 
-### Advanced Topics
+### Advanced topics
 
 {/* TODO */}
 
@@ -350,10 +350,10 @@ It is possible for modal contents to contain triggers that present even more mod
 
 ## References
 
-- Themed Examples
+- Themed examples
   - [Modal · Bootstrap v5.3](https://getbootstrap.com/docs/5.3/components/modal)
   - [React Modal component - Material UI](https://mui.com/material-ui/react-modal/)
-- Headless Examples
+- Headless examples
   - [Dialog — Radix UI](https://www.radix-ui.com/docs/primitives/components/dialog)
   - [Dialog (Modal) — Reach UI](https://reach.tech/dialog)
   - [Dialog (Modal) - Headless UI](https://headlessui.com/react/dialog)

@@ -1,4 +1,4 @@
-## Requirements Exploration
+## Requirements exploration
 
 These are questions you should be asking your interviewer to dive deeper into the problem and refine the requirements.
 
@@ -34,7 +34,7 @@ Not for the initial version. We can explore this if we have time.
 
 ---
 
-## Data Model
+## Data model
 
 - Controller
   - Props/options exposed via the component API
@@ -48,7 +48,7 @@ _These are only the core fields that are needed for the basic functionality. Mor
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 Since this is a front end system design question, we will focus on the API of the component and only briefly touch on the search API that the server should provide.
 
@@ -95,7 +95,7 @@ The server should provide a HTTP API that supports the following parameters:
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 With the basics out of the way, we can dive deeper into specific topics which are relevant to the question.
 
@@ -136,7 +136,7 @@ What is the cache for? Caches are typically used to improve performance of queri
 
 Google and Facebook search boxes cache their queries!
 
-#### Cache Structure
+#### Cache structure
 
 The cache within the component is the most interesting aspect of the component as there are many ways to design the cache, each with its own pros and cons. Explaining the tradeoffs of each is essential to acing front end system design interviews.
 
@@ -176,7 +176,7 @@ const cache = {
 
 However, see that there are lots of duplicate results especially if we don't do any debouncing as the user is typing and we fire one request per keystroke. This results in the page consuming lots of memory for the cache.
 
-##### **2. List of Results**
+##### **2. List of results**
 
 Alternatively, we could save the results as a flat list and do our own filtering on the front end. There will not be much (if any) duplication of results.
 
@@ -199,7 +199,7 @@ const results = [
 
 However, this is not ideal in practice because we have to do filtering on the client side. This is bad for performance and might end up blocking the UI thread and is especially evident on large data sets and slow devices. The ranking order per result might also be lost, which is not ideal.
 
-##### **3. Normalized Map of Results**
+##### **3. Normalized map of results**
 
 We take inspiration from [normalizr](https://github.com/paularmstrong/normalizr/tree/master/docs) and structure the cache like a database, combining the best traits of the earlier approaches - fast lookup and non-duplicated data. Each result entry is one row in the "database" and is identified by a unique ID. The cache simply refers to each item's ID.
 
@@ -249,7 +249,7 @@ Which to use depends on the type of application this component is being used in.
 - **Short-lived websites**: If the component is being used on a page which is short-lived (e.g. Google search), option 1 would be the best. Even though there is duplicated data, the user is unlikely to use search so often that memory usage becomes an issue. The cache is being cleared/reset when the user clicks on a search result anyway.
 - **Long-lived websites**: If this autocomplete component is used on page which is a long-lived single page application (e.g. Facebook website), then option 3 might be viable. However, do also note that caching results for too long might be a bad idea as the results will be stale and hog memory.
 
-#### Initial Results
+#### Initial results
 
 Noticed how on Google search, when you first focus on the input, there is already a list of results even though you haven't typed anything yet? Showing an initial relevant list of results could be useful in saving users from typing and reducing server costs.
 
@@ -265,7 +265,7 @@ _Source: [The Life of a Typeahead Query](https://engineering.fb.com/2010/05/17/w
 
 {/* TODO: Talk about function to merge results from server and cache */}
 
-#### Caching Strategy
+#### Caching strategy
 
 Caching is a space/time tradeoff where we trade memory space to save on processing time. Having cached results stay around for too long is a bad idea because it consumes memory and if too much time has passed since the cache entry was written, the results are likely irrelevant/outdated. There's little value in using memory to store irrelevant/outdated results.
 
@@ -284,19 +284,19 @@ We can add the data source/caching strategy and cache duration as configuration 
 
 Performance here refers to client-side performance since server-side performance (how fast the query returns) is out of scope.
 
-#### Loading Speed
+#### Loading speed
 
 We can't improve how fast the server returns the response, but with client-side caching, we can show results for previous queries near instantly. We can even go one step further and use cached results for future results if there's a match.
 
-#### Debouncing/Throttling
+#### Debouncing/throttling
 
 By limiting the number of network requests that can be fired, we reduce server payload and CPU processing.
 
-#### Memory Usage
+#### Memory usage
 
 Long-lived pages might have autocomplete components which accumulate too many results in the cache and hog memory. Purging the cache and freeing up memory is essential for such pages. The purging can be done when the browser is idle or total memory/number of cache entries exceed a certain threshold.
 
-#### Virtualized Lists
+#### Virtualized lists
 
 If the results contains many items (order of hundreds and thousands), rendering that many DOM nodes in the browser would cost lots of memory and slow down the browser. List virtualization is a technique that we can use here to allow the component can retain its performance at scale.
 
@@ -306,7 +306,7 @@ From [https://web.dev](https://web.dev/virtualize-long-lists-react-window):
 
 The trick here is to only render the nodes which are visible and recycle DOM nodes instead of creating new ones. We can make the results window give the illusion that it contains that many results with fake off-screen elements that add up to the height of the non-visible result elements.
 
-### User Experience
+### User experience
 
 The following are some good UX practices to apply to the autocomplete component:
 
@@ -347,7 +347,7 @@ The list of autocomplete suggestions typically appear below the input. However, 
 
 ### Accessibility
 
-#### Screen Readers
+#### Screen readers
 
 - Use semantic HTML or use the right `aria` roles if using non-semantic HTML. Use `<ul>`, `<li>` for building list items or `role="listbox"` and `role="option"`.
 - `aria-label` for the `<input>` because there usually isn't a visible label.
@@ -358,7 +358,7 @@ The list of autocomplete suggestions typically appear below the input. However, 
 - [`aria-autocomplete`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete) to describe the type of autocompletion interaction model the combobox will use when dynamically helping users complete text input, whether suggestions will be shown as a single value inline (`aria-autocomplete="inline"`) or in a collection of values (`aria-autocomplete="list"`)
   - Google uses `aria-autocomplete="both"` while Facebook and Twitter use `aria-autocomplete="list"`.
 
-#### Keyboard Interaction
+#### Keyboard interaction
 
 - Hit enter to perform a search. You can get this behavior for free by wrapping the `<input>` in a `<form>`.
 - Up/down arrows to navigate the options, wrapping around when the end of the list is reached.
