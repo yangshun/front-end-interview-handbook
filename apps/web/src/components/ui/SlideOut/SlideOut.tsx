@@ -65,7 +65,8 @@ export default function SlideOut({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('relative z-40', dark && 'dark')}
+        className={clsx('relative z-40')}
+        data-theme={dark ? 'dark' : undefined}
         onClose={() => onClose?.()}>
         <Transition.Child
           as={Fragment}
@@ -75,7 +76,7 @@ export default function SlideOut({
           leave="transition-opacity ease-linear duration-300"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="dark:bg-neutral-950/60 fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity" />
+          <div className="fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity dark:bg-neutral-950/60" />
         </Transition.Child>
         <div className="fixed inset-0 z-40 flex">
           <Transition.Child
@@ -115,7 +116,7 @@ export default function SlideOut({
                 </Section>
               </div>
               {primaryButton && (
-                <div className={clsx('flex justify-end gap-2 py-4 px-6')}>
+                <div className={clsx('flex justify-end gap-2 px-6 py-4')}>
                   {secondaryButton}
                   {primaryButton}
                 </div>

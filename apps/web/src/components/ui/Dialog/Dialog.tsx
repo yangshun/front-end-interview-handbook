@@ -33,7 +33,8 @@ export default function DialogImpl({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('relative z-40', dark && 'dark')}
+        className={clsx('relative z-40')}
+        data-theme={dark ? 'dark' : undefined}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
         <Transition.Child
