@@ -40,26 +40,40 @@ model FeedbackMessage {
 }
 
 model Profile {
-  id                           String                         @id(map: "profile_pkey") @db.Uuid
-  premium                      Boolean                        @default(false)
-  plan                         String?
-  stripeCustomer               String?
-  createdAt                    DateTime                       @default(now()) @db.Timestamptz(6)
-  Event                        Event[]
-  QuestionProgress             QuestionProgress[]
-  LearningSession              LearningSession[]
-  SitePerformance              SitePerformance[]
-  QuestionJavaScriptSubmission QuestionJavaScriptSubmission[]
-  QuestionUserInterfaceSave    QuestionUserInterfaceSave[]
+  id                                      String                                   @id(map: "profile_pkey") @db.Uuid
+  premium                                 Boolean                                  @default(false)
+  plan                                    String?
+  stripeCustomer                          String?
+  createdAt                               DateTime                                 @default(now()) @db.Timestamptz(6)
+  Event                                   Event[]
+  QuestionProgress                        QuestionProgress[]
+  LearningSession                         LearningSession[]
+  SitePerformance                         SitePerformance[]
+  questionDiscussionPosts                 QuestionDiscussionPost[]
+  questionJavaScriptSubmissions           QuestionJavaScriptSubmission[]
+  questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
+  questionUserInterfaceSaves              QuestionUserInterfaceSave[]
+  questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
 }
 
 model QuestionProgress {
+  id        String   @id(map: "question_progress_pkey") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   format    String
   slug      String
-  id        String   @id(map: "question_progress_pkey") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   status    String
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   userId    String   @db.Uuid
+  profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model QuestionDiscussionPost {
+  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  format    String
+  slug      String
+  contents  String
+  userId    String   @db.Uuid
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt
   profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -79,8 +93,8 @@ model QuestionJavaScriptSubmission {
   code      String
   language  QuestionWorkingLanguage
   result    QuestionSubmissionResult
-  createdAt DateTime                 @default(now()) @db.Timestamptz(6)
   userId    String                   @db.Uuid
+  createdAt DateTime                 @default(now()) @db.Timestamptz(6)
   profile   Profile                  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -98,9 +112,35 @@ model QuestionUserInterfaceSave {
   slug      String
   files     String
   framework QuestionUserInterfaceFramework
+  userId    String                         @db.Uuid
   createdAt DateTime                       @default(now()) @db.Timestamptz(6)
   updatedAt DateTime                       @updatedAt
+  profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model QuestionJavaScriptCommunitySolution {
+  id        String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  slug      String
+  title     String
+  writeup   String
+  code      String
+  language  QuestionWorkingLanguage
+  userId    String                  @db.Uuid
+  createdAt DateTime                @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime                @updatedAt
+  profile   Profile                 @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model QuestionUserInterfaceCommunitySolution {
+  id        String                         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  slug      String
+  title     String
+  writeup   String
+  files     String
+  framework QuestionUserInterfaceFramework
   userId    String                         @db.Uuid
+  createdAt DateTime                       @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime                       @updatedAt
   profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
