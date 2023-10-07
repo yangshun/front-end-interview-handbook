@@ -7,10 +7,10 @@ import Text from '~/components/ui/Text';
 import type { QuestionLanguage } from '../common/QuestionsTypes';
 
 const LanguageLabelClasses: Record<QuestionLanguage, string> = {
-  css: 'bg-sky-500 text-white',
-  html: 'bg-orange-600 text-white',
-  js: 'bg-yellow-500 text-black',
-  ts: 'bg-[#3178c6] text-white',
+  css: 'bg-sky-500 text-white dark:bg-neutral-800 dark:text-sky-500',
+  html: 'bg-orange-600 text-white dark:bg-neutral-800 dark:text-orange-600',
+  js: 'bg-yellow-500 text-black dark:bg-neutral-800 dark:text-yellow-500',
+  ts: 'bg-[#3178c6] text-white dark:bg-neutral-800 dark:text-[#3178c6]',
 };
 
 type Props = Readonly<{
