@@ -22,7 +22,6 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
-import { themeBackgroundLayerColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -157,7 +156,8 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           <div
             className={clsx(
               'rounded-md p-4 text-center',
-              themeBackgroundLayerColor,
+              'border-brand-light dark:border-brand-darkest border',
+              'bg-brand-darker/10',
             )}>
             <SolutionPreviewButton />
           </div>
