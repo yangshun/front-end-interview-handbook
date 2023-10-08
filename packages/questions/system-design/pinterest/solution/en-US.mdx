@@ -8,11 +8,25 @@ TODO
 
 TODO
 
+- SSR vs CSR
+
 ---
 
 ## Data model
 
 TODO
+
+- List structures
+  - Linear list
+  - Columns
+- Common fields on each item
+  - Original height and width
+  - URLs (responsive)
+  - Alt tags
+  - Timestamp/order
+  - Dominant color (used for placeholder)
+- Item position: top, left, width, height
+- Item image state: Loaded / Rendered / Errored
 
 ---
 
@@ -20,11 +34,170 @@ TODO
 
 TODO
 
+- Request parameters: height and width of client.
+- Pagination.
+
 ---
 
 ## Optimizations and deep dive
 
 TODO
+
+### Loading strategies and optimizations
+
+Realize that there are multiple things to load here (list data and images).
+
+Image loading is depending on list data loading, but is independent of rendering (painting the image to the screen).
+
+#### List loading scheduling
+
+- Load next batch when near the bottom of the screen. Bad because you need to wait for next batch of images, then for the images to load.
+- Load a huge batch of items first, but only load the images that will be painted on the screen. As user scrolls, load the images for the items that will be presented. Only load next batch of items when current batch have almost all been displayed.
+
+#### Image loading scheduling
+
+Strategies:
+
+- Render all and let images appear immediately as they're loaded.
+- Load and render one by one. Bad experience.
+- Load in parallel, render in order.
+- Load in parallel, render all at once.
+
+TODO: Look up `fetchpriority` attribute.
+
+#### Preloading images
+
+Preload images using `<link rel="preload">`.
+
+```html
+<link
+  rel="preload"
+  nonce="7deba0d15af118e95df9c836e67724dc"
+  href="https://i.pinimg.com/236x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg"
+  imagesrcset="https://i.pinimg.com/236x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 1x, https://i.pinimg.com/474x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 2x, https://i.pinimg.com/736x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 3x, https://i.pinimg.com/originals/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 4x"
+  as="image" />
+<link
+  rel="preload"
+  nonce="7deba0d15af118e95df9c836e67724dc"
+  href="https://i.pinimg.com/236x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg"
+  imagesrcset="https://i.pinimg.com/236x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg 1x, https://i.pinimg.com/474x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg 2x, https://i.pinimg.com/736x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg 3x, https://i.pinimg.com/originals/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.png 4x"
+  as="image" />
+<!-- Preload 10 images in total -->
+```
+
+### Rendering and layout
+
+#### Implementing masonry layout
+
+https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md
+
+- Divide the page into columns and render item within each column.
+  - Pros: Leverages typical browser layouts. If item height changes, the layout will be updated automatically.
+  - Cons: Tabbing order is incorrect.
+- Direct positioning
+  - Pros: DOM ordering matches flow of page (item's relative positioning on the page).
+  - Cons: Client has to do calculations. If the item height changes, items below it will not be repositioned.
+  - Ways
+    - Absolute positioning
+    - CSS Transforms
+      - Similar to absolute positioning but better for browser performance. Pinterest does this.
+    - CSS Grid: Not possible.
+
+Can be done on server or client.
+
+Pinterest uses CSS transforms positioning.
+
+#### Types of layout
+
+- Default (packages/gestalt/src/Masonry/defaultLayout.js)
+- Full width (packages/gestalt/src/Masonry/fullWidthLayout.js)
+- Uniform row (packages/gestalt/src/Masonry/uniformRowLayout.js)
+
+#### Placing items within columns
+
+- Render each item in order.
+- Height balancing, let client deciding which column to place item.
+  - Based on order the images are loaded.
+  - Based on height provided by server
+    - Cons: images may appear out of order depending on size of individual images. However, can let client hold whether to display an image until the previous image has loaded.
+
+Can be done on server or client
+
+#### Boundary dimensions for images
+
+- Max height so that really tall images don't mess the layout.
+- Min height so that really wide images are still tall enough. Can only see a part of the image but that's ok.
+
+#### Which DOM element to use
+
+- `<img>` vs `<picture>`.
+- Pinterest uses `<img srcset>`.
+
+#### Infinite scrolling
+
+- How to implement infinite scrolling
+
+### Network
+
+- Browser need to send N requests for N images, but there's maximum number of simultaneous connections per domain and per page.
+- Maybe can bucket per domain (need to check if there's still domain restrictions).
+
+### Error handling
+
+- Ignore failed images.
+- Show error message.
+- Retry loading and insert as part of next batch.
+
+### Performance
+
+#### Reflow and repaint
+
+- Explain what browser reflow and repainting is.
+- Re-rendering a lot and quickly cause reflow and repainting which can lag browsers, especially if browser needs to do composition.
+- Batch/throttle rendering. Multiple images that load within a short period of time only cause one reflow and repaint.
+
+#### Huge DOM size
+
+- DOM size can be huge, optimize with list virtualization. Images at the top are removed from the DOM when user has scrolled way past them.
+- Remove items from the bottom of the DOM when users scrolls up.
+- Only maximum of 40 items actually in the DOM at once.
+- Container has a height that gives the page the scrollbar.
+- Recycle DOM nodes.
+
+#### Dynamic values
+
+- Use dynamic values based on network conditions, device dimensions, device processing abilities, etc.
+
+#### Progressive Web App
+
+- https://medium.com/pinterest-engineering/a-one-year-pwa-retrospective-f4a2f4129e05
+
+### User experience
+
+#### Loading states
+
+- Box with background of the most common color within the image.
+
+#### Responsive
+
+- Dynamic columns (?)
+  - Recalculate layout on client or server?
+  - Optimization: calculate for every number of possible columns while idle.
+- How to handle resizing when scroll position is far from top?
+
+#### Automatic refresh when session is stale
+
+- Removes stale items from memory and keeps DOM size low (if no virtualization).
+
+### Right-to-left
+
+- Tweak the algorithm to start from the right.
+
+### Accessibility (a11y)
+
+- `alt` attribute for `<img>`s.
+- `role="list"` for feed container.
+- `role="listitem"` for feed items.
 
 ---
 
