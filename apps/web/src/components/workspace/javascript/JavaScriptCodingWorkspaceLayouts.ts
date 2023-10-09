@@ -26,6 +26,10 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
           },
           {
             closeable: false,
+            id: 'community_solutions',
+          },
+          {
+            closeable: false,
             id: 'test_cases',
           },
           {
@@ -107,6 +111,10 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
           },
           {
             closeable: false,
+            id: 'community_solutions',
+          },
+          {
+            closeable: false,
             id: 'test_cases',
           },
           {
@@ -176,6 +184,10 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
           {
             closeable: false,
             id: 'solution',
+          },
+          {
+            closeable: false,
+            id: 'community_solutions',
           },
           {
             closeable: false,

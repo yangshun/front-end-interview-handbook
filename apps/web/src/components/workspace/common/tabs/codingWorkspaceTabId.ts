@@ -1,7 +1,24 @@
 // eslint-disable-next-line init-declarations
+declare const __communitySolutionTabType: unique symbol;
+
+export type CodingWorkspaceTabCommunitySolutionType =
+  `community-solution:${string}` & {
+    [__communitySolutionTabType]: true;
+  };
+
+export function codingWorkspaceTabCommunitySolutionId(
+  solutionId: string,
+): CodingWorkspaceTabCommunitySolutionType {
+  return `community_solution:${solutionId}` as CodingWorkspaceTabCommunitySolutionType;
+}
+
+export const codingWorkspaceTabCommunitySolutionPattern =
+  /^community_solution:/;
+
+// eslint-disable-next-line init-declarations
 declare const __fileTabType: unique symbol;
 
-export type CodingWorkspaceTabFileType = string & {
+export type CodingWorkspaceTabFileType = `file:${string}` & {
   [__fileTabType]: true;
 };
 
@@ -16,7 +33,7 @@ export const codingWorkspaceTabFilePattern = /^file:/;
 // eslint-disable-next-line init-declarations
 declare const __submissionTabType: unique symbol;
 
-export type CodingWorkspaceTabSubmissionType = string & {
+export type CodingWorkspaceTabSubmissionType = `submission:${string}` & {
   [__submissionTabType]: true;
 };
 

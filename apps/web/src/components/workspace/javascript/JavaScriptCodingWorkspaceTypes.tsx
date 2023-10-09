@@ -1,5 +1,6 @@
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import type {
+  CodingWorkspaceTabCommunitySolutionType,
   CodingWorkspaceTabFileType,
   CodingWorkspaceTabSubmissionType,
 } from '../common/tabs/codingWorkspaceTabId';
@@ -14,6 +15,7 @@ export type JavaScriptCodingWorkspacePredefinedTabsType =
   | 'submit'
   | 'test_cases';
 export type JavaScriptCodingWorkspaceTabsType =
+  | CodingWorkspaceTabCommunitySolutionType
   | CodingWorkspaceTabFileType
   | CodingWorkspaceTabSubmissionType
   | JavaScriptCodingWorkspacePredefinedTabsType;

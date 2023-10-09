@@ -7,6 +7,7 @@ import {
   RiBracesFill,
   RiCheckboxLine,
   RiCodeLine,
+  RiCodeSSlashLine,
   RiDatabase2Line,
   RiFileList2Line,
   RiFlaskLine,
@@ -25,6 +26,7 @@ export type CodingWorkspaceTabIconType =
   | 'angular'
   | 'browser'
   | 'code'
+  | 'community_solution'
   | 'community_solutions'
   | 'console'
   | 'css'
@@ -60,6 +62,9 @@ export const CodingWorkspaceTabIcons: Record<
   },
   code: {
     icon: RiCodeLine,
+  },
+  community_solution: {
+    icon: RiCodeSSlashLine,
   },
   community_solutions: {
     icon: RiLightbulbFlashLine,

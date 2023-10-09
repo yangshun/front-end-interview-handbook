@@ -19,6 +19,7 @@ import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
 import JavaScriptCodingWorkspaceCommunitySolutionList from './JavaScriptCodingWorkspaceCommunitySolutionList';
+import JavaScriptCodingWorkspaceCommunitySolutionTab from './JavaScriptCodingWorkspaceCommunitySolutionTab';
 import { JavaScriptCodingWorkspaceContextProvider } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
 import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
@@ -45,6 +46,8 @@ import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesL
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import {
+  codingWorkspaceTabCommunitySolutionId,
+  codingWorkspaceTabCommunitySolutionPattern,
   codingWorkspaceTabFileId,
   codingWorkspaceTabSubmissionId,
   codingWorkspaceTabSubmissionPattern,
@@ -116,6 +119,61 @@ function JavaScriptCodingWorkspaceImpl({
 
   useMonacoEditorModels(monaco, files);
 
+  const openTabIfNotExists = useCallback(
+    ({
+      fallbackNeighborTabId,
+      tabId,
+      tabTypePattern,
+    }: {
+      fallbackNeighborTabId: JavaScriptCodingWorkspaceTabsType;
+      tabId: JavaScriptCodingWorkspaceTabsType;
+      tabTypePattern: RegExp;
+    }) => {
+      const result = getTabById(tabId);
+
+      // Submission is already open. Just have to make it active.
+      if (result != null) {
+        dispatch({
+          payload: {
+            tabId: result.tabId,
+          },
+          type: 'tab-set-active',
+        });
+
+        return;
+      }
+
+      const otherSubmissionTabs = queryTabByPattern(tabTypePattern);
+
+      if (otherSubmissionTabs.length > 0) {
+        dispatch({
+          payload: {
+            newTabCloseable: true,
+            newTabId: tabId,
+            panelId: otherSubmissionTabs[0].panelId,
+          },
+          type: 'tab-open',
+        });
+
+        return;
+      }
+
+      const fallbackNeighborTab = getTabById(fallbackNeighborTabId);
+
+      if (fallbackNeighborTab != null) {
+        dispatch({
+          payload: {
+            newTabCloseable: true,
+            newTabId: tabId,
+            panelId: fallbackNeighborTab?.panelId,
+          },
+          type: 'tab-open',
+        });
+      }
+    },
+    [dispatch, getTabById, queryTabByPattern],
+  );
+
   function openSubmission(submissionId: string) {
     const tabIdForSubmission = codingWorkspaceTabSubmissionId(submissionId);
 
@@ -133,49 +191,35 @@ function JavaScriptCodingWorkspaceImpl({
       },
     });
 
-    const result = getTabById(tabIdForSubmission);
+    openTabIfNotExists({
+      fallbackNeighborTabId: 'description',
+      tabId: tabIdForSubmission,
+      tabTypePattern: codingWorkspaceTabSubmissionPattern,
+    });
+  }
 
-    // Submission is already open. Just have to make it active.
-    if (result != null) {
-      dispatch({
-        payload: {
-          tabId: result.tabId,
-        },
-        type: 'tab-set-active',
-      });
+  function openCommunitySolution(solutionId: string) {
+    const tabIdForCommunitySolution =
+      codingWorkspaceTabCommunitySolutionId(solutionId);
 
-      return;
-    }
+    setTabContents({
+      ...tabContents,
+      [tabIdForCommunitySolution]: {
+        contents: (
+          <JavaScriptCodingWorkspaceCommunitySolutionTab
+            solutionId={solutionId}
+          />
+        ),
+        icon: CodingWorkspaceTabIcons.community_solution.icon,
+        label: 'Community solution',
+      },
+    });
 
-    const otherSubmissionTabs = queryTabByPattern(
-      codingWorkspaceTabSubmissionPattern,
-    );
-
-    if (otherSubmissionTabs.length > 0) {
-      dispatch({
-        payload: {
-          newTabCloseable: true,
-          newTabId: tabIdForSubmission,
-          panelId: otherSubmissionTabs[0].panelId,
-        },
-        type: 'tab-open',
-      });
-
-      return;
-    }
-
-    const descriptionTab = getTabById('description');
-
-    if (descriptionTab != null) {
-      dispatch({
-        payload: {
-          newTabCloseable: true,
-          newTabId: tabIdForSubmission,
-          panelId: descriptionTab?.panelId,
-        },
-        type: 'tab-open',
-      });
-    }
+    openTabIfNotExists({
+      fallbackNeighborTabId: 'community_solutions',
+      tabId: tabIdForCommunitySolution,
+      tabTypePattern: codingWorkspaceTabCommunitySolutionPattern,
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
