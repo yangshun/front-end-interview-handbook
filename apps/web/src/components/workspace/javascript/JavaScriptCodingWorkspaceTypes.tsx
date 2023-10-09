@@ -5,6 +5,7 @@ import type {
 } from '../common/tabs/codingWorkspaceTabId';
 
 export type JavaScriptCodingWorkspacePredefinedTabsType =
+  | 'community_solutions'
   | 'console'
   | 'description'
   | 'run_tests'

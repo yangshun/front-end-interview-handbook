@@ -20,6 +20,7 @@ type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';
 type BaseContext<T extends QuestionBase> = Readonly<{
   defaultFiles: SandpackFiles;
   deleteCodeFromLocalStorage: () => void;
+  openCommunitySolution?: (solutionId: string) => void;
   openFile?: (filePath: string, fromFilePath?: string) => void;
   openSubmission?: (submissionId: string) => void;
   question: T;
@@ -47,6 +48,7 @@ const CodingWorkspaceContext = createContext<ContextValue<any>>({
   defaultFiles: {},
   deleteCodeFromLocalStorage: () => {},
   executionComplete: () => {},
+  openCommunitySolution: () => {},
   openFile: () => {},
   openSubmission: () => {},
   question: {},

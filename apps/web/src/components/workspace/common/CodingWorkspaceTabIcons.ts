@@ -13,6 +13,7 @@ import {
   RiFolder3Line,
   RiHashtag,
   RiHtml5Fill,
+  RiLightbulbFlashLine,
   RiLightbulbLine,
   RiListCheck3,
   RiNpmjsFill,
@@ -24,6 +25,7 @@ export type CodingWorkspaceTabIconType =
   | 'angular'
   | 'browser'
   | 'code'
+  | 'community_solutions'
   | 'console'
   | 'css'
   | 'description'
@@ -58,6 +60,9 @@ export const CodingWorkspaceTabIcons: Record<
   },
   code: {
     icon: RiCodeLine,
+  },
+  community_solutions: {
+    icon: RiLightbulbFlashLine,
   },
   console: {
     icon: RiTerminalBoxLine,

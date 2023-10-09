@@ -2,6 +2,7 @@ import { devRouter } from './dev';
 import { feedbackRouter } from './feedback';
 import { marketingRouter } from './marketing';
 import { purchasesRouter } from './purchases';
+import { questionCommunitySolutionRouter } from './question-community-solution';
 import { questionListsRouter } from './question-lists';
 import { questionProgressRouter } from './question-progress';
 import { questionSaveRouter } from './question-save';
@@ -14,6 +15,7 @@ export const appRouter = router({
   feedback: feedbackRouter,
   marketing: marketingRouter,
   purchases: purchasesRouter,
+  questionCommunitySolution: questionCommunitySolutionRouter,
   questionLists: questionListsRouter,
   questionProgress: questionProgressRouter,
   questionSave: questionSaveRouter,

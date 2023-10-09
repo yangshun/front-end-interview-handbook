@@ -18,6 +18,7 @@ import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
+import JavaScriptCodingWorkspaceCommunitySolutionList from './JavaScriptCodingWorkspaceCommunitySolutionList';
 import { JavaScriptCodingWorkspaceContextProvider } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
 import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
@@ -177,7 +178,19 @@ function JavaScriptCodingWorkspaceImpl({
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function openCommunitySolution(solutionId: string) {
+    // TODO: Open community solution in tab
+  }
+
   const predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents = {
+    community_solutions: {
+      contents: (
+        <JavaScriptCodingWorkspaceCommunitySolutionList metadata={metadata} />
+      ),
+      icon: CodingWorkspaceTabIcons.community_solutions.icon,
+      label: 'Community solutions',
+    },
     console: {
       contents: <CodingWorkspaceConsole />,
       icon: CodingWorkspaceTabIcons.console.icon,
@@ -282,6 +295,7 @@ function JavaScriptCodingWorkspaceImpl({
       value={{
         defaultFiles,
         deleteCodeFromLocalStorage,
+        openCommunitySolution,
         openSubmission,
         question,
         resetToDefaultCode,
