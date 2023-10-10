@@ -56,7 +56,7 @@ export default function GuidesMainLayout({
           <div
             className="sticky hidden lg:contents"
             style={{ top: 'var(--navbar-height)' }}>
-            <GuidesSidebar navigation={navigation} />
+            <GuidesSidebar navigation={navigation} sticky={true} />
           </div>
           <div
             className={clsx(

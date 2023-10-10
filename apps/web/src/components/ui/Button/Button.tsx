@@ -130,7 +130,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     ],
     [
       'active:bg-neutral-200 dark:active:bg-neutral-800',
-      'active:text-brand-dark  dark:active:text-brand-light',
+      'active:text-brand-dark dark:active:text-brand-light',
     ],
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),

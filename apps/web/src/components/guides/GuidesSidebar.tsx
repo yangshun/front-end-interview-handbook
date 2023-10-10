@@ -124,18 +124,29 @@ function LinksList({
 
 type GuidesSidebarProps = Readonly<{
   navigation: GuideNavigation;
+  sticky?: boolean;
 }>;
 
-export function GuidesSidebar({ navigation }: GuidesSidebarProps) {
+export function GuidesSidebar({
+  sticky = false,
+  navigation,
+}: GuidesSidebarProps) {
   return (
     <nav
-      className="sticky w-[280px] flex-shrink-0"
+      className={clsx(
+        'flex w-[280px] flex-shrink-0 flex-col',
+        sticky && 'sticky',
+      )}
       style={{
-        height: 'calc(100vh - var(--navbar-height))',
+        height: sticky
+          ? 'calc(100vh - 24px - var(--navbar-height))'
+          : undefined,
         top: 'calc(24px + var(--navbar-height))',
       }}>
       <GuidesDropdownMenu />
-      <ul className="mt-6 flex flex-col gap-y-6" role="list">
+      <ul
+        className="mt-6 flex grow flex-col gap-y-6 overflow-y-auto pb-6"
+        role="list">
         {navigation.items.map((section) => (
           <li key={section.title}>
             <Heading

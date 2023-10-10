@@ -1,14 +1,16 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+
+import useIsSticky from '~/hooks/useIsSticky';
 
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
-import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -28,6 +30,8 @@ export default function GuidesNavbar({
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
   const { pathname } = useI18nPathname();
+  const navbarRef = useRef(null);
+  const { isSticky } = useIsSticky(navbarRef);
 
   useEffect(() => {
     // Hide left sidebar when page changes.
@@ -49,8 +53,10 @@ export default function GuidesNavbar({
 
   return (
     <div
+      ref={navbarRef}
       className={clsx(
         'sticky z-30 border-b lg:hidden',
+        [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
         themeLineColor,
       )}
       style={{ top: 'var(--navbar-height)' }}>
