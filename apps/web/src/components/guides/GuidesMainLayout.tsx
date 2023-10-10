@@ -10,6 +10,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import GuidesHeadingObserver from './GuidesHeadingObserver';
 import type { GuideNavigation } from './GuidesLayoutSidebar';
 import GuidesNavbar from './GuidesNavbar';
+import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
@@ -53,6 +54,11 @@ export default function GuidesMainLayout({
             'px-4 pb-16 pt-6 md:px-6 lg:px-8',
           )}>
           <div
+            className="sticky hidden lg:contents"
+            style={{ top: 'var(--navbar-height)' }}>
+            <GuidesSidebar navigation={navigation} />
+          </div>
+          <div
             className={clsx(
               'flex flex-col gap-6 overflow-auto',
               'w-full max-w-2xl',
@@ -85,7 +91,7 @@ export default function GuidesMainLayout({
                 className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
                 style={{
                   height: FooterlessContainerHeight,
-                  top: `var(--navbar-height)`,
+                  top: 'calc(24px + var(--navbar-height))',
                 }}>
                 <GuidesTableOfContents tableOfContents={tableOfContents} />
               </div>

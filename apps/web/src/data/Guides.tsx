@@ -19,6 +19,7 @@ type GuideData = Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   name: string;
+  shortName: string;
 }>;
 
 export function useGuidesData() {
@@ -40,6 +41,11 @@ export function useGuidesData() {
         description: 'Title for behavioral interview guidebook',
         id: '6fAxyB',
       }),
+      shortName: intl.formatMessage({
+        defaultMessage: 'Behavioral Interview',
+        description: 'Short title for behavioral interview guidebook',
+        id: 'DP3Y2U',
+      }),
     },
     'front-end-interview-guidebook': {
       description: intl.formatMessage({
@@ -56,6 +62,11 @@ export function useGuidesData() {
         description: 'Front End Interview Guidebook title',
         id: 'w0Gmne',
       }),
+      shortName: intl.formatMessage({
+        defaultMessage: 'Front End Interview',
+        description: 'Short title for Front End Interview Guidebook',
+        id: '9wRhlQ',
+      }),
     },
     'front-end-system-design-guidebook': {
       description: intl.formatMessage({
@@ -71,6 +82,11 @@ export function useGuidesData() {
         defaultMessage: 'Front End System Design Guidebook',
         description: 'Front end system design guidebook title',
         id: 'NdDD5W',
+      }),
+      shortName: intl.formatMessage({
+        defaultMessage: 'Front End System Design',
+        description: 'Short title of front end system design guidebook',
+        id: 'TRWLN8',
       }),
     },
   };

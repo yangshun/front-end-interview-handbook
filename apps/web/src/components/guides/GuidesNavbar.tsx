@@ -52,7 +52,6 @@ export default function GuidesNavbar({
       className={clsx(
         'sticky z-30 border-b lg:hidden',
         themeLineColor,
-        themeBackgroundColor,
       )}
       style={{ top: 'var(--navbar-height)' }}>
       <Container className="flex h-10 items-center justify-between">

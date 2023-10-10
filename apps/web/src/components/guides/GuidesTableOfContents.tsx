@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { Ref } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
+import { RiArrowRightSLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import useScrollIntoView from '~/hooks/useScrollIntoView';
@@ -10,6 +11,7 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
+  themeTextFaintColor,
   themeTextSecondaryColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
@@ -42,10 +44,15 @@ function ListItems({
   level: number;
 }>) {
   return (
-    <ol className="mt-2 space-y-3 text-sm sm:text-xs" role="list">
+    <ol className="mt-3 space-y-3 text-sm sm:text-xs" role="list">
       {items.map((section) => (
         <li key={section.id}>
-          <p>
+          <div className="flex items-center">
+            {level > 1 && (
+              <RiArrowRightSLine
+                className={clsx('mr-1 h-3 w-3', themeTextFaintColor)}
+              />
+            )}
             <Anchor
               ref={activeId === section.id ? activeLinkRef : undefined}
               className={clsx(
@@ -63,9 +70,9 @@ function ListItems({
               variant="unstyled">
               {section.value}
             </Anchor>
-          </p>
+          </div>
           {section.children && section.children.length > 0 && (
-            <div className="pl-4">
+            <div className="pl-2">
               <ListItems
                 activeId={activeId}
                 activeLinkRef={activeLinkRef}

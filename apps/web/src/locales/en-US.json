@@ -599,6 +599,10 @@
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
   },
+  "9wRhlQ": {
+    "defaultMessage": "Front End Interview",
+    "description": "Short title for Front End Interview Guidebook"
+  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -782,6 +786,10 @@
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
+  },
+  "DP3Y2U": {
+    "defaultMessage": "Behavioral Interview",
+    "description": "Short title for behavioral interview guidebook"
   },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
@@ -1603,6 +1611,10 @@
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
+  "RnmVQU": {
+    "defaultMessage": "View less",
+    "description": "Label of expanded dropdown button"
+  },
   "RvPm3x": {
     "defaultMessage": "DOM Manipulation",
     "description": "Name of focus area questions"
@@ -1678,6 +1690,10 @@
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
+  },
+  "TRWLN8": {
+    "defaultMessage": "Front End System Design",
+    "description": "Short title of front end system design guidebook"
   },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
@@ -1758,6 +1774,10 @@
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
+  },
+  "UtH4G7": {
+    "defaultMessage": "View more",
+    "description": "Label of collapsed dropdown button"
   },
   "V0hPhI": {
     "defaultMessage": "Sign Up",

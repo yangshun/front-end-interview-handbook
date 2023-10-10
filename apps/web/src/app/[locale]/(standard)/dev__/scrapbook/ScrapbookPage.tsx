@@ -13,6 +13,7 @@ import { TbBinaryTree } from 'react-icons/tb';
 
 import DashboardContinueLearning from '~/components/dashboard/DashboardContinueLearning';
 import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
+import GuidesDropdownMenu from '~/components/guides/GuidesDropdownMenu';
 import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
 import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepageFeaturesRow';
 import MarketingQuestionCardMarquee from '~/components/marketing/MarketingQuestionCardMarquee';
@@ -82,6 +83,7 @@ export default function ScrapbookPage() {
         <Divider />
       </Container>
       <Section>
+        <GuidesDropdownMenu />
         <Container>
           <Heading level="heading3">Questions</Heading>
         </Container>
