@@ -3,6 +3,46 @@ import type { TilesPanelConfig } from '~/react-tiling/types';
 import type { JavaScriptCodingWorkspaceTabsType } from './JavaScriptCodingWorkspaceTypes';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 
+const descriptionTab = {
+  closeable: false,
+  id: 'description',
+} as const;
+
+const solutionTab = {
+  closeable: false,
+  id: 'solution',
+} as const;
+
+const submissionTestCasesTab = {
+  closeable: false,
+  id: 'test_cases',
+} as const;
+
+const submissionsTab = {
+  closeable: false,
+  id: 'submissions',
+} as const;
+
+const communitySolutionsTab = {
+  closeable: false,
+  id: 'community_solutions',
+} as const;
+
+const runTestsTab = {
+  closeable: false,
+  id: 'run_tests',
+} as const;
+
+const consoleTab = {
+  closeable: false,
+  id: 'console',
+} as const;
+
+const submitTab = {
+  closeable: false,
+  id: 'submit',
+} as const;
+
 export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
   activeFile: string,
   files: ReadonlyArray<string>,
@@ -15,28 +55,15 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
         activeTabId: 'description',
         collapsible: true,
         id: 'left-column',
-        tabs: [
-          {
-            closeable: false,
-            id: 'description',
-          },
-          {
-            closeable: false,
-            id: 'solution',
-          },
-          {
-            closeable: false,
-            id: 'community_solutions',
-          },
-          {
-            closeable: false,
-            id: 'test_cases',
-          },
-          {
-            closeable: false,
-            id: 'submissions',
-          },
-        ],
+        tabs:
+          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+            ? [descriptionTab, solutionTab, submissionsTab]
+            : [
+                descriptionTab,
+                solutionTab,
+                communitySolutionsTab,
+                submissionsTab,
+              ],
         type: 'item',
       },
       {
@@ -54,6 +81,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
                 closeable: false,
                 id: codingWorkspaceTabFileId(file),
               })),
+              submissionTestCasesTab,
             ],
             type: 'item',
           },
@@ -63,20 +91,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
             collapsible: true,
             defaultSize: 5,
             id: 'right-bottom',
-            tabs: [
-              {
-                closeable: false,
-                id: 'run_tests',
-              },
-              {
-                closeable: false,
-                id: 'console',
-              },
-              {
-                closeable: false,
-                id: 'submit',
-              },
-            ],
+            tabs: [runTestsTab, consoleTab, submitTab],
             type: 'item',
           },
         ],
@@ -100,28 +115,15 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
         collapsible: true,
         defaultSize: 35,
         id: 'left-column',
-        tabs: [
-          {
-            closeable: false,
-            id: 'description',
-          },
-          {
-            closeable: false,
-            id: 'solution',
-          },
-          {
-            closeable: false,
-            id: 'community_solutions',
-          },
-          {
-            closeable: false,
-            id: 'test_cases',
-          },
-          {
-            closeable: false,
-            id: 'submissions',
-          },
-        ],
+        tabs:
+          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+            ? [descriptionTab, solutionTab, submissionsTab]
+            : [
+                descriptionTab,
+                solutionTab,
+                communitySolutionsTab,
+                submissionsTab,
+              ],
         type: 'item',
       },
       {
@@ -135,6 +137,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
             closeable: false,
             id: codingWorkspaceTabFileId(file),
           })),
+          submissionTestCasesTab,
         ],
         type: 'item',
       },
@@ -143,20 +146,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
         collapsible: true,
         defaultSize: 30,
         id: 'right-column',
-        tabs: [
-          {
-            closeable: false,
-            id: 'run_tests',
-          },
-          {
-            closeable: false,
-            id: 'console',
-          },
-          {
-            closeable: false,
-            id: 'submit',
-          },
-        ],
+        tabs: [runTestsTab, consoleTab, submitTab, submissionsTab],
         type: 'item',
       },
     ],
@@ -176,24 +166,10 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         activeTabId: 'description',
         collapsible: true,
         id: 'left-column',
-        tabs: [
-          {
-            closeable: false,
-            id: 'description',
-          },
-          {
-            closeable: false,
-            id: 'solution',
-          },
-          {
-            closeable: false,
-            id: 'community_solutions',
-          },
-          {
-            closeable: false,
-            id: 'test_cases',
-          },
-        ],
+        tabs:
+          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+            ? [descriptionTab, solutionTab]
+            : [descriptionTab, solutionTab, communitySolutionsTab],
         type: 'item',
       },
       {
@@ -217,12 +193,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
             activeTabId: 'console',
             collapsible: true,
             id: 'center-bottom',
-            tabs: [
-              {
-                closeable: false,
-                id: 'console',
-              },
-            ],
+            tabs: [consoleTab],
             type: 'item',
           },
         ],
@@ -242,6 +213,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
                 closeable: false,
                 id: codingWorkspaceTabFileId(runFile),
               },
+              submissionTestCasesTab,
             ],
             type: 'item',
           },
@@ -249,16 +221,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
             activeTabId: 'run_tests',
             collapsible: true,
             id: 'right-bottom',
-            tabs: [
-              {
-                closeable: false,
-                id: 'run_tests',
-              },
-              {
-                closeable: false,
-                id: 'submit',
-              },
-            ],
+            tabs: [runTestsTab, submitTab],
             type: 'item',
           },
         ],

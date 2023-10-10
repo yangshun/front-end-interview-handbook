@@ -14,11 +14,11 @@ import {
   RiFolder3Line,
   RiHashtag,
   RiHtml5Fill,
-  RiLightbulbFlashLine,
   RiLightbulbLine,
   RiListCheck3,
   RiNpmjsFill,
   RiPlayLine,
+  RiTeamLine,
   RiTerminalBoxLine,
 } from 'react-icons/ri';
 
@@ -67,7 +67,7 @@ export const CodingWorkspaceTabIcons: Record<
     icon: RiCodeSSlashLine,
   },
   community_solutions: {
-    icon: RiLightbulbFlashLine,
+    icon: RiTeamLine,
   },
   console: {
     icon: RiTerminalBoxLine,

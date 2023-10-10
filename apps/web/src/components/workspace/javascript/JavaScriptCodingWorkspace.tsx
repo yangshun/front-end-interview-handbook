@@ -222,18 +222,13 @@ function JavaScriptCodingWorkspaceImpl({
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  function openCommunitySolution(solutionId: string) {
-    // TODO: Open community solution in tab
-  }
-
   const predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents = {
     community_solutions: {
       contents: (
         <JavaScriptCodingWorkspaceCommunitySolutionList metadata={metadata} />
       ),
       icon: CodingWorkspaceTabIcons.community_solutions.icon,
-      label: 'Community solutions',
+      label: 'Community',
     },
     console: {
       contents: <CodingWorkspaceConsole />,
