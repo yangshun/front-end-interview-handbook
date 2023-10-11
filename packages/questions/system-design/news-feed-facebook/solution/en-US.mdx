@@ -35,6 +35,19 @@ Not a priority, but a good mobile experience would be nice.
   - **Feed Posts**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share).
   - **Post Composer**: WYSIWYG (what you see is what you get) editor for users to create new feed posts.
 
+### Rendering approach
+
+Traditional web applications have multiple choices on where to render the content, whether to render on the server or the client.
+
+- **Server-side rendering (SSR)**: Rendering the HTML on the server side, which is the most traditional way. Best for static content that require SEO and does not require heavy user interaction. Websites like blogs, documentation sites, e-commerce websites are built using SSR.
+- **Client-side rendering (CSR)**: Rendering in the browser, by dynamically adding DOM elements into the page using JavaScript. Best for interactive content. Applications like dashboards, chat apps are built using CSR.
+
+Interestingly, news feed applications are somewhere in-between, there's a good amount of static content but they also require interaction. In reality, Facebook uses a hybrid approach which gives the best of both worlds: a fast initial load with SSR then hydrating the page to enable interactions. Subsequent content (e.g. more posts added once the user reaches the end of their feed) will be rendered via CSR.
+
+Modern UI JavaScript frameworks like React and Vue, along with meta frameworks like [Next.js](https://nextjs.org/) and [Nuxt](https://nuxtjs.org/) enable this.
+
+Read more on [Rendering on the web](https://web.dev/rendering-on-the-web/) and ["Rebuilding our tech stack for the new Facebook.com" blog post](https://engineering.fb.com/2020/05/08/web/facebook-redesign/).
+
 ---
 
 ## Data model
@@ -52,7 +65,7 @@ Although the `Post` and `Feed` entities belong to the feed post and feed UI resp
 
 The shape of the client store is not particularly important here, as long as it is in a format that can be easily retrieved from the components. New posts fetched from the second page should be joined with the previous posts into a single list with the pagination parameters (`cursor`) updated.
 
-### Advanced: Normalized Store
+### Advanced: normalized store
 
 Both Facebook and Twitter use a normalized client side store. If the term "normalized" is new to you, have a read of [Redux's documentation on normalizing state shape](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape). In a nutshell, normalized data stores:
 
@@ -103,7 +116,7 @@ There are two common ways to return paginated content, each with its own pros an
 
 {/* TODO: Pagination should work across devices, server shouldn't save a copy of the last sent post. */} {/* TODO: Should accept a count so that different clients can customize the number of posts. */}
 
-### Offset-based Pagination
+### Offset-based pagination
 
 An offset-based pagination API accepts the following parameters:
 
@@ -183,7 +196,7 @@ In the above example, you will be missing out on items 6 and 7 if you go from `{
 
 Lastly, query performance degrades as the table becomes larger. For huge offsets (e.g. `OFFSET 1000000`) the database still has to read up to those `count` + `offset` rows, discard the `offset` rows and only return the `count` rows, which results in very poor query performance for large offsets. This is back end knowledge but it's useful to know and you get brownie points for mentioning it.
 
-### Cursor-based Pagination
+### Cursor-based pagination
 
 Cursor-based pagination works by returning a pointer/position (a cursor) to the last item in the results. On subsequent queries, the server passes the cursor to the database, and the database knows to return items after that cursor.
 
@@ -252,35 +265,20 @@ As there are a few sections within a news feed application, it will be easier to
 - Feed Posts
 - Post Composer
 
-### Feed Optimizations
+### Feed optimizations
 
-#### Rendering Approach
-
-Traditional web applications have multiple choices on where to render the content, whether to render on the server or the client.
-
-- **Server-side rendering (SSR)**: Rendering the HTML on the server side, which is the most traditional way. Best for static content that require SEO and does not require heavy user interaction. Websites like blogs, documentation sites, e-commerce websites are built using SSR.
-- **Client-side rendering (CSR)**: Rendering in the browser, by dynamically adding DOM elements into the page using JavaScript. Best for interactive content. Applications like dashboards, chat apps are built using CSR.
-
-Interestingly, news feed applications are somewhere in-between, there's a good amount of static content but they also require interaction. In reality, Facebook uses a hybrid approach which gives the best of both worlds: a fast initial load with SSR then hydrating the page to enable interactions. Subsequent content (e.g. more posts added once the user reaches the end of their feed) will be rendered via CSR.
-
-Modern UI JavaScript frameworks like React and Vue, along with meta frameworks like [Next.js](https://nextjs.org/) and [Nuxt](https://nuxtjs.org/) enable this.
-
-Read more on [Rendering on the web](https://web.dev/rendering-on-the-web/) and ["Rebuilding our tech stack for the new Facebook.com" blog post](https://engineering.fb.com/2020/05/08/web/facebook-redesign/).
-
-#### Infinite Scrolling
+#### Infinite scrolling
 
 Infinite scrolling/feed works by fetching the next set of posts when the user has scrolled to the end of their current loaded feed. This results in the user seeing a loading indicator and a short delay where the user has to wait for the new posts to be fetched and displayed.
 
-A way to reduce or entirely eliminate the waiting time is to load the next set of feed posts before the user hits the bottom of the page so that the user never has to see any loading indicators. A trigger distance of around one viewport height should be sufficient for most cases. The ideal distance is short enough to avoid false positives and wasted bandwidth but also wide enough to load the rest of the contents before the user scrolls to the bottom of the page.
+A way to reduce or entirely eliminate the waiting time is to load the next set of feed posts before the user hits the bottom of the page so that the user never has to see any loading indicators.
 
-A dynamic distance can be calculated based on the network connection speed and how fast the user is scrolling through the feed.
+A trigger distance of around one viewport height should be sufficient for most cases. The ideal distance is short enough to avoid false positives and wasted bandwidth but also wide enough to load the rest of the contents before the user scrolls to the bottom of the page. A dynamic distance can be calculated based on the network connection speed and how fast the user is scrolling through the feed.
 
-##### **Implementing Infinite Scroll**:
+There are two popular ways to implement infinite scroll, and both involve rendering a marker element at the bottom of the feed:
 
-In both approaches, we add a marker element that is rendered at the bottom of the feed.
-
-- Add a `scroll` event listener (ideally debounced) to the page or a timer (via `setInterval`) that checks whether the position of the marker element is within a certain threshold from the bottom of the page. The position of the marker element can be obtained using [`Element.getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
-- Use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to monitor when the marker element is entering or exiting another element or intersecting by a specified amount.
+1. Add a `scroll` event listener (ideally debounced) to the page or a timer (via `setInterval`) that checks whether the position of the marker element is within a certain threshold from the bottom of the page. The position of the marker element can be obtained using [`Element.getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
+1. Use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to monitor when the marker element is entering or exiting another element or intersecting by a specified amount.
 
 The Intersection Observer API is a browser native API and is preferred over `Element.getBoundingClientRect()`.
 
@@ -288,7 +286,7 @@ The Intersection Observer API is a browser native API and is preferred over `Ele
 
 _Source: [Intersection Observer API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)_
 
-#### Virtualized Lists
+#### Virtualized lists
 
 With infinite scrolling, all the loaded feed items are on one single page. As the user scrolls further down the page, more posts are appended to the DOM and with feed posts having complex DOM structure (lots of details to render), the DOM size rapidly increases. As social media websites are long-lived applications (especially if single-page app) and the feed items list can easily grow really long quickly, the number of feed items can be a cause of performance issues in terms of DOM size, rendering, and browser memory usage.
 
@@ -299,7 +297,7 @@ Virtualized lists is a technique to render only the posts that are within the vi
 
 Both Facebook and Twitter websites use virtualized lists.
 
-#### Code Splitting JavaScript for Faster Performance
+#### Code splitting JavaScript for faster performance
 
 As an application grows, the number of pages and features increase which will result in more JavaScript and CSS code needed to run the application. Code splitting is a technique to split code needed on a page into separate files so that they can be loaded in parallel or when they're needed.
 
@@ -318,7 +316,7 @@ For reference, Facebook splits their JavaScript loading into 3 tiers:
 
 _Source: ["Rebuilding our tech stack for the new Facebook.com" blog post](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)_
 
-#### Keyboard Shortcuts
+#### Keyboard shortcuts
 
 Facebook has a number of news feed-specific shortcuts to help users navigate between the posts and perform common actions, super handy! Try it for yourself by hitting the "<kbd>Shift</kbd> + <kbd>?</kbd>" keys on facebook.com.
 
@@ -326,7 +324,7 @@ Facebook has a number of news feed-specific shortcuts to help users navigate bet
 
 _Source: [Making Facebook.com accessible to as many people as possible](https://engineering.fb.com/2020/07/30/web/facebook-com-accessibility/)_
 
-#### Loading Indicators
+#### Loading indicators
 
 For users who scroll really fast, even though the browser kicks off the request for the next set of posts before the user even reaches the bottom of the page, the request might not have returned yet and a loading indicator should be shown to reflect the request status.
 
@@ -346,13 +344,13 @@ For the initial load, we do not know the window height so we need to be conserva
 
 Feed scroll positions should be preserved if users navigate to another page and back to the feed. This can be achieved in SPAs if the feed posts are cached within the client store along with the scroll position and displayed with that scroll position when the user goes back to the feed page.
 
-#### Error States
+#### Error states
 
 Clearly display error states if the list failed to fetch, or when there's no network connectivity.
 
-### Feed Post Optimizations
+### Feed post optimizations
 
-#### Delivering Data-driven Dependencies Only When Needed
+#### Delivering data-driven dependencies only when needed
 
 News feed posts can come in many different formats and require specialized rendering code but not all users will see all of them. One way to achieve this is to have the client load the component JavaScript code for all possible formats upfront so that any kind of feed post format can be rendered. However, this will quickly bloat the page's JavaScript size and there will likely be a lot of unused JavaScript.
 
@@ -381,7 +379,7 @@ The above GraphQL query tells the back end to return the `TextComponent` JavaScr
 
 _Source: [Rebuilding our tech stack for the new Facebook.com](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)_
 
-#### Rendering Mentions/Hashtags
+#### Rendering mentions/hashtags
 
 You may have noticed that textual content within feed posts can be more than plain text. For social media applications, it is common to see mentions and hashtags.
 
@@ -391,7 +389,7 @@ In Stephen Curry's post above, see that he used the "#AboutLastNight" hashtag an
 
 What format should the message be so that it can store data about mentions/hashtags? Let's discuss the possible formats and their pros and cons.
 
-##### **HTML Format**
+##### **HTML format**
 
 The simplest format is HTML, you store the message the way you want it to be displayed.
 
@@ -403,7 +401,7 @@ Absolute comedy 🤣 Dropping 2/10 on <a href="...">HBO Max</a>!
 
 Storing as HTML is usually bad because there's a potential for causing a Cross-Site Scripting (XSS) vulnerability. Also, in most cases it's better to decouple the message's metadata from displaying, perhaps in future you want to decorate the mentions/hashtags before rendering and want to add classnames to the links. HTML format also makes the API less reusable on non-web clients (e.g. iOS/Android).
 
-##### **Custom Syntax**
+##### **Custom syntax**
 
 A custom syntax can be used to capture metadata about hashtags and mentions.
 
@@ -412,7 +410,7 @@ A custom syntax can be used to capture metadata about hashtags and mentions.
 
 Before rendering the message, the string can be parsed for hashtags and mentions using regex and replaced with custom-styled links. Custom syntax is a lightweight solution which is safe yet robust enough if you know beforehand that there will not be new kinds of rich text entities to render in future.
 
-##### **Popular Rich Text Editor Format**
+##### **Popular rich text editor format**
 
 [Draft.js](https://draftjs.org) is a popular rich text editor by Facebook for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines its a custom Draft.js editor state format which is being used by the Draft.js editor. In 2022, Facebook released [Lexical](https://lexical.dev/), a successor to Draft.js and is using Lexical for rich text editing and displaying rich text entities on facebook.com. The underlying formats are similar and we will discuss Draft.js' format.
 
@@ -444,7 +442,7 @@ An example of how the post above can be represented in Draft.js.
 }
 ```
 
-#### Rendering Images
+#### Rendering images
 
 Since there can be images in a feed post, we can also briefly discuss some image optimization techniques:
 
@@ -473,7 +471,7 @@ The code for these components can be downloaded when:
 
 These are considered Tier 3 dependencies going by Facebook's tier definition above.
 
-#### Optimistic Updates
+#### Optimistic updates
 
 Optimistic update is a performance technique where the client immediately reflect the updated state after a user interaction that hits the server and optimistically assume that the server request succeeds, which should be the case for most requests. This gives users instant feedback and improves the perceived performance. If the server request fails, we can revert the UI changes and display an error message.
 
@@ -481,11 +479,11 @@ For a news feed, optimistic updates can be applied for reaction interactions by 
 
 Optimistic updates is a powerful feature built into modern query libraries like [Relay](https://relay.dev/docs/guided-tour/updating-data/graphql-mutations/#optimistic-updates), [SWR](https://swr.vercel.app/docs/mutation#optimistic-updates) and [React Query](https://tanstack.com/query/v4/docs/guides/optimistic-updates).
 
-#### Timestamp Rendering
+#### Timestamp rendering
 
 Timestamp rendering is a topic worth discussing because of a few issues: multilingual timestamps and stale relative timestamps.
 
-##### **Multilingual Timestamps**
+##### **Multilingual timestamps**
 
 Globally popular sites like Facebook and Twitter have to ensure their UI works well for different languages. There are a few ways to support multilingual timestamps:
 
@@ -504,11 +502,11 @@ console.log(
 // 2021年12月20日星期一 GMT+8 11:23:16
 ```
 
-##### **Relative Timestamps Can Become Stale**
+##### **Relative timestamps can turn stale**
 
 If timestamps are displayed using a relative format (e.g. 3 minutes ago, 1 hour ago, 2 weeks ago, etc), recent timestamps can easily go stale especially for applications where users don't refresh the page. A timer can be used to constantly update the timestamps if they are recent (less than an hour old) such that any significant time that has passed will be reflected correctly.
 
-#### Icon Rendering
+#### Icon rendering
 
 Icons are needed within the action buttons of a post for liking, commenting, sharing, etc. There are a few ways to render icons:
 
@@ -520,11 +518,11 @@ Icons are needed within the action buttons of a post for liking, commenting, sha
 | SVG | Scalable and crisp. Cacheable. | Flickering when file is being downloaded. One download requests per image. |
 | Inlined SVG | Scalable and crisp. | Cannot be cached. |
 
-Facebook and Twitter use inlined SVGs and that also seems to be the trend these days.
+Facebook and Twitter use inlined SVGs and that also seems to be the trend these days. This technique is not specific to news feeds, it's relevant to almost every web app.
 
 _Source: ["Rebuilding our tech stack for the new Facebook.com" blog post](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)_
 
-#### Stale Feeds
+#### Stale feeds
 
 It's not uncommon for users to leave their news feed application open as a browser tab and not refresh it at all. It'd be a good idea to prompt the user to refresh or refetch the feed if the last fetched timestamp is more than a few hours ago, i.e. feed is stale.
 
@@ -536,7 +534,7 @@ It's not uncommon for users to leave their news feed application open as a brows
   - Bad: John, Mary and 103,312 others
   - This summary line can be either constructed on the server or the client. The pros and cons of doing on the server vs the client is similar to the timestamp rendering. However, you should definitely not send down the entire list of users if it's huge as it's likely not needed or useful.
 
-### Feed Composer Optimizations
+### Feed composer optimizations
 
 #### How to render rich text like hashtags and mentions
 
@@ -554,7 +552,7 @@ However, it is not a good idea to use `contenteditable="true"` as-is in producti
 
 _Source: [Facebook open sources rich text editor framework Draft.js](https://engineering.fb.com/2016/02/26/web/facebook-open-sources-rich-text-editor-framework-draft-js/)_
 
-#### Lazy Loading Dependencies
+#### Lazy loading dependencies
 
 Like rendering news feed posts, users can draft posts in many different formats which require specialized rendering code per format. Lazy loading and can be used to load the resources for the desired formats and optional features in an on-demand fashion.
 
@@ -590,6 +588,7 @@ If time permits and there's time to talk about extra features, we can talk about
 - Optimistic updates
   - Immediately reflect new comments by appending the new comment to the existing list of comments.
   - Immediately display new reactions and updated reaction counts.
+- How to reflect live updates for comments, e.g. for hot posts by celebrities, there are new comments every minute.
 
 ---
 
