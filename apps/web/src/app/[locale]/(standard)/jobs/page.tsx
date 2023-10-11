@@ -98,8 +98,7 @@ export default function Page() {
         <Heading level="heading2">Open positions</Heading>
         <Text className="text-lg" color="subtitle" size="custom">
           Join us in building innovative products that are well-loved by Front
-          End Engineers. Our team is made up of talented experienced individuals
-          previously from Meta, ByteDance, Shopee, Grab.
+          End Engineers.
         </Text>
       </div>
       <Section>
