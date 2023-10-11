@@ -197,7 +197,6 @@ export default function TilesPanelTab<TabType extends string>({
           onClick={() => {
             dispatch({
               payload: {
-                panelId,
                 tabId,
               },
               type: 'tab-close',

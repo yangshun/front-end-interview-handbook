@@ -4,7 +4,6 @@ import prune from '../utils/prune';
 export type TilesActionTabClose<TabType> = Readonly<{
   payload: Readonly<{
     onTabsClose?: (tabIds: ReadonlyArray<TabType>) => void;
-    panelId: string;
     tabId: TabType;
   }>;
   type: 'tab-close';
@@ -15,9 +14,9 @@ export default function tabClose<TabType>(
   payload: TilesActionTabClose<TabType>['payload'],
   shouldPrune = true,
 ): TilesPanelConfig<TabType> {
-  const { panelId, tabId, onTabsClose } = payload;
+  const { tabId, onTabsClose } = payload;
   const closedTabs: Array<TabType> = [];
-  let newTiles = tabCloseImpl(tiles, panelId, tabId, {
+  let newTiles = tabCloseImpl(tiles, tabId, {
     onTabsClose: (...tabIds) => {
       closedTabs.push(...tabIds);
     },
@@ -38,7 +37,6 @@ export default function tabClose<TabType>(
 
 function tabCloseImpl<TabType>(
   panel: TilesPanelConfig<TabType>,
-  panelId: string,
   tabId: TabType,
   {
     onTabsClose,
@@ -47,7 +45,7 @@ function tabCloseImpl<TabType>(
   } = {},
 ): TilesPanelConfig<TabType> | null {
   if (panel.type === 'item') {
-    if (panel.id !== panelId) {
+    if (panel.tabs.findIndex((tab) => tab.id === tabId) === -1) {
       return {
         ...panel,
         fullScreen: false,
@@ -79,7 +77,7 @@ function tabCloseImpl<TabType>(
   return {
     ...panel,
     items: panel.items
-      .map((item) => tabCloseImpl(item, panelId, tabId, { onTabsClose }))
+      .map((item) => tabCloseImpl(item, tabId, { onTabsClose }))
       .filter((item): item is Exclude<typeof item, null> => item != null),
   };
 }

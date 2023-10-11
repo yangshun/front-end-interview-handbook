@@ -23,7 +23,6 @@ describe('tabClose', () => {
             type: 'item',
           },
           {
-            panelId: 'foo',
             tabId: '2',
           },
         ),
@@ -61,7 +60,6 @@ describe('tabClose', () => {
             type: 'item',
           },
           {
-            panelId: 'foo',
             tabId: '1',
           },
         ),
@@ -95,7 +93,6 @@ describe('tabClose', () => {
             type: 'item',
           },
           {
-            panelId: 'foo',
             tabId: '1',
           },
         ),
@@ -157,7 +154,6 @@ describe('tabClose', () => {
             type: 'group',
           },
           {
-            panelId: 'foo',
             tabId: '2',
           },
         ),
@@ -239,7 +235,6 @@ describe('tabClose', () => {
             type: 'group',
           },
           {
-            panelId: 'foo',
             tabId: '1',
           },
         ),
@@ -318,7 +313,6 @@ describe('tabClose', () => {
               type: 'group',
             },
             {
-              panelId: 'baz',
               tabId: '5',
             },
           ),
@@ -378,7 +372,6 @@ describe('tabClose', () => {
               type: 'group',
             },
             {
-              panelId: 'baz',
               tabId: '5',
             },
             false,
