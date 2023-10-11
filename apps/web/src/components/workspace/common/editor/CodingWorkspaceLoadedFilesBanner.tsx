@@ -21,7 +21,7 @@ export default function CodingWorkspaceLoadedFilesBanner({
         values={{
           link: (chunks) => (
             <Anchor
-              className="text-neutral-100 underline"
+              className="underline"
               href="#"
               variant="unstyled"
               onClick={onResetToDefaultCode}>
