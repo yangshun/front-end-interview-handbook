@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-type ProseTextSize = 'md' | 'sm';
+export type ProseTextSize = 'md' | 'sm';
 
 type Props = Readonly<{
   children: React.ReactNode;

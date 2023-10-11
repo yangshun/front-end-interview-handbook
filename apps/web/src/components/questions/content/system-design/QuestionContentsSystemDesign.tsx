@@ -83,6 +83,7 @@ export default function QuestionContentsSystemDesign({
           <QuestionContentProse
             contents={description}
             isContentsHidden={isQuestionLocked}
+            textSize="md"
           />
         </div>
         <Divider />
@@ -90,6 +91,7 @@ export default function QuestionContentsSystemDesign({
           <QuestionContentProse
             contents={solution}
             isContentsHidden={isQuestionLocked}
+            textSize="md"
           />
         </div>
         <div className="flex justify-between">
