@@ -1,3 +1,5 @@
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 import { useIntl } from 'react-intl';
 
 import Select from '~/components/ui/Select';
@@ -23,14 +25,15 @@ type Props = Readonly<{
   value: QuestionCodingWorkingLanguage;
 }>;
 
-export default function JavaScriptCodingWorkspaceWorkingLanguageSelect({
-  value,
-  onChange,
-}: Props) {
+function JavaScriptCodingWorkspaceWorkingLanguageSelect(
+  { value, onChange }: Props,
+  ref?: ForwardedRef<HTMLSelectElement>,
+) {
   const intl = useIntl();
 
   return (
     <Select
+      ref={ref}
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Question Language',
@@ -46,3 +49,5 @@ export default function JavaScriptCodingWorkspaceWorkingLanguageSelect({
     />
   );
 }
+
+export default forwardRef(JavaScriptCodingWorkspaceWorkingLanguageSelect);

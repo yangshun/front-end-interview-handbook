@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { useId } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef, useId } from 'react';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
@@ -47,16 +48,19 @@ const heightClasses: Record<SelectSize, string> = {
   xs: 'h-7',
 };
 
-export default function Select<T>({
-  display,
-  label,
-  isLabelHidden,
-  name,
-  options,
-  size = 'md',
-  value,
-  onChange,
-}: Props<T>) {
+function Select<T>(
+  {
+    display,
+    label,
+    isLabelHidden,
+    name,
+    options,
+    size = 'md',
+    value,
+    onChange,
+  }: Props<T>,
+  ref?: ForwardedRef<HTMLSelectElement>,
+) {
   const id = useId();
 
   return (
@@ -72,6 +76,7 @@ export default function Select<T>({
         </Text>
       </label>
       <select
+        ref={ref}
         aria-label={isLabelHidden ? label : undefined}
         className={clsx(
           display === 'block' && 'block w-full',
@@ -116,3 +121,9 @@ export default function Select<T>({
     </div>
   );
 }
+
+export default forwardRef(Select) as <T>(
+  props: Props<T> & {
+    ref?: ForwardedRef<HTMLSelectElement>;
+  },
+) => ReturnType<typeof Select>;

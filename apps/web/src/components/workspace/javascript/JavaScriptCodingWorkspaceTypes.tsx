@@ -6,6 +6,7 @@ import type {
 } from '../common/tabs/codingWorkspaceTabId';
 
 export type JavaScriptCodingWorkspacePredefinedTabsType =
+  | 'community_solution_create'
   | 'community_solutions'
   | 'console'
   | 'description'

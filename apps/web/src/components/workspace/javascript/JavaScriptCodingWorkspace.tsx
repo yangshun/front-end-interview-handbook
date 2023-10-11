@@ -18,6 +18,7 @@ import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
+import JavaScriptCodingWorkspaceCommunitySolutionCreateTab from './JavaScriptCodingWorkspaceCommunitySolutionCreateTab';
 import JavaScriptCodingWorkspaceCommunitySolutionList from './JavaScriptCodingWorkspaceCommunitySolutionList';
 import JavaScriptCodingWorkspaceCommunitySolutionTab from './JavaScriptCodingWorkspaceCommunitySolutionTab';
 import { JavaScriptCodingWorkspaceContextProvider } from './JavaScriptCodingWorkspaceContext';
@@ -223,6 +224,15 @@ function JavaScriptCodingWorkspaceImpl({
   }
 
   const predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents = {
+    community_solution_create: {
+      contents: (
+        <JavaScriptCodingWorkspaceCommunitySolutionCreateTab
+          metadata={metadata}
+        />
+      ),
+      icon: CodingWorkspaceTabIcons.community_solution_create.icon,
+      label: 'Post solution',
+    },
     community_solutions: {
       contents: (
         <JavaScriptCodingWorkspaceCommunitySolutionList metadata={metadata} />

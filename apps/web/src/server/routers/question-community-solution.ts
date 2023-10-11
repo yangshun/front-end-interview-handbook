@@ -4,10 +4,7 @@ import prisma from '~/server/prisma';
 
 import { publicProcedure, router } from '../trpc';
 
-import {
-  QuestionSubmissionResult,
-  QuestionWorkingLanguage,
-} from '@prisma/client';
+import { QuestionWorkingLanguage } from '@prisma/client';
 
 export const questionCommunitySolutionRouter = router({
   javaScriptAdd: publicProcedure
