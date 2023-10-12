@@ -23,7 +23,7 @@ Primarily mobile, but should be usable on desktop and tablet as well.
 
 ## Architecture / high-level design
 
-### Server-side Rendering or Client-side Rendering?
+### Server-side rendering (SSR) or Client-side rendering (CSR)?
 
 Photo sharing applications have the following characteristics:
 
@@ -65,11 +65,11 @@ Just like in the [News Feed](/questions/system-design/news-feed-facebook), a nor
 
 ## Interface definition (API)
 
-### Feed List API
+### Feed list API
 
 Like [News Feed's](/questions/system-design/news-feed-facebook) list API, the photo sharing application's feed list API should also use a **cursor-based pagination approach**.
 
-### Post Creation API
+### Post creation API
 
 All posts in a photo sharing application has attached images. Hence the post creation process in such apps is more complex.
 
@@ -99,7 +99,7 @@ Cons:
 - Upload will take longer because the post images have to be uploaded within one request.
 - API has to take in both text-based data and media data.
 
-#### 2. Create separate APIs for image uploading and post creation.
+#### 2. Create separate APIs for image uploading and post creation
 
 ![Photo Sharing API Separate Diagram](/img/questions/photo-sharing-instagram/photo-sharing-api-separate.png)
 
@@ -117,7 +117,7 @@ Comparing the two approaches, approach #2 of separate APIs would be better. The 
 
 ## Optimizations and deep dive
 
-### News Feed Optimizations
+### News feed optimizations
 
 These optimizations done for [News Feed](/questions/system-design/news-feed-facebook) also apply to the feed of photo sharing applications.
 
@@ -132,11 +132,11 @@ These optimizations done for [News Feed](/questions/system-design/news-feed-face
 - Timestamp rendering
 - Icon rendering
 
-### Image Carousel Optimizations
+### Image carousel optimizations
 
 The images within a post are shown as a carousel, so the [Image Carousel](/questions/system-design/image-carousel) implementation is also useful for this question and the same optimizations apply.
 
-### Rendering Images
+### Rendering images
 
 - Use modern image formats such as [WebP](https://developers.google.com/speed/webp) which provides superior lossless and lossy image compression.
 - `<img>`s should use proper `alt` text.
@@ -148,9 +148,9 @@ The images within a post are shown as a carousel, so the [Image Carousel](/quest
   - **Devices with good internet connectivity/on WiFi**: Prefetch offscreen images that are not in the viewport yet but about to enter viewport.
   - **Poor internet connection**: Render a low-resolution placeholder image and require users to explicitly click on them to load the high-resolution image.
 
-### Image Editing
+### Image editing
 
-#### Cropping and Resizing
+#### Cropping and resizing
 
 Cropping and resizing of the images can be done via HTML5' `<canvas>`.
 
@@ -233,15 +233,15 @@ The following images are enhanced right within your browser using these CSS filt
 
 Ultimately, the final image still has to be converted into an image blob before sending to the server and this conversion can be done with libraries like [html2canvas](https://github.com/niklasvh/html2canvas).
 
-### Accessibility
+### Accessibility (a11y)
 
-#### Screen Readers
+#### Screen readers
 
 - `<img>` tags should have a meaningful `alt` description specified or use an empty string.
 - Add `aria-label`s to the prev/next buttons within an image carousel.
 - Icon-only buttons should have the appropriate `aria-label`s if there are no accompanying labels (e.g. heart, share, bookmark).
 
-#### Keyboard Support
+#### Keyboard support
 
 - Use the `<button>` HTML tag for the Prev/Next buttons where possible so that the buttons are focusable.
 - Add `<div role="region" aria-label="Image Carousel" tabindex="0">` to make the carousel focusable and attach Left/Right keydown handlers to allow scrolling through the images with the keyboard.
