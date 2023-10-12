@@ -10,4 +10,5 @@ export const ReadyQuestions: ReadonlyArray<string> = [
   'email-client-outlook',
   'dropdown-menu',
   'modal-dialog',
+  'pinterest',
 ];

@@ -5,9 +5,19 @@ excerpt: Design Pinterest homepage, focusing on the masonry layout
 
 ## Question
 
-TODO
+Masonry layout is a popular and flexible grid-based layout design. Unlike traditional grids, where elements in the same row have the same height, elements are placed within columns but can have varying heights, resulting in a more organic and visually interesting arrangement.
 
-### Real-life examples
+Masonry layout uses space efficiently as it fills up most of the available screen estate with its contents and leaves little white space between elements. It is commonly used for presenting user-generated media like images and GIFs. The most famous site with this layout is [Pinterest](https://pinterest.com/).
 
-- TODO
-- TODO
+Design the [Pinterest homepage](https://pinterest.com/), with a focus on the masonry layout.
+
+![Pinterest example](/img/questions/pinterest/pinterest-example.png)
+
+Pinterest front end system design questions are commonly asked in two manners:
+
+1. Design the Pinterest homepage which covers page architecture, masonry layout, data fetching, etc.
+1. Design a masonry component, discussing the props, layout approach, etc.
+
+We will focus on the former but also provide enough content and guidance for the latter. In fact, the actual masonry component Pinterest uses on their homepage is built in [React and open sourced](https://gestalt.pinterest.systems/web/masonry)! You can dive into the source code to know the ins and outs of the component and also use it on your own sites.
+
+**Note:** Pinterest is essentially an image feed with a multi-column layout. Hence it shares many similarities with the [News Feed question](/questions/system-design/news-feed-facebook) and the [Instagram question](/questions/system-design/photo-sharing-instagram). Please have a read of those questions before starting on this. For this question, the discussion will be centered around the masonry layout and less about general feed optimizations.
