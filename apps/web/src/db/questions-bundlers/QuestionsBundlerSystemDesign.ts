@@ -86,7 +86,7 @@ export async function readQuestionListMetadataSystemDesign(
     .readdirSync(QUESTIONS_SRC_DIR_SYSTEM_DESIGN, {
       withFileTypes: true,
     })
-    .filter((dirent) => dirent.isDirectory());
+    .filter((dirent) => dirent.isDirectory() && !dirent.name.startsWith('__'));
 
   const questions = await Promise.all(
     directories.map(async (dirent) => {
