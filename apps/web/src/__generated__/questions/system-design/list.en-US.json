@@ -454,12 +454,12 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 30,
-    "excerpt": "Design a video streaming website like YouTube and Netflix",
+    "excerpt": "Design a video streaming application like Netflix and YouTube",
     "featured": false,
     "format": "system-design",
     "frameworkDefault": null,
     "frameworks": [],
-    "href": "/questions/system-design/video-streaming-youtube",
+    "href": "/questions/system-design/video-streaming-netflix",
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
@@ -467,9 +467,9 @@
     "published": true,
     "ranking": 7,
     "similarQuestions": [],
-    "slug": "video-streaming-youtube",
+    "slug": "video-streaming-netflix",
     "subtitle": null,
-    "title": "Video Streaming (e.g. YouTube)",
+    "title": "Video Streaming (e.g. Netflix)",
     "topics": []
   }
 ]

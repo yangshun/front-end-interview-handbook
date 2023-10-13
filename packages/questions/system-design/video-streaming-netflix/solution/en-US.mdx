@@ -1,0 +1,100 @@
+## Requirements exploration
+
+### What are the core features to be supported?
+
+- Browsing of recommended videos on the home page.
+- Watching a preview of the video within a small player when hovering over thumbnails on the home page.
+- Playback of video content on a dedicated page.
+
+### What is the desired video playback quality and resolution?
+
+Different resolutions and streaming quality options should be supported.
+
+### What functionality should the video player include?
+
+- Basic operations: Play / Pause / Rewind / Forward / Volume adjustment.
+- Seeing a thumbnail preview of the timestamp when the cursor is over the track.
+- Jumping (seeking) to a specific timestamp of the video.
+- Changing audio language.
+- Toggling subtitles and selecting subtitle languages.
+- Setting playback speed.
+- Making full screen.
+
+### What devices will the application be used on?
+
+Primarily desktop but it should also be usable on tablet and mobile.
+
+### What are the non-functional requirements?
+
+Prioritize a smooth video watching experience, users shouldn't have to wait too long before they can start watching the video:
+
+- Users on slow internet connections should still be able to watch the videos even if a lower quality version is to be served.
+- Reduce stuttering and buffering.
+
+---
+
+## Architecture / high-level design
+
+TODO
+
+- Redux for player
+
+---
+
+## Data model
+
+- Video list
+- Video metadata store
+- Video
+  - Source
+  - Title
+  - Description
+- Video player buffer
+- Video player state
+  - Buffered frames
+  - Current timestamp
+  - Volume
+  - Audio language
+  - Subtitle language
+
+---
+
+## Interface definition (API)
+
+- Recommendations API
+- Video stream API
+- Audio stream API
+- Video thumbnail API
+- Subtitle API
+
+---
+
+## Optimizations and deep dive
+
+### Video-specific
+
+- Custom video src and stream.
+- Separate out audio and video stream so that the video stream can be reused even if the audio changes.
+
+### Performance
+
+TODO
+
+- Buffer ahead of current timestamp.
+
+### User experience
+
+TODO
+
+### Accessibility (a11y)
+
+TODO
+
+### Internationalization (i18n)
+
+## TODO
+
+## References
+
+- [Building a Better Web - Part 1: A faster YouTube on web](https://web.dev/better-youtube-web-part1/)
+- [How YouTube improved video performance with the Media Capabilities API](https://web.dev/youtube-media-capabilities/)
