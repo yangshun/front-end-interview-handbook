@@ -12,10 +12,11 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 ## Examples
 
-- Autocomplete — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
-- Image carousel — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
-- Dropdown menu — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
-- Modal dialog — [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
+- Autocomplete: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
+- Image carousel: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
+- Dropdown menu: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
+- Modal dialog: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
+- Poll widget: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/poll-widget) (Paid)
 - Selector which loads options over the network
 
 :::info Read front end system design case studies

@@ -31,6 +31,8 @@ The two main kinds of front end system design interviews are UI components and a
   - E-commerce marketplace (e.g. Amazon): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon) (Paid)
   - Chat application (e.g. Messenger): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/chat-application-messenger) (Paid)
   - Photo sharing application (e.g. Instagram): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
+  - Pinterest: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/pinterest) (Paid)
+  - Travel booking website (e.g. Airbnb): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
   - Video watching website
 
 :::info Read front end system design case studies

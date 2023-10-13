@@ -32,7 +32,7 @@ Companies that ask such questions usually ask candidates to code in one of these
   - Kanban Board
 - Games
   - Tic-tac-toe — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
-  - Whac-a-mole — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/whac-a-mole) (Paid)
+  - Whack-a-mole — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/whack-a-mole) (Paid)
   - Wordle — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/wordle) (Paid)
   - Tetris (advanced)
   - Snake (advanced)
