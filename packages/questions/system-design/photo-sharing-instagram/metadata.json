@@ -2,14 +2,12 @@
   "slug": "photo-sharing-instagram",
   "created": "2022-10-19T00:00:00.000Z",
   "languages": [],
-  "companies": [
-    "facebook"
-  ],
+  "companies": ["facebook"],
   "premium": true,
   "duration": 30,
   "published": true,
   "featured": true,
   "importance": "low",
   "difficulty": "medium",
-  "ranking": 5
+  "ranking": 7
 }
