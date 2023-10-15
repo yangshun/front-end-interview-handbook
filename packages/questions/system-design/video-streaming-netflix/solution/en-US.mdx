@@ -12,11 +12,10 @@ Different resolutions and streaming quality options should be supported.
 
 ### What functionality should the video player include?
 
-- Basic operations: Play / Pause / Rewind / Forward / Volume adjustment.
-- Seeing a thumbnail preview of the timestamp when the cursor is over the track.
-- Jumping (seeking) to a specific timestamp of the video.
-- Changing audio language.
+- Video progress: Play, pause, rewind, forward, jumping (seeking) to a specific timestamp of the video.
+- Audio: Changing language, adjusting volume.
 - Toggling subtitles and selecting subtitle languages.
+- Seeing a thumbnail preview of the timestamp when the cursor is over the track.
 - Setting playback speed.
 - Making full screen.
 
@@ -62,12 +61,29 @@ TODO
 ## Interface definition (API)
 
 - Recommendations API
-- Video stream API
-- Audio stream API
+- Media streaming API
+  - Video stream API
+  - Audio stream API
+  - The content is made available at a variety of different bit rates.
 - Video thumbnail API
 - Subtitle API
 
 ---
+
+## Glossary
+
+- Bitrate
+- Framerate
+- Buffering
+- Codec
+- MIME type
+- Resolution
+- FPS
+- `Range` header
+- Video formats: webm vs mp4
+- Bandwidth
+- Streaming
+  - use HTTP range requests to break the content into small segments. Each segment contains a short interval of playback time of content that is potentially many hours in duration, such as a movie or the live broadcast of a sport event.
 
 ## Optimizations and deep dive
 
@@ -76,11 +92,49 @@ TODO
 - Custom video src and stream.
 - Separate out audio and video stream so that the video stream can be reused even if the audio changes.
 
+- [Media capabilities API](https://w3c.github.io/media-capabilities/) allows websites to get more information about the client's video decode performance and make an informed decision about which codec and resolution to deliver to the user.
+  - YouTube used the Media Capabilities API to prevent their adaptive bitrate algorithm from automatically selecting resolutions that a device could not play smoothly. Source: https://web.dev/case-studies/youtube-media-capabilities
+- Don't transfer more than necessary, especially if the video is paused.
+- Only need to transfer audio if tab is in the background.
+- Don't autoplay unless tab is in focus.
+- Client uses a bit rate adaptation (ABR) algorithm to automatically select the segment with the highest bit rate possible that can be downloaded in time for playback without causing stalls or re-buffering events in the playback.
+
+#### Adaptive streaming
+
+- Adaptive streaming: real-time selection of audio/video bitrates based on available bandwidth and other factors.
+- Dynamic Adaptive Streaming over HTTP (DASH), also known as MPEG-DASH, is an adaptive bitrate streaming technique that enables high quality streaming of media content over the Internet delivered from conventional HTTP web servers. MPEG-DASH works by breaking the content into a sequence of small segments, which are served over HTTP.
+- Thus, an MPEG-DASH client can seamlessly adapt to changing network conditions and provide high quality playback with few stalls or re-buffering events.
+- [dash.js](https://reference.dashif.org/dash.js/)
+- Thus, an MPEG-DASH client can seamlessly adapt to changing network conditions and provide high quality playback with few stalls or re-buffering events.
+
+#### Subtitles
+
+- https://netflixtechblog.com/implementing-japanese-subtitles-on-netflix-c165fbe61989
+
+#### Video player
+
+- Centralized top-level component, one UI update (paint) for any state change, eliminating chained updates. [source](https://web.dev/case-studies/better-youtube-web-part1)
+- Netflix uses Redux + data normalization.
+- Separate video lifecycle from UI lifecycle. "However, if the logic for managing the video playback exists outside of the UI component tree, it can be executed from anywhere inside of the application, such as before the UI tree is rendered during the initial application loading sequence. By kicking off the creation of a video in parallel with rendering the UI, it gives the application more time to create, initialize, and buffer video playback so that when the UI has finished rendering, the user can start playing the video sooner."
+
+- https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0
+
 ### Performance
 
 TODO
 
 - Buffer ahead of current timestamp.
+- For autoplay videos, YouTube found that using a solid black poster image for autoplay videos was a better experience because the transition from solid black to the first frame of the video to be less-jarring. ([source](https://web.dev/case-studies/better-youtube-web-part1)).
+
+- General
+  - Lazy load non-visible code like dropdowns, modals.
+  - Responsive thumbnail images.
+
+#### Preload poster image
+
+```
+<link as="image" rel="preload" href="poster.jpg" fetchpriority="high">
+```
 
 ### User experience
 
