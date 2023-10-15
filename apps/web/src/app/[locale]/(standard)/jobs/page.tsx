@@ -105,15 +105,21 @@ export default function Page() {
         <div className="grid gap-6 lg:grid-cols-2">
           <JobPostingItem
             department="Engineering"
-            href="/jobs/front-end-software-engineer"
+            href="/jobs/senior-front-end-contributor-ui"
             location="Remote"
-            title="Front End Software Engineer"
+            title="Senior Front End Contributor (UI Questions)"
           />
           <JobPostingItem
             department="Engineering"
-            href="/jobs/senior-front-end-contributor"
+            href="/jobs/senior-front-end-contributor-js"
             location="Remote"
-            title="Senior Front End Contributor (UI Questions)"
+            title="Senior Front End Contributor (JS Questions)"
+          />
+          <JobPostingItem
+            department="Engineering"
+            href="/jobs/front-end-software-engineer"
+            location="Remote"
+            title="Front End Software Engineer"
           />
           <JobPostingItem
             department="Marketing"
