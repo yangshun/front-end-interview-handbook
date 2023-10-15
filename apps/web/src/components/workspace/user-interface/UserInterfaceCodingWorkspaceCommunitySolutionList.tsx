@@ -8,17 +8,17 @@ type Props = Readonly<{
   metadata: QuestionMetadata;
 }>;
 
-export default function JavaScriptCodingWorkspaceCommunitySolutionList({
+export default function UserInterfaceCodingWorkspaceCommunitySolutionList({
   metadata,
 }: Props) {
   const { data: solutions } =
-    trpc.questionCommunitySolution.javaScriptGetAll.useQuery({
+    trpc.questionCommunitySolution.userInterfaceGetAll.useQuery({
       slug: metadata.slug,
     });
 
   return (
     <CodingWorkspaceCommunitySolutionList
-      questionType="javascript"
+      questionType="ui"
       solutions={solutions}
     />
   );

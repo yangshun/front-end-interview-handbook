@@ -74,4 +74,20 @@ export const questionCommunitySolutionRouter = router({
         },
       });
     }),
+  userInterfaceGetAll: publicProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .query(async ({ input: { slug } }) => {
+      return await prisma.questionUserInterfaceCommunitySolution.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+        where: {
+          slug,
+        },
+      });
+    }),
 });
