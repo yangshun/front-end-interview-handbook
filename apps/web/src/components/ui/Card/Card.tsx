@@ -42,7 +42,7 @@ const cardOuterContainerClassNames = 'p-px overflow-hidden';
 
 function isAllowedBrowser() {
   if (typeof navigator === 'undefined') {
-    return false;
+    return true;
   }
 
   return (
