@@ -9,6 +9,9 @@ node_modules
 # testing
 coverage
 
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
 # next.js
 .next/
 out/
