@@ -23,7 +23,7 @@ export default function SidebarContainer({ initialCollapsed = false }: Props) {
       )}
       style={{
         height: FooterlessContainerHeight,
-        top: `var(--navbar-height)`,
+        top: `var(--nav-top-offset)`,
       }}>
       <Sidebar
         isCollapsed={isCollapsed}

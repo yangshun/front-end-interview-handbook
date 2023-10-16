@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { CSSProperties } from 'react';
 import { forwardRef, Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
@@ -26,6 +27,7 @@ type Props = Readonly<{
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
+  style?: CSSProperties;
   transparent?: boolean;
 }>;
 
@@ -39,6 +41,7 @@ function Navbar(
     renderMobileSidebarAddOnItems,
     mobileSidebarBottomItems,
     transparent = false,
+    style,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -60,7 +63,8 @@ function Navbar(
         transparent && 'bg-white dark:bg-neutral-950/60',
         'transition-[background-color]',
         className,
-      )}>
+      )}
+      style={style}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between md:justify-start md:gap-4">
           <div className="flex items-center justify-start lg:w-0 lg:grow">

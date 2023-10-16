@@ -6,11 +6,11 @@ import HydrationFailureLogging from '~/components/global/analytics/HydrationFail
 import MetaPixel from '~/components/global/analytics/MetaPixel';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
+import GlobalBannerDisplayScript from '~/components/global/banners/GlobalBannerDisplayScript';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import AppThemeScript from '~/components/global/dark/AppThemeScript';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
-import NavbarHeight from '~/components/global/navbar/NavbarHeight';
 import { themeBackgroundColor } from '~/components/ui/theme';
 
 import type { IntlMessages } from '~/i18n';
@@ -34,13 +34,13 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
       <head>
         {/* Important to inject in head to get it to run as early as possible. */}
         <AppThemeScript />
+        <GlobalBannerDisplayScript />
       </head>
       <body className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
           <MetaPixel />
-          <NavbarHeight />
           {children}
           <VercelAnalytics />
           <FirstPromoter />

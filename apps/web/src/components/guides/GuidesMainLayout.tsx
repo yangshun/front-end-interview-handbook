@@ -54,7 +54,7 @@ export default function GuidesMainLayout({
           )}>
           <div
             className="sticky hidden lg:contents"
-            style={{ top: 'var(--navbar-height)' }}>
+            style={{ top: 'var(--nav-top-offset)' }}>
             <GuidesSidebar navigation={navigation} sticky={true} />
           </div>
           <div
@@ -89,8 +89,8 @@ export default function GuidesMainLayout({
                 key={currentItem?.href}
                 className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
                 style={{
-                  height: 'calc(100vh - 24px - var(--navbar-height))',
-                  top: 'calc(24px + var(--navbar-height))',
+                  height: 'calc(100vh - 24px - var(--nav-top-offset))',
+                  top: 'calc(24px + var(--nav-top-offset))',
                 }}>
                 <GuidesTableOfContents tableOfContents={tableOfContents} />
               </div>

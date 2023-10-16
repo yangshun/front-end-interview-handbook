@@ -1,5 +1,5 @@
 import FeedbackWidget from '~/components/feedback/FeedbackWidget';
-import PromoBanner from '~/components/global/banners/PromoBanner';
+import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import Footer from '~/components/global/Footer';
 import Navbar from '~/components/global/navbar/NavbarImpl';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -12,7 +12,7 @@ export default function StandardLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />
-      <PromoBanner />
+      <GlobalBanner />
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <div className="flex-grow">{children}</div>

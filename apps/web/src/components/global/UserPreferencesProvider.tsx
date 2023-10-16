@@ -1,5 +1,7 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+
+import { GLOBAL_BANNER_STORAGE_KEY } from './banners/GlobalBannerDisplayScript';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -37,9 +39,17 @@ export default function UserPreferencesProvider({ children }: Props) {
     DEFAULT_SHOW_FEEDBACK_WIDGET,
   );
   const [showGlobalBanner, setShowGlobalBanner] = useLocalStorage(
-    'gfe:global-banner-0', // Update when banner contents are changed.
+    GLOBAL_BANNER_STORAGE_KEY, // Update when banner contents are changed.
     DEFAULT_SHOW_GLOBAL_BANNER,
   );
+
+  useEffect(() => {
+    if (!showGlobalBanner) {
+      document.documentElement.dataset.globalBannerHidden = 'true';
+    } else {
+      document.documentElement.removeAttribute('data-global-banner-hidden');
+    }
+  }, [showGlobalBanner]);
 
   return (
     <UserPreferencesContext.Provider

@@ -546,7 +546,7 @@ export default function QuestionsCodingListWithFilters({
             className={clsx('sticky overflow-y-auto')}
             style={{
               maxHeight: FooterlessContainerHeight,
-              top: `var(--navbar-height)`,
+              top: `var(--nav-top-offset)`,
             }}>
             <Heading className="sr-only" level="custom">
               <FormattedMessage

@@ -41,7 +41,7 @@ export default function QuestionsQuizContentLayout({
         className="sticky flex"
         style={{
           height: FooterlessContainerHeight,
-          top: `var(--navbar-height)`,
+          top: `var(--nav-top-offset)`,
         }}>
         {showSidebar && (
           <Section>

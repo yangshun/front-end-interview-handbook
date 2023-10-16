@@ -59,7 +59,7 @@ export default function GuidesNavbar({
         [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
         themeLineColor,
       )}
-      style={{ top: 'var(--navbar-height)' }}>
+      style={{ top: 'var(--nav-top-offset)' }}>
       <Container className="flex h-10 items-center justify-between">
         <Button
           addonPosition="start"

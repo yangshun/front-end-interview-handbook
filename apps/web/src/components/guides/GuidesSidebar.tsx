@@ -152,9 +152,9 @@ export function GuidesSidebar({
       )}
       style={{
         height: sticky
-          ? 'calc(100vh - 24px - var(--navbar-height))'
+          ? 'calc(100vh - 24px - var(--nav-top-offset))'
           : undefined,
-        top: 'calc(24px + var(--navbar-height))',
+        top: 'calc(24px + var(--nav-top-offset))',
       }}>
       <GuidesDropdownMenu />
       <ul

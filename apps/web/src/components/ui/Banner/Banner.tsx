@@ -79,7 +79,7 @@ export default function Banner({
         {onHide != null && (
           <div
             className={clsx(
-              'absolute inset-y-0 right-0 flex h-full items-start pr-2 pt-2 sm:items-center sm:pt-0',
+              'absolute inset-y-0 right-0 flex h-full items-center pr-2 sm:pt-0',
             )}>
             <button
               className={clsx(

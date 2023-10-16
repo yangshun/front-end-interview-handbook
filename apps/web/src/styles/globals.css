@@ -106,6 +106,29 @@ a {
   text-align: center;
 }
 
+:root {
+  --navbar-height: 65px;
+  --banner-height: 56px;
+  --nav-top-offset: calc(var(--navbar-height) + var(--banner-height));
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --banner-height: 32px;
+  }
+}
+
+/* Sync data attribute with GlobalBannerDisplayScript.tsx */
+html[data-global-banner-hidden='true'] {
+  --banner-height: 0px;
+}
+
+/* Sync data attribute with GlobalBannerDisplayScript.tsx */
+/* Sync classname with GlobalBanner.tsx */
+html[data-global-banner-hidden='true'] .global-banner {
+  display: none;
+}
+
 [data-mode='dark'] .glassbox {
   background: hsla(0, 0%, 9%, 0.3);
   position: relative;

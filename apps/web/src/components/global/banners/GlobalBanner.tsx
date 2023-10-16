@@ -18,12 +18,12 @@ import logEvent from '~/logging/logEvent';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
-export default function PromoBanner({
+export default function GlobalBanner({
   variant = 'special',
 }: Readonly<{
   variant?: 'primary' | 'special';
 }>) {
-  const { userProfile } = useUserProfile();
+  const { userProfile, isUserProfileLoading } = useUserProfile();
   const { showGlobalBanner, setShowGlobalBanner } = useUserPreferences();
   const isPremium = userProfile?.isPremium ?? false;
 
@@ -117,9 +117,9 @@ export default function PromoBanner({
   return (
     <div
       className={clsx(
-        'sticky top-0 z-30 w-full transition-opacity duration-500',
-      )}
-      suppressHydrationWarning={true}>
+        'global-banner', // Non-Tailwind class. Sync with globals.css.
+        'sticky top-0 z-30 w-full',
+      )}>
       <Banner
         className="h-14 lg:h-auto"
         size="xs"
@@ -127,7 +127,14 @@ export default function PromoBanner({
         onHide={() => {
           setShowGlobalBanner(false);
         }}>
-        {isPremium ? weAreHiringMessage : saleMessage}
+        <span
+          className={clsx(
+            'transition-opacity duration-500',
+            isUserProfileLoading ? 'opacity-0' : 'opacity-100',
+          )}
+          suppressHydrationWarning={true}>
+          {isPremium ? weAreHiringMessage : saleMessage}
+        </span>
       </Banner>
     </div>
   );
