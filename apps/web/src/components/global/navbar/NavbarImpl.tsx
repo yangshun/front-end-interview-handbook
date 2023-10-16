@@ -58,22 +58,6 @@ function useNavLinks(
   const pathname = usePathname();
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
-    // {
-    //   type: 'link',
-    //   itemKey: 'ui',
-    //   label: 'UI Library',
-    //   href: '/dev__/ui',
-    //   mode: 'dev-only',
-    //   position: 'end',
-    // },
-    // {
-    //   type: 'link',
-    //   itemKey: 'prose',
-    //   label: 'Prose',
-    //   href: '/dev__/prose',
-    //   mode: 'dev-only',
-    //   position: 'end',
-    // },
     isLoggedIn
       ? {
           href: '/prepare',
@@ -274,6 +258,31 @@ function useNavLinks(
                   action: `nav.practice.topic.angular.click`,
                   category: 'engagement',
                   label: 'Angular',
+                });
+              },
+              type: 'popover-link',
+            },
+            {
+              icon: questionTechnologyLists.svelte.icon,
+              itemKey: questionTechnologyLists.svelte.key,
+              label: questionTechnologyLists.svelte.name,
+              labelAddon: (
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Coming Soon',
+                    description:
+                      'Coming soon label indicating that a feature will be launched soon',
+                    id: 'jIpXy+',
+                  })}
+                  size="sm"
+                  variant="warning"
+                />
+              ),
+              onClick: () => {
+                gtag.event({
+                  action: `nav.practice.topic.svelte.click`,
+                  category: 'engagement',
+                  label: 'Svelte',
                 });
               },
               type: 'popover-link',

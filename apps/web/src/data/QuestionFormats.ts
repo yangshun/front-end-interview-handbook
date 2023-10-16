@@ -227,7 +227,7 @@ export function useQuestionTechnologyLists() {
     svelte: {
       href: '/questions/svelte',
       icon: SvelteLogo,
-      key: 'angular',
+      key: 'svelte',
       longName: intl.formatMessage({
         defaultMessage: 'Svelte Questions',
         description: 'Svelte questions category long title',

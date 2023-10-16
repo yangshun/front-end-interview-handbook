@@ -28,7 +28,7 @@ function NavbarPopoverLink({
       <div className="group flex flex-col items-start gap-4">
         <div
           className={clsx(
-            'dark:bg-neutral-800/70 rounded-full p-3',
+            'rounded-full p-3 dark:bg-neutral-800/70',
             themeGlassyBorder,
             themeTextSubtitleColor,
           )}>
@@ -52,7 +52,7 @@ function NavbarPopoverLink({
       <div className="group flex items-center gap-x-4">
         <div
           className={clsx(
-            'dark:bg-neutral-800/70 rounded-full p-3',
+            'rounded-full p-3 dark:bg-neutral-800/70',
             themeGlassyBorder,
             themeTextSubtitleColor,
           )}>
@@ -134,7 +134,7 @@ export default function NavbarPopoverTabs({
             <Tab.Panel key={item.itemKey} className="grid h-full w-full">
               <div
                 className={clsx(
-                  'relative grid grow gap-2 px-8 py-10',
+                  'relative grid grow gap-4 px-8 py-10',
                   (item.items.length === 2 || item.items.length === 4) &&
                     'grid-cols-2',
                   (item.items.length === 3 || item.items.length > 4) &&
