@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -14,9 +15,7 @@ import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
-import FooterlessContainerHeight from '../common/FooterlessContainerHeight';
 import QuestionPagination from '../questions/content/QuestionPagination';
-import Text from '../ui/Text';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -90,7 +89,7 @@ export default function GuidesMainLayout({
                 key={currentItem?.href}
                 className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
                 style={{
-                  height: FooterlessContainerHeight,
+                  height: 'calc(100vh - 24px - var(--navbar-height))',
                   top: 'calc(24px + var(--navbar-height))',
                 }}>
                 <GuidesTableOfContents tableOfContents={tableOfContents} />

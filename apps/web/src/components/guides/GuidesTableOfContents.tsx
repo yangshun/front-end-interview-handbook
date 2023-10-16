@@ -44,45 +44,52 @@ function ListItems({
   level: number;
 }>) {
   return (
-    <ol className="mt-3 space-y-3 text-sm sm:text-xs" role="list">
-      {items.map((section) => (
-        <li key={section.id}>
-          <div className="flex items-center">
-            {level > 1 && (
-              <RiArrowRightSLine
-                className={clsx('mr-1 h-3 w-3', themeTextFaintColor)}
-              />
-            )}
-            <Anchor
-              ref={activeId === section.id ? activeLinkRef : undefined}
-              className={clsx(
-                'motion-safe:transition-all',
-                activeId === section.id
-                  ? clsx(themeTextBrandColor)
-                  : level === 1
-                  ? [themeTextSubtitleColor, 'font-medium']
-                  : clsx(
-                      themeTextSecondaryColor,
-                      'hover:text-neutral-500 dark:hover:text-white',
-                    ),
+    <ol className="my-3 space-y-3 text-sm sm:text-xs" role="list">
+      {items.map((section) => {
+        const isActive = activeId === section.id;
+        const firstLevelHeadingClass = clsx(
+          'font-medium',
+          isActive ? themeTextBrandColor : themeTextSubtitleColor,
+        );
+        const innerLevelHeadingClass = isActive
+          ? themeTextBrandColor
+          : clsx(
+              themeTextSecondaryColor,
+              'hover:text-neutral-500 dark:hover:text-white',
+            );
+
+        return (
+          <li key={section.id}>
+            <div className="flex items-center">
+              {level > 1 && (
+                <RiArrowRightSLine
+                  className={clsx('mr-1 h-3 w-3 shrink-0', themeTextFaintColor)}
+                />
               )}
-              href={`#${section.id}`}
-              variant="unstyled">
-              {section.value}
-            </Anchor>
-          </div>
-          {section.children && section.children.length > 0 && (
-            <div className="pl-2">
-              <ListItems
-                activeId={activeId}
-                activeLinkRef={activeLinkRef}
-                items={section.children}
-                level={level + 1}
-              />
+              <Anchor
+                ref={isActive ? activeLinkRef : undefined}
+                className={clsx(
+                  'motion-safe:transition-all',
+                  level === 1 ? firstLevelHeadingClass : innerLevelHeadingClass,
+                )}
+                href={`#${section.id}`}
+                variant="unstyled">
+                {section.value}
+              </Anchor>
             </div>
-          )}
-        </li>
-      ))}
+            {section.children && section.children.length > 0 && (
+              <div className="pl-2">
+                <ListItems
+                  activeId={activeId}
+                  activeLinkRef={activeLinkRef}
+                  items={section.children}
+                  level={level + 1}
+                />
+              </div>
+            )}
+          </li>
+        );
+      })}
     </ol>
   );
 }
