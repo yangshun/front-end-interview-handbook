@@ -11,6 +11,7 @@ import {
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
@@ -23,12 +24,95 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesDropdownMenu from './GuidesDropdownMenu';
 import type {
+  BaseGuideNavigationLink,
   GuideNavigation,
   GuideNavigationLinks,
 } from './GuidesLayoutSidebar';
 import { useUserProfile } from '../global/UserProfileProvider';
 import { ReadyQuestions } from '../questions/content/system-design/SystemDesignConfig';
-import Button from '../ui/Button';
+
+function LinksListItem({
+  link,
+  nestedLevel,
+}: Readonly<{
+  link: BaseGuideNavigationLink;
+  nestedLevel: number;
+}>) {
+  const { userProfile } = useUserProfile();
+
+  const isPremiumUser = userProfile?.isPremium ?? false;
+  const intl = useIntl();
+
+  const { pathname } = useI18nPathname();
+  const [isOpen, setIsOpen] = useState(true);
+
+  const DropdownIcon = isOpen ? RiArrowUpSLine : RiArrowDownSLine;
+
+  return (
+    <li key={link.href} className="relative text-sm leading-6">
+      <div className="flex">
+        <Anchor
+          className={clsx(
+            '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
+            !link.items && 'py-1',
+            pathname === link.href
+              ? clsx(themeTextBrandColor, 'border-current font-semibold')
+              : clsx(
+                  themeTextSecondaryColor,
+                  'border-transparent hover:border-current hover:text-neutral-800 dark:hover:text-white',
+                ),
+          )}
+          href={link.href}
+          variant="unstyled">
+          <span style={{ paddingLeft: 12 * nestedLevel }}>{link.title}</span>
+          {(() => {
+            if (!isPremiumUser) {
+              if (link.premium) {
+                return <RiLockLine className="h-4 w-4 shrink-0" />;
+              }
+            }
+            if (
+              link.type === 'question' &&
+              !ReadyQuestions.includes(link.slug)
+            ) {
+              return <RiErrorWarningLine className="h-4 w-4 shrink-0" />;
+            }
+
+            return null;
+          })()}
+        </Anchor>
+        {link.items != null && (
+          <Button
+            className={themeTextSecondaryColor}
+            icon={DropdownIcon}
+            isLabelHidden={true}
+            label={
+              isOpen
+                ? intl.formatMessage({
+                    defaultMessage: 'View less',
+                    description: 'Label of expanded dropdown button',
+                    id: 'RnmVQU',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'View more',
+                    description: 'Label of collapsed dropdown button',
+                    id: 'UtH4G7',
+                  })
+            }
+            size="sm"
+            variant="tertiary"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          />
+        )}
+      </div>
+      {link.items != null && isOpen && (
+        <LinksList items={link.items} nestedLevel={nestedLevel + 1} />
+      )}
+    </li>
+  );
+}
 
 function LinksList({
   items,
@@ -37,14 +121,6 @@ function LinksList({
   items: GuideNavigationLinks;
   nestedLevel?: number;
 }>) {
-  const { userProfile } = useUserProfile();
-  const isPremiumUser = userProfile?.isPremium ?? false;
-  const intl = useIntl();
-  const [isOpen, setIsOpen] = useState(false);
-  const { pathname } = useI18nPathname();
-
-  const DropdownIcon = isOpen ? RiArrowUpSLine : RiArrowDownSLine;
-
   return (
     <ul
       className={clsx(
@@ -53,70 +129,7 @@ function LinksList({
       )}
       role="list">
       {items.map((link) => (
-        <li key={link.href} className="relative text-sm leading-6">
-          <div className="flex">
-            <Anchor
-              className={clsx(
-                '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
-                !link.items && 'py-1',
-                pathname === link.href
-                  ? clsx(themeTextBrandColor, 'border-current font-semibold')
-                  : clsx(
-                      themeTextSecondaryColor,
-                      'border-transparent hover:border-current hover:text-neutral-800 dark:hover:text-white',
-                    ),
-              )}
-              href={link.href}
-              variant="unstyled">
-              <span style={{ paddingLeft: 12 * nestedLevel }}>
-                {link.title}
-              </span>
-              {(() => {
-                if (!isPremiumUser) {
-                  if (link.premium) {
-                    return <RiLockLine className="h-4 w-4 shrink-0" />;
-                  }
-                }
-                if (
-                  link.type === 'question' &&
-                  !ReadyQuestions.includes(link.slug)
-                ) {
-                  return <RiErrorWarningLine className="h-4 w-4 shrink-0" />;
-                }
-
-                return null;
-              })()}
-            </Anchor>
-            {link.items && (
-              <Button
-                className={themeTextSecondaryColor}
-                icon={DropdownIcon}
-                isLabelHidden={true}
-                label={
-                  isOpen
-                    ? intl.formatMessage({
-                        defaultMessage: 'View less',
-                        description: 'Label of expanded dropdown button',
-                        id: 'RnmVQU',
-                      })
-                    : intl.formatMessage({
-                        defaultMessage: 'View more',
-                        description: 'Label of collapsed dropdown button',
-                        id: 'UtH4G7',
-                      })
-                }
-                size="sm"
-                variant="tertiary"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              />
-            )}
-          </div>
-          {link.items != null && isOpen && (
-            <LinksList items={link.items} nestedLevel={nestedLevel + 1} />
-          )}
-        </li>
+        <LinksListItem key={link.href} link={link} nestedLevel={nestedLevel} />
       ))}
     </ul>
   );
