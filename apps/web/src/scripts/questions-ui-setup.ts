@@ -21,6 +21,7 @@ const SUPPORTED_FRAMEWORKS = new Set<QuestionFramework>([
   'react',
   'angular',
   'svelte',
+  'vue',
 ]);
 
 type GFEConfig = Readonly<{
