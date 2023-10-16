@@ -34,7 +34,7 @@ export default function DialogImpl({
       <Dialog
         as="div"
         className={clsx('relative z-40')}
-        data-theme={dark ? 'dark' : undefined}
+        data-mode={dark ? 'dark' : undefined}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
         <Transition.Child

@@ -27,7 +27,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
       // The default is dark.
-      className="dark"
+      data-mode="dark"
       lang={locale.split('-')[0]}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
