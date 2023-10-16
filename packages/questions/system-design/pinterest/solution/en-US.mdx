@@ -145,7 +145,7 @@ For conventional feeds, a reasonable flow for displaying feed images is as follo
 However for Pinterest, the flow is a bit different due to the following:
 
 - **Multi-column layout**: The multi-column layout makes things more complex than a single-column news feed. Traditional CSS layouts using flex and grid aren't well-suited for producing masonry layouts.
-- **Multiple images present on-screen**:Many images are present on the screen at once. It'd be a poor experience for the images to be painted out-of-order.
+- **Multiple images present on-screen**: Many images are present on the screen at once. It'd be a poor experience for the images to be painted out-of-order.
 
 Taking these into account, the most important aspects of a Pinterest homepage feed to dive into are:
 
@@ -252,11 +252,11 @@ And results in such an `<img>` element:
   " />
 ```
 
-To achieve responsive images, an alternative approach is to use the `<picture>` tag. The differences between `<img srcset>` or `<picture>` are subtle and for most cases both can do the job. The article ["Picture Tags vs Img Tags. Their Uses and Misuses"](https://medium.com/@truszko1/picture-tags-vs-img-tags-their-uses-and-misuses-4b4a7881a8e1) does a decent job covering the differences.
+An alternative approach to achieve responsive images is to use the `<picture>` tag. The differences between `<img srcset="...">` or `<picture>` are subtle and for most cases you can use either. The article ["Picture Tags vs Img Tags. Their Uses and Misuses"](https://medium.com/@truszko1/picture-tags-vs-img-tags-their-uses-and-misuses-4b4a7881a8e1) does a decent job covering the differences.
 
 #### Image preloading
 
-The images for the initial load are preloaded via `<link rel="preload">`:
+The images present in the initial load are preloaded via `<link rel="preload">`. This tells the browser about critical resources that should be loaded as soon as possible, before they are discovered in HTML. This is especially useful for resources that are not easily discoverable, such as fonts included in stylesheets, background images, or resources loaded from a script. [Read more about this on web.dev](https://web.dev/articles/preload-responsive-images).
 
 ```html
 <!-- Sample extracted from Pinterest's HTML -->
@@ -283,9 +283,13 @@ On the other hand, with progressive JPEG, the entire image initially appears as 
 
 #### Media formats
 
-There are multiple image formats to use, each with their own pros and cons. The general recommendation these days is use the [WebP format by Google](https://developers.google.com/speed/webp) if browser compatibility is not the highest priority. Pinterest's audience is the average consumer and hence browser support is crucial. Pinterest uses the JPEG format for images likely due to JPEGs having wider browser support (WebP isn't supported on IE11 and older versions of Safari) and because progressive JPEGs already provide a great loading experience.
+There are multiple image formats to use, each with their own pros and cons. The general recommendation these days is use the [WebP format by Google](https://developers.google.com/speed/webp) if browser compatibility is not the highest priority.
+
+Pinterest uses the JPEG format for images likely due to JPEGs having wider browser support (WebP isn't supported on IE11 and older versions of Safari) and because progressive JPEGs already provide a great loading experience. Pinterest's audience is the average consumer and hence browser support is crucial.
 
 ### Layout and rendering
+
+With feed and media loading covered, we can discuss how to present these data in a masonry layout and in an order that provides the best user experience.
 
 #### Masonry layout implementation
 
@@ -302,7 +306,7 @@ This method involves rendering equal-width columns then placing items within eac
 
 The pros of this approach are that it is easy to implement as it leverages `display: flex` and the required CSS is not very complex. If the height of any item changes, the positions of the items within that column will be updated automatically.
 
-However, one huge downside is that the DOM order is now column-first. Imagine a keyboard user has loaded some pins and wants to get to the top pin in the rightmost column. With such a DOM:
+However, one huge downside is that the DOM order is now column-first. Imagine a keyboard user wants to get to the top pin in the rightmost column. With such a DOM:
 
 ```html
 <div class="container">
@@ -330,7 +334,7 @@ However, one huge downside is that the DOM order is now column-first. Imagine a 
 </div>
 ```
 
-The keyboard user has to tab through two columns of pins before finally reaching that item. This is counter-intuitive when the desired pin is right at the top. This layout approach results in a really inefficient DOM order for keyboard users, and is a deal-breaker.
+The keyboard user has to tab through two columns of pins before finally reaching that item. This is counter-intuitive and frustrating when the desired pin is right at the top. This layout approach results in an inefficient DOM order for keyboard users, and is a deal-breaker.
 
 The following example is implemented using the "row of columns" layout and the numbers within the items indicate the elements tabbing order.
 
@@ -369,9 +373,9 @@ The following diagram demonstrates the `top` and `left` CSS style values of the 
 
 ![Pinterest layout absolute position](/img/questions/pinterest/pinterest-layout-absolute-position.svg)
 
-With absolute positioning, the DOM order of the items does not affect the visual result at all. Hence we are free to arrange the DOM such that the DOM order is a better reflection of the tabbing order.
+With absolute positioning, the DOM order of the items does not affect the visual result at all. Hence we are free to arrange the DOM in the way the tabbing order should be.
 
-The following example is implemented using the absolute positioning approach and the numbers within the items indicate the elements' tabbing order. Notice that there's only one layer of children nodes within the container.
+The following example is implemented using the absolute positioning approach and the numbers within the items indicate the elements' tabbing order. Notice that there's only one layer of children nodes within the container; there's no nesting involved and the markup is very clean.
 
 <iframe
   src="https://codesandbox.io/embed/dqtrlk?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
@@ -391,7 +395,7 @@ Typically, `absolute`-positioned elements are taken out of the normal document f
 
 Another advantage of `absolute` positioning is that list virtualization is easier to implement, [more details below](#list-virtualization).
 
-The downside of this approach is that the client has to write code to calculate where the pins should be as opposed to the rows of columns approach where the browser does it for us. Beyond the initial calculations, calculations will also need to be performed for the whole feed if the window resizes past the breakpoints such that the number of columns is different.
+The downside of this approach is that the client has to write code to calculate where the pins should be as opposed to the "rows of columns" approach where the browser does it for us. Beyond the initial calculations, calculations will need to be done again for the whole feed if the window resizes past the breakpoints such that the number of columns is different.
 
 Additionally, if any item's height changes, items below it will not be repositioned unless calculations are performed manually for the affected items and their positions are also updated.
 
