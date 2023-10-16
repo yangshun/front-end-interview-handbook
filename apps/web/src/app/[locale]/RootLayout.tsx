@@ -4,7 +4,6 @@ import nextI18nConfig from 'next-i18nostic/config';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
-import SentryInit from '~/components/global/analytics/SentryInit';
 import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
@@ -45,7 +44,6 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           {children}
           <VercelAnalytics />
           <FirstPromoter />
-          <SentryInit />
           <WebVitals />
           <I18nBetaBanner />
         </GlobalProviders>

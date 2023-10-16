@@ -7,8 +7,6 @@ import ErrorMessageBlock from '~/components/global/error/ErrorMessageBlock';
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-import * as Sentry from '@sentry/react';
-
 export default function GlobalError({
   error,
   reset,
@@ -18,7 +16,6 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     console.error(error);
-    Sentry.captureException(error);
     logMessage({
       level: 'error',
       message: `${error.message}`,

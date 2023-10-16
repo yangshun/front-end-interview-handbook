@@ -37,8 +37,6 @@
     "@monaco-editor/react": "^4.5.1",
     "@next/mdx": "13.4.19",
     "@prisma/client": "^4.11.0",
-    "@sentry/react": "^7.45.0",
-    "@sentry/tracing": "^7.45.0",
     "@stefanprobst/remark-extract-toc": "^2.2.0",
     "@stripe/stripe-js": "^1.46.0",
     "@supabase/auth-helpers-nextjs": "^0.6.0",
