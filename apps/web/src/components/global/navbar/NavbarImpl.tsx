@@ -238,21 +238,10 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
+              href: questionTechnologyLists.angular.href,
               icon: questionTechnologyLists.angular.icon,
               itemKey: questionTechnologyLists.angular.key,
               label: questionTechnologyLists.angular.name,
-              labelAddon: (
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Coming Soon',
-                    description:
-                      'Coming soon label indicating that a feature will be launched soon',
-                    id: 'jIpXy+',
-                  })}
-                  size="sm"
-                  variant="warning"
-                />
-              ),
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.angular.click`,

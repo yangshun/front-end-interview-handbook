@@ -49,7 +49,7 @@ export default function QuestionsFrameworkPage({
       )}
       variant="normal">
       <QuestionCategoryTitleSection
-        category="react"
+        category={framework}
         count={questionList.length}
         description={description}
         logo={logo}

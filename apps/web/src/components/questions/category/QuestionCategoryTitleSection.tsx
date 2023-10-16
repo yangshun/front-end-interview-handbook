@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import {
+  RiAngularjsLine,
   RiCss3Line,
   RiHtml5Line,
   RiJavascriptLine,
@@ -15,9 +16,10 @@ import Tabs from '~/components/ui/Tabs';
 
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
+import type { QuestionFramework } from '../common/QuestionsTypes';
 import type { QuestionListCategory } from '../listings/types';
 
-type CategoryValue = QuestionListCategory | 'react';
+type CategoryValue = QuestionFramework | QuestionListCategory;
 
 type Props = Readonly<{
   category: CategoryValue;
@@ -57,6 +59,12 @@ const items: ReadonlyArray<{
     icon: RiReactjsLine,
     label: 'React',
     value: 'react',
+  },
+  {
+    href: '/questions/angular',
+    icon: RiAngularjsLine,
+    label: 'Angular',
+    value: 'angular',
   },
 ];
 

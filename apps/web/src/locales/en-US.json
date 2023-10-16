@@ -511,6 +511,10 @@
     "defaultMessage": "{numberOfHours} hours daily",
     "description": "Number of hours needed on a daily basis. E.g. 4 hours daily"
   },
+  "86Oken": {
+    "defaultMessage": "Angular Coding Questions",
+    "description": "Description for Angular questions title"
+  },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
@@ -1131,6 +1135,10 @@
     "defaultMessage": "Vanilla JS",
     "description": "Vanilla JS questions category short title"
   },
+  "JxbpKs": {
+    "defaultMessage": "Try these popular Angular questions",
+    "description": "Title for featured questions section"
+  },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
@@ -1310,6 +1318,10 @@
   "Mgs3RU": {
     "defaultMessage": "Console settings",
     "description": "Title for console settings dialog"
+  },
+  "MjpQ2L": {
+    "defaultMessage": "Top Angular coding interview questions to build the most commonly-asked front end UI components and applications.",
+    "description": "Description for Angular questions page"
   },
   "MkjGJD": {
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -2323,6 +2335,10 @@
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
   },
+  "ez5OLq": {
+    "defaultMessage": "Practice Angular Interview Questions with Solutions",
+    "description": "Title of Angular Interview Questions page"
+  },
   "f5UO3s": {
     "defaultMessage": "Review Cashback",
     "description": "Promotion title"
@@ -2418,6 +2434,10 @@
   "gNEj/r": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
     "description": "Description for interview preparation focus area"
+  },
+  "gTFqs7": {
+    "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Angular Interview Questions page"
   },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
