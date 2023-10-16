@@ -9,6 +9,7 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import TextPairing from '~/components/common/TextPairing';
+import SvelteLogo from '~/components/icons/SvelteLogo';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -65,6 +66,12 @@ const items: ReadonlyArray<{
     icon: RiAngularjsLine,
     label: 'Angular',
     value: 'angular',
+  },
+  {
+    href: '/questions/svelte',
+    icon: SvelteLogo,
+    label: 'Svelte',
+    value: 'svelte',
   },
 ];
 

@@ -252,21 +252,10 @@ function useNavLinks(
               type: 'popover-link',
             },
             {
+              href: questionTechnologyLists.svelte.href,
               icon: questionTechnologyLists.svelte.icon,
               itemKey: questionTechnologyLists.svelte.key,
               label: questionTechnologyLists.svelte.name,
-              labelAddon: (
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Coming Soon',
-                    description:
-                      'Coming soon label indicating that a feature will be launched soon',
-                    id: 'jIpXy+',
-                  })}
-                  size="sm"
-                  variant="warning"
-                />
-              ),
               onClick: () => {
                 gtag.event({
                   action: `nav.practice.topic.svelte.click`,

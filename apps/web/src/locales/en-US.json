@@ -87,6 +87,10 @@
     "defaultMessage": "Practice React Interview Questions with Solutions",
     "description": "Title of React Interview Questions page"
   },
+  "03N/MG": {
+    "defaultMessage": "Top Svelte front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Svelte Interview Questions page"
+  },
   "03oqt6": {
     "defaultMessage": "Overview",
     "description": "Front End User Interface interviews overview"
@@ -947,6 +951,10 @@
     "defaultMessage": "Preparation Guide",
     "description": "Front End interview preparation guide"
   },
+  "Gttxsq": {
+    "defaultMessage": "Try these popular Svelte questions",
+    "description": "Title for featured questions section"
+  },
   "Gv0+LY": {
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
@@ -1018,6 +1026,10 @@
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
+  },
+  "I4lo5m": {
+    "defaultMessage": "Practice Svelte Interview Questions with Solutions",
+    "description": "Title of Svelte Interview Questions page"
   },
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
@@ -2167,6 +2179,10 @@
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
   },
+  "belvJ0": {
+    "defaultMessage": "Svelte Coding Questions",
+    "description": "Description for Svelte questions title"
+  },
   "bfMxFC": {
     "defaultMessage": "Stripe Customer ID:",
     "description": "Label for Stripe customer ID."
@@ -2990,6 +3006,10 @@
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
+  },
+  "puirr6": {
+    "defaultMessage": "Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.",
+    "description": "Description for Svelte questions page"
   },
   "q0+3Lk": {
     "defaultMessage": "Accessibility",
