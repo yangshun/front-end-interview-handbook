@@ -334,13 +334,13 @@ An example of Facebook's feed loading shimmer:
 
 ![Facebook shimmer](/img/questions/news-feed-facebook/facebook-shimmer.jpg)
 
-#### Dynamic Loading Count
+#### Dynamic loading count
 
 As mentioned above in the "Interface" section, cursor-based pagination is more suitable for a news feed. A benefit of cursor-based pagination is that you can change how many items to fetch in subsequent calls. We can use this to our advantage by customizing the number of posts to load based on the browser window height.
 
 For the initial load, we do not know the window height so we need to be conservative and overfetch the number of posts needed. But for subsequent fetches, we know the browser window height and can customize the number of posts to fetch based on that.
 
-#### Preserving Feed Scroll Position
+#### Preserving feed scroll position
 
 Feed scroll positions should be preserved if users navigate to another page and back to the feed. This can be achieved in SPAs if the feed posts are cached within the client store along with the scroll position and displayed with that scroll position when the user goes back to the feed page.
 
@@ -542,13 +542,13 @@ When drafting a post in the composer, it'd be a nice to have an WYSIWYG editing 
 
 Try it for yourself here:
 
-<div contentEditable="true">
+<div style={{border: '1px solid #7773', borderRadius: 8, padding: '0 16px' }} contentEditable={true} suppressContentEditableWarning={true}>
   This is <strong>editable and format-able</strong> text thanks to{' '}
   <code>contenteditable</code>. You can even format the text (e.g. bold by using
   Ctrl/Cmd + B).
 </div>
 
-However, it is not a good idea to use `contenteditable="true"` as-is in production because it [comes with many issues](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480?gi=6b03d73f8e36). It'd be better to use battle-tested rich text editor libraries. Facebook has built rich text editors like [Draft.js](https://draftjs.org) and [Lexical](https://lexical.dev) and use them for drafting post and comments.
+However, it is not a good idea to use `contenteditable="true"` as-is in production because it [comes with many issues](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480?gi=6b03d73f8e36). It'd be better to use battle-tested rich text editor libraries. Facebook has built rich text editors like [Draft.js](https://draftjs.org) and [Lexical](https://lexical.dev) and use them for drafting post and comments. Other popular open sources alternatives include [TipTap](https://tiptap.dev/api/editor) and [Slate](https://www.slatejs.org/).
 
 _Source: [Facebook open sources rich text editor framework Draft.js](https://engineering.fb.com/2016/02/26/web/facebook-open-sources-rich-text-editor-framework-draft-js/)_
 
